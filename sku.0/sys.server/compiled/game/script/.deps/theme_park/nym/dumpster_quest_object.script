@@ -1,0 +1,2 @@
+DEPENDENCIES: library/buff library/collection library/create library/factions library/groundquests library/holiday library/pclib library/pet_lib library/static_item library/stealth library/sui library/trial library/utils
+PROTOTYPES: OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int handleObjectSwapTimer#obj_id#dictionary

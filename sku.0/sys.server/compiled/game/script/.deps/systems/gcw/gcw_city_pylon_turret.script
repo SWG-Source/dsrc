@@ -1,0 +1,2 @@
+DEPENDENCIES: library/factions library/gcw library/groundquests library/resource library/skill library/utils systems/gcw/gcw_city_pylon
+PROTOTYPES: OnAttach#obj_id

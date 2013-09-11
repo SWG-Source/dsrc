@@ -1,0 +1,2 @@
+DEPENDENCIES: ai/ai library/ai_lib library/create library/holiday library/utils
+PROTOTYPES: OnAttach#obj_id OnInitialize#obj_id animatedMood#obj_id#dictionary beginEmpireDaySpawning#obj_id#dictionary randomCreatureDied#obj_id#dictionary tellingMomIDied#obj_id#dictionary

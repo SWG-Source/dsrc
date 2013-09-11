@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/attrib library/create library/holiday library/utils
+PROTOTYPES: OnAttach#obj_id destroySelf#obj_id#dictionary spawnSurvivor#obj_id#dictionary

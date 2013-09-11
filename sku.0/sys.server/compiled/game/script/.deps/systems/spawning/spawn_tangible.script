@@ -1,0 +1,2 @@
+DEPENDENCIES: 
+PROTOTYPES: OnInitialize#obj_id OnPreloadComplete#obj_id OnRemovingFromWorld#obj_id handleTangibleDestroy#obj_id#dictionary handleTangibleRespawn#obj_id#dictionary

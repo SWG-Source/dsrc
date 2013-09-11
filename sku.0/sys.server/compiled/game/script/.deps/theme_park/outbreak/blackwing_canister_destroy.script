@@ -1,0 +1,2 @@
+DEPENDENCIES: library/factions library/groundquests library/trial library/utils
+PROTOTYPES: OnAttach#obj_id blowUp#obj_id#dictionary setUp#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: 
+PROTOTYPES: OnCreatureDamaged#obj_id#obj_id#obj_id#int[] OnIncapacitated#obj_id#obj_id OnObjectDamaged#obj_id#obj_id#obj_id#int

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/anims library/chat library/factions library/missions library/utils systems/missions/base/mission_dynamic_base
+PROTOTYPES: OnAttach#obj_id OnInitialize#obj_id OnStartNpcConversation#obj_id#obj_id

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/create library/groundquests library/stealth library/utils
+PROTOTYPES: OnInitialize#obj_id OnTriggerVolumeEntered#obj_id#String#obj_id OnTriggerVolumeExited#obj_id#String#obj_id failPlayerDefense#obj_id#dictionary findPathNodes#obj_id#dictionary triggerVolFailsafe#obj_id#dictionary updatePlayerDefense#obj_id#dictionary

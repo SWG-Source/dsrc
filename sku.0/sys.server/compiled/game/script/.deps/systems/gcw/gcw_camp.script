@@ -1,0 +1,2 @@
+DEPENDENCIES: library/camping library/create library/factions library/gcw library/theater library/trial library/utils
+PROTOTYPES: OnInitialize#obj_id initializeAdvancedCamp#obj_id#dictionary

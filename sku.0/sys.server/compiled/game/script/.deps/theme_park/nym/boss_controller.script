@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/chat library/hue library/trial library/utils
+PROTOTYPES: OnAttach#obj_id OnExitedCombat#obj_id colorize#obj_id#dictionary findTarget#obj_id#dictionary

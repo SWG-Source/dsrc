@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/chat library/group library/luck library/money library/prose library/smuggler library/static_item library/sui library/utils
+PROTOTYPES: OnAttach#obj_id handleBuyBackSui#obj_id#dictionary handleFlagJunkSui#obj_id#dictionary handleSellJunkSui#obj_id#dictionary handleSoldJunk#obj_id#dictionary handleTheBuyBack#obj_id#dictionary startBuyBack#obj_id#dictionary startDealing#obj_id#dictionary startFlaggingItemsNoSale#obj_id#dictionary

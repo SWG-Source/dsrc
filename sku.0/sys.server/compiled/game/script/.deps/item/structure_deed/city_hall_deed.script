@@ -1,0 +1,2 @@
+DEPENDENCIES: item/structure_deed/player_structure_deed library/city library/player_structure library/sui library/utils
+PROTOTYPES: handleNoReclaimConfirm#obj_id#dictionary handleSetCityName#obj_id#dictionary

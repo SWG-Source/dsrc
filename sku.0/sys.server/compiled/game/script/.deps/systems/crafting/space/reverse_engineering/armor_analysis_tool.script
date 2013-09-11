@@ -1,0 +1,2 @@
+DEPENDENCIES: library/create library/space_crafting library/sui library/temp_schematic library/utils library/xp
+PROTOTYPES: OnAboutToReceiveItem#obj_id#obj_id#obj_id#obj_id OnAttach#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[] OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int

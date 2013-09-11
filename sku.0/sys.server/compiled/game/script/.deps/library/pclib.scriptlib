@@ -1,0 +1,2 @@
+DEPENDENCIES: ai/ai_combat library/ai_lib library/battlefield library/bounty_hunter library/buff library/city library/combat library/corpse library/dot library/factions library/force_rank library/group library/healing library/innate library/jedi library/meditation library/missions library/money library/player_stomach library/player_structure library/prose library/pvp library/slots library/smuggler library/structure library/sui library/utils
+PROTOTYPES: 

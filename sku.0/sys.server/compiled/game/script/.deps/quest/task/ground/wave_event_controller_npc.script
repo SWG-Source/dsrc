@@ -1,0 +1,2 @@
+DEPENDENCIES: library/create library/groundquests library/prose library/spawning library/stealth library/sui library/trial library/utils
+PROTOTYPES: OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int cleanupEvent#obj_id#dictionary defaultEventReset#obj_id#dictionary waveEventChildDestroyed#obj_id#dictionary waveEventControllerNPCForceReset#obj_id#dictionary waveEventControllerNPCStart#obj_id#dictionary waveEventSpawnNextWave#obj_id#dictionary

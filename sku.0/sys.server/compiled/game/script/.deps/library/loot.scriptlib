@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/buff library/consumable library/corpse library/craftinglib library/factions library/healing library/hue library/money library/pet_lib library/resource library/slots library/static_item library/storyteller library/trace library/utils library/weapons
+PROTOTYPES: 

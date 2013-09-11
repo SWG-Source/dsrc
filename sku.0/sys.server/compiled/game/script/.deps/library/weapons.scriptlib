@@ -1,0 +1,2 @@
+DEPENDENCIES: library/combat library/factions library/heavyweapons library/powerup library/smuggler library/trace library/utils
+PROTOTYPES: 

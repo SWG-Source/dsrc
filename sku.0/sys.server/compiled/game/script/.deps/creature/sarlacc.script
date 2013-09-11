@@ -1,0 +1,2 @@
+DEPENDENCIES: library/buff library/dot library/utils
+PROTOTYPES: OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int OnTriggerVolumeEntered#obj_id#String#obj_id poisonArea#obj_id#dictionary resetBile#obj_id#dictionary resetBileEject#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/attrib library/beast_lib library/colors library/prose library/space_dungeon library/stealth library/utils
+PROTOTYPES: 

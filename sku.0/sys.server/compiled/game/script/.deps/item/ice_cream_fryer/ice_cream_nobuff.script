@@ -1,0 +1,2 @@
+DEPENDENCIES: library/buff library/utils
+PROTOTYPES: OnAttach#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[] OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int removeItemFoodScript#obj_id#dictionary setUpBuff#obj_id#dictionary

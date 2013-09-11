@@ -1,0 +1,2 @@
+DEPENDENCIES: library/chat
+PROTOTYPES: OnAttach#obj_id barkString#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: ai/ai_combat library/buff library/colors_hex library/faction_perk library/factions library/loot library/pet_lib library/prose library/regions library/space_flags library/trial library/utils
+PROTOTYPES: 

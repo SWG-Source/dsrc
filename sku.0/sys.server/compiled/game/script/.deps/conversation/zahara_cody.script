@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/buff library/chat library/conversation library/groundquests library/utils
+PROTOTYPES: OnAttach#obj_id OnIncapacitated#obj_id#obj_id OnInitialize#obj_id OnNpcConversationResponse#obj_id#String#obj_id#string_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnStartNpcConversation#obj_id#obj_id findNpc#obj_id#dictionary

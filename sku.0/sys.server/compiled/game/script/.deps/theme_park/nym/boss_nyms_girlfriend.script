@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/chat library/group library/hue library/trial library/utils
+PROTOTYPES: OnAttach#obj_id OnExitedCombat#obj_id OnIncapacitateTarget#obj_id#obj_id handleBossDistanceCheck#obj_id#dictionary

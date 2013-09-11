@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/player_structure library/prose library/static_item library/sui library/utils
+PROTOTYPES: OnAboutToBeTransferred#obj_id#obj_id#obj_id OnAttach#obj_id OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int OnPack#obj_id#dictionary OnTransferred#obj_id#obj_id#obj_id#obj_id handleActivateHolograms#obj_id#dictionary handleHologramHeartbeat#obj_id#dictionary handleLoadDataCube#obj_id#dictionary handleNamePet#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/chat library/create library/groundquests library/holiday library/prose library/stealth library/utils
+PROTOTYPES: OnAttach#obj_id OnMoveMoving#obj_id OnMovePathComplete#obj_id pathToExit#obj_id#dictionary selfDestruct#obj_id#dictionary

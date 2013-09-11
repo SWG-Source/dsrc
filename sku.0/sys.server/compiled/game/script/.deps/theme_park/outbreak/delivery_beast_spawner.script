@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/attrib library/chat library/create library/groundquests library/utils
+PROTOTYPES: OnInitialize#obj_id getAllEscortPathNodes#obj_id#dictionary spawnVolunteerNPC#obj_id#dictionary

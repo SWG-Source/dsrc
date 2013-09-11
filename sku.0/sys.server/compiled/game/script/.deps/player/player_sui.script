@@ -1,0 +1,2 @@
+DEPENDENCIES: library/player_structure library/sui library/utils
+PROTOTYPES: handleCloseSui#obj_id#dictionary handleDecorSlotRemovalSelect#obj_id#dictionary handleDecorTypeSelect#obj_id#dictionary handleSetSuiAssociate#obj_id#dictionary

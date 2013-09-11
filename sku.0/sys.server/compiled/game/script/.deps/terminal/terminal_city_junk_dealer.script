@@ -1,0 +1,2 @@
+DEPENDENCIES: library/city library/money library/smuggler library/sui library/utils
+PROTOTYPES: OnDestroy#obj_id OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int handleBuyBackSui#obj_id#dictionary handleFlagJunkSui#obj_id#dictionary handleSellJunkSui#obj_id#dictionary handleSoldJunk#obj_id#dictionary handleTheBuyBack#obj_id#dictionary startBuyBack#obj_id#dictionary startDealing#obj_id#dictionary startFlaggingItemsNoSale#obj_id#dictionary

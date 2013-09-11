@@ -1,0 +1,2 @@
+DEPENDENCIES: library/buff library/collection library/static_item library/sui library/utils
+PROTOTYPES: incapaciteSelf#obj_id#dictionary

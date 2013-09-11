@@ -1,0 +1,2 @@
+DEPENDENCIES: library/create
+PROTOTYPES: OnAttach#obj_id destroySelf#obj_id#dictionary spawnObject#obj_id#dictionary

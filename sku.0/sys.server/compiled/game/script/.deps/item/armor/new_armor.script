@@ -1,0 +1,2 @@
+DEPENDENCIES: library/armor library/craftinglib library/metrics library/prose library/static_item library/utils
+PROTOTYPES: OnAboutToBeTransferred#obj_id#obj_id#obj_id OnAttach#obj_id OnCustomizeFinished#obj_id#obj_id#String OnGetAttributes#obj_id#obj_id#String[]#String[] OnInitialize#obj_id OnTransferred#obj_id#obj_id#obj_id#obj_id checkArmorData#obj_id#dictionary delayedEquip#obj_id#dictionary

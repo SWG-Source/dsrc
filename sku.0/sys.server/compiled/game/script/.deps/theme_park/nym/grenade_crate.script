@@ -1,0 +1,2 @@
+DEPENDENCIES: library/groundquests library/permissions library/utils
+PROTOTYPES: OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int makeNewGrenade#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/factions library/gcw library/trial library/utils
+PROTOTYPES: OnHearSpeech#obj_id#obj_id#String OnInitialize#obj_id beginConstruction#obj_id#dictionary beginInvasion#obj_id#dictionary cleanup#obj_id#dictionary

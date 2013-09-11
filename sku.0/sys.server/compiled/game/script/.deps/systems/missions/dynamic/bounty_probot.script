@@ -1,0 +1,2 @@
+DEPENDENCIES: library/utils systems/missions/base/mission_dynamic_base
+PROTOTYPES: OnAttach#obj_id delete_Self#obj_id#dictionary destroySelf#obj_id#dictionary setup_Droid#obj_id#dictionary take_Off#obj_id#dictionary

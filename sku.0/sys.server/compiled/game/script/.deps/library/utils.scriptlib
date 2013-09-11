@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/armor library/chat library/cloninglib library/healing library/pclib library/performance library/player_structure library/static_item library/trial script_entry
+PROTOTYPES: 

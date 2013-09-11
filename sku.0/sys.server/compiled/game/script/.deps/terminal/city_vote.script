@@ -1,0 +1,2 @@
+DEPENDENCIES: library/city library/prose library/sui library/utils terminal/base/base_terminal
+PROTOTYPES: OnGetAttributes#obj_id#obj_id#String[]#String[] OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int handlePlaceVote#obj_id#dictionary resetVoteTerminal#obj_id#dictionary

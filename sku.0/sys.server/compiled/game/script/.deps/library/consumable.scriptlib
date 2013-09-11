@@ -1,0 +1,2 @@
+DEPENDENCIES: library/doctor_bag library/food library/healing library/metrics library/player_stomach library/prose library/utils
+PROTOTYPES: 

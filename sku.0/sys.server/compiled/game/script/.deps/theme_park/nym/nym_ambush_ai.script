@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/anims library/buff library/chat library/create library/factions library/groundquests library/group library/prose library/trial library/utils
+PROTOTYPES: OnAttach#obj_id OnCreatureDamaged#obj_id#obj_id#obj_id#int[] OnEnteredCombat#obj_id OnExitedCombat#obj_id OnIncapacitateTarget#obj_id#obj_id OnIncapacitated#obj_id#obj_id OnObjectDamaged#obj_id#obj_id#obj_id#int destroySelf#obj_id#dictionary handleIntelligenceLoop#obj_id#dictionary

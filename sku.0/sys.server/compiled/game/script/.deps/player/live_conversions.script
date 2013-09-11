@@ -1,0 +1,2 @@
+DEPENDENCIES: library/badge library/buff library/craftinglib library/dot library/factions library/groundquests library/guild library/pclib library/player_structure library/respec library/skill library/skill_template library/space_flags library/static_item library/sui library/utils library/weapons
+PROTOTYPES: OnAttach#obj_id OnInitialize#obj_id OnLogin#obj_id OnNewbieTutorialResponse#obj_id#String fullExpertiseReset#obj_id#dictionary handleBirthDateCallBack#obj_id#dictionary handleContentPathContinuation#obj_id#dictionary

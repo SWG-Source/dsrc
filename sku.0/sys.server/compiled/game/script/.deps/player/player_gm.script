@@ -1,0 +1,2 @@
+DEPENDENCIES: library/colors library/combat library/consumable library/dot library/group library/healing library/pclib library/pet_lib library/sui library/utils
+PROTOTYPES: OnInitialize#obj_id cmdGenerateCraftedItem#obj_id#obj_id#String#float

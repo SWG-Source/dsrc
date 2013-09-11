@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/buff library/callable library/colors library/group library/hue library/instance library/money library/pet_lib library/space_dungeon library/space_transition
+PROTOTYPES: 

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/create library/gcw library/utils
+PROTOTYPES: OnDestroy#obj_id OnInitialize#obj_id OnUnloadedFromMemory#obj_id checkBannerImpulse#obj_id#dictionary

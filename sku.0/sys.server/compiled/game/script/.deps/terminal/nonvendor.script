@@ -1,0 +1,2 @@
+DEPENDENCIES: library/player_structure library/static_item library/utils library/vendor_lib terminal/base/base_terminal
+PROTOTYPES: OnAboutToBeTransferred#obj_id#obj_id#obj_id OnDestroy#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int OnPack#obj_id#dictionary handleDestroyNonVendor#obj_id#dictionary

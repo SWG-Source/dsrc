@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/colors_hex library/jedi library/jedi_trials library/static_item library/sui library/utils
+PROTOTYPES: OnAttach#obj_id OnDestroy#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[] OnInitialize#obj_id OnObjectDisabled#obj_id#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int handleVerifyTune#obj_id#dictionary setCrystalLevel#obj_id#dictionary
