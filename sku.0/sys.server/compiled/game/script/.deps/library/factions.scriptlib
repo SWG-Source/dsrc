@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/attrib library/callable library/combat library/luck library/performance library/pet_lib library/skill library/space_flags library/utils
+PROTOTYPES: 

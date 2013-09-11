@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/chat library/create library/gcw library/locations library/utils
+PROTOTYPES: celebStartGivingQuests#obj_id#dictionary cleanupShuttleAndStuff#obj_id#dictionary createShuttle#obj_id#dictionary endEvent#obj_id#dictionary engageInJingoisticRhetoric#obj_id#dictionary escortDied#obj_id#dictionary everyoneWalkBack#obj_id#dictionary landShuttle#obj_id#dictionary spawnEscortsAndCeleb#obj_id#dictionary startCheerleaderEvent#obj_id#dictionary walkForwardCeleb#obj_id#dictionary

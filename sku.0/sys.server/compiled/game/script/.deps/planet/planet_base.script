@@ -1,0 +1,2 @@
+DEPENDENCIES: library/cloninglib library/gcw library/regions library/scheduled_drop library/utils
+PROTOTYPES: OnDetach#obj_id OnUniverseComplete#obj_id doSpawnSetup#obj_id#dictionary gcwGetInvasionObject#obj_id#dictionary gcwInvasionTracker#obj_id#dictionary registerCloningFacility#obj_id#dictionary unregisterCloningFacility#obj_id#dictionary

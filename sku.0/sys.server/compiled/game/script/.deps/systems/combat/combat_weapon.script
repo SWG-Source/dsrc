@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/buff library/combat library/jedi library/proc library/prose library/static_item library/sui library/trace library/utils library/weapons
+PROTOTYPES: OnAboutToBeTransferred#obj_id#obj_id#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[] OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int OnTransferred#obj_id#obj_id#obj_id#obj_id handleConvertSchemSui#obj_id#dictionary weaponConversion#obj_id#dictionary

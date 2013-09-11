@@ -1,0 +1,475 @@
+AdminAccounts	AdminLevel	AdminSkill	AdminComment	AdminComment2	AdminIpBlocks	AdminIpComment
+s	i{0}	s	c	c	s	c
+swgdevcmayer	50	admin		all account names must be lower case	64.37.152.x	SOE
+swgdevasommers	50				64.37.153.x	SOE
+swgdevgmcdaniel	50				64.37.154.x	SOE
+swgdevgmcdanie2	50				64.37.155.x	SOE
+swgdevjrandall	50				64.37.146.x	SOE
+swgdevcthurow	50				64.37.147.x	SOE
+swgdevcbarnes	50				64.37.145.x	SOE
+swgdevsjakab	50				64.37.133.x	SOE
+swgdevjgrills	50				64.37.139.x	SOE
+swgdevrdelashmi	50				61.246.176.x	India
+swgdevjbrack	50				202.144.62.x	India
+swgdevjbrack2	50				203.124.149.x	India
+jbracktest6	50				203.145.142.x	India
+jbrackcollector	50				61.95.140.x	India
+jbracknocollect	50				220.227.149.x	India
+swgdevdrubenfie	50				61.246.176.x	India
+jefftep_soe	50				202.40.6.x	India
+swgdevmfarone	50				192.168.52.x	India VPN
+greenmarine42	50				192.168.53.x	India VPN
+raphkoster	50				192.168.54.x	India VPN
+swgdevdwhite	50				192.168.55.x	India VPN
+swgdevjfreeman	50					
+swgdevtbailey	50					
+swgdevrthornton	50					
+swgdevkblack	50					
+csrjbard	5		"Bard, Jeffrey "	CSR		
+csrpbianco	10		"Bianco, Preston "	CSR		
+csrjbible	5		"Bible, Jamie "	CSR		
+csrwbriese	5		"Briese, Walter "	CSR		
+csrccabral	15		"Cabral, Christopher"	CSR		
+csrjcalland	10		"Calland, Joel "	CSR
+csrpcirelli	10		"Cirelli, Patrick "	CSR
+csrjcrosby	10		"Crosby, Jalane "	CSR
+csrvdesiatkin	5		"Desiatkin, Vladamir "	CSR
+csrpduffy	5		"Duffy, Patrick "	CSR
+csrddurrant	5		"Durrant, Daniel"	CSR
+csrbeconomy	10		"Economy, Bruce "	CSR
+csrjedwards	5		"Edwards, John "	CSR
+csrrell	5		"Ell, Robert "	CSR
+csrafee	5		"Fee, Aaron "	CSR
+csrdford	10		"Ford, David"	CSR
+csrafreeman	5		"Freeman, Alisha "	CSR
+csrsgrover	5		"Grover, Steven "	CSR
+csrjgruber	10		"Gruber, John "	CSR
+csrtharrill	5		"Harrill, Terrell "	CSR
+csrjharscher	5		"Harscher, James "	CSR
+csrjhewitt	5		"Hewitt, Joseph "	CSR
+csrdkessler	5		"Kessler, Donovan "	CSR
+csrmkwai	5		"Kwai, Merv Lee"	CSR
+csrklane	5		"Lane, Kristoffer "	CSR
+csrmlaybhen	10		"Laybhen, Melissa "	CSR
+csrmliebl	5		"Liebl, Marlena"	CSR
+csrjlovell	10		"Lovell, Jeff "	CSR
+csrsmcquitty	10		"McQuitty, Sarah "	CSR
+csrpmurphy	10		"Murphy, Patrick "	CSR
+csrmnakamura	5		"Nakamura, Mark "	CSR
+csrenason	15		"Nason, Ethan "	CSR
+csrrnelson	10		"Nelson, Robert "	CSR
+csrjvandenbroek	5		Justin VandenBroek	CSR
+crscotto	10		"Otto, Chris "	CSR
+csrdpellillo	5		"Pellillo, David"	CSR
+csrnperez	10		"Perez, Norm "	CSR
+csrkrekoske	10		"Rekoske, Keith"	CSR
+csrjrodgers	5		"Rodgers, John  "	CSR
+csrrrogers	5		"Rogers, Robyn "	CSR
+csrlroxas	5		"Roxas, Lester"	CSR
+csrsscarlett	5		"Scarlett, Samantha "	CSR
+csrcschibler	5		"Schibler, Chris "	CSR
+csrssigafus	5		"Sigafus, Steven "	CSR
+csrcsizemore	10		"Sizemore, Chris "	CSR
+csrisomers	10		"Somers, Ima "	CSR
+csrjsones	10		"Sones, Jared "	CSR
+csrjsullivan	5		"Sullivan, Jason "	CSR
+csrssullivan	5		"Sullivan, Shannon "	CSR
+csrkvallee	15		"Vallee, Kyle "	CSR
+csrtvick	15		"Vick, Timothy "	CSR
+csrjwells	10		"Wells, Jon "	CSR
+csrtwilliamson	5		"Williamson, Todd "	CSR
+csrmwilson	5		"Wilson, Michael "	CSR
+csrbyalong	10		"Yalong, Beverly Mae  "	CSR
+0uini0	15		"Matthews, Gary"	CSR
+gscotto	15		"Scotto, George"	CSR
+tarlo	15		"Terrazas, Thom"	CSR
+dkish	10		"Kish, David"	CSR
+csrsmichael	10		"Michael, Sean"	CSR
+ghimb	10		"Johnson, Chris"	CSR
+jallen44	10		"Allen, Justin"	CSR
+voskar	15		"Ramirez, Victor"	CSR
+dapki1	10		"Dapkus, Gordon"	CSR
+eqcsrphorne	10		"Horne, Pat"	CSR
+swgzarza	5		"Zarza, Tim"	CSR
+acrosby67	10		"Crosby, Alan"	CSR
+sminami	10		"Minami, Satao"	CSR
+gbwilcox	10		"Wilcox, Brad"	CSR
+eqcsr-natew	10		"Wright, Nate"	CSR
+eqcsr-tony	10		"Worthy, Anthony"	CSR
+dclifford23	5		"Clifford, Dan"	CSR
+adamstevens	10		Adam Stevens	QA
+alamp2	10		Andy Lamp	QA
+auggie411	10		Armando Garcia	QA
+bdemarco64	10		Brian DeMarco	QA
+bmotiskoqa	10		Brian Motisko	QA
+great_typhon	10		Carl Flaherty	QA
+ckingwellqa	10		Caroline Kingwell	QA
+cbryantqa	10		Charles Bryant	QA
+cgreenberg	10		Christina Greenberg	QA
+dbryson76	10		David Bryson	QA
+dcuringtonqa	10		David Curington	QA
+eqcsr-domb	10		Dominic Bindley	QA
+ehocking72	10		Ed Hocking	QA
+esisonqa	10		Eric Sison	QA
+glbinkley	10		Gary Binkley	QA
+ghauser24	10		Greg Hauser	QA
+azrealgm	10		James Helssen	QA
+locke004	10		Jared Sweatt	QA
+jasserqa	10		Jason Asser	QA
+jboone0040	10		Jason Boone	QA
+jroberts5	10		Jason Roberts	QA
+jzimmerman72	10		Jason Zimmerman	QA
+jesse2r	10		Jesse Bell	QA
+jpriceqa	10		Joe Price	QA
+jwhite23	10		Joel White	QA
+jleqa	10		John Le	QA
+kalmondqa	10		Kent Almond	QA
+kmoyer00	10		Kevin Moyer	QA
+testerc2019a	10		Marlon Barroquillo	QA
+mmatthewsqa	10		Michael Matthews	QA
+mhansenqa	10		Mike Hansen	QA
+nchristmas10	10		Neil Christmas	QA
+djaeon	10		Nick Munford	QA
+sgtspam2	10		Noah Holmes	QA
+pesteves4qa	10		Patrick Esteves	QA
+pstrace	10		Rian Trost	QA
+thomperyt	10		Rob Thompson	QA
+waverider01	10		Robert Bautista	QA
+rantonelli26	10		Ryan Antonelli	QA
+rbarnardqa	10		Ryan Barnard	QA
+rburgesssoe	5		Ryan Burgess	CSR
+spierceqa	10		Steven Pierce	QA
+haleytaylor	10		Taylor Haley	QA
+tsanchez5	10		Tiffany Sanchez	QA
+trado	10		Tony Rado	QA
+vpangqa	10		Vincent Pang	QA
+jchauqa	10		John Chau	QA
+ops-zalshea	16			
+ops-jyhad	16			
+ops-trinity	16			
+ops-vharyon	16			
+ops-chrisr	16			
+ops-artois	16			
+ops-tinysa	16			
+ops-atruelen	16			
+ops-oni	16			
+ops-drokhar	16			
+csrdchappell	5		"Chappell, Daniel"	CSR
+rmatzker	5		"Matzker, Rob"	CSR
+csrdvotaw	5		David Votaw	CSR
+csrarowan	5		Aaron Rowan	CSR
+csrthealsett	5		Terence Heaslett	CSR
+csrmclanton	5		Mariah Clanton	CSR
+csrehennig	5		Eddy Hennig	CSR
+qaafernandez	5		Arthur Fernandex	SD QA
+csrlafond	5			CSR
+csrdgoppert	5			CSR
+csrpagustin	5			CSR
+csrhposadas	5			CSR
+cmreeves73	5			CSR
+dmallett	10			CSR Lead
+dhymna	15			Events
+csrjwregg	10		Joseph Wreggelsworth	CSR
+csrjbagley	10		Janice Bagley	CSR
+csrholson	5		Hattie Olson	CSR
+csrcdixon	5		Candace Dixon	CSR
+jgalmondwork	5		Justin Almond	CSR
+devjryan	15		Jason Ryan	Events
+csrkcarter	5		Kevin Carter	CSR
+csrjpeffley	5		Jason Peffley	CSR
+swgqarwells	5		Authur Wells	CSR
+dmallett	10		Dave Mallett	CSR
+csrcbauman	5		Cody Bauman	CSR
+csrntim	5		Nathan Tim	CSR
+csrefurchtgott	5		Evan Furchtgott	CSR
+csrnparker	5		Nick Parker	CSR
+csracrowley	5		Adam Crowley	CSR
+csrcweidner	5		Charlie Weidner	CSR
+csrswallace	5		Sam Wallace	CSR
+csrgrowell	5		Griffin Rowell	CSR
+csrjdavis	5		Justin Davis	CSR
+csrdparker	5		Derek Parker	CSR
+csrawilkens	5		Aaron Wilkens	CSR
+csrmmacaluso	5		Michael Macaluso	CSR
+csravillareal	10		Alan Villareal	CSR
+csrjosio	10		Jose Osio	CSR
+csrapeck	10		Andy Peck	CSR
+csrjmorris	10		Joshua Morris	CSR
+csrptat	5		Peter Tat	CSR
+csrrhaza	5		Rod Haza	CSR
+tlockard	10		Tom Lockard	CS Supervisor
+csrpmorgavo	5		P Morgavo	CSR
+csrcjohns	5		Christopher Johns	CSR
+ukcsrgwilliams	5		Garfield Williams	UK CSR
+ukcsrskumar	5		Shweta Kumar	UK CSR
+ukcsrisiddiqui	5		Imran Siddiqui	UK CSR
+ukcsrtmcbride	5		Travis McBride	UK CSR
+ukcsrrmahoney	5		Russel Mahoney	UK CSR
+ukcsrbross	5		Barry Ross	UK CSR
+ukcsrpfox	10		Perry Fox	UK CSR
+ukcsrjpascall	5		Jamie Pascall	UK CSR
+ukcsrcwebster	5		Colin Webster	UK CSR
+ukcsrssharma	5		Shiv Sharma	UK CSR
+ukcsrpuzor	5		Pearl Uzor	UK CSR
+ukcsrlturner	5		Lee Turner	UK CSR
+ukcsrdoconnor	5		Dominic O'Connor	UK CSR
+ukcsrrstacey	5		Richard Stacey	UK CSR
+ukcsrnmcclure	5		Neil McClure	UK CSR
+ukcsrhaselhurst	5		Andrew Haselhurst	UK CSR
+kireng	10		Kiren Sahota 	UK CSR
+ukcsrawhyte	10		Alex Whyte	UK CSR
+csrdgood	5		Daniel Good 	CSR
+csrgdixon	5		Greg Dixon	CSR
+csrbgriffin	5		Brad Griffin 	CSR
+csrcjohns	5		Chris Johns 	CSR
+csrpreutz	5		Patrick Reutz 	CSR
+swgdevssnopel	15		Scott Snopel	QA
+ukcsrllien	10		Lars Lien	UK CSR
+swgdevjwatson	50		John Watson	SWG Developer
+training1	5		Training account 1	Dkish Training account
+training2	5		Training account 2	Dkish Training account
+csrpmcgregory	5		Paul McGregory	CSR
+guycc75qa	10		Guy Chapman	SOE SD QA
+csrpohara	5		Patrick O'Hara	CSR
+csrjsabala	10		Jorge Sabala	CSR
+csreblewett	5		Evan Blewett	CSR
+csrcoliver	5		Caitlin Oliver	CSR
+csrjknapp	5		Jesse Knapp	CSR
+csrrbacalski	10		Ryan Bacalski	CSR
+csrwknapp	5		Wyatt Knapp	CSR
+csrcgarlick	10		Chris Garlick	CSR
+csrjswebb	5		Jessica Webb	CSR
+csrsowen	5		Suzanne Owen	CSR
+swgdevhnguyen	50		Huy Nguyen	SWG Developer
+vsingh	10		India CSR	India Supervisor
+smathur	10		India CSR	India Supervisor
+csrcclements	5		Chris Clements	CSR
+csrsperra	5		JSam Perra	CSR
+swgdevjcarpent	50		Jeff Carpenter	SWG Designer
+swgdevahunter	50		Adam Hunter	SWG Dev
+swgdevmhoward	50		Mike Howard	SWG Dev
+workingmonkey	50		David Jones	QA
+damiencross	10		Jesse Benjamin	QA
+csrdepperson	5		Douglas Epperson	CSR
+csrjlin	5		Jimmy Lin	CSR
+csrsbyrd	10		Sheloman Byrd	CSR
+csrathaxton	10		Amanda Thaxton	CSR
+csreolbrych	5		Elijah Olbrych	CSR
+csrpaulm	5		Paul Manderfeld	CSR
+csrajungjohann	10		Aaron Jungjohann	CSR
+csrdhosford	5		SOE CSR	Daniel Hosford
+csrjstoops	5		SOE CSR	James Stoops
+csracollini	5		SOE CSR	Angel Collini
+csrjwood	5		SOE CSR	James Wood
+csrdgregory	5		SOE CSR	Des Gregory
+csrpvenuti	10		SOE CSR	Paul Venuti
+csrrburgess	5		SOE CSR	Ryan Burgees 2nd Account
+csrmsimon	5		SOE Tech Support	
+csrgkressel	5		SOE Tech Support	
+csrsholmes	5		SOE Tech Support	
+duelprotocol2	5		SOE Tech Support	
+csrjcracchiolo	5		SOE Jason Cracchiolo	
+csrbnorris	5		SOE Benjamin Norris	
+rgranback07	10		SOE Richard Granback	
+csrinoble	5		SOE Ian Noble	
+csrdwalter	5		SOE Devvi Walter	
+csrjcardenas	5		SOE Juan Cardenas	
+csrchartmann	10		SOE Chad Hartmann	
+csrlcarson	5		SOE Louis Carson	
+csrjanderson	5		SOE Jeff Anderson	
+gsodeman	10		SOE Greg Sodeman	
+csrdrasmussen	5		SOE Dustin Rasmussen 	
+csrsmurphy	5		SOE Shawn Murphy 	
+csrrszakacs	5		SOE Ronald Szakacs	
+qaeknapp	5		Edward Knapp	SOE QA
+akiakore2	10		Jeff Haskell	SOE QA
+cfritchoff	5		Chris Fritchoff	SOE QA
+cchugon	10		Christine Chugon	SOE QA
+qadgates	10		Deborah Gates	SOE QA
+swgqadwilhite	5		Daniel Wilhite	SOE QA Manager
+swgqafbillings	10		Floyd Billings	SOE QA
+csrbhill	10		SOE CSR	
+csralavino	5		SOE CSR	
+csrdamesse	5		SOE CSR	
+csrdschaper	5		Dave Schaper	CSR
+csrjhassen	10		John Hassen	CSR
+csrnherrera	10		Neil Herrera	CSR
+csrdamesse	5		SD CSR	CSR
+swgdemo01	15		Demo account	Demos
+swgdemo02	15		Demo account	Demos
+swgdemo03	15		Demo account	Demos
+swgdemo04	15		Demo account	Demos
+soedamon	50		Damon Osgood	SWG Client Programmer
+jhp96001	50		James Pratt	SWO Developer
+swgdevsray	50		Sheri Ray 	SWG Developer
+swgdevlfarina	50		Lisa Farina 	SWG Developer
+swgdevwwallace	50		Will Wallace	SWG Developer
+sandiegotall	50		Bill Mauer	SWG Developer
+swgdevtford	50		Toby Ford	SWG Developer
+swgdevttyson	50		Tony Tyson	SWG Developer
+csrdbinter	10		CSR	SOE GM
+swgdevthicks	50		Travis Hicks	SWG Developer
+csrrmizell	10		Reginald Mizell	SOE GM
+csrjduvall	10		Jesse Duvall	SOE GM
+csrtdavis	10		Tyler Davis	SOE GM
+csrjcruz	10		Jacob Cruz	SOE GM
+csrjconrad	15		Jeremy Conrad	SOE GM
+csrdschmidt	10		David Schmidt	SOE GM
+csrmwoods	10		Michael Woods	Cross Trained CSR
+jpaolinelli991	10		Joseph Paolinelli	Cross Trained CSR
+csrtcooke	10		Tony Cooke	Cross Trained CSR
+csrjborders	10		John Borders	Cross Trained CSR
+csrdrodriguez	10		David Rodriguez	Cross Trained CSR
+csrcdrapkin	10		Charles Rapkin	Cross Trained CSR
+csraleo	10		Amy Leo	Cross Trained CSR
+csrcmastrangelo	10		Charles Mastrangelo	Cross Trained CSR
+jcardenas59	10		Juan Cardenas	Cross Trained CSR
+csrgpanther	10		Gary Panther	Cross Trained CSR
+mlara12	10		Melanie Lara	Cross Trained CSR
+csrrdavis	10		Robert Davis	Cross Trained CSR
+davramqa	10		David Avram	QA Liaison
+csrchaseg	10		Chase Gee	CSR
+rysm	50		Ryan Smith	SWG Programmer
+csrsmorris	15		Sharon Morris	SWG CS Manager
+swgtcramer	50		Tom Cramer	SWG Build Master
+csrdvillegas	10		David Villegas	CSR
+csrbbokelman	10		Brian Bokelman	SOE CSR
+qakshoemaker	10		SOE QA	Kevin Shoemaker
+swgdevddriggers	50		Dave Driggers	SWG Programmer
+jjpotterqa	5		Josh Potter	SOE QA
+qarboyle	5		Ryan Boyle	SOE QA
+bpadillaqa	5		Brandon Padilla	SOE QA
+kdeboltqa	5		Kevin Debolt	SOE QA
+swgdevljameson 	50		Lorin Jameson	AUS Tech Director
+csrabisnett	10		Aaron Bisnett	SOE CSR
+csrdgraf	15		Dean Graf	SOE CSR
+csrjleo	10		Jason Leo	SOE CSR
+glong01	10		George Long	SOE CSR
+csrnmccall	10		Nathan McCall	SOE CSR
+cmccoard11	10		Christine McCoard	SOE CSR
+eqcsr-benn	10		Ben Norris	SOE CSR
+csrrrobertson	10		Robert Robertson	SOE CSR
+eqcsr-angelo	10		Angelo Sanchez	SOE CSR
+rschmelter07	10		Rich Schmelter	SOE CSR
+mwagner10	10		Michael Wagner	SOE CSR
+csrlsilver	10		"Silver, Lindy"	SOE CSR
+csrmsoporito	10		"Soporito, Michael"	SOE CSR
+csrakrutop	10		"Krutop, Andrew"	SOE CSR
+csrdjunior	10		Darlene Junior	SOE CSR
+csrmvigil	10		Michael Vigil	SOE CSR
+swgqamjensen	10		Mikkel Jensen	SOE QA
+swgqahaselden	10		Wesley Haselden	SOE QA
+csrgcales	10			SOE CSR
+csrrmobbs	10			SOE CSR
+csrcleisure	10			SOE CSR
+csrmnunez	10			SOE CSR
+csrmford	10			SOE CSR
+csrnfenner	10			SOE CSR
+csrkmulunda	10			SOE CSR
+csrmhartmayer	10			SOE CSR
+csrenoetzel	10			SOE CSR
+csrytada	10			SOE CSR
+csrsdale	10			SOE CSR
+dltcarey	10			SOE CSR
+swgsthomas	50		Seth Thomas	SWG Build Master
+csralarsson	10			SOE CSR
+kdeboltqa	10			SOE QA
+csrmespinoza	10		Miguel Espinoza 	Cross Trained CSR
+csrjduvall	10		Jesse Duval	Cross Trained CSR
+mllanes	10		Monica Llanes	Cross Trained CSR
+rzager	10		Richard Zager	Cross Trained CSR
+dzamudio	10		David Zamudio	Cross Trained CSR
+dgilbreath	10		David Gilbreath	Cross Trained CSR
+dwhitaker	10		Doug Whitaker	Cross Trained CSR
+kbadenhop	10		Kevin Badenhop	Cross Trained CSR
+csrrdiamond	10		Richard Diamond	Cross Trained CSR
+gmvolson	10		Norman Freeman	Cross Trained CSR
+gmtyathera	10		David Bunke	Cross Trained CSR
+dcanonigo	10		Daniel Canonigo	Cross Trained CSR
+csrbshirimbere	10			SOE CSR
+gmaughos	10		Ian Conway	SOE GM
+trobertson	10		Trent Robertson	SOE GM
+dcanonigo	10		Daniel Canonigo	SOE GM
+csrgcales	10		Gareth Cales	SOE GM
+clefever	10		Corey LeFever	SOE GM
+dwhitaker	10		Doug Whitaker	SOE GM
+gmvolson	10		Norm Freeman	SOE GM
+csrjlathers	10		Josh Lathers	SOE GM
+csrccarter	10		Charles Carter	SOE GM
+csrsstowell	10		Stephanie Stowell	SOE GM
+commkknox	15		Kelly Knox	SWG Community
+commelias	15		Smith Getterman	SWG Community
+ooglia	10		Shelly Collett	QA Supervisor
+swgqacchristena	10		Charles Christena	SOE QA
+swgqampirrone	10		Michael Pirrone	SOE QA
+adb0527	5			SOE GM
+csrrrogers	5			SOE GM
+arekoske0110	5			SOE GM
+cdelzer92	5			SOE GM
+rsees	10		Ronnie Sees	SOE GM
+dljohnson	10		Deborah Johnson	SOE GM
+swgjschuessler	10		Jeff Schuessler	Austin QA
+swgqajloy	10		James Loy	Austin QA
+zkearns	10			Cross Trained CSR
+csrflynn	10			Cross Trained CSR
+csrakeys	10			Cross Trained CSR
+csrmhein	10			Cross Trained CSR
+tmclaughlin	10			Cross Trained CSR
+mganz	15			Cross Trained CSR
+jflanagan	10			Cross Trained CSR
+csracortez	10			Cross Trained CSR
+csrmyamauchi	10		Masami Yamauchi	International GM
+xmoroney	10		Xavier Moroney	International GM
+csrwensley	10		William Ensley	International GM
+swaters	10		Sabrina Waters	International GM
+jlawler	10			SOE GM
+swgdevmattb	50		Matt Boudreaux	SOE Developer
+csrshuck	10		Stephen Huck	SWG GM
+csrtmishler	10		Troy Mishler	SWG GM
+csrjpablo	10		Jesus Pablo	SWG GM
+csrerelph	10		Eric Relph	SWG GM
+csrgvarias	10		Gregory Varias-Rodrgiuez	SWG GM
+csrdlombardi	10		Danny Lombardi	SWG GM
+csrsmathews	10		Shana Mathews	SWG GM
+csrjcooper	10		Jason Cooper	SWG GM
+csrcmarchesi	10		Charmaine Marchesi	SWG GM
+csrssohren	10		Scott Ohren	SWG GM
+csrjjpiazza	10		Jordan Piazza	SWG GM
+csrbferguson	10		Brian Ferguson	
+csrdmeacham 	10			
+zseelenbinder 	10			
+bwinsby	10		Brad Winsby	
+csrjprecise	10		Justin Precise	
+csrerasmuson	10		Eric Rasmuson	
+csrjdazet	10		Justin Dazet	
+csrozakay	10		Omer Zakay	
+mleekwai	10		Merv Lee Kwai	FreeRealms
+soberry	10		Sabrina O'Berry	
+jhillcsr	10		John Hill	
+atschudy	10		Anna Tschudy	
+bsimeonecsr	10		Brian Simeone	
+csrlyardeen	10		Laura Yardeen	
+csrtdowell	10		Taylor Dowell	
+csrbjarvis	10		Ben Jarvis	
+csrabos	10		Andrea Bos	
+csapickering	10		Austin Pickering	
+cspmeissner	10		Paul Meissner	
+swgqajmichener	10		James Michener	SWG Designer
+cskta	10		Khoi Ta	FreeRealms GM
+csgschwartz	10		Glenn Schwartz	FreeRealms GM
+csjaleman	10		Jonathon Aleman	FreeRealms GM
+csmatkinson	10		Marcus Atkinson	SOE GM
+csamarley	10		Adam Marley	SOE CSR
+csbbellon	10		Brett Bellon	SOE CSR
+cstmurguia	10		Teresa Murguia	SOE CSR
+csahinton	10		Angela Hinton	SOE CSR
+cslstolte	10		Lucas Stolte	SOE CSR
+csvstratton	10		Victor Stratton	SOE CSR
+csrjbossom	10		Jeremy Bossom	SOE CSR
+rwpilneysoe	1		Roger Pilney	SWG Community
+swgqamhorn	10		Michael Horn	Austin QA
+avillarreal 	10		Alan Villarreal 	SOE CSR
+csapickering 	10		Austin Pickering 	SOE CSR
+qablaine1	10		Blaine Loder	TCG QA
+qablaine2	10		Blaine Loder	TCG QA
+csrwstolpe	10		William Stolpe	SOE CSR

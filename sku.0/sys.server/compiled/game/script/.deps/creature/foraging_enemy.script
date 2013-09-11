@@ -1,0 +1,2 @@
+DEPENDENCIES: ai/ai_combat library/ai_lib library/anims library/chat library/create library/groundquests library/group library/prose library/utils
+PROTOTYPES: OnAttach#obj_id OnIncapacitateTarget#obj_id#obj_id OnLoiterMoving#obj_id attackForager#obj_id#dictionary barkAttack#obj_id#dictionary barkDefeat#obj_id#dictionary cleanUpGuard#obj_id#dictionary expression#obj_id#dictionary removeASlot#obj_id#dictionary runAwayThenCleanUpGuard#obj_id#dictionary

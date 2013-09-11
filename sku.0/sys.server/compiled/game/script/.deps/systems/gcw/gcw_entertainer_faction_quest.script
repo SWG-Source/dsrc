@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/factions library/utils
+PROTOTYPES: OnAttach#obj_id convinced#obj_id#dictionary lostInterest#obj_id#dictionary notConvinced#obj_id#dictionary readyToTalk#obj_id#dictionary

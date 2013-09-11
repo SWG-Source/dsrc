@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/utils systems/spawning/dropship/base
+PROTOTYPES: OnAttach#obj_id destroySelf#obj_id#dictionary explodeThenDestroySelf#obj_id#dictionary landShuttle#obj_id#dictionary takeOff#obj_id#dictionary

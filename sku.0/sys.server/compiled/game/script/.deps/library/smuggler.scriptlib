@@ -1,0 +1,2 @@
+DEPENDENCIES: library/chat library/corpse library/groundquests library/luck library/prose library/skill library/static_item library/utils
+PROTOTYPES: 

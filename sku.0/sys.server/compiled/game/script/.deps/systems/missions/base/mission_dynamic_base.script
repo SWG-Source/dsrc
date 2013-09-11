@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/anims library/battlefield library/chat library/create library/factions library/group library/jedi library/locations library/missions library/money library/regions library/utils systems/missions/base/mission_base
+PROTOTYPES: 

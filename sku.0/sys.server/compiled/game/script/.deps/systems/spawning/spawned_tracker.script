@@ -1,0 +1,2 @@
+DEPENDENCIES: library/utils
+PROTOTYPES: OnDestroy#obj_id OnIncapacitated#obj_id#obj_id OnRemovingFromWorld#obj_id selfDestruct#obj_id#dictionary

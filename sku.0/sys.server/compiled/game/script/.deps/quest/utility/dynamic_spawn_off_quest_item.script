@@ -1,0 +1,2 @@
+DEPENDENCIES: library/attrib library/create library/groundquests library/locations library/trial library/utils
+PROTOTYPES: handleQuestFlavorObject#obj_id#dictionary

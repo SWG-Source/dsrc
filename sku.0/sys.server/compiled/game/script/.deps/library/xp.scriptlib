@@ -1,0 +1,2 @@
+DEPENDENCIES: library/beast_lib library/buff library/collection library/combat library/gcw library/group library/performance library/pet_lib library/space_flags library/utils
+PROTOTYPES: 

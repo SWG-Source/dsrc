@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/chat library/conversation library/create library/features library/groundquests library/space_quest library/utils
+PROTOTYPES: OnAttach#obj_id OnInitialize#obj_id OnNpcConversationResponse#obj_id#String#obj_id#string_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnStartNpcConversation#obj_id#obj_id handleQuestFlavorObjectCleanup#obj_id#dictionary spawnEnemies#obj_id#dictionary

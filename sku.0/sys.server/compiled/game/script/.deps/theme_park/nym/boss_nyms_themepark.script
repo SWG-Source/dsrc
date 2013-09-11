@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/chat library/groundquests library/group library/hue library/trial library/utils
+PROTOTYPES: OnAboutToBeIncapacitated#obj_id#obj_id OnAttach#obj_id OnEnteredCombat#obj_id OnExitedCombat#obj_id OnIncapacitateTarget#obj_id#obj_id checkCombatStatus#obj_id#dictionary handleBossDistanceCheck#obj_id#dictionary moveCreatureToWaypoint#obj_id#dictionary willDespawn#obj_id#dictionary

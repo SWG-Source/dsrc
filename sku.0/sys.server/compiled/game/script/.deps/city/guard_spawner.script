@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/create library/gcw library/locations library/utils
+PROTOTYPES: OnAttach#obj_id OnHearSpeech#obj_id#obj_id#String OnInitialize#obj_id checkForStart#obj_id#dictionary cityMobKilled#obj_id#dictionary guardSpawnerRespawnNpc#obj_id#dictionary startSpawning#obj_id#dictionary

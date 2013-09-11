@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/create library/groundquests library/loot library/utils
+PROTOTYPES: OnAttach#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info cleanUpFakeChest#obj_id#dictionary recalculateGuardArray#obj_id#dictionary setupChest#obj_id#dictionary spawnTreasureGuards#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/hue library/metrics library/static_item library/sui library/utils
+PROTOTYPES: OnAttach#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int handleArmorSelection#obj_id#dictionary handleCommit#obj_id#dictionary handlePaletteUpdate#obj_id#dictionary

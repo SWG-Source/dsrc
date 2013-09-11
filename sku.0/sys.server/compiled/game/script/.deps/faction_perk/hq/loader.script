@@ -1,0 +1,2 @@
+DEPENDENCIES: library/factions library/gcw library/hq library/player_structure library/utils
+PROTOTYPES: OnAboutToReceiveItem#obj_id#obj_id#obj_id#obj_id OnAttach#obj_id OnClusterWideDataResponse#obj_id#String#String#int#String[]#dictionary[]#int OnDestroy#obj_id OnInitialize#obj_id OnLostItem#obj_id#obj_id#obj_id#obj_id OnReceivedItem#obj_id#obj_id#obj_id#obj_id handleDelayedRefundChecker#obj_id#dictionary handleHqDetonation#obj_id#dictionary handleHqExplosions#obj_id#dictionary

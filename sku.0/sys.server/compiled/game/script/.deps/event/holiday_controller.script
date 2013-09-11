@@ -1,0 +1,2 @@
+DEPENDENCIES: library/holiday library/utils
+PROTOTYPES: OnAttach#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[] OnHearSpeech#obj_id#obj_id#String OnInitialize#obj_id empiredayServerStart#obj_id#dictionary halloweenServerStart#obj_id#dictionary lifedayServerStart#obj_id#dictionary lovedayServerStart#obj_id#dictionary

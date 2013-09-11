@@ -1,0 +1,2 @@
+DEPENDENCIES: ai/ai_combat library/ai_lib library/create library/groundquests library/locations library/prose library/quests library/utils quest/task/ground/base_task
+PROTOTYPES: OnDetach#obj_id OnInitialize#obj_id OnLogout#obj_id OnTaskActivated#obj_id#int#int OnTaskCleared#obj_id#int#int OnTaskCompleted#obj_id#int#int OnTaskFailed#obj_id#int#int destroyNotification#obj_id#dictionary messageDefendCheckDistance#obj_id#dictionary

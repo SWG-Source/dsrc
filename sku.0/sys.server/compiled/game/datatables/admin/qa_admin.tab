@@ -1,0 +1,505 @@
+AdminAccounts	AdminLevel	AdminSkill	AdminComment	AdminComment2	AdminIpBlocks	AdminIpComment
+s	i{0}	s	c	c	s	c
+swgdevcmayer	50	admin		all account names must be lower case	208.244.233.99	LEC
+swgdevgmcdaniel	50				208.244.233.9	LEC
+swgdevgmcdanie2	50				208.244.233.2	LEC
+swgdevcthurow	50				64.37.152.x	SOE
+swgdevsjakab	50				64.37.153.x	SOE
+swgdevjgrills	50				64.37.154.x	SOE
+swgdevrdelashmi	50				64.37.155.x	SOE
+swgdevjbrack	50				64.37.146.x	SOE
+swgdevjbrack2	50				64.37.147.x	SOE
+jbracktest6	50				64.37.145.x	SOE
+jbrackcollector	50				64.37.133.x	SOE
+jbracknocollect	50				64.37.139.x	SOE
+swgdevdrubenfie	50				61.246.176.x	India
+jefftep_soe	50				202.144.62.x	India
+swgdevbhanson	50				203.124.149.x	India
+swgdevmfarone	50				203.145.142.x	India
+greenmarine42	50				61.95.140.x	India
+raphkoster	50				220.227.149.x	India
+swgdevdwhite	50				61.246.176.x	India
+swgdevjfreeman	50				202.40.6.x	India
+swgdevtbailey	50				192.168.52.x	India VPN
+swgdevrthornton	50				192.168.53.x	India VPN
+swgdevkblack	50				192.168.54.x	India VPN
+rhanz1723	50		Robert Hanz - testing		192.168.55.x	India VPN
+swgdevjwhisenan	50		James Whisenant			
+0uini0	15		"Matthews, Gary"	CSR		
+gscotto	15		"Scotto, George"	CSR		
+tarlo	15		"Terrazas, Thom"	CSR		
+swgtestacct3	10		Annette Rogers	QA		
+swgtestacct10	10		Mark	QA		
+swgtestacct12	10		Mikkel Jensen	QA
+swgtestacct13	5		Mike	QA
+adamstevens	10		Adam Stevens	QA
+alamp2	10		Andy Lamp	QA
+auggie411	10		Armando Garcia	QA
+justbianca	10		Bianca Diaz	QA
+bdemarco64	10		Brian DeMarco	QA
+bmotiskoqa	10		Brian Motisko	QA
+great_typhon	10		Carl Flaherty	QA
+ckingwellqa	10		Caroline Kingwell	QA
+cbryantqa	10		Charles Bryant	QA
+cgreenberg	10		Christina Greenberg	QA
+dbryson76	10		David Bryson	QA
+dcuringtonqa	10		David Curington	QA
+eqcsr-domb	10		Dominic Bindley	QA
+ehocking72	10		Ed Hocking	QA
+esisonqa	10		Eric Sison	QA
+glbinkley	10		Gary Binkley	QA
+ghauser24	10		Greg Hauser	QA
+azrealgm	10		James Helssen	QA
+locke004	10		Jared Sweatt	QA
+jasserqa	10		Jason Asser	QA
+magik6	10		Jason Biltz	QA
+jboone0040	10		Jason Boone	QA
+jroberts5	10		Jason Roberts	QA
+jzimmerman72	10		Jason Zimmerman	QA
+jesse2r	10		Jesse Bell	QA
+jpriceqa	10		Joe Price	QA
+jwhite23	10		Joel White	QA
+jleqa	10		John Le	QA
+kalmondqa	10		Kent Almond	QA
+kmoyer00	10		Kevin Moyer	QA
+testerc2019a	10		Marlon Barroquillo	QA
+mmatthewsqa	10		Michael Matthews	QA
+mhansenqa	10		Mike Hansen	QA
+nchristmas10	10		Neil Christmas	QA
+djaeon	10		Nick Munford	QA
+sgtspam2	10		Noah Holmes	QA
+pesteves4qa	10		Patrick Esteves	QA
+pstrace	10		Rian Trost	QA
+thomperyt	10		Rob Thompson	QA
+waverider01	10		Robert Bautista	QA
+rantonelli26	10		Ryan Antonelli	QA
+rbarnardqa	10		Ryan Barnard	QA
+rburgesssoe	10		Ryan Burgess	QA
+slsabo	10		Shen Sabo	QA
+spierceqa	10		Steven Pierce	QA
+haleytaylor	50		Taylor Haley	QA
+tsanchez5	10		Tiffany Sanchez	QA
+trado	10		Tony Rado	QA
+vpangqa	10		Vincent Pang	QA
+-zaose-	15		Will Figgins	QA
+ops-zalshea	16			
+ops-jyhad	16			
+ops-trinity	16			
+ops-vharyon	16			
+ops-chrisr	16			
+ops-artois	16			
+ops-tinysa	16			
+ops-atruelen	16			
+ops-oni	16			
+ops-drokhar	16			
+vrshofixti	10		Ryan Bond	LEC QA
+bke1138	10		Benjamin  Estabrook	LEC QA
+thebrillianthen	10		Sara Brucker	LEC QA
+grimfanjango	10		Sean Thomson	LEC QA
+sirneif	10		Tim Temmerman	LEC QA
+snipebuzz	10		John Buzolich	LEC QA
+snotty94954	10		Scott Taylor	LEC QA
+palvaradolec	10		Patrick Alvarado 	LEC QA
+workingmonkey	50		Dave Jones	SOE Austin QA
+damiencross	15		Jesse Benjamin	SOE Austin QA
+swgdevssnopel	15		Scott Snopel	SOE Austin QA
+meridei	10		Lynn Taylor	LEC Compat
+danmarpc	10		Dan Martinez	LEC Compat
+gxciv	10		G W Childs	LEC Compat
+barenthresher	10		Darryl 	LEC Compat
+kernoonus	10		Brad	LEC Compat
+xiaofspoon	10		Kim Jardin	LEC Compat
+jbiltzswg	10		Jason Biltz	SOE SD QA
+swgdevthicks	50		Travis Hicks	SOE Designer
+devjryan	15		Jason Ryan	Events
+dhymna	15			Events
+swgqarwells	10		Patrick Ryan Wells	SD QA
+swgdevjwatson	50		John Watson	SWG Programmer
+justg	50		Gary Gattis	SOE Senior Producer
+eholding007	50		Eli Holding	SWG Designer
+swgdevjjohan	50		Janessa Johansen	SWG Designer
+tzcse	50		Niklas Johnasen	SWG Designer
+swgdevjcarpent	50		Jeff Carpenter	SWG Designer
+lecjbuzolich	10		John Buzolich 	LEC QA
+lecryanbond	10		Ryan Bond	LEC QA
+lecsthomson	10		Sean Thomson 	LEC QA
+lecsbrucker	10		Sara Brucker 	LEC QA
+lecneberle	10		Nick Eberle	LEC QA
+hadenblackman	10		Haden Blackman	LEC QA
+juliot	10		Julio Torres	LEC QA
+jwatson000	50		John Watson	SOE Programmer
+swgdevmbogue	50		Matt Bogue	SOE Programmer
+lectdavies	10		Todd Davies	LEC Sound
+lecttemmerman	10		T Temmerman	LEC QA
+lecmblair2	10		Michael Blair	LEC QA
+lecbmcgehee	10		Bob McGehee	LEC QA
+csrbeconomy	15		Bruce Economy	CSR Supervisor
+csrjcrosby	15		Jalane Crosby	CSR Supervisor
+csrjlovell	15		Jeffrey Lovell	CSR Supervisor
+csrdmallet	15		David Mallet	CSR Supervisor
+csrkvallee	15		Kyle Vallee	CSR Supervisor
+csrpcirelli	15		Patrick Cirelli	CSR Supervisor
+tlockard	15		Tom Lockard	CSR Supervisor
+jakerod	50		Jake Rodgers	SOE Artist
+kmoyerqa	10		Kevin Moyer	SD QA
+leceerbes	10		Eric Erbes	LEC QA
+lecemarriott	10		Eric Marriott	LEC QA
+cchugon	10		Christine Chugon	SD QA
+swgdevcmayer2	50		Chris Mayer	SWG Developer secound account
+cfritchoff	10		Chris Fritchoff	SD QA
+swgqa001	5		India QA	India
+swgqa002	5		India QA	India
+swgqa003	5		India QA	India
+swgqa004	5		India QA	India
+swgqa005	5		India QA	India
+swgqa006	5		India QA	India
+swgqa007	5		India QA	India
+swgqa008	10		India QA	India
+swgqa009	5		India QA	India
+swgqa010	5		India QA	India
+swgqa011	5		India QA	India
+swgqa012	5		India QA	India
+swgqa013	5		India QA	India
+swgqa014	5		India QA	India
+swgqa015	5		India QA	India
+swgdevhnguyen	50		Huy Nguyen	SWG Developer
+leckauyoung2	10		Kevin Au Young	LEC QA
+lecrjones	10		Ryan Jones	LEC QA
+lecbjohnson	10		Brad Johnson	LEC QA
+swgdevnguyen	50		Huy Nguyen	SWG Developer
+vsignh	10		India CSR	India Supervisor
+smathur	10		India CSR	India Supervisor
+csrisomers	10		Ima Sommers	International supervisor
+zkarlsson17	10		Zack Karlsson	International supervisor
+akiakore2	10		Jeff Haskell	SOE QA
+swgdevjroy	15		John Roy	SWG Development
+swgdevhgray	50		Hollis Gray	SWG Dev
+lecjtye	10		Jay Tye	LEC QA
+leceshih	10		Edmund Shih	LEC QA
+swgdevahunter	50		Adam Hunter	SWG Dev
+swgdevfye	50		Frank Ye	SWG Dev
+swgdevmhoward	50		Mike Howard	SWG Dev
+endorwarrior	10		Dave Edquilang	SOE QA
+titanhelios777	50		Kai Steinmann	SOE Designer
+u-thug	10		Rian Trost	SOE AD
+benkei00	10		Ben Norris	SOE AD
+cleric2020	50		Thomas Blair	SOE AD
+swgarogers	10		Annette Gatlin-Rogers	SOE QA
+pelliottcl	10		Patrick Elliot	SOE CS
+qadgates	10		Deborah Gates	SOE GM
+qabcarrico	10		Ben Carrico	SOE GM
+csrpbianco	10		CSR	SOE GM
+csrmkwai	10		CSR	SOE GM
+csrsmcquitty	10		CSR	SOE GM
+csrpmurphy	10		CSR	SOE GM
+csrtvick	10		CSR	SOE GM
+csrccabral	10		CSR	SOE GM
+csrjbard	10		CSR	SOE GM
+csrmlaybhen	10		CSR	SOE GM
+csrsowen	10		CSR	SOE GM
+csrcgarlick	10		CSR	SOE GM
+crscotto	10		CSR	SOE GM
+csrjcrosby	10		CSR	SOE GM
+csrjbagley	10		CSR	SOE GM
+csrnperez	10		CSR	SOE GM
+csrgdixon	10		CSR	SOE GM
+rburgesssoe	10		CSR	SOE GM
+csrddurrant	10		CSR	SOE GM
+csrpmorgavo	10		CSR	SOE GM
+csrjgruber	10		CSR	SOE GM
+csrcjohns	10		CSR	SOE GM
+csrjswebb	10		CSR	SOE GM
+csrjwregg	10		CSR	SOE GM
+csrcsizemore	10		CSR	SOE GM
+csrjwells	10		CSR	SOE GM
+csrmclanton	10		CSR	SOE GM
+csrenason	10		CSR	SOE GM
+csrkcarter	10		CSR	SOE GM
+csrbyalong	10		CSR	SOE GM
+csrkrekoske	10		CSR	SOE GM
+csrefurchtgott	10		CSR	SOE GM
+csrjosio	10		CSR	SOE GM
+csrathaxton	10		CSR	SOE GM
+csrpaulm	10		CSR	SOE GM
+csrjpeffley	10		CSR	SOE GM
+csrjlin	10		CSR	SOE GM
+csrjsabala	10		CSR	SOE GM
+csrsbyrd	10		CSR	SOE GM
+csrclements	10		CSR	SOE GM
+csrjmoris	10		CSR	SOE GM
+csrapeck	10		CSR	SOE GM
+csrsparra	10		CSR	SOE GM
+csreolbrych	10		CSR	SOE GM
+csrajungjohann	10		CSR	SOE GM
+csrsperra	10		SOE QA	Sam Parra
+csrcclements	10		SOE QA	Chris Clements
+swgdevahunter	50		SWG Programmer	Adam Hunter
+badger5	50		SWG Designer	Peter Warner
+swgdevmhoward	50		SWG DB Programmer	Mike Howard
+swgdevfye	50		SWG DB Programmer	Frank Ye
+qarburch	10		SOE QA	Richard Burch
+qakshoemaker	10		SOE QA	Kevin Shoemaker
+qajhelssen	10		SOE QA	James Helssen
+transfertest4	10		SOE QA	David Jones
+lecgroland	10		LEC QA	Gabriel Roland
+leccsuey	10		LEC QA	Cameron Suey
+csrjstoops	10		SOE CSR	James Stoops
+csracollini	10		SOE CSR	Angel Collini
+csrjwood	10		SOE CSR	James Wood
+csrdgregory	10		SOE CSR	Des Gregory
+csrpvenuti	10		SOE CSR	Paul Venuti
+csrrburgess	10		SOE CSR	Ryan Burgees 2nd Account
+qadtarvin	10		SOE QA	Derek Tarvin
+lectdrake	10		LEC QA	Tom Drake
+leciriutta	10		LEC QA	Ian Riutta
+lecpriggs	10		LEC QA	Paul Riggs
+swgqabalesna	10		SOE QA	Brian Alesna
+lecjbillings	10		LEC QA	James Billings
+lispingchiss	10		LEC Prod	
+lecdeksnys	10		LEC Compat	
+shields2lec	10		LEC Compat	
+masayume	10		LEC Compat	
+leclsiat	10		LEC Compat	
+lectyoungquist	10		LEC Compat	
+lecdfleming	10		LEC Compat	
+leciwebb	10		LEC Compat	
+swgqadwilhite	10		SOE QA Manager	
+lecmcabral	10		LEC QA	
+swgqahhattersle	10		SOE QA	Hilee Hattersley
+swgqakpehl	10		SOE QA	Keith Pehl
+swgqawhayes	10		SOE QA	Willie Hayes
+swgqabferguson	10		SOE QA	Brian Ferguson
+qaeknapp	10		SOE QA	Ed Knapp
+csrsmichael	10		Sean Michael	SOE Trainer
+lecggutierrez	10		Gilberto Gutierrez	LEC QA Tester
+leckrazi	10		Kourosh Shokouhi-Razi	LEC QA Tester
+lecbcoleman	10		Bray Coleman	LEC QA Tester
+justg	50		Gary Gattis	SOE Producer
+rogue_buddha	5		Kurt Stangl	SOE Community Manager
+swgqadwilhite	10		Dan Wilhite	SOE QA Manager
+lecsbraman1	10		Steve Braman	LEC QA Tester
+lecchuffman	10		Corle Huffman	LEC QA Tester
+lecstong	10		Stephanie Tong	LEC QA Tester
+ttanakaeaj	15		EAJ CSR Manager	EAJ CSR
+hyaraeaj	10		EAJ CSR 	EAJ CSR
+mkitaokaeaj	10		EAJ CSR 	EAJ CSR
+hsasakieaj	10		EAJ CSR 	EAJ CSR
+ctakematsueaj	5		EAJ CSR 	EAJ CSR
+nhoshiharaeaj	15		EAJ CSR Events 	EAJ CSR
+totanakaeaj	15		EAJ CSR Events	EAJ CSR
+ntakahashieaj	15		EAJ CSR Events	EAJ CSR
+kasatoeaj	15		EAJ CSR Events	EAJ CSR
+swgqa0029	10		Hitesh Dhawan	India
+swgqa0030	10		Kirti Makhija	India
+swgqa0031	10		Shalabh Saxena	India
+swgqa0032	10		Manoj Saraf	India
+swgqa0033	10		Krishna Mohan Singh	India
+swgqa0034	10		Ravi Thapa	India
+swgqa0035	10		Sekharender Gupta	India
+swgqa0036	10		Manu Sharma	India
+swgqa0037	10		Mujtaba Hagroo	India
+swgqa0038	10		Vivek Sharma	India
+swgqa0039	10		Jitendra Sharma	India
+csrrnelson	15		Robert Nelson	Training
+csrsmichael	10		Sean Michael	Training
+royfleck	50		Roy Fleck	SWG Programmer
+dougsoe	50		Doug Mellencamp	SWG Programmer
+eajswg01	10		EAJ Testing	EAJ
+eajswg02	10		EAJ Testing	EAJ
+eajswg03	10		EAJ Testing	EAJ
+eajswg04	10		EAJ Testing	EAJ
+eajswg05	10		EAJ Testing	EAJ
+eajswg06	10		EAJ Testing	EAJ
+eajswg07	10		EAJ Testing	EAJ
+eajswg08	10		EAJ Testing	EAJ
+eajswg09	10		EAJ Testing	EAJ
+eajswg10	10		EAJ Testing	EAJ
+lucasswg1	10		EAJ Testing	EAJ
+lucasswg2	10		EAJ Testing	EAJ
+lucasswg3	10		EAJ Testing	EAJ
+lucasswg4	10		EAJ Testing	EAJ
+lucasswg5	10		EAJ Testing	EAJ
+lucasswg6	10		EAJ Testing	EAJ
+lucasswg7	10		EAJ Testing	EAJ
+lucasswg8	10		EAJ Testing	EAJ
+lucasswg9	10		EAJ Testing	EAJ
+lucasswg10	10		EAJ Testing	EAJ
+sittdogg	50		Robert Sitton	Programmer
+badger5	50		Pete Warner	Designer
+slewis8515	50		Sam Lewis	Designer
+swgdevahunter	50		Adam Hunter	Programmer
+ykudoeaj	10		EAJ Testing	EAJ
+hmizutaeaj	10		EAJ Testing	EAJ
+tharaeaj	10		EAJ Testing	EAJ
+tikedaeaj	10		EAJ Testing	EAJ
+jhp96001	50		James Pratt	SWO Developer
+jmatzen2	50		John Matzen	SWO Developer
+tacomalo	50		Rob Kovach	SWO Developer
+afox91172	50		Alex Allen	SWO Developer
+soedamon	50		Damon Osgood	SWO Developer
+ladytiggs	50		Diane Migliaccio	SWO Developer
+lecbestrellado	10		Bertrand Estrellado	LEC QA
+jshodaeaj	10		EAJ Testing	EAJ
+mkawabeeaj	10		EAJ Testing	EAJ
+juriartesoe	50		Jeff Urariti	SOE Developer
+swgqajdunn	10		Jay Dunn	SOE QA
+swgqahtang	10		Howard Tang	SOE QA
+swgqajlee	10		James Lee	SOE QA
+swgqafbillings	15		Floyd Billings	SOE QA
+soebinkley	10		Gary Binkley	SOE QA
+swgqa0040	10		India 	India QA
+swgqa0041	10		India 	India QA
+swgqa0042	10		India 	India QA
+swgqa0043	10		India 	India QA
+swgqa0044	10		India 	India QA
+swgqa0045	10		India 	India QA
+swgqa0046	10		India 	India QA
+swgqa0047	10		India 	India QA
+swgqa0048	10		India 	India QA
+swgqa0049	10		India 	India QA
+swgqa0050	10		India 	India QA
+swgqa0051	10		India 	India QA
+swgqa0052	10		India 	India QA
+swgqa0053	10		India 	India QA
+swgdevsray	50		Sheri Ray 	SWG Developer
+swgdevlfarina	50		Lisa Farina 	SWG Developer
+tsrvgarvin	15		Vaughn Garvin	SWG Developer
+lecsgreen	10		Sony Green	LEC QA
+lecjwkwong	10		John Kwong	LEC QA
+lechdmoore	10		Hugh Moore	LEC QA
+lecjnemsley	10		Jen Emsley	LEC QA
+csrdhosford	10		Daniel Hosford	SOE CSR
+swgdevwwallace	50		Will Wallace	SWG Developer
+sandiegotall	50		Bill Mauer	SWG Developer
+swgdevtford	50		Toby Ford	SWG Developer
+swgdevttyson	50		Tony Tyson	SWG Developer
+ironboys	50		Dallas Dickinson	SWG Developer
+ep3test1	5		EP3 Test	EP3 Test Account
+ep3test2	5		EP3 Test	EP3 Test Account
+ep3test3	5		EP3 Test	EP3 Test Account
+ep3test4	5		EP3 Test	EP3 Test Account
+ep3test5	5		EP3 Test	EP3 Test Account
+ep3test6	5		EP3 Test	EP3 Test Account
+ep3test7	5		EP3 Test	EP3 Test Account
+ep3test8	5		EP3 Test	EP3 Test Account
+ep3test9	5		EP3 Test	EP3 Test Account
+ep3test10	5		EP3 Test	EP3 Test Account
+devjryan	15		Jason Ryan	SWG Events Team
+swgdemo01	15		Jason Ryan	SWG Events Team
+swgdemo02	15		Jason Ryan	SWG Events Team
+swgdemo03	15		Jason Ryan	SWG Events Team
+swgdemo04	15		Jason Ryan	SWG Events Team
+swgdevdwaldrip	50		Damon Waldrip	SOE Developer
+lecaalamano	10		Andy Alamano	LEC QA
+csrdbinter	10		CSR	SOE GM
+naboosfxmage	10		Todd Davies	LEC Sound
+jordanmalbert	50		Jordan Albert	SWG Developer
+jerobinsonbeta	5		SOE Webteam	
+mrmcpicklestein	5		SOE Webteam	
+swgqa0057	10		India CSR	India 
+swgqa0058	10		India CSR	India 
+swgqabacuff	10		B Acuff	SOE QA
+swgqamhonea	10		M Honea	SOE QA
+swgqamsullivan	10		M Sullivan	SOE QA
+swgqajmichener	10			SOE QA
+swgqacholton	10			SOE QA
+swgqarnorth	10			SOE QA
+swgqamjensen	15		Mikkel Jensen	SOE QA
+jjpotterqa	10		J Potter	SOE Compat
+swgqamcapers	10			SOE QA
+davramqa	10		David Avram	QA Liaison
+csrchaseg	10		Chase Gee	CSR
+rysm	50		Ryan Smith	SWG Programmer
+lecokellogg	10		Orion Kellogg	LEC QA
+lectrouble	10		Jeff Diaz	LEC QA
+lecgmorales	10		Grace Morales	LEC QA
+lecpjcody	10		PJ Cody	LEC Compat
+lecadams	10		Chris Adams	LEC Compat
+csrsmorris	15		Sharon Morris	SWG CS Manager
+swgtcramer	50		Tom Cramer	SWG Build Master
+csrjsones	10		Jared Sones 	CSR
+csrdvillegas	10		David Villegas	CSR
+swgqampirrone	10			SOE QA
+csrjknapp	10		Jesse Knapp	SWG Designer
+jmorelandbeta	10		EJ Moreland	SWG Designer
+rboyle	5		Ryan Boyle	SOE Compat
+elogie	5		Eric Logie	SOE Compat
+csrjconrad	15		Jeremy Conrad	SOE CSR
+swgdevtschubert	50		Tim Schubert	SWG Programmer
+swgdevddriggers	50		Dave Driggers	SWG Programmer
+csrbbokelman	10		Brian Bokelman	SOE CSR
+swgqahaselden	15		Wesley Haselden	SOE QA
+nwilson	10		Nick Wilson	LEC QA
+swgqadkrieg	10		Devin Kreig	SOE QA
+swgqaafuentes	10		Andres Fuentes	SOE QA
+swgdevljameson 	50		Lorin Jameson	AUS Tech Director
+itstame	50		Thomas Eidson	SWG Designer
+csrdgraf	10			SOE CSR
+csrlsilver	10			SOE CSR
+csrmsoporito	10			SOE CSR
+csrakrutop	10			SOE CSR
+swgsthomas	50		Seth Thomas	SWG Build Master
+mjensen2	10		Mikkel Jensen	SOE QA
+swgqatljones	10		Tim Jones	SOE QA
+csrdjunior	10		Darlene Junior	SOE CSR
+csrmvigil	10		Michael Vigil	SOE CSR
+qaklindmark	5		Kevin Lindmark	SOE QA
+swgqacchristena	10		Charles Christena	SOE QA
+swgqakmayer	10		Kevin Mayer	SOE QA
+swgccdemo	10			Comicon account
+swgccdemo2	10			Comicon account
+anacreon	10		Marco Crescenti	LucasArts QA
+lecjoea001	10		Joe Acedillo	LucasArts QA
+swgqajloy	10		James Loy	SOE QA
+swgqaakelly	10		Aaron Kelly	SOE QA
+commkknox	15		Kelly Knox	SWG Community
+commelias	15		Smith Getterman	SWG Community
+swgqamball	10		Mark Ball	SOE QA
+csrsstowell	10			SOE QA
+csrccarter	10			SOE QA
+swgdevmattb	50		Matt Boudreaux	SOE Developer
+swgdevlnagar	50		Lee Nagar	SOE Developer
+swgdevswyckoff	50		Steven Wyckoff	SOE Developer
+swgjschuessler	10		Jeff Schuessler	SOE QA
+palejo	10		Joe Alread	Denver Dev
+qattraini	10		Tim Traini	Denver QA
+swgqamhorn	10		Mike Horn	SOE QA
+swgqasscott	10		Stephen Scott	SWG QA
+csrbferguson	10		Brian Ferguson	SOE CSR
+swgqamrasmussen	10		Mark Rasmussen	
+csapickering	10		Austin Pickering	SOE CSR
+cspmeissner	10		Paul Meissner	SOE CSR
+csrjcooper	10		Jason Cooper	SOE CSR
+csrsmathews	10		Shawna Matthews	SOE CSR
+csrjjpiazza	10		Jordan Piazza	SOE CSR
+csrtmishler	10		Troy Mishler	SOE CSR
+csrshuck	10		Stephen Huck	SOE CSR
+csrjpablo	10		Jesus Pablo	SOE CSR
+csmatkinson	10		Marcus Atkinson	SOE CSR
+imp2000	15		Lydia Pope	SOE Community
+csamarley	10		Adam Marley	SOE CSR
+csbbellon	10		Brett Bellon	SOE CSR
+cstmurguia	10		Teresa Murguia	SOE CSR
+csahinton	10		Angela Hinton	SOE CSR
+cslstolte	10		Lucas Stolte	SOE CSR
+csrchartmann	10		SOE Chad Hartmann	
+csrrrobertson	10		Robert Robertson	SOE CSR
+trobertson	10		Trent Robertson	SOE GM
+clefever	10		Corey LeFever	SOE GM
+csrflynn	10			Cross Trained CSR
+csrakeys	10			Cross Trained CSR
+jlawler	10			SOE GM
+csrdlombardi	10		Danny Lombardi	SWG GM
+csrcmarchesi	10		Charmaine Marchesi	SWG GM
+csrdmeacham	10			
+bsimeonecsr	10		Brian Simeone	
+csvstratton	10		Victor Stratton	SOE CSR
+csrjbossom	10		Jeremy Bossom	SOE CSR
+rwpilneysoe	1		Roger Pilney	SWG Community
+avillarreal	10		Alan Villarreal 	SOE CSR
+csapickering	10		Austin Pickering 	SOE CSR
+ctstestb	10		Character Transfer	SWG QA
+ctstestd	10		Character Transfer	SWG QA
+qablaine1	10		Blaine Loder	TCG QA
+qablaine2	10		Blaine Loder	TCG QA
+swgqartaintor	10		Randy Taintor	SOE QA

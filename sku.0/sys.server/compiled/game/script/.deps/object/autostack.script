@@ -1,0 +1,2 @@
+DEPENDENCIES: library/loot library/static_item library/sui library/utils
+PROTOTYPES: OnAttach#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[] OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int OnTransferred#obj_id#obj_id#obj_id#obj_id clearUnstackingScriptVar#obj_id#dictionary msgStackItem#obj_id#dictionary msgUnstackItem#obj_id#dictionary

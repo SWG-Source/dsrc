@@ -1,0 +1,2 @@
+DEPENDENCIES: library/utils systems/missions/base/mission_dynamic_base
+PROTOTYPES: OnAttach#obj_id destroySelf#obj_id#dictionary takeOff#obj_id#dictionary

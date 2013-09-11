@@ -1,0 +1,2 @@
+DEPENDENCIES: library/advanced_turret library/ai_lib library/armor library/buff library/camping library/city library/collection library/factions library/gcw library/groundquests library/holiday library/house_pet library/loot library/money library/performance library/player_structure library/qa library/static_item library/stealth library/trial library/utils library/vendor_lib library/weapons
+PROTOTYPES: OnSpeaking#obj_id#String spawnTreasure#obj_id#dictionary

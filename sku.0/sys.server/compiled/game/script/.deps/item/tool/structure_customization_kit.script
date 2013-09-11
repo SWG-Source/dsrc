@@ -1,0 +1,2 @@
+DEPENDENCIES: library/hue library/player_structure library/static_item library/sui library/utils
+PROTOTYPES: OnGetAttributes#obj_id#obj_id#String[]#String[] OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int cancelTool#obj_id#dictionary decrementTool#obj_id#dictionary

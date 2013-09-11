@@ -1,0 +1,2 @@
+DEPENDENCIES: library/groundquests
+PROTOTYPES: OnAboutToReceiveItem#obj_id#obj_id#obj_id#obj_id

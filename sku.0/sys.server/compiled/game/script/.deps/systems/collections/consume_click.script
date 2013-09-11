@@ -1,0 +1,2 @@
+DEPENDENCIES: library/collection library/prose library/stealth library/sui library/utils
+PROTOTYPES: OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int removeGcwCollectionLockout#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: ai/ai_combat library/ai_lib library/armor library/buff library/callable library/colors library/corpse library/group library/hue library/incubator library/instance library/pet_lib library/prose library/storyteller library/utils library/xp
+PROTOTYPES: 

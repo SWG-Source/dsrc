@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/create library/gcw library/locations library/utils systems/gcw/flip_banner
+PROTOTYPES: OnDestroy#obj_id OnInitialize#obj_id OnUnloadedFromMemory#obj_id

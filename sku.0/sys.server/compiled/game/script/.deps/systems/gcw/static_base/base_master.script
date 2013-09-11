@@ -1,0 +1,2 @@
+DEPENDENCIES: library/create library/utils
+PROTOTYPES: OnAttach#obj_id OnInitialize#obj_id handleBaseInitializationRetry#obj_id#dictionary handleControlUpdate#obj_id#dictionary handleTerminalSetup#obj_id#dictionary handleTerminalSpawnRequest#obj_id#dictionary handleTerminalValidation#obj_id#dictionary handleTerminalValidationResponse#obj_id#dictionary

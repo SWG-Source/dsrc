@@ -1,0 +1,2 @@
+DEPENDENCIES: library/groundquests library/utils
+PROTOTYPES: OnAttach#obj_id OnDeath#obj_id#obj_id#obj_id OnIncapacitateTarget#obj_id#obj_id OnMovePathComplete#obj_id checkValidityOfOwner#obj_id#dictionary cleanUpEnemy#obj_id#dictionary

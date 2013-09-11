@@ -1,0 +1,2 @@
+DEPENDENCIES: 
+PROTOTYPES: OnAttach#obj_id OnInitialize#obj_id selfDestruct#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/beast_lib library/buff library/city library/colors library/combat library/dot library/factions library/group library/locations library/loot library/luck library/money library/pet_lib library/prose library/static_item library/sui library/utils library/vehicle library/weapons library/xp
+PROTOTYPES: 

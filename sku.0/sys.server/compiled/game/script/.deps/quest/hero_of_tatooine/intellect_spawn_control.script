@@ -1,0 +1,2 @@
+DEPENDENCIES: library/utils
+PROTOTYPES: OnAttach#obj_id OnHearSpeech#obj_id#obj_id#String OnInitialize#obj_id handleAllValidationCheck#obj_id#dictionary handleCompletion#obj_id#dictionary handleForcedValidation#obj_id#dictionary handleLocationResponse#obj_id#dictionary handleSingleValidationCheck#obj_id#dictionary handleSpawnValidation#obj_id#dictionary handleValidation#obj_id#dictionary

@@ -1,0 +1,2 @@
+DEPENDENCIES: library/attrib library/ship_ai library/space_combat library/space_utils library/utils transform vector
+PROTOTYPES: OnArrivedAtLocation#obj_id#String OnAttach#obj_id OnInitialize#obj_id OnShipBehaviorChanged#obj_id#int#int OnShipIsHitting#obj_id#obj_id#int#int OnShipWasHit#obj_id#obj_id#int#boolean#int#int#boolean#float#float#float OnSpaceUnitDocked#obj_id#obj_id handleUnitIncreaseHate#obj_id#dictionary

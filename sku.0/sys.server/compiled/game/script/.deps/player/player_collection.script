@@ -1,0 +1,2 @@
+DEPENDENCIES: library/badge library/collection library/prose library/utils
+PROTOTYPES: OnCollectionServerFirst#obj_id#String#String#String OnCollectionSlotModified#obj_id#String#String#String#String#boolean#int#int#int#boolean

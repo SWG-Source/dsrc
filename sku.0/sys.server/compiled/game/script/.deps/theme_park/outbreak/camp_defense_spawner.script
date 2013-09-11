@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/attrib library/create library/groundquests library/stealth library/utils
+PROTOTYPES: OnInitialize#obj_id findPathNodes#obj_id#dictionary spawnDynamicEnemy#obj_id#dictionary startSpawning#obj_id#dictionary

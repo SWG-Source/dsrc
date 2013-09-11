@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/attrib library/chat library/collection library/conversation library/create library/groundquests library/spawning library/utils
+PROTOTYPES: OnAttach#obj_id OnIncapacitated#obj_id#obj_id OnInitialize#obj_id OnMovePathComplete#obj_id OnNpcConversationResponse#obj_id#String#obj_id#string_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnStartNpcConversation#obj_id#obj_id checkOwnerValidity#obj_id#dictionary cleanUpCampNpcAndParent#obj_id#dictionary cleanUpWhileConversing#obj_id#dictionary spawnEnemies#obj_id#dictionary

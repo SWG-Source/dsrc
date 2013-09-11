@@ -1,0 +1,2 @@
+DEPENDENCIES: library/money library/prose library/ship_ai library/space_create library/space_quest library/space_transition library/space_utils library/utils space/quest_logic/recovery
+PROTOTYPES: OnAttach#obj_id assassinateSuccess#obj_id#dictionary handleShipDestroyed#obj_id#dictionary targetEscaped#obj_id#dictionary warpInTarget#obj_id#dictionary warpoutFailure#obj_id#dictionary

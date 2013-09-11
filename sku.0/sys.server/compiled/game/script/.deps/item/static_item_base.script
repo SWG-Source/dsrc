@@ -1,0 +1,2 @@
+DEPENDENCIES: library/armor library/beast_lib library/buff library/proc library/static_item library/utils
+PROTOTYPES: OnAboutToBeTransferred#obj_id#obj_id#obj_id OnDestroy#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[] OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int OnTransferred#obj_id#obj_id#obj_id#obj_id handleStaticReEquipItem#obj_id#dictionary handlerVersionUpdate#obj_id#dictionary

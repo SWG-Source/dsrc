@@ -1,0 +1,2 @@
+DEPENDENCIES: library/collection library/create library/prose library/static_item library/sui library/utils
+PROTOTYPES: OnGetAttributes#obj_id#obj_id#String[]#String[] OnLostItem#obj_id#obj_id#obj_id#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int OnReceivedItem#obj_id#obj_id#obj_id#obj_id repairFryer#obj_id#dictionary

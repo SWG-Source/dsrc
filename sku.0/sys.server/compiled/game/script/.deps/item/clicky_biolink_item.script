@@ -1,0 +1,2 @@
+DEPENDENCIES: library/combat library/sui library/utils
+PROTOTYPES: OnAboutToBeTransferred#obj_id#obj_id#obj_id OnAttach#obj_id OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int handleEquipBioLinkSui#obj_id#dictionary

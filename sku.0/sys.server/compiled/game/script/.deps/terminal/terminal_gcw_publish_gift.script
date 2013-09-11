@@ -1,0 +1,2 @@
+DEPENDENCIES: library/gcw library/player_structure library/prose library/sui library/trial library/utils terminal/base/base_terminal
+PROTOTYPES: OnClusterWideDataResponse#obj_id#String#String#int#String[]#dictionary[]#int OnObjectMenuRequest#obj_id#obj_id#menu_info OnObjectMenuSelect#obj_id#obj_id#int closeSui#obj_id#dictionary refreshSuiGcwData#obj_id#dictionary

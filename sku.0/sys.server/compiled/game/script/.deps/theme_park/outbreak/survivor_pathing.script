@@ -1,0 +1,2 @@
+DEPENDENCIES: library/ai_lib library/attrib library/create library/groundquests library/stealth library/utils
+PROTOTYPES: OnDestroy#obj_id OnIncapacitated#obj_id#obj_id OnMoveMoving#obj_id OnMovePathComplete#obj_id checkOwnerValidity#obj_id#dictionary cleanUpNpcTimer#obj_id#dictionary creditPlayerRescue#obj_id#dictionary startSurvivorPathing#obj_id#dictionary

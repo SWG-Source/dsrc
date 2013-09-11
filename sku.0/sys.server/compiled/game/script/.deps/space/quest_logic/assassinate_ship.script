@@ -1,0 +1,2 @@
+DEPENDENCIES: library/prose library/space_quest library/space_utils library/utils
+PROTOTYPES: OnAttach#obj_id missionAbort#obj_id#dictionary objectDestroyed#obj_id#dictionary warpOut#obj_id#dictionary

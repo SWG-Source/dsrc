@@ -1,0 +1,2 @@
+DEPENDENCIES: ai/ai ai/ai_combat library/ai_lib library/create
+PROTOTYPES: OnHearSpeech#obj_id#obj_id#String OnInitialize#obj_id makeDogSit#obj_id#dictionary spawnElevatorHandler#obj_id#dictionary spawnGuards#obj_id#dictionary spawnParty#obj_id#dictionary spawnPirates#obj_id#dictionary
