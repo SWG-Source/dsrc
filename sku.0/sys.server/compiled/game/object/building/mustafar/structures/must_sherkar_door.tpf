@@ -14,10 +14,10 @@
 
 @base object/tangible/base/tangible_base.iff
 
-updateRanges[UR_far] = 512
-
 @class tangible_object_template 2
 @class object_template 5
+
+updateRanges[UR_far] = 512
 
 sharedTemplate = "object/building/mustafar/structures/shared_must_sherkar_door.iff"
 
