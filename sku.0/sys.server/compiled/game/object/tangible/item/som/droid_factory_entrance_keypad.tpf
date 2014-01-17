@@ -9,6 +9,6 @@
 
 sharedTemplate = "object/tangible/item/som/shared_droid_factory_entrance_keypad.iff"
 
-objvar = +["passcode" = "37323"]
+objvars = +["passcode" = "37323"]
 
 scripts = +[ "quest.som.droid_factory_entrance_keypad" ]
