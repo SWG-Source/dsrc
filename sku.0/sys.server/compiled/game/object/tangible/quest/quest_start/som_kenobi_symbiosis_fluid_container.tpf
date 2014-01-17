@@ -6,6 +6,6 @@
 
 sharedTemplate = "object/tangible/quest/quest_start/shared_som_kenobi_symbiosis_fluid_container.iff"
 
-scripts =+ [ "quest.task.ground.util.quest_giver_object", "quest.task.ground.retrieve_item_on_item"]
+scripts =+ [ "quest.task.ground.util.quest_giver_object", "quest.task.ground.retrieve_item_on_item","quest.task.ground.retrieve_item_on_item"]
 
-objvars =+ ["questGiver.questName"="som_kenobi_symbiosis_1", "questGiver.noDelete"="1", "quest.task.ground.retrieve_item_on_item"]
+objvars =+ ["questGiver.questName"="som_kenobi_symbiosis_1", "questGiver.noDelete"="1"]
