@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9015682	0	object/static/structure/general/atat_destroyed.iff	0	1790.8	-2.8287	232.882	1	0	0	0		$|
+9015683	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.37	-3.86159	244.365	1	0	0	0		$|
+9015684	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1791.32	-1.58263	238.76	1	0	0	0		$|
+9015685	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.29	-0.148682	232.168	0.610472	0.37202	0.62521	-0.31311		$|
+9015686	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.25	0.969353	233.066	0.978351	0.0824291	0.060618	0.179888		$|
+9015687	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1791.74	0.291054	232.887	0.644235	0.0643643	-0.249818	0.720007		$|
+9015688	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1789.73	0.595888	230.079	0.0802431	-0.0672985	0.706165	-0.70026		$|
