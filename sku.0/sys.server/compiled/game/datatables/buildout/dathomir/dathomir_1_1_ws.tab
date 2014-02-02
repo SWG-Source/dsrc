@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725408	0	object/tangible/camp/camp_tent_s1.iff	0	1726.35	546.353	1467.05	0.967663	0	0.252245	0		$|
+9725409	0	object/tangible/camp/camp_tent_s1.iff	0	1720.6	545.973	1467.6	0.777573	0	0.628793	0		$|
+9725410	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1729.09	546.236	1467.49	-0.675934	-0.220253	0.668676	-0.217888		$|
+9725411	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1722.31	546.152	1466.05	0.91655	-0.258603	-0.293596	-0.0828378		$|
+9725426	0	object/static/structure/general/skeleton_human_body.iff	0	1732.31	546.678	1466.73	0.989662	0.134518	-0.00284616	-0.049668		$|
+9725427	0	object/static/structure/general/skeleton_human_body.iff	0	1715.46	544.721	1464.34	1	0	0	0		$|
+9725431	0	object/tangible/camp/camp_stool_tall.iff	0	1733.39	546.089	1469.32	1	0	0	0		$|
+9725432	0	object/tangible/camp/camp_stool_tall.iff	0	1730.76	546.134	1471.31	0.781551	0.589223	-0.162892	-0.12434		$|
+9725434	0	object/static/item/item_slave_brazier.iff	0	1730.84	545.962	1469.98	1	0	0	0		$|
+9725437	0	object/static/structure/general/banner_imperial_style_01.iff	0	1726.41	546.63	1472.53	-0.536456	0.633353	-0.461099	-0.313794		$|
