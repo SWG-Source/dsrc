@@ -58,7 +58,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1419151	0	object/static/structure/naboo/wallend_a1_naboo_theed_style_1.iff	0	1059.89	344.127	559.276	0.950796	0	-0.309817	0		$|
 1419152	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	1076.78	344.155	570.816	0.955337	0	-0.29552	0		$|
 1419153	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	1076.94	347.036	570.768	0.29476	0	0.955572	0		$|
-1419154	0	object/building/naboo/shuttleport_naboo.iff	0	1255.94	327.028	471.219	0.999996	0	0.00269702	0		$|
+1419154	0	object/building/naboo/shuttleport_naboo.iff	0	1255.94	327.028	471.219	0.999996	0	0.00269702	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Dee' Ja Peak Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
 1422846	0	object/static/structure/naboo/seawall_stair_naboo_theed_style_1.iff	0	956.358	346.76	511.013	0.865326	0	0.501209	0		$|
 1422847	0	object/static/structure/naboo/seawall_stair_naboo_theed_style_1.iff	0	947.96	350.489	506.228	0.867822	0	0.496875	0		$|
 1422848	0	object/static/structure/naboo/seawall_stair_naboo_theed_style_1.iff	0	940.099	354.19	501.594	0.867821	0	0.496877	0		$|

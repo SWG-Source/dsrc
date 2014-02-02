@@ -37,7 +37,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1689090	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	545.378	-164.58	2038.24	1	0	0	0		$|
 1689092	0	object/static/structure/naboo/arbor_short_s01.iff	0	565.274	-150.359	2038.26	0.707107	0	0.707107	0		$|
 1689094	0	object/static/structure/naboo/arbor_short_s01.iff	0	559.278	-150.359	2038.26	-0.707107	0	0.707107	0		$|
-1689098	0	object/building/naboo/shuttleport_naboo.iff	0	669.578	-150	2026.16	1	0	0	0		$|
+1689098	0	object/building/naboo/shuttleport_naboo.iff	0	669.578	-150	2026.16	1	0	0	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Lake Retreat Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
 1691849	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	555.188	-150.5	2008.13	0.70711	0	0.707103	0		$|
 1691850	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	564.188	-150.5	1999.13	0.70711	0	0.707103	0		$|
 1691851	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	555.188	-150.592	2020.13	0.707111	0	0.707103	0		$|

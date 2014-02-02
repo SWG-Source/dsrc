@@ -214,7 +214,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1741516	1741512	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 1741517	1741512	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
 1741518	1741512	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-1741535	0	object/building/naboo/starport_naboo.iff	0	1199.29	-192	520.328	0.761613	0	-0.648033	0		portalLayoutCrc|0|-2066056688|$|
+1741535	0	object/building/naboo/starport_naboo.iff	0	1199.29	-192	520.328	0.761613	0	-0.648033	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Kaadara Starport|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-2066056688|$|
 1741536	1741535	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 1741537	1741535	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 1741538	1741535	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
@@ -233,7 +233,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1741551	1741535	object/cell/cell.iff	16	0	0	0	0	0	0	0		$|
 1741551	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	1126.62	-192	555.717	-0.00579701	0	0.999983	0		$|
 1741552	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	1118.53	-192	509.927	-0.00579701	0	0.999983	0		$|
-1741553	0	object/building/naboo/shuttleport_naboo.iff	0	1041.24	-192	457.604	0.920007	0	0.391903	0		$|
+1741553	0	object/building/naboo/shuttleport_naboo.iff	0	1041.24	-192	457.604	0.920007	0	0.391903	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Kaadara Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 1741554	0	object/building/naboo/parking_garage_naboo_style_1.iff	0	1013.11	-192	429.889	0.368784	0	0.929516	0		$|
 1744377	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	893.909	-200.29	689.953	0.822276	0	0.569089	0		$|
 1744378	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	889.681	-207.166	701.184	0.822276	0	0.569089	0		$|

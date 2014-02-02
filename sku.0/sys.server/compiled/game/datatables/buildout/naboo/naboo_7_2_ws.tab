@@ -134,7 +134,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1717562	1717558	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 1717563	1717558	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
 1717564	1717558	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-1717565	0	object/building/naboo/shuttleport_naboo.iff	0	885.941	3.75	1251.3	1	0	0	0		$|
+1717565	0	object/building/naboo/shuttleport_naboo.iff	0	885.941	3.75	1251.3	1	0	0	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Moenia Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
 1717676	0	object/static/structure/naboo/street_bridge_s02.iff	0	738.375	-3.38867	1202.36	0.950785	0.00130954	-0.309813	-0.00482544		$|
 1717677	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	745.649	-3.38858	1207.66	0.950785	0.00130954	-0.309813	-0.00482544		$|
 1717678	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	731.104	-3.38877	1197.06	0.950785	0.00130954	-0.309813	-0.00482544		$|
@@ -366,7 +366,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4015383	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	882.103	2.11126	1234.32	-2.63027e-007	0	1	0		$|
 4015384	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	881.543	3.75	1234.44	1	0	0	0		$|
 4015385	0	object/static/structure/naboo/nboo_imprv_lattice_wall_short_s01.iff	0	888.715	3.75	1177.09	0.707107	0	-0.707106	0		$|
-4215406	0	object/building/naboo/starport_naboo.iff	0	631.584	4.17	1494.34	0.466913	0	0.884303	0		portalLayoutCrc|0|-2066056688|$|
+4215406	0	object/building/naboo/starport_naboo.iff	0	631.584	4.17	1494.34	0.466913	0	0.884303	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Moenia Starport|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-2066056688|$|
 4215407	4215406	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 4215408	4215406	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 4215409	4215406	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
