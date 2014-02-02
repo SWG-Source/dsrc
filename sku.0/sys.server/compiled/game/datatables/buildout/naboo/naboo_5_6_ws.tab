@@ -77,7 +77,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1396886	1396879	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
 1401846	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	1781.85	9.75188	745.924	1	0	0	0		$|
 1401847	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	1795.24	9.36509	746.13	1	0	0	0		$|
-1401881	0	object/building/naboo/shuttleport_naboo.iff	0	2041	19	477.679	1	0	0	0		$|
+1401881	0	object/building/naboo/shuttleport_naboo.iff	0	2041	19	477.679	1	0	0	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Keren Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 1408890	0	object/static/structure/naboo/seawall_intersect_naboo_theed_style_1.iff	0	1800.23	6.50879	746.019	0.70712	0	-0.707093	0		$|
 1408893	0	object/static/structure/naboo/seawall_intersect_naboo_theed_style_1.iff	0	1777.8	6.51317	746.837	0.707121	0	-0.707092	0		$|
 1418967	0	object/building/naboo/housing_naboo_style_3.iff	0	1977.39	12	373.014	-0.64546	0	0.763794	0		portalLayoutCrc|0|-178734691|$|
@@ -769,7 +769,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1692456	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	1584.57	25.3092	786.094	0.999542	0	-0.0302701	0		$|
 1692457	0	object/static/structure/naboo/bridge_stairs_s01.iff	0	1581.28	25.1302	785.872	0.999538	0	-0.0303937	0		$|
 1692458	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	1595.55	32.6271	786.762	0.999539	0	-0.030376	0		$|
-1692459	0	object/building/naboo/shuttleport_naboo.iff	0	1567.94	25	809.873	0.71442	0	-0.699717	0		$|
+1692459	0	object/building/naboo/shuttleport_naboo.iff	0	1567.94	25	809.873	0.71442	0	-0.699717	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Keren Shuttleport B|travel.shuttle_available|0|1|travel.version|0|3|$|
 1692465	0	object/tangible/furniture/modern/table_modern_style_01.iff	0	1671.27	40	910.972	1	0	0	0		$|
 1692466	0	object/tangible/furniture/modern/table_modern_style_01.iff	0	1674.29	40	899.353	0.958244	0	0.285952	0		$|
 1692467	0	object/tangible/furniture/elegant/chair_s01.iff	0	1669.57	40	909.892	0.838325	0	0.545171	0		$|
@@ -817,7 +817,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1726377	0	object/tangible/terminal/terminal_mission.iff	0	1872.05	12	552.425	1	0	0	0		$|
 1726378	0	object/tangible/terminal/terminal_mission.iff	0	1872.02	12	579.652	-3.20013e-008	0	1	0		$|
 2116321	0	object/static/structure/naboo/nboo_imprv_pristine_wall_sml_s03.iff	0	2010.3	15.3407	493.485	0.909385	0.074473	0.260831	0.31534		$|
-2125378	0	object/building/naboo/starport_naboo.iff	0	1352.27	13	720.319	0.717911	0	0.696135	0		portalLayoutCrc|0|-2066056688|$|
+2125378	0	object/building/naboo/starport_naboo.iff	0	1352.27	13	720.319	0.717911	0	0.696135	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Keren Starport|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-2066056688|$|
 2125379	2125378	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 2125380	2125378	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 2125381	2125378	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|

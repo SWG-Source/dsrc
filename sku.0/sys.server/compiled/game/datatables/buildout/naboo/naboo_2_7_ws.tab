@@ -171,8 +171,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1340358	0	object/static/item/item_ryyk_blade.iff	0	766.205	6.45685	233.893	-0.228088	0.683734	-0.650374	0.239787		$|
 1340359	0	object/static/item/item_ryyk_blade.iff	0	763.601	7.98108	233.718	0.27262	0.65244	-0.27262	0.65244		$|
 1340360	0	object/static/item/item_ryyk_blade.iff	0	763.044	8.01682	233.71	-0.222967	-0.671034	-0.222967	0.671034		$|
-1340362	0	object/building/naboo/shuttleport_naboo.iff	0	267.895	6	76.1606	3.20013e-008	0	1	0		$|
-1340373	0	object/building/naboo/shuttleport_naboo.iff	0	732.983	6	206.332	0.707107	0	0.707106	0		$|
+1340362	0	object/building/naboo/shuttleport_naboo.iff	0	267.895	6	76.1606	3.20013e-008	0	1	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Theed Shuttleport B|travel.shuttle_available|0|1|travel.version|0|3|$|
+1340373	0	object/building/naboo/shuttleport_naboo.iff	0	732.983	6	206.332	0.707107	0	0.707106	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Theed Shuttleport C|travel.shuttle_available|0|1|travel.version|0|3|$|
 1340399	0	object/static/item/item_container_inorganic_minerals.iff	0	1017.74	6	147.498	0.663731	0	0.747971	0		$|
 1340400	0	object/static/item/item_container_energy_gas.iff	0	1012.3	6	142.621	0.777573	0	0.628793	0		$|
 1340401	0	object/static/item/item_container_energy_liquid.iff	0	1013.27	6	143.116	0.833712	0	0.552199	0		$|

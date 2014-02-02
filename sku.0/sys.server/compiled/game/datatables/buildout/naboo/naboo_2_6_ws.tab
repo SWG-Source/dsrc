@@ -60,7 +60,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1697354	1697350	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 1697355	1697350	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
 1697356	1697350	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-1697357	0	object/building/naboo/shuttleport_naboo.iff	0	1154.39	6	2042.93	0.907837	0	-0.419322	0		$|
+1697357	0	object/building/naboo/shuttleport_naboo.iff	0	1154.39	6	2042.93	0.907837	0	-0.419322	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Theed Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 1714352	0	object/static/structure/naboo/bridge_stairs_s01.iff	0	886.249	6	1625.84	0.924909	0	-0.380188	0		$|
 1714353	0	object/static/structure/naboo/bridge_stairs_s01.iff	0	984.711	6	1723.24	0.380188	0	0.924909	0		$|
 1714354	0	object/static/structure/naboo/enclosed_walkway_s02.iff	0	976.179	6	1714.8	0.924909	0	-0.380188	0		$|
