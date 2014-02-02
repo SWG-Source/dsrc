@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1622455	0	object/static/vehicle/player_shuttle.iff	0	1522.49	28.839	1832.45	1	0	0	0		$|
+7146338	0	object/static/structure/general/allum_mine_car_s01.iff	0	1517.84	28.9148	1842.75	0.82136	-0.0185667	-0.567577	0.0536633		$|
+8495471	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1986.19	179.583	277.908	1	0	0	0		$|
+8495472	0	object/static/structure/dantooine/dant_skull_lizard.iff	0	1986.11	182.456	278.331	0.992198	0.124675	0	0		$|
+8495473	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1986.08	177.222	278.651	1	0	0	0		$|
+8495474	0	object/static/structure/general/debris_deathstar_turbolaser.iff	0	1848.34	78.9676	998.279	0.216426	-0.0894719	0.964485	0.122158		$|
+8495478	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1775.91	48.4326	1863.88	1	0	0	0		$|
