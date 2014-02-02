@@ -467,7 +467,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6711095	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1047.44	75	1547.02	0.707389	0	0.706825	0		$|
 6711098	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1069.83	75	1550.33	0.774419	0	0.632673	0		$|
 6711099	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1058.85	75	1548.09	-0.60582	0	0.795602	0		$|
-6711122	0	object/building/tatooine/shuttleport_tatooine.iff	0	1054.89	74.983	1598.26	-0.682221	0	0.731146	0		$|
+6711122	0	object/building/tatooine/shuttleport_tatooine.iff	0	1054.89	74.983	1598.26	-0.682221	0	0.731146	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Wayfar Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
 7875536	0	object/tangible/camp/camp_spit.iff	0	1092.37	75	1563.9	0.714421	0	-0.699716	0		$|
 7875537	0	object/tangible/camp/camp_spit.iff	0	1092.33	75	1563.57	0.808028	0	-0.589145	0		$|
 7875539	0	object/static/item/item_crate_spice.iff	0	1096.23	75	1587	0.50622	0	0.862404	0		$|
