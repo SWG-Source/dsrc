@@ -391,7 +391,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1261430	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1293.34	5	292.167	0.999918	0	0.0127715	0		$|
 1261433	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1292.6	5	296.502	-0.693686	0	0.720279	0		$|
 1261434	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1291.23	5	266.727	0.847676	0	-0.530514	0		$|
-1261651	0	object/building/tatooine/starport_tatooine.iff	0	1267.22	5	31.6096	0.877581	0	-0.479429	0		portalLayoutCrc|0|-2053670302|$|
+1261651	0	object/building/tatooine/starport_tatooine.iff	0	1267.22	5	31.6096	0.877581	0	-0.479429	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Espa Starport|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-2053670302|$|
 1261652	1261651	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 1261653	1261651	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 1261654	1261651	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|

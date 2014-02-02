@@ -80,7 +80,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 926481	926472	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
 926482	926472	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
 926483	926472	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
-1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0		portalLayoutCrc|0|-2053670302|$|
+1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Bestine Starport|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-2053670302|$|
 1026825	1026824	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 1026826	1026824	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 1026827	1026824	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
@@ -1209,7 +1209,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6076108	0	object/tangible/terminal/terminal_mission_scout.iff	0	757.885	12	521.79	0.652438	0	0.757843	0		$|
 6076110	0	object/tangible/terminal/terminal_mission_artisan.iff	0	753.997	12	499.312	0.64864	0	0.761095	0		$|
 6076112	0	object/tangible/terminal/terminal_mission.iff	0	752.37	12	490.847	0.656219	0	0.754571	0		$|
-6595463	0	object/building/tatooine/shuttleport_tatooine.iff	0	969.396	12	530.27	0.998488	0	0.0549775	0		$|
+6595463	0	object/building/tatooine/shuttleport_tatooine.iff	0	969.396	12	530.27	0.998488	0	0.0549775	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Bestine Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
 6714210	0	object/static/structure/tatooine/wall_gate_tatooine_wide_style_01.iff	0	738.661	12.0252	395.766	0.717911	0	0.696135	0		$|
 7265850	0	object/building/tatooine/salon_tatooine.iff	0	606.2	12.2702	396.435	-0.364131	0	0.931348	0		portalLayoutCrc|0|1684078020|$|
 8216221	0	object/static/structure/general/banner_imperial_style_01.iff	0	918.451	12	435.475	0.914025	0	-0.405658	0		$|

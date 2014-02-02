@@ -1001,7 +1001,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1227955	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1497.48	7	1104.76	0.0557673	0	0.998444	0		$|
 1227956	0	object/static/structure/tatooine/jawa/tent_jawa_01_med.iff	0	1497.04	7	1100.92	0.999987	0	0.00500072	0		$|
 1227957	0	object/tangible/furniture/tatooine/frn_tato_fruit_stand_small_style_01.iff	0	1493.91	7	1089.8	0.793048	0	0.609159	0		$|
-1227958	0	object/building/tatooine/shuttleport_tatooine.iff	0	1730.88	7	1156.61	0.707107	0	-0.707106	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.point_name|4|Mos Somewhere Shuttleport A|travel.is_shuttleport|0|1|travel.shuttle_available|0|1|travel.shuttle_timestamp|0|1908540|travel.version|0|3|$|
+1227958	0	object/building/tatooine/shuttleport_tatooine.iff	0	1730.88	7	1156.61	0.707107	0	-0.707106	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Entha Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 1227981	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1758.14	7	1140.32	-0.644826	0	0.764329	0		$|
 1227983	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1766.03	7	1141.67	-0.644826	0	0.764329	0		$|
 1227987	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1773.91	7	1143.02	-0.644826	0	0.764329	0		$|
@@ -1043,7 +1043,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1232860	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1361.99	7	1003.74	-0.702995	0	0.711196	0		$|
 1232862	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	1366.65	9.18228	1007.9	1	0	0	0		$|
 1232906	0	object/static/installation/mockup_mining_liquid_moisture_harvester.iff	0	1281.21	7	1133.03	1	0	0	0		$|
-1232910	0	object/building/tatooine/shuttleport_tatooine.iff	0	1395.66	7	1439.01	0.71092	0	-0.703273	0		$|
+1232910	0	object/building/tatooine/shuttleport_tatooine.iff	0	1395.66	7	1439.01	0.71092	0	-0.703273	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Entha Shuttleport B|travel.shuttle_available|0|1|travel.version|0|3|$|
 1232911	0	object/building/tatooine/parking_garage_tatooine_style_1.iff	0	1456.73	7	1423.41	0.00460219	0	0.99999	0		$|
 1232912	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1421.89	7	1449.88	0.700284	0	0.713864	0		$|
 1232913	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1434.39	6.28023	1449.64	0.700284	0	0.713864	0		$|
@@ -1643,7 +1643,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3945423	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.54	7	1163.3	3.27029e-007	0	1	0		$|
 3945425	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.47	7	1146.8	0	0	1	0		$|
 3945426	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1757.02	4.72152	1143.76	0.96639	0	-0.257081	0		$|
-4005516	0	object/building/tatooine/starport_tatooine.iff	0	1238.18	7	1013.85	0.953847	0	0.300293	0		portalLayoutCrc|0|-2053670302|$|
+4005516	0	object/building/tatooine/starport_tatooine.iff	0	1238.18	7	1013.85	0.953847	0	0.300293	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Entha Starport|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-2053670302|$|
 4005517	4005516	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 4005518	4005516	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 4005519	4005516	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
