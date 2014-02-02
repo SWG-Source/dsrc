@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9525698	0	object/static/structure/general/escape_pod.iff	0	943.384	11.3837	1440.9	0.997551	0	0	-0.0699428		$|
+9525699	0	object/static/structure/general/prp_junk_s1.iff	0	937.094	8.92721	1437	0.873326	0.0308553	0.0571577	-0.482786		$|
+9525700	0	object/static/structure/general/prp_junk_s1.iff	0	939.688	9.01512	1434.79	0.301175	-0.279252	0.896547	0.165878		$|
+9525701	0	object/static/structure/general/prp_junk_s1.iff	0	937.564	9.04559	1436.49	0.551485	0.0419274	0.826132	-0.107761		$|
+9525702	0	object/static/structure/general/prp_junk_s2.iff	0	935.561	10.8286	1442.59	1	0	0	0		$|
+9525704	0	object/static/structure/general/prp_junk_s3.iff	0	933.177	10.0865	1438.79	0.894994	-0.355079	-0.117009	0.243338		$|
+9525739	0	object/static/structure/general/prp_junk_s8.iff	0	935.816	10.7518	1435.62	1	0	0	0		$|
