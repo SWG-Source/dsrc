@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2735754	0	object/static/installation/mockup_mining_liquid_moisture_harvester.iff	0	2040.19	7.12448	1993.26	0.999275	-0.0149903	-0.000524873	0.0349889		$|
+2735755	0	object/static/installation/mockup_mining_liquid_moisture_harvester.iff	0	2040.71	7.20679	1990.19	0.999275	-0.01499	-0.000525	0.034989		$|
+2735759	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	2044.08	7.84439	1994.43	0.996878	-0.0448898	-0.00292195	0.0648885		$|
+2735762	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	2040.48	7.63794	1996.37	0.875174	0	-0.483807	0		$|
+2735763	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	2042.52	7.57488	1987.85	0.748499	0	0.663135	0		$|
+2735764	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	2045.8	7.74091	1991.81	1	0	0	0		$|
+2735765	0	object/tangible/camp/camp_tent_s3.iff	0	2047.42	8.43391	1986.63	0.971272	-0.0306753	0.227186	0.0638413		$|
+2735766	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	2043.64	7.62925	1989.87	0.995491	0	0	0.0948572		$|
+2735768	0	object/static/item/item_tool_power_output_analyzer.iff	0	2042.61	7.98862	1992.92	0.262123	-0.0626733	0.962846	-0.017062		$|
