@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9505649	0	object/static/flora/flora_decd_dath_azerontree.iff	0	1256.92	14.8582	1169.43	1	0	0	0		$|
+9505650	0	object/static/structure/general/rock_mossy_big.iff	0	1260.63	15.4481	1159.9	1	0	0	0		$|
+9505651	0	object/static/structure/general/rock_mossy_big_a1.iff	0	1260.34	14.554	1174.54	1	0	0	0		$|
+9505654	0	object/static/particle/pt_miasma_of_fog_red.iff	0	1256.79	14.7934	1169.2	1	0	0	0		$|
+9685732	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1649.95	14.6038	4.53125	0.707107	0.707107	0	0		$|
+9685735	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1663.91	17.3236	4.53271	0	0	0.707106	0.707108		$|
+9685736	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1649.84	13.0481	19.6177	0.264706	-0.131441	0.863773	-0.408105		$|
+9685737	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1663.92	15.8198	12.7485	0	0	0.707106	0.707108		$|
+9685738	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1656.94	14.5915	4.83594	-0.707107	0	0.707107	0		$|
+9685739	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1656.95	14.7282	13.0576	-0.707107	0	0.707107	0		$|
+9685740	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1656.94	14.6424	20.6885	-0.707107	0	0.707107	0		$|
