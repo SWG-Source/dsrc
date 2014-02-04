@@ -1,6 +1,6 @@
 // This file ws written by the template editor @ 10:03:00 AM -  Fri Sep 13 2002
 
-@base object/static/structure/base/static_structure_base.iff
+@base object/building/base/base_filler_building.iff
 
 @class static_object_template 0
 
