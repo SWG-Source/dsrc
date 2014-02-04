@@ -19,3 +19,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -752396484	0	object/static/structure/general/skeleton_ithorian_head.iff	0	728.358	8.86661	896.588	1	0	0	0		$|
 -1506051605	0	object/static/structure/general/skeleton_bith_head.iff	0	730.754	8.57925	896.051	0.808028	0	0	0.589144		$|
 -1075996958	0	object/tangible/collection/rebel_battle_leggings.iff	0	731.341	8.43958	894.65	0.632353	0.58655	-0.363432	0.352144	systems.collections.consume_click	collection.slotName|4|col_rebel_battle_armor:rebel_battle_leggings|$|
+-1368547008	0	object/tangible/wearables/armor/rebel_battle/armor_rebel_battle_helmet.iff	0	730.938	8.0113	894.566	0.514317	-0.0774145	0.656982	0.545765	npc.faction_recruiter.faction_item:npc.faction_recruiter.biolink_item:item.slicing.slicing_armor:item.armor.new_armor	biolink.id|6|1|faction_recruiter.faction|4|Rebel|$|
