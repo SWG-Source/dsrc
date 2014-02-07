@@ -1,0 +1,15 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+189316	0	object/static/particle/particle_test_31.iff	0	1181.44	32.6242	1883.35	1	0	0	0		$|
+189319	0	object/static/particle/particle_test_31.iff	0	1129.31	33.0777	1902.96	1	0	0	0		$|
+189322	0	object/static/particle/particle_test_31.iff	0	1112.95	38.7256	1832.44	1	0	0	0		$|
+189325	0	object/static/particle/particle_test_31.iff	0	1077.94	32.7654	1853.32	1	0	0	0		$|
+189331	0	object/static/particle/particle_test_31.iff	0	1062.84	28.874	1916.91	1	0	0	0		$|
+189334	0	object/static/particle/particle_test_31.iff	0	1052.81	32.0713	1917.47	1	0	0	0		$|
+189337	0	object/static/particle/particle_test_31.iff	0	1057.83	32.3967	1909.64	1	0	0	0		$|
+8675737	0	object/tangible/camp/camp_tent_s1.iff	0	864.708	31.249	1792.28	-0.21823	0	0.975897	0		$|
+8675739	0	object/tangible/camp/campfire_logs_burnt.iff	0	863.373	31.2045	1789.26	1	0	0	0		$|
+8675740	0	object/tangible/camp/camp_chair_s3.iff	0	862.046	31.0841	1791.37	3.20013e-008	0	1	0		$|
+8675742	0	object/tangible/camp/camp_lantern_s3.iff	0	865.19	31.3088	1790.01	1	0	0	0		$|
+9825752	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	740.019	394.869	467.51	1	0	0	0		$|
+9825753	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	739.467	394.792	458.181	1	0	0	0		$|

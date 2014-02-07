@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5996314	0	object/building/general/bunker_allum_mine.iff	0	1481.57	12.417	229.93	1	0	0	0		portalLayoutCrc|0|-1305292509|$|
+7255443	0	object/tangible/jedi/force_shrine_stone.iff	0	516.516	399.421	714.631	0.707107	0	0.707107	0		$|
+7255444	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	512.094	400.53	713.034	0.707114	0	0.707099	0		$|
+7255445	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	520.778	400.53	713.068	1	0	0	0		$|
+7255446	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	515.547	400.53	713.023	0	0	1	0		$|
+7255447	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	517.341	400.52	712.975	1	0	0	0		$|
+7255448	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	516.457	382.577	713.034	1	0	0	0		$|
+7255449	0	object/static/particle/pt_poi_electricity_2x2.iff	0	516.518	400.388	714.628	1	0	0	0		$|
+9705521	0	object/static/structure/dantooine/dant_totem_pole.iff	0	3.52979	514.62	2012.76	0.953742	0.0717842	-0.28981	0.0351195		$|
+9705523	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	4.74072	515.406	2010.75	1	0	0	0		$|

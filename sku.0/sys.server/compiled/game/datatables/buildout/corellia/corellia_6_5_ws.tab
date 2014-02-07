@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9825910	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	334.823	2.99003	642.132	1	0	0	0		$|
+9825911	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	340.717	2.95271	641.941	1	0	0	0		$|
+9825912	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	347.414	3.04683	641.987	1	0	0	0		$|
+9825913	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	353.097	3.02001	641.773	1	0	0	0		$|
+9825914	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	359.359	3.02935	641.708	1	0	0	0		$|
+9825915	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	365.681	3.01262	641.433	1	0	0	0		$|
+9825916	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	320.56	2.81194	642.183	1	0	0	0		$|
+9825917	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	328.847	2.91277	642.223	1	0	0	0		$|
+9825921	0	object/static/structure/corellia/corl_imprv_gate_sm_s01.iff	0	869.808	19	1602.84	1	0	0	0		$|
+9825923	0	object/static/structure/corellia/corl_imprv_gate_sm_s01.iff	0	877.77	19	1602.83	1	0	0	0		$|

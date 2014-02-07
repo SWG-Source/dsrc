@@ -1,0 +1,14 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5407162	0	object/building/general/rori_bat_cave.iff	0	848.8	99.5441	1263.75	0.382683	0	0.92388	0		portalLayoutCrc|0|2132267142|$|
+5407163	5407162	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+5407164	5407162	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+5407165	5407162	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+5407166	5407162	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+5407167	5407162	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+5407168	5407162	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+5407169	5407162	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
+5407170	5407162	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
+5407171	5407162	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
+5407172	5407162	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
+5407173	5407162	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|

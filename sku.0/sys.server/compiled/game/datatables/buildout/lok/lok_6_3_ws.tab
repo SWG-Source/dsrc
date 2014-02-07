@@ -1,0 +1,14 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7805642	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	666	9.68165	806	1	0	0	0		$|
+9095355	0	object/static/structure/tatooine/wall_pristine_tatooine_tall_style_01.iff	0	660.184	7.56064	793.976	0.707108	0	-0.707106	0		$|
+9095356	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	675.158	12.006	793.467	0.707107	0	0.707107	0		$|
+9095357	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	652.41	11.5809	797.998	0.707107	0	-0.707106	0		$|
+9095358	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	652.658	11.8259	804.516	1	0	0	0		$|
+9095359	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	682.982	12.0638	813.47	0.707105	0	0.707108	0		$|
+9095360	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	683.152	11.9424	797.493	1	0	0	0		$|
+9095361	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	660.306	12.0169	817.614	-0.707107	0	0.707107	0		$|
+9535367	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1256.27	33.9668	1703.17	0.92388	0	-0.382683	0		$|
+9535368	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1265.6	33.9676	1693.85	0.92388	0	-0.382683	0		$|
+9535371	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	1277.88	33.2971	1681.42	0.92388	0	-0.382683	0		$|
+9535372	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	1299.44	29.8144	1659.38	0.92388	0	0.382683	0		$|
