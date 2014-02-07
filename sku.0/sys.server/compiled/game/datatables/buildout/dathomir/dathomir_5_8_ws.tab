@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725922	0	object/static/structure/general/tato_cave_rock_med.iff	0	923.472	17.3334	710.243	1	0	0	0		$|
+9725923	0	object/static/structure/general/tato_cave_rock_large.iff	0	926.539	14.6144	712.874	1	0	0	0		$|
+9725924	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	929.675	12.2961	718.785	0.8499	0	-0.526943	0		$|
+9725925	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	921.953	15.9011	703.854	0.526943	0	0.849901	0		$|
+9725926	0	object/static/structure/general/tato_cave_rock_med.iff	0	929.625	15.8304	713.491	1	0	0	0		$|
+9725927	0	object/static/structure/general/tato_cave_rock_large.iff	0	927.216	19.7184	710.238	0.370855	0.610626	-0.363222	-0.598057		$|
+9725930	0	object/static/structure/general/tato_cave_rock_med.iff	0	924.044	23.4101	710.671	-0.290869	0.697902	0.531426	0.381988		$|
+9725933	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	933.267	14.6689	706.359	0.975897	0	0.21823	0		$|
+9725934	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	918.631	14.0554	714.802	0.972514	0	0.232843	0		$|

@@ -1,0 +1,10 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+33562	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1027	99.1744	133.997	1	0	0	0		$|
+33563	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1024.97	99.2685	136.013	1	0	0	0		$|
+33564	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1027.01	99.2487	138.004	1	0	0	0		$|
+33565	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1029.02	99.1827	135.989	1	0	0	0		$|
+4546294	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	1027	70.2715	134	1	0	0	0		$|
+4546295	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	1027	70.4043	138	1	0	0	0		$|
+4546296	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	1025	70.2927	136	1	0	0	0		$|
+4546297	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	1029	70.2452	136	1	0	0	0		$|

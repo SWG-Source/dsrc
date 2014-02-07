@@ -1,0 +1,31 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+164431	0	object/static/structure/general/skeleton_human_headandbody.iff	0	496.383	111.94	433.503	0.944287	0.0806452	-0.317039	-0.0361132		$|
+164432	0	object/static/structure/general/skeleton_bith_head.iff	0	508.667	113.012	419.074	0.886222	-0.0951169	0.449501	0.0592594		$|
+164433	0	object/static/structure/general/skeleton_bith_head.iff	0	500.984	123	373.551	0.910381	0	0.413771	0		$|
+164434	0	object/static/structure/general/skeleton_human_head.iff	0	498.117	123	374.272	-0.540302	0	0.841471	0		$|
+164435	0	object/static/structure/general/skeleton_human_head.iff	0	499.47	123	374.283	0.955336	0	-0.29552	0		$|
+164436	0	object/static/structure/general/skeleton_ithorian_head.iff	0	497.448	123	371.226	0.738469	0	0.674288	0		$|
+164437	0	object/static/structure/general/skeleton_human_body.iff	0	506.403	123	375.667	1	0	0	0		$|
+164438	0	object/static/structure/general/skeleton_bith_head.iff	0	505.347	123	374.312	0.90687	0	0.42141	0		$|
+164439	0	object/static/structure/general/skeleton_bith_head.iff	0	500.267	123	370.784	0.612487	0	0.79048	0		$|
+164440	0	object/tangible/container/loot/placable_loot_crate_trashpile.iff	0	506.702	123	373.065	1	0	0	0		$|
+8575574	0	object/building/general/nightsister_slave_mine_sd_cave.iff	0	479.894	109.46	458.997	-3.20013e-008	0	1	0		portalLayoutCrc|0|1170852262|$|
+8575575	8575574	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+8575576	8575574	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+8575577	8575574	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+8575578	8575574	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+8575579	8575574	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+8575580	8575574	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+8575581	8575574	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
+8575582	8575574	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
+8575583	8575574	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
+8575584	8575574	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
+8575585	8575574	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
+8715422	0	object/static/structure/dantooine/dant_fire_pit.iff	0	499.214	123	372.291	0.980067	0	0.198669	0		$|
+8715424	0	object/static/structure/general/campfire_fresh.iff	0	499.356	123.071	372.311	1	0	0	0		$|
+8715425	0	object/static/flora/flora_decd_dath_blacktree.iff	0	508.355	123	374.428	1	0	0	0		$|
+8715426	0	object/static/structure/dathomir/night_sister_banner_s02.iff	0	509.888	122.82	376.33	1	0	0	0		$|
+9725983	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1431.06	126.348	1653.07	1	0	0	0		$|
+9725984	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1449.8	127.065	1650.25	0.996802	0	0.0799147	0		$|
+9725985	0	object/tangible/camp/campfire_logs_burnt.iff	0	1441.65	128.494	1653.48	1	0	0	0		$|

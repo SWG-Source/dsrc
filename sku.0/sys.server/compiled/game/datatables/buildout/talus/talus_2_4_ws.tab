@@ -1,0 +1,26 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+4255435	0	object/building/general/talus_aqualish_cave.iff	0	1764.77	38.268	622.596	0.693111	0	0.720831	0		portalLayoutCrc|0|2132267142|$|
+4255436	4255435	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+4255437	4255435	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+4255438	4255435	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+4255439	4255435	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+4255440	4255435	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+4255441	4255435	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+4255442	4255435	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
+4255443	4255435	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
+4255444	4255435	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
+4255445	4255435	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
+4255446	4255435	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
+8535461	0	object/static/structure/general/tato_cave_rock_large.iff	0	268.389	15.1826	1870.66	0.777573	0	0	0.628793		$|
+8535462	0	object/static/structure/general/tato_cave_rock_large.iff	0	268.1	15.1901	1868.91	0.644695	-0.353193	-0.445808	0.510762		$|
+8535463	0	object/static/structure/general/tato_cave_rock_large.iff	0	269.715	15.1465	1869.67	1	0	0	0		$|
+8535464	0	object/static/structure/general/tato_cave_rock_large.iff	0	268.593	16.8072	1869.86	0.600477	0.137992	-0.10617	0.780457		$|
+8635361	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	1172.04	8.11882	1458.22	0.968959	-0.0166256	-0.23712	0.0679381		$|
+8635362	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	1170.08	8.13101	1454.61	-0.508294	-0.0241886	0.858665	0.0612129		$|
+8635363	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	1165.83	8.6385	1459.29	-0.679463	0.129335	0.720158	0.0545507		$|
+8635365	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1170.09	8.05984	1454.7	1	0	0	0		$|
+8635367	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1165.99	8.36686	1459.15	1	0	0	0		$|
+9505456	0	object/static/structure/corellia/corl_power_box_node.iff	0	116.999	66.2949	855.879	0.948479	-0.00449205	0.303824	0.0897662		$|
+9505457	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	116.075	66.6544	857.383	0.99875	0	0	0.0499792		$|
+9505458	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	115.309	66.4947	856.133	0.99875	0	0	0.0499792		$|

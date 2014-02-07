@@ -1,0 +1,30 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1775419	0	object/static/item/item_food_vegetable_s01.iff	0	1614.68	75.9708	710.8	1	0	0	0		$|
+1775420	0	object/static/item/item_food_vegetable_s02.iff	0	1610.73	75.9611	713.127	1	0	0	0		$|
+1775421	0	object/static/item/item_food_vegetable_s03.iff	0	1621.57	75.9342	709.121	1	0	0	0		$|
+1775422	0	object/static/item/item_food_vegetable_s02.iff	0	1621.56	75.9679	713.371	1	0	0	0		$|
+1775423	0	object/static/item/item_food_vegetable_s01.iff	0	1616.14	75.9773	709.328	1	0	0	0		$|
+5095968	0	object/building/general/rori_torton_cave.iff	0	187.909	92.6429	1592.43	0.810963	0	0.585097	0		portalLayoutCrc|0|-721915463|$|
+5095969	5095968	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+5095970	5095968	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+5095971	5095968	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+5095972	5095968	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+5095973	5095968	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+5095974	5095968	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+5095975	5095968	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
+5095976	5095968	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
+5095977	5095968	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
+5095978	5095968	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
+5095979	5095968	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
+9715893	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1620.03	75.9486	707.55	1	0	0	0		$|
+9715894	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1612.03	75.952	707.581	1	0	0	0		$|
+9715895	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1608.16	75.9597	711.672	0.707107	0	-0.707106	0		$|
+9715896	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1623.98	75.9581	711.72	0.707107	0	0.707106	0		$|
+9715897	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1620.1	75.9555	715.73	1	0	0	0		$|
+9715898	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1612.07	75.9651	715.708	1	0	0	0		$|
+9715899	0	object/tangible/camp/camp_tent_s1.iff	0	1608.28	75.9297	703.192	0.96639	0	0.257081	0		$|
+9715900	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1619.21	75.9595	703.655	1	0	0	0		$|
+9715901	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1620.34	76.2913	701.954	0.935897	0	0.352274	0		$|
+9715902	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1620.47	75.9722	702.137	0.935897	0	0.352274	0		$|
+9715903	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1620.16	75.9706	701.746	0.935897	0	0.352274	0		$|

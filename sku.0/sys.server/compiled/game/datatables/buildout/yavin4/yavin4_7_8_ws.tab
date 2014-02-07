@@ -1,0 +1,4 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995526	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	1616.19	41.3857	655.002	-0.351529	0	0.936177	0		$|
+8995527	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	1621.71	40.5417	666.033	-0.00420332	0	0.999991	0		$|
