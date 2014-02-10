@@ -1474,3 +1474,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9755380	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1157.76	5.57774	114.278	0.967049	0.146155	0.206119	-0.0311519		$|
 9755381	0	object/static/structure/general/droid_r2_powerdown.iff	0	1159.48	5	113.452	0.915116	0	0.40319	0		$|
 9755387	0	object/static/structure/general/droid_r4_powerdown.iff	0	1156.53	5.06975	115.976	0.973666	0	-0.227978	0		$|
+1254530	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	653.191	7.95269	69.3711	1	0	0	0		$|
+1254531	0	object/static/tatooine/rock_spire_lumpy_tatooine.iff	0	587.833	8.28135	149.573	1	0	0	0		$|
+1254532	0	object/static/tatooine/rock_spire_lumpy_tatooine_style_2.iff	0	672.242	9.25676	1.03711	1	0	0	0		$|
+1254533	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	665.41	9.51306	23.2007	1	0	0	0		$|
+4005422	0	object/building/tatooine/hospital_tatooine_style02.iff	0	951.521	5	57.7695	0.990901	0	-0.13459	0		portalLayoutCrc|0|-1095018649|$|
+6719497	0	object/static/structure/tatooine/palette_supply_01.iff	0	1075.52	5	1.44507	1	0	0	0		$|
+9755386	0	object/static/structure/general/droid_r5_leg.iff	0	1156.7	5	115.101	0.956802	0	-0.29074	0		$|
