@@ -197,3 +197,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8156045	0	object/static/flora/flora_flower_tato_funnel_med.iff	0	1817.16	23.9404	1129.36	1	0	0	0		$|
 8156046	0	object/static/flora/flora_flower_tato_funnel_med.iff	0	1815.25	23.4642	1125.05	1	0	0	0		$|
 8156047	0	object/static/flora/flora_flower_tato_funnel_med.iff	0	1816.1	23.4356	1124.68	1	0	0	0		$|
+1106784	0	object/static/structure/general/droid_r3_head.iff	0	824.552	40	1681.19	0.486133	0.714962	-0.500383	-0.046054		$|
+1106785	0	object/static/structure/general/droid_r2_torso.iff	0	824.556	40	1681.22	-0.283395	-0.304846	-0.636467	0.649358		$|
+1106786	0	object/static/structure/general/droid_r3_leg.iff	0	824.833	40	1680.52	1	0	0	0		$|

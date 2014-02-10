@@ -1257,3 +1257,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9515395	0	object/static/structure/general/data_terminal_free_s2.iff	0	774.123	12	492.383	0.953847	0	0.300293	0		$|
 9745408	0	object/tangible/terminal/terminal_mission_imperial.iff	0	979.837	12	499.097	-0.35012	0	0.936705	0		$|
 9745410	0	object/tangible/terminal/terminal_mission_imperial.iff	0	978.726	12	500.052	-0.35012	0	0.936705	0		$|
+1250339	0	object/static/structure/general/droid_r3_head.iff	0	934.474	12	387.194	1	0	0	0		$|
+1250340	0	object/static/structure/general/droid_r4_leg.iff	0	930.458	12	384.91	1	0	0	0		$|
+3455378	0	object/static/structure/general/droid_r5_head.iff	0	1022.75	10	533.756	0.999392	-0.00489905	0.00331686	0.0343579		$|
+4005381	0	object/building/tatooine/hospital_tatooine_style02.iff	0	730.353	12	606.375	0.462485	0	0.886627	0		portalLayoutCrc|0|-1095018649|$|
+9755355	0	object/static/structure/general/droid_r5_head.iff	0	735.788	11.3043	478.064	0.958244	-0.28594	0.00252087	8.82671e-005		$|
