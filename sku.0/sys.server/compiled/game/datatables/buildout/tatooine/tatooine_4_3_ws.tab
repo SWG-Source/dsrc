@@ -1,6 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 356	0	object/static/item/item_carbine_elite.iff	0	1029.13	10.905	566.167	0.600971	0.372605	0.372605	0.60097		$|
+1250266	0	object/static/item/item_container_weapon.iff	0	920.738	12	419.613	0.959662	0	0.281157	0		$|
 358	0	object/static/item/item_tool_radio.iff	0	1029.09	10.8854	566.453	-3.20013e-008	0	1	0		$|
 359	0	object/static/item/item_con_ration_kit_lg.iff	0	1032.75	10.88	565.951	-0.582622	0	0.812743	0		$|
 360	0	object/static/item/item_con_ration_kit_lg.iff	0	1033.06	10.88	565.682	-0.399064	0	0.916923	0		$|
