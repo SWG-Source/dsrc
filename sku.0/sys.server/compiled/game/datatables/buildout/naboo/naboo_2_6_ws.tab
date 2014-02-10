@@ -202,3 +202,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9525568	0	object/tangible/crafting/station/public_structure_station.iff	0	1199.85	6	1973.22	0.89791	0	-0.440178	0		$|
 9525569	0	object/static/structure/general/all_foodcart_s01.iff	0	1269.78	6	2018.78	0.941075	0	0.338197	0		$|
 9525585	0	object/static/structure/general/data_terminal_free_s1.iff	0	1263.28	6	2018.88	0.652437	0	0.757843	0		$|
+1340398	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_02.iff	0	1191.81	6	2001.39	-0.345807	0	0.938306	0		$|
+1697420	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	1550.1	6	2034.84	0.883413	0	-0.468596	0		portalLayoutCrc|0|-720052794|$|
+1697423	0	object/building/naboo/filler_building_naboo_theed_style_5.iff	0	1506.34	6	2005.24	0.956014	0	0.293321	0		$|
+1697424	0	object/building/naboo/filler_building_naboo_theed_style_10.iff	0	1466.7	6	1987.37	0.468594	0	0.883413	0		portalLayoutCrc|0|-1730390197|$|
+1697428	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	1505.86	6	1919.74	-0.293321	0	0.956014	0		portalLayoutCrc|0|82284087|$|
+1697430	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_02.iff	0	1484.96	6	1954.9	0.468594	0	0.883413	0		portalLayoutCrc|0|-63676040|$|
+1697433	0	object/building/naboo/filler_building_naboo_theed_style_3.iff	0	1528.62	6	1966.49	-0.293702	0	0.955897	0		$|
+1697434	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	1470.54	6	1885.45	0.468594	0	0.883414	0		portalLayoutCrc|0|-1321399123|$|
+1697437	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	1438.71	6	1936.48	0.468596	0	0.883412	0		portalLayoutCrc|0|-720052794|$|
+1697440	0	object/building/naboo/filler_building_naboo_theed_style_5.iff	0	1294.77	6	2023.7	0.419323	0	0.907837	0		$|
+1697444	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	1211.12	6	1951.79	0.940159	0	0.340735	0		portalLayoutCrc|0|-720052794|$|
+5125611	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	424.091	5.84693	1988.59	-0.0257879	0	0.999667	0		$|
