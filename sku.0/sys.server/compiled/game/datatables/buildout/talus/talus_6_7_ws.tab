@@ -123,3 +123,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9575359	0	object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	0	773.525	46.9938	1491.99	0.976663	-0.0142381	-0.203068	0.0684783		$|
 9575375	0	object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	0	753.114	44.038	1482.76	0.977506	-0.0139447	-0.193067	0.0837446		$|
 9575380	0	object/static/structure/general/streetlamp_small_style_01.iff	0	763.026	45.0846	1487.32	1	0	0	0		$|
+8455484	0	object/tangible/furniture/all/frn_all_lamp_table_s03.iff	0	2018.74	2.72733	1193.47	0.786917	0	-0.617059	0		$|
+8455493	0	object/static/item/item_container_weapon.iff	0	2019.04	2	1196.35	0.982936	0	-0.183946	0		$|

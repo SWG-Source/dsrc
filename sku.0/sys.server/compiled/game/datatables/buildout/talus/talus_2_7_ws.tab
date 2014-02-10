@@ -88,3 +88,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8715355	0	object/static/structure/general/escape_pod_door.iff	0	1161.22	42.7209	1656.85	0.336867	0.77618	-0.496618	0.193483		$|
 8715356	0	object/static/item/item_container_energy_liquid.iff	0	1159.1	42.1008	1654.54	0.481592	0.581142	-0.53365	-0.381525		$|
 8715357	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	1574.15	-1.72809	260.16	0.986406	7.49969e-005	-0.16425	0.00499942		$|
+7805399	0	object/static/corellia/rock_crystal_agrilat_arch_small.iff	0	922.349	40.5476	499.892	0.939373	0	-0.342898	0		$|
+7805472	0	object/static/corellia/rock_crystal_geyser_agrilat_small.iff	0	1549.41	37.2679	1611.92	0.952334	0	-0.305059	0		$|

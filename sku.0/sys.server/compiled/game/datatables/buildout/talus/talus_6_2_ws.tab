@@ -69,3 +69,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9815486	0	object/static/item/item_container_inorganic_chemicals.iff	0	108.759	122	528.259	1	0	0	0		$|
 9815487	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	110.576	122.854	528.897	1	0	0	0		$|
 9815492	0	object/static/structure/general/data_terminal_s4.iff	0	106.406	122.36	534.019	0.707107	0	-0.707106	0		$|
+9815475	0	object/static/item/item_container_weapon.iff	0	108.726	122.103	508.824	-0.693111	0	0.720831	0		$|
+9815476	0	object/static/item/item_container_weapon.iff	0	110.866	122	510.623	-0.0703401	0	0.997523	0		$|
