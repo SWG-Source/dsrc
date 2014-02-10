@@ -262,3 +262,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8905500	0	object/static/structure/naboo/nboo_imprv_pillar_lattice_s01.iff	0	601.289	-153.662	1936.6	0.636844	0	0.770992	0		$|
 8905501	0	object/static/structure/naboo/nboo_imprv_pillar_lattice_s01.iff	0	601.29	-157.66	1936.6	2.06258e-008	-0.636844	2.55083e-008	0.770992		$|
 9865371	0	object/static/structure/general/bench_generic_style_1.iff	0	631.773	-150	1985.22	-3.1298e-006	0	1	0		$|
+1689100	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	568.792	-150	2045.81	0.655919	0	0.754831	0		$|
+1689101	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	568.268	-150	1981.68	0.68193	0	0.731418	0		$|
+1689102	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	578.22	-150	1969.51	0.998988	0	0.0449845	0		$|
+1714730	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	677.966	-150	1997.35	0.70711	0	-0.707103	0		portalLayoutCrc|0|1659890742|$|
+1714732	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	677.968	-150	1976.28	-0.707107	0	0.707107	0		portalLayoutCrc|0|1659890742|$|
+9865370	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	620.676	-150.074	1976.02	0.707108	0	-0.707106	0		$|

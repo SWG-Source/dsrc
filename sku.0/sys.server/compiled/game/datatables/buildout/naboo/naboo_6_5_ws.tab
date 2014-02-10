@@ -105,3 +105,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9525664	0	object/tangible/camp/camp_tent_s1.iff	0	1572.15	107.798	544.021	0.922997	0	0.384808	0		$|
 9525670	0	object/tangible/camp/campfire_logs_burnt.iff	0	1573.09	107.497	546.572	1	0	0	0		$|
 9525679	0	object/tangible/camp/camp_stool_short.iff	0	1572.3	107.618	546.483	1	0	0	0		$|
+2075527	0	object/static/structure/general/droid_r5_torso.iff	0	845.356	94.0418	1132.35	-0.387744	0.00431083	0.894896	-0.2209		$|
+2075528	0	object/static/structure/general/droid_r5_head.iff	0	845.958	93.2196	1132.76	0.976976	-0.213347	0	0		$|
+2075529	0	object/static/structure/general/droid_r2_leg.iff	0	845.694	94.324	1130.82	-0.160702	0.152977	0.966715	0.127417		$|
+2075530	0	object/static/structure/general/droid_r2_head.iff	0	846.493	93.3561	1130.34	0.581622	-0.230316	0.753287	0.203049		$|
