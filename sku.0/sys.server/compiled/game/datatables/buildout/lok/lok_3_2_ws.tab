@@ -27,3 +27,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9685906	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1889.69	12.0345	1582.56	1.29585e-006	1.3113e-006	-0.707107	0.707107		$|
 9685907	0	object/static/structure/tatooine/beam_tatooine_overhead_style_02.iff	0	1894.78	9.39639	1582.69	-2e-006	0	1	0		$|
 9685908	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1898.87	11.9894	1583.57	0.707112	0	-0.707101	0		$|
+8655627	0	object/static/item/item_armor_bone_chestplate.iff	0	210.477	12.0148	1650.74	0.71442	-0.699717	0	0		$|
+8655628	0	object/static/item/item_armor_bone_helmet.iff	0	210.888	12.0055	1650.2	-0.704354	0.636473	-0.145399	-0.278652		$|
+8655629	0	object/static/item/item_armor_chitin_chestplate.iff	0	202.973	11.9251	1642.18	-0.455817	0.488001	0.570971	0.477575		$|
