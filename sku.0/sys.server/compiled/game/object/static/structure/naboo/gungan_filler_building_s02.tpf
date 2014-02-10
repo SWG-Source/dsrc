@@ -2,9 +2,13 @@
 
 @base object/building/base/base_filler_building.iff
 
-@class static_object_template 0
+@class building_object_template 1
 
-@class object_template 2
+@class tangible_object_template 2
+
+@class object_template 5
+
+invulnerable = true
 
 
 sharedTemplate = "object/static/structure/naboo/shared_gungan_filler_building_s02.iff"

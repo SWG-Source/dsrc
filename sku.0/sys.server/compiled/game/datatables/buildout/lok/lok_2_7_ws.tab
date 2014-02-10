@@ -12,3 +12,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8335411	0	object/static/structure/general/tie_bomber_debris_01.iff	0	39.4575	61.5145	1214.35	-0.616812	-0.120418	0.776227	-0.0501312		$|
 9025472	0	object/static/structure/general/skeleton_human_head.iff	0	1140.76	15.331	405.296	0.319106	0.118684	0.890126	0.302921		$|
 9025473	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1139.41	15.2809	404.606	0.999438	0.029992	0.014993	-0.00045		$|
+5685394	0	object/static/item/item_armor_chitin_chestplate.iff	0	1139.42	15.2992	406.179	0.724694	-0.68889	0.014511	-0.00627711		$|
+5685396	0	object/static/item/item_armor_composite_helmet.iff	0	1140.97	13.7959	405.167	0.990216	0.139543	0	0		$|
