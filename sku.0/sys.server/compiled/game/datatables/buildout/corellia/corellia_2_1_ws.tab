@@ -324,3 +324,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9665524	0	object/tangible/furniture/all/frn_bench_generic.iff	0	839.483	4	1767.25	0.707107	0	0.707106	0		$|
 9665525	0	object/tangible/furniture/all/frn_bench_generic.iff	0	833.931	4	1767.16	0.707107	0	-0.707106	0		$|
 9665526	0	object/tangible/furniture/all/frn_bench_generic.iff	0	833.85	4	1762.62	0.707107	0	-0.707107	0		$|
+2775437	0	object/building/corellia/filler_slum_24x16_s01.iff	0	578.628	23.4	2006.71	6.63422e-007	0	1	0		portalLayoutCrc|0|-349098219|$|
+2775439	0	object/building/corellia/filler_slum_24x16_s02.iff	0	599.316	23.4	1957.28	0.707107	0	0.707107	0		portalLayoutCrc|0|1352653624|$|
+3055592	0	object/building/corellia/filler_slum_24x16_s02.iff	0	832.796	4	1741.75	0.707107	0	0.707107	0		portalLayoutCrc|0|1352653624|$|
+3055690	0	object/building/corellia/filler_slum_24x16_s01.iff	0	920.984	3.95414	1826.53	0.707108	0	-0.707106	0		portalLayoutCrc|0|-349098219|$|

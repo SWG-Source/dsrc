@@ -28,3 +28,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825832	0	object/static/structure/general/droid_21bmedical_powerdown.iff	0	404.495	25.6001	1992.73	0.707107	0.707106	0	0		$|
 9825833	0	object/static/structure/general/droid_probedroid_powerdown.iff	0	403.031	23.5234	2005.14	0.980067	0	0	-0.198669		$|
 9825840	0	object/static/structure/general/streetlamp_small_style_01.iff	0	394.269	26.3692	2005.67	1	0	0	0		$|
+9825819	0	object/static/structure/general/droid_r4_head.iff	0	401.879	25.0108	1989.66	1	0	0	0		$|
+9825820	0	object/static/structure/general/droid_r4_leg.iff	0	400.145	21.7312	2018.86	1	0	0	0		$|
+9825821	0	object/static/structure/general/droid_r4_torso.iff	0	408.23	25.6505	1995.01	0.964501	0.0337713	-0.00916495	0.261749		$|
+9825823	0	object/static/structure/general/droid_repairdroidtorso.iff	0	405.87	22.9675	2003.61	1	0	0	0		$|
+9825835	0	object/static/structure/general/droid_r5_head.iff	0	404.724	24.7309	1991.08	1	0	0	0		$|

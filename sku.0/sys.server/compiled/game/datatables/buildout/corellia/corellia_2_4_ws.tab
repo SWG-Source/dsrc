@@ -8,3 +8,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4725536	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1404.66	28.5765	536.284	0.27078	0	0.962641	0		$|
 9165526	0	object/static/structure/general/skeleton_human_headandbody.iff	0	681.249	42.8022	1116.67	0.991754	-0.124684	0.00045797	-0.0296301		$|
 9825429	0	object/static/structure/general/escape_pod.iff	0	684.103	43.2694	1118.24	-0.525402	0.167709	0.827335	-0.106504		$|
+9825433	0	object/static/structure/general/droid_r5_head.iff	0	674.352	40.5851	1113.08	-0.357693	0	0.933839	0		$|
+9825434	0	object/static/structure/general/droid_r5_leg.iff	0	674.136	42.3597	1119.2	0.120503	0	0.992713	0		$|
+9825435	0	object/static/structure/general/droid_r5_torso.iff	0	679.358	42.6422	1117.03	0.816774	0	0.576958	0		$|
