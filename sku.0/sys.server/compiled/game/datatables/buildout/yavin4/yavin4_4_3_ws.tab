@@ -18,3 +18,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3566229	0	object/static/structure/dantooine/dant_rack_spears.iff	0	2031.29	163.568	172.775	0.942755	0	0.333487	0		$|
 3566232	0	object/static/vehicle/e3/landspeeder.iff	0	2033.5	163.537	185.7	0.735088	0	-0.677971	0		$|
 3566233	0	object/static/structure/nobuild/nobuild_32.iff	0	2043.92	163.483	173.796	1	0	0	0		$|
+3566230	0	object/static/structure/tatooine/palette_supply_01.iff	0	2042.04	163.376	179.212	0.789992	0	0.613117	0		$|
+3566231	0	object/static/structure/tatooine/palette_supply_02.iff	0	2038.55	163.469	169.576	0.900447	0	0.434965	0		$|
+8735453	0	object/static/item/item_container_weapon.iff	0	914.077	69.4286	941.653	1	0	0	0		$|
+8735454	0	object/static/item/item_container_weapon.iff	0	915.386	69.4189	941.68	1	0	0	0		$|
+8735455	0	object/static/item/item_container_weapon.iff	0	916.69	69.4186	941.696	1	0	0	0		$|
