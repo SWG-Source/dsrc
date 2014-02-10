@@ -1127,3 +1127,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8715393	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	606.571	40.521	1641.83	0.707107	0	-0.707106	0		$|
 8715394	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	614.392	39.8285	1646.66	3.20013e-008	0	1	0		$|
 9795446	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1646.23	39.003	1795.36	-0.535752	0.052895	0.840824	-0.0564458		$|
+8595464	0	object/static/item/item_container_weapon.iff	0	1942.86	20	256.216	1	0	0	0		$|
+8595465	0	object/static/item/item_container_weapon.iff	0	1941.61	20	256.259	1	0	0	0		$|
