@@ -29,3 +29,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8995520	0	object/static/structure/general/skeleton_human_body.iff	0	1585.71	121.922	794.186	0.435683	0	0.9001	0		$|
 8995521	0	object/static/structure/general/skeleton_human_body.iff	0	1586.03	121.974	794.75	0.922997	0	0.384808	0		$|
 8995523	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1586.93	120.176	794.322	1	0	0	0		$|
+7146288	0	object/static/structure/tatooine/palette_supply_01.iff	0	1745.53	140.722	1015.6	0.256298	0.00998184	0.966546	0.000599625		$|
+7146303	0	object/static/structure/general/droid_r2_head.iff	0	1742.78	140.894	1016.05	1	0	0	0		$|
+7146304	0	object/static/structure/general/droid_r2_leg.iff	0	1741.27	141.129	1017.27	0.710689	-0.703063	0.0177711	-0.0175802		$|
+7146305	0	object/static/structure/general/droid_r2_torso.iff	0	1742.66	141.1	1017.41	0.728272	-0.685289	0	0		$|
