@@ -1110,3 +1110,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825703	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	267.643	-4.61372	548.091	0.669337	-0.158811	0.710186	-0.149677		$|
 9825716	0	object/static/structure/general/campfire_fresh.iff	0	294.495	1.06328	552.276	1	0	0	0		$|
 9825717	0	object/static/item/item_bowl_shallow.iff	0	294.517	0.717	552.251	1	0	0	0		$|
+2115951	0	object/building/corellia/filler_slum_24x16_s01.iff	0	1765.21	28	2008.95	0.707107	0	0.707107	0		portalLayoutCrc|0|-349098219|$|
+2115953	0	object/building/corellia/filler_slum_24x16_s02.iff	0	1757.14	28	1994.07	-0.707107	0	0.707107	0		portalLayoutCrc|0|1352653624|$|
+2365494	0	object/building/corellia/filler_slum_24x16_s02.iff	0	1485	28	1561.92	0.707108	0	-0.707105	0		portalLayoutCrc|0|1352653624|$|
+4026531	0	object/static/structure/general/droid_r5_torso.iff	0	2012.64	28	1771.15	-0.0264239	0	0.999651	0		$|
+4026532	0	object/static/structure/general/droid_repairdroidtorso.iff	0	2011.94	28	1770.73	-0.312988	0	0.949757	0		$|
+4026533	0	object/static/structure/general/droid_r3_head.iff	0	2012.34	27.2962	1770.79	0.956802	-0.29074	0	0		$|

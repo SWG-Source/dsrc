@@ -294,3 +294,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8275468	0	object/static/item/item_tool_handheld_viewscreen_s2.iff	0	95.1424	28.9	1625.91	0.968912	0	0.247404	0		$|
 8275469	0	object/static/item/item_tool_handheld_viewscreen_s1.iff	0	95.6479	28.9	1626.22	0.865324	0	0.501213	0		$|
 8275470	0	object/static/item/item_datapad_s2.iff	0	95.1803	28.9	1626.4	0.99955	0	-0.0299955	0		$|
+2115477	0	object/building/corellia/filler_slum_24x16_s02.iff	0	141.126	28	1631.19	1	0	0	0		portalLayoutCrc|0|1352653624|$|
+2115479	0	object/building/corellia/filler_slum_24x16_s01.iff	0	129.45	28	1659.28	0.932183	0	-0.361986	0		portalLayoutCrc|0|-349098219|$|
+2115481	0	object/building/corellia/filler_slum_24x16_s01.iff	0	123.979	28	1605.28	0.707108	0	0.707105	0		portalLayoutCrc|0|-349098219|$|
