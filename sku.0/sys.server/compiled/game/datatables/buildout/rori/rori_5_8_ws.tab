@@ -163,3 +163,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8165377	0	object/static/structure/general/gravestone_generic_style_03.iff	0	960.699	77.6504	378.877	1	0	0	0		$|
 8165378	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	958.718	77.4863	375.854	0.714421	0	-0.699716	0		$|
 8165379	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	954.408	76.7088	379.833	0.997876	0.00032477	-0.00498942	-0.0649534		$|
+1234111	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	944.945	118.54	1073.57	-0.318554	0	0.947905	0		$|
+1234117	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	952.812	119	1155.38	0.898261	0	-0.439462	0		$|
