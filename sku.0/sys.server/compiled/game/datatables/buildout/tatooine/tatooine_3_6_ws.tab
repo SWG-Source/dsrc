@@ -1,6 +1,10 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 894834	0	object/static/creature/droids_r2.iff	0	925.253	10.4753	1590.8	0.0192025	0	0.999816	0		$|
+1250134	0	object/static/item/item_container_weapon.iff	0	1535.03	5.7065	80.1709	-0.0799148	0	0.996802	0		$|
+1250135	0	object/static/item/item_container_weapon.iff	0	1533.86	5.68646	80.3464	-0.079915	0	0.996802	0		$|
+1250136	0	object/static/item/item_container_weapon.iff	0	1532.7	5.66777	80.5203	-0.079915	0	0.996802	0		$|
+1250137	0	object/static/item/item_container_weapon.iff	0	1531.58	5.65063	80.7104	-0.079915	0	0.996802	0		$|
 1094826	0	object/static/creature/tatooine_cu_pa.iff	0	1116.91	5	487.059	0.998201	0	0.0599644	0		$|
 1224012	0	object/static/structure/tatooine/wall_junkshop_watto.iff	0	1776.26	5	797.922	-0.189641	0	0.981854	0		$|
 1224013	0	object/static/structure/tatooine/wall_junkshop_watto.iff	0	1795.34	5	797.857	0.985585	0	-0.169182	0		$|
