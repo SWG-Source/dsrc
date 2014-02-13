@@ -11,7 +11,7 @@ trigger OnAboutToReceiveItem (obj_id destinationCell, obj_id transferrer, obj_id
 	{
 		return SCRIPT_CONTINUE;
 	}
-	else if ( groundquests.hasCompletedQuest (item, "quest/jabba_the_hutt") || groundquests.hasCompletedQuest (item, "quest/jabba_the_hutt_v2") )
+	else if ( groundquests.hasCompletedQuest (item, "quest/jabba_the_hutt") || groundquests.hasCompletedQuest (item, "quest/jabba_the_hutt_v2") || isGod(item) )
 	{
 		return SCRIPT_CONTINUE;
 	}
