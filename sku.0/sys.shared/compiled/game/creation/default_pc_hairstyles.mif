@@ -1,8 +1,8 @@
 #define STRINGER(a) cstring #a
 #define PLAYER_TEMPLATE_NAME(templateName) \
-chunk "NAME" { STRINGER(object/creature/player/shared_##templateName.iff) }
+chunk "NAME" { STRINGER(object/creature/player/shared_templateName.iff) }
 #define DEFAULT_HAIR(templateName) \
-chunk "DEFA" { STRINGER(object/tangible/hair/##templateName.iff) }
+chunk "DEFA" { STRINGER(object/tangible/hair/templateName.iff) }
 
 //The hairstyles avaiable at creation are now located in datatables/customization/hair_assets_skill_mods.tab
 
@@ -58,7 +58,7 @@ form "HAIR"
 				cstring "object/tangible/hair/human/shared_hair_human_male_s39.iff"
 				cstring "object/tangible/hair/human/shared_hair_human_male_s40.iff"
 				cstring "object/tangible/hair/human/shared_hair_human_male_s41.iff"
-				
+
 			}
 		}
 		form "PTMP"
