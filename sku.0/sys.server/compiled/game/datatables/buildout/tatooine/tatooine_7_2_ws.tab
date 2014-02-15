@@ -31,7 +31,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1068526	0	object/static/structure/general/gravestone_generic_style_03.iff	0	43.915	10.8768	1310.65	-0.699045	-0.108298	0.705577	-0.0420673		$|
 1068531	0	object/static/structure/general/gravestone_generic_style_02.iff	0	33.3359	7.63466	1319.28	0.626843	-0.0097591	0.77803	0.0405188		$|
 1068533	0	object/static/structure/general/gravestone_generic_style_04.iff	0	33.6357	7.64586	1315.41	0.97094	0.0226118	0.234774	0.0405512		$|
-4005938	0	object/building/general/ranchers_house_tatooine.iff	0	877.92	180	1447.96	0.92388	0	0.382683	0		portalLayoutCrc|0|1913697979|$|
+4005938	0	object/building/general/ranchers_house_tatooine.iff	0	877.92	180	1447.96	0.92388	0	0.382683	0		$|
 4005947	0	object/static/structure/tatooine/orchard_tatooine_style_01.iff	0	871.91	180	1429.25	0.92388	0	-0.382683	0		$|
 4005948	0	object/static/structure/tatooine/orchard_tatooine_style_01.iff	0	859.976	180	1441.15	0.92388	0	-0.382683	0		$|
 4005950	0	object/static/structure/tatooine/planter_window_style_01.iff	0	877.918	181.234	1461.3	-0.382683	0	0.92388	0		$|
