@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_bracer_upper_r.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "" "armor_chitin_acklay_bracer_r_n"
+detailedDescription = "" "armor_chitin_acklay_bracer_r_d"
+appearanceFilename = "appearance/armor_acklay_carapace_bracer_r_f.sat"
+

@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/armor/tantel/shared_armor_tantel_skreej_chest_plate.iff
+
+@class tangible_object_template 9
+
+
+@class object_template 9
+
+objectName = "wearables_name" "armor_tantel_skreej_chest_plate_quest"
+detailedDescription = "wearables_detail" "armor_tantel_skreej_chest_plate_quest"
+appearanceFilename = "appearance/armor_tantel_skreej_chest_plate_m.sat"
+

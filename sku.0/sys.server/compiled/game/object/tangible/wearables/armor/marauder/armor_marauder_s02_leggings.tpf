@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/base_skirt.iff
+
+@class tangible_object_template 3
+
+armor = "abstract/armor_statistics/armor/marauder/base/statistics_armor_marauder_leggings.iff"
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/marauder/shared_armor_marauder_s02_leggings.iff"
+

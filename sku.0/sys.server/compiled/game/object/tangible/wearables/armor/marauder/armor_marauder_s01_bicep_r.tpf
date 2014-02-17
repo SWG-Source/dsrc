@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/base_bicep_r.iff
+
+@class tangible_object_template 3
+
+armor = "abstract/armor_statistics/armor/marauder/base/statistics_armor_marauder_right_sleeve.iff"
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/marauder/shared_armor_marauder_s01_bicep_r.iff"
+

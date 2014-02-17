@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_shoes.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "static_item_n" "armor_gcw_imperial_stromtrooper_boots"
+detailedDescription = "static_item_d" "armor_gcw_imperial_stromtrooper_boots"
+appearanceFilename = "appearance/armor_stormtrooper_boots_gcw_f.sat"
+
