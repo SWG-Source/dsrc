@@ -51,7 +51,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1692540	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	651.742	-150	2011.78	-3.20013e-008	0	1	0		$|
 1692548	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	681.688	-150	2042.94	0.707109	0	0.707104	0		$|
 1692549	0	object/static/structure/naboo/nboo_imprv_pristine_wall_large_s02.iff	0	682.008	-150	2043.07	0.792804	0	0.609476	0		$|
-1714650	0	object/building/naboo/housing_naboo_style_3.iff	0	652.934	-150	1968.38	1	0	0	0		portalLayoutCrc|0|-178734691|$|
+1714650	0	object/building/naboo/housing_naboo_style_3.iff	0	652.934	-150	1968.38	1	0	0	0		$|
 1716868	0	object/static/structure/naboo/arbor_pillar_s01.iff	0	630.546	-150.412	1964.06	0.92388	0	0.382683	0		$|
 1716870	0	object/static/structure/naboo/arbor_long_s01.iff	0	631.097	-150.412	1964.54	-0.382683	0	0.92388	0		$|
 1716871	0	object/static/structure/naboo/arbor_long_s01.iff	0	636.75	-150.412	1970.19	-0.382683	0	0.92388	0		$|
@@ -162,17 +162,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1717344	0	object/static/structure/general/streetlamp_large_style_02.iff	0	521.411	-157.492	2016.76	0.707107	0	0.707107	0		$|
 1717345	0	object/static/structure/general/streetlamp_large_style_02.iff	0	543.836	-157.321	2040.54	0	0	1	0		$|
 1717347	0	object/static/structure/general/streetlamp_large_style_02.iff	0	543.981	-157.34	1987.18	0	0	1	0		$|
-1865359	0	object/building/naboo/hotel_naboo_theed.iff	0	617.122	-150	2013.98	0.707109	0	-0.707105	0		portalLayoutCrc|0|-418195845|$|
-1865360	1865359	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-1865361	1865359	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-1865362	1865359	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-1865363	1865359	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-1865364	1865359	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-1865365	1865359	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-1865366	1865359	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
-1865367	1865359	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
-1865368	1865359	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
-1865369	1865359	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
+1865359	0	object/building/naboo/hotel_naboo_theed.iff	0	617.122	-150	2013.98	0.707109	0	-0.707105	0		$|
 1865372	0	object/static/structure/general/bench_generic_style_1.iff	0	639.4	-150	1997.67	0.707107	0	0.707107	0		$|
 1865373	0	object/static/structure/general/bench_generic_style_1.iff	0	639.342	-150	2000.94	0.707107	0	0.707107	0		$|
 1865374	0	object/static/flora/potted_plant_flowers_orange.iff	0	639.521	-150	1995.92	0.838177	0	-0.545398	0		$|
@@ -265,6 +255,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1689100	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	568.792	-150	2045.81	0.655919	0	0.754831	0		$|
 1689101	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	568.268	-150	1981.68	0.68193	0	0.731418	0		$|
 1689102	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	578.22	-150	1969.51	0.998988	0	0.0449845	0		$|
-1714730	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	677.966	-150	1997.35	0.70711	0	-0.707103	0		portalLayoutCrc|0|1659890742|$|
-1714732	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	677.968	-150	1976.28	-0.707107	0	0.707107	0		portalLayoutCrc|0|1659890742|$|
+1714730	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	677.966	-150	1997.35	0.70711	0	-0.707103	0		$|
+1714732	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	677.968	-150	1976.28	-0.707107	0	0.707107	0		$|
 9865370	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	620.676	-150.074	1976.02	0.707108	0	-0.707106	0		$|

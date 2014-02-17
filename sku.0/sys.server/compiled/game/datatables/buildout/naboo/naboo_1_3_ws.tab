@@ -1,28 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-6335638	0	object/building/general/bunker_imperial_weapons_research_facility_01.iff	0	1686.11	40	769.447	1	0	0	0		portalLayoutCrc|0|1639844206|$|
-6335639	6335638	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-6335640	6335638	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-6335641	6335638	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-6335642	6335638	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-6335643	6335638	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-6335644	6335638	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-6335645	6335638	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
-6335646	6335638	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
-6335647	6335638	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
-6335648	6335638	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
-6335649	6335638	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
-6335650	6335638	object/cell/cell.iff	12	0	0	0	0	0	0	0		$|
-6335651	6335638	object/cell/cell.iff	13	0	0	0	0	0	0	0		$|
-6335652	6335638	object/cell/cell.iff	14	0	0	0	0	0	0	0		$|
-6335653	6335638	object/cell/cell.iff	15	0	0	0	0	0	0	0		$|
-6335654	6335638	object/cell/cell.iff	16	0	0	0	0	0	0	0		$|
-6335655	6335638	object/cell/cell.iff	17	0	0	0	0	0	0	0		$|
-6335656	6335638	object/cell/cell.iff	18	0	0	0	0	0	0	0		$|
-6335657	6335638	object/cell/cell.iff	19	0	0	0	0	0	0	0		$|
-6335658	6335638	object/cell/cell.iff	20	0	0	0	0	0	0	0		$|
-6335659	6335638	object/cell/cell.iff	21	0	0	0	0	0	0	0		$|
-6335660	6335638	object/cell/cell.iff	22	0	0	0	0	0	0	0		$|
+6335638	0	object/building/general/bunker_imperial_weapons_research_facility_01.iff	0	1686.11	40	769.447	1	0	0	0		$|
 6335661	0	object/static/structure/general/poi_all_impl_corral_64x64_s01.iff	0	1686.14	40	781.402	1	0	0	0		$|
 6335662	0	object/static/structure/general/poi_all_impl_corral_32x32_s01.iff	0	1702.67	40	811.354	-0.707107	0	0.707107	0		$|
 6335671	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1698.7	40	770.98	1	0	0	0		$|
