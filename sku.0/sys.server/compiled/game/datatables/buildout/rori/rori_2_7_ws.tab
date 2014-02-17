@@ -9,11 +9,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7555628	0	object/tangible/furniture/tatooine/frn_tato_table_small_style_01.iff	0	792.011	75.9333	898.413	1	0	0	0		$|
 7555629	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	795.364	75.9997	898.917	0.758361	0	-0.651835	0		$|
 7555630	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	794.492	75.9989	897.667	0.975897	0	-0.21823	0		$|
-7555632	0	object/building/military/military_base_shed_rebel_style_01.iff	0	759.416	76	973.539	0.35012	0	0.936705	0		portalLayoutCrc|0|1376564094|$|
-7555639	0	object/building/military/military_base_shed_rebel_style_01.iff	0	773.568	76	986.069	0.35012	0	0.936705	0		portalLayoutCrc|0|1376564094|$|
-7555646	0	object/building/military/military_outpost_guard_house_rebel.iff	0	815.55	76	921.273	-0.044985	0	0.998988	0		portalLayoutCrc|0|81991786|$|
-7555647	7555646	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-7555648	7555646	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+7555632	0	object/building/military/military_base_shed_rebel_style_01.iff	0	759.416	76	973.539	0.35012	0	0.936705	0		$|
+7555639	0	object/building/military/military_base_shed_rebel_style_01.iff	0	773.568	76	986.069	0.35012	0	0.936705	0		$|
+7555646	0	object/building/military/military_outpost_guard_house_rebel.iff	0	815.55	76	921.273	-0.044985	0	0.998988	0		$|
 7555697	0	object/static/structure/general/data_terminal_s1.iff	0	821.039	82.9589	917.987	0.744909	0	-0.667166	0		$|
 7555698	0	object/static/item/item_con_barrel_lg_s1.iff	0	809.087	82.9598	916.512	0.670883	0	0.741563	0		$|
 7555699	0	object/static/item/item_con_barrel_lg_s1.iff	0	818.276	83.0121	927.069	-0.039989	0	0.9992	0		$|

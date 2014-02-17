@@ -5,12 +5,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8135579	0	object/building/endor/endor_lake_walkway_straight.iff	0	2018.24	65.7551	1252.45	1	0	0	0		$|
 8135580	0	object/building/endor/endor_lake_walkway_straight.iff	0	2026.26	65.7717	1220.44	1	0	0	0		$|
 8135582	0	object/building/endor/endor_lake_walkway_straight.iff	0	2022.24	65.7926	1208.45	0.707107	0	-0.707106	0		$|
-8135583	0	object/building/naboo/merchant_tent_naboo_s01.iff	0	2025.76	75.8886	1239.59	0.707388	0	-0.706825	0		portalLayoutCrc|0|2028697050|$|
-8135584	8135583	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-8135585	0	object/building/naboo/merchant_tent_naboo_s01.iff	0	2009.67	75.8758	1216.05	0.000796227	0	1	0		portalLayoutCrc|0|2028697050|$|
-8135586	8135585	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-8135587	0	object/building/naboo/merchant_tent_naboo_s01.iff	0	2002.68	75.8569	1209.09	0.707107	0	0.707106	0		portalLayoutCrc|0|2028697050|$|
-8135588	8135587	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+8135583	0	object/building/naboo/merchant_tent_naboo_s01.iff	0	2025.76	75.8886	1239.59	0.707388	0	-0.706825	0		$|
+8135585	0	object/building/naboo/merchant_tent_naboo_s01.iff	0	2009.67	75.8758	1216.05	0.000796227	0	1	0		$|
+8135587	0	object/building/naboo/merchant_tent_naboo_s01.iff	0	2002.68	75.8569	1209.09	0.707107	0	0.707106	0		$|
 8135591	0	object/building/endor/endr_lake_rail4m.iff	0	2023.94	75.6572	1236.47	0.96639	0	0.257081	0		$|
 8135592	0	object/building/endor/endr_lake_rail4m.iff	0	2027.53	75.6568	1236.47	0.962425	0	-0.271547	0		$|
 8135593	0	object/building/endor/endr_lake_rail4m.iff	0	2029.29	75.6555	1239.59	-0.703845	0	0.710353	0		$|
