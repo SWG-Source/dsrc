@@ -1,19 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1365985	0	object/building/military/outpost_shed_s03.iff	0	1454.15	3	489.399	-0.514477	0	0.857504	0		portalLayoutCrc|0|1376564094|$|
-1365986	1365985	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-1365987	1365985	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-1365988	1365985	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-1365989	1365985	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-1365990	1365985	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-1365991	1365985	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-1365992	0	object/building/military/outpost_cloning_facility_s03.iff	0	1413.16	3	396.701	0.908966	0	-0.416871	0		portalLayoutCrc|0|1376564094|$|
-1365993	1365992	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-1365994	1365992	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-1365995	1365992	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-1365996	1365992	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-1365997	1365992	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-1365998	1365992	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+1365985	0	object/building/military/outpost_shed_s03.iff	0	1454.15	3	489.399	-0.514477	0	0.857504	0		$|
+1365992	0	object/building/military/outpost_cloning_facility_s03.iff	0	1413.16	3	396.701	0.908966	0	-0.416871	0		$|
 1366001	0	object/tangible/terminal/terminal_bazaar.iff	0	1429.07	3	442.883	-0.276738	0	0.960945	0		$|
 1366002	0	object/tangible/terminal/terminal_bank.iff	0	1417.35	3	454.221	0.0549723	0	0.998488	0		$|
 1366038	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1467.33	3.47434	451.508	0.979061	0	-0.203567	0		$|
@@ -65,20 +53,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5685503	0	object/static/item/item_crate_clothing_small.iff	0	1408.94	3.75895	405.918	0.480124	0	0.8772	0		$|
 5685505	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1410.4	3	407.897	0.952334	0	0.305059	0		$|
 5685506	0	object/static/item/item_basket_closed.iff	0	1450.39	3	435.888	1	0	0	0		$|
-6205563	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1461.39	3	441.037	0.982936	0	-0.183947	0		portalLayoutCrc|0|1374805460|$|
-6205564	6205563	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-6205565	6205563	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-6205566	6205563	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-6205567	6205563	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-7105353	0	object/building/military/outpost_starport.iff	0	1411.64	3	432.012	0.407033	0	0.913414	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mining Outpost|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-688757533|$|
-7105354	7105353	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-7105362	0	object/building/military/outpost_shed.iff	0	1441.74	2.99883	425.842	0.931493	0	-0.363759	0		portalLayoutCrc|0|1376564094|$|
-7105363	7105362	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-7105364	7105362	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-7105365	7105362	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-7105366	7105362	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-7105367	7105362	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-7105368	7105362	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+6205563	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1461.39	3	441.037	0.982936	0	-0.183947	0		$|
+7105353	0	object/building/military/outpost_starport.iff	0	1411.64	3	432.012	0.407033	0	0.913414	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mining Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
+7105362	0	object/building/military/outpost_shed.iff	0	1441.74	2.99883	425.842	0.931493	0	-0.363759	0		$|
 7105391	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1382.13	2.25	429.713	0.932328	0	0.361615	0		$|
 7105393	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1368.57	2.25	437.035	0.990901	0	0.13459	0		$|
 7105394	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1362.35	2.25	423.669	0.990901	0	0.13459	0		$|
