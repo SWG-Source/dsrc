@@ -1,17 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-529322	0	object/building/general/dantooine_janta_cave.iff	0	961.727	74.2809	3.00439	-0.652136	0	0.758102	0		portalLayoutCrc|0|-546300643|$|
-529323	529322	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-529324	529322	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-529325	529322	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-529326	529322	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-529327	529322	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-529328	529322	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-529329	529322	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
-529330	529322	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
-529331	529322	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
-529332	529322	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
-529333	529322	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
+529322	0	object/building/general/dantooine_janta_cave.iff	0	961.727	74.2809	3.00439	-0.652136	0	0.758102	0		$|
 8465680	0	object/static/structure/dantooine/dant_fence_8m.iff	0	695.57	60.4164	1859.11	0.667463	0	0.744643	0		$|
 8465681	0	object/static/structure/dantooine/dant_fence_8m.iff	0	691.854	59.7228	1854.58	0.685869	0	0.727726	0		$|
 8465682	0	object/static/structure/dantooine/dant_fence_8m.iff	0	692.102	60	1846.17	0.741827	0	0.670592	0		$|
