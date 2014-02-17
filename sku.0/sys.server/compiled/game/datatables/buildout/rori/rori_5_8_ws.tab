@@ -11,7 +11,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1234150	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	955.433	150.531	1105.03	-0.581683	0	0.813416	0		$|
 1234151	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	952.564	150.501	1104.4	0.601835	0	0.798621	0		$|
 1234152	0	object/tangible/furniture/all/frn_bench_generic.iff	0	949.039	150.507	1092.33	0.174892	0	0.984588	0		$|
-1234179	0	object/building/naboo/trandoshan_slave_naboo_house.iff	0	952.017	134.07	1098.42	0.900447	0	-0.434966	0		portalLayoutCrc|0|2027776254|$|
+1234179	0	object/building/naboo/trandoshan_slave_naboo_house.iff	0	952.017	134.07	1098.42	0.900447	0	-0.434966	0		$|
 1622485	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s07.iff	0	973.715	119.384	1086.56	0.900447	0	-0.434966	0		$|
 1622505	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s07.iff	0	974.995	121.26	1088.25	0.946042	0	0.324043	0		$|
 1622511	0	object/static/structure/naboo/nboo_imprv_pillar_wall_ornate_small_s01.iff	0	975.206	121.062	1088.54	0.842251	-0.162049	-0.41206	0.307505		$|
