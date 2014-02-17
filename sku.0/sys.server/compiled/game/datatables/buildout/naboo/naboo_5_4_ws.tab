@@ -1,9 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 7825660	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	2.01865	442.106	183.44	0.860269	0	0	-0.509841		$|
-7825775	0	object/building/military/military_outpost_guard_house_imperial.iff	0	971.886	260.468	701.6	1	0	0	0		portalLayoutCrc|0|-285862605|$|
-7825776	7825775	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-7825777	7825775	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+7825775	0	object/building/military/military_outpost_guard_house_imperial.iff	0	971.886	260.468	701.6	1	0	0	0		$|
 7825810	0	object/static/structure/general/skeleton_human_headandbody.iff	0	974.147	262.227	714.149	1	0	0	0		$|
 7825811	0	object/static/structure/general/skeleton_human_headandbody.iff	0	972.506	267.521	705.267	1	0	0	0		$|
 7825812	0	object/static/structure/general/skeleton_human_head.iff	0	971.633	268.423	707.774	0.390152	0	0.920751	0		$|
