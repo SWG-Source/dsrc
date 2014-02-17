@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-5996314	0	object/building/general/bunker_allum_mine.iff	0	1481.57	12.417	229.93	1	0	0	0		portalLayoutCrc|0|-1305292509|$|
+5996314	0	object/building/general/bunker_allum_mine.iff	0	1481.57	12.417	229.93	1	0	0	0		$|
 7255443	0	object/tangible/jedi/force_shrine_stone.iff	0	516.516	399.421	714.631	0.707107	0	0.707107	0		$|
 7255444	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	512.094	400.53	713.034	0.707114	0	0.707099	0		$|
 7255445	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	520.778	400.53	713.068	1	0	0	0		$|

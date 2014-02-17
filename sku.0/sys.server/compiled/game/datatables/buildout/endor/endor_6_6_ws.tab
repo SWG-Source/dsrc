@@ -1,23 +1,8 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-733359	0	object/building/general/endor_korga_cave.iff	0	195.542	37.8508	1505.28	0.0749295	0	0.997189	0		portalLayoutCrc|0|1170852262|$|
-733360	733359	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-733361	733359	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-733362	733359	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-733363	733359	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-733364	733359	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-733365	733359	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-733366	733359	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
-733367	733359	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
-733368	733359	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
-733369	733359	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
-733370	733359	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
-8445558	0	object/building/military/military_outpost_guard_house_rebel.iff	0	1968.36	0.383341	923.246	-0.168397	0	0.985719	0		portalLayoutCrc|0|81991786|$|
-8445559	8445558	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-8445560	8445558	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-8445561	0	object/building/military/military_outpost_guard_house_rebel.iff	0	1968.38	-3.22248	923.239	-0.000649877	0.816083	0.00046022	0.577934		portalLayoutCrc|0|81991786|$|
-8445562	8445561	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-8445563	8445561	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+733359	0	object/building/general/endor_korga_cave.iff	0	195.542	37.8508	1505.28	0.0749295	0	0.997189	0		$|
+8445558	0	object/building/military/military_outpost_guard_house_rebel.iff	0	1968.36	0.383341	923.246	-0.168397	0	0.985719	0		$|
+8445561	0	object/building/military/military_outpost_guard_house_rebel.iff	0	1968.38	-3.22248	923.239	-0.000649877	0.816083	0.00046022	0.577934		$|
 8445571	0	object/static/item/item_tool_sensor_beacon.iff	0	2027.37	11.6729	935.866	1	0	0	0		$|
 8445573	0	object/static/item/item_tool_sensor_beacon.iff	0	2004.37	7.51942	980.757	1	0	0	0		$|
 8445575	0	object/static/item/item_tool_sensor_beacon.iff	0	1929.37	10.0161	953.042	1	0	0	0		$|
