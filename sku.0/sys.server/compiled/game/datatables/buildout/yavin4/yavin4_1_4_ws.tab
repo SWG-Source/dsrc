@@ -1,9 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1627780	0	object/building/general/bunker_mad_bio.iff	0	1742.65	82.3105	1647.48	-0.493228	0	0.8699	0		portalLayoutCrc|0|-163521442|$|
-8225394	0	object/building/military/military_outpost_guard_house_rebel.iff	0	619.741	21.0955	965.526	0.999672	-0.0233365	-0.000246496	0.0105592		portalLayoutCrc|0|81991786|$|
-8225395	8225394	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-8225396	8225394	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1627780	0	object/building/general/bunker_mad_bio.iff	0	1742.65	82.3105	1647.48	-0.493228	0	0.8699	0		$|
+8225394	0	object/building/military/military_outpost_guard_house_rebel.iff	0	619.741	21.0955	965.526	0.999672	-0.0233365	-0.000246496	0.0105592		$|
 8225397	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	618.693	19.3229	958.12	0.995953	0	0.0898786	0		$|
 8225398	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	621.504	19.3174	958.106	0.995953	0	-0.0898786	0		$|
 8225404	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	640.783	149.077	1601.7	0.0104405	0.00962928	0.735014	-0.677904		$|

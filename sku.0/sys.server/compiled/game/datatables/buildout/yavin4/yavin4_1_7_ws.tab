@@ -30,7 +30,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8495504	0	object/static/structure/general/campfire_ash.iff	0	1869.09	63.5334	988.731	0.998559	0.0295002	0.00132355	0.0448011		$|
 8495509	0	object/static/structure/general/debris_deathstar_storage.iff	0	1866.93	101.566	1713	0.758878	0.289152	-0.109172	0.573217		$|
 8695463	0	object/static/structure/general/skeleton_human_headandbody.iff	0	591.376	40.9063	1328.51	0.993101	0.114013	0.00953013	0.025702		$|
-8695470	0	object/building/military/military_base_shed_rebel_style_01.iff	0	1105.86	122.688	297.081	-0.527281	0	0.849691	0		portalLayoutCrc|0|1376564094|$|
+8695470	0	object/building/military/military_base_shed_rebel_style_01.iff	0	1105.86	122.688	297.081	-0.527281	0	0.849691	0		$|
 8695478	0	object/static/structure/military/military_wall_strong_rebl_16_style_01.iff	0	1113.93	122.593	301.074	0.849691	0	0.527281	0		$|
 8695479	0	object/static/structure/military/military_wall_strong_rebl_16_style_01.iff	0	1098.69	123.231	293.528	-0.527281	0	0.849691	0		$|
 8695480	0	object/static/structure/military/military_wall_strong_rebl_16_style_01.iff	0	1109.86	123.026	289.015	0.227977	0	0.973667	0		$|

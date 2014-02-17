@@ -35,9 +35,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8545477	0	object/static/structure/general/skeleton_human_head.iff	0	1449.17	534.903	460.769	0.904851	0.254737	-0.339371	-0.0343549		$|
 8545478	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1449.95	531.619	461.542	1	0	0	0		$|
 8545481	0	object/static/structure/general/lucky_despot_debris_sm_engine.iff	0	1149.68	308.138	1252.09	0.372193	0.617301	0.523464	0.45431		$|
-8545482	0	object/building/military/military_outpost_guard_house_rebel.iff	0	1402.66	130.725	1758.14	0.8499	0	0.526943	0		portalLayoutCrc|0|81991786|$|
-8545483	8545482	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-8545484	8545482	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+8545482	0	object/building/military/military_outpost_guard_house_rebel.iff	0	1402.66	130.725	1758.14	0.8499	0	0.526943	0		$|
 8545485	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1404.24	136.064	1761.36	0.99639	0	0.0848976	0		$|
 8545486	0	object/static/flora/flora_decd_scorched_tallbirch_broke.iff	0	1396.35	135.502	1754.46	0.536346	0.827124	-0.14483	0.0849878		$|
 8905355	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	1938.33	454.896	200.718	0.988771	0	0.149438	0		$|

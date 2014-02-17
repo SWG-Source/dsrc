@@ -1,26 +1,17 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1512719	0	object/building/military/outpost_starport.iff	0	1984.56	37	1957.53	-6.63422e-007	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Imperial Outpost|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-688757533|$|
-1512720	1512719	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1512719	0	object/building/military/outpost_starport.iff	0	1984.56	37	1957.53	-6.63422e-007	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Imperial Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 1512785	0	object/static/structure/general/streetlamp_small_style_01_on.iff	0	1993.89	37	1942.27	0.999388	0	0.0349929	0		$|
 1512786	0	object/static/vehicle/static_lambda_shuttle.iff	0	1984.35	37.048	1937.23	0.706262	0	0.707951	0		$|
 1512787	0	object/static/structure/general/streetlamp_small_style_01_on.iff	0	1972.44	37	1932.48	0.999388	0	0.0349929	0		$|
-3465395	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1997.44	37	1918.49	-3.20013e-008	0	1	0		portalLayoutCrc|0|-443284577|$|
-3465396	3465395	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-3465397	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1969.44	37	1918.49	-3.20013e-008	0	1	0		portalLayoutCrc|0|-443284577|$|
-3465398	3465397	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-3465413	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	2024.44	37	1945.49	0.707104	0	0.707109	0		portalLayoutCrc|0|-443284577|$|
-3465414	3465413	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-3465415	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	2024.44	37	1973.48	0.707101	0	0.707112	0		portalLayoutCrc|0|-443284577|$|
-3465416	3465415	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-3465417	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1942.44	37	1973.49	0.707118	0	-0.707095	0		portalLayoutCrc|0|-443284577|$|
-3465418	3465417	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-3465419	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1942.44	37	1945.49	0.707121	0	-0.707092	0		portalLayoutCrc|0|-443284577|$|
-3465420	3465419	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-3465421	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	2005.44	37	2000.49	1	0	0	0		portalLayoutCrc|0|-443284577|$|
-3465422	3465421	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-3465423	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1961.44	37	2000.49	1	0	0	0		portalLayoutCrc|0|-443284577|$|
-3465424	3465423	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+3465395	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1997.44	37	1918.49	-3.20013e-008	0	1	0		$|
+3465397	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1969.44	37	1918.49	-3.20013e-008	0	1	0		$|
+3465413	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	2024.44	37	1945.49	0.707104	0	0.707109	0		$|
+3465415	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	2024.44	37	1973.48	0.707101	0	0.707112	0		$|
+3465417	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1942.44	37	1973.49	0.707118	0	-0.707095	0		$|
+3465419	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1942.44	37	1945.49	0.707121	0	-0.707092	0		$|
+3465421	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	2005.44	37	2000.49	1	0	0	0		$|
+3465423	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1961.44	37	2000.49	1	0	0	0		$|
 3465439	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	2024.44	37	1923.49	0.707117	0	0.707096	0		$|
 3465440	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	2011.44	37	1918.49	-3.20013e-008	0	1	0		$|
 3465441	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	2003.44	37	1918.49	-3.20013e-008	0	1	0		$|
@@ -81,17 +72,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8735482	0	object/static/structure/general/streetlamp_medium_red_style_01.iff	0	1999.41	37	1948.59	0.707107	0	-0.707107	0		$|
 8735490	0	object/static/structure/general/streetlamp_medium_red_style_01.iff	0	2018.6	37	1983.49	3.48103e-007	0	1	0		$|
 8735493	0	object/static/structure/general/streetlamp_medium_red_style_01.iff	0	1952.6	37	1983.32	3.48103e-007	0	1	0		$|
-8735494	0	object/building/military/military_base_shed_imperial_barracks_s01.iff	0	2016.6	37	1991.43	3.20013e-008	0	1	0		portalLayoutCrc|0|-242217168|$|
-8735495	8735494	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-8735496	8735494	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-8735497	8735494	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-8735498	8735494	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-8735499	8735494	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-8735500	8735494	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-8735515	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1950.34	37	1991.4	3.20013e-008	0	1	0		portalLayoutCrc|0|-242217168|$|
-8735516	8735515	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-8735517	8735515	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-8735518	8735515	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-8735519	8735515	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-8735520	8735515	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-8735521	8735515	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+8735494	0	object/building/military/military_base_shed_imperial_barracks_s01.iff	0	2016.6	37	1991.43	3.20013e-008	0	1	0		$|
+8735515	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1950.34	37	1991.4	3.20013e-008	0	1	0		$|

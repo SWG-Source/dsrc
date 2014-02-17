@@ -1,8 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-468317	0	object/building/yavin/temple_blueleaf.iff	0	1217.9	86.0519	2039.95	0.761611	0	-0.648035	0		portalLayoutCrc|0|833947412|$|
-468318	468317	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-468319	468317	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+468317	0	object/building/yavin/temple_blueleaf.iff	0	1217.9	86.0519	2039.95	0.761611	0	-0.648035	0		$|
 3566216	0	object/static/structure/dantooine/dant_large_mudhut_no_flora_05m.iff	0	2033.74	163.451	176.965	0.593819	0	0.804599	0		$|
 3566218	0	object/tangible/camp/camp_cot_s2.iff	0	2032.41	163.53	181.739	-0.693111	0	0.720831	0		$|
 3566219	0	object/tangible/camp/camp_cot_s2.iff	0	2033.9	163.513	181.856	-0.696707	0	0.717356	0		$|
