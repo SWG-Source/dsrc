@@ -1,20 +1,8 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 189479	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	178.889	160.325	1990.98	3.20013e-008	1	0	0		$|
-1392889	0	object/building/military/outpost_cloning_facility_s03.iff	0	628.491	6	1006.08	0.707107	0	-0.707106	0		portalLayoutCrc|0|1376564094|$|
-1392890	1392889	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-1392891	1392889	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-1392892	1392889	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-1392893	1392889	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-1392894	1392889	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-1392895	1392889	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-1392896	0	object/building/military/outpost_shed_s03.iff	0	567.516	6	1012.57	0.707107	0	0.707106	0		portalLayoutCrc|0|1376564094|$|
-1392897	1392896	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-1392898	1392896	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-1392899	1392896	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-1392900	1392896	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-1392901	1392896	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-1392902	1392896	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+1392889	0	object/building/military/outpost_cloning_facility_s03.iff	0	628.491	6	1006.08	0.707107	0	-0.707106	0		$|
+1392896	0	object/building/military/outpost_shed_s03.iff	0	567.516	6	1012.57	0.707107	0	0.707106	0		$|
 1392905	0	object/tangible/terminal/terminal_bazaar.iff	0	572.61	6	1044.46	0.444661	0	0.895699	0		$|
 1392906	0	object/tangible/terminal/terminal_bank.iff	0	580.123	6	1058.82	0.0791209	0	0.996865	0		$|
 1403884	0	object/tangible/terminal/terminal_bank.iff	0	570.03	6.00235	1044.11	-0.264513	0	0.964382	0		$|
@@ -42,20 +30,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5645554	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	575.798	6	1005.89	0.995953	0	0.0898786	0		$|
 5645555	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	576.731	6	1006.4	0.952334	0	-0.305059	0		$|
 5645556	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	576.807	6.88544	1006.42	0.990216	0	0.139543	0		$|
-6915358	0	object/building/military/outpost_starport.iff	0	592.308	6.03961	1039.28	-0.267499	0	0.963558	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Trade Outpost|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-688757533|$|
-6915359	6915358	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-6955366	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	603.157	6	987.739	1	0	0	0		portalLayoutCrc|0|1374805460|$|
-6955367	6955366	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-6955368	6955366	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-6955369	6955366	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-6955370	6955366	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-6955398	0	object/building/military/outpost_shed.iff	0	577.423	6	992.553	0.92388	0	0.382683	0		portalLayoutCrc|0|1376564094|$|
-6955399	6955398	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-6955400	6955398	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
-6955401	6955398	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-6955402	6955398	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
-6955403	6955398	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
-6955404	6955398	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+6915358	0	object/building/military/outpost_starport.iff	0	592.308	6.03961	1039.28	-0.267499	0	0.963558	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Trade Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
+6955366	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	603.157	6	987.739	1	0	0	0		$|
+6955398	0	object/building/military/outpost_shed.iff	0	577.423	6	992.553	0.92388	0	0.382683	0		$|
 6955412	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	641.318	5	1002.12	0.789992	0	-0.613117	0		$|
 6955413	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	639.332	6	994.375	0.789992	0	-0.613117	0		$|
 6955414	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	633.976	5	988.285	0.908966	0	-0.416871	0		$|
