@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/base_shoes.iff
+
+@class tangible_object_template 3
+
+armor = "abstract/armor_statistics/armor/composite_ceramic/base/statistics_armor_composite_boots.iff"
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/composite/shared_armor_composite_boots.iff"
+

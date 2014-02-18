@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_bracer_upper_l.iff
+
+@class tangible_object_template 7
+
+
+@class object_template 7
+
+objectName = "wearables_name" "armor_ris_bracer_l"
+detailedDescription = "wearables_detail" "armor_ris"
+appearanceFilename = "appearance/armor_ris_s01_bracer_l_m.sat"
+

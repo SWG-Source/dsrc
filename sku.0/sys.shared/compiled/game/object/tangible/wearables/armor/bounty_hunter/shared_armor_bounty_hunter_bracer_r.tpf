@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_bracer_r.iff
+
+@class tangible_object_template 9
+
+
+@class object_template 9
+
+objectName = "wearables_name" "armor_bounty_hunter_bracer_r"
+detailedDescription = "wearables_detail" "armor_bounty_hunter_bracer_r"
+appearanceFilename = "appearance/armor_bounty_hunter_bracer_r_f.sat"
+

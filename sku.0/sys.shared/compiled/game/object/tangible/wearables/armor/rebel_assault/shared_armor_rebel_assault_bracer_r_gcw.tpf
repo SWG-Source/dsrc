@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_bracer_r.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "static_item_n" "armor_gcw_rebel_assault_bracer_r"
+detailedDescription = "static_item_d" "armor_gcw_rebel_assault_bracer_r"
+appearanceFilename = "appearance/armor_rebel_s03_bracer_r_gcw_f.sat"
+
