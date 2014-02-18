@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/base_shoes.iff
+
+@class tangible_object_template 3
+
+armor = "abstract/armor_statistics/armor/chitin/base/statistics_armor_chitin_boots.iff"
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/chitin/shared_armor_chitin_s01_boots.iff"
+
