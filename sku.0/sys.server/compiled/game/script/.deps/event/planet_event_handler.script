@@ -1,2 +1,0 @@
-DEPENDENCIES: library/holiday library/utils
-PROTOTYPES: OnAttach#obj_id OnInitialize#obj_id lifeDayDailyAlarm#obj_id#dictionary lifeDayScoreBoardUpdate#obj_id#dictionary resetEventDataAfterDelay#obj_id#dictionary setUpEventLeaderBoard#obj_id#dictionary

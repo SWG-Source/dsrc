@@ -1,2 +1,0 @@
-DEPENDENCIES: library/beast_lib library/buff library/chat library/combat_consts library/dot library/locations library/movement library/pet_lib library/skill
-PROTOTYPES: 

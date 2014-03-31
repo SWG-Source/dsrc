@@ -1,2 +1,0 @@
-DEPENDENCIES: base/remote_object_requester library/groundquests library/utils
-PROTOTYPES: OnLogin#obj_id OnTaskActivated#obj_id#int#int OnTaskCleared#obj_id#int#int OnTaskCompleted#obj_id#int#int OnTaskFailed#obj_id#int#int QuestBaseTaskTimerTaskCompleted#obj_id#dictionary
