@@ -107,7 +107,7 @@ int[] getValidSpawn(dictionary dctPlayerStats)
 
 		strFileName = "datatables/spawning/spawn_lists/" + strPlanet + "/" + strPlanet + "_" + strRegion + ".iff";
 	}
-	
+
 	if(strFileName == null)
 		return null;
 
@@ -119,13 +119,13 @@ int[] getValidSpawn(dictionary dctPlayerStats)
 	int[] intGcwThresholds = null;
 	int[] intGcwScoreTypes = null;
 	string[] strGcwSpecificRegions = null;
-	
+
 	if(dataTableHasColumn(strFileName, "intGCWFaction"))
 	{
-		intGcwFactions = dataTableGetIntColumn(strFileName, "intGCWFaction");	
+		intGcwFactions = dataTableGetIntColumn(strFileName, "intGCWFaction");
 		intGcwThresholds = dataTableGetIntColumn(strFileName, "intGCWThreshold");
 		intGcwScoreTypes = dataTableGetIntColumn(strFileName, "intGCWScoreType");
-		strGcwSpecificRegions = dataTableGetStringColumn(strFileName, "strGCWSpecificRegion");	
+		strGcwSpecificRegions = dataTableGetStringColumn(strFileName, "strGCWSpecificRegion");
 	}
 
 	boolean checkGCWStats = true;
@@ -136,31 +136,31 @@ int[] getValidSpawn(dictionary dctPlayerStats)
 
 		return null;
 	}
-	
+
 	location currentLoc = getLocation(objPlayer);
-	
+
 	if(intGcwFactions == null || intGcwThresholds == null || intGcwScoreTypes == null)
 	{
 		checkGCWStats = false;
 	}
 
 	resizeable int[] validTemplateIndices = new int[0];
-	
+
 	if(validTemplateIndices == null)
 		return null;
-	
+
 	for(int i = 0; i < strTemplates.length; ++i)
 	{
 		int intMinDifficulty = intMinDifficulties[i];
 		int intMaxDifficulty = intMaxDifficulties[i];
-		
+
 		if(checkGCWStats)
 		{
 			int intGcwFaction = intGcwFactions[i];
 			int intGcwThreshold = intGcwThresholds[i];
 			int intGcwScoreType = intGcwScoreTypes[i];
 			string strSpecificRegion = strGcwSpecificRegions == null || strGcwSpecificRegions.length == 0 ? "" : strGcwSpecificRegions[i];
-			
+
 			if(!checkGalacticCivilWarStandings(intGcwFaction, intGcwThreshold, intGcwScoreType, strSpecificRegion, currentLoc))
 				continue;
 		}
@@ -171,9 +171,9 @@ int[] getValidSpawn(dictionary dctPlayerStats)
 			// Skip any theaters we shouldn't be spawning.
 			if(!boolTheatersAllowed && strTemplates[i].indexOf("theater") > 0)
 				continue;
-				
+
 			validTemplateIndices = utils.addElement(validTemplateIndices, i);
-		}	
+		}
 	}
 
 	return validTemplateIndices;
@@ -402,7 +402,7 @@ dictionary chooseWeightedSpawnTemplate(int[] intDataIndex, string strRegionName,
 	dictionary dctSpawnInformation = new dictionary();
 
 	dctSpawnInformation.put("intIndex", intIndex);
-	
+
 	dctSpawnInformation.put("strTemplate", strTemplates[intIndex]);
 	dctSpawnInformation.put("intMinDifficulty", intMinDifficulties[intIndex]);
 	dctSpawnInformation.put("intMaxDifficulty", intMaxDifficulties[intIndex]);
@@ -566,7 +566,7 @@ boolean canSpawn(obj_id objPlayer, location locSpawnLocation, boolean boolCheckF
 
 		return false;
 	}
-	
+
 	if(hasObjVar(objPlayer, "spawning.locSpawnLocation"))
 	{
 		// check quantitities
@@ -625,7 +625,7 @@ boolean canSpawn(obj_id objPlayer, location locSpawnLocation, boolean boolCheckF
 			// LOG("spawn_base", "battlefield.getBattlefield In a city returning false from canspawn");
 			return false;
 		}
-		
+
 	}
 
 	return true;
@@ -714,7 +714,7 @@ boolean isSpawningAllowed(location locTest)
 		if(locTest.area == INVALID_SPAWNING_AREAS[i])
 			return false;
 	}
-	
+
 	return true;
 }
 
@@ -753,7 +753,7 @@ void doSpawnEvent(dictionary params)
 	{
 		return;
 	}
-	
+
 	obj_id objPlayer = params.getObjId("objPlayer");
 
 	if(!isIdValid(objPlayer))
@@ -818,7 +818,7 @@ void doSpawnEvent(dictionary params)
 
 void doSpawnTemplate(obj_id self, dictionary params)
 {
-	
+
 	string strTemplate = params.getString("strTemplate");
 
 	int intIndex = params.getInt("intIndex");
@@ -919,14 +919,14 @@ boolean isGalaticCivilWarWinner(int faction, int threshold, int imperialScore)
 		return true;
 	else if (faction == 2 && threshold < (100 - imperialScore)) // Rebel
 		return true;
-		
-	return false;	
+
+	return false;
 }
 
 boolean checkGalacticCivilWarStandings(int gcwFaction, int gcwThreshold, int gcwScoreType, String gcwSpecificRegion, location loc)
 {
 	if(gcwFaction > 0 && gcwThreshold > 0)
-	{	
+	{
 		if(gcwScoreType == 0) // Based on Planet Score.
 		{
 			int ImperialScore = getGcwGroupImperialScorePercentile(toLower(getCurrentSceneName()));
@@ -965,7 +965,7 @@ boolean checkGalacticCivilWarStandings(int gcwFaction, int gcwThreshold, int gcw
 
 			int ImperialScore = getGcwImperialScorePercentile(toLower(gcwSpecificRegion));
 
-			return isGalaticCivilWarWinner(gcwFaction, gcwThreshold, ImperialScore);				
+			return isGalaticCivilWarWinner(gcwFaction, gcwThreshold, ImperialScore);
 
 		}
 		else
@@ -974,6 +974,6 @@ boolean checkGalacticCivilWarStandings(int gcwFaction, int gcwThreshold, int gcw
 		}
 
 	}
-	
+
 	return true;
 }
