@@ -48,7 +48,7 @@ const int PLAYER_TO_NPC_RATIO			= 1;	// for every 1 player, we decrease our max 
 
 // END TESTING CONSTANTS;
 
-public boolean boolFastSpawnEnabled		= false;
+const boolean boolFastSpawnEnabled		= false;
 
 const int MAXIMUM_SPAWNING_RUN_TIME_RULES	= 200;
 const float CREATURES_TO_PLAYERS_RATIO		= 20;
