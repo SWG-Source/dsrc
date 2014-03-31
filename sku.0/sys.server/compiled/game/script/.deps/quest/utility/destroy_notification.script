@@ -1,2 +1,0 @@
-DEPENDENCIES: 
-PROTOTYPES: OnDestroy#obj_id OnIncapacitated#obj_id#obj_id OnObjectDisabled#obj_id#obj_id addNotification#obj_id#dictionary

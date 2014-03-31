@@ -1,2 +1,0 @@
-DEPENDENCIES: 
-PROTOTYPES: OnGetAttributes#obj_id#obj_id#String[]#String[] OnGetScriptvars#obj_id#obj_id#String[]#String[] OnLocateObject#obj_id#dictionary OnSetWaypointActive#obj_id#dictionary OnSetWaypointLocation#obj_id#dictionary
