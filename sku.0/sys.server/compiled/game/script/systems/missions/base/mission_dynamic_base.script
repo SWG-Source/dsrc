@@ -874,11 +874,11 @@ obj_id createDynamicBountyMission(obj_id objMissionData, obj_id objCreator, int 
 		intRoll = rand(1, 2);
 		if(intRoll == 1)
 		{
-			strSex == "male";
+			strSex = "male";
 		}
 		else
 		{
-			strSex == "female";
+			strSex = "female";
 		}
 	}
 	else
