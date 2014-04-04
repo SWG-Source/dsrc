@@ -1,0 +1,21 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2625510	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	98.5586	124.635	227.839	0.667166	0	0.744909	0		$|
+2625511	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	99.437	126.986	235.743	0.9992	0	0.0399893	0		$|
+2625512	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	98.0415	127.021	222.428	0.998201	0	0.059964	0		$|
+2625518	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	103.293	121.426	221.723	0.969301	-0.00478684	0.0627728	-0.23768		$|
+2625519	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	104.853	121.411	235.456	0.963337	-0.0159947	0.0289088	-0.266251		$|
+2625520	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	111.336	117.613	220.682	0.652136	0	0.758102	0		$|
+2625521	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	113.026	117.635	234.736	0.692824	0	0.721107	0		$|
+5555840	0	object/building/general/rori_garyn_bunker.iff	0	105.626	117.85	228.44	0.667463	0	0.744643	0		$|
+9715658	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	1171.61	76.5844	1379.48	0.993395	0	-0.114747	0		$|
+9715659	0	object/tangible/camp/camp_cot.iff	0	1170.14	76.7851	1380.67	0.80721	-0.0265026	-0.588548	0.036349		$|
+9715663	0	object/tangible/camp/camp_cot.iff	0	1173.14	76.504	1378.73	-0.593217	0.0143645	0.803784	-0.0426301		$|
+9715665	0	object/static/item/item_container_inorganic_gas.iff	0	1170.45	76.5249	1378.15	0.935897	0	0.352274	0		$|
+9715667	0	object/static/item/item_container_inorganic_minerals.iff	0	1169.56	76.6158	1378.31	0.935897	0	0.352274	0		$|
+9715668	0	object/static/item/item_container_inorganic_water.iff	0	1168.07	75.7875	1372.14	1	0	0	0		$|
+9715670	0	object/static/item/item_container_organic_food.iff	0	1169.61	76.3719	1377.5	0.935897	0	0.352274	0		$|
+9715675	0	object/tangible/camp/campfire_logs_ash.iff	0	1171.37	75.7863	1373.06	1	0	0	0		$|
+9715676	0	object/tangible/camp/camp_stool_tall.iff	0	1170.39	75.8206	1373.03	1	0	0	0		$|
+9715678	0	object/tangible/camp/camp_stool_short.iff	0	1171.67	75.7818	1373.75	1	0	0	0		$|
+4635469	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	747	80.0159	5	0.0399893	0	0.9992	0		$|

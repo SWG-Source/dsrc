@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_vest.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "" "armor_stormtrooper_chest_plate_groupleader_gcw_n"
+detailedDescription = "" "armor_stormtrooper_chest_plate_groupleader_gcw_d"
+appearanceFilename = "appearance/armor_stormtrooper_chest_plate_pad_gcw_f.sat"
+

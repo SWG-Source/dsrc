@@ -1,0 +1,9 @@
+
+@base object/tangible/wearables/armor/zam/armor_zam_wesell_pants.iff
+
+@class tangible_object_template 3
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/zam/shared_armor_zam_wesell_pants_quest.iff"
+

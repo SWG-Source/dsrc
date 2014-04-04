@@ -1,0 +1,10 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9095395	0	object/static/structure/tatooine/bridge_tatooine_small_style_03.iff	0	1334.93	10.3959	425.993	0.874057	0.0319151	-0.477429	-0.0840687		$|
+9095401	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1329.84	2.75734	421.288	0.890104	0.100112	0.236787	0.37633		$|
+9095412	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1346.43	10.9557	421.622	0.758215	-0.233353	-0.312564	0.522456		$|
+9095414	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1320.75	9.85638	435.541	0.930508	0	0.366273	0		$|
+9095416	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1346.34	10.596	412.545	0.937647	0	0.34759	0		$|
+9095417	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1336.08	1.94263	418.546	0.909855	-0.267899	-0.251052	0.193305		$|
+9095418	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1327.45	9.05576	437.581	0.92049	-0.251026	-0.267923	0.133798		$|
+9095419	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1321.12	11.4085	432.712	-0.462186	0.00861903	0.539251	0.70393		$|

@@ -1,4 +1,4 @@
-// 
+//
 
 @base object/tangible/storyteller/prop/base/shared_storyteller_prop_base.iff
 
@@ -12,4 +12,3 @@ objectName = "static_item_n" "st_pr_exar_kun_torture_table"
 detailedDescription = "static_item_n" "st_pr_exar_kun_torture_table"
 
 appearanceFilename = "appearance/exar_torture_table.apt"
-e

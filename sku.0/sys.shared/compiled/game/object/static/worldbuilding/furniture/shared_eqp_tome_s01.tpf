@@ -13,4 +13,4 @@ lookAtText = "string_table"  "item"
 
 snapToTerrain = false
 
-appearanceFilename = appearance/eqp_wookiee_tome_s01.apt"
+appearanceFilename = "appearance/eqp_wookiee_tome_s01.apt"

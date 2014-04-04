@@ -1,0 +1,13 @@
+@base object/intangible/base/intangible_base.iff
+
+@class manufacture_schematic_object_template 0
+
+draftSchematic = ""
+
+creator = ""
+
+ingredients = [ ]
+
+itemCount = 1
+
+attributes = [ ]

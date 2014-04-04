@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3515396	0	object/static/item/item_metal_staff.iff	0	38.2695	19.0475	591.694	-0.00420361	0	0	0.999991		$|
+3515402	0	object/static/item/wp_mle_lance_s01.iff	0	38.3032	15.9679	591.717	1	0	0	0		$|
+3515403	0	object/static/item/wp_mle_lance_s01.iff	0	38.3032	14.6713	591.717	1	0	0	0		$|
+3515406	0	object/static/particle/pt_poi_electricity_2x2.iff	0	38.3457	16.5442	591.673	1	0	0	0		$|
+7806057	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	38.7998	11.9241	592.214	1	0	0	0		$|
+9685353	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	38.7783	11.9973	587.359	1	0	0	0		$|
+9685354	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	38.7725	12.0678	596.565	1	0	0	0		$|
+9685355	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	38.7715	20.2967	595.615	0.707108	-0.707105	0	0		$|
+9685356	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	42.1978	11.924	592.233	0.707108	0	-0.707106	0		$|
+9685357	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	32.9839	11.9628	592.218	0.707108	0	-0.707105	0		$|
+9685359	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	33.9541	20.1898	592.226	-0.5	0.5	0.5	0.5		$|
