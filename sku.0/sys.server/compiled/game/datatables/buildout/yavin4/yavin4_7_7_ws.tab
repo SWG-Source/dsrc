@@ -1,0 +1,7 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3465379	0	object/building/yavin/temple_exar_kun.iff	0	960.66	73.6701	1441.79	0.707107	0	0.707106	0		$|
+8995500	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	212.33	36.1296	724.677	0.865324	0	-0.501213	0		$|
+8995501	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	210.219	53.058	725.88	1	0	0	0		$|
+8995524	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1980.33	22.0798	1344.59	1	0	0	0		$|
+8995525	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1980.44	20.5048	1341.42	1	0	0	0		$|

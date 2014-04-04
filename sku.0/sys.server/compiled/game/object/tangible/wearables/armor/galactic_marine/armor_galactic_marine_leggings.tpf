@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/base_skirt.iff
+
+@class tangible_object_template 3
+
+armor = ""
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/galactic_marine/shared_armor_galactic_marine_leggings.iff"
+

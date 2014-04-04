@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/base_bracer_l.iff
+
+@class tangible_object_template 3
+
+armor = "abstract/armor_statistics/armor/stormtrooper/base/statistics_armor_stormtrooper_left_bracer.iff"
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/stormtrooper/shared_armor_stormtrooper_bracer_l_gcw.iff"
+

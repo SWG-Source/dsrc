@@ -1,0 +1,5 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+733396	0	object/building/general/endor_marauder_orphans_cave.iff	0	1265.54	19.502	688.623	0.589467	0	0.807793	0		$|
+9705888	0	object/static/structure/dantooine/dant_large_mudhut.iff	0	1313.02	204.277	1364.15	0.637151	0	0.770739	0		$|
+9705892	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1316.89	202.223	1363.37	1	0	0	0		$|

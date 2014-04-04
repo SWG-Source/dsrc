@@ -1,0 +1,26 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1627780	0	object/building/general/bunker_mad_bio.iff	0	1742.65	82.3105	1647.48	-0.493228	0	0.8699	0		$|
+8225394	0	object/building/military/military_outpost_guard_house_rebel.iff	0	619.741	21.0955	965.526	0.999672	-0.0233365	-0.000246496	0.0105592		$|
+8225397	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	618.693	19.3229	958.12	0.995953	0	0.0898786	0		$|
+8225398	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	621.504	19.3174	958.106	0.995953	0	-0.0898786	0		$|
+8225404	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	640.783	149.077	1601.7	0.0104405	0.00962928	0.735014	-0.677904		$|
+8225405	0	object/static/structure/general/skeleton_human_headandbody.iff	0	640.931	150.602	1597.51	0.997219	0.0697089	0.0255231	-0.00663575		$|
+8225406	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	640.742	148.24	1601.27	1	0	0	0		$|
+8375424	0	object/static/structure/general/prp_junk_s2.iff	0	1300.53	14.5223	11.3951	0.937646	0	0	-0.34759		$|
+8375425	0	object/static/structure/general/prp_junk_s3.iff	0	1300.83	13.6767	6.81104	-0.696588	0.123114	0.706821	0.00348648		$|
+8375428	0	object/static/structure/general/prp_junk_s6.iff	0	1237.71	7.60283	466.907	0.0410377	-0.572028	0.647643	0.501656		$|
+8375429	0	object/static/structure/general/prp_junk_s7.iff	0	1235.42	7.87657	468.098	0.887896	-0.235256	0.369577	0.140383		$|
+8375432	0	object/static/structure/military/military_wall_med_rebl_style_01.iff	0	1247.61	44.413	1134.4	0.967663	0.252246	0	0		$|
+8375433	0	object/static/structure/military/military_wall_med_rebl_style_01.iff	0	1255.51	44.4394	1137.65	0.894004	0.233044	-0.370309	0.0965301		$|
+8375434	0	object/static/structure/military/military_column_med_rebel_style_01.iff	0	1252.26	44.885	1134.69	0.940941	0.250311	-0.220315	0.0586086		$|
+8375435	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1253.11	42.9579	1131.41	1	0	0	0		$|
+8495353	0	object/static/structure/general/debris_deathstar_tractorbeam.iff	0	1305.41	119.158	1638.38	0.862738	-0.114238	-0.224894	-0.438241		$|
+8495368	0	object/static/structure/general/banner_imperial_style_01.iff	0	1253.95	195.893	1944.01	0.675013	0.725482	-0.0201344	-0.132772		$|
+8495480	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	1897.88	26.0509	543.72	0.707107	0	0	0.707106		$|
+8495482	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	1888.08	26.0545	543.746	-4.52566e-008	0.707107	0.707107	-2.98023e-008		$|
+8495483	0	object/static/structure/naboo/gungan_relic_s01.iff	0	1823.06	66.232	1385.12	1	0	0	0		$|
+8495484	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1822.19	72.958	1385.38	-3.20013e-008	1	0	0		$|
+8695466	0	object/building/military/military_outpost_guard_tower_1.iff	0	1256.21	195.952	1937.48	-0.293321	0	0.956014	0		$|
+8695490	0	object/static/structure/general/prp_junk_s1.iff	0	1893.83	21.9669	543.765	0.714421	0	0.699716	0		$|
+8695491	0	object/static/structure/general/prp_junk_s1.iff	0	1892.16	21.9646	543.811	-0.699716	0	0.714421	0		$|

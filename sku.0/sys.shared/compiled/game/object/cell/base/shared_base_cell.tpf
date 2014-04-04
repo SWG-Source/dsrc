@@ -1,6 +1,6 @@
 @base object/object/base/shared_base_object.iff
 
-@class cell_object_Template 0
+@class cell_object_template 0
 
 
 

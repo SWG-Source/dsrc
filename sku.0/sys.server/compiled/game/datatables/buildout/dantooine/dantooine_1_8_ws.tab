@@ -1,0 +1,16 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+200320	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1969.14	51.9395	1252.33	1	0	0	0		$|
+200321	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1969.64	47.8379	1242.89	0.0291995	0	0.999574	0		$|
+200322	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1958.63	49.569	1243.29	-0.253017	0	0.967462	0		$|
+200325	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1951.69	52.5174	1247.21	-0.480125	0	0.8772	0		$|
+200326	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1979.07	51.4555	1243.03	0.227202	0	0.973848	0		$|
+200327	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1984.4	57.5851	1248.1	0.407033	0	0.913414	0		$|
+200328	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1969.36	42.8573	1226.8	0.029199	0	0.999574	0		$|
+200329	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1957.02	43.3986	1229.57	-0.2675	0	0.963558	0		$|
+200330	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1939.83	50.8373	1236.31	-0.462487	0	0.886627	0		$|
+200331	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1946.91	46.2154	1232.85	-0.301053	0	0.953608	0		$|
+200332	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1983.74	47.0935	1227.71	0.163466	0	0.986549	0		$|
+200333	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1991.66	52.5132	1231.93	0.346844	0	0.937924	0		$|
+200334	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1999.7	59.7882	1236.06	0.474331	0	0.880347	0		$|
+8535482	0	object/building/general/dantooine_force_crystal_hunter_sd_cave.iff	0	1951.85	56.0141	1261.22	3.20013e-008	0	1	0		$|
