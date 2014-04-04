@@ -1,2 +1,0 @@
-DEPENDENCIES: base/remote_object library/utils
-PROTOTYPES: OnClusterWideDataResponse#obj_id#String#String#int#String[]#dictionary[]#int createRemoteObjectResponse#obj_id#dictionary

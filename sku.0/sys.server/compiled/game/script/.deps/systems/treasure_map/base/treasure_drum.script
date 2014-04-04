@@ -1,2 +1,0 @@
-DEPENDENCIES: 
-PROTOTYPES: OnAboutToReceiveItem#obj_id#obj_id#obj_id#obj_id OnAttach#obj_id cleanUpChest#obj_id#dictionary

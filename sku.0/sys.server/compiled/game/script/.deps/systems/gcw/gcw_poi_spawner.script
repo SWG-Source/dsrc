@@ -1,2 +1,0 @@
-DEPENDENCIES: library/ai_lib library/attrib library/create library/holiday library/utils
-PROTOTYPES: OnAttach#obj_id OnDestroy#obj_id spawnSentry#obj_id#dictionary

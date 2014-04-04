@@ -1,2 +1,0 @@
-DEPENDENCIES: library/ai_lib library/buff library/pet_lib library/target_dummy library/utils
-PROTOTYPES: 

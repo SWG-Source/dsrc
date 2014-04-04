@@ -275,7 +275,7 @@ trigger OnNpcConversationResponse (string convo, obj_id speaker, string_id respo
 		
 		if (cardPlayed == null || cardPlayed == "")
 		{
-			cardPlayed == "sarlacc";
+			cardPlayed = "sarlacc";
 		}
 		
 		if (cardPlayed == "thermal_detonator")
@@ -318,7 +318,7 @@ trigger OnNpcConversationResponse (string convo, obj_id speaker, string_id respo
 		
 		if (cardPlayed == null || cardPlayed == "")
 		{
-			cardPlayed == "sarlacc";
+			cardPlayed = "sarlacc";
 		}
 		
 		if (cardPlayed == "thermal_detonator")
@@ -361,7 +361,7 @@ trigger OnNpcConversationResponse (string convo, obj_id speaker, string_id respo
 		
 		if (cardPlayed == null || cardPlayed == "")
 		{
-			cardPlayed == "sarlacc";
+			cardPlayed = "sarlacc";
 		}
 		
 		if (cardPlayed == "thermal_detonator")

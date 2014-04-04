@@ -1,2 +1,0 @@
-DEPENDENCIES: library/city library/qa library/utils
-PROTOTYPES: OnSpeaking#obj_id#String

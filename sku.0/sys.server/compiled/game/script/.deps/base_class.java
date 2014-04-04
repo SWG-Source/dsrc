@@ -1,2 +1,0 @@
-DEPENDENCIES: obj_id region
-PROTOTYPES: 

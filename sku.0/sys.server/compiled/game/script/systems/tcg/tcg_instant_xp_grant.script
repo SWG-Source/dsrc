@@ -56,8 +56,8 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 				if(!isValidId(collectionItem) || !exists(collectionItem))
 				{
 					CustomerServiceLog("tcg", "TCG Item ("+ self +") used by player: ("+ player +")"
-							+ getFirstName(player) + " Player Level: "+ playerLevel +"
-							. The collection system reports that a collectible object WAS NOT recieved by the player due to an internal error. Please notify SWG design.");
+							+ getFirstName(player) + " Player Level: "+ playerLevel +
+							". The collection system reports that a collectible object WAS NOT recieved by the player due to an internal error. Please notify SWG design.");
 					return SCRIPT_CONTINUE;
 				}
 
