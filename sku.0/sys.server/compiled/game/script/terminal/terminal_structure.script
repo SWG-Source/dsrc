@@ -684,12 +684,12 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	else if ( item == menu_info_types.SERVER_MENU15 )
 	{
 		blog("SERVER_MENU15 - selected");
-		player_structure.getStructureDecorMenu(player, structure, template);
+		//player_structure.getStructureDecorMenu(player, structure, template);
 	}
 	else if ( item == menu_info_types.SERVER_MENU16 )
 	{
 		blog("about to REMOVE DECOR");
-		player_structure.removeStructureDecor(structure, player);
+		//player_structure.removeStructureDecor(structure, player);
 	}	
 	else if (item == menu_info_types.DICE_ROLL )
 	{
