@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/base_bicep_l.iff
+
+@class tangible_object_template 3
+
+armor = ""
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/scout_trooper/shared_armor_scout_trooper_bicep_camo_l.iff"
+

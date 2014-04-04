@@ -1,0 +1,21 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8185381	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	1587.59	-204.549	285.168	0.967663	0	0	-0.252245		$|
+8185382	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	1579.1	-204.013	285.83	0.998988	0	0.0449848	0		$|
+8185383	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1580.57	-203.857	289.864	1	0	0	0		$|
+8185384	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1586.91	-204.296	280.156	0.926798	0	-0.375559	0		$|
+8185387	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	1582.89	-204.337	280.306	0.852525	0	-0.522687	0		$|
+8185388	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	1585.26	-204.026	291.271	0.745117	-0.15533	-0.621262	0.186296		$|
+8185389	0	object/static/structure/general/skeleton_human_head.iff	0	1579.22	-199.977	289.486	0.768054	0	-0.640385	0		$|
+8185390	0	object/static/structure/general/skeleton_bith_head.iff	0	1578.66	-199.965	282.274	0.751805	0	-0.659385	0		$|
+8185391	0	object/static/structure/general/skeleton_human_head.iff	0	1579.1	-204.192	284.015	1	0	0	0		$|
+8185392	0	object/static/structure/general/skeleton_human_head.iff	0	1578.93	-204.198	283.94	1	0	0	0		$|
+8185393	0	object/static/structure/general/skeleton_bith_head.iff	0	1579.01	-204.06	284.003	1	0	0	0		$|
+8185395	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1575.6	-206.707	287.048	1	0	0	0		$|
+8185424	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	1815.73	-196.357	372.806	-0.501901	1.64996e-008	0.864925	6.13432e-009		$|
+8185425	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	1812.27	-195.483	379.575	1	0	0	0		$|
+8185426	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	1811	-196.265	375.456	1	0	0	0		$|
+8185427	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1811.35	-195.887	370.26	1	0	0	0		$|
+8185428	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	1816.41	-195.888	378.5	0.484504	0	0.874789	0		$|
+8185429	0	object/static/structure/naboo/gungan_statue_s03.iff	0	1814.09	-195.737	376.317	0.233618	0	0.972329	0		$|
+8185430	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1815.07	-198.122	374.21	1	0	0	0		$|

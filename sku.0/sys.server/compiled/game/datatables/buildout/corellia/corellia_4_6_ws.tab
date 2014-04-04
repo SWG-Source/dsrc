@@ -1,0 +1,7 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9825405	0	object/static/structure/general/poi_all_monolith_s01.iff	0	140.617	214.256	1947.54	1	0	0	0		$|
+9825421	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	140.762	227.438	1946.22	5.30747e-008	0	1	0		$|
+9825423	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	140.439	227.787	1948.84	1	0	0	0		$|
+9825425	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	139.23	227.387	1947.37	0.707107	0	-0.707106	0		$|
+9825426	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	142.033	227.318	1947.49	0.707107	0	0.707106	0		$|

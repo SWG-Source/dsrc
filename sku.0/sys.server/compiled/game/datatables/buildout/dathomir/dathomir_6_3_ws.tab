@@ -1,0 +1,8 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725972	0	object/tangible/camp/camp_tent_s1.iff	0	826.744	19.5747	1564.59	-0.629412	0	0.777072	0		$|
+9725974	0	object/tangible/camp/campfire_logs_burnt.iff	0	823.936	19.3738	1565.6	0.996802	4.41103e-010	-3.53637e-011	0.0799147		$|
+9725977	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	826.796	19.4229	1562.24	0.768054	0	-0.640386	0		$|
+9725978	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	826.07	19.135	1562.65	0.982936	0	0.183947	0		$|
+9725980	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	825.347	19.5856	1566.1	0.911039	0	0.412321	0		$|
+9725981	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	823.932	19.0381	1562.92	1	0	0	0		$|

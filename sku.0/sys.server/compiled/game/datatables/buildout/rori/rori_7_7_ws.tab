@@ -1,0 +1,32 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1143364	0	object/static/item/item_tool_sensor_beacon.iff	0	1348.78	86.9304	949.505	1	0	0	0		$|
+1143365	0	object/static/item/item_tool_sensor_beacon.iff	0	1357.47	87.1783	913	0.462485	0	0.886627	0		$|
+1143366	0	object/static/item/item_tool_sensor_beacon.iff	0	1342.38	87.2823	913.855	-0.539332	0.0509826	0.840086	-0.0278785		$|
+1143368	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	1368.71	87.2857	945.317	0.983308	-0.0368639	-0.166554	-0.0632975		$|
+1143369	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	1370.71	83.4311	956.257	0.970811	0.0666258	-0.182661	-0.140437		$|
+1143370	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	1334.97	86.4257	907.004	0.781248	-0.178008	0.588885	0.105735		$|
+6055627	0	object/static/item/item_tool_sensor_beacon.iff	0	1356.65	87	944.115	1	0	0	0		$|
+6055628	0	object/building/general/rori_cobral_bunker.iff	0	1350.04	87	919.863	1	0	0	0		$|
+6055639	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1355.18	87	933.648	1	0	0	0		$|
+6055640	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1355.56	86.9948	934.609	0.911039	0	-0.412321	0		$|
+6055641	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1355.51	87.6896	934.237	0.990216	0	0.139543	0		$|
+6055642	0	object/static/item/item_container_electronics.iff	0	1353.73	86.9399	933.376	0.839192	0	-0.543835	0		$|
+6055678	0	object/static/item/item_ryyk_blade.iff	0	1350.29	90.8265	931.956	-0.61539	-0.348275	0.61539	-0.348275		$|
+6055679	0	object/static/item/item_ryyk_blade.iff	0	1349.74	90.8265	931.945	0.620545	0.339005	0.620544	-0.339005		$|
+6055692	0	object/static/structure/general/skeleton_human_head.iff	0	1350.02	91.1427	931.859	0.990216	0.139543	0	0		$|
+6475955	0	object/static/structure/general/streetlamp_small_red_style_02.iff	0	1350.06	83.685	933.417	1	0	0	0		$|
+9715633	0	object/static/structure/general/poi_nboo_corral_32x32_s01.iff	0	989.072	76.0259	581.051	-0.286715	0	0.958016	0		$|
+9715636	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	997.339	76.2203	580.327	0.961055	0	0.276356	0		$|
+9715637	0	object/tangible/camp/camp_cot.iff	0	999.29	76.6211	580.959	0.719702	0.681932	0.113857	-0.0635219		$|
+9715644	0	object/tangible/camp/camp_cot.iff	0	997.673	76.7167	579.481	-0.0390897	0.999136	0.00959974	0.0103836		$|
+9715652	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	995.45	75.7936	573.819	0.951353	-0.114713	0.283896	0.034232		$|
+9715657	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	994.467	75.4714	570.465	0.889686	0.0579112	-0.45193	0.0294169		$|
+9715660	0	object/tangible/furniture/modern/coffee_table_modern_style_01.iff	0	985.597	76.4107	591.779	-0.706695	0.689819	-0.0630127	-0.144089		$|
+9715664	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	989.016	75.4774	592.358	0.993956	0.109778	-7.36134e-011	-1.49925e-010		$|
+9715669	0	object/static/item/item_bottle_pear.iff	0	983.554	75.7613	589.303	0.43619	-0.340544	-0.544873	0.629985		$|
+9715671	0	object/static/item/item_bottle_fat.iff	0	986.515	75.8706	589.535	-0.169479	0.68191	0.694751	-0.153614		$|
+9715673	0	object/static/item/item_glass_empty.iff	0	984.662	75.8087	587.94	-0.704928	0.61827	0.229196	0.26132		$|
+9715674	0	object/static/item/item_jar_empty.iff	0	984.26	75.9135	587.136	0.535024	0.489011	-0.474875	0.49911		$|
+9715677	0	object/tangible/furniture/cheap/chair_s01.iff	0	982.578	75.9863	589.852	-0.116225	0.731653	-0.668855	0.0617182		$|
+9715679	0	object/tangible/furniture/cheap/chair_s01.iff	0	987.359	75.4873	593.259	-0.42666	0	0.904412	0		$|

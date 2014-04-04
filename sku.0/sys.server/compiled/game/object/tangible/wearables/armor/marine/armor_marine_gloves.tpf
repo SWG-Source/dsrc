@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/base_gauntlets.iff
+
+@class tangible_object_template 3
+
+armor = ""
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/armor/marine/shared_armor_marine_gloves.iff"
+

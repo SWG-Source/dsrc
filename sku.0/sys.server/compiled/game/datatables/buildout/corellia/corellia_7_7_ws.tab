@@ -1,0 +1,5 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+178345	0	object/static/particle/particle_campfire_style_1.iff	0	429.782	1.57529	224.825	1	0	0	0		$|
+178346	0	object/static/particle/particle_smoke.iff	0	429.577	0.745659	224.794	1	0	0	0		$|
+9825824	0	object/static/corellia/rock_crystal_mound_agrilat_medium.iff	0	429.692	-0.852658	224.702	1	0	0	0		$|

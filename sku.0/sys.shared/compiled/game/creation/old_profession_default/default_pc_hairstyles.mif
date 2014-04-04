@@ -1,8 +1,8 @@
 #define STRINGER(a) cstring #a
 #define PLAYER_TEMPLATE_NAME(templateName) \
-chunk "NAME" { STRINGER(object/creature/player/shared_##templateName.iff) }
+chunk "NAME" { STRINGER(object/creature/player/shared_templateName.iff) }
 #define DEFAULT_HAIR(templateName) \
-chunk "DEFA" { STRINGER(object/tangible/hair/##templateName.iff) }
+chunk "DEFA" { STRINGER(object/tangible/hair/templateName.iff) }
 
 form "HAIR"
 {
