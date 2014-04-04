@@ -207,7 +207,7 @@ messageHandler handleArmorSelection()
 
 	utils.setScriptVar(player, PREVIOUS_BUTTON_VISIBILITIY, FALSE);
 	createColorSui(self, player);
-	openCustomizationWindow(player, armor[idx], indexName[0], -1, -1, indexName[1], -1, -1, indexName[2], -1, -1);
+	openCustomizationWindow(player, armor[idx], indexName[0], -1, -1, indexName[1], -1, -1, indexName[2], -1, -1, indexName[3], -1, -1);
 
 	return SCRIPT_CONTINUE;
 }
