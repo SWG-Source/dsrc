@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705719	0	object/static/structure/general/trash_pile_s01.iff	0	656.027	14.3375	27.6987	0.390152	0.920751	0	0		$|
+9705720	0	object/static/structure/general/trash_pile_s01.iff	0	653.093	13.8678	25.4695	-0.0291761	0.998774	-0.0381938	0.0118481		$|
+9705721	0	object/static/structure/general/trash_pile_s01.iff	0	655.54	14.4641	23.3552	0.531861	0	0.846832	0		$|
+9705722	0	object/static/structure/general/trash_pile_s01.iff	0	648.85	13.6901	30.7183	0.695942	0.105181	0.702377	-0.106154		$|
+9705723	0	object/static/structure/general/trash_pile_s01.iff	0	645.517	13.6103	35.7798	0.678557	0.734548	0	0		$|
+9705724	0	object/static/structure/general/debris_deathstar_small_tube.iff	0	659.362	19.115	21.4258	0.835298	0.276809	-0.450917	0.149429		$|
+9705725	0	object/static/structure/general/debris_deathstar_small_tube.iff	0	656.112	17.2126	20.053	-0.466299	0.131566	-0.237546	0.841919		$|
+9705727	0	object/static/structure/general/prp_junk_s6.iff	0	657.596	16.0904	21.4863	0.314883	-0.394558	0.237401	0.829948		$|
+9705728	0	object/static/structure/general/prp_engine_component.iff	0	658.832	17.0507	23.9199	0.99639	0	0.0848977	0		$|
+9705729	0	object/static/structure/general/prp_engine.iff	0	651.295	13.7384	33.1997	0.427626	0.367814	0.817023	0.119675		$|
+9705730	0	object/static/structure/general/prp_junk_s8.iff	0	642.935	13.3845	41.4282	0.711848	-0.183238	0.258592	-0.626759		$|

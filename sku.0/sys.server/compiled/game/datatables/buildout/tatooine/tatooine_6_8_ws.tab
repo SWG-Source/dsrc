@@ -1,0 +1,17 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8985492	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	923.216	47.0741	299.93	1	0	0	0		$|
+8985493	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	929.3	47.1263	299.873	1	0	0	0		$|
+8985494	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	929.001	46.6957	304.646	0.707108	7.72714e-009	-0.707106	-7.72714e-009		$|
+8985495	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	923.018	47.9136	308.136	1	0	0	0		$|
+8985496	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	937.356	46.4508	313.782	0.707107	0	-0.707106	0		$|
+8985497	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	929.325	47.8317	310.953	1	0	0	0		$|
+8985498	0	object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff	0	937.38	38.4858	321.292	1	0	0	0		$|
+8985499	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	914.988	46.3386	314.073	-0.707107	0	0.707107	0		$|
+8985500	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	945.659	44.4965	321.388	0.92388	1.0096e-008	4.18191e-009	-0.382683		$|
+8985501	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	941.278	46.4582	328.33	-4.94834e-007	0	1	0		$|
+8985503	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	931.477	48.7291	323.496	0.653282	0.653281	0.270598	-0.270598		$|
+8985504	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	929.545	49.4702	322.428	0.707107	-0.707106	0	0		$|
+8985505	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	932.786	49.8639	326.935	-0.653282	0.65328	-0.270598	-0.270598		$|
+8985506	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	931.052	47.5585	324.498	0.92388	0	-0.382683	0		$|
+8985507	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	932.49	47.6728	328.069	0.92388	4.18191e-009	-0.382683	1.0096e-008		$|

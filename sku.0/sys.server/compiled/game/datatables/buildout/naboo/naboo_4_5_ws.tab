@@ -1,0 +1,21 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9005391	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	1741.61	4.15863	1849.49	1	0	0	0		$|
+9005392	0	object/static/structure/general/campfire_ash.iff	0	1746.33	4.57324	1852.7	1	0	0	0		$|
+9005393	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1743.34	2.46944	1851.02	1	0	0	0		$|
+9005406	0	object/static/structure/naboo/nboo_imprv_pristine_wall_sml_s03.iff	0	908.345	11.3685	353.124	-0.700285	0	0.713864	0		$|
+9005412	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	899.383	9.76593	353.321	1	0	0	0		$|
+9005413	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	908.447	9.82889	353.469	1	0	0	0		$|
+9005414	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	908.568	9.79123	343.181	1	0	0	0		$|
+9005415	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	899.132	9.79019	343.261	1	0	0	0		$|
+9005416	0	object/static/structure/naboo/nboo_imprv_pristine_wall_sml_s03.iff	0	899.192	11.3036	353.042	0.707388	0	-0.706826	0		$|
+9005424	0	object/static/structure/naboo/nboo_imprv_spill_gate_pillar_s01.iff	0	903.998	13.806	348.263	1	0	0	0		$|
+9005425	0	object/static/structure/naboo/nboo_imprv_pristine_wall_sml_s03.iff	0	898.592	11.3267	343.23	0.00920403	0	0.999958	0		$|
+9005426	0	object/static/structure/naboo/nboo_imprv_pristine_wall_sml_s03.iff	0	898.801	11.3408	353.318	0.009204	0	0.999958	0		$|
+9005427	0	object/static/item/item_bowl_shallow.iff	0	904.038	16.8157	348.249	1	0	0	0		$|
+9005428	0	object/static/particle/particle_campfire_style_1.iff	0	903.949	17.4774	348.197	1	0	0	0		$|
+9005429	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	904.751	4.87538	347.807	0.713302	0	0.700857	0		$|
+9005430	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	903.999	9.95816	346.423	0.0107961	0	0.999942	0		$|
+9005431	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	905.833	9.97035	348.308	0.717901	0	0.696145	0		$|
+9005432	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	903.932	10.3038	350.228	0.999888	0	-0.0149848	0		$|
+9005433	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	902.167	10.1627	348.266	-0.703845	0	0.710353	0		$|

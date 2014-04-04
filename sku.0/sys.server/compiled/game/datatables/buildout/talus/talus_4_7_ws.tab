@@ -1,0 +1,8 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9645503	0	object/tangible/furniture/all/frn_all_toolchest_med_s01.iff	0	820.616	41.2628	249.467	0.837158	-0.53178	0.0624723	0.111684		$|
+9645505	0	object/static/structure/general/skeleton_human_headandbody.iff	0	820.418	41.3858	247.974	0.992809	0.119712	0	0		$|
+9645508	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	820.035	41.4201	248.309	1	0	0	0		$|
+9645509	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	818.963	41.2388	249.465	0.998488	0	0	-0.0549723		$|
+9645510	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	818.622	41.6357	246.901	0.993509	0.109729	0.00329285	-0.0298142		$|
+9645512	0	object/static/structure/general/campfire_ash.iff	0	817.15	41.485	249.809	1	0	0	0		$|

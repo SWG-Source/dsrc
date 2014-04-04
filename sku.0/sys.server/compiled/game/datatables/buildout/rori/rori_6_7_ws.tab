@@ -1,0 +1,30 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5095989	0	object/building/general/rori_bark_mite_cave.iff	0	1532.47	97.8071	1343.74	-0.612818	0.033739	0.78831	0.0434008		$|
+5096011	0	object/static/structure/general/rock_beach_dark_lg.iff	0	1509.52	90.5859	1350.6	0.540302	0	0.841471	0		$|
+5096012	0	object/static/structure/general/rock_beach_dark_md.iff	0	1489.59	90.3078	1343.92	0.962425	0	-0.271547	0		$|
+5096015	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1514.27	90	1342.32	1	0	0	0		$|
+5096016	0	object/static/structure/general/skeleton_human_head.iff	0	1503.98	90	1346.91	0.968912	0	0.247404	0		$|
+5096017	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	1504.35	90.8322	1335.69	0.981048	0.193767	0	0		$|
+5096018	0	object/static/structure/general/skeleton_ithorian_headandbody.iff	0	1494.37	90.4917	1344.18	0.99568	0.0748344	0.0037201	-0.0548397		$|
+5096019	0	object/static/structure/general/skeleton_human_body.iff	0	1505.41	90	1342.39	0.9992	0	-0.0399893	0		$|
+5096020	0	object/static/structure/general/skeleton_human_body.iff	0	1505.56	90	1342.13	0.841901	0	0.539632	0		$|
+5096021	0	object/static/structure/general/skeleton_human_body.iff	0	1505.4	90	1341.66	0.991562	0	-0.129634	0		$|
+5096022	0	object/static/structure/general/skeleton_human_head.iff	0	1517.09	90.8985	1330.4	0.83355	-0.0734069	-0.165069	0.522072		$|
+5096023	0	object/static/structure/tatooine/skeleton_greater_krayt_spine_large.iff	0	1496.65	89.8053	1365.85	0.935256	-0.0214036	0.337776	-0.103665		$|
+5096024	0	object/static/structure/tatooine/skeleton_krayt_tail.iff	0	1472.18	90.0163	1348.4	0.462485	0	0.886627	0		$|
+5096025	0	object/static/structure/dantooine/dant_skull_thune.iff	0	1475.79	89.8446	1345.66	0.559373	0.0448456	0.825055	-0.0661455		$|
+5096026	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1509.39	92.2029	1360.04	0.915939	-0.136142	0.315571	0.207211		$|
+5096027	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1491.9	90	1361.25	0.902611	0	0.430458	0		$|
+5096028	0	object/static/structure/general/skeleton_human_body.iff	0	1474.31	90.004	1349.95	1	0	0	0		$|
+5096029	0	object/static/structure/general/skeleton_bith_head.iff	0	1469.97	90	1339.96	0.934124	-0.356949	0	0		$|
+5096030	0	object/static/structure/general/rock_beach_dark_lg.iff	0	1476.95	90	1364.29	0.975897	0	0.21823	0		$|
+5096069	0	object/static/particle/pt_buzzing_insects_large.iff	0	1503.88	90	1343	1	0	0	0		$|
+5096070	0	object/static/particle/pt_buzzing_insects_large.iff	0	1491.05	90	1364.46	1	0	0	0		$|
+5096071	0	object/static/particle/pt_buzzing_insects_large.iff	0	1479.76	90.1811	1351.44	1	0	0	0		$|
+9715366	0	object/static/structure/naboo/gungan_relic_s02.iff	0	1348.44	83.346	1765.72	1	0	0	0		$|
+9715367	0	object/static/structure/naboo/gungan_relic_s02.iff	0	1322.79	81.7639	1750.25	0.824405	0.092716	-0.540124	0.141515		$|
+9715368	0	object/static/structure/naboo/gungan_relic_s02.iff	0	1319.37	88.4788	1773.97	1	0	0	0		$|
+9715369	0	object/static/structure/naboo/gungan_relic_s02.iff	0	1340.31	86.7981	1779.93	0.741831	0	-0.670587	0		$|
+9715370	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	1340.28	73.0611	1754.44	1	0	0	0		$|
+9715371	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	1323.04	73.5045	1759.26	-0.0457805	0	0.998952	0		$|

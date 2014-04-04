@@ -1,0 +1,19 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5385433	0	object/building/corellia/filler_slum_16x16_s01.iff	0	1033.4	35	23.2056	0.741564	0	-0.670882	0		$|
+5385462	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1020.07	35.7415	13.1831	0.937647	0	-0.34759	0		$|
+5385463	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	1013.89	35.7592	7.84326	0.937647	0	-0.34759	0		$|
+5385465	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1016.87	35.7415	0.13916	-0.569417	0	0.822049	0		$|
+5385497	0	object/static/particle/particle_lg_explosion.iff	0	1019.82	35.0014	4.28564	1	0	0	0		$|
+5385498	0	object/static/particle/particle_smoke.iff	0	1020.02	35	4.93799	1	0	0	0		$|
+5385499	0	object/static/particle/pt_sm_explosion.iff	0	1031.24	35	2.53516	1	0	0	0		$|
+5385500	0	object/static/particle/particle_newbie_hanging_smoke.iff	0	1019.89	35.8302	4.8916	1	0	0	0		$|
+5385507	0	object/static/structure/general/trash_pile_s01.iff	0	1022.63	35	8.42969	0.961055	0	0.276356	0		$|
+5385509	0	object/static/structure/general/trash_pile_s01.iff	0	1030.85	35	2.63379	0.789992	0	0.613117	0		$|
+5385514	0	object/static/structure/general/tankfarm_s01.iff	0	1042.89	35.0377	10.7715	-0.609791	0	0.792563	0		$|
+5385478	0	object/static/item/item_container_weapon.iff	0	1018.39	34.9716	2.69092	0.925623	0.111611	0.0432898	-0.359015		$|
+5385479	0	object/static/item/item_container_weapon.iff	0	1019.28	35.6696	6.28467	0.357718	0.933749	-0.0122186	-0.000696474		$|
+5385480	0	object/static/item/item_container_weapon.iff	0	1021.03	34.8702	2.82959	0.898245	-0.10831	-0.422876	-0.0509902		$|
+5385481	0	object/static/item/item_container_weapon.iff	0	1020.56	35.5819	5.68457	0.427192	0.273129	0.172493	0.844484		$|
+5385482	0	object/static/item/item_container_weapon.iff	0	1021.61	35.3731	3.5835	0.896107	0.206846	0.346148	-0.185441		$|
+5385496	0	object/static/item/item_container_weapon.iff	0	1019.42	34.8607	4.61035	0.523737	-0.165313	0.833898	-0.0546369		$|

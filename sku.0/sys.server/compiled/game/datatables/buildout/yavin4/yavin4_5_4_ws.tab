@@ -1,0 +1,25 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3705352	0	object/building/yavin/temple_woolamander.iff	0	548.722	81	1426.03	-0.403919	0	0.914795	0		$|
+8845362	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	940.266	106.123	1471.87	1	0	0	0		$|
+8845364	0	object/tangible/gravestone/gravestone03.iff	0	941.035	106.399	1467.3	1	0	0	0		$|
+8845365	0	object/tangible/gravestone/gravestone02.iff	0	942.995	106.323	1468.98	1	0	0	0		$|
+8845366	0	object/tangible/gravestone/gravestone01.iff	0	944.655	106.331	1470.66	1	0	0	0		$|
+8845367	0	object/tangible/gravestone/gravestone04.iff	0	939.458	106.254	1468.78	1	0	0	0		$|
+8845368	0	object/tangible/gravestone/gravestone05.iff	0	941.658	106.189	1470.57	1	0	0	0		$|
+8845369	0	object/tangible/gravestone/gravestone03.iff	0	943.244	106.189	1472.14	1	0	0	0		$|
+8845370	0	object/static/structure/naboo/garden_gazebo_lg_s01.iff	0	946.219	85.6469	581.745	0.988573	0.0197738	-0.00298852	0.149408		$|
+8845395	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	898.028	105.323	1465.47	0.968912	0	-0.247404	0		$|
+8845396	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	892.633	104.913	1476.75	0.976976	0	-0.213347	0		$|
+8845398	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	902.576	107.079	1458.49	1	0	0	0		$|
+8995438	0	object/static/structure/naboo/arbor_short_s01.iff	0	330.169	25.3831	640.154	-0.540303	0	0.841471	0		$|
+8995439	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	332.901	24.3997	641.511	0.978031	0	-0.20846	0		$|
+8995440	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	334.89	24.4059	646.611	0.844589	0	0.535416	0		$|
+8995441	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	337.874	24.4179	639.696	0.844588	0	0.535417	0		$|
+8995442	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	332.011	24.8359	636.168	0.852525	0	0.522687	0		$|
+8995458	0	object/static/structure/general/campfire_ash.iff	0	65.5739	50.9641	1365.63	1	0	0	0		$|
+8995459	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	63.5283	50.9834	1366.98	0.957813	-0.028743	0.285823	0.00857728		$|
+8995460	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	63.2361	50.9293	1366.58	0.0807085	0	0.996738	0		$|
+8995473	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1607.24	148.724	1136.73	0.822502	0	-0.568762	0		$|
+8995474	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1614.48	148.241	1134.15	0.585743	0	0.810497	0		$|
+8995475	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1611.06	146.543	1136.05	1	0	0	0		$|

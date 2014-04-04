@@ -1,0 +1,30 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+479839	0	object/static/installation/mockup_power_generator_fusion_style_1.iff	0	917.835	82.4685	425.793	1	0	0	0		$|
+479840	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	908	91.8947	396.788	1	0	0	0		$|
+479843	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	902.344	77.2	456.737	1	0	0	0		$|
+479845	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	928.379	77.2	457.213	1	0	0	0		$|
+479848	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	930.468	77.2	410.886	0.707107	0	0.707106	0		$|
+479850	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	894.032	77.2	411.205	0.707107	0	-0.707106	0		$|
+479874	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	908.598	77.2	435.92	1	0	0	0		$|
+479876	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	922.062	77.4839	423.372	1	0	0	0		$|
+479877	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	840.502	97.742	456.749	1	0	0	0		$|
+479906	0	object/static/structure/general/landing_pad_shuttle.iff	0	915.454	77.2	457.062	0.707107	0	0.707106	0		$|
+479909	0	object/static/vehicle/player_shuttle.iff	0	917.548	77.2	457.16	0.707107	0	-0.707106	0		$|
+6885459	0	object/tangible/jedi/force_shrine_stone.iff	0	1121.87	83.8092	1947.18	0.707107	0	0.707107	0		$|
+6885460	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1117.45	84.6168	1945.58	0.707116	0	0.707097	0		$|
+6885461	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1126.14	84.6009	1945.62	1	0	0	0		$|
+6885462	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1120.91	84.6146	1945.57	0	0	1	0		$|
+6885463	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1122.7	84.602	1945.52	1	0	0	0		$|
+6885464	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	1121.82	66.6594	1945.58	1	0	0	0		$|
+6885465	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1121.88	85.1276	1947.18	1	0	0	0		$|
+9715569	0	object/static/structure/naboo/nboo_imprv_metal_fence_wall_sml_s02.iff	0	344.513	75.6942	2045.34	1	0	0	0		$|
+9715570	0	object/static/structure/naboo/nboo_imprv_metal_fence_wall_sml_s02.iff	0	338.379	75.6578	2045.4	1	0	0	0		$|
+9715583	0	object/static/structure/naboo/nboo_imprv_lattice_wall_short_s01.iff	0	332.196	74.6237	2046.8	0.707108	0	-0.707106	0		$|
+9715587	0	object/tangible/gravestone/gravestone04.iff	0	335.873	75.2539	2046.72	0.707391	0	-0.706822	0		$|
+9715588	0	object/tangible/gravestone/gravestone04.iff	0	341.49	75.2896	2046.6	0.707391	0	-0.706822	0		$|
+9715952	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	2003.54	76.3936	1135.42	1	0	0	0		$|
+9715953	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	2008.68	75.8606	1132.06	0.707107	2.26283e-008	-0.707106	-2.26283e-008		$|
+9715957	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	2017.81	74.6241	1128.63	1	0	0	0		$|
+9715958	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	2010.09	75.5686	1126.89	-0.700285	0	0.713864	0		$|
+9715960	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	2008.65	75.9088	1140.14	1	0	0	0		$|

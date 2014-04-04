@@ -1,6 +1,6 @@
 @base object/intangible/base/shared_base_intangible.iff
 
-@class construction_contract_object_Template 0
+@class construction_contract_object_template 0
 
 
 

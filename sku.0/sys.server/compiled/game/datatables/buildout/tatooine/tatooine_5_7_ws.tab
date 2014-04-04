@@ -1,0 +1,37 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+60395	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	856.276	-30	1320.83	1	0	0	0		$|
+60396	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	1053.09	-30	1422.76	1	0	0	0		$|
+60397	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	1030.99	-30	1300.05	1	0	0	0		$|
+60398	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	872.3	-30	1364.64	1	0	0	0		$|
+60399	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	933.832	-30	1283.62	1	0	0	0		$|
+60400	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	1177.68	-30	1425.44	1	0	0	0		$|
+60401	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	792.605	-30	1427.83	1	0	0	0		$|
+60402	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	929.232	-30	1452.22	0.802096	0	-0.597195	0		$|
+1189223	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	937.064	-30	1565.36	1	0	0	0		$|
+1189225	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	842.267	-30	1497.44	1	0	0	0		$|
+1189226	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	957.199	-30	1311.2	1	0	0	0		$|
+1189227	0	object/static/terrain/tatooine/rock_mushroom_tatooine_style_1.iff	0	1131.34	-30	1238.11	1	0	0	0		$|
+9515651	0	object/static/structure/general/skeleton_human_head.iff	0	1223.48	78.1641	1935.83	0.212569	0	0.977146	0		$|
+9515652	0	object/static/structure/general/skeleton_human_head.iff	0	1224.48	78.2673	1933.43	0.978031	0	-0.20846	0		$|
+9515653	0	object/static/structure/general/skeleton_human_head.iff	0	1225.25	78.3037	1935.15	-0.5653	0	0.824886	0		$|
+9515654	0	object/static/structure/general/skeleton_human_head.iff	0	1224.5	78.2399	1935.86	-0.262678	0	0.964884	0		$|
+9515655	0	object/static/structure/general/skeleton_human_head.iff	0	1225.12	78.3068	1934.08	0.862807	0	-0.505533	0		$|
+9515656	0	object/static/structure/general/skeleton_human_head.iff	0	1222.7	78.1269	1934.11	0.824435	0	0.565957	0		$|
+9515658	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1227.79	78.504	1936.2	-0.5653	0	0.824885	0		$|
+9515659	0	object/static/structure/general/skeleton_human_head.iff	0	1223.55	78.1991	1933.39	0.983557	0	0.180596	0		$|
+9515660	0	object/static/structure/general/skeleton_human_head.iff	0	1222.74	78.1167	1935.22	0.621611	0	0.783327	0		$|
+9515668	0	object/static/structure/general/campfire_smoldering.iff	0	1224	78.2319	1934.6	1	0	0	0		$|
+60382	0	object/static/tatooine/rock_spire_skinny_tatooine_style_2.iff	0	1690.83	-24.8145	248.49	1	0	0	0		$|
+60385	0	object/static/tatooine/rock_spire_lumpy_tatooine.iff	0	1662.74	6.92834	260.105	1	0	0	0		$|
+81317	0	object/static/tatooine/rock_spire_lumpy_tatooine.iff	0	858.768	-30	1400.78	1	0	0	0		$|
+81318	0	object/static/tatooine/rock_spire_lumpy_tatooine_style_2.iff	0	1034.43	-30	1234.16	1	0	0	0		$|
+81319	0	object/static/tatooine/rock_spire_lumpy_tatooine_style_1.iff	0	817.885	-29.975	1243.51	1	0	0	0		$|
+81320	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	866.168	-30	1380.48	1	0	0	0		$|
+81321	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	783.719	-29.7931	1443.8	1	0	0	0		$|
+81322	0	object/static/tatooine/rock_spire_skinny_tatooine_style_2.iff	0	1065.43	-30	1476.49	1	0	0	0		$|
+81323	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	942.507	-30	1265.84	1	0	0	0		$|
+81324	0	object/static/tatooine/rock_spire_smooth_tatooine_style_1.iff	0	944.21	-30	1377.51	1	0	0	0		$|
+81325	0	object/static/tatooine/rock_spire_smooth_tatooine_style_2.iff	0	849.948	-30	1295.3	1	0	0	0		$|
+1189228	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	1129.08	-29.9482	1345.69	1	0	0	0		$|
+1189229	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	1053.59	-29.3832	1584.97	1	0	0	0		$|

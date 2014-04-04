@@ -6,4 +6,4 @@
 
 @class object_template 0
 
-sharedTemplate = "object/static/structure/general/shared_cave_stalagmite_damprock_s01+_med.iff"
+sharedTemplate = "object/static/structure/general/shared_cave_stalagmite_damprock_s01_med.iff"
