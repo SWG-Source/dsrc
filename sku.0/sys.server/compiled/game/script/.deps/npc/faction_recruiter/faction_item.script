@@ -1,2 +1,0 @@
-DEPENDENCIES: library/factions library/utils
-PROTOTYPES: OnAboutToBeTransferred#obj_id#obj_id#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[]

@@ -172,7 +172,7 @@ trigger OnInitialize()
 	}
 
 	player_structure.createStructureSign(self);
-	player_structure.createStructureDecorOnInitialize(self);
+	//player_structure.createStructureDecorOnInitialize(self);
 	// Abandoned house pack-up - remove this objvar if it exists.
 	if (hasObjVar(self, "structure.player.pack"))
 		removeObjVar(self, "structure.player.pack");

@@ -169,7 +169,7 @@ messageHandler finishStaticQuest()
 
 	if (type == null)
 	{
-		type == "missing";
+		type = "missing";
 	}
 
 	if (!hasObjVar (self, questID + ".failed"))

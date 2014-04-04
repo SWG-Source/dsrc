@@ -25355,7 +25355,7 @@ public class base_class
         source               = object id of the thing sending the message - this can't be null.
         soundEffect          = a sound effect file to play.
         displayTime          = duration in seconds of the message.
-                             Definition in priority order…
+                             Definition in priority order
                              > 0 -- Timed message has the highest priority.
                              < 0 -- Untimed message
                              0   -- Player taunt with the display time calculated on the client by the length of the string (default behavior).

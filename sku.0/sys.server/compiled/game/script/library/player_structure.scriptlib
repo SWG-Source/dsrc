@@ -7637,7 +7637,7 @@ This entire section is dedicated to Yaw
 						setYaw(sign, tYaw);
 					}
 
-					int[] allStructures = dataTableGetStringColumn(SIGN_ADJUST_SIGN_BY_TEMPLATE, "structure_template");
+					string[] allStructures = dataTableGetStringColumn(SIGN_ADJUST_SIGN_BY_TEMPLATE, "structure_template");
 					
 					if(allStructures != null && allStructures.length > 0)
 					{
