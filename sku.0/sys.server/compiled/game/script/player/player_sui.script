@@ -72,7 +72,7 @@ messageHandler handleDecorTypeSelect()
 
 	blog("handleDecorTypeSelect: initial validation done");
 	
-	string[] decorMenu = utils.getStringArrayScriptVar(player, player_structure.SVAR_DECOR_PREFIX+".decorMenu");
+	string[] decorMenu = utils.getStringArrayScriptVar(player, /*player_structure.SVAR_DECOR_PREFIX + */".decorMenu");
 	if(decorMenu == null || decorMenu.length <= 0)
 	{
 		removeDecorVars(player);
@@ -81,7 +81,7 @@ messageHandler handleDecorTypeSelect()
 
 	blog("handleDecorTypeSelect: decorMenu received");
 	
-	string[] slotName = utils.getStringArrayScriptVar(player, player_structure.SVAR_DECOR_PREFIX+".slotName");
+	string[] slotName = utils.getStringArrayScriptVar(player, /*player_structure.SVAR_DECOR_PREFIX + */".slotName");
 	if(slotName == null || slotName.length <= 0)
 	{
 		removeDecorVars(player);
@@ -108,7 +108,7 @@ messageHandler handleDecorTypeSelect()
 
 	blog("handleDecorTypeSelect: slotSelection: "+slotSelection);
 
-	string template = utils.getStringScriptVar(player, player_structure.SVAR_DECOR_PREFIX+".structureTemplate");
+	string template = utils.getStringScriptVar(player, /*player_structure.SVAR_DECOR_PREFIX + */".structureTemplate");
 	if(template == null || template.equals(""))
 	{
 		removeDecorVars(player);
@@ -117,7 +117,7 @@ messageHandler handleDecorTypeSelect()
 
 	blog("handleDecorTypeSelect: template: "+template);
 
-	obj_id structure = utils.getObjIdScriptVar(player, player_structure.SVAR_DECOR_PREFIX+".structure");
+	obj_id structure = utils.getObjIdScriptVar(player, /*player_structure.SVAR_DECOR_PREFIX + */".structure");
 	if(!isValidId(structure)|| !exists(structure))
 	{
 		removeDecorVars(player);
@@ -127,7 +127,7 @@ messageHandler handleDecorTypeSelect()
 	blog("handleDecorTypeSelect: structure: "+structure);
 
 	blog("handleDecorTypeSelect: finished, sendign data");
-	player_structure.placeExteriorDecorObject(player, structure, template, menuSelection, slotSelection);
+	//player_structure.placeExteriorDecorObject(player, structure, template, menuSelection, slotSelection);
 	removeDecorVars(player);
 	return SCRIPT_CONTINUE;
 }
@@ -159,7 +159,7 @@ messageHandler handleDecorSlotRemovalSelect()
 
 	blog("handleDecorSlotRemovalSelect: initial validation done");
 	
-	string[] occupiedSlots = utils.getStringArrayScriptVar(player, player_structure.SVAR_DECOR_PREFIX+".occupiedSlots");
+	string[] occupiedSlots = utils.getStringArrayScriptVar(player, /*player_structure.SVAR_DECOR_PREFIX + */".occupiedSlots");
 	if(occupiedSlots == null || occupiedSlots.length <= 0)
 	{
 		removeDecorVars(player);
@@ -173,7 +173,7 @@ messageHandler handleDecorSlotRemovalSelect()
 		return SCRIPT_CONTINUE;
 	}
 
-	obj_id structure = utils.getObjIdScriptVar(player, player_structure.SVAR_DECOR_PREFIX+".structure");
+	obj_id structure = utils.getObjIdScriptVar(player, /*player_structure.SVAR_DECOR_PREFIX + */".structure");
 	if(!isValidId(structure) || !exists(structure))
 	{
 		removeDecorVars(player);
@@ -182,29 +182,29 @@ messageHandler handleDecorSlotRemovalSelect()
 
 	blog("handleDecorSlotRemovalSelect: menuSelection: "+menuSelection);
 
-	obj_id decorObjId = player_structure.getOidOfDecorInSlot(structure, menuSelection);
-	if(!isValidId(decorObjId) || !exists(decorObjId))
-	{
-		removeDecorVars(player);
-		return SCRIPT_CONTINUE;
-	}
+	//obj_id decorObjId = player_structure.getOidOfDecorInSlot(structure, menuSelection);
+	//if(!isValidId(decorObjId) || !exists(decorObjId))
+	//{
+	//	removeDecorVars(player);
+	//	return SCRIPT_CONTINUE;
+	//}
 
 	
 	//customerServiceLog here
 	
 	//first remove the slot from array
-	if(!player_structure.removeDecorSlotFromArray(structure, slot))
-	{
-		//customerServiceLog here
-		return SCRIPT_CONTINUE;		
-	}
+	//if(!player_structure.removeDecorSlotFromArray(structure, slot))
+	//{
+	//	//customerServiceLog here
+	//	return SCRIPT_CONTINUE;		
+	//}
 
 	//reimburse SkillMod here
 	
 	//if all is success, destroy the object
-	destroyObject(decorObjId);
+	//destroyObject(decorObjId);
 	
-	sendSystemMessage(player, player_structure.SID_DECOR_ITEM_REMOVED);
+	//sendSystemMessage(player, player_structure.SID_DECOR_ITEM_REMOVED);
 	return SCRIPT_CONTINUE;	
 }
 
@@ -213,8 +213,8 @@ boolean removeDecorVars(obj_id player)
 	if(!isValidId(player) || !exists(player))
 		return false;
 		
-	utils.removeScriptVar(player, player_structure.SVAR_DECOR_PREFIX);
-	sui.removePid(player, player_structure.PID_DECOR_SELECTION);
+	//utils.removeScriptVar(player, player_structure.SVAR_DECOR_PREFIX);
+	//sui.removePid(player, player_structure.PID_DECOR_SELECTION);
 
 	return true;
 }
