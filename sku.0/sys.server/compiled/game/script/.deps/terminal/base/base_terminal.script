@@ -1,2 +1,0 @@
-DEPENDENCIES: library/structure library/utils
-PROTOTYPES: OnInitialize#obj_id OnObjectMenuRequest#obj_id#obj_id#menu_info

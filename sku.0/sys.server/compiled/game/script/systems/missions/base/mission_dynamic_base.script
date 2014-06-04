@@ -144,7 +144,7 @@ const string_id SID_MISSION_YAVIN_ENDOR_DATHOMIR		= new string_id("spam", "missi
 const string_id SID_MISSION_TARGET_IN_WATER			= new string_id("spam", "target_in_water");
 
 const string[] CITIES_WITH_STARPORTS 				= {
-								"bestine", 
+								"bestine",
 								"mos_eisley",
 								"mos_entha",
 								"mos_espa",
@@ -152,7 +152,7 @@ const string[] CITIES_WITH_STARPORTS 				= {
 								"keren",
 								"moenia",
 								"kaadara",
-								"coronet", 
+								"coronet",
 								"tyrena",
 								"kor_vella",
 								"doaba_guerfel",
@@ -787,7 +787,7 @@ obj_id createDynamicBountyMission(obj_id objMissionData, obj_id objCreator, int 
 	{
 		strColumnName = "strHard";
 		intMissionDifficulty = MISSION_DIFFICULTY_HARD;
-		
+
 		if((intDifficulty == 90) && (21 > rand(1, 100)))
 		{
 			strColumnName = "strBoss";
@@ -874,11 +874,11 @@ obj_id createDynamicBountyMission(obj_id objMissionData, obj_id objCreator, int 
 		intRoll = rand(1, 2);
 		if(intRoll == 1)
 		{
-			strSex == "male";
+			strSex = "male";
 		}
 		else
 		{
-			strSex == "female";
+			strSex = "female";
 		}
 	}
 	else
@@ -1962,7 +1962,7 @@ dictionary getDestructionMissionSpawnList(obj_id objCreator, int intDifficulty, 
 		int minReward = dataTableGetInt(strRewardFileName, intDifficulty, "intMinReward");
 		int maxReward = dataTableGetInt(strRewardFileName, intDifficulty, "intMaxReward");
 		int intGCWPoints = 0;
-		
+
 		if(strFaction != "" && strFaction.length() > 0)
 		{
 			intGCWPoints = dataTableGetInt(strRewardFileName, intDifficulty, "intGCWPoints");
@@ -4924,13 +4924,13 @@ void doIncorrectPlayerBlurb(obj_id objNPC)
 	int lastBlurb = utils.getIntScriptVar(objNPC, "mission.blurbTime");
 
 	int gameTime = getGameTime();
-	
+
 	if(gameTime - lastBlurb < 6)
 	{
 		return;
 	}
 
-	utils.setScriptVar(objNPC, "mission.blurbTime", gameTime);	
+	utils.setScriptVar(objNPC, "mission.blurbTime", gameTime);
 
 	const int NUMBER_OF_RESPONSES = 4;
 	const string[] ANIMATIONS = { anims.PLAYER_POINT_TO_SELF, anims.PLAYER_REFUSE_OFFER_FORMAL, anims.PLAYER_RUB_CHIN_THOUGHTFUL, anims.PLAYER_SHAKE_HEAD_DISGUST, anims.PLAYER_SHUSH };
@@ -5132,7 +5132,7 @@ obj_id createHuntingMission(obj_id objMissionData, obj_id objCreator, int intDif
 	int[] intRewardPerKill = new int[intLength];
 
 	obj_id groupObject = getGroupObject(objCreator);
-	
+
 	int maximumDifficultyInColumn = 0;
 
 	if(isIdValid(groupObject))
@@ -5320,27 +5320,27 @@ boolean isPlanetHuntingViable(obj_id player, string area)
 	{
 		return false;
 	}
-	
+
 	if((area.equals("naboo") || area.equals("corelia")) && (playerLevel < 20 || playerLevel > 40))
 	{
 		return false;
 	}
-	
+
 	if((area.equals("rori") || area.equals("talus")) && (playerLevel < 40 || playerLevel > 60))
 	{
 		return false;
 	}
-	
+
 	if((area.equals("dantooine") || area.equals("lok")) && (playerLevel < 50 || playerLevel > 70))
 	{
 		return false;
 	}
-	
+
 	if((area.equals("yavin4") || area.equals("endor")) && (playerLevel < 70))
 	{
 		return false;
 	}
-	
+
 	if(area.equals("dathomir") && playerLevel < 80)
 	{
 		return false;

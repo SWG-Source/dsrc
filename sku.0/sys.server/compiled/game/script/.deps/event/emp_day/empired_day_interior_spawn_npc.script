@@ -1,2 +1,0 @@
-DEPENDENCIES: 
-PROTOTYPES: OnAttach#obj_id OnInitialize#obj_id removeConversationScripts#obj_id#dictionary

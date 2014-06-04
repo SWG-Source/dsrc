@@ -1,2 +1,0 @@
-DEPENDENCIES: library/buff library/collection library/utils
-PROTOTYPES: OnAttach#obj_id OnGetAttributes#obj_id#obj_id#String[]#String[] removeItemFoodScript#obj_id#dictionary

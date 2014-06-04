@@ -499,10 +499,10 @@ string getReadableFsQuests(obj_id objTarget)
 	}
 
 	// set childQuests field for each quest
-	java.util.Enumeration enum = questMap.keys();
-	while (enum.hasMoreElements())
+	java.util.Enumeration enum_ = questMap.keys();
+	while (enum_.hasMoreElements())
 	{
-		string questName = (string) enum.nextElement();
+		string questName = (string) enum_.nextElement();
 
 		dictionary childQuestDict = questMap.getDictionary(questName);
 		string parentQuestName = childQuestDict.getString("parentQuest");
@@ -524,10 +524,10 @@ string getReadableFsQuests(obj_id objTarget)
 	}
 
 	// iterate across top level quests and recurse into them to create tree
-	enum = questMap.keys();
-	while (enum.hasMoreElements())
+	enum_ = questMap.keys();
+	while (enum_.hasMoreElements())
 	{
-		string questName = (string) enum.nextElement();
+		string questName = (string) enum_.nextElement();
 		dictionary d = questMap.getDictionary(questName);
 		if (d.containsKey("parentQuest"))
 		{

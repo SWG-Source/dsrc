@@ -73,7 +73,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 	if(!groundquests.isQuestActive(player, quest))
 	{
-		collection.activateQuestAcceptSUI(player, self);
+		//collection.activateQuestAcceptSUI(player, self);
 	}
 	else
 	{
