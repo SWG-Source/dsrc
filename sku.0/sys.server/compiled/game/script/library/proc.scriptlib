@@ -27,7 +27,7 @@ void executeProcEffects( obj_id attacker, obj_id defender, combat_data actionDat
 	if(actionData !=  null)
 	{
 		if(actionData.params != null && !actionData.params.equals(""))
-			params == actionData.params;
+			params = actionData.params;
 	}
 
 	if(!isMob(attacker))

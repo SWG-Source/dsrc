@@ -1,2 +1,0 @@
-DEPENDENCIES: library/create library/groundquests library/stealth library/utils
-PROTOTYPES: OnInitialize#obj_id OnTriggerVolumeEntered#obj_id#String#obj_id OnTriggerVolumeExited#obj_id#String#obj_id

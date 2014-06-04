@@ -1,2 +1,0 @@
-DEPENDENCIES: library/ai_lib library/create library/spawning library/utils
-PROTOTYPES: OnInitialize#obj_id beginSpawn#obj_id#dictionary spawnQuestObjects#obj_id#dictionary tellingMomIDied#obj_id#dictionary

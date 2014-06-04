@@ -1,2 +1,0 @@
-DEPENDENCIES: library/groundquests library/utils
-PROTOTYPES: OnIncapacitated#obj_id#obj_id handleDestroySelf#obj_id#dictionary handleUpdatePrisonerRescueQuest#obj_id#dictionary

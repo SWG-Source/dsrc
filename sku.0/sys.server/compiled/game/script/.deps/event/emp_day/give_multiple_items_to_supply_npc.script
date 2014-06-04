@@ -1,2 +1,0 @@
-DEPENDENCIES: library/ai_lib library/factions library/groundquests library/holiday library/static_item library/utils
-PROTOTYPES: OnGiveItem#obj_id#obj_id#obj_id

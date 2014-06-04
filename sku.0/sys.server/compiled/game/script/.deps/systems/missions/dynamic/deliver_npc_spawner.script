@@ -1,2 +1,0 @@
-DEPENDENCIES: library/create library/locations
-PROTOTYPES: OnInitialize#obj_id
