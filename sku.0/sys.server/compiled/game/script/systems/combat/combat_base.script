@@ -4792,18 +4792,6 @@ boolean callSupplyDrop(obj_id self, int supplyId)
 		return false;
 	}
 
-	if(locations.isInCity(loc))
-	{
-		sendSystemMessage(self, new string_id("combat_effects", "not_in_city"));
-		return false;
-	}
-
-	if(city.isInCity(loc))
-	{
-		sendSystemMessage(self, new string_id("combat_effects", "not_in_city"));
-		return false;
-	}
-
 	obj_id shuttle = createObject("object/creature/npc/theme_park/lambda_shuttle.iff", loc);
 
 	if(!isIdValid(shuttle))
@@ -4840,18 +4828,6 @@ boolean canCallSupplyDrop(obj_id self)
 	if(isIdValid(loc.cell))
 	{
 		sendSystemMessage(self, new string_id("combat_effects", "not_indoors"));
-		return false;
-	}
-
-	if(locations.isInCity(loc))
-	{
-		sendSystemMessage(self, new string_id("combat_effects", "not_in_city"));
-		return false;
-	}
-
-	if(city.isInCity(loc))
-	{
-		sendSystemMessage(self, new string_id("combat_effects", "not_in_city"));
 		return false;
 	}
 
