@@ -34,6 +34,8 @@ void spawnEveryone(obj_id self)
 	spawnFoyer(self);
 	spawnChadraFans(self);
 	spawnCheatedGambler(self);
+	spawnEntAlcove(self);
+	spawnPilot(self);
 	// spawnHanandChewie(self);
 	return;
 }
@@ -112,16 +114,21 @@ void spawnFoyer (obj_id self)
 	int f4_yaw = 1;
 	location f5_loc = new location (35.72f, 1.0f, 3.19f, "tatooine", room);
 	int f5_yaw = 158;
+	// Entertainer quest giver looking into the main room
+	location f6_loc = new location (31.6f, 0.1f, 0.3f, "tatooine", room);
+	int f6_yaw = -90;
 	obj_id f1 = create.object ("commoner", f1_loc);
 	obj_id f2 = create.object ("commoner", f2_loc);
 	obj_id f3 = create.object ("commoner", f3_loc);
 	obj_id f4 = create.object ("commoner", f4_loc);
 	obj_id f5 = create.object ("commoner", f5_loc);
+	obj_id f6 = create.object ("newbie_tutorial_entertainer", f6_loc);
 	setYaw (f1, f1_yaw);
 	setYaw (f2, f2_yaw);
 	setYaw (f3, f3_yaw);
 	setYaw (f4, f4_yaw);
 	setYaw (f5, f5_yaw);
+	setYaw (f6, f6_yaw);
 	setCreatureStatic (f1, true);
 	setInvulnerable (f1, true);
 	setCreatureStatic (f2, true);
@@ -132,11 +139,15 @@ void spawnFoyer (obj_id self)
 	setInvulnerable (f4, true);
 	setCreatureStatic (f5, true);
 	setInvulnerable (f5, true);
+	setCreatureStatic (f6, true);
+	setInvulnerable (f6, true);
 	ai_lib.setDefaultCalmMood (f1, "npc_sitting_chair");
 	ai_lib.setDefaultCalmMood (f2, "npc_sitting_chair");
 	ai_lib.setDefaultCalmMood (f3, "npc_sitting_chair");
 	ai_lib.setDefaultCalmMood (f4, "npc_sitting_chair");
 	ai_lib.setDefaultCalmMood (f5, "npc_sitting_chair");
+	ai_lib.setDefaultCalmMood (f6, "npc_imperial");
+	attachScript (f6, "conversation.c_newbie_entertainer");
 	return;
 }
 
@@ -584,3 +595,36 @@ void spawnCheatedGambler(obj_id self)
 
 	return;
 }
+
+void spawnEntAlcove(obj_id self)
+{
+	obj_id room = getCellId (self, "alcove1");
+	location entLoc = new location (19.5f, -.9f, -19.8f, "tatooine", room);
+	int yaw = -1;
+	obj_id ent = create.object ("prof_quest_entertainer", entLoc);
+	setYaw(ent, yaw);
+	setCreatureStatic (ent, true);
+	setInvulnerable (ent, true);
+	ai_lib.setDefaultCalmMood (ent, "npc_imperial");
+	attachScript (ent, "conversation.c_prof_ent_questgiver");
+	
+	return;
+}
+
+void spawnPilot(obj_id self)
+{
+	obj_id room = getCellId (self, "private_room");
+	location pilotLoc = new location (-21.2103f, -0.895f, 24.3324f, "tatooine", room);
+	int yaw = 178;
+	obj_id pilot = create.object ("object/mobile/space_privateer_tier1_tatooine.iff", pilotLoc);
+	setYaw(pilot, yaw);
+	setCreatureStatic (pilot, true);
+	setInvulnerable (pilot, true);
+	setName (pilot, "Dravis (Privateer Pilot Trainer)");
+	ai_lib.setDefaultCalmMood (pilot, "npc_imperial");
+	attachScript (pilot, "conversation.tatooine_privateer_trainer_1");
+	attachScript (pilot, "planet_map.map_loc_creature");
+	
+	return;
+}
+
