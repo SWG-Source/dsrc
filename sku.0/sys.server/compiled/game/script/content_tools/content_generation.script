@@ -25,7 +25,7 @@ const float AUTOSAVE_DELAY = 300; // seconds
 
 trigger OnAttach()
 {
-	sendSystemMessageTestingOnly(self, "Welcome to the content maker script. Please consult documentation before dorking around with this script");
+	sendSystemMessageTestingOnly(self, "Welcome to the content maker script. Please consult Prisoncamp before dorking around with this script.  NOTE - to test pilot you need to attach the space content_generation script, not this one");
 	return SCRIPT_CONTINUE;}
 
 
