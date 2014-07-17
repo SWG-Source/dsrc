@@ -24,6 +24,8 @@
 
 sharedTemplate = "object/building/tatooine/shared_hotel_tatooine_style_01.iff"
 
+scripts = +["systems.event_perk.promoter_hotel_spawner"]
+
 objvars = +["safeLogout" = 1]
 
 
