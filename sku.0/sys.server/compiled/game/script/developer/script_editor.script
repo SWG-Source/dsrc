@@ -130,11 +130,11 @@ messageHandler onScriptEditBtnOk()
 				if(scriptFileName != null)
 				{
 					outputWindowText += "--== Compiling " + scriptFileName + " ==--\n";
-					if(! perforce.openExistingFileForExclusiveEdit(scriptFileName))
+					/*if(! perforce.openExistingFileForExclusiveEdit(scriptFileName))
 					{
 						outputWindowText += "*** ERROR: Could not edit/lock " + scriptFileName + "\n";
 					}
-					else
+					else */
 					{
 						String scriptNameScriptVar = "scriptBase" + pageId;
 						String scriptName = utils.getStringScriptVar(self, scriptNameScriptVar);
@@ -142,11 +142,11 @@ messageHandler onScriptEditBtnOk()
 						// open the class file!
 						String classNameScriptVar = "classBase" + pageId;
 						String className = utils.getStringScriptVar(self, classNameScriptVar); 
-						if(! perforce.openExistingFileForExclusiveEdit(className))
+						/*if(! perforce.openExistingFileForExclusiveEdit(className))
 						{
 							outputWindowText += "*** ERROR: Could not edit/lock " + className + "\n";
 						}
-						else
+						else */
 						{
 							if(file_access.writeTextFile(scriptFileName, scriptContents))
 							{
@@ -155,7 +155,7 @@ messageHandler onScriptEditBtnOk()
 								{
 									try
 									{
-										String outputString = system_process.runAndGetOutput("python ../../exe/shared/script_prep.py " + scriptFileName);
+										String outputString = system_process.runAndGetOutput("nge-swg-master/utils/mocha/script_prep2.py -i " + scriptFileName);
 																				
 										
 										if(outputString != null)
