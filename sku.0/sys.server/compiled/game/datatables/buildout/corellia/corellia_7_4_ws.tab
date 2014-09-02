@@ -4,7 +4,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5705390	0	object/static/structure/tatooine/guild_ball_free_style_01.iff	0	154.309	21.0137	1893.85	0.92388	0	-0.382683	0		$|
 5705391	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	153.692	26.3375	1893.64	1	0	0	0		$|
 5705392	0	object/static/structure/general/planter_generic_style_1.iff	0	152.28	24.0648	1896.04	1	0	0	0		$|
-5705393	0	object/static/structure/general/planter_generic_style_1.iff	0	156.147	24.4719	1891.84	3.20013e-008	0	1	0		$|
+5705393	0	object/static/structure/general/planter_generic_style_1.iff	0	156.147	24.4719	1891.84	3.20E-08	0	1	0		$|
 5705396	0	object/tangible/furniture/all/frn_all_plant_potted_lg_s3.iff	0	146.648	24.4351	1897.71	1	0	0	0		$|
 5705397	0	object/tangible/furniture/all/frn_all_plant_potted_lg_s3.iff	0	145.414	24.2705	1896.48	1	0	0	0		$|
 5705398	0	object/tangible/furniture/all/frn_all_plant_potted_lg_s3.iff	0	143.872	24.2062	1895.06	1	0	0	0		$|
@@ -15,7 +15,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5705403	0	object/tangible/furniture/all/frn_all_plant_potted_lg_s3.iff	0	154.113	24.715	1882.32	1	0	0	0		$|
 5705410	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	140.699	24.4022	1893.12	0.92388	0	-0.382683	0		$|
 5705411	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	153.47	24.5409	1880.73	0.92388	0	-0.382683	0		$|
-6036087	0	object/building/military/military_rebel_forward_outpost.iff	0	16.3311	24.0448	795.812	-0.030791	0	0.999526	0		$|
+6036087	0	object/building/military/military_rebel_forward_outpost.iff	0	16.3311	24.0448	795.812	-0.030791	0	0.999526	0	theme_park.corellia.corellia_battle_script_1	$|
 6036094	0	object/static/installation/mockup_power_generator_solar_style_1.iff	0	19.3447	30.2272	798.728	0.998988	0	0.044985	0		$|
 6036095	0	object/static/creature/droids_r5.iff	0	4.70313	24.3893	790.12	0.417595	0	0.908634	0		$|
 6036096	0	object/static/item/item_tool_tools.iff	0	5.1377	25.2747	796.005	0.955337	0	-0.29552	0		$|
