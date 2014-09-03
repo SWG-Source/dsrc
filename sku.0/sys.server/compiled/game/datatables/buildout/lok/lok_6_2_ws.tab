@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-568956	0	object/building/general/lok_evil_droid_engineer_cave.iff	0	1253.58	128.837	1254.17	0.414778	0	0.909923	0		object/building/tatooine/hospital_tatooine_style01.iff$|
+568956	0	object/building/general/lok_evil_droid_engineer_cave.iff	0	1253.58	128.837	1254.17	0.414778	0	0.909923	0	theme_park.nym.droid_cave	$|
 3515370	0	object/static/installation/mockup_power_generator_solar_style_1.iff	0	1853.8	12.1667	630.364	1	0	0	0		$|
 3515371	0	object/static/installation/mockup_power_generator_fusion_style_1.iff	0	1846.58	12.1191	630.249	1	0	0	0		$|
 5125673	0	object/static/particle/particle_volcano_glow_1.iff	0	921.276	253	1732.84	1	0	0	0		$|
@@ -57,11 +57,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9535426	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1840.97	11.4782	638.026	-0.382684	0	0.923879	0		$|
 9535427	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1844.7	11.385	620.079	1	0	0	0		$|
 9535428	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1844.77	11.3149	641.408	1	0	0	0		$|
-9535429	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1837.25	11.2808	625.167	-1.84354e-006	0	1	0		$|
-9535430	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1838.25	11.3206	634.167	-1.84354e-006	0	1	0		$|
-9535431	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1838.25	11.2589	625.167	-1.84354e-006	0	1	0		$|
+9535429	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1837.25	11.2808	625.167	-1.84E-06	0	1	0		$|
+9535430	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1838.25	11.3206	634.167	-1.84E-06	0	1	0		$|
+9535431	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1838.25	11.2589	625.167	-1.84E-06	0	1	0		$|
 9535432	0	object/static/structure/tatooine/beam_tatooine_overhead_style_02.iff	0	1838.25	11.7469	630.167	0.707105	0	0.707108	0		$|
-9535433	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1837.25	11.3097	634.167	-1.84354e-006	0	1	0		$|
+9535433	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1837.25	11.3097	634.167	-1.84E-06	0	1	0		$|
 9685363	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	656.289	13.0575	761.534	1	0	0	0		$|
 9685364	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	653.143	13.144	765.119	1	0	0	0		$|
 9685365	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	662.89	12.7234	768.585	1	0	0	0		$|
