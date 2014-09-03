@@ -196,7 +196,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1261208	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1150.15	5	233.866	-0.124675	0	0.992198	0		$|
 1261304	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1210.62	5	281.023	-0.0453702	0	0.99897	0		$|
 1261312	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1417.02	8.23978	222.341	0.149055	0	0.988829	0		$|
-1261313	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1417.02	8.12864	222.341	-3.76738e-009	0.988829	7.53475e-009	0.149055		$|
+1261313	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1417.02	8.12864	222.341	-3.77E-09	0.988829	7.53E-09	0.149055		$|
 1261314	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1422.06	8.15691	206.097	0	0.988829	0	0.149055		$|
 1261315	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1422.06	8.2624	206.097	0.149055	0	0.988829	0		$|
 1261316	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	1418.93	5	214.541	-0.581682	0	0.813416	0		$|
@@ -234,7 +234,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1261430	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1293.34	5	292.167	0.999918	0	0.0127715	0		$|
 1261433	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1292.6	5	296.502	-0.693686	0	0.720279	0		$|
 1261434	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1291.23	5	266.727	0.847676	0	-0.530514	0		$|
-1261651	0	object/building/tatooine/starport_tatooine.iff	0	1267.22	5	31.6096	0.877581	0	-0.479429	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Espa Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
+1261651	0	object/building/tatooine/starport_tatooine.iff	0	1267.22	5	31.6096	0.877581	0	-0.479429	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Espa Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/mos_espa_starport.iff|$|
 1261667	0	object/building/tatooine/shuttleport_tatooine.iff	0	1296.78	5	115.43	0.779214	0	0.626758	0		$|
 1261668	0	object/building/tatooine/filler_building_tatt_style01_06.iff	0	1314.84	5	84.916	0.953847	0	0.300293	0		$|
 1261670	0	object/building/tatooine/filler_building_tatt_style01_07.iff	0	1363.72	5	83.1404	-0.296281	0	0.955101	0		$|
@@ -879,11 +879,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1316238	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1167.77	5.40866	90.6033	0.546046	0.046526	0.833443	-0.0710137		$|
 1316249	0	object/tangible/terminal/terminal_mission.iff	0	1097.37	5	62.5305	0.990901	0	-0.13459	0		$|
 1316252	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1097.24	5.45548	62.8428	0.984562	0.0987858	-0.143771	0.0144252		$|
-1316253	0	object/tangible/terminal/terminal_mission.iff	0	1080.92	5	198.682	-1.49012e-008	0	1	0		$|
+1316253	0	object/tangible/terminal/terminal_mission.iff	0	1080.92	5	198.682	-1.49E-08	0	1	0		$|
 1316256	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1081.07	5.38814	198.691	0.00997183	0.000749293	0.997139	-0.074926		$|
 1316261	0	object/tangible/terminal/terminal_mission.iff	0	1387.98	5	19.4551	-0.0699428	0	0.997551	0		$|
 1316264	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1387.22	5	18.7383	-0.104807	0	0.994493	0		$|
-1512357	0	object/static/structure/general/lucky_despot_debris_sm_engine.iff	0	1222.77	10.0069	387.906	-3.29057e-008	0.92388	1.55868e-008	0.382683		$|
+1512357	0	object/static/structure/general/lucky_despot_debris_sm_engine.iff	0	1222.77	10.0069	387.906	-3.29E-08	0.92388	1.56E-08	0.382683		$|
 1512360	0	object/static/structure/general/lucky_despot_debris_sm_engine.iff	0	1245.19	5	366.883	0.7003	-0.186972	-0.190993	0.661924		$|
 1514494	0	object/tangible/furniture/all/frn_all_bed_sm_s1.iff	0	1231.78	5	413.303	0.967663	0	-0.252245	0		$|
 1514495	0	object/tangible/furniture/cheap/chair_s01.iff	0	1230.82	5	409.868	1	0	0	0		$|
@@ -1057,7 +1057,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4365358	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1179.82	5	374.251	1	0	0	0		$|
 4365359	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1135.57	5.43218	387.436	1	0	0	0		$|
 4365360	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1196.26	5	307.135	1	0	0	0		$|
-4365361	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1162.56	10.631	309.846	-3.19337e-008	0.997888	-2.07862e-009	0.0649542		$|
+4365361	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1162.56	10.631	309.846	-3.19E-08	0.997888	-2.08E-09	0.0649542		$|
 4365362	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1181.97	10.6689	271.14	0	0.997888	0	0.064954		$|
 4365363	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1159.14	10.63	232.596	0	0.774419	0	0.632673		$|
 4365366	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1186.1	10.6605	216.185	0	0.999887	0	0.0149992		$|
@@ -1065,7 +1065,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4365368	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1184.67	5	136.456	1	0	0	0		$|
 4365369	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1161.8	5	112.566	1	0	0	0		$|
 4365370	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1127.62	10.6388	64.0764	0	0.959661	0	0.281157		$|
-4365371	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1171.72	10.6742	61.0266	7.91724e-009	0.247404	3.10064e-008	0.968912		$|
+4365371	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1171.72	10.6742	61.0266	7.92E-09	0.247404	3.10E-08	0.968912		$|
 4425362	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1016.5	5	129.358	1	0	0	0		$|
 4425363	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1025.37	5	131.918	1	0	0	0		$|
 4425364	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1027.15	5	74.2085	0.990901	0	-0.13459	0		$|
