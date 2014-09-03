@@ -3,7 +3,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1105902	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1068.74	461.87	1174.25	0.902509	0.0135387	-0.430409	0.00645662		$|
 1105905	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1077.76	461.02	1184.09	1	0	0	0		$|
 1105908	0	object/static/particle/pt_flocking_glowzees.iff	0	1069.07	461.138	1175.45	1	0	0	0		$|
-2635352	0	object/building/tatooine/cave_tatooine_style_02.iff	0	1698.04	118.627	874.673	0.884675	0	0.466209	0		$|
+2635352	0	object/building/tatooine/cave_tatooine_style_02.iff	0	1698.04	118.627	874.673	0.884675	0	0.466209	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_imp_prison_cave.iff|$|
 2665353	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1691.99	128	844.084	0.898261	0	-0.439462	0		$|
 2665354	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1693.4	127.998	870.263	-0.475732	0	0.87959	0		$|
 2665357	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1711.81	128	855.297	0.839192	0	-0.543835	0		$|
@@ -45,7 +45,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2665661	0	object/building/military/military_base_shed_imperial_style_01.iff	0	1809.04	120	958.853	0.999987	0	-0.00499753	0		$|
 2665668	0	object/building/military/military_base_shed_imperial_style_01.iff	0	1824.39	120	958.912	0.999987	0	-0.00499766	0		$|
 2665675	0	object/building/military/military_base_shed_imperial_style_01.iff	0	1839.61	120	959.07	0.999987	0	-0.00499766	0		$|
-2666201	0	object/building/military/military_outpost_guard_tower_1.iff	0	2031.73	128.051	946.704	-3.20013e-008	0	1	0		$|
+2666201	0	object/building/military/military_outpost_guard_tower_1.iff	0	2031.73	128.051	946.704	-3.20E-08	0	1	0		$|
 2666205	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1918.96	120.339	991.682	0.99955	0	0.0299955	0		$|
 2666206	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1923.49	120.435	1024.26	0.96639	0	0.257081	0		$|
 2666207	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1889.77	120.348	976.418	0.999388	0	0.0349929	0		$|
