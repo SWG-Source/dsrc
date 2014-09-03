@@ -29,9 +29,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 568726	0	object/static/structure/general/prp_junk_s6.iff	0	1625.86	1.89334	163.387	0.872108	0	-0.489314	0		$|
 568727	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1633.28	1.7627	159.069	-0.328769	0	0.94441	0		$|
 568728	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1626.82	1.87653	164.524	-0.266731	0	0.963771	0		$|
-568747	0	object/building/military/pirate_outpost.iff	0	1598.9	1	118.062	0.946042	0	0.324043	0		object/building/tatooine/hospital_tatooine_style01.iff$|
-568754	0	object/building/military/pirate_warehouse.iff	0	1614.9	1	138.295	-0.328769	0	0.94441	0		object/building/tatooine/hospital_tatooine_style01.iff$|
-568775	0	object/building/military/outpost_shed_s04.iff	0	1562.6	1.22169	134.626	0.707107	0	0.707106	0		object/building/tatooine/hospital_tatooine_style01.iff$|
+568747	0	object/building/military/pirate_outpost.iff	0	1598.9	1	118.062	0.946042	0	0.324043	0		$|
+568754	0	object/building/military/pirate_warehouse.iff	0	1614.9	1	138.295	-0.328769	0	0.94441	0		$|
+568775	0	object/building/military/outpost_shed_s04.iff	0	1562.6	1.22169	134.626	0.707107	0	0.707106	0		$|
 568782	0	object/static/structure/general/prp_junk_s6.iff	0	1593.88	-0.366995	140.066	0.976996	0	0.213258	0		$|
 568783	0	object/static/structure/general/prp_junk_s6.iff	0	1593.29	-0.366995	141.772	0.997378	0	0.0723659	0		$|
 568784	0	object/static/structure/general/prp_junk_s6.iff	0	1591.68	-0.366995	142.169	-0.123267	0	0.992374	0		$|
@@ -47,7 +47,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 568795	0	object/static/structure/general/trash_pile_s01.iff	0	1592.71	1	140.135	0.997757	0	-0.0669333	0		$|
 568796	0	object/static/structure/general/trash_pile_s01.iff	0	1592.67	1	139.307	0.747234	0	0.664561	0		$|
 568797	0	object/static/structure/naboo/poi_nboo_tent_large.iff	0	1559.61	1.22657	121.424	1	0	0	0		$|
-568798	0	object/building/military/military_outpost_guard_tower_1.iff	0	1550.38	5.57941	118.792	-3.20013e-008	0	1	0		$|
+568798	0	object/building/military/military_outpost_guard_tower_1.iff	0	1550.38	5.57941	118.792	-3.20E-08	0	1	0		$|
 568799	0	object/building/military/military_outpost_guard_tower_1.iff	0	1597.15	1.36679	88.9707	0.707107	0	-0.707106	0		$|
 568800	0	object/building/military/military_outpost_guard_tower_1.iff	0	1615.29	0.864264	165.043	0.541902	0	0.840441	0		$|
 568805	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	1592.98	1	109.802	0.889293	0	-0.457339	0		$|
