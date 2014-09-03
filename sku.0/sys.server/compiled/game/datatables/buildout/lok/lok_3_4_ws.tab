@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-5126308	0	object/building/general/lok_nymstheme_pirate_cave.iff	0	1099.73	17.3403	1379.94	-0.663731	0	0.747971	0		object/building/tatooine/hospital_tatooine_style01.iff$|
+5126308	0	object/building/general/lok_nymstheme_pirate_cave.iff	0	1099.73	17.3403	1379.94	-0.663731	0	0.747971	0		$|
 5645596	0	object/static/structure/tatooine/pillar_watto_junkshop.iff	0	1071.68	12.0381	1382.83	0.687013	0.700334	0.138323	-0.135692		$|
 5645597	0	object/static/structure/tatooine/pillar_watto_junkshop.iff	0	1072.88	11.994	1371.35	1	0	0	0		$|
 5645598	0	object/static/structure/tatooine/pillar_watto_junkshop.iff	0	1060.54	12.1672	1381.49	1	0	0	0		$|
