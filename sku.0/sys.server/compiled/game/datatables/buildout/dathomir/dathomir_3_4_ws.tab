@@ -167,7 +167,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2666194	0	object/static/structure/general/skeleton_human_headandbody.iff	0	23.1819	126.441	1835.6	0.999893	-0.00318615	-0.00569148	0.013103		$|
 2666195	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	33.0413	126.924	1871.71	0.857667	0.00845965	0.514113	-0.00492122		$|
 2666196	0	object/static/structure/general/skeleton_human_body.iff	0	22.6829	128.19	1870.4	-0.0320369	-0.12087	0.976546	-0.175279		$|
-4115618	0	object/building/general/dathomir_nsister_rancor_cave.iff	0	87.2322	114.826	2035.59	-0.0242013	0	0.999707	0		$|
+4115618	0	object/building/general/dathomir_nsister_rancor_cave.iff	0	87.2322	114.826	2035.59	-0.0242013	0	0.999707	0	theme_park.nightsister.nsister_rancor_cave	$|
 6055606	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	89.5862	123.382	1971.08	0.805072	0	-0.593177	0		$|
 7015480	0	object/static/structure/general/tato_cave_rock_large.iff	0	80.5771	121.96	2023.45	0.728648	-0.215903	-0.0292371	0.64931		$|
 7015483	0	object/static/structure/general/tato_cave_rock_med.iff	0	81.7498	122.01	2024.06	1	0	0	0		$|
