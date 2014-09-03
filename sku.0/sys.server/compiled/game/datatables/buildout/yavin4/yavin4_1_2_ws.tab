@@ -2,12 +2,12 @@ objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objv
 i	i	h	i	f	f	f	f	f	f	f	s	p
 2955772	0	object/static/particle/pt_flocking_glowzees.iff	0	1113.77	73.7823	184.28	1	0	0	0		$|
 3035371	0	object/building/corellia/ply_corl_house_s_s02_fp1.iff	0	1221.96	72.9991	486.189	0.00420401	0	0.999991	0		$|
-3035375	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1306.52	73	478.002	-0.505877	0	0.862606	0		$|
+3035375	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1306.52	73	478.002	-0.505877	0	0.862606	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_yavin_labor_outpost_tavern.iff|$|
 3035387	0	object/building/military/military_outpost_guard_house_imperial.iff	0	1310.14	73	383.683	0.37166	0	0.928369	0		$|
 3035390	0	object/building/military/pirate_outpost.iff	0	1249.95	73.0003	379.368	1	0	0	0		$|
 3035397	0	object/building/military/outpost_shed.iff	0	1267.42	73	379.281	1	0	0	0		$|
 3035404	0	object/building/military/military_outpost_guard_tower_1.iff	0	1317.49	73	420.906	0	0	1	0		$|
-3035405	0	object/building/military/military_outpost_guard_tower_1.iff	0	1317.49	73	445.6	-7.48498e-007	0	1	0		$|
+3035405	0	object/building/military/military_outpost_guard_tower_1.iff	0	1317.49	73	445.6	-7.48E-07	0	1	0		$|
 3035406	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1259.17	73	495.175	1	0	0	0		$|
 3035407	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1276.17	73	495.175	1	0	0	0		$|
 3035408	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1276.13	73	433.077	0.707117	0	-0.707096	0		$|
@@ -130,10 +130,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3035747	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1277.43	73	374.065	0.999687	0	0.0249974	0		$|
 3035752	0	object/static/installation/mockup_mining_liquid_harvester_style_1.iff	0	1292.91	73	375.6	0.9998	0	-0.0199987	0		$|
 3035753	0	object/static/installation/mockup_mining_gas_harvester_style_1.iff	0	1231.18	73	372.985	0.707107	0	-0.707106	0		$|
-3035760	0	object/static/installation/mockup_power_generator_photo_bio_style_1.iff	0	1250.87	73	491.289	3.20013e-008	0	1	0		$|
+3035760	0	object/static/installation/mockup_power_generator_photo_bio_style_1.iff	0	1250.87	73	491.289	3.20E-08	0	1	0		$|
 3035761	0	object/static/installation/mockup_power_generator_photo_bio_style_1.iff	0	1264.83	73	491.265	0	0	1	0		$|
 3035762	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1257.04	71.0919	485.599	1	0	0	0		$|
-3035764	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1223.57	72.925	381.767	5.30747e-008	0	1	0		$|
+3035764	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1223.57	72.925	381.767	5.31E-08	0	1	0		$|
 3035765	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1281.52	71.0924	382.138	1	0	0	0		$|
 3035767	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1309.78	72.9228	393.833	0.918474	0	-0.395482	0		$|
 3035769	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1272.93	73	492.764	1	0	0	0		$|
@@ -206,7 +206,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8375383	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1114	73.7306	189.974	1	0	0	0		$|
 8375384	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1105.96	72.5415	182.305	0.707107	0	-0.707106	0		$|
 8375385	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1120.55	74.5651	181.847	0.707107	0	0.707106	0		$|
-8375386	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1114.16	73.896	175.417	3.20013e-008	0	1	0		$|
+8375386	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1114.16	73.896	175.417	3.20E-08	0	1	0		$|
 8375387	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1113.62	75.6953	181.868	1	0	0	0		$|
 8375389	0	object/static/structure/general/debris_deathstar_turbolaser.iff	0	1261.25	65.2864	609.074	0.860303	-0.16584	-0.474536	-0.0848028		$|
 8375406	0	object/static/structure/general/gravestone_generic_style_02.iff	0	1156.11	25.4228	1034.27	0.735088	0	-0.677972	0		$|
