@@ -53,7 +53,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5685503	0	object/static/item/item_crate_clothing_small.iff	0	1408.94	3.75895	405.918	0.480124	0	0.8772	0		$|
 5685505	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1410.4	3	407.897	0.952334	0	0.305059	0		$|
 5685506	0	object/static/item/item_basket_closed.iff	0	1450.39	3	435.888	1	0	0	0		$|
-6205563	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1461.39	3	441.037	0.982936	0	-0.183947	0		$|
+6205563	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1461.39	3	441.037	0.982936	0	-0.183947	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_dantooine_mining_outpost_tavern.iff|$|
 7105353	0	object/building/military/outpost_starport.iff	0	1411.64	3	432.012	0.407033	0	0.913414	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mining Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 7105362	0	object/building/military/outpost_shed.iff	0	1441.74	2.99883	425.842	0.931493	0	-0.363759	0		$|
 7105391	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1382.13	2.25	429.713	0.932328	0	0.361615	0		$|
@@ -188,7 +188,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8565720	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	563.993	10.1195	642.713	1	0	0	0		$|
 8565727	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	574	10.5435	649	1	0	0	0		$|
 8565728	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	568	10.7697	649	1	0	0	0		$|
-8565729	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	568	9.96332	653	5.30747e-008	0	1	0		$|
+8565729	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	568	9.96332	653	5.31E-08	0	1	0		$|
 8565730	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	574	9.88632	653	1	0	0	0		$|
 8565741	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1549.51	7.71879	18.0305	-0.537648	0.247268	0.747468	0.301803		$|
 8565742	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1538.26	7.56519	11.3296	-0.60582	0	0.795602	0		$|

@@ -1,7 +1,9 @@
 include ai.ai;
+include library.advanced_turret;
 include library.ai_lib;
 include library.create;
 include library.factions;
+include library.utils;
 
 trigger OnInitialize()
 {
@@ -66,19 +68,19 @@ void spawnCelebs(obj_id self)
 	spawnSittingGuy7(self);
 	spawnSittingGuy8(self);
 	spawnSittingGuy9(self);
-	//spawnTurret01(self);
-	//spawnTurret2(self);
-	//spawnTurret3(self);
-	//spawnTurret4(self);
-	//spawnTurret5(self);
-	//spawnTurret6(self);
-	//spawnTurret7(self);
-	//spawnTurret8(self);
-	//spawnTurret9(self);
-	//spawnTurret10(self);
-	//spawnTurret11(self);
-	//spawnTurret12(self);
-	//spawnTurret13(self);
+	spawnTurret01(self);
+	spawnTurret2(self);
+	spawnTurret3(self);
+	spawnTurret4(self);
+	spawnTurret5(self);
+	spawnTurret6(self);
+	spawnTurret7(self);
+	spawnTurret8(self);
+	spawnTurret9(self);
+	spawnTurret10(self);
+	spawnTurret11(self);
+	spawnTurret12(self);
+	spawnTurret13(self);
 	//spawnTurret14(self);
 	//spawnTurret15(self);
 	//spawnTurret16(self);
@@ -550,11 +552,10 @@ void spawnSittingGuy9( obj_id self)
 
 void spawnTurret01( obj_id self)
 {
-	location turretLocation = new location (-6545.16f, 405f, 5916.49f,"corellia", null);
-	obj_id turret01 = create.object ("object/installation/turret/turret_dish_sm.iff", turretLocation);
-	factions.setFaction (turret01, "Rebel");
+	location loc = new location (-6545.16f, 405f, 5916.49f,"corellia", null);
 	int T_yaw = -121;
-	setYaw (turret01, T_yaw);
+	obj_id turret01 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_DISH, advanced_turret.SIZE_SMALL, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
 	attachScript (turret01, "theme_park.corellia.patrol.turret");
 	//attachScript (turret01, "theme_park.corellia.turret_respawn");
 	setObjVar (self, "HideoutInhabitants.turret01", turret01);
@@ -564,11 +565,10 @@ void spawnTurret01( obj_id self)
 
 void spawnTurret2( obj_id self)
 {
-	location turretLocation = new location (-6530.26f, 405f, 5913.65f,"corellia", null);
-	obj_id turret2 = create.object ("object/installation/turret/turret_tower_sm.iff", turretLocation);
-	factions.setFaction (turret2, "Rebel");
+	location loc = new location (-6530.26f, 405f, 5913.65f,"corellia", null);
 	int T_yaw = -161;
-	setYaw (turret2, T_yaw);
+	obj_id turret2 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
 	attachScript (turret2, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret2", turret2);
 	setObjVar (turret2, "hideout", self);
@@ -577,11 +577,10 @@ void spawnTurret2( obj_id self)
 
 void spawnTurret3( obj_id self)
 {
-	location turretLocation = new location (-6515.82f, 405f, 5904.84f,"corellia", null);
-	obj_id turret3 = create.object ("object/installation/turret/turret_dish_sm.iff", turretLocation);
-	factions.setFaction (turret3, "Rebel");
+	location loc = new location (-6515.82f, 405f, 5904.84f,"corellia", null);
 	int T_yaw = 167;
-	setYaw (turret3, T_yaw);
+	obj_id turret3 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_DISH, advanced_turret.SIZE_SMALL, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
 	attachScript (turret3, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret3", turret3);
 	setObjVar (turret3, "hideout", self);
@@ -590,11 +589,10 @@ void spawnTurret3( obj_id self)
 
 void spawnTurret4( obj_id self)
 {
-	location turretLocation = new location (-6572f, 405f, 5939.71f,"corellia", null);
-	obj_id turret4 = create.object ("object/installation/turret/turret_tower_sm.iff", turretLocation);
-	factions.setFaction (turret4, "Rebel");
+	location loc = new location (-6572f, 405f, 5939.71f,"corellia", null);
 	int T_yaw = -45;
-	setYaw (turret4, T_yaw);
+	obj_id turret4 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
 	attachScript (turret4, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret4", turret4);
 	setObjVar (turret4, "hideout", self);
@@ -603,11 +601,10 @@ void spawnTurret4( obj_id self)
 
 void spawnTurret5( obj_id self)
 {
-	location turretLocation = new location (-6481.84f, 405f, 5912.74f,"corellia", null);
-	obj_id turret5 = create.object ("object/installation/turret/turret_tower_sm.iff", turretLocation);
-	factions.setFaction (turret5, "Rebel");
+	location loc = new location (-6481.84f, 405f, 5912.74f,"corellia", null);
 	int T_yaw = 79;
-	setYaw (turret5, T_yaw);
+	obj_id turret5 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
 	attachScript (turret5, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret5", turret5);
 	setObjVar (turret5, "hideout", self);
@@ -616,11 +613,10 @@ void spawnTurret5( obj_id self)
 
 void spawnTurret6( obj_id self)
 {
-	location turretLocation = new location (-6560.04f, 404f, 5965.22f,"corellia", null);
-	obj_id turret6 = create.object ("object/installation/turret/turret_tower_large.iff", turretLocation);
-	factions.setFaction (turret6, "Rebel");
+	location loc = new location (-6560.04f, 404f, 5965.22f,"corellia", null);
 	int T_yaw = -117;
-	setYaw (turret6, T_yaw);
+	obj_id turret6 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
 	attachScript (turret6, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret6", turret6);
 	setObjVar (turret6, "hideout", self);
@@ -629,11 +625,10 @@ void spawnTurret6( obj_id self)
 
 void spawnTurret7( obj_id self)
 {
-	location turretLocation = new location (-6536.1f, 404f, 5941.59f,"corellia", null);
-	obj_id turret7 = create.object ("object/installation/turret/turret_tower_large.iff", turretLocation);
-	factions.setFaction (turret7, "Rebel");
+	location loc = new location (-6536.1f, 404f, 5941.59f,"corellia", null);
 	int T_yaw = -148;
-	setYaw (turret7, T_yaw);
+	obj_id turret7 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
 	attachScript (turret7, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret7", turret7);
 	setObjVar (turret7, "hideout", self);
@@ -642,11 +637,10 @@ void spawnTurret7( obj_id self)
 
 void spawnTurret8( obj_id self)
 {
-	location turretLocation = new location (-6510.06f, 404f, 5931.47f,"corellia", null);
-	obj_id turret8 = create.object ("object/installation/turret/turret_tower_large.iff", turretLocation);
-	factions.setFaction (turret8, "Rebel");
+	location loc = new location (-6510.06f, 404f, 5931.47f,"corellia", null);
 	int T_yaw = -170;
-	setYaw (turret8, T_yaw);
+	obj_id turret8 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
 	attachScript (turret8, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret8", turret8);
 	setObjVar (turret8, "hideout", self);
@@ -655,11 +649,10 @@ void spawnTurret8( obj_id self)
 
 void spawnTurret9( obj_id self)
 {
-	location turretLocation = new location (-6474.96f, 404f, 5937.97f,"corellia", null);
-	obj_id turret9 = create.object ("object/installation/turret/turret_tower_large.iff", turretLocation);
-	factions.setFaction (turret9, "Rebel");
+	location loc = new location (-6474.96f, 404f, 5937.97f,"corellia", null);
 	int T_yaw = 156;
-	setYaw (turret9, T_yaw);
+	obj_id turret9 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
 	attachScript (turret9, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret9", turret9);
 	setObjVar (turret9, "hideout", self);
@@ -668,11 +661,10 @@ void spawnTurret9( obj_id self)
 
 void spawnTurret10( obj_id self)
 {
-	location turretLocation = new location (-6443.04f, 404f, 6000.2f,"corellia", null);
-	obj_id turret10 = create.object ("object/installation/turret/turret_tower_large.iff", turretLocation);
-	factions.setFaction (turret10, "Rebel");
+	location loc = new location (-6443.04f, 404f, 6000.2f,"corellia", null);
 	int T_yaw = 79;
-	setYaw (turret10, T_yaw);
+	obj_id turret10 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
 	attachScript (turret10, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret10", turret10);
 	setObjVar (turret10, "hideout", self);
@@ -681,11 +673,10 @@ void spawnTurret10( obj_id self)
 
 void spawnTurret11( obj_id self)
 {
-	location turretLocation = new location (-6457f, 404f, 6032.01f,"corellia", null);
-	obj_id turret11 = create.object ("object/installation/turret/turret_tower_large.iff", turretLocation);
-	factions.setFaction (turret11, "Rebel");
+	location loc = new location (-6457f, 404f, 6032.01f,"corellia", null);
 	int T_yaw = 53;
-	setYaw (turret11, T_yaw);
+	obj_id turret11 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_LARGE, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 3000, 5000, 30000, 50.0f, 2.0f, "Rebel");
 	attachScript (turret11, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret11", turret11);
 	setObjVar (turret11, "hideout", self);
@@ -694,11 +685,10 @@ void spawnTurret11( obj_id self)
 
 void spawnTurret12( obj_id self)
 {
-	location turretLocation = new location (-6434.14f, 405f, 6032.2f,"corellia", null);
-	obj_id turret12 = create.object ("object/installation/turret/turret_tower_sm.iff", turretLocation);
-	factions.setFaction (turret12, "Rebel");
+	location loc = new location (-6434.14f, 405f, 6032.2f,"corellia", null);
 	int T_yaw = -23;
-	setYaw (turret12, T_yaw);
+	obj_id turret12 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
 	attachScript (turret12, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret12", turret12);
 	setObjVar (turret12, "hideout", self);
@@ -707,11 +697,10 @@ void spawnTurret12( obj_id self)
 
 void spawnTurret13( obj_id self)
 {
-	location turretLocation = new location (-6424.52f, 405f, 6019.65f,"corellia", null);
-	obj_id turret13 = create.object ("object/installation/turret/turret_tower_sm.iff", turretLocation);
-	factions.setFaction (turret13, "Rebel");
+	location loc = new location (-6424.52f, 405f, 6019.65f,"corellia", null);
 	int T_yaw = 157;
-	setYaw (turret13, T_yaw);
+	obj_id turret13 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
 	attachScript (turret13, "theme_park.corellia.patrol.turret");
 	setObjVar (self, "HideoutInhabitants.turret13", turret13);
 	setObjVar (turret13, "hideout", self);
@@ -722,7 +711,7 @@ void spawnTurret13( obj_id self)
 void spawnTurret14( obj_id self)
 {
 	location turretLocation = new location (-6505.09f, 411.5f, 6012.73f,"corellia", null);
-	obj_id turret14 = create.object ("object/installation/turret/turret_block_med.iff", turretLocation);
+	obj_id turret14 = create.object ("object/installation/turret/gcw/adv_turret_block_med_heat.iff", turretLocation);
 	factions.setFaction (turret14, "Rebel");
 	int T_yaw = 86;
 	setYaw (turret14, T_yaw);
@@ -735,7 +724,7 @@ void spawnTurret14( obj_id self)
 void spawnTurret15( obj_id self)
 {
 	location turretLocation = new location (-6483.02f, 411.5f, 5990.93f,"corellia", null);
-	obj_id turret15 = create.object ("object/installation/turret/turret_block_med.iff", turretLocation);
+	obj_id turret15 = create.object ("object/installation/turret/gcw/adv_turret_block_med_heat.iff", turretLocation);
 	factions.setFaction (turret15, "Rebel");
 	int T_yaw = 86;
 	setYaw (turret15, T_yaw);
@@ -748,7 +737,7 @@ void spawnTurret15( obj_id self)
 void spawnTurret16( obj_id self)
 {
 	location turretLocation = new location (-6515.46f, 411.5f, 5979.66f,"corellia", null);
-	obj_id turret16 = create.object ("object/installation/turret/turret_block_med.iff", turretLocation);
+	obj_id turret16 = create.object ("object/installation/turret/gcw/adv_turret_block_med_heat.iff", turretLocation);
 	factions.setFaction (turret16, "Rebel");
 	int T_yaw = 86;
 	setYaw (turret16, T_yaw);

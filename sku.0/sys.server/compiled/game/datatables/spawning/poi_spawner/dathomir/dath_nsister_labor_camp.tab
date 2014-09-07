@@ -1,0 +1,58 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+nightsister_sentry		r2	22.90247154	-38.4671669	-32.64780426	-1				600						
+nightsister_sentry		r2	26.6	-38.1	-32.9	-1				600						
+nightsister_sentry		r2	23.28798676	-42.32689667	-66.70386505	84		conversation		600						
+nightsister_sentry		r2	26.9	-42.7	-64.7	-163		conversation		600						
+nightsister_sentry		r2	49.82684708	-47.86926651	-69.21621704	-100				600						
+nightsister_sentry		r2	26.4	-43.1	-69.1	-5		conversation		600						
+nightsister_sentry		r2	44.32450485	-47.69034958	-35.24478531	178				600						
+nightsister_sentry		r2	41.9	-47.2	-35.5	178				600						
+nightsister_sentry		r3	91.3004837	-66.60985565	-36.10034943	1				600						
+nightsister_sentry		r3	88.6	-66.6	-36.7	1				600						
+nightsister_sentry		r3	75.66321564	-67.6869278	-36.6700592	50				600						
+nightsister_sentry		r3	72.4	-69.1	-39.9	84				600						
+nightsister_sentry		r3	89.49777985	-61.82883453	-11.16464424	-90				600						
+nightsister_sentry		r3	90.01	-62.01	-15.6	-90				600						
+nightsister_slave		r3	86.37434387	-64.66377258	-27.1724968	-33		npc_sad		600						
+nightsister_slave		r3	81.4	-65.4	-27.4	-90		npc_sad		600						
+nightsister_slave		r3	92.01	-63.7	-27.2	-28		npc_sad		600						
+nightsister_rancor_tamer		r4	92.463974	-76.19015503	-83.86688995	-90		themepark_oola		800						
+nightsister_rancor_tamer		r4	90.6	-76.3	-83.9	90		entertained		800						
+nightsister_initiate		r4	67.57639313	-77.0296402	-87.79975128	14				600						
+nightsister_initiate		r4	62.8	-76.4	-84.3	24		npc_angry		600						
+nightsister_initiate		r4	66.1716156	-75.76125336	-66.17204285	32				600						
+nightsister_initiate		r4	70.01	-76.6	-68.6	30		nervous		600						
+nightsister_sentinal		r5	95.45726776	-66.0785141	-109.6863556	-179		npc_meditate		800						
+nightsister_sentinal		r5	91.9	-66.8	-113.1	-179				800						
+nightsister_sentinal		r5	97.1	-65.8	-114.4	-179				800						
+nightsister_slave		r8	136.2821503	-66.3077774	-117.7355652	29		npc_sad		900						
+nightsister_slave		r8	142.3	-66.7	-117.2	-1		npc_sad		900						
+nightsister_slave		r8	124.9262238	-66.79426575	-108.0239105	-179		npc_sad		900						
+nightsister_slave		r8	129.1	-66.6	-109.9	-141		npc_sad		900						
+nightsister_slave		r8	137.01651	-67.06910706	-96.16227722	-90		npc_sad		900						
+nightsister_slave		r8	140.7	-66.9	-89.5	27		npc_sad		900						
+nightsister_sentinal		r8	153.9473724	-65.76854706	-127.8111496	-44		npc_meditate		900						
+nightsister_sentinal		r8	146.6	-66.7	-127.5	-40				900						
+nightsister_sentinal		r8	153.6	-66.4	-121.1	-90				900						
+nightsister_sentinal		r8	113.1245804	-67.19315338	-87.45626831	130		npc_meditate		900						
+nightsister_sentinal		r8	120.01	-67.1	-87.01	119				900						
+nightsister_sentinal		r8	113.3	-66.9	-95.01	-179				900						
+nightsister_slave		r2	59.84246445	-68.56214142	-42.8	39		npc_sad		900						
+nightsister_slave		r2	53.1	-67.9	-47.4	23		npc_sad		900						
+nightsister_slave		r2	51.6	-67.6	-34.2	125		npc_sad		900						
+nightsister_slave		r2	57.8	-67.8	-34.1	-55		npc_sad		900						
+nightsister_slave		r2	55.8	-68.2	-45.3	119		npc_sad		900						
+nightsister_ranger		r5	92.19612885	-46.09319687	-98.88774872	-179		npc_meditate		900						
+nightsister_ranger		r5	96.7	-45.5	-98.1	-179		npc_meditate		900						
+nightsister_ranger		r5	80.93141174	-46.74330139	-117.3329086	-90				900						
+nightsister_ranger		r5	84.9	-46.4	-117.2	0				900						
+nightsister_ranger		r5	92.62593079	-46.740242	-111.3593826	-90				1200						
+nightsister_elder		r11	73.80840302	-46.28035736	-142.7977753	90		npc_meditate		2400						
+nightsister_spell_weaver		r11	80.28620911	-46.31951904	-145.2031708	90				1200						
+nightsister_spell_weaver		r11	80.93726349	-46.30091858	-138.8169861	90				1200						
+nightsister_stalker		r9	181.5167542	-66.12428284	-97.17331696	-90				1200						
+nightsister_stalker		r9	181.8	-65.6	-93.8	-90		happy		1200						
+nightsister_stalker		r9	181.3	-65.9	-100.4	-90		nervous		1200						
+nightsister_protector		r9	187.5261688	-66.02024841	-103.0330353	-90		npc_meditate		4800						
+nightsister_ranger		r2	45.48290253	-47.13203812	-8.648332596	-179		npc_meditate		1400						

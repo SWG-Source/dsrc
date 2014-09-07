@@ -319,7 +319,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1189020	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1617	11	1202	0.707107	0	-0.707106	0		$|
 1189021	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1612	11	1206.75	0.707107	0	-0.707106	0		$|
 1189022	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	1615	11	1206.5	0.707107	0	-0.707106	0		$|
-1189023	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	1617.25	11	1204	-1.84353e-006	0	1	0		$|
+1189023	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	1617.25	11	1204	-1.84E-06	0	1	0		$|
 1189024	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1606.88	9	1212.35	0.92388	0	-0.382683	0		$|
 1189026	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1584.25	9	1235	0.92388	0	-0.382683	0		$|
 1189030	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1562.75	9	1252.25	0.707108	0	-0.707106	0		$|
@@ -342,7 +342,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1189094	0	object/static/structure/general/data_terminal_s3.iff	0	1247.97	4	1195.87	1	0	0	0		$|
 1189096	0	object/static/item/item_medic_bacta_tank.iff	0	1369.53	11	1111.89	-0.431177	0	0.902268	0		$|
 1189218	0	object/static/terrain/tatooine/rock_arch_large_tatooine_style_1.iff	0	13.2961	0	1996.65	0.855127	0	0.518418	0		$|
-1201366	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1442.58	7	1059.5	0.999987	-0.000199954	-3.45872e-007	0.00499616		$|
+1201366	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1442.58	7	1059.5	0.999987	-0.000199954	-3.46E-07	0.00499616		$|
 1201377	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1459.15	7.0798	1059.63	0.999937	-0.00014998	-0.0100004	0.00499774		$|
 1201421	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1442.15	7	1127.59	0.99995	0	-0.0100005	0		$|
 1206342	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1473.42	7	1185.34	0.710914	0	0.703279	0		$|
@@ -729,7 +729,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1233112	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1323.24	7	1370.32	0.713869	0	-0.700279	0		$|
 1233113	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1314.2	7	1370.67	-0.706826	0	0.707388	0		$|
 1233115	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1332.38	7	1386.81	0.999958	0	-0.0091978	0		$|
-1233117	0	object/static/structure/tatooine/wall_gate_tatooine_style_01.iff	0	1277.4	7	1395.46	1.49012e-008	0	1	0		$|
+1233117	0	object/static/structure/tatooine/wall_gate_tatooine_style_01.iff	0	1277.4	7	1395.46	1.49E-08	0	1	0		$|
 1233118	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1277.89	7	1382.49	0.999987	0	0.00500192	0		$|
 1233119	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1278.15	7	1391.54	0.999987	0	-0.00500006	0		$|
 1233120	0	object/static/structure/tatooine/wall_cleft_tatooine_large_style_01.iff	0	1277.71	7	1404.04	-0.0299935	0	0.99955	0		$|
@@ -942,15 +942,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1295898	0	object/static/flora/flora_flower_endor_scrubwort.iff	0	1387.01	7.5	1147.74	1	0	0	0		$|
 1295899	0	object/static/flora/flora_flower_endor_scrubwort.iff	0	1393.14	7.5	1122.18	1	0	0	0		$|
 1295900	0	object/static/flora/flora_flower_endor_scrubwort.iff	0	1387.84	7.5	1106.48	1	0	0	0		$|
-1298839	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1390.06	8.57518	1102.67	-1.49012e-008	0	1	0		$|
+1298839	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1390.06	8.57518	1102.67	-1.49E-08	0	1	0		$|
 1298840	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.17	8.32219	1126.54	0.70712	0	0.707094	0		$|
-1298841	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.67	9.08114	1127.07	-1.49012e-008	0	1	0		$|
+1298841	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.67	9.08114	1127.07	-1.49E-08	0	1	0		$|
 1298842	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.64	7.56325	1126.05	1	0	0	0		$|
 1298843	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.95	9.46062	1142.72	1	0	0	0		$|
-1298844	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.98	7.94272	1143.74	1.49012e-008	0	1	0		$|
+1298844	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.98	7.94272	1143.74	1.49E-08	0	1	0		$|
 1298845	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1390.45	8.70167	1143.25	-0.707105	0	0.707108	0		$|
 1298846	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1390.28	7.5	1169.03	0.999942	0	0.010796	0		$|
-1298847	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.79	9.22345	1169.06	-1.49012e-008	0	1	0		$|
+1298847	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.79	9.22345	1169.06	-1.49E-08	0	1	0		$|
 1298848	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.77	7.70555	1168.04	1	0	0	0		$|
 1298849	0	object/static/structure/tatooine/planter_hanging_style_01.iff	0	1389.3	8.4645	1168.53	0.707189	0	0.707024	0		$|
 1298851	0	object/static/structure/tatooine/planter_window_style_01.iff	0	1390.6	12.7076	1091.59	0.00499999	0	0.999987	0		$|
@@ -963,7 +963,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1298860	0	object/static/flora/flora_bush_talus_razorcoil.iff	0	1391.93	7.5	1100.94	0.214125	0	0.976806	0		$|
 1298861	0	object/static/structure/tatooine/planter_window_style_01.iff	0	1410.78	12.6444	1104.16	0.99995	0	-0.01	0		$|
 1298863	0	object/static/structure/tatooine/planter_window_style_01.iff	0	1409.88	12.6454	1134.3	0.99995	0	-0.0100002	0		$|
-1298864	0	object/static/structure/tatooine/planter_window_style_01.iff	0	1409.87	12.9614	1161.89	0.9999	1.71002e-009	-0.0099995	-0.00999984		$|
+1298864	0	object/static/structure/tatooine/planter_window_style_01.iff	0	1409.87	12.9614	1161.89	0.9999	1.71E-09	-0.0099995	-0.00999984		$|
 1298865	0	object/static/structure/tatooine/planter_window_style_01.iff	0	1366.15	12.8025	1145.76	0.00500016	0	0.999988	0		$|
 1298876	0	object/static/structure/tatooine/planter_window_style_01.iff	0	1366.93	13.0871	1115.02	0.00500013	0	0.999988	0		$|
 1298877	0	object/static/structure/tatooine/planter_window_style_01.iff	0	1365.42	12.8341	1174.85	0.0100002	0	0.99995	0		$|
@@ -1045,7 +1045,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1525424	0	object/static/structure/tatooine/wall_pristine_tatooine_tall_style_01.iff	0	1397.15	3.93066	1156.5	1	0	0	0		$|
 1525425	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1397.52	8.5	1165.4	1	0	0	0		$|
 1525426	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1397.52	8.5	1147.53	0.707107	0	0.707106	0		$|
-1525427	0	object/static/structure/tatooine/wall_pristine_tatooine_tall_style_01.iff	0	1393.67	3.09307e+006	1177	1	0	0	0		$|
+1525427	0	object/static/structure/tatooine/wall_pristine_tatooine_tall_style_01.iff	0	1393.67	3.09E+06	1177	1	0	0	0		$|
 1525428	0	object/static/structure/tatooine/wall_pristine_tatooine_tall_style_01.iff	0	1397.15	3.93066	1177	1	0	0	0		$|
 1525429	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1397.52	8.5	1169.06	1	0	0	0		$|
 1525430	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1397.52	8.5	1185.05	0.707107	0	0.707106	0		$|
@@ -1096,7 +1096,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1738362	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1398.96	10.0829	1123.38	1	0	0	0		$|
 1738363	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1382.01	10.0197	1106.58	1	0	0	0		$|
 2595352	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1502.38	7	1184.58	1	0	0	0		$|
-2595354	0	object/building/tatooine/filler_building_tatt_style01_01.iff	0	1523.31	7	1136.99	-9.52216e-008	0	1	0		$|
+2595354	0	object/building/tatooine/filler_building_tatt_style01_01.iff	0	1523.31	7	1136.99	-9.52E-08	0	1	0		$|
 2595356	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	1518.42	7	1192.76	0.00579701	0	0.999983	0		$|
 2595357	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1523.42	7	1193.16	0.717914	0	0.696132	0		$|
 2595358	0	object/building/tatooine/housing_tatt_style01_med.iff	0	1486.72	7	1147.32	0.999987	0	-0.00499998	0		$|
@@ -1132,19 +1132,19 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2725391	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1280.78	4.83645	1161.52	1	0	0.000801074	0		$|
 2725392	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1280.01	7	1153.67	0.707107	0	-0.707106	0		$|
 2725393	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1322.04	4.83645	1161.48	-0.000800948	0	1	0		$|
-2725394	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1322.09	7	1174.02	3.70369e-005	0	1	0		$|
+2725394	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1322.09	7	1174.02	3.70E-05	0	1	0		$|
 2725395	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1322.84	7	1169.03	0.707107	0	0.707107	0		$|
 2725396	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1322.84	7	1178.03	0.707107	0	0.707107	0		$|
 2725397	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1322.14	4.83645	1186.62	-0.000800948	0	1	0		$|
 2725398	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1322.9	7	1194.47	0.707107	0	0.707107	0		$|
-2725399	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1321.8	7	1152.6	3.20013e-008	0	1	0		$|
+2725399	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1321.8	7	1152.6	3.20E-08	0	1	0		$|
 2725400	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1313.95	4.83645	1153.37	0.707665	0	-0.706549	0		$|
 2725401	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1301.35	7	1153.42	-0.707081	0	0.707133	0		$|
-2725402	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1296.35	7	1152.67	3.20013e-008	0	1	0		$|
-2725403	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1305.35	7	1152.67	3.20013e-008	0	1	0		$|
+2725402	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1296.35	7	1152.67	3.20E-08	0	1	0		$|
+2725403	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1305.35	7	1152.67	3.20E-08	0	1	0		$|
 2725404	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1288.81	4.83645	1153.46	0.707665	0	-0.706549	0		$|
 2725405	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1366.87	4.10842	1012.34	0.707136	0	-0.707077	0		$|
-2725406	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1362.24	4.10842	1007.59	-3.43809e-005	0	1	0		$|
+2725406	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1362.24	4.10842	1007.59	-3.44E-05	0	1	0		$|
 2725408	0	object/static/structure/tatooine/orchard_tatooine_style_01.iff	0	1366.62	7	1007.7	1	0	0	0		$|
 2725409	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1490.09	4.81168	1387.04	0.710074	0	0.704125	0		$|
 2725420	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1472.25	4.81168	1386.68	0.717088	0	0.696982	0		$|
@@ -1175,9 +1175,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3765372	0	object/static/structure/tatooine/orchard_tatooine_style_01.iff	0	1360.35	7	1381.55	1	0	0	0		$|
 3765375	0	object/tangible/crafting/station/public_weapon_station.iff	0	1347.97	7	1413.01	-0.707107	0	0.707107	0		$|
 3765376	0	object/tangible/crafting/station/public_structure_station.iff	0	1358.05	7	1413.95	0.707107	0	0.707107	0		$|
-3765377	0	object/static/structure/tatooine/orchard_tatooine_style_01.iff	0	1352.97	7	1414.01	-3.20013e-008	0	1	0		$|
-3765379	0	object/tangible/crafting/station/public_clothing_station.iff	0	1492	7	1343	3.20013e-008	0	1	0		$|
-3765380	0	object/tangible/crafting/station/public_food_station.iff	0	1483	7	1338	3.20013e-008	0	1	0		$|
+3765377	0	object/static/structure/tatooine/orchard_tatooine_style_01.iff	0	1352.97	7	1414.01	-3.20E-08	0	1	0		$|
+3765379	0	object/tangible/crafting/station/public_clothing_station.iff	0	1492	7	1343	3.20E-08	0	1	0		$|
+3765380	0	object/tangible/crafting/station/public_food_station.iff	0	1483	7	1338	3.20E-08	0	1	0		$|
 3765382	0	object/static/structure/tatooine/orchard_tatooine_style_01.iff	0	1487	7	1343	1	0	0	0		$|
 3765384	0	object/tangible/crafting/station/public_clothing_station.iff	0	1474	7	1343	1	0	0	0		$|
 3765386	0	object/tangible/crafting/station/public_food_station.iff	0	1483	7	1348	1	0	0	0		$|
@@ -1216,8 +1216,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3945419	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1739.28	7	1179.89	0.707107	0	0.707106	0		$|
 3945420	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1746.83	7	1180.12	0.707107	0	0.707106	0		$|
 3945421	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1755.6	7	1179.87	0.707107	0	0.707106	0		$|
-3945422	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1754.79	7	1172.06	3.27029e-007	0	1	0		$|
-3945423	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.54	7	1163.3	3.27029e-007	0	1	0		$|
+3945422	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	1754.79	7	1172.06	3.27E-07	0	1	0		$|
+3945423	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.54	7	1163.3	3.27E-07	0	1	0		$|
 3945425	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.47	7	1146.8	0	0	1	0		$|
 3945426	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1757.02	4.72152	1143.76	0.96639	0	-0.257081	0		$|
 4005516	0	object/building/tatooine/starport_tatooine.iff	0	1238.18	7	1013.85	0.953847	0	0.300293	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Entha Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
@@ -1284,8 +1284,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4335456	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1420.48	7	1308.44	1	0	0	0		$|
 4335457	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1449.05	7	1308.41	1	0	0	0		$|
 4335458	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1404.69	7.52435	1245.46	1	0	0	0		$|
-4335460	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1389.72	14.4598	1177	-3.20013e-008	1	0	0		$|
-4335461	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1389.97	14.4254	1135.13	-3.20013e-008	1	0	0		$|
+4335460	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1389.72	14.4598	1177	-3.20E-08	1	0	0		$|
+4335461	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1389.97	14.4254	1135.13	-3.20E-08	1	0	0		$|
 4685580	0	object/tangible/terminal/terminal_bazaar.iff	0	1284.74	7	1111	0.731418	0	0.68193	0		$|
 4685581	0	object/tangible/terminal/terminal_bazaar.iff	0	1435.05	7.67698	1217.91	0.0249974	0	0.999687	0		$|
 4685582	0	object/tangible/terminal/terminal_bazaar.iff	0	1432.3	7.6348	1274.63	0.999687	0	-0.024997	0		$|
@@ -1298,8 +1298,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6016133	0	object/static/creature/tatooine_cu_pa.iff	0	1603.68	7	1309.51	0.956802	0	0.29074	0		$|
 6076181	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1761.75	7	1085.03	0.94441	0	-0.328769	0		$|
 6076254	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1680.24	7.70699	1098.84	0.0196574	0.00367869	0.98274	-0.18391		$|
-6076255	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1679.33	7	1098.98	3.20013e-008	0	1	0		$|
-6076257	0	object/tangible/terminal/terminal_mission_scout.iff	0	1681.28	7	1098.98	3.20013e-008	0	1	0		$|
+6076255	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1679.33	7	1098.98	3.20E-08	0	1	0		$|
+6076257	0	object/tangible/terminal/terminal_mission_scout.iff	0	1681.28	7	1098.98	3.20E-08	0	1	0		$|
 6076259	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1710.32	7	1047.21	-0.0107961	0	0.999942	0		$|
 6076261	0	object/tangible/terminal/terminal_mission.iff	0	1739.14	7	997.071	0.731689	0	0.681639	0		$|
 6076263	0	object/tangible/terminal/terminal_mission_scout.iff	0	1739.02	7	999.29	0.735088	0	0.677972	0		$|
@@ -1309,7 +1309,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6076271	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1720.74	7	1130.02	1	0	0	0		$|
 6076272	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	1720.58	7	1127.33	1	0	0	0		$|
 6076273	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	1739.44	7	1127.24	1	0	0	0		$|
-6076274	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1720.7	7	1124.55	3.20013e-008	0	1	0		$|
+6076274	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1720.7	7	1124.55	3.20E-08	0	1	0		$|
 6076275	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1725.13	7	1127.36	0.707107	0	0.707106	0		$|
 6076276	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1715.84	7	1127.3	0.707107	0	-0.707106	0		$|
 6076277	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1734.64	7	1127.11	0.70711	0	-0.707103	0		$|
@@ -1317,7 +1317,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6076279	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1743.93	7	1127.17	0.707107	0	0.707107	0		$|
 6076280	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1739.54	7	1129.83	1	0	0	0		$|
 6076281	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1496.3	7	1068.62	0.707107	0	0.707106	0		$|
-6076292	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1476.65	7.53759	1217.69	3.20013e-008	0	1	0		$|
+6076292	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1476.65	7.53759	1217.69	3.20E-08	0	1	0		$|
 6076294	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1470.05	7	1093.3	-0.700285	0	0.713864	0		$|
 6076300	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1470.03	7	1097.07	-0.700285	0	0.713864	0		$|
 6076302	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1377.99	7	931.731	1	0	0	0		$|
@@ -1343,7 +1343,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6076332	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	1400.08	7	1409.81	1	0	0	0		$|
 6076333	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1369.32	7	1433.67	0.707107	0	0.707107	0		$|
 6076334	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1363.85	7	1433.72	0.707107	0	-0.707107	0		$|
-6076335	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1366.57	7	1428.82	-1.84353e-006	0	1	0		$|
+6076335	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1366.57	7	1428.82	-1.84E-06	0	1	0		$|
 6076336	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1366.51	7	1438.11	1	0	0	0		$|
 6076337	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	1366.54	7	1433.56	0.707107	0	-0.707107	0		$|
 6076338	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1508.71	7	1347.3	1	0	0	0		$|
@@ -1451,7 +1451,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8555742	0	object/tangible/furniture/all/frn_all_toolchest_med_s01.iff	0	1209.18	7	874.199	0.973666	0	-0.227978	0		$|
 8555744	0	object/static/item/item_tool_turbine_generator.iff	0	1210.11	6.90513	872.872	0.805072	0	0.593177	0		$|
 8555749	0	object/static/structure/general/prp_junk_s8.iff	0	1208.91	6.93192	871.858	1	0	0	0		$|
-8555752	0	object/static/structure/general/prp_junk_s1.iff	0	1207.87	7.16351	872.961	-7.33659e-008	0	1	0		$|
+8555752	0	object/static/structure/general/prp_junk_s1.iff	0	1207.87	7.16351	872.961	-7.34E-08	0	1	0		$|
 8555753	0	object/static/structure/general/prp_junk_s6.iff	0	1206.45	6.1692	871.948	1	0	0	0		$|
 8555754	0	object/static/structure/general/prp_junk_s8.iff	0	1207.18	6.51573	870.64	1	0	0	0		$|
 8555755	0	object/static/item/item_tool_meson_taloscope.iff	0	1206.86	7.62	875.936	-0.663731	0	0.747971	0		$|
@@ -1501,10 +1501,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9515540	0	object/static/item/item_container_organic_hide.iff	0	1271.61	7	1108.11	0.990216	0	0.139543	0		$|
 9515541	0	object/static/item/item_container_inorganic_minerals.iff	0	1277.27	7	1108.06	0.707107	0	-0.707106	0		$|
 9515542	0	object/static/item/item_container_organic_structure.iff	0	1275.63	7	1108.03	0.998988	0	0.0449848	0		$|
-9515543	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	1273.7	7	1107.11	-3.20013e-008	0	1	0		$|
+9515543	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	1273.7	7	1107.11	-3.20E-08	0	1	0		$|
 9645545	0	object/static/vehicle/e3/landspeeder.iff	0	1474.97	7	1415.41	1	0	0	0		$|
 9645547	0	object/static/creature/droids_r2.iff	0	1476.66	7	1414.7	0.972514	0	-0.232843	0		$|
-9745390	0	object/building/tatooine/guild_university_tatooine_style_02.iff	0	1434.71	7	1342.56	3.20013e-008	0	1	0		$|
+9745390	0	object/building/tatooine/guild_university_tatooine_style_02.iff	0	1434.71	7	1342.56	3.20E-08	0	1	0		$|
 9755369	0	object/static/structure/general/data_terminal_free_s1.iff	0	1305.94	7	1063.78	0.845441	0	-0.534069	0		$|
 9755370	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1303.14	7	1064.8	0.862807	0	0.505534	0		$|
 9755371	0	object/static/structure/general/droid_r2_powerdown.iff	0	1300.42	7	1064.44	0.745175	0	0.666869	0		$|
@@ -1513,7 +1513,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9755376	0	object/static/structure/general/droid_r3_powerdown.iff	0	1301.95	7.10337	1063.32	0.855127	-0.518418	0	0		$|
 60390	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	9.94151	-0.129381	1872.61	1	0	0	0		$|
 60391	0	object/static/tatooine/rock_spire_smooth_tatooine_style_1.iff	0	183.493	0	1998.09	1	0	0	0		$|
-1153580	0	object/building/tatooine/hospital_tatooine_style01.iff	0	1321.35	7	1243.25	0.0192024	0	0.999816	0		$|
+1153580	0	object/building/tatooine/hospital_tatooine_style01.iff	0	1321.35	7	1243.25	0.0192024	0	0.999816	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/ep3/ep3_mos_entha_medical_center.iff|$|
 1157754	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	1376.34	7	1400.44	1	0	0	0		$|
 1189219	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	42.4232	0	1950.17	1	0	0	0		$|
 1189222	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	85.1234	0	1893.82	1	0	0	0		$|

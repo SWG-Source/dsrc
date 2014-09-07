@@ -25,7 +25,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1134529	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1044.02	75	1640.21	-0.681057	0	0.732231	0		$|
 1134531	0	object/building/tatooine/housing_tatt_style01_large.iff	0	1018.4	74.8911	1672.78	0.0307915	0	0.999526	0		$|
 1134555	0	object/building/tatooine/filler_building_tatt_style01_09.iff	0	988.638	74.8955	1567.52	0.999501	0	-0.0315872	0		$|
-1134557	0	object/building/tatooine/cantina_tatooine.iff	0	971.874	75	1620.29	0.999135	0	-0.0415806	0		$|
+1134557	0	object/building/tatooine/cantina_tatooine.iff	0	971.874	75	1620.29	0.999135	0	-0.0415806	0	structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_wayfar_cantina.iff|$|
 1134573	0	object/building/tatooine/housing_tatt_style01_small.iff	0	917.909	75	1720.12	0.0123911	0	0.999923	0		$|
 1134585	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	949.514	75	1723.17	-0.701579	0	0.712592	0		$|
 1134589	0	object/building/tatooine/filler_building_tatt_style01_10.iff	0	879.888	75	1657.66	0.541642	0	0.840609	0		$|
@@ -304,7 +304,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3815412	0	object/static/item/item_con_bag_sm.iff	0	903.211	75	1624.75	1	0	0	0		$|
 3815414	0	object/static/item/item_bottle_fat.iff	0	903.744	75.74	1623.1	1	0	0	0		$|
 3815415	0	object/static/item/item_bottle_fat.iff	0	904.005	75.74	1623.08	1	0	0	0		$|
-3815416	0	object/static/item/item_bottle_fat.iff	0	904.147	75.8538	1623.33	0.707107	-7.72715e-009	7.72715e-009	0.707106		$|
+3815416	0	object/static/item/item_bottle_fat.iff	0	904.147	75.8538	1623.33	0.707107	-7.73E-09	7.73E-09	0.707106		$|
 3945394	0	object/tangible/terminal/terminal_bazaar.iff	0	966.763	75	1706.85	-0.00499746	0	0.999987	0		$|
 3945395	0	object/tangible/terminal/terminal_bazaar.iff	0	969.762	75	1706.82	-0.00499746	0	0.999987	0		$|
 4335371	0	object/soundobject/soundobject_city_crowd_sentients.iff	0	915.664	75	1639.37	1	0	0	0		$|
