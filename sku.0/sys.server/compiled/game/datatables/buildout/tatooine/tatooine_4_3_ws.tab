@@ -2,7 +2,7 @@ objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objv
 i	i	h	i	f	f	f	f	f	f	f	s	p
 356	0	object/static/item/item_carbine_elite.iff	0	1029.13	10.905	566.167	0.600971	0.372605	0.372605	0.60097		$|
 1250266	0	object/static/item/item_container_weapon.iff	0	920.738	12	419.613	0.959662	0	0.281157	0		$|
-358	0	object/static/item/item_tool_radio.iff	0	1029.09	10.8854	566.453	-3.20013e-008	0	1	0		$|
+358	0	object/static/item/item_tool_radio.iff	0	1029.09	10.8854	566.453	-3.20E-08	0	1	0		$|
 359	0	object/static/item/item_con_ration_kit_lg.iff	0	1032.75	10.88	565.951	-0.582622	0	0.812743	0		$|
 360	0	object/static/item/item_con_ration_kit_lg.iff	0	1033.06	10.88	565.682	-0.399064	0	0.916923	0		$|
 366	0	object/static/item/item_container_inorganic_minerals.iff	0	1033.15	10	565.739	0.922997	0	-0.384808	0		$|
@@ -15,7 +15,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 376	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	830.904	12	410.419	-0.68921	0	0.724562	0		$|
 377	0	object/static/installation/mockup_mining_liquid_moisture_harvester.iff	0	825.078	12	413.039	-0.130768	0	0.991413	0		$|
 378	0	object/static/structure/general/streetlamp_large_style_01.iff	0	861.799	12	455.796	0.934943	0	0.354799	0		$|
-382	0	object/static/structure/general/banner_imperial_style_01.iff	0	861.801	13.1071	455.785	-3.00314e-008	0.345432	1.10543e-008	0.938444		$|
+382	0	object/static/structure/general/banner_imperial_style_01.iff	0	861.801	13.1071	455.785	-3.00E-08	0.345432	1.11E-08	0.938444		$|
 383	0	object/static/structure/general/streetlamp_large_style_01.iff	0	878.876	12	441.292	0.934942	0	0.354799	0		$|
 384	0	object/static/structure/general/banner_imperial_style_01.iff	0	878.879	13.1071	441.282	0	0.345432	0	0.938444		$|
 529	0	object/tangible/sign/tatooine_moraj_marker.iff	0	1271.16	21.6144	52.2148	0.986683	-0.00970664	0.149123	-0.0642249		$|
@@ -32,7 +32,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 683455	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	657.51	12	390.278	1	0	0	0		$|
 683456	0	object/tangible/terminal/terminal_bazaar.iff	0	649.657	12	379.163	1	0	0	0		$|
 683457	0	object/tangible/terminal/terminal_bazaar.iff	0	654.63	12	379.154	1	0	0	0		$|
-683458	0	object/tangible/terminal/terminal_bazaar.iff	0	654.529	12	389.007	-3.20013e-008	0	1	0		$|
+683458	0	object/tangible/terminal/terminal_bazaar.iff	0	654.529	12	389.007	-3.20E-08	0	1	0		$|
 683459	0	object/tangible/terminal/terminal_bazaar.iff	0	649.84	12	388.922	0	0	1	0		$|
 683482	0	object/static/structure/tatooine/jawa/tent_jawa_01_large.iff	0	683.678	12.333	365.644	0.674876	0	0.737931	0		$|
 683483	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	677.691	11.995	363.775	-0.0445851	0	0.999005	0		$|
@@ -70,7 +70,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 683528	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	746.647	12	396.404	-0.693114	0	0.720829	0		$|
 683529	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	747.647	12	396.442	-0.693114	0	0.720829	0		$|
 926472	0	object/building/tatooine/capitol_tatooine.iff	0	888.05	12	505.266	0.432613	0	0.90158	0		$|
-1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Bestine Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
+1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Bestine Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/bestine_starport.iff|$|
 1027887	0	object/building/tatooine/housing_tatt_style01_small.iff	0	674.808	26	226.958	0.813878	0	0.581036	0		$|
 1027931	0	object/building/tatooine/housing_tatt_style01_small.iff	0	695.312	26	233.743	-0.592536	0	0.805544	0		$|
 1028167	0	object/building/tatooine/housing_tatt_style01_large.iff	0	944.493	12	424.633	0.937647	0	0.34759	0		$|
@@ -94,7 +94,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028554	0	object/building/tatooine/guild_commerce_tatooine_style_01.iff	0	871.565	12	594.342	-0.328017	0	0.944672	0		$|
 1028574	0	object/building/tatooine/guild_university_tatooine_style_01.iff	0	793.718	12	581.644	0.431176	0	0.902268	0		$|
 1028590	0	object/building/tatooine/association_hall_civilian_tatooine.iff	0	928.921	12	569.878	-0.329522	0	0.944148	0		$|
-1028644	0	object/building/tatooine/cantina_tatooine.iff	0	643.74	12	427.231	0.986156	0	0.165823	0		$|
+1028644	0	object/building/tatooine/cantina_tatooine.iff	0	643.74	12	427.231	0.986156	0	0.165823	0	structure.municipal.cantina:event.bh_event.cantina_controller:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_bestine_cantina.iff|$|
 1033371	0	object/tangible/terminal/terminal_mission_bounty.iff	0	602.784	12	438.2	-0.475382	0	0.879779	0		$|
 1033373	0	object/tangible/terminal/terminal_mission_bounty.iff	0	601.938	12	435.492	0.953847	0	-0.300293	0		$|
 1153330	0	object/static/structure/tatooine/wall_gate_tatooine_style_03.iff	0	1030.63	12	357.229	0.995953	0	0.0898786	0		$|
@@ -368,7 +368,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1189245	0	object/static/structure/tatooine/jawa/tent_jawa_01_med.iff	0	604.034	10.1272	343.21	0.241784	0	0.97033	0		$|
 1189246	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	613.255	10	262.51	1	0	0	0		$|
 1199843	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	1003.57	10	564.255	0.96639	0	-0.257081	0		$|
-1199844	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	1030.79	10	564.411	0.926799	6.94851e-008	0.375559	1.12448e-007		$|
+1199844	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	1030.79	10	564.411	0.926799	6.95E-08	0.375559	1.12E-07		$|
 1199849	0	object/static/structure/tatooine/wall_cleft_tatooine_large_style_01.iff	0	993.767	10	571.923	-0.000796394	0	1	0		$|
 1199850	0	object/static/structure/tatooine/wall_cleft_tatooine_large_style_01.iff	0	994.315	10	556.141	1	0	0	0		$|
 1199851	0	object/static/structure/tatooine/wall_damaged_tatooine_large_style_01.iff	0	994.312	10	564.125	1	0	0	0		$|
@@ -785,12 +785,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3945456	0	object/static/item/item_bottle_tall.iff	0	834.105	12.6325	500.444	1	0	0	0		$|
 3945457	0	object/tangible/crafting/station/public_clothing_station.iff	0	694.959	12	418.176	-0.164252	0	0.986418	0		$|
 3945459	0	object/tangible/furniture/tatooine/frn_tatt_table_cantina_table_3.iff	0	696.764	12	420.056	1	0	0	0		$|
-3945460	0	object/static/item/item_sewing_utensils.iff	0	696.767	12.76	419.593	0.707107	0.707106	-7.72715e-009	-7.72715e-009		$|
+3945460	0	object/static/item/item_sewing_utensils.iff	0	696.767	12.76	419.593	0.707107	0.707106	-7.73E-09	-7.73E-09		$|
 3945461	0	object/static/item/item_raw_cloth.iff	0	696.711	12.7273	420.085	1	0	0	0		$|
 3945462	0	object/static/item/item_raw_cloth.iff	0	696.949	12.7273	420.196	-0.179813	0	0.983701	0		$|
 3985401	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1033.22	12.6085	351.104	1	0	0	0		$|
 3985404	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1028.65	12	410.692	1	0	0	0		$|
-3985410	0	object/static/structure/general/streetlamp_small_style_01.iff	0	939.16	13.8341	406.535	3.20013e-008	0	1	0		$|
+3985410	0	object/static/structure/general/streetlamp_small_style_01.iff	0	939.16	13.8341	406.535	3.20E-08	0	1	0		$|
 3985417	0	object/static/structure/general/streetlamp_small_style_02.iff	0	836.507	12.7119	482.246	1	0	0	0		$|
 3985418	0	object/static/structure/general/streetlamp_small_style_02.iff	0	847.464	12.601	482.57	1	0	0	0		$|
 3985419	0	object/static/structure/general/streetlamp_small_style_01.iff	0	829.584	14.3878	518.829	0.893822	0	-0.448423	0		$|
@@ -840,7 +840,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4235507	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	913.43	98.7321	195.895	1	0	0	0		$|
 4235511	0	object/tangible/terminal/terminal_bazaar.iff	0	754.015	12	494.761	0.644522	0	0.764586	0		$|
 4235514	0	object/tangible/terminal/terminal_bazaar.iff	0	757.754	12	517.518	0.644522	0	0.764586	0		$|
-4235517	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	673.257	19.9265	473.644	-3.20013e-008	1	0	0		$|
+4235517	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	673.257	19.9265	473.644	-3.20E-08	1	0	0		$|
 4425358	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	726.723	26	153.482	0.991562	0	0.129634	0		$|
 4425359	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	727.992	26	154.572	0.456628	0	0.889658	0		$|
 4425360	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	729.215	26	154.66	-0.305817	0	0.95209	0		$|
@@ -936,4 +936,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1250340	0	object/static/structure/general/droid_r4_leg.iff	0	930.458	12	384.91	1	0	0	0		$|
 3455378	0	object/static/structure/general/droid_r5_head.iff	0	1022.75	10	533.756	0.999392	-0.00489905	0.00331686	0.0343579		$|
 4005381	0	object/building/tatooine/hospital_tatooine_style02.iff	0	730.353	12	606.375	0.462485	0	0.886627	0		$|
-9755355	0	object/static/structure/general/droid_r5_head.iff	0	735.788	11.3043	478.064	0.958244	-0.28594	0.00252087	8.82671e-005		$|
+9755355	0	object/static/structure/general/droid_r5_head.iff	0	735.788	11.3043	478.064	0.958244	-0.28594	0.00252087	8.83E-05		$|

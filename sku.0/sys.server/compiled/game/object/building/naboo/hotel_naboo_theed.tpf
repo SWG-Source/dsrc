@@ -24,6 +24,8 @@
 
 sharedTemplate = "object/building/naboo/shared_hotel_naboo_theed.iff"
 
+scripts = +["systems.event_perk.promoter_hotel_spawner"]
+
 objvars = +["safeLogout" = 1]
 
 

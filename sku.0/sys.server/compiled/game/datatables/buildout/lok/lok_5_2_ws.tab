@@ -10,7 +10,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3515392	0	object/static/structure/general/gravestone_generic_style_02.iff	0	213.662	13.608	166.486	-0.707107	0	0.707107	0		$|
 3515393	0	object/static/structure/general/streetlamp_small_style_02.iff	0	209.617	8.88806	169.434	1	0	0	0		$|
 3515394	0	object/static/structure/general/streetlamp_small_style_02.iff	0	219.773	8.93633	169.139	1	0	0	0		$|
-5126270	0	object/building/general/lok_nymstheme_mercenary_bunker.iff	0	915.785	13.016	1959.14	-0.471328	0	0.881958	0		object/building/tatooine/hospital_tatooine_style01.iff$|
+5126270	0	object/building/general/lok_nymstheme_mercenary_bunker.iff	0	915.785	13.016	1959.14	-0.471328	0	0.881958	0		$|
 5126293	0	object/static/structure/military/military_wall_med_imperial_32_style_01.iff	0	907.82	12.965	1935.65	0.301053	0	0.953607	0		$|
 5126294	0	object/static/structure/military/military_wall_med_imperial_style_01.iff	0	918.658	12.9489	1948.79	0.882333	0	0.470626	0		$|
 5126295	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	921.205	13.0122	1945	0.995491	0	0.0948572	0		$|
@@ -26,8 +26,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5126305	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	916.05	12.9874	1948.71	1	0	0	0		$|
 5126306	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	917.967	12.9353	1945.85	1	0	0	0		$|
 5126307	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	885.111	12.9737	1951.78	0.963771	0	-0.266732	0		$|
-7805618	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	274	12.8517	546	3.48103e-007	0	1	0		$|
-7805619	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	290	13.0769	546	3.48103e-007	0	1	0		$|
+7805618	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	274	12.8517	546	3.48E-07	0	1	0		$|
+7805619	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	290	13.0769	546	3.48E-07	0	1	0		$|
 7805622	0	object/static/structure/naboo/obelisk_naboo_theed_style_1.iff	0	282	12.9429	546	1	0	0	0		$|
 7805624	0	object/static/particle/particle_campfire_style_1.iff	0	282.094	29.6001	545.938	1	0	0	0		$|
 7805626	0	object/static/particle/particle_campfire_style_1.iff	0	281.872	29.4889	546.017	1	0	0	0		$|
@@ -53,7 +53,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9685373	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1472.65	15.6482	1677.4	1	0	0	0		$|
 9685374	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1463.93	15.684	1677.42	1	0	0	0		$|
 9685376	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1467.78	13.5648	1677.15	0.707107	0	-0.707106	0		$|
-9685377	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1463.21	13.6015	1681.35	3.48103e-007	0	1	0		$|
+9685377	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1463.21	13.6015	1681.35	3.48E-07	0	1	0		$|
 9685378	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1476.31	13.5189	1676.65	0.707107	0	0.707107	0		$|
 9685379	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1481.29	15.614	1677.36	1	0	0	0		$|
 9685380	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1463.94	15.6395	1686.3	1	0	0	0		$|

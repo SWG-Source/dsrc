@@ -1,0 +1,16 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+rancor_youth		r2	-45.63196182	-47.6741066	-59.71353912	90				1800						
+gnarled_rancor		r2	-48.50824356	-47.32931519	-13.11177444	179				1800						
+mutant_rancor		r3	-90.15156555	-63.17560196	-22.75293732	50				1800						
+mutant_rancor		r2	-53.64595413	-68.19032288	-40.52222443	-70				1800						
+mutant_rancor		r4	-79.57016754	-75.93982697	-61.35839081	1				1800						
+rancor_youth		r7	-89.83600616	-67.08061981	-136.878891	110				1800						
+mutant_rancor		r8	-139.8261108	-66.90119171	-88.53045654	90				1800						
+rancor_youth		r8	-130.5609894	-66.73986816	-107.4280624	90				1800						
+mutant_rancor		r8	-145.2346497	-67.05740356	-124.0839157	90				1800						
+enraged_bull_rancor		r9	-187.1049957	-66.13015747	-101.1784439	90				1800						
+gnarled_rancor		r11	-90.5238266	-46.80524445	-143.4121094	-1				1800						
+rancor_youth		r11	-76.6311264	-46.27325821	-138.74263	-90				1800						
+rancor_youth		r11	-79.06230927	-46.02785873	-145.9253082	-90				1800						
+mutant_rancor		r5	-86.24736023	-46.75889587	-108.9897919	90				1800						

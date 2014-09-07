@@ -1,3 +1,3 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-3695701	0	object/building/general/dathomir_nsister_cave.iff	0	873.431	116.502	100.512	0.796084	0	-0.605186	0		$|
+3695701	0	object/building/general/dathomir_nsister_cave.iff	0	873.431	116.502	100.512	0.796084	0	-0.605186	0	theme_park.dathomir.spider_cave.spider_cave_spawner:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_spider_nightsister_cave.iff|$|
