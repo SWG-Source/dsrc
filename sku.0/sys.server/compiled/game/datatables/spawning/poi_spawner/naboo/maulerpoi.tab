@@ -1,0 +1,32 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+mauler		world	2928.166504	94.00001526	1107.465454	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler		world	2928.166504	94.00001526	1107.465454	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_veermok		world	2931.079834	94.00318909	1128.375366	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_lord		world	2889.081787	94.01648712	1108.391968	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_apprentice		world	2901.627441	94.00435638	1113.019775	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_apprentice		world	2901.627441	94.00435638	1113.019775	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler		world	2912.561523	94.00952911	1134.695923	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler		world	2912.561523	94.00952911	1134.695923	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2941.235107	72.35084534	1196.541626	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2941.235107	72.35084534	1196.541626	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2941.235107	72.35084534	1196.541626	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2889.659668	77.42559052	1191.81958	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2889.659668	77.42559052	1191.81958	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2778.709961	77.74619293	1142.24939	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2778.709961	77.74619293	1142.24939	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2778.709961	77.74619293	1142.24939	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2846.685303	97.1230545	1069.206177	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2846.685303	97.1230545	1069.206177	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2903.389404	117.5125198	1037.171753	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2903.389404	117.5125198	1037.171753	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2960.17334	94.09128571	1082.732788	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2960.17334	94.09128571	1082.732788	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	2960.17334	94.09128571	1082.732788	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	3022.520264	76.05283356	1119.474243	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	3022.520264	76.05283356	1119.474243	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler_acolyte		world	3022.520264	76.05283356	1119.474243	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mauler		room1	4.68914938	0.699999988	-5.778259277	-90	theme_park.dungeon.generic_death			300	 					
+mauler_master		room2	-5.021146774	0.699999988	1.125393987	178	theme_park.dungeon.generic_death			300	 					
+mauler		room2	4.68914938	0.699999988	-5.778259277	-90	157	theme_park.dungeon.generic_death		300	 					
+
