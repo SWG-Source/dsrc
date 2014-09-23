@@ -535,14 +535,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1677786	0	object/building/naboo/filler_building_naboo_theed_style_10.iff	0	311.353	6	256.364	-0.468594	0	0.883413	0		$|
 1677793	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	130.573	6	187.741	0.714421	0	0.699716	0		$|
 1677796	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	201.936	6.0023	254.209	0.223882	0	0.974616	0		$|
-1697358	0	object/building/naboo/hospital_naboo_style01.iff	0	1126.24	6	66.4424	0.938444	0	0.345432	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/ep3/ep3_theed_medical_center.iff|$|
+1697358	0	object/building/naboo/hospital_naboo_style01.iff	0	1126.24	6	66.4424	0.938444	0	0.345432	0		$|
 1697385	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	1000.88	6	144.395	0.419322	0	0.907837	0		$|
 1697387	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_02.iff	0	1183.41	6	33.6392	0.907837	0	-0.419322	0		$|
 1697390	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	971.771	6	99.0464	0.907837	0	-0.419322	0		$|
 1697399	0	object/building/naboo/filler_building_naboo_theed_style_5.iff	0	1047.29	6	34.0405	0.938444	0	0.345432	0		$|
 1697417	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	1508.62	6	14.5371	0.883413	0	-0.468594	0		$|
 1697427	0	object/building/naboo/filler_building_naboo_theed_style_9.iff	0	1557.45	6	38.5742	-0.50622	0	0.862404	0		$|
-1714366	0	object/building/naboo/filler_building_naboo_theed_style_5.iff	0	1196.48	6	68.5186	0.907837	0	-0.419323	0		$|
+1714366	0	object/building/naboo/filler_building_naboo_theed_style_5.iff	0	1196.48	6	68.5186	0.907837	0	-0.419323	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/theedendgame.iff|$|
 1714769	0	object/building/naboo/filler_building_naboo_theed_style_10.iff	0	766.313	6	162.031	0.703272	0	0.710921	0		$|
 1714772	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	771.772	6	203.735	0.999983	0	-0.00579694	0		$|
 1717482	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	591.042	6	143.115	0.92388	0	0.382683	0		$|
