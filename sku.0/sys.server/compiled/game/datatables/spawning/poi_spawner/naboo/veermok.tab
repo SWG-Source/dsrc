@@ -1,0 +1,23 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+																
+veermok_sentry_cave		r1	22.82221031	-27.42152786	-8.679873466	-90	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2					
+veermok_sentry_cave			5718.633789	289.9527283	-1540.309326	113	theme_park.dungeon.generic_death			100	int:ai.defaultCalmBehavior=2					
+veermok_cave		r2	46.67683029	-47.72733307	-62.67521667	-109	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2					
+veermok_scout_cave		r5	88.60248566	-46.30028152	-109.0453873	-90	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2					
+veermok_scout_cave		r5	86.9	-46.4	-112.7	-73	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2					
+veermok_scavenger		r11	79	-46	-146.8	13	theme_park.dungeon.generic_death			480	int:ai.defaultCalmBehavior=2					
+veermok_scavenger		r11	76.96411896	-45.88427734	-142.9711914	55	theme_park.dungeon.generic_death			480	int:ai.defaultCalmBehavior=2					
+veermok_giant_cave		r9	186.3782806	-65.51856232	-103.558342	-97	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=2					
+veermok_guard_cave		r8	133.4367065	-66.45140839	-108.2828217	-90	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=2					
+veermok_guard_cave		r8	133.5	-66.5	-105.1	-96	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2					
+veermok_guard_cave		r5	92.05145264	-66.00579834	-127.1599884	-159	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=2					
+veermok_cave		r2	46.5	-47.2	-10	173	theme_park.dungeon.generic_death			420	int:ai.defaultCalmBehavior=2					
+veermok_cave		r2	44.37138748	-47.18875122	-10.33863163	176	theme_park.dungeon.generic_death			420	int:ai.defaultCalmBehavior=2					
+veermok_scout_cave		r3	78.5218811	-61.28669739	-10.3177824	-90	theme_park.dungeon.generic_death			480	int:ai.defaultCalmBehavior=2					
+veermok_scout_cave		r3	-78.8	-61.4	-8.5	-90	theme_park.dungeon.generic_death			480	int:ai.defaultCalmBehavior=2					
+veermok_cave		r2	54.24856567	-68.09195709	-37.7426796	85	theme_park.dungeon.generic_death			420	int:ai.defaultCalmBehavior=2					
+veermok_ravager		r4	82.5	-76.1	-60.4	-43	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=2					
+veermok_ravager		r4	74.33669281	-75.00700378	-61.3781395	-13	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=2					
+veermok_ravager		r4	66.6	-75.3	-62	31	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=2					
+
