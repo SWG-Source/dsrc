@@ -1,0 +1,32 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+naboo_pirate_cutthroat		world	-1501.606445	278	-1735.476807	-18	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
+naboo_pirate_armsman		world	-1497.237427	278	-1719.133911	-126	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
+naboo_pirate		world	-1513.869141	278	-1732.320068	-98	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
+naboo_pirate		entry	-0.233219996	0.25	3.732197046	20	theme_park.dungeon.generic_death			360						
+naboo_pirate		hall1	-3.950844049	0.25	-1.294033051	0	theme_park.dungeon.generic_death			360						
+naboo_pirate		hall2	-0.112139001	0.25	-3.764121056	-90	theme_park.dungeon.generic_death			360						
+naboo_pirate_lieutenant		anteroom	-1.419350028	-12	31.02835464	90	theme_park.dungeon.generic_death			3600						
+naboo_pirate_crewman		anteroom	6.466962814	-12	35.7900238	175	theme_park.dungeon.generic_death			360						
+naboo_pirate_crewman		anteroom	9.788734436	-12	30.77035332	-90	theme_park.dungeon.generic_death			360						
+naboo_pirate_crewman		anteroom	5.822159767	-12	27.08896828	-145	theme_park.dungeon.generic_death			360						
+naboo_pirate_armsman		anteroom	-0.161907107	-12	34.05101395	125	theme_park.dungeon.generic_death			360						
+naboo_pirate		powerroom	23.93203163	-12	28.00281143	-30				360						
+naboo_pirate_crewman		powerroom	27.18827629	-12	34.94610214	171	theme_park.dungeon.generic_death			360						
+naboo_pirate_crewman		powerroom	32.15625763	-12	33.62967682	-111	theme_park.dungeon.generic_death			360						
+naboo_pirate_crewman		powerroom	33.19425964	-12	29.210886	-86	theme_park.dungeon.generic_death			360						
+pirate_crewman		powerroom	29.51615906	-12	26.06126595	-95	theme_park.dungeon.generic_death			360						
+naboo_pirate_armsman		computerroom	0.921953976	-16	60.29486084	107	theme_park.dungeon.generic_death			1200						
+naboo_pirate_armsman		computerroom	6.001183987	-16	60.54418945	-115	theme_park.dungeon.generic_death			1200						
+naboo_pirate_armsman		computerroom	-0.201535001	-16	82.70975494	175	theme_park.dungeon.generic_death			1200						
+naboo_pirate_armsman		computerroom	5.823836803	-16	82.5242691	170	theme_park.dungeon.generic_death			1200						
+naboo_dread_pirate		computerroom	3.170216084	-16	85.50937653	179	theme_park.dungeon.generic_death			3600						
+naboo_pirate_armsman		computerroom	-18.73309517	-16	76.59276581	90	theme_park.dungeon.generic_death			1200						
+naboo_pirate_armsman		computerroom	-18.35630608	-16	80.75948334	90	theme_park.dungeon.generic_death			1200						
+naboo_pirate_armsman		computerroom	25.37516022	-16	81.15124512	-95	theme_park.dungeon.generic_death			1200						
+naboo_pirate_armsman		computerroom	24.94099808	-16	77.50966644	-95	theme_park.dungeon.generic_death			1200						
+naboo_pirate_crewman		barracks	40.50311279	-16	59.89369583	-90	theme_park.dungeon.generic_death			360						
+naboo_pirate_crewman		barracks	60.37868118	-16	59.94346619	-9	theme_park.dungeon.generic_death			360						
+naboo_pirate_crewman		barracks	52.6499176	-16	84.14039612	173	theme_park.dungeon.generic_death			360						
+naboo_pirate_crewman		barracks	74.2124939	-16	58.86469269	-11	theme_park.dungeon.generic_death			360						
+
