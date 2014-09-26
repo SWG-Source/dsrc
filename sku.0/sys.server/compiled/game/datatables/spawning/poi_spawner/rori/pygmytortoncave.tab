@@ -1,0 +1,21 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+torton_pygmy_juvenile		r1	1.271264	-3.24313	-3.26708	-1	theme_park.dungeon.generic_death			300						
+torton_pygmy_juvenile		r2	-8.8989	-22.0408	-28.4671	-1	theme_park.dungeon.generic_death			300						
+torton_pygmy_juvenile		r3	-8.92127	-32.2314	-72.2967	84	theme_park.dungeon.generic_death			300						
+torton_pygmy_juvenile		r3	7.209556	-32.3638	-67.5946	-163	theme_park.dungeon.generic_death			300						
+torton_pygmy_adolescent		r4	44.40528	-37.9639	-58.4487	-100	theme_park.dungeon.generic_death			300						
+torton_pygmy_adolescent		r5	19.62526	-37.6406	-125.697	-5	theme_park.dungeon.generic_death			300						
+torton_pygmy_adolescent		r5	-5.46598	-36.8297	-141.592	178	theme_park.dungeon.generic_death			300						
+torton_pygmy_adult		r5	52.06399	-48.3125	-169.333	178	theme_park.dungeon.generic_death			300						
+torton_pygmy_protector		r7	-12.9251	-57.0064	-215.766	1	theme_park.dungeon.generic_death			300						
+torton_pygmy_juvenile		r7	-8.14573	-56.1892	-237.143	1	theme_park.dungeon.generic_death			300						
+torton_pygmy_adult		r8	-57.877	-62.2946	-182.434	50	theme_park.dungeon.generic_death			300						
+torton_pygmy_adolescent		r8	-94.2316	-65.2193	-172.992	84	theme_park.dungeon.generic_death			300						
+torton_pygmy_adult		r8	-104.033	-61.7252	-120.525	-90	theme_park.dungeon.generic_death			300						
+torton_pygmy_protector		r8	-95.4557	-61.869	-101.211	-90	theme_park.dungeon.generic_death			300						
+torton_pygmy_adult		r9	-66.4984	-60.6496	-95.8165	-33	theme_park.dungeon.generic_death			300						
+torton_pygmy_mature		r9	-36.9339	-61.8867	-100.093	-90	theme_park.dungeon.generic_death			300						
+torton_pygmy_mature		r10	-30.3341	-71.6832	-141.229	-28	theme_park.dungeon.generic_death			300						
+torton_pygmy_protector		r8	-80.6594	-91.5627	-144.766	76	theme_park.dungeon.generic_death			400						
+torton_pygmy_matriarch		r11	-89.7742	-93.7123	-114.88	130	theme_park.dungeon.generic_death			400						
