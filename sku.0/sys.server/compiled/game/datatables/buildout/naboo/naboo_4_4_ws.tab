@@ -60,7 +60,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5286039	0	object/static/item/wp_rifle_laser_combined.iff	0	543.721	278	326.626	0.724836	0	0	0.688922		$|
 5286040	0	object/static/item/item_vibroaxe.iff	0	543.93	278.727	325.524	1	0	0	0		$|
 5286041	0	object/static/item/item_vibrolance.iff	0	543.674	278	325.511	1	0	0	0		$|
-5535563	0	object/building/general/naboo_pirate_bunker.iff	0	566.181	278	318.74	0.714143	0	-0.7	0		$|
+5535563	0	object/building/general/naboo_pirate_bunker.iff	0	566.181	278	318.74	0.714143	0	-0.7	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/naboopiratebunker.iff|$|
 6336787	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	534.408	277.715	338.459	0.873744	0.309075	-0.35406	0.125244		$|
 6336788	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	522.07	277.648	328.718	0.877529	0.252337	-0.391881	0.112687		$|
 6336789	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	537.239	278	301.041	-0.68531	0.160461	0.691647	0.161945		$|
