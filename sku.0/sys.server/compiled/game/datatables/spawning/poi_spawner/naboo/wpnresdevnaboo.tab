@@ -1,0 +1,87 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+dark_trooper		hall1	-3.8	0.3	3.0	90	theme_park.dungeon.generic_death			300						
+dark_trooper		hall1	3.5	0.3	-4.2	-88	theme_park.dungeon.generic_death			300						
+dark_trooper		foyer	1.2	-12	26.5	166	theme_park.dungeon.generic_death			300						
+dark_trooper		foyer	6.372736	-12	26.04126	-144	theme_park.dungeon.generic_death	malevolent	walk	300						
+imperial_first_lieutenant		foyer	1.66989	-12	32.0126	-172	theme_park.dungeon.generic_death	evil		300						
+dark_trooper		foyer	24.49976	-12	50.95752	-172	theme_park.dungeon.generic_death			300						
+dark_trooper		foyer	24	-12	42.6	-90	theme_park.dungeon.generic_death			300						
+imperial_first_lieutenant		foyer	23.12754	-12	43.83148	-102	theme_park.dungeon.generic_death			300					
+dark_trooper		foyer	-17.87666	-12	50.46267	90	theme_park.dungeon.generic_death			300					
+dark_trooper		foyer	-20.6	-12	47	78	theme_park.dungeon.generic_death			20					
+imperial_first_lieutenant		foyer	-16.19491	-12	43.85871	71	theme_park.dungeon.generic_death			300					
+imperial_colonel		foyer	3.653762	-12	67.49303	175	theme_park.dungeon.generic_death			300					
+Imperial_private		foyer	6.931514	-12	61.38551	161	theme_park.dungeon.generic_death			300					
+imperial_private		foyer	1.5	-12	64.8	126	theme_park.dungeon.generic_death			300					
+imperial_private		foyer	-2.5	-12	63.2	-97	theme_park.dungeon.generic_death			300					
+imperial_first_lieutenant		cell2	73.05276	-12	58.38097	-85	theme_park.dungeon.generic_death			300					
+dark_trooper		researchlab2	13.11166	-20	124.7631	70	theme_park.dungeon.generic_death			300					
+dark_trooper		researchtab2	19.4	-20	124.9	88	theme_park.dungeon.generic_death			300					
+dark_trooper		researchlab2	24.4	-20	125.1	88	theme_park.dungeon.generic_death			300					
+imperial_private		storage2	-3.970288	-20	68.91234	91	theme_park.dungeon.generic_death			300					
+imperial_private		storage2	-4.2	-20	66.5	58	theme_park.dungeon.generic_death			300					
+Imperial_private		storage2	-4.7	-20	73.4	101	theme_park.dungeon.generic_death			300					
+dark_trooper		storage2	-1.629142	-20	75.78009	-4	theme_park.dungeon.generic_death			300					
+dark_trooper		storage2	2.9	-20	70.8	83	theme_park.dungeon.generic_death			300					
+dark_trooper		storage2	-0.7	-20	64.9	11	theme_park.dungeon.generic_death			300					
+imperial_colonel		powerroom	-9.496912	-20	101.3249	-95	theme_park.dungeon.generic_death			300					
+imperial_colonel		powerroom	-35.87125	-20	102.257	88	theme_park.dungeon.generic_death			300					
+dark_trooper		powerroom	-10.43216	-20	95.64441	-92	theme_park.dungeon.generic_death			300					
+dark_trooper		powerroom	-8.5	-20	99.5	-126	theme_park.dungeon.generic_death			300					
+dark_trooper		powerroom	-34.23957	-20	95.33264	-126	theme_park.dungeon.generic_death			300					
+dark_trooper		powerroom	-30.7	-20	95.4	173	theme_park.dungeon.generic_death			300					
+at_st		researchlab1	-54.84636	-20	43.08142	-1	theme_park.dungeon.generic_death			300					
+dark_trooper		longhall	-30.45958	-20	63.00999	0	theme_park.dungeon.generic_death			300					
+dark_trooper		longhall	-30.6	-20	61.8	0	theme_park.dungeon.generic_death			300					
+dark_trooper		longhall	-30.55628	-20	28.35592	178	theme_park.dungeon.generic_death			300					
+dark_trooper		longhall	-31.2	-20	28.8	178	theme_park.dungeon.generic_death			300					
+imperial_private		storage1	-16.53138	-20	8.254938	168	theme_park.dungeon.generic_death			300					
+imperial_private		storage1	-15.5	-20	8.6	171	theme_park.dungeon.generic_death			300					
+dark_trooper		researchlab1	-64.28422	-20	48.9171	-16	theme_park.dungeon.generic_death			300					
+dark_trooper		researchlab1	-67.7	-20	49.2	-12	theme_park.dungeon.generic_death			300					
+dark_trooper		researchlab1	-61.4	-20	47.4	90	theme_park.dungeon.generic_death			300					
+dark_trooper		researchlab1	-70.28878	-20	66.01027	147	theme_park.dungeon.generic_death			300					
+dark_trooper		researchlab1	-68.4	-20	67	149	theme_park.dungeon.generic_death			300					
+imperial_lieutenant_colonel		sleepingquarters	37.3	-12	15.5	2	theme_park.dungeon.generic_death			300					
+imperial_lieutenant_colonel		sleepingquarters	37.4	-12	13.7	-177	theme_park.dungeon.generic_death			300					
+dark_trooper		sleepingquarters	24.83397	-12	14.75042	-9	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+dark_trooper		sleepingquarters	23.3	-12	14.7	-9	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+dark_trooper		sleepingquarters	26.6	-12	25.6	175	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+dark_trooper		sleepingquarters	49.06141	-12	21.11569	-100	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+dark_trooper		sleepingquarters	49.3	-12	22.4	-94	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+dark_trooper		sleepingquarters	32.30544	-12	2.206954	-97	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+dark_trooper		sleepingquarters	32.8	-12	3.6	-74	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+dark_trooper		sleepingquarters	57.96198	-12	0.825085	-85	theme_park.dungeon.generic_death			300					
+dark_trooper		sleepingquarters	58.1	-12	0.1	-96	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+imperial_major_general		researchlab1	-75.93115	-20	49.24639	80	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+imperial_lieutenant_colonel		researchlab1	-57.03	-20	31.81618	-130	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+imperial_lieutenant_colonel		researchlab1	-61.26566	-20	63.94855	179	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+imperial_lieutenant_colonel		researchlab1	-63.8	-20	65.9	174	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+imperial_lieutenant_colonel		researchlab1	-53.2	-20	31.3	-130	theme_park.dungeon.generic_death			300	int:ai.defaultCalmBehavior=2				
+dark_trooper		researchlab1	-71.11289978	-20	28.67909813	1	theme_park.dungeon.generic_death			300
+dark_trooper		researchlab1	-72.5	-20	28.4	1	theme_park.dungeon.generic_death			300
+dark_trooper		cell2	50.71149063	-12	58.86149597	-90	theme_park.dungeon.generic_death			300
+dark_trooper		cell2	50.9	-12	57.6	-90	theme_park.dungeon.generic_death			300
+dark_trooper		cell2	50.9	-12	60.4	-90	theme_park.dungeon.generic_death			300
+dark_trooper		crittercell	46.98830795	-12	83.02622986	-90	theme_park.dungeon.generic_death			300
+dark_trooper		crittercell	47.3	-12	81.9	-96	theme_park.dungeon.generic_death			300
+dark_trooper		crittercell	47.3	-12	84.2	-98	theme_park.dungeon.generic_death			300
+imperial_first_lieutenant		crittercell	71.31391907	-12	82.77432251	-90	theme_park.dungeon.generic_death			300
+imperial_colonel		researchlab2	35.28840256	-19.99999619	143.6979218	176	theme_park.dungeon.generic_death			20
+dark_trooper		researchlab2	30.79430008	-19.99999619	117.7076721	91	theme_park.dungeon.generic_death			300
+dark_trooper		researchlab2	41.4	-20	121	-120	theme_park.dungeon.generic_death			300
+imperial_inquisitor		office	-49.05033875	-20	80.18929291	-97	theme_park.dungeon.generic_death			300
+dark_trooper		office	-75.90290833	-20	75.81641388	84	theme_park.dungeon.generic_death			300
+dark_trooper		office	-75.4	-20	83.1	154	theme_park.dungeon.generic_death			300
+dark_trooper		office	-62.8	-20	74.2	-90	theme_park.dungeon.generic_death			300
+dark_trooper		office	-62.8	-20	87.9	-89	theme_park.dungeon.generic_death			300
+imperial_surface_marshal		computerroom	-65.13464355	-20	13.14475536	-94	theme_park.dungeon.generic_death			300
+imperial_colonel		computerroom	-60.38989258	-20	7.886723995	173	theme_park.dungeon.generic_death			300
+imperial_colonel		computerroom	-50.6929245	-20	17.14463234	53	theme_park.dungeon.generic_death			300
+imperial_colonel		computerroom	-75.4693985	-20	10.04710197	20	theme_park.dungeon.generic_death			300
+dark_trooper		computerroom	-68.59714508	-20	19.25701904	-24	theme_park.dungeon.generic_death			300
+dark_trooper		computerroom	-70.2	-20	16.8	0	theme_park.dungeon.generic_death			300
+dark_trooper		computerroom	-73.2	-20	18.6	31	theme_park.dungeon.generic_death			300
+imperial_exterminator		researchlab2	37.02529526	-19.99999619	140.4855499	-177	theme_park.dungeon.generic_death			300
+
