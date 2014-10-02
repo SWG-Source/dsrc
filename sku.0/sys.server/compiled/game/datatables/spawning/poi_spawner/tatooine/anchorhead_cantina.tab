@@ -5,5 +5,5 @@ object/tangible/furniture/tatooine/frn_tatt_table_cantina_table_1.iff		livingroo
 object/tangible/furniture/modern/table_modern_style_01.iff		livingroom1	-2.9	0.4	-8.3	-129				300						
 object/mobile/tatooine_npc/nitra_vendallan.iff		livingroom1	-2.953	0.4083	-9.3071	-129	npc.static_quest.quest_convo			300	string:quest_table=nitra_vendallan					
 rebel_recruiter		hall1	-6.2201	-3.9662	-6.589	90				300						
-rebel_recruiter		world	69.6872	52	-5349.47	90				300						
+rebel_recruiter		world	69.6872	52	-5349.47	3				300						
 
