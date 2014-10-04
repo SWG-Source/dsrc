@@ -6,4 +6,16 @@ object/tangible/furniture/modern/table_modern_style_01.iff		livingroom1	-2.9	0.4
 object/mobile/tatooine_npc/nitra_vendallan.iff		livingroom1	-2.953	0.4083	-9.3071	-129	npc.static_quest.quest_convo			300	string:quest_table=nitra_vendallan					
 rebel_recruiter		hall1	-6.2201	-3.9662	-6.589	90				300						
 rebel_recruiter		world	69.6872	52	-5349.47	3				300						
+object/tangible/furniture/modern/armoire_modern_style_01.iff		livingroom1	0.7	0.4	-10.3	0				300						
+object/tangible/furniture/modern/armoire_modern_style_01.iff		livingroom1	-2.4	0.4	-10.3	0				300						
+object/tangible/furniture/modern/couch_modern_style_02.iff		livingroom1	-5.2	0.4	-3.8	79				300						
+object/tangible/furniture/modern/coffee_table_modern_style_01.iff		livingroom1	-3.4	0.4	-3.8	-96				300						
+object/tangible/furniture/modern/sofa_chair_modern_style_01.iff		livingroom1	-2.0	0.4	-6.0	-47				300						
+object/tangible/furniture/modern/sofa_chair_modern_style_01.iff		livingroom1	-2.0	0.4	-1.9	-171				300						
+object/tangible/furniture/modern/sofa_chair_modern_style_01.iff		livingroom1	0.3	0.4	-5.2	22				300						
+object/tangible/furniture/modern/sofa_chair_modern_style_01.iff		livingroom1	0.5	0.4	-2.0	144				300						
+object/tangible/furniture/modern/sofa_chair_modern_style_01.iff		livingroom1	4.1	0.4	-2.3	141				300						
+object/tangible/furniture/modern/sofa_chair_modern_style_01.iff		livingroom1	4.1	0.4	-5.2	51				300						
+object/tangible/furniture/modern/coffee_table_modern_style_01.iff		livingroom1	2.0	0.4	-3.8	-12				300						
+object/mobile/dressed_commoner_humas_male_01.iff		livingroom1	-9.587	0.4083	0.5747	0				300						
 
