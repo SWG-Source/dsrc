@@ -17,8 +17,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7925607	0	object/building/endor/endor_tiki_torch.iff	0	1216.52	121	86.6587	1	0	0	0		$|
 7925608	0	object/building/endor/endor_tiki_torch.iff	0	1229.37	121	76.8735	1	0	0	0		$|
 7925609	0	object/building/endor/endor_tiki_torch.iff	0	1175.77	123.145	72.3701	1	0	0	0		$|
-7925610	0	object/building/endor/endor_tiki_torch.iff	0	1608.99	121	76.0664	3.20013e-008	0	1	0		$|
-7925611	0	object/building/endor/endor_tiki_torch.iff	0	1653.89	124.926	70.042	3.20013e-008	0	1	0		$|
+7925610	0	object/building/endor/endor_tiki_torch.iff	0	1608.99	121	76.0664	3.20E-08	0	1	0		$|
+7925611	0	object/building/endor/endor_tiki_torch.iff	0	1653.89	124.926	70.042	3.20E-08	0	1	0		$|
 7925613	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1598.25	121	95.9214	0.886627	0	-0.462486	0		$|
 7925615	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1595.97	121	87.1021	-0.706826	0	0.707388	0		$|
 7925617	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1596.2	121	72.9336	-0.706824	0	0.707389	0		$|
@@ -32,7 +32,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7925630	0	object/building/endor/endor_tiki_torch.iff	0	1352.01	121	81.6836	-0.624897	0	0.780707	0		$|
 7925656	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1543.88	106.16	79.9751	0.975897	0	-0.21823	0		$|
 7925657	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1291.85	106.96	79.9526	0.955337	0	-0.29552	0		$|
-7925658	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1416.15	106.8	79.4966	0.281157	0	0.959662	0		$|
+7925658	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1416.15	106.8	79.4966	0.281157	0	0.959662	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_bridge.iff|$|
 9725762	0	object/static/structure/dantooine/dant_boundary_post.iff	0	842.066	131.381	1216.02	0.721381	0	0.692538	0		$|
 9725767	0	object/static/structure/dathomir/night_sister_banner_s02.iff	0	842.913	128.206	1214.95	0.155167	0	0.987888	0		$|
 9725769	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	842.109	127.707	1216.05	1	0	0	0		$|
