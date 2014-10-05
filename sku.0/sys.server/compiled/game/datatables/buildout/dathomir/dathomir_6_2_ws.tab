@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9725957	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	945.15	87.5962	1004.41	0.90203	0.319081	0.274096	-0.096958		$|
+9725957	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	945.15	87.5962	1004.41	0.90203	0.319081	0.274096	-0.096958	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_bane_back_spider_plains.iff|$|
 9725958	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	944.034	89.3848	1002.9	-0.273378	0.0972121	0.902248	0.319004		$|
 9725959	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	939.308	76.8258	991.208	0.836218	0.160115	-0.435345	-0.292535		$|
 9725960	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	941.468	77.0759	989.79	0.436011	0.292663	0.835872	0.159882		$|
