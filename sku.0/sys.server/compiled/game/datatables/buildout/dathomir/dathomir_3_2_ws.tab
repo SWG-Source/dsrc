@@ -22,7 +22,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725442	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1483.5	104.669	1282.84	0.659983	0	0.75128	0		$|
 9725444	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1483.54	104.681	1282.82	0.99995	0	-0.00999989	0		$|
 9725469	0	object/static/item/item_bowl_shallow.iff	0	1483.46	107.652	1282.89	1	0	0	0		$|
-9725473	0	object/static/structure/general/campfire_burnt.iff	0	1483.49	108.011	1282.91	1	0	0	0		$|
+9725473	0	object/static/structure/general/campfire_burnt.iff	0	1483.49	108.011	1282.91	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_spell_weavers_south.iff|$|
 9725499	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1485.1	104.779	1282.66	0.995004	0	0.0998333	0		$|
 9725505	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1483.23	104.731	1281.37	0.764842	0	-0.644218	0		$|
 9725507	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1481.88	104.771	1283.24	0.995491	0	0.0948572	0		$|
