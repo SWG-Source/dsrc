@@ -11,7 +11,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8365458	0	object/static/flora/flora_decd_dath_blacktree.iff	0	2006.88	145.87	79.3591	1	0	0	0		$|
 8365460	0	object/static/structure/general/banner_rebel_style_01.iff	0	1997.42	141.971	84.3302	0.839192	0	-0.543835	0		$|
 8365538	0	object/static/item/item_tool_sensor_beacon.iff	0	2015.18	161.082	59.2635	1	0	0	0		$|
-9725619	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1051.17	119.191	856.137	0.724836	0	0.688921	0		$|
+9725619	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1051.17	119.191	856.137	0.724836	0	0.688921	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_bane_back_spider_rock.iff|$|
 9725622	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.39	122.651	858.689	0.519168	0.478383	0.534555	0.464612		$|
 9725623	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.05	127.052	857.463	0.601123	0.362648	0.61894	0.352208		$|
 9725624	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.21	124.956	858.405	0.584671	0.390123	0.601999	0.378893		$|
