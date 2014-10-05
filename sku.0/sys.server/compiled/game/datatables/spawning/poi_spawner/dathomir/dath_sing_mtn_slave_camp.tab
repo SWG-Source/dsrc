@@ -1,0 +1,8 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+singing_mtn_clan_slave		world	7196.563477	537.0706787	5574.703125	-60	theme_park.dungeon.generic_death	nervous		360	int:ai.defaultCalmBehavior=1					
+singing_mtn_clan_slave		world	7197.8	537.2	5561.6	160	theme_park.dungeon.generic_death	conversation		360	int:ai.defaultCalmBehavior=1					
+singing_mtn_clan_slave		world	7198.2	537.7	5560	-30	theme_park.dungeon.generic_death	conversation		360	int:ai.defaultCalmBehavior=1					
+nightsister_slave		world	7208.242676	533.4978638	5543.328125	-170	theme_park.dungeon.generic_death	npc_angry		360	int:ai.defaultCalmBehavior=1					
+nightsister_slave		world	7207.1	533	5551.8	-90	theme_park.dungeon.generic_death	conversation		360	int:ai.defaultCalmBehavior=1					
+nightsister_slave		world	7204.7	532.9	5552.1	100	theme_park.dungeon.generic_death	conversation		360	int:ai.defaultCalmBehavior=1					
