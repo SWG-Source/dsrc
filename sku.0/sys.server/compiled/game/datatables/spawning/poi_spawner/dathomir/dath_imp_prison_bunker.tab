@@ -1,0 +1,4 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+warden_vinzel_haylon	Warden Vinzel Haylon	meeting2	17.9	1	20.4	179	npc.static_quest.quest_convo				string:quest_table=warden_vinzel_haylon					
+xarot_korlin	Xarot Korlin	jailcell1	9.8	1	-21.6	39	npc.static_quest.quest_convo				string:quest_table=xarot_korlin					
