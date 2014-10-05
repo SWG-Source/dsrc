@@ -3,7 +3,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1105878	0	object/static/particle/pt_flocking_glowzees.iff	0	1194.67	146.967	743.153	1	0	0	0		$|
 1105886	0	object/static/particle/pt_flocking_glowzees.iff	0	1198.24	147.031	741.108	1	0	0	0		$|
 1105888	0	object/static/particle/pt_miasma_of_fog_greenish.iff	0	1195.04	146.926	740.819	1	0	0	0		$|
-9725705	0	object/static/flora/flora_decd_dath_azerontree.iff	0	1196.73	147.034	744.443	1	0	0	0		$|
+9725705	0	object/static/flora/flora_decd_dath_azerontree.iff	0	1196.73	147.034	744.443	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_spell_tree.iff|$|
 9725706	0	object/static/structure/dathomir/night_sister_banner_s01.iff	0	1200.74	150.177	742.325	0.975897	0	0.21823	0		$|
 9725711	0	object/static/structure/dathomir/night_sister_banner_s03.iff	0	1190.32	148.856	744.17	0.99875	0	-0.0499792	0		$|
 9725718	0	object/static/structure/dantooine/dant_skull_bol.iff	0	1196.76	152.763	743.296	-0.185194	-0.128235	0.782028	-0.581113		$|
