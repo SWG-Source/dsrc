@@ -11,7 +11,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725381	0	object/building/endor/endr_lake_rail4m.iff	0	853.119	102.015	1611.49	0.981048	0	0.193767	0		$|
 9725382	0	object/building/endor/endr_lake_rail4m.iff	0	849.288	101.634	1612.27	1	0	0	0		$|
 9725383	0	object/building/endor/endr_lake_rail4m.iff	0	846.831	100.529	1611.24	0.751806	0	-0.659385	0		$|
-9725385	0	object/static/structure/general/campfire_burnt.iff	0	843.928	99.0266	1603.88	1	0	0	0		$|
+9725385	0	object/static/structure/general/campfire_burnt.iff	0	843.928	99.0266	1603.88	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_outcast_hut_south.iff|$|
 9725387	0	object/static/structure/general/skeleton_human_head.iff	0	844.572	103.833	1605.05	0.105599	0	0.994409	0		$|
 9725388	0	object/static/structure/general/skeleton_human_head.iff	0	844.676	103.548	1605.31	0.867819	0	0.49688	0		$|
 9725389	0	object/static/structure/general/skeleton_human_head.iff	0	844.441	103.342	1605.14	-0.351529	0	0.936177	0		$|
