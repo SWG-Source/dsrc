@@ -1,0 +1,4 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+ancient_bull_rancor		world	-4710.295898	89.85951996	-4775.640625	-150	theme_park.dungeon.generic_death			10800	int:ai.defaultCalmBehavior=1					
+bull_rancor		world	-4738.981445	90.95259857	-4762.523438	140	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=2					
