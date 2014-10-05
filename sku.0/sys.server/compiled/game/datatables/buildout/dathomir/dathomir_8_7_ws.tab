@@ -30,7 +30,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 978409	0	object/static/item/item_food_fish.iff	0	1055.67	536.12	1471.93	1	0	0	0		$|
 978410	0	object/static/item/item_food_fish.iff	0	1055.55	536.126	1472.05	1	0	0	0		$|
 978411	0	object/static/item/item_food_fish.iff	0	1055.71	536.123	1472.04	1	0	0	0		$|
-9725869	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1056.75	536.247	1471.04	0.867819	0	-0.49688	0		$|
+9725869	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1056.75	536.247	1471.04	0.867819	0	-0.49688	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_slave_camp.iff|$|
 9725871	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1061.75	533.122	1456.46	-0.0557674	0	0.998444	0		$|
 9725878	0	object/building/endor/endor_tiki_torch.iff	0	1053.92	536.704	1475.98	1	0	0	0		$|
 9725879	0	object/building/endor/endor_tiki_torch.iff	0	1063.64	533.136	1451.13	1	0	0	0		$|
