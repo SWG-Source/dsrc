@@ -7,4 +7,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7325428	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1475.38	100.242	528.902	1	0	0	0		$|
 7325429	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	1474.49	82.2981	528.961	1	0	0	0		$|
 7325430	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1474.55	100.536	530.555	1	0	0	0		$|
-9725438	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1460.72	126.907	1359.15	1	0	0	0		$|
+9725438	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1460.72	126.907	1359.15	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_scout_hut.iff|$|
