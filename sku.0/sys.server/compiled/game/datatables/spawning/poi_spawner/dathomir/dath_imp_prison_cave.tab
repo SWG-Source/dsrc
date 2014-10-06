@@ -1,34 +1,38 @@
 spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
 s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
-gaping_spider_hunter		r3	-27.20772743	-38.24858093	-64.54293823	0				1800						
-gaping_spider_hunter		r3	-25.3	-36.6	-59.2	0				1800						
-gaping_spider_hunter		r3	-24.3	-37.4	-64.9	0				1800						
-gaping_spider_recluse		r4	-29.07706642	-51.09053421	-114.1423874	-65				1800						
-gaping_spider_recluse		r4	-31.1	-49.6	-110.9	-65				1800						
-gaping_spider_recluse		r4	-33.2	-49.4	-114.1	-65				1800						
-gaping_spider_recluse		rooma	-12.22964382	-48.43250275	-167.7812042	50				1800						
-gaping_spider_recluse		rooma	-15.1	-48.6	-165.1	50				1800						
-gaping_spider_recluse		rooma	-9.1	-48.6	-168.6	50				1800						
-gaping_spider_broodling		r9	-62.3471756	-66.37563324	-194.555481	50				1800						
-gaping_spider_broodling		r9	-66.2	-66.9	-193.8	50				1800						
-gaping_spider_broodling		r9	-64.2	-67.3	-196.3	50				1800						
-gaping_spider_broodling		r9	-63.1	-66.8	-198.1	50				1800						
-gaping_spider_broodling		r9	-59.4	-65.5	-195.7	50				1800						
-thug		r9	-63.65757751	-67.07936096	-197.3415222	50				1800						
-thug		r9	-63.2	-66.5	-199.1	50				1800						
-gaping_spider_broodling		roomaa	60.8498497	-80.47678375	-231.6949158	50				1800						
-gaping_spider_broodling		roomaa	58.1	-81.5	-229.8	50				1800						
-gaping_spider_broodling		roomaa	65.1	-81.9	-233.1	50				1800						
-gaping_spider_broodling		roomaa	59.1	-82.2	-235.3	50				1800						
-gaping_spider_broodling		roomaa	61.1	-81.6	-236.5	50				1800						
-gaping_spider_broodling		roomaa	41.87997055	-79.35388184	-249.6578217	50				1800						
-gaping_spider_broodling		roomaa	39.01	-79.6	-247.2	50				1800						
-gaping_spider_broodling		roomaa	37.1	-79.3	-245.5	50				1800						
-gaping_spider_broodling		roomaa	46.6	-79.3	-250.1	50				1800						
-gaping_spider_broodling		roomaa	33.2	-78.4	-247.3	50				1800						
-gaping_spider_queen		roomaa	43.28978348	-81.72787476	-239.550827	50				7200						
-gaping_spider_recluse		roomaab	11.83082485	-79.3368454	-277.0304565	50				1800						
-gaping_spider_recluse		roomaab	3.9	-79.5	-273.1	50				1800						
-gaping_spider_recluse		roomaab	6.3	-79.9	-278.6	50				1800						
-gaping_spider_recluse		roomaab	9.9	-79.7	-269.5	50				1800						
-mutant_rancor		roomaabb	-147.5395355	-118.5793991	-334.2179565	50				10000						
+gaping_spider_hunter		r3	-27.20772743	-38.24858093	-64.54293823	0	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_hunter		r3	-25.3	-36.6	-59.2	0	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_hunter		r3	-24.3	-37.4	-64.9	0	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		r4	-29.07706642	-51.09053421	-114.1423874	-65	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		r4	-31.1	-49.6	-110.9	-65	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		r4	-33.2	-49.4	-114.1	-65	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		rooma	-12.22964382	-48.43250275	-167.7812042	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		rooma	-15.1	-48.6	-165.1	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		rooma	-9.1	-48.6	-168.6	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		r9	-62.3471756	-66.37563324	-194.555481	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		r9	-66.2	-66.9	-193.8	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		r9	-64.2	-67.3	-196.3	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		r9	-63.1	-66.8	-198.1	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		r9	-59.4	-65.5	-195.7	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+thug		r9	-63.65757751	-67.07936096	-197.3415222	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"	nervous		1800						
+thug		r9	-63.2	-66.5	-199.1	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"	nervous		1800						
+gaping_spider_broodling		roomaa	60.8498497	-80.47678375	-231.6949158	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	58.1	-81.5	-229.8	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	65.1	-81.9	-233.1	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	59.1	-82.2	-235.3	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	61.1	-81.6	-236.5	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	41.87997055	-79.35388184	-249.6578217	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	39.01	-79.6	-247.2	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	37.1	-79.3	-245.5	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	46.6	-79.3	-250.1	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_broodling		roomaa	33.2	-78.4	-247.3	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_queen		roomaa	43.28978348	-81.72787476	-239.550827	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			7200						
+gaping_spider_recluse		roomaab	11.83082485	-79.3368454	-277.0304565	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		roomaab	3.9	-79.5	-273.1	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		roomaab	6.3	-79.9	-278.6	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+gaping_spider_recluse		roomaab	9.9	-79.7	-269.5	50	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			1800						
+mutant_rancor		roomaabb	-147.5395355	-118.5793991	-334.2179565	50	theme_park.dungeon.generic_death			10000						
+at_st		world	-6109.766602	131.0275421	964.8274536	90	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			7200	int:ai.defaultCalmBehavior=2					
+at_st		world	-6279.955078	130.1003113	784.0938721	110	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			7200	int:ai.defaultCalmBehavior=2					
+at_st		world	-6521.672852	130.1124268	793.5327148	-110	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			7200	int:ai.defaultCalmBehavior=2					
+at_st		world	-6450.253418	130	1098.40979	10	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			7200	int:ai.defaultCalmBehavior=2					

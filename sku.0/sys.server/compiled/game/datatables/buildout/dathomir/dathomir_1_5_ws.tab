@@ -8,7 +8,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2665354	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1693.4	127.998	870.263	-0.475732	0	0.87959	0		$|
 2665357	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1711.81	128	855.297	0.839192	0	-0.543835	0		$|
 2665361	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1696.7	127.991	883.844	-0.535416	0	0.844589	0		$|
-2665363	0	object/building/military/military_base_police_station_imperial_style_01.iff	0	1827.64	120	927.306	0.71442	0	0.699717	0		$|
+2665363	0	object/building/military/military_base_police_station_imperial_style_01.iff	0	1827.64	120	927.306	0.71442	0	0.699717	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_imp_prison_bunker.iff|$|
 2665400	0	object/static/structure/corellia/corl_imprv_gate_sm_s03.iff	0	2043.97	127.876	973.171	0.707109	0	0.707104	0		$|
 2665401	0	object/static/structure/corellia/corl_imprv_gate_sm_s03.iff	0	1990.75	128	1018.3	-0.219007	0	0.975723	0		$|
 2665404	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1969.68	128	1032.7	0.995953	0	0.0898789	0		$|
@@ -483,7 +483,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4865404	0	object/tangible/terminal/terminal_bazaar.iff	0	1878.06	120	874.381	1	0	0	0		$|
 4865405	0	object/tangible/terminal/terminal_bazaar.iff	0	1865.9	120	874.396	1	0	0	0		$|
 5335764	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	1883.44	128	767.991	-0.707107	0	0.707107	0		$|
-5335771	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	1883.45	128	751.876	-0.707107	0	0.707107	0		$|
+5335771	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	1883.45	128	751.876	-0.707107	0	0.707107	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_imp_prison_cell.iff|$|
 5335778	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	1861.88	128	768.068	0.707107	0	0.707107	0		$|
 5335785	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	1861.88	128	752.006	0.707108	0	0.707106	0		$|
 5335792	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	1861.89	128	736.109	0.707107	0	0.707107	0		$|
@@ -520,7 +520,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725608	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1068.34	461.094	1174.67	1	0	0	0		$|
 9725610	0	object/building/endor/endor_tiki_torch.iff	0	1072.45	460.926	1176.56	1	0	0	0		$|
 9725611	0	object/static/structure/general/skeleton_human_head.iff	0	1072.46	462.43	1176.55	0.947651	0	0.319309	0		$|
-9725614	0	object/static/flora/flora_decd_dath_blacktree.iff	0	1073.99	463.185	1171.05	-0.495491	-0.0799621	0.853877	-0.137798		$|
+9725614	0	object/static/flora/flora_decd_dath_blacktree.iff	0	1073.99	463.185	1171.05	-0.495491	-0.0799621	0.853877	-0.137798	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_mtn_potted_plant.iff|$|
 9725616	0	object/static/flora/flora_shrb_dath_glingi.iff	0	1065.17	462.766	1175.24	0.764842	0	-0.644218	0		$|
 9725617	0	object/static/flora/flora_shrb_dath_glingi.iff	0	1069.6	462.024	1171.67	1	0	0	0		$|
 9765354	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	2027.28	128	948.202	-0.707107	0	0.707107	0		$|

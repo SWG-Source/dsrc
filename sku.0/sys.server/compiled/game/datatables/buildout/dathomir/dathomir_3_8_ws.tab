@@ -3,7 +3,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725798	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1442.65	546.527	1235.53	-0.706789	0.706789	0.02121	-0.02121		$|
 9725810	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1431.14	548.894	1226.44	0.707107	0.707106	0	0		$|
 9725813	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1436.71	548.796	1218.12	0.92388	-0.382683	0	0		$|
-9725820	0	object/static/flora/flora_decd_dath_azerontree.iff	0	1448.7	546.204	1222.24	1	0	0	0		$|
+9725820	0	object/static/flora/flora_decd_dath_azerontree.iff	0	1448.7	546.204	1222.24	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_tree_and_skeletons.iff|$|
 9725822	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1431.28	550.061	1229.89	1	0	0	0		$|
 9725825	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1437.44	545.498	1226.02	1	0	0	0		$|
 9725827	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1448.38	545.683	1229.99	1	0	0	0		$|

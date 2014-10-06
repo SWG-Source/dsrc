@@ -35,7 +35,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1105944	0	object/static/item/item_bottle_tall.iff	0	1129.28	387.639	1828.12	1	0	0	0		$|
 1105948	0	object/building/endor/endor_tiki_torch.iff	0	1119.86	391.833	1735.24	1	0	0	0		$|
 1105953	0	object/building/endor/endor_tiki_torch.iff	0	1105.98	389.835	1715.23	1	0	0	0		$|
-9725663	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1101.99	388.495	1830.43	0.0391937	0	0.999232	0		$|
+9725663	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1101.99	388.495	1830.43	0.0391937	0	0.999232	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_nw_mtn_city.iff|$|
 9725664	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1127.63	389.315	1830.78	-0.431176	0	0.902268	0		$|
 9725665	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1116.97	383.294	1809.98	0.805072	0	-0.593177	0		$|
 9725666	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1093.87	381.107	1801.69	0.724836	0	0.688921	0		$|

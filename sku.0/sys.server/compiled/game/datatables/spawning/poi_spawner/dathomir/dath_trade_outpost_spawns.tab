@@ -1,0 +1,6 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+singular_nak	Singular Nak	world	571.4	6	3091.2	170	npc.static_quest.quest_convo				string:quest_table=singular_nak					
+commoner		world	610	6	3084	110	npc.static_quest.quest_convo				string:quest_table=herald_dathomir_crashed_civilian_transport					
+escaped_nightsister_slave		world	595	6	3046	10	npc.static_quest.quest_convo				string:quest_table=herald_dathomir_nightsister_forcedlabor_camp					
+wallaw_loowobbli	Wallaw Loowobbli	public	1.1	0.6	5.5	177	npc.static_quest.quest_convo				string:quest_table=wallaw_loowobbli					

@@ -11,6 +11,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725743	0	object/building/endor/endr_lake_rail4m.iff	0	1494.66	126.036	845.136	0.982004	0	0.188859	0		$|
 9725744	0	object/building/endor/endr_lake_rail4m.iff	0	1498.26	129.757	868.34	0.994493	0	0.104807	0		$|
 9725747	0	object/static/structure/dathomir/night_sister_banner_s02.iff	0	1497.02	131.381	856.257	0.731688	0	0.681639	0		$|
-9725749	0	object/static/structure/tatooine/skeleton_krayt_head_style_01.iff	0	1497.06	130.268	858.667	0.92388	-0.382683	0	0		$|
+9725749	0	object/static/structure/tatooine/skeleton_krayt_head_style_01.iff	0	1497.06	130.268	858.667	0.92388	-0.382683	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_outcast_camp_nw.iff|$|
 9725751	0	object/static/item/item_con_tato_bowl_full_s02.iff	0	1497.11	131.181	859.256	1	0	0	0		$|
 9725752	0	object/building/endor/endor_tiki_torch.iff	0	1497.1	129.896	859.256	1	0	0	0		$|
