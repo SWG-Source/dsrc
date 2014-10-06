@@ -17,4 +17,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725653	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1564.98	131.961	1599.91	1	0	0	0		$|
 9725658	0	object/static/structure/dantooine/dant_rack_spears.iff	0	1569.65	130.275	1593.7	-0.456397	0.103009	0.88311	-0.0347415		$|
 9725674	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1576.79	129.694	1597.09	0.993584	-0.081188	0.0101426	-0.0780804		$|
-9725677	0	object/tangible/furniture/all/frn_all_throwpillow_med_s01.iff	0	1575.52	130.054	1598.06	0.94078	-0.0458306	0.321991	-0.0956783		$|
+9725677	0	object/tangible/furniture/all/frn_all_throwpillow_med_s01.iff	0	1575.52	130.054	1598.06	0.94078	-0.0458306	0.321991	-0.0956783	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_vs_sing_mtn_battle.iff|$|

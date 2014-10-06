@@ -187,7 +187,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8575587	0	object/static/structure/general/streetlamp_small_green_style_02_on.iff	0	12.6255	130.829	1840.21	1	0	0	0		$|
 8575588	0	object/static/structure/general/skeleton_human_head.iff	0	15.2415	133.161	1839.87	-0.579596	0.117111	0.0846354	0.801992		$|
 8575626	0	object/soundobject/soundobject_fire_roaring.iff	0	12.8391	133.569	1840.17	1	0	0	0		$|
-9725625	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	1162.94	143.029	1022.84	0.937647	0	0.34759	0		$|
+9725625	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	1162.94	143.029	1022.84	0.937647	0	0.34759	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_stalkers_west.iff|$|
 9725627	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1156.51	143.877	1022.01	0.932327	0	0.361615	0		$|
 9725630	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1156.4	144.18	1027.38	0.904752	0	-0.42594	0		$|
 9725631	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1162.25	144.245	1028.35	0.963771	0	0.266731	0		$|

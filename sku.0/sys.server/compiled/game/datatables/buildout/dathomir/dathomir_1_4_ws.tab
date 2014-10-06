@@ -14,7 +14,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8365632	0	object/static/structure/general/campfire_fresh.iff	0	1878.32	123.019	1512.16	0.998826	-0.0290645	0.00112704	-0.0387316		$|
 8365639	0	object/building/military/military_outpost_guard_tower_1.iff	0	1912.18	127.505	1536.21	0.382683	0	0.92388	0		$|
 9725548	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1624.49	266.348	1306.17	0.755093	0	-0.655617	0		$|
-9725549	0	object/building/endor/endor_tiki_torch.iff	0	1627.55	264.62	1309.12	1	0	0	0		$|
+9725549	0	object/building/endor/endor_tiki_torch.iff	0	1627.55	263.7	1309.12	1	0	0	0		$|
 9725550	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1604.83	277.173	1303.64	-0.100386	0.197272	0.949808	-0.221068		$|
 9725552	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1606.06	276.46	1311.27	0.976287	0.16835	-0.00669712	-0.135933		$|
 9725553	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1590.42	291.963	1304.32	-0.171273	0.213282	0.939616	-0.205665		$|
@@ -22,5 +22,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725559	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1575.85	309.077	1304.37	-0.0944236	0.200194	0.956012	-0.192479		$|
 9725560	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1574.57	309.321	1313.33	0.945926	0.168015	-0.202056	-0.190182		$|
 9725567	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1559.09	322.157	1295.93	0.988012	0	0.15438	0		$|
-9725568	0	object/building/endor/endor_tiki_torch.iff	0	1562.89	321.998	1297.18	1	0	0	0		$|
-9725575	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1574.5	327.449	1265.23	1	0	0	0		$|
+9725568	0	object/building/endor/endor_tiki_torch.iff	0	1562.89	321.7	1297.18	1	0	0	0		$|
+9725575	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1574.5	327.449	1265.23	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_west_mtn_spawn.iff|$|

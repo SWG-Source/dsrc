@@ -12,5 +12,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725699	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	910.276	13.1543	1104.98	0.0223591	0.00926143	0.923609	-0.382571		$|
 9725707	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	910.769	6.89748	1109.26	1	0	0	0		$|
 9725713	0	object/static/item/item_bowl_shallow.iff	0	910.703	16.2644	1108.08	1	0	0	0		$|
-9725721	0	object/static/structure/general/campfire_burnt.iff	0	910.675	16.5883	1108.05	1	0	0	0		$|
+9725721	0	object/static/structure/general/campfire_burnt.iff	0	910.675	16.5883	1108.05	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_spiritual_rock_lake_near_sarlaac.iff|$|
 9725726	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	910.752	16.3813	1108.15	1	0	0	0		$|

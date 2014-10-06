@@ -13,6 +13,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725451	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1063.88	96.7505	1637.9	-0.324797	0	0.945784	0		$|
 9725452	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1063.82	101.291	1674.25	0.995394	-0.00449308	-0.0747948	0.0597954		$|
 9725455	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1073.64	98.7298	1635.65	0.984727	0	-0.174108	0		$|
-9725463	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1057.94	99.7675	1653.44	-0.667463	0	0.744643	0		$|
+9725463	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1057.94	99.7675	1653.44	-0.667463	0	0.744643	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_ceremonial_site.iff|$|
 9725464	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1057.14	100.456	1661	-0.689498	0	0.724288	0		$|
 9725465	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1058.87	97.9612	1645.08	-0.667463	0	0.744643	0		$|

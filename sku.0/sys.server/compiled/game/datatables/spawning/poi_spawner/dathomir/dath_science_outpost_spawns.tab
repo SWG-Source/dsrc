@@ -1,0 +1,4 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+shaki_hamachil	Shaki Hamachil	world	-101	18	-1542.3	126	npc.static_quest.quest_convo				string:quest_table=shaki_hamachil					
+shibb_nisshil	Shibb Nisshil	world	-71.1	18	-1639.2	-40	npc.static_quest.quest_convo				string:quest_table=shibb_nisshil					

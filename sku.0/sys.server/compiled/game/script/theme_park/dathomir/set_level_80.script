@@ -1,0 +1,11 @@
+trigger OnAttach()
+{
+	setLevel(self, 80);
+	return SCRIPT_CONTINUE;
+}
+
+trigger OnInitialize()
+{
+	setLevel(self, 80);
+	return SCRIPT_CONTINUE;
+}
