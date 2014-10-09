@@ -1,0 +1,10 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+rodian_clan_warchief		side_backstage	29.2773	2.1288	57.8777	0	npe.make_invulnerable			300						
+scientist		side_backstage	28.1719	2.1288	57.8798	0	npe.make_invulnerable			300						
+noble		side_backstage	28.93	2.1288	58.19	0	npe.make_invulnerable			300						
+noble		theater	-17.046	2.6	17.2264	0	npe.make_invulnerable			300						
+artisan		theater	-17.046	2.6	18.3264	0	npe.make_invulnerable			300						
+mercenary		theater	25.1612	2.6	16.6257	0	npe.make_invulnerable			300						
+squatter		theater	25.1612	2.6	17.6257	0	npe.make_invulnerable			300						
+
