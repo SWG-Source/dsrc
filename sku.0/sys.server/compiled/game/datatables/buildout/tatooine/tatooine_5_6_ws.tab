@@ -1220,7 +1220,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3945423	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.54	7	1163.3	3.27E-07	0	1	0		$|
 3945425	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.47	7	1146.8	0	0	1	0		$|
 3945426	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1757.02	4.72152	1143.76	0.96639	0	-0.257081	0		$|
-4005516	0	object/building/tatooine/starport_tatooine.iff	0	1238.18	7	1013.85	0.953847	0	0.300293	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Entha Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
+4005516	0	object/building/tatooine/starport_tatooine.iff	0	1238.18	7	1013.85	0.953847	0	0.300293	0	theme_park.dungeon.generic_spawner:structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Entha Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/poi_spawner/tatooine/mosentha_starport.iff|$|
 4005533	0	object/building/tatooine/filler_building_block_64x16_style_02.iff	0	1182.17	7	1108.01	0.376254	0	0.926517	0		$|
 4005537	0	object/building/tatooine/filler_building_block_64x16_style_01.iff	0	1144.07	7	1038.92	0.799099	0	-0.6012	0		$|
 4005541	0	object/building/tatooine/filler_building_block_64x32_style_01.iff	0	1170.11	7	889.404	0.956337	0	0.292266	0		$|
@@ -1513,7 +1513,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9755376	0	object/static/structure/general/droid_r3_powerdown.iff	0	1301.95	7.10337	1063.32	0.855127	-0.518418	0	0		$|
 60390	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	9.94151	-0.129381	1872.61	1	0	0	0		$|
 60391	0	object/static/tatooine/rock_spire_smooth_tatooine_style_1.iff	0	183.493	0	1998.09	1	0	0	0		$|
-1153580	0	object/building/tatooine/hospital_tatooine_style01.iff	0	1321.35	7	1243.25	0.0192024	0	0.999816	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/ep3/ep3_mos_entha_medical_center.iff|$|
+1153580	0	object/building/tatooine/hospital_tatooine_style01.iff	0	1321.35	7	1243.25	0.0192024	0	0.999816	0		$|
 1157754	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	1376.34	7	1400.44	1	0	0	0		$|
 1189219	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	42.4232	0	1950.17	1	0	0	0		$|
 1189222	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	85.1234	0	1893.82	1	0	0	0		$|
@@ -1535,3 +1535,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8095713	0	object/static/structure/general/droid_r2_torso.iff	0	1415.96	7	1381.22	1	0	0	0		$|
 8095714	0	object/static/structure/general/droid_r4_head.iff	0	1415.29	7.44272	1381.48	0.952334	0	0.305059	0		$|
 8095719	0	object/static/structure/general/droid_r5_leg.iff	0	1416.65	7	1381.77	0.900447	0	0.434966	0		$|
+                                                                                                              
