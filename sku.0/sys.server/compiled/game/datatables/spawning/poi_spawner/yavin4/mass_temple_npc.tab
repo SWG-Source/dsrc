@@ -1,0 +1,6 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+commander_byrne		ceremonyhall	-9.1691	58	-50.698	0	npc.static_quest.quest_convo			300	string:quest_table=commander_byrne					
+gins_darone		warroom	-21.9661	32	57.8178	0	npc.static_quest.quest_convo			300	string:quest_table=yavin_massassi_gins_darone					
+sergeant_ruwan_tokai		hangar	-7.753	2	72.4785	0	npc.static_quest.quest_convo			300	string:quest_table=ruwan_tokai					
+
