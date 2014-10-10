@@ -1,0 +1,17 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+woolamander_gatherer		soulroom	-0.806356013	2.020203114	6.004621029	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_gatherer		soulroom	-0.806356013	2.020203114	6.004621029	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander		soulroom	15.35353565	2.020200968	-0.472202003	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander		soulroom	15.35353565	2.020200968	-0.472202003	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander		soulroom	-18.53961945	2.020200014	-0.402530998	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander		soulroom	-18.53961945	2.020200014	-0.402530998	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_harvester		statue_wing_1	53.38688278	2.020210981	4.981026173	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_harvester		statue_wing_1	53.38688278	2.020210981	4.981026173	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_harvester		statue_wing_2	74.39707947	2.020212889	4.749608994	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_harvester		statue_wing_2	74.39707947	2.020212889	4.749608994	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_harvester		altar_wing	-59.32005692	2.051445484	21.05906105	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_gatherer		altar_wing	-59.24731064	2.020195007	-11.05656815	180	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_harrower		altar_wing	-84.06556702	2.020191908	5.01512289	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+woolamander_harrower		altar_wing	-84.06556702	2.020191908	5.01512289	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+
