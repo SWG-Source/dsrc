@@ -33,7 +33,11 @@ void spawnStorytellerVendor(obj_id self)
 {
 	obj_id entrance = getCellId (self, "entrance");
 	location storytellerVendorLoc = new location (6.6f, 0.6f, -3.5f, "tatooine", entrance);
-	obj_id storytellerVendor = create.staticObject ("storyteller_vendor", storytellerVendorLoc);
+	obj_id storytellerVendor = create.object ("storyteller_vendor", storytellerVendorLoc);
+	create.addDestroyMessage (storytellerVendor, "storytellerVendorDied", 10f, self);
+	string name = getName (storytellerVendor);
+	setCreatureStatic (storytellerVendor, true);
+	setInvulnerable(storytellerVendor, true);
 	setYaw(storytellerVendor, -179);
 	return;
 }
@@ -214,5 +218,11 @@ messageHandler managerDied()
 messageHandler choreographerDied()
 {
 	spawnChoreographer(self);
+	return SCRIPT_CONTINUE;
+}
+
+messageHandler storytellerVendorDied()
+{
+	spawnStorytellerVendor(self);
 	return SCRIPT_CONTINUE;
 }
