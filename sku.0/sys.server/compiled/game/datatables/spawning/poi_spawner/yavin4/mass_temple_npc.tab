@@ -188,9 +188,6 @@ thief		world	-3252.672607	147.3101654	-4089.209717	0	theme_park.dungeon.generic_
 stranded_rebel_officer		world	-2991.30127	68.36123657	-1116.239136	0	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
 stranded_rebel_officer		world	-2991.30127	68.36123657	-1116.239136	0	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
 stranded_rebel_officer		world	-2991.30127	68.36123657	-1116.239136	0	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
-stranded_rebel_soilder		world	-2986.729736	68.42873383	-1116.672729	0	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
-stranded_rebel_soilder		world	-2986.729736	68.42873383	-1116.672729	0	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
-stranded_rebel_soilder		world	-2986.729736	68.42873383	-1116.672729	0	theme_park.dungeon.generic_death			360	 int:ai.defaultCalmBehavior=2					
 angler		world	-3094.806641	306.4512024	902.9347534	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 angler		world	-3094.806641	306.4512024	902.9347534	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 angler		world	-3094.806641	306.4512024	902.9347534	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
@@ -304,7 +301,7 @@ scorpion_kliknik		world	4340.26	60.3524	4873.56	0	theme_park.dungeon.generic_dea
 kliknik_dark_defender		world	889.88	44.7595	4453.42	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_dark_defender		world	889.88	44.7595	4453.42	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 scorpion_kliknik		world	959.186	42.8236	4472.89	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
-megan_drlar		world	5855.17	32.6743	-336.089	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+megan_drlar		world	5855.17	32.6743	-336.089	0	conversation.yavin_fallenstar_pt_1_megan			600	 int:ai.defaultCalmBehavior=2					
 mutant_acklay		world	-6451.32	118.589	-284.993	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_hunter		world	-6385.66	115.927	-287.077	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_hunter		world	-6385.66	115.927	-287.077	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
@@ -316,13 +313,11 @@ giant_crystal_snake		world	-1154.81	82.9277	-2909.28	0	theme_park.dungeon.generi
 giant_crystal_snake		world	-1154.81	82.9277	-2909.28	0	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
 yavin_scavanger_surveyer		world	5958.57	122.896	3055.06	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
 yavin_scavanger_leader		world	5951.02	123.308	3058.54	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
-yavin_scavanger_member		world	5943.21	123.543	3057.63	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
-yavin_soci		world	-6900.3	73	-5655.07	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
-yavin_osae		world	-292.23	35	4833.63	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
+yavin_scavanger_member		world	5943.21	123.543	3057.63	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=1					
+yavin_soci		world	-6900.3	73	-5655.07	0	conversation.yavin_fallenstar_pt_2_soci			150	 int:ai.defaultCalmBehavior=1					
+yavin_osae		world	-292.23	35	4833.63	0	conversation.yavin_fallenstar_pt_1_osae			150	 int:ai.defaultCalmBehavior=1					
 yavin_smuggler_muscle		world	-6673.21	29.0715	-2244.56	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
 yavin_smuggler_muscle			-6673.21	29.0715	-2244.56	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
-yavin_smuggler_member			-6679.88	28.5863	-2261.5	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
-yavin_smuggler_member			-6679.88	28.5863	-2261.5	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
 yavin_smuggler_member			-6679.88	28.5863	-2261.5	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
 yavin_smuggler_member		world	-6679.88	28.5863	-2261.5	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
 yavin_smuggler_leader		world	-6689.12	28.0435	-2247.14	0	theme_park.dungeon.generic_death			150	 int:ai.defaultCalmBehavior=2					
