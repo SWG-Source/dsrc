@@ -1,0 +1,22 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+kliknik_dark_warrior		foyer1	3.957108974	-1.297600985	32.44577408	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		foyer1	-3.76230526	-1.297600985	32.45493698	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_worker		hall1	10.79812336	-37.29761124	-0.007997	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_worker		hall1	10.79812336	-37.29761124	-0.007997	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_worker		hall1	-13.82545662	-37.29759598	1.472834945	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_worker		hall1	-13.82545662	-37.29759598	1.472834945	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_worker		hall1	12.5730257	-37.29761124	12.51937771	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_worker		hall1	-13.11076164	-37.29759979	13.07686329	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_defender		hall1	1.82397294	-37.29759216	-22.0556488	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_defender		hall1	1.82397294	-37.29759216	-22.0556488	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_queen		hall1	-0.140134007	-37.29758835	-28.99586296	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		hall1	-7.336737156	-37.29759979	-16.34211731	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		hall1	-13.63473415	-1.297600985	24.34264183	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		hall1	12.87083626	-1.297600985	24.98043442	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		hall1	24.95605469	-1.297600985	10.10326767	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		hall1	-25.32833099	-1.297600985	3.176289082	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		hall1	-3.300760984	-1.297600031	-25.76905632	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		hall1	2.025212049	-1.297600985	-25.67918777	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_warrior		hall1	7.248334885	-37.29759979	-16.08665085	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+
