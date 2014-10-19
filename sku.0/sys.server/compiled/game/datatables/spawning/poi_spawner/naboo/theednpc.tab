@@ -33,8 +33,10 @@ gungan_outcast		world	-24.2153	0.7494	-71.3079	90	theme_park.dungeon.generic_dea
 crackdown_rebel_recruit_hard		world	-5132.7646	6	4082.2024	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
 crackdown_rebel_guardsman		world	-5160.9902	6.5221	4159.54	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
 crackdown_rebel_guard_captain		world	-5126.48	6.5221	4130.79	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
-naboo_police		world	-5206.3198	6	4182.7998	90	theme_park.dungeon.generic_death:city_wander			300	 int:ai.defaultCalmBehavior=2					
+imperial_recruiter		world	-4927.9526	6	4231.1235	160	theme_park.dungeon.generic_death			300	 					
+imperial_recruiter		world	-4936.2417	6	4231.0767	180	theme_park.dungeon.generic_death			300						
 crackdown_rebel_rifleman		world	-5130.5083	6	4081.489	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
 crackdown_rebel_recruit_hard		world	-5132.0737	6	4083.1643	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
 base_elite_dark_trooper		world	-5167.7129	6	4235.708	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+naboo_police		world	-5206.3198	6	4182.7998	90	theme_park.dungeon.generic_death			100	city_wander					
 
