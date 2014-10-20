@@ -1,4 +1,5 @@
 include library.colors_hex;
+include library.player_structure;
 include library.prose;
 include library.static_item;
 include library.storyteller;
@@ -82,6 +83,20 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	if( isFreeTrialAccount(player) )
 	{
 		sendSystemMessage(player, new string_id("storyteller", "blueprint_no_trial_accounts"));
+		return SCRIPT_CONTINUE;
+	}
+	// UPDATE 9/14/14: Can no longer use blueprints inside player building
+	location yourLoc = getLocation(player);
+	if(isIdValid(yourLoc.cell))
+	{
+		sendSystemMessage(player, new string_id("storyteller", "blueprint_not_inside"));
+		return SCRIPT_CONTINUE;
+	}
+	// UPDATE 9/14/14: Can no longer use blueprints on top of player building
+	obj_id whatAmIStandingOn = getStandingOn(player);
+	if( isIdValid(whatAmIStandingOn) && player_structure.isBuilding(whatAmIStandingOn) )
+	{
+		sendSystemMessage(player, new string_id("storyteller", "blueprint_not_on_buildings"));
 		return SCRIPT_CONTINUE;
 	}
 
@@ -287,6 +302,20 @@ trigger OnGroundTargetLoc(obj_id player, int menuItem, float x, float y, float z
 	if( isFreeTrialAccount(player) )
 	{
 		sendSystemMessage(player, new string_id("storyteller", "blueprint_no_trial_accounts"));
+		return SCRIPT_CONTINUE;
+	}
+	
+	location yourLoc = getLocation(player);
+	if(isIdValid(yourLoc.cell))
+	{
+		sendSystemMessage(player, new string_id("storyteller", "blueprint_not_inside"));
+		return SCRIPT_CONTINUE;
+	}
+	// UPDATE 9/14/14: Can no longer use blueprints on top of player building
+	obj_id whatAmIStandingOn = getStandingOn(player);
+	if( isIdValid(whatAmIStandingOn) && player_structure.isBuilding(whatAmIStandingOn) )
+	{
+		sendSystemMessage(player, new string_id("storyteller", "blueprint_not_on_buildings"));
 		return SCRIPT_CONTINUE;
 	}
 	

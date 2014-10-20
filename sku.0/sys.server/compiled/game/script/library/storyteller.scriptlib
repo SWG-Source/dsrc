@@ -492,6 +492,17 @@ boolean allowTokenPlacementInInteriors(string tokenName)
 	return allowInInteriors == 1;
 }
 
+boolean allowTokenPlacementOnRoofs(obj_id token)
+{
+	return allowTokenPlacementOnRoofs(getStaticItemName(token));
+}
+
+boolean allowTokenPlacementOnRoofs(string tokenName)
+{
+	int allowOnRoofs = dataTableGetInt(STORYTELLER_DATATABLE, tokenName, "allow_roof");
+	return allowOnRoofs == 1;
+}
+
 obj_id getStorytellerBeingAssisted(obj_id player)
 {
 	obj_id storytellerBeingAssisted = null;
@@ -787,11 +798,24 @@ boolean canDeployStorytellerToken(obj_id player, location here, string tokenName
 			
 			// block storyteller object placement on player structure roofs and balconies
 			// unless the object is flagged as allowed in interiors
+			// UPDATE 9/14/14: Storyteller objects can now be placed on player structure
+			// roofs if the object is flagged as allowed on roofs
 			obj_id whatAmIStandingOn = getStandingOn(player);
 			if( isIdValid(whatAmIStandingOn) && player_structure.isBuilding(whatAmIStandingOn) )
 			{
-				sendSystemMessage(player, new string_id("storyteller", "placement_not_on_a_building"));
-				return false;
+				if( !allowTokenPlacementOnRoofs(tokenName) )
+				{
+					sendSystemMessage(player, new string_id("storyteller", "placement_not_on_a_building"));
+					return false;
+				}
+				else
+				{
+					if ( !player_structure.isAdmin(whatAmIStandingOn, player) && !player_structure.isAdmin(whatAmIStandingOn, storytellerBeingAssisted) )
+					{
+						sendSystemMessage(player, new string_id("storyteller", "placement_not_building_admin"));
+						return false;
+					}
+				}
 			}
 
 			// city or outpost
@@ -1015,9 +1039,11 @@ string[] recordBlueprintData(obj_id blueprint, obj_id[] storytellerObjects, obj_
 		
 		string[] excludedTokens = { "st_fn_storyteller_vendor" };
 		boolean isExcludedToken = false;
+		location tokLoc = getLocation(object);
+		obj_id whatAmIStandingOn = getStandingOn(object);
 		for ( int q=0; q<excludedTokens.length; q++ )
 		{
-			if ( tokenName.equals(excludedTokens[q]) || storyteller.getTokenType(tokenName) == storyteller.OTHER )
+			if ( tokenName.equals(excludedTokens[q]) || storyteller.getTokenType(tokenName) == storyteller.OTHER || isIdValid(tokLoc.cell) || (isIdValid(whatAmIStandingOn) && player_structure.isBuilding(whatAmIStandingOn)) )
 			{
 				isExcludedToken = true;
 			}
