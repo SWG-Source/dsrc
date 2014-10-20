@@ -1,4 +1,5 @@
 include library.create;
+include library.player_structure;
 include library.static_item;
 include library.storyteller;
 include library.sui;
@@ -44,8 +45,19 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	{
 		placeMultiMenuLabel = "place_all_npcs";
 	}
-	mi.addSubMenu(menuPlacement, menu_info_types.SERVER_MENU1, new string_id("storyteller", placeMultiMenuLabel));
-	mi.addRootMenu (menu_info_types.ITEM_USE_OTHER, new string_id("storyteller", "set_npc_level"));
+	// UPDATE 9/14/14: Cannot place multiple npcs if on roof
+	obj_id whatAmIStandingOn = getStandingOn(player);
+	// Player is on roof.  Do not give them option to place multiple npcs
+	if( isIdValid(whatAmIStandingOn) && player_structure.isBuilding(whatAmIStandingOn) )
+	{
+		mi.addRootMenu (menu_info_types.ITEM_USE_OTHER, new string_id("storyteller", "set_npc_level"));
+	}
+	else
+	// Player is not on roof.  Give them option to place multiple npcs
+	{
+		mi.addSubMenu(menuPlacement, menu_info_types.SERVER_MENU1, new string_id("storyteller", placeMultiMenuLabel));
+		mi.addRootMenu (menu_info_types.ITEM_USE_OTHER, new string_id("storyteller", "set_npc_level"));
+	}
 	return SCRIPT_CONTINUE;
 }
 
@@ -264,6 +276,17 @@ trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 	if ( storyteller.allowTokenPlacementInInteriors(self) )
 	{
 		names[idx] = "storyteller_allow_interior_deploy";
+		attribs[idx] = "True";
+		idx++;
+		
+		if (idx >= names.length)
+			return SCRIPT_CONTINUE;
+	}
+	// UPDATE 9/19/14: Can now examine token to see
+	// whether or not token can be used on roofs
+	if ( storyteller.allowTokenPlacementOnRoofs(self) )
+	{
+		names[idx] = "storyteller_allow_roof_deploy";
 		attribs[idx] = "True";
 		idx++;
 		
