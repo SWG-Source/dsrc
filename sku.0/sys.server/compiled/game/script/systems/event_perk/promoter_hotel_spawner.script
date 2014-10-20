@@ -22,34 +22,74 @@ trigger OnInitialize()
 		{
 			return SCRIPT_CONTINUE;
 		}
-
-		obj_id template = create.object("object/tangible/spawning/static_npc/event_promoter_neutral.iff", spawnPoint);
+		
+		// 10/16/14: Fixed issue with multiple Event Promoters Spawning
+		// by not utilizing the event promoter object.  The script itself
+		// now deals with attaching the objvars/script to the blank object.
+		// This is to prevent the persisting of the event promoter object
+		// and to get only one npc to spawn, rather than multiple on top of
+		// each other.
+		
+		obj_id template = create.object("object/tangible/ground_spawning/area_spawner.iff", spawnPoint);
 		setObjVar(self, "event_perk.promoter", template);
+		setObjVar(template, "spawns", "commoner");
+		setObjVar(template, "npc_name", "An Event Promoter");
+		setObjVar(template, "quest_script", "systems.event_perk.promoter");
+		setObjVar(template, "promoter_type", "neutral");
+		string spawnerObjName = "spawning: hotel_promoter_spawner_neutral";
+		setName(template, spawnerObjName);
+		attachScript(template, "systems.event_perk.promoter_spawner");
 		return SCRIPT_CONTINUE;
 
 /******** All promoters are neutral and spawn everywhere now so we don't need this.
+
+		// 10/16/14: Fixed these issue npc spawns as well.
+		// Although this code is commented out, went ahead and
+		// fixed it anyway just in case we want to do something
+		// with it in the future.
 
 		if(!myPlanet.equals("tatooine") && !myPlanet.equals("corellia") && !myPlanet.equals("naboo") )
 			return SCRIPT_CONTINUE;
 
 		if(myCity.equals("bestine") || myCity.equals("theed") || myCity.equals("kor_vella") )	// Imp
 		{
-			obj_id template = create.object("object/tangible/spawning/static_npc/event_promoter_imp.iff", spawnPoint);
+			obj_id template = create.object("object/tangible/ground_spawning/area_spawner.iff", spawnPoint);
 			setObjVar(self, "event_perk.promoter", template);
+			setObjVar(template, "spawns", "commoner");
+			setObjVar(template, "npc_name", "An Event Promoter");
+			setObjVar(template, "quest_script", "systems.event_perk.promoter");
+			setObjVar(template, "promoter_type", "imp");
+			string spawnerObjName = "spawning: hotel_promoter_spawner_imperial";
+			setName(template, spawnerObjName);
+			attachScript(template, "systems.event_perk.promoter_spawner");
 			return SCRIPT_CONTINUE;
 		}
 
 		if(myCity.equals("mos_entha") || myCity.equals("keren") || myCity.equals("doaba_guerfel") )	// Neutrals
 		{
-			obj_id template = create.object("object/tangible/spawning/static_npc/event_promoter_neutral.iff", spawnPoint);
+			obj_id template = create.object("object/tangible/ground_spawning/area_spawner.iff", spawnPoint);
 			setObjVar(self, "event_perk.promoter", template);
+			setObjVar(template, "spawns", "commoner");
+			setObjVar(template, "npc_name", "An Event Promoter");
+			setObjVar(template, "quest_script", "systems.event_perk.promoter");
+			setObjVar(template, "promoter_type", "neutral");
+			string spawnerObjName = "spawning: hotel_promoter_spawner_neutral";
+			setName(template, spawnerObjName);
+			attachScript(template, "systems.event_perk.promoter_spawner");
 			return SCRIPT_CONTINUE;
 		}
 
 		if(myCity.equals("mos_espa") || myCity.equals("moenia") || myCity.equals("coronet") )	// Rebels	
 		{
-			obj_id template = create.object("object/tangible/spawning/static_npc/event_promoter_reb.iff", spawnPoint);
+			obj_id template = create.object("object/tangible/ground_spawning/area_spawner.iff", spawnPoint);
 			setObjVar(self, "event_perk.promoter", template);
+			setObjVar(template, "spawns", "commoner");
+			setObjVar(template, "npc_name", "An Event Promoter");
+			setObjVar(template, "quest_script", "systems.event_perk.promoter");
+			setObjVar(template, "promoter_type", "reb");
+			string spawnerObjName = "spawning: hotel_promoter_spawner_rebel";
+			setName(template, spawnerObjName);
+			attachScript(template, "systems.event_perk.promoter_spawner");
 			return SCRIPT_CONTINUE;
 		}
 ********************************************/
