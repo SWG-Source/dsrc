@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-108	0	object/building/naboo/cantina_naboo.iff	0	776.64	4.17	1522.46	0.764842	0	0.644217	0		$|
+108	0	object/building/naboo/cantina_naboo.iff	0	776.64	4.17	1522.46	0.764842	0	0.644217	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/moneanpc.iff|$|
 129	0	object/tangible/microphone/microphone.iff	0	746.11	4.17	1497.92	-0.637151	0	0.770739	0		$|
 133	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	731.677	2.03567	1442.39	-0.238476	0	0.971148	0		$|
 134	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	731.436	2.15256	1435.2	0.978031	0	-0.20846	0		$|
@@ -85,7 +85,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1719356	0	object/building/naboo/housing_naboo_style_3.iff	0	889.606	3.75	1217.91	0.707108	0	-0.707105	0		$|
 1719359	0	object/building/naboo/housing_naboo_style_1.iff	0	757.546	3.75	1314.46	0.96639	0	0.257081	0		$|
 1719376	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	683.067	2.02866	1211.28	0.992809	0	0	-0.119712		$|
-1719377	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	677.168	2.64439	1207.94	-3.17312e-008	-0.129634	0.991562	4.14846e-009		$|
+1719377	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	677.168	2.64439	1207.94	-3.17E-08	-0.129634	0.991562	4.15E-09		$|
 1719378	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	703.411	-3.33769	1194.08	0.810953	-0.000224351	-0.58509	-0.00499464		$|
 1719379	0	object/static/structure/naboo/street_bridge_s02.iff	0	706.248	-3.38151	1202.62	0.810953	-0.000224351	-0.58509	-0.00499464		$|
 1719380	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	709.087	-3.36208	1211.16	0.810953	-0.000224351	-0.58509	-0.00499464		$|
@@ -100,9 +100,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1719413	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	599.321	3.75	1268.31	0.710633	0	0.703562	0		$|
 1719414	0	object/static/structure/naboo/archway_wide_s02.iff	0	590.322	3.75	1268.22	0.999987	0	-0.00499998	0		$|
 1719415	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	581.322	3.75	1268.13	0.999987	0	-0.00499998	0		$|
-1719416	0	object/static/structure/naboo/street_bridge_s02.iff	0	646.966	-3.28883	1240.74	0.844577	7.54784e-005	-0.53541	-0.00499916		$|
-1719417	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	643.125	-3.30207	1232.6	0.844577	7.54784e-005	-0.53541	-0.00499916		$|
-1719418	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	650.808	-3.27558	1248.88	0.844577	7.54784e-005	-0.53541	-0.00499916		$|
+1719416	0	object/static/structure/naboo/street_bridge_s02.iff	0	646.966	-3.28883	1240.74	0.844577	7.55E-05	-0.53541	-0.00499916		$|
+1719417	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	643.125	-3.30207	1232.6	0.844577	7.55E-05	-0.53541	-0.00499916		$|
+1719418	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	650.808	-3.27558	1248.88	0.844577	7.55E-05	-0.53541	-0.00499916		$|
 1719424	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	737.833	3.52864	1250.61	0.917747	-0.0574	0.38715	-0.0675309		$|
 1719425	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	742.372	3.27566	1254.79	0.930508	0	0.366273	0		$|
 1719426	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	750.493	1.8339	1261.85	0.924163	-0.058527	-0.376675	0.0247723		$|
@@ -116,10 +116,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1719434	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	782.063	3.75	1241.23	1	0	-0.000399581	0		$|
 1719435	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	782.048	3.75	1259.23	-0.706827	0	0.707386	0		$|
 1719436	0	object/static/structure/naboo/archway_wide_s02.iff	0	782.055	3.75	1250.24	-0.706827	0	0.707386	0		$|
-1720352	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_small_s01.iff	0	816.618	3.75	1243.79	-3.21059e-008	0	1	0		$|
+1720352	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_small_s01.iff	0	816.618	3.75	1243.79	-3.21E-08	0	1	0		$|
 1720354	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_small_s01.iff	0	829.582	3.75	1239.79	-0.707107	0	0.707107	0		$|
-1720355	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	816.618	3.75	1243.79	-3.21059e-008	0	1	0		$|
-1720356	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	825.582	3.75	1243.79	-3.21059e-008	0	1	0		$|
+1720355	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	816.618	3.75	1243.79	-3.21E-08	0	1	0		$|
+1720356	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	825.582	3.75	1243.79	-3.21E-08	0	1	0		$|
 1720357	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	848.657	3.75	1252.35	0.707107	0	-0.707106	0		$|
 1720358	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_small_s01.iff	0	844.657	3.75	1248.35	1	0	0	0		$|
 1720359	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_small_s01.iff	0	838.657	3.75	1252.35	0.707107	0	0.707107	0		$|
@@ -131,11 +131,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1720366	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	951.779	2.11126	1199.09	0.707108	0	-0.707106	0		$|
 1720367	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	951.909	2.11126	1219.95	-0.707107	0	0.707107	0		$|
 1720368	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	951.963	2.11126	1222.18	0.707107	0	0.707107	0		$|
-1720370	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	931.917	2.11126	1262.67	3.48103e-007	0	1	0		$|
+1720370	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	931.917	2.11126	1262.67	3.48E-07	0	1	0		$|
 1720371	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	912.509	2.11126	1262.68	0	0	1	0		$|
 1722354	0	object/static/structure/naboo/gate_narrow_s02.iff	0	952.207	3.75	1247.43	0.700002	0	0.714141	0		$|
 1722359	0	object/static/structure/naboo/wallend_a1_naboo_theed_style_1.iff	0	952.343	2.11126	1262.51	-0.707107	0	0.707107	0		$|
-1722360	0	object/static/structure/naboo/wallend_a1_naboo_theed_style_1.iff	0	902.891	2.11126	1262.6	3.4732e-007	0	1	0		$|
+1722360	0	object/static/structure/naboo/wallend_a1_naboo_theed_style_1.iff	0	902.891	2.11126	1262.6	3.47E-07	0	1	0		$|
 1722361	0	object/static/structure/naboo/gate_narrow_s02.iff	0	881.555	3.75	1229.48	-0.707104	0	0.707109	0		$|
 1722363	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s02.iff	0	881.792	3.75	1225.03	-0.707104	0	0.707109	0		$|
 1722364	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	742.563	1.78711	1239.84	0.537793	-0.0338319	0.702757	-0.464508		$|
@@ -203,9 +203,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1722458	0	object/static/structure/general/nboo_imprv_flower_urn_s01.iff	0	821.112	3.75	1239.8	1	0	0	0		$|
 1722461	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s02.iff	0	828.76	4.75386	1242.37	1	0	0	0		$|
 1722462	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s02.iff	0	813.443	4.7503	1242.29	1	0	0	0		$|
-1722465	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s02.iff	0	814.219	4.74036	1187.79	-3.20013e-008	0	1	0		$|
-1722466	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s02.iff	0	830.418	1.89187	1187.8	-3.20013e-008	0	1	0		$|
-1722467	0	object/static/structure/general/nboo_imprv_flower_urn_s01.iff	0	822.209	3.75	1190.36	-3.20013e-008	0	1	0		$|
+1722465	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s02.iff	0	814.219	4.74036	1187.79	-3.20E-08	0	1	0		$|
+1722466	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s02.iff	0	830.418	1.89187	1187.8	-3.20E-08	0	1	0		$|
+1722467	0	object/static/structure/general/nboo_imprv_flower_urn_s01.iff	0	822.209	3.75	1190.36	-3.20E-08	0	1	0		$|
 1722468	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_small_s01.iff	0	813.243	3.75	1190.3	0.707107	0	0.707107	0		$|
 1722469	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	817.243	3.75	1186.3	1	0	0	0		$|
 1722470	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	827.243	3.75	1186.3	1	0	0	0		$|
@@ -267,14 +267,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2776067	0	object/tangible/furniture/all/frn_bench_generic.iff	0	634.25	6.249	1177.47	1	0	0	0		$|
 2776068	0	object/tangible/furniture/all/frn_bench_generic.iff	0	588.657	4.73	1239.2	1	0	0	0		$|
 2776069	0	object/tangible/furniture/all/frn_bench_generic.iff	0	591.375	4.73	1242.07	0.707108	0	-0.707106	0		$|
-2776070	0	object/tangible/furniture/all/frn_bench_generic.iff	0	588.605	4.73	1261.27	-3.20013e-008	0	1	0		$|
+2776070	0	object/tangible/furniture/all/frn_bench_generic.iff	0	588.605	4.73	1261.27	-3.20E-08	0	1	0		$|
 2776071	0	object/tangible/furniture/all/frn_bench_generic.iff	0	591.616	4.73	1258.24	0.707107	0	-0.707106	0		$|
 2776098	0	object/tangible/furniture/all/frn_bench_generic.iff	0	695.339	6.249	1165.76	0.707107	0	0.707106	0		$|
 2776099	0	object/tangible/furniture/all/frn_bench_generic.iff	0	723.158	6.249	1165.57	0.707107	0	-0.707106	0		$|
 2776100	0	object/tangible/furniture/all/frn_bench_generic.iff	0	818.414	3.75	1239.84	1	0	0	0		$|
 2776101	0	object/tangible/furniture/all/frn_bench_generic.iff	0	823.556	3.75	1239.8	1	0	0	0		$|
-2776102	0	object/tangible/furniture/all/frn_bench_generic.iff	0	819.534	3.75	1190.3	-3.20013e-008	0	1	0		$|
-2776103	0	object/tangible/furniture/all/frn_bench_generic.iff	0	824.749	3.75	1190.29	-3.20013e-008	0	1	0		$|
+2776102	0	object/tangible/furniture/all/frn_bench_generic.iff	0	819.534	3.75	1190.3	-3.20E-08	0	1	0		$|
+2776103	0	object/tangible/furniture/all/frn_bench_generic.iff	0	824.749	3.75	1190.29	-3.20E-08	0	1	0		$|
 3575388	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	951.943	3.75	1221.04	1	0	-0.0004	0		$|
 3575407	0	object/static/structure/naboo/nboo_imprv_lattice_wall_short_s01.iff	0	952.157	3.75	1243.51	0.707111	0	-0.707102	0		$|
 3575408	0	object/static/structure/naboo/nboo_imprv_lattice_wall_short_s01.iff	0	952.246	3.75	1251.4	0.707111	0	-0.707102	0		$|
@@ -284,7 +284,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4015380	0	object/static/structure/naboo/gate_narrow_s02.iff	0	888.698	3.75	1173.08	0.707113	0	0.7071	0		$|
 4015381	0	object/static/structure/naboo/wallend_a1_naboo_theed_style_1.iff	0	899.615	2.11126	1178.09	0.707107	0	-0.707106	0		$|
 4015382	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	902.036	2.11126	1234.79	0.707107	0	0.707107	0		$|
-4015383	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	882.103	2.11126	1234.32	-2.63027e-007	0	1	0		$|
+4015383	0	object/static/structure/naboo/wall_a1_naboo_theed_style_1.iff	0	882.103	2.11126	1234.32	-2.63E-07	0	1	0		$|
 4015384	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	881.543	3.75	1234.44	1	0	0	0		$|
 4015385	0	object/static/structure/naboo/nboo_imprv_lattice_wall_short_s01.iff	0	888.715	3.75	1177.09	0.707107	0	-0.707106	0		$|
 4215406	0	object/building/naboo/starport_naboo.iff	0	631.584	4.17	1494.34	0.466913	0	0.884303	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Moenia Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
@@ -365,7 +365,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4855481	0	object/static/flora/potted_plant_flowers_purple.iff	0	855.762	3.75	1333.1	1	0	0	0		$|
 4855485	0	object/tangible/terminal/terminal_mission.iff	0	697.525	4.17	1441.5	0.458046	0	0.888928	0		$|
 4855487	0	object/tangible/terminal/terminal_mission.iff	0	705.081	4.17	1452.64	0.458046	0	0.888928	0		$|
-4855717	0	object/tangible/terminal/terminal_mission.iff	0	599.303	3.75	1266.98	5.30747e-008	0	1	0		$|
+4855717	0	object/tangible/terminal/terminal_mission.iff	0	599.303	3.75	1266.98	5.31E-08	0	1	0		$|
 4855719	0	object/tangible/terminal/terminal_mission.iff	0	599.597	3.75	1233.78	1	0	0	0		$|
 5036450	0	object/static/item/item_scrolling_screen.iff	0	664.632	8.77047	1348.76	0.958244	0	0.285952	0		$|
 5036451	0	object/static/item/item_scrolling_screen.iff	0	671.396	8.71604	1350.34	0.462486	0	0.886627	0		$|
@@ -428,7 +428,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6336625	0	object/tangible/terminal/terminal_mission_scout.iff	0	598.233	3.75	1232.31	0.707107	0	-0.707106	0		$|
 6336628	0	object/tangible/terminal/terminal_mission_scout.iff	0	597.839	3.75	1268.25	0.707107	0	-0.707106	0		$|
 6336636	0	object/tangible/terminal/terminal_mission_artisan.iff	0	582.563	3.75	1268.24	0.707107	0	0.707106	0		$|
-6336638	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	581.138	3.75	1266.73	-3.20013e-008	0	1	0		$|
+6336638	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	581.138	3.75	1266.73	-3.20E-08	0	1	0		$|
 6336640	0	object/tangible/terminal/terminal_mission_artisan.iff	0	583.041	3.75	1232.12	0.707107	0	0.707107	0		$|
 6336643	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	581.689	3.75	1233.34	1	0	0	0		$|
 6336647	0	object/tangible/terminal/terminal_mission_scout.iff	0	696.054	4.17	1439.24	0.464172	0	0.885745	0		$|
@@ -480,7 +480,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1717675	0	object/building/naboo/filler_building_naboo_theed_style_6.iff	0	651.612	3.75	1176.68	0.707108	0	0.707106	0		$|
 1717679	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	850.4	3.75	1304.69	-0.40776	0	0.913089	0		$|
 1717704	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_02.iff	0	590.558	3.75	1201.85	0.921061	0	0.389418	0		$|
-1717710	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	795.412	3.75	1163.95	-3.20013e-008	0	1	0		$|
+1717710	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	795.412	3.75	1163.95	-3.20E-08	0	1	0		$|
 1717713	0	object/building/naboo/filler_building_naboo_theed_style_10.iff	0	853.244	3.75	1169.25	1	0	0	0		$|
 1717717	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	884.459	3.75	1193.5	-0.707106	0	0.707107	0		$|
 1717720	0	object/building/naboo/filler_building_naboo_theed_style_9.iff	0	669.187	4.92018	1343.75	0.0741355	0	0.997248	0		$|
