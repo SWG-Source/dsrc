@@ -1,0 +1,52 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+mummer_bully		world	4760	4	-4831	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mummer_bully		world	4765	4	-4834.73	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+naboo_nomad		world	4667	4	-4784.34	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+medic		world	4667	4	-4783.34	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mountain_villager		world	4713	4	-4711.61	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+official		world	4713	4	-4710.61	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+farmer_agriculturalist		world	4780	4	-4846.85	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+pilot		world	4780	4	-4845.85	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+swamp_villager		world	4695	4	-4826.25	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+gungan_boss		world	4695	4	-4825.25	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+mummer_bully		world	4772	4	-4826.85	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4765	4	-4815.27	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4766	4	-4850.33	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4786	4	-4822.31	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4743	4	-4855.41	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4713	4	-4825.99	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4693	4	-4800.69	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4675	4	-4772.33	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4693	4	-4722.33	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4755	4	-4726.16	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+junk_dealer		world	4802	4	-4849.94	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4693	4	-4722.33	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4755	4	-4726.16	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+spacer		world	4661	4	-4709.75	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+noble		world	4661	4	-4708.75	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4889	4	-4813.91	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4871	4	-4789.2	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4865	4	-4770.52	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4842	4	-4839.99	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4815	4	-4824.06	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4807	4	-4674.09	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4826	4	-4619.65	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+bab_esrus		world	4837	4	-4836.09	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+bertos_goodner		world	4803	4	-4697.64	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+mercenary		world	4825	4	-4841.72	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+official		world	4825	4	-4840.72	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+gambler		world	4839	4	-4679.33	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+swamp_villager		world	4839	4	-4678.33	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+rebel_recruiter		world	4827	4	-4697.19	-65	theme_park.dungeon.generic_death			300						
+r4		world	4682	4	-4702.38	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+crackdown_rebel_rifleman		world	4849	11	-4763.33	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+mummer_thug		world	4858	4	-4681.24	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+mummer_bully		world	4766	4	-4831.73	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+mummer_thug		world	4854	4	-4681.86	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+crackdown_rebel_squad_leader		world	4793	4	-4698.36	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+mummer_thug		world	4851	4	-4692.23	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+r5		world	4853	4	-4849.06	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4894	4	-4667.2	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+commoner		world	4775	4	-4601.68	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=1					
+
