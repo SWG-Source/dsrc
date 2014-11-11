@@ -13,6 +13,14 @@ trigger OnInitialize()
 	return SCRIPT_CONTINUE;
 }
 
+trigger OnAttach()
+{
+	deltadictionary dctScriptVars = self.getScriptVars();
+	dctScriptVars.put("numMuseumChecks", 1);
+	messageTo(self, "checkForMuseumBuilding", null, 60, false);
+	return SCRIPT_CONTINUE;
+}
+
 messageHandler checkForMuseumBuilding()
 {
 	location here = getLocation(self);
