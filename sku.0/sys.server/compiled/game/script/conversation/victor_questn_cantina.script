@@ -166,6 +166,9 @@ trigger OnInitialize ()
 		detachScript(self, "npc.conversation.victor_questn_cantina");
 
 	setCondition (self, CONDITION_CONVERSABLE);
+	ai_lib.setDefaultCalmMood (self, "npc_sitting_chair");
+	int self_yaw = 179;
+	setYaw (self, self_yaw);
 
 	return SCRIPT_CONTINUE;
 }
@@ -173,6 +176,9 @@ trigger OnInitialize ()
 trigger OnAttach ()
 {
 	setCondition (self, CONDITION_CONVERSABLE);
+	ai_lib.setDefaultCalmMood (self, "npc_sitting_chair");
+	int self_yaw = 179;
+	setYaw (self, self_yaw);
 
 	return SCRIPT_CONTINUE;
 }
