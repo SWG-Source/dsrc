@@ -11,6 +11,14 @@ trigger OnInitialize()
 	return SCRIPT_CONTINUE;
 }
 
+trigger OnAttach()
+{
+	deltadictionary dctScriptVars = self.getScriptVars();
+	dctScriptVars.put("numCapitolChecks", 1);
+	messageTo(self, "checkForCapitolBuilding", null, 60, false);
+	return SCRIPT_CONTINUE;
+}
+
 messageHandler checkForCapitolBuilding()
 {
 	location here = getLocation(self);
