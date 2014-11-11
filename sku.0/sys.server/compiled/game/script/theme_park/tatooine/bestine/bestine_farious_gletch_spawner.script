@@ -1,0 +1,28 @@
+include library.create;
+include library.locations;
+
+trigger OnInitialize()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+trigger OnAttach()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+messageHandler spawnMissingNpc()
+{
+	//Spawns the Assassin Mission NPC for Bestine
+		obj_id spawnCell = getCellId (self, "livingroom1");
+		location locAsLocation = new location (2.0f, -0.4f, -5.3f, "tatooine", spawnCell);
+		obj_id template = create.object("farious_gletch", locAsLocation);
+		setObjVar(template, "quest_table", "farious_gletch");
+		attachScript(template, "npc.static_quest.quest_convo");
+		int as_yaw = -60;
+		setYaw(template, as_yaw);
+
+		return SCRIPT_CONTINUE;
+}
