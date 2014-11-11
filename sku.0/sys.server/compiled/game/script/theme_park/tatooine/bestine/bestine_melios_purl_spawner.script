@@ -1,0 +1,28 @@
+include library.create;
+include library.locations;
+
+trigger OnInitialize()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+trigger OnAttach()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+messageHandler spawnMissingNpc()
+{
+	//Spawns the Doctor NPC for Bestine
+		obj_id spawnCell = getCellId (self, "mainroom");
+		location locDocLocation = new location (-1.4f, 0.2f, 0.6f, "tatooine", spawnCell);
+		obj_id template = create.object("melios_purl", locDocLocation);
+		setObjVar(template, "quest_table", "melios_purl");
+		attachScript(template, "npc.static_quest.quest_convo");
+		int doc_yaw = 60;
+		setYaw(template, doc_yaw);
+
+		return SCRIPT_CONTINUE;
+}
