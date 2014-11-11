@@ -7599,6 +7599,8 @@ trigger OnInitialize ()
 	setCondition (self, CONDITION_CONVERSABLE);
 	setInvulnerable (self, true);
 	setName(self, new string_id( "ep3/npc_names", "clone_relics_qakkee" ));
+	obj_id cup1 = createObject ("object/tangible/item/con_drinking_glass_01.iff", self, "");
+	equip (cup1, self);
 
 	return SCRIPT_CONTINUE;
 }
@@ -7608,6 +7610,8 @@ trigger OnAttach ()
 	setCondition (self, CONDITION_CONVERSABLE);
 	setInvulnerable (self, true);
 	setName(self, new string_id( "ep3/npc_names", "clone_relics_qakkee" ));
+	obj_id cup1 = createObject ("object/tangible/item/con_drinking_glass_01.iff", self, "");
+	equip (cup1, self);
 
 	return SCRIPT_CONTINUE;
 }
