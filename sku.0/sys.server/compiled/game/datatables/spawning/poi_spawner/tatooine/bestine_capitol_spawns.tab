@@ -1,0 +1,26 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+object/tangible/ground_spawning/area_spawner.iff	Victor Visalis Spawner	meeting3	-26.4873	3.22324	20.2943	146	city.bestine.politician_event_spawner			1	"string:spawns=victor_visalis,string:npc_name=Victor Visalis,string:quest_script=conversation.victor_visalis"					
+object/tangible/ground_spawning/area_spawner.iff	Sean Trenwell Spawner	meeting6	19.4653	3.22324	-35.9776	10	city.bestine.politician_event_spawner			1	"string:spawns=sean_trenwell,string:npc_name=Sean Trenwell,string:quest_script=conversation.sean_trenwell"					
+object/tangible/ground_spawning/area_spawner.iff	Tour Aryon Spawner	meeting2	-37.3031	1.29422	0.713583	-125	city.bestine.politician_event_spawner			1	"string:spawns=tour_aryon,string:npc_name=Tour Aryon,string:quest_script=conversation.tour_aryon"					
+wilhalm_skrim		meeting5	28.8936	1.29568	-5.97518	60				1						
+prefect_talmont		lobby	-1.9	3	-10	-160			1						
+object/tangible/ground_spawning/area_spawner.iff	Keanna Liktna Spawner	meeting3	-18.8886	3.22324	20.608	-152	city.bestine.politician_event_spawner			1	"string:spawns=keanna_likyna,string:npc_name=Keanna Li`kyna,string:quest_script=conversation.keanna_likyna"					
+object/tangible/ground_spawning/area_spawner.iff	Indigo Siyan Spawner	meeting6	24.6402	3.22324	-30.7135	-12	city.bestine.politician_event_spawner			1	"string:spawns=indigo_siyan,string:npc_name=Indigo Siyan,string:quest_script=conversation.indigo_siyan"					
+object/tangible/ground_spawning/area_spawner.iff	Foofice Lightingrunner Spawner	world	-1357	26	-3871	-108	city.bestine.politician_event_spawner			1	"string:spawns=victor_questp_slums,string:npc_name=Foofice Lightingrunner,string:quest_script=conversation.victor_questp_slums"					
+object/tangible/ground_spawning/area_spawner.iff	Izosxisli Spawner	world	-1294	26	-3500	160	city.bestine.politician_event_spawner			1	"string:spawns=victor_questp_hospital,string:npc_name=Izosxisli,string:quest_script=conversation.victor_questp_hospital"					
+object/tangible/ground_spawning/area_spawner.iff	Orqiti Aneofo Spawner	world	-1104	12	-3705	-20	city.bestine.politician_event_spawner			1	"string:spawns=sean_questp_market,string:npc_name=Orqiti Aneofo,string:quest_script=conversation.sean_questp_market"					
+object/tangible/ground_spawning/area_spawner.iff	Hutt Informant Spawner	world	-1120	12	-3639	-20	city.bestine.politician_event_spawner			1	"string:spawns=hutt_informant_quest,string:quest_script=conversation.hutt_informant_quest"					
+junk_dealer		world	-1026	10	-3557	5				1	"int:ai.defaultCalmBehavior=1"					
+junk_dealer		world	-1135	12	-3683	-170				1	"int:ai.defaultCalmBehavior=1"					
+junk_dealer		world	-1118	12	-3687	-140				1	"int:ai.defaultCalmBehavior=1"					
+herald_tatooine_viconya	Vi`conya T`ili	world	-1101	10	-3549	-90	conversation.heraldtatooine1			1	"int:ai.defaultCalmBehavior=1"
+coa2_imperial_coordinator		world	-1131	12	-3659	-50				1	"int:ai.defaultCalmBehavior=1"
+death_watch_herald_imperial		world	-1160	12	-3525	-115	conversation.death_watch_imperial_herald			1	"int:ai.defaultCalmBehavior=1"
+kormund_thrylle		world	-1043	10	-3530	175	npc.static_quest.quest_convo			1	"string:quest_table=kormund_thrylle,int:ai.defaultCalmBehavior=1"
+commoner_human_male		world	-1252	12	-3617	-90	conversation.lf_safetyquestgiver			1	"int:ai.defaultCalmBehavior=1"
+imperial_recruiter		world	-1275	12	-3594	-80				1	"int:ai.defaultCalmBehavior=1"
+imperial_recruiter		world	-1138	98	-3897	-1				1	"int:ai.defaultCalmBehavior=1"
+imperial_recruiter		world	-1307	12	-3662	-130				1	"int:ai.defaultCalmBehavior=1"
+imperial_recruiter		world	-1299	12	-3507	45				1	"int:ai.defaultCalmBehavior=1"
+imperial_recruiter		world	-1072	12	-3594	-140				1	"int:ai.defaultCalmBehavior=1"
