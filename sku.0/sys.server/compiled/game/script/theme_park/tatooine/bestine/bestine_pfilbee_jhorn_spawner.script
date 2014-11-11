@@ -1,0 +1,28 @@
+include library.create;
+include library.locations;
+
+trigger OnInitialize()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+trigger OnAttach()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+messageHandler spawnMissingNpc()
+{
+	//Spawns the Imperial NPC for Bestine
+		obj_id spawnCell = getCellId (self, "room2");
+		location locImpLocation = new location (5.3f, 0.1f, -3.7f, "tatooine", spawnCell);
+		obj_id template = create.object("pfilbee_jhorn", locImpLocation);
+		setObjVar(template, "quest_table", "pfilbee_jhorn");
+		attachScript(template, "npc.static_quest.quest_convo");
+		int imp_yaw = -87;
+		setYaw(template, imp_yaw);
+
+		return SCRIPT_CONTINUE;
+}
