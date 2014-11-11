@@ -4,6 +4,7 @@
 // otherwise it makes a new one.
 
 include library.utils;
+include library.create;
 
 const string MASTER_OBJECT_TEMPLATE = "object/tangible/poi/tatooine/bestine/bestine_museum_event_master_object.iff";
 const string VARNAME_MUSEUM_STATUS = "strMuseumEventStatus";
@@ -17,6 +18,7 @@ const string DATATABLE_NAME = "datatables/city/bestine/bestine_museum_event.iff"
 trigger OnInitialize()
 {	
 	messageTo(self, "bootStrap", null, 2, false);
+	messageTo(self, "spawnCurator", null, 2, false);
 	return SCRIPT_CONTINUE;
 }
 
@@ -61,7 +63,7 @@ messageHandler bootStrap()
 		location locTest = getLocation(self);
 		locTest.x = locTest.x +1;
 		obj_id objMuseumEventMaster = createObject(MASTER_OBJECT_TEMPLATE, locTest);
-		persistObject(objMuseumEventMaster);
+		//persistObject(objMuseumEventMaster);
 		
 		dctScriptVars.put("objMasterObjectId", objMuseumEventMaster);
 		dctScriptVars.put(VARNAME_MUSEUM_STATUS, "museumEventStarted");
@@ -205,6 +207,25 @@ void updateMuseumEventStatus(obj_id self)
 		}
 	}
 	return;
+}
+
+messageHandler spawnCurator()
+{
+	//UPDATED 11/5/14: Added Museum Curator spawner to script.
+	//Originally, this NPC was spawned from the Gold DB,
+	//but now spawns here.
+	obj_id objMuseumRoom = getCellId (self, "livingroom2");
+	location locCuratorLocation = new location (22.6f, 0.19f, -0.15f, "tatooine", objMuseumRoom);
+		obj_id template = create.object("object/tangible/ground_spawning/area_spawner.iff", locCuratorLocation);
+		setObjVar(template, "spawns", "lilas_dinhint");
+		setObjVar(template, "npc_name", "Lilas Dinhint");
+		setObjVar(template, "quest_script", "conversation.lilas_dinhint");
+		string spawnerObjName = "Lilas Dinhint Spawner";
+		setName(template, spawnerObjName);
+		attachScript(template, "city.bestine.museum_event_spawner");
+	
+	return SCRIPT_CONTINUE;
+
 }
 
 // message from persisted master object when museum event ends or begins.
