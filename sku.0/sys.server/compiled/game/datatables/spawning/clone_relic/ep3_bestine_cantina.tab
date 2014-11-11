@@ -2,3 +2,4 @@ spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	s
 s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
 clone_relics_qakkee		cantina	3	-0.9	5.7	176			npc_standing_drinking	10						
 bounty_guild_bounty_check_rep		cantina	4.2	-0.9	-4.8	-5			npc_standing_drinking	10						
+object/tangible/ground_spawning/area_spawner.iff	Smuggler Spawner	alcove4	3.1	-0.9	22.6	-179	city.bestine.politician_event_spawner			10	"string:spawns=victor_questn_cantina,string:quest_script=conversation.victor_questn_cantina"					
