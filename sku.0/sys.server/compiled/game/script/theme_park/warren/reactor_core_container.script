@@ -108,12 +108,30 @@ messageHandler handleReactivateCore()
 
 trigger OnObjectMenuRequest(obj_id player, menu_info item)
 {
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 2.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_OVERRIDE;
+	}
+
 	checkForReactorShutDown( self, player );
 	return SCRIPT_CONTINUE;
 }
 
 trigger OnOpenedContainer( obj_id player )
 {
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 2.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_OVERRIDE;
+	}
+
 	checkForReactorShutDown( self, player );
 	return SCRIPT_CONTINUE;
 }
