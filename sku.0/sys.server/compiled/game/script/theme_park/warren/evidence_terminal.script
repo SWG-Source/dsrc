@@ -25,6 +25,15 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	if ( hasEncryptionKey( self, player ) )
 		return SCRIPT_CONTINUE;//you've already got one
 
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 10.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
+
 	sui.msgbox(player, new string_id ( SYSTEM_MESSAGES, "download_complete" ));
 
 	obj_id playerInv = utils.getPlayerDatapad(player);
