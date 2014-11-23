@@ -1,0 +1,188 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+warren_agro_droid_atst		hugeroom74	23.92491722	-84	-20.61969376	2	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		plusroom80	95.75371552	-84	-98.40267181	58	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		plusroom80	95.75371552	-84	-98.40267181	58	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		plusroom80	95.75371552	-84	-98.40267181	58	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		plusroom80	95.75371552	-84	-98.40267181	58	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=2					
+warren_bors_teraud		bigroom87	118.4384003	-52	39.37798691	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_commander		plusroom84	87.48309326	-52	10.89470959	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		plusroom84	91.75022125	-52	11.09898281	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		plusroom84	91.75022125	-52	11.09898281	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		plusroom84	91.75022125	-52	11.09898281	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s01		smallroom78	85.87767792	-60	-54.64413452	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s01		smallroom78	85.87767792	-60	-54.64413452	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s01		smallroom78	85.87767792	-60	-54.64413452	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s01		smallroom78	85.87767792	-60	-54.64413452	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		hugeroom69	15.04093361	-52	-69.36122894	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		hugeroom69	15.04093361	-52	-69.36122894	2	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		hugeroom69	15.04093361	-52	-69.36122894	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		hugeroom69	1.287453055	-52	-36.22848511	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		hugeroom69	1.287453055	-52	-36.22848511	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		hugeroom69	1.287453055	-52	-36.22848511	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		hugeroom69	-22.71477509	-52	-55.51921082	2	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		hugeroom69	-22.71477509	-52	-55.51921082	58	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		hugeroom69	-22.71477509	-52	-55.51921082	58	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		hugeroom69	-5.867953777	-52	-70.70442963	58	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		hugeroom69	-5.867953777	-52	-70.70442963	58	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		hugeroom69	-5.867953777	-52	-70.70442963	2	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		hugeroom69	-27.5986042	-52	-35.34315109	58	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		hugeroom69	-27.5986042	-52	-35.34315109	58	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		hugeroom69	-27.5986042	-52	-35.34315109	58	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_cyborg		hugeroom69	13.85278416	-52	-52.92116547	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_cyborg		hugeroom69	13.85278416	-52	-52.92116547	2	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_cyborg		hugeroom69	13.85278416	-52	-52.92116547	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		hugeroom69	-24.43401909	-52	-72.81425476	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		hugeroom69	-24.43401909	-52	-72.81425476	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		hugeroom69	-24.43401909	-52	-72.81425476	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		hugeroom69	19.21153831	-52	-33.75436783	2	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		hugeroom69	19.21153831	-52	-33.75436783	58	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		hugeroom69	19.21153831	-52	-33.75436783	58	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_cyborg		smallroom65	77.10684967	-68	20.94139481	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_cyborg		smallroom63	23.28150749	-60	1.10314405	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker_hospital		smallroom64	28.76455498	-60	-19.20421219	2	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		mediumroom	6.839791775	-60	35.93241501	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		mediumroom	6.839791775	-60	35.93241501	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		mediumroom	6.839791775	-60	35.93241501	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		mediumroom	5.004779816	-60	29.9245739	58	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		mediumroom	5.004779816	-60	29.9245739	2	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		mediumroom	5.004779816	-60	29.9245739	58	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_cyborg_slicehound		mediumroom	-8.889380455	-60	33.21231461	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_slicehound		mediumroom	-8.889380455	-60	33.21231461	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_slicehound		mediumroom	-8.889380455	-60	33.21231461	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_slicehound		mediumroom	-8.889380455	-60	33.21231461	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_dunelizard		bigroom58	-50.11734009	-52	55.4706955	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_dunelizard		bigroom58	-61.85805511	-52	50.27114105	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_scientist		plusroom56	-84.34059143	-52	28.45767021	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_scientist		plusroom56	-84.34059143	-52	28.45767021	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_scientist		plusroom56	-96.68729401	-52	16.6773243	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_scientist		plusroom56	-96.68729401	-52	16.6773243	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_scientist		plusroom56	-85.39053345	-52	1.41930604	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_scientist		plusroom56	-85.39053345	-52	1.41930604	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_scientist		smallroom55	-46.43535233	-52	16.66414452	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_bol		smallroom55	-52.79669189	-52	16.76895714	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_huurton		smallroom48	-71.10631561	-52	-12.03290558	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_huurton		smallroom48	-71.10631561	-52	-12.03290558	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_huurton		smallroom48	-61.32832718	-52	-8.597366333	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_cyborg_huurton		smallroom48	-61.32832718	-52	-8.597366333	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker_hospital		mediumroom38	-63.21613312	-52	-70.77112579	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker_hospital		mediumroom38	-63.21613312	-52	-70.77112579	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker_hospital		mediumroom38	-63.21613312	-52	-70.77112579	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker_hospital		mediumroom38	-63.21613312	-52	-70.77112579	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		bigroom45	-14.31783772	-54	-131.5129089	58	theme_park.dungeon.generic_death			212	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		bigroom45	-14.31783772	-54	-131.5129089	2	theme_park.dungeon.generic_death			212	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		bigroom45	-14.31783772	-54	-131.5129089	58	theme_park.dungeon.generic_death			212	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		bigroom45	-15.29162216	-54	-144.12323	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		bigroom45	-15.29162216	-54	-144.12323	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_stormtrooper		bigroom45	-15.29162216	-54	-144.12323	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		bigroom45	-10.03830624	-54	-140.1044006	2	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		bigroom45	-10.03830624	-54	-140.1044006	58	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer		bigroom45	-10.03830624	-54	-140.1044006	58	theme_park.dungeon.generic_death			220	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		bigroom45	-25.62236977	-54	-131.3729706	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		bigroom45	-25.62236977	-54	-131.3729706	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		bigroom45	-25.62236977	-54	-131.3729706	2	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		bigroom45	-27.07492638	-54	-147.7759094	58	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		bigroom45	-27.07492638	-54	-147.7759094	58	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist		bigroom45	-27.07492638	-54	-147.7759094	58	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_irradiated_worker		smallroom44	59.34507751	-54	-121.1047516	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_irradiated_worker		smallroom44	62.36346054	-54	-128.6917877	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer_kitchen		smallroom41	-36.96987915	-52	-94.43244171	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer_kitchen		smallroom41	-36.96987915	-52	-94.43244171	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer_kitchen		smallroom41	-36.96987915	-52	-94.43244171	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_officer_kitchen		smallroom41	-36.96987915	-52	-94.43244171	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_cyborg		hall32	-78.4666748	-20	-1.011010051	2	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_cyborg		hall32	-78.4666748	-20	-1.011010051	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_teraud_loyalist_cyborg		hall32	-78.4666748	-20	-1.011010051	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_bol		hugeroom27	5.186871052	-28	-111.1040726	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=1					
+warren_bol		hugeroom27	3.077526093	-28	-129.2653656	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=1					
+warren_sludgepanther		hugeroom27	-28.80288887	-28	-133.9293671	2	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=1					
+warren_sludgepanther		hugeroom27	-34.71841049	-28	-130.2256165	58	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=1					
+warren_thune		hugeroom27	3.589655638	-28	-190.5363617	58	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=1					
+warren_slicehound		hugeroom27	-8.962738991	-28	-189.4793549	58	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=1					
+warren_slicehound		hugeroom27	-16.23983955	-28	-193.7705994	58	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=1					
+warren_tuskcat		hugeroom27	-48.37226868	-28	-192.5680847	2	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=1					
+warren_tuskcat		hugeroom27	-41.02770615	-28	-194.8816986	58	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=1					
+warren_agro_droid_s01		mediumroom18	3.469914913	-28	-51.84641266	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s02		mediumroom18	-5.386799812	-28	-40.80648041	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s03		mediumroom18	-19.01469231	-28	-45.46474457	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s04		mediumroom18	-30.20677185	-28	-54.62243652	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_scientist		mediumroom18	2.087618113	-28	-44.47664642	58	theme_park.dungeon.generic_death			180	int:ai.defaultCalmBehavior=2					
+warren_scientist		mediumroom18	2.087618113	-28	-44.47664642	58	theme_park.dungeon.generic_death			180	int:ai.defaultCalmBehavior=2					
+warren_scientist		mediumroom18	2.087618113	-28	-44.47664642	58	theme_park.dungeon.generic_death			180	int:ai.defaultCalmBehavior=2					
+warren_scientist		mediumroom18	-24.78320694	-28	-39.22372055	58	theme_park.dungeon.generic_death			180	int:ai.defaultCalmBehavior=2					
+warren_scientist		mediumroom18	-24.78320694	-28	-39.22372055	2	theme_park.dungeon.generic_death			180	int:ai.defaultCalmBehavior=2					
+warren_scientist		mediumroom18	-24.78320694	-28	-39.22372055	58	theme_park.dungeon.generic_death			180	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_boss		smallroom21	3.34732008	-28	-70.4442215	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_insane_comp_sci		bigroom25	38.14503098	-20	-104.711937	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s02		bigroom25	17.38489914	-20	-93.93575287	58	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_agro_droid_s02		bigroom25	22.57126999	-20	-107.5080109	2	theme_park.dungeon.generic_death			5400	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-83.28953552	-18	-81.84902954	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-83.28953552	-18	-81.84902954	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-83.28953552	-18	-81.84902954	58	theme_park.dungeon.generic_death			215	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-82.06538391	-18	-111.6564713	58	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-82.06538391	-18	-111.6564713	2	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-82.06538391	-18	-111.6564713	58	theme_park.dungeon.generic_death			210	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-63.01676559	-18	-97.7494278	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-63.01676559	-18	-97.7494278	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		medroom13	-63.01676559	-18	-97.7494278	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-71.97775269	-18	-85.47014618	2	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-71.97775269	-18	-85.47014618	58	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-71.97775269	-18	-85.47014618	58	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-81.31250763	-18	-97.00535583	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-81.31250763	-18	-97.00535583	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-81.31250763	-18	-97.00535583	2	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-62.80376434	-18	-110.5256805	58	theme_park.dungeon.generic_death			211	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-62.80376434	-18	-110.5256805	58	theme_park.dungeon.generic_death			211	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		medroom13	-62.80376434	-18	-110.5256805	58	theme_park.dungeon.generic_death			211	int:ai.defaultCalmBehavior=2					
+warren_huurton_savage		smallroom14	-27.26020241	-20	-96.41531372	58	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=2					
+warren_huurton_fierce		smallroom11	-40.6780777	-20	-59.05558014	2	theme_park.dungeon.generic_death			7200	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		smallroom7	-6.593266964	-20	-39.44527435	58	theme_park.dungeon.generic_death			216	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		smallroom7	-6.593266964	-20	-39.44527435	58	theme_park.dungeon.generic_death			216	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		smallroom7	-6.593266964	-20	-39.44527435	58	theme_park.dungeon.generic_death			216	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		smallroom7	-8.340379715	-20	-46.05516815	58	theme_park.dungeon.generic_death			214	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		smallroom7	-8.340379715	-20	-46.05516815	2	theme_park.dungeon.generic_death			214	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		smallroom7	-8.340379715	-20	-46.05516815	58	theme_park.dungeon.generic_death			214	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		smallroom7	-23.18226814	-20	-38.92226028	58	theme_park.dungeon.generic_death			213	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		smallroom7	-23.18226814	-20	-38.92226028	58	theme_park.dungeon.generic_death			213	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		smallroom7	-23.18226814	-20	-38.92226028	58	theme_park.dungeon.generic_death			213	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		smallroom7	-24.9301796	-20	-47.41087341	2	theme_park.dungeon.generic_death			208	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		smallroom7	-24.9301796	-20	-47.41087341	58	theme_park.dungeon.generic_death			208	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		smallroom7	-24.9301796	-20	-47.41087341	58	theme_park.dungeon.generic_death			208	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		entryhall	13.90861702	-20	-14.64360714	58	theme_park.dungeon.generic_death			217	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		entryhall	13.90861702	-20	-14.64360714	58	theme_park.dungeon.generic_death			217	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		entryhall	13.90861702	-20	-14.64360714	2	theme_park.dungeon.generic_death			217	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		entryhall	8.56680584	-20	-29.9529438	58	theme_park.dungeon.generic_death			204	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		entryhall	8.56680584	-20	-29.9529438	58	theme_park.dungeon.generic_death			204	int:ai.defaultCalmBehavior=2					
+warren_imperial_worker		entryhall	8.56680584	-20	-29.9529438	58	theme_park.dungeon.generic_death			204	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-2.259725094	-20	-9.931739807	58	theme_park.dungeon.generic_death			203	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-2.259725094	-20	-9.931739807	2	theme_park.dungeon.generic_death			203	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-2.259725094	-20	-9.931739807	58	theme_park.dungeon.generic_death			203	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-6.829929829	-20	-24.61649132	58	theme_park.dungeon.generic_death			211	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-6.829929829	-20	-24.61649132	58	theme_park.dungeon.generic_death			211	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-6.829929829	-20	-24.61649132	58	theme_park.dungeon.generic_death			211	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-17.51726913	-20	-10.65285873	2	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-17.51726913	-20	-10.65285873	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-17.51726913	-20	-10.65285873	58	theme_park.dungeon.generic_death			205	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-26.1503334	-20	-23.32725143	58	theme_park.dungeon.generic_death			218	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-26.1503334	-20	-23.32725143	58	theme_park.dungeon.generic_death			218	int:ai.defaultCalmBehavior=2					
+warren_huurton_hostile		entryhall	-26.1503334	-20	-23.32725143	58	theme_park.dungeon.generic_death			218	int:ai.defaultCalmBehavior=2					
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
+																
