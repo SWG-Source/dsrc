@@ -1,3 +1,4 @@
+include library.advanced_turret;
 include library.utils;
 include library.create;
 
@@ -26,6 +27,8 @@ const string MIRLA_SCRIPT			= "theme_park.warren.mirla";
 const int WARREN_VERSION = 3;
 
 const string SYSTEM_MESSAGES	= "theme_park/warren/warren_system_messages";
+
+const string ELEVATOR_OBJID			= "8575772";
 
 trigger OnInitialize()
 {
@@ -58,22 +61,18 @@ void spawnTurret( obj_id bldg )
 		if ( oldTurret.isLoaded() )
 			destroyObject( oldTurret );
 	}
-
-	location spawnLoc = getLocation( bldg );
-	spawnLoc.x = 22.46f;
-	spawnLoc.y = -20.0f;
-	spawnLoc.z = -70.97f;
-	spawnLoc.cell = getCellId( bldg, "smallroom24" );
-	obj_id turret = createObject("object/installation/turret/turret_tower_sm.iff", spawnLoc);
+	int yaw = -92;
+	obj_id smallroom24 = getCellId (bldg, "smallroom24");
+	location loc = new location (22.46f, -20.0f, -70.97f, "dantooine", smallroom24);
+	obj_id turret = advanced_turret.createTurret(loc, yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, 
+			advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 10.0f, 2.0f, "");
 
 	setObjVar( bldg, "warren.turret", turret );
 
-	setYaw( turret, -92 );
-
 	//detach all old scripts:
-	string[] scriptList = getScriptList(bldg);
-	for ( int i = 0; i < scriptList.length; i++ )
-		detachScript( turret, scriptList[i] );
+	//string[] scriptList = getScriptList(bldg);
+	//for ( int i = 0; i < scriptList.length; i++ )
+		//detachScript( turret, scriptList[i] );
 
 	//give it the new hotness:
 	attachScript( turret, "theme_park.warren.warren_turret" );
@@ -89,10 +88,11 @@ void intializeWarren( obj_id bldg, obj_id god )
 			return;//there's still an escapee out there, somewhere
 	}
 
-	spawnTurret( bldg );
+	//spawnTurret( bldg );
 	spawnEscapee( bldg );
 	spawnEscapedWorker( bldg );
 	spawnCloneRelicsBox( bldg );
+	spawnElevator( bldg );
 	spawnDyingLoyalist( bldg );
 	spawnPanickedResearcher( bldg );
 	spawnKnag( bldg );
@@ -210,11 +210,23 @@ void spawnEscapedWorker( obj_id bldg )
 void spawnCloneRelicsBox(obj_id self)
 {
 	obj_id terminalRoom = getCellId (self, "entryhall");
-	location computerloc = new location (-31.5f, -20.0f, -11.6f, "dantooine", terminalRoom);
+	location computerloc = new location (-31.9f, -20.0f, -11.7f, "dantooine", terminalRoom);
 	int yaw = 90;
 	
 	obj_id computer = create.object ("object/tangible/quest/clone_relics_computer_terminal.iff", computerloc);
 	setYaw(computer, yaw);
+		
+	return;
+}
+
+void spawnElevator(obj_id bldg)
+{
+	// ADDED 11/15/14 in order to detach normal elevator script
+	// and attach Warren one to prevent possible exploiting.
+	obj_id elevator = utils.stringToObjId(ELEVATOR_OBJID);
+	detachScript(elevator, "systems.elevator.elevator");
+	attachScript(elevator, "theme_park.warren.elevator_one");
+
 		
 	return;
 }
