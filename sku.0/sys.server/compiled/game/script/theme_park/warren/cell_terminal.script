@@ -17,6 +17,15 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		stringName = INACTIVE;
 	}
 
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 10.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
+
 	sui.msgbox(player, new string_id ( SYSTEM_MESSAGES, stringName ));
 
 	//this is just testing stuff, do not uncomment or I'll hit you
@@ -48,6 +57,15 @@ trigger OnHearSpeech(obj_id speaker, string text)
 
 	if ( toUpper(text).equals(turretCodeSequence) )
 	{
+
+	location here = getLocation (speaker);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 10.0)
+	{
+		sendSystemMessage (speaker, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
 		utils.setScriptVar( bldg, "warren.cellOpened", true);
 		showFlyText(self, new string_id ( SYSTEM_MESSAGES, INACTIVE ), 1.75f, colors.GREENYELLOW);
 		permissionsMakePublic( getCellId( getTopMostContainer(self), "smallroom47") );
