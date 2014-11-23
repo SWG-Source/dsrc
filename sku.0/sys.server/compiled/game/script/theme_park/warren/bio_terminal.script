@@ -12,6 +12,15 @@ trigger OnInitialize()
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 2.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
+
 	sui.msgbox(player, new string_id ( SYSTEM_MESSAGES, "bio_terminal" ));
 	return SCRIPT_OVERRIDE;
 }
