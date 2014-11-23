@@ -52,6 +52,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	string_id response[] = new string_id [1];
 	response[0] = new string_id (CONVO_FILE, "mirla_reply_1");//What's wrong?
 	npcStartConversation (speaker, self, CONVO_FILE, greeting, response);
+	doAnimationAction (self, "weeping");
 
 	return SCRIPT_CONTINUE;
 }
@@ -67,6 +68,7 @@ trigger OnNpcConversationResponse(string convo, obj_id player, string_id respons
 	{
 		string_id message = new string_id (CONVO_FILE, "mirla_1");//the warren
 		npcSpeak( player, message );
+		doAnimationAction (self, "gesticulate_wildly");
 		if ( hasLetter( player ) )
 			npcAddConversationResponse( player, new string_id( CONVO_FILE, "mirla_1_reply_1" ));//I have some bad news
 
