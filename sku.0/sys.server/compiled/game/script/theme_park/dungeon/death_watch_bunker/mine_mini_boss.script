@@ -22,9 +22,9 @@ trigger OnAttach()
 
 messageHandler aiCorpsePrepared()
 {
-	debugSpeakMsg(self, "I am dead");
+	//debugSpeakMsg(self, "I am dead");
 	obj_id corpseInventory = utils.getInventoryContainer(self);
-	debugSpeakMsg(self, "corpse inventory " + corpseInventory);
+	//debugSpeakMsg(self, "corpse inventory " + corpseInventory);
 
 	if ( corpseInventory == null )
 		return SCRIPT_CONTINUE;
