@@ -28,6 +28,7 @@ trigger OnInitialize()
 		removeObjVar(self, "force_rank.voting");
 		force_rank.resetEnclaveData(self);
 		force_rank.resetClusterData(self);
+		force_rank.createEnclaveTerminals(self);
 		
 		return SCRIPT_CONTINUE;
 	}	
