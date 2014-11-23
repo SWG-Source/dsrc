@@ -1,21 +1,44 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1365875	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1937	3	1666	1	0	0	0		$|
-1365889	0	object/building/military/military_base_shed_imperial_style_bank_s01.iff	0	1883	3	1688	0.707107	0	0.707106	0		$|
+1365875	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1937	3	1666	1	0	0	0	planet_map.map_loc	planetMap.category|4|cantina|portalLayoutCrc|0|-242217168|healing.canhealshock|0|1|safeLogout|0|1|$|
+1365876	1365875	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1365877	1365875	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1365878	1365875	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+5097116	1365878	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	0	0.1	-5.7	1	0	0	0	space.content_tools.npc_spawner	$|
+1365879	1365875	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+1365880	1365875	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+1365881	1365875	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+1365889	0	object/building/military/military_base_shed_imperial_style_bank_s01.iff	0	1883	3	1688	0.707107	0	0.707106	0		portalLayoutCrc|0|-242217168|$|
+1365890	1365889	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1365891	1365889	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1365892	1365889	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+1365893	1365889	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+1365894	1365889	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+1365895	1365889	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
 1365954	0	object/tangible/terminal/terminal_bazaar.iff	0	1891.35	3	1683.16	0.707107	0	0.707106	0		$|
 1365955	0	object/tangible/terminal/terminal_bank.iff	0	1890.91	3	1692.7	0.707107	0	0.707106	0		$|
 1366043	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1890.27	3	1689.22	1	0	0	0		$|
 1366044	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1947.84	3	1686.77	1	0	0	0		$|
 1366045	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1924.92	3	1660.11	-0.382683	0	0.92388	0		$|
-1380122	0	object/building/military/military_base_shed_imperial_style_hospital_01.iff	0	1955	3	1688	0.707107	0	-0.707106	0		$|
-2955448	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1964	3	1713	0.92388	0	0.382683	0		$|
-2955471	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1874	3	1663	-0.382683	0	0.92388	0		$|
-2955473	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1964	3	1663	0.382683	0	0.92388	0		$|
-2955475	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1874	3	1713	0.92388	0	-0.382683	0		$|
+1380122	0	object/building/military/military_base_shed_imperial_style_hospital_01.iff	0	1955	3	1688	0.707107	0	-0.707106	0	planet_map.map_loc	planetMap.category|4|medicalcenter|portalLayoutCrc|0|-242217168|healing.canhealwound|0|1|$|
+1380123	1380122	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1380124	1380122	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1380125	1380122	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+1380126	1380122	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+1380127	1380122	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+1380128	1380122	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+2955448	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1964	3	1713	0.92388	0	0.382683	0		portalLayoutCrc|0|-443284577|$|
+2955449	2955448	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+2955471	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1874	3	1663	-0.382683	0	0.92388	0		portalLayoutCrc|0|-443284577|$|
+2955472	2955471	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+2955473	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1964	3	1663	0.382683	0	0.92388	0		portalLayoutCrc|0|-443284577|$|
+2955474	2955473	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+2955475	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1874	3	1713	0.92388	0	-0.382683	0		portalLayoutCrc|0|-443284577|$|
+2955476	2955475	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 2955477	0	object/static/structure/military/military_wall_weak_imperial_16_style_01.iff	0	1965.19	3.44272	1713.89	0.92388	0	0.382683	0		$|
 2955478	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1910	2.91422	1658	0.922997	0	-0.384808	0		$|
 2955479	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1987.19	7.55368	1695.89	1	0	0	0		$|
-2955480	0	object/static/structure/military/military_wall_med_imperial_style_01.iff	0	1891	3.44272	1704	3.20013e-008	0	1	0		$|
+2955480	0	object/static/structure/military/military_wall_med_imperial_style_01.iff	0	1891	3.44272	1704	3.20E-08	0	1	0		$|
 2955481	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1987.19	3.44272	1695.89	1	0	0	0		$|
 2955482	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1987.19	7.55544	1679.89	1	0	0	0		$|
 2955483	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1971.19	3.44272	1707.89	1	0	0	0		$|
@@ -28,7 +51,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2955490	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1887.19	3.44272	1727.89	0.707107	0	-0.707107	0		$|
 2955491	0	object/static/structure/military/military_wall_weak_imperial_16_style_01.iff	0	1971.19	3.44272	1675.89	0.707109	0	-0.707104	0		$|
 2955492	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1919	3.44272	1752	1	0	0	0		$|
-2955493	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1903	3.44272	1704	3.20013e-008	0	1	0		$|
+2955493	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1903	3.44272	1704	3.20E-08	0	1	0		$|
 2955494	0	object/static/structure/military/military_wall_weak_imperial_16_style_01.iff	0	1987.19	3.44272	1687.89	0.707107	0	-0.707107	0		$|
 2955495	0	object/static/structure/military/military_wall_weak_imperial_16_style_01.iff	0	1903.19	3.44272	1655.89	1	0	0	0		$|
 2955496	0	object/static/structure/military/military_wall_med_imperial_style_01.iff	0	1947	3.44272	1736	1	0	0	0		$|
@@ -82,11 +105,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2955548	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1851.19	7.55369	1679.89	1	0	0	0		$|
 2955549	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1851.19	7.56207	1695.89	1	0	0	0		$|
 2955550	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1927	3.44272	1752	1	0	0	0		$|
-2955552	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1911	3.44272	1704	3.20013e-008	0	1	0		$|
+2955552	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1911	3.44272	1704	3.20E-08	0	1	0		$|
 2955553	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1911	3.44272	1752	1	0	0	0		$|
 2955554	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1912	3	1661	0.92388	0	-0.382683	0		$|
 2955556	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1903.19	3.44272	1695.89	1	0	0	0		$|
-2955557	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1895	3.44272	1704	3.20013e-008	0	1	0		$|
+2955557	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1895	3.44272	1704	3.20E-08	0	1	0		$|
 2955558	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1895	3.44272	1752	1	0	0	0		$|
 2955559	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1895.19	3.44272	1655.89	1	0	0	0		$|
 2955560	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1887.19	3.44272	1703.89	1	0	0	0		$|
@@ -110,7 +133,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2955582	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1887	3	1744	0.707107	0	-0.707106	0		$|
 2955583	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1887	3	1752	1	0	0	0		$|
 2955584	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1943	3	1752	1	0	0	0		$|
-2955585	0	object/building/military/outpost_starport.iff	0	1915	3	1728	-3.20013e-008	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Imperial Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
+2955585	0	object/building/military/outpost_starport.iff	0	1915	3	1728	-3.20E-08	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Imperial Outpost|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-688757533|$|
+2955586	2955585	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 2955587	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1919.56	3	1740.79	1	0	0	0		$|
 2955596	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1907.06	3	1749.7	-0.703845	0	0.710354	0		$|
 2955599	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1906.31	3.12649	1750.25	0.999989	0	-0.00460156	0		$|
@@ -266,13 +290,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3226149	0	object/static/item/item_container_energy_radioactive.iff	0	1924.93	3.72733	1692.15	1	0	0	0		$|
 3226150	0	object/static/item/item_container_energy_radioactive.iff	0	1923.74	3.72733	1693.4	1	0	0	0		$|
 3226151	0	object/static/item/item_container_energy_radioactive.iff	0	1923.76	3.72733	1692.16	1	0	0	0		$|
-3226154	0	object/building/military/military_outpost_guard_house_imperial.iff	0	1919	3	1656	-0.382683	0	0.92388	0		$|
+3226154	0	object/building/military/military_outpost_guard_house_imperial.iff	0	1919	3	1656	-0.382683	0	0.92388	0		portalLayoutCrc|0|-285862605|$|
+3226155	3226154	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+3226156	3226154	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 4775990	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1895.27	6.8806	1731.29	-0.00920352	0.999958	0	0		$|
 4775991	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1934.66	6.88255	1730.93	-0.00420341	0.999941	0.00998935	-0.000457796		$|
 4775992	0	object/static/item/item_briefcase.iff	0	1930.72	3	1702.01	0.703845	0	0.710353	0		$|
-4775993	0	object/static/item/item_container_organic_food.iff	0	1931.64	3	1702.99	3.20013e-008	0	1	0		$|
-4775994	0	object/static/item/item_container_organic_food.iff	0	1931.97	3	1702.98	3.20013e-008	0	1	0		$|
-4775995	0	object/static/item/item_container_organic_food.iff	0	1932.31	3	1703	3.20013e-008	0	1	0		$|
+4775993	0	object/static/item/item_container_organic_food.iff	0	1931.64	3	1702.99	3.20E-08	0	1	0		$|
+4775994	0	object/static/item/item_container_organic_food.iff	0	1931.97	3	1702.98	3.20E-08	0	1	0		$|
+4775995	0	object/static/item/item_container_organic_food.iff	0	1932.31	3	1703	3.20E-08	0	1	0		$|
 4775996	0	object/static/item/item_container_organic_food.iff	0	1931.67	3	1702.62	0	0	1	0		$|
 4775997	0	object/static/item/item_container_organic_food.iff	0	1932	3	1702.61	0	0	1	0		$|
 4775998	0	object/static/item/item_container_organic_food.iff	0	1932.34	3	1702.63	0	0	1	0		$|
@@ -288,8 +314,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4776010	0	object/static/item/item_tool_computer_toolkit.iff	0	1885.64	4.04355	1711.84	0.855127	0	-0.518418	0		$|
 4776011	0	object/static/item/item_tool_demagnetizer.iff	0	1884.8	3	1713.5	1	0	0	0		$|
 4776012	0	object/static/item/item_tool_instrument_calibrator.iff	0	1885.25	3	1713.2	-0.480124	0	0.877201	0		$|
-4885423	0	object/building/military/small_imperial_cloning_facility_s02.iff	0	1901	3	1666	1	0	0	0		$|
-4885431	0	object/static/structure/general/data_terminal_wall_s2.iff	0	1920.17	3	1687.89	3.20013e-008	0	1	0		$|
+4885423	0	object/building/military/small_imperial_cloning_facility_s02.iff	0	1901	3	1666	1	0	0	0	structure.municipal.cloning_base	portalLayoutCrc|0|-242217168|$|
+4885424	4885423	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+4885425	4885423	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+4885426	4885423	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+4885427	4885423	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+4885428	4885423	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+4885429	4885423	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+4885431	0	object/static/structure/general/data_terminal_wall_s2.iff	0	1920.17	3	1687.89	3.20E-08	0	1	0		$|
 4885433	0	object/static/item/item_diagnostic_screen.iff	0	1920.66	4.47933	1688.27	-0.519099	0.854714	0	0		$|
 4885434	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1945.95	3	1671.71	1	0	0	0		$|
 4885435	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1945.93	3	1672.2	1	0	0	0		$|
@@ -329,3 +361,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7845943	0	object/tangible/furniture/all/frn_all_desk_radar_topology_screen.iff	0	1921.86	9.93596	1655.79	0.382683	0	0.92388	0		$|
 9165389	0	object/static/structure/general/banner_imperial_style_01.iff	0	1923.19	3	1697.22	0.999893	0	-0.0146088	0		$|
 9165390	0	object/static/structure/general/banner_imperial_style_01.iff	0	1915.2	3	1697.25	1	0	0	0		$|
+228009168	0	object/tangible/planet_map_location/city.iff	0	1920	8	1696	1	0	0	0		$|
+1296918	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	1920.2	3	1711	1	0	0	0	space.content_tools.npc_spawner	$|
+1296919	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	1922	3	1711	1	0	0	0	space.content_tools.npc_spawner	$|
