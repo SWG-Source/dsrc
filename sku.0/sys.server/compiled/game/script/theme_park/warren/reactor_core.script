@@ -5,6 +5,9 @@ trigger OnAboutToReceiveItem(obj_id srcContainer, obj_id transferer, obj_id item
 	if ( !isPlayer( item ) )
 		return SCRIPT_CONTINUE;
 
+	if ( isGod( item ) )
+		return SCRIPT_CONTINUE;
+
 	if ( !reactorRoomUnlocked( self ) )
 	{
 		permissionsMakePrivate( getCellId( getTopMostContainer(self), "smallroom44") );
