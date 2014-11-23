@@ -17,6 +17,16 @@ trigger OnInitialize()
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
 	boolean isInactive = utils.getBooleanScriptVar( self, "warren.isInactive" );
+
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 10.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
+
 	if ( isInactive )
 	{
 		showFlyText(self, new string_id ( SYSTEM_MESSAGES, DEACTIVATE ), 1.75f, colors.GREENYELLOW);
@@ -29,6 +39,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		showFlyText(self, new string_id ( SYSTEM_MESSAGES, ACTIVATE ), 1.75f, colors.GREENYELLOW);
 		return SCRIPT_CONTINUE;
 	}
+	
 
 	showFlyText(self, new string_id ( SYSTEM_MESSAGES, DEACTIVATE ), 1.75f, colors.GREENYELLOW);
 	deactivateTerminal( self );
