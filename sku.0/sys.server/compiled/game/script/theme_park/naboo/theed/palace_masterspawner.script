@@ -36,6 +36,7 @@ void spawnWarrenImperial(obj_id bldg)
 	setYaw( imperialOfficer, -177f );
 	detachScript( imperialOfficer, "npc.faction_recruiter.faction_recruiter" );
 	detachScript( imperialOfficer, "npc.faction_recruiter.recruiter_setup" );
+	detachScript( imperialOfficer, "conversation.faction_recruiter_imperial");
 	attachScript( imperialOfficer, "theme_park.warren.imperial_captain" );
 	//setObjVar( imperialOfficer, "spawnEgg", self );
 }
