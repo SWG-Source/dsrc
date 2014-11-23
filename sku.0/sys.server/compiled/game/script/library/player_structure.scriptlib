@@ -343,7 +343,7 @@ obj_id createPlayerStructure(string template, obj_id owner, location loc, int ro
 		return null;
 	}
 
-	debugSpeakMsg(owner, "I am making my house at " + loc);
+	//debugSpeakMsg(owner, "I am making my house at " + loc);
 
 	if(!canPlaceGarage(loc, 120f, template))
 	{
