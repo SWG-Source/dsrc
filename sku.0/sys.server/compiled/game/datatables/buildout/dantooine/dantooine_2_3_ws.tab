@@ -362,5 +362,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9165389	0	object/static/structure/general/banner_imperial_style_01.iff	0	1923.19	3	1697.22	0.999893	0	-0.0146088	0		$|
 9165390	0	object/static/structure/general/banner_imperial_style_01.iff	0	1915.2	3	1697.25	1	0	0	0		$|
 228009168	0	object/tangible/planet_map_location/city.iff	0	1920	8	1696	1	0	0	0		$|
-1296918	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	1920.2	3	1711	1	0	0	0	space.content_tools.npc_spawner	$|
-1296919	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	1922	3	1711	1	0	0	0	space.content_tools.npc_spawner	$|
+1296918	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1920.2	3	1711	1	0	0	0	space.content_tools.npc_spawner	$|
+1296919	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1922	3	1711	1	0	0	0	space.content_tools.npc_spawner	$|
