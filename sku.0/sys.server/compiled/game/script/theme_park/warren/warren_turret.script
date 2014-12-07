@@ -1,5 +1,6 @@
 /***** INCLUDES ********************************************************/
 
+include library.advanced_turret;
 include library.ai_lib;
 include library.attrib;
 include library.battlefield;
@@ -12,12 +13,10 @@ include library.turret;
 include library.utils;
 include library.xp;
 
-inherits systems.combat.combat_base_old;
-
 /***** CONSTANTS *******************************************************/
 
 /***** TRIGGERS ********************************************************/
-trigger OnAttach()
+/*trigger OnAttach()
 {
 	setInvulnerable(self,false);
 	setWantSawAttackTriggers( self, false );
@@ -93,7 +92,7 @@ trigger OnAboutToReceiveItem(obj_id srcContainer, obj_id transferer, obj_id item
 
  	return SCRIPT_CONTINUE;
 }
-
+*/
 trigger OnTriggerVolumeEntered( string volumeName, obj_id who )
 {
 	if(!isIdValid(who))
@@ -103,20 +102,9 @@ trigger OnTriggerVolumeEntered( string volumeName, obj_id who )
 	obj_id bldg = getTopMostContainer(self);
 	if ( utils.hasScriptVar( bldg, "warren.deactivated") )
 	{
-		//debugSpeakMsg( self, "the building is deactivated" );
 		return SCRIPT_CONTINUE;
 	}
 
-	////LOG("turret","***** OnVolEntered: self = " + self + " now = " + getGameTime() + " ********");
-	////LOG("turret"," - vol = " + volumeName + " who = " + who);
-
-	//debugSpeakMsg( self, "Breaching " + volumeName );
-
-	if ( volumeName.equals( turret.ALERT_VOLUME_NAME ) )
-	{
-		//debugSpeakMsg( self, "adding you as a target");
-		addTarget(self, who);
-	}
 	return SCRIPT_CONTINUE;
 }
 
@@ -126,25 +114,17 @@ trigger OnTriggerVolumeExited( string volumeName, obj_id who )
 	if ( utils.hasScriptVar( bldg, "warren.deactivated") )
 		return SCRIPT_CONTINUE;
 
-	//LOG("turret","***** OnVolExited: self = " + self + " now = " + getGameTime() + " ********");
-	//LOG("turret"," - vol = " + volumeName + " target = " + who);
-	if ( volumeName.equals( turret.ALERT_VOLUME_NAME ) )
-	{
-		//debugSpeakMsg( self, "removing you as a target");
-		turret.removeTarget(self, who);
-	}
-
 	return SCRIPT_CONTINUE;
 }
-
+/*
 trigger OnObjectDamaged(obj_id attacker, obj_id weapon, int damage)
 {
 	setHitpoints( self, getMaxHitpoints(self) );
 	return SCRIPT_OVERRIDE;
 }
-
+*/
 /***** FUNCTIONS *******************************************************/
-obj_id getGoodTurretTarget()
+/*obj_id getGoodTurretTarget()
 {
 	//LOG("turret","getGoodTurretTarget: entered...");
 	obj_id self = getSelf();
@@ -301,12 +281,13 @@ void explodeTurret( obj_id self, obj_id killer )
 		destroyObject(self);
 	}
 }
-
+*/
 /***********************************************************************
  * @brief	performs an attach from the turret to the target
  *
  * @return 	void
  ***********************************************************************/
+/*
 float doAttack()
 {
 	//LOG("turret","*** doAttack(): entered...");
@@ -510,9 +491,9 @@ float doAttack(obj_id target)
 }
 
 
-
+*/
 /***** MESSAGEHANDLERS *************************************************/
-messageHandler handleTurretAttack()
+/*messageHandler handleTurretAttack()
 {
 	//LOG("turret","turret attack reqested...");
 	if ( !turret.isActive(self) )
@@ -536,10 +517,11 @@ messageHandler handleTurretAttack()
 	return SCRIPT_CONTINUE;
 }
 
-
+*/
 /*This message handler is just the delay for the client effects.  It makes
 sure that multiple effects aren't playing at the same time and eating up
 the frame rate. */
+/*
 messageHandler effectManager ()
 {
 	utils.removeScriptVar (self, "playingEffect");
@@ -611,6 +593,7 @@ void addTarget(obj_id self, obj_id target)
 		}
 	}
 
+
 	////LOG("turret","addTarget: fall-thru...");
 	if ( !turret.isEngaged(self) )
 	{
@@ -618,3 +601,5 @@ void addTarget(obj_id self, obj_id target)
 		messageTo(self, "handleTurretAttack", null, 1, false);
 	}
 }
+
+*/
