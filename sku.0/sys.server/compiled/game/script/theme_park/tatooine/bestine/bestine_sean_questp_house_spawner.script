@@ -1,0 +1,30 @@
+include library.create;
+include library.locations;
+
+trigger OnInitialize()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+trigger OnAttach()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+messageHandler spawnMissingNpc()
+{
+	//Spawns the housemaid for the Bestine Election
+		obj_id spawnCell = getCellId (self, "livingroom1");
+		location locMaidLocation = new location (3.0f, 0.4f, -0.2f, "tatooine", spawnCell);
+		obj_id template = create.object("object/tangible/ground_spawning/area_spawner.iff", locMaidLocation);
+		setObjVar(template, "spawns", "sean_questp_house");
+		setObjVar(template, "npc_name", "Edaekomeu Ossilei");
+		setObjVar(template, "quest_script", "conversation.sean_questp_house");
+		string spawnerObjName = "Edaekomeu Ossilei Spawner";
+		setName(template, spawnerObjName);
+		attachScript(template, "city.bestine.politician_event_spawner");
+
+		return SCRIPT_CONTINUE;
+}

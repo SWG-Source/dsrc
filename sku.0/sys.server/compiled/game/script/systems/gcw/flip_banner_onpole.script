@@ -17,20 +17,45 @@ inherits systems.gcw.flip_banner;
 
 trigger OnInitialize()
 {
+//	messageTo( self, "spawnBanner", null, 1.f, false );
+	messageTo( self, "checkBannerImpulse", null, 1.f, false );
+
+	return SCRIPT_CONTINUE;
+}
+
+trigger OnAttach()
+{
+//	messageTo( self, "spawnBanner", null, 1.f, false );
+	messageTo( self, "checkBannerImpulse", null, 1.f, false );
+
 	return SCRIPT_CONTINUE;
 }
 
 trigger OnDestroy()
 {
+	if ( utils.hasScriptVar( self, "banner" ) )
+	{
+		obj_id banner = utils.getObjIdScriptVar( self, "banner" );
+		if ( isIdValid( banner ) )
+			destroyObject( banner );
+	}
+
 	return SCRIPT_CONTINUE;
 }
 
 trigger OnUnloadedFromMemory()
 {
+	if ( utils.hasScriptVar( self, "banner" ) )
+	{
+		obj_id banner = utils.getObjIdScriptVar( self, "banner" );
+		if ( isIdValid( banner ) )
+			destroyObject( banner );
+	}
+
 	return SCRIPT_CONTINUE;
 }
 
-trigger OnHearSpeech(obj_id speaker, string strText)
+/*trigger OnHearSpeech(obj_id speaker, string strText)
 {
 	string[] strCommands = split(strText, ' ');
 
@@ -40,6 +65,55 @@ trigger OnHearSpeech(obj_id speaker, string strText)
 		messageTo(self, "updateGCWInfo", null, 1.0f, false);
 		messageTo(self, "checkBannerImpulse", null, 2.f, false);
 	}
+
+	return SCRIPT_CONTINUE;
+}
+*/
+
+//------------------------------------------------
+// checkBannerImpulse
+//------------------------------------------------
+
+messageHandler checkBannerImpulse()
+{
+	// Determine who the winner is.
+	// float imp_r = gcw.getImperialRatio( self );
+	// float reb_r = gcw.getRebelRatio( self );
+
+	float imp_r = gcw.getImperialPercentileByRegion(self);
+	float reb_r = gcw.getRebelPercentileByRegion(self);
+
+	// LOG("gcw_region", "checkBannerImpulse imp_r: " + imp_r + " reb_r: " + reb_r);
+
+	if((imp_r > reb_r))// && (utils.getIntScriptVar(self, "faction" ) != 1))
+	{
+		// Switch to an Imp banner.
+		utils.setScriptVar( self, "faction", 1 );
+
+		// Destroy existing banner.
+		obj_id banner = utils.getObjIdScriptVar( self, "banner" );
+		if ( isIdValid( banner ) )
+			destroyObject( banner );
+
+		// Spawn a new banner.
+		spawnBanner( self, "imperial" );
+	}
+	else if((reb_r > imp_r))// && (utils.getIntScriptVar(self, "faction") != 2))
+	{
+		// Switch to a Reb banner.
+		utils.setScriptVar(self, "faction", 2);
+
+		// Destroy existing banner.
+		obj_id banner = utils.getObjIdScriptVar(self, "banner");
+
+		if(isIdValid(banner))
+			destroyObject(banner);
+
+		// Spawn a new banner.
+		spawnBanner(self, "rebel");
+	}
+
+	messageTo(self, "checkBannerImpulse", null, 3600.f, false);
 
 	return SCRIPT_CONTINUE;
 }

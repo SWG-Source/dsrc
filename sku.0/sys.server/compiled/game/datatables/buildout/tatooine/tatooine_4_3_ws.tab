@@ -69,11 +69,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 683522	0	object/tangible/crafting/station/public_food_station.iff	0	918.003	12	524.696	0.941076	0	0.338196	0		$|
 683528	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	746.647	12	396.404	-0.693114	0	0.720829	0		$|
 683529	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	747.647	12	396.442	-0.693114	0	0.720829	0		$|
-926472	0	object/building/tatooine/capitol_tatooine.iff	0	888.05	12	505.266	0.432613	0	0.90158	0		$|
+926472	0	object/building/tatooine/capitol_tatooine.iff	0	888.05	12	505.266	0.432613	0	0.90158	0	city.bestine.politician_event_grandparent:theme_park.dungeon.generic_spawner	bestine.tatooineCapitolObjId|0|926472|spawn_table|4|datatables/spawning/poi_spawner/tatooine/bestine_capitol_spawns.iff|$|
 1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Bestine Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/bestine_starport.iff|$|
 1027887	0	object/building/tatooine/housing_tatt_style01_small.iff	0	674.808	26	226.958	0.813878	0	0.581036	0		$|
 1027931	0	object/building/tatooine/housing_tatt_style01_small.iff	0	695.312	26	233.743	-0.592536	0	0.805544	0		$|
-1028167	0	object/building/tatooine/housing_tatt_style01_large.iff	0	944.493	12	424.633	0.937647	0	0.34759	0		$|
+1028167	0	object/building/tatooine/housing_tatt_style01_large.iff	0	944.493	12	424.633	0.937647	0	0.34759	0	planet_map.map_loc:city.bestine.museum_event_grandparent:theme_park.dungeon.generic_spawner	planetMap.category|4|museum|spawn_table|4|datatables/spawning/poi_spawner/tatooine/bestine_artist_spawns.iff|$|
 1028202	0	object/building/tatooine/filler_building_tatt_style01_02.iff	0	989.794	12	452.072	0.4008	0	0.916166	0		$|
 1028208	0	object/building/tatooine/filler_building_tatt_style01_05.iff	0	976	12	376	0.947651	0	0.319309	0		$|
 1028233	0	object/building/tatooine/filler_building_tatt_style01_08.iff	0	1010.83	12	354.758	0.993395	0	-0.114747	0		$|
@@ -89,12 +89,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028455	0	object/building/tatooine/housing_tatt_style01_small.iff	0	1061.82	10	532.696	0.999058	0	-0.0433937	0		$|
 1028466	0	object/building/tatooine/housing_tatt_style01_small.iff	0	1077.38	10	539.96	0.91973	0	-0.392552	0		$|
 1028477	0	object/building/tatooine/housing_tatt_style01_small.iff	0	1046.7	10	533.821	0.999135	0	0.0415801	0		$|
-1028489	0	object/building/tatooine/housing_tatt_style01_med.iff	0	1049.11	10	560.029	-0.0142038	0	0.999899	0		$|
+1028489	0	object/building/tatooine/housing_tatt_style01_med.iff	0	1049.11	10	560.029	-0.0142038	0	0.999899	0	planet_map.map_loc	planetMap.category|4|cantina|healing.canhealshock|0|1|safeLogout|0|1|$|
 1028544	0	object/building/tatooine/guild_combat_tatooine_style_01.iff	0	798.621	12	503.067	0.94441	0	0.328769	0		$|
-1028554	0	object/building/tatooine/guild_commerce_tatooine_style_01.iff	0	871.565	12	594.342	-0.328017	0	0.944672	0		$|
+1028554	0	object/building/tatooine/guild_commerce_tatooine_style_01.iff	0	871.565	12	594.342	-0.328017	0	0.944672	0	theme_park.tatooine.bestine.bestine_sean_questn_university_spawner	$|
 1028574	0	object/building/tatooine/guild_university_tatooine_style_01.iff	0	793.718	12	581.644	0.431176	0	0.902268	0		$|
 1028590	0	object/building/tatooine/association_hall_civilian_tatooine.iff	0	928.921	12	569.878	-0.329522	0	0.944148	0		$|
-1028644	0	object/building/tatooine/cantina_tatooine.iff	0	643.74	12	427.231	0.986156	0	0.165823	0	structure.municipal.cantina:event.bh_event.cantina_controller:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_bestine_cantina.iff|$|
+1028644	0	object/building/tatooine/cantina_tatooine.iff	0	643.74	12	427.231	0.986156	0	0.165823	0	structure.municipal.cantina:event.bh_event.cantina_controller:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_bestine_cantina.iff|healing.canhealshock|0|1|safeLogout|0|1|$|
 1033371	0	object/tangible/terminal/terminal_mission_bounty.iff	0	602.784	12	438.2	-0.475382	0	0.879779	0		$|
 1033373	0	object/tangible/terminal/terminal_mission_bounty.iff	0	601.938	12	435.492	0.953847	0	-0.300293	0		$|
 1153330	0	object/static/structure/tatooine/wall_gate_tatooine_style_03.iff	0	1030.63	12	357.229	0.995953	0	0.0898786	0		$|
@@ -519,7 +519,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1278956	0	object/building/tatooine/housing_tatt_style01_small.iff	0	700.178	26	220.495	-0.592535	0	0.805544	0		$|
 1278967	0	object/static/structure/tatooine/beam_tatooine_overhead_style_02.iff	0	691.087	26	213.639	0.148651	0	0.98889	0		$|
 1278968	0	object/building/tatooine/housing_tatt_style01_small.iff	0	679.673	26	213.71	0.81388	0	0.581033	0		$|
-1278979	0	object/building/tatooine/housing_tatt_style01_small.iff	0	709.399	26	206.143	-0.592536	0	0.805544	0		$|
+1278979	0	object/building/tatooine/housing_tatt_style01_small.iff	0	709.399	26	206.143	-0.592536	0	0.805544	0	theme_park.tatooine.bestine.bestine_farious_gletch_spawner	$|
 1278990	0	object/static/structure/tatooine/beam_tatooine_overhead_style_02.iff	0	700.304	26	199.273	0.988012	0	-0.15438	0		$|
 1278991	0	object/building/tatooine/housing_tatt_style01_small.iff	0	688.895	26	199.357	0.81388	0	0.581033	0		$|
 1279012	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	710.426	25.0872	219.97	0.805072	0	0.593178	0		$|
@@ -542,7 +542,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1279857	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	690.631	26	192.392	0.998988	0	0.044985	0		$|
 1279865	0	object/static/structure/tatooine/debris_tatt_pipe_narrow_2.iff	0	682.506	26	206.115	0.453597	0	0.891207	0		$|
 1279916	0	object/building/military/military_outpost_guard_tower_1.iff	0	889.281	98	181.347	1	0	0	0		$|
-1279918	0	object/building/military/military_base_shed_imperial_style_01.iff	0	913.675	98	185.441	1	0	0	0		$|
+1279918	0	object/building/military/military_base_shed_imperial_style_01.iff	0	913.675	98	185.441	1	0	0	0	theme_park.tatooine.bestine.bestine_pfilbee_jhorn_spawner	$|
 1279925	0	object/building/military/military_outpost_guard_tower_1.iff	0	922.491	98	202.145	0.00579658	0	0.999983	0		$|
 1279939	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	890.421	97.9377	201.164	-0.703847	0	0.710351	0		$|
 1279940	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	890.505	98.0263	190.917	-0.703845	0	0.710354	0		$|
@@ -708,7 +708,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1404942	0	object/static/worldbuilding/sign/thm_sign_starport.iff	0	753.588	12	498.737	0.996802	0	0.0799147	0		$|
 1407923	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	911.823	12	435.982	0.932328	0	0.361615	0		$|
 1414855	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	1027.88	12	344.848	0.981048	0	0.193766	0		$|
-1528395	0	object/building/tatooine/housing_tatt_style01_med.iff	0	972.689	12	467.531	0.422132	0	0.906534	0		$|
+1528395	0	object/building/tatooine/housing_tatt_style01_med.iff	0	972.689	12	467.531	0.422132	0	0.906534	0	theme_park.tatooine.bestine.bestine_sean_questp_house_spawner	$|
 1631313	0	object/static/worldbuilding/sign/thm_sign_bank.iff	0	756.716	12	443.053	0.959662	0	0.281157	0		$|
 1631505	0	object/static/worldbuilding/sign/thm_sign_cantina.iff	0	586.721	12	424.335	0.985585	0	0.169182	0		$|
 1631508	0	object/static/worldbuilding/sign/thm_sign_cantina.iff	0	692.617	12	409.922	0.974794	0	0.223106	0		$|
@@ -872,7 +872,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5565566	0	object/static/creature/tatooine_jawa.iff	0	946.019	12	390.485	0.949235	0	-0.314567	0		$|
 6016470	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	772.725	12	611.971	0.9998	0	-0.0199986	0		$|
 6016471	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	763.624	12	611.774	-0.696706	0	0.717356	0		$|
-6016767	0	object/tangible/furniture/modern/rug_rect_sml_s01.iff	0	931.166	12	409.331	0.808028	0	0.589144	0		$|
+6016767	0	object/tangible/furniture/modern/rug_rect_sml_s01.iff	0	931.166	12	409.331	0.808028	0	0.589144	0	city.bestine.marketplace_grandparent	$|
 6016769	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	931.071	12.0316	409.41	0.949235	0	0.314567	0		$|
 6016770	0	object/static/item/item_basket_shallow.iff	0	931.25	12.0316	411.522	1	0	0	0		$|
 6016771	0	object/static/item/item_bread_loaf.iff	0	931.421	12.0949	411.646	1	0	0	0		$|
@@ -886,7 +886,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6076112	0	object/tangible/terminal/terminal_mission.iff	0	752.37	12	490.847	0.656219	0	0.754571	0		$|
 6595463	0	object/building/tatooine/shuttleport_tatooine.iff	0	969.396	12	530.27	0.998488	0	0.0549775	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Bestine Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
 6714210	0	object/static/structure/tatooine/wall_gate_tatooine_wide_style_01.iff	0	738.661	12.0252	395.766	0.717911	0	0.696135	0		$|
-7265850	0	object/building/tatooine/salon_tatooine.iff	0	606.2	12.2702	396.435	-0.364131	0	0.931348	0		$|
+7265850	0	object/building/tatooine/salon_tatooine.iff	0	606.2	12.2702	396.435	-0.364131	0	0.931348	0	planet_map.map_loc	planetMap.category|4|salon|$|
 8216221	0	object/static/structure/general/banner_imperial_style_01.iff	0	918.451	12	435.475	0.914025	0	-0.405658	0		$|
 8216222	0	object/static/item/item_tech_console_sectional_b.iff	0	915.752	12	432.587	0.694768	0	0.719234	0		$|
 8885452	0	object/static/structure/tatooine/tato_imprv_flagpole_s01.iff	0	849.706	38.5502	424.14	1	0	0	0		$|
@@ -935,5 +935,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1250339	0	object/static/structure/general/droid_r3_head.iff	0	934.474	12	387.194	1	0	0	0		$|
 1250340	0	object/static/structure/general/droid_r4_leg.iff	0	930.458	12	384.91	1	0	0	0		$|
 3455378	0	object/static/structure/general/droid_r5_head.iff	0	1022.75	10	533.756	0.999392	-0.00489905	0.00331686	0.0343579		$|
-4005381	0	object/building/tatooine/hospital_tatooine_style02.iff	0	730.353	12	606.375	0.462485	0	0.886627	0		$|
+4005381	0	object/building/tatooine/hospital_tatooine_style02.iff	0	730.353	12	606.375	0.462485	0	0.886627	0	theme_park.tatooine.bestine.bestine_melios_purl_spawner	$|
 9755355	0	object/static/structure/general/droid_r5_head.iff	0	735.788	11.3043	478.064	0.958244	-0.28594	0.00252087	8.83E-05		$|
+9835358	0	object/tangible/planet_map_location/city.iff	0	755.4132	12	505.9001	0.958244	-0.28594	0.00252087	8.83E-05		$|

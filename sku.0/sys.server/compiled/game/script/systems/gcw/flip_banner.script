@@ -17,6 +17,18 @@ trigger OnInitialize()
 }
 
 //------------------------------------------------
+// OnAttach
+//------------------------------------------------
+
+trigger OnAttach()
+{
+//	messageTo( self, "spawnBanner", null, 1.f, false );
+	messageTo( self, "checkBannerImpulse", null, 1.f, false );
+
+	return SCRIPT_CONTINUE;
+}
+
+//------------------------------------------------
 // OnDestroy
 //------------------------------------------------
 
