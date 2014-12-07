@@ -1,0 +1,51 @@
+include library.create;
+include library.locations;
+
+trigger OnInitialize()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	messageTo(self, "spawnInformantNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+trigger OnAttach()
+{
+	messageTo(self, "spawnMissingNpc", null, 2, false);
+	messageTo(self, "spawnInformantNpc", null, 2, false);
+	return SCRIPT_CONTINUE;
+}
+
+messageHandler spawnMissingNpc()
+{
+		//Spawns Sean's teacher for the Bestine Election
+		//TODO: spawn chair and table; make professor sit
+		obj_id spawnCell = getCellId (self, "mainroom");
+		location locTeacherLocation = new location (3.6f, 1.1f, -4.6f, "tatooine", spawnCell);
+		obj_id template = create.object("object/tangible/ground_spawning/area_spawner.iff", locTeacherLocation);
+		setObjVar(template, "spawns", "sean_questn_university");
+		setObjVar(template, "npc_name", "Ocket Abaot");
+		setObjVar(template, "quest_script", "conversation.sean_questn_university");
+		string spawnerObjName = "Ocket Abaot Spawner";
+		setName(template, spawnerObjName);
+		attachScript(template, "city.bestine.politician_event_spawner");
+
+		return SCRIPT_CONTINUE;
+
+
+
+}
+
+messageHandler spawnInformantNpc()
+{
+	
+		obj_id spawnCell = getCellId (self, "meetinge");
+		location locImpLocation = new location (-6.5f, 1.1f, -11.6f, "tatooine", spawnCell);
+		obj_id template = create.object("coa3_information_imperial", locImpLocation);
+		int inform_yaw = -90;
+		setYaw(template, inform_yaw);
+
+		return SCRIPT_CONTINUE;
+
+
+
+}

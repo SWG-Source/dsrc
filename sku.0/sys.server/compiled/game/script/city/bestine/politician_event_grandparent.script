@@ -34,7 +34,7 @@ messageHandler bootStrap()
 		location locTest = getLocation(self);
 		locTest.x = locTest.x +1;
 		obj_id objPoliticianEventMaster = createObject(MASTER_OBJECT_TEMPLATE, locTest);
-		persistObject(objPoliticianEventMaster);
+		//persistObject(objPoliticianEventMaster);
 		
 		dctScriptVars.put("objMasterObjectId", objPoliticianEventMaster);
 		dctScriptVars.put(VARNAME_ELECTION_STATUS, "electionStarted");
@@ -50,10 +50,12 @@ messageHandler spawnMissingNpc()
 {
 	obj_id objCapitolLobby = getCellId (self, "lobby");
 	location locMissingNpcSpawnerLocation = new location (6.10f, 0.30f, -0.49f, "tatooine", objCapitolLobby);
-	obj_id[] objMissingNpcSpawnerIds = getAllObjectsWithTemplate(locMissingNpcSpawnerLocation, 10, MISSING_NPC_TEMPLATE);
-	
-	if ( objMissingNpcSpawnerIds == null || objMissingNpcSpawnerIds.length < 1 )
-		obj_id missingNpc = createObject(MISSING_NPC_TEMPLATE, locMissingNpcSpawnerLocation);
+	obj_id missingNpc = createObject("object/tangible/ground_spawning/area_spawner.iff", locMissingNpcSpawnerLocation);
+	setObjVar(missingNpc, "spawns", "victor_questn_capitol");
+	setObjVar(missingNpc, "quest_script", "conversation.victor_questn_capitol");
+	string spawnerObjName = "Trooper Spawner";
+	setName(missingNpc, spawnerObjName);
+	attachScript(missingNpc, "city.bestine.politician_event_spawner");
 	
 	return SCRIPT_CONTINUE;
 }

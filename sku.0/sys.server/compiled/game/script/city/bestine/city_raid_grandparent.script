@@ -23,7 +23,7 @@ messageHandler bootStrap()
 		location locTest = getLocation(self);
 		locTest.x = locTest.x +1;
 		obj_id objRaidSpawner = createObject(MASTER_OBJECT_TEMPLATE, locTest);
-		persistObject(objRaidSpawner);
+		//persistObject(objRaidSpawner);
 
 		setObjVar(self, "objRaidSpawner", objRaidSpawner);				// Suppress linting - The lint script is incorrectly
 																		// catching this due to the similarly named array

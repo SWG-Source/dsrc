@@ -434,6 +434,8 @@ trigger OnInitialize ()
 		detachScript(self, "conversation.bounty_check_reset");
 
 	setCondition (self, CONDITION_CONVERSABLE);
+	obj_id cup1 = createObject ("object/tangible/item/con_drinking_glass_01.iff", self, "");
+	equip (cup1, self);
 
 	return SCRIPT_CONTINUE;
 }
@@ -441,6 +443,8 @@ trigger OnInitialize ()
 trigger OnAttach ()
 {
 	setCondition (self, CONDITION_CONVERSABLE);
+	obj_id cup1 = createObject ("object/tangible/item/con_drinking_glass_01.iff", self, "");
+	equip (cup1, self);
 
 	return SCRIPT_CONTINUE;
 }

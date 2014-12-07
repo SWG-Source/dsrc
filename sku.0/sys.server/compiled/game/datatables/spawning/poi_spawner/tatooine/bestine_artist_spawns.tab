@@ -1,0 +1,8 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+object/tangible/ground_spawning/area_spawner.iff	bestine_artist01	world	3312	5	-4655	-147	city.bestine.museum_event_spawner			1	"string:spawns=bestine_artist01,string:quest_script=conversation.bestine_artist01"					
+object/tangible/ground_spawning/area_spawner.iff	bestine_artist02	world	1521	7	3259	177	city.bestine.museum_event_spawner			1	"string:spawns=bestine_artist02,string:quest_script=conversation.bestine_artist02"					
+object/tangible/ground_spawning/area_spawner.iff	bestine_artist03	world	-3101	5	2184	137	city.bestine.museum_event_spawner			1	"string:spawns=bestine_artist03,string:quest_script=conversation.bestine_artist03"					
+object/tangible/ground_spawning/area_spawner.iff	bestine_artist04	world	3475.1	5	-4975.5	38	city.bestine.museum_event_spawner			1	"string:spawns=bestine_artist04,string:quest_script=conversation.bestine_artist04"					
+object/tangible/ground_spawning/area_spawner.iff	bestine_artist05	world	-2768	5	2110	90	city.bestine.museum_event_spawner			1	"string:spawns=bestine_artist05,string:quest_script=conversation.bestine_artist05"					
+object/tangible/ground_spawning/area_spawner.iff	bestine_artist06	world	-5238.8	75	-6568.1	114	city.bestine.museum_event_spawner			1	"string:spawns=bestine_artist06,string:quest_script=conversation.bestine_artist06"					
