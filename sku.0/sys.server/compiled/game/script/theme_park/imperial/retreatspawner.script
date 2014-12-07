@@ -61,6 +61,9 @@ void spawnExtras(obj_id self)
 	spawnVeers(self);
 	spawnShuttlePilot(self);
 	spawnShuttlePilot2(self);
+	spawnVelso(self);
+	spawnRecordKeeper(self);
+	spawnAllard(self);
 	return;
 }	
 
@@ -75,6 +78,22 @@ void spawnKaja(obj_id self)
 	
 	setObjVar (self, "RetreatInhabitants.kaja", kaja);
 	setObjVar (kaja, "Retreat", self);
+	return;
+}
+
+void spawnRecordKeeper(obj_id self)
+{
+	obj_id hall1 = getCellId (self, "hall1");
+	location rkLocation = new location (33.3f, .2f, -36.9f, "naboo", hall1);
+	obj_id recordKeeper = create.staticObject ("record_keeper_imperial", rkLocation );
+	
+	int rk_yaw = -7;
+	setYaw (recordKeeper, rk_yaw);
+	
+	setObjVar (self, "RetreatInhabitants.rk", recordKeeper);
+	setObjVar (recordKeeper, "Retreat", self);
+	attachScript(recordKeeper, "conversation.theme_park_record_keeper_imperial");
+	setName(recordKeeper, "Wurson Harro" );
 	return;
 }
 
@@ -253,6 +272,21 @@ void spawnStormtrooper2(obj_id self, obj_id st1)
 	return;
 }
 
+void spawnVelso(obj_id self)
+{
+	obj_id mainhall = getCellId (self, "mainhall");
+	location ltvLocation = new location (23.4f, .2f, -19.4f, "naboo", mainhall);
+	obj_id ltv = create.staticObject ("lt_velso", ltvLocation );
+	
+	int ltv_yaw = -150;
+	setYaw (ltv, ltv_yaw);
+	
+	setObjVar (self, "RetreatInhabitants.ltv", ltv);
+	setObjVar (ltv, "Retreat", self);
+	attachScript(ltv, "conversation.corvette_velso_imperial_destroy");
+	return;
+}
+
 void spawnStormtrooper3(obj_id self)
 {
 	obj_id vader = getCellId (self, "vader");
@@ -397,6 +431,20 @@ void spawnShuttlePilot2(obj_id self)
 	
 	setObjVar (self, "RetreatInhabitants.pilot2", pilot2);
 	setObjVar (pilot2, "Retreat", self);
+	return;
+}
+
+void spawnAllard(obj_id self)
+{
+	location allardLocation = new location(2414.8f, 0.0f, -3949.2f, "naboo", obj_id.NULL_ID);
+	obj_id allard = create.staticObject ("imperial_officer_questgiver", allardLocation);
+		
+	int allard_yaw = 12;
+	setYaw (allard, allard_yaw);
+	
+	setObjVar (self, "RetreatInhabitants.allard", allard);
+	setObjVar (allard, "Retreat", self);
+	attachScript(allard, "conversation.c_rebdefector_allard");
 	return;
 }
 
@@ -577,6 +625,12 @@ void killExtras(obj_id self)
 	removeObjVar (self, "RetreatInhabitants.pilot");
 	destroyObject(getObjIdObjVar( self, "RetreatInhabitants.pilot2" ));
 	removeObjVar (self, "RetreatInhabitants.pilot2");
+	destroyObject(getObjIdObjVar( self, "RetreatInhabitants.ltv" ));
+	removeObjVar (self, "RetreatInhabitants.ltv");
+	destroyObject(getObjIdObjVar( self, "RetreatInhabitants.rk" ));
+	removeObjVar (self, "RetreatInhabitants.rk");
+	destroyObject(getObjIdObjVar( self, "RetreatInhabitants.allard" ));
+	removeObjVar (self, "RetreatInhabitants.allard");
 	
 	return;
 }
