@@ -22,6 +22,15 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	if ( !isIdValid( bldg ) )
 		return SCRIPT_CONTINUE;
 
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 10.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
+
 	if ( utils.hasScriptVar( bldg, "warren.reactorRoomUnlocked" ))
 	{
 		showFlyText(self, new string_id ( SYSTEM_MESSAGES, "switch_done" ), 1.75f, colors.RED);

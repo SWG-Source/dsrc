@@ -60,3 +60,31 @@ trigger OnClosedContainer(obj_id player)
 	return SCRIPT_CONTINUE;
 }
 
+trigger OnObjectMenuRequest(obj_id player, menu_info item)
+{
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 5.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
+
+	return SCRIPT_CONTINUE;
+}
+
+trigger OnOpenedContainer( obj_id player )
+{
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 5.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
+
+	return SCRIPT_CONTINUE;
+}
+

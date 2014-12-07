@@ -5,6 +5,14 @@ const string SYSTEM_MESSAGES	= "theme_park/warren/warren_system_messages";
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float range = getDistance(here, term);
+	if (range > 10.0)
+	{
+		sendSystemMessage (player, new string_id ( SYSTEM_MESSAGES, "elev_range" ) );
+		return SCRIPT_CONTINUE;
+	}
 	sui.msgbox(player, new string_id ( SYSTEM_MESSAGES, "welcome_terminal" ));
-	return SCRIPT_OVERRIDE;
+	return SCRIPT_CONTINUE;
 }

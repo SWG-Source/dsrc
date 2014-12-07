@@ -5598,7 +5598,8 @@ boolean createEnclaveTerminals(obj_id enclave)
 			LOG("force_rank", "force_rank.createEnclaveTerminals -- creating new terminal " + newTerminal + " for " + enclave);
 			//LOG("force_rank", "force_rank.createEnclaveTerminals -- terminal: " + newTerminal);
 			setYaw(newTerminal, rot);
-			persistObject(newTerminal);
+			// UPDATE 11/14/14: No need for persisting objects anymore.
+			//persistObject(newTerminal);
 		}
 	}
 	return true;

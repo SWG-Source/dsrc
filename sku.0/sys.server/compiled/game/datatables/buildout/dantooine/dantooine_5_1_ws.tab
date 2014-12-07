@@ -1,9 +1,27 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1366003	0	object/building/military/outpost_cloning_facility_s03.iff	0	1576.43	4	1764.11	0.707107	0	-0.707107	0		$|
-1366010	0	object/building/military/outpost_shed_s04.iff	0	1549.92	4	1833.81	3.20013e-008	0	1	0		$|
-1366017	0	object/building/military/outpost_shed_s03.iff	0	1609.77	4	1833.89	3.20013e-008	0	1	0		$|
-1366026	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1579.64	4.46957	1824.3	3.20013e-008	0	1	0		$|
+1366003	0	object/building/military/outpost_cloning_facility_s03.iff	0	1576.43	4	1764.11	0.707107	0	-0.707107	0	structure.municipal.cloning_base	portalLayoutCrc|0|1376564094|$|
+1366004	1366003	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1366005	1366003	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1366006	1366003	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+1366007	1366003	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+1366008	1366003	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+1366009	1366003	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+1366010	0	object/building/military/outpost_shed_s04.iff	0	1549.92	4	1833.81	3.20E-08	0	1	0		portalLayoutCrc|0|1376564094|$|
+1366011	1366010	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1366012	1366010	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1366013	1366010	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+1366014	1366010	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+1366015	1366010	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+1366016	1366010	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+1366017	0	object/building/military/outpost_shed_s03.iff	0	1609.77	4	1833.89	3.20E-08	0	1	0		portalLayoutCrc|0|1376564094|$|
+1366018	1366017	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1366019	1366017	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1366020	1366017	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+1366021	1366017	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+1366022	1366017	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+1366023	1366017	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+1366026	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1579.64	4.46957	1824.3	3.20E-08	0	1	0		$|
 1366027	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1567.26	4	1826.63	1	0	0	0		$|
 1366028	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1551.17	4	1826.6	1	0	0	0		$|
 1366029	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1611.01	4	1826.73	1	0	0	0		$|
@@ -43,18 +61,35 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5685526	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1602.39	4	1766.22	0.822502	0	0.568762	0		$|
 5685527	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1602.69	4.29986	1766.34	0.979061	0	-0.203567	0		$|
 5685528	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1603.62	4	1771.38	0.879969	0	-0.475032	0		$|
-6205495	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1589	4	1832	3.20013e-008	0	1	0		$|
-7515467	0	object/tangible/crafting/station/food_station.iff	0	1591.75	4	1823.02	3.20013e-008	0	1	0		$|
-8565352	0	object/building/military/outpost_starport.iff	0	1590	4	1794	1	0	0	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Pirate Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
-8565368	0	object/building/military/outpost_shed.iff	0	1594	4	1764	0.707108	0	0.707105	0		$|
-8565387	0	object/building/military/outpost_shed.iff	0	1566	4	1834	0	0	1	0		$|
+6205495	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1589	4	1832	3.20E-08	0	1	0	planet_map.map_loc	portalLayoutCrc|0|1374805460|planetMap.category|4|tavern|healing.canhealwound|0|1|healing.canhealshock|0|1|safeLogout|0|1|$|
+6205496	6205495	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+6205497	6205495	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+6205498	6205495	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+6205499	6205495	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+7515467	0	object/tangible/crafting/station/food_station.iff	0	1591.75	4	1823.02	3.20E-08	0	1	0		$|
+8565352	0	object/building/military/outpost_starport.iff	0	1590	4	1794	1	0	0	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Pirate Outpost|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-688757533|$|
+8565353	8565352	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+8565368	0	object/building/military/outpost_shed.iff	0	1594	4	1764	0.707108	0	0.707105	0	planet_map.map_loc	healing.canhealshock|0|1|safeLogout|0|1|planetMap.category|4|hotel|portalLayoutCrc|0|1376564094|$|
+8565369	8565368	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+8565370	8565368	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+8565371	8565368	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+8565372	8565368	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+8565373	8565368	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+8565374	8565368	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+8565387	0	object/building/military/outpost_shed.iff	0	1566	4	1834	0	0	1	0		portalLayoutCrc|0|1376564094|$|
+8565388	8565387	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+8565389	8565387	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+8565390	8565387	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+8565391	8565387	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+8565392	8565387	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+8565393	8565387	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
 8565394	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1540	4	1828	0.707107	0	-0.707106	0		$|
-8565395	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1588	4	1844	3.48103e-007	0	1	0		$|
+8565395	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1588	4	1844	3.48E-07	0	1	0		$|
 8565396	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1652	4	1794	0.707107	0	-0.707106	0		$|
 8565397	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1524	4	1794	-0.707107	0	0.707107	0		$|
 8565398	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1636	4	1828	-0.707107	0	0.707107	0		$|
-8565399	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1620	4	1844	3.48103e-007	0	1	0		$|
-8565400	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1556	4	1844	3.48103e-007	0	1	0		$|
+8565399	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1620	4	1844	3.48E-07	0	1	0		$|
+8565400	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1556	4	1844	3.48E-07	0	1	0		$|
 8565401	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1636	4	1760	0.707107	0	0.707107	0		$|
 8565402	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1588	4	1744	1	0	0	0		$|
 8565403	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1556	4	1744	1	0	0	0		$|
@@ -76,7 +111,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8565420	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1540	4	1844	1	0	0	0		$|
 8565421	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1572	4	1844	1	0	0	0		$|
 8565422	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1604	4	1844	1	0	0	0		$|
-8565430	0	object/building/military/outpost_shed.iff	0	1626	4	1834	0	0	1	0		$|
+8565430	0	object/building/military/outpost_shed.iff	0	1626	4	1834	0	0	1	0	planet_map.map_loc	planetMap.category|4|hotel|portalLayoutCrc|0|1376564094|healing.canhealshock|0|1|safeLogout|0|1|$|
+8565431	8565430	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+8565432	8565430	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+8565433	8565430	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+8565434	8565430	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+8565435	8565430	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+8565436	8565430	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
 8565437	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1652	2	1844	1	0	0	0		$|
 8565438	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1652	2	1744	1	0	0	0		$|
 8565439	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1524	2	1744	1	0	0	0		$|
@@ -154,13 +195,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8565557	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1602.97	4	1795.45	0.997036	0	0.076943	0		$|
 8565558	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1603.67	5.17005	1795.81	0.635622	0	0.772001	0		$|
 8565561	0	object/static/structure/general/tankfarm_s01.iff	0	1608.53	4	1777.89	1	0	0	0		$|
-8565562	0	object/static/structure/general/tankfarm_s01.iff	0	1607.88	4	1774.67	3.20013e-008	0	1	0		$|
+8565562	0	object/static/structure/general/tankfarm_s01.iff	0	1607.88	4	1774.67	3.20E-08	0	1	0		$|
 8605388	0	object/tangible/crafting/station/public_clothing_station.iff	0	1555.54	4	1825.14	0.707107	0	-0.707106	0		$|
-8605389	0	object/tangible/crafting/station/public_structure_station.iff	0	1620.22	4	1825.24	3.20013e-008	0	1	0		$|
-8605391	0	object/tangible/terminal/terminal_bank.iff	0	1604.25	4	1825.95	3.20013e-008	0	1	0		$|
+8605389	0	object/tangible/crafting/station/public_structure_station.iff	0	1620.22	4	1825.24	3.20E-08	0	1	0		$|
+8605391	0	object/tangible/terminal/terminal_bank.iff	0	1604.25	4	1825.95	3.20E-08	0	1	0		$|
 8605392	0	object/tangible/terminal/terminal_bank.iff	0	1571.49	4	1826.12	0	0	1	0		$|
-8605394	0	object/tangible/terminal/terminal_bazaar.iff	0	1615.68	4	1825.52	3.20013e-008	0	1	0		$|
+8605394	0	object/tangible/terminal/terminal_bazaar.iff	0	1615.68	4	1825.52	3.20E-08	0	1	0		$|
 8605395	0	object/tangible/terminal/terminal_bazaar.iff	0	1560.53	4	1825.56	0	0	1	0		$|
 8605396	0	object/tangible/crafting/station/public_weapon_station.iff	0	1602.49	4	1770.02	0.707107	0	0.707106	0		$|
 8605408	0	object/tangible/terminal/terminal_mission.iff	0	1612.49	4	1800.23	0.893821	0	0.448423	0		$|
 8605410	0	object/tangible/terminal/terminal_mission.iff	0	1567.8	4	1800.52	0.956802	0	-0.29074	0		$|
+228009178	0	object/tangible/planet_map_location/city.iff	0	1588	4	1793	1	0	0	0		$|
+1296917	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1569	4	1774	1	0	0	0	space.content_tools.npc_spawner	$|
