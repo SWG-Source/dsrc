@@ -25,6 +25,7 @@
 sharedTemplate = "object/building/naboo/shared_salon_naboo.iff"
 
 objvars = +["salon" = 1]
+scripts =+["planet_map.map_loc"]
 
 
 
