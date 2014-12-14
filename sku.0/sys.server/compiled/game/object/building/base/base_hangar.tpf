@@ -22,3 +22,5 @@
 scripts =+["structure.municipal.starport"]
 
 moveFlags = [ MF_gm ]
+
+updateRanges[UR_far] = 2000
