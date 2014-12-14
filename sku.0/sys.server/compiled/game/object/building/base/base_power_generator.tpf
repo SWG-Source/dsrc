@@ -39,3 +39,5 @@ deleteFlags = [ DF_gm ]
 
 
 moveFlags = [ MF_gm ]
+
+updateRanges[UR_far] = 2000
