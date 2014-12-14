@@ -18,3 +18,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -58415192	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	2004.06	18	449.489	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|smuggler_patrol_12_02_11601440_4|registerWithController|0|1|$|
 -42838000	0	object/building/kashyyyk/thm_kash_rodian_bannerpole_s01.iff	0	0	195	0	1	0	0	0		$|
 -716077606	0	object/tangible/ground_spawning/area_spawner.iff	0	1911.6	18	457.348	1	0	0	0	systems.spawning.spawn_tangible	registerWithController|0|1|spawn.object|4|object/tangible/meatlump/event/meatlump_bomb_01_04.iff|$|
+268517870	0	object/tangible/weather_object/weather_object_base.iff	0	0	195	0	1	0	0	0		$|

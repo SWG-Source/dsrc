@@ -25,6 +25,7 @@
 sharedTemplate = "object/building/corellia/shared_salon_corellia.iff"
 
 objvars = +["salon" = 1]
+scripts =+["planet_map.map_loc"]
 
 
 
