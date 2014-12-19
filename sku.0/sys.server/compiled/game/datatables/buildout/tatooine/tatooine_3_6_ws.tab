@@ -97,9 +97,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1255985	0	object/building/tatooine/guild_combat_tatooine_style_01.iff	0	1081.2	5	375.071	0.779711	0	0.62614	0		$|
 1255999	0	object/static/structure/tatooine/wall_junkshop_watto.iff	0	1227.69	5	352.874	-0.0157956	0	0.999876	0		$|
 1256002	0	object/static/structure/tatooine/wall_junkshop_watto.iff	0	1250.56	5	393.681	-0.493228	0	0.8699	0		$|
-1256013	0	object/building/tatooine/shuttleport_tatooine.iff	0	964.492	5	124.013	0.124675	0	0.992197	0		$|
+1256013	0	object/building/tatooine/shuttleport_tatooine.iff	0	964.492	5	124.013	0.124675	0	0.992197	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Espa Shuttleport West|travel.shuttle_available|0|1|travel.version|0|3|$|
 1256014	0	object/building/tatooine/guild_university_tatooine_style_01.iff	0	1038.2	5	13.4253	0.990327	0	-0.138751	0		$|
-1256055	0	object/building/tatooine/cantina_tatooine.iff	0	1094.78	5	124.168	0.803179	0	0.595738	0		$|
+1256055	0	object/building/tatooine/cantina_tatooine.iff	0	1094.78	5	124.168	0.803179	0	0.595738	0	planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.ep3_clone_relics_generic_spawner	spawn_table|4|datatables/spawning/building_spawns/mos_espa_cantina.iff|healing.canhealshock|0|1|safeLogout|0|1|$|
 1257855	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	1101.84	5	555.138	0.173324	0	0.984865	0		$|
 1257872	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1077.38	5	509.195	0.908966	0	-0.416871	0		$|
 1257874	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1084.9	5	502.598	0.924909	0	-0.380189	0		$|
@@ -235,7 +235,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1261433	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1292.6	5	296.502	-0.693686	0	0.720279	0		$|
 1261434	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1291.23	5	266.727	0.847676	0	-0.530514	0		$|
 1261651	0	object/building/tatooine/starport_tatooine.iff	0	1267.22	5	31.6096	0.877581	0	-0.479429	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Espa Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/mos_espa_starport.iff|$|
-1261667	0	object/building/tatooine/shuttleport_tatooine.iff	0	1296.78	5	115.43	0.779214	0	0.626758	0		$|
+1261667	0	object/building/tatooine/shuttleport_tatooine.iff	0	1296.78	5	115.43	0.779214	0	0.626758	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Espa Shuttleport East|travel.shuttle_available|0|1|travel.version|0|3|$|
 1261668	0	object/building/tatooine/filler_building_tatt_style01_06.iff	0	1314.84	5	84.916	0.953847	0	0.300293	0		$|
 1261670	0	object/building/tatooine/filler_building_tatt_style01_07.iff	0	1363.72	5	83.1404	-0.296281	0	0.955101	0		$|
 1261672	0	object/building/tatooine/filler_building_tatt_style01_08.iff	0	1377.49	5	58.4358	-0.272313	0	0.962209	0		$|
