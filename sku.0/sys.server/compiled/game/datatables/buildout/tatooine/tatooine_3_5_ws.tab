@@ -60,7 +60,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1263618	0	object/building/tatooine/filler_building_block_64x32_style_01.iff	0	1216.99	5.03478	1868.07	0.0741333	0	0.997248	0		$|
 1263634	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1358.39	5	1988.19	0.940945	0	0.33856	0		$|
 1263643	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	1379.94	5	2021.14	0.973578	0	0.228353	0		$|
-1263648	0	object/building/tatooine/shuttleport_tatooine.iff	0	1204.05	5	1914.09	0.792806	0	0.609474	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Espa Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
+1263648	0	object/building/tatooine/shuttleport_tatooine.iff	0	1204.05	5	1914.09	0.792806	0	0.609474	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Espa Shuttleport South|travel.shuttle_available|0|1|travel.version|0|3|$|
 1263649	0	object/building/tatooine/filler_building_tatt_style01_09.iff	0	1307.41	5	1909.81	0.143704	0	0.989621	0		$|
 1263664	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	1305.67	4.99944	1838.63	0.933554	0	-0.358437	0		$|
 1263666	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1281.69	5	1870.21	0.380925	0	0.924606	0		$|
