@@ -13,6 +13,16 @@ trigger OnInitialize()
 	return SCRIPT_CONTINUE;
 }
 
+trigger OnAttach()
+{
+	spawnGuyOne( self );
+	spawnGuyTwo( self );
+	
+	messageTo( self, "checkForScripts", null, 5, false );
+	messageTo( self, "handleChatting", null, 10, false );
+	return SCRIPT_CONTINUE;
+}
+
 messageHandler handleChatting()
 {
 	obj_id guy1 = getObjIdObjVar( self, "guy1" );
