@@ -95,6 +95,7 @@ void doSpawn (obj_id self)
 	int maxPop = getIntObjVar (self, "pop");
 	
 	location me = getLocation(self);
+	/*
 	location here = locations.getGoodLocationAroundLocation(me, 1f, 1f, 1.5f, 1.5f);
 	if (here == null)
 	{
@@ -105,10 +106,11 @@ void doSpawn (obj_id self)
 	{
 		debugServerConsoleMsg (self, "droid_spawner couldn't find a good location!");
 		return;
-	}	
+	}
+	*/	
 	
 	string spawn = npcToSpawn();
-	obj_id npc = create.object (spawn, here);
+	obj_id npc = create.object (spawn, me);
 	attachScript (npc, "city.droid_wander");
 	
 	setInvulnerable(npc, true);
