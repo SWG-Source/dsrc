@@ -28,8 +28,9 @@ trigger OnInitialize ()
 	}
 
 	behindBar = new location (8.54f, -0.89f, 0.14f, planet, cantina);
-	obj_id bartender = create.staticObject ("bartender", behindBar);
+	obj_id bartender = create.object ("bartender", behindBar);
 	setYaw (bartender, 87);
+	setCreatureStatic (bartender, true);
 	setInvulnerable(bartender, true);
 	ai_lib.setDefaultCalmBehavior( self, ai_lib.BEHAVIOR_SENTINEL );
 
