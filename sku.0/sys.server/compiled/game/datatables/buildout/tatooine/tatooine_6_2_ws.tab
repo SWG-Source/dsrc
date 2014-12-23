@@ -40,7 +40,49 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1033375	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	1320.15	5	1629.48	0.858528	0	-0.512767	0		$|
 1033376	0	object/static/structure/tatooine/wall_damaged_tatooine_large_style_01.iff	0	1392.17	3.02175	1643.47	0.786918	0	0.617057	0		$|
 1033377	0	object/static/structure/tatooine/wall_damaged_tatooine_large_style_01.iff	0	1400.04	3.02175	1645.89	-0.620985	0	0.783823	0		$|
-1082874	0	object/building/tatooine/cantina_tatooine.iff	0	1384.35	5	1325.87	0.945266	0	0.326302	0	theme_park.tatooine.mos_eisley.masterspawner:planet_map.map_loc:structure.municipal.cantina:event.bh_event.cantina_controller	healing.canhealshock|0|1|safeLogout|0|1|$|
+1082874	0	object/building/tatooine/cantina_tatooine.iff	0	1384.35	5	1325.87	0.945266	0	0.326302	0	theme_park.tatooine.mos_eisley.masterspawner:planet_map.map_loc:structure.municipal.cantina:event.bh_event.cantina_controller	healing.canhealshock|0|1|safeLogout|0|1|portalLayoutCrc|0|-2144786586|$|
+1082875	1082874	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1082876	1082874	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1082877	1082874	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+1082878	1082874	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+1082879	1082874	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+509457808	1082879	object/tangible/collection/hanging_light_02_01.iff	5	17.84	2.78	19.07	0	0	1	0	systems.collections.consume_click	collection.slotName|4|col_hanging_light_02:hanging_light_02_01|$|
+1082880	1082874	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+609457625	1082880	object/tangible/collection/col_ent_instrument_02.iff	6	5.38	-0.59	-18.64	-0.51	0	0.83	-0.18	systems.collections.consume_click	collection.slotName|4|col_entertainer_instrument_01:ent_instrument_02|$|
+1082881	1082874	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
+1082882	1082874	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
+1082883	1082874	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
+1082884	1082874	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
+1082885	1082874	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
+1082886	1082874	object/cell/cell.iff	12	0	0	0	0	0	0	0		$|
+3355773	1082886	object/static/item/item_scrolling_screen.iff	12	-22.12	1.48	26.97	0.72	0	0.69	0		$|
+3355774	1082886	object/static/item/item_tech_console_sectional_b.iff	12	-32.92	-0.89	18.19	1	0	0	0		$|
+3355775	1082886	object/static/item/item_tech_console_sectional_c.iff	12	-15.45	-0.89	22.06	0	0	1	0		$|
+3355776	1082886	object/static/item/item_tech_console_sectional_c.iff	12	-19.42	-0.89	26.95	0.71	0	-0.71	0		$|
+3355778	1082886	object/static/item/item_tapestry_tatooine.iff	12	-21.75	-0.89	12.40	0	0	1	0		$|
+3355779	1082886	object/static/item/item_scrolling_screen.iff	12	-21.91	1.87	12.27	0	0	1	0		$|
+3355780	1082886	object/static/item/item_scrolling_screen.iff	12	-21.92	1.86	15.24	0	0	1	0		$|
+3355781	1082886	object/static/structure/general/streetlamp_small_blue_style_01.iff	12	-20.95	3.53	14.29	0	0	0	1		$|
+3355782	1082886	object/static/item/item_con_barrel_lg_s1.iff	12	-21.11	-0.89	16.73	0.46	0	0.89	0		$|
+3355783	1082886	object/static/item/item_con_bag_ingredients_lg_s1.iff	12	-20.62	-0.89	17.26	-0.40	0	0.92	0		$|
+3355784	1082886	object/static/item/item_con_barrel_lg_s1.iff	12	-20.82	-0.89	17.98	-0.04	0	1	0		$|
+3355785	1082886	object/tangible/furniture/cheap/chair_s01.iff	12	-18.77	-0.89	25.03	-0.27	0	0.96	0		$|
+3355786	1082886	object/tangible/furniture/cheap/chair_s01.iff	12	-17.60	-0.89	22.31	0.93	0	0.38	0		$|
+3355787	1082886	object/tangible/furniture/cheap/cabinet_s01.iff	12	-15.90	-0.89	24.03	0.75	0	-0.66	0	name.name	$|
+5566052	1082886	object/static/structure/general/data_terminal_wall_s3.iff	12	-22.18	-0.89	26.04	1	0	-0.01	0		$|
+5566049	1082886	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	12	-21.2103	-0.895	24.3324	-0.1012	0	0.9949	0	space.content_tools.npc_spawner	$|
+1082887	1082874	object/cell/cell.iff	13	0	0	0	0	0	0	0		$|
+8245397	1082887	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	13	-25.6775	-0.52	8.7737	1	0	-0.008	0	space.content_tools.npc_spawner	$|
+3355788	1082887	object/static/item/item_tech_console_sectional_d.iff	13	-22.84	-0.52	4.97	0	0	1	0		$|
+3355789	1082887	object/tangible/furniture/cheap/chair_s01.iff	13	-26.76	-0.52	7.33	0.73	0	0.69	0		$|
+3355790	1082887	object/tangible/furniture/cheap/armoire_s01.iff	13	-32.46	-0.52	9.48	0.70	0	0.72	0	name.name	$|
+3355791	1082887	object/tangible/furniture/cheap/cabinet_s01.iff	13	-28.87	-0.52	5.41	-0.03	0	1	0	name.name	$|
+3355792	1082887	object/tangible/furniture/cheap/chest_s01.iff	13	-28.48	-0.52	14.62	1	0	0.02	0	name.name	$|
+3355793	1082887	object/tangible/furniture/cheap/couch_s01.iff	13	-32.29	-0.52	12.47	0.71	0	0.70	0		$|
+3355794	1082887	object/tangible/furniture/cheap/couch_s01.iff	13	-30.43	-0.52	14.41	1	0	0	0		$|
+3355795	1082887	object/tangible/furniture/cheap/coffee_table_s01.iff	13	-30.52	-0.52	12.78	1	0	-0.01	0		$|
+1082888	1082874	object/cell/cell.iff	14	0	0	0	0	0	0	0		$|
+1082889	1082874	object/cell/cell.iff	15	0	0	0	0	0	0	0		$|
 1095499	0	object/building/military/military_outpost_guard_house_imperial.iff	0	1852.24	180	1611.52	0.637152	0	0.770739	0		$|
 1095504	0	object/building/military/military_base_shed_imperial_style_01.iff	0	1821.88	179.827	1629.14	-0.0940645	0	0.995566	0		$|
 1095527	0	object/static/structure/general/poi_all_impl_corral_64x64_s02.iff	0	1755.8	179.999	1658.99	0.552863	0	0.833272	0		$|
@@ -82,6 +124,34 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1106346	0	object/building/tatooine/filler_building_tatt_style01_02.iff	0	1339.74	5	1258.36	0.94441	0	0.328769	0		$|
 1106352	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1316.02	5	1275.64	0.939373	0	0.342898	0		$|
 1106368	0	object/building/tatooine/starport_tatooine.iff	0	1570.98	5	1342.91	-0.700285	0	0.713864	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Eisley Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/mos_eisley_starport.iff|$|
+1106369	1106368	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+1106370	1106368	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+1106371	1106368	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+1106372	1106368	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+1279065	1106372	object/tangible/terminal/terminal_space.iff	4	0.19	0.64	61.87	0	0	1	0	space.terminal.terminal_space	$|
+1279066	1106372	object/tangible/terminal/terminal_space.iff	4	6.42	0.64	57.26	0.71	0	0.71	0	space.terminal.terminal_space	$|
+1279067	1106372	object/tangible/terminal/terminal_space.iff	4	-6.94	0.64	57.31	0.71	0	-0.70	0	space.terminal.terminal_space	$|
+4265836	1106372	object/tangible/terminal/terminal_newsnet.iff	4	15.47	0.64	54.39	-0.70	0	0.71	0	systems.gcw.newsnet_terminal:systems.gcw.gcw_data_updater	Imperial.controlScore|0|50|Rebel.controlScore|0|50|$|
+4265837	1106372	object/tangible/terminal/terminal_newsnet.iff	4	-1.26	0.64	48.11	0	0	1	0	systems.gcw.newsnet_terminal:systems.gcw.gcw_data_updater	Imperial.controlScore|0|50|Rebel.controlScore|0|50|$|
+9526238	1106372	object/soundobject/soundobject_starport_announcer.iff	4	-0.25	0.64	58.29	0	0	1	0		$|
+3795684	1106372	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	2.3281	0.6394	67.8972	0.384	0	0.9233	0	space.content_tools.npc_spawner	$|
+1106373	1106368	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+1106374	1106368	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+1106375	1106368	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
+1106376	1106368	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
+1106377	1106368	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
+4266021	1106377	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	9	-38.074	1.6394	60.7885	0.6637	0	0.748	0	space.content_tools.npc_spawner	$|
+1106378	1106368	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
+3795685	1106378	object/tangible/terminal/terminal_space.iff	10	-40.52	1.64	46.47	-0.05	0	1	0	space.terminal.terminal_space	$|
+3795686	1106378	object/tangible/terminal/terminal_space.iff	10	-37.92	1.64	49.19	-0.64	0	0.77	0	space.terminal.terminal_space	$|
+3795687	1106378	object/tangible/terminal/terminal_space.iff	10	-44.10	1.64	50.31	0.77	0	0.63	0	space.terminal.terminal_space	$|
+3795688	1106378	object/tangible/terminal/terminal_space.iff	10	-41.44	1.64	52.96	1	0	0.04	0	space.terminal.terminal_space	$|
+1106379	1106368	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
+1106380	1106368	object/cell/cell.iff	12	0	0	0	0	0	0	0		$|
+1106381	1106368	object/cell/cell.iff	13	0	0	0	0	0	0	0		$|
+1106382	1106368	object/cell/cell.iff	14	0	0	0	0	0	0	0		$|
+1106383	1106368	object/cell/cell.iff	15	0	0	0	0	0	0	0		$|
+1106384	1106368	object/cell/cell.iff	16	0	0	0	0	0	0	0		$|
 1106423	0	object/building/tatooine/filler_building_tatt_style01_01.iff	0	1452.66	5	1264.9	-0.331024	0	0.943622	0		$|
 1106435	0	object/static/structure/tatooine/jawa/tent_jawa_01_large.iff	0	1395.09	4.98634	1529.17	0.900447	0	0.434966	0		$|
 1106438	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1314.74	4.98979	1465.01	0.896052	0	0.443948	0		$|
@@ -1948,3 +2018,104 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7106288	0	object/static/structure/general/droid_r5_head.iff	0	1974.37	5	1390.11	1	0	0	0		$|
 7106289	0	object/static/structure/general/droid_r5_leg.iff	0	1973.71	5	1388.76	1	0	0	0		$|
 9655494	0	object/building/tatooine/hospital_tatooine_style02.iff	0	1481.21	5	1390.9	0.950796	0	0.309817	0		$|
+3355709	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1484.75	5	1349.90	-0.7003	0	0.7139	0	space.content_tools.npc_spawner	$|
+3355710	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1485.098	5	1331.45	-0.7038	0	0.7104	0	space.content_tools.npc_spawner	$|
+9655540	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1460.233	5	1443.25	0.9004	0	-0.435	0		$|
+9655539	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1457.119	5	1438.41	0.9026	0	-0.4305	0		$|
+9655538	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1443.656	5	1409.30	0.8938	0	-0.4484	0		$|
+9655537	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1320.408	5	1409.09	0.5817	0	0.8134	0		$|
+9655536	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1331.892	5	1426.31	0.8678	0	-0.4969	0		$|
+9655535	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1253.388	5	1536.77	0.8551	0	-0.5184	0		$|
+9655534	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1257.125	5	1542.28	0.8752	0	-0.4838	0		$|
+9655533	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1297.651	5	1617.34	0.8727	0	-0.4882	0		$|
+9655532	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1305.468	5	1629.41	0.8577	0	-0.5141	0		$|
+9655531	0	object/tangible/planet_map_location/city.iff	0	1480	5	1340	1	0	0	0		$|
+9655530	0	object/tangible/gcw/gcw_city_spawner.iff	0	1468	4	1336	1	0	0	0		$|
+9655508	0	object/tangible/poi/spawnegg/distant_ship_controller_spawnegg.iff	0	1357.19	5	1309.71	1	0	0	0		$|
+317556118	0	object/tangible/spawning/spawn_egg.iff	0	1372.996	5	1189.37	1	0	0	0	city.interior_3_convo	$|
+317556125	0	object/tangible/spawning/spawn_egg.iff	0	1372.736	5	1136.39	0.9998	0.0211	0	0	city.interior_2_convo	$|
+317556144	0	object/tangible/spawning/spawn_egg.iff	0	1198.132	4.037	1294.34	0.3827	0.0036	0.9238	-0.0087	city.interior_2_convo	$|
+317556155	0	object/tangible/spawning/spawn_egg.iff	0	1200.761	4.9251	1301.01	0.9996	-0.0288	0	0	city.interior_2_convo	$|
+3175561	0	object/tangible/poi/spawnegg/droid_spawnegg.iff	0	1414	4	1258	1	0	0	0		$|
+3175563	0	object/path_waypoint/path_waypoint_droid1.iff	0	1435	5	1270	1	0	0	0		$|
+3175565	0	object/path_waypoint/path_waypoint_droid2.iff	0	1362	5	1237	1	0	0	0		$|
+3175567	0	object/path_waypoint/path_waypoint_droid3.iff	0	1461	5	1307	1	0	0	0		$|
+3175569	0	object/path_waypoint/path_waypoint_droid4.iff	0	1426	4	1280	1	0	0	0		$|
+3175571	0	object/path_waypoint/path_waypoint_droid5.iff	0	1401	4	1251	1	0	0	0		$|
+3175573	0	object/path_waypoint/path_waypoint_droid6.iff	0	1396	4.4	1221	1	0	0	0		$|
+3175575	0	object/tangible/poi/spawnegg/droid_spawnegg.iff	0	1273	4	1337	1	0	0	0		$|
+3175577	0	object/path_waypoint/path_waypoint_droid1.iff	0	1244	4	1303	1	0	0	0		$|
+3175579	0	object/path_waypoint/path_waypoint_droid2.iff	0	1266	4	1321	1	0	0	0		$|
+3175581	0	object/path_waypoint/path_waypoint_droid3.iff	0	1261	5	1343	1	0	0	0		$|
+3175583	0	object/path_waypoint/path_waypoint_droid4.iff	0	1268	5	1359	1	0	0	0		$|
+3175585	0	object/path_waypoint/path_waypoint_droid5.iff	0	1288	4	1374	1	0	0	0		$|
+3175587	0	object/path_waypoint/path_waypoint_droid6.iff	0	1308	5	1402	1	0	0	0		$|
+3175589	0	object/tangible/poi/spawnegg/guard_spawnegg.iff	0	1210	5	1594	1	0	0	0		$|
+3175591	0	object/path_waypoint/path_waypoint_patrol1.iff	0	1184	4	1611	1	0	0	0		$|
+3175593	0	object/path_waypoint/path_waypoint_patrol2.iff	0	1150	5	1559	1	0	0	0		$|
+3175595	0	object/path_waypoint/path_waypoint_patrol3.iff	0	1278	5	1127	1	0	0	0		$|
+3175597	0	object/path_waypoint/path_waypoint_patrol4.iff	0	1239	6	1686	1	0	0	0		$|
+3175599	0	object/path_waypoint/path_waypoint_patrol5.iff	0	1182	5	1655	1	0	0	0		$|
+3175601	0	object/path_waypoint/path_waypoint_patrol6.iff	0	1138	5	1585	1	0	0	0		$|
+3175603	0	object/tangible/poi/spawnegg/guard_spawnegg.iff	0	1297	5	1106	1	0	0	0		$|
+3175605	0	object/path_waypoint/path_waypoint_patrol1.iff	0	1325	5	1082	1	0	0	0		$|
+3175607	0	object/path_waypoint/path_waypoint_patrol2.iff	0	1412	5	1031	1	0	0	0		$|
+3175609	0	object/path_waypoint/path_waypoint_patrol3.iff	0	1278	5	1127	1	0	0	0		$|
+3175611	0	object/path_waypoint/path_waypoint_patrol4.iff	0	1214	5	1173	1	0	0	0		$|
+3175613	0	object/path_waypoint/path_waypoint_patrol5.iff	0	1233	5	1132	1	0	0	0		$|
+3175615	0	object/path_waypoint/path_waypoint_patrol6.iff	0	1318	5	1068	1	0	0	0		$|
+3175617	0	object/path_waypoint/path_waypoint_city1.iff	0	1279	4	1524	1	0	0	0		$|
+3175619	0	object/path_waypoint/path_waypoint_city2.iff	0	1279	4	1512	1	0	0	0		$|
+3175621	0	object/path_waypoint/path_waypoint_city3.iff	0	1294	4	1497	1	0	0	0		$|
+3175623	0	object/path_waypoint/path_waypoint_city4.iff	0	1307	4	1504	1	0	0	0		$|
+3175625	0	object/path_waypoint/path_waypoint_city5.iff	0	1312	4	1494	1	0	0	0		$|
+3175627	0	object/path_waypoint/path_waypoint_city6.iff	0	1318	4	1480	1	0	0	0		$|
+3175629	0	object/path_waypoint/path_waypoint_city1.iff	0	1307	4	1395	1	0	0	0		$|
+3175631	0	object/path_waypoint/path_waypoint_city2.iff	0	1320	4	1397	1	0	0	0		$|
+3175633	0	object/path_waypoint/path_waypoint_city3.iff	0	1327	4	1406	1	0	0	0		$|
+3175635	0	object/path_waypoint/path_waypoint_city4.iff	0	1350	4	1417	1	0	0	0		$|
+3175637	0	object/path_waypoint/path_waypoint_city5.iff	0	1355	4	1426	1	0	0	0		$|
+3175639	0	object/path_waypoint/path_waypoint_city6.iff	0	1335	4	1393	1	0	0	0		$|
+3175641	0	object/path_waypoint/path_waypoint_city1.iff	0	1475	4	1353	1	0	0	0		$|
+3175643	0	object/path_waypoint/path_waypoint_city2.iff	0	1463	4	1339	1	0	0	0		$|
+3175645	0	object/path_waypoint/path_waypoint_city3.iff	0	1453	5	1347	1	0	0	0		$|
+3175647	0	object/path_waypoint/path_waypoint_city4.iff	0	1441	4	1355	1	0	0	0		$|
+3175649	0	object/path_waypoint/path_waypoint_city5.iff	0	1452	4	1369	1	0	0	0		$|
+3175651	0	object/path_waypoint/path_waypoint_city6.iff	0	1479	4	1361	1	0	0	0		$|
+3175653	0	object/path_waypoint/path_waypoint_city1.iff	0	1388	5	1194	1	0	0	0		$|
+3175655	0	object/path_waypoint/path_waypoint_city2.iff	0	1398	4	1197	1	0	0	0		$|
+3175657	0	object/path_waypoint/path_waypoint_city3.iff	0	1407	4	1201	1	0	0	0		$|
+3175659	0	object/path_waypoint/path_waypoint_city4.iff	0	1409	4	1215	1	0	0	0		$|
+3175661	0	object/path_waypoint/path_waypoint_city5.iff	0	1403	4	1221	1	0	0	0		$|
+3175663	0	object/path_waypoint/path_waypoint_city6.iff	0	1400	4	1209	1	0	0	0		$|
+3175665	0	object/tangible/poi/spawnegg/jawa_spawnegg.iff	0	1340	4	1165	1	0	0	0		pop|0|3|$|
+3175667	0	object/path_waypoint/path_waypoint_jawa1.iff	0	1317	5	1143	1	0	0	0		$|
+3175669	0	object/path_waypoint/path_waypoint_jawa2.iff	0	1356	4	1194	1	0	0	0		$|
+3175671	0	object/path_waypoint/path_waypoint_jawa3.iff	0	1355	4	1220	1	0	0	0		$|
+3175673	0	object/path_waypoint/path_waypoint_jawa4.iff	0	1421	4	1283	1	0	0	0		$|
+3175675	0	object/path_waypoint/path_waypoint_jawa5.iff	0	1437	5	1302	1	0	0	0		$|
+3175677	0	object/path_waypoint/path_waypoint_jawa6.iff	0	1422	4	1274	1	0	0	0		$|
+3175679	0	object/tangible/poi/spawnegg/jawa_spawnegg.iff	0	1676	4	1327	1	0	0	0		pop|0|3|$|
+3175681	0	object/path_waypoint/path_waypoint_jawa1.iff	0	1686	4	1288	1	0	0	0		$|
+3175683	0	object/path_waypoint/path_waypoint_jawa2.iff	0	1687	4	1386	1	0	0	0		$|
+3175685	0	object/path_waypoint/path_waypoint_jawa3.iff	0	1654	4	1391	1	0	0	0		$|
+3175687	0	object/path_waypoint/path_waypoint_jawa4.iff	0	1656	5	1357	1	0	0	0		$|
+3175689	0	object/path_waypoint/path_waypoint_jawa5.iff	0	1655	4	1294	1	0	0	0		$|
+3175691	0	object/path_waypoint/path_waypoint_jawa6.iff	0	1673	4	1337	1	0	0	0		$|
+3175693	0	object/tangible/poi/spawnegg/jawa_spawnegg.iff	0	1578	5	1410	1	0	0	0		pop|0|3|$|
+3175695	0	object/path_waypoint/path_waypoint_jawa1.iff	0	1640	4	1406	1	0	0	0		$|
+3175697	0	object/path_waypoint/path_waypoint_jawa2.iff	0	1544	4	1417	1	0	0	0		$|
+3175699	0	object/path_waypoint/path_waypoint_jawa3.iff	0	1521	4	1424	1	0	0	0		$|
+3175701	0	object/path_waypoint/path_waypoint_jawa4.iff	0	1549	5	1408	1	0	0	0		$|
+3175703	0	object/path_waypoint/path_waypoint_jawa5.iff	0	1611	4	1401	1	0	0	0		$|
+3175705	0	object/path_waypoint/path_waypoint_jawa6.iff	0	1639	5	1421	1	0	0	0		$|
+3175707	0	object/tangible/poi/spawnegg/jawa_spawnegg.iff	0	1434	4	1596	1	0	0	0		pop|0|3|$|
+3175709	0	object/path_waypoint/path_waypoint_jawa1.iff	0	1417	5	1624	1	0	0	0		$|
+3175711	0	object/path_waypoint/path_waypoint_jawa2.iff	0	1440	4	1576	1	0	0	0		$|
+3175713	0	object/path_waypoint/path_waypoint_jawa3.iff	0	1443	4	1548	1	0	0	0		$|
+3175715	0	object/path_waypoint/path_waypoint_jawa4.iff	0	1482	5	1530	1	0	0	0		$|
+3175717	0	object/path_waypoint/path_waypoint_jawa5.iff	0	1482	5	1573	1	0	0	0		$|
+3175719	0	object/path_waypoint/path_waypoint_jawa6.iff	0	1464	5	1622	1	0	0	0		$|
+3175721	0	object/tangible/poi/tatooine/poi_city_jawa_convo.iff	0	1438.012	5	1259.27	0.7071	0	0.7071	0		$|
+3175723	0	object/tangible/poi/tatooine/poi_city_jawa_convo.iff	0	1422.218	5	1225.41	0.7071	0	0.7071	0		$|
+3175725	0	object/tangible/poi/tatooine/poi_city_jawa_convo.iff	0	1616.993	5	1292.38	0.9841	0	-0.1775	0		$|
