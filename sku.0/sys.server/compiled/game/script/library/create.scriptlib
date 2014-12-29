@@ -867,7 +867,9 @@ void initializeCreature( obj_id creature, string creatureName, dictionary creatu
 	{
 		float runSpeed = ai_lib.AI_MAX_MOVEMENT_SPEED * aiGetMovementSpeedPercent(creature);
 		runSpeed *= speedMod;
+		float walkSpeed = 2.0f;
 		setBaseRunSpeed(creature, runSpeed);
+		setBaseWalkSpeed(creature, walkSpeed);
 
 		// Never let an ai walk at a speed faster than it can run
 		{
