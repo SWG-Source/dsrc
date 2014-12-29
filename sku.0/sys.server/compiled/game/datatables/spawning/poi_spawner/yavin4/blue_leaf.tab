@@ -10,7 +10,7 @@ kliknik_dark_worker		hall1	12.5730257	-37.29761124	12.51937771	0	theme_park.dung
 kliknik_dark_worker		hall1	-13.11076164	-37.29759979	13.07686329	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_dark_defender		hall1	1.82397294	-37.29759216	-22.0556488	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_dark_defender		hall1	1.82397294	-37.29759216	-22.0556488	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
-kliknik_dark_queen		hall1	-0.140134007	-37.29758835	-28.99586296	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
+kliknik_dark_queen		hall1	-0.140134007	-37.29758835	-28.99586296	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=1					
 kliknik_dark_warrior		hall1	-7.336737156	-37.29759979	-16.34211731	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_dark_warrior		hall1	-13.63473415	-1.297600985	24.34264183	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_dark_warrior		hall1	12.87083626	-1.297600985	24.98043442	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
