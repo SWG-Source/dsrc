@@ -24,7 +24,7 @@ const string_id SID_SHIPPING_OPTIONS           = new string_id("terminal_ui", "s
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
  int mnu = mi.addRootMenu (menu_info_types.SERVER_SHIPPING_OPTIONS, SID_SHIPPING_OPTIONS);
- return SCRIPT_CONTINUE;
+ return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)

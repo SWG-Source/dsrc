@@ -38,7 +38,7 @@ trigger OnInitialize()
 {
 	destroyObject(self);
 	
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 // INSURANCE IS NO MORE, THIS SCRIPT SHOULD NO LONGER BE USED
@@ -46,18 +46,18 @@ trigger OnInitialize()
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
 	if (isMob(self))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 		
 	menu_info_data mid = mi.getMenuItemByType(menu_info_types.ITEM_USE);
 	if ( mid == null )
 	{
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	}
 
 	int mnu = mid.getId();
 	int sub_insure_all = mi.addSubMenu(mnu, menu_info_types.SERVER_MENU1, SID_MNU_INSURE_ALL);
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)

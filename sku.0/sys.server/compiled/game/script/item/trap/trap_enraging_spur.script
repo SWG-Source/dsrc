@@ -61,13 +61,13 @@ trigger OnAttach()
 messageHandler trapHit()
 {
 	if ( params == null )
-		return SCRIPT_CONTINUE;
+		return super.trapHit(self, params);
 
 	obj_id target = params.getObjId( "target" );
 	if ( (target == null) || (target == obj_id.NULL_ID) )
-		return SCRIPT_CONTINUE;
+		return super.trapHit(self, params);
 	if ( !ai_lib.isMonster( target ) || isIncapacitated( target ) || isDead( target ) )
-		return SCRIPT_CONTINUE;
+		return super.trapHit(self, params);
 
 	// Get player.
 	obj_id player = params.getObjId( "player" );
@@ -77,7 +77,7 @@ messageHandler trapHit()
 	{
 		prose_package pp = prose.getPackage( SID_NO_EFFECT, target );
 		sendSystemMessageProse( player, pp );
-		return SCRIPT_CONTINUE;
+		return super.trapHit(self, params);
 	}
 	prose_package pp = prose.getPackage( SID_SYS_EFFECT, target );
 	sendSystemMessageProse( player, pp );
@@ -111,6 +111,6 @@ messageHandler trapHit()
 	float chance = params.getFloat( "chance" );
 	grantTrapXP( player, target, 1.15f );
 
-	return SCRIPT_CONTINUE;
+	return super.trapHit(self, params);
 }
 

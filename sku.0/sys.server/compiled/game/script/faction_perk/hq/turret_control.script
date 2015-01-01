@@ -47,7 +47,7 @@ trigger OnInitialize()
 		utils.removeScriptVar(self, "sui.in_use");
 
 	messageTo (self, "handleSetControl", null, 5f, false);
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 trigger OnTriggerVolumeExited(string volName, obj_id who)
@@ -116,11 +116,11 @@ messageHandler handleSetControl()
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
 	if (isDead(player) || isIncapacitated(player))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 
 	obj_id structure = player_structure.getStructure(player);
 	if ( !isIdValid(structure) )
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 
 	if(utils.hasScriptVar(self, "sui.in_use"))
 	{
@@ -130,7 +130,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 			if (oldPlayer.isLoaded())
 			{
 				sendSystemMessage(player, IN_USE);
-				return SCRIPT_CONTINUE;
+				return super.OnObjectMenuRequest(self, player, mi);
 			}
 			else
 			{
@@ -145,13 +145,13 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		if ( pvpGetType(player) != PVPTYPE_DECLARED )
 		{
 			sendSystemMessage(player, DECLARED_ONLY);
-			return SCRIPT_CONTINUE;
+			return super.OnObjectMenuRequest(self, player, mi);
 		}
 		 */
 		if (factions.isOnLeave(player))
 		{
 			sendSystemMessage(player, DECLARED_ONLY);
-			return SCRIPT_CONTINUE;
+			return super.OnObjectMenuRequest(self, player, mi);
 		}
 
 	}
@@ -162,13 +162,13 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		if (rank < 4 )
 		{
 			sendSystemMessage(player, ADMIN_ONLY);
-			return SCRIPT_CONTINUE;
+			return super.OnObjectMenuRequest(self, player, mi);
 		}
 	}
 
 	int mnuControl = mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_TURRET_CONTROL);
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)

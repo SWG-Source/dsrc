@@ -442,7 +442,7 @@ trigger OnInitialize()
 	
 	if(hasObjVar(controller, vendor_lib.GREETER_CONVERSE) && getBooleanObjVar(controller, vendor_lib.GREETER_CONVERSE) == true)
 		messageTo(self, "handleConverseWithOtherGreeter", null, GREETER_CONVERSATION_LOOP_TIME, false);
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 trigger OnGiveItem(obj_id item, obj_id player)
@@ -459,22 +459,22 @@ trigger OnObjectMenuRequest( obj_id player, menu_info mi )
 	blog("vendor.greeter.OnObjectMenuRequest init");
 	obj_id ownerId = getOwner(self);
 	if(!isValidId(ownerId) || !exists(ownerId))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 		
 	blog("vendor.greeter.OnObjectMenuRequest Owner received");
 	
 	obj_id pInv = utils.getInventoryContainer(player);
 	if(!isValidId(pInv) || !exists(pInv))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	if(player != ownerId)
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 
 	if(!hasObjVar(self, vendor_lib.CNTRLR_GREETER_NONVENDOR_ID_OBJVAR)) 
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	
 	obj_id controller = getObjIdObjVar(self, vendor_lib.CNTRLR_GREETER_NONVENDOR_ID_OBJVAR);
 	if(!isValidId(controller) || !exists(controller))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 
 	blog("vendor.greeter.OnObjectMenuRequest validation complete, controller ID received");
 	
@@ -483,7 +483,7 @@ trigger OnObjectMenuRequest( obj_id player, menu_info mi )
 	{
 		// A person who is NOT our owner and is NOT a god has us in their inventory.  BAD!
 		messageTo(self, "handleDestroyGreeter", null, 0, false );
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	}	
 	//check for other greeters in area
 	conversableGreeterInRange(self);
@@ -505,7 +505,7 @@ trigger OnObjectMenuRequest( obj_id player, menu_info mi )
 	mi.addRootMenu(menu_info_types.SERVER_MENU2, SID_REMOVE_GREETER);
 	blog("vendor.greeter.OnObjectMenuRequest Menu created");
 	
-	return SCRIPT_CONTINUE;		
+	return super.OnObjectMenuRequest(self, player, mi);		
 }
 
 //------------------------------------------------

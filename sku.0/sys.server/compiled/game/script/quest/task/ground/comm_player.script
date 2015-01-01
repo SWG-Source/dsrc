@@ -17,10 +17,11 @@ const String taskType = "comm_player";
 //fires when this task is added to the player
 trigger OnTaskActivated(int questCrc, int taskId)
 {
+
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskActivated", taskType + " task activated.");
 	//instantly complete
 	questCompleteTask(questCrc, taskId, self);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskActivated(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -39,7 +40,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 
 	commPlayer(self, self, pp, appearance);	
 
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCompleted(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -48,7 +49,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 trigger OnTaskFailed(int questCrc, int taskId)
 {
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskFailed", taskType + " task failed.");
-	return SCRIPT_CONTINUE;
+	return super.OnTaskFailed(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -57,7 +58,7 @@ trigger OnTaskFailed(int questCrc, int taskId)
 trigger OnTaskCleared(int questCrc, int taskId)
 {
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskCleared", taskType + " task cleared.");
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCleared(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------

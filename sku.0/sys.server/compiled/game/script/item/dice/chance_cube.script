@@ -40,7 +40,7 @@ trigger OnInitialize()
 {
     debug.debugAllMsg("DEBUG", self, "##########chance_cube initialized##############");
 	setObjVar(self, DICE_TYPE_NAME, TYPE_NAME);
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 
 }//OnInitialize
 
@@ -72,7 +72,7 @@ trigger OnDetach()
 {
 	debug.debugAllMsg("DEBUG", self, "##########chance script detached##############");
 
-	return SCRIPT_CONTINUE;
+	return super.OnDetach(self);
 
 }//OnDetach
 

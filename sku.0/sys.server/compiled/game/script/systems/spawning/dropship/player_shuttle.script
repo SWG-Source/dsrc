@@ -5,7 +5,7 @@ inherits systems.spawning.dropship.base;
 
 trigger OnAttach()
 {
-	return SCRIPT_CONTINUE;
+	return super.OnAttach(self);
 }
 
 messageHandler landShuttle()

@@ -33,18 +33,18 @@ const string_id SID_MNU_REPAIR_ALL     		= new string_id("sui", "mnu_repair_all"
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
 	if (isMob(self))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 		
 	menu_info_data mid = mi.getMenuItemByType(menu_info_types.ITEM_USE);
 	if ( mid == null )
 	{
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	}
 
 	int mnu = mid.getId();
 	int repair_all = mi.addSubMenu(mnu, menu_info_types.SERVER_MENU1, SID_MNU_REPAIR_ALL);
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)

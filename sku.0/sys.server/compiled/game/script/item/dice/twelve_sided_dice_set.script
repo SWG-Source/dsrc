@@ -42,7 +42,7 @@ trigger OnInitialize()
 	setObjVar(self, VAR_FACE_COUNT, FACE_COUNT);
 	setObjVar(self, VAR_DICE_COUNT, DEFAULT_DICE_COUNT);
 	setObjVar(self, DICE_TYPE_NAME, TYPE_NAME);
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 
 }//OnInitialize
 
@@ -82,7 +82,7 @@ messageHandler roll()
 trigger OnDetach()
 {
 	debug.debugAllMsg("DEBUG", self, "##########twelve sided dice script detached##############");
-	return SCRIPT_CONTINUE;
+	return super.OnDetach(self);
 
 }//OnDetach
 

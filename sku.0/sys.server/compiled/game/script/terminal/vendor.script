@@ -99,7 +99,7 @@ trigger OnInitialize()
 	// Update our access fee.
 	updateAccessFee( self );
 
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 //------------------------------------------------
@@ -289,7 +289,7 @@ trigger OnObjectMenuRequest( obj_id player, menu_info mi )
 		// Only show these options if the vendor is placed.
 		obj_id inventory = getObjectInSlot( player, "inventory" );
 		if ( contains( inventory, self ) )
-			return SCRIPT_CONTINUE;
+			return super.OnObjectMenuRequest(self, player, mi);
 
 		int menu = mi.addRootMenu( menu_info_types.SERVER_MENU1, SID_VENDOR_CONTROL );
 
@@ -369,11 +369,11 @@ trigger OnObjectMenuRequest( obj_id player, menu_info mi )
 			// Destroy us.
 			destroyObject( self );
 
-			return SCRIPT_CONTINUE;
+			return super.OnObjectMenuRequest(self, player, mi);
 		}
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 //------------------------------------------------

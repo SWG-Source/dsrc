@@ -20,14 +20,14 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	
 	if(!isIdValid(player))
 	{
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	}
 
 	if(checkLocation(self, player))
 	{
 		int startArmorSwap = mi.addRootMenu(menu_info_types.ITEM_USE, SID_VAC_ARMOR);
 	}
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 //If the armor swap option is called from the radial, check location again and get a list of varactyle mounts in the 
