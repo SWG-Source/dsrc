@@ -23,7 +23,7 @@ const string_id SID_BAZAAR_OPTIONS           = new string_id("terminal_ui", "baz
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
- return SCRIPT_CONTINUE;
+ return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)
@@ -41,7 +41,7 @@ trigger OnInitialize()
 {
 	setOwner (self, self);
 	attachScript(self, "planet_map.map_loc_attach");
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 /***** FUNCTIONS *******************************************************/

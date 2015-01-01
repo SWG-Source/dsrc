@@ -29,7 +29,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		mi.addRootMenu(menu_info_types.ITEM_USE, new string_id("",""));
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 /***** FUNCTIONS *******************************************************/

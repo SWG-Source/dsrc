@@ -43,7 +43,7 @@ trigger OnInitialize()
 	setObjVar(self, VAR_DICE_COUNT, DEFAULT_DICE_COUNT);
 	setObjVar(self, DICE_TYPE_NAME, TYPE_NAME);
 
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 
 }//OnInitialize
 
@@ -84,7 +84,7 @@ trigger OnDetach()
 {
 	debug.debugAllMsg("DEBUG", self, "##########six sided dice script detached##############");
 
-	return SCRIPT_CONTINUE;
+	return super.OnDetach(self);
 
 }//OnDetach
 

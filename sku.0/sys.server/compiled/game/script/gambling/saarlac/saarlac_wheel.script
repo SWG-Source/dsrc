@@ -107,7 +107,7 @@ trigger OnInitialize()
 {
 	reseed(getGameTime());
 	
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 

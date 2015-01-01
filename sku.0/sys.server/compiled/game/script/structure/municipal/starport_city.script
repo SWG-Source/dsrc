@@ -17,7 +17,7 @@ trigger OnAttach()
 {
 	messageTo( self, "setupStartport", null, 1.f, false );
 
-	return SCRIPT_CONTINUE;
+	return super.OnAttach(self);
 }
 
 trigger OnInitialize()
@@ -29,11 +29,11 @@ trigger OnInitialize()
 	int travel_cost = travel.getTravelCost( self );
 
 	if ( travel_point == null || travel_cost == -1 )
-		return SCRIPT_CONTINUE;
+		return super.OnInitialize(self);
 
 	travel.initializeStarport( self, travel_point, travel_cost, true );
 
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 messageHandler setupStartport()
@@ -82,5 +82,5 @@ trigger OnDestroy()
 	if ( initd )
 		city.removeStarport( self );
 
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }

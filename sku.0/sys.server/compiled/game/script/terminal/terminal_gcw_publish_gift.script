@@ -117,12 +117,12 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		if(utils.isNestedWithinAPlayer(self) && getTemplateName(self).equals(WAR_TERMINAL_TEMPLATE))
 		{
 			sendSystemMessage(player, SID_IN_HOUSE_ONLY);
-			return SCRIPT_CONTINUE;
+			return super.OnObjectMenuRequest(self, player, mi);
 		}
 		else if(!utils.isNestedWithinAPlayer(self) && getTemplateName(self).equals(WAR_INTELPAD_TEMPLATE))
 		{
 			sendSystemMessage(player, SID_IN_INVENTORY_ONLY);
-			return SCRIPT_CONTINUE;
+			return super.OnObjectMenuRequest(self, player, mi);
 		}
 	}
 
@@ -137,7 +137,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 
 	updateGCWInfo(self);
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 //If the player is in god mode the player can use the terminal in their

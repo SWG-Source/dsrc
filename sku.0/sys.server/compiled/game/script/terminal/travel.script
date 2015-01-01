@@ -24,7 +24,7 @@ const string_id SID_TRAVEL_OPTIONS           = new string_id("terminal_ui", "tra
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
  int mnu = mi.addRootMenu (menu_info_types.SERVER_TRAVEL_OPTIONS, SID_TRAVEL_OPTIONS);
- return SCRIPT_CONTINUE;
+ return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)

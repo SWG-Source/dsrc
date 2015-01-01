@@ -78,7 +78,7 @@ trigger OnInitialize()
 	obj_id city_hall = getTopMostContainer(self);
 	messageTo(city_hall, "registerVoteTerminal", outparams, 0.f, true);
 
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 
@@ -185,7 +185,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	if(isGod(player))
 		mi.addSubMenu(menu, menu_info_types.SERVER_MENU6, SID_RESET_VOTING);
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 //------------------------------------------------

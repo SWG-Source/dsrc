@@ -60,14 +60,14 @@ trigger OnAttach()
 messageHandler trapHit()
 {
 	if ( params == null )
-		return SCRIPT_CONTINUE;
+		return super.trapHit(self, params);
 
 	obj_id target = params.getObjId( "target" );
 	obj_id player = params.getObjId( "player" );
 	if ( (target == null) || (target == obj_id.NULL_ID) )
-		return SCRIPT_CONTINUE;
+		return super.trapHit(self, params);
 	if ( ai_lib.isNpc( target ) || ai_lib.isAndroid(target))
-		return SCRIPT_CONTINUE;
+		return super.trapHit(self, params);
 
 	// Hit message.
 	int hits = utils.getIntScriptVar( self, "hits" );
@@ -96,5 +96,5 @@ messageHandler trapHit()
 			startCombat( target, self );
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.trapHit(self, params);
 }

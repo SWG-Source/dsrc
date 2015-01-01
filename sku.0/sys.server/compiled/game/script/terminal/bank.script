@@ -47,7 +47,7 @@ const string_id SID_GALACTIC_RESERVE_WITHDRAW   = new string_id("sui", "bank_gal
 trigger OnInitialize()
 {
 	setObjVar(self, "banking_bankid", getCurrentSceneName());
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
@@ -57,7 +57,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	menu_info_data mid = mi.getMenuItemByType(menu_info_types.ITEM_USE);
 	if ( mid == null )
 	{
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	}
 
 	int mnu = mid.getId();
@@ -87,7 +87,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		mi.addSubMenu(galactic_reserve, menu_info_types.SERVER_MENU48, SID_GALACTIC_RESERVE_WITHDRAW);
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)

@@ -30,7 +30,7 @@ trigger OnDestroy()
 
 trigger OnInitialize()
 {
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
@@ -41,7 +41,7 @@ trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
 	menu_info_data data = mi.getMenuItemByType (menu_info_types.ITEM_USE);
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 

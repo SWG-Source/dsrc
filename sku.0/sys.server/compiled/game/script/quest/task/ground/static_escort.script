@@ -98,7 +98,7 @@ trigger OnTaskActivated(int questCrc, int taskId)
 	distanceCheckParams.put("taskId", taskId);
 	messageTo(self, "messageStaticEscortCheckDistance", distanceCheckParams, escortDistanceTimeCheck, false);
 	
-	return SCRIPT_CONTINUE;
+	return super.OnTaskActivated(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -192,7 +192,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskCompleted", taskType + " task completed.");
 
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCompleted(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -203,7 +203,7 @@ trigger OnTaskFailed(int questCrc, int taskId)
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskFailed", taskType + " task failed.");
 
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskFailed(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -214,7 +214,7 @@ trigger OnTaskCleared(int questCrc, int taskId)
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskCleared", taskType + " task cleared.");
 
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCleared(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------

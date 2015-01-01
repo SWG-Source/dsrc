@@ -31,5 +31,5 @@ trigger OnTaskActivated(int questCrc, int taskId)
 	params.put("questCrc", questCrc);
 	params.put("taskId", taskId);
 	messageTo(self, "completeDebugTask", params, 5.0f, false);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskActivated(self, questCrc, taskId);
 }

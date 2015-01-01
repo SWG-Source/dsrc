@@ -26,7 +26,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
  //int mnu = mi.addRootMenu (menu_info_types.SERVER_MISSION_OPTIONS, SID_MISSION_OPTIONS);
  int mnu = mi.addRootMenu (menu_info_types.MISSION_DETAILS, SID_MISSION_OPTIONS);
- return SCRIPT_CONTINUE;
+ return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)

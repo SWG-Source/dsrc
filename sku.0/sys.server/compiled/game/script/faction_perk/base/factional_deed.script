@@ -35,7 +35,7 @@ trigger OnObjectMenuSelect (obj_id player, int item)
 		}
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuSelect(self, player, item);
 }
 
 /***** FUNCTIONS *******************************************************/

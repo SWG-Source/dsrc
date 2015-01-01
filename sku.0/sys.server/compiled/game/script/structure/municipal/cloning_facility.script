@@ -31,7 +31,7 @@ const string DATATABLE_TERMINAL_LIST				= "datatables/structure/municipal/clonin
 trigger OnInitialize()
 {
 	messageTo( self, "handleTerminalSpawning", null, 5f, false );
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 trigger OnDetach()
@@ -44,7 +44,7 @@ trigger OnDetach()
 		messageTo(planet, "unregisterCloningFacility", params, 1.0f, false);
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnDetach(self);
 }
 
 

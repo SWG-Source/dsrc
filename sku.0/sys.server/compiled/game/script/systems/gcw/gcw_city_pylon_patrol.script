@@ -9,7 +9,7 @@ inherits systems.gcw.gcw_city_pylon;
 
 trigger OnAttach()
 {
-	return SCRIPT_CONTINUE;	
+	return super.OnAttach(self);
 }
 
 string getConstructionQuest()

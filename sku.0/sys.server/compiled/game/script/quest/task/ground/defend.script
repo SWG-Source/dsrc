@@ -62,7 +62,7 @@ trigger OnTaskActivated(int questCrc, int taskId)
 	distanceCheckParams.put(QUEST_CRC, questCrc);
 	distanceCheckParams.put(TASK_ID, taskId);
 	messageTo(self, "messageDefendCheckDistance", distanceCheckParams, DEFEND_DISTANCE_TIME_CHECK, false);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskActivated(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -296,7 +296,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 	}
 	
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCompleted(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -319,7 +319,7 @@ trigger OnTaskFailed(int questCrc, int taskId)
 	}
 	
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskFailed(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -342,7 +342,7 @@ trigger OnTaskCleared(int questCrc, int taskId)
 	}
 
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCleared(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------

@@ -52,7 +52,7 @@ trigger OnTaskActivated(int questCrc, int taskId)
 
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskActivated", "Must reach within " + sphereSize + " meters of " + locationX + ", " + locationY + ", " + locationZ + " on " + planetName + ".");
 
-	return SCRIPT_CONTINUE;
+	return super.OnTaskActivated(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -106,7 +106,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 {
 	cleanup(self, questCrc, taskId);
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskCompleted", taskType + "task completed.");
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCompleted(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -116,7 +116,7 @@ trigger OnTaskFailed(int questCrc, int taskId)
 {
 	cleanup(self, questCrc, taskId);
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskFailed", taskType + "task failed.");
-	return SCRIPT_CONTINUE;
+	return super.OnTaskFailed(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -125,7 +125,7 @@ trigger OnTaskCleared(int questCrc, int taskId)
 {
 	cleanup(self, questCrc, taskId);
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskCleared", taskType + " task cleared.");
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCleared(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
