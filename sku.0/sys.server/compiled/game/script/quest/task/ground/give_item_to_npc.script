@@ -7,10 +7,10 @@ const string_id noGiveDuringCombat = new string_id("quest/ground/system_message"
 
 trigger OnGiveItem (obj_id item, obj_id giver)
 {
-	if ( isGod(giver) )
+	/*if ( isGod(giver) )
 	{
 		debugSpeakMsg (giver, "The item is " + item);
-	}
+	}*/
 	string questName = getStringObjVar (self, "quest_name");
 	string taskName = getStringObjVar (self, "task_name");
 	string itemName = getTemplateName (item);
