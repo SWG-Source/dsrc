@@ -2,7 +2,7 @@ objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objv
 i	i	h	i	f	f	f	f	f	f	f	s	p
 1094937	0	object/static/structure/general/streetlamp_small_green_style_02.iff	0	701.616	4.92907	447.2	1	0	0	0		$|
 1179110	0	object/tangible/collection/scout_trooper_gloves.iff	0	1655.79	44.9563	1610.7	0.904752	0	0	-0.425939		$|
-1392907	0	object/building/military/military_base_shed_imperial_style_hospital_01.iff	0	1933	20	280	0.707107	0	-0.707106	0		$|
+1392907	0	object/building/military/military_base_shed_imperial_style_hospital_01.iff	0	1933	20	280	0.707107	0	-0.707106	0	planet_map.map_loc:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/talus_imp_outpost_med_facility.iff|planetMap.category|4|medicalcenter|healing.canhealwound|0|1|$|
 2735809	0	object/static/creature/droids_eg6.iff	0	1853.13	20	218.756	0.949235	0	0.314567	0		$|
 2735838	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	2008.91	20	253.837	0.758362	0	-0.651833	0		$|
 2735839	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1959.1	20	334.493	0.967663	0	0.252245	0		$|
@@ -36,7 +36,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4965407	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1962.07	20	281.506	0.882333	0	0.470626	0		$|
 4965409	0	object/building/military/small_imperial_cloning_facility_s02.iff	0	1904.79	20	304.496	0	0	1	0		$|
 4965416	0	object/building/military/military_base_shed_imperial_style_bank_s01.iff	0	1920.48	20	304.517	0	0	1	0		$|
-4965430	0	object/building/military/military_base_shed_imperial_style_officer_s01.iff	0	1912.71	20	216.363	0.99995	0	-0.01	0		$|
+4965430	0	object/building/military/military_base_shed_imperial_style_officer_s01.iff	0	1912.71	20	216.363	0.99995	0	-0.01	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/talus_imp_outpost_shed.iff|$|
 4965439	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1932.93	20	228.931	0.707109	0	-0.707104	0		$|
 4965460	0	object/static/structure/military/military_wall_strong_imperial_32_style_01.iff	0	1852.45	20	182.579	-0.593499	0	0.804835	0		$|
 4965461	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	1961.93	20	238.931	1	0	0	0		$|
