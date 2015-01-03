@@ -141,7 +141,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3235430	0	object/building/corellia/filler_slum_16x16_s01.iff	0	269.944	6	1270.53	0.712503	0	-0.70167	0		$|
 3235432	0	object/building/corellia/filler_slum_16x16_s01.iff	0	247.616	6	1271.08	0.701641	0	0.712531	0		$|
 3235434	0	object/building/corellia/filler_slum_16x32_s01.iff	0	221.121	6	1270.66	0.712543	0	-0.701628	0		$|
-3305352	0	object/building/corellia/hospital_corellia_s02.iff	0	316.49	6	1040.05	0.707108	0	0.707105	0		$|
+3305352	0	object/building/corellia/hospital_corellia_s02.iff	0	316.49	6	1040.05	0.707108	0	0.707105	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/talus_dearic_med_facility.iff|$|
 3305356	0	object/building/corellia/filler_slum_16x32_s02.iff	0	307.553	6	1075.08	0.70164	0	0.71253	0		$|
 3305360	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	422.581	6	1306.66	0.707108	0	-0.707105	0		$|
 3305367	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	304.339	6	1308.71	0.707108	0	0.707106	0		$|
@@ -974,7 +974,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6255433	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	718.992	6	1053	0.777573	0	0.628793	0		$|
 6255435	0	object/tangible/terminal/terminal_bazaar.iff	0	715.245	6	1047.09	0.707107	0	0.707106	0		$|
 6255461	0	object/tangible/terminal/terminal_mission_imperial.iff	0	241.911	6	1026.01	0	0	1	0		$|
-6255464	0	object/building/corellia/capitol_corellia.iff	0	685.653	5.90845	921.178	0.999987	0	-0.00499998	0		$|
+6255464	0	object/building/corellia/capitol_corellia.iff	0	685.653	5.90845	921.178	0.999987	0	-0.00499998	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/talus_dearic_capitol.iff|$|
 6415742	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	329.481	6	1150.21	0.707107	0	0.707106	0		$|
 6415744	0	object/tangible/terminal/terminal_mission_artisan.iff	0	329.228	6	1172.73	0.696421	0	0.717633	0		$|
 6415746	0	object/tangible/terminal/terminal_mission_scout.iff	0	329.43	6	1177.42	0.696421	0	0.717633	0		$|
