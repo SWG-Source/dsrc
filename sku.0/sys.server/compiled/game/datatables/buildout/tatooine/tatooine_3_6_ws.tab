@@ -908,7 +908,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3065352	0	object/building/tatooine/filler_building_tatt_style01_09.iff	0	1186.19	5	234.875	0.904072	0	-0.42738	0		$|
 3065354	0	object/building/tatooine/filler_building_tatt_style01_07.iff	0	1311.46	5	175.213	0.815854	0	0.578258	0		$|
 3065356	0	object/building/tatooine/filler_building_tatt_style01_08.iff	0	1270.67	5	154.171	0.249932	0	0.968264	0		$|
-3065358	0	object/building/tatooine/filler_building_tatt_style01_08.iff	0	1195.85	5	142.024	-0.0173889	0	0.999849	0		$|
+3065358	0	object/building/tatooine/filler_building_tatt_style01_08.iff	0	1195.85	5	142.024	-0.0173889	0	0.999849	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/tat_commoner.iff|$|
 3065360	0	object/building/tatooine/filler_building_block_64x32_style_01.iff	0	1300.55	5	233.524	-0.593819	0	0.804599	0		$|
 3065363	0	object/building/tatooine/filler_building_tatt_style01_06.iff	0	1268.48	5	259.568	0.983844	0	-0.17903	0		$|
 3065365	0	object/building/tatooine/filler_building_tatt_style01_10.iff	0	1229.49	5	128.294	0.110568	0	0.993869	0		$|
