@@ -1,4 +1,4 @@
-//            Filename:     shared_construction_player_tcg_relaxation_pool.tpf
+//            Filename:     
 //            Directory:    object/building/player/temp_struct
 //
 //            Description:
@@ -18,7 +18,7 @@
 
 @class tangible_object_template 5
 
-structureFootprintFileName = "footprint/building/player/shared_player_house_tcg_relaxation_pool.sfp"
+structureFootprintFileName = "footprint/building/player/shared_player_house_tcg_bespin_house.sfp"
 useStructureFootprintOutline = true
 
 targetable = true
