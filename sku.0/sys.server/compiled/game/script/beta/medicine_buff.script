@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        buff_medicine
  * Description:  creates a buff medicine.  For testing only.
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
@@ -14,9 +9,6 @@ include library.utils;
 include library.healing;
 include library.consumable;
 include library.player_stomach;
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnAttach()
@@ -66,11 +58,3 @@ trigger OnAttach()
 	return SCRIPT_CONTINUE;
 }
 
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

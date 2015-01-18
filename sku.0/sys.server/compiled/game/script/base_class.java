@@ -1,10 +1,6 @@
 /**
- * Title:        base_class
- * Description:  Base class for all scripts.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+ * File Name:        base_class
+ * Desc:  Base class for all scripts.
  */
 
 package script;
@@ -3557,7 +3553,6 @@ public class base_class
         \endcode
 
         @return The current server frame
-        @author Justin Randall
     */
     public static native int getServerFrame();
     /** @brief get the current (local) server time in seconds
@@ -4397,7 +4392,6 @@ public class base_class
 
         @return an integer describing the number of experience points of the
          requested type that the creature has
-        @author Justin Randall <jrandall@soe.sony.com>
      */
      private static native int _getExperiencePoints(long target, String experienceType);
      public static int getExperiencePoints(obj_id target, String experienceType)
@@ -4424,7 +4418,6 @@ public class base_class
         @param skillName   The skill to query for the command list
 
         @return An array of strings describing the list of commands provided.
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     public static native String[] getSkillCommandsProvided(String skillName);
 
@@ -4449,7 +4442,6 @@ public class base_class
 
         @return A dictionary of String/Integers describing the experience prerequisites for the
         requested skill.
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     public static native dictionary getSkillPrerequisiteExperience(String skillName);
 
@@ -4460,7 +4452,6 @@ public class base_class
 
         @return An array of strings enumerating the skill prerequisites that must be met before
         the requested skill may be granted to a creature.
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     public static native String[] getSkillPrerequisiteSkills(String skillName);
 
@@ -4470,7 +4461,6 @@ public class base_class
         @param skillName   The name of the skill to query for creature prerequisites
 
         @return A dictionary of Strings/Booleans. Todo: there is also a NOT/AND requirement to implement!
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     public static native dictionary getSkillPrerequisiteSpecies(String skillName);
 
@@ -4479,7 +4469,6 @@ public class base_class
         @param skillName   The name of the skill to query for the profession
 
         @return A string naming the profession that the requested skill belongs to
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     public static native String getSkillProfession(String skillName);
 
@@ -4490,7 +4479,6 @@ public class base_class
 
         @return A dictionary of Strings/Integers describing the stats and how they will be
         modified when the skill is applied to a creature.
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     public static native dictionary getSkillStatisticModifiers(String skillName);
 
@@ -4583,7 +4571,6 @@ public class base_class
         @return A String describing the title that is bestowed upon the creature having
         this skill.
         @todo this should be a string id
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     public static native String getSkillTitleGranted(String skillName);
 
@@ -4605,7 +4592,6 @@ public class base_class
        @param commandName    The command that the creature will have after the command executes
 
        @return True when the command is succesfully granted to the creature.
-        @author Justin Randall <jrandall@soe.sony.com>
      */
      private static native boolean _grantCommand(long target, String commandName);
      public static boolean grantCommand(obj_id target, String commandName)
@@ -4698,7 +4684,6 @@ public class base_class
         @param skillName     Name of the skill that is granted to the creature
 
         @return True if the skill has been successfuly granted to the creature.
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     private static native boolean _grantSkill(long target, String skillName);
     public static boolean grantSkill(obj_id target, String skillName)
@@ -4727,7 +4712,6 @@ public class base_class
         @param commandName  Command to query for on the creature
 
         @return True if the creature has the command
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     private static native boolean _hasCommand(long target, String commandName);
     public static boolean hasCommand(obj_id target, String commandName)
@@ -4754,7 +4738,6 @@ public class base_class
         @param skillName  Name of the skill to query for
 
         @return True if the player has the skill.
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     private static native boolean _hasSkill(long target, String skillName);
     public static boolean hasSkill(obj_id target, String skillName)
@@ -4776,7 +4759,6 @@ public class base_class
         @param target        Creature from whom the command is being revoked
         @param commandName   Name of the command to revoke from the creature
 
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     private static native void _revokeCommand(long target, String commandName);
     public static void revokeCommand(obj_id target, String commandName)
@@ -4791,7 +4773,6 @@ public class base_class
 
         @param target     Creature losing the skill
         @param skillName  Name of the skill to revoke
-        @author Justin Randall <jrandall@soe.sony.com>
     */
     private static native void _revokeSkill(long target, String skillName);
     public static void revokeSkill(obj_id target, String skillName)
@@ -4806,7 +4787,6 @@ public class base_class
 
         @param target     Creature losing the skill
         @param skillName  Name of the skill to revoke
-        @author Robert Sitton <rsitton@soe.sony.com>
     */
     private static native void _revokeSkillSilent(long target, String skillName);
     public static void revokeSkillSilent(obj_id target, String skillName)
@@ -4999,7 +4979,6 @@ public class base_class
 
         @see createToken(obj_id target)
 
-        @author Justin Randall
     */
 //  public static native obj_id createToken(String templateName, location loc);
 
@@ -5022,7 +5001,6 @@ public class base_class
 
         @return a Mocha location object containing location data about the token.
 
-        @author Justin Randall
     */
 //  public static native location getTokenTargetLocation      (obj_id tokenId);
 
@@ -5054,7 +5032,6 @@ public class base_class
         @return A string containing the template name of the object that is
         referred to by the token.
 
-        @author Justin Randall
     */
     private static native String _getTemplateName(long id);
     public static String getTemplateName(obj_id id)
@@ -5137,7 +5114,6 @@ public class base_class
         @see setWaypointLocation
         @see setWaypointRegion
 
-        @author Justin Randall
     */
     private static native long  _createWaypointInDatapad(long target, location loc);
     public static obj_id  createWaypointInDatapad(obj_id target, location loc)
@@ -5171,7 +5147,6 @@ public class base_class
         @see setWaypointLocation
         @see setWaypointRegion
 
-        @author Justin Randall
     */
     private static native long  _createWaypointInDatapad(long target, long source);
     public static obj_id  createWaypointInDatapad(obj_id target, obj_id source)
@@ -5212,7 +5187,6 @@ public class base_class
         @return a boolean indicating the active status of the waypoint.
         If the waypoint is active, it returns true, otherwise false.
 
-        @author Justin Randall
     */
     private static native boolean _getWaypointActive(long waypoint);
     public static boolean getWaypointActive(obj_id waypoint)
@@ -5310,7 +5284,6 @@ public class base_class
         @see getWaypointLocation
         @see setWaypointRegion
 
-        @author Justin Randall
     */
     public static void setWaypointLocation(obj_id waypoint, location loc)
     {
@@ -5400,7 +5373,6 @@ public class base_class
 
         @todo implement this
         @see endMission
-        @author Justin Randall
     */
     private static native void      _abortMission(long missionObject);
     public static void      abortMission                     (obj_id missionObject)
@@ -5423,12 +5395,11 @@ public class base_class
         \code
         void createAndAssignMissionToPlayer(obj_id player)
         {
-            obj_id missionData = createMissionData(0.5f, 10000, self, "Test Mission", "justin.test_mission");
+            obj_id missionData = createMissionData(0.5f, 10000, self, "Test Mission", "test.test_mission");
             assignMission(missionData, player);
         }
         \endcode
 
-        @author Justin Randall
     */
     public static void             assignMission                    (obj_id missionData, obj_id playerCharacter)
     {
@@ -5447,7 +5418,6 @@ public class base_class
 
         @see assignMission
 
-        @author Justin Randall
     */
     private static native long  _createMissionObjectInCreatureMissionBag(long creature);
     public static obj_id  createMissionObjectInCreatureMissionBag(obj_id creature)
@@ -5507,7 +5477,6 @@ public class base_class
 
         @todo missionType might need to be a StringId
 
-        @author Justin Randall
     */
 //  public static native obj_id    createMissionData                (float efficiencyRequirement, int expireTimeDelay, obj_id missionCreator, String missionType, String rootScriptName);
 
@@ -5527,7 +5496,6 @@ public class base_class
         @todo write example code for endMission
         @todo implement endMission JNI call in C++
 
-        @author Justin Randall
     */
     public static void      endMission                     (obj_id missionObject)
     {
@@ -5558,7 +5526,6 @@ public class base_class
         @see createMissionObject
         @see createMissionData
 
-        @author Justin Randall
     */
     public static void             startMission                     (obj_id missionObject)
     {
@@ -5583,7 +5550,6 @@ public class base_class
     /** @brief enumerate the mission objects held by a player character
 
         @return an array of obj_id's that describe the MissionObjects a player current has.
-        @author Justin Randall
     */
     private static native long[]  _getMissionObjects(long playerCharacter);
     public static obj_id[]  getMissionObjects                (obj_id playerCharacter)
@@ -5624,7 +5590,6 @@ public class base_class
         @see createMissionData
         @see setMissionCreator
 
-        @author Justin Randall
     */
     private static native String    _getMissionCreator(long missionData);
     public static String    getMissionCreator                (obj_id missionData)
@@ -5653,7 +5618,6 @@ public class base_class
         @see setMissionDifficulty
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native int       _getMissionDifficulty(long missionData);
     public static int       getMissionDifficulty             (obj_id missionData)
@@ -5675,7 +5639,6 @@ public class base_class
         @see setMissionEndLocation
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native location  _getMissionEndLocation(long missionData);
     public static location  getMissionEndLocation            (obj_id missionData)
@@ -5695,7 +5658,6 @@ public class base_class
         @see setMissionReward
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native int       _getMissionReward(long missionData);
     public static int       getMissionReward                 (obj_id missionData)
@@ -5718,7 +5680,6 @@ public class base_class
         @see setMissionRootScriptName
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native String    _getMissionRootScriptName(long missionData);
     public static String    getMissionRootScriptName         (obj_id missionData)
@@ -5752,7 +5713,6 @@ public class base_class
         @see location
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native location  _getMissionStartLocation(long missionData);
     public static location  getMissionStartLocation          (obj_id missionData)
@@ -5795,7 +5755,6 @@ public class base_class
         @see setMissionRootScriptName
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native String    _getMissionType(long missionData);
     public static String    getMissionType                   (obj_id missionData)
@@ -5814,7 +5773,6 @@ public class base_class
         @see getMissionCreator
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native void      _setMissionCreator(long missionData, String creator);
     public static void      setMissionCreator                (obj_id missionData, String creator)
@@ -5844,7 +5802,6 @@ public class base_class
         @see getMissionDifficulty
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native void      _setMissionDifficulty(long missionData, int difficulty);
     public static void      setMissionDifficulty             (obj_id missionData, int difficulty)
@@ -5860,7 +5817,6 @@ public class base_class
         @see getMissionEndLocation
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native void      _setMissionEndLocation(long missionData, location endLocation);
     public static void      setMissionEndLocation            (obj_id missionData, location endLocation)
@@ -5879,7 +5835,6 @@ public class base_class
         @see setMissionBondAmount
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native void      _setMissionReward(long missionData, int reward);
     public static void      setMissionReward                 (obj_id missionData, int reward)
@@ -5897,7 +5852,6 @@ public class base_class
         @see getMissionRootScriptName
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native void      _setMissionRootScriptName(long missionData, String rootScriptName);
     public static void      setMissionRootScriptName         (obj_id missionData, String rootScriptName)
@@ -5919,7 +5873,6 @@ public class base_class
         @see setMissionStartObject
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native void      _setMissionStartLocation(long missionData, location start);
     public static void      setMissionStartLocation          (obj_id missionData, location start)
@@ -5939,7 +5892,6 @@ public class base_class
         @see setMissionStartObject
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native void      _setMissionTargetAppearance(long missionData, String target);
     public static void      setMissionTargetAppearance     (obj_id missionData, String target)
@@ -5970,7 +5922,6 @@ public class base_class
         @see getMissionType
         @see createMissionData
 
-        @author Justin Randall
     */
     private static native void      _setMissionType(long missionData, String typeName);
     public static void      setMissionType                   (obj_id missionData, String typeName)
@@ -6032,7 +5983,6 @@ public class base_class
 
         @see removeLocationTarget
 
-        @author Justin Randall
     */
     public static void addLocationTarget(String name, location loc, float radius)
     {
@@ -6065,7 +6015,6 @@ public class base_class
 
         @see addLocationTarget
 
-        @author Justin Randall
     */
     public static void  removeLocationTarget(String name)
     {

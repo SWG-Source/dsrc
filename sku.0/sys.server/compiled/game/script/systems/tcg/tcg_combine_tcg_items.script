@@ -2,7 +2,7 @@ include library.utils;
 include library.static_item;
 
 
-//LOGGING
+// LOGGING
 const boolean LOGGING_ON			= true;
 const string LOGGING_CATEGORY			= "combine";
 
@@ -16,7 +16,7 @@ const string JET_PACK_DEED		= "item_tcg_merr_sonn_jt12_jetpack_deed";
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
-	//if in player inventory, search for other needed items
+	// If in player inventory, search for other needed items
 	blog("combine: OnObjectMenuRequest - Init");
 
 	if(!utils.isNestedWithinAPlayer(self))
@@ -58,7 +58,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	obj_id[] allPossibleMatches = utils.getAllItemsPlayerHasByTemplateStartsWith(owner, TEMPLATE_PATTERN);
 	if(allPossibleMatches.length < 4)
 	{
-		//You don't have all 4 combinable items
+		// You don't have all 4 combinable items
 		sendSystemMessage(player, new string_id("tcg", "combination_not_enough_items")); 	
 		return SCRIPT_CONTINUE;
 	}
@@ -78,7 +78,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 	if(!getCorrectCombination(combinableObjects, owner))
 	{
-		//You don't have all 4 combinable items
+		// You don't have all 4 combinable items
 		sendSystemMessage(player, new string_id("tcg", "combination_failed")); 	
 		return SCRIPT_CONTINUE;
 	}
@@ -101,7 +101,7 @@ obj_id[] getListOfCombinableObjects(obj_id[] allPossibleMatches)
 			utils.addElement(combinableObjects, allPossibleMatches[i]);
 	}
 	
-	//the list of combinable objects must be 4 or greater
+	// The list of combinable objects must be 4 or greater
 	if(combinableObjects.size() < 4)
 		return null;
 

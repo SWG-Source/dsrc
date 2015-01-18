@@ -4,9 +4,6 @@ include library.space_dungeon;
 include library.pclib;
 
 
-/***** CONSTANTS **********************************/
-
-
 /***** TRIGGERS ***************************************/
 trigger OnAttach()
 {

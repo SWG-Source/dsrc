@@ -1,7 +1,6 @@
 /*
 systems.collections.no_consume_badge_grant.script
 Used to trigger a collection update when double clicked
-Authors: Jesse Benjamin
 */
 
 //libraries

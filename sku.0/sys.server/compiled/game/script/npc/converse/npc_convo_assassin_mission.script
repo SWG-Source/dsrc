@@ -26,7 +26,7 @@ trigger OnAttach()
 	removeTriggerVolume( "alertTriggerVolume" );
 	attachScript (self, "npc.converse.npc_converse_menu");
 	
-	/*DAN - need any of this?
+	/*need any of this?
 	if(!hasObjVar(self, "mission.strMissionTypes"))
 	{
 		string[] strMissionTypes = new string[1];
@@ -227,7 +227,7 @@ trigger OnNpcConversationResponse (string convo, obj_id player, string_id respon
 		}
 		
 		
-		// DAN - Give Mission Here
+		// Give Mission Here
 		string_id strResponse = new string_id(BASE_CONVO, type + "_npc_give_job_response");
 		npcEndConversation (player);
 		chat.chat(self, strResponse);

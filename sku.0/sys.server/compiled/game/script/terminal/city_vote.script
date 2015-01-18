@@ -1,11 +1,4 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        bank.script
- * Description:  script for bank menu options; to be attached to bank terminals
- * @author       $Author:$
- * @version      $Revision:$
+/* Title:        city_vote.script
  */
 
 //------------------------------------------------

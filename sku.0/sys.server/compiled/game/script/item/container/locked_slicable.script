@@ -1,6 +1,5 @@
 //------------------------------------------------
 // locked_slicable.scriptlib
-// Brandon Reinhart
 //
 // Attach to containers that can be sliced.
 //------------------------------------------------

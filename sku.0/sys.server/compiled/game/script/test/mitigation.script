@@ -1,13 +1,5 @@
 // ======================================================================
-//
 // mitigation.script
-// Copyright 2006, Sony Online Entertainment
-// All Rights Reserved.
-// 
-// VERSION 1.00
-//
-// Jeff W Haskell
-//
 // [internal]
 // QA Tool - Mitigation Tool Version 1.00
 // [public]
@@ -16,10 +8,7 @@
 // Attach the test.qatools script to the test character and use the spatial command 'mitigation'. If the tester has a valid mob or player targeted (to include themself) a SUI will instantiate 
 // and give the tester a list of attack locations.  Once the tester selects an attack location, they will be asked to select a damage amount (minimum, maximum, random) 
 //  as well as the test iteration (how many attacks to conduct).  When the test is carried out, the target is not actually attacked but the damage and armor resistence is calculated.  A print out is sent to the tester root directory. 
-// [TT none]
-// [reviewed-by ]
 // ======================================================================
-//
 
 /***** INCLUDES ********************************************************/
 

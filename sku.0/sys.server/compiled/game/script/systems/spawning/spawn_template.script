@@ -1,11 +1,7 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        spawn_template.script
- * Description:  This script lives on all spawned templates. It notifies the master spawn object when they are destroyed.
- * @author       $Author:$
- * @version      $Revision:$
+/*
+ Title:        spawn_template.script
+ Description:  This script lives on all spawned templates. It notifies the master spawn object when they are destroyed.
+
  */
 inherits systems.spawning.spawn_base;
 
@@ -177,7 +173,7 @@ trigger OnDestroy()
 	objMasterSpawner = getObjIdObjVar(self, "objMasterSpawner");
 
 
-	//dctParams.put("objMasterSpawner", objMasterSpawner);
+	// dctParams.put("objMasterSpawner", objMasterSpawner);
 	if (strTemplate != null)
 		dctParams.put("strTemplate", strTemplate);
 	if (strRegionName != null)
@@ -188,7 +184,7 @@ trigger OnDestroy()
 
 
 	debugServerConsoleMsg(self, "Sending Message");
-	// now fire it off to the master object
+	// Now fire it off to the master object
 	messageTo(objMasterSpawner, "template_Destroyed", dctParams, 0, false);
 	debugServerConsoleMsg(self, "Message Sent");
 	return SCRIPT_CONTINUE;
@@ -199,12 +195,12 @@ trigger OnDestroy()
 boolean checkIfInCombat(obj_id objLair)
 {
 	int intNumberOfMobiles = getIntObjVar(objLair, "npc_lair.numberOfMobiles");
-	//debugSpeakMsg(objLair, "number of mobiles is "+intNumberOfMobiles);
+	// debugSpeakMsg(objLair, "number of mobiles is "+intNumberOfMobiles);
 	for(int intI =0; intI<intNumberOfMobiles; intI++)
 	{
 		obj_id objCreature = getObjIdObjVar(objLair, "npc_lair.mobile."+intNumberOfMobiles);
 		int intState = getState(objCreature, STATE_COMBAT);
-		//debugSpeakMsg(objLair, "intState for "+objCreature+" is "+intState);
+		// debugSpeakMsg(objLair, "intState for "+objCreature+" is "+intState);
 		if(intState>0)
 		{
 

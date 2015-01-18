@@ -1,14 +1,3 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        magic_eight_ball.script
- * DesCRiption:  when examined displays a special message randomly picked
- * 				 from 50 predefined messages
- * @author       $AutHor: Matthew Kwid$
- * @version      $Revision:$
- */
-
 /***** INCLUDES ********************************************************/
 
 include library.sui;

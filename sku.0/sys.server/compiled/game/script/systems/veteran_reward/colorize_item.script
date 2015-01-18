@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems\veteran_reward\colorize_item.script
- * Description:  calls a UI allowing the player to set colors on an object
- * @author       $Author: Jesse Benjamin$
- * @version      $Revision: 1.0.0 $
+ Title:        systems\veteran_reward\colorize_item.script
+ Description:  calls a UI allowing the player to set colors on an object
  **********************************************************************/
 include library.player_structure;
 include library.utils;

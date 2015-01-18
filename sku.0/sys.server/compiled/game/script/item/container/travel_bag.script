@@ -1,12 +1,7 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        travel_bag
  * Description:  Attaches to the vendor recovery bad and enables the player to travel
  *		 to a planet of their choice.
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
@@ -122,10 +117,3 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	return SCRIPT_CONTINUE;
 }
 
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

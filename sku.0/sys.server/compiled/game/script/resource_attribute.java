@@ -1,10 +1,6 @@
-/**
- * Title:        resource_attribute.java
- * Description:  resource attribute name->value pair
- * Copyright:    Copyright (c) 2004
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        resource_attribute.java
+ Description:  resource attribute name->value pair
  */
 
 package script;

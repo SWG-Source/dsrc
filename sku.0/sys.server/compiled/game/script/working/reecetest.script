@@ -19,7 +19,6 @@ include library.space_crafting;
 include library.space_transition;
 
 
-//inherits theme_park.newbie_tutorial.tutorial_base;
 
 const int SPAWN_TEMPLATE_CHECK_DISTANCE = 128;
 const int SPAWN_CHECK_TEMPLATE_LIMIT = 140; // 14 templates allowed in an area
@@ -125,8 +124,6 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 	}		
 	if(strText=="test")
 	{	
-		//obj_id target = getLookAtTarget(self);
-		//if(target!=null)
 		obj_id dungeon = getTopMostContainer(self);
 		obj_id crystal = utils.getObjIdScriptVar(dungeon, "crystal");
 			messageTo (crystal, "crystalTest1", null, 1, false);
@@ -224,7 +221,6 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 			{
 				sendSystemMessageTestingOnly(self, "got dungeon objid. going to spawn BOSS.");
 				obj_id dungeon = utils.getObjIdScriptVar(target, "dungeon");	
-				//mustafar.spawnContents(dungeon, "boss", 1);
 				spawnContents(dungeon, "boss", 1);
 			}
 		}
@@ -276,30 +272,12 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 	{
 		location here = getLocation(self);
 		obj_id spawn = create.object("fbase_stormtrooper", here);
-
-		/*
-		const string[] BASE_CELL_NAMES	= {
-											"mainhall",
-											"foyer",
-											"entry"
-											};
-
-		*/
 		obj_id base = player_structure.getStructure(self);
 		string[] base_cells = getCellNames(base);
-		//resizeable obj_id[] cells = new obj_id[0];
 		location[] locs = new location [base_cells.length];
 
 		for(int i = 0; i< base_cells.length; i++)
 		{
-				/*
-				obj_id cellId = getCellId(base, BASE_CELL_NAMES[i]);
-				if ( isIdValid(cellId))
-					cells = utils.addElement(cells, cellId);
-
-
-								location iSpot = new location(dx, dy, dz, here.area, cellId);
-				*/
 
 
 			locs[i] = getGoodLocation(base, base_cells[i]);
@@ -434,7 +412,7 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 
 		int currentTime = (int) curTime + 3600;
 
-		sendSystemMessageTestingOnly(self, "SET STAMP TIME TO: "+currentTime);
+		sendSystemMessageTestingOnly(self, "Set timestamp to: "+currentTime);
 
 	}
 	if(strText=="getlots")
@@ -448,34 +426,34 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 	if(strText=="getcell")
 	{
 		string currentCell = getCellName(self);
-		sendSystemMessageTestingOnly(self, "DEBUG - currentCell VIA reecetest IS: "+currentCell);
+		sendSystemMessageTestingOnly(self, "DEBUG - currentCell is: "+currentCell);
 
 		location locTest = getLocation(self);
 		if(isIdValid(locTest.cell))
 		{
-			sendSystemMessageTestingOnly(self, "DEBUG - current cell information VIA reecetest locTest IS: "+locTest.cell);
+			sendSystemMessageTestingOnly(self, "DEBUG - current cell information via locTest IS: "+locTest.cell);
 			currentCell = getCellName(locTest.cell);
-			sendSystemMessageTestingOnly(self, "DEBUG - currentCell VIA reecetest, second method IS: "+currentCell);
+			sendSystemMessageTestingOnly(self, "DEBUG - currentCell via second method IS: "+currentCell);
 		}
 		else
-			sendSystemMessageTestingOnly(self, "DEBUG - current cell information VIA reecetest locTest IS NOT VALID ");
+			sendSystemMessageTestingOnly(self, "DEBUG - current cell information via locTest IS NOT VALID ");
 	}
 	if(strText=="goSlow")
 	{
 		obj_id objMount = getMountId(self);
-		setBaseRunSpeed(objMount, 6.0f); // RUn like the wind!
-		sendSystemMessageTestingOnly(self, "SLOOOW");
+		setBaseRunSpeed(objMount, 6.0f); // Running
+		sendSystemMessageTestingOnly(self, "Jogging");
 
 
 	}
 	if(strText=="slowMe")
 	{
 
-		setBaseRunSpeed(self, 1.0f); // RUn like the wind!
+		setBaseRunSpeed(self, 1.0f); // Walking
 	}
 	if(strText=="fastMe")
 	{
-		setBaseRunSpeed(self, 6.0f); // RUn like the wind!
+		setBaseRunSpeed(self, 6.0f); // Running
 
 	}
 	if(strText=="getScriptVars")
@@ -495,17 +473,6 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 	}
 	else if(strText=="getStats")
 	{
-		//setMaxAttrib(self, CONSTITUTION, 300);
-		//setMaxAttrib(self, HEALTH, 1000);
-		//setMaxAttrib(self, STRENGTH, 300);
-
-		//setMaxAttrib(self, STAMINA, 300);
-		//setMaxAttrib(self, ACTION, 1000);
-		//setMaxAttrib(self, QUICKNESS, 1000);
-
-		//setMaxAttrib(self, WILLPOWER, 300);
-		//setMaxAttrib(self, MIND, 400);
-		//setMaxAttrib(self, FOCUS, 300);
 
 		obj_id objTarget = getLookAtTarget(self);
 		if(objTarget!=null)
@@ -545,8 +512,6 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 	}
 	if(strText=="music")
 	{
-		//playMusic(self, "sound/music_acq_academic.snd");
-		//playMusic(self, "sound/music_event_celebration.snd");
 		playMusic(self, "sound/music_int_complete_rebel.snd");
 	}
 	if(strText=="badWeapon")
@@ -567,16 +532,16 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 	}
 	if(strText=="combatr2")
 	{
-		debugServerConsoleMsg(self, "working.reecetest - entered combatr2 module");
+		debugServerConsoleMsg(self, "entered combatr2 module");
 
 		obj_id inventoryContainer = getObjectInSlot(self, "inventory");
 		if ( !isIdValid(inventoryContainer) )
-			debugServerConsoleMsg(self, "working.reecetest - looks like the objid of the player inventory is invalid");
+			debugServerConsoleMsg(self, "looks like the objid of the player inventory is invalid");
 
 		obj_id deed = createObject("object/tangible/deed/pet_deed/deed_r2_basic.iff", inventoryContainer, "SLOT_INVENTORY");
 
 		if ( !isIdValid(deed) )
-			debugServerConsoleMsg(self, "working.reecetest - failed to create the deed object");
+			debugServerConsoleMsg(self, "failed to create the deed object");
 
 		int powerLevel = 50;
 
@@ -612,15 +577,15 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 	}
 	if(strText=="combatprobot")
 	{
-		debugServerConsoleMsg(self, "working.reecetest - entered probot module");
+		debugServerConsoleMsg(self, "entered probot module");
 		obj_id inventoryContainer = getObjectInSlot(self, "inventory");
 		if ( !isIdValid(inventoryContainer) )
-			debugServerConsoleMsg(self, "working.reecetest - looks like the objid of the player inventory is invalid");
+			debugServerConsoleMsg(self, "looks like the objid of the player inventory is invalid");
 
 		obj_id object = createObject("object/tangible/deed/pet_deed/deed_probot_basic.iff", inventoryContainer, "SLOT_INVENTORY");
 
 		if ( !isIdValid(object) )
-			debugServerConsoleMsg(self, "working.reecetest - failed to create the deed object");
+			debugServerConsoleMsg(self, "failed to create the deed object");
 
 		int powerLevel = 50;
 
@@ -652,7 +617,7 @@ trigger OnHearSpeech(obj_id objSpeaker, string strText)
 			obj_id creatureWeapon = getCurrentWeapon( object );
 
 		if ( !isIdValid(creatureWeapon) )
-			debugServerConsoleMsg(self, "working.reecetest - failed to get the obj_id of the creature's current weapon. Uh oh!");
+			debugServerConsoleMsg(self, "failed to get the obj_id of the creature's current weapon. Uh oh!");
 
 			// attack speed
 			float wpnSpeed = (float)creatureDict.getInt("attackSpeed");
@@ -763,16 +728,6 @@ boolean boolVerboseMode = true;
 			if(objLairs!=null)
 			{
 				sendSystemMessageTestingOnly(objPlayer, "Non null objLairs.. length is "+objLairs.length);
-			/*
-				for(int intI = 0; intI<	objLairs.length; intI++)
-				{
-					location locLairHome = getLocation(objLairs[intI]);
-					float fltDistance = getDistance(locLairHome, locHome);
-					////LOG("spawning", objPlayer+ " fltDistance is "+fltDistance);
-					////LOG("spawning", objPlayer+ "for object "+objLairs[intI]+" location is "+locLairHome);
-
-				}
-			*/
 				////LOG("spawning", objPlayer+ " objLairs is "+objLairs.length);
 				if(objLairs.length>0)
 				{
@@ -800,24 +755,6 @@ boolean boolVerboseMode = true;
 					}
 				}
 			}
-			/*
-			objTheaters = getAllObjectsWithObjVar(locHome, 200, "theater.stamp"); // look for parents
-
-			if(objTheaters!=null)
-			{
-
-
-				//////LOG("spawning", objPlayer+ " objTheaters.length is "+objTheaters.length);
-				//////LOG("spawning", objPlayer+ " locHome is "+locHome);
-				if(objTheaters.length>0)
-				{
-					//////LOG("spawning", objPlayer+ " Parent object found in range, returning false");
-					//////LOG("spawning", objPlayer+ " objTheaters length of "+objTheaters.length+" is greater than 0");
-					return false;
-				}
-
-			}
-			*/
 			obj_id[] objTheaters = getAllObjectsWithObjVar(locHome, 200, "isScenario"); // scenario check
 			if(objTheaters!=null)
 			{
@@ -876,14 +813,6 @@ boolean boolVerboseMode = true;
 	int intServerSpawnLimit = getServerSpawnLimit();
 
 	string strSpam = "";
-	//string strSpam = objPlayer +" intserverspawnlimit is "+intServerSpawnLimit;
-	//sendSpawnSpam(objPlayer, boolLogFailures, boolVerboseMode, strSpam);
-
-	// we need to compare our current location distance to the last couple of spawns...
-	// AM I IN A STRUCTURE?!?!?!
-	// if so, we're kicking out
-	//////////LOG("spawn_spam", "objPlayer is "+objPlayer);
-	/// check number of everything to make sure we're good
 
 
 
@@ -1041,15 +970,11 @@ boolean boolVerboseMode = true;
 
 		if(!checkTemplatesInRange(objPlayer, locSpawnLocation, boolCheckForTheaters, strObjectType))
 		{
-			//strSpam = objPlayer+ " Too many templates in area, canspawn returns false";
-			//sendSpawnSpam(objPlayer, boolLogFailures, boolVerboseMode, strSpam);
-			//////LOG("spawning", objPlayer+ " canSpawn failed: checkTemplatesInRange returned false ");
-			return false; // TOO MANY TEMPLATES IN THE AREA. DON'T SPAWN.
+			return false; // Too many templates.
 
 		}
 
 	}
-	//////////LOG("spawn_spam",objPlayer+" canSpawn returned true");
 
 	return true;
 
@@ -1075,7 +1000,6 @@ commandHandler gmCreateSpecificResource()
 		sendSystemMessageTestingOnly(self, "Bad class passed in, syntax is /gmCreateClassResource class");
 		return SCRIPT_CONTINUE;
 	}
-	//obj_id rtype = getResourceTypeByName(strClass);
 	obj_id rtype = pickRandomNonDepeletedResource(strClass);
 	if(!isIdValid(rtype))
 	{

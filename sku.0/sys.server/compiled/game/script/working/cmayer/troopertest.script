@@ -1,8 +1,4 @@
-/* -----------------7/29/2002 2:39PM-----------------
- * Test
- * */
-
- /* --------------------------------------------------*/
+/* --------------------------------------------------*/
 
 obj_id makeStormtrooper (obj_id player, location here)
 {
@@ -18,57 +14,57 @@ obj_id makeStormtrooper (obj_id player, location here)
 	{
 			debugConsoleMsg ( player, "I wasn't able to make boots ");
 	}
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bicep_l.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bicep_l.iff
     clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bicep_l.iff", npc, "");
 	if ( clothes1 == null )
 	{
 			debugConsoleMsg ( player, "I wasn't able to make 1 ");
 	}
 
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bicep_r.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bicep_r.iff
     clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bicep_r.iff", npc, "");
 	if ( clothes1 == null )
 	{
 			debugConsoleMsg ( player, "I wasn't able to make 2 ");
 	}
 
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bracer_l.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bracer_l.iff
     clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bracer_l.iff", npc, "");
 	if ( clothes1 == null )
 	{
 			debugConsoleMsg ( player, "I wasn't able to make 3 ");
 	}
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bracer_r.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bracer_r.iff
     clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_bracer_r.iff", npc, "");
 	if ( clothes1 == null )
 	{
 			debugConsoleMsg ( player, "I wasn't able to make 4 ");
 	}
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_chest_plate.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_chest_plate.iff
     clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_chest_plate.iff", npc, "");
 	if ( clothes1 == null )
 	{
 			debugConsoleMsg ( player, "I wasn't able to make 5 ");
 	}
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_gloves.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_gloves.iff
     clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_gloves.iff", npc, "");
 	if ( clothes1 == null )
 	{
 			debugConsoleMsg ( player, "I wasn't able to make 6 ");
 	}
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_helmet.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_helmet.iff
     clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_helmet.iff", npc, "");
 	if ( clothes1 == null )
 	{
 			debugConsoleMsg ( player, "I wasn't able to make 7 ");
 	}
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_leggings.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_leggings.iff
    clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_leggings.iff", npc, "");
 	if ( clothes1 == null )
 	{
 			debugConsoleMsg ( player, "I wasn't able to make 8 ");
 	}
-//depot/swg/current/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_utility_belt.tpf
+//object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_utility_belt.iff
    clothes1 = createObject("object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_utility_belt.iff", npc, "");
 	if ( clothes1 == null )
 	{

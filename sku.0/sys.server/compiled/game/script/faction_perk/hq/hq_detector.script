@@ -1,13 +1,8 @@
-
 /***** INCLUDES ********************************************************/
 
 include library.hq;
 include library.utils;
 include library.faction_perk;
-
-/***** CONSTANTS *******************************************************/
-
-
 
 /***** TRIGGERS ********************************************************/
 
@@ -24,4 +19,3 @@ trigger OnReceivedItem(obj_id srcContainer, obj_id transferer, obj_id item)
 	return SCRIPT_CONTINUE;
 }
 
-/***** FUNCTIONS *******************************************************/

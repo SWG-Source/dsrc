@@ -1,6 +1,4 @@
 // Weather Control script
-// by Cinco Barnes 11-30-2002
-// modified by Steve Jakab
 
 // message param names
 const string PARAM_WEATHER_DESIRED = "desired";

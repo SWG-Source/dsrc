@@ -51,7 +51,6 @@ trigger OnSpeaking(string strText)
 
 	if (strCommands[0]=="createSpaceResource")
 	{
-		//string strClass = strCommands[1];
 
 		string rclass = strCommands[1];
 

@@ -1,13 +1,8 @@
-
 /***** INCLUDES ********************************************************/
 
 include library.groundquests;
 include library.static_item;
 include library.utils;
-
-/***** CONSTANTS *******************************************************/
-
-
 
 /***** TRIGGERS *******************************************************/
 

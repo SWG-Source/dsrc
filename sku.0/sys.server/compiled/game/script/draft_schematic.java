@@ -1,10 +1,6 @@
-/**
- * Title:        draft_schematic
- * Description:  Info about a draft schematic for use in a crafting session.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        draft_schematic
+ Description:  Info about a draft schematic for use in a crafting session.
  */
 
 package script;

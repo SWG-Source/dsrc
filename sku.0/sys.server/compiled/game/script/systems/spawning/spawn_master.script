@@ -1,22 +1,17 @@
- /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        spawn_master.script
- * Description:  This is the master spawn script. It tracks all necessary objects, and receives all spawn events from regions and structures. All pertinent tracking data is handled from this script. 
- * @author       $Author:$
- * @version      $Revision:$
+/*
+ Title:        spawn_master.script
+ Description:  This is the master spawn script. It tracks all necessary objects, and receives all spawn events from regions and structures. All pertinent tracking data is handled from this script. 
  */
 
 include library.regions;
 include java.util.Set;
-include java.util.Iterator; // I'm sorry, justin made me do this this way so it doesn't break the servers. 
+include java.util.Iterator; 
 include java.lang.Integer;
 
 inherits systems.spawning.spawn_base;
 
 
-/**
+/*
 @brief Bootstrap function for trigger volume creation. This will be moved to OnInitialization once it comes online. 
 
 */
@@ -29,7 +24,7 @@ trigger OnUniverseComplete()
 	
 	if(!hasObjVar(self, "boolSpawnerIsOn"))
 	{
-		setObjVar(self, "boolSpawnerIsOn", true); //turn master spawner off
+		setObjVar(self, "boolSpawnerIsOn", true); // Turn master spawner off
 		
 	}
 	
@@ -82,7 +77,7 @@ trigger OnUniverseComplete()
 
 }
 
-/**
+/*
 
 @brief This is the initialization routine for the entire spawn system. This creates the master trigger volumes, and initializes all necessary spawn values. The values are derived from spawn_base
 These will be moved once we get a more concrete idea of spawn listings. 

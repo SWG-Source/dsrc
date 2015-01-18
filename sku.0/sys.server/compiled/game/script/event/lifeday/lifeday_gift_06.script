@@ -1,15 +1,7 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        lifeday gift xmas 2005
+ * Title:        lifeday gift xmas
  * Description:  Grants holiday items to the player and unpacks them
- * @author       Thomas Blair
- * @version      1.0
  */
-
-/***** INCLUDES ********************************************************/
-
 
 /***** INCLUDES ********************************************************/
 include library.utils;

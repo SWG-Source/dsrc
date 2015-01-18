@@ -1,8 +1,5 @@
 // =====================================================================
-//
 // remote_object_requester.script
-// copyright, Sony Online Entertainment
-//
 // =====================================================================
 
 include library.utils;

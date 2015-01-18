@@ -1,15 +1,3 @@
-
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        terminal_character_builder.script
- * Description:  Script that drives the Character Builder Terminals
- * @author       Thomas Blair
- * @version      1.0
- **********************************************************************/
-
-
 /***** INCLUDES ********************************************************/
 
 include library.chat;
@@ -145,7 +133,7 @@ messageHandler msgStorytellerHelpOptionSelected()
 	int btn = sui.getIntButtonPressed(params);
 	int idx = sui.getListboxSelectedRow(params);
 
-	// clean up string vars
+	// Clean up string vars
 	if ( utils.hasScriptVar(self, "storytellerHelp.pid" ) )
 	{
 		utils.removeScriptVar(self, "storytellerHelp.pid");
@@ -238,7 +226,7 @@ commandHandler makeStoryAssistant()
 			target = intendedTarget;
 		}
 		
-		// still no valid target?
+		// Still no valid target?
 		if ( !isIdValid(target) )
 		{
 			sendSystemMessage(self, SID_ASSISTANT_ADD_INVALID);
@@ -457,11 +445,11 @@ commandHandler inviteToStory()
 		}
 		else if ( invitee.equals("guild") )
 		{
-			// storytellers can invite their guild to their story.
+			// Storytellers can invite their guild to their story.
 			int guildId = getGuildId(self);
 			
 			// *********************************************
-			// event support: in godmode can invite guilds they are not a part of
+			// Event support: in godmode can invite guilds they are not a part of
 			// *********************************************
 			if ( isGod(self) && st.countTokens() > 0 )
 			{
@@ -540,7 +528,7 @@ commandHandler inviteToStory()
 			target = intendedTarget;
 		}
 		
-		// still no valid target?
+		// Still no valid target?
 		if ( !isIdValid(target) )
 		{
 			sendSystemMessage(self, SID_INVITE_TARGET_INVALID);
@@ -781,7 +769,7 @@ commandHandler storytellerDestroyNpcs()
 
 	if ( storytellerName == null || storytellerName.length() < 1 )
 	{
-		sendSystemMessage(self, "GodMode Message: -> Format: /csStorytellerDestroyNpcs <storyteller_name> (use all_storytellers for all inclusive storyteller NPC destruction)", "");
+		sendSystemMessage(self, "GodMode Message: -> Syntax: /csStorytellerDestroyNpcs <storyteller_name> (use all_storytellers for all inclusive storyteller NPC destruction)", "");
 	}
 	
 	
@@ -799,7 +787,7 @@ commandHandler storytellerDestroyNpcs()
 			obj_id elligibleStorytellerObject = elligibleStorytellerObjects[i];
 			if( isIdValid(elligibleStorytellerObject) )
 			{
-				// if a mob, then the storyteller object is an npc
+				// If a mob, then the storyteller object is an npc
 				if ( isMob(elligibleStorytellerObject) )
 				{
 					destroyObject(elligibleStorytellerObject);
@@ -846,7 +834,7 @@ commandHandler storytellerDestroyProps()
 
 	if ( storytellerName == null || storytellerName.length() < 1 )
 	{
-		sendSystemMessage(self, "GodMode Message: -> Format: /csStorytellerDestroyProps <storyteller_name> (use all_storytellers for all inclusive storyteller prop destruction)", "");
+		sendSystemMessage(self, "GodMode Message: -> Syntax: /csStorytellerDestroyProps <storyteller_name> (use all_storytellers for all inclusive storyteller prop destruction)", "");
 	}
 	
 	
@@ -911,7 +899,7 @@ commandHandler storytellerDestroyParticles()
 	
 	if ( storytellerName == null || storytellerName.length() < 1 )
 	{
-		sendSystemMessage(self, "GodMode Message: -> Format: /csStorytellerDestroyParticles <storyteller_name> (use all_storytellers for all inclusive storyteller particle destruction)", "");
+		sendSystemMessage(self, "GodMode Message: -> Syntax: /csStorytellerDestroyParticles <storyteller_name> (use all_storytellers for all inclusive storyteller particle destruction)", "");
 	}
 	
 	
@@ -929,7 +917,7 @@ commandHandler storytellerDestroyParticles()
 			obj_id elligibleStorytellerObject = elligibleStorytellerObjects[i];
 			if( isIdValid(elligibleStorytellerObject) )
 			{
-				// does the storyteller object have a persisted effect on it?
+				// Does the storyteller object have a persisted effect on it?
 				if ( hasObjVar(elligibleStorytellerObject, "storytellerPersistedEffectActive"))
 				{
 					messageTo(elligibleStorytellerObject, "handleRemoveStorytellerPersistedEffect", null, 1, false);
@@ -976,7 +964,7 @@ commandHandler storytellerDestroyAllObjects()
 
 	if ( storytellerName == null || storytellerName.length() < 1 )
 	{
-		sendSystemMessage(self, "GodMode Message: -> Format: /csStorytellerDestroyAllObjects <storyteller_name> (use all_storytellers for all inclusive storyteller object destruction)", "");
+		sendSystemMessage(self, "GodMode Message: -> Syntax: /csStorytellerDestroyAllObjects <storyteller_name> (use all_storytellers for all inclusive storyteller object destruction)", "");
 	}
 	
 	
@@ -1230,13 +1218,13 @@ commandHandler chroniclerGetStoredXp()
 
 messageHandler handleChroniclerGetStoredXp()
 {
-	//check params
+	// Check params
 	if( params == null || params.isEmpty() )
 	{
 		return SCRIPT_CONTINUE;
 	}
 	
-	//get players id
+	// Get players id
 	obj_id player = sui.getPlayerId(params);
 	
 	if( !isIdValid(player) )
@@ -1257,10 +1245,10 @@ messageHandler handleChroniclerGetStoredXp()
 		return SCRIPT_CONTINUE;
 	}
 	
-	//get button pressed
+	// Get button pressed
 	int bp = sui.getIntButtonPressed(params);
 	
-	//if they pressed cancel then we bail out and do nothing
+	// If they pressed cancel then we bail out and do nothing
 	if ( bp == sui.BP_CANCEL )
 	{
 		sui.removePid(player, "commandPid_chroniclerGetStoredXp");
@@ -1309,7 +1297,7 @@ messageHandler handleChroniclerGetStoredXp()
 
 	}
 	else
-	{	// if they are still leveling Chronicles and have no xp stored, let them know.
+	{	// If they are still leveling Chronicles and have no xp stored, let them know.
 		if ( !doneWithChronicleXP )
 		{
 			sendSystemMessage(self, new string_id("saga_system", "chronicles_stored_data_no_xp"));
@@ -1395,8 +1383,8 @@ messageHandler handleChroniclesLootToggleConfirmation()
 		
 	sui.removePid(self, "chroniclesLootToggle");
 	
-	// if chronicles loot is currently off, turn it back on.
-	// otherwise, turn it off.
+	// If chronicles loot is currently off, turn it back on.
+	// Otherwise, turn it off.
 	string message = "";
 	if ( loot.hasToggledChroniclesLootOff(self) )
 	{

@@ -1,12 +1,10 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        faction_item
  * Description:  script that goes on all faction items that can only
  *		 be used while declared.
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

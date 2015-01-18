@@ -1,9 +1,5 @@
 //**********************************************************
-// Copyright (c) ©2005, 2006 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:		qaitem.script
-// Version:		Version 2.00
 // Description:  	QA Equipment Tool (Master Item Tool)
 //			- filters equipment based onspawns
 //		 	- lists all weapons the test character is currently certified to use 
@@ -12,9 +8,6 @@
 //			- filters all armor for best tier
 //
 // Version Changes:	- Added new script tool options
-//
-// @author       	$Author: Jeff Haskell  
-// @version      	$All Revisions:  Jeff Haskell && James Michener
 //***********************************************************
 //
 //			Profession		Armor Type

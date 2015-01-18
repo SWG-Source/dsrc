@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        faction_recruiter
  * Description:  makes any npc a faction recruiter
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

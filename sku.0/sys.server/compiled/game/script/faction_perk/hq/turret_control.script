@@ -1,4 +1,3 @@
-
 /***** INCLUDES ********************************************************/
 
 include library.hq;
@@ -10,6 +9,8 @@ include library.factions;
 include library.player_structure;
 include library.turret;
 include library.ai_lib;
+
+/***** INHERITS ********************************************************/
 
 inherits terminal.base.base_terminal;
 

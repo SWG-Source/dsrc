@@ -1,11 +1,6 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        test_sui.script
- * Description:  test script to view test SUI pages
- * @author       $Author:$
- * @version      $Revision:$
+/*
+ Title:        test_sui.script
+ Description:  test script to view test SUI pages
  */
 
 /***** INCLUDES ********************************************************/

@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        player_dispenser
  * Description:  contains the messagehandlers for the newbie dispensers
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

@@ -1,10 +1,6 @@
-/**
- * Title:        modifiable_float
- * Description:  A modifiable float wrapper.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        modifiable_float
+ Description:  A modifiable float wrapper.
  */
 
 package script;

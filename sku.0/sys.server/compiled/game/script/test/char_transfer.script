@@ -1,6 +1,3 @@
-
-// ======================================================================
-
 include library.ai_lib;
 include library.create;
 include library.pclib;
@@ -18,8 +15,6 @@ trigger OnSpeaking(String text)
 {
 	if(isGod(self))
 	{
-		debugConsoleMsg( self, "char_transfer OnSpeaking: " + text );
-
 		java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 
 		if (tok.hasMoreTokens ())

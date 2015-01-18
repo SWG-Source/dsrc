@@ -1,13 +1,5 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        merchant_barker
- * Description:  Handled the functionality of droid merchant barkers
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
-
+/* Title:        merchant_barker
+ * Description:  Handled the functionality of droid merchant barkers*/
 
 /***** INCLUDES ********************************************************/
 include library.ai_lib;
@@ -375,9 +367,3 @@ messageHandler msgDroidWaypointSelected()
 	return SCRIPT_CONTINUE;
 }
 
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

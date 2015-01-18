@@ -2,7 +2,7 @@
 // 		include library.anims;
 // 		doAnimationAction( myDroid, anims.DROID_1_EMT_YES );
 
-/* _________________3/1/2002 3:55PM__________________
+/* _________________---------------__________________
  * Npc and Droid Animations:
  * __________________________________________________*/
 const string ASTROMECH_CBT_ATTACK_MELEE = "cbt_attack_melee";
@@ -944,7 +944,7 @@ const string YUZZUM_STD_STAND_TO_STAND_COMBAT = "std_stand_to_stand_combat";
 const string YUZZUM_STD_TURN_LEFT = "std_turn_left";
 const string YUZZUM_STD_TURN_RIGHT = "std_turn_right";
 
-/* _________________3/1/2002 3:55PM__________________
+/* _________________---------------__________________
  * Player Animations:
  * __________________________________________________*/
 const string PLAYER_A_CBT_UNARMED_STD_READY_GET_HIT_HEAVY_L_HIGH_2 = "a_cbt_unarmed_std_ready_get_hit_heavy_l_high_2";

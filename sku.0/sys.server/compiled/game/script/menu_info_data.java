@@ -1,5 +1,5 @@
-/**
-* Data element for menu array
+/*
+ Data element for menu array
 */
 
 package script;
@@ -31,7 +31,7 @@ final public class menu_info_data implements Serializable
 	//-----------------------------------------------------------------------------
 
 	/**
-	* The constructor, yo.
+	* The constructor.
 	*/
 
 	menu_info_data (int id, int parent, int type, string_id stringId, boolean enabled, boolean serverNotify)

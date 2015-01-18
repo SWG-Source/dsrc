@@ -1,12 +1,9 @@
 /********************************************************************************************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        quest\force_sensitive\fs_combat_healing.script
  * Description:  Looks for message "receiveCreditForCombatHealing" and gives credit for heal for
  *				 FS Combat Healing Quest. Cleans self up if not in correct phase
- * @author       Benjamin Norris
- * @version      $Revision:$
  **********************************************************************/
 
 

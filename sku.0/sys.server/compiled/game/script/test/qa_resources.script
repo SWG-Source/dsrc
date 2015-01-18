@@ -1,13 +1,5 @@
 // ======================================================================
-//
 // qa_resources.script
-// Copyright 2005, Sony Online Entertainment
-// All Rights Reserved.
-// 
-// VERSION .01
-//
-// Jeff W Haskell
-//
 // [internal]
 // QA Tool - QA Resource Tool
 // [public]
@@ -15,8 +7,6 @@
 // [testplan]
 // Attach the test.qa_resources script to the test character and use the spatial command 'qaresource'. 
 // A SUI will instantiate and give the tester options.  
-// [TT none]
-// [reviewed-by ]
 // ======================================================================
 
 // ======================================================================
@@ -386,8 +376,6 @@ messageHandler spaceResourceHandler()
 }
 
 /*------------- ALL FUNCTIONS ----------------------------------------------*/
-/*--------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------*/
 
 void createResourceInInventory(obj_id player, string resourceTypeName)
 {

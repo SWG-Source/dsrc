@@ -1,5 +1,6 @@
 include library.create;
 include library.ai_lib;
+include library.performance;
 
 
 trigger OnInitialize ()
@@ -502,6 +503,11 @@ void spawnBithBand (obj_id self)
 	obj_id horn = create.object ("bith_musician", hornloc);
 	obj_id fizz = create.object ("bith_musician", fizzloc);
 	obj_id bandfill = create.object ("bith_musician", bfloc);
+	setObjVar (figrin, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
+	setObjVar (box, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
+	setObjVar (horn, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
+	setObjVar (fizz, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
+	setObjVar (bandfill, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
 	ai_lib.setDefaultCalmMood (figrin, "themepark_music_3");
 	ai_lib.setDefaultCalmMood (box, "themepark_music_2");
 	ai_lib.setDefaultCalmMood (horn, "themepark_music_3");

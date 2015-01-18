@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        item.component.component_attribs.script
  * Description:  sets up attribute text for a component object when it is examined
- * @author       $Steve Jakab$
- * @version      $Revision: 0$
  */
 
 include library.craftinglib;

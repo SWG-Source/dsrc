@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        player_recruiter
  * Description:  a player script that handles messages from the faction recruiter
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

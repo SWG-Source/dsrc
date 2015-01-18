@@ -1,6 +1,3 @@
-
-
-
 // If this object has another dragged on top of it, do this. Do not allow OnReceivedItem to go off if we decide to ScriptOverride
 trigger OnInitialize()
 {	

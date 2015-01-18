@@ -1,5 +1,4 @@
 // Mystic Tree POI script
-// Author:  Will "Darth Platypus" Wallace
 
 include library.utils;
 include library.groundquests;

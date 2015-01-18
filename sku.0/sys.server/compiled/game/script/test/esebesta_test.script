@@ -1,4 +1,3 @@
-
 include library.badge;
 include library.colors;
 include library.combat;

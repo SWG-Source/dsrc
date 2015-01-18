@@ -1,12 +1,15 @@
+include library.badge;
 include library.beast_lib;
 include library.buff;
 include library.chat;
 include library.combat_consts;
 include library.dot;
+include library.factions;
 include library.locations;
+include library.movement;
 include library.pet_lib;
 include library.skill;
-include library.movement;
+include library.utils;
 
 const float PLAYER_RUN_SPEED = 8f;
 const float AI_MAX_MOVEMENT_SPEED = PLAYER_RUN_SPEED;
@@ -1914,15 +1917,20 @@ boolean checkForSmuggler(obj_id player)
 //jedi check for contraband searches
 boolean checkForJedi( obj_id player )
 {
-	if ( !isJedi(player) || isJediState( player, JEDI_STATE_FORCE_SENSITIVE ) )
+	if ( !utils.isProfession(player, utils.FORCE_SENSITIVE) || factions.getFactionFlag(player) == factions.FACTION_FLAG_NEUTRAL )
 		return false;
 
 	int mindTrick = 0;
 
-	if ( isJediState( player, JEDI_STATE_JEDI ) )
+
+	if ( isGod(player) )
+		mindTrick += 101;
+	else if ( badge.hasBadge (player, "bdg_jedi_elder") || getState(player, STATE_GLOWING_JEDI) != 0 )
 		mindTrick += 40;
-	if ( isJediState( player, JEDI_STATE_FORCE_RANKED_LIGHT ) || isJediState( player, JEDI_STATE_FORCE_RANKED_DARK ) )
-		mindTrick += 20;
+	else if ( badge.hasBadge (player, "new_prof_jedi_master") )
+		mindTrick += 30;
+	else
+		mindTrick += 10;
 
 	int roll = rand( 1, 100 );
 	if ( roll > mindTrick )

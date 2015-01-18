@@ -1,12 +1,8 @@
 /**************************************************************************
- *
  * Java-side combat processing.
- *
- * copyright 2001 Sony Online Entertainment
- *
+ 
  * @todo: where do error messages from this class go? Right now we're just
  * printing to stderr, but do we want to hook in with our logging code?
- *
  *************************************************************************/
 
 package script;
@@ -1077,7 +1073,7 @@ public class combat_engine
 	}	// getDamage()
 
 	private static String getWeaponStringType(int intWeaponType)
-	{// written by Dan R. Do not blame steve :)
+	{
 		switch(intWeaponType)
 		{
 			case base_class.WEAPON_TYPE_RIFLE : return "rifle";
@@ -1093,7 +1089,7 @@ public class combat_engine
 		return "";
 	}
 	private static boolean isLocomotionMoving(int intLocomotion)
-	{	// written by Dan R.
+	{
 		switch(intLocomotion)
 		{
 			case base_class.LOCOMOTION_SNEAKING		: return true;
@@ -1108,7 +1104,7 @@ public class combat_engine
 		return false;
 	}
 	private static int getPostureModForWeapon(obj_id objPlayer, int intPosture, int intWeaponType)
-	{// dans function again, don't blame steve.
+	{
 		switch (intPosture)
 		{
 			case base_class.POSTURE_CROUCHED: return base_class.getSkillStatisticModifier(objPlayer, getWeaponStringType(intWeaponType)+"_kneeling");

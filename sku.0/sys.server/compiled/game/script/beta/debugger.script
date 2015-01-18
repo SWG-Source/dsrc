@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        debugger.script
  * Description:  debugger script
- * @author       $Author: rpalacio $
- * @version      $Revision: #1 $
  */
 
 /***** INCLUDES ********************************************************/
@@ -35,14 +30,9 @@ include library.badge;
 include library.xp;
 include library.camping;
 
-/***** INHERITS ********************************************************/
-
 /***** CONSTANTS *******************************************************/
 
 const string DEBUG_EMOTE_TARGET					= "debug.emote_target";
-
-/***** TEST HANDLERS *******************************************************/
-
 
 /***** TRIGGERS *******************************************************/
 trigger OnSpeaking(string text)

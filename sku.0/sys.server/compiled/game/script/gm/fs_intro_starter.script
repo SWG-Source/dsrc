@@ -1,19 +1,7 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        fs_intro_starter
  * Description:  GM script to fire off the intro quest.
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
-
-
-/***** INCLUDES ********************************************************/
-
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnSpeaking(string text)
@@ -45,10 +33,3 @@ trigger OnSpeaking(string text)
 	return SCRIPT_CONTINUE;
 }
 
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

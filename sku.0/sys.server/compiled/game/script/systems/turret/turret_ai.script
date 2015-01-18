@@ -16,8 +16,6 @@ include library.xp;
 
 inherits systems.combat.combat_base_old;
 
-/***** CONSTANTS *******************************************************/
-
 /***** TRIGGERS ********************************************************/
 trigger OnAttach()
 {
@@ -28,9 +26,10 @@ trigger OnAttach()
 
 trigger OnInitialize()
 {
-	// Advanced turrets still get this script attached to them, but it is
-	// detached on initialization. However, this trigger still goes off
-	// and we don't want them to be blowed up.
+	/* Advanced turrets still get this script attached to them, but it is
+	 detached on initialization. However, this trigger still goes off
+	 and we don't want them to be blowed up.
+	*/
 	string template = getTemplateName(self);
 	if(template.indexOf("adv") > -1)
 		return SCRIPT_CONTINUE;
@@ -38,7 +37,7 @@ trigger OnInitialize()
 	explodeTurret(self, self);
 
 
-/** LEGACY TURRET, USE ADVANCED_TURRET_AI FROM NOW ON.
+/* LEGACY TURRET, USE ADVANCED_TURRET_AI FROM NOW ON.
 	string factionName = factions.getFaction( self );
 	if ( factionName != null )
 		factions.setFaction( self, factionName );
@@ -76,7 +75,7 @@ trigger OnInitialize()
 	}
 
 	setTurretAttributes(self, tFac);
-**/
+*/
 	return SCRIPT_CONTINUE;
 }
 

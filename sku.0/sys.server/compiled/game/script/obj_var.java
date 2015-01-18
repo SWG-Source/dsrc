@@ -1,10 +1,6 @@
-/**
- * Title:        obj_var
- * Description:  Wrapper for an object variable.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        obj_var
+ Description:  Wrapper for an object variable.
  */
 
 package script;

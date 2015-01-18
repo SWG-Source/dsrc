@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        fs_quest_player
  * Description:  Script for any player participating in fs quests.
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

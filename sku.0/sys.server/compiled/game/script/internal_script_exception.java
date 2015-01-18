@@ -1,10 +1,6 @@
-/**
- * Title:        internal_script_exception
- * Description:  exception class to be caught inside our C code
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        internal_script_exception
+ Description:  exception class to be caught inside our C code
  */
 
 package script;

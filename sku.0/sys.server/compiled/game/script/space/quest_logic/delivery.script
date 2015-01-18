@@ -1,6 +1,6 @@
 //------------------------------------------------
 // delivery.script
-// Brandon Reinhart
+// 
 //
 // Move to a location, meet a ship, pick up an item,
 // move to another location, meet a ship, drop off the item.

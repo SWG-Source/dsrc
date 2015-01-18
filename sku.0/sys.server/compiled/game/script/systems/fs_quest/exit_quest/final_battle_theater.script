@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        final_battler_theater
  * Description:  Script that attaches to the theater object
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

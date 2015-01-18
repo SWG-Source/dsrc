@@ -1,4 +1,3 @@
-
 /***** INCLUDES ********************************************************/
 
 include java.util.Calendar;
@@ -11,6 +10,7 @@ include library.factions;
 include library.player_structure;
 include library.stealth;
 
+/***** INHERITS ********************************************************/
 
 inherits terminal.base.base_terminal;
 

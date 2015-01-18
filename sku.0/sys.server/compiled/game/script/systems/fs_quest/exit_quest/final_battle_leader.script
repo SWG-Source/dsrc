@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        final_battle_leader
  * Description:  Script attaches to the Boss npc within the final battle.
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 include library.ai_lib;
 include library.quests;

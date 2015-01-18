@@ -1,6 +1,5 @@
 //------------------------------------------------
 // slicing_armor.scriptlib
-// Brandon Reinhart
 //------------------------------------------------
 
 //------------------------------------------------
@@ -64,7 +63,7 @@ trigger OnAttach()
 //------------------------------------------------
 // OnObjectMenuRequest
 //------------------------------------------------
-/*						// BLOCK MODIFIED FOR NPE/CLICKY-COMBAT - RcT - 10/12/05
+/*
 trigger OnObjectMenuRequest( obj_id player, menu_info mi )
 {
 	if ( hasSkill( player, "combat_smuggler_novice" ) && hasObjVar( self, "armor.general_protection" ) )
@@ -79,7 +78,7 @@ trigger OnObjectMenuRequest( obj_id player, menu_info mi )
 			return SCRIPT_CONTINUE;
 		if ( !contains( pInv, self ) )
 			return SCRIPT_CONTINUE;
-		//mi.addRootMenu( menu_info_types.SERVER_MENU5, SID_SLICE );		// MODIFIED FOR NPE/CLICKY-COMBAT - RcT - 10/12/05
+		//mi.addRootMenu( menu_info_types.SERVER_MENU5, SID_SLICE );
 	}
 
 	return SCRIPT_CONTINUE;
@@ -262,7 +261,7 @@ boolean applyArmorBreakChange( obj_id self, obj_id player, int slice_amount )
 //------------------------------------------------
 // OnGetAttributes
 //------------------------------------------------
-/*						// BLOCK MODIFIED FOR NPE/CLICKY-COMBAT - RcT - 10/12/05
+/*
 trigger OnGetAttributes( obj_id player, string[] names, string[] attribs )
 {
 	if ( hasObjVar( self, "slice" ) )

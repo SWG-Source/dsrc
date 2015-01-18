@@ -1,14 +1,4 @@
 /**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:
- * Description:
- * @author       $Author: breinhart$
- * @version      $Revision: 0$
- */
-
-/**
  * Include Libraries
  */
 // include anyLibrary;	/** a .scriptlib file */

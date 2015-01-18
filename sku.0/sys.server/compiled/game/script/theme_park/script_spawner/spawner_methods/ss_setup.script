@@ -1,4 +1,4 @@
-// Behavior handler attached to NPCs that are spawned by a Travis spawner.
+// Behavior handler attached to NPCs that are spawned by a spawner.
 
 include library.ai_lib;
 

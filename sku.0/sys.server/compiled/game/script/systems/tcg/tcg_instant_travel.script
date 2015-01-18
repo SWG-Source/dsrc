@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        tcg_instant_travel.script
- * Description:  script that attaches to the TCG instant travel terminal
- * @author       $Author:RcT$
- * @version      $Revision:1.0 (10/13/2005)$
+ Title:        tcg_instant_travel.script
+ Description:  script that attaches to the TCG instant travel terminal
  **********************************************************************/
 
 // ********************************************************************
@@ -32,7 +27,7 @@ const string[] LOC_ITV_MANAGE_OPTIONS 				={"Set Location 1", "Set Location 2"};
 								
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
-	//Validation
+	// Validation
 	if(!isIdValid(player))
 		return SCRIPT_CONTINUE;
 	
@@ -41,7 +36,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		sendSystemMessage(player, SID_WHILE_DEAD);
 		return SCRIPT_CONTINUE;
 	}
-	//End Validation
+	// End Validation
 	
 	obj_id tcg_itv = getSelf();
 	
@@ -55,24 +50,24 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 
 trigger OnObjectMenuSelect(obj_id player, int item)
 {	
-	//Validation
+	// Validation
 	if(!isIdValid(player))
 		return SCRIPT_CONTINUE;
 		
-	//Dismount the player if he/she is mounted
+	// Dismount the player if he/she is mounted
 	if(getState(player, STATE_RIDING_MOUNT) == 1)
 		pet_lib.doDismountNow(player, true);
 
 	obj_id tcg_itv = getSelf();
 	
-	//Set/Reset Locations Menu
+	// Set/Reset Locations Menu
 	if(item == menu_info_types.SERVER_MENU8)
 	{
 		markItvLocations(tcg_itv, player);
 		return SCRIPT_CONTINUE;
 	}
 	
-	//Travel To Locations Menu
+	// Travel To Locations Menu
 	if(item == menu_info_types.SERVER_MENU9)
 	{
 		retrieveLocationsList(tcg_itv, player);
@@ -84,7 +79,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 void markItvLocations(obj_id itv, obj_id player)
 {
-	//Validation
+	// Validation
 	if(!isIdValid(itv) || !isIdValid(player))
 		return;
 	
@@ -93,23 +88,23 @@ void markItvLocations(obj_id itv, obj_id player)
 		int pid = sui.getPid(player, PID_VAR);
 		forceCloseSUIPage(pid);
 	}
-	//End Validation
+	// End Validation
 	
 	string[] main_options = new string[2];
 		
-	//Location 1 Name from ObjVars
+	// Location 1 Name from ObjVars
 	if(hasObjVar(itv, "travel_tcg.stationary_itv.name.1"))
 		main_options[0] = "Reset " + getStringObjVar(itv, "travel_tcg.stationary_itv.name.1");
 	else
 		main_options[0] = "Set Location 1";
 	
-	//Location 2 Name from ObjVars
+	// Location 2 Name from ObjVars
 	if(hasObjVar(itv, "travel_tcg.stationary_itv.name.2"))
 		main_options[1] = "Reset " + getStringObjVar(itv, "travel_tcg.stationary_itv.name.2");
 	else
 		main_options[1] = "Set Location 2";
 	
-	//Draw the SUI
+	// Draw the SUI
 	int pid = sui.listbox(itv, player, "@tcg:stationary_set_location_d", sui.OK_CANCEL, "@tcg:stationary_set_location_t", main_options, "handlePlayerNameSetLocation", true, true);
 	sui.setPid(player, pid, PID_VAR);
 	

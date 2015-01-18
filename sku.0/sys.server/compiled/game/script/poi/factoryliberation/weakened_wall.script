@@ -1,11 +1,9 @@
 /**
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        weakened_wall.script
  * Description:  script for destroyable wall: POI = factoryliberation
- * @author       $Author: breinhart $
- * @version      $Revision: #1 $
+
  */
 
 // Also used by "prisonbreak" POI.

@@ -1,5 +1,5 @@
-/**
- * posture_test.script
+/*
+ posture_test.script
  */
 
 trigger OnHearSpeech(obj_id objSpeaker, string strText)

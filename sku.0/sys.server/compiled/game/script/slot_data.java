@@ -1,10 +1,6 @@
-/**
- * Title:        slot_data
- * Description:  Wrapper for slot info.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        slot_data
+ Description:  Wrapper for slot info.
  */
 
 package script;

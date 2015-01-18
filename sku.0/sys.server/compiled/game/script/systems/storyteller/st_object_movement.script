@@ -9,11 +9,9 @@ const string STF 		 			= "player_structure";
 
 const float MAX_HEIGHT				= 8.0f;
 
-
-
 commandHandler rotateStorytellerObject()
 {
-	//LOG("LOG_CHANNEL", "storyteller::rotateStorytellerObject");
+	// LOG("LOG_CHANNEL", "storyteller::rotateStorytellerObject");
 
 	// Parse the command
 	java.util.StringTokenizer st = new java.util.StringTokenizer(params);
@@ -81,7 +79,7 @@ commandHandler rotateStorytellerObject()
 	}
 
 
-	// rotation to the left is negative
+	// Rotation to the left is negative
 	if (direction.equals("LEFT"))
 		rotation = rotation * -1;
 
@@ -95,7 +93,7 @@ commandHandler rotateStorytellerObject()
 	if (obj_rot <= 0)
 		obj_rot = obj_rot + 360;
 
-	// rotate it
+	// Rotate it
 
 	setYaw(target, obj_rot);
 
@@ -104,7 +102,7 @@ commandHandler rotateStorytellerObject()
 
 commandHandler moveStorytellerObject()
 {
-	//LOG("LOG_CHANNEL", "storyteller::moveStorytellerObject");
+	// LOG("LOG_CHANNEL", "storyteller::moveStorytellerObject");
 	// Parse the command
 	java.util.StringTokenizer st = new java.util.StringTokenizer(params);
 	if (st.countTokens() == 0)
@@ -193,7 +191,7 @@ commandHandler moveStorytellerObject()
 		// Determine the point to move.
 		location loc = getLocation(target);
 		float facing = getYaw(self);
-		// distance is in tenths of units so that the player doesn't need to use decimals.
+		// Distance is in tenths of units so that the player doesn't need to use decimals.
 		float dist_scaled = (float)distance / 100.0f;
 
 		float facing_rad = (float)Math.toRadians(facing);
@@ -244,7 +242,7 @@ commandHandler moveStorytellerObject()
 		// Determine the point to move.
 		location loc = getLocation(target);
 		float facing = getYaw(self);
-		// distance is in tenths of units so that the player doesn't need to use decimals.
+		// Distance is in tenths of units so that the player doesn't need to use decimals.
 		float dist_scaled = (float)distance / 100.0f;
 		float y = dist_scaled;
 

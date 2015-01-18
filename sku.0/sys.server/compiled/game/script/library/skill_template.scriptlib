@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        skill_template.scriptlib
  * Description:  experience type defines and xp-related function library
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 /***** INCLUDES ********************************************************/

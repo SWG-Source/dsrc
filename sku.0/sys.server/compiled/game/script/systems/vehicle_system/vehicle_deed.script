@@ -80,8 +80,8 @@ trigger OnObjectMenuSelect (obj_id player, int item)
 			return SCRIPT_CONTINUE;
 		}
 
-		/* -----------------12/10/2003 1:50PM----------------
-		 * altered system to use vehicle.hasMaxStoredVehicles() which dynamically checks vehicle count, instead of the persisted pet.vehicleCount objvar
+		/* 
+		  altered system to use vehicle.hasMaxStoredVehicles() which dynamically checks vehicle count, instead of the persisted pet.vehicleCount objvar
 		 * --------------------------------------------------/
 		if ( vehicle.hasMaxVehicles( player ) )
 		{

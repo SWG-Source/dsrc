@@ -1,4 +1,3 @@
-
 // ======================================================================
 
 include library.ai_lib;
@@ -31,8 +30,6 @@ const string PGC_QUEST_CONTROL_DEVICE    = "object/intangible/saga_system/sage_i
 const int    PQ_TASK_FINISHED                  = 2; // This is value comes from the comments in base_class.java
 const int    PQ_TASK_INACTIVE		       = 4;
 // ======================================================================
-
-// Hello World
 
 trigger OnSpeaking(String text)
 {

@@ -1,21 +1,9 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        base.script
- * DesCRiption:
- * @author       $AutHor:$
- * @version      $Revision:$
- */
-
 /***** INCLUDES ********************************************************/
 
 include library.buff;
 include library.utils;
 include library.player_structure;
 include library.colors_hex;
-
-/***** INCLUDES ********************************************************/
 
 /***** CONSTANTS *******************************************************/
 

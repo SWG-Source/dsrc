@@ -1,13 +1,8 @@
-//-----------------------------------------------------------------
-//
 //-------------------------CONTAINER PUZZLE------------------------
-//
 //Player must guess numbers for the combination on the locked container.
 //The player is given a hint as to how many digits are in the number via
 //asteriscs.
-//
 //-----------------------------------------------------------------
-//-Jeff Haskell 2008
 
 include library.buff;
 include library.collection;

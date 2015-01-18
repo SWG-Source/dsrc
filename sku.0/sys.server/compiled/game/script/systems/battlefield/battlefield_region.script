@@ -1,14 +1,8 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        battlefield_region.script
+/* Title:        battlefield_region.script
  * Description:  Attaches to the battlefield master object to manage the region.
  *		 Self refers to the master object and not the region. Use
  *		 battlefield.getRegionIdFromMasterObject(master_object) to get that.
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+*/
 
 
 /***** INCLUDES ********************************************************/
@@ -653,7 +647,3 @@ messageHandler msgGameStatHistory()
 	return SCRIPT_CONTINUE;
 }
 
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *************************************************/

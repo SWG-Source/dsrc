@@ -1,13 +1,5 @@
 // ======================================================================
-//
 // qascript.script
-// Copyright 2005, Sony Online Entertainment
-// All Rights Reserved.
-// 
-// VERSION 1.0
-//
-// Jeff W Haskell
-//
 // [internal]
 // QA Script Tool 
 //	- shows scripts attached to test character
@@ -267,8 +259,6 @@ messageHandler handleDetachScriptOptions()
 	return SCRIPT_CONTINUE;
 }
 /*------------- ALL FUNCTIONS ----------------------------------------------*/
-/*--------------------------------------------------------------------------*/
-/*--------------------------------------------------------------------------*/
 
 //BUILDS THE MAIN TOOL MENU
 void toolMainMenu(obj_id player)

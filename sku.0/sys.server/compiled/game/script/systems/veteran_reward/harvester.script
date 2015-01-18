@@ -1,12 +1,7 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems/veteran_reward/emote_group.script
- * Description:  Lets a player modify a harvester to use 0 power. The player selects the harvester they
- *               want to change, and then use this item to change its power rate to 0.
- * @author       $Author:$
- * @version      $Revision:$
+/*
+  Title:        systems/veteran_reward/emote_group.script
+  Description:  Lets a player modify a harvester to use 0 power. The player selects the harvester they
+                want to change, and then use this item to change its power rate to 0.
  */
 
 include library.player_structure;
@@ -36,9 +31,9 @@ trigger OnInitialize()
 	return SCRIPT_CONTINUE;
 }
 
-/**
- * If the player is looking at a harvester they own, add a menu item that will allow them
- * to modify the harvester.
+/*
+  If the player is looking at a harvester they own, add a menu item that will allow them
+  to modify the harvester.
  */
 trigger OnObjectMenuRequest(obj_id player, menu_info item)
 {

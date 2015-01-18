@@ -236,7 +236,7 @@ obj_id getMissionData(obj_id objMission)
 // this function will probably go away once we get full dynamic creation working
 obj_id createDestructionMissionDataFromLocation(obj_id objMissionData, obj_id objCreator, location locMissionStart, int intDifficulty, string strPlanet, string strFaction, float fltRewardModifier)
 {
-	//LOG("missions", "Making destroy mission");
+	LOG("missions", "Making destroy mission");
 	//PROFILER_START("Block1");
 	setMissionRootScriptName(objMissionData, "systems.missions.dynamic.mission_destruction");
 	setMissionType(objMissionData, "destroy");
@@ -322,13 +322,13 @@ obj_id createDestructionMissionDataFromLocation(obj_id objMissionData, obj_id ob
 
 	if(locGoodLocation == null)
 	{
-		//LOG("missions", "Returning null due to good location failure");
+		LOG("missions", "Returning null due to good location failure");
 		return null;
 	}
 
 	if(strSpawnType == null || strSpawnType == "")
 	{
-		//LOG("missions", "Returning null due to SPAWN TYPE FAILURE");
+		LOG("missions", "Returning null due to SPAWN TYPE FAILURE");
 		return null;	// that location was fucked so we can't help you!
 	}
 
@@ -349,7 +349,7 @@ obj_id createDestructionMissionDataFromLocation(obj_id objMissionData, obj_id ob
 
 	//PROFILER_STOP("Block3");
 
-	//LOG("mission_spam", "Making destruction Mission Spawn List");
+	LOG("mission_spam", "Making destruction Mission Spawn List");
 	//PROFILER_START("Block4");
 	//LOG("missions", "spawnType si "+strSpawnType);
 

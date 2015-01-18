@@ -1,13 +1,9 @@
-
 /***** INCLUDES ********************************************************/
 
 include library.money;
 include library.groundquests;
 include library.sui;
 include library.utils;
-
-/***** INHERITS ********************************************************/
-
 
 /***** CONSTANTS *******************************************************/
 

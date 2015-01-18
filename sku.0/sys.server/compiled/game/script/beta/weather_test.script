@@ -1,5 +1,4 @@
 // Weather Control script
-// by Cinco Barnes 11-30-2002
 
 trigger OnAttach()
 {

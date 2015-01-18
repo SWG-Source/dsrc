@@ -1,8 +1,4 @@
-
 /**
- * Copyright (c)2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        holiday_controller.script
  */
 
@@ -14,7 +10,7 @@ include library.holiday;
 /*
 	1. To make a new event copy a code block of another event and rename variables 
 	2. Make sure to keep your event name simple enough to remember. For instance "halloween".
-	3. In your DRIVE:\swg\BRANCH\exe\shared directory add your event under the [GameServer]
+	3. In your DRIVE:\swg\exe\shared directory add your event under the [GameServer]
 	 for instance: halloween=true
 	4. Create your event buildout tab files with the objects of your event. The name of the 
 	 buildout file should be prefixed with the event. Example halloween_mos_eisley. The

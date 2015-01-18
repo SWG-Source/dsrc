@@ -1,7 +1,3 @@
-/**
- * myscript.script
- */
-//include steve.mylib;
 include library.pclib;
 include library.factions;
 include library.player_structure;

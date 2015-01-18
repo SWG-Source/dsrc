@@ -1,10 +1,6 @@
-/**
- * Title:        watcher
- * Description:  Watcher thread that prevents scripts from executing too long
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        watcher
+ Description:  Watcher thread that prevents scripts from executing too long
  */
 
 package script;

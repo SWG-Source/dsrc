@@ -1,12 +1,7 @@
 /**************************************************************************
- *
  * Java-side player_level caching.
- *
- * copyright 2001 Sony Online Entertainment
- *
  * @todo: where do error messages from this class go? Right now we're just
  * printing to stderr, but do we want to hook in with our logging code?
- *
  *************************************************************************/
 
 package script;

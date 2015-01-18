@@ -2,10 +2,8 @@
  * Title:        combat_simulator_user
  * Description:  User interface for the combat simulator - so a user can create multiple simulations to run on the server
  * Usage:        Attach to your player avatar and type 'startCombatSimulator', which will bring up a GUI to run simulations
- * Copyright:    Copyright (c) 2005
- * Company:      Sony Online Entertainment
- * @author       Vijay Thakkar
- * @version 1.0
+
+ 
  */
 
 // NONE OF THIS SHOULD EVER GO TO LIVE - ifdef'd out

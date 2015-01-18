@@ -1,13 +1,6 @@
-
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        terminal_kashyyyk_content.script
- * Description:  KAshyyyk Content Frog
- * @author       Will Wallace (lots of code taken from Thomas Blair's character builder)
- * @version      1.0
- **********************************************************************/
+/* Title:        terminal_kashyyyk_content.script
+ * Description:  Kashyyyk Content Frog
+*/
 
 
 /***** INCLUDES ********************************************************/

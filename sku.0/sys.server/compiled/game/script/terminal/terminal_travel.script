@@ -1,12 +1,6 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        terminal_travel.script
+/* Title:        terminal_travel.script
  * Description:  script that attaches to the travel terminal
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+*/
 
 
 /***** INCLUDES ********************************************************/
@@ -77,13 +71,4 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	}
 	return SCRIPT_CONTINUE;
 }
-
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
 

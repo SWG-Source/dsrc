@@ -1,5 +1,4 @@
-/* -----------------4/15/2002 11:34AM----------------
- * This script is attached to each object as it
+/* This script is attached to each object as it
  * is created by the poi content script.
  * --------------------------------------------------*/
 include library.ai_lib;

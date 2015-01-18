@@ -1,12 +1,4 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_base_chassis.script
- * Description:  base crafting script used by all chasses
- * @author       $Author: wwallace (orig. script by RThornton)$
- * @version      $Revision: 0$
- */
+
 
 include library.utils;
 include library.craftinglib;

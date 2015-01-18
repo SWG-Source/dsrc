@@ -4,7 +4,7 @@ include library.utils;
 
 trigger OnAttach()
 {
-	sendSystemMessageTestingOnly(self, "Calan's uberscript attached.  Say \"uber\" for options.");
+	sendSystemMessageTestingOnly(self, "Uberscript attached.  Say \"uber\" for options.");
 	return SCRIPT_CONTINUE;
 }
 

@@ -1,12 +1,4 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        test_crafting_base_weapon.script
- * Description:  base crafting script used by all weapons
- * @author       $Author: Reece Thornton & Friends$
- * @version      $Revision: 0$
- */
+
 
 include library.utils;
 include library.craftinglib;

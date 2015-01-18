@@ -1,10 +1,6 @@
-/**
- * Title:        modifiable_string_id
- * Description:  Modifiable extension of a string_id.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        modifiable_string_id
+ Description:  Modifiable extension of a string_id.
  */
 
 package script;

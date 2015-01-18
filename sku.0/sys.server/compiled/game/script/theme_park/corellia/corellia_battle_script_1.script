@@ -62,11 +62,7 @@ void spawnCelebs(obj_id self)
 	
 }
 
-//
-//
 //	Imperials
-//
-//
 
 void spawnImperial01( obj_id self)
 {
@@ -250,11 +246,7 @@ void spawnImperial_atst( obj_id self)
 	return;
 }
 
-//
-//
-//	REBELS
-//
-//
+//	Rebels
 
 void spawnRebel_01( obj_id self)
 {
@@ -432,11 +424,7 @@ void spawnRebel_16( obj_id self)
 	return;
 }
 
-//
-//
-//	TURRETS
-//
-//
+//	Turrets
 
 void spawnTurret01( obj_id self)
 {

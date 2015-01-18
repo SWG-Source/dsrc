@@ -1,12 +1,7 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems/veteran_reward/emote_group.script
- * Description:  Gives a player access to a group of emotes. This occurs when the object this
- * 				 script is attached to is placed in the player's inventory.
- * @author       $Author:$
- * @version      $Revision:$
+/*
+  Title:        systems/veteran_reward/emote_group.script
+  Description:  Gives a player access to a group of emotes. This occurs when the object this
+ 				 script is attached to is placed in the player's inventory.
  */
 
 include library.veteran_deprecated;
@@ -20,8 +15,8 @@ const string OBJVAR_GROUP_REWARDED = "rewarded";
 
 /***** TRIGGERS ********************************************************/
 
-/**
- * If we're being put in a player's inventory, flags the player as being able to perform a group of emotes.
+/*
+ If we're being put in a player's inventory, flags the player as being able to perform a group of emotes.
  */
 trigger OnTransferred(obj_id sourceContainer, obj_id destContainer, obj_id transferer)
 {
@@ -62,8 +57,8 @@ trigger OnTransferred(obj_id sourceContainer, obj_id destContainer, obj_id trans
  	return SCRIPT_CONTINUE;
 }
 
-/**
- * Lists the emotes the player can perform.
+/*
+ Lists the emotes the player can perform.
  */
 trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 {

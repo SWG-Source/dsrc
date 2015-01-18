@@ -1,13 +1,6 @@
-
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        terminal_character_builder.script
+/* Title:        terminal_character_builder.script
  * Description:  Script that drives the Character Builder Terminals
- * @author       Thomas Blair
- * @version      1.0
- **********************************************************************/
+*/
 
 
 /***** INCLUDES ********************************************************/

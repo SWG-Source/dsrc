@@ -1,6 +1,5 @@
 include library.quests;
 include library.factions;
-//include theme_park.corellia.gating;
 
 //corellia themepark quest constants:
 
@@ -25,28 +24,14 @@ const string LEIA_COMBAT_2 = "leiaCombat2";
 
 boolean canTakeQuest( obj_id player, string questId )
 {
-	//temporary hack:  All quests available all time:
+	
 	return true;
-
-	/* -----------------4/1/2002 1:26PM------------------
-	 * INSERT GATING LOGIC HERE!
-	 * --------------------------------------------------*/
-
-	//debugServerConsoleMsg( player, "Error:  Don't know WTF " + questId + " quest is!" );
-	//return false;
 }
 
 boolean canTakeInfiltrationMission( obj_id player, string questId )
 {
 
-	//temporary hack:  All quests available all time:
+	
 	return true;
-
-	/* -----------------4/1/2002 1:26PM------------------
-	 * INSERT GATING LOGIC HERE!
-	 * --------------------------------------------------*/
-
-	//debugServerConsoleMsg( player, "Error:  " + questId + " is not an infiltration quest!" );
-	//return false;
 }
 

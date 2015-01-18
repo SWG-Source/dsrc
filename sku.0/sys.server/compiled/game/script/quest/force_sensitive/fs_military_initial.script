@@ -1,11 +1,9 @@
 /**
- * Copyright (c)2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        fs_military_initial.script
  * Description:  Force Sensitive 2nd quest
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 include library.ai_lib;

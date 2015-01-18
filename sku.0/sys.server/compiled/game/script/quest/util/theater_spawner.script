@@ -1,12 +1,10 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        quest_creature
  * Description:  Script that attaches to any creature spawned via the quest
  *		 spawner
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

@@ -1,11 +1,9 @@
 /********************************************************************************************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        fs_medic_heal_pack.script
  * Description:  Force Sensitive Quest Item script to display cure values.
- * @author       Benjamin Norris
- * @version      $Revision:$
+
  **********************************************************************/
 
 

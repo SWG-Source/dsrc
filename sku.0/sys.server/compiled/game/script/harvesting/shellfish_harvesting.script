@@ -1,11 +1,5 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        shellfish harvesting
- * DesCRiption:  device used to gather mollusks and shellfish
- * @author       $AutHor: Eli Holding$
- * @version      $Revision:$
+/* Title:        shellfish harvesting
+ * Description:  device used to gather mollusks and shellfish
  */
 
 /***** INCLUDES ********************************************************/
@@ -15,8 +9,6 @@ include library.resource;
 include library.prose;
 include library.colors;
 include library.minigame;
-
-/***** INCLUDES ********************************************************/
 
 /***** CONSTANTS *******************************************************/
 

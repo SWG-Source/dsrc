@@ -1,16 +1,8 @@
-/**********************************************************************
- * Copyright (c)2000-2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        terminal_travel_instant.script
+/* Title:        terminal_travel_instant.script
  * Description:  script that attaches to the instant travel terminal (looks like a ship)
- * @author       $Author:RcT$
- * @version      $Revision:1.0 (10/13/2005)$
- **********************************************************************/
+*/
 
-// ********************************************************************
 //					INCLUDES
-// ********************************************************************
 
 include library.buff;
 include library.city;
@@ -26,9 +18,9 @@ include library.sui;
 include library.travel;
 include library.utils;
 
-// ********************************************************************
+
 //					CONSTS
-// ********************************************************************
+
 
 const string_id SID_TIMEOUT					= new string_id("travel", "pickup_timeout");
 const string_id SID_LEFT_ME					= new string_id("travel", "left_pickup_zone");
@@ -44,9 +36,7 @@ const string[] LOC_ITV_MANAGE_OPTIONS 				={
 								"Set Location 2", 
 								"Set Location 3", 
 								};
-// ********************************************************************
 //					TRIGGERS
-// ********************************************************************
 
 trigger OnInitialize ()
 {
@@ -186,9 +176,7 @@ trigger OnTriggerVolumeExited(string volumeName, obj_id breacher)
 	return SCRIPT_CONTINUE;
 }
 
-// ********************************************************************
 //					FUNCTIONS
-// ********************************************************************
 
 void debugLogging(string section, string message)
 {
@@ -330,9 +318,7 @@ boolean canMarkAtLocation(obj_id player)
 	return true;
 }
 
-// ********************************************************************
 //					MESSAGE HANDLERS
-// ********************************************************************
 
 //This message to only delivers the system message to the player when the timer on the BUFF is about to run out. 
 messageHandler timeOutSelfExpire()

@@ -582,13 +582,12 @@ void doTraderEntertainerXpWarning(int questCrc, obj_id player)
 
 /**
 	THIS IS FOR INTERNAL QUEST SYSTEM USE ONLY!!!  If you need to push a quest on a player, enter the quest name into
-	//depot/swg/<branch>/dsrc/sku.0/sys.shared/compiled/game/datatables/quest/force_accept_quests.tab
+	datatables/quest/force_accept_quests.tab
 */
-void grantQuestNoAcceptUI(obj_id player, string questName, boolean showSystemMessage)
+int grantQuestNoAcceptUI(obj_id player, string questName, boolean showSystemMessage)
 {
 	int questCrc = getQuestIdFromString(questName);
-	questActivateQuest(questCrc, player, player);
-	return;
+	return questActivateQuest(questCrc, player, player);
 }
 
 // ---------------------------------------------------------------------
