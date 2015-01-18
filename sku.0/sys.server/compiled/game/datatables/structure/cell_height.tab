@@ -409,3 +409,5 @@ object/building/player/player_house_tcg_vip_bunker.iff	entrance	4.1	0.47
 object/building/player/player_house_tcg_vehicle_garage.iff	entry	9	0.5
 object/building/player/player_house_tcg_vehicle_garage.iff	loft	15.5	10.2
 object/building/player/player_house_tcg_commando_bunker.iff	entry	8.5	0.4
+object/building/player/player_house_tcg_8_bespin_house.iff	elevator	28.9	0.96
+object/building/player/player_house_tcg_8_bespin_house.iff	tower	43	0.4
