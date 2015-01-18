@@ -1,5 +1,5 @@
-/**
- * Test script to give veteran rewards. Attach to an npc.
+/*
+ Test script to give veteran rewards. Attach to an npc.
  */
 
 include library.veteran_deprecated;

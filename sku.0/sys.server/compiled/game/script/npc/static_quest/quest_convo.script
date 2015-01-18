@@ -67,7 +67,7 @@ messageHandler handleStaticQuestNpcAttach()
 	attachScript (self, "npc.converse.npc_converse_menu");
 	ai_lib.setDefaultCalmBehavior( self, ai_lib.BEHAVIOR_SENTINEL );
 	setInvulnerable (self, true);
-	createTriggerVolume( FACETO_VOLUME_NAME, 8.0f, true );
+	//createTriggerVolume( FACETO_VOLUME_NAME, 8.0f, true );
 	return SCRIPT_CONTINUE;
 }
 
@@ -1159,6 +1159,7 @@ void missionFailure (obj_id self, obj_id player, int questNum)
 
 //const string FACETO_VOLUME_NAME = "faceToTriggerVolume";
 //createTriggerVolume( FACETO_VOLUME_NAME, 8.0f, true );
+/*
 trigger OnTriggerVolumeEntered( string volumeName, obj_id breacher )
 {
 	if ( !isPlayer( breacher ) )
@@ -1177,7 +1178,7 @@ trigger OnTriggerVolumeEntered( string volumeName, obj_id breacher )
 		faceTo( self, breacher );
 
 	return SCRIPT_CONTINUE;
-}
+}*/
 
 void resetOtherQuest (obj_id self, obj_id player)
 {

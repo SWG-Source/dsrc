@@ -1,12 +1,8 @@
 /**********************************************************************
-
  Teleport to Group Member Instant Travel Terminal
- 
  **********************************************************************/
 
-// ********************************************************************
 //					INCLUDES
-// ********************************************************************
 
 include library.combat;
 include library.pet_lib;
@@ -16,9 +12,7 @@ include library.sui;
 include library.township;
 include library.utils;
 
-// ********************************************************************
 //					CONSTS
-// ********************************************************************
 
 const string PID_VAR 						= "teleportToGroupMember.pid";
 const string GROUP_NAMES_LIST_VAR			= "teleportToGroupMember.groupieNames";

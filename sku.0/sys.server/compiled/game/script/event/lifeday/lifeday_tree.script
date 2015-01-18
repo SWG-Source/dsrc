@@ -1,15 +1,7 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        lifeday gift xmas tree
  * Description:  Grants holiday items to the player 
- * @author       Thomas Blair
- * @version      1.0
  */
-
-/***** INCLUDES ********************************************************/
-
 
 /***** INCLUDES ********************************************************/
 include library.utils;

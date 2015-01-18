@@ -1,11 +1,6 @@
-/**
- * Copyright (c) ©2000-2003 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        treasure_guard.script
- * Description:  treasure_guard logic
- * @author       $Author: breinhart $
- * @version      $Revision: #1 $
+/*
+  Title:        treasure_guard.script
+  Description:  treasure_guard logic
  */
 
 //------------------------------------------------
@@ -75,7 +70,7 @@ trigger OnDeath(obj_id killer, obj_id corpseId)
 		+ " at location: " + getLocation(self) 
 		+". [ OnDeath() ]");
 	
- 	//This is QA test variable
+ 	// This is QA test variable
  	if(utils.hasObjVar(self, "glow"))
  	{
  		messageTo(self, "glow", null, 2, false );
@@ -85,8 +80,8 @@ trigger OnDeath(obj_id killer, obj_id corpseId)
  	obj_id fake_chest = getObjIdObjVar(self, "fake_chest");
  	if(isValidId(fake_chest) && exists(fake_chest))
  	{
- 		//recalculate the enemy list on fake chest
- 		//debugSpeakMsg(self, "I am sending message to: "+fake_chest);
+ 		// Recalculate the enemy list on fake chest
+ 		// debugSpeakMsg(self, "I am sending message to: "+fake_chest);
  		messageTo(fake_chest, "recalculateGuardArray", null, 0, false );
  	}
  	
@@ -138,7 +133,7 @@ messageHandler attackThief()
 	if(!isValidId(player) || !exists(player))
 		return SCRIPT_CONTINUE;
 		
-	//see if player is in group
+	// See if player is in group
 	if (!group.isGrouped(player))
 	{
 		startCombat(self, player);
@@ -186,46 +181,46 @@ messageHandler attackThief()
 
 messageHandler glow()
 {
-	//get the primary killer list
+	// Get the primary killer list
 	obj_id[] primaryKillers = getObjIdArrayObjVar(self, "scenario.primaryKillers");
 	if ( (primaryKillers == null) || (primaryKillers.length == 0) )
 		return SCRIPT_CONTINUE;
 	
-	//get the primary killer of mob
+	// Get the primary killer of mob
 	obj_id priKiller = primaryKillers[0];
 	if(!isValidId(priKiller) || !exists(priKiller))
 		return SCRIPT_CONTINUE;
 	
-	//get the mob template
+	// Get the mob template
 	string mobTemplate = getTemplateName(self);
 	if(mobTemplate == "")
 		return SCRIPT_CONTINUE;
 		
-	//get the mob corpse location
+	// Get the mob corpse location
 	location glowLocation = getLocation(self);
 	if(glowLocation == null)
 		return SCRIPT_CONTINUE;
 		
-	//create the mobile with AI at the corpse location using the corpe template
+	// Create the mobile with AI at the corpse location using the corpe template
 	obj_id glowingMob = create.object( mobTemplate, glowLocation, 1, true, false );
 	if(!isValidId(glowingMob) || !exists(glowingMob))
 		return SCRIPT_CONTINUE;
 
-	//set the Glowing Jedi variables
+	// Set the Glowing Jedi variables
 	setObjVar(self, "glowing_mob", glowingMob);
 	setInvulnerable(glowingMob, true);
 	setState(glowingMob, STATE_GLOWING_JEDI, true);
 	setName(glowingMob, "Force Apparition");
-	//Face the player
+	// Face the player
 	faceTo(glowingMob, priKiller);
-	//Say Something Mean
+	// Say Something Mean
 	chat.chat(glowingMob, chat.CHAT_SHOUT, chat.MOOD_ANGRY, new string_id("treasure_map/treasure_map", RARE_CHAT));
 	
-	//Express yourself
+	// Express yourself
 	messageTo( self, "expression_fist", null, 1, true );
 	messageTo( self, "expression_disappear", null, 6, true );
 	
-	//Disappear without a trace
+	// Disappear without a trace
 	messageTo( self, "cleanUpGlowie", null, 10, true );
 	return SCRIPT_CONTINUE;
 }

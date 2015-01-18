@@ -1,22 +1,7 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        <title>
- * Description:  <description>
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
-
-
 /***** INCLUDES ********************************************************/
 include library.craftinglib;
 include library.utils;
 include library.pet_lib;
-
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
@@ -274,10 +259,3 @@ trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 	return SCRIPT_CONTINUE;
 }
 
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

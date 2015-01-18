@@ -1,10 +1,4 @@
-// ======================================================================
-//
 // ranged_int_custom_var.java
-// Copyright 2002 Sony Online Entertainment Inc.
-// All Rights Reserved.
-//
-// ======================================================================
 
 package script;
 

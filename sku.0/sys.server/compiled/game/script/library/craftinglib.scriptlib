@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        craftinglib.scriptlib
  * Description:  Utility functions for crafting
- * @author       $Author: Reece Thornton & Friends$
- * @version      $Revision: 0$
  */
 
 /**
@@ -211,7 +206,7 @@ const string_id MANUFACTURING_CENTER_MESSAGE 		= new string_id("city/city", "man
  *****************************************************************************************************************************************************
  ****************************************************************************************************************************************************/
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * Function calcResourceQualitySkillMod
  *
  * This function takes the average quality of all the resources
@@ -260,7 +255,7 @@ float calcResourceQualitySkillMod ( dictionary craftingValuesDictionary )
 	return resourceQualitySkillMod;
 }
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * Function itemComplexitySkillMod
  *
  * This function takes the complexity of the currently attempted item
@@ -294,7 +289,7 @@ float calcItemComplexitySkillMod (dictionary craftingValuesDictionary )
 	return itemComplexitySkillMod;
 }
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * Function resourceMalleabilitySkillMod
  *
  * This function takes the average malleability of all the resources
@@ -331,7 +326,7 @@ float calcResourceMalleabilitySkillMod (dictionary craftingValuesDictionary )
 	return resourceMalleabilitySkillMod;
 }
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * Function getAttributeResourceMod
  *
  * This function takes the attribute average value that is passed to it, then figures out the appropriate modifier.
@@ -380,7 +375,7 @@ float computeWeightedAverage(float[] resourceValues, resource_weight.weight[] we
 	return 0;
 }
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * Function skillDesignAssemblyCheck
  *
  * This function takes the modified design assembly skill roll, compares it to the target number, and determines a level of success.
@@ -698,7 +693,7 @@ int calcSkillDesignAssemblyCheck( obj_id player, dictionary craftingValuesDictio
 	return successState;
 }
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * Function calcAssemblyAttributeMultiplier
  *
  * This function takes the level of success and alters the schematics final attributes appropriately.
@@ -759,7 +754,7 @@ float calcAssemblySuccessAttributeMultiplier (int assemblySuccessState, dictiona
 	return attributeMultiplier;
 }
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * calcCraftingDesignStageIngredientAttribAverageValues
  *
  * This function with a very long name loads all the attributes off all the resources and components used to craft the current item and averages their values.
@@ -1011,7 +1006,7 @@ void calcResourceMaxItemAttributes (dictionary craftingValuesDictionary, draft_s
 	calcResourceMaxItemAttributes (null, craftingValuesDictionary, itemAttributes, weights);
 }
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * Function calcResourceMaxItemAttributes
  *
  * This function is the primary function used to figure out how high it's attributes can ever be, as a limitation on the results of the Experimentation phase.
@@ -1115,7 +1110,7 @@ void calcResourceMaxItemAttributes (obj_id player, dictionary craftingValuesDict
 	}
 }
 
-/* -----------------3/4/2002 1:48PM------------------
+/* --------------------------------------------------
  * Function calcPostAssemblyResourceSetAttribValues
  *
  * This function reads in the average attributes of the resources used in the schematic and sets the attributes in accordance with the resource averages.
@@ -1174,7 +1169,7 @@ void calcPostAssemblyResourceSetAttribValues (dictionary craftingValuesDictionar
 	}
 }
 
-/** -----------------3/4/2002 1:48PM------------------
+/** --------------------------------------------------
  * Function calcPostSkillAssemblyCheckSetValues
  *
  * This function reads in the attribute ranges of the schematic and sets them in accordance with skill check results.
@@ -1227,7 +1222,7 @@ void calcPostSkillAssemblyCheckSetAttribValues (dictionary craftingValuesDiction
 	}
 }
 
-/* -----------------3/4/2002 1:48PM------------------
+/* --------------------------------------------------
  * Function calcPostAssemblyPhaseAttributes
  *
  * This function does pretty much all of the real item schematic attribute value work done for the assembly phase of crafting. (The Phase before the crafting phase). Up to 30% of the items' possible attribute values is garnered through this script. To unlock the other possible 70%, you gotta go through the experimentation phase.
@@ -1307,7 +1302,7 @@ int calcAssemblyPhaseAttributes ( obj_id player, draft_schematic.slot[] itemIngr
  *****************************************************************************************************************************************************
  ****************************************************************************************************************************************************/
 
-/* -----------------10/15/2002 ------------------
+/* --------------------------- ------------------
  * Function calcExperimentalAttribs
  *
  * This function converts a schematic's object attributes to experimental attributes
@@ -1387,7 +1382,7 @@ void calcExperimentalAttribs(draft_schematic schematic)
 	debugServerConsoleMsg(null, "craftinglib.scriptlib calcExperimentalAttribs exit");
 }
 
-/* -----------------10/15/2002 ------------------
+/* --------------------------- ------------------
  * Function convertExperimentalAttribsToObjectAttribs
  *
  * This function converts experimental attribute points
@@ -1503,7 +1498,7 @@ float[] convertExperimentalPointsToObjectPoints(draft_schematic schematic, strin
 	return objectPoints;
 }
 
-/* -----------------3/4/2002 1:48PM------------------
+/* --------------------------------------------------
  * Function calcExperimentPoints
  *
  * This function determines how many experimentation points a player will be given during the experimentation phase of crafting
@@ -1531,7 +1526,7 @@ int calcExperimentPoints(obj_id player, string[] skillMods)
 	return totalMod;
 }
 
-/* -----------------3/4/2002 1:48PM------------------
+/* --------------------------------------------------
  * Function calcExpFullSinglePointValue
  *
  * This function reads in the attribute ranges of the schematic and figures out how much a single experiment point successfuly spent on each will alter them.
@@ -1565,7 +1560,7 @@ void calcExpFullSinglePointValue (dictionary craftingValuesDictionary, draft_sch
 	}
 }
 
-/* -----------------3/4/2002 1:48PM------------------
+/* --------------------------------------------------
  * Function calcPerExperimentationCheckMod
  *
  * This function reads in the number of attributes experimented upon, crafting station condition, item complexity, and user skill
@@ -1658,7 +1653,7 @@ void calcPerExperimentationCheckMod ( obj_id player, dictionary craftingValuesDi
 	craftingValuesDictionary.put ("expNumAttributesExperimentMod", numAttributesExperimentedMod);
 }
  
-/* -----------------3/4/2002 1:48PM------------------
+/* --------------------------------------------------
  * Function calcSuccessPerAttributeExperimentation
  *
  * This function reads in the number of attributes experimented upon, crafting station condition, item complexity,

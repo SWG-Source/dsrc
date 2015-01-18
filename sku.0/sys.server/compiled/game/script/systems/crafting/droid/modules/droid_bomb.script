@@ -1,13 +1,7 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        droid bomb
  * Description:  Handles the destruction of a droid with the droid bomb module.
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
-
 
 /***** INCLUDES ********************************************************/
 include library.ai_lib;
@@ -112,10 +106,6 @@ messageHandler msgDetonationWarmup()
 	utils.removeScriptVar(self, "module_data.detonation_warmup");
 	return SCRIPT_CONTINUE;
 }
-
-/***** COMMANDHANDLERS *************************************************/
-
-
 /***** FUNCTIONS *******************************************************/
 void detonateDroid(obj_id droid)
 {

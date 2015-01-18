@@ -1,11 +1,5 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        base terminal.script
+/* Title:        base terminal.script
  * Description:  script for handling basic terminal functions
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -16,8 +10,6 @@ include library.structure;
 /***** INHERITS ********************************************************/
 
 inherits terminal.base.base_terminal;
-
-/***** CONSTANTS *******************************************************/
 
 
 /***** TRIGGERS ********************************************************/
@@ -32,7 +24,3 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	return super.OnObjectMenuRequest(self, player, mi);
 }
 
-/***** FUNCTIONS *******************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/

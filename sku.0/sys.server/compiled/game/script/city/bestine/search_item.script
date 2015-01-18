@@ -4,9 +4,6 @@
 
 include library.utils;
 
-/***** INHERITS ********************************************************/
-
-
 /***** CONSTANTS *******************************************************/
 
 const string_id SEARCH_ITEM         	 	= new string_id ("bestine", "search_item");

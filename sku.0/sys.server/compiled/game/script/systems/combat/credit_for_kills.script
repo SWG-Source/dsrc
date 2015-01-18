@@ -1,7 +1,4 @@
 /********************************************************************************************
- * Copyright (c) 2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- ********************************************************************************************
  * Title:        credit_for_kills
  *
  * Description:  Once attached to a creature, this builds a list of all players that have
@@ -18,16 +15,11 @@
  * 					MAX_PLAYERS
  * 					MAX_DISTANCE
  *
- * @author       $Author: Matthew Kwid$
- * @version      $Revision: $
  ********************************************************************************************
 /***** INCLUDES *****************************************************************************/
 include java.util.*;
 include library.xp;
 include library.bounty_hunter;
-
-/***** INHERITS *****************************************************************************/
-
 
 /***** CONSTANTS ****************************************************************************/
 

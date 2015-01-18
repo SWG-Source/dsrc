@@ -2,7 +2,6 @@
 systems.collections.camera_locations_object.script
 This script is attached to an item placed at locations where a player must be in order to successfully
 take a picture to update his/her collection.
-Authors: James Michener
 */
 
 //libraries

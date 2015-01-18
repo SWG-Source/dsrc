@@ -1,13 +1,7 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        destroy_objective
+/*Title:        destroy_objective
  * Description:  script that goes on the target destructible objects
  *		 in a destroy mission.
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+*/
 
 
 /***** INCLUDES ********************************************************/
@@ -161,7 +155,3 @@ trigger OnDestroy()
 	return SCRIPT_CONTINUE;
 }
 
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

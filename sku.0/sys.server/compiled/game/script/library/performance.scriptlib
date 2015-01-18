@@ -1,9 +1,5 @@
 // ======================================================================
-//
 // performance.scriptlib - music/dancing script library
-//
-// Copyright 2002 Sony Online Entertainment
-//
 // ======================================================================
 
 include library.colors;

@@ -1,8 +1,6 @@
-/* Copyright (C) 2004 Sony Online Entertainment
- * Title:        collections.java
- * Description:  adds functionality similar to the java.util.Collections class
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
+/* 
+ Title:        collections.java
+ Description:  adds functionality similar to the java.util.Collections class
  */
 
 package script;

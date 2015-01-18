@@ -1,15 +1,10 @@
 //************************************************************/
-// Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:        qacube.script
 // Description:  Testers can use this tool to test all items that are spawned by the Chu-Gon Dar Cube.
 //  		 When using this tool, the player will be:
 //		 1. Given a Chu-Gon Dar Cube
 //		 2. Given the ability to choose what item they wish to create
 //		 3. Given the components needed to create the selected item.
-// @author       $Author: James Michener $
-// @version      $1.0.1$
 //************************************************************/
 
 /********* Includes ******************************************/

@@ -1,11 +1,9 @@
 /**
- * Copyright (c) ©2003 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        trigger_breach_sound.script
  * Description:  creates a trigger volume that when breached will play a sound
- * @author       $Author:$
- * @version      $Revision: #1 $
+
  */
 
 //------------------------------------------------

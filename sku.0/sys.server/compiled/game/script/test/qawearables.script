@@ -1,11 +1,5 @@
-/**
- * Copyright (c)2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        qawearables.script
+/* Title:        qawearables.script
  * Description:  script to dynamically spawn all clothing based on a datatable
- * @author       Jeff W. Haskell
- * @version      $Revision:2$
  */
 
 include library.sui;
@@ -21,10 +15,6 @@ include library.qa;
 const string DATATABLE_LOCATION		= "datatables/test/qa_wearables.iff";
 
 /**** FUNCTIONS ******************************************************/
-/*********************************************************************/
-/*********************************************************************/
-/*********************************************************************/
-/*********************************************************************/
 
 String[] populateArray(obj_id player, string datatableName, string choice, string column1, string column2, boolean filtered, boolean allFunction)
 {

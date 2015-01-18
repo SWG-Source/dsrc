@@ -1,11 +1,4 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.beast.decoration_item.script
- * Description:
- * @author       jbenjamin
- * @version      $Revision: 0$
+/* Title:        systems.beast.decoration_item.script
  */
 
 include library.beast_lib;

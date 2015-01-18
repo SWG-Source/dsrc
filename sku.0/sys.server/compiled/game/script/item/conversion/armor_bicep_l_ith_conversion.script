@@ -1,14 +1,3 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        conversion.medicine.script
- * Description:  This script will be attached to all Ithorian Left Bicep Armor during CU item conversion
- * @author       Thomas Blair
- * @version      $Revision:$
- */
-
-
 /***** INCLUDES ********************************************************/
 
 include library.utils;

@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        library.armor.scriptlib
  * Description:  common data and functions for the new armor system
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
  */
 
 /***** INCLUDES ********************************************************/

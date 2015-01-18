@@ -1,10 +1,6 @@
-/**
- * Title:        attribute
- * Description:  Wrapper for an attribute.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        attribute
+ Description:  Wrapper for an attribute.
  */
 
 package script;
@@ -18,7 +14,7 @@ public final class attribute implements Comparable, Serializable
 	private int m_type;
 	private int m_value;
 
-	/**
+	/*
 	 * Class constructor.
 	 *
 	 * @param type		attribute type
@@ -30,7 +26,7 @@ public final class attribute implements Comparable, Serializable
 		m_value = value;
 	}	// attribute
 
-	 /**
+	 /*
 	  * Copy constructor.
 	  *
 	  * @param src		class instance to copy
@@ -41,7 +37,7 @@ public final class attribute implements Comparable, Serializable
 		m_value = src.m_value;
 	 }	// attribute(attribute)
 
-	/**
+	/*
 	 * Accessor function.
 	 *
 	 * @return the attribute type
@@ -51,7 +47,7 @@ public final class attribute implements Comparable, Serializable
 		return m_type;
 	}	// gettype
 
-	/**
+	/*
 	 * Accessor function.
 	 *
 	 * @return the attribute value
@@ -61,7 +57,7 @@ public final class attribute implements Comparable, Serializable
 		return m_value;
 	}	// getValue
 
-	/**
+	/*
 	 * Conversion function.
 	 *
 	 * @return the attribute as a string.
@@ -73,7 +69,7 @@ public final class attribute implements Comparable, Serializable
 			")";
 	}	// toString
 
-	/**
+	/*
 	 * Compares this to a generic object.
 	 *
 	 * @returns <, =, or > 0 if the object is an attribute, else throws
@@ -84,7 +80,7 @@ public final class attribute implements Comparable, Serializable
 		return compareTo((attribute)o);
 	}	// compareTo(Object)
 
-	/**
+	/*
 	 * Compares this to another attribute.
 	 *
 	 * @returns <, =, or > 0
@@ -96,7 +92,7 @@ public final class attribute implements Comparable, Serializable
 		return m_type - id.m_type;
 	}	// compareTo(attribute)
 
-	/**
+	/*
 	 * Compares this to a generic object.
 	 *
 	 * @returns true if the objects have the same data, false if not

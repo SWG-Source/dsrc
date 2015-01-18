@@ -1,11 +1,4 @@
-/**
- * Copyright (c) ©2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_basic_weapon.script
- * Description:  base crafting script used by starship blasters
- * @author       $Author: wwallace
- */
+
 
 /**
  * Include Libraries

@@ -34,5 +34,3 @@ trigger OnIncapacitated (obj_id killer)
 	}
 	return SCRIPT_CONTINUE;
 }
-
-/***** MESSAGE HANDLERS ************************************************/

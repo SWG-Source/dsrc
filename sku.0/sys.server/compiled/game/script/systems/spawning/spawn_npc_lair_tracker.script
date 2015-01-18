@@ -1,10 +1,10 @@
 trigger OnAttach()
 {
-	//debugServerConsoleMsg(self, "Attached NPC Tracker script");
+	// debugServerConsoleMsg(self, "Attached NPC Tracker script");
 	return SCRIPT_CONTINUE;
 }
 
-//called when the lair itself is being deleted
+// Called when the lair itself is being deleted
 messageHandler spawn_Cleanup()
 {
 
@@ -17,7 +17,7 @@ messageHandler spawn_Cleanup()
 	return SCRIPT_CONTINUE;
 }
 
-//called when the lair wants to nicely remove an NPC
+// Called when the lair wants to nicely remove an NPC
 messageHandler spawn_removeNPC()
 {
 
@@ -42,7 +42,7 @@ trigger OnUnloadedFromMemory()
 
 trigger OnDestroy()
 {
-	//debugServerConsoleMsg(self, "ONDESTROY FOR NPC TRIGGER");
+	// debugServerConsoleMsg(self, "ONDESTROY FOR NPC TRIGGER");
 	if(!hasObjVar(self, "intDeleting"))
 	{
 		obj_id objMaster = getObjIdObjVar(self, "objMaster");
@@ -50,7 +50,7 @@ trigger OnDestroy()
 		dictionary dctParams = new dictionary();
 		dctParams.put("objNPC", self);
 		messageTo(objMaster, "npc_Delete", dctParams, 0, true);
-		//debugServerConsoleMsg(self, "messaged parent");
+		// debugServerConsoleMsg(self, "messaged parent");
 		setObjVar(self, "intDeleting", 1);
 		
 	}

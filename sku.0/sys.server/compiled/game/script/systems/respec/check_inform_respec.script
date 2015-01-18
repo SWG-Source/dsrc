@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2005 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        check_inform_respec.script
  * Description:  Utility functions for the respec system
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 include library.respec;

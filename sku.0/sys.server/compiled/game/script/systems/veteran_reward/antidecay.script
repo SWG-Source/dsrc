@@ -1,11 +1,6 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems/veteran_reward/antidecay.script
- * Description:  Let's a player make an insurable item not decay from cloning or use
- * @author       $Author:$
- * @version      $Revision:$
+/*
+ Title:        systems/veteran_reward/antidecay.script
+ Description:  Let's a player make an insurable item not decay from cloning or use
  */
 
 include library.sui;
@@ -43,7 +38,6 @@ const string_id SID_USE_KIT_CONFIRM_PROMPT_TWO = new string_id(VETERAN_STRING_TA
 const string_id SID_USE_KIT_CONFIRM_TITLE = new string_id(VETERAN_STRING_TABLE, "use_kit_confirm_title");
 
 // NOTE: ADK has been changed from an Anti-Decay Kit to a single use Profession Restart.
-// These kits should not longer be rewarded, they will slowly leave the economy as they are consumed.
 
 
 /***** TRIGGERS ********************************************************/

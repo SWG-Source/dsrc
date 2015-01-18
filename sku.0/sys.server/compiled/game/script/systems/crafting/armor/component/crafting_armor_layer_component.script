@@ -1,26 +1,15 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_armor_layer_component.script
+/* Title:        crafting_armor_layer_component.script
  * Description:  resource weighting script for both armor and armor components
- * @author       $Author: RcT and Steve 'the man!' Jakab$
- * @version      $Revision: 0$
  */
 
-/**
- * Include Libraries
- */
-// include anyLibrary;	/** a .scriptlib file */
+// include
 include library.utils;
 include library.craftinglib;
 
+// inherits
 inherits systems.crafting.armor.crafting_base_armor_component;
 
-/**
- * Constants
- * @{
- */
+// Constants
 /** The version number of this script. */
 const string VERSION = "v0.00.00";
 

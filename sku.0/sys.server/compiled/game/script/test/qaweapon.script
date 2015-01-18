@@ -1,7 +1,4 @@
 //************************************************************/
-// Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:        qa_weapon.script
 // Description:  These weapons have a set damage amount instead of a damage range.
 // 		 Notes: All Weapons created by this tool will have the following:
@@ -9,9 +6,6 @@
 //		 2. Weapons will have the appropriate speeds for their weapon class - pistols = 0.4/carbine = 0.6/rifle = 0.8/melee = 1.0
 //		 3. Weapons will be set to noTrade - precautionary measure.
 //		 4. Weapons will have Min/Max damage that are the same, example, Min Damage = 100 && Max Damage = 100.
-//
-// @author       $Author: James Michener $
-// @version      $1.0.0$
 //************************************************************/
 
 /********* Includes ******************************************/

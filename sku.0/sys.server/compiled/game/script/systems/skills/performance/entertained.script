@@ -40,7 +40,7 @@ messageHandler OnEntertainedCheck()
 trigger OnTriggerVolumeExited(string volumeName, obj_id target)
 {
 /*
-hnguyen - commented out for now to help track down the "too far away"
+commented out for now to help track down the "too far away"
 entertainer problem; we'll rely on the range check in
 performance.checkPlayerEntertained() do handle stopping
 watching/listening if the watcher/listener is too far away

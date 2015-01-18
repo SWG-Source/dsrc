@@ -289,7 +289,7 @@ messageHandler handleTargetDummyCombatReport()
 			{
 				if (revert != null && !revert.equals(""))
 				{
-					// clearing combat data
+					// Clearing combat data
 					if ( utils.hasScriptVarTree(controller, target_dummy.BASE_TARGET_DUMMY_VAR+"."+player) )
 					{
 						target_dummy.confirmClearYourCombatData(self, player);
@@ -302,7 +302,7 @@ messageHandler handleTargetDummyCombatReport()
 				}
 				else 
 				{
-					// show combat data sui
+					// Show combat data sui
 					target_dummy.reportCombatDataViaController(player, self, controller);
 				}
 			}
@@ -479,7 +479,7 @@ messageHandler handleTargetDummyDefensiveSkillModSet()
 trigger OnEnteredCombat()
 {
 	obj_id hateTarget = getHateTarget(self);
-	//debugSpeakMsg(self, "OnEnteredCombat:: hateTarget = "+hateTarget);
+	// debugSpeakMsg(self, "OnEnteredCombat:: hateTarget = "+hateTarget);
 	messageTo(self, "handleTargetDummyCombatTick", null, 3, false);
 	return SCRIPT_CONTINUE;
 }
@@ -510,19 +510,19 @@ messageHandler handleTargetDummyCombatTick()
 
 trigger OnExitedCombat()
 {
-	//debugSpeakMsg(self, "OnExitedCombat");
+	// debugSpeakMsg(self, "OnExitedCombat");
 	return SCRIPT_CONTINUE;
 }
 
 trigger OnHateTargetChanged(obj_id target)
 {
-	//debugSpeakMsg(self, "OnHateTargetChanged");
+	// debugSpeakMsg(self, "OnHateTargetChanged");
 	return SCRIPT_CONTINUE;
 }
 
 trigger OnHateTargetRemoved(obj_id target)
 {
-	//debugSpeakMsg(self, "OnHateTargetRemoved");
+	// debugSpeakMsg(self, "OnHateTargetRemoved");
 	return SCRIPT_CONTINUE;
 }
 

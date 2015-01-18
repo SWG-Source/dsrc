@@ -1,5 +1,3 @@
-
-
 // this library is where all of the space content stuff lives.
 
 include library.utils;

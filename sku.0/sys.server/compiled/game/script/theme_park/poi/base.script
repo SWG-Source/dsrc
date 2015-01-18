@@ -1,9 +1,7 @@
-/* -----------------4/15/2002 11:04AM----------------
- * This is the base script which all POI content scripts
+/* This is the base script which all POI content scripts
  * must inherit.
  * --------------------------------------------------*/
-/* -----------------4/15/2002 10:57AM----------------
- * Each POI template must specify the following objvar:
+/* Each POI template must specify the following objvar:
  *
  * poi.script 		- the name of the content script.
  * 					- Used by poi.launch to start the main
@@ -51,8 +49,7 @@ const string POI_OBJECTIVE 								= poi.POI_OBJECTIVE;
 //scripts:
 const string POI_OBJECT_SCRIPT 							= poi.POI_OBJECT_SCRIPT;
 
-/* -----------------4/15/2002 2:38PM-----------------
- * Use this function to create POI elements:
+/* Use this function to create POI elements:
  * --------------------------------------------------*/
 obj_id poiCreateObject( obj_id poiObject, string template, float x, float z )
 {
@@ -164,8 +161,7 @@ string poiFindObjectName()
 	return poi.findObjectName();
 }
 
-/* -----------------4/15/2002 6:16PM-----------------
- * Use this function to cause the object to emit a message to the main POI
+/* Use this function to cause the object to emit a message to the main POI
  * script when the object is destroyed
  * --------------------------------------------------*/
 void poiSetDestroyMessage( obj_id poiObject, string name, string messageHandlerName, int delay)
@@ -208,8 +204,7 @@ void poiSetDestroyMessage( string messageHandlerName )
 	poi.setDestroyMessage(messageHandlerName);
 }
 
-/* -----------------4/15/2002 7:00PM-----------------
- * These functions are used to Grant, Remove and Deny credit for poi completion:
+/* These functions are used to Grant, Remove and Deny credit for poi completion:
  * --------------------------------------------------*/
 void poiGrantCredit( obj_id poiObject, obj_id player )
 {
@@ -271,8 +266,7 @@ boolean poiIsDeniedCredit( obj_id poiBaseObject, string objVarName )
 	return poi.isDeniedCredit(poiBaseObject, objVarName);
 }
 
-/* -----------------4/15/2002 5:01PM-----------------
- * These functions are used internally to maintain a string index of POI elements
+/* These functions are used internally to maintain a string index of POI elements
  * --------------------------------------------------*/
 void poiAddToStringList( obj_id element, string name )
 {
@@ -304,16 +298,14 @@ void poiRemoveFromStringList( string name )
 	poi.removeFromStringList(name);
 }
 
-/* -----------------4/15/2002 5:00PM-----------------
- * These functions are used internally to maintain a list of POI elements
+/* These functions are used internally to maintain a list of POI elements
  * --------------------------------------------------*/
 void poiAddToMasterList( obj_id poiBaseObject, obj_id elementToAdd )
 {
 	poi.addToMasterList(poiBaseObject, elementToAdd);
 }
 
-/* -----------------4/15/2002 2:39PM-----------------
- * this function is used internally to remove objects from the
+/* this function is used internally to remove objects from the
  * string and master lists.
  * --------------------------------------------------*/
 void poiRemoveFromMasterList( obj_id poiBaseObject, obj_id elementToRemove )
@@ -326,8 +318,7 @@ boolean poiIsInMasterList( obj_id poiBaseObject, obj_id element )
 	return poi.isInMasterList(poiBaseObject, element);
 }
 
-/* -----------------4/15/2002 2:40PM-----------------
- * This function is mostly used internally to find the poi
+/* This function is mostly used internally to find the poi
  * base object
  * --------------------------------------------------*/
 obj_id poiGetBaseObject( obj_id poiObject )
@@ -340,8 +331,7 @@ obj_id poiGetBaseObject()
 	return poi.getBaseObject();
 }
 
-/* -----------------4/15/2002 2:40PM-----------------
- * This function is used internally.  It is called when the
+/*  This function is used internally.  It is called when the
  * base object is destroyed
  * --------------------------------------------------*/
 void poiBaseObjectDestroyed( obj_id poiBaseObject )
@@ -349,16 +339,14 @@ void poiBaseObjectDestroyed( obj_id poiBaseObject )
 	poi.baseObjectDestroyed(poiBaseObject);
 }
 
-/* -----------------4/15/2002 2:41PM-----------------
- * This function is used internally when a POI element is destroyed
+/* This function is used internally when a POI element is destroyed
  * --------------------------------------------------*/
 void poiObjectDestroyed( obj_id element )
 {
 	poi.objectDestroyed(element);
 }
 
-/* -----------------4/15/2002 7:22PM-----------------
- * These functions are used to retrieve data from
+/* These functions are used to retrieve data from
  * objvars placed on the main POI object from template:
  * --------------------------------------------------*/
 string poiGetDifficulty( obj_id poiObject )
@@ -406,8 +394,7 @@ string poiGetObjective()
 	return poi.getObjective();
 }
 
-/* -----------------4/15/2002 8:23PM-----------------
- * These functions can be used to override the faction-info:
+/* These functions can be used to override the faction-info:
  * --------------------------------------------------*/
 void poiSetFaction( obj_id poiObject, string faction )
 {
@@ -429,8 +416,7 @@ void poiSetFactionValue( float factionValue )
 	poi.setFactionValue(factionValue);
 }
 
-/* -----------------4/15/2002 7:32PM-----------------
- * This function flags a POI as "complete", cleans it up, and credits the winners.
+/* This function flags a POI as "complete", cleans it up, and credits the winners.
  * --------------------------------------------------*/
 void poiComplete( obj_id poiObject, int status )
 {
@@ -463,8 +449,7 @@ void poiSendMissionStatus( obj_id poiBaseObject, int status )
 {
 	poi.sendMissionStatus(poiBaseObject, status);
 }
-/* -----------------4/16/2002 4:02PM-----------------
- * Never call this function directly.  It's invoked by the poi_object
+/* Never call this function directly.  It's invoked by the poi_object
  * script when the base object is removed from the world.
  *
  * All items told to destroy themselves, all POI data is reset

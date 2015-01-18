@@ -94,8 +94,6 @@ void startFight( obj_id chris )
 	{
 		if ( exists( warriors[i] ) && exists( warriors[i+50] ) )
 		{
-			//factions.setFaction( warriors[i], factions.FACTION_IMPERIAL );
-			//factions.setFaction( warriors[i+50], factions.FACTION_REBEL );
 			startCombat( warriors[i], warriors[i+50] );
 		}
 	}

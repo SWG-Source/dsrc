@@ -1,10 +1,6 @@
-/**
- * Title:        mental_state
- * Description:  Wrapper for an mental_state.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        mental_state
+ Description:  Wrapper for an mental_state.
  */
 
 package script;

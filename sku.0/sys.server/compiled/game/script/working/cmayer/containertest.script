@@ -47,20 +47,3 @@ trigger OnHearSpeech(obj_id speaker, string text)
 	}
 	return SCRIPT_CONTINUE;
 }
-
-
-/*
-trigger OnAboutToOpenContainer(obj_id whoIsOpeningMe)
-{
-	debugConsoleMsg(whoIsOpeningMe, "Opening Container");
-	if (hasObjVar(whoIsOpeningMe, "key"))
-		return SCRIPT_CONTINUE;
-	return SCRIPT_OVERRIDE;
-}
-
-trigger OnOpenedContainer(obj_id whoOpenedMe)
-{
-	debugConsoleMsg(whoOpenedMe, "Opened Container");
-	return SCRIPT_CONTINUE;
-}
-*/

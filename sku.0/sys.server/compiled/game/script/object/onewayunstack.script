@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2004-2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        object.onewayunstack
  * Description:  Allows "stacked" loot items. An item can be extracted from the stack for use in crafting.
- * @author       $Author: $
- * @version      $Revision: 0$
  */
 
 /***************************!!!!!!!!!!!IMPORTANT!!!!!!!!!!!!!!!!*****************************/

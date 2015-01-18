@@ -1,13 +1,10 @@
 /**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        quest.force_sensitive.fs_grant_experiment_10.script
  * Description:  Attached to the prize a player gets for the fs village phase 3 community crafting quest.
  *               It will give them 10% of the xp they need for force_sensitive_crafting_mastery_experimentation_01
- *
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
+
  */
 
 /***** INCLUDES ********************************************************/

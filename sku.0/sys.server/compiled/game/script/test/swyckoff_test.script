@@ -1,4 +1,3 @@
-
 // ======================================================================
 
 include library.ai_lib;
@@ -52,13 +51,10 @@ const string [] COMMAND_LIST =
 "sw_objid_isvalid",
 "sw_mahjong"};
 
-// Hello World
-
 trigger OnSpeaking(String text)
 {
 	if (true) //isGod(self))
 	{
-		debugConsoleMsg( self, "swyckoff_test OnSpeaking: " + text );
 
 		java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 

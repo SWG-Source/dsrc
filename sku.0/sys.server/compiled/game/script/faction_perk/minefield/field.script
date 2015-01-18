@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        field.script
  * Description:  script to be attached to factional mine fields
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -19,6 +14,8 @@ include library.ai_lib;
 include library.factions;
 include library.faction_perk;
 include library.player_structure;
+
+/***** INHERITS ********************************************************/
 
 inherits systems.combat.combat_base_old;
 

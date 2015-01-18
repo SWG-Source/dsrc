@@ -1,12 +1,10 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        shuttle extract
  * Description:  Attaches to the shuttle extract order object to handle the
  *		 the transport process.
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

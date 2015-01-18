@@ -1,8 +1,6 @@
 //
 // Content Path Script Library is for use with the content path granted when the player leaves
 // the NPE, including Tatooine and Naboo quests currently, and soon to include more planets
-//
-// Todd Bailey, 9/21/2005
 
 include library.badge;
 

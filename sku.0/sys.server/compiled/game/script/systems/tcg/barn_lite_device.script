@@ -147,7 +147,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	
 	if ( canUseActiveBarnLite(self, player) )
 	{
-		// if the player has beasts, they may store some of them
+		// If the player has beasts, they may store some of them
 		int rootMenu = mi.addRootMenu (MENU_ROOT_OPTION, new string_id("tcg", "barn_lite_menu_root"));
 
 		if ( beast_lib.getTotalBeastControlDevices(player) > 0 )
@@ -316,12 +316,13 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 boolean canUseInActiveBarnLite(obj_id self, obj_id player)
 {
-	// if the barn lite device is not contained by the player, is owned by the player,
-	// and is in a building they own, it may be used by that player.
+	/* if the barn lite device is not contained by the player, is owned by the player,
+	 and is in a building they own, it may be used by that player.
 	
-	// In this case, we don't care if the beast storage device is active or not. 
-	// This is currently only used as part of a failsafe case to allow player to 
-	// reclaim pets if it has stored pets but something goes wrong and the device does not activate correctly.
+	 In this case, we don't care if the beast storage device is active or not. 
+	 This is currently only used as part of a failsafe case to allow player to 
+	 reclaim pets if it has stored pets but something goes wrong and the device does not activate correctly.
+	*/
 	if ( !utils.isNestedWithinAPlayer(self) )
 	{
 		obj_id building = getTopMostContainer(self);

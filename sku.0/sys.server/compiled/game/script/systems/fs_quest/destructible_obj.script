@@ -23,9 +23,3 @@ messageHandler campObjDestroyed()
 	return SCRIPT_CONTINUE;
 }
 
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
-
-

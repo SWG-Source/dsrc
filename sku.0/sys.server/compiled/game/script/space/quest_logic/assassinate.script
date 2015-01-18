@@ -1,6 +1,6 @@
 //------------------------------------------------
 // assassinate.script
-// Brandon Reinhart
+// 
 //
 // Destroy <ship_type> as it paths through <n> points.
 //------------------------------------------------

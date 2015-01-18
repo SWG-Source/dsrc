@@ -1,17 +1,9 @@
 //**********************************************************
-// Copyright (c) ©2005, 2006 Sony Online Entertainment Inc.
-// All Rights Reserved
 //
 // Title:		qatool.script
-// Version:		Version 4.1
 // Description:  	Master QA script.  It will be main script to attach
 //		 	To get all other tools to work.  It will be slash
 //		 	Command Driven.
-//
-// Version Changes:	- Added new script tool options
-//
-// @author       	$Author: Jesse Benjamin
-// @version      	$All Revisions:  Jeff Haskell && James Michener
 //***********************************************************
 
 /********* Includes ******************************************/

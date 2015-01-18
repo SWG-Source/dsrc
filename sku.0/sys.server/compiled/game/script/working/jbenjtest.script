@@ -1,7 +1,4 @@
-//Jesse Benjamin's utility test script
 
-
-//Includes
 include java.util.StringTokenizer;
 include java.lang.Math;
 include library.ai_lib;
@@ -38,8 +35,8 @@ trigger OnSpeaking(string text)
 	obj_id pInv = utils.getInventoryContainer(player);
 	obj_id target = getIntendedTarget(self);
 	obj_id tInv = utils.getInventoryContainer(target);
-	//if(isGod(player))
-	//{
+	if(isGod(player))
+	{
 		StringTokenizer st = new java.util.StringTokenizer(text);
 		int tokens = st.countTokens();
 		string command = null;
@@ -176,7 +173,7 @@ trigger OnSpeaking(string text)
 		if(command.equals("setRespecDecay"))
 		{
 
-			sendSystemMessageTestingOnly(self, "setting respec decay to end in 10 seconds. You need to log out fully to test this, or use the speach command 'testRespecDecay'.");
+			sendSystemMessageTestingOnly(self, "setting respec decay to end in 10 seconds. You need to log out fully to test this, or say 'testRespecDecay'.");
 			int now = getCalendarTime();
 			int then = now + 10;
 			setObjVar(player, respec.OBJVAR_RESPEC_DECAY_TIME, then);
@@ -217,7 +214,7 @@ trigger OnSpeaking(string text)
 		{
 			int flags = 0;
 
-			//Break on Incap or damage. You would think you would need to be damaged to be incaped, oh how wrong you are.
+			//Break on Incap or damage.
 			flags |= sui.CD_EVENT_INCAPACITATE;
 			flags |= sui.CD_EVENT_DAMAGED;
 
@@ -228,7 +225,7 @@ trigger OnSpeaking(string text)
 			string_id prompt = new string_id ("beast", "ability_activate_creature_knowledge");
 			string handler = "testSuiCountDown";
 
-			//Min 24 to activate from comand_table, this allows a bit of wiggle with loitering creatures
+			//Min 24 to activate from command_table
 			float maxRange = 32;
 			int pid = sui.smartCountdownTimerSUI(self, self, displayGroup, prompt, startTime, endTime, handler, maxRange, flags);
 			return SCRIPT_CONTINUE;
@@ -361,7 +358,6 @@ trigger OnSpeaking(string text)
 
 			if(enemyNames != null && !enemyNames.equals(""))
 			{
-				//int pid = sui.listbox(self, self, "Hate list", sui.OK_CANCEL, "Hate list", enemyNames, "onHateListSuiUpdate", true, false);
 
 				int pid = sui.msgbox( self, self, enemyNames, sui.OK_ONLY, "Hate List", "onHateListSuiUpdate" );
 				messageTo(self, "refreshSuiHateList", null, 1, false);
@@ -639,7 +635,6 @@ trigger OnSpeaking(string text)
 		{
 
 			transition.zonePlayerNoGate("aurillia_township", self, true);
-			//debugSpeakMsg(self, "enterClientTicketPurchaseMode " + uiCalled);
 		}
 
 		if(command.equals("removeNightSisterVendor"))
@@ -718,7 +713,7 @@ trigger OnSpeaking(string text)
 			if (st.hasMoreTokens())
 			{
 				string count = st.nextToken();
-				obj_id lootItem = static_item.createNewItemFunction(space_combat.NOVA_ORION_RESOURCE, utils.getInventoryContainer(self)); // create item and place in mob's inventory
+				obj_id lootItem = static_item.createNewItemFunction(space_combat.NOVA_ORION_RESOURCE, utils.getInventoryContainer(self)); // create item and place in npc's inventory
 				setCount(lootItem, utils.stringToInt(count));
 			}
 		}
@@ -789,7 +784,7 @@ trigger OnSpeaking(string text)
 					break;
 			}
 		}
-	//}
+	}
 
 	return SCRIPT_CONTINUE;
 }
@@ -805,10 +800,10 @@ messageHandler onHateListSuiUpdate()
 	if(params == null || params.isEmpty())
 		return SCRIPT_CONTINUE;
 
-	//get button pressed
+	//button pressed
 	int bp = sui.getIntButtonPressed(params);
 
-	//if they pressed cancel then we bail out and do nothing
+	//if they pressed cancel then we  do nothing
 	if ( bp == sui.BP_CANCEL || bp == sui.BP_OK)
 	{
 		sui.removePid(self, PID_NAME);
@@ -828,8 +823,6 @@ messageHandler refreshSuiHateList()
 	if(sui.hasPid(self, PID_NAME))
 	{
 		int pid = sui.getPid(self, PID_NAME);
-		//sui.removePid(self, PID_NAME);
-		//forceCloseSUIPage(pid);
 		obj_id target = getIntendedTarget(self);
 
 		if(!isIdValid(target) || !exists(target))
@@ -838,11 +831,8 @@ messageHandler refreshSuiHateList()
 		string enemyNames = generateStringHateList(target);
 		if(enemyNames != null && !enemyNames.equals(""))
 		{
-			//pid = sui.listbox(self, self, "Hate list", sui.OK_CANCEL, "Hate list", enemyNames, "onHateListSuiUpdate", true, false);
-			//int pid = sui.msgbox( self, self, inputText, sui.OK_ONLY, enemyNames, "onHateListSuiUpdate" );
 			setSUIProperty(pid, sui.MSGBOX_PROMPT, sui.PROP_TEXT, enemyNames);
 			flushSUIPage(pid);
-			//sui.setPid(self, pid, PID_NAME);
 			messageTo(self, "refreshSuiHateList", null, 1, false);
 		}
 	}

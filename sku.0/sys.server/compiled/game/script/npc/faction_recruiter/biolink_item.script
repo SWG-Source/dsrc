@@ -1,12 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        biolink_item
+* Title:        biolink_item
  * Description:  Implements bio-linked factional objects.
- *
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 /***** INCLUDES ********************************************************/

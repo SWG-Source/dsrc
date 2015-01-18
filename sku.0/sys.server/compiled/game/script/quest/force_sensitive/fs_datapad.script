@@ -1,11 +1,9 @@
 /**
- * Copyright (c)2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        fs_datapad.script
  * Description:  given to player to start the next stage of intro quest
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 // No Drop, No trade object

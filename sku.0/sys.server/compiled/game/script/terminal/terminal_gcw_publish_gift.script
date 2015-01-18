@@ -1,12 +1,5 @@
-// ======================================================================
-//
 // GCW Publish Gift Terminal
-//
-// Copyright 2008 Sony Online Entertainment
-//
-// Jeff W. Haskell
-//
-// ======================================================================
+
 
 include library.gcw;
 include library.player_structure;
@@ -14,11 +7,14 @@ include library.sui;
 include library.utils;
 include library.prose;
 include library.trial;
+
+//Inherits
+
 inherits terminal.base.base_terminal;
 
-// ======================================================================
+
 // Constants
-// ======================================================================
+
 const string VAR_TERMINAL_STATUS	= "gcw.static_base.terminal_status";
 const string VAR_BASE_STATUS		= "gcw.static_base.base_status";
 const string BASE_BEING_CAPTURED	= " TERMINAL STATUS: BEING CAPTURED\n";
@@ -102,9 +98,7 @@ const string[][] PLANETS_DATA =
 	}
 };
 
-// ======================================================================
 // Triggers
-// ======================================================================
 
 //On the menu request, the player gets cluster wide data.
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)

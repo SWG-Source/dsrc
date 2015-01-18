@@ -32,28 +32,7 @@ trigger OnHearSpeech(obj_id speaker, string text)
 
 void checkForVeteranRewards(obj_id self)
 {
-/*
-	int nextPromptTime = getIntObjVar(self,"veteran_rewards.nextPromptTime");
-	debugSpeakMsg(self,"Game time: " + getGameTime() + "  Next prompt time: " + nextPromptTime);
-	if (nextPromptTime==0 || nextPromptTime < getGameTime())
-	{
-		removeObjVar(self,"veteran_rewards.nextPromptTime");
-		string event = veteranGetNextEvent(self);
-		if (event != "")
-		{
-			utils.setScriptVar(self,"veteran_rewards.event",event);
-			Vector choices = new Vector();
-			choices.addElement("@veteran:claim_now");
-			choices.addElement("@veteran:launch_web_browser_for_event");
-			choices.addElement("@veteran:ask_next_login");
-			choices.addElement("@veteran:ask_one_day");
-			choices.addElement("@veteran:ask_one_week");
-			int pid = sui.listbox(self, self, veteranGetEventAnnouncement(event), sui.OK_ONLY, ANNOUNCEMENT_BOX_TITLE, choices, "handleRewardAnnouncement", true, true);
-		}
-	}
-	else
-		debugSpeakMsg(self,"Not ready to prompt");
-*/
+
 }
 
 // ----------------------------------------------------------------------

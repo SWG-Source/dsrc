@@ -1,11 +1,6 @@
-/**
- * Copyright (c) ©2000-2003 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        treasure_map.script
- * Description:  treasure_map base logic
- * @author       $Author: breinhart $
- * @version      $Revision: 2007 Jeff Haskell Version 2 $
+/*
+   Title:        treasure_map.script
+  Description:  treasure_map base logic
  */
 
 //------------------------------------------------
@@ -200,11 +195,13 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	return SCRIPT_CONTINUE;
 }
 
+/*
 //------------------------------------------------
-// getWaypoint
-// This function checks the player waypoints in the player datapad
-// if a waypoint for the map is not found it returns a NULL
+ getWaypoint
+ This function checks the player waypoints in the player datapad
+ if a waypoint for the map is not found it returns a NULL
 //------------------------------------------------
+*/
 obj_id getWaypoint(obj_id map, obj_id player)
 {
 	if (!isIdValid(map))
@@ -291,11 +288,13 @@ void displayDialog(obj_id map, obj_id player)
 	createDialog( map, player, text, title );
 }
 
+/*
 //------------------------------------------------
-// createDialog
-// This fucntion creates the SUI message box with the basic back story on what the treasure map is
-// as well as providing the player with the STORE WAYPOINT and CLOSE Buttons
+ createDialog
+ This fucntion creates the SUI message box with the basic back story on what the treasure map is
+ as well as providing the player with the STORE WAYPOINT and CLOSE Buttons
 //------------------------------------------------
+*/
 
 int createDialog(obj_id map, obj_id player, string text, string title)
 {
@@ -324,7 +323,7 @@ int createDialog(obj_id map, obj_id player, string text, string title)
 		return -1;
 	}
 	
-	//MAKE SURE THE UI DIALOG CANNOT BE OPENED MORE THAN ONCE VIA SCRIPTVAR
+	// Make sure the UI dialog cannot be opened more than once via scriptvar.
 	utils.setScriptVar(map, "suiOpen", true);
 	// Create the dialog page.
 	int pid = sui.createSUIPage( sui.SUI_MSGBOX, map, player, "handleDialogInput" );
@@ -340,19 +339,21 @@ int createDialog(obj_id map, obj_id player, string text, string title)
 	return pid;
 }
 
+/*
 //------------------------------------------------
-// handleDialogInput
-// This function handles the player's selection on the SUI message box
-// If the player selects STORE WAYPOINT (or hits the cancel X in corner) the storeWaypoint function is called
-// If the player selects CLOSE the treasure map remains intact and no waypoint is issued.
+ handleDialogInput
+ This function handles the player's selection on the SUI message box
+ If the player selects STORE WAYPOINT (or hits the cancel X in corner) the storeWaypoint function is called
+ If the player selects CLOSE the treasure map remains intact and no waypoint is issued.
 //------------------------------------------------
+*/
 
 messageHandler handleDialogInput()
 {
 	obj_id map = self;	
 	if ( (params == null) || (params.isEmpty()) )
 	{
-		//make sure the objvar is removed so that the player can re-read the treasure map dialog		
+		// make sure the objvar is removed so that the player can re-read the treasure map dialog		
 		removeObjVar(map, "pinpoint");
 		return SCRIPT_CONTINUE;
 	}
@@ -364,7 +365,7 @@ messageHandler handleDialogInput()
 	{
 
 		case sui.BP_OK:		// "Close"		
-			//Where map is the actual map object in player inventory
+			// Where map is the actual map object in player inventory
 			boolean waypointStored = storeWaypoint(map, player);
 			if (waypointStored)
 				setObjVar( map, "searchArea", true );
@@ -373,7 +374,7 @@ messageHandler handleDialogInput()
 			return SCRIPT_CONTINUE;
 
 		case sui.BP_CANCEL: // "Store Waypoint"
-			//make sure the objvar is removed so that the player can re-read the treasure map dialog
+			// make sure the objvar is removed so that the player can re-read the treasure map dialog
 			utils.removeScriptVar(map, "suiOpen");
 			return SCRIPT_CONTINUE;
 	}
@@ -381,12 +382,14 @@ messageHandler handleDialogInput()
 	return SCRIPT_CONTINUE;
 }
 
+/*
 //------------------------------------------------
-// storeWaypoint
-// the treasure creates a waypoint in the player's datapad and stores the location on itmap when used (storedLoc)
-// The waypoint is always on the same planet in which the player reads the treasure map
-// obj_id map = map object in player inventory
+ storeWaypoint
+ the treasure creates a waypoint in the player's datapad and stores the location on itmap when used (storedLoc)
+ The waypoint is always on the same planet in which the player reads the treasure map
+ obj_id map = map object in player inventory
 //------------------------------------------------
+*/
 boolean storeWaypoint(obj_id map, obj_id player)
 {	
 	if (!isIdValid(player))
@@ -461,11 +464,12 @@ boolean storeWaypoint(obj_id map, obj_id player)
 	return false;
 }	
 
+/*
 //------------------------------------------------
-// searchArea
-//
-// Used to pinpoint the exact location of the treasure once we get close.
+ searchArea
+ Used to pinpoint the exact location of the treasure once we get close.
 //------------------------------------------------
+*/
 
 void searchArea(obj_id map, obj_id player)
 {
@@ -503,9 +507,11 @@ void searchArea(obj_id map, obj_id player)
 
 }
 
+/*
 //------------------------------------------------
-// finishSearchArea
+ finishSearchArea
 //------------------------------------------------
+*/
 
 messageHandler finishSearchArea()
 {
@@ -538,13 +544,13 @@ messageHandler finishSearchArea()
 		// Close enough to pinpoint.
 		obj_id waypoint = getWaypoint( map, player );
 		
-		//avoid trees and rocks
+		// Avoid trees and rocks
 		treasureLoc = groundquests.getRandom2DLocationAroundLocation(player, 1, 1, 10, 40);
 		sendSystemMessage( player, SID_SYS_PINPOINT );
 		setWaypointLocation( waypoint, treasureLoc );
 		setObjVar( map, "treasureLoc", treasureLoc );
 		
-		//If the player is within a certain distance, the menu changes
+		// If the player is within a certain distance, the menu changes
 		setObjVar( map, "pinpoint", true );
 	}
 	else
@@ -556,11 +562,12 @@ messageHandler finishSearchArea()
 	return SCRIPT_CONTINUE;
 }
 
+/*
 //------------------------------------------------
-// extractTreasure
-//
-// Used to find treasure once the location has been pinpointed.
+ extractTreasure
+ Used to find treasure once the location has been pinpointed.
 //------------------------------------------------
+*/
 
 void extractTreasure(obj_id map, obj_id player)
 {
@@ -629,10 +636,12 @@ void extractTreasure(obj_id map, obj_id player)
 	}
 }
 
+/*
 //------------------------------------------------
-// spawnTreasure
-// This function handles most of the dynamic facets of the script.  
+ spawnTreasure
+ This function handles most of the dynamic facets of the script.  
 //------------------------------------------------
+*/
 messageHandler spawnTreasure()
 {
 	obj_id map = self;	
@@ -671,8 +680,8 @@ messageHandler spawnTreasure()
 	playerLocation.y = getHeightAtLocation( playerLocation.x, playerLocation.z );
 
 	// Get treasure location.
-	//location treasureLoc = getLocationObjVar( map, "treasureLoc" );
-	//treasureLoc.y = getHeightAtLocation( treasureLoc.x, treasureLoc.z );
+	// location treasureLoc = getLocationObjVar( map, "treasureLoc" );
+	// treasureLoc.y = getHeightAtLocation( treasureLoc.x, treasureLoc.z );
 
 	// Create a treasure drum here.
 	obj_id treasureChest = createObject(DUMMY_CHEST, playerLocation);
@@ -688,22 +697,22 @@ messageHandler spawnTreasure()
 		return SCRIPT_CONTINUE;
 	}
 
-	//Keeps the chest from being looted by another player
+	// Keeps the chest from being looted by another player
 	setObjVar(treasureChest, "owner", player);
 	setOwner(treasureChest, player);
 
-	//if the player is invisible, they will become visible when extracting
+	// If the player is invisible, they will become visible when extracting
 	string invis = stealth.getInvisBuff(player);
 	if(invis != null)
 	{
 		stealth.checkForAndMakeVisibleNoRecourse(player);
 	}
 
-	//New script
+	// New script
 	attachScript(treasureChest, SCRIPT_DUMMY_CHEST);
-	//this is so the waypoint isn't destroyed too soon.
+	// This is so the waypoint isn't destroyed too soon.
 	setObjVar(map, "chest", treasureChest);			
-	//this is used for loot level in treasur_drum.script
+	// This is used for loot level in treasure_drum.script
 	setObjVar(treasureChest, "treasureLevel", treasureLevel);
 
 	if (hasObjVar(map, "treasureMapWaypoint"))
@@ -712,7 +721,7 @@ messageHandler spawnTreasure()
 		setObjVar(treasureChest, "treasureMapWaypoint", treasureMapWaypoint);
 	}
 
-	//grab all the needed vars to pass as params later
+	// grab all the needed vars to pass as params later
 	string loot_table = getStringObjVar(map, "loot_table");
 	setObjVar(treasureChest, "loot_table", loot_table);			
 	string type = getStringObjVar(map, "mob");			
@@ -732,7 +741,7 @@ messageHandler spawnTreasure()
 		sendSystemMessage(player, "The treasure map failed to attain treasure guard data. Notify Customer Service.", null);					
 	}
 
-	//Check to make sure the boss is added under certain situations
+	// Check to make sure the boss is added under certain situations
 	string boss_mob = checkForBossMobSpawn(player, mobLevel, groupModifier, dataTableIdx, loot_table);
 
 	dictionary outparams = new dictionary();
@@ -774,13 +783,14 @@ messageHandler spawnTreasure()
 	destroyObject(map);
 	return SCRIPT_CONTINUE;
 }
-
+/*
 //------------------------------------------------
-// getTreasureParams
-// This function grabs all of the treasure parameters.
-// It is important to note that this function is called as the player is EXTRACTING the
-// treasure.  
+ getTreasureParams
+ This function grabs all of the treasure parameters.
+ It is important to note that this function is called as the player is EXTRACTING the
+ treasure.  
 //------------------------------------------------
+*/
 boolean getTreasureParams(obj_id map, obj_id player)
 {
 	if (!isIdValid(player))
@@ -821,9 +831,9 @@ boolean getTreasureParams(obj_id map, obj_id player)
 		return false;			
 	}
 
-	//count will eventually be the number of mobiles created
+	// Count will eventually be the number of mobiles created
 	int count = 0;
-	//type will eventually be the mobile spawn name
+	// Type will eventually be the mobile spawn name
 	string type = null;	
 	dictionary params = dataTableGetRow(TREASURE_TABLE, dataTableIdx);
 	if(params.isEmpty() || params == null)
@@ -833,10 +843,10 @@ boolean getTreasureParams(obj_id map, obj_id player)
 		return false;
 	}
 
-	//create/save objvar for treasure associated with map level
+	// Create/save objvar for treasure associated with map level
 	setObjVar(map, "loot_table", params.getString("loot_table"));
 
-	//Mobile Count gets saved to the map here
+	// Mobile Count gets saved to the map here
 	if (!hasObjVar(map, "count"))
 	{
 		count = rand(params.getInt("mob_count_min"), params.getInt("mob_count_max"));
@@ -844,7 +854,7 @@ boolean getTreasureParams(obj_id map, obj_id player)
 		{
 			int playerLevel = getIntObjVar(map, "playerLevel");
 
-			//how much higher do we want to make the mob for challeng?
+			// How much higher do we want to make the mob for challeng?
 			int mobLevelModifier = params.getInt("mob_level_modifier");
 
 			int mobLevel = getMobLevel(map, player, playerLevel, intMaxLevel, intMinLevel, mobLevelModifier);
@@ -859,14 +869,16 @@ boolean getTreasureParams(obj_id map, obj_id player)
 	return true;
 }
 
+/*
 //------------------------------------------------
-// setPlayerGroupLevel
-// This function gets the player level or the highest level of a group player,
-// whichever is higher.  If the group members are more than 300 meters away, they aren't
-// counted as part of the final group.  
-// If the group is less than 8 an exploiter function can be called to see if players are standing by
-// waiting to ambush the guards and help the owner.
+ setPlayerGroupLevel
+ This function gets the player level or the highest level of a group player,
+ whichever is higher.  If the group members are more than 300 meters away, they aren't
+ counted as part of the final group.  
+ If the group is less than 8 an exploiter function can be called to see if players are standing by
+ waiting to ambush the guards and help the owner.
 //------------------------------------------------
+*/
 boolean setPlayerGroupLevel(obj_id map, obj_id player)
 {
 	if (!isIdValid(player))
@@ -881,13 +893,13 @@ boolean setPlayerGroupLevel(obj_id map, obj_id player)
 		return false;
 	}
 	
-	//init the intPlayerLevel and possibly overwrite it later	
+	// Init the intPlayerLevel and possibly overwrite it later	
 	int intPlayerLevel = getLevel(player);	
 	if (intPlayerLevel == -1|| intPlayerLevel == 0)
 	{
 		CustomerServiceLog("treasureMap", "a treasure map failed to use the player's correct combat level. [ setPlayerGroupLevel() ]");
 		sendSystemMessage(player, "The treasure map failed to retrieve your current level.", null);	
-		//if no level returned, set the level to 5
+		// If no level returned, set the level to 5
 		intPlayerLevel = 5;
 		return false;
 	}
@@ -899,10 +911,10 @@ boolean setPlayerGroupLevel(obj_id map, obj_id player)
 	{
 		obj_id[] groupOids = getGroupMemberIds(groupId);
 
-		//set to one because we are counting the player as group member
-		//then excluding the player from examination below
+		// Set to one because we are counting the player as group member
+		// Then excluding the player from examination below
 		int finalCount = 1; 
-		//If another player in the group has a higher level, that player's level is used
+		// If another player in the group has a higher level, that player's level is used
 		for (int i = 0; i < groupOids.length; i++)
 		{
 			if(!isValidId(groupOids[i]) || !exists(groupOids[i]))
@@ -924,17 +936,17 @@ boolean setPlayerGroupLevel(obj_id map, obj_id player)
 				continue;
 
 			int groupMemberLevel = getLevel(groupOids[i]);
-			//if the group member is within min meters and valid
+			// If the group member is within min meters and valid
 			if(groupMemberLevel > intPlayerLevel)
 			{
 				intPlayerLevel = groupMemberLevel;				
 			}
-			//Add to get an accurate mob count scale
+			// Add to get an accurate mob count scale
 			finalCount++;
 		}
 		
-		//set a modifier to be used to increase the mobile count
-		//add 1 so the player themselves are counted
+		// Set a modifier to be used to increase the mobile count
+		// Add 1 so the player themselves are counted
 		if(finalCount > 0 && finalCount <= 8)
 		{
 			setObjVar(map, "groupModifier", finalCount);
@@ -945,7 +957,7 @@ boolean setPlayerGroupLevel(obj_id map, obj_id player)
 			setObjVar(map, "groupModifier", 8);
 		}
 	}
-	//This is used to remove the groupModifier if the player received the initial
+	// This is used to remove the groupModifier if the player received the initial
 	//planet waypoint in a group, but since has dispanded the group
 	else
 	{
@@ -968,12 +980,14 @@ boolean setPlayerGroupLevel(obj_id map, obj_id player)
 	return true;
 }
 
+/*
 //------------------------------------------------
-// findGroupNearBy
-// This function looks at the surrounding area and attempts to locate 
-// others waiting by to ambush the enemies for the map owner.  Unfortunately 
-// this will also pick up bystanders as well as exploiters
+ findGroupNearBy
+ This function looks at the surrounding area and attempts to locate 
+ others waiting by to ambush the enemies for the map owner.  Unfortunately 
+ this will also pick up bystanders as well as exploiters
 //------------------------------------------------
+*/
 
 int findAmbushNearBy(obj_id map, obj_id player, int intPlayerLevel, location ownerLocation)
 {
@@ -995,16 +1009,16 @@ int findAmbushNearBy(obj_id map, obj_id player, int intPlayerLevel, location own
 	{
 		if(!isValidId(playersNear[i]) || !exists(playersNear[i]))
 			continue;
-		//we need to make sure we are county PCs and nothing else
+		// We need to make sure we are county PCs and nothing else
 		if(!isPlayer(playersNear[i]))
 			continue;
-		//we don't care if this is the player
+		// We don't care if this is the player
 		if(playersNear[i] == player)
 			continue;
-		//if this player is moving, driving or riding by disregard
+		// If this player is moving, driving or riding by disregard
 		if(getLocomotion(playersNear[i]) == 3)
 			continue;
-		//no need to go on forever
+		// No need to go on forever
 		if(i == 14)
 			break;
 		
@@ -1035,13 +1049,15 @@ int findAmbushNearBy(obj_id map, obj_id player, int intPlayerLevel, location own
 	return exploiterLevel;
 }
 
+/*
 //------------------------------------------------
-// getEnemyReCount
-// This function evaluates to see if a group is involved in the treasure extraction.
-// If a group is involved, the enemy count is increased based on the number of player (or pets)
-// in the group (the number of group members = groupModifier objvar.
-// This function is called once when the treasure is extracted.
+ getEnemyReCount
+ This function evaluates to see if a group is involved in the treasure extraction.
+ If a group is involved, the enemy count is increased based on the number of player (or pets)
+ in the group (the number of group members = groupModifier objvar.
+ This function is called once when the treasure is extracted.
 //------------------------------------------------
+*/
 int getEnemyReCount(obj_id player, obj_id map, int intCurrentCount)
 {
 	if (!isIdValid(player))
@@ -1067,7 +1083,7 @@ int getEnemyReCount(obj_id player, obj_id map, int intCurrentCount)
 
 	if (hasObjVar(map, "groupModifier"))
 	{
-		//The 'modifier' here is just the number of players in the group
+		// The 'modifier' here is just the number of players in the group
 		int modifier = getIntObjVar(map, "groupModifier");
 		if (modifier >= 2)
 		{
@@ -1088,12 +1104,13 @@ int getEnemyReCount(obj_id player, obj_id map, int intCurrentCount)
 
 	return intCurrentCount;
 }
-
+/*
 //------------------------------------------------
-// getMapLocation
-// This function selects a good location within a certain distance of the player
-// Planet isn't needed for this function.  The planet objvar is used to make sure this function isn't called on the wrong planet.
+ getMapLocation
+ This function selects a good location within a certain distance of the player
+ Planet isn't needed for this function.  The planet objvar is used to make sure this function isn't called on the wrong planet.
 //------------------------------------------------
+*/
 location getMapLocation(obj_id map, obj_id player)
 {
 	if (!isIdValid(player))
@@ -1111,7 +1128,7 @@ location getMapLocation(obj_id map, obj_id player)
 	// Get treasure location.
 	location treasureLoc = null;
 	location storedLoc = getLocationObjVar( map, "treasureLoc" );
-	//if null, this gets the location for the first time
+	// If null, this gets the location for the first time
 	if ( storedLoc == null )
 	{
 		setObjVar(map, "owner", player);
@@ -1126,7 +1143,7 @@ location getMapLocation(obj_id map, obj_id player)
 			destroyObject( map );
 			return null;
 		}
-		//Get the nearest city and find a location outside of it
+		// Get the nearest city and find a location outside of it
 		region closestCity = locations.getClosestCityRegion( nearRegions[0] );		
 		boolean goodLoc = false;
 		for (int i=0; (i<30)&&!goodLoc; i++)
@@ -1146,7 +1163,7 @@ location getMapLocation(obj_id map, obj_id player)
 			return null;		
 		}
 
-		//Set the treasureLoc on the map object
+		// Set the treasureLoc on the map object
 		setObjVar( map, "treasureLoc", treasureLoc );
 	}
 	else
@@ -1156,11 +1173,13 @@ location getMapLocation(obj_id map, obj_id player)
 	return treasureLoc;
 }
 
+/*
 //------------------------------------------------
-// createMapWaypointAtLocation
-// All this function does is create a waypoint in the player datapad to the correct 
-// location and stores the waypoint on the map object
+ createMapWaypointAtLocation
+ All this function does is create a waypoint in the player datapad to the correct 
+ location and stores the waypoint on the map object
 //------------------------------------------------
+*/
 boolean createMapWaypointAtLocation(obj_id map, obj_id player, location locationMapLocation)
 {
 	if (!isIdValid(player))
@@ -1202,11 +1221,13 @@ boolean createMapWaypointAtLocation(obj_id map, obj_id player, location location
 	return true;
 }
 
+/*
 //------------------------------------------------
-// getMobLevel
-// simple function to return the level of the mob based on the map min/max 
-// or the player level + modifier if the player is between map min/max
+ getMobLevel
+ simple function to return the level of the mob based on the map min/max 
+ or the player level + modifier if the player is between map min/max
 //------------------------------------------------
+*/
 int getMobLevel(obj_id map, obj_id player, int playerLevel, int intMaxLevel, int intMinLevel, int mobLevelModifier)
 {
 	if (!isIdValid(player))
@@ -1264,10 +1285,10 @@ messageHandler getMapTreasurePlanet()
 	obj_id map = self;
 	int intMaxLevel = getIntObjVar(map, "max");
 	
-	//The following conditions change the planet data to tatooine when given an error
+	// The following conditions change the planet data to tatooine when given an error
 	if (intMaxLevel <= 0)
 	{
-		//set to tatooine in failure, there is no player OID at this point so no message to player
+		// Set to tatooine in failure, there is no player OID at this point so no message to player
 		setObjVar(map, "planet", "tatooine");
 		CustomerServiceLog("treasureMap", "a treasure map failed to get the correct planet, setting map to Tatooine instead. [ getMapTreasurePlanet() ]");
 	}
@@ -1275,12 +1296,12 @@ messageHandler getMapTreasurePlanet()
 	int dataTableIdx = dataTableSearchColumnForInt(intMaxLevel, "map_level_max", TREASURE_TABLE);
 	if (dataTableIdx == -1)
 	{
-		//set to tatooine in failure. No player OID to send system message for failure
+		// Set to tatooine in failure. No player OID to send system message for failure
 		setObjVar(map, "planet", "tatooine");
 		CustomerServiceLog( "treasureMap", "a treasure map failed to get the correct planet because the treasure map data table failed to return a row number. [ getMapTreasurePlanet() ]");
 	}
 	
-	//set the row on the datatable as an objvar so the script is more efficient
+	// Set the row on the datatable as an objvar so the script is more efficient
 	setObjVar(map, "dataTableIdx", dataTableIdx);
 
 	string allPlanets = dataTableGetString(TREASURE_TABLE, dataTableIdx, "planets");
@@ -1298,12 +1319,12 @@ messageHandler getMapTreasurePlanet()
 	}
 	if (chosenPlanet != null && chosenPlanet != "")
 	{
-		//create/save objvar for planet on the map
+		// Create/save objvar for planet on the map
 		setObjVar(map, "planet", chosenPlanet);
 	}
 	else
 	{
-		//set to tatooine in failure
+		// Set to tatooine in failure
 		setObjVar(map, "planet", "tatooine");
 	}
 	return SCRIPT_CONTINUE;
@@ -1313,7 +1334,7 @@ string checkForBossMobSpawn(obj_id player, int mobLevel, int groupModifier, int 
 {
 	if(!loot_table.equals(LOOT_TABLE_81_90)) 
 		return "none";
-	//for testing purposes
+	// For testing purposes
 	if(isGod(player) && hasObjVar(player, "boss_mob"))
 		return dataTableGetString(TREASURE_TABLE, dataTableIdx, "boss_mob");
 	if(mobLevel < 80)
@@ -1365,7 +1386,7 @@ boolean checkState(obj_id player)
 
 boolean checkScene(obj_id player, obj_id map)
 {	
-	//validate same planet
+	// Validate same planet
 	string req_planet = getStringObjVar(map, "planet"); 
 	string scene = getCurrentSceneName();
 	doDebugLogging("treasureMap", "planet: " +req_planet);

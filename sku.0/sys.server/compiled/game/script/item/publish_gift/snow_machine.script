@@ -1,11 +1,5 @@
 /**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        item.publish_gift.snow_machine
- * Description:
- * @author       jmichener
- * @version      $Revision: 0$
  */
 
 include library.player_structure;

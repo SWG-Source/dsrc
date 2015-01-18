@@ -440,7 +440,7 @@ void reconstructBlueprintScene(obj_id blueprint, obj_id player, location targetL
 			
 			if ( isValidId(blueprintObject) )
 			{
-				// if splitting creation, save blueprint data on the initial object
+				// If splitting creation, save blueprint data on the initial object
 				// which will act as the control object for creation of the rest of the objects
 				if ( j == 0 && splitItemCreation )
 				{

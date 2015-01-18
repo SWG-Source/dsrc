@@ -1,11 +1,8 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        buff_beast_click_item.script
  * Description:  This script handles the clicking of a buff from a static object, all the data should be contained in Objvars on the item
- * @author       Various
- * @version      1.*
  */
 
 /***** INCLUDES ********************************************************/

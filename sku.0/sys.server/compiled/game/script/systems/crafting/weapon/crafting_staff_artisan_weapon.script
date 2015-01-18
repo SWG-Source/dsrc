@@ -1,12 +1,4 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_staff_artisan_weapon.script
- * Description:  base crafting script used by all weapons
- * @author       $Author: Reece Thornton & Friends$
- * @version      $Revision: 0$
- */
+
 
 /**
  * Include Libraries

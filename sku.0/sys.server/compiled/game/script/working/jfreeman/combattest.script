@@ -53,59 +53,18 @@ trigger OnDefenderCombatAction( obj_id attacker, obj_id weapon, int combatResult
 
 
 	}
-	//debugServerConsoleMsg(self, "ONDEFENDERCOMBATMESSAGE, my attacker is "+attacker);
-	//debugSpeakMsg( self, "enqueueing attack vs " + getName( attacker ));
 	debugSpeakMsg(self, "queueing attack against "+attacker);
 	queueCommand( self, ##"defaultAttack", attacker, "Test params", COMMAND_PRIORITY_DEFAULT);
 
 
 	return SCRIPT_CONTINUE;
 }
-/*
-trigger OnCombatLoop()
-{
-	debugSpeakMsg(self, "combat_loop, locomotion is "+getLocomotion(self)+" and posture is "+getPosture(self));
-	debugSpeakMsg(self, "ONCOMBATLOOP, target is "+getTarget(self));
-	if ( hasCombatAction( self ) )
-	{
-		debugSpeakMsg(self, "actions queueued up already, returning from oncombatloop");
-		return SCRIPT_CONTINUE;
-	}
 
-	obj_id target = getTarget(self);
-	if(target==null)
-	{
-
-		debugSpeakMsg( self, "my target is null" );
-		return SCRIPT_CONTINUE;
-	}
-
-	debugSpeakMsg( self, "enqueueing attack vs " + getName(target) );
-	queueCommand( self, ##"defaultAttack", target, "Test params", COMMAND_PRIORITY_DEFAULT);
-
-	return SCRIPT_CONTINUE;
-}
-*/
 boolean hasCombatAction( obj_id npc )
 {
 
 
 	return checkForCombatActions(npc);
-/*
-
-	if( queueHasCommandFromGroup(npc, ##"combat") )
-		return true;
-	if( queueHasCommandFromGroup(npc, ##"combat_general") )
-		return true;
-
-	if( queueHasCommandFromGroup(npc, ##"combat_melee") )
-		return true;
-
-	if( queueHasCommandFromGroup(npc, ##"combat_ranged") )
-		return true;
-
-	return false;
- * */
 
 }
 

@@ -1,11 +1,9 @@
 /**
- * Copyright (C)2004 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        player.player_community_crafting.script
  * Description:  This script gets attached to a player involved with a community crafting project.
- * @author       $Author: Steve Jakab $
- * @version      $Revision: #1 $
+
  */
 
 

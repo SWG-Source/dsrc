@@ -582,7 +582,7 @@ messageHandler handlePackRequest()
 		}
 	}
 
-	// -TRF- Note: I removed the block that tries to come at this from the side of the mount.
+	// Note: I removed the block that tries to come at this from the side of the mount.
 	// If we can't get this mount's rider, there is nothing we can do to dismount, so don't
 	// bother trying.
 

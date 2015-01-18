@@ -1,6 +1,5 @@
 // Script for an item that makes a player structure have more storage spaces
 // Vet Reward
-// 04/30/06:  PMW
 
 include library.player_structure;
 include library.prose;

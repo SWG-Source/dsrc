@@ -1,6 +1,6 @@
 //------------------------------------------------
 // quest_manager.script
-// Brandon Reinhart
+// 
 //
 // Master quest manager for space.
 // This exists on quest_manager.iff, an object which should exist per zone.

@@ -4,11 +4,11 @@ include library.utils;
 include library.tcg;
 
 const string MINIGAME_PARAM_PREFIX 		= "minigame_mahjong";
-//---pregame
+//pregame
 const string MINIGAME_GAMENAME_MAHJONG 		= "mahjong";
 const string MINIGAME_VARNAME_GAME 		= "game";
 const string MINIGAME_VARNAME_TABLE 		= "table";
-//---postgame
+//postgame
 const string MINIGAME_PARAM_RESULT 		= "result";
 const string MINIGAME_VARNAME_SCORE 		= "score";
 const string MINIGAME_VARNAME_PLAYER 		= "player";
@@ -27,9 +27,9 @@ trigger OnInitialize()
 	if(!hasObjVar(self, tcg.TABLE_HIGHSCORE_SLOTS))
 		setupInitialScores(self);
 		
-	//fixing the death star layout - the layout was named exp_death_star and code 
-	//returned death - so the scores would never register.  We now have 
-	//layout exp_death_star objvars that we no longer need.
+	// Fixing the death star layout - the layout was named exp_death_star and code 
+	// returned death - so the scores would never register.  We now have 
+	// layout exp_death_star objvars that we no longer need.
 	if(hasObjVar(self, "minigame_table.highscores.exp_death_star"))
 	{
 		removeObjVar(self, "minigame_table.highscores.exp_death_star");
@@ -168,7 +168,7 @@ boolean checkScore(obj_id table, int newScore, string gameData, string layout)
 		return false;
 
 	int newHsSlot = -1;
-	// insert the new score in the appropriate high slot
+	// Insert the new score in the appropriate high slot
 	for(int i = tcg.MAX_NUMBER_OF_HIGH_SCORES - 1; i >= 1; i--)
 	{
 		string slot = getStringObjVar(table, tcg.TABLE_HIGHSCORE_SLOTS+"."+layout+".slot_" + i);
@@ -182,7 +182,7 @@ boolean checkScore(obj_id table, int newScore, string gameData, string layout)
 			break;
 	}
 	
-	//Didn't beat a score
+	// Didn't beat a score
 	if(newHsSlot < 0)
 		return true;
 		

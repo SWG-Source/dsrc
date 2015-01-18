@@ -1,19 +1,11 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        player_warp
  * Description:  Enables the warping to a specified location.
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
 /***** INCLUDES ********************************************************/
 include library.utils;
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnSpeaking(string text)
@@ -112,10 +104,3 @@ trigger OnSpeaking(string text)
 	return SCRIPT_CONTINUE;
 }
 
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

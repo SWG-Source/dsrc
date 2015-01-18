@@ -1,9 +1,5 @@
 // ======================================================================
-//
 // library/space_transition.scriptlib
-//
-// Copyright 2004 Sony Online Entertainment
-//
 // ======================================================================
 
 include library.callable;

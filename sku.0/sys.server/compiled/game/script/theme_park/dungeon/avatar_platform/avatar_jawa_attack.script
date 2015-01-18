@@ -7,10 +7,6 @@ include library.utils;
 include library.chat;
 include ai.ai_combat;
 
-
-/***** CONSTANTS **********************************/
-
-
 /***** TRIGGERS ***************************************/
 trigger OnAttach()
 {

@@ -1,17 +1,12 @@
 /***********************************************************************
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- ***********************************************************************
  * Title:        food_factory_deed
  * Description:  Makes a Crafting Station Deed work. Deed Demo version.
- * @author       $Author: Reece Thornton and friends$
- * @version      $Revision: #0$
  ***********************************************************************/
 
 /***** CONSTANTS *******************************************************/
 const string VERSION = "v1.00.00";
 
-/***************************** 12/13/2001 2:52PM ************************
+/***********************************************************************
  * This function has been built to be attached to a deed object where it
  * waits for someone to use the object. When they do, it should spawn a
  * harvester, attach a script to it, and flag the deed so that it cannot
@@ -94,7 +89,7 @@ trigger OnObjectMenuSelect (obj_id player, int item)
 			int testInteger;
 			if ( harvesterObject == null )
 			{
-				//debugServerConsoleMsg(self, "DOOOOM! Object not created! DOOOM! HORROR!");
+				//debugServerConsoleMsg(self, "Object not created!");
 				return SCRIPT_OVERRIDE;
 			}
 			else

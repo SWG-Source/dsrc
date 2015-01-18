@@ -1,12 +1,6 @@
-
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        player_test_utility.script
- * Description:  Test script that does various useful stuff
- * @author       $Author: bhanson $
- * @version      $Revision:$
+/*
+ Title:        player_test_utility.script
+ Description:  Test script that does various useful stuff
  */
 
 

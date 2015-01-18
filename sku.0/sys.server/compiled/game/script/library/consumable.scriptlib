@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        consumable.scriptlib
  * Description:  consumable effects library
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -535,7 +530,7 @@ boolean consumeItem( obj_id player, obj_id target, obj_id item , boolean checkPv
 				}
 			}
 
-			// Apply new food effects. 12/17/03
+			// Apply new food effects.
 			applyFoodEffects( target, item, am );
 
 			// Don't send standard consumable results message for medicine since the healing system

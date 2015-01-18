@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        player_force_rank
  * Description:  Script that attaches to players in the force rank system
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

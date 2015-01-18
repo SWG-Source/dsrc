@@ -18,7 +18,6 @@ void maxStats(obj_id objPlayer)
 
 trigger OnSpeaking(String text)
 {
-	debugConsoleMsg( self, "msivertson_test OnSpeaking: " + text );
 
 	java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 

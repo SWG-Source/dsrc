@@ -1,21 +1,11 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        destructible_building
+/* Title:        destructible_building
  * Description:  script that goes destructible buildings.
- *
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+*/
 
 
 /***** INCLUDES ********************************************************/
 include library.battlefield;
 include library.player_structure;
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnFollowMoving(obj_id target)
@@ -110,10 +100,4 @@ messageHandler msgDestroyBattlefieldObject()
 
 	return SCRIPT_CONTINUE;
 }
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
 

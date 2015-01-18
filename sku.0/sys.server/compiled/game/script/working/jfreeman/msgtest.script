@@ -1,10 +1,8 @@
 
 trigger OnAttach()
 {
-	//debugSpeakMsg( self, "attached.  sending non-persisted zero delay message to handleTest" );
 	messageTo( self, "handleTest", null, 0, false);
 
-	//debugSpeakMsg( self, "attached.  sending persisted 20-second delay message to handleOtherTest" );
 	messageTo( self, "handleOtherTest", null, 20, true);
 
 	messageTo( self, "handleLastTest", null, 21, false);

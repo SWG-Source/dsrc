@@ -90,8 +90,6 @@ trigger OnGetAttributes(obj_id playerId, string[] names, string[] attribs)
 
 trigger OnSpeaking(String text)
 {
-	debugConsoleMsg( self, "jwatson_test OnSpeaking: " + text );
-
 	java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 
 	if (tok.hasMoreTokens ())

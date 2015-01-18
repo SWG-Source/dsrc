@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        player_seated.script
  * Description:  script for handling seated players
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 /***** INCLUDES ********************************************************/

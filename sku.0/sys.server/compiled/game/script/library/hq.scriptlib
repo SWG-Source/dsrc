@@ -1,7 +1,3 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
-
 /***** INCLUDES ********************************************************/
 include library.gcw;
 include library.player_structure;
@@ -13,12 +9,12 @@ include library.utils;
 
 /***** CONSTANTS *******************************************************/
 
-const float VULNERABILITY_CYCLE				= 172800f;			// 2/1/05 new, post GCW re-work 48 hour cycle
+const float VULNERABILITY_CYCLE				= 172800f;			// new, post GCW re-work 48 hour cycle
 //const float VULNERABILITY_CYCLE				= 86400f;		// original 24 hour cycle
 //const float VULNERABILITY_CYCLE				= 900f;			// TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE
 
 
-const float VULNERABILITY_LENGTH			= 10800f;	// 2/10/05 new, post GCW re-work 3 hour vulnerability cycle
+const float VULNERABILITY_LENGTH			= 10800f;	// new, post GCW re-work 3 hour vulnerability cycle
 //const float VULNERABILITY_LENGTH			= 7200f;	// original 2 hour vulnerability cycle
 //const float VULNERABILITY_LENGTH			= 450f;		// TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE TEST VALUE
 

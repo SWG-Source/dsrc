@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        npe
  * Description:  Library for npe functionality
- * @author       Vijay Thakkar
- * @version      1.0
  **********************************************************************/
 
 include library.utils;
@@ -707,7 +702,7 @@ boolean teleportPlayerToLaunchLoc(obj_id player, boolean hyperspace)
 	}
 	else
 	{
-		// they have the npe objvar, but are in none of the npe planets, and are not a free trial account... o_O
+		// they have the npe objvar, but are in none of the npe planets, and are not a free trial account...
 		// let the space_transition code handle them, since the tatooine fallback is valid in case of failure
 		return false;
 	}

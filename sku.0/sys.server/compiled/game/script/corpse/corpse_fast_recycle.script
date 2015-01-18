@@ -9,8 +9,7 @@ include library.ai_lib;
 include library.loot;
 
 //  attach this script to all NPE shared space station critters
-//  this script will recycle their corpses quickly, allowing for more spawns :)
-//  -wwallace
+//  this script will recycle their corpses quickly, allowing for more spawns
 
 trigger OnDeath(obj_id killer, obj_id corpseId)
 {

@@ -1,13 +1,10 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:	skillmod_click_item.script
  * Description:	This script handles the clicking and consumption of a static object and applying 
  *		the appropriate skill mod data to the player. The skill mod data must be located 
  *		in the item_stats.tab.
- * @author	Jeff Haskell
- * @version	1.0
  */
 
 /***** INCLUDES ********************************************************/

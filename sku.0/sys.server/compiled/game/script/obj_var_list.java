@@ -1,10 +1,6 @@
-/**
- * Title:        obj_var_list
- * Description:  Wrapper for a list of object variables.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        obj_var_list
+ Description:  Wrapper for a list of object variables.
  */
 
 package script;

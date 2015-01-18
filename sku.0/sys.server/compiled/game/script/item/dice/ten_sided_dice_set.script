@@ -1,14 +1,11 @@
 /********************************************************************************************
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- ********************************************************************************************
+
  * Title:       ten_sided_dice_set.script
  *
  * Description: Allows a player to configure the high and low values for the dice prior to
  * 	    		rolling it. The default floor is 0 and ceiling is 8.
  *
- * @author       $Author: Matthew Kwid$
- * @version      $Revision: $
+
  *
  ********************************************************************************************
 

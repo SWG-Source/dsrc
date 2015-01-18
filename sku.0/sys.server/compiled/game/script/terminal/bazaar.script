@@ -1,19 +1,10 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        bazaar.script
+/* Title:        bazaar.script
  * Description:  script for bazaar menu options; to be attached to bazaar terminals
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INHERITS ********************************************************/
 
 inherits terminal.base.base_terminal;
-
-/***** INCLUDES ********************************************************/
-
 
 /***** CONSTANTS *******************************************************/
 
@@ -44,7 +35,3 @@ trigger OnInitialize()
 	return super.OnInitialize(self);
 }
 
-/***** FUNCTIONS *******************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/

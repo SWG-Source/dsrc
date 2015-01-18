@@ -1,13 +1,3 @@
-/**
- * Copyright (C)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        theater.script
- * Description:  script for creating a generic theater
- * @author       $Author: rpalacio $
- * @version      $Revision: $
- */
-
 /***** INCLUDES ********************************************************/
 
 include library.poi;

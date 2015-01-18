@@ -6,9 +6,6 @@ const string ADVANCEMENT_OBJVAR		= "dance_advancement";
 const string_id SUI_PROMPT0			= new string_id("dance_advancement", "sui_prompt0");
 const string_id SUI_PROMPT1			= new string_id("dance_advancement", "sui_prompt1");
 
-// const string SUI_PROMPT0			= "@dance_advancement:sui_prompt0";
-// const string SUI_PROMPT1			= "@dance_advancement:sui_prompt1";
-
 messageHandler grantUnmodifiedExperienceOnSelf() {
 
 	if(!hasObjVar(self, ADVANCEMENT_OBJVAR)) {

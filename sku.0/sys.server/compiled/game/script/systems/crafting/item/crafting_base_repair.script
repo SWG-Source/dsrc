@@ -1,12 +1,3 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        test_crafting_base_weapon.script
- * Description:  base crafting script used by all weapons
- * @author       $Author: Reece Thornton & Friends$
- * @version      $Revision: 0$
- */
 
 /**
  * Include Libraries
@@ -33,7 +24,7 @@ void calcAndSetPrototypeProperties ( obj_id prototype, draft_schematic.attribute
 	super.calcAndSetPrototypeProperties ( prototype, itemAttributes, craftingValuesDictionary );
 }
 
-/* -----------------3/4/2002 1:48PM------------------
+/* ----------------------------------------------
  * Function calcAndSetPrototypeProperties
  *
  * This function reads in the final item attributes that are about to be written into the manufacturing schematic, looks up modifications to these attributes

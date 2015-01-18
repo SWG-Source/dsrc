@@ -17,7 +17,7 @@ trigger OnAboutToReceiveItem (obj_id destinationCell, obj_id transferrer, obj_id
 		removeObjVar(item, "doneWithSolo");
 			return SCRIPT_CONTINUE;
 	}
-	else if (hasObjVar(item, "gm"))
+	else if (hasObjVar(item, "gm") || isGod(item))
 	{
 		return SCRIPT_CONTINUE;
 	}

@@ -1,15 +1,9 @@
 /********************************************************************************************
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- ********************************************************************************************
  * Title:       list_sorter.script
  * Description: This script takes a obj_var_list and then dumps the contents into an array.
  *              the array is then sorted upon Int values of each individual obj_vars in
  *              ascending order.  The script then returns the sorted obj_var array.
  * 				This script utilizes a qucksort algorithm adapted for use on obj_var arrays.
- *
- * @author       $Author: Matthew Kwid$
- * @version      $Revision: $
  ********************************************************************************************
 
 /***** INCLUDES ********************************************************/

@@ -103,6 +103,7 @@ void initializeScript()
 	if ( setHomeLoc )
 		aiSetHomeLocation(self, loc);
 
+	float ai_yaw = getYaw(self);
 
 	setWantSawAttackTriggers(self, aiIsAssist(self) || aiIsGuard(self));
 
@@ -110,6 +111,11 @@ void initializeScript()
 	if(!hasObjVar(self, "ai.defaultCalmBehavior"))
 	{
 		setObjVar(self, "ai.defaultCalmBehavior", ai_lib.BEHAVIOR_LOITER);
+	}
+
+	if(!hasObjVar(self, "ai.yaw"))
+	{
+		setObjVar(self, "ai.yaw", ai_yaw);
 	}
 
 	ai_lib.resetAi();
@@ -236,6 +242,8 @@ void doDefaultCalmBehavior(obj_id npc)
 		//debugSpeakMsg(npc, "xx: ai");
 		//ai_combat.unequipWeapon(npc);
 	}
+
+	messageTo(npc, "redoYaw", null, 30, false);
 
 // NOTE: uncomment this if we start using suspendMovement() for all movement and not just patrols
 //	if(hasSuspendedMovement(npc))
@@ -1279,6 +1287,8 @@ messageHandler stopFleeing()
 			pathTo(self, aiGetHomeLocation(self));
 		}
 	}
+
+	messageTo(self, "redoYaw", null, 30, false);
 
 	if(getBehavior(self) <= BEHAVIOR_CALM)
 	{
@@ -3153,6 +3163,17 @@ messageHandler milkingCreatureStunRemoval()
 {
 	showFlyText(self, new string_id("npc_reaction/flytext", "stun_expired"), 2.0f, colors.ORANGERED);
 	ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_LOITER);
+	return SCRIPT_CONTINUE;
+}
+
+messageHandler redoYaw()
+{
+	obj_id target = params.getObjId("target");
+	if(hasObjVar(target, "ai.yaw"))
+	{
+		float yaw_ai = getFloatObjVar(target, "ai.yaw");
+		setYaw(target, yaw_ai);
+	}
 	return SCRIPT_CONTINUE;
 }
 

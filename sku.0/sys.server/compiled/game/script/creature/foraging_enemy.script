@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2008 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        foraging_enemy.script
  * Description:  The player foraged and spawned an enemy.  This is the script attached to the enemy.
- * @author       $Author:$ Jeff Haskell
- * @version      $Revision: #1 $
  */
 
 //------------------------------------------------

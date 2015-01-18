@@ -1,19 +1,7 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        terminal_warp
  * Description:  Grants the warp script to whomever accesses the terminal.
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
-
-
-/***** INCLUDES ********************************************************/
-
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
@@ -36,10 +24,3 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 
 }
 
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

@@ -1,12 +1,10 @@
 
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        player_collection.script
  * Description:  required script for player collections
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 /***** INCLUDES ********************************************************/

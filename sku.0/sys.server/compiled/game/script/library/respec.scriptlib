@@ -1,3 +1,8 @@
+/**********************************************************************
+ * Title:        respec.scriptlib
+ * Description:  defines related to respec process
+ **********************************************************************/
+
 include library.bounty_hunter;
 include library.buff;
 include library.performance;
@@ -5,16 +10,6 @@ include library.pet_lib;
 include library.static_item;
 include library.trace;
 include library.xp;
-
-/**********************************************************************
- * Copyright (c)2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        respec.scriptlib
- * Description:  defines related to respec process
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
 
 const string EXPERTISE_VERSION_TABLE		= "datatables/expertise/respec_version.iff";
 const string EXPERTISE_VERSION_OBJVAR		= "professionExpertiseVersion";

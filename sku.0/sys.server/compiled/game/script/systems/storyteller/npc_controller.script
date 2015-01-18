@@ -127,26 +127,26 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 			sendSystemMessage(player, new string_id("storyteller", "npc_options_prompt"));
 		}
 		
-		// open the npc's inventory
+		// Open the npc's inventory
 		if (item == OPEN_NPC_MENU)
 		{
 			master_storyteller_npc_inventory(player, self);
 		}
 		
-		// show sui to set combat level
+		// Show sui to set combat level
 		else if ( item == SET_NPC_LEVEL_MENU )
 		{
 			string prompt = utils.packStringId(new string_id("storyteller", "npc_combat_level_prompt"));
 			sui.inputbox(self, player, prompt, "handleStorytellerNpcLevelSelect");
 		}
 		
-		// destroy the npc
+		// Destroy the npc
 		else if ( item == DESTROY_NPC_MENU )
 		{
 			trial.cleanupObject(self);
 		}
 		
-		//toggle sentinel vs. loiter
+		// Toggle sentinel vs. loiter
 		else if ( item == SET_NPC_BEHAVIOR_MENU )
 		{
 			int targetBehavoir = ai_lib.BEHAVIOR_SENTINEL;
@@ -158,7 +158,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 			ai_lib.setDefaultCalmBehavior(self, targetBehavoir);
 		}
 		
-		// make the npc a flavor npc rather than combat
+		// Make the npc a flavor npc rather than combat
 		else if ( item == SET_NPC_TO_FLAVOR_MENU )
 		{
 			if ( combat.isInCombat(self) )
@@ -194,7 +194,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 			}
 		}
 		
-		// remove persisted effect
+		// Remove persisted effect
 		else if ( item == REMOVE_EFFECT_MENU )
 		{
 			storyteller.removeStorytellerPersistedEffect(self);
@@ -239,10 +239,10 @@ void master_storyteller_npc_inventory (obj_id player, obj_id npc)
 	obj_id inventory = utils.getInventoryContainer(npc);
 	if (isIdValid(inventory))
 	{
-		// set our inventory owner to null for a bit so the player can open it
+		// Set our inventory owner to null for a bit so the player can open it
 		if (queueCommand(player, ##"openContainer", inventory, "", COMMAND_PRIORITY_DEFAULT))
 		{
-			// start checking that the player hasn't moved away from us
+			// Start checking that the player hasn't moved away from us
 			dictionary params = new dictionary();
 			params.put("npc", npc);
 			messageTo(player, "handleEditingNpcInventory", params, 15, false);
@@ -250,16 +250,16 @@ void master_storyteller_npc_inventory (obj_id player, obj_id npc)
 	}
 }
 
-/**
- * Called periodically when we are viewing the inventory of an npc we are giving loot to.
- * If we move too far away from the npc, we will close the npc's inventory.
+/*
+  Called periodically when we are viewing the inventory of an npc we are giving loot to.
+  If we move too far away from the npc, we will close the npc's inventory.
  */
 messageHandler handleEditingNpcInventory()
 {
 	obj_id npc = params.getObjId("npc");
 	if ( isIdValid(npc) )
 	{
-		// if we are far away from the npc, force the inventory window to close
+		// If we are far away from the npc, force the inventory window to close
 		if ( getDistance(self, npc) > MIN_NPC_DISTANCE )
 		{
 			obj_id npcInventory = utils.getInventoryContainer(npc);
@@ -274,7 +274,7 @@ messageHandler handleEditingNpcInventory()
 	return SCRIPT_CONTINUE;
 }
 
-/*******/
+/*******************************************************/
 void npcSetup(obj_id self)
 {
 	if ( aiHasPrimaryWeapon(self) )
@@ -293,7 +293,7 @@ void npcSetup(obj_id self)
 
 void clearNpcInventoryOwnership(obj_id self)
 {
-	// set our owner to null so players can access this container
+	// Set our owner to null so players can access this container
 	obj_id owner = getOwner(self);
 	if ( isIdValid(owner) )
 	{
@@ -434,7 +434,7 @@ void checkBonusCleanupTime(obj_id prop_controller)
 	storyteller.calculateNpcBonusExistTime(prop_controller);
 }
 
-//we will only receive a message back from the City Hall if they have the specialization.
+// We will only receive a message back from the City Hall if they have the specialization.
 messageHandler st_receivedCityResponse()
 {
 	storyteller.setBonusExistTime(self);

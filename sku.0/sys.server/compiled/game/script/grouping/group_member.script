@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        group_member.script
  * Description:  script for group members
- * @author       $Author: Probably Ryan since there's a const that calls a const from another library...but who knows, could have been anyone$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/

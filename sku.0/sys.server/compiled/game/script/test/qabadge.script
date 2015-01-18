@@ -1,10 +1,6 @@
-/* Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        qabadge.script
- * Description:  QA script used to grant and revoke specific badges via SUI element
- * @author       $Author: Jesse Benjamin $
- * @version      $Revision: #3 $
+/*
+ Title:        qabadge.script
+ Description:  QA script used to grant and revoke specific badges via SUI element
  */
 
 /***** INCLUDES ********************************************************/
@@ -75,13 +71,7 @@ trigger OnSpeaking(string text)
 }
 
 /***** Message Handlers *******************************************************/
-
-//*****************************************************************************
-//
 //Main Menu, this is populated Dynamically from the datatable
-//
-//
-//
 //******************************************************************************
 messageHandler mainMenuOptions()
 {
@@ -265,12 +255,8 @@ messageHandler assignMenuOptions()
 
 
 //******** Misc Functions *************************************************************
-//*************************************************************************************
-
 //********* Badge Assign **************************************************************
 // checks to see if you have badge yet, if so, it is revoked if not, granted
-//
-//
 //*************************************************************************************
 
 void badgeAssign(obj_id player, string badgeName)

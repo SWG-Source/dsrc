@@ -1,8 +1,6 @@
 /**********************************************************************
- * Title:        Fort Tusken
- * Description:  Fills out Fort Tusken with Tusken Raiders
- * @author       $Author: Todd Bailey $
- * @version      $Revision: #2$
+ Title:        Fort Tusken
+ Description:  Fills out Fort Tusken with Tusken Raiders
  ***********************************************************************/
 
 include ai.ai;

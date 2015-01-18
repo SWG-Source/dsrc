@@ -1,11 +1,10 @@
 /**
- * Copyright (C)2004 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        quest.force_sensitive_fs_craft_village_defenses.script
  * Description:  Handles the "craft village defenses" quest for the force sensitive village
- * @author       $Author: Steve Jakab $
- * @version      $Revision: #1 $
+
+
  */
 
 /***** INCLUDES ********************************************************/

@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        base.script
  * Description:  got_specific base script
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -39,7 +34,3 @@ trigger OnAboutToReceiveItem(obj_id srcContainer, obj_id transferer, obj_id item
 	return SCRIPT_CONTINUE;
 }
 
-/***** FUNCTIONS *******************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/

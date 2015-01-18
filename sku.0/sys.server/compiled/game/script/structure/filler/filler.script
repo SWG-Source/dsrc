@@ -1,11 +1,5 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        filler.script
+/* Title:        filler.script
  * Description:  script for filler buildings
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -46,8 +40,6 @@ trigger OnDestroy()
 	// messageTo(self, HANDLER_CLEANUP_FILLER_SPAWN, null, 0, true);
 	return SCRIPT_CONTINUE;
 }
-
-/***** FUNCTIONS *******************************************************/
 
 /***** MESSAGEHANDLERS *************************************************/
 messageHandler handleInitFillerSpawn()

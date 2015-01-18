@@ -1,15 +1,7 @@
 //**********************************************************
-// Copyright (c) ©2007 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:		qasetup.script
-// Version:		Version 1.00
 // Description:  	QA Space Tools
 //			- Set of tools created for QA to test space content (especially chapter 8)
-//
-//
-// @author       	$Author: Tim Jones
-// @version      	$All Revisions:
 //***********************************************************
 /*
 Todo list

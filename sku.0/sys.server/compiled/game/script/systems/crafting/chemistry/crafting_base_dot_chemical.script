@@ -20,8 +20,7 @@ void calcAndSetPrototypeProperties ( obj_id prototype, draft_schematic.attribute
 	super.calcAndSetPrototypeProperties ( prototype, itemAttributes, craftingValuesDictionary );
 }
 
-/* -----------------3/4/2002 1:48PM------------------
- * Function calcAndSetPrototypeProperties
+/* Function calcAndSetPrototypeProperties
  *
  * This function reads in the final item attributes that are about to be written into the manufacturing schematic, looks up modifications to these attributes
  * due to component-ingredients from the craftingValuesDictionary, sums them, and then writes the final property values to the prototype item.

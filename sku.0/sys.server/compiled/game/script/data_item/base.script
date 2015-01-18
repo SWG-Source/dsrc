@@ -1,17 +1,7 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        data_item.script
  * Description:  script to be attached to all data items
- * @author       $Author:$
- * @version      $Revision:$
  */
-
-/***** INCLUDES ********************************************************/
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
@@ -38,7 +28,3 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	return SCRIPT_CONTINUE;
 }
 
-/***** FUNCTIONS *******************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/

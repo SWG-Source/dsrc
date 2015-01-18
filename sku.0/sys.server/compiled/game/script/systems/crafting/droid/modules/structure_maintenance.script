@@ -1,3 +1,5 @@
+//includes
+
 include library.ai_lib;
 include library.callable;
 include library.pet_lib;
@@ -7,6 +9,7 @@ include library.sui;
 include library.utils;
 include library.money;
 
+//consts
 
 const string	STF_FILE						= "pet/droid_modules";
 

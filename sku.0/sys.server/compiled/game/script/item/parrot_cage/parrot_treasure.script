@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        parrot_treasure.script
  * Description:  script for talking parrot
- * @author       $Author: Matthew Kwid$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/

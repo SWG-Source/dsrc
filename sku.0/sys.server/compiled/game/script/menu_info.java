@@ -1,5 +1,5 @@
-/**
-* menu info for constructing a client-side radial menu
+/*
+ menu info for constructing a client-side radial menu
 */
 
 package script;

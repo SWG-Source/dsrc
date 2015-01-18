@@ -258,7 +258,7 @@ trigger OnSpeaking(String text)
 {
 	if(isGod(self))
 	{
-		debugConsoleMsg( self, "jhaskell_test OnSpeaking: " + text );
+		debugConsoleMsg( self, "OnSpeaking: " + text );
 
 		java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 
@@ -305,8 +305,8 @@ trigger OnSpeaking(String text)
 				}
 				if ( !cityExists( city_id ) )
 				{
-					//structure does't exist
-					sendSystemMessage(self, "Structure does't exist", null);
+					//structure doesn't exist
+					sendSystemMessage(self, "Structure doesn't exist", null);
 					return SCRIPT_CONTINUE;
 				}
 				
@@ -338,8 +338,8 @@ trigger OnSpeaking(String text)
 				}
 				if ( !cityExists( city_id ) )
 				{
-					//structure does't exist
-					sendSystemMessage(self, "Structure does't exist", null);
+					//structure doesn't exist
+					sendSystemMessage(self, "Structure doesn't exist", null);
 					return SCRIPT_CONTINUE;
 				}
 				
@@ -363,8 +363,8 @@ trigger OnSpeaking(String text)
 				}
 				if ( !cityExists( city_id ) )
 				{
-					//structure does't exist
-					sendSystemMessage(self, "Structure does't exist", null);
+					//structure doesn't exist
+					sendSystemMessage(self, "Structure doesn't exist", null);
 					return SCRIPT_CONTINUE;
 				}
 			
@@ -394,7 +394,6 @@ trigger OnSpeaking(String text)
 			}
 			else if (priCommand.equalsIgnoreCase ("squad") && secCommand != "")
 			{				
-				//obj_id ship = qa.findTarget(self);
 				sendSystemMessage(self, "Ship: "+secCommand, null);
 				obj_id secCmd = utils.stringToObjId(secCommand);
 				if(!isValidId(secCmd))
@@ -496,7 +495,7 @@ trigger OnSpeaking(String text)
 			}
 			else if(priCommand.equalsIgnoreCase("rare_forage_loot_logger"))
 			{
-				//skip the bs and go to the rares
+				//skip and go to the rares
 				utils.removeScriptVarTree(self, "qa");				
 				utils.setScriptVar(self, "qa.main_forage_roll_bypass", "testing");
 				utils.setScriptVar(self, "qa.give_forage_data", "testing");
@@ -918,7 +917,7 @@ trigger OnSpeaking(String text)
 			}
 			else if(priCommand.equalsIgnoreCase("packup_remove_lockout"))
 			{
-				messageTo(self, "handleFailedStructurePackup", null, 0, false);  //this appears to be a call to TT's test script
+				messageTo(self, "handleFailedStructurePackup", null, 0, false);  //this appears to be a call to another test script
 				sendSystemMessageTestingOnly(self,"If you had a house pack up lockout it no longer exists.");
 			}			
 			else if(priCommand.equalsIgnoreCase("check_abandonable"))
@@ -1139,7 +1138,6 @@ trigger OnSpeaking(String text)
 						lastFed = getIntObjVar(object, house_pet.SARLACC_LAST_FED);
 						
 					int newFed = lastFed - totalSubtractedTime;
-					//sendSystemMessageTestingOnly(self, "Deluxe Sarlacc: "+secCommand+" Last Feeding Time: "+lastFed+". subtracting: "+totalSubtractedTime+" new feed: "+newFed);
 
 					setObjVar(object, house_pet.SARLACC_LAST_FED, newFed);
 					//setObjVar(object, house_pet.SARLACC_CURRENT_PHASE, house_pet.SARLACC_FED);
@@ -2288,7 +2286,7 @@ trigger OnSpeaking(String text)
 	return SCRIPT_CONTINUE;
 }
 
-// TREASURE MAP FUNCTIONALITY
+// Treasure map functions
 messageHandler spawnTreasure()
 {
 	obj_id map = self;	
@@ -2323,7 +2321,7 @@ messageHandler spawnTreasure()
 
 		//New script
 		attachScript(treasureChest, SCRIPT_DUMMY_CHEST);
-		//this is used for loot level in treasur_drum.script
+		//this is used for loot level in treasure_drum.script
 		setObjVar(treasureChest, "treasureLevel", treasureLevel);
 
 		//grab all the needed vars to pass as params later

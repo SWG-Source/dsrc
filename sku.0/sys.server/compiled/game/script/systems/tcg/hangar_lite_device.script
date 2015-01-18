@@ -1,4 +1,4 @@
-//libraries
+// Libraries
 include library.instance;
 include library.player_structure;
 include library.prose;
@@ -7,7 +7,7 @@ include library.space_utils;
 include library.sui;
 include library.utils;
 
-//constants
+// Constants
 
 const string PID_NAME							= "hangar_lite";
 const string SCRIPT_VAR_SCD_LIST				= "hangar_lite.scds";
@@ -116,19 +116,19 @@ trigger OnAboutToBeTransferred(obj_id destContainer, obj_id transferer)
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
-	//not while dead or incapped
+	// Not while dead or incapped
 	if( isDead(player) || isIncapacitated(player) )
 	{
 		sendSystemMessage( player, SID_WHILE_DEAD );
 		return SCRIPT_CONTINUE;
 	}
 
-	//only the owner can use the terminal
+	// Only the owner can use the terminal
 	if( canUseHangarLite(self, player)  )
 	{
 		boolean canStoreShips = false;
 		boolean canRecallShips = false;
-		//get all the scds in the players datapad
+		// Get all the scds in the players datapad
 		obj_id[] datapadShipControlDevices = space_transition.findShipControlDevicesForPlayer(player);
 
 		if( datapadShipControlDevices != null && datapadShipControlDevices.length > 0 )
@@ -187,16 +187,16 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 		{
 			sendDirtyObjectMenuNotification(self);
 
-			//find the hangar on the player
+			// Find the hangar on the player
 			obj_id playerHangar = utils.getPlayerHangar(player);
 
-			//validate the hangar
-			//if it doesnt exist we need to create it
+			// Validate the hangar
+			// If it doesnt exist we need to create it
 			if( !isIdValid(playerHangar) && !hasObjVar(player, player_structure.OBJVAR_HANGAR_CREATED) )
 			{
 				playerHangar = createObject("object/tangible/datapad/character_hangar_datapad.iff", player, "hangar");
 
-				//verify that a hangar object was created properly
+				// Verify that a hangar object was created properly
 				if(!isIdValid(playerHangar))
 				{
 					CustomerServiceLog(CUSTOMER_SERVICE_LOG, "Player " + getPlayerName(player) + "("+player+") tried to create a hangar in their 'hangar' slot, and failed. Usually this means there is already a hangar in that slot, or for some reason the player is missing that slot.");
@@ -204,25 +204,25 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 					return SCRIPT_CONTINUE;
 				}
 
-				//objvar is stamped on player with the OID of the hangar when it is created and attached properly
+				// Objvar is stamped on player with the OID of the hangar when it is created and attached properly
 				setObjVar(player, player_structure.OBJVAR_HANGAR_CREATED, playerHangar);
 
-				//we need to persist this object
+				// We need to persist this object
 				persistObject(playerHangar);
 
-				//tell the player we are initializing the hangar
+				// Tell the player we are initializing the hangar
 				sendSystemMessage(player, SID_INTIALIZING_HANGAR);
 				dictionary dict = new dictionary();
 				dict.put("player", player);
 				dict.put("iteration", 1);
 				dict.put("storing", true);
 
-				//wait 5 seconds to make sure the hangar object persists and attaches
+				// Wait 5 seconds to make sure the hangar object persists and attaches
 				messageTo(self, "handleHangarInitialize", dict, MESSAGE_DELAY, false);
 				return SCRIPT_CONTINUE;
 			}
 
-			//we have an objvar saying we have a hangar, yet returned null when we tried to get its id
+			// We have an objvar saying we have a hangar, yet returned null when we tried to get its id
 			if( !isIdValid(playerHangar) && hasObjVar(player, player_structure.OBJVAR_HANGAR_CREATED) )
 			{
 				obj_id storeHangerId = getObjIdObjVar(player, player_structure.OBJVAR_HANGAR_CREATED);
@@ -231,23 +231,23 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 				return SCRIPT_CONTINUE;
 			}
 
-			//make sure they dont already have a UI up
+			// Make sure they dont already have a UI up
 			if( sui.hasPid(player, PID_NAME) )
 			{
 				int pid = sui.getPid(player, PID_NAME);
 				forceCloseSUIPage(pid);
 			}
 
-			//store ships
+			// Store ships
 			if( item == menu_info_types.SERVER_MENU1 )
 			{
-				//function used to list all the ships the player can store
+				// Function used to list all the ships the player can store
 				callSuiOfShipsToStore(player, self, playerHangar);
 			}
-			//recall ships
+			// Recall ships
 			else if( item == menu_info_types.SERVER_MENU2 )
 			{
-				//function used to list all the ships the player can restore
+				// Function used to list all the ships the player can restore
 				callSuiOfStoredShips(player, self, playerHangar);
 			}
 		}
@@ -257,7 +257,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 messageHandler handleHangarInitialize()
 {
-	//perform validation
+	// Perform validation
 	if( params == null || params.isEmpty() )
 		return SCRIPT_CONTINUE;
 
@@ -266,13 +266,13 @@ messageHandler handleHangarInitialize()
 	if( !isIdValid(player) || !exists(player) )
 		return SCRIPT_CONTINUE;
 
-	//keeps track of how many times we have tried to find the hangar
+	// Keeps track of how many times we have tried to find the hangar
 	int iteration = params.getInt("iteration");
 
-	//hangar is a slot on the player
+	// Hangar is a slot on the player
 	obj_id playerHangar = utils.getPlayerHangar(player);
 
-	//if we cannot find it, we need to message again and try then
+	// If we cannot find it, we need to message again and try then
 	if( !isIdValid(playerHangar) )
 	{
 		if(iteration > MAX_ITERATIONS)
@@ -288,10 +288,10 @@ messageHandler handleHangarInitialize()
 		return SCRIPT_CONTINUE;
 	}
 
-	//tracks whether we are going to store the ship or not
+	// Tracks whether we are going to store the ship or not
 	boolean storing = params.getBoolean("storing");
 
-	//one SUI for storing one for recalling
+	// One SUI for storing one for recalling
 	if( storing )
 		callSuiOfShipsToStore(player, self, playerHangar);
 	else
@@ -300,7 +300,7 @@ messageHandler handleHangarInitialize()
 	return SCRIPT_CONTINUE;
 }
 
-//handler for the list of instanes to choose from
+// Handler for the list of instanes to choose from
 messageHandler onShipListResponse()
 {
 	if( params == null || params.isEmpty() )
@@ -309,7 +309,7 @@ messageHandler onShipListResponse()
 		return SCRIPT_CONTINUE;
 	}
 
-	//get players id
+	// Get players id
 	obj_id player = sui.getPlayerId(params);
 
 	if( !isIdValid(player) )
@@ -318,18 +318,18 @@ messageHandler onShipListResponse()
 		return SCRIPT_CONTINUE;
 	}
 
-	//we need the list or we cannot continue
+	// We need the list or we cannot continue
 	if( !utils.hasScriptVar(self, SCRIPT_VAR_SCD_LIST) )
 	{
 		utils.removeScriptVar(self, SCRIPT_VAR_RESTORING_SHIP);
 		return SCRIPT_CONTINUE;
 	}
 
-	//get button pressed
+	// Get button pressed
 	int bp = sui.getIntButtonPressed(params);
 	int idx = sui.getListboxSelectedRow(params);
 
-	//if they pressed cancel then we bail out and do nothing
+	// If they pressed cancel then we bail out and do nothing
 	if ( bp == sui.BP_CANCEL || idx == -1)
 	{
 		sui.removePid(player, PID_NAME);
@@ -339,7 +339,7 @@ messageHandler onShipListResponse()
 	}
 	int pageId = params.getInt("pageId");
 
-	//double check that this is the only SUI window open
+	// Double check that this is the only SUI window open
 	if( !sui.hasPid(player, PID_NAME) )
 	{
 		utils.removeScriptVar(self, SCRIPT_VAR_SCD_LIST);
@@ -349,7 +349,7 @@ messageHandler onShipListResponse()
 
 	int pid = sui.getPid(player, PID_NAME);
 
-	//verify that this UI matches the pid stored on player
+	// Verify that this UI matches the pid stored on player
 	if( pageId != pid )
 	{
 		forceCloseSUIPage(pageId);
@@ -360,7 +360,7 @@ messageHandler onShipListResponse()
 		return SCRIPT_CONTINUE;
 	}
 
-	//check to make sure player is still the owner
+	// Check to make sure player is still the owner
 	if( !canUseHangarLite(self, player) )
 	{
 		sui.removePid(player, PID_NAME);
@@ -370,7 +370,7 @@ messageHandler onShipListResponse()
 		return SCRIPT_CONTINUE;
 	}
 
-	//get the list of ships off terminal
+	// Get the list of ships off terminal
 	obj_id[] shipList = utils.getObjIdArrayScriptVar(self, SCRIPT_VAR_SCD_LIST);
 	if( shipList == null || shipList.length <= 0 )
 	{
@@ -378,10 +378,10 @@ messageHandler onShipListResponse()
 		return SCRIPT_CONTINUE;
 	}
 
-	//dont need the whole list anymore
+	// Dont need the whole list anymore
 	utils.removeScriptVar(self, SCRIPT_VAR_SCD_LIST);
 
-	//get ship selected
+	// Get ship selected
 	obj_id shipSelected = shipList[idx];
 	if( !isIdValid(shipSelected) || !exists(shipSelected) )
 	{
@@ -389,12 +389,12 @@ messageHandler onShipListResponse()
 		return SCRIPT_CONTINUE;
 	}
 
-	//set the ID of the scd chosen on object
+	// Set the ID of the scd chosen on object
 	utils.setScriptVar(self, SCRIPT_VAR_SCD_LIST, shipSelected);
 	CustomerServiceLog(CUSTOMER_SERVICE_LOG, "Player " + getPlayerName(player) + "("+player+") chose SCD " + getEncodedName(shipSelected) + "("+shipSelected+") as the ship to move.");
 
-	//confirm that they want to move this ship
-	//different prompt depending on if they are storing or restoring
+	// Confirm that they want to move this ship
+	// Different prompt depending on if they are storing or restoring
 	string prompt = "@" + SID_SHIP_MOVE_RESTORE_PROMPT;
 	if( !utils.hasScriptVar(self, SCRIPT_VAR_RESTORING_SHIP) )
 		prompt = "@" + SID_SHIP_MOVE_STORE_PROMPT;
@@ -406,7 +406,7 @@ messageHandler onShipListResponse()
 
 }
 
-//handler for confirmation of reseting timer
+// Handler for confirmation of reseting timer
 messageHandler handlerConfirmShipMove()
 {
 	if( params == null || params.isEmpty() )
@@ -415,7 +415,7 @@ messageHandler handlerConfirmShipMove()
 		return SCRIPT_CONTINUE;
 	}
 
-	//get players id
+	// Get players id
 	obj_id player = sui.getPlayerId(params);
 
 	if( !isIdValid(player) )
@@ -424,17 +424,17 @@ messageHandler handlerConfirmShipMove()
 		return SCRIPT_CONTINUE;
 	}
 
-	//without the Id of SCD we cannot do anything
+	// Without the Id of SCD we cannot do anything
 	if( !utils.hasScriptVar(self, SCRIPT_VAR_SCD_LIST) )
 	{
 		utils.removeScriptVar(self, SCRIPT_VAR_RESTORING_SHIP);
 		return SCRIPT_CONTINUE;
 	}
 
-	//get button pressed
+	// Get button pressed
 	int bp = sui.getIntButtonPressed(params);
 
-	//if they pressed cancel then we bail out and do nothing
+	// If they pressed cancel then we bail out and do nothing
 	if ( bp == sui.BP_CANCEL)
 	{
 		sui.removePid(player, PID_NAME);
@@ -444,7 +444,7 @@ messageHandler handlerConfirmShipMove()
 	}
 	int pageId = params.getInt("pageId");
 
-	//double check that this is the only SUI window open
+	// Double check that this is the only SUI window open
 	if( !sui.hasPid(player, PID_NAME) )
 	{
 		utils.removeScriptVar(self, SCRIPT_VAR_SCD_LIST);
@@ -454,7 +454,7 @@ messageHandler handlerConfirmShipMove()
 
 	int pid = sui.getPid(player, PID_NAME);
 
-	//verify this handler is being fired for the pid stored on player
+	// Verify this handler is being fired for the pid stored on player
 	if( pageId != pid )
 	{
 		forceCloseSUIPage(pageId);
@@ -465,7 +465,7 @@ messageHandler handlerConfirmShipMove()
 		return SCRIPT_CONTINUE;
 	}
 
-	//make sure the player is still the owner
+	// Make sure the player is still the owner
 	if( !canUseHangarLite(self, player)  )
 	{
 		sui.removePid(player, PID_NAME);
@@ -482,7 +482,7 @@ messageHandler handlerConfirmShipMove()
 		return SCRIPT_CONTINUE;
 	}
 
-	//dont need to store the name anymore
+	// Dont need to store the name anymore
 	utils.removeScriptVar(self, SCRIPT_VAR_SCD_LIST);
 
 	obj_id playerHangar = utils.getPlayerHangar(player);
@@ -500,18 +500,18 @@ messageHandler handlerConfirmShipMove()
 		return SCRIPT_CONTINUE;
 	}
 
-	// if we are not storing a ship, then we are restoring a ship
+	//  If we are not storing a ship, then we are restoring a ship
 	if( !utils.hasScriptVar(self, SCRIPT_VAR_RESTORING_SHIP) )
 	{
-		//when storing a ship, we hide it in the players hangar.
-		//hangar is like the datapad, only it is invisible to the player
+		// When storing a ship, we hide it in the players hangar.
+		// Hangar is like the datapad, only it is invisible to the player
 		if( putIn(shipSelected, playerHangar, player) )
 		{
 			setObjVar(shipSelected, player_structure.OBJVAR_STORED_HANGAR_LITE, true);
 			
 			CustomerServiceLog(CUSTOMER_SERVICE_LOG, "SCD "+getEncodedName(shipSelected)+" ("+shipSelected+") was transferred to Player " + getPlayerName(player) + "("+player+")'s hangar ("+playerHangar+"), using the hangar terminal.");
 
-			//tell the player the transfer was a success
+			// Tell the player the transfer was a success
 			prose_package pp = new prose_package();
 			prose.setStringId(pp, SID_SHIP_WAS_STORED);
 			prose.setTT(pp, getEncodedName(shipSelected));
@@ -524,17 +524,17 @@ messageHandler handlerConfirmShipMove()
 
 		}
 	}
-	//we are restoring the ship from the players hangar to their datapad
+	// We are restoring the ship from the players hangar to their datapad
 	else
 	{
-		//stroed ships are in the players hangar slot, and need to be moved back to their datapad
+		// Stored ships are in the players hangar slot, and need to be moved back to their datapad
 		if( putIn(shipSelected, datapad, player) )
 		{
 			removeObjVar(shipSelected, player_structure.OBJVAR_STORED_HANGAR_LITE);
 			
 			CustomerServiceLog(CUSTOMER_SERVICE_LOG, "SCD "+getEncodedName(shipSelected)+" ("+shipSelected+") was transferred back to Player " + getPlayerName(player) + "("+player+")'s datapad ("+datapad+"), using the hangar terminal..");
 
-			//tell the player what lockout was reset
+			// Tell the player what lockout was reset
 			prose_package pp = new prose_package();
 			prose.setStringId(pp, SID_SHIP_WAS_RESTORED);
 			prose.setTT(pp, getEncodedName(shipSelected));
@@ -556,7 +556,7 @@ messageHandler handlerConfirmShipMove()
 
 boolean canUseHangarLite(obj_id self, obj_id player)
 {
-	// if the hangar lite device is not contained by the player, is owned by the player,
+	// If the hangar lite device is not contained by the player, is owned by the player,
 	// and is in a building they own, it may be used by that player.
 	if ( !utils.isNestedWithinAPlayer(self) )
 	{
@@ -584,7 +584,7 @@ boolean canUseHangarLite(obj_id self, obj_id player)
 	return false;
 }
 
-//creates a sui list box of all ships in players datapad
+// Creates a sui list box of all ships in players datapad
 boolean callSuiOfShipsToStore(obj_id player, obj_id terminal, obj_id hangar)
 {
 	if(!isIdValid(player) || !exists(player))
@@ -596,7 +596,7 @@ boolean callSuiOfShipsToStore(obj_id player, obj_id terminal, obj_id hangar)
 	if(!isIdValid(hangar) || !exists(hangar))
 		return false;
 
-	//there is a cap on the number of ships you can have in your hangar
+	// There is a cap on the number of ships you can have in your hangar
 	obj_id[] shipsInHangar = getContents(hangar);
 	resizeable obj_id[] hangarLiteStoredShips = new obj_id[0];
 
@@ -621,7 +621,7 @@ boolean callSuiOfShipsToStore(obj_id player, obj_id terminal, obj_id hangar)
 		}
 	}
 
-	//get all the scds in the players datapad
+	// Get all the scds in the players datapad
 	obj_id[] shipControlDevices = space_transition.findShipControlDevicesForPlayer(player);
 	if(shipControlDevices == null || shipControlDevices.length <= 0)
 	{
@@ -630,10 +630,10 @@ boolean callSuiOfShipsToStore(obj_id player, obj_id terminal, obj_id hangar)
 	}
 
 
-	//track the unlocalized version
+	// Track the unlocalized version
 	utils.setScriptVar(terminal, SCRIPT_VAR_SCD_LIST, shipControlDevices);
 
-	//have to localize it for the player
+	// Have to localize it for the player
 	string[] localizedList = new string[shipControlDevices.length];
 
 	for(int i = 0; i < localizedList.length; ++i)
@@ -641,14 +641,14 @@ boolean callSuiOfShipsToStore(obj_id player, obj_id terminal, obj_id hangar)
 		localizedList[i] = getEncodedName(shipControlDevices[i]);
 	}
 
-	//display list to player
+	// Display list to player
 	int pid = sui.listbox(terminal, player, "@" + SID_SHIP_LIST_STORE_PROMPT, sui.OK_CANCEL, "@" + SID_LIST_TITLE, localizedList, "onShipListResponse", true, false);
 	sui.setPid(player, pid, PID_NAME);
 
 	return true;
 }
 
-//creates a sui list box of hangar lite stored ships in players hangar slot
+// Creates a sui list box of hangar lite stored ships in players hangar slot
 boolean callSuiOfStoredShips(obj_id player, obj_id terminal, obj_id hangar)
 {
 	if(!isIdValid(player) || !exists(player))
@@ -660,7 +660,7 @@ boolean callSuiOfStoredShips(obj_id player, obj_id terminal, obj_id hangar)
 	if(!isIdValid(hangar) || !exists(hangar))
 		return false;
 
-	//get all the scds in the players hangar
+	// Get all the scds in the players hangar
 	obj_id[] shipControlDevices = getContents(hangar);
 	resizeable obj_id[] hangarLiteStoredShips = new obj_id[0];
 
@@ -688,10 +688,10 @@ boolean callSuiOfStoredShips(obj_id player, obj_id terminal, obj_id hangar)
 		return false;
 	}
 
-	//track the unlocalized version
+	// Track the unlocalized version
 	utils.setScriptVar(terminal, SCRIPT_VAR_SCD_LIST, hangarLiteStoredShips);
 
-	//have to localize it for the player
+	// Have to localize it for the player
 	string[] localizedList = new string[hangarLiteStoredShips.length];
 
 	for(int i = 0; i < localizedList.length; ++i)
@@ -699,7 +699,7 @@ boolean callSuiOfStoredShips(obj_id player, obj_id terminal, obj_id hangar)
 		localizedList[i] = getEncodedName(hangarLiteStoredShips[i]);
 	}
 
-	//display list to player
+	// Display list to player
 	utils.setScriptVar(terminal, SCRIPT_VAR_RESTORING_SHIP, true);
 	int pid = sui.listbox(terminal, player, "@" + SID_SHIP_LIST_RESTORE_PROMPT, sui.OK_CANCEL, "@" + SID_LIST_TITLE, localizedList, "onShipListResponse", true, false);
 	sui.setPid(player, pid, PID_NAME);

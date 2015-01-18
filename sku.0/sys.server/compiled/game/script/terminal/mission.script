@@ -1,11 +1,5 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        mission.script
+/* Title:        mission.script
  * Description:  script for mission menu options; to be attached to mission terminals
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -38,7 +32,3 @@ trigger OnObjectMenuSelect(obj_id player, int item)
  return SCRIPT_CONTINUE;
 }
 
-/***** FUNCTIONS *******************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/

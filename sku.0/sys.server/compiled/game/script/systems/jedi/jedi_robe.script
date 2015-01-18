@@ -1,11 +1,6 @@
 /********************************************************************************************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        jedi_robe.script
  * Description:  Jedi wearables script, allowing the appropriate ranks to equip various wearables.
- * @author       Benjamin Norris
- * @version      $Revision:$
  **********************************************************************/
 
 

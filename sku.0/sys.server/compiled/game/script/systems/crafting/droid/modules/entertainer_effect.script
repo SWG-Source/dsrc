@@ -1,13 +1,6 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        entertainer_module
+/* * Title:        entertainer_module
  * Description:  Script attaches to a droid with entertainer effects
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
-
+*/
 
 /***** INCLUDES ********************************************************/
 include library.ai_lib;
@@ -429,9 +422,6 @@ messageHandler msgNextEntertainerDroidEffect()
 
 	return SCRIPT_CONTINUE;
 }
-
-/***** COMMANDHANDLERS *************************************************/
-
 
 /***** FUNCTIONS *******************************************************/
 string[] getAvailableEffects(obj_id droid)

@@ -1,13 +1,3 @@
- /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        scriptlib
- * Description:  base player script library
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
-
 /***** INCLUDES ********************************************************/
 
 include library.battlefield;

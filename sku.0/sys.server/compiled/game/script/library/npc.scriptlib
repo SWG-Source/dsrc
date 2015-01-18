@@ -12,10 +12,7 @@
  * 															 	*
  ****************************************************************/
 
-/* -----------------7/24/02 12:48PM------------------
-* Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
-* All Rights Reserved
-*
+/* --------------------------------------------------
 * This script is the one called by any scripts that need to
 * create random NPCs.  It makes sure they have appropriate clothes
 * and dresses them using datatables.  It also randomly determines gender

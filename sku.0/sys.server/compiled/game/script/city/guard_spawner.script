@@ -1,6 +1,5 @@
 // Handles spawning guards throughout player cities.
 // Draws spawn info from the "guardTable" below.
-// Dan's code?
 
 include library.ai_lib;
 include library.create;

@@ -1,12 +1,7 @@
-// For the Corellian Corvette quests" a player on the quest must find certain documents using this search.
-
 /***** INCLUDES ********************************************************/
 
 include library.jedi_trials;
 include library.utils;
-
-/***** INHERITS ********************************************************/
-
 
 /***** CONSTANTS *******************************************************/
 

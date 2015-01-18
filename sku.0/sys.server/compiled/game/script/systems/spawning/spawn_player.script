@@ -1,11 +1,6 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        spawn_player.script
- * Description:  this is the spawn system handler that lives on the player. It communicates with the master spawn object at set intervals
- * @author       $Author:$
- * @version      $Revision:$
+/*
+ Title:        spawn_player.script
+ Description:  this is the spawn system handler that lives on the player. It communicates with the master spawn object at set intervals
  */
 
 
@@ -94,8 +89,8 @@ commandHandler secretSpawnSpam()
 
 trigger OnAddedToWorld()
 {
-	//attempt to apply crafting station buff icons for players
-	//logging into a cell with stations
+	// Attempt to apply crafting station buff icons for players
+	// Logging into a cell with stations
 	messageTo(self, "checkStationCells", null, 2, false);
 
 	return SCRIPT_CONTINUE;
@@ -105,11 +100,11 @@ trigger OnAddedToWorld()
 
 trigger OnAttach()
 {
-	//setObjVar(self, "intStopSpawner", 1);
-	////////LOG("player_spawner", "The spawn system is active. To turn it off say stopspawner");
+	// setObjVar(self, "intStopSpawner", 1);
+	//////// LOG("player_spawner", "The spawn system is active. To turn it off say stopspawner");
 
-	//Uncomment this line to turn off the spawner by default
-	//setObjVar(self, "intStopSpawner", 1);
+	// Uncomment this line to turn off the spawner by default
+	// setObjVar(self, "intStopSpawner", 1);
 
 	return SCRIPT_CONTINUE;
 
@@ -145,7 +140,7 @@ commandHandler createSpawningElement()
 	{
 		intTestIndex = new Integer(strNumber);
 
-	} // try with error handling
+	} // Try with error handling
 	catch (NumberFormatException err)
 	{
 		sendSystemMessageTestingOnly(self, strNumber+" is not a valid index");
@@ -160,7 +155,7 @@ commandHandler createSpawningElement()
 		sendSystemMessageTestingOnly(self, "Not a valid combination of data");
 	}
 
-	// we'll spawn in 3 quadrants?
+	// We'll spawn in 3 quadrants?
 
 
 	int intMinDifficulty = 	dctRow.getInt("intMinDifficulty");
@@ -176,19 +171,19 @@ commandHandler createSpawningElement()
 	string strBuildingType = dctRow.getString("strBuildingType");
  	obj_id objCreatedTemplate = createObject(strTemplate, getLocation(self));
 
-	//LOG("spawning", self+" created templante "+strTemplate+" at location +"+getLocation(self));
+	// LOG("spawning", self+" created templante "+strTemplate+" at location +"+getLocation(self));
  	if (!(objCreatedTemplate==null))
  	{
- 		//LOG("spawning", self+ "checking if player is grouped");
+ 		// LOG("spawning", self+ "checking if player is grouped");
 		if(group.isGrouped(self))
 		{
-			//LOG("spawning", self+ "player is grouped");
+			// LOG("spawning", self+ "player is grouped");
 
 			obj_id objGroup = getGroupObject(self);
 
 			if(objGroup!=null)
 			{
-				//LOG("spawning", self+ "i got a group obect");
+				// LOG("spawning", self+ "i got a group obect");
 				int intGroupSize = getGroupSize(objGroup);
 				setObjVar(objCreatedTemplate, "spawning.intGroupSize", intGroupSize);
 			}
@@ -255,7 +250,7 @@ commandHandler createSpawningElementWithDifficulty()
 	{
 		intTestIndex = new Integer(strNumber);
 
-	} // try with error handling
+	} // Try with error handling
 	catch (NumberFormatException err)
 	{
 		sendSystemMessageTestingOnly(self, strNumber+" is not a valid index");
@@ -271,7 +266,7 @@ commandHandler createSpawningElementWithDifficulty()
 	{
 		intTestIndex = new Integer(strDifficultyInt);
 
-	} // try with error handling
+	} // Try with error handling
 	catch (NumberFormatException err)
 	{
 		sendSystemMessageTestingOnly(self, strDifficultyInt+" is not a valid index");
@@ -290,7 +285,7 @@ commandHandler createSpawningElementWithDifficulty()
 		sendSystemMessageTestingOnly(self, "Not a valid combination of data");
 	}
 
-	// we'll spawn in 3 quadrants?
+	// We'll spawn in 3 quadrants?
 
 
 	int intMinDifficulty = 	dctRow.getInt("intMinDifficulty");
@@ -306,19 +301,19 @@ commandHandler createSpawningElementWithDifficulty()
 	string strBuildingType = dctRow.getString("strBuildingType");
  	obj_id objCreatedTemplate = createObject(strTemplate, getLocation(self));
 
-	//LOG("spawning", self+" created templante "+strTemplate+" at location +"+getLocation(self));
+	// LOG("spawning", self+" created templante "+strTemplate+" at location +"+getLocation(self));
  	if (!(objCreatedTemplate==null))
  	{
- 		//LOG("spawning", self+ "checking if player is grouped");
+ 		// LOG("spawning", self+ "checking if player is grouped");
 		if(group.isGrouped(self))
 		{
-			//LOG("spawning", self+ "player is grouped");
+			// LOG("spawning", self+ "player is grouped");
 
 			obj_id objGroup = getGroupObject(self);
 
 			if(objGroup!=null)
 			{
-				//LOG("spawning", self+ "i got a group obect");
+				// LOG("spawning", self+ "i got a group obect");
 				int intGroupSize = getGroupSize(objGroup);
 				setObjVar(objCreatedTemplate, "spawning.intGroupSize", intGroupSize);
 			}
@@ -378,7 +373,7 @@ commandHandler startSpawner()
 
 
 
-	// does it already have the status objvar?
+	// Does it already have the status objvar?
 	if(!hasObjVar(objMasterSpawner, "boolSpawnerIsOn"))
 	{
 
@@ -387,13 +382,13 @@ commandHandler startSpawner()
 		return SCRIPT_OVERRIDE;
 	}
 
-	// if it has the objvar
+	// If it has the objvar
 	else
 	{
 		boolean boolSpawnerIsOn;
 		boolSpawnerIsOn = getBooleanObjVar(objMasterSpawner, "boolSpawnerIsOn");
 
-		// is it set to off?
+		// Is it set to off?
 		if(boolSpawnerIsOn == false)
 		{
 
@@ -402,7 +397,7 @@ commandHandler startSpawner()
 			return SCRIPT_OVERRIDE;
 
 		}
-		//	it's already set to true, so don't worry about it.
+		//	It's already set to true, so don't worry about it.
 		else
 		{
 			sendSystemMessageTestingOnly(self, "The master spawner is already on!");
@@ -414,8 +409,8 @@ commandHandler startSpawner()
 
 trigger OnLogin()
 {
-	//attempt to apply crafting station buff icons for players
-	//logging into a cell with stations
+	// Attempt to apply crafting station buff icons for players
+	// Logging into a cell with stations
 	messageTo(self, "checkStationCells", null, 2, false);
 
 	removeObjVar(self, "spawning.locSpawnLocation");
@@ -427,7 +422,7 @@ messageHandler spawn_Trigger()
 	if(!isIdValid(self))
 		return SCRIPT_CONTINUE;
 
-	// lets' see what spawn system we should use.
+	// Lets' see what spawn system we should use.
 	location locTest = getLocation(self);
 
 	if(utils.checkConfigFlag("ScriptFlags", "newSpawnSystem_" + locTest.area))
@@ -438,12 +433,12 @@ messageHandler spawn_Trigger()
 	
 	dictionary dctParams = new dictionary();
 
-	////LOG("spawning", "SPAWN TRIGGER WENT OFF OFOR A GIVEN FRAME");
+	//// LOG("spawning", "SPAWN TRIGGER WENT OFF OFOR A GIVEN FRAME");
 	location locCurrentLocation = getLocation(self);
 
 	if (locCurrentLocation == null)
 		return SCRIPT_CONTINUE;
-	//boolean boolCheckForTheaters = false;		//RPALACIO: commented due to lack of need
+	// boolean boolCheckForTheaters = false;		//commented due to lack of need
 
 	if(canSpawn(self, locCurrentLocation, false, null))
 	{
@@ -679,10 +674,10 @@ messageHandler specifyGroundSpawnerName()
 		" \n \\#pcontrast1 Count: \\#. " + intSpawnerCount + 
 		" \n \\#pcontrast1 Respawn (Min - Max): \\#. " + fltSpawnerMinTime + " - " + fltSpawnerMaxTime;
 
-		//int pid = sui.msgbox(self, self, prompt, sui.YES_NO, title, "duplicateLastSpawner");
-		//setSUIProperty(pid, sui.LISTBOX_BTN_CANCEL, sui.PROP_TEXT, "Enter new data");
-		//setSUIProperty(pid, sui.LISTBOX_BTN_OK, sui.PROP_TEXT, "Use this data");
-		//showSUIPage(pid);
+		// int pid = sui.msgbox(self, self, prompt, sui.YES_NO, title, "duplicateLastSpawner");
+		// setSUIProperty(pid, sui.LISTBOX_BTN_CANCEL, sui.PROP_TEXT, "Enter new data");
+		// setSUIProperty(pid, sui.LISTBOX_BTN_OK, sui.PROP_TEXT, "Use this data");
+		// showSUIPage(pid);
 		
 		int pid = sui.createSUIPage( sui.SUI_MSGBOX, self, self, "duplicateLastSpawner");
 
@@ -735,7 +730,7 @@ messageHandler duplicateLastSpawner()
 	{
 		string strSpawnerType = utils.getStringScriptVar(self, "strType");
 		
-		// should we switch spawner type?
+		// Should we switch spawner type?
 		if ( revert != null && !revert.equals("") )
 		{
 			if ( strSpawnerType.equals("patrol") )
@@ -780,7 +775,7 @@ messageHandler specifyGroundSpawnerType()
 		return SCRIPT_CONTINUE;
 	}
 
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 
 	string strType = sui.getInputBoxText(params);
 	if(!isValidSpawnerType(strType))
@@ -807,7 +802,7 @@ messageHandler specifyGroundSpawnerSpawns()
 		return SCRIPT_CONTINUE;
 	}
 
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 
 	string strSpawns= sui.getInputBoxText(params);
 	if(strSpawns=="")
@@ -858,7 +853,7 @@ messageHandler specifyGroundSpawnerDefaultBehavior()
 		return SCRIPT_CONTINUE;
 	}
 
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 
 	string strBehavior = sui.getInputBoxText(params);
 	int intBehavior = isValidBehavior(strBehavior);
@@ -896,7 +891,7 @@ messageHandler specifyGroundSpawnerGoodLocationType()
 		clearSpawnerScriptVar(self, true);
 		return SCRIPT_CONTINUE;
 	}
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 
 	string strGoodLocationType = sui.getInputBoxText(params);
 	if(!strGoodLocationType.equals("yes")&&(!strGoodLocationType.equals("no")))
@@ -936,7 +931,7 @@ messageHandler specifyGroundSpawnerLocations()
 		return SCRIPT_CONTINUE;
 	}
 
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 	string strSpawnLocations= sui.getInputBoxText(params);
 	if(strSpawnLocations=="")
 	{		
@@ -967,15 +962,15 @@ messageHandler specifyGroundSpawnerRadius()
 		return SCRIPT_CONTINUE;
 	}
 
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 
 	string strRadius= sui.getInputBoxText(params);
 
-	// CAST
+	// Cast
 	float fltRadius = utils.stringToFloat(strRadius);
 	if(fltRadius==Float.NEGATIVE_INFINITY)
 	{
-		// ERROR
+		// Error
 		sui.inputbox( self, self, "INVALID NUMBER, PLEASE USE A NUMBER\n SCALE: Meters \nWhat is this spawner's spawn radius?", sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "specifyGroundSpawnerMinSpawnDistance", null );
 		return SCRIPT_CONTINUE;
 	}
@@ -999,15 +994,15 @@ messageHandler specifyGroundSpawnerSpawnCount()
 		return SCRIPT_CONTINUE;
 	}
 
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 
 	string strSpawnCount= sui.getInputBoxText(params);
 
-	// CAST
+	// Cast
 	int intSpawnCount = utils.stringToInt(strSpawnCount);
 	if(intSpawnCount==-1)
 	{
-		// ERROR
+		// Error
 		sui.inputbox( self, self, "INVALID NUMBER, PLEASE USE A NUMBER\n SCALE: Mobs \nWhat is this spawner's maximum population ?", sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "specifyGroundSpawnerSpawnCount", null );
 		return SCRIPT_CONTINUE;
 	}
@@ -1031,15 +1026,15 @@ messageHandler specifyGroundSpawnerMinSpawnTime()
 		return SCRIPT_CONTINUE;
 	}
 
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 
 	string strMinSpawnTime = sui.getInputBoxText(params);
 
-	// CAST
+	// Cast
 	float fltMinSpawnTime = utils.stringToFloat(strMinSpawnTime);
 	if(fltMinSpawnTime==Float.NEGATIVE_INFINITY)
 	{
-		// ERROR
+		// Error
 		sui.inputbox( self, self, "INVALID NUMBER, PLEASE USE A NUMBER\n SCALE: Seconds \nWhat is this spawner's minimum spawn time?", sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "specifyGroundSpawnerMinSpawnTime", null );
 		return SCRIPT_CONTINUE;
 	}
@@ -1062,15 +1057,15 @@ messageHandler specifyGroundSpawnerMaxSpawnTime()
 		return SCRIPT_CONTINUE;
 	}
 
-	// we need to get the string and validate it
+	// We need to get the string and validate it
 	float fltMinSpawnTime= utils.getFloatScriptVar(self, "fltMinSpawnTime");
 	string strMaxSpawnTime = sui.getInputBoxText(params);
 
-	// CAST
+	// Cast
 	float fltMaxSpawnTime = utils.stringToFloat(strMaxSpawnTime);
 	if(fltMaxSpawnTime==Float.NEGATIVE_INFINITY)
 	{
-		// ERROR
+		// Error
 		sui.inputbox( self, self, "INVALID NUMBER, PLEASE USE A NUMBER\n SCALE: Seconds \nWhat is this spawner's maximum spawn time?", sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "specifyGroundSpawnerMaxSpawnTime", null );
 		return SCRIPT_CONTINUE;
 
@@ -1301,7 +1296,7 @@ void writeSpawner(obj_id self)
 		string[] patrolPointNames = new string[patrolPoints.length-1];
 		patrolPointNames[0] = strSpawnerName;
 		int k = 0;
-		for (int i = 1;i<patrolPoints.length;i++) //start at 1 to skip the base point.
+		for (int i = 1;i<patrolPoints.length;i++) // Start at 1 to skip the base point.
 		{
 			setName(patrolPoints[i], strSpawnerName+"_"+objSpawner+"_"+i);
 			patrolPointNames[k] = strSpawnerName+"_"+objSpawner+"_"+i;
@@ -1334,7 +1329,7 @@ void writeSpawner(obj_id self)
 	int intGoodLocationSpawner = utils.getIntScriptVar(self, "intGoodLocationSpawner");
 	setObjVar(objSpawner, "intGoodLocationSpawner", intGoodLocationSpawner);
 	
-	//clearSpawnerScriptVar(self, false);
+	// clearSpawnerScriptVar(self, false);
 }
 
 boolean isValidSpawnerType(string strText)
@@ -1484,26 +1479,26 @@ void clearMineScriptVar(obj_id player)
 
 void doLogging(string section, string message)
 {
-	//LOG("debug/spawn_player/"+section, message);
+	// LOG("debug/spawn_player/"+section, message);
 }
 
 messageHandler checkStationCells()
 {
-	//should only have the station buffs in indoors
+	// Should only have the station buffs in indoors
 	if(isInWorldCell(self))
 		return SCRIPT_CONTINUE;
 		
-	//try to find cell
+	// Try to find cell
 	obj_id cell = getContainedBy(self);
 
-	//validate
+	// Validate
 	if(!isIdValid(cell) || !exists(cell))
 		return SCRIPT_CONTINUE;
 
-	//check for presence of scriptvar	
+	// Check for presence of scriptvar	
 	if(utils.hasScriptVar(cell, craftinglib.SCRIPTVAR_CELL_STATIONS))
 	{
-		//get the list of stations
+		// Get the list of stations
 		obj_id[] stations = utils.getObjIdArrayScriptVar(cell, craftinglib.SCRIPTVAR_CELL_STATIONS);
 		if(stations == null || stations.length <= 0)
 			return SCRIPT_CONTINUE;
@@ -1515,16 +1510,16 @@ messageHandler checkStationCells()
 				continue;
 			}
 			
-			//get crafting type
+			// Get crafting type
 			int craftingType = getIntObjVar(stations[i], craftinglib.OBJVAR_CRAFTING_TYPE);
-			//get the buffname based on crafting type
+			// Get the buffname based on crafting type
 			string buffName = craftinglib.getCraftingStationBuffName(craftingType);
 			
 			if(buffName == null || buffName.equals(""))
 			{
 				continue;
 			}
-			//apply the buff
+			// Apply the buff
 			buff.applyBuff(self, stations[i], buffName);		
 		}
 	}

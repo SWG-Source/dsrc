@@ -1,7 +1,4 @@
 /**
- * Copyright (C)2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        dump.scriptlib
  * Description:  A library containing functions for printing out debug information.
  */

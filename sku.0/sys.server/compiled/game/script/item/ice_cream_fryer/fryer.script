@@ -1,6 +1,3 @@
-// republic_assembly_tool.script  -- this script sits on a tool with an inventory. When you feed it items that match a table and hit 'assemble' it will try to give you a new item.
-// this script borrows heavily from a test script written by DRubenfield
-
 // ********************************************************************
 //					INCLUDES
 // ********************************************************************

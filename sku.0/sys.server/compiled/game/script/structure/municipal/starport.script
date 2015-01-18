@@ -1,11 +1,8 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
+
  * Title:        starport.script
  * Description:  handles the travel location functionality on starports
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

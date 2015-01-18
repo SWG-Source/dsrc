@@ -644,7 +644,7 @@ trigger OnCityChanged(int oldCityId, int newCityId)
 
 /**
  *	Determines which drafting schematics the player has can be used in the station.
- *	Must call sendUseableDraftSchematics() with a valid list of schematics.
+ *	Must call sendUseableDraftSchematics() with a valid list of schematics.
  *
  * @param self 			crafting station
  * @param player		player wanting to craft

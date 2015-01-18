@@ -473,6 +473,7 @@ void aiFlee(obj_id target, float distance)
 	dict.put("ai.combat.flee.distance", distance);
 
 	flee(self, target, distance, distance);
+	messageTo(self, "redoYaw", null, 30, false);
 }
 
 boolean aiIsFleeing(obj_id ai)
@@ -495,7 +496,6 @@ boolean aiIsFleeing(obj_id target, float distance)
 
 	return false;
 }
-
 
 //Additional Move Modes
 boolean isAiImmobile(obj_id subject)

@@ -1,11 +1,5 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_new_armor_final.script
+/* Title:        crafting_new_armor_final.script
  * Description:  base script for crafting new armor
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
  */
 
 /**
@@ -16,8 +10,10 @@ include library.armor;
 include library.utils;
 include library.craftinglib;
 
+// inherits
 inherits systems.crafting.crafting_base;
 
+// consts
 /** The version number of this script. */
 const string VERSION = "v0.00.00";
 
@@ -34,8 +30,7 @@ void calcAndSetPrototypeProperties ( obj_id prototype, draft_schematic.attribute
 	super.calcAndSetPrototypeProperties ( prototype, itemAttributes, craftingValuesDictionary );
 }
 
-/* -----------------3/4/2002 1:48PM------------------
- * Function calcAndSetPrototypeProperties
+/* Function calcAndSetPrototypeProperties
  *
  * This function reads in the final item attributes that are about to be written into the manufacturing schematic, looks up modifications to these attributes
  * due to component-ingredients from the craftingValuesDictionary, sums them, and then writes the final property values to the prototype item.

@@ -111,7 +111,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 		{
 			trial.cleanupObject(self);
 		}
-		// remove persisted effect
+		// Remove persisted effect
 		else if ( item == menu_info_types.SERVER_MENU2 )
 		{
 			storyteller.removeStorytellerPersistedEffect(self);
@@ -233,7 +233,7 @@ void checkBonusCleanupTime(obj_id prop_controller)
 	storyteller.calculatePropBonusExistTime(prop_controller);
 }
 
-//we will only receive a message back from the City Hall if they have the specialization.
+// We will only receive a message back from the City Hall if they have the specialization.
 messageHandler st_receivedCityResponse()
 {
 	storyteller.setBonusExistTime(self);

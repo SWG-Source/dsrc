@@ -264,7 +264,7 @@ void setNewSkillReq(obj_id target, int numSkills) {
 	}
 
 	setObjVar(target, pclib.OBJVAR_JEDI_SKILL_REQUIREMENTS, skills);			// Suppress lint -- We know that the array will always
-																				// 				    be at least 1 to 8 elements long
+												//be at least 1 to 8 elements long
 
 	return;
 }
