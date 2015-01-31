@@ -4867,7 +4867,7 @@ commandHandler cmdTipFail()
 
 commandHandler cmdCheckForceStatus()
 {
-/*	COMMENTED OUT AS PART OF NPE/CLICKY-COMBAT CHANGES  -- RcT -- 10/11/05
+/*	COMMENTED OUT
 	//LOG("quest", "base_player.checkForceStatus");
 	int progress_level = 0;
 	if (fs_quests.fsBadgeCheck(self))
@@ -6217,7 +6217,7 @@ commandHandler maskscent()
 commandHandler failMaskscent()
 {
 	// The player can't creature sneak.  Probably because of his position.
-	sendSystemMessage( self, SID_SYS_SCENTMASK_FAIL );
+	//sendSystemMessage( self, SID_SYS_SCENTMASK_FAIL );
 
 	return SCRIPT_CONTINUE;
 }
@@ -8261,7 +8261,7 @@ messageHandler handleSTFeeFail()
 
 //------------------------------------------------
 // /cityInfo
-// LIVE 12/15/2004 - CSR command to get city info.
+// LIVE CSR command to get city info.
 // UNLOCALIZED CSR COMMAND
 //------------------------------------------------
 

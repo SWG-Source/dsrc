@@ -47,7 +47,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	{
 		if(speaker!=objMissionHolder)
 		{
-			doIncorrectPlayerBlurb(self);
+			doIncorrectPlayerBlurb(self, speaker);
 			return SCRIPT_CONTINUE;
 		}
 

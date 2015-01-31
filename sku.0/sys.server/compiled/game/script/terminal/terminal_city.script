@@ -235,10 +235,10 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 			mi.addSubMenu(menu, menu_info_types.SERVER_MENU8, SID_CITY_FIX_MAYOR);
 
 		//Remove old Skill Trainers
-		if(citySkillTrainersExist(city_id))
-		{
-			mi.addRootMenu(menu_info_types.SERVER_MENU10, SID_CITY_REMOVE_OLD_TRAINERS);
-		}
+		//if(citySkillTrainersExist(city_id))
+		//{
+		//	mi.addRootMenu(menu_info_types.SERVER_MENU10, SID_CITY_REMOVE_OLD_TRAINERS);
+		//}
 		
 		//Add Citizen Protection Menu
 		mi.addSubMenu(menu, menu_info_types.SERVER_MENU13, SID_CITY_CITIZEN_PROTECTION);		

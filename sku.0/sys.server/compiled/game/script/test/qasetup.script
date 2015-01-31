@@ -969,6 +969,7 @@ trigger OnSpeaking(string text)
 
 	if (text == "qasetup")
 	{
+		sendSystemMessage(self, "*******************************************************", null);
 		sendSystemMessage(self, "QA-Setup Commands - Say 'qasetup' to show this list", null);
 		sendSystemMessage(self, "Using a template code will set your character to level 90 with a preset expertise template, suitable weapon(s), ", null);
 		sendSystemMessage(self, "modded armor and clothing as well as some generic items that high level players would normally carry.", null);
@@ -989,12 +990,13 @@ trigger OnSpeaking(string text)
 		sendSystemMessage(self, "'qa_buff' to grant your character a full set of buffs (Entertainer, Medic, Food and Mustafarian Injector buff", null);
 		sendSystemMessage(self, "", null);
 		sendSystemMessage(self, "For a list of commands to gain ONLY modded armor, clothing, and weapons, say 'qaobjects'", null);
-
+		sendSystemMessage(self, "*******************************************************", null);
 
 	}
 
 	if (text == "qaobjects")
 	{
+		sendSystemMessage(self, "*******************************************************", null);
 		sendSystemMessage(self, "QA-Objects Commands - Say 'qaobjects' to show this list", null);
 		sendSystemMessage(self, "Using a template code will set your character with suitable weapon(s), ", null);
 		sendSystemMessage(self, "modded armor and clothing as well as some generic items that high level players would normally carry.", null);
@@ -1015,7 +1017,8 @@ trigger OnSpeaking(string text)
 		sendSystemMessage(self, "", null);
 		sendSystemMessage(self, "'qa_buff' to grant your character a full set of buffs (Entertainer, Medic, Food and Mustafarian Injector buff", null);
 		sendSystemMessage(self, "", null);
-		sendSystemMessage)self, "For a list of commands to set your character to level 90 with a preset expertise template, say 'qasetup'", null);
+		sendSystemMessage(self, "For a list of commands to set your character to level 90 with a preset expertise template, say 'qasetup'", null);
+		sendSystemMessage(self, "*******************************************************", null);
 
 	}
 
@@ -1034,6 +1037,7 @@ trigger OnSpeaking(string text)
 		issueClothes((self), CLOTHES, "rangedDps", "shirtRifle");
 		createPup ((self), "expertise_action_weapon_0", POWERUP_ITEMS, 10);
 		static_item.createNewItemFunction("weapon_tow_rifle_lightning_cannon_04_01", pInv);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_bh_carbine")
@@ -1049,6 +1053,7 @@ trigger OnSpeaking(string text)
 		issueAssaultArmorSet((self), ARMOR_SET_ASSAULT_4, "rangedDps", "shirtCarbine");
 		issueClothes((self), CLOTHES, "rangedDps", "shirtCarbine");
 		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_commando")
@@ -1070,6 +1075,7 @@ trigger OnSpeaking(string text)
 		static_item.createNewItemFunction("weapon_tow_heavy_acid_beam_04_01", pInv);
 		static_item.createNewItemFunction("weapon_tow_cannon_04_02", pInv);
 		static_item.createNewItemFunction("weapon_mandalorian_heavy_04_01",pInv);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_officer_Melee")
@@ -1089,6 +1095,7 @@ trigger OnSpeaking(string text)
 		createPup ((self), "expertise_critical_1h", POWERUP_ITEMS, 10);
 		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
 		attachMods(melee, "shirt1h");
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_officer_Ranged")
@@ -1104,6 +1111,7 @@ trigger OnSpeaking(string text)
 		issueBattleArmorSet((self), ARMOR_SET_BATTLE_4, "rangedDps", "shirtTank");
 		issueClothes((self), CLOTHES, "rangedDps", "shirtTank");
 		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_jedi_tank")
@@ -1133,6 +1141,7 @@ trigger OnSpeaking(string text)
 		static_item.createNewItemFunction("item_tow_lava_crystal_06_01", pInv);
 		obj_id lightsaber = createObject("object/weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_gen4_must.iff", pInv, "");
 		attachMods(lightsaber, "shirtTank");
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_jedi_solo")
@@ -1162,6 +1171,7 @@ trigger OnSpeaking(string text)
 		static_item.createNewItemFunction("item_tow_lava_crystal_06_01", pInv);
 		obj_id lightsaber = createObject("object/weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_gen4_must.iff", pInv, "");
 		attachMods(lightsaber, "shirtTank");
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_medic_support")
@@ -1177,6 +1187,7 @@ trigger OnSpeaking(string text)
 		issueBattleArmorSet((self), ARMOR_SET_BATTLE_3, "healer", "shirtHealer");
 		issueClothes((self), CLOTHES, "healer", "shirtHealer");
 		createPup ((self), "expertise_healing_all", POWERUP_ITEMS, 8);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_medic_carbine")
@@ -1192,6 +1203,7 @@ trigger OnSpeaking(string text)
 		issueBattleArmorSet((self), ARMOR_SET_BATTLE_3, "healer", "shirtTank");
 		issueClothes((self), CLOTHES, "healer", "shirtTank");
 		createPup ((self), "expertise_healing_all", POWERUP_ITEMS, 8);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_spy_melee")
@@ -1211,6 +1223,7 @@ trigger OnSpeaking(string text)
 		createPup ((self), "expertise_critical_1h", POWERUP_ITEMS, 10);
 		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
 		attachMods(melee, "shirt1h");
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 
@@ -1227,6 +1240,7 @@ trigger OnSpeaking(string text)
 		issueReconArmorSet((self), ARMOR_SET_RECON_2, "rangedSpy", "shirtCarbine");
 		issueClothes((self), CLOTHES, "rangedSpy", "shirtCarbine");
 		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 
@@ -1247,6 +1261,7 @@ trigger OnSpeaking(string text)
 		createPup ((self), "combat_dodge", POWERUP_ITEMS, 8);
 		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
 		attachMods(melee, "shirt1h");
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 
@@ -1267,6 +1282,7 @@ trigger OnSpeaking(string text)
 		createPup ((self), "expertise_action_weapon_4", POWERUP_ITEMS, 10);
 		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
 		attachMods(melee, "shirt1h");
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_buff")
@@ -1625,6 +1641,7 @@ void addEntBuff (obj_id recipientId)
 	buff.applyBuff((recipientId), "me_buff_precision_3", 3600);
 	buff.applyBuff((recipientId), "towPoisonResistAbsorb_3", 3600);
 	buff.applyBuff((recipientId), "drink_flameout", 3600);
+	sendSystemMessage(recipientId, "Buffs granted.", null);
 
 }
 

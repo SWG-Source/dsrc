@@ -19,6 +19,13 @@ messageHandler makeNewDrive ()
 
 trigger OnObjectMenuSelect(obj_id player, int item)
 {
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float dist = getDistance(here, term);
+
+	if (isDead(player) || isIncapacitated(player) ||  dist > 6.0)
+		return SCRIPT_CONTINUE;
+
 	if(item != menu_info_types.ITEM_USE)
 		return SCRIPT_CONTINUE;
 

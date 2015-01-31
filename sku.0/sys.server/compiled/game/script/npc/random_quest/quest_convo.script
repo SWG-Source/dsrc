@@ -52,7 +52,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			if (checkForFetchItem(playerInv, speaker, questNum) == true)
 			{
 				string_id reward = new string_id(CONVO, "npc_reward_" + questNum);
-				chat.chat (self, reward);
+				chat.chat (self, speaker, reward);
 				giveReward(self, speaker, questNum);
 				return SCRIPT_CONTINUE;
 			}
@@ -76,7 +76,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		else
 		{
 				string_id reward = new string_id(CONVO, "npc_reward_" + questNum);
-				chat.chat (self, reward);
+				chat.chat (self, speaker, reward);
 				giveReward(self, speaker, questNum);
 				return SCRIPT_CONTINUE;
 		
@@ -191,7 +191,7 @@ trigger OnNpcConversationResponse (string convo, obj_id player, string_id respon
 		{
 			string noLoc = "npc_noloc_" + questNum;
 			string_id message = new string_id (CONVO, noLoc);
-			chat.chat (self, message);
+			chat.chat (self, player, message);
 			npcEndConversation(player);
 			return SCRIPT_OVERRIDE;
 		}

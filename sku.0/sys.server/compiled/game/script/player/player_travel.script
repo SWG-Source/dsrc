@@ -1400,7 +1400,7 @@ boolean canCallForPickup(obj_id player)
 		return false;
 	}
 	
-	// 10/02/07 Blocking in any region of geo type "city"
+	// 10/02/13 Blocking in any region of geo type "city"
 	// This will take care of Aurilia as well as some other military outposts that have been bugged.
 	region geoCities[] = getRegionsWithGeographicalAtPoint(here, regions.GEO_CITY);
 	if(geoCities != null && geoCities.length > 0)

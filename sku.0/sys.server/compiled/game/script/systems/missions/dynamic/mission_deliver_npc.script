@@ -43,7 +43,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		{
 			sendSystemMessageTestingOnly(speaker, "Error 1, Mission list is null");
 		}	
-		doIncorrectPlayerBlurb(self);
+		doIncorrectPlayerBlurb(self, speaker);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -105,7 +105,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				sendSystemMessageTestingOnly(speaker, "Distance is "+dist+" and erroring out");
 			}	
 		
-			doIncorrectPlayerBlurb(self);
+			doIncorrectPlayerBlurb(self, speaker);
 			return SCRIPT_CONTINUE;
 		}
 		missionInfo = onlyMission;
@@ -173,7 +173,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				sendSystemMessageTestingOnly(speaker, "rightSpot is false after our loop, erroring out");
 			}	
 
-			doIncorrectPlayerBlurb (self);
+			doIncorrectPlayerBlurb (self, speaker);
 			return SCRIPT_CONTINUE;
 		}
 

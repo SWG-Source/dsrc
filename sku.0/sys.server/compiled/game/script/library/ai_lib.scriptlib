@@ -623,7 +623,7 @@ void setIgnoreCombat( obj_id npc )
 	setWantSawAttackTriggers( npc, false );
 }
 
-/* -----------------8/12/2002 2:33PM-----------------
+/* --------------------------------------------------
  * ai.diction - This objvar specifies which npc reaction stringfile
  * the npc should use to bark spam.
  *

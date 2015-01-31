@@ -65,7 +65,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		if(objMissionArray.length>=MAX_MISSIONS )
 		{
 			string_id greeting = new string_id ("mission/mission_generic", "npc_on_other_mission");
-			chat.chat(self, greeting);
+			chat.chat(self, speaker, greeting);
 			return SCRIPT_CONTINUE;
 		}
 	}
@@ -91,7 +91,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		if ( !playerFaction.equals(type) )
 		{
 			string_id notInFaction = new string_id(BASE_CONVO, type + "_npc_cannot_offer" );
-			chat.chat (self, notInFaction);
+			chat.chat (self, speaker, notInFaction);
 			return SCRIPT_OVERRIDE;
 		}
 	}
@@ -99,7 +99,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	else if ( playerFaction.equals("Imperial") || playerFaction.equals("Rebel") )
 	{
 		string_id notNeutral= new string_id(BASE_CONVO, type + "_npc_cannot_offer" );
-		chat.chat (self, notNeutral);
+		chat.chat (self, speaker, notNeutral);
 		return SCRIPT_OVERRIDE;
 	}
 	
@@ -230,7 +230,7 @@ trigger OnNpcConversationResponse (string convo, obj_id player, string_id respon
 		// Give Mission Here
 		string_id strResponse = new string_id(BASE_CONVO, type + "_npc_give_job_response");
 		npcEndConversation (player);
-		chat.chat(self, strResponse);
+		chat.chat(self, player, strResponse);
 	}
 	
 	// Player turns down the job.
@@ -238,7 +238,7 @@ trigger OnNpcConversationResponse (string convo, obj_id player, string_id respon
 	{
 		string_id strResponse = new string_id(BASE_CONVO, type + "_npc_turned_down_response");
 		npcEndConversation (player);
-		chat.chat(self, strResponse);
+		chat.chat(self, player, strResponse);
 	}
 	
 	// Player asks a second question.

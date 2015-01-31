@@ -31,7 +31,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	obj_id objEscorter = getObjIdObjVar(self, "objEscorter");
 	if(speaker!=objEscorter)
 	{
-		doIncorrectPlayerBlurb(self);
+		doIncorrectPlayerBlurb(self, speaker);
 		return SCRIPT_CONTINUE;
 
 

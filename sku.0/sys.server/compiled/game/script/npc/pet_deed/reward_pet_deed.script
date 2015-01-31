@@ -46,7 +46,7 @@ trigger OnObjectMenuSelect (obj_id player, int item)
 		string creatureType = getStringObjVar(self, "creatureName");
 
 		// ***************************************
-		// New Vet Reward Pets and Familiars - PMW
+		// New Vet Reward Pets and Familiars
 		if( pet_lib.isFamiliarPetTypeByCreatureName(creatureType) )
 		{
 			obj_id controlDevice = pet_lib.generatePetOfTypeFamiliar(creatureType, player);

@@ -5,7 +5,7 @@ include library.ai_lib;
 trigger OnAttach ()
 {
 	ai_lib.setDefaultCalmBehavior( self, ai_lib.BEHAVIOR_SENTINEL );
-	debugSpeakMsg (self, "Aw...");
+	//debugSpeakMsg (self, "Aw...");
 	
 	attachScript (self, "conversation.rtp_luke_main");
 	//setObjVar (self, "quest_table", "luke_skywalker" );

@@ -71,7 +71,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	obj_id objPlayer = getObjIdObjVar(self, "objPlayer");
 	if(speaker!=objMissionHolder)
 	{
-		doIncorrectPlayerBlurb(self);
+		doIncorrectPlayerBlurb(self, speaker);
 		return SCRIPT_CONTINUE;
 
 	}

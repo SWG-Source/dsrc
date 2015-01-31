@@ -98,7 +98,7 @@ messageHandler msgTeachSkillSelected()
 	if (!student.isLoaded())
 	{
 		LOG("LOG_CHANNEL", self + " ->Your student must be nearby in order to teach.");
-		sendSystemMessage(self, SID_STUDENT_TOO_FAR);
+		//sendSystemMessage(self, SID_STUDENT_TOO_FAR);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -113,7 +113,7 @@ messageHandler msgTeachSkillSelected()
 	{
 		LOG("LOG_CHANNEL", self + " ->You are too far away from " + student_name + " to teach.");
 		prose_package pp = prose.getPackage(SID_STUDENT_TOO_FAR_TARGET, student);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -122,7 +122,7 @@ messageHandler msgTeachSkillSelected()
 	{
 		LOG("LOG_CHANNEL", self + " ->" + student_name + " already has an offer to learn.");
 		prose_package pp = prose.getPackage(SID_STUDENT_HAS_OFFER_TO_LEARN, student);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -167,7 +167,7 @@ messageHandler msgTeachSkillSelected()
 	string_id skill_id = utils.unpackString("@skl_n:" + selected_skill);
 	LOG("LOG_CHANNEL", "skill_id ->" + skill_id);
 	prose_package pp = prose.getPackage(SID_OFFER_GIVEN, self, student, skill_id, 0);
-	sendSystemMessageProse(self, pp);
+	//sendSystemMessageProse(self, pp);
 
 	// Set the selected skill on the student and send him the confirmation ui.
 	utils.setScriptVar(student, VAR_SKILL_TO_LEARN, selected_skill);
@@ -205,7 +205,7 @@ messageHandler msgTeachSkillConfirmed()
 		{
 			LOG("LOG_CHANNEL", teacher + " ->" + getFirstName(self) + " has refused your offer to teach.");
 			prose_package pp = prose.getPackage(SID_OFFER_REFUSED, self);
-			sendSystemMessageProse(teacher, pp);
+			//sendSystemMessageProse(teacher, pp);
 		}
 
 		return SCRIPT_CONTINUE;
@@ -226,7 +226,7 @@ messageHandler msgTeachSkillConfirmed()
 	if (!teacher.isLoaded())
 	{
 		LOG("LOG_CHANNEL", self + " ->Your teacher must be nearby in order to learn.");
-		sendSystemMessage(self, SID_TEACHER_TOO_FAR);
+		//sendSystemMessage(self, SID_TEACHER_TOO_FAR);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -241,7 +241,7 @@ messageHandler msgTeachSkillConfirmed()
 	{
 		LOG("LOG_CHANNEL", self + " ->You are too far away from " + teacher_name + " to learn.");
 		prose_package pp = prose.getPackage(SID_TEACHER_TOO_FAR_TARGET, teacher);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		utils.removeScriptVarTree(self, VAR_TEACHING);
 		return SCRIPT_CONTINUE;
 	}
@@ -254,9 +254,9 @@ messageHandler msgTeachSkillConfirmed()
 		LOG("LOG_CHANNEL", self + " ->You learn " + selected_skill + " from " + teacher_name + ".");
 		LOG("LOG_CHANNEL", teacher + " ->" + student_name + " learns " + selected_skill + " from you.");
 		prose_package pp = prose.getPackage(SID_STUDENT_SKILL_LEARNED, teacher, skill_id);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		pp = prose.getPackage(SID_TEACHER_SKILL_LEARNED, self, skill_id);
-		sendSystemMessageProse(teacher, pp);
+		//sendSystemMessageProse(teacher, pp);
 
 		// DISABLED
 		int exp = 0; //getSkillPointCost(selected_skill) * 10;
@@ -275,8 +275,8 @@ messageHandler msgTeachSkillConfirmed()
 	{
 		LOG("LOG_CHANNEL", self + " -> Learning failed.");
 		LOG("LOG_CHANNEL", teacher + " -> Teaching failed.");
-		sendSystemMessage(self, SID_LEARNING_FAILED);
-		sendSystemMessage(teacher, SID_TEACHING_FAILED);
+		//sendSystemMessage(self, SID_LEARNING_FAILED);
+		//sendSystemMessage(teacher, SID_TEACHING_FAILED);
 	}
 
 	return SCRIPT_CONTINUE;
@@ -297,7 +297,7 @@ commandHandler teach()
 		if (!isIdValid(target))
 		{
 			LOG("LOG_CHANNEL", self + " ->Whom do you want to teach?");
-			sendSystemMessage(self, SID_NO_TARGET);
+			//sendSystemMessage(self, SID_NO_TARGET);
 			return SCRIPT_CONTINUE;
 		}
 	}
@@ -305,7 +305,7 @@ commandHandler teach()
 	if (target == self)
 	{
 		LOG("LOG_CHANNEL", self + " ->You cannot teach yourself.");
-		sendSystemMessage(self, SID_NO_TEACH_SELF);
+		//sendSystemMessage(self, SID_NO_TEACH_SELF);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -313,7 +313,7 @@ commandHandler teach()
 	{
 		LOG("LOG_CHANNEL", self + " ->" + getFirstName(target) + " does not feel like being taught right now.");
 		prose_package pp = prose.getPackage(SID_STUDENT_DEAD, target);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -330,7 +330,7 @@ commandHandler teach()
 	if (distance > TEACHING_RANGE)
 	{
 		LOG("LOG_CHANNEL", self + " ->You must be closer in order to teach.");
-		sendSystemMessage(self, SID_STUDENT_TOO_FAR);
+		//sendSystemMessage(self, SID_STUDENT_TOO_FAR);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -339,7 +339,7 @@ commandHandler teach()
 	{
 		LOG("LOG_CHANNEL", self + " ->" + target_name + " already has an offer to learn.");
 		prose_package pp = prose.getPackage(SID_STUDENT_HAS_OFFER_TO_LEARN, target);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -348,7 +348,7 @@ commandHandler teach()
 	if (teacher_skills == null)
 	{
 		LOG("LOG_CHANNEL", self + " ->You have no skills to teach.");
-		sendSystemMessage(self, SID_NO_SKILLS);
+		//sendSystemMessage(self, SID_NO_SKILLS);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -359,7 +359,7 @@ commandHandler teach()
 	{
 		LOG("LOG_CHANNEL", self + " -> You have no skills that " + target_name + " can currently learn.");
 		prose_package pp = prose.getPackage(SID_NO_SKILLS_FOR_STUDENT, target);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -382,7 +382,7 @@ commandHandler teach()
 	{
 		LOG("LOG_CHANNEL", self + " -> You have no skills that " + target_name + " can currently learn.");
 		prose_package pp = prose.getPackage(SID_NO_SKILLS_FOR_STUDENT, target);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -391,7 +391,7 @@ commandHandler teach()
 	{
 		LOG("LOG_CHANNEL", self + " ->You must be within the same group as " + target_name + " in order to teach.");
 		prose_package pp = prose.getPackage(SID_NOT_IN_SAME_GROUP, target);
-		sendSystemMessageProse(self, pp);
+		//sendSystemMessageProse(self, pp);
 		return SCRIPT_CONTINUE;
 	}
 

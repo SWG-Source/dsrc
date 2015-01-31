@@ -25,8 +25,15 @@ messageHandler handleRecordOriginalRotation()
 
 trigger OnObjectMenuSelect(obj_id player, int item)
 {
+	location here = getLocation (player);
+	location term = getLocation (self);
+	float dist = getDistance(here, term);
+
 	if(item == menu_info_types.ITEM_USE)
 	{
+		if (isDead(player) || isIncapacitated(player) ||  dist > 5.0)
+				return SCRIPT_CONTINUE;
+
 		if( hasScript(player, "quest.task.ground.retrieve_item") || hasScript(player, "quest.task.ground.wave_event_player"))
 		{
 			if( groundquests.playerNeedsToRetrieveThisItem(player, self, "retrieve_item") || 

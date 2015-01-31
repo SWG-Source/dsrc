@@ -39,7 +39,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			{
 				string reward = "npc_takeme_" + questNum;
 				string_id message = new string_id (CONVO, reward);
-				chat.chat (self, message);
+				chat.chat (self, speaker, message);
 				dictionary parms = new dictionary();
 				parms.put ("player", speaker);
 				messageTo (self, "followPlayer", parms, 0, true);
@@ -127,7 +127,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 					if (convoType == "terse")
 					{
 						string_id npcGreet = new string_id (CONVO, "npc_smuggle_" + questNum);
-						chat.chat (self, npcGreet);
+						chat.chat (self, speaker, npcGreet);
 						return SCRIPT_CONTINUE;
 					}
 
@@ -183,7 +183,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 						work = new string_id (CONVO, "gotowork_" + questNum);
 					}
 
-					chat.chat (self, work);
+					chat.chat (self, speaker, work);
 					return SCRIPT_CONTINUE;
 
 				}
@@ -214,7 +214,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 						string npcGreet = "npc_smuggle_" + questNum;
 
 						string_id greeting = new string_id (CONVO, npcGreet);
-						chat.chat (self, greeting);
+						chat.chat (self, speaker, greeting);
 						npcEndConversation(speaker);
 					}
 
@@ -271,7 +271,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 						work = new string_id (CONVO, "gotowork_" + questNum);
 					}
 
-					chat.chat (self, work);
+					chat.chat (self, speaker, work);
 					return SCRIPT_CONTINUE;
 
 				}
@@ -281,7 +281,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			{
 				string reward = "npc_takeme_" + questNum;
 				string_id message = new string_id (CONVO, reward);
-				chat.chat (self, message);
+				chat.chat (self, speaker, message);
 				if (convoType == "terse")
 				{
 					messageTo (speaker, "finishStaticQuest", null, 0, true);
@@ -339,14 +339,14 @@ trigger OnStartNpcConversation (obj_id speaker)
 		else
 		{
 			string_id work = new string_id(CONVO, "otherescort");
-			chat.chat (self, work);
+			chat.chat (self, speaker, work);
 			return SCRIPT_CONTINUE;
 		}
 	}
 	else
 	{
 		string_id blah = new string_id (CONVO, "dontknowyou_" + questNum);
-		chat.chat (self, blah);
+		chat.chat (self, speaker, blah);
 		return SCRIPT_CONTINUE;
 	}
 }
@@ -510,7 +510,7 @@ messageHandler saySomething()
 		{
 			if (ai_lib.isNpc(self))
 			{
-				chat.chat (self, message);
+				chat.chat (self, player, message);
 			}
 		}
 	}

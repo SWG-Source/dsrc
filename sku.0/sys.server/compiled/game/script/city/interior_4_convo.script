@@ -19,6 +19,8 @@ trigger OnAttach()
 {
 	spawnGuyOne( self );
 	spawnGuyTwo( self );
+	spawnGuyThree ( self );
+	spawnGuyFour ( self );
 	
 	messageTo( self, "checkForScripts", null, 5, false );
 	messageTo( self, "handleChatting", null, 10, false );

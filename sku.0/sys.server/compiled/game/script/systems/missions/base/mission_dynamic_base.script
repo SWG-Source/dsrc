@@ -4919,13 +4919,13 @@ boolean areMissionsAllowed(location locTest)
 	return true;
 }
 
-void doIncorrectPlayerBlurb(obj_id objNPC)
+void doIncorrectPlayerBlurb(obj_id objNPC, obj_id player)
 {
 	int lastBlurb = utils.getIntScriptVar(objNPC, "mission.blurbTime");
 
 	int gameTime = getGameTime();
 
-	if(gameTime - lastBlurb < 6)
+	if(gameTime - lastBlurb < 2)
 	{
 		return;
 	}
@@ -4942,7 +4942,7 @@ void doIncorrectPlayerBlurb(obj_id objNPC)
 	strId = strId + intId;
 	string_id strSpam = new string_id("mission/mission_generic", strId);
 
-	chat.chat(objNPC, strSpam);
+	chat.chat(objNPC, player, strSpam);
 
 	return;
 }

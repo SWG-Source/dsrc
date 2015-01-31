@@ -80,6 +80,10 @@ commandHandler mount()
 	LOG("mount", "mount(): enter self: " + self + " target: " + target);
 	debugServerConsoleMsg(self, "+++ PLAYER.skill.taming +++ commandHandler mount() +++ just entered commandHandler mount()");
 
+	location here = getLocation (self);
+	location term = getLocation (target);
+	float dist = getDistance(here, term);
+
 	if(!isIdValid(self) || !isIdValid(target))
 	{
 		debugServerConsoleMsg(self, "+++ PLAYER.skill.taming +++ commandHandler mount() +++ either isIdValid(self) or isIdValid(target) failed");
@@ -93,6 +97,11 @@ commandHandler mount()
 	}
 
 	if(!pet_lib.isPet(target))
+	{
+		return SCRIPT_CONTINUE;
+	}
+
+	if (isDead(self) || isIncapacitated(self) ||  dist > 5.0)
 	{
 		return SCRIPT_CONTINUE;
 	}
