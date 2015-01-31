@@ -118,12 +118,6 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	return SCRIPT_CONTINUE;
 }
 
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
 /***** FUNCTIONS *******************************************************/
 boolean createExtractionWaypoint(obj_id player, location loc)
 {

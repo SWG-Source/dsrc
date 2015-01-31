@@ -103,7 +103,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	{
 
 
-		doIncorrectPlayerBlurb(self);
+		doIncorrectPlayerBlurb(self, speaker);
 		return SCRIPT_CONTINUE;
 
 	}

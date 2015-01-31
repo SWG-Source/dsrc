@@ -35,14 +35,14 @@ commandHandler cmdForceOfWill()
 
 	if ( getPosture(self) != POSTURE_INCAPACITATED )
 	{
-		sendSystemMessage(self, meditation.SID_FORCEOFWILL_FAIL);
+		//sendSystemMessage(self, meditation.SID_FORCEOFWILL_FAIL);
 		return SCRIPT_CONTINUE;
 	}
 
 	int stamp = getIntObjVar(self, meditation.VAR_FORCE_OF_WILL_ACTIVE);
 	if ( stamp < 0 )
 	{
-		sendSystemMessage(self, meditation.SID_FORCEOFWILL_LOST);
+		//sendSystemMessage(self, meditation.SID_FORCEOFWILL_LOST);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -52,14 +52,14 @@ commandHandler cmdForceOfWill()
 	{
 		string time_string = player_structure.assembleTimeRemaining(player_structure.convertSecondsTime(-delta));
 		prose_package ppUnavailable = prose.getPackage(meditation.SID_FORCEOFWILL_UNAVAILABLE, time_string);
-		sendSystemMessageProse(self, ppUnavailable);
+		//sendSystemMessageProse(self, ppUnavailable);
 		return SCRIPT_CONTINUE;
 	}
 
 	int roll = rand(0, 100);
 	if ( roll < 5 || modval < roll )
 	{
-		sendSystemMessage(self, meditation.SID_FORCEOFWILL_UNSUCCESSFUL);
+		//sendSystemMessage(self, meditation.SID_FORCEOFWILL_UNSUCCESSFUL);
 		setObjVar(self, meditation.VAR_FORCE_OF_WILL_ACTIVE, -1);
 		return SCRIPT_CONTINUE;
 	}
@@ -74,7 +74,7 @@ commandHandler cmdForceOfWill()
 
 commandHandler cmdForceOfWillFail()
 {
-	sendSystemMessage(self, meditation.SID_FORCEOFWILL_FAIL);
+	//sendSystemMessage(self, meditation.SID_FORCEOFWILL_FAIL);
 	return SCRIPT_CONTINUE;
 }
 

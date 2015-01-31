@@ -37,7 +37,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			{
 				string reward = "npc_takeme_" + questNum;
 				string_id message = new string_id (CONVO, reward);
-				chat.chat (self, message);
+				chat.chat (self, speaker, message);
 				dictionary parms = new dictionary();
 				parms.put ("player", speaker);
 				messageTo (self, "followPlayer", parms, 0, true);
@@ -52,7 +52,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				{
 					string reward = "npc_smuggle_" + questNum;
 					string_id message = new string_id (CONVO, reward);
-					chat.chat (self, message);
+					chat.chat (self, speaker, message);
 					dictionary parms = new dictionary();
 					parms.put ("player", speaker);
 					messageTo (self, "giveReward", parms, 0, true);
@@ -61,7 +61,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				else
 				{
 					string_id work = new string_id(CONVO, "gotowork");
-					chat.chat (self, work);
+					chat.chat (self, speaker, work);
 					return SCRIPT_CONTINUE;
 				}
 			}
@@ -70,14 +70,14 @@ trigger OnStartNpcConversation (obj_id speaker)
 		else
 		{
 			string_id work = new string_id(CONVO, "otherescort");
-			chat.chat (self, work);
+			chat.chat (self, speaker, work);
 			return SCRIPT_CONTINUE;
 		}
 	}
 	else
 	{
 		string_id blah = new string_id (CONVO, "dontknowyou");
-		chat.chat (self, blah);
+		chat.chat (self, speaker, blah);
 		return SCRIPT_CONTINUE;
 	}
 }
@@ -158,7 +158,7 @@ messageHandler saySomething()
 
 	string something = "npc_breech_" + questNum;
 	string_id message = new string_id (CONVO, something);
-	chat.chat (self, message);
+	chat.chat (self, player, message);
 
 	if (type == "destroy" || type == "fetch")
 	{

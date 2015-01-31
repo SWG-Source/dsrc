@@ -162,7 +162,7 @@ trigger OnAttach()
 
 trigger OnTriggerVolumeEntered(string volName, obj_id who)
 {
-	if (isDead (self))
+	if (isDead (self) || isDead (who))
 		return SCRIPT_CONTINUE;
 
 	if (!isIdValid (who))

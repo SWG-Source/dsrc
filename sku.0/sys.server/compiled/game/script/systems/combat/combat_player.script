@@ -1,3 +1,5 @@
+//
+
 include library.buff;
 include library.callable;
 include library.utils;
@@ -99,7 +101,7 @@ trigger OnEnteredCombat()
 }
 commandHandler combatModeCheck()
 {
-
+/*
 	obj_id objTarget = getTarget(self);
 	if(isIdValid(objTarget))
 	{
@@ -123,7 +125,7 @@ commandHandler combatModeCheck()
 
 
 	}
-
+*/
 	return SCRIPT_CONTINUE;
 }
 

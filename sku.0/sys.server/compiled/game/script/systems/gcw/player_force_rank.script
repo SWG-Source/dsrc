@@ -1993,6 +1993,7 @@ messageHandler msgValidateFRSPlayerData()
  *  ***********************************************************************/
 commandHandler cmdShowCouncilRank()
 {
+/*
 	int council = force_rank.getCouncilAffiliation(self);
 	if (council == -1)
 	{
@@ -2025,6 +2026,8 @@ commandHandler cmdShowCouncilRank()
 
 		return SCRIPT_CONTINUE;
 	}
+*/
+return SCRIPT_CONTINUE;
 }
 
 
