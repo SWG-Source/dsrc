@@ -1,3 +1,35 @@
 spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
 s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
 object/tangible/region/deliver_region_5.iff		world	3780.4395	0	2363.0085		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3526.8	4.4	-4701		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3357.1	4.4	-4649.1		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3381.4	4	-4675.6		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3364.1	4	-4830.3		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3527.4	4	-4720.9		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3377.2	4	-4753.3		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3447.3	5	-5069.9		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3482.1	5	-5002.6		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3330.6	4	-4637.8		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3458.6	4	-4890.1		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-2874.1	5	2546		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-2914.6	5	1984.6		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-2839.2	5	2493.5		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-2860.3	5	2212.2		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-2952.2	5	2087.6		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-3100.4	5	2148.9		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-2913.8	5	2466.4		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	115.5	52	-5403.8		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	134.7	52	-5333.6		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	70.5	52	-5316.6		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	123.2	52	-5377		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	1449.7	7	3159.5		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	1752.9	7	3163.5		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	1450	7	3202.9		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	1389	7.5	3162.7		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3807.4	14.4	2359.5		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3855.9	26.7	2342.6		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	3950.9	54.4	2282.8		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-1226.5	12	-3628.7		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-1404.4	12	-3636.5		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-1320.1	12	-3633.1		systems.missions.dynamic.deliver_npc_spawner									
+object/tangible/region/deliver_region_5.iff		world	-1085.1	12	-3647.9		systems.missions.dynamic.deliver_npc_spawner									
