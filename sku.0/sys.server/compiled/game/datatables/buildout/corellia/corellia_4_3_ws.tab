@@ -17,4 +17,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825747	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	290.888	-0.320913	801.769	0.768054	0.640385	0	0		$|
 9825748	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	292.828	-0.38606	807.083	0.892832	0.0986096	0.436806	-0.0482434		$|
 9825749	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	301.342	-0.962396	803.22	0.863643	-0.128555	-0.276649	-0.401323		$|
-2115582	0	object/building/corellia/filler_slum_24x16_s02.iff	0	1889.43	28.0989	1.09668	1	0	0	0		$|
+2115582	0	object/building/corellia/filler_slum_24x16_s02.iff	0	1889.43	28.0989	1.09668	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/corellia/corellia_commoner.iff|$|
