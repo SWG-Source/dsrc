@@ -1,7 +1,7 @@
-spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
-s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
-nightsister_elder		world	-7117.916992	461.069458	1181.001953	-150	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1					
-nightsister_protector		world	-7094.741699	446.5675049	1199.215576	150	theme_park.dungeon.generic_death	conversation		3600	int:ai.defaultCalmBehavior=1					
-nightsister_protector		world	-7093.5	446.9	1197	-50	theme_park.dungeon.generic_death	conversation		3600	int:ai.defaultCalmBehavior=1					
-nightsister_initiate		world	-7117.616699	462.1099854	1174.657715	-49	theme_park.dungeon.generic_death	npc_angry		3600	int:ai.defaultCalmBehavior=1					
-nightsister_initiate		world	-7124.482422	461.6935425	1180.241943	120	theme_park.dungeon.generic_death	nervous		3600	int:ai.defaultCalmBehavior=1					
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value	planet_level
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s	i[0]
+nightsister_elder		world	-7117.916992	461.069458	1181.001953	-150	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
+nightsister_protector		world	-7094.741699	446.5675049	1199.215576	150	theme_park.dungeon.generic_death	conversation		3600	int:ai.defaultCalmBehavior=1						1
+nightsister_protector		world	-7093.5	446.9	1197	-50	theme_park.dungeon.generic_death	conversation		3600	int:ai.defaultCalmBehavior=1						1
+nightsister_initiate		world	-7117.616699	462.1099854	1174.657715	-49	theme_park.dungeon.generic_death	npc_angry		3600	int:ai.defaultCalmBehavior=1						1
+nightsister_initiate		world	-7124.482422	461.6935425	1180.241943	120	theme_park.dungeon.generic_death	nervous		3600	int:ai.defaultCalmBehavior=1						1

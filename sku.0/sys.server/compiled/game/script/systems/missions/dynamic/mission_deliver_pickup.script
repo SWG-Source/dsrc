@@ -89,7 +89,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 
 		//LOG("mission_spam", "strConvo is "+strConvo);
 		//string strSpeakString = getString(strConvo);
-		chat.chat(self, strConvo);
+		chat.chat(self, speaker, strConvo);
 		//npcStartConversation (speaker, self, null, strConvo, null);
 
 		obj_id objDeliveryItem = getObjIdObjVar(self, "objDeliveryItem");
@@ -138,7 +138,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	else
 	{
 		string_id message = new string_id ("mission/mission_generic", "deliver_already_picked_up"); //
-		chat.chat(self, message);
+		chat.chat(self, speaker, message);
 		doAnimationAction(self, anims.PLAYER_POINT_AWAY);
 		return SCRIPT_CONTINUE;
 

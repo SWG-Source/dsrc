@@ -2011,9 +2011,14 @@ commandHandler cmdQaTool()
 
 		else if(toLower(command).equals("suicide"))
 		{
-			sendSystemMessageTestingOnly(self, "Killing self");
+			if(!isDead(self))
+			{
+			sendSystemMessageTestingOnly(self, "Killing self.");
 			setPosture(self, POSTURE_INCAPACITATED);
 			pclib.coupDeGrace(self, self, true, true);
+			}
+			else
+			sendSystemMessageTestingOnly(self, "You're already dead.");
 		}
 
 		else if(toLower(command).equals("aistop"))

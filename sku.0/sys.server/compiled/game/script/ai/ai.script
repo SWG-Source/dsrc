@@ -647,8 +647,16 @@ trigger OnTriggerVolumeEntered(string volumeName, obj_id breacher)
 							{
 								if(ai_lib.isAnimal(breacher))
 								{
+									String creatureType = getStringObjVar(self, "creature_type");
+									if(creatureType.startsWith("gcw_city"))
+									{
+									LOGC(aiLoggingEnabled(self), "debug_ai", "ai::OnTriggerVolumeEntered(" + volumeName + ") guard: AI breacher is NOT a threat 										(gcw_city_invasion npc)");
+									}
+									else
+									{
 									LOGC(aiLoggingEnabled(self), "debug_ai", "ai::OnTriggerVolumeEntered(" + volumeName + ") guard: AI breacher is a threat (animal)");
 									aggro = true;
+									}
 								}
 								else if(factions.getFactionStatus(self, breacher) == factions.STATUS_ENEMY)
 								{

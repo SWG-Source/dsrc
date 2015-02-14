@@ -53,7 +53,7 @@ messageHandler destroySelf()
 }
 
 
-/**** This stuff is now handled in a conversation (conversation.bounty_probot) in order to NPE-ify bounty probots ****
+/**** This stuff is now handled in a conversation (conversation.bounty_probot) in order to enhance bounty probots ****
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {

@@ -1,7 +1,7 @@
-spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
-s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
-gaping_spider_recluse		world	1380	98.53570557	-3196	110	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			3600	int:ai.defaultCalmBehavior=1					
-gaping_spider_recluse		world	1381.7	97.6	-3193.8	110	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			3600	int:ai.defaultCalmBehavior=1					
-gaping_spider_recluse		world	1382.5	99.2	-3191.3	110	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			3600	int:ai.defaultCalmBehavior=1					
-gaping_spider_recluse		world	1383.2	100.7	-3189.3	110	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			3600	int:ai.defaultCalmBehavior=1					
-gaping_spider_queen		world	1378.4	98.8	-3192.3	110	"theme_park.dungeon.generic_death,theme_park.dathomir.set_level_80"			3600	int:ai.defaultCalmBehavior=1					
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value	planet_level
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s	i[0]
+gaping_spider_recluse		world	1380	98.53570557	-3196	110	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
+gaping_spider_recluse		world	1381.7	97.6	-3193.8	110	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
+gaping_spider_recluse		world	1382.5	99.2	-3191.3	110	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
+gaping_spider_recluse		world	1383.2	100.7	-3189.3	110	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
+gaping_spider_queen		world	1378.4	98.8	-3192.3	110	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1

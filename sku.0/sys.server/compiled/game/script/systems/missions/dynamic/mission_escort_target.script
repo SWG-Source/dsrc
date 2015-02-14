@@ -47,7 +47,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	{
 		// refollow
 		string_id strSpam = new string_id("mission/mission_generic", "escort_follow_again");
-		chat.chat(self, strSpam);
+		chat.chat(self, speaker, strSpam);
 		ai_lib.aiFollow( self, speaker);
 	}
 

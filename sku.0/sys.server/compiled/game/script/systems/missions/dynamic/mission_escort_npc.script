@@ -120,7 +120,7 @@ trigger OnNpcConversationResponse (string convo, obj_id player, string_id respon
 		assignNPCMissionToPlayer(self, objMissionData, player);
 		string_id strResponse = new string_id("mission/mission_generic", "npc_job_accept_response_yes");
 		npcEndConversation (player);
-		chat.chat(self, strResponse);
+		chat.chat(self, player, strResponse);
 
 	}
 
@@ -131,7 +131,7 @@ trigger OnNpcConversationResponse (string convo, obj_id player, string_id respon
 		if(hasMissionFromNPC(player, self))
 		{
 			string_id strResponse = new string_id("mission/mission_generic", "npc_job_request_already_have");
-			chat.chat(self, strResponse);
+			chat.chat(self, player, strResponse);
 			npcEndConversation(player);
 			return SCRIPT_CONTINUE;
 
@@ -157,7 +157,7 @@ trigger OnNpcConversationResponse (string convo, obj_id player, string_id respon
 		else
 		{
 			string_id strResponse = new string_id("mission/misison_generic", "npc_job_request_no_job");
-			chat.chat(self, strResponse);
+			chat.chat(self, player, strResponse);
 			npcEndConversation(player);
 			return SCRIPT_CONTINUE;
 
