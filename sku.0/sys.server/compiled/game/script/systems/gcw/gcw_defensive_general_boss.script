@@ -1,3 +1,5 @@
+//
+
 include java.util.HashSet;
 include java.util.Iterator;
 
@@ -468,9 +470,7 @@ messageHandler calculateGeneralHealthAndAbilities()
 		}
 	
 		//Defenses have changed! Adjust the General Health and Resistances
-		if(currentDefenseCount < defenseObjectCount || 
-		(!buff.hasBuff(self, gcw.BUFF_GENERAL_RESIST_STACK_IMP) &&
-		!buff.hasBuff(self, gcw.BUFF_GENERAL_RESIST_STACK_REB)))
+		if(currentDefenseCount < defenseObjectCount || (!buff.hasBuff(self, gcw.BUFF_GENERAL_RESIST_STACK_IMP) && !buff.hasBuff(self, gcw.BUFF_GENERAL_RESIST_STACK_REB)))
 		{
 			blog("calculateGeneralHealthAndAbilities the currentDefenseCount has changed and is lower than the OG defenseObjectCount");
 
@@ -520,7 +520,7 @@ messageHandler calculateGeneralHealthAndAbilities()
 
 			buff.removeBuff(self, gcwBuffName);
 			blog("calculateGeneralHealthAndAbilities making buff stack: "+newstackAmt);
-			buff.applyBuffWithStackCount(self, gcwBuffName, newstackAmt);
+			//buff.applyBuffWithStackCount(self, gcwBuffName, newstackAmt);
 
 			utils.setScriptVar(self, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION, newMobGeneralArmor);
 		}

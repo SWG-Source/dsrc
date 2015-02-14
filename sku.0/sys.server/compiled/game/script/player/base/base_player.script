@@ -4686,12 +4686,14 @@ commandHandler gmRevive()
 			obj_id mountId = getMountId(targetCreature);
 			if (isIdValid(mountId))
 				utils.dismountRiderJetpackCheck(targetCreature);
-
+			
+			/*
 			if (isJedi(targetCreature))
 			{
 				setForcePower(targetCreature, getMaxForcePower(targetCreature));
 				sendSystemMessageTestingOnly(targetCreature, "Force Power Maxed");
 			}
+			*/
 			if (pclib.resurrectPlayer(targetCreature))
 			{
 				sendSystemMessageTestingOnly(targetCreature, "You have been restored...");
@@ -4706,6 +4708,7 @@ commandHandler gmRevive()
 					setPosture(targetCreature, POSTURE_UPRIGHT);
 					queueCommand(targetCreature, ##"stand", targetCreature, "", COMMAND_PRIORITY_IMMEDIATE);
 					queueCommand(targetCreature, ##"stopCraftingSession", targetCreature, "", COMMAND_PRIORITY_IMMEDIATE);
+					play2dNonLoopingSound(targetCreature, "sound/music_acq_healer.snd");
 					utils.removeScriptVar(targetCreature, "pvp_death");
 
 					sendSystemMessageTestingOnly(self, "You have /gmRevived "+getName(targetCreature));
@@ -15452,7 +15455,6 @@ commandHandler cmdMeditateFail()
 	return SCRIPT_CONTINUE;
 }
 
-//IMMA CHARGIN MAH LASZERS
 messageHandler handleMeditationTick()
 {
 	if ( !meditation.isMeditating(self) )
