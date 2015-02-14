@@ -69,7 +69,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			setObjVar(objMissionData, "strIdFileName", strIdFileName);
 			//LOG("mission_spam", "strConvo is "+strConvo);
 			string strSpeakString = getString(strConvo);
-			chat.chat(self, strSpeakString);
+			chat.chat(self, speaker, strConvo);
 			//npcStartConversation (speaker, self, null, strConvo, null);
 			dictionary dctParams = new dictionary();
 			sendCraftingSuccess(getObjIdObjVar(self, "objMission"));
@@ -79,7 +79,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		else
 		{
 			string_id strSpam = new string_id("mission/mission_generic", "wrong_item");
-			chat.chat(self, strSpam);
+			chat.chat(self, speaker, strSpam);
 			return SCRIPT_CONTINUE;
 		}
 
@@ -87,7 +87,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	else
 	{
 		string_id message = new string_id ("mission/mission_generic", "crafting_already_dropped_off"); //
-		chat.chat(self, message);
+		chat.chat(self, speaker, message);
 		doAnimationAction(self, anims.PLAYER_WAVE_ON_DISMISSING);
 
 	}

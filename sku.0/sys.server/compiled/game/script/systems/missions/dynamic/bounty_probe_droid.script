@@ -54,7 +54,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		return SCRIPT_CONTINUE;
 	}
 
-	string_id strActivateId = new string_id("mission/mission_generic", "probe_droid_activate"); // not consts because i want them down here
+	string_id strActivateId = new string_id("mission/mission_generic", "probe_droid_activate"); // not consts because we want them down here
 	string_id strFindId = new string_id("mission/mission_generic", "probe_droid_find_target");
 	string_id strTrackId = new string_id("mission/mission_generic", "probe_droid_track_target");
 	intRootMenu = mi.addRootMenu (menu_info_types.SERVER_PROBE_DROID_ACTIVATE, strActivateId);
@@ -264,7 +264,7 @@ messageHandler droid_Probot_Start()
 			debugServerConsoleMsg(self, "cities2");
 			string_id strResponse = new string_id("mission/mission_generic", "probe_droid_bad_location");
 			sendSystemMessage(objPlayer, strResponse);
-			return SCRIPT_CONTINUE; // NADA, You're in a city you punk!
+			return SCRIPT_CONTINUE; // You're in a city!
 
 		}		
 
