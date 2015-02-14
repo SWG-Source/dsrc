@@ -411,9 +411,9 @@ commandHandler cmdKill()
 
 commandHandler cmdKillPlayer()
 {
-	if ( !isIdValid(target) || !isPlayer(target) )
+	if ( !isIdValid(target) || !isPlayer(target) || isDead(target) )
 	{
-		sendSystemMessageTestingOnly(self, "/killPlayer: you must have a valid player target to use this command");
+		sendSystemMessageTestingOnly(self, "/killPlayer: you must have a valid, alive player target to use this command");
 		return SCRIPT_CONTINUE;
 	}
 
@@ -427,7 +427,8 @@ commandHandler cmdKillPlayer()
 		return SCRIPT_CONTINUE;
 	}
 
-	pclib.killPlayer(target, target);
+	setPosture(target, POSTURE_INCAPACITATED);
+	pclib.coupDeGrace(target, target, true, true);
 	return SCRIPT_CONTINUE;
 }
 
