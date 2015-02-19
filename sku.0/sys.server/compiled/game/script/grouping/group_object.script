@@ -115,7 +115,7 @@ location calculateNearestGroupMission(obj_id self)
 			{
 				// no nearestGroupMission, start with the first mission
 				// in the locations list
-				nearestGroupMission = missionLocations[0];
+				nearestGroupMission = (location)missionLocations[0].clone();
 			}
 			else
 			{
@@ -139,7 +139,7 @@ location calculateNearestGroupMission(obj_id self)
 			for(missionLocationIndex = 0; missionLocationIndex < missionLocations.length; ++missionLocationIndex)
 			{
 				// initialize the location under consideration
-				location currentLocation = missionLocations[missionLocationIndex];
+				location currentLocation = (location)missionLocations[missionLocationIndex].clone();
 
 				// verify that the mission being considered is on the same
 				// planet as the group member
@@ -189,13 +189,13 @@ location calculateNearestGroupMission(obj_id self)
 			// this location has the most votes(so far)
 			if(votes > mostVotes)
 			{
-				nearestGroupMission = missionLocations[locationIndex.intValue()];
+				nearestGroupMission = (location)missionLocations[locationIndex.intValue()].clone();
 				mostVotes = votes;
 			}
 		}
 
 		// update the nearest group mission waypoint for everyone in the group
-		result = nearestGroupMission;
+		result = (location)nearestGroupMission.clone();
 		scriptVars.put("nearestGroupMission", nearestGroupMission);
 	}
 	else
@@ -256,7 +256,7 @@ messageHandler missionLocationResponse()
 						location nearestGroupMission = scriptVars.getLocation("nearestGroupMission");
 						if(nearestGroupMission == null)
 						{
-							nearestGroupMission = missionLocation[0];
+							nearestGroupMission = (location)missionLocation[0].clone();
 							scriptVars.put("nearestGroupMission", nearestGroupMission);
 						}
 					}

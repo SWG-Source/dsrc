@@ -40,7 +40,7 @@ messageHandler handleFireworkLaunch()
 	location here = getLocation(self);
 	location there = utils.getRandomLocationInRing(here, 0.5f, 1f);
 	if ( there == null )
-		there = here;
+		there = (location)here.clone();
 	
 	params.put("loc", there);
 	

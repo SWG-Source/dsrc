@@ -516,8 +516,8 @@ Vector getAvailableCloningFacilities(obj_id player)
 				{
 					playerFacility = idList[i];
 					playerFacilityName = nameList[i];
-					playerFacilityLoc = locList[i];
-					playerFacilitySpawnLoc = respawnList[i];
+					playerFacilityLoc = (location)locList[i].clone();
+					playerFacilitySpawnLoc = (location)respawnList[i].clone();
 					playerCityDist = dist;
 				}
 				break;
@@ -556,8 +556,8 @@ Vector getAvailableCloningFacilities(obj_id player)
 					{
 						factionFacility = idList[i];
 						factionFacilityName = nameList[i];
-						factionFacilityLoc = locList[i];
-						factionFacilitySpawnLoc = respawnList[i];
+						factionFacilityLoc = (location)locList[i].clone();
+						factionFacilitySpawnLoc = (location)respawnList[i].clone();
 						factionFacilityDist = dist;
 					}
 				}
@@ -569,8 +569,8 @@ Vector getAvailableCloningFacilities(obj_id player)
 					{
 						factionFacility = idList[i];
 						factionFacilityName = nameList[i];
-						factionFacilityLoc = locList[i];
-						factionFacilitySpawnLoc = respawnList[i];
+						factionFacilityLoc = (location)locList[i].clone();
+						factionFacilitySpawnLoc = (location)respawnList[i].clone();
 						factionFacilityDist = dist;
 					}
 				}
@@ -587,8 +587,8 @@ Vector getAvailableCloningFacilities(obj_id player)
 				{
 					pvpAdvancedFacility = idList[i];
 					pvpAdvancedFacilityName = nameList[i];
-					pvpAdvancedFacilityLoc = locList[i];
-					pvpAdvancedFacilitySpawnLoc = respawnList[i];
+					pvpAdvancedFacilityLoc = (location)locList[i].clone();
+					pvpAdvancedFacilitySpawnLoc = (location)respawnList[i].clone();
 					pvpAdvancedFacilityDist = dist;
 				}
 
@@ -606,8 +606,8 @@ Vector getAvailableCloningFacilities(obj_id player)
 				{
 					pvpAdvancedFacility = idList[i];
 					pvpAdvancedFacilityName = nameList[i];
-					pvpAdvancedFacilityLoc = locList[i];
-					pvpAdvancedFacilitySpawnLoc = respawnList[i];
+					pvpAdvancedFacilityLoc = (location)locList[i].clone();
+					pvpAdvancedFacilitySpawnLoc = (location)respawnList[i].clone();
 					pvpAdvancedFacilityDist = dist;
 				}
 
@@ -617,8 +617,8 @@ Vector getAvailableCloningFacilities(obj_id player)
 				{
 					playerCamp = idList[i];
 					playerCampName = nameList[i];
-					playerCampLoc = locList[i];
-					playerCampSpawnLoc = respawnList[i];
+					playerCampLoc = (location)locList[i].clone();
+					playerCampSpawnLoc = (location)respawnList[i].clone();
 					playerCampDist = dist;
 				}
 

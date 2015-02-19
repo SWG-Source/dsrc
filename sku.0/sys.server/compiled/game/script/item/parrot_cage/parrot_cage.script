@@ -171,7 +171,7 @@ messageHandler specialMessage()
 
 	debug.debugAllMsg("DEBUG", self, "#############creating special message and location############");
 	location parrotLoc  = getLocation(parrot);
-	location desiredLoc = parrotLoc;
+	location desiredLoc = (location)parrotLoc.clone();
 	desiredLoc          = findSpotNear(parrot, parrotLoc, LOOT_RADIUS_MAX);
 
 	for(int i=0; i < 5 && !isValidLocation(desiredLoc, SPECIAL_LOC_RADIUS); ++i)

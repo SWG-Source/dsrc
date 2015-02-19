@@ -383,7 +383,7 @@ messageHandler callLambdaSupport()
 
 	location tmp = utils.getRandomLocationInRing(there, 5f, 10f);
 	if ( tmp != null )
-		there = tmp;
+		there = (location)tmp.clone();
 
 	if ( there != null )
 		gcw.spawnViaLambdaPerGeo(there, d);

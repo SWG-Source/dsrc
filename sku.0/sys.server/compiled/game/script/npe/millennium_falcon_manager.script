@@ -85,25 +85,25 @@ messageHandler setupArea()
 
 	utils.setScriptVar(self, "shipsRemaining", 3);
 
-	location point1 = locSelf;
+	location point1 = (location)locSelf.clone();
 	point1.x += 200;
 	point1.y += 40;
 	obj_id objPoint1 = create.object("object/tangible/npe/npe_node.iff", point1);
 	utils.setScriptVar(self, "objPoint1", objPoint1);
 
-	location point2 = locSelf;
+	location point2 = (location)locSelf.clone();
 	point2.z += 200;
 	point2.y += 40;
 	obj_id objPoint2 = create.object("object/tangible/npe/npe_node.iff", point2);
 	utils.setScriptVar(self, "objPoint2", objPoint2);
 
-	location point3 = locSelf;
+	location point3 = (location)locSelf.clone();
 	point3.x += -200;
 	point3.y += 40;
 	obj_id objPoint3 = create.object("object/tangible/npe/npe_node.iff", point3);
 	utils.setScriptVar(self, "objPoint3", objPoint3);
 
-	location point4 = locSelf;
+	location point4 = (location)locSelf.clone();
 	point4.z += -200;
 	point4.y += 40;
 	obj_id objPoint4 = create.object("object/tangible/npe/npe_node.iff", point4);
