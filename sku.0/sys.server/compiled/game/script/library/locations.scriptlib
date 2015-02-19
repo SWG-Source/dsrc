@@ -16,8 +16,8 @@ float getRegionExtents(region rgnTest)
 	location locUpperRight = new location();
 
 	location[] locExtents = getRegionExtent(rgnTest);
-	locLowerLeft = locExtents[0];
-	locUpperRight = locExtents[1];
+	locLowerLeft = (location)locExtents[0].clone();
+	locUpperRight = (location)locExtents[1].clone();
 
 	LOG("mission", "Lower Left is "+locLowerLeft.toString());
 	LOG("mission", "Upper Right is "+locUpperRight.toString());
@@ -78,8 +78,8 @@ float getRegionXSize(region rgnSearchRegion)
 
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	location locLowerLeft = locExtents[0];
-	location locUpperRight = locExtents[1];
+	location locLowerLeft = (location)locExtents[0].clone();
+	location locUpperRight = (location)locExtents[1].clone();
 
 	LOG("mission", "Lower Left is "+locLowerLeft.toString());
 	LOG("mission", "Upper Right is "+locUpperRight.toString());
@@ -97,8 +97,8 @@ float getRegionZSize(region rgnSearchRegion)
 
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	location locLowerLeft = locExtents[0];
-	location locUpperRight = locExtents[1];
+	location locLowerLeft = (location)locExtents[0].clone();
+	location locUpperRight = (location)locExtents[1].clone();
 
 	LOG("mission", "Lower Left is "+locLowerLeft.toString());
 	LOG("mission", "Upper Right is "+locUpperRight.toString());
@@ -117,8 +117,8 @@ float[] getRegionSize(region rgnSearchRegion)
 
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	location locLowerLeft = locExtents[0];
-	location locUpperRight = locExtents[1];
+	location locLowerLeft = (location)locExtents[0].clone();
+	location locUpperRight = (location)locExtents[1].clone();
 
 	LOG("mission", "Lower Left is "+locLowerLeft.toString());
 	LOG("mission", "Upper Right is "+locUpperRight.toString());
@@ -140,11 +140,11 @@ location getRegionCenter(region rgnSearchRegion)
 	location locUpperRight = new location();
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	locLowerLeft = locExtents[0];
-	locUpperRight = locExtents[1];
+	locLowerLeft = (location)locExtents[0].clone();
+	locUpperRight = (location)locExtents[1].clone();
 
 
-	location locRegionCenter = locLowerLeft;
+	location locRegionCenter = (location)locLowerLeft.clone();
 
 
 	locRegionCenter.x = (locLowerLeft.x + locUpperRight.x)/2;
@@ -174,11 +174,11 @@ location getGoodLocationOutsideOfRegion(region rgnSearchRegion, float fltXSize, 
 
 	location locDestination = utils.getRandomLocationInRing(locRegionCenter, fltRegionExtent, fltRegionExtent+fltDistance);
 
-	location locLowerLeft = locDestination;
+	location locLowerLeft = (location)locDestination.clone();
 	locLowerLeft.x = locLowerLeft.x - GOOD_LOCATION_SEARCH_SIZE+fltXSize;
 	locLowerLeft.z = locLowerLeft.z - GOOD_LOCATION_SEARCH_SIZE+fltZSize;
 
-	location locUpperRight = locDestination;
+	location locUpperRight = (location)locDestination.clone();
 	locUpperRight.x = locUpperRight.x + GOOD_LOCATION_SEARCH_SIZE+fltXSize;
 	locUpperRight.z = locUpperRight.z + GOOD_LOCATION_SEARCH_SIZE+fltZSize;
 
@@ -204,11 +204,11 @@ location getGoodLocationOutsideOfRegion(region rgnSearchRegion, float fltXSize, 
 
 	location locDestination = utils.getRandomLocationInRing(locRegionCenter, fltRegionExtent, fltRegionExtent+fltDistance);
 
-	location locLowerLeft = locDestination;
+	location locLowerLeft = (location)locDestination.clone();
 	locLowerLeft.x = locLowerLeft.x - GOOD_LOCATION_SEARCH_SIZE+fltXSize;
 	locLowerLeft.z = locLowerLeft.z - GOOD_LOCATION_SEARCH_SIZE+fltZSize;
 
-	location locUpperRight = locDestination;
+	location locUpperRight = (location)locDestination.clone();
 	locUpperRight.x = locUpperRight.x + GOOD_LOCATION_SEARCH_SIZE+fltXSize;
 	locUpperRight.z = locUpperRight.z + GOOD_LOCATION_SEARCH_SIZE+fltZSize;
 
@@ -484,8 +484,8 @@ location getGoodLocationInRegion(region rgnSearchRegion, float fltXSize, float f
 	location locUpperRight = new location();
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	locLowerLeft = locExtents[0];
-	locUpperRight = locExtents[1];
+	locLowerLeft = (location)locExtents[0].clone();
+	locUpperRight = (location)locExtents[1].clone();
 
 	location locGoodLocation = getGoodLocation(fltXSize, fltZSize, locLowerLeft, locUpperRight, false, false);
 
@@ -501,8 +501,8 @@ location getGoodLocationInRegion(region rgnSearchRegion, float fltXSize, float f
 	location locUpperRight = new location();
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	locLowerLeft = locExtents[0];
-	locUpperRight = locExtents[1];
+	locLowerLeft = (location)locExtents[0].clone();
+	locUpperRight = (location)locExtents[1].clone();
 
 	location locGoodLocation = getGoodLocation(fltXSize, fltZSize, locLowerLeft, locUpperRight, boolIgnoreWater, boolIgnoreSlope);
 
@@ -537,13 +537,13 @@ location getRandomGoodLocation(location start, float searchMin, float searchMax,
 // gets a good location wrapped
 location getGoodLocationAroundLocation(location locSearchLocation, float fltXSize, float fltZSize, float fltXSearchSize, float fltZSearchSize)
 {
-	location locLowerLeft = locSearchLocation;
+	location locLowerLeft = (location)locSearchLocation.clone();
 	locLowerLeft.x = locLowerLeft.x - fltXSearchSize;
 	locLowerLeft.z = locLowerLeft.z - fltZSearchSize;
 	LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
 
 
-	location locUpperRight = locSearchLocation;
+	location locUpperRight = (location)locSearchLocation.clone();
 	locUpperRight.x = locUpperRight.x + fltXSearchSize;
 	locUpperRight.z = locUpperRight.z + fltZSearchSize;
 	LOG("mission", "locUpperRight is "+locUpperRight.toString());
@@ -560,13 +560,13 @@ location getGoodLocationAroundLocation(location locSearchLocation, float fltXSiz
 
 location getGoodLocationAroundLocation(location locSearchLocation, float fltXSize, float fltZSize, float fltXSearchSize, float fltZSearchSize, boolean boolIgnoreWater, boolean boolIgnoreSlope)
 {
-	location locLowerLeft = locSearchLocation;
+	location locLowerLeft = (location)locSearchLocation.clone();
 	locLowerLeft.x = locLowerLeft.x - fltXSearchSize;
 	locLowerLeft.z = locLowerLeft.z - fltZSearchSize;
 	LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
 
 
-	location locUpperRight = locSearchLocation;
+	location locUpperRight = (location)locSearchLocation.clone();
 	locUpperRight.x = locUpperRight.x + fltXSearchSize;
 	locUpperRight.z = locUpperRight.z + fltZSearchSize;
 	LOG("mission", "locUpperRight is "+locUpperRight.toString());
@@ -593,13 +593,13 @@ location getGoodLocationAroundLocation(location locSearchLocation, float fltXSiz
 
 location getGoodLocationAroundLocationAvoidCollidables(location locSearchLocation, float fltXSize, float fltZSize, float fltXSearchSize, float fltZSearchSize, boolean boolIgnoreWater, boolean boolIgnoreSlope, float staticObjDistance)
 {
-	location locLowerLeft = locSearchLocation;
+	location locLowerLeft = (location)locSearchLocation.clone();
 	locLowerLeft.x = locLowerLeft.x - fltXSearchSize;
 	locLowerLeft.z = locLowerLeft.z - fltZSearchSize;
 	LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
 
 
-	location locUpperRight = locSearchLocation;
+	location locUpperRight = (location)locSearchLocation.clone();
 	locUpperRight.x = locUpperRight.x + fltXSearchSize;
 	locUpperRight.z = locUpperRight.z + fltZSearchSize;
 	LOG("mission", "locUpperRight is "+locUpperRight.toString());
@@ -716,7 +716,7 @@ location moveLocationTowardsLocation(location locStartLocation, location locEndL
 
 	// moves a point from one point to another a certain distance.
 
-	location locNewLocation = locStartLocation;
+	location locNewLocation = (location)locStartLocation.clone();
 	float fltTotalDistance = getDistance(locStartLocation, locEndLocation);
 	if(fltTotalDistance<=0)
 	{
