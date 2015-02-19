@@ -106,7 +106,7 @@ messageHandler spawnEscortsAndCeleb()
 {
 	int type = getIntObjVar(self, "event.gcwraids.cheerleader_type");
 	location here = getLocation(self);
-	location celebSpot = here;
+	location celebSpot = (location)here.clone();
 	celebSpot.z -= 12;
 
 	obj_id celeb = create.object(CELEB[type], celebSpot);

@@ -1007,7 +1007,7 @@ commandHandler cmdDefuseMinefield()
 		pvpSetFactionEnemyFlag(target, mFac);
 
 	location here = getLocation(target);
-	location there = locs[idx];
+	location there = (location)locs[idx].clone();
 	float travel = getDistance(here, there);
 
 	location minefield = getLocation(self);

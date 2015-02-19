@@ -48,7 +48,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 			droidName = "@" + droidName;
 		
 		//use current location as default
-		location holoOneLocation = startLocation;
+		location holoOneLocation = (location)startLocation.clone();
 		boolean goodLocation = false;
 		
 		//loop 10 times looking for a good location in a circle around the droid
@@ -83,7 +83,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 		setName(holo_01, droidName);
 		
 		//start finding location for hologram 2
-		location holoTwoLocation = startLocation;
+		location holoTwoLocation = (location)startLocation.clone();
 		goodLocation = false;
 		
 		//loop 10 times looking for a suitable location
@@ -276,7 +276,7 @@ messageHandler moveDancingDroidNewLocation()
 	if(utils.hasScriptVar(self, "music.stillPlaying"))
 	{
 		
-		location moveToLoc = startLocation;
+		location moveToLoc = (location)startLocation.clone();
 		boolean goodLocation = false;
 		for(int i = 0; i < 10; ++i)
 		{

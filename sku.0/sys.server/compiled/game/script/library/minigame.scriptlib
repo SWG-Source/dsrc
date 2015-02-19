@@ -685,7 +685,7 @@ boolean isLocationFishable(location loc)
 {
 	if ( loc != null )
 	{
-		location testLoc = loc;
+		location testLoc = (location)loc.clone();
 		testLoc.y = getHeightAtLocation(loc.x, loc.z);
 		return isBelowWater(testLoc);	//temp hack
 	}

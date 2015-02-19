@@ -911,7 +911,7 @@ void initializeAdvancedCamp(obj_id deed, obj_id camp, obj_id player, location lo
 				{
 					if(ovl.getFloatObjVar(modules[i]) != 0.0f)
 					{
-						location tempLoc = loc;
+						location tempLoc = (location)loc.clone();
 						location nodeLoc = getAdvancedCampNodeLocation(camp, tempLoc, nodeCount);
 						int nodeYaw = getAdvancedCampNodeYaw(camp, nodeCount);
 

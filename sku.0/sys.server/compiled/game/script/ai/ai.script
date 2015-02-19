@@ -3077,7 +3077,7 @@ trigger OnGiveItem (obj_id item, obj_id giver)
 		location locGoodLocation = locations.getGoodLocationAroundLocationAvoidCollidables(currentLoc, searchSize, searchSize, searchSize, searchSize, false, false, 6.0f);
 		if(locGoodLocation==null)
 		{
-			locGoodLocation = currentLoc;
+			locGoodLocation = (location)currentLoc.clone();
 		}
 
 		int mobCount = rand(1, 3);

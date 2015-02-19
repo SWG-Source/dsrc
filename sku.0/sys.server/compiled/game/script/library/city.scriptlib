@@ -1227,7 +1227,7 @@ void setCloneInfo(int city_id, location cityCloneLoc, location cityCloneRespawn,
 void updateLocation(int city_id, location new_loc)
 {
 	obj_id cityHall = cityGetCityHall(city_id);
-	location cityLoc = new_loc;
+	location cityLoc = (location)new_loc.clone();
 
 	citySetLocation(city_id, new_loc);
 }

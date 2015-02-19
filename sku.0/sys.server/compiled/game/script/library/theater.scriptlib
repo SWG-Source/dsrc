@@ -306,7 +306,7 @@ obj_id[] spawnRadial(obj_id target)
 						}
 						else
 						{
-							spawnLoc = goodLoc;
+							spawnLoc = (location)goodLoc.clone();
 						}
 
 						if ( spawnLoc.cell == obj_id.NULL_ID )
@@ -466,7 +466,7 @@ obj_id[] spawnDatatableOffset(obj_id target)
 		float dz = fltZ[i];
 		float yaw =fltYaw[i];
 
-		location here = myLoc;
+		location here = (location)myLoc.clone();
 
 		here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
 
@@ -659,7 +659,7 @@ void spawnDatatableOffsetQueued(obj_id target, int intIndex)
 				float dz = fltZ[i];
 				float yaw =fltYaw[i];
 
-				location here = myLoc;
+				location here = (location)myLoc.clone();
 
 				here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
 
@@ -678,7 +678,7 @@ void spawnDatatableOffsetQueued(obj_id target, int intIndex)
 				float dz = fltZ[i];
 				float yaw =fltYaw[i];
 
-				location here = myLoc;
+				location here = (location)myLoc.clone();
 
 				here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
 
@@ -697,7 +697,7 @@ void spawnDatatableOffsetQueued(obj_id target, int intIndex)
 				float dz = fltZ[i];
 				float yaw =fltYaw[i];
 
-				location here = myLoc;
+				location here = (location)myLoc.clone();
 
 				here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
 				child = createObject(tpf, here);
@@ -714,7 +714,7 @@ void spawnDatatableOffsetQueued(obj_id target, int intIndex)
 				float dy = fltY[i];
 				float dz = fltZ[i];
 				float yaw =fltYaw[i];
-				location here = myLoc;
+				location here = (location)myLoc.clone();
 				here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
 				child = createObject(tpf, here);
 				if(isIdValid(child))
@@ -732,7 +732,7 @@ void spawnDatatableOffsetQueued(obj_id target, int intIndex)
 					float dy = fltY[i];
 					float dz = fltZ[i];
 					float yaw =fltYaw[i];
-					location here = myLoc;
+					location here = (location)myLoc.clone();
 					here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
 					child = createObject(tpf, here);
 
@@ -809,7 +809,7 @@ void spawnDatatableOffsetQueued(obj_id target, int intIndex)
 				float fltC = (float)Math.cos(fltRadians);
 				float fltS = (float)Math.sin(fltRadians);
 
-				location here = myLoc;
+				location here = (location)myLoc.clone();
 
 				here.x += (dx * fltC) - (dz * fltS);
 			  	here.y += dy;

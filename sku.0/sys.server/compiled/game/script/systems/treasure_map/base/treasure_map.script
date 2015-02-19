@@ -1168,7 +1168,7 @@ location getMapLocation(obj_id map, obj_id player)
 	}
 	else
 	{
-		treasureLoc = storedLoc;
+		treasureLoc = (location)storedLoc.clone();
 	}
 	return treasureLoc;
 }

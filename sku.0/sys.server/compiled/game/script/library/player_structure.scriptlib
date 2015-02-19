@@ -6899,7 +6899,7 @@ location transformDeltaWorldCoord(location here, float dx, float dz, float yaw)
 	float[] xz = transformDeltaWorldCoord(dx, dz, rotation);
 	if ( xz != null & xz.length == 2 )
 	{
-		location there = here;
+		location there = (location)here.clone();
 
 		there.x += xz[0];
 		there.z += xz[1];
@@ -7536,13 +7536,13 @@ obj_id createStructureSign(obj_id structure, float sYaw)
 				}
 			}
 
-			location spawn = there;
+			location spawn = (location)there.clone();
 
 			if ( sYaw != 0f )
 			{
 				location newspawn = transformDeltaWorldCoord(here, x, z, sYaw);
 				newspawn.y = there.y;
-				spawn = newspawn;
+				spawn = (location)newspawn.clone();
 				//LOG("structureSign","createStructureSign: spawn = " + spawn.toString());
 			}
 

@@ -524,7 +524,7 @@ location rotateLocationXZ(location locOrigin, location locPoint, float fltAngle)
 	float fltC = (float)Math.cos(fltRadians);
 	float fltS = (float) Math.sin(fltRadians);
 	
-	location locNewOffset = locOrigin;
+	location locNewOffset = (location)locOrigin.clone();
 
 	locNewOffset.x += (dx * fltC) + (dz * fltS);
 	locNewOffset.y = locPoint.y;
@@ -1170,7 +1170,7 @@ location rotateSavedBlueprintDataXZ(location locOrigin, location locPoint, float
 	float fltC = (float)Math.cos(fltRadians);
 	float fltS = (float) Math.sin(fltRadians);
 	
-	location locNewOffset = locOrigin;
+	location locNewOffset = (location)locOrigin.clone();
 
 	locNewOffset.x += -(dx * fltC) + (dz * fltS);
 	locNewOffset.y = locPoint.y;

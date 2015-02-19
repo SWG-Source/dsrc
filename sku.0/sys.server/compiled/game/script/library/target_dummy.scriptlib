@@ -161,7 +161,7 @@ obj_id createTargetDummy(obj_id controller, obj_id player)
 		location controllerLocation = getLocation(controller);
 		location awayLoc = utils.getRandomAwayLocation(controllerLocation, 1.f, 2.f);		
 		if((awayLoc.cell != null) || isIdValid(awayLoc.cell))
-			awayLoc = controllerLocation;
+			awayLoc = (location)controllerLocation.clone();
 		
 		if(!permittedToCallTargetDummy(player, awayLoc))
 			return obj_id.NULL_ID;
@@ -194,7 +194,7 @@ obj_id recreateTargetDummy(obj_id controller, obj_id player)
 	if(getTargetDummyCreatureType(controller).equals("tcg_target_dummy"))
 	{
 		float controllerYaw = getYaw(controller);
-		location offsetLoc = where;
+		location offsetLoc = (location)where.clone();
 		offsetLoc.x += 2f;
 		location pathToLoc = utils.rotatePointXZ(where, offsetLoc, controllerYaw);
 		pathTo(targetDummyObj, pathToLoc);

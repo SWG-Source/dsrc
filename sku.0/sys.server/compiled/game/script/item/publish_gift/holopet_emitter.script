@@ -270,7 +270,7 @@ void turnOn(obj_id self, obj_id player, string type)
 	// TRY AND MAKE THE CREATURES NOT SPAWN RIGHT ON THE EMITTER
 	for(int i = 0; i < 50; i++)
 	{
-		newLoc = myLoc;
+		newLoc = (location)myLoc.clone();
 
 		newLoc = utils.getRandomAwayLocation(newLoc, 1f, 1.5f);
 
@@ -278,7 +278,7 @@ void turnOn(obj_id self, obj_id player, string type)
 		if(isValidInteriorLocation(newLoc))
 			break;
 		else if(i == 49)
-			newLoc = myLoc;
+			newLoc = (location)myLoc.clone();
 	}
 
 	obj_id pet = createObject(template, newLoc);
