@@ -292,7 +292,7 @@ obj_id createDestructionMissionDataFromLocation(obj_id objMissionData, obj_id ob
 
 		if(locGoodLocation != null)
 		{
-			locMissionDestination = locGoodLocation;	// we can mangle now that its a good loc
+			locMissionDestination = (location)locGoodLocation.clone();	// we can mangle now that its a good loc
 
 			rgnCities = getRegionsWithMunicipalAtPoint(locMissionDestination, regions.MUNI_TRUE);	// check the destination
 			region[] rgnCities2 = getRegionsWithGeographicalAtPoint(locMissionDestination, regions.GEO_CITY);
@@ -488,7 +488,7 @@ obj_id createDestructionMissionDataFromLocation(obj_id objMissionData, obj_id ob
 
 	//LOG("mission_spam", "Transferred credits, we should get a callback any minute now");
 
-	location locSpawnLocation = locMissionDestination;
+	location locSpawnLocation = (location)locMissionDestination.clone();
 
 	setMissionStartLocation(objMissionData, locSpawnLocation);
 
@@ -934,7 +934,7 @@ obj_id createDynamicBountyMission(obj_id objMissionData, obj_id objCreator, int 
 	setMissionReward(objMissionData, intReward);
 	dictionary dctParams = new dictionary();
 
-	location locSpawnLocation = locMissionDestination;
+	location locSpawnLocation = (location)locMissionDestination.clone();
 
 	setObjVar(objMissionData, "locSpawnLocation", locSpawnLocation);
 
@@ -1443,7 +1443,7 @@ void moveMissionStartLocation(obj_id objMission)
 
 	location locStartLocation = getLocationObjVar(objMission, "location.locMissionStart");
 	int intDistance = rand(MIN_DISTANCE_FOR_RETRY, MAX_DISTANCE_FOR_RETRY);
-	location locNewLocation = locSpawnLocation;
+	location locNewLocation = (location)locSpawnLocation.clone();
 
 	locNewLocation.x = locSpawnLocation.x - locStartLocation.x;
 	locNewLocation.z = locSpawnLocation.z - locStartLocation.z;
@@ -1457,7 +1457,7 @@ void moveMissionStartLocation(obj_id objMission)
 
 	////LOG("missions", "locNewLocation2 is "+locNewLocation);
 
-	location locFinalLocation = locSpawnLocation;
+	location locFinalLocation = (location)locSpawnLocation.clone();
 
 	locFinalLocation.x = locSpawnLocation.x + (float) (locNewLocation.x * intDistance);
 	locFinalLocation.z = locSpawnLocation.z + (float) (locNewLocation.z * intDistance);
@@ -3320,7 +3320,7 @@ obj_id createReconMission(obj_id objMissionData, obj_id objCreator, location loc
 		return null;
 	}
 
-	location locSpawnLocation = locMissionDestination;
+	location locSpawnLocation = (location)locMissionDestination.clone();
 	location locCreator = getMissionLocation(objCreator);
 	float fltDistance = 0;
 
@@ -3626,7 +3626,7 @@ obj_id createEscortToCreatorMission(obj_id objMissionData, obj_id objCreator, lo
 
 	location locCreatorLocation = getMissionLocation(objCreator);
 
-	locEndLocation = locCreatorLocation;
+	locEndLocation = (location)locCreatorLocation.clone();
 
 	if(intDifficulty < ESCORT_DIFFICULTY_EASY)
 	{
@@ -3755,7 +3755,7 @@ obj_id createEscortTargetMission(obj_id objMissionData, obj_id objCreator, locat
 
 	location locCreatorLocation = getMissionLocation(objCreator);
 
-	locEndLocation = locCreatorLocation;
+	locEndLocation = (location)locCreatorLocation.clone();
 
 	if(intDifficulty < ESCORT_DIFFICULTY_EASY)
 	{
@@ -5262,8 +5262,8 @@ location[] getAssassinMissionLocation()
 	region rgnStartRegion = rgnCities[rand(0, rgnCities.length - 1)];
 	location locStartLocation = locations.getRegionCenter(rgnStartRegion);
 	location locSpawnLocation = locations.getGoodCityLocation(rgnStartRegion, strPlanet);
-	locMissionLocations[0] = locStartLocation;
-	locMissionLocations[1] = locSpawnLocation;
+	locMissionLocations[0] = (location)locStartLocation.clone();
+	locMissionLocations[1] = (location)locSpawnLocation.clone();
 
 	return locMissionLocations;
 }

@@ -1130,7 +1130,7 @@ commandHandler cmdFind()
 			{
 				min = dist;
 				locIdx = n;
-				there = tmpLoc;
+				there = (location)tmpLoc.clone();
 			}
 		}
 
@@ -1228,7 +1228,7 @@ commandHandler cmdFind()
 							if ( isIdValid(start.cell) )
 								start = getBuildingEjectLocation(getTopMostContainer(self));
 
-							location destination = there;
+							location destination = (location)there.clone();
 
 							obj_id tId = map_locs[locIdx].getLocationId();
 							if ( isIdValid(tId) && tId.isLoaded() )
@@ -1243,7 +1243,7 @@ commandHandler cmdFind()
 							}
 
 							if ( destination == null )
-								destination = there;
+								destination = (location)there.clone();
 
 							//debugSpeakMsg(self, "Attempting to create client path...");
 							if ( !createClientPath(self, start, destination) )

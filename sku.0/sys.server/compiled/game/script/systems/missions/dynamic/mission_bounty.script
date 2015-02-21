@@ -511,7 +511,7 @@ messageHandler probe_Droid_Response()
 			{
 				tmpLocation = getLocation(topmost);
 			}
-			locSpawnLocation = tmpLocation;
+			locSpawnLocation = (location)tmpLocation.clone();
 		}
 		else
 		{
@@ -792,7 +792,7 @@ messageHandler moveTarget()
 		if(fltDistance<128)
 		{
 			setObjVar(self, "locSpawnLocation", locDestination);
-			locSpawnLocation = locDestination;
+			locSpawnLocation = (location)locDestination.clone();
 			removeObjVar(self, "locDestination");
 		}
 		setupSpawn(self, locSpawnLocation);

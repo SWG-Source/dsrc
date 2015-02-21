@@ -637,7 +637,7 @@ messageHandler updateGCWStanding()
 
 trigger OnSkillRevoked(string strSkill)
 {
-	// 2/2006 mhalash: No more armor hindrance
+	//No more armor hindrance
 //	armor.calculateArmorHinderances( self );
 	//cleanup assorted spacequest things if the player is surrendering their novice pilot skill:
 	if ( strSkill.equals( "pilot_rebel_navy_novice" ) || strSkill.equals( "pilot_imperial_navy_novice" ) || strSkill.equals( "pilot_neutral_novice" ) )
@@ -863,7 +863,7 @@ trigger OnInitialize()
 	removeObjVar(self, "clickRespec");
 	removeObjVar(self, "npcRespec");
 
-	// 2/2006 mhalash: No more armor hindrance
+	// No more armor hindrance
 //	armor.calculateArmorHinderances(self);
 
 	// Calculate speed mods for weapon type
@@ -1996,7 +1996,7 @@ trigger OnLogin()
 		}
 	}
 
-	/*	COMMENTED OUT AS PART OF NPE/CLICKY-COMBAT CHANGES  -- RcT -- 10/11/05
+	/*	COMMENTED OUT AS PART OF NPE/CLICKY-COMBAT CHANGES
 	// Force Sensitive Kick off
 	if (!isJediState(self, JEDI_STATE_FORCE_SENSITIVE) && !isJedi(self))
 	{
@@ -2245,7 +2245,7 @@ trigger OnLogin()
 		messageTo(self, "applySmugglingBonuses", null, 1.0f, false);
 	}
 
-	//Update 8 - City Citizen Messages
+	//City Citizen Messages
 	int cityId = getCitizenOfCityId(self);
 	if(cityId > 0 && !utils.hasScriptVar(self, "recieved_city_motd"))
 	{
@@ -2671,7 +2671,7 @@ trigger OnNewbieTutorialResponse(string action)
 			//Give everyone the uniform crate
 			static_item.createNewItemFunction("item_npe_uniform_crate_01_01", objInv);
 
-			//11/9: wwallace: changed this to use the library function
+			//changed this to use the library function
 			npe.giveProfessionWeapon(self);
 
 
@@ -5575,7 +5575,6 @@ commandHandler cmdCorpse()
 	return SCRIPT_CONTINUE;
 
 	/*
-	// JEFF DOESN'T KNOW WHAT THE FUCK
 	debugConsoleMsg( self, "*********************** CORPSE\n" );
 
 	resizeable obj_id[] movedCorpses = new obj_id[0];
@@ -8596,7 +8595,7 @@ trigger OnSkillGranted(string skillName)
 	// and "does the player already have it?"
 	badge.grantMasterSkillBadge( self, skillName );
 
-	// 2/2006 mhalash: No more armor hindrance
+	// No more armor hindrance
 //	armor.calculateArmorHinderances(self);
 
 	//check for worn item effects we may now qualify for
