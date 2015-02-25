@@ -13,7 +13,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4045495	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1362.43	16.7814	1389.88	0.585743	0	0.810497	0		$|
 4045496	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	1347.78	16.7818	1393.76	-0.0255964	-0.662748	-0.0226772	0.748062		$|
 4045499	0	object/static/structure/general/skeleton_human_body.iff	0	1341.4	16.4532	1385.69	1	0	0	0		$|
-4795356	0	object/building/general/talus_kahmurra_bunker.iff	0	1323.19	16.3456	1392.9	0.710634	0	0.703561	0		$|
+4795356	0	object/building/general/talus_kahmurra_bunker.iff	0	1323.19	16.3456	1392.9	0.710634	0	0.703561	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/talus/poi_kahmurra_bunker.iff|$|
 4795377	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1332.79	16.7466	1382.74	0.92388	0	0.382683	0		$|
 4795378	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1339	16.4476	1377	1	0	0	0		$|
 4795379	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1348	16.1147	1377	1	0	0	0		$|
