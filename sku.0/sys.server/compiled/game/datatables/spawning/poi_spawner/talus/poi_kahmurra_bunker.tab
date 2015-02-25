@@ -1,0 +1,13 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value	radius	planet_level
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s	f	i[0]
+mutated_kahmurra		hall1	-3.95359	0.25	-0.90097		theme_park.dungeon.generic_death			1750	int:ai.defaultCalmBehavior=2						1.5	1
+genetically_enhanced_kahmurra		ramp1	-4.58877	-6.75	4.95887		theme_park.dungeon.generic_death			1750	int:ai.defaultCalmBehavior=2						1.5	1
+kahmurra_bio_engineer		room1	-5.89196	-6.75	-5.41973		theme_park.dungeon.generic_death			1000	int:ai.defaultCalmBehavior=2						1.5	1
+frenzied_kahmurra		room1	-4.58356	-6.75	-8.9436		theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2						1.5	1
+frenzied_kahmurra		room2	8.996309	-6.76678	-15.1195		theme_park.dungeon.generic_death			1000	int:ai.defaultCalmBehavior=2						1.5	1
+frenzied_kahmurra		room3	6.39137	-6.75	-1.77187		theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2						1.5	1
+genetically_enhanced_kahmurra		room3	6.966261	-6.75841	-5.65121		theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2						1.5	1
+kahmurra_bio_engineer		basement	0.080339	-13.75	-14.1658		theme_park.dungeon.generic_death			1000	int:ai.defaultCalmBehavior=2						1.5	1
+kahmurra_bio_engineer		basement	-5.29824	-13.75	-14.1719		theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2						1.5	1
+rabid_mutant_kahmurra		basement	-1.8685	-13.75	-7.42472		theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2						1.5	1
+frenzied_kahmurra		basement	1.089033	-13.75	-0.72886		theme_park.dungeon.generic_death			900	int:ai.defaultCalmBehavior=2						1.5	1
