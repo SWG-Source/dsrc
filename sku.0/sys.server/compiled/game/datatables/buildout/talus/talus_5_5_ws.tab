@@ -5,7 +5,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2035870	0	object/static/item/item_container_organic_food.iff	0	1115.72	58.1136	1488.07	0.758408	-0.258766	-0.0646974	-0.594704		$|
 2035871	0	object/static/item/item_container_organic_food.iff	0	1117.28	58.3175	1488.73	-0.645875	0.360255	0.196167	0.643879		$|
 2035872	0	object/static/particle/pt_buzzing_insects_small.iff	0	1116.72	58.2924	1488.47	1	0	0	0		$|
-7955551	0	object/building/general/bunker_talus_chunker_bunker.iff	0	1374.12	29	1484.58	3.20013e-008	0	1	0		$|
+7955551	0	object/building/general/bunker_talus_chunker_bunker.iff	0	1374.12	29	1484.58	3.20E-08	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/talus/poi_chunker_bunker.iff|$|
 7955577	0	object/static/structure/general/cave_wall_damprock_style_01.iff	0	1371.25	36.4907	1488.25	0.79321	-0.603001	-0.0513789	0.0675856		$|
 7955578	0	object/static/structure/general/cave_wall_damprock_style_01.iff	0	1365.27	33.4114	1484.18	0.748475	-0.65197	-0.0686733	0.100019		$|
 7955579	0	object/static/structure/general/cave_wall_damprock_style_01.iff	0	1385.46	29	1485.38	0.830447	-0.533592	0.124937	0.100135		$|
@@ -22,7 +22,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8315369	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	342.579	40.9649	2000.27	1	0	0	0		$|
 8315370	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	342.083	42.4847	1999.74	0.989506	0	0.144492	0		$|
 8315371	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	341.747	42.6195	1999.32	-0.613745	0	0.789504	0		$|
-8315372	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	341.352	42.9775	1999.05	0.289978	4.2038e-009	0.957033	-8.30976e-009		$|
+8315372	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	341.352	42.9775	1999.05	0.289978	4.20E-09	0.957033	-8.31E-09		$|
 8315373	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	342.019	42.2899	2000.27	-0.305816	0	0.95209	0		$|
 8315374	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	341.434	42.53	2000.03	0.804127	0	0.594458	0		$|
 8315375	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	340.773	43.0354	1999.85	0.846409	0	0.532534	0		$|
