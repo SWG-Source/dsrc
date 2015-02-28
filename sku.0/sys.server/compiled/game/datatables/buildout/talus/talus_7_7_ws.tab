@@ -99,7 +99,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3735503	0	object/tangible/furniture/modern/table_modern_style_01.iff	0	252.078	1.55728	957.032	0.932327	0	-0.361615	0		$|
 3735504	0	object/tangible/furniture/modern/table_modern_style_01.iff	0	250.602	1.55728	955.683	0.932327	0	-0.361615	0		$|
 3735506	0	object/tangible/furniture/modern/chair_modern_style_01.iff	0	249.62	2	956.799	0.959662	0	0.281158	0		$|
-4255651	0	object/building/general/talus_aakuan_cave.iff	0	1813.67	46.8926	568.906	3.20E-08	0	1	0		$|
+4255651	0	object/building/general/talus_aakuan_cave.iff	0	1813.67	46.8926	568.906	3.20E-08	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/talus/poi_aakuan_cave.iff|$|
 4265355	0	object/building/corellia/starport_corellia.iff	0	383.662	2	1269.17	-0.165038	0	0.986287	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Nashal Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/talus_nashal_starport.iff|$|
 4265372	0	object/building/corellia/cantina_corellia.iff	0	189.396	2	1221.87	1	0	0	0	structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_nashal_cantina.iff|$|
 4265388	0	object/building/corellia/guild_commerce_corellia_style_01.iff	0	409.052	2	1129.5	-0.585743	0	0.810497	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/talus_nashal_commerce_guild.iff|$|
