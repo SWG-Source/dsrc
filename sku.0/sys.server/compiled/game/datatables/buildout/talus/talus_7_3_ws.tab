@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-6075870	0	object/building/general/talus_binyare_bunker.iff	0	1487.79	102	15.9927	0.70711	0	-0.707103	0		$|
+6075870	0	object/building/general/talus_binyare_bunker.iff	0	1487.79	102	15.9927	0.70711	0	-0.707103	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/talus/poi_binayre_bunker.iff|$|
 6075881	0	object/static/installation/mockup_power_generator_fusion_style_1.iff	0	1502.79	102	15.9927	1	0	0	0		$|
 6075882	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	1506.79	100.152	7.99268	0.707111	0	0.707102	0		$|
 6075883	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	1506.79	100.152	23.9927	0.707111	0	0.707102	0		$|

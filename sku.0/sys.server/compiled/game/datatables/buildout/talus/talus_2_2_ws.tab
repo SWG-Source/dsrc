@@ -26,7 +26,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4795386	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1356	16.6033	1406	1	0	0	0		$|
 4795389	0	object/static/installation/mockup_power_generator_solar_style_1.iff	0	1346.19	16.5082	1383.78	1	0	0	0		$|
 4795390	0	object/static/installation/mockup_power_generator_solar_style_1.iff	0	1340.44	16.4356	1383.77	1	0	0	0		$|
-5625536	0	object/building/general/talus_giant_decay_mite_cave.iff	0	590.99	36.5608	1392.27	0.967663	0	0.252245	0		$|
+5625536	0	object/building/general/talus_giant_decay_mite_cave.iff	0	590.99	36.5608	1392.27	0.967663	0	0.252245	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/talus/poi_dmite_bunker.iff|$|
 8475562	0	object/static/particle/pt_airport_race_light.iff	0	1335.31	20.5259	1392.92	1	0	0	0		$|
 9505599	0	object/static/structure/corellia/corl_imprv_gate_sm_s03.iff	0	1227.67	4.62168	1642.86	1	0	0	0		$|
 9505600	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	1222.22	4.68725	1635.23	0.780459	0	-0.625207	0		$|
