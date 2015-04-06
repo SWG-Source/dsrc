@@ -1274,7 +1274,7 @@ void findOrCreateAndEquipQABag(obj_id self, obj_id testerInventoryId, boolean mo
 				// get template names of items in player's inventory
 				string templateName = getTemplateName(invItems[k]);
 				// if -- frog or kashyyyk frog do not move
-				if (!templateName == FROG_STRING && !templateName == KASHYYYK_FROG_STRING)
+				if (!(templateName == FROG_STRING) && !(templateName == KASHYYYK_FROG_STRING))
 				{
 					//add obj_id of the item 
 					itemsVector.add(invItems[k]);				
