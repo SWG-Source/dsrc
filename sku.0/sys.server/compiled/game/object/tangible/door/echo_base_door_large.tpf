@@ -6,7 +6,7 @@
 
 @class object_template 2
 
-targetable = false
+//targetable = false
 
 updateRanges[UR_near] = 1000
 updateRanges[UR_normal] = 1000

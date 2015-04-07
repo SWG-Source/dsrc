@@ -1,4 +1,4 @@
-@class tangible_object_template
+@class tangible_object_template 0
 
 // enum type CombatSkeleton:
 //     CS_none		(// all "body" or not attackable)
@@ -138,5 +138,5 @@ soundIndex = ST_nothing
 soundRange = 0.0
 
 
-@class starwars_object_template
+@class starwars_object_template 0
 

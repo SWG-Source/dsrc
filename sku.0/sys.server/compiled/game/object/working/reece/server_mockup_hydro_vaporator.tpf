@@ -1,4 +1,4 @@
-@class installation_object_template
+@class installation_object_template 0
 
 // enum type InstallationType:
 //     Generic
@@ -9,13 +9,13 @@
 installationType = Generic
 
 
-@class building_object_template
+@class building_object_template 0
 
 // integer
 maintenanceCost = 0
 
 
-@class tangible_object_template
+@class tangible_object_template 0
 
 // enum type CombatSkeleton:
 //     CS_none		(// all "body" or not attackable)
@@ -45,7 +45,7 @@ qualityRating = 0.0
 armor = [  ]
 
 
-@class server_object_template
+@class server_object_template 0
 
 // enum type Attributes:
 //     health
