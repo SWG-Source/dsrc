@@ -19,4 +19,4 @@ animationMapFilename = "all_male.map"
 
 appearanceFilename = "appearance/hum_m.sat"
 clientDataFile = "clientdata/npc/client_shared_npe_force_sensitive.cdf"
-scale = .9..1
+scale = 0.9

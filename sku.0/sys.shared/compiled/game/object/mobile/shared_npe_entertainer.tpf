@@ -19,4 +19,4 @@ animationMapFilename = "all_male.map"
 
 appearanceFilename = "appearance/twk_f.sat"
 clientDataFile = "clientdata/npc/client_shared_npe_entertainer.cdf"
-scale = .8...9
+scale = 0.8

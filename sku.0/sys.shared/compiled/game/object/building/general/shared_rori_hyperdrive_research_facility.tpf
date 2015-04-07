@@ -11,6 +11,6 @@ interiorLayoutFileName = "interiorlayout/rori_hyperdrive_research_facility.ilf"
 @class object_template 5
 
 
-objectName = "building_name"  "bunker_imperial_research_facility
+objectName = "bunker_imperial_research_facility
 
 portalLayoutFilename = "appearance/poi_all_impl_bunker_research_facility_s01.pob"
