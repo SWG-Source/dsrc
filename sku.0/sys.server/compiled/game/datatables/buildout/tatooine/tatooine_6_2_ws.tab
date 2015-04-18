@@ -1947,7 +1947,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7106287	0	object/static/structure/general/droid_r4_torso.iff	0	1974.68	5	1389.69	1	0	0	0		$|
 7106288	0	object/static/structure/general/droid_r5_head.iff	0	1974.37	5	1390.11	1	0	0	0		$|
 7106289	0	object/static/structure/general/droid_r5_leg.iff	0	1973.71	5	1388.76	1	0	0	0		$|
-9655494	0	object/building/tatooine/hospital_tatooine_style02.iff	0	1481.21	5	1390.9	0.950796	0	0.309817	0		$|
+9655494	0	object/building/tatooine/hospital_tatooine_style02.iff	0	1481.21	5	1390.9	0.950796	0	0.309817	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/eisleymed.iff|$|
 9655495	9655494	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 9655496	9655494	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 9655497	9655494	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
