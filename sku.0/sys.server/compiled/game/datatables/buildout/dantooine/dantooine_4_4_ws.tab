@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-529373	0	object/building/general/dantooine_kunga_cave.iff	0	1908.8	25.692	1695.01	-3.20E-08	0	1	0		$|
+529373	0	object/building/general/dantooine_kunga_cave.iff	0	1908.8	25.692	1695.01	-3.20E-08	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/kunga_cave.iff|$|
 529374	529373	object/cell/cell.iff	1	0	0	0	1.00E+00	0	0	0		$|
 529375	529373	object/cell/cell.iff	2	0	0	0	1.00E+00	0	0	0		$|
 529376	529373	object/cell/cell.iff	3	0	0	0	1.00E+00	0	0	0		$|
