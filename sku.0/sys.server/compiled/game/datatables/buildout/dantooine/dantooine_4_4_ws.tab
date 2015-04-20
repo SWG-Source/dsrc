@@ -30,7 +30,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 529400	529373	object/cell/cell.iff	27	0	0	0	1.00E+00	0	0	0		$|
 529401	529373	object/cell/cell.iff	28	0	0	0	1.00E+00	0	0	0		$|
 529402	529373	object/cell/cell.iff	29	0	0	0	1.00E+00	0	0	0		$|
-529404	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1901.49	7.21525	1636.56	-0.0257937	0	0.999667	0		$|
+529404	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1901.49	7.21525	1636.56	-0.0257937	0	0.999667	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/dant_world_npc.iff|$|
 529405	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1878.3	8.70643	1622.26	1	0	0	0		$|
 529406	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1927.09	6.92169	1622.31	1	0	0	0		$|
 529408	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1884.98	7.60797	1639.41	0.891568	0	0.452886	0		$|
