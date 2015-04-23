@@ -77,12 +77,17 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1026828	1026824	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1279069	1026828	object/tangible/terminal/terminal_space.iff	4	6.50	0.64	57.63	0.70	0.00	0.71	0.00	space.terminal.terminal_space	$|
 1279070	1026828	object/tangible/terminal/terminal_space.iff	4	-5.68	0.64	57.43	0.72	0.00	-0.69	0.00	space.terminal.terminal_space	$|
+1279068	1026828	object/tangible/terminal/terminal_space.iff	4	0.19	0.64	62.12	-0.01	0.00	1.00	0.00	space.terminal.terminal_space	$|
+4265835	1026828	object/tangible/terminal/terminal_newsnet.iff	4	15.42	0.64	54.35	0.71	0.00	-0.70	0.00	systems.gcw.newsnet_terminal	$|
 1026829	1026824	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1026830	1026824	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1026831	1026824	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1102713	1026831	object/tangible/collection/plant_08.iff	7	34.22	0.64	40.47	0.00	0.00	1.00	0.00		$|
 1026832	1026824	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1026833	1026824	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1026834	1026824	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+3795676	1026834	object/tangible/terminal/terminal_space.iff	10	-37.86	1.64	49.20	-0.65	0.00	0.76	0.00	space.terminal.terminal_space	$|
+3795677	1026834	object/tangible/terminal/terminal_space.iff	10	-44.06	1.64	50.20	0.77	0.00	0.64	0.00	space.terminal.terminal_space	$|
 1026835	1026824	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1026836	1026824	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1026837	1026824	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
