@@ -16,7 +16,7 @@ messageHandler handleStartSpawning()
 	string datatable = getStringObjVar( self, "tableName");
 	if ( datatable == null || datatable == "" )
 	{
-		debugServerConsoleMsg( self, "GODDAMMIT:  tableName is missing from " + getName(self) + " so it doesn't know what to spawn." );
+		debugServerConsoleMsg( self, "tableName is missing from " + getName(self) + " so it doesn't know what to spawn." );
 		return SCRIPT_CONTINUE;
 	}
 

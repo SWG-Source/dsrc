@@ -1,11 +1,5 @@
-/**
- * Copyright (c) ©2003 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        city_hall.script
- * Description:  city hall
- * @author       $Author:Thomas Blair$
- * @version      $Revision: 1.0$
+/* Title:        city_flag.script
+ * Description:  script for placing objects in a player city
  */
 
 //------------------------------------------------

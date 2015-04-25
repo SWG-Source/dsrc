@@ -10,8 +10,7 @@ const string[] SCRIPTS = {
 	"dera_crafting_2.dvc2_dera_convo"
 	};
 
-/* -----------------3/20/2002 5:34PM-----------------
- * This script should be attached to a spawnegg in
+/* This script should be attached to a spawnegg in
  * the location that the NPC should be spawned.
  *
  * The NPC will be created at the spawnegg's location

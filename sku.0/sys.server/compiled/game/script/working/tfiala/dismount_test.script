@@ -1,5 +1,5 @@
-/**
- * dismount_test.script
+/*
+ dismount_test.script
  */
 
 trigger OnHearSpeech(obj_id objSpeaker, string strText)

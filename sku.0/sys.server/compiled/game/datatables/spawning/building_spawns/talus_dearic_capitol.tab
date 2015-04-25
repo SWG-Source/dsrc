@@ -1,0 +1,5 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+haleen_snowline	Haleen Snowline	foyer1	-2.6	3.1	22.2	179	npc.static_quest.quest_convo			300	string:quest_table=haleen_snowline					
+hagrin_zeed	Hagrin Zeed	meeting2	-32.8	1.3	-2.6	90	npc.static_quest.quest_convo			300	string:quest_table=hagrin_zeed				
+rebel_recruiter		meeting6	15.9	3.2	-36.5	24				300					

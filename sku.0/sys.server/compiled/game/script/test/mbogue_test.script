@@ -22,7 +22,6 @@ const string s_usageSpaceSquadAddPatrolPath = "Usage: spaceSquadAddPatrolPath <i
 
 trigger OnSpeaking(String text)
 {
-	LOG("mbogue_test", "OnSpeaking: " + text);
 
 	if (isGod(self))
 	{

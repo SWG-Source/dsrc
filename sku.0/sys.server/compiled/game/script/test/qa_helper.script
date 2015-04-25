@@ -1,21 +1,11 @@
 // ======================================================================
-//
 // qa_helper.script
-// Copyright 2006, Sony Online Entertainment
-// All Rights Reserved.
-// 
-// VERSION 1.00
-//
-// Jeff W Haskell
-//
 // [internal]
 // QA Tool - AI Helper Tool Version 1.00
 // [public]
 // not for public use
 // [testplan]
 // Attach the test.qatools script to the test character and use the spatial command 'qahelper'. 
-// [TT none]
-// [reviewed-by ]
 // ======================================================================
 //
 

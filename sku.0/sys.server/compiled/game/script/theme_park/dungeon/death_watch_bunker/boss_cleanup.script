@@ -2,9 +2,6 @@
 
 include library.ai_lib;
 
-
-/***** CONSTANTS **********************************/
-
 /***** TRIGGERS ***************************************/
 trigger OnAttach()
 {

@@ -24,7 +24,7 @@ trigger OnTaskActivated(int questCrc, int taskId)
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskActivated", taskType + " task activated.");
 	//instantly complete
 	questCompleteTask(questCrc, taskId, self);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskActivated(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -59,7 +59,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 	int[] lootCounts    = {lootCount};
 	groundquests.grantQuestReward(self, questCrc, -1, -1, experienceType, experienceAmount, factionName, factionAmount, false, bankCredits, item, itemCount, weapon, weaponCount, weaponSpeed, weaponDamage, weaponEfficiency, weaponElementalValue, armor, armorCount, armorQuality, lootNames, lootCounts, null, 1, badge, ( questIsQuestForceAccept(questCrc) || !questDoesUseAcceptanceUI(questCrc) ));
 
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCompleted(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -68,7 +68,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 trigger OnTaskFailed(int questCrc, int taskId)
 {
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskFailed", taskType + " task failed.");
-	return SCRIPT_CONTINUE;
+	return super.OnTaskFailed(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -76,7 +76,7 @@ trigger OnTaskFailed(int questCrc, int taskId)
 trigger OnTaskCleared(int questCrc, int taskId)
 {
 	groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskCleared", taskType + " task cleared.");
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCleared(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------

@@ -3,7 +3,7 @@ inherits systems.missions.base.mission_dynamic_base;
 
 trigger OnInitialize()
 {
-	//removing SpyNets from the world - JAB 06/14/06
+	//removing SpyNets from the world
 	/*
 	if(!hasObjVar(self, "alreadySpawned"))
 	{

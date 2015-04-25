@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        aurebesh_decoder.script
  * DesCRiption:  Allows player to translate from Aurebesh to English or English to Aurebesh
- * @author       $AutHor: Jesse Benjamin$
- * @version      $Revision:$
  */
 
 
@@ -14,8 +9,6 @@
 
 include library.sui;
 include library.utils;
-
-/***** INCLUDES ********************************************************/
 
 /***** CONSTANTS *******************************************************/
 

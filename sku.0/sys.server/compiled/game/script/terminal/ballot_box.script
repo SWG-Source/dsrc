@@ -1,11 +1,5 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        ballot_box.script
+/* Title:        ballot_box.script
  * Description:  script for ballot box terminals
- * @author       $Author: Matthew Kwid$
- * @version      $Revision:$
  */
 
 //------------------------------------------------

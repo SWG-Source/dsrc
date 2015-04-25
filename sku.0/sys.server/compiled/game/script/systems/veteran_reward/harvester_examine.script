@@ -1,9 +1,6 @@
-/**
- * Copyright (c)2000-2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems/veteran_reward/harvester_examine.script
- * Description:  Updates Examine window with information that the no longer requires power to operate.
+/*
+  Title:        systems/veteran_reward/harvester_examine.script
+  Description:  Updates Examine window with information that the no longer requires power to operate.
  */
 
 include library.utils;

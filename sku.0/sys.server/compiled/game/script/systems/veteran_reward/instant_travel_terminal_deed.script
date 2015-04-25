@@ -1,6 +1,4 @@
 // Script for an item that grants you the ability to use the Instant Travel Terminal
-// granted with the SWG Starter Kit
-// 11/8/05:  wwallace
 
 const string_id LEARN_ABILITY					= new string_id("item_n", "instant_travel_terminal_learn");
 

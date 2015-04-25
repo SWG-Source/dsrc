@@ -1,15 +1,10 @@
-						 /**
- * Title:        script_entry
- * Description:  Java entry point for executing scripts.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        script_entry
+ Description:  Java entry point for executing scripts.
  */
 
 package script;
 
-//import com.ibm.jvm.Dump;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Hashtable;

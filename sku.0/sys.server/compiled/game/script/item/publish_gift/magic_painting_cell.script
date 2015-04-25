@@ -1,11 +1,10 @@
+/***** INCLUDES ********************************************************/
+
 include library.create;
 include library.utils;
 include library.player_structure;
 include library.space_utils;
 include library.space_transition;
-
-/***** CONSTS **********************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnInitialize ()

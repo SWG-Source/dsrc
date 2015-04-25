@@ -1,12 +1,9 @@
-
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        player_guild.script
  * Description:  required script functionality for PAs
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 /***** INCLUDES ********************************************************/

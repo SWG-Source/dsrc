@@ -1,19 +1,7 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        postpone_grant
  * Description:  Attachs the jedi.postponeGrant objvar to the player.
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
-
-
-/***** INCLUDES ********************************************************/
-
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnInitialize()
@@ -26,10 +14,3 @@ trigger OnInitialize()
 	return SCRIPT_CONTINUE;
 }
 
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

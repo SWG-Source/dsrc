@@ -1,13 +1,11 @@
-/* -----------------4/15/2002 10:42AM----------------
- * This script is attached to all POI's in the
+/* This script is attached to all POI's in the
  * POI template.  It waits for a message from the
  * spawning or mission system (whichever created
  * the POI) and then loads the POI's content
  * script.
  * --------------------------------------------------*/
 
-/* -----------------4/15/2002 10:57AM----------------
- * Each POI template must specify the following objvar:
+/* Each POI template must specify the following objvar:
  *
  * poi.script 		- the name of the content script.
  *

@@ -1,12 +1,6 @@
 // ======================================================================
 //
 // qa_jtl_tools.script
-// Copyright 2006, Sony Online Entertainment
-// All Rights Reserved.
-// 
-// VERSION 4.0
-//
-// Jeff W Haskell
 //
 // [internal]
 //
@@ -70,8 +64,8 @@ const string SHIP_WEAPON_MINMAX		= "datatables/ship/components/weapon.iff";
 
 const string TITLE 			= "QA JTL TOOL";
 const string TOOL_DESCRIPTION 		= "Tool for JTL specific testing needs.";
-const string SHIP_TOOL_DESCRIPTION 	= "This Tool will automatically grant the tester Master Pilot Skills based upon the faction ship selection.  The Firespray ship will auto grant the tester Neutral Master Pilot.  To add additional ships, contact Jeff Haskell with the ship name, pcd command and how many weapon 'slots' the ship has.";
-const string SHIP_TOOL_DESCRIPTION_VALID = "This Tool will automatically grant the tester Master Pilot Skills based upon the faction ship selection.  The Firespray ship will auto grant the tester Neutral Master Pilot.  To add additional ships, contact Jeff Haskell with the ship name, pcd command and how many weapon 'slots' the ship has.\n\nTO GET SHIP COMPONENTS USE THE SPACE LOOT OPTION IN THIS SAME TOOL.\n\nLooted ship components will be the valid components needed for space flight.  The alternative is to craft ship components with a shipwright.";
+const string SHIP_TOOL_DESCRIPTION 	= "This Tool will automatically grant the tester Master Pilot Skills based upon the faction ship selection.  The Firespray ship will auto grant the tester Neutral Master Pilot.  To add additional ships, contact Development with the ship name, pcd command and how many weapon 'slots' the ship has.";
+const string SHIP_TOOL_DESCRIPTION_VALID = "This Tool will automatically grant the tester Master Pilot Skills based upon the faction ship selection.  The Firespray ship will auto grant the tester Neutral Master Pilot.  To add additional ships, contact Development with the ship name, pcd command and how many weapon 'slots' the ship has.\n\nTO GET SHIP COMPONENTS USE THE SPACE LOOT OPTION IN THIS SAME TOOL.\n\nLooted ship components will be the valid components needed for space flight.  The alternative is to craft ship components with a shipwright.";
 const string LOOT_TOOL_DESCRIPTION 	= "This Tool will automatically spawn the loot selection in the player's inventory.  All applicable space component loot should have stats.  All non-ship component loot IS NOT GUARANTEED TO HAVE STATS.  If you find a piece of loot that needs statistics, please contact the tool team.";
 const string VALID_SHIP_TOOL_DESCRIPTION = "To create a valid ship for testing, create one of the following chassis in your inventory then use other tools to attain valid components.";
 const string QUEST_SHIP_TOOL_DESCRIPTION = "This tool creates a valid chassis deed that is only available to players after they have completed a RotW quest. Testers will have to attain components before the ship can be flown";

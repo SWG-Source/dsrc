@@ -1,27 +1,19 @@
-//*******************************************************************************************
-//*******************************************************************************************
 // ALL INCLUDES
-//*******************************************************************************************
-//*******************************************************************************************
+
 
 include library.utils;
 include library.player_structure;
 include library.vendor_lib;
 include library.static_item;
 
-//*******************************************************************************************
-//*******************************************************************************************
+
 // ALL INHERITS
-//*******************************************************************************************
-//*******************************************************************************************
+
 
 inherits terminal.base.base_terminal;
 
-//*******************************************************************************************
-//*******************************************************************************************
+
 // ALL CONSTANTS
-//*******************************************************************************************
-//*******************************************************************************************
 
 //-----------------LOGGING
 const boolean LOGGING_ON				= true;
@@ -32,19 +24,15 @@ const string_id SID_RECOVER				= new string_id("player_vendor", "recover_nonvend
 const string_id SID_MAKE_ROOM				= new string_id("player_vendor", "recover_nonvendor_make_room");
 const string_id SID_NO_USE_WHILE_DEAD	 		= new string_id("player_structure", "while_dead");
 
-//*******************************************************************************************
-//*******************************************************************************************
 // ALL TRIGGERS
-//*******************************************************************************************
-//*******************************************************************************************
 
 trigger OnInitialize()
 {
 	if(!isValidId(self))
- 		return SCRIPT_CONTINUE;
+ 		return super.OnInitialize(self);
 
 	if(utils.hasScriptVar(self, "messageCompleted"))
-		return SCRIPT_CONTINUE;
+		return super.OnInitialize(self);
 
 	if(!vendor_lib.validateNonVendorInStructure(self))
 	{
@@ -56,7 +44,7 @@ trigger OnInitialize()
 		messageTo(self, "handleDestroyNonVendor", msgparams, 0, false);
 		CustomerServiceLog("tcg", "TCG NonVendor: "+self+" is about to be destroyed and given to the owner. The nonvendor is being destroyed (probably via structure terminal).");
 	}
- 	return SCRIPT_CONTINUE;
+ 	return super.OnInitialize(self);
 
 }
 
@@ -104,18 +92,18 @@ trigger OnTransferred(obj_id sourceContainer, obj_id destContainer, obj_id trans
 trigger OnObjectMenuRequest( obj_id player, menu_info mi )
 {
 	if(!isValidId(player) || !exists(player))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	if(isIncapacitated(player) || isDead(player))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 
 	blog("terminal.nonvendor.OnObjectMenuRequest init");
 	obj_id ownerId = getObjIdObjVar(self, vendor_lib.GREETER_OWNER_OBJVAR);
 	if(!isValidId(ownerId) || !exists(ownerId))
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	if(player != ownerId)
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 		
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 //------------------------------------------------

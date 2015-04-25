@@ -1,7 +1,6 @@
 /*
 systems.collections.collection_camera.script
 When used, a player is able to update his collection when having the correct 'mob' targeted. 
-Authors: James Michener
 */
 
 //libraries

@@ -14,7 +14,7 @@ trigger OnAttach()
 
 	messageTo(self, "handleAttachDelay", null, 2f, false);
 	setHibernationDelay(self, 600.0f);
-	return SCRIPT_CONTINUE;
+	return super.OnAttach(self);
 }
 
 messageHandler handleAttachDelay()

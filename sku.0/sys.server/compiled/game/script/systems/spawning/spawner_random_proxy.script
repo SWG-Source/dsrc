@@ -50,7 +50,7 @@ trigger OnHearSpeech(obj_id speaker, string text)
 
 	if (text.equals("reset"))
 	{
-		//LOG("spawning", "ONRESET");
+		// LOG("spawning", "ONRESET");
 		if (!hasObjVar(self, "registerWithController"))
 			setObjVar(self, "registerWithController", 1);
 		if (hasObjVar(self, "strName"))
@@ -142,7 +142,7 @@ messageHandler doSpawnEvent()
 			strSpawn = strSpawns[intRoll];
 		}
 	}
-	//LOG("spawning", "spawning "+strSpawn);
+	// LOG("spawning", "spawning "+strSpawn);
 	if( strSpawn==null || strSpawn.length() < 1 )
 	{
 		setName(self, "Mangled spawner. strSpawn is " + strSpawn + ".");
@@ -153,9 +153,9 @@ messageHandler doSpawnEvent()
 	float yCoord = dataTableGetFloat (datatable, x, "loc_y");
 	float zCoord = dataTableGetFloat (datatable, x, "loc_z");
 	float yaw = dataTableGetFloat (datatable, x, "yaw");
-	//LOG("spawning", "x is " + xCoord + " y is " + yCoord + " z is " + zCoord + " yaw is " + yaw);
-	//LOG("spawning", "random x is " + x);
-	//LOG("spawning", "number of rows is " + numberOfLocations);
+	// LOG("spawning", "x is " + xCoord + " y is " + yCoord + " z is " + zCoord + " yaw is " + yaw);
+	// LOG("spawning", "random x is " + x);
+	// LOG("spawning", "number of rows is " + numberOfLocations);
 	location myself = getLocation (self);
 	string planet = myself.area;
 	
@@ -194,15 +194,15 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 		return;
 	}
 
-	// SPAWN@!@!@!@!@!
+	// Begin Spawn
 
-	// the string is actually what we spawn.
+	// The string is actually what we spawn.
 	int intIndex = strId.indexOf(".iff");
 	float fltMinSpawnTime = getFloatObjVar(self, "fltMinSpawnTime");
 	float fltMaxSpawnTime = getFloatObjVar(self, "fltMaxSpawnTime");
 	float fltRespawnTime = rand(fltMinSpawnTime, fltMaxSpawnTime);
 	float fltLifeTime = 0;
-	// we might set a min and max life time of object.
+	// We might set a min and max life time of object.
 	if (hasObjVar(self, "fltMinLifeTime"))
 	{
 		if (hasObjVar(self, "fltMaxLifeTime"))
@@ -216,7 +216,7 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 	
 	if(intIndex>-1)
 	{
-		// template
+		// Template
 		obj_id objTemplate = createObject(strId, locLocation);
 		
 		if(isIdValid(objLocationObject))
@@ -240,9 +240,9 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 			messageTo(objTemplate, "selfDestruct", null, fltLifeTime, false);
 			
 		setYaw(objTemplate, yaw);
-		/*This section is for proxied objects. If you are doing some sort of custom 
+		/* This section is for proxied objects. If you are doing some sort of custom 
 		spawning event add your objvars here*/
-		//Is there a quest associated with the spawned obj?
+		// Is there a quest associated with the spawned obj?
 		if(hasObjVar(self, "strQuest"))
 		{
 			string strQuest = getStringObjVar(self, "strQuest");
@@ -252,7 +252,7 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 			}
 		}
 
-		//Is there a quest signal associated with the spawned obj?
+		// Is there a quest signal associated with the spawned obj?
 		if(hasObjVar(self, "strSignal"))
 		{
 	
@@ -263,7 +263,7 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 			}
 		}
 
-		//Is there a quest fail signal associated with the spawned obj?
+		// Is there a quest fail signal associated with the spawned obj?
 		if(hasObjVar(self, "strFailSignal"))
 		{
 		
@@ -274,7 +274,7 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 			}
 		}
 		
-		//Is there a Collection *SLOT* associated with the spawned obj?
+		// Is there a Collection *SLOT* associated with the spawned obj?
 		if(hasObjVar(self, "strCollection"))
 		{
 			string strCollection = getStringObjVar(self, "strCollection");
@@ -284,10 +284,10 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 			}
 		}
 		
-		//This is for pathing to the parent object. Used in Death Trooper Theme Park
+		// This is for pathing to the parent object. Used in Death Trooper Theme Park
 		setObjVar(objTemplate, "locationObjParent", getLocation(self));
 
-		//Death Trooper Theme Park specific
+		// Death Trooper Theme Park specific
 		if(hasObjVar(self, "strQuestBetsy"))
 		{
 			string strQuestBetsy = getStringObjVar(self, "strQuestBetsy");
@@ -331,8 +331,8 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 	}
 	else
 	{
-		// monster
-		//LOG("spawning", "I am going to make a "+strId);
+		// Monster
+		// LOG("spawning", "I am going to make a "+strId);
 		if(isIdValid(objLocationObject))
 		{
 			destroyObject(objLocationObject);
@@ -364,10 +364,10 @@ void createMob(string strId, obj_id objLocationObject, location locLocation, flo
 	}
 	if(!spawning.checkSpawnCount(self))
 	{
-		//LOG("spawning", "Failed to check spawncount");
+		// LOG("spawning", "Failed to check spawncount");
 		return;
 	}
-	//LOG("spawning", "resending doSpawnEvent");
+	// LOG("spawning", "resending doSpawnEvent");
 	messageTo(self, "doSpawnEvent", null, fltRespawnTime, false);
 	return;
 }
@@ -384,7 +384,7 @@ messageHandler spawnDestroyed()
 	{
 		utils.setScriptVar(self, "intCurrentSpawnCount", 0);
 	}
-	//Opening up the location the mob was at for spawning.
+	// Opening up the location the mob was at for spawning.
 	location loc = params.getLocation("loc");
 	if (utils.hasScriptVar (self, "spawnedObjectList.spawnLoc" + loc))
 		utils.removeScriptVar (self, "spawnedObjectList.spawnLoc" + loc);
@@ -406,12 +406,12 @@ boolean canSpawnByConfigSetting()
 	return true;
 }
 
-//Destroy spawned objects when spawner is destroyed.
+// Destroy spawned objects when spawner is destroyed.
 trigger OnDestroy()
 {
 	if (utils.hasScriptVar(self, "debugSpawnList"))
 	{
-		//LOG("spawning", "Reached debugSpawnList");
+		// LOG("spawning", "Reached debugSpawnList");
 		obj_id[] spawns = utils.getObjIdArrayScriptVar(self, "debugSpawnList");
 		
 		if(spawns == null || spawns.length == 0)
@@ -419,7 +419,7 @@ trigger OnDestroy()
 
 		for(int i = 0; i < spawns.length; ++i)
 		{
-			//LOG("spawning", "Reached loop");
+			// LOG("spawning", "Reached loop");
 			if(isIdValid(spawns[i]) && exists(spawns[i]))
 				messageTo(spawns[i], "selfDestruct", null, 5, false);
 		}

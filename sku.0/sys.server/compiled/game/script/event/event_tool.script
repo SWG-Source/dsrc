@@ -921,7 +921,8 @@ commandHandler eventStorePet()
 messageHandler killTargetPlayer()
 {
 	obj_id myTarget = params.getObjId("myTarget");
-	pclib.killPlayer(myTarget, myTarget);
+	setPosture(myTarget, POSTURE_INCAPACITATED);
+	pclib.coupDeGrace(myTarget, myTarget, true, true);
 
 	return SCRIPT_CONTINUE;
 }

@@ -1,10 +1,6 @@
-// ======================================================================
-//
 // guild.script - guild terminal menu handling
-//
-// Copyright 2002 Sony Online Entertainment
-//
-// ======================================================================
+
+// Includes
 
 include library.guild;
 include library.player_structure;
@@ -12,9 +8,11 @@ include library.sui;
 include library.utils;
 include library.prose;
 
+// Inherits
+
 inherits terminal.base.base_terminal;
 
-// ======================================================================
+// Constants
 
 const string_id SID_GUILDS_LIST			= new string_id("guild", "menu_list_of_guilds");
 const string_id SID_GUILD_WAR_LIST          = new string_id ("guild", "menu_list_of_guild_wars");
@@ -182,14 +180,14 @@ trigger OnInitialize()
 
 	if(!isIdValid(datapad) || !exists(datapad))
 	{
-		return SCRIPT_CONTINUE;
+		return super.OnInitialize(self);
 	}
 
 	obj_id player = getContainedBy(datapad);
 
 	if(!isIdValid(player) || !exists(player))
 	{
-		return SCRIPT_CONTINUE;
+		return super.OnInitialize(self);
 	}
 
 	if(guild.hasElectionEnded(player))
@@ -197,7 +195,7 @@ trigger OnInitialize()
 		guild.stopElection(player);
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 //------------------------------------------------
@@ -298,7 +296,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 
 	if (guildId == 0)
 	{
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	}
 
 	const obj_id guildLeader = guildGetLeader(guildId);
@@ -430,7 +428,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		}
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 // ----------------------------------------------------------------------

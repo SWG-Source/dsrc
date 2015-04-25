@@ -1,19 +1,10 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        shipping.script
+/* Title:        shipping.script
  * Description:  script for shipping menu options; to be attached to shipping terminals
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INHERITS ********************************************************/
 
 inherits terminal.base.base_terminal;
-
-/***** INCLUDES ********************************************************/
-
 
 /***** CONSTANTS *******************************************************/
 
@@ -24,7 +15,7 @@ const string_id SID_SHIPPING_OPTIONS           = new string_id("terminal_ui", "s
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
  int mnu = mi.addRootMenu (menu_info_types.SERVER_SHIPPING_OPTIONS, SID_SHIPPING_OPTIONS);
- return SCRIPT_CONTINUE;
+ return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)
@@ -35,7 +26,3 @@ trigger OnObjectMenuSelect(obj_id player, int item)
  return SCRIPT_CONTINUE;
 }
 
-/***** FUNCTIONS *******************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/

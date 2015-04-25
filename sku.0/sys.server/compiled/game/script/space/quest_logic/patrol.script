@@ -1,6 +1,6 @@
 //------------------------------------------------
 // patrol.script
-// Brandon Reinhart
+// 
 //
 // Move through <x> nav points.
 // Optional Goal: Destroy enemy ace while looping patrol.

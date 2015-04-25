@@ -1,11 +1,6 @@
 /**
- * Copyright (C)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        scriptlib
  * Description:  A library containing public general utility functions.
- * @author       $Author: rpalacio $
- * @version      $Revision: #13 $
  */
 
 /***** INCLUDES ********************************************************/
@@ -195,10 +190,10 @@ float getDistance2D( location locTarget1, location locTarget2 )
 	if ( locTarget1 == null || locTarget2 == null)
 		return -1.00f;
 
-	location loc1 = locTarget1;
+	location loc1 = (location)locTarget1.clone();
 	loc1.y = 0f;
 
-	location loc2 = locTarget2;
+	location loc2 = (location)locTarget2.clone();
 	loc2.y = 0f;
 
 	return getDistance(loc1, loc2);
@@ -2712,7 +2707,7 @@ location getRandomLocationInRing(location locOrigin, float fltMinDistance, float
 
 location rotatePointXZ(location locOrigin, float fltDistance, float fltAngle)
 {
-	location locOffset = locOrigin;
+	location locOffset = (location)locOrigin.clone();
 	locOffset.x = locOrigin.x + fltDistance;
 	locOffset.z = locOrigin.z;
 
@@ -2728,7 +2723,7 @@ location rotatePointXZ(location locOrigin, location locPoint, float fltAngle)
 	float fltC = (float)Math.cos(fltRadians);
 	float fltS = (float) Math.sin(fltRadians);
 
-  	location locNewOffset = locOrigin;
+  	location locNewOffset = (location)locOrigin.clone();
   	locNewOffset.x += (dx * fltS) - (dz * fltC);
   	locNewOffset.y = locPoint.y;
   	locNewOffset.z += (dx * fltC) + (dz * fltS);
@@ -2744,7 +2739,7 @@ location rotatePointXZ(location locPoint, float fltAngle)
 	float fltC = (float) Math.cos(fltRadians);
 	float fltS = (float) Math.sin(fltRadians);
 	//LOG("player_spawner", "locPoint is "+locPoint);
-	location locNewPoint = locPoint;
+	location locNewPoint = (location)locPoint.clone();
 	locNewPoint.x += (locPoint.x * fltC) - (locPoint.z * fltS);
 	locNewPoint.z += (locPoint.x * fltS) + (locPoint.z * fltC);
 

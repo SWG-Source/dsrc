@@ -24,9 +24,6 @@ messageHandler TestCallback()
 	if (hasObjVar(self, "myTest"))
 	{
 		debugSpeakMsg(self, "bleh");
-		/*resizeable int[] test = new int[5000];
-		test[0] = 5;
-		test = new int[0];*/
 		resizeable int[] test = new int[0];
 		for (int j = 0; j < 2000; ++j)
 		{

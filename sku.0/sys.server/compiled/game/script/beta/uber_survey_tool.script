@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        uber_survey_tool.script
  * Description:  script for GM survey tool testing
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -21,6 +16,7 @@ const string_id SID_TOOL_OPTIONS				= new string_id("sui", "tool_options");
 const string_id SID_TOOL_CLASS					= new string_id("sui", "survey_class");
 
 /***** TRIGGERS ********************************************************/
+
 trigger OnInitialize()
 {
 	setName(self,"Uber Survey Tool");
@@ -61,8 +57,6 @@ trigger OnRequestCoreSample(obj_id player, string resource_type)
 	removeObjVar(player, resource.VAR_SAMPLE_STAMP);
 	return SCRIPT_CONTINUE;
 }
-/***** FUNCTIONS ********************************************************/
-
 
 /***** MESSAGEHANDLERS **************************************************/
 messageHandler handleSetToolClass()

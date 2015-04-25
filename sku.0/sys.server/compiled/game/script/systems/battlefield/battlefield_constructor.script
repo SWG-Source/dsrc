@@ -1,13 +1,6 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        battlefield_constructor
+/* Title:        battlefield_constructor
  * Description:  A station which enables the construction of structures on the battlefield.
- *	
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+*/
 
 
 /***** INCLUDES ********************************************************/
@@ -38,12 +31,4 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	
 	return SCRIPT_CONTINUE;
 }
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
 

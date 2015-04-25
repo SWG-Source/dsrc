@@ -2,10 +2,8 @@
  * Title:        combat_simulator_master
  * Description:  Master class for combat simulator - for each simulation, there is a master that spawns the two actors that fight for each round
  * Usage:        Class that creates actors to fight and logs the output - should be instantiated on its own for debugging, otherwise, attach the combat_simulator_user class
- * Copyright:    Copyright (c) 2005
- * Company:      Sony Online Entertainment
- * @author       Vijay Thakkar
- * @version 1.0
+
+ 
  */
 
 // NONE OF THIS SHOULD EVER GO TO LIVE - ifdef'd out

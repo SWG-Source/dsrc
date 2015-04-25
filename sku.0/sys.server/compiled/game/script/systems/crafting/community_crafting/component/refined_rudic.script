@@ -1,11 +1,5 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.crafting.community_crafting.component.refined_rudic.script
+/* Title:        systems.crafting.community_crafting.component.refined_rudic.script
  * Description:  main crafting script for a refined rudic component
- * @author       $Steve Jakab$
- * @version      $Revision: 0$
  */
 
 /**

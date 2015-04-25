@@ -1,5 +1,4 @@
 //npc/pet_deed/droid_deed.script
-// written primarily by David White and modified for droid usage by RcT
 
 include library.beast_lib;
 include library.callable;

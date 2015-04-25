@@ -1,10 +1,7 @@
 /**
- *
  * Title:	sarlacc_furniture_terminal.script
  * Description:	This script allows the game mechanics to spawn and destroy the
  *		Sarlacc correctly.
- * @author	Jeff Haskell
- * @version	1.0 - Oct. - Nov. 2008
  */
 
 /***** INCLUDES ********************************************************/

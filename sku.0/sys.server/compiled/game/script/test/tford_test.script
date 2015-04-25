@@ -51,7 +51,6 @@ trigger OnSpeaking(String text)
 {
 	if(isGod(self))
 	{
-		debugConsoleMsg( self, "tford_test OnSpeaking: " + text );
 
 		java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 

@@ -1,11 +1,6 @@
 //************************************************************/
-// Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:        qaham.script
 // Description:  Health and Action Script - keeps testers full of Health and Action
-// @author       $Author: James Michener $
-// @version      $1.0.0$
 //************************************************************/
 
 include java.util.StringTokenizer;

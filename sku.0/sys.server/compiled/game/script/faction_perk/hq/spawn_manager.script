@@ -1,9 +1,6 @@
-
 /***** INCLUDES ********************************************************/
 
 include library.hq;
-
-/***** CONSTANTS *******************************************************/
 
 /***** TRIGGERS ********************************************************/
 
@@ -55,7 +52,7 @@ messageHandler handleTheaterComplete()
 }
 
 
-messageHandler handleDefenderRespawn()			// TEST TEST TEST TEST TEST TEST TEST TEST TEST
+messageHandler handleDefenderRespawn()			// TEST Messagehandler
 {
 	//obj_id self = getSelf();
 	LOG("hq", "faction_perk.hq.spawn_manager::handleDefenderRespawn	--	ENTERED HANDLER. Figured out self. Self is: "+self);
@@ -70,7 +67,7 @@ messageHandler handleDefenderRespawn()			// TEST TEST TEST TEST TEST TEST TEST T
 
 
 /*
-messageHandler handleManualSpawnResetTest()			// TEST TEST TEST TEST TEST TEST TEST TEST TEST
+messageHandler handleManualSpawnResetTest()			// TEST Messagehandler
 {
 	//obj_id self = getSelf();
 	LOG("hq", "faction_perk.hq.spawn_manager::handleManualSpawnResetTest	--	ENTERED HANDLER. Figured out self. Self is: "+self);
@@ -80,7 +77,7 @@ messageHandler handleManualSpawnResetTest()			// TEST TEST TEST TEST TEST TEST T
 	return SCRIPT_CONTINUE;
 }
 
-messageHandler handleManualSpawnResetTestStage2()			// TEST TEST TEST TEST TEST TEST TEST TEST TEST
+messageHandler handleManualSpawnResetTestStage2()			// TEST Messagehandler
 {
 	//obj_id self = getSelf();
 	LOG("hq", "faction_perk.hq.spawn_manager::handleManualSpawnResetTest2	--	ENTERED HANDLER. Figured out self. Self is: "+self);

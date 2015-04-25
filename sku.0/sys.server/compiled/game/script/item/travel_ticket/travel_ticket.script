@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        travel_ticket.script
  * Description:  script for the travel tickets.
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 
@@ -169,16 +167,4 @@ trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 
 	return SCRIPT_CONTINUE;
 }
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
-
 

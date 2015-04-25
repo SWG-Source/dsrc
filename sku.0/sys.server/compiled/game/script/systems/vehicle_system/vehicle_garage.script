@@ -212,4 +212,4 @@ boolean isGarageInRange(obj_id vehicle)
 
 	return true;
 
-}//end isGarageInRange
+}

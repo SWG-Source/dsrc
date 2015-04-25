@@ -1,11 +1,6 @@
 /**
- * Copyright (C)2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        library.fs_quests_cc.scriptlib
  * Description:  Utility functions for the fs village phase 2 and 3 community crafting quests
- * @author       $Author: Steve Jakab $
- * @version      $Revision: #1 $
  */
 
 /***** INCLUDES ********************************************************/

@@ -1,12 +1,6 @@
-
 /**
- * Copyright (c)2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        stormtrooper_attitude.script
- * Description:  stormtrooper behavior vs. emotes and says
- * @author       $Author: hgray$
- * @version      $Revision: 1.0$
+ * Title:        yoda_fountain.script
+ * Description:  event main controller
  */
 
 
@@ -119,7 +113,7 @@ trigger OnInitialize()
 	}
 
 	CustomerServiceLog("holidayEvent", "yoda_fountain.OnInitialize: Preparing Parade.");
-	messageTo(self, "prepareParade", null, 10.0f, false);
+	messageTo(self, "prepareParade", null, 30.0f, false);
 	
 	return SCRIPT_CONTINUE;
 }
@@ -1213,7 +1207,7 @@ messageHandler launchRandomNonFactionalFirework()
 	CustomerServiceLog("holidayEvent", "emperor_statue.launchRandomFirework: messageHandler initialized.");
 
 	location statue = getLocation(self);
-	location here = statue;
+	location here = (location)statue.clone();
 	here.z = statue.z-30;
 	
 	location there = utils.getRandomLocationInRing(here, 0, 10);
@@ -1249,7 +1243,7 @@ messageHandler launchRandomNonFactionalFirework()
 messageHandler launchFactionalFirework()
 {
 	location statue = getLocation(self);
-	location here = statue;
+	location here = (location)statue.clone();
 	here.z = statue.z-30;
 	
 	location there = utils.getRandomLocationInRing(here, 0, 10);

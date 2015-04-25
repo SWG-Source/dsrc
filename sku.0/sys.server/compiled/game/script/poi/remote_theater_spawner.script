@@ -1,11 +1,6 @@
 /**
- * Copyright (C)2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        poi.remote_theater_spawner.script
  * Description:  This gets attached to a remote theater spawner and handles the message telling what theater to spawn.
- * @author       $Author: Steve Jakab $
- * @version      $Revision: #1 $
  */
 
 

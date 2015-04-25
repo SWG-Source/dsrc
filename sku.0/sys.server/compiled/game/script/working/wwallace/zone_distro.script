@@ -106,11 +106,9 @@ trigger OnSpeaking(string strText)
 								for (int j = 1; j < 11; j++)
 								{
 									string temp = squad.getString("strShip"+j);
-									//debugSpeakMsg(self, "strShip"+j);
 
 									if ( temp != null && temp != "")
 									{
-										//debugSpeakMsg(self, temp + " " + strSpawns[i]);
 										dctRow.put("strMob", temp);
 										dctRow.put("strZone", strZones[intM]);
 										dctRow.put("strSquad", strSpawns[i]);

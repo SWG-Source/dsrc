@@ -6,7 +6,7 @@
 
 sharedTemplate = "object/tangible/ship/crafted/chassis/shared_yt2400_reward_deed.iff"
 
-scripts =+ ["item.special.nomove", "space.crafting.yt2400_deed"]
+scripts =+ ["space.crafting.yt2400_deed"]
 
 moveFlags = [ MF_player ]
 

@@ -1,5 +1,5 @@
-/**
- * stack_overflow_test.script
+/*
+ stack_overflow_test.script
  */
 
 void doJavaStackOverflow1(int param)
@@ -26,8 +26,6 @@ void doJavaOutOfMemory()
 
 trigger OnHearSpeech(obj_id objSpeaker, string strText)
 {
-	// if (strText == "doCStackOverflow")
-	//		doStackOverflow();
 	if (strText == "doJavaStackOverflow")
 		doJavaStackOverflow1(1);
 	else if (strText == "doJavaOutOfMemory")

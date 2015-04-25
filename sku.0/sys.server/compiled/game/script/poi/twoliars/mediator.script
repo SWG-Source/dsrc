@@ -1,11 +1,9 @@
 /**
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        mediator.script
  * Description:  mediator object script: POI = twoliars
- * @author       $Author: breinhart $
- * @version      $Revision: #1 $
+
  */
 
 //------------------------

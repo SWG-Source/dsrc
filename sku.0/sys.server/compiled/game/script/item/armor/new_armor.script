@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        item.armor.new_armor.script
  * Description:  displays the attributes for armor created by the new armor system
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
  */
 
 
@@ -178,7 +173,7 @@ trigger OnTransferred(obj_id sourceContainer, obj_id destContainer, obj_id trans
 
 	// Recalculate Armor
 	armor.recalculateArmorForPlayer(player);
-	// 2/2006 mhalash: No more armor hindrance (FACTOID: hindrance and hinderance are both correct spellings)
+	//No more armor hindrance
 //	armor.calculateArmorHinderances(player);
 
  	return SCRIPT_CONTINUE;

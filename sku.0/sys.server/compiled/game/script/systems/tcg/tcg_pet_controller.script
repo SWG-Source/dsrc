@@ -9,14 +9,14 @@ include library.space_utils;
 include library.utils;
 
 
-//LOGGING
+// LOGGING
 const boolean LOGGING_ON			= true;
 const string LOGGING_CATEGORY			= "massiff_pet";
 
 /***** CONSTS **********************************************************/
 const string TCG_STR			= new string("tcg");
 
-//laugh and animations
+// Laugh and animations
 const string LAUGH		 	= new string("sound/voc_kowakian_laugh.snd");
 const string ANIMATION_1	 	= new string("wave2");
 const string ANIMATION_2	 	= new string("laugh_cackle");
@@ -24,12 +24,12 @@ const string ANIMATION_3	 	= new string("pound_fist_palm");
 const string ANIMATION_4	 	= new string("bow2");
 const string ANIMATION_5	 	= new string("wave1");
 
-//Misc
+// Misc
 const string_id SID_TURN_ON 		= new string_id(TCG_STR, "call_pet");
 const string_id SID_TURN_OFF	 	= new string_id(TCG_STR, "store_pet");
 const string_id SID_FEED 		= new string_id(TCG_STR, "feed_pet");
 
-//Scurrier Snack Options
+// Scurrier Snack Options
 const string_id SID_SNACK		= new string_id(TCG_STR, "scurrier_snack");
 
 /***** FUNCTIONS ********************************************************/
@@ -53,8 +53,8 @@ trigger OnDestroy()
 }
 
 //@TODO: show list of previously fed items.
-//The attribs are used to give players the clues needed
-//to find patterns between food and rewards
+// The attribs are used to give players the clues needed
+// to find patterns between food and rewards
 trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 {
 	int idx = utils.getValidAttributeIndex(names);
@@ -70,7 +70,7 @@ trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 			return SCRIPT_CONTINUE;
 		}
 
-		//Phase Status
+		// Phase Status
 		names[idx] = "status";
 		attribs[idx] = "@obj_attr_n:" + house_pet.MASSIFF_PHASES[currentStatus];
 		idx++;
@@ -81,13 +81,13 @@ trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 			if(lastFed < 0) // THE INT CAN BE ZERO BY DESIGN
 				return SCRIPT_CONTINUE;
 
-			//Last Fed
+			// Last Fed
 			names[idx] = "last_fed";
 			attribs[idx] = getCalendarTimeStringLocal(lastFed);
 			idx++;
 
 
-			//Next Feed
+			// Next Feed
 			names[idx] = "next_feed";
 			if(currentStatus == 0)
 				attribs[idx] = getCalendarTimeStringLocal(lastFed + house_pet.getUpdateWeekly(self));
@@ -98,36 +98,36 @@ trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 
 			idx++;
 
-			//Time Now
+			// Time Now
 			names[idx] = "time_now";
 			attribs[idx] = getCalendarTimeStringLocal(getCalendarTime());
 			idx++;
 		}
 		else
 		{
-			//Last Fed
+			// Last Fed
 			names[idx] = "last_fed";
 			attribs[idx] = "Never";
 			idx++;
 
-			//Next Feed
+			// Next Feed
 			names[idx] = "next_feed";
 			attribs[idx] = "Hopefully Soon";
 			idx++;
 		}
 	}
 	
-//Scurrier Pet - Snack Game
+// Scurrier Pet - Snack Game
 	string petType = getTemplateName(self);
 	if((petType.indexOf("scurrier") > -1) && (hasObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED)))
 	{
-		//Last Snack
+		// Last Snack
 		names[idx] = "last_scurrier_snack";
 		int lastSnack = getIntObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED);
 		attribs[idx] = getCalendarTimeStringLocal(lastSnack);
 		idx++;	
 
-		//Next Snack
+		// Next Snack
 		names[idx] = "next_scurrier_snack";
 		int nextSnack = getIntObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED); 
 		attribs[idx] = getCalendarTimeStringLocal(nextSnack + house_pet.SCURRIER_SNACK_DELAY); //3 days
@@ -138,7 +138,7 @@ trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 	{
 		obj_id owner = getOwner(self);
 
-		//Phase Status
+		// Phase Status
 		names[idx] = "owner";
 		attribs[idx] = getPlayerFullName(owner);
 		idx++;
@@ -157,9 +157,9 @@ trigger OnInitialize()
 {
 	blog("OnInitialize - init");
 
-	//This library call checks to make 
-	//sure this controller is not in
-	//packed house
+	// This library call checks to make 
+	// sure this controller is not in
+	// packed house
 	if(!house_pet.isInAPlayerHouse(self))
 		return SCRIPT_CONTINUE;
 		
@@ -214,8 +214,8 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	{
 		if(player == owner)
 			mi.addRootMenu(menu_info_types.ITEM_USE, SID_TURN_OFF);
-		//If the pet is hungry, anyone can feed him 
-		//that can use an item in the house (ADMIN & OWNER)
+		// If the pet is hungry, anyone can feed him 
+		// that can use an item in the house (ADMIN & OWNER)
 		if(player == owner &&
 		!hasObjVar(self, house_pet.PET_KNOCKED_OUT) && 
 		hasObjVar(self, house_pet.PET_FEEDABLE) && 
@@ -223,7 +223,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		getIntObjVar(self, house_pet.MASSIFF_CURRENT_PHASE) >= 1)
 			mi.addRootMenu(menu_info_types.SERVER_MENU1, SID_FEED);	
 			
-//Scurrier Snacks - 
+// Scurrier Snacks 
 		if(player == owner &&
 		!hasObjVar(self, house_pet.PET_KNOCKED_OUT) && 
 		hasObjVar(self, house_pet.PET_FEEDABLE) &&
@@ -264,9 +264,9 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	if(owner == player && item == menu_info_types.ITEM_USE && !hasObjVar(self, house_pet.PET_HAS_BEEN_CALLED))
 	{
 		spawnPetByOwner(self, player);
-		//----------------REMOVE FOR LIVE
-		//setObjVar(self, house_pet.MASSIFF_FIVE_MIN_UPDATE_RATE, true);
-		//----------------Keep for easy testing/debugging
+		// For testing only
+		// setObjVar(self, house_pet.MASSIFF_FIVE_MIN_UPDATE_RATE, true);
+		// Keep for easy testing/debugging
 		setObjVar(self, house_pet.MASSIFF_CURRENT_PHASE, house_pet.MASSIFF_HUNGRY);
 		
 	}
@@ -276,7 +276,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 		{
 			blog("OnObjectMenuSelect - menu_info_types.ITEM_USE");
 		
-			//Store the pet
+			// Store the pet
 			if(hasObjVar(self, house_pet.CHILD_OBJ_ID))
 			{
 				obj_id oldPet = getObjIdObjVar(self, house_pet.CHILD_OBJ_ID);
@@ -299,7 +299,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 			removeObjVar(self, house_pet.PET_HAS_BEEN_CALLED);
 			//removeTriggerVolume("laughAura");
 		}
-		//BEING FED
+		// BEING FED
 		else if(item == menu_info_types.SERVER_MENU1)
 		{
 			blog("OnObjectMenuSelect - menu_info_types.SERVER_MENU1");
@@ -378,7 +378,7 @@ boolean spawnPetSomewhere(obj_id controller)
 	int currentPhase = getIntObjVar(controller, house_pet.MASSIFF_CURRENT_PHASE);
 	if(hasObjVar(controller, house_pet.PET_KNOCKED_OUT) && getBooleanObjVar(controller, house_pet.PET_KNOCKED_OUT))
 	{
-		//Massiff has fallen and can't get up
+		// Massiff has fallen and can't get up
 		ai_lib.aiSetPosture(newPet, POSTURE_KNOCKED_DOWN);
 		return true;		
 	}
@@ -479,11 +479,11 @@ boolean spawnFoodAtLocation(obj_id controller, location foodLoc)
 
 	blog("spawnFoodAtLocation - about to create food.");
 
-	//spawn corn feed for the nuna - the massif gets meat!
+	// Spawn corn feed for the nuna - the massif gets meat!
 	obj_id food = obj_id.NULL_ID;
-	//need to get pet type.
+	// Need to get pet type.
 	string petType = getTemplateName(pet);
-	//determine the food type
+	// Determine the food type
 	if(petType.indexOf("massif") > -1)
 	{
 		food = create.object("object/static/item/item_massiff_food.iff", foodLoc);

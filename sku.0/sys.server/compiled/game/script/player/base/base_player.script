@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        base_player.script
  * Description:  required script functionality for all player objects
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -642,7 +637,7 @@ messageHandler updateGCWStanding()
 
 trigger OnSkillRevoked(string strSkill)
 {
-	// 2/2006 mhalash: No more armor hindrance
+	//No more armor hindrance
 //	armor.calculateArmorHinderances( self );
 	//cleanup assorted spacequest things if the player is surrendering their novice pilot skill:
 	if ( strSkill.equals( "pilot_rebel_navy_novice" ) || strSkill.equals( "pilot_imperial_navy_novice" ) || strSkill.equals( "pilot_neutral_novice" ) )
@@ -868,7 +863,7 @@ trigger OnInitialize()
 	removeObjVar(self, "clickRespec");
 	removeObjVar(self, "npcRespec");
 
-	// 2/2006 mhalash: No more armor hindrance
+	// No more armor hindrance
 //	armor.calculateArmorHinderances(self);
 
 	// Calculate speed mods for weapon type
@@ -2001,7 +1996,7 @@ trigger OnLogin()
 		}
 	}
 
-	/*	COMMENTED OUT AS PART OF NPE/CLICKY-COMBAT CHANGES  -- RcT -- 10/11/05
+	/*	COMMENTED OUT AS PART OF NPE/CLICKY-COMBAT CHANGES
 	// Force Sensitive Kick off
 	if (!isJediState(self, JEDI_STATE_FORCE_SENSITIVE) && !isJedi(self))
 	{
@@ -2250,7 +2245,7 @@ trigger OnLogin()
 		messageTo(self, "applySmugglingBonuses", null, 1.0f, false);
 	}
 
-	//Update 8 - City Citizen Messages
+	//City Citizen Messages
 	int cityId = getCitizenOfCityId(self);
 	if(cityId > 0 && !utils.hasScriptVar(self, "recieved_city_motd"))
 	{
@@ -2676,7 +2671,7 @@ trigger OnNewbieTutorialResponse(string action)
 			//Give everyone the uniform crate
 			static_item.createNewItemFunction("item_npe_uniform_crate_01_01", objInv);
 
-			//11/9: wwallace: changed this to use the library function
+			//changed this to use the library function
 			npe.giveProfessionWeapon(self);
 
 
@@ -4691,12 +4686,14 @@ commandHandler gmRevive()
 			obj_id mountId = getMountId(targetCreature);
 			if (isIdValid(mountId))
 				utils.dismountRiderJetpackCheck(targetCreature);
-
+			
+			/*
 			if (isJedi(targetCreature))
 			{
 				setForcePower(targetCreature, getMaxForcePower(targetCreature));
 				sendSystemMessageTestingOnly(targetCreature, "Force Power Maxed");
 			}
+			*/
 			if (pclib.resurrectPlayer(targetCreature))
 			{
 				sendSystemMessageTestingOnly(targetCreature, "You have been restored...");
@@ -4711,6 +4708,7 @@ commandHandler gmRevive()
 					setPosture(targetCreature, POSTURE_UPRIGHT);
 					queueCommand(targetCreature, ##"stand", targetCreature, "", COMMAND_PRIORITY_IMMEDIATE);
 					queueCommand(targetCreature, ##"stopCraftingSession", targetCreature, "", COMMAND_PRIORITY_IMMEDIATE);
+					play2dNonLoopingSound(targetCreature, "sound/music_acq_healer.snd");
 					utils.removeScriptVar(targetCreature, "pvp_death");
 
 					sendSystemMessageTestingOnly(self, "You have /gmRevived "+getName(targetCreature));
@@ -4872,7 +4870,7 @@ commandHandler cmdTipFail()
 
 commandHandler cmdCheckForceStatus()
 {
-/*	COMMENTED OUT AS PART OF NPE/CLICKY-COMBAT CHANGES  -- RcT -- 10/11/05
+/*	COMMENTED OUT
 	//LOG("quest", "base_player.checkForceStatus");
 	int progress_level = 0;
 	if (fs_quests.fsBadgeCheck(self))
@@ -5577,7 +5575,6 @@ commandHandler cmdCorpse()
 	return SCRIPT_CONTINUE;
 
 	/*
-	// JEFF DOESN'T KNOW WHAT THE FUCK
 	debugConsoleMsg( self, "*********************** CORPSE\n" );
 
 	resizeable obj_id[] movedCorpses = new obj_id[0];
@@ -6222,7 +6219,7 @@ commandHandler maskscent()
 commandHandler failMaskscent()
 {
 	// The player can't creature sneak.  Probably because of his position.
-	sendSystemMessage( self, SID_SYS_SCENTMASK_FAIL );
+	//sendSystemMessage( self, SID_SYS_SCENTMASK_FAIL );
 
 	return SCRIPT_CONTINUE;
 }
@@ -8266,7 +8263,7 @@ messageHandler handleSTFeeFail()
 
 //------------------------------------------------
 // /cityInfo
-// LIVE 12/15/2004 - CSR command to get city info.
+// LIVE CSR command to get city info.
 // UNLOCALIZED CSR COMMAND
 //------------------------------------------------
 
@@ -8598,7 +8595,7 @@ trigger OnSkillGranted(string skillName)
 	// and "does the player already have it?"
 	badge.grantMasterSkillBadge( self, skillName );
 
-	// 2/2006 mhalash: No more armor hindrance
+	// No more armor hindrance
 //	armor.calculateArmorHinderances(self);
 
 	//check for worn item effects we may now qualify for
@@ -15457,7 +15454,6 @@ commandHandler cmdMeditateFail()
 	return SCRIPT_CONTINUE;
 }
 
-//IMMA CHARGIN MAH LASZERS
 messageHandler handleMeditationTick()
 {
 	if ( !meditation.isMeditating(self) )

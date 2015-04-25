@@ -1,15 +1,7 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        add_only.script
  * Description:  script for containers that do not lose items
- * @author       $Author:$
- * @version      $Revision:$
  */
-
-/***** INCLUDES ********************************************************/
-
 /***** CONSTANTS *******************************************************/
 
 const string SCRIPT_ME		                   		= "item.container.add_only";

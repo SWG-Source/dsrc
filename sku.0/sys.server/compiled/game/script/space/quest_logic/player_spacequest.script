@@ -1,6 +1,6 @@
 //------------------------------------------------
 // player_spacequest.script
-// Brandon Reinhart
+// 
 //
 // Handlers for space quests for players.
 // This script should be attached to a player who is doing a space quest.

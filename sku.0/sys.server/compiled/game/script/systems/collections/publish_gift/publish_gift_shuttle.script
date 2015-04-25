@@ -1,5 +1,3 @@
-
-
 messageHandler startLandingSequence()
 {
 	obj_id owner = params.getObjId("owner");

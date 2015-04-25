@@ -1,4 +1,3 @@
-
 // ======================================================================
 
 include library.ai_lib;
@@ -16,16 +15,10 @@ inherits base.remote_object_requester;
 
 // ======================================================================
 
-
-// ======================================================================
-
-// Hello World
-
 trigger OnSpeaking(String text)
 {
 	if(isGod(self))
 	{
-		debugConsoleMsg( self, "juriarte_test OnSpeaking: " + text );
 
 		java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 

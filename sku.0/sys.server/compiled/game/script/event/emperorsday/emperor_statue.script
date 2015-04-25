@@ -1,12 +1,6 @@
-
 /**
- * Copyright (c)2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        stormtrooper_attitude.script
- * Description:  stormtrooper behavior vs. emotes and says
- * @author       $Author: hgray$
- * @version      $Revision: 1.0$
+ * Title:        emperor_statue.script
+ * Description:  main event controller
  */
 
 
@@ -109,7 +103,7 @@ trigger OnInitialize()
 	}
 
 	CustomerServiceLog("holidayEvent", "emperor_statue.OnInitialize: Preparing Parade.");
-	messageTo(self, "prepareParade", null, 10.0f, false);
+	messageTo(self, "prepareParade", null, 30.0f, false);
 
 	return SCRIPT_CONTINUE;
 }
@@ -466,7 +460,7 @@ messageHandler spawnDarkTroopers1()
 	
 	obj_id spawnPoint = holiday.getEmpireDayWaypointObjectObjId(self, "spawnDark1", holiday.OBJECT_NEAR_CHECK_RANGE_100M);
 	location spawnLoc = getLocation(spawnPoint);
-	location tempLoc = spawnLoc;
+	location tempLoc = (location)spawnLoc.clone();
 	
 	for (int i=0;i<squad.length;i++)
 	{
@@ -494,7 +488,7 @@ messageHandler spawnDarkTroopers2()
 	
 	obj_id spawnPoint = holiday.getEmpireDayWaypointObjectObjId(self, "spawnDark2", holiday.OBJECT_NEAR_CHECK_RANGE_100M);
 	location spawnLoc = getLocation(spawnPoint);
-	location tempLoc = spawnLoc;
+	location tempLoc = (location)spawnLoc.clone();
 	
 	for (int i=0;i<squad.length;i++)
 	{
@@ -572,7 +566,7 @@ messageHandler moveParade()
 				if(isIdValid(pathPoint1) && exists(pathPoint1))
 				{			
 					location pathLoc1 = getLocation(pathPoint1);
-					location tempLoc1 = pathLoc1;
+					location tempLoc1 = (location)pathLoc1.clone();
 					tempLoc1.z = pathLoc1.z-i*2;
 					pathTo (squad1[i], tempLoc1);
 				}
@@ -581,7 +575,7 @@ messageHandler moveParade()
 				if(isIdValid(pathPoint2) && exists(pathPoint2))
 				{							
 					location pathLoc2 = getLocation(pathPoint2);
-					location tempLoc2 = pathLoc2;
+					location tempLoc2 = (location)pathLoc2.clone();
 					tempLoc2.z = pathLoc2.z-i*2;
 					pathTo (squad2[i], tempLoc2);
 				}
@@ -634,7 +628,7 @@ messageHandler launchRandomNonFactionalFirework()
 	CustomerServiceLog("holidayEvent", "emperor_statue.launchRandomFirework: messageHandler initialized.");
 
 	location statue = getLocation(self);
-	location here = statue;
+	location here = (location)statue.clone();
 	here.z = statue.z+20;
 	
 	location there = utils.getRandomLocationInRing(here, 0, 10);
@@ -669,7 +663,7 @@ messageHandler launchRandomNonFactionalFirework()
 messageHandler launchFactionalFirework()
 {
 	location statue = getLocation(self);
-	location here = statue;
+	location here = (location)statue.clone();
 	here.z = statue.z+20;
 	
 	location there = utils.getRandomLocationInRing(here, 0, 10);
@@ -773,14 +767,14 @@ messageHandler finalMarch()
 			{		
 				obj_id pathPoint1 = holiday.getEmpireDayWaypointObjectObjId(self, "spawnDark1", holiday.OBJECT_NEAR_CHECK_RANGE_100M);
 				location pathLoc1 = getLocation(pathPoint1);
-				location tempLoc1 = pathLoc1;
+				location tempLoc1 = (location)pathLoc1.clone();
 				tempLoc1.z = pathLoc1.z+i*2;
 
 				pathTo (squad1[i], tempLoc1);
 
 				obj_id pathPoint2 = holiday.getEmpireDayWaypointObjectObjId(self, "spawnDark2", holiday.OBJECT_NEAR_CHECK_RANGE_100M);
 				location pathLoc2 = getLocation(pathPoint2);
-				location tempLoc2 = pathLoc2;
+				location tempLoc2 = (location)pathLoc2.clone();
 				tempLoc2.z = pathLoc2.z+i*2;
 
 				pathTo (squad2[i], tempLoc2);

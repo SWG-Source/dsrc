@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        space_dungeon
  * Description:  Handles functionality/travel for space dungeons
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
@@ -308,9 +303,4 @@ void doLogging(string section, string message)
 	if (doLogging)
 		LOG("debug/transition.scriptlib/"+section, message);
 }
-
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
 

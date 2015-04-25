@@ -7,9 +7,6 @@ include library.pclib;
 include library.hue;
 include library.money;
 
-/***** CONSTANTS *******************************************************/
-
-
 /***** TRIGGER *********************************************************/
 trigger OnInitialize()
 {

@@ -1,11 +1,6 @@
-//-----------------------------------------------------------------
-//
 //-------------------------MAP PUZZLE------------------------
-//
 //Player must decipher the map text and solve the specified text.
-//
 //-----------------------------------------------------------------
-//-Jeff Haskell 2008
 
 include library.buff;
 include library.collection;

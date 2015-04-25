@@ -2,7 +2,6 @@
 systems.collections.listening_device.script
 This script is attached to the items a player has in his/her inventory.  This monitors to see if the player
 is inside of a trigger volume, if so - he/she can use the item...otherwise, the player can not.
-Authors: James Michener
 */
 
 //libraries

@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2005 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        grant_respec_on_login.script
  * Description:  Starts the respec process on a player
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 include library.respec;

@@ -83,7 +83,7 @@ void removeQuestFlag(obj_id player, string questId, string flagname)
 	removeObjVar( player, questId + ".Flags." + flagname );
 }
 
-/* -----------------3/7/2002 5:55PM------------------
+/* --------------------------------------------------
  * Infiltration Quest Flags:
  * --------------------------------------------------*/
 
@@ -113,7 +113,7 @@ int getInfiltrateFlag( obj_id player, string questId )
 	return getIntObjVar(player, "themeparkQuestFlags.INFILTRATION." + questId);
 }
 
-/* -----------------4/2/2002 3:13PM------------------
+/* --------------------------------------------------
  * Waypoint and location Target stuff:
  * --------------------------------------------------*/
 
@@ -203,7 +203,7 @@ void clearAllWaypoints( obj_id player, string questId )
 
 }
 
-/* -----------------4/10/2002 4:52PM-----------------
+/* -------------------------------------------------
  * This function spawns _template_ at _loc_
  * and makes it attack _target_
  *
@@ -234,7 +234,7 @@ obj_id spawnAttacker( string template, location loc, obj_id target )
 	return attacker;
 }
 
-/* -----------------4/10/2002 5:06PM-----------------
+/* --------------------------------------------------
  * This function spawns multiple attackers within a couple meters
  * of the location passed to it and returns their obj_id's in an
  * array of obj_id's.

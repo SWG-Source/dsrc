@@ -1,3 +1,4 @@
+//Includes
 include library.utils;
 include library.create;
 include library.badge;
@@ -25,7 +26,7 @@ trigger OnInitialize()
 
 trigger OnHearSpeech(obj_id speaker, string text)
 {
-	//TESTING FUNCTIONS.  Should be removed before checkin!
+	//Testing Functions.  Should be removed before checkin.
 	if (text == "startEncounter")
 	{
 		dictionary params = new dictionary();
@@ -53,7 +54,7 @@ messageHandler handleBeginEncounter()
 	obj_id top = getTopMostContainer ( self );
 	obj_id cell = getCellId(top, "hall57");
 
-	// spawn the machine in the other room, yo!
+	// spawn the machine in the other room
 	float mx = -227.2f;
 	float my = -92.6f;
 	float mz = 156.2f;

@@ -1,11 +1,9 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        cleanup.script
  * Description:  default player script for handling skill use cleanup
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 /***** INCLUDES ********************************************************/

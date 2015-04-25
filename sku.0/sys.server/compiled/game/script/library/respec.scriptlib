@@ -1,3 +1,8 @@
+/**********************************************************************
+ * Title:        respec.scriptlib
+ * Description:  defines related to respec process
+ **********************************************************************/
+
 include library.bounty_hunter;
 include library.buff;
 include library.performance;
@@ -5,16 +10,6 @@ include library.pet_lib;
 include library.static_item;
 include library.trace;
 include library.xp;
-
-/**********************************************************************
- * Copyright (c)2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        respec.scriptlib
- * Description:  defines related to respec process
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
 
 const string EXPERTISE_VERSION_TABLE		= "datatables/expertise/respec_version.iff";
 const string EXPERTISE_VERSION_OBJVAR		= "professionExpertiseVersion";
@@ -51,7 +46,7 @@ const string OBJVAR_RESPEC = "respec.authorized";
 // player the next time the OnLogout trigger is called
 const string OBJVAR_REMOVE_ON_LOGOUT = "respec.removeonlogout";
 
-// This objvar (which as of this writing 6/6/05 is out of date) controls access to the respec by limiting
+// This objvar (which as of this writing is out of date) controls access to the respec by limiting
 // the number of times the player is allowed to respec.  Specifically this objvar should contain, at all
 // times, the number of times this player has respec'd within this round of respec authorization.
 const string OBJVAR_RESPEC_COUNT = "respec.count";
@@ -195,6 +190,13 @@ void handleNpcRespec(obj_id player, string skillTemplateName)
 	// We're definately respeccing now so destroy officer pets.
 	pet_lib.destroyOfficerPets(player);
 
+	obj_id inv = utils.getInventoryContainer(player);
+	obj_id weapon = getCurrentWeapon(player);
+	if(isIdValid(weapon))
+	{
+		putInOverloaded(weapon, inv);
+	}
+
 	if(cost > 0)
 	{
 		money.requestPayment(player, money.ACCT_SKILL_TRAINING, cost, "none", null, false);
@@ -284,6 +286,13 @@ void earnProfessionSkillsViaNpc(obj_id player, string skillTemplateName, boolean
 
 	revokeAllSkillsAndExperience(player);
 	buff.removeAllBuffs(player, true, true);
+
+	obj_id inv = utils.getInventoryContainer(player);
+	obj_id weapon = getCurrentWeapon(player);
+	if(isIdValid(weapon))
+	{
+		putInOverloaded(weapon, inv);
+	}
 
 	if(level> 0)
 	{
@@ -926,7 +935,7 @@ void revokeAllSkillsAndExperience(obj_id player)
 		grantExperiencePoints(player, xpTypes[i], -curXp);
 	}
 
-	// Grant existing Jedi a badge and clear Jedi data
+	/* // Grant existing Jedi a badge and clear Jedi data	
 	if (isJedi(player))
 	{
 		setJediState(player, JEDI_STATE_NONE);
@@ -934,6 +943,7 @@ void revokeAllSkillsAndExperience(obj_id player)
 		grantCommand(player, "blueGlowie");
 		groundquests.grantQuestNoAcceptUI(player, "jedi_gifts_1", false);
 	}
+	*/
 
 	// Revoke all old Skills
 	string[] skillList = getSkillListingForPlayer(player);
@@ -1045,7 +1055,7 @@ void contentPathHandoff (obj_id self)
 	//Give everyone the uniform crate
 	static_item.createNewItemFunction("item_npe_uniform_crate_01_01", objInv);
 
-	//11/9: wwallace: changed this to use the library function
+	//changed this to use the library function
 	npe.giveProfessionWeapon(self);
 }
 

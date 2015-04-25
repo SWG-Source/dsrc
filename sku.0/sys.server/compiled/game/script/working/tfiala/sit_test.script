@@ -1,5 +1,5 @@
-/**
- * sit_test.script
+/*
+ sit_test.script
  */
 
 // Function to split a string into multiple strings via the space character.
@@ -26,13 +26,11 @@ string[] strSplit(string strText)
 			if(intI<intIndex)
 			{
 				strText1 = strText1+strText.charAt(intI);
-				//debugServerConsoleMsg(self, "strText1 is "+strText1);
 
 			}
 			if(intI>intIndex)
 			{
 				strText2 = strText2+strText.charAt(intI);
-				//debugServerConsoleMsg(self, "strText2 is "+strText2);
 
 
 			}
@@ -43,8 +41,6 @@ string[] strSplit(string strText)
 			intI = intI+1;
 		}
 
-	//	debugServerConsoleMsg(self, "strText1 is"+strText1);
-	//	debugServerConsoleMsg(self, "strText2 is "+strText2);
 	}
 	string[] strReturn = new string[2];
 	strReturn[0] = strText1;
@@ -55,7 +51,7 @@ string[] strSplit(string strText)
 
 obj_id getObjectIdFromString(string objectIdAsString)
 {
-	//-- Conver the object id string to a Long
+	// Conver the object id string to a Long
 	Long lngId = null;
 
 	try

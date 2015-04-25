@@ -14,7 +14,7 @@ include library.sui;
 include library.utils;
 
 
-//LOGGING
+// LOGGING
 const boolean LOGGING_ON				= true;
 const string LOGGING_CATEGORY				= "sissynoid";
 
@@ -96,7 +96,7 @@ trigger OnHearSpeech(obj_id master, string text)
 	if(!isValidId(self))
 		return SCRIPT_CONTINUE;
 	
-	//the creature is in route to food dish
+	// The creature is in route to food dish
 	if(utils.hasScriptVar(self, house_pet.BEING_FED))
 		return SCRIPT_CONTINUE;		
 
@@ -131,7 +131,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	if(!isValidId(owner))
 		return SCRIPT_CONTINUE;
 
-	//I'm leaving this in case we want any player to interract with the creature	
+	// Leaving this in case we want any player to interact with the creature	
 	if(player == owner)
 	{
 		mi.addRootMenu(menu_info_types.SERVER_MENU1, SID_CHANGE_NAME);
@@ -150,7 +150,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	if(!isValidId(owner))
 		return SCRIPT_CONTINUE;
 	
-	//I'm leaving this in case we want any player to interract with the creature
+	// I'm leaving this in case we want any player to interact with the creature
 	if(player == owner)
 	{
 		if(item == menu_info_types.SERVER_MENU1)
@@ -170,7 +170,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 trigger OnSawEmote(obj_id performer, string emote)
 {
-	//ADD VALIDATION
+	// Add validation
 	if(!isValidId(performer) || !exists(performer))
 		return SCRIPT_CONTINUE;
 	if(emote == null || emote.length() <= 0)
@@ -180,7 +180,7 @@ trigger OnSawEmote(obj_id performer, string emote)
 	if(!isValidId(controller) || !exists(controller))
 		return SCRIPT_CONTINUE;	
 		
-	//the creature is in route to food dish
+	// The creature is in route to food dish
 	if(utils.hasScriptVar(self, house_pet.BEING_FED))
 		return SCRIPT_CONTINUE;		
 		
@@ -191,7 +191,7 @@ trigger OnSawEmote(obj_id performer, string emote)
 	if(!isValidId(owner))
 		return SCRIPT_CONTINUE;
 
-	if(performer != owner) // maybe someday we allow visitors to emote?
+	if(performer != owner) // Maybe someday we allow visitors to emote?
 		return SCRIPT_CONTINUE;
 
 	if(getLookAtTarget(performer) != self)
@@ -260,7 +260,7 @@ boolean processSpeech(obj_id pet, obj_id speaker, string text)
 
 	CustomerServiceLog("tcg", "Massif Pet Object: "+pet+" of controller object: "+controller+ " heard a command from owner: "+owner+" and the Massif will now debug the command.");
 
-	//sendSystemMessageTestingOnly(speaker, "Pet hears: " + text);
+	// sendSystemMessageTestingOnly(speaker, "Pet hears: " + text);
 	java.util.StringTokenizer tok = new java.util.StringTokenizer(text);
 
 	string petCommand = "";
@@ -274,7 +274,7 @@ boolean processSpeech(obj_id pet, obj_id speaker, string text)
 		if(!getName(pet).equals(petName))
 			return false;
 			
-		//debugConsoleMsg(master, "pet hears its name");
+		// debugConsoleMsg(master, "pet hears its name");
 
 		if(tok.hasMoreTokens ())
 		{
@@ -352,7 +352,7 @@ boolean initiateMassiffAction(obj_id pet, obj_id speaker, string petCommand, boo
 		return false;
 	}
 	
-	//pet is outside and master is inside	
+	// Pet is outside and master is inside	
 	if(((masterLoc.cell != null) && isIdValid(masterLoc.cell)) && ((petLoc.cell == null) || (!isIdValid(petLoc.cell))))
 	{
 		CustomerServiceLog("tcg", "Massif Pet Object: "+pet+" of controller object: "+controller+ " heard a command from owner: "+speaker+" but either the owner or the massif are in an invalid location. Failing.");	
@@ -484,9 +484,9 @@ boolean initiateMassiffAction(obj_id pet, obj_id speaker, string petCommand, boo
 	}
 	
 	/*
-	*
-	*	VALIDATE AND ENACT PET INSTRUCTIONS
-	*
+	
+		Validate and follow master's instructions
+	
 	*/
 	//showFlyText(pet, new string_id("npc_reaction/flytext", "threaten"), 2.0f, colors.ORANGERED);
 	if(petState > -1)
@@ -507,9 +507,9 @@ boolean initiateMassiffAction(obj_id pet, obj_id speaker, string petCommand, boo
 	}
 
 	/*
-	*
-	*	GO TO MASTER, FOLLOW
-	*
+	
+		Go to and follow master
+	
 	*/
 
 	if(goToMaster)
@@ -724,7 +724,7 @@ messageHandler findRandomMassiffPetActivity()
 		playClientEffectObj(self, petSound, self, "");
 	}
 	
-	//
+	
 	obj_id owner = getOwner(self);
 	if(isGod(owner))
 		messageTo(self, "findRandomMassiffPetActivity", null, 20, false);
@@ -761,7 +761,7 @@ messageHandler layNunaEggs()
 	{
 		int rand = rand(1, 100);
 
-		//If in GOD MODE you get 100% Egg Laying!
+		// If in GOD MODE you get 100% Egg Laying!
 		if(isGod(owner))
 		{
 			blog("LAYNUNAEGGS - Laying Eggs due to god mode!");
@@ -793,7 +793,7 @@ messageHandler layNunaEggs()
 			obj_id poodoo = static_item.createNewItemFunction(house_pet.MASSIFF_POO_STATIC_ITEM, getContainedBy(self), poopLocation);
 			if(isValidId(poodoo) && exists(poodoo))
 			{
-				//make sure the owner is the owner
+				// Make sure the owner is the owner
 				setOwner(poodoo, owner);
 								
 				if(!hasObjVar(self, house_pet.MASSIFF_EGG_COUNT))
@@ -845,7 +845,7 @@ messageHandler handleSetPetName()
 	}
 
 	string petName = sui.getInputBoxText(params);	
-	//No zero length or obscene names.
+	// No zero length or obscene names.
 	if(petName == null || petName.length() <= 0 || isNameReserved(petName) || petName.indexOf(" ") > -1)
 	{
 		// Ask them about the name.
@@ -861,7 +861,7 @@ messageHandler handleSetPetName()
 	setName(self, petName);
 	setObjVar(controller, house_pet.PET_NAME, petName);
 	
-	//CHANGE THIS TO SID
+	// Change this to SID
 	sendSystemMessage(player, SID_PET_RENAMED);
 	return SCRIPT_CONTINUE;
 }
@@ -1015,7 +1015,7 @@ boolean updateMassiffPet(obj_id pet)
 	if(!isValidId(controller) || !exists(controller))
 		return false;
 
-	//if the controller has no phase, default the pet to hungry
+	// If the controller has no phase, default the pet to hungry
 	if(!hasObjVar(controller, house_pet.MASSIFF_CURRENT_PHASE))
 		setObjVar(controller, house_pet.MASSIFF_CURRENT_PHASE, house_pet.MASSIFF_HUNGRY);	
 
@@ -1044,7 +1044,7 @@ boolean updateMassiffPet(obj_id pet)
 		
 	int lastFed = getIntObjVar(controller, house_pet.MASSIFF_LAST_FED);
 
-	//Has it been a week since the Massif has been fed??
+	// Has it been a week since the Massif has been fed?
 	if(currentGameTime < (lastFed + updateWeek))
 	{
 		CustomerServiceLog("tcg","Massif Pet: "+pet+" has received an update before the request too soon. Bailing out.");	
@@ -1109,7 +1109,7 @@ boolean updateMassiffPet(obj_id pet)
 
 			initiateMassiffAction(pet, owner, house_pet.BAD);
 			
-			//particle effect - Nuna Vs. Massif
+			// Particle effect - Nuna Vs. Massif
 			string petType = getTemplateName(pet);
 			if(petType.indexOf("massif") > -1)
 				playClientEffectObj(pet, house_pet.MASSIFF_HUNGRY_EMOTE, pet, "");
@@ -1127,7 +1127,7 @@ boolean updateMassiffPet(obj_id pet)
 
 boolean canSeeOwner(obj_id owner, obj_id pet)
 {
-	if(!isValidId(owner) || !exists(owner))//if owner logged out, this fails
+	if(!isValidId(owner) || !exists(owner))// If owner logged out, this fails
 		return false;
 	if(!isValidId(pet) || !exists(pet))
 		return false;
@@ -1187,7 +1187,7 @@ messageHandler startWhining()
 
 	initiateMassiffAction(self, owner, house_pet.BAD, false);
 	
-	//particle effect - Nuna Vs. Massif
+	// Particle effect - Nuna Vs. Massif
 	string petType = getTemplateName(self);
 	if(petType.indexOf("massif") > -1)
 		playClientEffectObj(self, house_pet.MASSIFF_HUNGRY_EMOTE, self, "");
@@ -1409,16 +1409,16 @@ void scurrierPetEatingSurprise(obj_id controller, obj_id creature)
 	if(isGod(getOwner(controller)))
 		rollChance = 100;
 		
-	//40% chance to get an item.
+	// 40% chance to get an item.
 	if(rollChance > 60)
 	{
 		location feedDishLoc = getLocation(controller);
-		//raise it out of the dish a bit.
+		// Raise it out of the dish a bit.
 		feedDishLoc.y = feedDishLoc.y + 0.05f;
 
 		int rollItem = rand(1, 4);
 		obj_id spawnedItem = obj_id.NULL_ID;
-		//give them the item
+		// Give them the item
 		switch(rollItem)
 		{
 			case 1:
@@ -1434,14 +1434,14 @@ void scurrierPetEatingSurprise(obj_id controller, obj_id creature)
 				spawnedItem = static_item.createNewItemFunction(house_pet.SCURRIER_ITEM_04, getContainedBy(controller), feedDishLoc);
 				break;
 			default:
-				CustomerServiceLog("tcg","Scurrier Pet("+creature+") failed to spawn a junk combine item. Controller("+controller+") - please contact SWG Design should this trend continue.");	
+				CustomerServiceLog("tcg","Scurrier Pet("+creature+") failed to spawn a junk combine item. Controller("+controller+") - please contact a developer should this trend continue.");	
 				break;
 		}
 
-		//validate the item got created
+		// Validate the item got created
 		if(!isValidId(spawnedItem) || !exists(spawnedItem))
 		{
-			CustomerServiceLog("tcg","Scurrier Pet("+creature+") failed to spawn a junk combine item. Controller("+controller+") - please contact SWG Design should this trend continue.");	
+			CustomerServiceLog("tcg","Scurrier Pet("+creature+") failed to spawn a junk combine item. Controller("+controller+") - please contact a developer should this trend continue.");	
 		}
 		else
 		{

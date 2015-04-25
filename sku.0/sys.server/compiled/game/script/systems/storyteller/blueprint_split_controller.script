@@ -42,7 +42,7 @@ messageHandler handleSplitBlueprintItemCreation()
 		obj_id blueprintObject = storyteller.createBlueprintObject(objectData, self, player, targetLoc, targetYaw);
 	}
 	
-	// if splitting creation, save blueprint data on the initial object
+	// If splitting creation, save blueprint data on the initial object
 	// which will act as the control object for creation of the rest of the objects
 	if ( splitItemCreation )
 	{

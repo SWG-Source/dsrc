@@ -1,8 +1,8 @@
-/* -----------------4/15/2002 11:04AM----------------
+/* ------------------------------------------------
  * This is the base script which all POI content scripts
  * must inherit.
  * --------------------------------------------------*/
-/* -----------------4/15/2002 10:57AM----------------
+/* ------------------------------------------------
  * Each POI template must specify the following objvar:
  *
  * poi.script 		- the name of the content script.
@@ -64,7 +64,7 @@ const string POI_OBJECTIVE 								= "poi.objective";
 //scripts:
 const string POI_OBJECT_SCRIPT 							= "theme_park.poi.poi_object";
 
-/* -----------------4/15/2002 2:38PM-----------------
+/* --------------------------------------------------
  * Use this function to create POI elements:
  * --------------------------------------------------*/
 obj_id createObject( obj_id poiObject, string template, float x, float z )
@@ -322,7 +322,7 @@ string findObjectName()
 	return findObjectName( poiObject );
 }
 
-/* -----------------4/15/2002 6:16PM-----------------
+/* --------------------------------------------------
  * Use this function to cause the object to emit a message to the main POI
  * script when the object is destroyed
  * --------------------------------------------------*/
@@ -380,7 +380,7 @@ void setDestroyMessage( string messageHandlerName )
 	setDestroyMessage( poiObject, messageHandlerName, 0 );
 }
 
-/* -----------------4/15/2002 7:00PM-----------------
+/* --------------------------------------------------
  * These functions are used to Grant, Remove and Deny credit for poi completion:
  * --------------------------------------------------*/
 void grantCredit( obj_id poiObject, obj_id player )
@@ -501,7 +501,7 @@ boolean isDeniedCredit( obj_id poiBaseObject, string objVarName )
 	return false;
 }
 
-/* -----------------4/15/2002 5:01PM-----------------
+/* --------------------------------------------------
  * These functions are used internally to maintain a string index of POI elements
  * --------------------------------------------------*/
 void addToStringList( obj_id element, string name )
@@ -566,7 +566,7 @@ void removeFromStringList( string name )
 	removeFromStringList( poiObject, name );
 }
 
-/* -----------------4/15/2002 5:00PM-----------------
+/* --------------------------------------------------
  * These functions are used internally to maintain a list of POI elements
  * --------------------------------------------------*/
 void addToMasterList( obj_id poiBaseObject, obj_id elementToAdd )
@@ -623,7 +623,7 @@ boolean isInPersistedList( obj_id poiBaseObject, obj_id element )
 	//return ( hasObjVar( poiBaseObject, indexName ) );
 }
 
-/* -----------------4/15/2002 2:40PM-----------------
+/* --------------------------------------------------
  * This function is mostly used internally to find the poi
  * base object
  * --------------------------------------------------*/
@@ -644,7 +644,7 @@ obj_id getBaseObject()
 	return getBaseObject( poiObject );
 }
 
-/* -----------------4/15/2002 2:40PM-----------------
+/* --------------------------------------------------
  * This function is used internally.  It is called when the
  * base object is destroyed
  * --------------------------------------------------*/
@@ -679,7 +679,7 @@ void baseObjectDestroyed( obj_id poiBaseObject )
 	*/
 }
 
-/* -----------------4/15/2002 2:41PM-----------------
+/* --------------------------------------------------
  * This function is used internally when a POI element is destroyed
  * --------------------------------------------------*/
 void objectDestroyed( obj_id element )
@@ -705,7 +705,7 @@ void objectDestroyed( obj_id element )
 
 }
 
-/* -----------------4/15/2002 7:22PM-----------------
+/* --------------------------------------------------
  * These functions are used to retrieve data from
  * objvars placed on the main POI object from template:
  * --------------------------------------------------*/
@@ -807,7 +807,7 @@ string getObjective()
 	return getObjective( poiObject );
 }
 
-/* -----------------4/15/2002 8:23PM-----------------
+/* --------------------------------------------------
  * These functions can be used to override the faction-info:
  * --------------------------------------------------*/
 void setFaction( obj_id poiObject, string faction )
@@ -840,7 +840,7 @@ void setFactionValue( float factionValue )
 	setFactionValue( poiObject, factionValue );
 }
 
-/* -----------------4/15/2002 7:32PM-----------------
+/* --------------------------------------------------
  * This function flags a POI as "complete", cleans it up, and credits the winners.
  * --------------------------------------------------*/
 void complete( obj_id poiObject, int status )
@@ -946,7 +946,7 @@ void sendMissionStatus( obj_id poiBaseObject, int status )
 			break;
 	}
 }
-/* -----------------4/16/2002 4:02PM-----------------
+/* --------------------------------------------------
  * Never call this function directly.  It's invoked by the poi_object
  * script when the base object is removed from the world.
  *
@@ -1047,7 +1047,7 @@ boolean isComplete()
 	return isComplete( poiObject );
 }
 
-/* -----------------12/27/2002 6:51PM-----------------
+/* --------------------------------------------------
  * Brandon's useful utilities.
  * --------------------------------------------------*/
 

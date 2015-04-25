@@ -128,14 +128,13 @@ messageHandler handleGiveWaypoint()
 
 	obj_id waypoint = createWaypointInDatapad(self, waypointLoc);
 
-	setName(waypoint, "Asteroids R H33r!");
+	setName(waypoint, "Asteroids are here");
 
 	return SCRIPT_CONTINUE;
 }
 
 void launch(obj_id player, obj_id ship, obj_id[] membersApprovedByShipOwner, location warpLocation, location groundLoc)
 {
-	//sendSystemMessageTestingOnly(player, "(unlocalized) Launching...");
 	space_transition.clearOvertStatus(ship);
 	resizeable obj_id[] groupMembersToWarp = utils.addElement(null, player);
 	resizeable int[] groupMemberStartIndex = utils.addElement(null, 0);
@@ -187,7 +186,6 @@ void launch(obj_id player, obj_id ship, obj_id[] membersApprovedByShipOwner, loc
 			null,
 			warpLocation.x, warpLocation.y, warpLocation.z);
 	}
-	//sendSystemMessageTestingOnly(player, "(unlocalized) Finishing launch sequence...");
 }
 
 int getNextStartIndex(resizeable location[] shipStartLocations, int lastStartIndex)

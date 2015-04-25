@@ -1,11 +1,5 @@
-/**
- * Copyright (c) ©2003 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        city_hall.script
+/* Title:        city_hall.script
  * Description:  city hall
- * @author       $Author:Brandon Reinhart$
- * @version      $Revision: #1 $
  */
 
 //------------------------------------------------
@@ -41,14 +35,10 @@ const string_id		CITY_MAINT_BODY				= new string_id( "city/city", "city_maint_bo
 const string_id		BUSTED_CIVIC_CAP_SUBJECT		= new string_id( "city/city", "busted_civic_cap_subject" );
 const string_id		BUSTED_CIVIC_CAP_BODY			= new string_id( "city/city", "busted_civic_cap_body" );
 
-//Safe House Citizen Stuffs
+//Safe House Citizen Stuff
 const string_id		CITIZEN_OVERAGE_WARNING_SUBJECT 	= new string_id("city/city", "safe_citizen_overage_subject");
 const string_id		CITIZEN_OVERAGE_WARNING_BODY 		= new string_id("city/city", "safe_citizen_overage_body");
 const int 		SAFE_HOUSE_GRACE_PERIOD			= 60*60*24*4; //4 days
-
-//------------------------------------------------
-// Methods
-//------------------------------------------------
 
 //------------------------------------------------
 // OnAttach

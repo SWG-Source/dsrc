@@ -1,14 +1,3 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        <title>
- * Description:  <description>
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
-
-
 /***** INCLUDES ********************************************************/
 include library.utils;
 include library.prose;
@@ -101,7 +90,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			fullSchematicConversion(speaker);
 		else
 			bootSchematicConversion(speaker);
-		chat.chat(self, SID_CONVERSION);
+		chat.chat(self, speaker, SID_CONVERSION);
 		npcEndConversation(speaker);
 		return SCRIPT_CONTINUE;		
 	}
@@ -111,7 +100,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	{
 		/*case -1:
 			string_id message = new string_id("quest_armorsmith", "no_skill");
-			chat.chat (self, message);
+			chat.chat (self, speaker, message);
 			break;*/
 		case 0:
 			// The armorsmith has yet to start the quest.
@@ -182,7 +171,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		default:
 			// Player is not eligable for the quest. Must be a master armorsmith.
 			//npcSpeak
-			chat.chat(self, SID_GREETING);
+			chat.chat(self, speaker, SID_GREETING);
 			npcEndConversation(speaker);
 			break;
 	}
@@ -376,19 +365,19 @@ trigger OnNpcConversationResponse (string convoName, obj_id speaker, string_id r
 /***** MESSAGEHANDLERS *************************************************/
 messageHandler armorsmithQuestPayment()
 {
+	obj_id player = params.getObjId("player");
 	// Check to see if the payment was sucessful
 	if (params.containsKey(money.DICT_CODE))
 	{
 		int return_code = params.getInt(money.DICT_CODE);
 		if (return_code == money.RET_FAIL)
 		{
-			chat.chat(self, SID_NOT_ENOUGH_MONEY);
+			chat.chat(self, player, SID_NOT_ENOUGH_MONEY);
 			return SCRIPT_CONTINUE;
 		}
 	}
 	
 	// On a successful payment, start the quest
-	obj_id player = params.getObjId("player");
 	LOG("LOG_CHANNEL", "player ->" + player);
 	if (!isIdValid(player))
 	{
@@ -408,8 +397,6 @@ messageHandler armorsmithQuestPayment()
 	
 	return SCRIPT_CONTINUE;
 }
-
-/***** COMMANDHANDLERS *************************************************/
 
 
 /***** FUNCTIONS *******************************************************/

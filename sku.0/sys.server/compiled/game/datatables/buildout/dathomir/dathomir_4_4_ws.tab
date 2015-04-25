@@ -1,7 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 1392854	0	object/building/military/outpost_cloning_facility_s02.iff	0	1985.04	18	415.889	0.900447	0	-0.434966	0	structure.municipal.cloning_facility:structure.municipal.cloning_base	healing.canhealshock|0|1|$|
-1725383	0	object/building/military/outpost_shed_s05.iff	0	1961.05	18	409.74	0.943519	0	0.331317	0		$|
+1725383	0	object/building/military/outpost_shed_s05.iff	0	1961.05	18	409.74	0.943519	0	0.331317	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_commoner.iff|$|
 2835549	0	object/building/corellia/ply_corl_house_s_s02_fp1.iff	0	1995.1	18	428.361	0.900447	0	-0.434965	0		$|
 2835560	0	object/building/military/outpost_starport.iff	0	1972.01	18	462.004	-0.329145	0	0.944279	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Science Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 2835569	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1932.92	18	473.874	0.435682	0	0.900101	0	planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_science_outpost_spawns.iff|healing.canhealshock|0|1|safeLogout|0|1|$|

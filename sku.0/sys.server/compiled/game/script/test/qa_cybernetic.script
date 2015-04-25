@@ -1,11 +1,6 @@
 //************************************************************/
-// Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:        qacybernetic.script
 // Description:  Testers will be able to install/uninstall/repair cybernetic limbs without having to find the correct NPCs.
-// @author       $Author: James Michener $
-// @version      $1.0.0$
 //************************************************************/
 
 /********* Includes ******************************************/

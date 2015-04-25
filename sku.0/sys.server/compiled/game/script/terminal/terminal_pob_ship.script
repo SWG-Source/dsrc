@@ -1,10 +1,4 @@
-// ======================================================================
-//
 // terminal.terminal_pob_ship
-//
-// Copyright 2004 Sony Online Entertainment
-//
-// ======================================================================
 
 include library.player_structure;
 include library.prose;
@@ -12,7 +6,7 @@ include library.space_transition;
 include library.sui;
 include library.utils;
 
-// ======================================================================
+// Constants
 
 const string_id SID_TERMINAL_PERMISSIONS = new string_id("player_structure", "permissions");
 const string_id SID_MOVE_FIRST_ITEM      = new string_id("player_structure", "move_first_item");
@@ -28,7 +22,9 @@ const string_id SID_TERMINAL_REDEED_STORAGE 					= new string_id("player_structu
 const string_id SID_STORAGE_INCREASE_REDEED_TITLE				= new string_id("player_structure", "sui_storage_redeed_title");
 const string_id SID_STORAGE_INCREASE_REDEED_PROMPT				= new string_id("player_structure", "sui_storage_redeed_prompt");
 
-// ======================================================================
+// Triggers
+
+// ----------------------------------------------------------------------
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 {
@@ -129,6 +125,9 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	return SCRIPT_CONTINUE;
 }
 
+//MessageHandlers
+// ----------------------------------------------------------------------
+
 messageHandler handleStorageRedeedChoice()
 {
 	obj_id player = sui.getPlayerId(params);
@@ -165,7 +164,8 @@ messageHandler handleStorageRedeedChoice()
 
 	return SCRIPT_CONTINUE;
 }
-// ======================================================================
+
+// ----------------------------------------------------------------------
 
 messageHandler handleMoveFirstItem()
 {
@@ -224,7 +224,7 @@ messageHandler handleDeleteItems()
 	return SCRIPT_CONTINUE;
 }
 
-// ======================================================================
+// ----------------------------------------------------------------------
 
 /***** ITEM SEARCH HANDLERS ********************************************/
 

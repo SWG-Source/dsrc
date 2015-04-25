@@ -1,12 +1,7 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems/veteran_reward/emote_group.script
- * Description:  Lets a player modify a harvester to use 0 power. The player selects the harvester they
- *               want to change, and then use this item to change its power rate to 0.
- * @author       $Author:$
- * @version      $Revision:$
+/*
+  Title:        systems/veteran_reward/emote_group.script
+  Description:  Lets a player modify a harvester to use 0 power. The player selects the harvester they
+                want to change, and then use this item to change its power rate to 0.
  */
 
 include library.player_structure;
@@ -52,9 +47,9 @@ trigger OnInitialize()
 	return SCRIPT_CONTINUE;
 }
 
-/**
- * If the player is looking at a harvester they own, add a menu item that will allow them
- * to modify the harvester.
+/*
+ If the player is looking at a harvester they own, add a menu item that will allow them
+ to modify the harvester.
  */
 trigger OnObjectMenuRequest(obj_id player, menu_info item)
 {
@@ -186,16 +181,16 @@ messageHandler handleChooseResourceType()
 				// display a SUI that shows resource stats
 				showResourceStats(sui.getPlayerId(params), resourceTypes[rowSelected] );
 			
-//				obj_id player = sui.getPlayerId(params);
-//				obj_id crate = createResourceCrate(resourceTypes[rowSelected], RESOURCE_AMOUNT, utils.getInventoryContainer(player));
-//				if ( isIdValid(crate) )
-//				{
-//					setObjVar(self, OBJVAR_RESOURCE_REWARDED, true);
-//					messageTo(self, "handleVeteranHarvestDestroy", null, 1, false);
-//					CustomerServiceLog("veteran", "Giving player %TU " + RESOURCE_AMOUNT + " of resource type " +
-//						resourceTypes[rowSelected], player);
-//				}
-//				cleanup();
+/*				obj_id player = sui.getPlayerId(params);
+				obj_id crate = createResourceCrate(resourceTypes[rowSelected], RESOURCE_AMOUNT, utils.getInventoryContainer(player));
+				if ( isIdValid(crate) )
+				{
+					setObjVar(self, OBJVAR_RESOURCE_REWARDED, true);
+					messageTo(self, "handleVeteranHarvestDestroy", null, 1, false);
+					CustomerServiceLog("veteran", "Giving player %TU " + RESOURCE_AMOUNT + " of resource type " +
+						resourceTypes[rowSelected], player);
+				}
+*/				cleanup();
 			}
 			else
 			{
@@ -435,17 +430,14 @@ void showResourceStats(obj_id player, obj_id resource)
 }
 
 
-/**
- * insert witty comment here
- */
 void chooseResourceClass(obj_id player, String parentClass)
 {
 	chooseResourceClass(player, parentClass, false);
 }
 
 
-/**
- * Shows a list of resource classes or types to the player, and lets them choose which one they want.
+/*
+  Shows a list of resource classes or types to the player, and lets them choose which one they want.
  */
 void chooseResourceClass(obj_id player, String parentClass, boolean topLevel)
 {
@@ -526,8 +518,8 @@ void chooseResourceClass(obj_id player, String parentClass, boolean topLevel)
 		cleanup();
 }
 
-/**
- * Shows a list of types to the player, and lets them choose which one they want.
+/*
+  Shows a list of types to the player, and lets them choose which one they want.
  */
 void chooseResourceType(obj_id player, String parentClass)
 {
@@ -567,8 +559,8 @@ void chooseResourceType(obj_id player, String parentClass)
 	}
 }
 
-/**
- * Remove the scriptvars we use for the reward.
+/*
+  Remove the scriptvars we use for the reward.
  */
 void cleanup()
 {
@@ -584,7 +576,7 @@ string [] filterTopLevelResourceList(String parentClass)
 {
 	String[] resourceClasses = null;
 	
-	//OMG SYNTAX NIGHTMARE!!
+	//Syntax Nightmare..
 	String [] tempResourceClass = getImmediateResourceChildClasses(parentClass);
 	Vector tempResourceClassTwo = null;
 

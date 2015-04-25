@@ -43,7 +43,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		{
 			sendSystemMessageTestingOnly(speaker, "Error 1, Mission list is null");
 		}	
-		doIncorrectPlayerBlurb(self);
+		doIncorrectPlayerBlurb(self, speaker);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -105,7 +105,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				sendSystemMessageTestingOnly(speaker, "Distance is "+dist+" and erroring out");
 			}	
 		
-			doIncorrectPlayerBlurb(self);
+			doIncorrectPlayerBlurb(self, speaker);
 			return SCRIPT_CONTINUE;
 		}
 		missionInfo = onlyMission;
@@ -173,7 +173,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				sendSystemMessageTestingOnly(speaker, "rightSpot is false after our loop, erroring out");
 			}	
 
-			doIncorrectPlayerBlurb (self);
+			doIncorrectPlayerBlurb (self, speaker);
 			return SCRIPT_CONTINUE;
 		}
 
@@ -212,7 +212,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		{
 
 			setObjVar(objMissionData, "strIdFileName", strIdFileName);
-			chat.chat(self, strConvo);
+			chat.chat(self, speaker, strConvo);
 
 			dictionary dctParams = new dictionary();
 			messageTo(missionInfo, "pickup_event", dctParams, 0, true);
@@ -227,7 +227,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				setObjVar(objMissionData, "strIdFileName", strIdFileName);
 
 				string strSpeakString = getString(strConvo);
-				chat.chat(self, strSpeakString);
+				chat.chat(self, speaker, strConvo);
 
 				dictionary dctParams = new dictionary();
 				sendCraftingSuccess(missionInfo);
@@ -236,14 +236,14 @@ trigger OnStartNpcConversation (obj_id speaker)
 			else
 			{
 				string_id strSpam = new string_id("mission/mission_generic", "wrong_item");
-				chat.chat(self, strSpam);
+				chat.chat(self, speaker, strSpam);
 				return SCRIPT_CONTINUE;
 			}
 		}
 		else
 		{
 			string_id message = new string_id ("mission/mission_generic", "crafting_already_dropped_off"); //
-			chat.chat(self, message);
+			chat.chat(self, speaker, message);
 			doAnimationAction(self, anims.PLAYER_WAVE_ON_DISMISSING);
 		}
 	}
@@ -258,7 +258,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			string strIdFileName = getStringObjVar(objMissionData, "strIdFileName");
 			string_id strConvo = new string_id(strIdFileName, "m"+intStringId+"p");
 			setObjVar(objMissionData, "strIdFileName", strIdFileName);
-			chat.chat(self, strConvo);
+			chat.chat(self, speaker, strConvo);
 
 			string_id strTitleId = new string_id("mission/mission_generic", "deliver_received_data");
 			string_id strMissionTitleId = new string_id(strIdFileName, "m"+intStringId+"t"); // mission name id
@@ -305,7 +305,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			string_id strConvo = new string_id(strIdFileName, "m"+intStringId+"p");
 			setObjVar(missionInfoData, "strIdFileName", strIdFileName);
 			string strSpeakString = getString(strConvo);
-			chat.chat(self, strSpeakString);
+			chat.chat(self, speaker, strConvo);
 			string_id strSpam = new string_id("mission/mission_generic", "crafting_components_received");
 			sendSystemMessage(speaker, strSpam);
 			dictionary dctParams = new dictionary();
@@ -318,7 +318,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	else
 	{
 		string_id message = new string_id ("mission/mission_generic", "deliver_already_dropped_off"); //
-		chat.chat(self, message);
+		chat.chat(self, speaker, message);
 		doAnimationAction(self, anims.PLAYER_WAVE_ON_DISMISSING);
 		return SCRIPT_CONTINUE;
 	}

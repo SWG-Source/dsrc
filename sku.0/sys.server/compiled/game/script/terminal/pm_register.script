@@ -1,6 +1,3 @@
-
-/***** INCLUDES ********************************************************/
-
 /***** INHERITS ********************************************************/
 
 inherits terminal.base.base_terminal;
@@ -32,9 +29,3 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 **I'm leaving this script attached in case we determine a future purpose for these terminals**/
 
-
-/***** FUNCTIONS *******************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/
-/***** BIND/CLONE HANDLERS *************************************************/

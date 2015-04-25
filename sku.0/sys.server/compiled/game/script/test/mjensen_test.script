@@ -29,7 +29,6 @@ include library.ship_ai;
 trigger OnSpeaking(string text)
 {
 
-	debugConsoleMsg(self, text);
 	java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 
 	//pInv = players inventory

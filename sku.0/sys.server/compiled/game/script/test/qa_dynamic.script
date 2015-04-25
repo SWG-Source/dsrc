@@ -1,11 +1,6 @@
 //************************************************************/
-// Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:        qa_dynamic.script
 // Description:  Dynamic Loot Tool
-// @author       $Author: James Michener $
-// @version      $1.0.2$
 //************************************************************/
 
 /********* Includes ******************************************/

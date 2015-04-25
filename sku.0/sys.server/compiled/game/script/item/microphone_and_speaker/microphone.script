@@ -1,11 +1,7 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        mircophone.script
  * Description:  script to project what a player speaks to speaker objects
- * @author       $Author: Matthew Kwid$
- * @version      $Revision:$
+
  */
 
 /***** INCLUDES ********************************************************/

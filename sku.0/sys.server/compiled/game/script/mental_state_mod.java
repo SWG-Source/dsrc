@@ -1,10 +1,6 @@
-/**
- * Title:        mental_state_mod
- * Description:  Wrapper for a mental state modification.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Acy Stapp
- * @version 1.0
+/*
+ Title:        mental_state_mod
+ Description:  Wrapper for a mental state modification.
  */
 
 package script;

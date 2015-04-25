@@ -1,12 +1,4 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_new_weapon_core.script
- * Description:  base script for crafting new weapon cores
- * @author       $Author: $
- * @version      $Revision: 0$
- */
+
 
 /**
  * Include Libraries
@@ -34,7 +26,7 @@ void calcAndSetPrototypeProperties ( obj_id prototype, draft_schematic.attribute
   	super.calcAndSetPrototypeProperties ( prototype, itemAttributes, craftingValuesDictionary );
 }
 
-/* -----------------3/4/2002 1:48PM------------------
+/* -----------------------------------
  * Function calcAndSetPrototypeProperties
  *
  * This function reads in the final item attributes that are about to be written into the manufacturing schematic, looks up modifications to these attributes

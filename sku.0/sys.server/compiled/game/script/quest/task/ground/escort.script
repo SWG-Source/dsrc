@@ -62,7 +62,7 @@ trigger OnTaskActivated(int questCrc, int taskId)
 	distanceCheckParams.put("taskId", taskId);
 	messageTo(self, "messageEscortCheckDistance", distanceCheckParams, escortDistanceTimeCheck, false);
 
-	return SCRIPT_CONTINUE;
+	return super.OnTaskActivated(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -205,7 +205,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 	ai_lib.aiStopFollowing(escort);
 
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCompleted(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -221,7 +221,7 @@ trigger OnTaskFailed(int questCrc, int taskId)
 	ai_lib.aiStopFollowing(escort);
 	
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskFailed(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------
@@ -237,7 +237,7 @@ trigger OnTaskCleared(int questCrc, int taskId)
 	ai_lib.aiStopFollowing(escort);
 
 	cleanup(self, questCrc, taskId);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCleared(self, questCrc, taskId);
 }
 
 // ---------------------------------------------------------------------

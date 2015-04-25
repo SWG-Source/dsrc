@@ -1,8 +1,6 @@
-/**
- * test.script
+/*
+ test.script
  */
-//include steve.mylib;
-//include libs.stevelibs.mylib;
 
 trigger OnHearSpeech(obj_id speaker, string text)
 {

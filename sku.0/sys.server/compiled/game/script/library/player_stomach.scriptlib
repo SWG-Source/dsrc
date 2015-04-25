@@ -1,14 +1,5 @@
 /********************************************************************************************
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- ********************************************************************************************
  * Title:        player_stomachs.scriptlib
- * Description:
- *
- *
- * @author       $Author: Matthew Kwid$
- * @version      $Revision: $
- *
  ********************************************************************************************/
 
 const int STOMACH_FOOD          	= 0;

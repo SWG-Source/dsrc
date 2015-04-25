@@ -1,10 +1,6 @@
-/**
- * Title:        script_class_loader
- * Description:  Responsible for loading script classes.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        script_class_loader
+ Description:  Responsible for loading script classes.
  */
 
 package script;

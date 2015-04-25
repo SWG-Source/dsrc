@@ -1,7 +1,7 @@
 include library.create;
 include library.locations;
 
-trigger OnInitialize()
+trigger OnAttach()
 {
 	string empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
 	if ( empiredayRunning != null )

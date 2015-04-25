@@ -1,10 +1,6 @@
-/**
- * Title:        dictionary
- * Description:  Wrapper for java.util.Hashtable, with extra functionality.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        dictionary
+ Description:  Wrapper for java.util.Hashtable, with extra functionality.
  */
 
 package script;

@@ -14,10 +14,6 @@ include library.xp;
 
 inherits systems.turret.generic_turret_ai;
 
-/***** CONSTANTS *******************************************************/
-
-/***** TRIGGERS ********************************************************/
-
 /***** FUNCTIONS *******************************************************/
 
 float doAttack(obj_id target)
@@ -27,7 +23,7 @@ float doAttack(obj_id target)
 
 	if ( !isIdValid(self) || !isIdValid(target) )
 	{
-		//LOG("turret","doAttack(target): invalid params!!");
+		//LOG("turret","doAttack(target): invalid params!");
 		return -1.0f;
 	}
 
@@ -86,7 +82,7 @@ float doAttack(obj_id target)
 	obj_id[] objDefenders = new obj_id[1];
 	objDefenders[0] = target;
 
-	defender_data[] cbtDefenderData = new defender_data[objDefenders.length]; // ALWAYS AN ARRAY DO NOT EVER CHANGE DO NOT NEVER!
+	defender_data[] cbtDefenderData = new defender_data[objDefenders.length]; // Always an array.  Do not change.
 	if (!getCombatData(self, objDefenders, cbtAttackerData, cbtDefenderData, cbtWeaponData))
 	{
 		return -1.0f;

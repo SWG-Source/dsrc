@@ -1,11 +1,9 @@
 /**
- * Copyright (C)2004 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        systems.fs_quest.fs_phase3_cc_cleanup.script
  * Description:  Ends the phase 3 community crafting quest at the beginning of phase 4 for the force-sensitive village.
- * @author       $Author: Steve Jakab $
- * @version      $Revision: #1 $
+
  */
 
 /***** INCLUDES ********************************************************/

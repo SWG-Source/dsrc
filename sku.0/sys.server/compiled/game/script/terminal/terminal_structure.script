@@ -1,12 +1,6 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        terminal_structure.script
+/* Title:        terminal_structure.script
  * Description:  script for player structure terminal mangement
- * @author       $Author:$
- * @version      $Revision:$
- ***********************************************************************/
+*/
 
 /***** INCLUDES ********************************************************/
 
@@ -958,11 +952,8 @@ messageHandler handlePlayerStructureSearchItemsSelectedResponse()
 	return SCRIPT_CONTINUE;
 }
 
-
-/***** COMMANDHANDLERS *************************************************/
-
-
 /***** FUNCTIONS *************************************************/
+
 boolean getSpecialSignManagementMenu(obj_id player, obj_id structure)
 {
 	blog("terminal_structure.getSpecialSignManagementMenu: init");

@@ -1,13 +1,7 @@
-//-----------------------------------------------------------------
-//
 //-------------------------SAFE PUZZLE-----------------------------
-//
 //Player must unscramble the scrambled passphrase or make words using
 //3 or 4 letter words out of the scrambled passphrase.
-//
 //-----------------------------------------------------------------
-//-Jeff Haskell 2008
-
 include library.buff;
 include library.collection;
 include library.consumable;

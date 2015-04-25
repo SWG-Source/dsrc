@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        player_dot
  * Description:  Script is attached to a target that has a dot effect
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

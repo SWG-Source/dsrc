@@ -1,12 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
+
  * Title:        hospital_heal
  * Description:  allows the slow healing of wounds and shock for all within
  *		 the building.
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

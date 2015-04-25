@@ -54,7 +54,7 @@ void playEffect(obj_id self)
 			playClientEffectObj(playersInStory, effectName, self, "", null, "storyteller_persisted_effect");
 			setObjVar(self, storyteller.EFFECT_ACTIVE_OBJVAR, effectName);
 			createTriggerVolume("storytellerPersistedEffect_far", 100f, true);
-			//createTriggerVolume("storytellerPersistedEffect_close", 14f, true);
+			// createTriggerVolume("storytellerPersistedEffect_close", 14f, true);
 		}
 	}
 	

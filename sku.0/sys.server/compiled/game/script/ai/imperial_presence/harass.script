@@ -1,7 +1,7 @@
 //------------------------------------------------
 // harass
 //
-// 02/07/2005 - Changed to be conducted by neutral NPCs who serve the current ruling faction.
+// Changed to be conducted by neutral NPCs who serve the current ruling faction.
 //------------------------------------------------
 
 //------------------------------------------------
@@ -14,6 +14,7 @@ include library.gcw;
 include library.ai_lib;
 include ai.ai_combat;
 include library.attrib;
+include library.badge;
 include library.factions;
 include library.faction_perk;
 include library.anims;
@@ -161,7 +162,7 @@ trigger OnAttach()
 
 trigger OnTriggerVolumeEntered(string volName, obj_id who)
 {
-	if (isDead (self))
+	if (isDead (self) || isDead (who))
 		return SCRIPT_CONTINUE;
 
 	if (!isIdValid (who))
@@ -656,7 +657,7 @@ messageHandler handleScanComplete()
 			if(!isIdValid(self))
 				return SCRIPT_CONTINUE;
 
-		if ( isJediState( target, JEDI_STATE_FORCE_RANKED_LIGHT ) )
+		if ( badge.hasBadge (target, "bdg_jedi_elder") || badge.hasBadge (target, "new_prof_jedi_master") || getState(target, STATE_GLOWING_JEDI) != 0 )
 			{
 				chat.publicChat(target, self, new string_id(STF, "jedi_mind_trick"));
 				doAnimationAction(target, anims.PLAYER_FORCE_PERSUASION);
@@ -666,7 +667,7 @@ messageHandler handleScanComplete()
 				messageTo(self, "handleJediMindTrick", jedi, 5f, false);
 				return SCRIPT_CONTINUE;
 			}
-		else if ( isJediState( target, JEDI_STATE_FORCE_RANKED_DARK ) )
+		/*else if ( isJediState( target, JEDI_STATE_FORCE_RANKED_DARK ) )
 			{
 				chat.publicChat(target, self, new string_id(STF, "jedi_mind_trick_dark"));
 				doAnimationAction(target, anims.PLAYER_FORCE_PERSUASION);
@@ -676,6 +677,7 @@ messageHandler handleScanComplete()
 				messageTo(self, "handleJediMindTrickDark", jedi, 5f, false);
 				return SCRIPT_CONTINUE;
 			}
+		*/
 			else
 			{
 				chat.publicChat(target, self, new string_id(STF, "jedi_mind_trick_novice"));
@@ -783,12 +785,12 @@ messageHandler handleScanComplete()
 
 boolean isEnemyJedi( obj_id self, obj_id target )
 {
-	if ( !isJedi( target ) )
+	if ( !utils.isProfession(target, utils.FORCE_SENSITIVE) )
 		return false;
 
 	if ( "imperial" == getFactionName( self ) ) // Empire hates all Jedi.
 		return true;
-	else if ( isJediState( target, JEDI_STATE_FORCE_RANKED_DARK ) ) // Rebels hate dark Jedi.
+	else if ( utils.isProfession(target, utils.FORCE_SENSITIVE) && isInEnemyFaction(self, target) ) // Rebels hate dark Jedi.
 		return true;
 
 	return false;

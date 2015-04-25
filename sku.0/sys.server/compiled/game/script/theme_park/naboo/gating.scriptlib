@@ -1,6 +1,5 @@
 include library.quests;
 include library.factions;
-//include theme_park.naboo.gating;
 
 //naboo themepark quest constants:
 
@@ -88,8 +87,7 @@ boolean canTakeInfiltrationMission( obj_id player, string questId )
 	//temporary hack:  All quests available all time:
 	return true;
 
-	/* -----------------4/1/2002 1:26PM------------------
-	 * INSERT GATING LOGIC HERE!
+	/* INSERT GATING LOGIC HERE!
 	 * --------------------------------------------------*/
 
 	//debugServerConsoleMsg( player, "Error:  " + questId + " is not an infiltration quest!" );

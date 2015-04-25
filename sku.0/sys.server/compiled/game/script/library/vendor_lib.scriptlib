@@ -1,11 +1,5 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        vendor.scriptlib
- * Description:
- * @author       $Author:breinhart$
- * @version      $Revision:$
  */
 
 
@@ -548,7 +542,7 @@ boolean buildNpcInPlayerStructure(obj_id controller, obj_id owner, string npcTyp
 	if(where == null)
 		loc = getLocation(owner);
 	else 
-		loc = where;
+		loc = (location)where.clone();
 		
 	if(loc == null)
 	{

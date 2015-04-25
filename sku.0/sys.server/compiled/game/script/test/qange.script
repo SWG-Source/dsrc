@@ -1,17 +1,7 @@
 //**********************************************************
-// Copyright (c) ©2005, 2006 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:		qange.script
 // Version:		Version 1.0
-// Description:  	NGE TOOL.  Script allows a tester to simulate being a legacy profession and logging in for
-//			the first time.  Script also allows the tester to attain a respec inventory item and switch
-//			the respec level on that tool to any combat level.
-//
-// Version Changes:	- Added new script tool options
-//
-// @author       	$Author: Jeff Haskell
-// @version      	$All Revisions:
+// Description:  	NGE TOOL.
 //***********************************************************
 // ======================================================================
 // Library Includes

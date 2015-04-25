@@ -1,7 +1,6 @@
-/**
- * vcdping_test.script
- *
- * Assumes this script is attached to the vehicle.
+/*
+ vcdping_test.script
+ Assumes this script is attached to the vehicle.
  */
 
 //----------------------------------------------------------
@@ -13,7 +12,7 @@ include library.utils;
 
 trigger OnHearSpeech(obj_id objSpeaker, string strText)
 {
-	//-- Get the control device.
+	// Get the control device.
 	obj_id controlDevice = callable.getCallableCD(self);
 
 	if(!isIdValid(controlDevice))

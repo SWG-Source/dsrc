@@ -1,14 +1,3 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        <title>
- * Description:  <description>
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
-
-
 /***** INCLUDES ********************************************************/
 include library.ai_lib;
 include library.callable;
@@ -226,7 +215,3 @@ messageHandler msgAutoRepairPulse()
 	return SCRIPT_CONTINUE;
 }
 
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

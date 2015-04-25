@@ -1,8 +1,13 @@
+/***** INCLUDES ********************************************************/
+
 include library.cts;
 include library.utils;
 
+/***** CONSTANTS *******************************************************/
+
 const boolean BLOGGING_ON 	= true;
 const string BLOG_CATEGORY	= "CharacterTransfer";
+
 /***** TRIGGERS ********************************************************/
 
 //OnInitialize() is for clean up only. Hopefully the work

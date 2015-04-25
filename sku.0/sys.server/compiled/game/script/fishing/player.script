@@ -451,7 +451,7 @@ messageHandler handleReelIn()
 			/*LOG("fishing","handleReelIn: setting location scriptvar to " + updatedLoc.toString());
 			utils.setScriptVar(self, minigame.SCRIPTVAR_LOCATION, updatedLoc);*/
 
-			location markerLoc = updatedLoc;
+			location markerLoc = (location)updatedLoc.clone();
 			markerLoc.y = getWaterTableHeight(markerLoc);
 			
 			setLocation(marker, markerLoc);

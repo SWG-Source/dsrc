@@ -1,12 +1,4 @@
-/**
- * Copyright (c) ©2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_blaster_weapon.script
- * Description:  base crafting script used by blaster weapons
- * @author       $Author: wwallace (orig. script by RThornton)$
- * @version      $Revision: 0$
- */
+
 
 /**
  * Include Libraries

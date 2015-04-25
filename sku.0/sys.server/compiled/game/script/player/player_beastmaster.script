@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2007 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        player.player_beastmaster
  * Description:
- * @author
- * @version      $Revision: 0$
  */
 
 include library.ai_lib;
@@ -68,9 +63,11 @@ trigger OnDeath(obj_id killer, obj_id corpseId)
 
 	obj_id beast = beast_lib.getBeastOnPlayer(self);
 
-	blog("Player killed.  Killing beast: " + beast + " killer: " + killer);
+	obj_id bcd = beast_lib.getBeastBCD(beast);
 
-	beast_lib.killBeast(beast, killer);
+	blog("Player killed.  Packing beast: " + beast + " killer: " + killer);
+
+	beast_lib.playerDeathStoreBeast(bcd);
 
 	return SCRIPT_CONTINUE;
 }

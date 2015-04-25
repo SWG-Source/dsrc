@@ -1,11 +1,9 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        alarm_clock.script
  * Description:  Allows the player to set a messaged alarm at a given time interval.
- * @author       Ben Hanson
- * @version      $Revision:$
+
  */
 
 
@@ -217,7 +215,7 @@ commandHandler cmdInnate()
 			prose.setTO(ppValidInnate, msg);
 		}
 
-		sendSystemMessageProse(self, ppValidInnate);
+		//sendSystemMessageProse(self, ppValidInnate);
 
 		return SCRIPT_CONTINUE;
 	}
@@ -227,7 +225,7 @@ commandHandler cmdInnate()
 	{
 		prose_package ppNotValid = prose.getPackage(SID_NOT_VALID_PARAM_INNATE);
 		prose.setTO(ppNotValid, params);
-		sendSystemMessageProse(self, ppNotValid);
+		//sendSystemMessageProse(self, ppNotValid);
 		return SCRIPT_CONTINUE;
 	}
 	else
@@ -259,14 +257,14 @@ commandHandler cmdInnate()
 	}
 
 	prose_package pp = prose.getPackage(innate.PROSE_INNATE_NA, cmd);
-	sendSystemMessageProse(self, pp);
+	//sendSystemMessageProse(self, pp);
 
 	return SCRIPT_CONTINUE;
 }
 
 commandHandler cmdInnateFail()
 {
-	sendSystemMessage(self, SID_INNATE_ABILITY_FAILED);
+	//sendSystemMessage(self, SID_INNATE_ABILITY_FAILED);
 	return SCRIPT_CONTINUE;
 }
 

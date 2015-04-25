@@ -1,12 +1,10 @@
 /**********************************************************************
- * Copyright (c)2000-2006 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        npe_instance_travel_player
  * Description:  Attaches to a player that is currently in the npe
                  space station
- * @author       Vijay Thakkar
- * @version      1.0
+
  **********************************************************************/
 
 include library.utils;

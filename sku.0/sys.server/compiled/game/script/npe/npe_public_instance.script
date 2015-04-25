@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2005 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        npe
  * Description:  Library for npe functionality
- * @author       Vijay Thakkar
- * @version      1.0
+
  **********************************************************************/
 
 include library.npe;

@@ -1,4 +1,4 @@
-// generic turret that works against any valuid targets
+// generic turret that works against any valid targets
 
 include library.ai_lib;
 include library.attrib;
@@ -12,8 +12,6 @@ include library.utils;
 include library.xp;
 
 inherits systems.combat.combat_base_old;
-
-/***** CONSTANTS *******************************************************/
 
 /***** TRIGGERS ********************************************************/
 trigger OnAttach()
@@ -106,7 +104,7 @@ void setTurretAttributes(obj_id self)
 
 trigger OnRemovingFromWorld()
 {
-	// seems silly but this was throwing exceptions when being deleted sometimes
+	// this was throwing exceptions when being deleted sometimes
 	if(!isIdValid(self) || !exists(self))
 	{
 		return SCRIPT_CONTINUE;
@@ -539,7 +537,7 @@ float doAttack(obj_id target)
 	int intCounterAttackMod = 1000; //The larger number makes it more difficult to  counter
 
 	int intAttackerEndPosture = POSTURE_NONE;
-	int intDefenderEndPosture = POSTURE_NONE; // DON'T MIX THESE UP!
+	int intDefenderEndPosture = POSTURE_NONE; // Don't mix these two up
 
 	string strPlaybackAction = "fire_turret";
 
@@ -557,7 +555,7 @@ float doAttack(obj_id target)
 	obj_id[] objDefenders = new obj_id[1];
 	objDefenders[0] = target;
 
-	defender_data[] cbtDefenderData = new defender_data[objDefenders.length]; // ALWAYS AN ARRAY DO NOT EVER CHANGE DO NOT NEVER!
+	defender_data[] cbtDefenderData = new defender_data[objDefenders.length]; // Always an array.  Do not change.
 	if (!getCombatData(self, objDefenders, cbtAttackerData, cbtDefenderData, cbtWeaponData))
 	{
 		//LOG("Combat", "WARNING: turret_ai.doAttack call to getCombatData returned false");

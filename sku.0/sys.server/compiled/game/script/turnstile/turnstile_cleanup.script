@@ -1,20 +1,7 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        turnstile_cleanup.script
- * Description:  script for handling cleanup of expired turnstile information
- * @author       $Author:$
- * @version      $Revision:$
+/*
+ Title:        turnstile_cleanup.script
+ Description:  script for handling cleanup of expired turnstile information
  */
-
-
-/***********************************************************************
- * TO DO LIST:
- *
- *
- *
- ***********************************************************************/
 
 
 /***** INCLUDES ********************************************************/

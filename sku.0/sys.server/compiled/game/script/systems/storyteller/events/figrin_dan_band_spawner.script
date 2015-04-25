@@ -95,8 +95,8 @@ void spawnBithBand (obj_id self)
 		
 		float bandMemberYaw = webster.getFloat("yaw");
 		
-		location bandMemberLoc = tempLoc;
-		location omni_box_loc = tempLoc;
+		location bandMemberLoc = (location)tempLoc.clone();
+		location omni_box_loc = (location)tempLoc.clone();
 		if ( myYaw != 0 )
 		{
 			bandMemberLoc = storyteller.rotateLocationXZ(here, tempLoc, myYaw);
@@ -209,7 +209,7 @@ location rotateXZ(location locOrigin, location locPoint, float fltAngle)
 	float fltC = (float)Math.cos(fltRadians);
 	float fltS = (float) Math.sin(fltRadians);
 	
-	location locNewOffset = locOrigin;
+	location locNewOffset = (location)locOrigin.clone();
 
 	locNewOffset.x += (dx * fltC) + (dz * fltS);
 	locNewOffset.y = locPoint.y;

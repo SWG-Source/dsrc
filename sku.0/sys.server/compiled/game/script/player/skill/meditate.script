@@ -1,11 +1,9 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        meditate.script
  * Description:  meditate script for players using the meditate command
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 /***** INCLUDES ********************************************************/

@@ -76,63 +76,6 @@ trigger OnHearSpeech(obj_id speaker, string text)
 
 	obj_id inv = utils.getInventoryContainer(self);
 	
-	/*
-	if(text.startsWith("getms")) // Motion Sensor
-	{
-		stealth.createMotionSensorObject(inv, 1000);
-	}
-	
-	if(text.startsWith("getcf")) // Chaff Flare
-	{
-		stealth.createChaffFlareObject(inv, 1000);
-	}
-	
-	if(text.startsWith("gettt")) // Timer Trigger
-	{
-		stealth.createTriggerObject(inv, 1000, stealth.TRIGGER_TYPE_TIMER);
-	}
-	
-	if(text.startsWith("getrt")) // Remote Trigger
-	{
-		stealth.createTriggerObject(inv, 1000, stealth.TRIGGER_TYPE_REMOTE);
-	}	
-	
-	if(text.startsWith("getpt")) // Proximity Trigger
-	{
-		stealth.createTriggerObject(inv, 1000, stealth.TRIGGER_TYPE_PROXIMITY);
-	}
-	
-	if(text.startsWith("getct")) // Caltrop Trap
-	{
-		stealth.createTrapObject(inv, 1000, stealth.TRAP_CALTROP);
-	}
-	
-	if(text.startsWith("getft")) // Flashbang Trap
-	{
-		stealth.createTrapObject(inv, 1000, stealth.TRAP_FLASHBANG);
-	}	
-	
-	if(text.startsWith("getmt")) // Mine Trap
-	{
-		stealth.createTrapObject(inv, 1000, stealth.TRAP_HX2);
-	}	
-
-	if(text.startsWith("getdt")) // Dart Trap
-	{
-		stealth.createTrapObject(inv, 1000, stealth.TRAP_KAMINODART);
-	}		
-	
-	if(text.startsWith("getbp")) // BioProbe
-	{
-		stealth.createBioProbeObject(inv, 1000);
-	}
-	
-	if(text.startsWith("gettb")) // Tracking Beacon
-	{
-		 stealth.createTrackingBeaconObject(inv, 1000);
-	}
-	*/
-	
 	if(text.startsWith("getsv"))
 	{
 		obj_id target = getLookAtTarget(self);
@@ -156,7 +99,6 @@ trigger OnHearSpeech(obj_id speaker, string text)
 		hit.damage = 1000;//-strength;
 		hit.hitLocation = 0;
 		doDamage(target, self, hit);
-		//addToHealth(target, -1000);
 	}
 	
 	if(text.startsWith("dodot"))
@@ -166,9 +108,7 @@ trigger OnHearSpeech(obj_id speaker, string text)
 		{
 			target = self;
 		}
-		//obj_id.getObjId(10694823)
 		sendSystemMessageTestingOnly(self, "APPLY DOT=" + dot.applyBleedingEffect(self, target, "bleed777", 0, 5000, 15));			
-		//sendSystemMessageTestingOnly(self, "APPLY DOT=" + dot.applyDotEffect(self, "bleeding", "bleeding4", 260, 10));
 	}	
 	
 	if(text.startsWith("mycontainer"))
@@ -197,10 +137,6 @@ trigger OnHearSpeech(obj_id speaker, string text)
 	}
 	if(text.startsWith("steal"))
 	{
-		//obj_id myPack = utils.getInventoryContainer(self);
-		//loot.generateTheftLoot(myPack, getLookAtTarget(self), 0, 1);
-		//obj_id item = createObjectOverloaded("object/tangible/smuggler/mandalorian_interframe.iff", myPack);
-		//sendSystemMessageTestingOnly(self, "Item is " + item);
 		if(stealth.canSteal(self, getLookAtTarget(self)))
 		{
 			stealth.steal(self, getLookAtTarget(self));
@@ -210,7 +146,6 @@ trigger OnHearSpeech(obj_id speaker, string text)
 	if(text.startsWith("gettab"))
 	{
 		string bleh = stealth.getStealableTemplateFromTable(self);
-		//sendSystemMessageTestingOnly(self, "Num is " + dataTableGetInt("datatables/loot/stealing_loot.iff", 0, "npc_type"));
 		sendSystemMessageTestingOnly(self, bleh);
 	}
 	
@@ -224,7 +159,6 @@ trigger OnHearSpeech(obj_id speaker, string text)
 		}		
 		
 		weapons.setWeaponData(target);
-		//sendSystemMessageTestingOnly(self, "Elemental Type = " + getWeaponElementalType(target));
 	}
 
 	if(text.startsWith("cleaninvis"))

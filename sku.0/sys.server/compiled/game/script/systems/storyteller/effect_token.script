@@ -62,7 +62,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	{
 		if ( storyteller.isStaticEffect(self) )
 		{
-			// persisted effect stuff			
+			// Persisted effect stuff			
 			if ( isIdValid(effectTarget) )
 			{	
 				playEffectOnTarget(self, effectTarget, player);
@@ -103,7 +103,7 @@ trigger OnGroundTargetLoc(obj_id player, int menuItem, float x, float y, float z
 	{
 		if ( storyteller.isStaticEffect(self) )
 		{
-			// persisted effect stuff			
+			// Persisted effect stuff			
 			if ( isIdValid(effectTarget) )
 			{	
 				playEffectOnTarget(self, effectTarget, player);

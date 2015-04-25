@@ -1,11 +1,9 @@
 /**
- * Copyright (c)2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        fs_force_crystal.script
  * Description:  Force Sensitive initial quest giver
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 // No Drop, No trade object

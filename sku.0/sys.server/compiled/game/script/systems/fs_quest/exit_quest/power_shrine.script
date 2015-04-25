@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        power_shrine
  * Description:  Attached to the power crystals in the final battle.
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 include library.quests;
 include library.theater;

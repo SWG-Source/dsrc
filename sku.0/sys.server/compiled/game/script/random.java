@@ -1,11 +1,7 @@
-/**
- * Title:        random
- * Description:  Random number generator. Algorithm taken from Numerical
- *		Methods in C, func ran3().
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        random
+ Description:  Random number generator. Algorithm taken from Numerical
+ 		Methods in C, func ran3().
  */
 
 package script;

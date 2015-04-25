@@ -1,4 +1,4 @@
-// This script will spawn the theme park NPCs for the Marauder Base on Endor.
+// This script will spawn the NPCs for the Marauder Base on Endor.
 
 include ai.ai;
 include library.ai_lib;
