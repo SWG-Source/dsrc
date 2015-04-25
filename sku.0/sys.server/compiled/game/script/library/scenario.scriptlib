@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        scenario.scriptlib
  * Description:  scriptlib for handling complex POI (scenario) functions
- * @author       $Author: rpalacio $
- * @version      $Revision: #1 $
  */
 
 /***** INCLUDES ********************************************************/

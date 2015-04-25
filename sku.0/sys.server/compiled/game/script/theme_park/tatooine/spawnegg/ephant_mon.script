@@ -5,8 +5,7 @@ const string[] SCRIPTS = {
 	"max_rebo_quest_1.ephant_mon"
 	};
 
-/* -----------------3/20/2002 5:34PM-----------------
- * This script should be attached to a spawnegg in
+/* This script should be attached to a spawnegg in
  * the location that the NPC should be spawned.
  *
  * The NPC will be created at the spawnegg's location

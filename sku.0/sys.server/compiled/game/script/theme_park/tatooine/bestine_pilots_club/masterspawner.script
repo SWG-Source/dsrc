@@ -1,8 +1,6 @@
 /**********************************************************************
  * Title:        masterspawner
  * Description:  Fills out Bestine Pilots Club.
- * @author       $Author: Todd Bailey and (Reece Thornton)$
- * @version      $Revision: #0$
  ***********************************************************************/
 
 include library.create;

@@ -1,30 +1,17 @@
-/***********************************************************************
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- ***********************************************************************
- * Title:        combat_test.script
+/* Title:        combat_test.script
  * Description:  Report combat events.  Test out states.
- * @author       $Author: Anthony Castoro$
- * @version      $Revision: $
- ***********************************************************************/
-
-/***** INCLUDES ********************************************************/
-//include anyLibrary;	// includes a .scriptlib file
-
-/***** INHERITS ********************************************************/
-//inherits anyScript;	// inherits a .script file
+*/
 
 /***** CONSTANTS *******************************************************/
 const string VERSION = "v0.00.00";
 
-/***************************** 11/5/2001 12:32PM ************************
- * Trigger OnAttach - Reports status and initializes object
+/* Trigger OnAttach - Reports status and initializes object
  *
  * @param type		A description of the parameter.
  *
  * @return			A description of the return value.
  *
- ***********************************************************************/
+*/
 trigger OnInitialize()
 {
 	detachScript(self, "systems.combat.combat_test");
@@ -236,14 +223,13 @@ trigger OnIncapacitateTarget()
 }
 */
 
-/***************************** 11/5/2001 12:32PM ************************
- * A description of the function.
+/* A description of the function.
  *
  * @param type		A description of the parameter.
  *
  * @return			A description of the return value.
  *
- ***********************************************************************/
+ */
 
 //put method for returning hitlocation here
 // put method for returning attribute here

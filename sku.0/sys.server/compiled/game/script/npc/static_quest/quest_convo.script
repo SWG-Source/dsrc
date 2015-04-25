@@ -67,7 +67,7 @@ messageHandler handleStaticQuestNpcAttach()
 	attachScript (self, "npc.converse.npc_converse_menu");
 	ai_lib.setDefaultCalmBehavior( self, ai_lib.BEHAVIOR_SENTINEL );
 	setInvulnerable (self, true);
-	createTriggerVolume( FACETO_VOLUME_NAME, 8.0f, true );
+	//createTriggerVolume( FACETO_VOLUME_NAME, 8.0f, true );
 	return SCRIPT_CONTINUE;
 }
 
@@ -118,7 +118,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	if(questNum == 0)
 	{
 		string_id deactivated = new string_id(ALT_CONVO, "deactivated");
-		chat.chat(self, deactivated);
+		chat.chat(self, speaker, deactivated);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -132,7 +132,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			if (value > 1)
 			{
 				string_id leave = new string_id (CONVO, "go_away");
-				chat.chat (self, leave);
+				chat.chat (self, speaker, leave);
 				npcEndConversation(speaker);
 				return SCRIPT_CONTINUE;
 			}
@@ -143,7 +143,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	{
 		CONVO = dataTableGetString (datatable, 1, "convo");
 		string_id next = new string_id(CONVO, "next" );
-		chat.chat (self, next);
+		chat.chat (self, speaker, next);
 		return SCRIPT_OVERRIDE;
 	}
 
@@ -162,14 +162,14 @@ trigger OnStartNpcConversation (obj_id speaker)
 			if (gatingFaction == "Imperial" && !factions.isImperial (speaker))
 			{
 				string_id notyet = new string_id(CONVO, "notyet" );
-				chat.chat (self, notyet);
+				chat.chat (self, speaker, notyet);
 				return SCRIPT_OVERRIDE;
 			}
 
 			else if (gatingFaction == "Rebel" && !factions.isRebel(speaker))
 			{
 				string_id notyet = new string_id(CONVO, "notyet" );
-				chat.chat (self, notyet);
+				chat.chat (self, speaker, notyet);
 				return SCRIPT_OVERRIDE;
 			}
 
@@ -178,7 +178,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				if (factions.isOnLeave (speaker))
 				{
 					string_id notyet = new string_id (CONVO, "notyet");
-					chat.chat(self, notyet);
+					chat.chat(self, speaker, notyet);
 					return SCRIPT_OVERRIDE;
 				}
 			}
@@ -192,7 +192,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				if (playerFaction < neededFaction)
 				{
 					string_id notyet = new string_id (CONVO, "notyet");
-					chat.chat(self, notyet);
+					chat.chat(self, speaker, notyet);
 					return SCRIPT_OVERRIDE;
 				}
 			}
@@ -212,7 +212,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			if(isJedi(speaker))
 			{
 				string_id jedi = new string_id(CONVO, "jedi" );
-				chat.chat (self, jedi);
+				chat.chat (self, speaker, jedi);
 				return SCRIPT_OVERRIDE;
 			}
 		}
@@ -232,7 +232,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			if (checkForGatingItem(playerInv, speaker, questNum, datatable) != true)
 			{
 				string_id rewardMessage = new string_id (CONVO, "notyet");
-				chat.chat (self, rewardMessage);
+				chat.chat (self, speaker, rewardMessage);
 				return SCRIPT_OVERRIDE;
 			}
 		}
@@ -247,7 +247,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			if (!hasObjVar (speaker, gatingObjVar))
 			{
 				string_id notyet = new string_id (CONVO, "notyet");
-				chat.chat (self, notyet);
+				chat.chat (self, speaker, notyet);
 				return SCRIPT_OVERRIDE;
 			}
 			else
@@ -257,7 +257,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 				if (playerGate < gatingAmt)
 				{
 					string_id notyet = new string_id (CONVO, "notyet");
-					chat.chat (self, notyet);
+					chat.chat (self, speaker, notyet);
 					return SCRIPT_OVERRIDE;
 				}
 			}
@@ -280,7 +280,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	else if (questNum > maxGating)
 	{
 		string_id next = new string_id(CONVO, "next" );
-		chat.chat (self, next);
+		chat.chat (self, speaker, next);
 		return SCRIPT_OVERRIDE;
 	}
 
@@ -296,7 +296,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			failMessage = new string_id (CONVO, "npc_failure");
 		}
 
-		chat.chat (self, failMessage);
+		chat.chat (self, speaker, failMessage);
 		missionFailure(self,speaker,questNum);
 		return SCRIPT_OVERRIDE;
 	}
@@ -306,7 +306,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 	else if (hasObjVar (speaker, questID + ".noloc"))
 	{
 		string_id noLocMessage = new string_id (CONVO, "npc_noloc_" + questNum);
-		chat.chat (self, noLocMessage);
+		chat.chat (self, speaker, noLocMessage);
 		resetPlayer(self, speaker, questNum);
 		return SCRIPT_OVERRIDE;
 	}
@@ -320,7 +320,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 			if (checkForItem(playerInv, speaker, questNum) == true)
 			{
 				string_id rewardMessage = new string_id (CONVO, "npc_reward_" + questNum);
-				chat.chat (self, rewardMessage);
+				chat.chat (self, speaker, rewardMessage);
 				obj_id retrieveObject = getObjIdObjVar (speaker, questID + ".deliver");
 				destroyObject (retrieveObject);
 				giveReward(self, speaker, questNum);
@@ -386,14 +386,14 @@ trigger OnStartNpcConversation (obj_id speaker)
 			if (goodEscort = true)
 			{
 				string_id reward = new string_id(CONVO, "npc_reward_" + questNum);
-				chat.chat (self, reward);
+				chat.chat (self, speaker, reward);
 				giveReward(self, speaker, questNum);
 				return SCRIPT_CONTINUE;
 			}
 			else
 			{
 				string_id didnt = new string_id (CONVO, "npc_failure_" + questNum);
-				chat.chat (self, didnt);
+				chat.chat (self, speaker, didnt);
 				return SCRIPT_CONTINUE;
 			}
 		}
@@ -401,7 +401,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 		{
 
 			string_id reward = new string_id(CONVO, "npc_reward_" + questNum);
-			chat.chat (self, reward);
+			chat.chat (self, speaker, reward);
 			giveReward(self, speaker, questNum);
 			return SCRIPT_CONTINUE;
 		}
@@ -485,7 +485,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 
 			string_id greeting = new string_id (ALT_CONVO,tooWeak);
 
-			chat.chat (self, greeting);
+			chat.chat (self, speaker, greeting);
 
 		}
 
@@ -682,7 +682,7 @@ trigger OnNpcConversationResponse (string convo, obj_id player, string_id respon
 			{
 				string noLoc = "npc_noloc_" + questNum;
 				string_id message = new string_id (CONVO, noLoc);
-				chat.chat (self, message);
+				chat.chat (self, player, message);
 				npcEndConversation(player);
 				return SCRIPT_CONTINUE;
 			}
@@ -1159,6 +1159,7 @@ void missionFailure (obj_id self, obj_id player, int questNum)
 
 //const string FACETO_VOLUME_NAME = "faceToTriggerVolume";
 //createTriggerVolume( FACETO_VOLUME_NAME, 8.0f, true );
+/*
 trigger OnTriggerVolumeEntered( string volumeName, obj_id breacher )
 {
 	if ( !isPlayer( breacher ) )
@@ -1177,7 +1178,7 @@ trigger OnTriggerVolumeEntered( string volumeName, obj_id breacher )
 		faceTo( self, breacher );
 
 	return SCRIPT_CONTINUE;
-}
+}*/
 
 void resetOtherQuest (obj_id self, obj_id player)
 {

@@ -177,7 +177,7 @@ const string_id SID_MERC_REBEL_SF_TERMINATED			= new string_id("gcw", "merc_rebe
 const string_id SID_MERC_REBEL_COMBATANT_GRANTED		= new string_id("gcw", "merc_rebel_combatant_status_granted");
 const string_id SID_MERC_REBEL_COMBATANT_TERMINATED		= new string_id("gcw", "merc_rebel_combatant_status_terminated");
 
-/* -----------------8/1/2002 1:18PM------------------
+/* --------------------------------------------------
  * FACTION SYSTEM VARIABLES
  *
  * For NPCs:
@@ -366,7 +366,7 @@ boolean isDeclared( obj_id target )
 	return false;
 }
 
-/* -----------------8/16/2002 4:45PM-----------------
+/* -------------------------------------------------
  * Declared players are always considered to be Covert,
  * so far as AI is concerned.
  *

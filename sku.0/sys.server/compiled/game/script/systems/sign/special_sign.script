@@ -3,8 +3,6 @@
  * Title:	special_sign.script
  * Description:	This script works just like a deed but applies a skillmod on the player. The skillmod is defined on the 
  *		deed object via the item_stats table.
- * @author	Jeff Haskell
- * @version	1.0
  */
 
 /***** INCLUDES ********************************************************/

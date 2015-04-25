@@ -1,13 +1,6 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        battlefield_spawner
+/* Title:        battlefield_spawner
  * Description:  script that goes on battlefield spawners in PVE battles.
- *
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+*/
 
 
 /***** INCLUDES ********************************************************/
@@ -62,9 +55,4 @@ messageHandler msgBattlefieldSpawn()
 
 	return SCRIPT_CONTINUE;
 }
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
 

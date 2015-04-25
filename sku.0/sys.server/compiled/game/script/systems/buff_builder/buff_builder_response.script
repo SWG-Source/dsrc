@@ -1,12 +1,6 @@
-/**********************************************************************
- * Copyright (c)2000-2007 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        buff_builder_response
+/*Title:        buff_builder_response
  * Description:  triggers for buff builder
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+*/
 
 /***** INCLUDES ********************************************************/
 include library.buff;

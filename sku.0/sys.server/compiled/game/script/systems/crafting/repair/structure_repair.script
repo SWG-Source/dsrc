@@ -1,18 +1,10 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.crafting.repair.structure_repair.script
- * Description:
- * @author       Steve Jakab
- * @version      $Revision: 0$
- */
+
 
 /***** INCLUDES ********************************************************/
 include library.craftinglib;
 include library.utils;
 
-/***** CONSTANTS *******************************************************/
+
 
 
 
@@ -28,8 +20,5 @@ trigger OnInitialize()
 	return SCRIPT_CONTINUE;
 }
 
-/***** FUNCTIONS *******************************************************/
-
-/***** MESSAGEHANDLERS *************************************************/
 
 

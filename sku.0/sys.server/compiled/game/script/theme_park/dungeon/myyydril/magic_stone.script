@@ -28,7 +28,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 		if (template.equals("object/building/kashyyyk/thm_kash_myyydril_caverns.iff"))
 		{
-			//sendSystemMessageTestingOnly(player, "Fooooooooom!  Whooooooooosh!");
+			//sendSystemMessageTestingOnly(player, "Test!");
 			warpPlayer(player, "kashyyyk_main", -568, 0, -100 , null, 0, 0, 0, null, false);
 		}
 		else

@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems\tcg\tcg_stuffed_wampa.script
- * Description:  SWG TCG ITEM - SERIES 4 - Squeezing the Stuffed Wampa's Hand will make a sound.
- * @author       $Author: James Michener$
- * @version      $Revision: 1.0.0 $
+ Title:        systems\tcg\tcg_stuffed_wampa.script
+ Description:  SWG TCG item - SERIES 4 - Squeezing the Stuffed Wampa's Hand will make a sound.
  **********************************************************************/
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)

@@ -1,9 +1,6 @@
 /*
  missiontest.script
- created: 06/28/04
- author:  breinhart
-
- script to quickly test JTL missions
+script to quickly test JTL missions
  */
 
 //------------------------------------------------
@@ -25,7 +22,7 @@ const string mission_name = 		"npe_easy_main_1";
 
 trigger OnSpeaking( string text )
 {
-	// Get the location of the player?
+	// Get the location of the player
 	location playerLocation = getLocation( self );
 
 	if ( text == "assignquest" )

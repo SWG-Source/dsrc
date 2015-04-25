@@ -20,10 +20,9 @@ trigger OnInitialize()
 
 trigger OnClusterWideDataResponse(string manage_name, string name, int request_id, string[] element_name_list, dictionary[] data, int lock_key)
 {
-	// Oh god, how I hate this. The ValueDictionary in C++ doesn't support anything but basic types, but we need to store an array of object 
+	// The ValueDictionary in C++ doesn't support anything but basic types, but we need to store an array of object 
 	// ids here so that other servers can know the population here. So, what we do is cheat. We create the Vector and pack it into a string 
-	// to be stored as data, and then unpack it on the other side. Not the best solution by far, but there is simply not enough time to add in 
-	// all the array types into ValueType* :'(
+	// to be stored as data, and then unpack it on the other side. 
 	Vector players = getPlayersInStation(self);
 	string players_string = new string(utils.packObject(players));
 	

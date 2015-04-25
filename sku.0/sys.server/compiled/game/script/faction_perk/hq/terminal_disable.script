@@ -1,4 +1,3 @@
-
 /***** INCLUDES ********************************************************/
 
 
@@ -12,12 +11,4 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	sendSystemMessage(player, SID_TERMINAL_DISABLED);
 	return SCRIPT_OVERRIDE;
 }
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *************************************************/
 

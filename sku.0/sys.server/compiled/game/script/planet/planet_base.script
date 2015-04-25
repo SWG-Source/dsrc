@@ -32,7 +32,7 @@ messageHandler doSpawnSetup()
 	{
 		CustomerServiceLog("holidayEvent", "planet_base.doSpawnSetup: Planet name for this object is NULL. Notify SWG Development.");
 
-		debugServerConsoleMsg(self, "Man you're so fucked. Your scenename is null. Go get justin!");
+		debugServerConsoleMsg(self, "Not Good. Your scenename is null. Go get development!");
 		return SCRIPT_CONTINUE;
 	}
 	
@@ -81,7 +81,7 @@ trigger OnDetach()
 	if(strPlanet==null)
 	{
 
-		debugServerConsoleMsg(self, "Man you're so fucked. Your scenename is null. Go get justin!");
+		debugServerConsoleMsg(self, "Not good. Your scenename is null. Go get development!");
 		return SCRIPT_CONTINUE;
 	}
 

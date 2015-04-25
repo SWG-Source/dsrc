@@ -1,12 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
+
  * Title:        hospital_heal
  * Description:  allows the slow healing of wounds and shock for all within
  *		 the building.
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 /***** FUNCTIONS *******************************************************/
@@ -28,8 +25,9 @@ trigger OnInitialize ()
 	}
 
 	behindBar = new location (8.54f, -0.89f, 0.14f, planet, cantina);
-	obj_id bartender = create.staticObject ("bartender", behindBar);
+	obj_id bartender = create.object ("bartender", behindBar);
 	setYaw (bartender, 87);
+	setCreatureStatic (bartender, true);
 	setInvulnerable(bartender, true);
 	ai_lib.setDefaultCalmBehavior( self, ai_lib.BEHAVIOR_SENTINEL );
 

@@ -1,11 +1,6 @@
 /**
- * Copyright (c) ©2007 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        library.beast_lib
  * Description:
- * @author       teidson
- * @version      $Revision: 0$
  */
 
 include ai.ai_combat;
@@ -17,6 +12,7 @@ include library.buff;
 include library.callable;
 include library.colors;
 include library.corpse;
+include library.factions;
 include library.group;
 include library.hue;
 include library.incubator;
@@ -1248,7 +1244,6 @@ int getTotalBeastsCalled(obj_id player)
 }
 
 // Beast Happiness
-//   ...happy...HAPPY...happy...HA HA HA!  Obey my dog!
 int getBCDBeastHappiness(obj_id bcd)
 {
 	if(!isValidBCD(bcd))
@@ -1432,7 +1427,7 @@ void incrementBeastLoyalty(obj_id bcd)
 
 	int happiness = getBCDBeastHappiness(bcd);
 
-	//Happiness has a effect on loyalty gain, so it can scale from -50 to +50
+	//Happiness has an effect on loyalty gain, so it can scale from -50 to +50
 	if(happiness < 0)
 	{
 		happiness = 0;
@@ -2561,6 +2556,27 @@ void killBeast(obj_id beast, obj_id killer)
 
 	setBCDBeastHealth(bcd, 0);
 	setBCDBeastIsDead(bcd, true);
+}
+//Called when player beastmaster dies.  Pet no longer dies, but is packed up instead.
+void playerDeathStoreBeast(obj_id bcd)
+{
+	if(!isIdValid(bcd))
+	{
+		return;
+	}
+
+	obj_id datapad = getContainedBy(bcd);
+	obj_id player = getContainedBy(datapad);
+	obj_id currentBeast = getBCDBeastCalled(bcd);
+
+	if(!isIdValid(datapad) || !isIdValid(player) || !isIdValid(currentBeast))
+	{
+		return;
+	}
+
+		factions.setFaction(currentBeast, "Unattackable");
+		stop(currentBeast);
+		storeBeast(bcd);
 }
 
 void incrementBeastExperience(obj_id beast)

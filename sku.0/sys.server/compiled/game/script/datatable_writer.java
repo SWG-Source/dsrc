@@ -1,11 +1,6 @@
 
 /**************************************************************************
- *
- * Java-side Datatable writing. 
- *
- * copyright 2001 Sony Online Entertainment
- *
- *
+ * Java-side Datatable writing.
  *************************************************************************/
 
 package script;

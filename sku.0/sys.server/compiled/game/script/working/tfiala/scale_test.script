@@ -1,5 +1,5 @@
-/**
- * scale_test.script
+/*
+ scale_test.script
  */
 
 trigger OnHearSpeech(obj_id objSpeaker, string strText)

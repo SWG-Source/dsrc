@@ -22,7 +22,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info item)
 		
 	utils.dismountRiderJetpackCheck(player);
 	
-	//Hack cuz I suck
+	//Hack
 	if (!hasObjVar(self, "space_dungeon.ticket.point"))
 		setObjVar(self, "space_dungeon.ticket.point", "kashyyyk_main");
 	if (!hasObjVar(self, "space_dungeon.ticket.dungeon"))

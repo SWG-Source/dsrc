@@ -1,10 +1,6 @@
-/**
- * Title:        modifiable_int
- * Description:  A modifiable int wrapper.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        modifiable_int
+ Description:  A modifiable int wrapper.
  */
 
 package script;

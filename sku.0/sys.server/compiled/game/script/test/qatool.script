@@ -1,17 +1,9 @@
 //**********************************************************
-// Copyright (c) ©2005, 2006 Sony Online Entertainment Inc.
-// All Rights Reserved
 //
 // Title:		qatool.script
-// Version:		Version 4.1
 // Description:  	Master QA script.  It will be main script to attach
 //		 	To get all other tools to work.  It will be slash
 //		 	Command Driven.
-//
-// Version Changes:	- Added new script tool options
-//
-// @author       	$Author: Jesse Benjamin
-// @version      	$All Revisions:  Jeff Haskell && James Michener
 //***********************************************************
 
 /********* Includes ******************************************/
@@ -2019,9 +2011,14 @@ commandHandler cmdQaTool()
 
 		else if(toLower(command).equals("suicide"))
 		{
-			sendSystemMessageTestingOnly(self, "Killing self");
+			if(!isDead(self))
+			{
+			sendSystemMessageTestingOnly(self, "Killing self.");
 			setPosture(self, POSTURE_INCAPACITATED);
 			pclib.coupDeGrace(self, self, true, true);
+			}
+			else
+			sendSystemMessageTestingOnly(self, "You're already dead.");
 		}
 
 		else if(toLower(command).equals("aistop"))
@@ -2620,30 +2617,30 @@ messageHandler toolMainMenu()
 			{
 				case BADGETOOL_MENUOPTION: //Badge tool
 					// Create a String array that has all badge types in it, with no duplications
-					Vector vectorMenuArray = new Vector();
-					vectorMenuArray.addElement("*Add All Badges*");
-					vectorMenuArray.addElement("*Remove All Badges*");
+				Vector vectorMenuArray = new Vector();
+				vectorMenuArray.addElement("*Add All Badges*");
+				vectorMenuArray.addElement("*Remove All Badges*");
 
-					string[] badgeCategories = getAllCollectionSlotCategoriesInBook("badge_book");
-					if ((badgeCategories != null) && (badgeCategories.length > 0))
+				string[] badgePages = getAllCollectionPagesInBook("badge_book");
+				if ((badgePages != null) && (badgePages.length > 0))
+				{
+					for (int i = 0; i < badgePages.length; ++i)
 					{
-						for (int i = 0; i < badgeCategories.length; ++i)
-						{
-							if (badgeCategories[i] != "accumulation")
-								vectorMenuArray.addElement(badgeCategories[i]);
-						}
+						if (!badgePages[i].equals("bdg_accumulation"))
+							vectorMenuArray.addElement(badgePages[i]);
 					}
+				}
 
-					String[] badgeMenuArray = new String[vectorMenuArray.size()];
-					vectorMenuArray.toArray(badgeMenuArray);
+				String[] badgeMenuArray = new String[vectorMenuArray.size()];
+				vectorMenuArray.toArray(badgeMenuArray);
 
-					utils.setScriptVar(player, "qabadge.mainMenu", badgeMenuArray);
+				utils.setScriptVar(self, "qabadge.mainMenu", badgeMenuArray);
 
-					if (badgeMenuArray.length < 1)
-						sendSystemMessageTestingOnly(self, "Badge UI creation failed.");
+				if (badgeMenuArray.length < 1)
+					sendSystemMessageTestingOnly(self, "Badge UI creation failed.");
 
-					utils.setScriptVar(self, "qabadge.mainMenu", badgeMenuArray);
-					qa.refreshMenu(player, "Choose the Badge", "Badge Granter", badgeMenuArray, "mainMenuOptions", "qabadge.pid", sui.OK_CANCEL_REFRESH);
+				utils.setScriptVar(self, "qabadge.mainMenu", badgeMenuArray);
+				qa.refreshMenu(self, "Choose the Badge", "Badge Granter", badgeMenuArray, "mainMenuOptions", "qabadge.pid", sui.OK_CANCEL_REFRESH);
 					break;
 				case BUFFTOOL_MENUOPTION: //Buff Tool
 					string[] allBuffs = dataTableGetStringColumn(BUFF_TABLE, "NAME");
@@ -4612,7 +4609,7 @@ int commandKill(obj_id self, obj_id target)
 	}
 	else if (target==self)
 	{
-		sendSystemMessageTestingOnly(self,"Kill Command Failed. Cannot Kill self.");
+		sendSystemMessageTestingOnly(self,"Kill Command Failed. Cannot Kill self.  Use /qatool suicide.");
 		return SCRIPT_CONTINUE;
 	}
 	else if (isPlayer(target))

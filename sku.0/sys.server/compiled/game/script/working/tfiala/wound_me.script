@@ -1,5 +1,5 @@
-/**
- * wound_me.script
+/*
+ wound_me.script
  */
 
 trigger OnHearSpeech(obj_id objSpeaker, string strText)

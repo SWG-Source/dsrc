@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        regions.scriptlib
- * Description:  Base library for spawn regions
- * @author       Anthony Castoro
- * @version      $Revision:$
+ * Title:        skill_test
+ * Description:  Base script for E3 Convo
  */
 
 /***** INCLUDES ********************************************************/
@@ -13,13 +8,6 @@ include library.utils;
 include library.sui;
 include library.datatable;
 include java.util.*;
-
-/***** INHERITS ********************************************************/
-
-/***** CONSTANTS *******************************************************/
-//
-// Region system version for spawning (see systems.spawning.spawn_regions.regions_"planet".script
-// change these constants any time you change the spawn regions in the spawning scripts
 
 
 /***** TRIGGERS *******************************************************/
@@ -60,7 +48,6 @@ trigger OnAttach ()
 		@return An int describing the number of levels apprentices must acquire before this
 		skill is granted to a creature.
 
-		@author Justin Randall <jrandall@soe.sony.com>
 	*/
 
 trigger OnSpeaking (string text)
@@ -230,8 +217,6 @@ return SCRIPT_CONTINUE;
 		@param self
 
 		@return a string array of skillanems
-
-		@author Anthony Castoro
 */
 string[] getAllSkills(obj_id self)
 {

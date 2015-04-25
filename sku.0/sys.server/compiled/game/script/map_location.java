@@ -1,9 +1,6 @@
-/**
- * Title:        map_location
- * Description:  Wrapper for a map_location
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @version 1.0
+/*
+  Title:        map_location
+  Description:  Wrapper for a map_location
  */
 
 package script;

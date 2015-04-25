@@ -301,7 +301,7 @@ scorpion_kliknik		world	4340.26	60.3524	4873.56	0	theme_park.dungeon.generic_dea
 kliknik_dark_defender		world	889.88	44.7595	4453.42	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_dark_defender		world	889.88	44.7595	4453.42	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 scorpion_kliknik		world	959.186	42.8236	4472.89	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
-megan_drlar		world	5855.17	32.6743	-336.089	0	conversation.yavin_fallenstar_pt_1_megan			600	 int:ai.defaultCalmBehavior=2					
+megan_drlar		world	5855.17	32.6743	-336.089	0	conversation.yavin_fallenstar_pt_1_megan			600	 int:ai.defaultCalmBehavior=1					
 mutant_acklay		world	-6451.32	118.589	-284.993	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_hunter		world	-6385.66	115.927	-287.077	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					
 kliknik_hunter		world	-6385.66	115.927	-287.077	0	theme_park.dungeon.generic_death			600	 int:ai.defaultCalmBehavior=2					

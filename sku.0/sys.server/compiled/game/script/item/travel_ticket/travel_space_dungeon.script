@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        travel_space_dungeon
  * Description:  Attaches to npc/terminal that handles traveling to a space dungeon
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 
@@ -233,10 +231,4 @@ messageHandler msgStartDungeonTravel()
 
 	return SCRIPT_CONTINUE;
 }
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
 

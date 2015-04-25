@@ -1,6 +1,5 @@
 // Script for an item that makes all future respecs for the character half price
 // Vet Reward
-// 04/26/06:  PMW
 
 include library.sui;
 include library.utils;

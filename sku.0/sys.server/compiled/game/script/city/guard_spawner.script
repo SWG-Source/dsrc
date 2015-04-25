@@ -1,6 +1,5 @@
 // Handles spawning guards throughout player cities.
 // Draws spawn info from the "guardTable" below.
-// Dan's code?
 
 include library.ai_lib;
 include library.create;
@@ -186,18 +185,19 @@ void doSpawn( obj_id self, boolean onlySpawnOne )
 	string type = getGuardArea( self );
 
 	location me = getLocation(self);
-	location here = locations.getGoodLocationAroundLocation(me, 1f, 1f, 1.5f, 1.5f);
+	/*location here = locations.getGoodLocationAroundLocation(me, 1f, 1f, 1.5f, 1.5f);
 	if (here == null)
 	{
 		debugServerConsoleMsg (self, "guard_spawner couldn't find a good location");
 		return;
 	}
+	*/
 
 	string spawn = npcToSpawn( type );
-	obj_id npc = create.object( spawn, here );
+	obj_id npc = create.object( spawn, me );
 	if ( !isIdValid(npc) )
 	{
-		logScriptDataError("unable to spawn " + spawn + " + at loc " + here );
+		logScriptDataError("unable to spawn " + spawn + " + at loc " + me );
 		return;
 	}
 	attachScript (npc, "city.guard_wander");

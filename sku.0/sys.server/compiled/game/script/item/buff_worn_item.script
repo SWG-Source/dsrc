@@ -1,11 +1,9 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        buff_click_item.script
  * Description:  This script handles the application a buff from a static worn object, all the data should be contained in Objvars on the item
- * @author       Thomas Blair 
- * @version      1.0
+
  */
 
 /***** INCLUDES ********************************************************/

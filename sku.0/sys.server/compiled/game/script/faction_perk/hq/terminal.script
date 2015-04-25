@@ -1,4 +1,3 @@
-
 /***** INCLUDES ********************************************************/
 
 include java.util.Calendar;
@@ -11,6 +10,7 @@ include library.factions;
 include library.player_structure;
 include library.stealth;
 
+/***** INHERITS ********************************************************/
 
 inherits terminal.base.base_terminal;
 
@@ -63,7 +63,7 @@ trigger OnInitialize()
 	if ( hasScript(self, hq.SCRIPT_TERMINAL_DISABLE) )
 		detachScript(self, hq.SCRIPT_TERMINAL_DISABLE);
 
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
@@ -71,7 +71,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	if (stealth.hasInvisibleBuff(player))
 	{
 		sendSystemMessage(player, SID_NO_STEALTH);
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	}
 	
 	if(isGod(player) && getGodLevel(player) >= 15)
@@ -83,11 +83,11 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	int intState = getState(player, STATE_FEIGN_DEATH);
 
 	if (isDead(player) || isIncapacitated(player) || intState > 0)
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 
 	obj_id structure = player_structure.getStructure(player);
 	if ( !isIdValid(structure) )
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 
 	string buildingTemplate = getTemplateName(structure);
 	//LOG("hq", "faction_perk.hq.terminal:OnObjectMenuRequest: ********* got template of structure. It came in as: "+buildingTemplate);
@@ -97,27 +97,27 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		if ( pvpGetType(player) == PVPTYPE_NEUTRAL )
 		{
 			sendSystemMessage(player, new string_id(STRING_FILE_LOC, "terminal_response01")); // Only declared factional personnel may access this terminal!
-			return SCRIPT_CONTINUE;
+			return super.OnObjectMenuRequest(self, player, mi);
 		}
 
 		if ( hasObjVar(structure, hq.VAR_OBJECTIVE_TRACKING) )
 		{
 			obj_id[] objectives = getObjIdArrayObjVar(structure, hq.VAR_OBJECTIVE_ID);
 			if ( objectives == null || objectives.length == 0 )
-				return SCRIPT_CONTINUE;
+				return super.OnObjectMenuRequest(self, player, mi);
 
 			obj_id[] disabled = getObjIdArrayObjVar(structure, hq.VAR_OBJECTIVE_DISABLED);
 			if ( disabled == null || disabled.length != objectives.length )
 			{
 				prose_package ppDisableOther = prose.getPackage(hq.PROSE_DISABLE_OTHER, objectives[objectives.length - 1], self);
 				sendSystemMessageProse(player, ppDisableOther);
-				return SCRIPT_CONTINUE;
+				return super.OnObjectMenuRequest(self, player, mi);
 			}
 
 			int mnuCountdown = mi.addRootMenu(menu_info_types.ITEM_USE, MNU_OVERLOAD);
 		}
 
-		return SCRIPT_CONTINUE;
+		return super.OnObjectMenuRequest(self, player, mi);
 	}
 
 	int management_root = mi.addRootMenu (menu_info_types.ITEM_USE, SID_TERMINAL_MANAGEMENT);
@@ -169,7 +169,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		}
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnObjectMenuRequest(self, player, mi);
 }
 
 trigger OnObjectMenuSelect(obj_id player, int item)

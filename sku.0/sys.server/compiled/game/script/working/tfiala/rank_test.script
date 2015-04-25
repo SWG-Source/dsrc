@@ -1,5 +1,5 @@
-/**
- * rank_test.script
+/*
+ rank_test.script
  */
 
 trigger OnHearSpeech(obj_id objSpeaker, string strText)

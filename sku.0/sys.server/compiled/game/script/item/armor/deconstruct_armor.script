@@ -1,12 +1,6 @@
 /**
- * Copyright (c) ©2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        item.armor.new_armor.script
- * Description:  displays the attributes for armor created by the new armor system
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
- */
+ Title:        item.armor.new_armor.script Description:  displays the attributes for armor created by the new armor system
+*/
 
 
 /***** INCLUDES ********************************************************/

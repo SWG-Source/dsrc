@@ -1,3 +1,5 @@
+//
+
 include library.callable;
 include library.locations;
 include library.loot;
@@ -108,7 +110,6 @@ messageHandler checkDifficulty()
 
 void setupJediTrainer(obj_id self)
 {
-	//const string[] TRAINER_TYPES = { "trainer_brawler", "trainer_artisan", "trainer_scout", "trainer_marksman", "trainer_entertainer", "trainer_medic"};
 	const string[] TRAINER_TYPES = { "trainer_brawler"};//, "trainer_artisan", "trainer_scout", "trainer_marksman", "trainer_entertainer", "trainer_medic"};
 
 	string strPrimaryCategory = "trainer";
@@ -217,11 +218,6 @@ trigger OnSpeaking(string strText)
 		obj_id objVehicle = getMountId(self);
 		vehicle.initializeVehicle (objVehicle, self);
 		sendSystemMessageTestingOnly(self, "= "+getTemplateName (objVehicle));
-		//vehicle.setMaximumSpeed (objVehicle, 40f);		
-//		..vehicle.setHoverHeight(objVehicle, 1f);
-//		vehicle.da(objVehicle, 1f);
-//		vehicle.setMaximumSpeed (objVehicle, 17f);		
-		sendSystemMessageTestingOnly(self, "set spoeed");
 	}
 	
 	if(strCommands[0]=="testTarget")
@@ -231,7 +227,6 @@ trigger OnSpeaking(string strText)
 	}
 	if(strCommands[0]=="show3po")
 	{
-		//Npe.commTutorialPlayer(obj_id owner, obj_id player, float duration, string_id text, string sfx, string appearance)
 		string_id strSpam = new string_id("beta", "blank_line");
 		npe.commTutorialPlayer(self, self, 20, strSpam, "", "object/mobile/c_3po.iff");
 		sendSystemMessageTestingOnly(self, "asdadasd");
@@ -338,7 +333,6 @@ trigger OnSpeaking(string strText)
 		strTest+="Total Hibernating Mob Count is "+intTest+" from "+objMobs.length;
 		saveTextOnClient(self, "dungeon1.txt", strTest);
 		
-		//setLocation(self, getLocation(objMobs[intRoll]));
 		
 	}
 	if(strCommands[0]=="dumpLocations")
@@ -356,10 +350,9 @@ trigger OnSpeaking(string strText)
 			}
 			else if(!hasScript(objContents[intI], "content_tools.sequencer_object"))
 			{
-				// are you a spawned mob? if so we hate you
+				// are you a spawned mob?
 				if(!hasScript(objContents[intI], "systems.spawning.spawned_tracker"))
 				{
-					// WOOOH
 					
 					string strName = getEncodedName(objContents[intI]);
 					if(strName == null)
@@ -419,7 +412,6 @@ trigger OnSpeaking(string strText)
 	}	
 	if(strCommands[0]=="fixLots")
 	{
-		//public static native boolean adjustLotCount(obj_id player, int amount);
 		adjustLotCount(self, 10);
 		sendSystemMessageTestingOnly(self, "fixed");
 	}
@@ -438,16 +430,8 @@ trigger OnSpeaking(string strText)
 		
 	}
 	if(strCommands[0]=="fakeHyperspace")
-	{
-		
-		//obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/ship/player/player_star_destroyer.iff");
-		//obj_id objDestroyer = objTestObjects[0];		
-		transform trTest = getTransformObjVar(self, "trHyperspace");
-		
-		
-		//vctPoint.x = -7232f;
-		//vctPoint.y = 2104f;
-		//vctPoint.z = 2896f;		
+	{		
+		transform trTest = getTransformObjVar(self, "trHyperspace");		
 		
 		obj_id objTest = space_create.createShipHyperspace("imp_tie_bomber_tier1", trTest, null);
 		setLookAtTarget(self, objTest);
@@ -518,7 +502,7 @@ trigger OnSpeaking(string strText)
 		"object/tangible/furniture/decorative/event_wroshyr_tree.iff",
 		 
 		
-		// OLD  
+		// old items
 		"object/tangible/painting/painting_wookiee_m.iff",
 		"object/tangible/painting/painting_wookiee_f.iff",
 		"object/tangible/painting/painting_trees_s01.iff",
@@ -584,16 +568,7 @@ trigger OnSpeaking(string strText)
 	}
 	if(strCommands[0]=="twiddle")
 	{
-	  //doAnimationAction (obj_id target, String animationActionName)
-	  //doAnimationAction (self, anims.PLAYER_STOW_OBJECT_UTILITY_BELT);
-	  //doAnimationAction (self, anims.PLAYER_USE_WRIST_COMLINK);
 	  doAnimationAction (self, anims.PLAYER_USE_GENERIC_OBJECT_MEDIUM);
-	  
-	  //const string PLAYER_USE_GENERIC_OBJECT_HIGH = "use_generic_object_high";
-	  //const string PLAYER_USE_GENERIC_OBJECT_MEDIUM = "use_generic_object_medium";
-	  //const string PLAYER_USE_WRIST_COMLINK = "use_wrist_comlink";
-//const string PLAYER_VIEW_HELD_ITEM = "view_held_item";
-	  sendSystemMessageTestingOnly(self, "Asda");
 	 }
 	 
 	  
@@ -977,9 +952,6 @@ trigger OnSpeaking(string strText)
 	}
 	if(strText=="testRegen")
 	{
-		//setRegenRate(self,HEALTH,  40f);
-		//setRegenRate(self,ACTION,  20f);
-		//setRegenRate(self,MIND,  10f);
 		sendSystemMessageTestingOnly(self, "regen is "+getHealthRegenRate(self));
 		setAttrib(self, HEALTH, 1);
 		setAttrib(self, ACTION, 1);
@@ -1007,7 +979,6 @@ trigger OnSpeaking(string strText)
 				int intIndex = strNames[intI].indexOf("ep3");
 				if(intIndex>-1)
 				{
-					//sendSystemMessageTestingOnly(self, "creaturenname is "+strNames[intI]);
 					if(strLootTables[intI]!="")
 					{
 						sendSystemMessageTestingOnly(self, "loot table is "+strLootTables[intI]);
@@ -1052,15 +1023,13 @@ trigger OnSpeaking(string strText)
 				if((intNiches[intI]==3)||(intNiches[intI]==10))
 				{
 					// droid
-					//C:\swg\s1\dsrc\sku.0\sys.server\compiled\game\datatables\loot\loot_types\droid
-					//droid/droid_1_10
+					//datatables\loot\loot_types\droid\droid\droid_1_10
 					strTest = "droid/droid_"+strLevelString;
 				}
 				else if(intNiches[intI]== 5)
 				{
 					// npc
-					//C:\swg\s1\dsrc\sku.0\sys.server\compiled\game\datatables\loot\loot_types\npc
-					// npc/npc_1_10
+					//datatables\loot\loot_types\npc\npc\npc_1_10
 					strTest = "npc/npc_"+strLevelString;
 					
 				}
@@ -1068,12 +1037,10 @@ trigger OnSpeaking(string strText)
 				{
 					// creature
 					// check what kinda meat it has..
-					// mmmm.. meat
 					int intIndex = strMeatTypes[intI].indexOf("insect");
 					if(intIndex>-1)
 					{
-						//C:\swg\s1\dsrc\sku.0\sys.server\compiled\game\datatables\loot\loot_types\creature
-						//creature/insect_1_10
+						//datatables\loot\loot_types\creature\creature\insect_1_10
 						strTest = "creature/insect_"+strLevelString;
 					}
 					else
@@ -1095,333 +1062,9 @@ trigger OnSpeaking(string strText)
 			datatable.serverDataTableAddRow(strTableToWrite,dctTest);						
 		}
 
-	
-	/*
-		string strSource = "datatables/loot/test.iff";
-		string[] strNames = dataTableGetStringColumn(strSource, "npc_type");
-		string[] strContents = dataTableGetStringColumn(strSource, "table");
-		
-		string strTableToWrite = "";
-		for(int intI = 0; intI < strNames.length; intI++)
-		{
-			
-			if(strNames[intI]!="")
-			{
-				int intIndex = strContents[intI].indexOf("kashyyyk");
-				if(intIndex>-1)
-				{
-					strTableToWrite = "datatables/loot/loot_types/kashyyyk/"+strNames[intI]+".tab";
-				}
-				else
-				{
-					strTableToWrite = "datatables/loot/loot_types/mustafar/"+strNames[intI]+".tab";
-				}
-				string[] strHeaders = new string[2];
-				strHeaders[0] = "strItems";
-				strHeaders[1] = "strRequiredItems";
-				string[] strTypes = new string[2];
-				strTypes[0] = "s";
-				strTypes[1] = "s";
-				
-				boolean boolTest = datatable.createDataTable(strTableToWrite, strHeaders, strTypes);			
-				sendSystemMessageTestingOnly(self, "Creating "+strTableToWrite+ " with value of "+boolTest);
-			}
-			dictionary dctTest = new dictionary();			
-			dctTest.put("strItems", strContents[intI]);
-			dctTest.put("strRequiredItems", "");
-			sendSystemMessageTestingOnly(self, "Writing to "+strTableToWrite+ "contents are "+strContents[intI]);
-			datatable.serverDataTableAddRow(strTableToWrite,dctTest);						
-		
-		}
-	
-		
-		//public static native String[] dataTableGetColumnNames(String table);
-		//string strStartName = 
-		
-/*		string[] strTables = 
-		{
-			"boss_creature.iff",
-			"boss_droid.iff",
-			"boss_insect.iff",
-			"boss_npc.iff",
-			"consumables_1_stat_all.iff",
-			"elite_creature.iff",
-			"elite_droid.iff",
-			"elite_insect.iff",
-			"elite_npc.iff"	,
-			"generic_creature.iff",
-			"generic_droid.iff",
-			"generic_insect.iff",
-			"generic_npc.iff",
-			"guns_general.iff"
-		};
-		
-		//string[] strTables = {
-					//"datatables/loot/loot_types/mustafar/mustafar_creature_loot.iff ",
-					//"datatables/loot/loot_types/mustafar/mustafar_npc_loot.iff ",
-					//"datatables/loot/loot_types/mustafar/mustafar_npc_loot_b.iff "
-		//			"datatables/loot/loot_types/kashyyyk/kashyyyk_creature_loot.iff"
-		//			};
-		
-		string[] strHeader = new string[1];
-		string[] strTypes = new string[1];
-		strHeader[0] = "strItemType";
-		strTypes[0] = "s";	
-		
-		for(int intI = 0; intI < strTables.length; intI++)
-		{
-			string strP = "datatables/loot/new_loot/"+strTables[intI];
-			string[] strHeaders = dataTableGetColumnNames(strP);
-			
-			for(int intJ = 0; intJ < strHeaders.length; intJ++)
-			{
-				
-				int intTest = dataTableGetColumnType(strP, strHeaders[intJ]);
-				//int
-				//float
-				//string
-				
-				string strRoot = strTables[intI].substring(0, strTables[intI].length()-4);
-				
-				
-				if(intTest==2)
-				{
-					string strTableToWrite = "datatables/loot/new_loot/"+strRoot+strHeaders[intJ]+".tab";
-					boolean boolTest = datatable.createDataTable(strTableToWrite, strHeader, strTypes);
-					string[] strFoo = dataTableGetStringColumn(strP, strHeaders[intJ]);
-					for(int intK = 0; intK < strFoo.length; intK++)
-					{
-						dictionary dctTest = new dictionary();
-						dctTest.put("strItemType", strFoo[intK]);			
-						datatable.serverDataTableAddRow(strTableToWrite,dctTest);						
-					}
-				}
-			}		
-		}
-	
-	
-	
-	/*
-		//public static native String[] dataTableGetColumnNames(String table);
-		//string strStartName = 
-		
-		string strTable = "datatables/loot/moo.iff";
-		string[] strTables = dataTableGetStringColumn(strTable, "strTable");
-		
-		string[] strHeader = new string[1];
-		string[] strTypes = new string[1];
-		strHeader[0] = "strItemType";
-		strTypes[0] = "s";
-		
-		boolean boolTest = datatable.createDataTable("datatables/loot/foo.tab", strHeader, strTypes);
-		
-		resizeable string[] strDupes= new string[0];
-		for(int intI = 0; intI < strTables.length; intI++)
-		{
-			string strP = "datatables/loot/npc/"+strTables[intI];		
-			string[] strHeaders = dataTableGetColumnNames(strP);
-			for(int intJ = 0; intJ < strHeaders.length; intJ++)
-			{
-				int intTest = dataTableGetColumnType(strP, strHeaders[intJ]);
-				//int
-				//float
-				//string
-				
-				if(intTest==2)
-				{
-					string[] strFoo = dataTableGetStringColumn(strP, strHeaders[intJ]);
-					for(int intK = 0; intK < strFoo.length; intK++)
-					{
-						if(!utils.isElementInArray(strDupes, strFoo[intK]))
-						{				
-							strDupes = utils.addElement(strDupes, strFoo[intK]);
-							dictionary dctTest = new dictionary();
-							dctTest.put("strItemType", strFoo[intK]);			
-							datatable.serverDataTableAddRow("datatables/loot/foo.tab",dctTest);												
-						}		
-					}
-				}
-			}		
-		}
-		
-		
-		/*string strMasterTable = "datatables/loot/master_loot.iff";
-		string[] strNPC = dataTableGetStringColumn(strMasterTable, "npc_type");
-		string[] strTable = dataTableGetStringColumn(strMasterTable, "table");
-		
-		string strNewTable= "";
-		string[] strHeader = new string[1];
-		string[] strTypes = new string[1];
-		strHeader[0] = "strItemType";
-		strTypes[0] = "s";
-		dictionary dctTest = new dictionary();
-		
-		
-		int intT = 1;
-		string strMob = strNPC[intT].substring(0, strNPC[intT].length()-1);					
-		strNewTable = "datatables/loot/"+strMob+".tab";				
-		boolean boolTest = datatable.createDataTable(strNewTable, strHeader, strTypes);
-		//intI < strNPC.length; intI++)
-		for(int intI = 1; intI  < strNPC.length; intI++)
-		{
-		
-			datatables/loot/npc/aakuan.iff:clothing
-			object/tangible/wearables/bandolier/bandolier_s05.iff
-			object/tangible/wearables/bracelet/bracelet_s03_l.iff
-			object/tangible/wearables/bracelet/bracelet_s03_r.iff
-			object/tangible/wearables/ring/ring_s01.iff
-			object/tangible/loot/tool/datapad_broken.iff
-			object/tangible/loot/loot_schematic/chemical_recycler_schematic.iff
-
-			// if it has datatables in it, ignore
-			
-			wearables go to clothing
-			loot goes to junk_loot
-			level: skip
-			skill_buff (goes into skill buff table)
-			loot_schematic
-			
-			static_item goes to static_items for sorting
-			
-			
-			string strTest = strNPC[intI];
-			sendSystemMessageTestingOnly(self, "strTest is "+strTest);
-			if(strTest!="")
-			{
-			
-								
-				if((strTest.endsWith("1")||(strTest.endsWith("2"))||(strTest.endsWith("3"))||(strTest.endsWith("4"))||(strTest.endsWith("5"))||(strTest.endsWith("6"))||(strTest.endsWith("7"))||(strTest.endsWith("8"))||(strTest.endsWith("9"))))
-				{
-					string strSubName1 = strNPC[intI].substring(0, strNPC[intI].length()-1);					
-					sendSystemMessageTestingOnly(self, "strSubName 1 is "+strSubName1);
-					
-					
-					string strSubName2 = strMob;//.substring(0, strMob.length()-1);
-					sendSystemMessageTestingOnly(self, "strSubName 2 is "+strSubName2);
-					
-					if(strSubName1.endsWith("_"))
-					{
-						strSubName1 = strSubName1.substring(0, strSubName1.length()-1);
-					}
-					sendSystemMessageTestingOnly(self, "strSubName 1 is "+strSubName1);
-					if(strSubName2.endsWith("_"))
-					{
-						strSubName2 = strMob.substring(0, strSubName2.length()-1);
-					}
-					sendSystemMessageTestingOnly(self, "strSubName 2 is "+strSubName2);
-					
-					if(!(strSubName1.equals(strSubName2)))
-					{
-						strMob = strSubName1;			
-						strNewTable = "datatables/loot/"+strMob+".tab";				
-						sendSystemMessageTestingOnly(self, "Newing up a table for "+strMob);
-						boolTest = datatable.createDataTable(strNewTable, strHeader, strTypes);
-					}
-				}
-				else
-				{
-					strMob = strNPC[intI];
-					strNewTable = "datatables/loot/"+strMob+".tab";
-					sendSystemMessageTestingOnly(self, "Newing 2 up a table for "+strMob);
-					boolTest = datatable.createDataTable(strNewTable, strHeader, strTypes);
-					sendSystemMessageTestingOnly(self, "Writing "+strNewTable);
-				
-				}
-				
-			}
-			else
-			{
-				sendSystemMessageTestingOnly(self, "Writing additional value to "+strNewTable);
-			}
-			//datatables/loot/npc/aakuan.iff:aakuan1
-			string[] strMoo = split(strTable[intI], ':');
-			// 0 is the table, 1 is the column
-			// we want to convert 0 into a valid entry
-			int intIndex1 = strMoo[0].indexOf(".iff");
-			int intIndex2 = 16;
-			string strEntry = strMoo[0].substring(intIndex2, intIndex1);													
-			dctTest.put("strItemType", strEntry);
-			sendSystemMessageTestingOnly(self, "Writing data "+strEntry +" to table "+strNewTable);
-			datatable.serverDataTableAddRow(strNewTable,dctTest);
-			//string strFileName = strTest[0];
-			///string strColumnName = strTest[1];
-			//string[] strItems = dataTableGetStringColumnNoDefaults(strFileName, strColumnName);			
-		}
-
-
-/*
-
-		// dictionary of arrays
-		// do a wile loop
-		// loop through every array
-		// if we're>length for all of them
-
-		string[] strFinalHeaders = new string[strHeaders.length];
-		string[] strFinalTypes = new string[strTypes.length];
-		for(int intI = 0; intI < strHeaders.length; intI++)
-		{
-			strFinalHeaders[intI] = strHeaders[intI];
-			strFinalTypes[intI] = strTypes[intI];
-		}
-		string strFinalTable = "datatables/loot/foo.tab";
-		boolean boolTest = datatable.createDataTable(strFinalTable, strFinalHeaders, strFinalTypes);
-		int intCount = 0;
-		dictionary dctRowToAdd = new dictionary();		
-		boolean boolFinished = false;
-		boolean boolEmpty = false;
-		int intI = 0;
-		int intFoo = 0;
-		
-		while (!boolFinished)
-		{		
-			//sendSystemMessageTestingOnly(self, "retrieving "+strFinalHeaders[intI]);
-			string[] strArray = dctTest.getStringArray(strFinalHeaders[intI]);
-			sendSystemMessageTestingOnly(self, "getting "+strFinalHeaders[intI]);
-			// we get an array
-			// we add the current value at the intCount index
-			if(intCount<strArray.length)
-			{
-
-				boolEmpty = false;
-				dctRowToAdd.put(strFinalHeaders[intI], strArray[intCount]);
-				sendSystemMessageTestingOnly(self, "adding "+strArray[intCount]+" under header "+strFinalHeaders[intI]+ "and coutn is "+intCount);
-						
-			}
-			else
-			{
-				dctRowToAdd.put(strFinalHeaders[intI], "");	
-				sendSystemMessageTestingOnly(self, "adding2 "+"");	
-			}		
-			intI ++;
-			
-			if(intI>strFinalHeaders.length-1)
-			{
-				if(boolEmpty)
-				{					
-					boolFinished = true;
-				}
-				boolEmpty = true;
-				intI = 0; // restart
-				intCount++;
-				sendSystemMessageTestingOnly(self, "Adding row");
-				datatable.serverDataTableAddRow(strFinalTable,dctRowToAdd);
-				dctRowToAdd = new dictionary();
-			}	
-			
-			
-			intFoo++;
-			if(intFoo>500)
-			{
-				boolFinished = true;
-			}
-		}
-
-*/
 	}
 	if(strText=="makeDynamicWeapon")
 	{
-		//obj_id makeDynamicObject(string strName, obj_id objContainer, int intLevel)
-		//static_item.makeDynamicObject("dynamic_weapon_minor_fire", utils.getInventoryContainer(self), 85);
 		static_item.makeDynamicObject("dynamic_weapon_basic_all", utils.getInventoryContainer(self), rand(5,60));
 		//dynamic_weapon_minor_fire
 		//dynamic_weapon_major_fire
@@ -1435,15 +1078,9 @@ trigger OnSpeaking(string strText)
 	
 
 		obj_id objInventory = utils.getInventoryContainer(self);
-		//obj_id lootItem = static_item.createNewItemFunction("weapon_carbine_02_03", objInventory);
-		
-		//obj_id lootItem = static_item.createNewItemFunction("weapon_pistol_02_02", objInventory);
-		//lootItem = static_item.createNewItemFunction("weapon_tow_rifle_05_01", objInventory);
 		
 		obj_id lootItem = static_item.createNewItemFunction("weapon_tow_pistol_02_01", objInventory);
-		//obj_id lootItem = static_item.createNewItemFunction("weapon_pistol_02_03", objInventory);
-		//lootItem = static_item.createNewItemFunction("weapon_npe_carbine_spy_03_01", objInventory);
-		//obj_id lootItem = static_item.createNewItemFunction("weapon_grenade_fragmentation_01_01", objInventory);
+
 		sendSystemMessageTestingOnly(self, "made "+lootItem);
 	}
 	if(strText=="checkStats")
@@ -1455,9 +1092,7 @@ trigger OnSpeaking(string strText)
 	
 	if(strText=="weaponUpdates")
 	{
-	
-	
-		//setWeaponAttackSpeed(object, (float)attackSpeed/100.0f);	
+		
 		obj_id objInventory = utils.getInventoryContainer(self);
 		obj_id[] objContents = utils.getContents(self, true);
 		for(int intI = 0; intI < objContents.length; intI++)
@@ -1465,12 +1100,10 @@ trigger OnSpeaking(string strText)
 			if(hasScript(objContents[intI],"systems.combat.combat_weapon")) 
 			{
 				
-				//float fltSpeed = getWeaponAttackSpeed(objContents[intI]);
 				setWeaponAttackSpeed(objContents[intI], .25f);
 				setWeaponMinDamage(objContents[intI], 5);
 				setWeaponMaxDamage(objContents[intI], 10);
 				
-				//sendSystemMessageTestingOnly(self, "speed is "+fltSpeed+" for "+objContents[intI]);
 			}
 		}
 		sendSystemMessageTestingOnly(self, "Done length was "+objContents.length);
@@ -1674,7 +1307,7 @@ trigger OnSpeaking(string strText)
 	{
 
 		obj_id objShip = space_transition.getContainingShip(self);
-		LOG("space", "FIXING ALL PLASMA CONDUITS");
+		LOG("space", "Fixing all conduits");
 		if(utils.hasScriptVar(objShip, "objPlasmaConduits"))
 		{		
 			resizeable obj_id[] objPlasmaConduits = utils.getResizeableObjIdArrayScriptVar(objShip, "objPlasmaConduits");
@@ -1745,9 +1378,7 @@ trigger OnSpeaking(string strText)
 	{
 		location locTest = new location();
 		obj_id objShip = space_transition.getContainingShip(self);
-		//locTest.z = 650;
 		obj_id objCell = getCellId(objShip, "elevator05");
-		//obj_id objCell = getCellId(objShip, "communications");
 		locTest.cell = objCell;
 		
 		setLocation(self, locTest);
@@ -1768,9 +1399,6 @@ trigger OnSpeaking(string strText)
 	
 	if(strCommands[0]=="equipClothes")
 	{
-		//depot/swg/s0/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/pants/pants_s01.tpf
-		//depot/swg/s0/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/shirt/shirt_s14.tpf
-		//depot/swg/s0/dsrc/sku.0/sys.server/compiled/game/object/tangible/wearables/boots/boots_s05.tpf
 		
 	
 	}
@@ -1779,11 +1407,6 @@ trigger OnSpeaking(string strText)
 	{
 		
 		obj_id objInventory = utils.getInventoryContainer(self);
-		//obj_id objKit = createObject("object/tangible/ship/crafted/repair/repair_kit_engine.iff", objInventory, "");		
-		//objKit = createObject("object/tangible/ship/crafted/repair/repair_kit_reactor.iff", objInventory, "");
-		//objKit = createObject("object/tangible/ship/crafted/repair/repair_kit_droid_interace.iff", objInventory, "");
-		//objKit = createObject("object/tangible/ship/crafted/repair/repair_kit_weapon_capacitor.iff", objInventory, "");
-		//objKit = createObject("object/tangible/ship/crafted/repair/repair_kit_weapon.iff", objInventory, "");
 		
 		obj_id[] objPcds = space_transition.findShipControlDevicesForPlayer(self);		
 		obj_id objShip = space_transition.getShipFromShipControlDevice(objPcds[0]);
@@ -1821,9 +1444,7 @@ trigger OnSpeaking(string strText)
 	{
 		obj_id objShip = space_transition.getContainingShip(self);
 		int intSide = space_combat.BACK;
-		//float fltShieldHitPointsMaximum = space_combat.getShieldHitPointsMaximum(objShip, intSide);
 		space_combat.setShieldHitPoints(objShip, intSide, 5.0f);
-		//setShieldHitPoints(objDefender, intSide, 0);
 			
 	}
 	if(strCommands[0]=="damageShip")
@@ -1917,8 +1538,7 @@ trigger OnSpeaking(string strText)
 	{
 		obj_id objTarget = getLookAtTarget(self);
 		string strFaction = "rebel";
-		sendSystemMessageTestingOnly(self, "set "+objTarget+ " to Faction "+strFaction);
-		//shipSetSpaceFaction(objTarget, strFaction);				
+		sendSystemMessageTestingOnly(self, "set "+objTarget+ " to Faction "+strFaction);				
 	
 	}
 	if(strCommands[0]=="getShip")
@@ -1942,7 +1562,6 @@ trigger OnSpeaking(string strText)
 		obj_id objShip = space_transition.getContainingShip(self);
 		string_id strSpam = new string_id("fpp", "fooo");
 		space_utils.sendSystemMessageShip(objShip, strSpam, true, false, true, true);
-		//space_utils.sendSystemMessageShip(objShip, strSpam, true, true, true, true);
 		space_utils.sendSystemMessageToOperations(objShip, strSpam);
 		obj_id objOfficer = space_utils.getOperationsOfficer(objShip);
 		sendSystemMessageTestingOnly(self, "objOfficer is "+objOfficer);		
@@ -2077,7 +1696,6 @@ trigger OnSpeaking(string strText)
 		string_id strSubject = new string_id("space/space_interaction", "email_subject_"+strCommands[1]);
 		string_id strBody = new string_id("space/space_interaction", "email_body_"+strCommands[1]);
 		string_id strSender = new string_id("space/space_interaction", "email_sender_"+strCommands[1]);	
-		//string strSenderName = getString(strSender);
 		string strSenderName = utils.packStringId(strSender);
 		sendSystemMessageTestingOnly(self, "sending mail "+strCommands[1]);
 		utils.sendMail(strSubject, strBody, self, strSenderName);	
@@ -2085,7 +1703,7 @@ trigger OnSpeaking(string strText)
 	}
 	if(strCommands[0]=="sendNewbieMailMessage")
 	{
-		// SEND N00b MAILS!
+		// Send starter mails
 		if(strCommands[1].equals("1"))
 		{		
 			dictionary dctParams = new dictionary();
@@ -2130,8 +1748,7 @@ trigger OnSpeaking(string strText)
 		dictionary dctParams = new dictionary();
 		dctParams.put("objShip", objTarget);
 		space_utils.notifyObject(objShip, "megaDamage", dctParams);
-		sendSystemMessageTestingOnly(self, "objTarget of "+objTarget+" is attacking "+objShip);
-		//ship_ai.spaceAttack(objTarget, objShip);	
+		sendSystemMessageTestingOnly(self, "objTarget of "+objTarget+" is attacking "+objShip);	
 	}
 	if(strCommands[0]=="findStationEggs")
 	{
@@ -2151,9 +1768,6 @@ trigger OnSpeaking(string strText)
 	}
 	if(strCommands[0]=="makeSquad")
 	{
-	
-
-		//obj_id[] spawnSquad(obj_id objParent, string strSquad, transform trSpawnLocation, float fltDistance, obj_id objCell)
 		space_create.createSquad(self, "squad_test", getTransform_o2p(self), 10, null);
 		sendSystemMessageTestingOnly(self, "spawned");
 	
@@ -2365,9 +1979,6 @@ trigger OnSpeaking(string strText)
 	}
 	if(strCommands[0]=="breakConduit")
 	{
-		//obj_id objTarget = getLookAtTarget(self);
-		////setInvulnerableHitpoints(objTarget, 1);
-		//setCondition(objTarget, CONDITION_ON);
 		space_crafting.breakPlasmaConduit(getLookAtTarget(self), space_transition.getContainingShip(self), getLocation(getLookAtTarget(self)), true);
 		sendSystemMessageTestingOnly(self, "BROKE");
 	
@@ -2404,32 +2015,11 @@ trigger OnSpeaking(string strText)
 				string strScripts= utils.getStringLocalVar(objStationEggs[intI], "strScripts");
 				string strTemplate = utils.getStringLocalVar(objStationEggs[intI], "strTemplate");
 				LOG("space", "making "+strTemplate+" from object "+objStationEggs[intI]);
-				transform trTest = getTransform_o2p(objStationEggs[intI]);						
-				//obj_id objStation = createObject(strTemplate, trTest, null);			
-				/*setPackedObjvars(objStation, strObjVars);					
-				if(strScripts!="")
-				{
-					string[] strScriptArray = split(strScripts, ',');
-					for(int intJ = 0; intJ<strScriptArray.length; intJ++)
-					{
-						string script = strScriptArray[intJ];
-						if ( script.indexOf( "script." ) > -1 )
-						{
-							script = script.substring( 7 );
-						}
-						if(script!="")
-						{
-							if ( !hasScript( objStation, script ) )
-								attachScript( objStation, script );
-						}
-						space_create.setupShipFromObjVars(objStation);
-					}
-				}		
-				*/
+				transform trTest = getTransform_o2p(objStationEggs[intI]);
 
 			}
 
-		} // remade teh stations
+		}
 	}
 	if(strCommands[0]=="getShipId")
 	{
@@ -2622,8 +2212,7 @@ trigger OnSpeaking(string strText)
 	
 	}
 	if(strCommands[0]=="getWeaponEnergy")
-	{
-		//float fltEnergy =getShipCurrentWeaponCapacitorEnergy(getShipId(self));	
+	{	
 	}
 	
 	if(strCommands[0]=="setWeaponEnergy")
@@ -2711,15 +2300,15 @@ trigger OnSpeaking(string strText)
 	{
 		
 		obj_id objMount = getMountId(self);
-		setBaseRunSpeed(objMount, 20.0f); // RUn like the wind!
-		sendSystemMessageTestingOnly(self, "FAST!");
+		setBaseRunSpeed(objMount, 20.0f); // Run
+		sendSystemMessageTestingOnly(self, "Running");
 	
 	}
 	if(strCommands[0]=="goSlow")
 	{
 		obj_id objMount = getMountId(self);
-		setBaseRunSpeed(objMount, 6.0f); // RUn like the wind!
-		sendSystemMessageTestingOnly(self, "SLOOOW");
+		setBaseRunSpeed(objMount, 6.0f); // Running slower
+		sendSystemMessageTestingOnly(self, "Jogging");
 
 	
 	}
@@ -2745,11 +2334,11 @@ trigger OnSpeaking(string strText)
 	if(strCommands[0]=="slowMe")
 	{
 	
-		setBaseRunSpeed(self, 1.0f); // RUn like the wind!
+		setBaseRunSpeed(self, 1.0f); // Walk
 	}
 	if(strCommands[0]=="fastMe")
 	{
-		setBaseRunSpeed(self, 6.0f); // RUn like the wind!
+		setBaseRunSpeed(self, 6.0f); // Running
 	
 	}
 	if(strCommands[0]=="jediSetup")
@@ -2962,17 +2551,6 @@ trigger OnSpeaking(string strText)
 	else if(strCommands[0]=="getStats")
 	
 	{
-		//setMaxAttrib(self, CONSTITUTION, 300);
-		//setMaxAttrib(self, HEALTH, 1000);
-		//setMaxAttrib(self, STRENGTH, 300);
-
-		//setMaxAttrib(self, STAMINA, 300);
-		//setMaxAttrib(self, ACTION, 1000);
-		//setMaxAttrib(self, QUICKNESS, 1000);
-
-		//setMaxAttrib(self, WILLPOWER, 300);
-		//setMaxAttrib(self, MIND, 400);
-		//setMaxAttrib(self, FOCUS, 300);
 
 		obj_id objTarget = getLookAtTarget(self);
 		if(objTarget!=null)
@@ -3087,8 +2665,6 @@ trigger OnSpeaking(string strText)
 	}
 	if(strCommands[0]=="soundTest")
 	{
-		//playMusic(self, "sound/sys_comm_generic.snd");
-		//playMusic(self, "sound/sys_comm_imperial.snd");
 		playMusic(self, "sound/sys_comm_rebel.snd");
 		
 		
@@ -3104,8 +2680,6 @@ trigger OnSpeaking(string strText)
 	}
 	if(strCommands[0]=="music")
 	{
-		//playMusic(self, "sound/music_acq_academic.snd");
-		//playMusic(self, "sound/music_event_celebration.snd");
 		playMusic(self, "sound/music_int_complete_rebel.snd");
 	
 	}
@@ -3252,71 +2826,7 @@ trigger OnSpeaking(string strText)
 	
 	
 	}
-	/*
-	if(strCommands[0]=="spawnCheckWithCreation")
-	{
-		for(int intM = 0; intM<50; intM++)
-		{
-			float fltMinSpawnDistance = 30+ (rand(10, 30)/2);
-			if(fltMinSpawnDistance>100)
-			{
-				fltMinSpawnDistance = 100;
 
-			}
-			float fltMaxSpawnDistance = 200;
-			location locSpawnLocation = new location();
-
-			int intI = 0;
-
-			resizeable location[] locSpawnLocations = new location[0];
-			while(intI<3)
-			{
-
-				const float[] QUADRANT_START_ANGLE = {0, 47, -47};
-				const float[]  QUADRANT_SIZE = {12, 20, 20};
-
-				// how far away
-				float fltSpawnDistance = rand(fltMinSpawnDistance, fltMaxSpawnDistance);
-				locSpawnLocation = utils.getLocationInArc(self, QUADRANT_START_ANGLE[intI], QUADRANT_SIZE[intI], fltSpawnDistance);
-				//LOG("spawning", self+" intSize is "+intSize);
-				//LOG("spawning", self+" Pre good location, locSpawnLocation is "+locSpawnLocation);
-				int intSize = rand(30, 72);
-				location goodLocation = locations.getGoodLocationAroundLocation(locSpawnLocation, intSize,intSize, 75, 75, false, true);
-				if(goodLocation == null)
-				{
-
-					sendSystemMessageTestingOnly(self, "Null location");
-					//return SCRIPT_CONTINUE;
-				}
-				else
-				{
-
-					float fltY = getHeightAtLocation(goodLocation.x, goodLocation.z);
-					goodLocation.y = fltY;				
-					locSpawnLocations = utils.addElement(locSpawnLocations, goodLocation);
-				}
-				intI = intI+1;
-			}
-			intI = 0;
-			boolean boolCheckForTheaters = true;
-			location locCurrentLocation = getLocation(self);
-			while(intI<locSpawnLocations.length)
-			{
-
-				locSpawnLocation = locSpawnLocations[intI];
-
-				string strLairType = "tatooine_dim_u_church_neutral_large_theater";
-				if(canSpawn(self, locSpawnLocation, true, strLairType))
-				{
-					//createObject("object/tangible/lair/npc_lair.iff",locSpawnLocation);		
-					createObject("object/tangible/lair/npc_lair.iff",locSpawnLocation);		
-
-				}	
-				intI = intI+1;
-			}
-		}
-	}	
-	*/
 	if(strCommands[0]=="spawnCheckWithoutCreation")
 	{
 		for(int intM = 0; intM<2; intM++)
@@ -3351,7 +2861,6 @@ trigger OnSpeaking(string strText)
 				{
 
 					sendSystemMessageTestingOnly(self, "Null location");
-					//return SCRIPT_CONTINUE;
 				}
 				else
 				{
@@ -3372,8 +2881,7 @@ trigger OnSpeaking(string strText)
 
 				string strLairType = "tatooine_dim_u_church_neutral_large_theater";
 				if(canSpawn(self, locSpawnLocation, true, strLairType))
-				{
-					//createObject("object/tangible/lair/npc_lair.iff",locSpawnLocation);		
+				{		
 					sendSystemMessageTestingOnly(self, "spawnLocation is "+locSpawnLocation);
 
 				}	
@@ -3443,7 +2951,7 @@ location getGoodMissionLocation(location locSpawnLocation, obj_id objPlayer)
 
 }
 
-boolean checkTemplatesInRange(obj_id objPlayer, location locHome, boolean boolCheckForTheaters, string strObjectType) // boolean for finding a REAL spawn location as oppposed to around the playre
+boolean checkTemplatesInRange(obj_id objPlayer, location locHome, boolean boolCheckForTheaters, string strObjectType) // boolean for finding a REAL spawn location as oppposed to around the player
 {
 
 boolean boolLogFailures = true;
@@ -3480,17 +2988,7 @@ boolean boolVerboseMode = true;
 			if(objLairs!=null)
 			{
 				sendSystemMessageTestingOnly(objPlayer, "Non null objLairs.. length is "+objLairs.length);
-			/*
-				for(int intI = 0; intI<	objLairs.length; intI++)
-				{
-					location locLairHome = getLocation(objLairs[intI]);
-					float fltDistance = getDistance(locLairHome, locHome);
-					////LOG("spawning", objPlayer+ " fltDistance is "+fltDistance);
-					////LOG("spawning", objPlayer+ "for object "+objLairs[intI]+" location is "+locLairHome);
 
-				}
-			*/
-				////LOG("spawning", objPlayer+ " objLairs is "+objLairs.length);
 				if(objLairs.length>0)
 				{
 					string strSpam = objPlayer+ " Too many lairs in the area, kicking out, area was "+locHome+" number of lairs is "+objLairs.length;
@@ -3517,24 +3015,7 @@ boolean boolVerboseMode = true;
 					}
 				}
 			}
-			/*
-			objTheaters = getAllObjectsWithObjVar(locHome, 200, "theater.stamp"); // look for parents
 
-			if(objTheaters!=null)
-			{
-
-
-				//////LOG("spawning", objPlayer+ " objTheaters.length is "+objTheaters.length);
-				//////LOG("spawning", objPlayer+ " locHome is "+locHome);
-				if(objTheaters.length>0)
-				{
-					//////LOG("spawning", objPlayer+ " Parent object found in range, returning false");
-					//////LOG("spawning", objPlayer+ " objTheaters length of "+objTheaters.length+" is greater than 0");
-					return false;
-				}
-
-			}
-			*/
 			obj_id[] objTheaters = getAllObjectsWithObjVar(locHome, 200, "isScenario"); // scenario check
 			if(objTheaters!=null)
 			{
@@ -3593,14 +3074,6 @@ boolean boolVerboseMode = true;
 	int intServerSpawnLimit = 0;
 
 	string strSpam = "";
-	//string strSpam = objPlayer +" intserverspawnlimit is "+intServerSpawnLimit;
-	//sendSpawnSpam(objPlayer, boolLogFailures, boolVerboseMode, strSpam);
-
-	// we need to compare our current location distance to the last couple of spawns...
-	// AM I IN A STRUCTURE?!?!?!
-	// if so, we're kicking out
-	//////////LOG("spawn_spam", "objPlayer is "+objPlayer);
-	/// check number of everything to make sure we're good
 
 
 
@@ -3669,7 +3142,7 @@ boolean boolVerboseMode = true;
 	if(locCurrentLocation.cell!=obj_id.NULL_ID)
 	{
 
-		// INSIDE OF A CELL! BAD!
+		// Inside of cell.  Return false.
 
 		strSpam =  objPlayer+ " canSpawn failed: spawnig is disabled in cells";
 		sendSpawnSpam(objPlayer, boolLogFailures, boolVerboseMode, strSpam);
@@ -3761,7 +3234,7 @@ boolean boolVerboseMode = true;
 			//strSpam = objPlayer+ " Too many templates in area, canspawn returns false";
 			//sendSpawnSpam(objPlayer, boolLogFailures, boolVerboseMode, strSpam);
 			//////LOG("spawning", objPlayer+ " canSpawn failed: checkTemplatesInRange returned false ");
-			return false; // TOO MANY TEMPLATES IN THE AREA. DON'T SPAWN.
+			return false; // Too many templates in area.
 
 		}
 
@@ -3911,18 +3384,13 @@ messageHandler checkEngineValue()
 		return SCRIPT_CONTINUE;
 	
 	}
-	obj_id objShip = space_transition.getContainingShip(self);
-	//sendSystemMessageTestingOnly(self, "===============================================================");	
+	obj_id objShip = space_transition.getContainingShip(self);	
 	sendSystemMessageTestingOnly(self, "Current Ship Speed: "+ getShipCurrentSpeed(objShip)+" Actual Pitch: "+getShipActualPitchRateMaximumDegrees(objShip));
 
 	
 	LOG("space", "===============================================================");
 	LOG("space", "Loops left: "+intLoops);
 	LOG("space", "Current Ship Speed: "+ getShipCurrentSpeed(objShip));
-	
-	//LOG("space", "Current Ship Yaw: "+getShipCurrentYaw(objShip));
-	//LOG("space", "Current Ship Pitch: "+getShipCurrentPitch(objShip));
-	//LOG("space", "Current Ship Roll: "+getShipCurrentRoll(objShip));
 
 	LOG("space", "Actual Yaw: "+getShipActualYawRateMaximumDegrees(objShip));
 	LOG("space", "Actual Pitch: "+getShipActualPitchRateMaximumDegrees(objShip));
@@ -3952,7 +3420,7 @@ string getDumpString(obj_id objTest, string strName)
 
 messageHandler pingResponse()
 {
-// respond to sender with my locatoin
+// respond to sender with my location
 	location locTest = params.getLocation("locTest");
 	obj_id objSender = params.getObjId("objSender");
 	sendSystemMessageTestingOnly(self, "Response from "+objSender+" they are at location "+locTest);

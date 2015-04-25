@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        player_corpse.script
  * Description:  player corpse
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -15,9 +10,6 @@ include library.permissions;
 include library.corpse;
 include library.spam;
 include library.money;
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGER *********************************************************/
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
@@ -379,4 +371,3 @@ messageHandler handleRequestLocation()
 	return SCRIPT_CONTINUE;
 }
 
-/***** FUNCTIONS ********************************************************/

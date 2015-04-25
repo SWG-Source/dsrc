@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9525440	0	object/static/structure/naboo/gate_narrow_s02.iff	0	869.508	10.8025	1987.57	0.836325	-0.0107076	0.535309	-0.117857		$|
+9525440	0	object/static/structure/naboo/gate_narrow_s02.iff	0	869.508	10.8025	1987.57	0.836325	-0.0107076	0.535309	-0.117857	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/naboo_commoner.iff|$|
 9525447	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s07.iff	0	867.961	10.8969	1983.01	0.8499	0	0	0.526943		$|
 9525464	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	857.478	10.1018	1993.14	0.962425	0	0	0.271547		$|
 9525465	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	874.356	11.2626	1996.06	1	0	0	0		$|

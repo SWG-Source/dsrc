@@ -1,21 +1,13 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        select_performance.script
- * Description:  script is attached to the player when he is to select
+ * Description:  script is attached to the player when they are to select
  *		 a dance or song to perfom.
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
 /***** INCLUDES ********************************************************/
 include library.performance;
 include library.sui;
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnInitialize()
@@ -32,8 +24,6 @@ trigger OnDetach()
 	
 	return SCRIPT_CONTINUE;
 }
-
-/***** MESSAGEHANDLERS *************************************************/
 
 
 /***** MESSAGEHANDLERS *************************************************/
@@ -189,9 +179,3 @@ messageHandler msgJuggleSelected()
 	
 	return SCRIPT_CONTINUE;
 }
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
-

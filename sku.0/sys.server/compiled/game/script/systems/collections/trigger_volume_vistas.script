@@ -1,13 +1,9 @@
-//TODO: NOtes
-//
-//
-//
-//
-
 //constants
 const string COLLECTION_PREFIX 			= "col_panoramic_vistas_";
 const string SLOT_OBJVAR			= "collection.marker";
 const float UPDATE_RADIUS 			= 2.0f;
+
+//triggers
 
 trigger OnInitialize()
 {

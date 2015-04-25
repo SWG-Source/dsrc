@@ -1,16 +1,7 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        terminal_wound.script
  * Description:  script for the beta wound terminal. Ow!
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
-
-
-/***** INCLUDES ********************************************************/
-
 
 /***** CONSTANTS *******************************************************/
 const string_id SID_INFLICT_DAMAGE 			= new string_id("wound_terminal", "inflict_damage");
@@ -55,12 +46,4 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	}
 
 }
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS **************************************************/
 

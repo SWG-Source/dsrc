@@ -1,18 +1,9 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.beast.enzyme.script
- * Description:
- * @author       jbenjamin
- * @version      $Revision: 1.1$
+/* Title:        systems.beast.enzyme.script
  */
 
 //Script on Enzymes
 include library.incubator
 include library.utils;
-
-//constants
 
 trigger OnInitialize()
 {

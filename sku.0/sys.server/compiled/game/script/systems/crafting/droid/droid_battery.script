@@ -1,18 +1,11 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        <title>
- * Description:  <description>
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+//includes
 
 include library.callable;
 include library.craftinglib;
 include library.pet_lib;
 include library.utils;
 
+//triggers
 trigger OnGetAttributes(obj_id player, string[] names, string[] attribs)
 {
 	int idx = utils.getValidAttributeIndex(names);

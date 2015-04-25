@@ -1,10 +1,6 @@
-/**
- * Title:        resource_density
- * Description:  combines a resource type id and its density at a point
- * Copyright:    Copyright (c) 2004
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        resource_density
+ Description:  combines a resource type id and its density at a point
  */
 
 package script;

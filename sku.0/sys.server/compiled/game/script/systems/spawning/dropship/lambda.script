@@ -9,7 +9,7 @@ inherits systems.spawning.dropship.base;
 trigger OnAttach()
 {
 	messageTo(self, "handleAttachDelay", null, 2f, false);
-	return SCRIPT_CONTINUE;
+	return super.OnAttach(self);
 }
 
 messageHandler handleAttachDelay()

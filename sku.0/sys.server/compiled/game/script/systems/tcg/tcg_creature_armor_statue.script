@@ -7,8 +7,6 @@ include library.static_item;
 include library.sui;
 include library.utils;
 
-//inherits terminal.base.base_terminal;
-
 const string_id SID_VAC_ARMOR = new string_id("tcg", "start_statue");
 const string_id SID_NOT_IN_HOUSE = new string_id("tcg", "not_in_house");
 const string_id SID_NO_CREATURE_IN_DP = new string_id("tcg", "no_creature_in_dp");
@@ -85,7 +83,6 @@ boolean checkLocation(obj_id item, obj_id player)
 }
 
 // Gets the content of the players datapad and returns an array of all elements in the datapad that has the pet.creaturename
-// 
 obj_id[] getCreatureMountList(obj_id self, obj_id player)
 {
 	obj_id dataPad = utils.getPlayerDatapad(player);
@@ -256,7 +253,7 @@ void stageMenu(obj_id self, obj_id player, string prompt, string title, string[]
 {
 	closeOldWindow(player, scriptVar);
 	int pid = sui.listbox(self, player, prompt, sui.OK_CANCEL, title, options, myHandler, false, false);
-	//sui.listboxUseOtherButton(pid, "Back");
+	// sui.listboxUseOtherButton(pid, "Back");
 	sui.showSUIPage(pid);
 	setWindowPid(player, pid, PIDVar);
 	utils.setScriptVar(player, scriptVar, options );

@@ -1,14 +1,7 @@
 /********************************************************************************************
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- ********************************************************************************************
  * Title:        minefield_util.scriptlib
  * Description:  Provides all scripts creating minefields global adjuster variables and all
  *               major functionality for the creation and manipulation of minefields.
- *
- * @author       $Author: Matthew Kwid$
- * @version      $Revision: $
- *
  ********************************************************************************************
 
 /***** FUNCTIONS *****************************************************************************

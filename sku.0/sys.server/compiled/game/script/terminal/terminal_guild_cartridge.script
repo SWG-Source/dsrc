@@ -1,10 +1,6 @@
-// ======================================================================
-//
 // guild.script - guild terminal menu handling
-//
-// Copyright 2002 Sony Online Entertainment
-//
-// ======================================================================
+
+//Includes
 
 include library.guild;
 include library.player_structure;
@@ -13,7 +9,7 @@ include library.utils;
 
 //inherits terminal.base.base_terminal;
 
-// ======================================================================
+// Constants
 
 const string_id SID_GUILD_LOAD_CARTRIDGE	= new string_id ("guild", "load_cartridge");
 const string_id SID_LOAD_CARTRIDGE_PROMPT	= new string_id ("guild", "load_cartridge_prompt");
@@ -25,7 +21,7 @@ const string STR_GUILD_CREATE_ABBREV_PROMPT	= "@guild:create_abbrev_prompt";
 const string STR_GUILD_CREATE_ABBREV_TITLE	= "@guild:create_abbrev_title";
 
 
-// ======================================================================
+// Triggers
 
 // ----------------------------------------------------------------------
 
@@ -58,6 +54,8 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	
 	return SCRIPT_CONTINUE;
 }
+
+// MessageHandlers
 
 messageHandler handleLoadCartridge()
 {

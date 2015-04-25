@@ -7,8 +7,7 @@ const int LAIR_RANGE = 200;
 const int LAIR_LIMIT = 2;
 
 
-/* -----------------7/9/2002 2:47PM------------------
- * recreate the trigger volume:
+/* recreate the trigger volume:
  * --------------------------------------------------*/
 trigger OnInitialize()
 {
@@ -16,8 +15,7 @@ trigger OnInitialize()
 	return SCRIPT_CONTINUE;
 }
 
-/* -----------------7/9/2002 3:20PM------------------
- * Spawn all the creatures, setup the trigger volume
+/*  Spawn all the creatures, setup the trigger volume
  * and flag the lair as Persistent:
  * --------------------------------------------------*/
 trigger OnAttach()
@@ -39,8 +37,7 @@ trigger OnObjectDisabled (obj_id killer)
 }
 
 
-/* -----------------7/9/2002 3:18PM------------------
- * Spawn all the critters and make them persistent:
+/* Spawn all the critters and make them persistent:
  * --------------------------------------------------*/
 void spawnAllCreatures(obj_id lair)
 {
@@ -66,14 +63,12 @@ void spawnAllCreatures(obj_id lair)
   return;
 }
 
-/* -----------------7/9/2002 2:47PM------------------
- * Receive this message when a creature is destroyed:
+/* Receive this message when a creature is destroyed:
  * Send a call-back with a delay dependig on the difficulty
  * of the POI
  * --------------------------------------------------*/
 
-/* -----------------7/9/2002 2:48PM------------------
- * Respawn a dead creature:
+/* Respawn a dead creature:
  * --------------------------------------------------*/
 messageHandler respawnCreature()
 {

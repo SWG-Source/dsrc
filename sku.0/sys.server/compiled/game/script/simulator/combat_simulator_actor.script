@@ -2,10 +2,8 @@
  * Title:        combat_simulator_actor
  * Description:  Actor class for the combat simulator - in each simulation, there are two actors that fight
  * Usage:        This class should not be instantiated on its own - the combat_simulator_master will create them on its own
- * Copyright:    Copyright (c) 2005
- * Company:      Sony Online Entertainment
- * @author       Vijay Thakkar
- * @version 1.0
+
+ 
  */
 
 // NONE OF THIS SHOULD EVER GO TO LIVE - ifdef'd out

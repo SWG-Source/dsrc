@@ -1,11 +1,9 @@
 /**
- * Copyright (c)2000-2004 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        fs_oldman_initial.script
  * Description:  Force Sensitive female quest npc
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 include library.ai_lib;

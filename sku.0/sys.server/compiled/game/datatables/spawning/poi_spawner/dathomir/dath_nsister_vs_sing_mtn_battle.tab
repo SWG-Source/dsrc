@@ -1,24 +1,24 @@
-spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
-s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
-singing_mtn_clan_arch_witch		world	-2520	128.4611816	1590	175	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=1					
-singing_mtn_clan_scout		world	-2520	126.357254	1580	175	theme_park.dungeon.generic_death			400	int:ai.defaultCalmBehavior=1					
-singing_mtn_clan_huntress		world	-2510	122.8058701	1570	175	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=1					
-singing_mtn_clan_scout		world	-2520	124.5347595	1570	175	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=1					
-singing_mtn_clan_huntress		world	-2530	126.5607834	1570	175	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=1					
-singing_mtn_clan_initiate		world	-2519.837891	123.281601	1555.98999	175	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=1					
-singing_mountain_clan_rancor		world	-2540	126.9788055	1560	175	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1					
-singing_mountain_clan_rancor		world	-2500	120.5737991	1560	175	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1					
-singing_mountain_clan_sentry		world	-2500	120.3264618	1550	175	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1					
-singing_mountain_clan_sentry		world	-2520	122.7792358	1550	175	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1					
-singing_mountain_clan_sentry		world	-2540	125.8315048	1550	175	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1					
-nightsister_elder		world	-2516.4	130.3	1481.4	2	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=1					
-nightsister_sentinal		world	-2530	129.0972137	1490	2	theme_park.dungeon.generic_death			480	int:ai.defaultCalmBehavior=1					
-nightsister_sentinal		world	-2510	129.499588	1490	2	theme_park.dungeon.generic_death			480	int:ai.defaultCalmBehavior=1					
-nightsister_ranger		world	-2520	128.5825958	1500	2	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=1					
-nightsister_ranger		world	-2520	127.0329132	1510	2	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1					
-nightsister_rancor		world	-2540	126.2290955	1510	2	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1					
-nightsister_rancor		world	-2500	125.6801987	1510	2	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1					
-nightsister_sentry		world	-2550	125.3536682	1520	2	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1					
-nightsister_sentry		world	-2530	125.4653244	1520	2	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1					
-nightsister_sentry		world	-2510	124.6795807	1520	2	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1					
-nightsister_sentry		world	-2490	122.0980453	1520	2	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1					
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value	planet_level
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s	i[0]
+singing_mtn_clan_arch_witch		world	-2520	128.4611816	1590	175	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=1						1
+singing_mtn_clan_scout		world	-2520	126.357254	1580	175	theme_park.dungeon.generic_death			400	int:ai.defaultCalmBehavior=1						1
+singing_mtn_clan_huntress		world	-2510	122.8058701	1570	175	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=1						1
+singing_mtn_clan_scout		world	-2520	124.5347595	1570	175	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=1						1
+singing_mtn_clan_huntress		world	-2530	126.5607834	1570	175	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=1						1
+singing_mtn_clan_initiate		world	-2519.837891	123.281601	1555.98999	175	theme_park.dungeon.generic_death			200	int:ai.defaultCalmBehavior=1						1
+singing_mountain_clan_rancor		world	-2540	126.9788055	1560	175	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1						1
+singing_mountain_clan_rancor		world	-2500	120.5737991	1560	175	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1						1
+singing_mountain_clan_sentry		world	-2500	120.3264618	1550	175	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1						1
+singing_mountain_clan_sentry		world	-2520	122.7792358	1550	175	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1						1
+singing_mountain_clan_sentry		world	-2540	125.8315048	1550	175	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1						1
+nightsister_elder		world	-2516.4	130.3	1481.4	2	theme_park.dungeon.generic_death			600	int:ai.defaultCalmBehavior=1						1
+nightsister_sentinal		world	-2530	129.0972137	1490	2	theme_park.dungeon.generic_death			480	int:ai.defaultCalmBehavior=1						1
+nightsister_sentinal		world	-2510	129.499588	1490	2	theme_park.dungeon.generic_death			480	int:ai.defaultCalmBehavior=1						1
+nightsister_ranger		world	-2520	128.5825958	1500	2	theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=1						1
+nightsister_ranger		world	-2520	127.0329132	1510	2	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1						1
+nightsister_rancor		world	-2540	126.2290955	1510	2	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1						1
+nightsister_rancor		world	-2500	125.6801987	1510	2	theme_park.dungeon.generic_death			240	int:ai.defaultCalmBehavior=1						1
+nightsister_sentry		world	-2550	125.3536682	1520	2	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1						1
+nightsister_sentry		world	-2530	125.4653244	1520	2	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1						1
+nightsister_sentry		world	-2510	124.6795807	1520	2	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1						1
+nightsister_sentry		world	-2490	122.0980453	1520	2	theme_park.dungeon.generic_death			120	int:ai.defaultCalmBehavior=1						1

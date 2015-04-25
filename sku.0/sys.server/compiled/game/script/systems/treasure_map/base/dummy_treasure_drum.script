@@ -1,11 +1,6 @@
-/**
- * Copyright (c) ©2007 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        dummy_treasure_drum.script
- * Description:  Code for treasure chest.
- * @author       $Author: jhaskell $
- * @version      $Revision:  $
+/*
+  Title:        dummy_treasure_drum.script
+  Description:  Code for treasure chest.
  */
 
 //------------------------------------------------
@@ -70,7 +65,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info item)
 	}
 	
 	obj_id[] guards = getObjIdArrayObjVar(fake_chest, "guards");
-	if(guards == null) //This means the guards are dead
+	if(guards == null) // This means the guards are dead
 	{
 		sendSystemMessage(player, SID_UNLOCK_CHEST, null);	
 		messageTo(fake_chest, "setupChest", null, 1, false);
@@ -116,7 +111,7 @@ messageHandler setupChest()
 			setObjVar(treasureChest, "treasureMapWaypoint", getObjIdObjVar(fake_chest, "treasureMapWaypoint"));
 		}
 		obj_id owner = getObjIdObjVar(fake_chest, "owner");
-		//legacy owner setting
+		// Legacy owner setting
 		if (hasObjVar(fake_chest, "owner"))
 		{
 			setObjVar(treasureChest, "owner", owner);
@@ -141,7 +136,7 @@ messageHandler setupChest()
 	}
 	else
 	{
-		//Make sure to clean up the chest anyway
+		// Make sure to clean up the chest anyway
 		CustomerServiceLog("treasureMap", "a treasure chest failed spawn and fill with loot for player " + player + ". [ setupChest() ]");		
 		messageTo(fake_chest, "cleanUpFakeChest", null, 0, false);
 	}
@@ -175,7 +170,7 @@ messageHandler cleanUpFakeChest()
 
 messageHandler spawnTreasureGuards()
 {
-	//LOG("treasureMap", "Spawning treasure guards.");
+	// LOG("treasureMap", "Spawning treasure guards.");
 	obj_id fake_chest = self;
 	if ( params == null )
 		return SCRIPT_CONTINUE;
@@ -195,7 +190,7 @@ messageHandler spawnTreasureGuards()
 	if (type.equals(""))
 		return SCRIPT_CONTINUE;
 
-	//if there is a boss, incr. an the spawned mob count +1
+	// If there is a boss, incr. an the spawned mob count +1
 	if(!boss_mob.equals("none"))
 	{
 		count++;
@@ -205,10 +200,10 @@ messageHandler spawnTreasureGuards()
 	}
 	for (int i = 0; i < count; i++)
 	{
-		//Spread the enemies out so they do not bunch up
-		//Make sure they are not in rocks or trees
+		// Spread the enemies out so they do not bunch up
+		// Make sure they are not in rocks or trees
 		location guardLocation = groundquests.getRandom2DLocationAroundLocation(fake_chest, 1, 1, 5, 12);
-		//this is where the guard is spawned
+		// This is where the guard is spawned
 		
 		obj_id antagonist = null;
 		if(i == 0 && !boss_mob.equals("none"))
@@ -223,7 +218,7 @@ messageHandler spawnTreasureGuards()
 		if (!isIdNull(antagonist))
 		{
 			setYaw( antagonist, rand(0, 359) );
-			//make sure the enemies wander so they don't get stuck in rocks/trees
+			// Make sure the enemies wander so they don't get stuck in rocks/trees
 			ai_lib.setDefaultCalmBehavior(antagonist, ai_lib.BEHAVIOR_WANDER);
 			ai_lib.setLoiterRanges(antagonist, 0, 7);
 			setObjVar( antagonist, "player", player );
@@ -244,7 +239,7 @@ messageHandler spawnTreasureGuards()
 	if(guards != null && guards.length > 0) 
 	{
 		setObjVar(fake_chest, "guards", guards);
-		//another loop for logging -- I didn't want to have logging in the main mob spawn loop
+		// Another loop for logging -- I didn't want to have logging in the main mob spawn loop
 		for (int i = 0; i < guards.length; i++)
 		{
 			CustomerServiceLog("treasureMap", "Player: " + player + " " + getName(player)
@@ -293,7 +288,7 @@ messageHandler recalculateGuardArray()
 	return SCRIPT_CONTINUE;
 }
 
-//Function added to give players in groups a bonus rare loot item
+// Function added to give players in groups a bonus rare loot item
 boolean fillTreasureChestWithLoot(obj_id player, obj_id treasureChest, int groupModifier, string loot_table, int treasureLevel)
 {
 	loot.makeLootInContainer(treasureChest, loot_table, TREASURE_LOOT_ITEMS, treasureLevel);
@@ -307,11 +302,11 @@ boolean fillTreasureChestWithLoot(obj_id player, obj_id treasureChest, int group
 	if(groupModifier < 4)
 		return true;
 
-	//if bonus loot items are extended to more than one level, this will need to be modified
+	// If bonus loot items are extended to more than one level, this will need to be modified
 	if(!loot_table.equals(LOOT_TABLE_81_90))
 		return true;
 
-	//If there are 4 in the group, give the map owner an additional rare loot item 
+	// If there are 4 in the group, give the map owner an additional rare loot item 
 	if(groupModifier >= 4 && groupModifier < 8)
 	{
 		int bonus = rand(1,100);
@@ -322,10 +317,10 @@ boolean fillTreasureChestWithLoot(obj_id player, obj_id treasureChest, int group
 			+ " because the player was in a group of 4 or more (but less than 8 total)"
 			+ ". This function gives the chest 1 item and the chest should now have 7 items total. [ fillTreasureChestWithLoot() ]");		
 	}
-	//If there are 8 in the group, give the map owner two additional rare loot items 
+	// If there are 8 in the group, give the map owner two additional rare loot items 
 	else if(groupModifier >= 8)
 	{
-		//Roll for each bonus item 
+		// Roll for each bonus item 
 		int firstBonus = rand(1,100);
 		int secondBonus = rand(1,100);
 		boolean firstBonusReceived = eightParticipantBonusLootItem(treasureChest, treasureLevel, firstBonus);
@@ -339,7 +334,7 @@ boolean fillTreasureChestWithLoot(obj_id player, obj_id treasureChest, int group
 	return true;
 }
 
-//An eightparticipant group will not get the EIGHT_GROUP_PERCENT_CHANCE_FOR_SUPER_RARE loot
+// An eight player group will not get the EIGHT_GROUP_PERCENT_CHANCE_FOR_SUPER_RARE loot
 boolean eightParticipantBonusLootItem(obj_id treasureChest, int treasureLevel, int randomNumber)
 {
 	if(randomNumber <= EIGHT_GROUP_PERCENT_CHANCE_FOR_SUPER_RARE)
@@ -373,8 +368,7 @@ boolean eightParticipantBonusLootItem(obj_id treasureChest, int treasureLevel, i
 	return true;
 }
 
-//A four through seven participant group will not get the RARE_BONUS_LOOT_TABLE_81_90 loot
-//instead they get the regular rare loot
+// A four through seven participant group will not get the RARE_BONUS_LOOT_TABLE_81_90 loot.  Instead they get the regular rare loot
 boolean fourParticipantBonusLootItem(obj_id treasureChest, int treasureLevel, int randomNumber)
 {
 	if(randomNumber <= FOUR_GROUP_PERCENT_CHANCE_FOR_RARE)

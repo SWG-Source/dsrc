@@ -575,7 +575,6 @@ trigger OnSpeaking(string strText)
 
 messageHandler handleColorize()
 {
-	//utils.removeScriptVar(self, SCRIPTVAR_XWING_PID);
 
 	int bp = sui.getIntButtonPressed(params);
 	if ( bp == sui.BP_CANCEL )

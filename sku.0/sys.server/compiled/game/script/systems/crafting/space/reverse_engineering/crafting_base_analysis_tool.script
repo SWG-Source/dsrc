@@ -1,12 +1,4 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_base_chassis.script
- * Description:  base crafting script used by all chasses
- * @author       $Author: wwallace (orig. script by RThornton)$
- * @version      $Revision: 0$
- */
+
 
 include library.utils;
 include library.craftinglib;
@@ -28,7 +20,7 @@ void calcAndSetPrototypeProperties ( obj_id prototype, draft_schematic.attribute
 
 
 
-/* -----------------3/4/2002 1:48PM------------------
+/* -----------------------------------
  * Function calcAndSetPrototypeProperties
  *
  * This function reads in the final item attributes that are about to be written into the manufacturing schematic, looks up modifications to these attributes

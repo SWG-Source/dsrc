@@ -541,6 +541,7 @@ boolean fleeFromHouse( obj_id npc, obj_id target )
 
 		//ai_combat.fleeFromCombat( npc, target );
 		pathTo( npc, aiGetHomeLocation( npc ));
+		messageTo(npc, "redoYaw", null, 30, false);
 
 		setAttrib( npc, HEALTH, getUnmodifiedMaxAttrib( npc, HEALTH ) );
 		setAttrib( npc, ACTION, getUnmodifiedMaxAttrib( npc, ACTION ) );

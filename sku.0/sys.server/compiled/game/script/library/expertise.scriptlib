@@ -192,7 +192,7 @@ boolean isProfAllowedSkill(obj_id player, string skillName)
 		{
 			//possible exploiter
 			//LOG it
-			CustomerServiceLog("SuspectedCheaterChannel: ", "DualProfessionCheat: Player " + getFirstName(player) + "(" + player + ") attempted to give themselves an exptertise they cannot have.");
+			CustomerServiceLog("SuspectedCheaterChannel: ", "DualProfessionCheat: Player " + getFirstName(player) + "(" + player + ") attempted to give themselves an expertise they cannot have.");
 			CustomerServiceLog("SuspectedCheaterChannel: ", "DualProfessionCheat: Player " + getFirstName(player) + "(" + player + ") Their profession is " + profession + " and the skill was " + skillName + ".");
 			return false;
 		}

@@ -1,10 +1,7 @@
-/**
- *
- * Title:	tcg_vendor_contract.script
- * Description:	This script checks the player profession and allows the trader to consume the contract
+/* 
+  Title:	tcg_vendor_contract.script
+  Description:	This script checks the player profession and allows the trader to consume the contract
  		and receive a TCG Vendor Skill mod OR allows the non-trader to create a no-feature stuffed Vendor
- * @author	Jeff Haskell
- * @version	1.0
  */
 
 /***** INCLUDES ********************************************************/
@@ -15,7 +12,7 @@ include library.sui;
 include library.utils;
 include library.vendor_lib;
 
-//-----------------LOGGING
+//LOGGING
 const boolean LOGGING_ON				= true;
 const string LOGGING_CATEGORY				= "vendor";
 
@@ -37,7 +34,7 @@ const string_id SID_VENDOR_CONSUMED			= new string_id("player_vendor", "vendor_d
 const string OWNER_OID 					= "owner";
 
 const string CONTRACT_PREFIX 				= "vendor_contract";
-const string NON_TRADER_AGREEMENT			= CONTRACT_PREFIX + ".non_trader_agreement"; //dictates the menu type player receives
+const string NON_TRADER_AGREEMENT			= CONTRACT_PREFIX + ".non_trader_agreement"; // Dictates the menu type player receives
 
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi)
@@ -84,14 +81,14 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 		}
 		blog("tcg_vendor_contract.OnObjectMenuSelect: Vendor Skill Mod Application Succeeded. Deleting Contract");
 		CustomerServiceLog("vendor", " TCG Vendor Contract: " + self + " successfully applied a TCG vendor skill mod to player: " + player + ". The contract will now be deleted.");
-		//if the skill mod is set, delete the contract
+		// If the skill mod is set, delete the contract
 		destroyObject(self);
 		return SCRIPT_CONTINUE;		
 	}
 	if(!hasObjVar(self, NON_TRADER_AGREEMENT))
 	{
-		//PLAYER IS NOT A TRADER
-		//give player confirmation SUI
+		// Player is not a trader..
+		// give player confirmation SUI
 		blog("tcg_vendor_contract.OnObjectMenuSelect: NON-TRADE USING A VENDOR CONTRACT (no confirmation)");
 		CustomerServiceLog("vendor", " TCG Vendor Contract: " + self + " is being used by a NON-TRADER player: " + player + ". The contract is asking for confirmation before usage.");
 		sui.msgbox(self, player, utils.packStringId(SID_NON_TRADER_CONFIRMATION_MSG), sui.YES_NO, "msgConfirmNonTraderVendorUse");
@@ -106,10 +103,10 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 			CustomerServiceLog("vendor", " TCG Vendor Contract: " + self + " failed to drop the apply a TCG vendor skill mod to player: " + player + ". The contract was not deleted.");
 			return SCRIPT_CONTINUE;		
 		}
-		//a valid location was found, send player to customization menus
+		// A valid location was found, send player to customization menus
 		blog("tcg_vendor_contract.OnObjectMenuSelect: Player in valid structure location");
 		CustomerServiceLog("vendor", " TCG Vendor Contract: " + self + " has found a valid player structure location and will commence with offering the player: " + player + " menu options to create a NON-VENDOR VENDOR.");
-		//messageTo(player, "handleNonVendorSetUp", null, 0, false);
+		// messageTo(player, "handleNonVendorSetUp", null, 0, false);
 		if(!getNonVendorData(self, player))
 		{
 			blog("tcg_vendor_contract.OnObjectMenuSelect: Player could not get valid non-vendor data");
@@ -141,8 +138,8 @@ messageHandler msgConfirmNonTraderVendorUse()
 	}
 	
 	blog("tcg_vendor_contract.msgConfirmNonTraderVendorUse: Confirmed, setting vars.");
-	//this just flips a switch so the vendor contract USE option
-	//does something other than default
+	// This just flips a switch so the vendor contract USE option
+	// does something other than default
 	setObjVar(self, NON_TRADER_AGREEMENT, true);
 	sendSystemMessage(player, SID_NONVENDOR_PLACEMENT_INSTRUCT);
 	
@@ -300,7 +297,7 @@ boolean getNonVendorData(obj_id self, obj_id player)
 	}
 
 	blog("tcg_vendor_contract.getNonVendorData: Setting individual vars from dictionary.");	
-	//init variables for the nonvendor from the entire row
+	// Init variables for the nonvendor from the entire row
 	
 	string nonVendorTemplate	= nonVendorDict.getString(vendor_lib.COL_NONVENDOR_CREATURE_TEMPLATE);
 	string nonVendorNames		= nonVendorDict.getString(vendor_lib.COL_NONVENDOR_CREATURE_NAME);
@@ -309,13 +306,13 @@ boolean getNonVendorData(obj_id self, obj_id player)
 	
 	blog("tcg_vendor_contract.getNonVendorData: nonVendorTemplate: " +nonVendorTemplate);	
 
-	//save the scriptvars on player for use later
+	// Save the scriptvars on player for use later
 	
 	utils.setScriptVar(player, vendor_lib.NONVENDOR_CREATURE_TYPE_SCRVAR, creatureType);
-	utils.setScriptVar(player, vendor_lib.NONVENDOR_NAMES_SCRVAR, nonVendorNames); //this is a non split list in string form
+	utils.setScriptVar(player, vendor_lib.NONVENDOR_NAMES_SCRVAR, nonVendorNames); // This is a non split list in string form
 	utils.setScriptVar(player, vendor_lib.NONVENDOR_STRING_ID_SCRVAR, nonVendorStrIds);	
 
-	string[] templateChoices = split(nonVendorTemplate, ','); //there may be more than one appearance so evaluate this possiblity by splitting the string 
+	string[] templateChoices = split(nonVendorTemplate, ','); // There may be more than one appearance so evaluate this possiblity by splitting the string 
 	if(templateChoices == null)
 	{
 		blog("tcg_vendor_contract.getNonVendorData: templateChoices == null.");
@@ -323,7 +320,7 @@ boolean getNonVendorData(obj_id self, obj_id player)
 		return false;
 	}
 
-	string[] appearanceChoices = split(nonVendorStrIds, ','); //there may be more than one appearance so evaluate this possiblity by splitting the string 
+	string[] appearanceChoices = split(nonVendorStrIds, ','); // There may be more than one appearance so evaluate this possiblity by splitting the string 
 	if(appearanceChoices == null)
 	{
 		blog("tcg_vendor_contract.getNonVendorData: appearanceChoices == null.");
@@ -350,7 +347,7 @@ boolean getNonVendorData(obj_id self, obj_id player)
 		removeVars(self, player);			
 		return false;
 	}
-	//we don't need the creature string name becasue that is just used for a menu that won't be created for a list on length = 1
+	// We don't need the creature string name becasue that is just used for a menu that won't be created for a list on length = 1
 	if(templateChoicesLength == 1 && appearanceChoicesLength == 1 && appearanceCreatureNamesLength == 1)
 	{
 		blog("tcg_vendor_contract.getNonVendorData: Going to name nonvendor handler.");
@@ -364,7 +361,7 @@ boolean getNonVendorData(obj_id self, obj_id player)
 
 	int appearanceLength = appearanceChoices.length;
 
-	if(appearanceLength != appearanceChoicesLength) //we already know that appearanceChoicesLength & appearanceCreatureNamesLength are the same
+	if(appearanceLength != appearanceChoicesLength) // We already know that appearanceChoicesLength & appearanceCreatureNamesLength are the same
 	{
 		blog("tcg_vendor_contract.getNonVendorData: appearanceChoiceStrings.length != appearanceChoicesLength. appearanceChoiceStrings.length: "+ appearanceLength +"listLength: "+appearanceChoicesLength);	
 		removeVars(self, player);	
@@ -383,7 +380,7 @@ boolean getNonVendorData(obj_id self, obj_id player)
 		removeVars(self, player);	
 		return false;
 	}
-	//set the appearanceChoices list scriptvar on player to use later 
+	// Set the appearanceChoices list scriptvar on player to use later 
 	utils.setScriptVar(player, vendor_lib.NONVENDOR_APPEARANCE_LIST, appearanceChoices);
 	utils.setScriptVar(player, vendor_lib.NONVENDOR_CREATURENAME_LIST_SCRVAR, appearanceCreatureNames);
 	utils.setScriptVar(player, vendor_lib.NONVENDOR_CREATURE_TEMPLATE_LIST, templateChoices);
@@ -392,8 +389,8 @@ boolean getNonVendorData(obj_id self, obj_id player)
 	return true;
 }
 
-//The Special Vendors are a Skill Mod. This Function Grants the skill mod 
-//based on the master item/item stats tables.
+// The Special Vendors are a Skill Mod. This Function Grants the skill mod 
+// based on the master item/item stats tables.
 boolean giveTcgTraderSkillMod(obj_id self, obj_id player)
 {
 	if(!isValidId(player) || !exists(player))

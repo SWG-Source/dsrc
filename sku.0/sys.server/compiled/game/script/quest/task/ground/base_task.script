@@ -130,6 +130,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 	{
 		boolean showSystemMessage = groundquests.getTaskBoolDataEntry(questCrc, taskId, dataTableColumnQuestOnCompleteShowSystemMessage, true);
 		groundquests.grantQuestNoAcceptUI(self, questOnComplete, showSystemMessage);
+		//debugSpeakMsg(self, "Granting new quest from base task");
 	}
 
 	//only tell player things if task is visible

@@ -1,13 +1,3 @@
-/**
- * Copyright (c) ©2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.crafting.base_tool.script
- * Description:
- * @author       Steve Jakab
- * @version      $Revision: 0$
- */
-
 include library.ai_lib;
 include library.buff;
 include library.craftinglib;

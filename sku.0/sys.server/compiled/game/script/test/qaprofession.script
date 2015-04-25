@@ -1,11 +1,5 @@
 //**********************************************************
-// Copyright (c) ©2005, 2006 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // @Title:		qaprofession.script
-// @Version:		Version 2.00
-// @author       	$Author: Jeff Haskell  
-// @version      	$All Revisions:  Jeff Haskell 
 //***********************************************************
 //
 //	Professions	
@@ -40,7 +34,7 @@ include library.sui;
 include library.utils;
 
 //FYI
-//DATATABLE AT: //depot/swg/test/dsrc/sku.0/sys.shared/compiled/game/datatables/skill_template/skill_template.tab
+//DATATABLE AT: //datatables/skill_template/skill_template.tab
 
 /********* CONSTANTS *****************************************/
 

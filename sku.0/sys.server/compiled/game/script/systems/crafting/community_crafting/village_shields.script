@@ -1,11 +1,5 @@
-/**
- * Copyright (c) ©2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.crafting.community_crafting.village_shields.script
+/* Title:        systems.crafting.community_crafting.village_shields.script
  * Description:  community crafting script for the village shields used in phase 3 of the force-sensitive village quests
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
  */
 
 include library.utils;

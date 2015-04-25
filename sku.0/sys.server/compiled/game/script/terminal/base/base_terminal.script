@@ -1,20 +1,11 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        base terminal.script
+/* Title:        base terminal.script
  * Description:  script for handling basic terminal functions
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
 
 include library.utils;
 include library.structure;
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnInitialize()
@@ -52,4 +43,3 @@ boolean playerMounted(obj_id player)
 	return false;
 }
 
-/***** MESSAGEHANDLERS *************************************************/

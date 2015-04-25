@@ -1,5 +1,4 @@
-/* -----------------3/20/2002 5:33PM-----------------
- * This script is attached to NPCs by
+/* This script is attached to NPCs by
  * quests.spawnAttackers
  *
  * NPCs message the target when they are destroyed

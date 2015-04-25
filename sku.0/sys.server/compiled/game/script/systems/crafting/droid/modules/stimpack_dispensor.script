@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        stimpack_dispensor
+  Title:        stimpack_dispensor
  * Description:  script that attaches to the stimpack_dispensor droid
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
@@ -184,7 +179,3 @@ messageHandler msgStimpackDispensorRecharged()
 	return SCRIPT_CONTINUE;
 }
 
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/

@@ -1,11 +1,5 @@
-/**
- * Copyright (c) ©2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.crafting.community_crafting.base.script
+/* Title:        systems.crafting.community_crafting.base.script
  * Description:  base crafting script for community crafing projects
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
  */
 
 include library.utils;

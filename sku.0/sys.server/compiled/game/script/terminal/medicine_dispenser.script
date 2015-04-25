@@ -1,12 +1,5 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        medicine_dispenser
- * Description:  <description>
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+/* Title:        medicine_dispenser
+*/
 
 
 /***** INCLUDES ********************************************************/
@@ -57,12 +50,6 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 	return SCRIPT_CONTINUE;
 }
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
 
 /***** FUNCTIONS *******************************************************/
 string[] getDispenserInventory(obj_id dispenser)

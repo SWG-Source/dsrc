@@ -1,4 +1,3 @@
-
 /***** INCLUDES ********************************************************/
 
 include library.ai_lib;
@@ -13,9 +12,6 @@ include library.sui;
 include library.utils;
 include library.xp;
 include library.static_item;
-
-/***** INHERITS ********************************************************/
-
 
 /***** CONSTANTS *******************************************************/
 

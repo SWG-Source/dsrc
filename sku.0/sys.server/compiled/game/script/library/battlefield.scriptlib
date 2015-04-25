@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        battlefield.scriptlib
  * Description:  Library for battlefields
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
@@ -2707,7 +2702,7 @@ location getFactionStartLocation(obj_id master_object, string faction)
 		return null;
 
 	location[] start_locations = getLocationArrayObjVar(master_object, VAR_START_LOCATIONS);
-	location loc = start_locations[idx];
+	location loc = (location)start_locations[idx].clone();
 
 	// If all three coordinates are 0, then the starting location was not specified.
 	if (loc.x == 0.0f && loc.y == 0.0f && loc.z == 0.0f)
@@ -3788,7 +3783,7 @@ void createBattlefieldObjects(obj_id master_object, int idx)
 					location[] start_locations = getLocationArrayObjVar(master_object, VAR_START_LOCATIONS);
 					if(start_locations != null && start_locations.length > 0) {		// Zero length array check
 
-						start_locations[jidx] = faction_start;
+						start_locations[jidx] = (location)faction_start.clone();
 						setObjVar(master_object, VAR_START_LOCATIONS, start_locations);
 					}
 				}

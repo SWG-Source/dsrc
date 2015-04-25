@@ -55,9 +55,9 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 					return SCRIPT_CONTINUE;
 				}
 				
-				//int health = rand(MIN_HEALTH, MAX_HEALTH);
-				//setMaxHitpoints(target, health);
-				//setHitpoints(target, health);
+				// int health = rand(MIN_HEALTH, MAX_HEALTH);
+				// setMaxHitpoints(target, health);
+				// setHitpoints(target, health);
 				setInvulnerable(target, false);
 				pvpSetAttackableOverride(target, true);
 				

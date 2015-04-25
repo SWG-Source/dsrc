@@ -4273,7 +4273,7 @@ messageHandler openSparkHandler()
 	}
 
 	location selfLoc = getLocation(self);
-	location tesla = selfLoc;
+	location tesla = (location)selfLoc.clone();
 	tesla.x = -11.7f;
 	tesla.y = 11.0f;
 	tesla.z = -64.6f;

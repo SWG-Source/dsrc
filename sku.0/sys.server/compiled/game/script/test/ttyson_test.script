@@ -1,4 +1,3 @@
-
 // ======================================================================
 
 include library.ai_lib;
@@ -23,13 +22,11 @@ const string STARTING_EQUIPMENT_FILE	= "datatables/equipment/newbie_equipment.if
 
 // ======================================================================
 
-// Hello World
 
 trigger OnSpeaking(String text)
 {
 	if (true) //isGod(self))
 	{
-		//debugConsoleMsg( self, "ttyson_test OnSpeaking: " + text );
 
 		java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 

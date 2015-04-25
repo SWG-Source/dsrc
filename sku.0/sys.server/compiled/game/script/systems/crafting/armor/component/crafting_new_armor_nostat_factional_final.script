@@ -1,27 +1,15 @@
-/**
- * Copyright (c) ©2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        crafting_new_armor_factional_final.script
+/* Title:        crafting_new_armor_factional_final.script
  * Description:  resource weighting script for new factional armor boots gloves and belts, removing ability to customize colors
- * @author       $Author: Steve Jakab$
- * @version      $Revision: 0$
  */
 
-/**
- * Include Libraries
- */
-// include anyLibrary;	/** a .scriptlib file */
+// include
 include library.faction_perk;
 include library.utils;
 include library.craftinglib;
 
 inherits systems.crafting.armor.crafting_new_armor_clothing_nostats;
 
-/**
- * Constants
- * @{
- */
+//consts
 /** The version number of this script. */
 const string VERSION = "v0.00.00";
 

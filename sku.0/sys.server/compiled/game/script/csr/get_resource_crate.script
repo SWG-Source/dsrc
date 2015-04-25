@@ -1,19 +1,11 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        getResourceCrate.script
  * Description:  CSR tool to get an arbitrary amount of an arbitrary resource
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
 
 include library.utils;
-
-/***** INHERITS ********************************************************/
-
 
 /***** CONSTANTS *******************************************************/
 

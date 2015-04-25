@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        pazaak
  * Description:  Script that handles the logic for the pazaak table
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
@@ -67,7 +62,7 @@ trigger OnInitialize()
 	if (isIdValid(structure))
 		transferBankCreditsTo(self, structure, table_balance, "noHandler", "noHandler", new dictionary());
 	
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 
@@ -183,11 +178,11 @@ messageHandler handleBetVerifiedFailed()
 messageHandler handlePlayerRemoved()
 {
 	if ( params == null || params.isEmpty() )
-		return SCRIPT_CONTINUE;
+		return super.handlePlayerRemoved(self, params);
 	
 	obj_id player = params.getObjId("player");
 	if ( !isIdValid(player) )
-		return SCRIPT_CONTINUE;
+		return super.handlePlayerRemoved(self, params);
 	
 	string ovpath = gambling.VAR_GAME_PLAYERS + "." + player + ".pid";
 	if ( utils.hasScriptVar(self, ovpath) )
@@ -274,7 +269,7 @@ messageHandler handlePlayerRemoved()
 		}
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.handlePlayerRemoved(self, params);
 }
 
 messageHandler msgPlayPazaakCard()

@@ -1,4 +1,4 @@
-// This script handles some of the sapwn for dathomir_nsister_cave.iff
+// This script handles some of the spawn for dathomir_nsister_cave.iff
 
 
 include ai.ai;

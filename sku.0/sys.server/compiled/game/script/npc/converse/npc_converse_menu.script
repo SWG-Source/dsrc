@@ -22,6 +22,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	menu_info_data mdata = mi.getMenuItemById(mnu);
 	mdata.setServerNotify(false);
 	setCondition (self, CONDITION_CONVERSABLE);
+	faceTo(self, player);
 	return SCRIPT_CONTINUE;
 }
 

@@ -825,9 +825,9 @@ fs_buff_def_1_4	fsStance	fsDefStance		4	command.fs_buff_def_1	-1	expertise_stanc
 fs_buff_def_1_5	fsStance	fsDefStance		5	command.fs_buff_def_1	-1	expertise_stance		private_taunt_bonus	20													appearance/pt_force_resist_states.prt		0
 fs_buff_def_1_6	fsStance	fsDefStance		6	command.fs_buff_def_1	-1	expertise_stance		private_taunt_bonus	20													appearance/pt_force_resist_poison.prt		0
 fs_force_run	fs_force_run			1	command.forceRun	15	slope_move	5	movement		movement_resist_snare	100	movement_resist_root	100					"clienteffect/pl_force_run.cef,appearance/pt_force_speed.prt"						
-fs_meditate_1	fs_meditate			1	jedi.channelForce	240	expertise_block_chance	2	combat_block_value	450									appearance/pt_force_channel_force.prt						
-fs_meditate_2	fs_meditate			1	jedi.saberDervish	240	expertise_strikethrough_chance	3	combat_strikethrough_value	50									appearance/pt_force_meditate.prt						
-fs_meditate_3	fs_meditate			1	jedi.avoidIncapacitation	240	expertise_critical_niche_all	3	strength_modified	85									appearance/pt_force_channel_force.prt						
+fs_meditate_1	fs_meditate			1	jedi.channelForce	1800	expertise_block_chance	2	combat_block_value	450									appearance/pt_force_channel_force.prt						
+fs_meditate_2	fs_meditate			1	jedi.saberDervish	1800	expertise_strikethrough_chance	3	combat_strikethrough_value	50									appearance/pt_force_meditate.prt						
+fs_meditate_3	fs_meditate			1	jedi.avoidIncapacitation	1800	expertise_critical_niche_all	3	strength_modified	85									appearance/pt_force_channel_force.prt						
 fs_mind_trick_1	mindTrick			25	command.fs_mind_trick	8	precision_modified	-50	strength_modified	-50												1			
 fs_mind_trick_2	mindTrick			50	command.fs_mind_trick	8	agility_modified	-20	stamina_modified	-10												1			
 fs_sh_0	fsCure			10	command.fs_sh	6	expertise_dot_immunity	5										fs_dot_immunity_recourse									

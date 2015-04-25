@@ -1,8 +1,6 @@
 /**********************************************************************
  * Title:        masterspawner
  * Description:  Fills out Jabbas Palace.
- * @author       $Author: Todd Bailey and (Reece Thornton)$
- * @version      $Revision: #0$
  ***********************************************************************/
 
 include ai.ai;

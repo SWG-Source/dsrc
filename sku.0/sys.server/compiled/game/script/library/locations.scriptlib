@@ -16,23 +16,23 @@ float getRegionExtents(region rgnTest)
 	location locUpperRight = new location();
 
 	location[] locExtents = getRegionExtent(rgnTest);
-	locLowerLeft = locExtents[0];
-	locUpperRight = locExtents[1];
+	locLowerLeft = (location)locExtents[0].clone();
+	locUpperRight = (location)locExtents[1].clone();
 
-//	//////////LOG("mission", "Lower Left is "+locLowerLeft.toString());
-	////////////LOG("mission", "Upper Right is "+locUpperRight.toString());
+	LOG("mission", "Lower Left is "+locLowerLeft.toString());
+	LOG("mission", "Upper Right is "+locUpperRight.toString());
 
 	float fltXDistance =  locUpperRight.x - locLowerLeft.x; // assuming my understanding of coords is right
 	float fltZDistance = locUpperRight.z - locLowerLeft.z; // see above
 
 	if(fltXDistance>fltZDistance)
 	{
-		////////////LOG("mission", "fltXDistance returning with a value of "+fltXDistance);
+		LOG("mission", "fltXDistance returning with a value of "+fltXDistance);
 		return fltXDistance;
 	}
 	else
 	{
-		////////////LOG("mission", "fltZDistance returning with a value of "+fltZDistance);
+		LOG("mission", "fltZDistance returning with a value of "+fltZDistance);
 		return fltZDistance;
 
 
@@ -78,11 +78,11 @@ float getRegionXSize(region rgnSearchRegion)
 
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	location locLowerLeft = locExtents[0];
-	location locUpperRight = locExtents[1];
+	location locLowerLeft = (location)locExtents[0].clone();
+	location locUpperRight = (location)locExtents[1].clone();
 
-//	//////////LOG("mission", "Lower Left is "+locLowerLeft.toString());
-	////////////LOG("mission", "Upper Right is "+locUpperRight.toString());
+	LOG("mission", "Lower Left is "+locLowerLeft.toString());
+	LOG("mission", "Upper Right is "+locUpperRight.toString());
 
 	float fltXDistance =  locUpperRight.x - locLowerLeft.x; // assuming my understanding of coords is right
 	return fltXDistance;
@@ -97,11 +97,11 @@ float getRegionZSize(region rgnSearchRegion)
 
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	location locLowerLeft = locExtents[0];
-	location locUpperRight = locExtents[1];
+	location locLowerLeft = (location)locExtents[0].clone();
+	location locUpperRight = (location)locExtents[1].clone();
 
-//	//////////LOG("mission", "Lower Left is "+locLowerLeft.toString());
-	////////////LOG("mission", "Upper Right is "+locUpperRight.toString());
+	LOG("mission", "Lower Left is "+locLowerLeft.toString());
+	LOG("mission", "Upper Right is "+locUpperRight.toString());
 
 
 
@@ -117,11 +117,11 @@ float[] getRegionSize(region rgnSearchRegion)
 
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	location locLowerLeft = locExtents[0];
-	location locUpperRight = locExtents[1];
+	location locLowerLeft = (location)locExtents[0].clone();
+	location locUpperRight = (location)locExtents[1].clone();
 
-//	//////////LOG("mission", "Lower Left is "+locLowerLeft.toString());
-	////////////LOG("mission", "Upper Right is "+locUpperRight.toString());
+	LOG("mission", "Lower Left is "+locLowerLeft.toString());
+	LOG("mission", "Upper Right is "+locUpperRight.toString());
 
 	float fltXDistance =  locUpperRight.x - locLowerLeft.x; // assuming my understanding of coords is right
 	float fltZDistance = locUpperRight.z - locLowerLeft.z; // see above
@@ -140,16 +140,16 @@ location getRegionCenter(region rgnSearchRegion)
 	location locUpperRight = new location();
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	locLowerLeft = locExtents[0];
-	locUpperRight = locExtents[1];
+	locLowerLeft = (location)locExtents[0].clone();
+	locUpperRight = (location)locExtents[1].clone();
 
 
-	location locRegionCenter = locLowerLeft;
+	location locRegionCenter = (location)locLowerLeft.clone();
 
 
 	locRegionCenter.x = (locLowerLeft.x + locUpperRight.x)/2;
 	locRegionCenter.z = (locLowerLeft.z + locUpperRight.z)/2;
-	////////////LOG("missions", "locRegionCenter is "+locRegionCenter.toString());
+	LOG("missions", "locRegionCenter is "+locRegionCenter.toString());
 
 	return locRegionCenter;
 
@@ -159,29 +159,32 @@ location getRegionCenter(region rgnSearchRegion)
 location getGoodLocationOutsideOfRegion(region rgnSearchRegion, float fltXSize, float fltZSize, float fltDistance)
 {
 	if ( rgnSearchRegion == null )
+	{
+	LOG("mission", "getting good location outside of region returned NULL");
 		return null;
+	}
 
 	debugServerConsoleMsg(null, "getting good locoutsideofregion");
-	//////////LOG("mission", "getting good location outside of region");
+	LOG("mission", "getting good location outside of region");
 
 	float fltRegionExtent = getRegionExtents(rgnSearchRegion);
 	location locRegionCenter = getRegionCenter(rgnSearchRegion);
 
-	//////////LOG("mission", "got centers and extents");
+	LOG("mission", "got centers and extents");
 
 	location locDestination = utils.getRandomLocationInRing(locRegionCenter, fltRegionExtent, fltRegionExtent+fltDistance);
 
-	location locLowerLeft = locDestination;
+	location locLowerLeft = (location)locDestination.clone();
 	locLowerLeft.x = locLowerLeft.x - GOOD_LOCATION_SEARCH_SIZE+fltXSize;
 	locLowerLeft.z = locLowerLeft.z - GOOD_LOCATION_SEARCH_SIZE+fltZSize;
 
-	location locUpperRight = locDestination;
+	location locUpperRight = (location)locDestination.clone();
 	locUpperRight.x = locUpperRight.x + GOOD_LOCATION_SEARCH_SIZE+fltXSize;
 	locUpperRight.z = locUpperRight.z + GOOD_LOCATION_SEARCH_SIZE+fltZSize;
 
 
 	location locGoodLocation = getGoodLocation(fltXSize, fltZSize, locLowerLeft, locUpperRight, false, false);
-	//////////LOG("mission", "gotGoodLocation");
+	LOG("mission", "gotGoodLocation");
 	return locGoodLocation;
 
 
@@ -192,26 +195,26 @@ location getGoodLocationOutsideOfRegion(region rgnSearchRegion, float fltXSize, 
 {
 
 	debugServerConsoleMsg(null, "getting good locoutsideofregion");
-	//////////LOG("mission", "getting good location outside of region");
+	LOG("mission", "getting good location outside of region");
 
 	float fltRegionExtent = getRegionExtents(rgnSearchRegion);
 	location locRegionCenter = getRegionCenter(rgnSearchRegion);
 
-	//////////LOG("mission", "got centers and extents");
+	LOG("mission", "got centers and extents");
 
 	location locDestination = utils.getRandomLocationInRing(locRegionCenter, fltRegionExtent, fltRegionExtent+fltDistance);
 
-	location locLowerLeft = locDestination;
+	location locLowerLeft = (location)locDestination.clone();
 	locLowerLeft.x = locLowerLeft.x - GOOD_LOCATION_SEARCH_SIZE+fltXSize;
 	locLowerLeft.z = locLowerLeft.z - GOOD_LOCATION_SEARCH_SIZE+fltZSize;
 
-	location locUpperRight = locDestination;
+	location locUpperRight = (location)locDestination.clone();
 	locUpperRight.x = locUpperRight.x + GOOD_LOCATION_SEARCH_SIZE+fltXSize;
 	locUpperRight.z = locUpperRight.z + GOOD_LOCATION_SEARCH_SIZE+fltZSize;
 
 
 	location locGoodLocation = getGoodLocation(fltXSize, fltZSize, locLowerLeft, locUpperRight, boolIgnoreWater, boolIgnoreSlope);
-	//////////LOG("mission", "gotGoodLocation");
+	LOG("mission", "gotGoodLocation");
 	return locGoodLocation;
 
 
@@ -224,7 +227,7 @@ region getClosestCityRegion(region rgnStartRegion)
 
 
 	string strName = rgnStartRegion.getName();
-	////LOG("mission", "in getclosest region, name is "+strName);
+	LOG("mission", "in getclosestcityregion, name is "+strName);
 	region[] rgnCities = getRegionsWithMunicipal(rgnStartRegion.getPlanetName(), regions.MUNI_TRUE);
 
 	if(rgnCities==null)
@@ -248,18 +251,18 @@ region getClosestCityRegion(region rgnStartRegion)
 	while(intI<rgnCities.length)
 	{
 
-		//////////LOG("mission", "objRegion is "+objRegion);
-		//////////LOG("mission", "StartRegion is "+objStartRegion);
+		//////LOG("mission", "objRegion is "+objRegion);
+		LOG("mission", "StartRegion is "+ rgnStartRegion);
 		string strNewName = rgnCities[intI].getName();
-		////LOG("missions", "strNewName is "+strNewName);
+		LOG("missions", "strNewName is "+strNewName);
 		if(strNewName!=strName)
 		{
 
 			fltDistance = getDistance(locCurrentCenter, getRegionCenter(rgnCities[intI]));
-			//////////LOG("mission", "fltDistance is "+fltDistance);
-			//////////LOG("mission", "fltLowestDistance is "+fltLowestDistance);
+			LOG("mission", "fltDistance is "+fltDistance);
+			LOG("mission", "fltLowestDistance is "+fltLowestDistance);
 
-			//////////LOG("mission", "closest region is "+objClosestRegion);
+			LOG("mission", "closest region is "+ rgnClosestRegion);
 			if(fltDistance<fltLowestDistance)
 			{
 				fltLowestDistance = fltDistance;
@@ -278,7 +281,7 @@ region getClosestCityRegion(region rgnStartRegion)
 
 	}
 
-	//////////LOG("mission", "returned region is "+objClosestRegion);
+	LOG("mission", "returned region is "+ rgnClosestRegion);
 
 	return rgnClosestRegion;
 
@@ -481,8 +484,8 @@ location getGoodLocationInRegion(region rgnSearchRegion, float fltXSize, float f
 	location locUpperRight = new location();
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	locLowerLeft = locExtents[0];
-	locUpperRight = locExtents[1];
+	locLowerLeft = (location)locExtents[0].clone();
+	locUpperRight = (location)locExtents[1].clone();
 
 	location locGoodLocation = getGoodLocation(fltXSize, fltZSize, locLowerLeft, locUpperRight, false, false);
 
@@ -498,8 +501,8 @@ location getGoodLocationInRegion(region rgnSearchRegion, float fltXSize, float f
 	location locUpperRight = new location();
 
 	location[] locExtents = getRegionExtent(rgnSearchRegion);
-	locLowerLeft = locExtents[0];
-	locUpperRight = locExtents[1];
+	locLowerLeft = (location)locExtents[0].clone();
+	locUpperRight = (location)locExtents[1].clone();
 
 	location locGoodLocation = getGoodLocation(fltXSize, fltZSize, locLowerLeft, locUpperRight, boolIgnoreWater, boolIgnoreSlope);
 
@@ -534,16 +537,16 @@ location getRandomGoodLocation(location start, float searchMin, float searchMax,
 // gets a good location wrapped
 location getGoodLocationAroundLocation(location locSearchLocation, float fltXSize, float fltZSize, float fltXSearchSize, float fltZSearchSize)
 {
-	location locLowerLeft = locSearchLocation;
+	location locLowerLeft = (location)locSearchLocation.clone();
 	locLowerLeft.x = locLowerLeft.x - fltXSearchSize;
 	locLowerLeft.z = locLowerLeft.z - fltZSearchSize;
-	////LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
+	LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
 
 
-	location locUpperRight = locSearchLocation;
+	location locUpperRight = (location)locSearchLocation.clone();
 	locUpperRight.x = locUpperRight.x + fltXSearchSize;
 	locUpperRight.z = locUpperRight.z + fltZSearchSize;
-	////LOG("mission", "locUpperRight is "+locUpperRight.toString());
+	LOG("mission", "locUpperRight is "+locUpperRight.toString());
 
 
 	// this might spawn too close to the player.. we'll fix it later.
@@ -557,16 +560,16 @@ location getGoodLocationAroundLocation(location locSearchLocation, float fltXSiz
 
 location getGoodLocationAroundLocation(location locSearchLocation, float fltXSize, float fltZSize, float fltXSearchSize, float fltZSearchSize, boolean boolIgnoreWater, boolean boolIgnoreSlope)
 {
-	location locLowerLeft = locSearchLocation;
+	location locLowerLeft = (location)locSearchLocation.clone();
 	locLowerLeft.x = locLowerLeft.x - fltXSearchSize;
 	locLowerLeft.z = locLowerLeft.z - fltZSearchSize;
-	////LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
+	LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
 
 
-	location locUpperRight = locSearchLocation;
+	location locUpperRight = (location)locSearchLocation.clone();
 	locUpperRight.x = locUpperRight.x + fltXSearchSize;
 	locUpperRight.z = locUpperRight.z + fltZSearchSize;
-	////LOG("mission", "locUpperRight is "+locUpperRight.toString());
+	LOG("mission", "locUpperRight is "+locUpperRight.toString());
 
 
 	// this might spawn too close to the player.. we'll fix it later.
@@ -574,12 +577,12 @@ location getGoodLocationAroundLocation(location locSearchLocation, float fltXSiz
 	location locGoodLocation = getGoodLocation( fltXSize, fltZSize, locLowerLeft, locUpperRight, boolIgnoreWater, boolIgnoreSlope);
 	if(locGoodLocation==null)
 	{
-		//LOG("DESIGNER_FATAL", "X search size is "+fltXSearchSize);
-		//LOG("DESIGNER_FATAL", "Z search size is "+fltZSearchSize);
-		//LOG("DESIGNER_FATAL", "size of thing is "+fltZSize);
-		//LOG("DESIGNER_FATAL", "Lower left is "+locLowerLeft);
-		//LOG("DESIGNER_FATAL", "Upper Right is "+locUpperRight);
-		//LOG("DESIGNER_FATAL", "Start location is "+locSearchLocation);
+		LOG("DESIGNER_FATAL", "X search size is "+fltXSearchSize);
+		LOG("DESIGNER_FATAL", "Z search size is "+fltZSearchSize);
+		LOG("DESIGNER_FATAL", "size of thing is "+fltZSize);
+		LOG("DESIGNER_FATAL", "Lower left is "+locLowerLeft);
+		LOG("DESIGNER_FATAL", "Upper Right is "+locUpperRight);
+		LOG("DESIGNER_FATAL", "Start location is "+locSearchLocation);
 
 	}
 	return locGoodLocation;
@@ -590,16 +593,16 @@ location getGoodLocationAroundLocation(location locSearchLocation, float fltXSiz
 
 location getGoodLocationAroundLocationAvoidCollidables(location locSearchLocation, float fltXSize, float fltZSize, float fltXSearchSize, float fltZSearchSize, boolean boolIgnoreWater, boolean boolIgnoreSlope, float staticObjDistance)
 {
-	location locLowerLeft = locSearchLocation;
+	location locLowerLeft = (location)locSearchLocation.clone();
 	locLowerLeft.x = locLowerLeft.x - fltXSearchSize;
 	locLowerLeft.z = locLowerLeft.z - fltZSearchSize;
-	////LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
+	LOG("mission", "locLowerLeft is "+locLowerLeft.toString());
 
 
-	location locUpperRight = locSearchLocation;
+	location locUpperRight = (location)locSearchLocation.clone();
 	locUpperRight.x = locUpperRight.x + fltXSearchSize;
 	locUpperRight.z = locUpperRight.z + fltZSearchSize;
-	////LOG("mission", "locUpperRight is "+locUpperRight.toString());
+	LOG("mission", "locUpperRight is "+locUpperRight.toString());
 
 
 	// this might spawn too close to the player.. we'll fix it later.
@@ -607,12 +610,12 @@ location getGoodLocationAroundLocationAvoidCollidables(location locSearchLocatio
 	location locGoodLocation = getGoodLocationAvoidCollidables( fltXSize, fltZSize, locLowerLeft, locUpperRight, boolIgnoreWater, boolIgnoreSlope, staticObjDistance);
 	if(locGoodLocation==null)
 	{
-		//LOG("DESIGNER_FATAL", "X search size is "+fltXSearchSize);
-		//LOG("DESIGNER_FATAL", "Z search size is "+fltZSearchSize);
-		//LOG("DESIGNER_FATAL", "size of thing is "+fltZSize);
-		//LOG("DESIGNER_FATAL", "Lower left is "+locLowerLeft);
-		//LOG("DESIGNER_FATAL", "Upper Right is "+locUpperRight);
-		//LOG("DESIGNER_FATAL", "Start location is "+locSearchLocation);
+		LOG("DESIGNER_FATAL", "X search size is "+fltXSearchSize);
+		LOG("DESIGNER_FATAL", "Z search size is "+fltZSearchSize);
+		LOG("DESIGNER_FATAL", "size of thing is "+fltZSize);
+		LOG("DESIGNER_FATAL", "Lower left is "+locLowerLeft);
+		LOG("DESIGNER_FATAL", "Upper Right is "+locUpperRight);
+		LOG("DESIGNER_FATAL", "Start location is "+locSearchLocation);
 
 	}
 	return locGoodLocation;
@@ -713,7 +716,7 @@ location moveLocationTowardsLocation(location locStartLocation, location locEndL
 
 	// moves a point from one point to another a certain distance.
 
-	location locNewLocation = locStartLocation;
+	location locNewLocation = (location)locStartLocation.clone();
 	float fltTotalDistance = getDistance(locStartLocation, locEndLocation);
 	if(fltTotalDistance<=0)
 	{
@@ -749,11 +752,11 @@ boolean isCityRegion(region rgnTest)
 location getDifferentGoodCityLocation(location locStartLocation)
 {
 
-	////LOG("missions", "getting different city location");
+	LOG("missions", "getting different city location");
 	region[] rgnCities = getRegionsWithMunicipalAtPoint(locStartLocation, regions.MUNI_TRUE);
 	if(rgnCities==null)
 	{
-		////LOG("missions", "no cities found at locStartLocation ");
+		LOG("missions", "no cities found at locStartLocation ");
 		return null;
 
 	}
@@ -765,14 +768,14 @@ location getDifferentGoodCityLocation(location locStartLocation)
 
 
 	string strAsciiId = strFictionalName.getAsciiId();
-	//////LOG("mission_spam", "strAsciiId is "+strAsciiId);
+	LOG("mission_spam", "strAsciiId is "+strAsciiId);
 	int regionType = regions.getDeliverMissionRegionType(strAsciiId);
-	//////LOG("mission_spam", "Intregion type is "+intRegionType);
+	LOG("mission_spam", "Intregion type is "+ regionType);
 	rgnCities = getRegionsWithMissionAtPoint(locStartLocation, regionType);
 
 	if(rgnCities==null)
 	{
-		////LOG("missions", "at start location of "+locStartLocation+", we found no mission types of bestine. ");
+		LOG("missions", "at start location of "+locStartLocation+", we found no mission types of bestine. ");
 		return null;
 	}
 
@@ -781,13 +784,13 @@ location getDifferentGoodCityLocation(location locStartLocation)
 	region[] rgnGoodLocationsArray = getRegionsWithMission(locStartLocation.area, regionType);
 	resizeable region[] rgnGoodLocations = rgnGoodLocationsArray;
 
-	////LOG("missions", "strOldName is "+strOldName);
+	LOG("missions", "strOldName is "+strOldName);
 
-	//////LOG("mission_spam", "strPlanet is "+strPlanet);
+	/////LOG("mission_spam", "strPlanet is "+strPlanet);
 	if(rgnGoodLocations==null)
 	{
-		////LOG("missions", "no regions found with mission type on planet "+locStartLocation.area);
-		//////LOG("mission_spam", "No regions were foind of type "+intRegionType);
+		LOG("missions", "no regions found with mission type on planet "+locStartLocation.area);
+		LOG("mission_spam", "No regions were foind of type "+ regionType);
 		return null;
 	}
 
@@ -805,7 +808,7 @@ location getDifferentGoodCityLocation(location locStartLocation)
 
 	region rgnSpawnRegion = rgnGoodLocations[rand(0, rgnGoodLocations.length-1)];
 	locGoodLocation = findPointInRegion(rgnSpawnRegion);
-	//////LOG("mission_spam", "Got good location of "+locGoodLocation.toString() + " in locations.getGoodCityLocation");
+	LOG("mission_spam", "Got good location of "+locGoodLocation.toString() + " in locations.getGoodCityLocation");
 	return locGoodLocation;
 }
 
@@ -814,7 +817,7 @@ location getDifferentGoodCityLocation(location locStartLocation)
 location getDifferentGoodCityRegionLocation(location locStartLocation)
 {
 
-	////LOG("missions", "getting different city location");
+	LOG("missions", "getting different city location");
 	region[] rgnCities = getRegionsWithMunicipalAtPoint(locStartLocation, regions.MUNI_TRUE);
 	if(rgnCities==null)
 	{
@@ -830,14 +833,14 @@ location getDifferentGoodCityRegionLocation(location locStartLocation)
 
 
 	string strAsciiId = strFictionalName.getAsciiId();
-	//////LOG("mission_spam", "strAsciiId is "+strAsciiId);
+	LOG("mission_spam", "strAsciiId is "+strAsciiId);
 	int regionType = regions.getDeliverMissionRegionType(strAsciiId);
-	//////LOG("mission_spam", "Intregion type is "+intRegionType);
+	LOG("mission_spam", "Intregion type is "+ regionType);
 	rgnCities = getRegionsWithMissionAtPoint(locStartLocation, regionType);
 
 	if(rgnCities==null)
 	{
-		////LOG("missions", "at start location of "+locStartLocation+", we found no mission types of bestine. ");
+		LOG("missions", "at start location of "+locStartLocation+", we found no mission types of bestine. ");
 		return null;
 	}
 
@@ -846,13 +849,13 @@ location getDifferentGoodCityRegionLocation(location locStartLocation)
 	region[] rgnGoodLocationsArray = getRegionsWithMission(locStartLocation.area, regionType);
 	resizeable region[] rgnGoodLocations = rgnGoodLocationsArray;
 
-	////LOG("missions", "strOldName is "+strOldName);
+	LOG("missions", "strOldName is "+strOldName);
 
-	//////LOG("mission_spam", "strPlanet is "+strPlanet);
+	//////////LOG("mission_spam", "strPlanet is "+strPlanet);
 	if(rgnGoodLocations==null)
 	{
-		////LOG("missions", "no regions found with mission type on planet "+locStartLocation.area);
-		//////LOG("mission_spam", "No regions were foind of type "+intRegionType);
+		LOG("missions", "no regions found with mission type on planet "+locStartLocation.area);
+		LOG("mission_spam", "No regions were foind of type "+ regionType);
 		return null;
 	}
 
@@ -870,13 +873,16 @@ location getDifferentGoodCityRegionLocation(location locStartLocation)
 
 	region rgnSpawnRegion = rgnGoodLocations[rand(0, rgnGoodLocations.length-1)];
 	locGoodLocation = getRegionCenter(rgnSpawnRegion);
-	//////LOG("mission_spam", "Got good location of "+locGoodLocation.toString() + " in locations.getGoodCityLocation");
+	LOG("mission_spam", "Got good location of "+locGoodLocation.toString() + " in locations.getGoodCityLocation");
 	return locGoodLocation;
 }
 location getGoodCityLocation(region rgnCity, string strPlanet)
 {
 	if ( rgnCity == null || strPlanet == null)
+	{
+		LOG("mission_spam", "getGoodCityLocation(line 883) returned NULL");
 		return null;
+	}
 	
 	location locGoodLocation = new location();
 
@@ -884,29 +890,29 @@ location getGoodCityLocation(region rgnCity, string strPlanet)
 
 
 	string strAsciiId = strFictionalName.getAsciiId();
-	//////LOG("mission_spam", "strAsciiId is "+strAsciiId);
+	LOG("mission_spam", "strAsciiId is "+strAsciiId);
 	int regionType = regions.getDeliverMissionRegionType(strAsciiId);
-	//////LOG("mission_spam", "Intregion type is "+intRegionType);
+	LOG("mission_spam", "Intregion type is "+ regionType);
 
 	region[] rgnGoodLocations = getRegionsWithMission(strPlanet, regionType);
-	//////LOG("mission_spam", "strPlanet is "+strPlanet);
+	LOG("mission_spam", "strPlanet is "+strPlanet);
 	if(rgnGoodLocations==null)
 	{
 
-		//////LOG("mission_spam", "No regions were foind of type "+intRegionType);
+		LOG("mission_spam", "No regions were foind of type "+ regionType);
 		return null;
 	}
 	region rgnSpawnRegion = rgnGoodLocations[rand(0, rgnGoodLocations.length-1)];
 	int intI = 0;
 	while(intI<rgnGoodLocations.length)
 	{
-		//////LOG("locations", "rgnGoodLocationsRegion[intI] Type is "+ rgnGoodLocations[intI].getMissionType());
-		//////LOG("locations", "rgnGoodLocationsRegion[intI] planet is "+rgnGoodLocations[intI].getPlanetName());
+		LOG("locations", "rgnGoodLocationsRegion[intI] Type is "+ rgnGoodLocations[intI].getMissionType());
+		LOG("locations", "rgnGoodLocationsRegion[intI] planet is "+rgnGoodLocations[intI].getPlanetName());
 
 		intI = intI+1;
 	}
 	locGoodLocation = findPointInRegion(rgnSpawnRegion);
-	//////LOG("mission_spam", "Got good location of "+locGoodLocation.toString() + " in locations.getGoodCityLocation");
+	LOG("mission_spam", "Got good location of "+locGoodLocation.toString() + " in locations.getGoodCityLocation");
 	return locGoodLocation;
 
 
@@ -926,16 +932,16 @@ location getGoodCityRegionLocation(region rgnCity, string strPlanet)
 
 
 	string strAsciiId = strFictionalName.getAsciiId();
-	//////LOG("mission_spam", "strAsciiId is "+strAsciiId);
+	LOG("mission_spam", "strAsciiId is "+strAsciiId);
 	int regionType = regions.getDeliverMissionRegionType(strAsciiId);
-	//////LOG("mission_spam", "Intregion type is "+intRegionType);
+	LOG("mission_spam", "Intregion type is "+ regionType);
 
 	region[] rgnGoodLocations = getRegionsWithMission(strPlanet, regionType);
-	//////LOG("mission_spam", "strPlanet is "+strPlanet);
+	LOG("mission_spam", "strPlanet is "+strPlanet);
 	if(rgnGoodLocations==null)
 	{
 
-		//////LOG("mission_spam", "No regions were foind of type "+intRegionType);
+		LOG("mission_spam", "No regions were foind of type "+ regionType);
 		return null;
 	}
 	region rgnSpawnRegion = rgnGoodLocations[rand(0, rgnGoodLocations.length-1)];
@@ -954,7 +960,7 @@ int normalizeDifficultyForRegion(int intDifficulty, location locTest)
 
 		if(rgnRegionsAtPoint == null)
 		{
-			//LOG("DESIGNER_FATAL", "No regions at location "+locTest);
+			LOG("DESIGNER_FATAL", "No regions at location "+locTest);
 			return intDifficulty;
 		}
 	}
@@ -963,7 +969,7 @@ int normalizeDifficultyForRegion(int intDifficulty, location locTest)
 
 	if(rgnSmallestRegion == null)
 	{
-		//LOG("locations", "Smallest region was null");
+		LOG("locations", "Smallest region was null");
 
 		return intDifficulty;
 	}
@@ -971,7 +977,7 @@ int normalizeDifficultyForRegion(int intDifficulty, location locTest)
 	int intMinRegionDifficulty = rgnSmallestRegion.getMinDifficultyType();
 	int intMaxRegionDifficulty = rgnSmallestRegion.getMaxDifficultyType();
 
-	//LOG("locations", "intMinRegionDifficulty: " + intMinRegionDifficulty + " intMaxRegionDifficulty: " + intMaxRegionDifficulty + " intDifficulty: " + intDifficulty);
+	LOG("locations", "intMinRegionDifficulty: " + intMinRegionDifficulty + " intMaxRegionDifficulty: " + intMaxRegionDifficulty + " intDifficulty: " + intDifficulty);
 
 	return rand(intMinRegionDifficulty, intMaxRegionDifficulty);
 }

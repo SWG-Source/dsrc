@@ -1,20 +1,7 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        terminal_food.script
  * Description:  BETA SCRIPT: food dispenser
- * @author       $Author:$
- * @version      $Revision:$
  */
-
-/***** INCLUDES ********************************************************/
-
-
-
-/***** INHERITS ********************************************************/
-
-//inherits terminal.base.base_terminal;
 
 /***** CONSTANTS *******************************************************/
 

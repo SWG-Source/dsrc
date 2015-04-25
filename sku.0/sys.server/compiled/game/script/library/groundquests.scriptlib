@@ -582,7 +582,7 @@ void doTraderEntertainerXpWarning(int questCrc, obj_id player)
 
 /**
 	THIS IS FOR INTERNAL QUEST SYSTEM USE ONLY!!!  If you need to push a quest on a player, enter the quest name into
-	//depot/swg/<branch>/dsrc/sku.0/sys.shared/compiled/game/datatables/quest/force_accept_quests.tab
+	datatables/quest/force_accept_quests.tab
 */
 int grantQuestNoAcceptUI(obj_id player, string questName, boolean showSystemMessage)
 {
@@ -948,7 +948,7 @@ location getRandom2DLocationAroundLocation(obj_id player, float relativeOffsetX,
 				if(!isValidQuestSpawnPoint(player, newLocation, onAFloor, inACell))
 				{
 					//absolute failure to find a good point, use the original location
-					newLocation = playerLocation;
+					newLocation = (location)playerLocation.clone();
 				}
 			}
 		}
@@ -998,7 +998,7 @@ boolean	isValidQuestSpawnPoint(obj_id player, location newLocation, boolean onAF
 */
 location getRandom2DLocationInRing(location startLocation, float minimumRadius, float maximumRadius)
 {
-	location newLocation = startLocation;
+	location newLocation = (location)startLocation.clone();
 	float deltaX = rand(minimumRadius, maximumRadius);
 	if(rand(1,2) == 2)
 		deltaX = -deltaX;

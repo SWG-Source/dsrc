@@ -1,11 +1,9 @@
 /**
- * Copyright (C)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        jawa.camp_lrg.script
  * Description:  script for creating a generic jawa camp
- * @author       $Author: rpalacio $
- * @version      $Revision: $
+
  */
 
 /***** INCLUDES ********************************************************/

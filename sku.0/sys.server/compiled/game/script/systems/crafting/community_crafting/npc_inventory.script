@@ -1,12 +1,6 @@
-/**
- * Copyright (C)2004 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.crafting.community_crafting.npc_inventory.script
+/* Title:        systems.crafting.community_crafting.npc_inventory.script
  * Description:  This should get attached to the inventory object of the npc players interact with
  *               for the community crafting system.
- * @author       $Author: Steve Jakab $
- * @version      $Revision: #1 $
  */
 
 

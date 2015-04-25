@@ -1,11 +1,8 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
+
  * Title:        structure_rollup.script
  * Description:  script to rollup a structure, placing all the contents in a player's inventory
- * @author       $Author:$
- * @version      $Revision:$
+
  **********************************************************************/
 
 

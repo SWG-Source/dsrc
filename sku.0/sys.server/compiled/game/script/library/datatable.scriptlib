@@ -1,22 +1,15 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        datatable.scriptlib
+* Title:        datatable.scriptlib
  * Description:  library for generic datatable lookup functions
- * @author       $Author:$
- * @version      $Revision:$
  */
 
-// TABULATION IN BELOW FILE IS FUCKED UP, BUT I DIDNT CHANGE IT.
+// TABULATION IN BELOW FILE IS MESSED UP.
 // NEW FUNCTIONS LIVE AT THE BOTTOM
 
 /***** INCLUDES ********************************************************/
 
 
 include datatable_writer;
-/***** CONSTANTS *******************************************************/
-
 
 /***** FUNCTIONS *******************************************************/
 
@@ -141,7 +134,7 @@ string getRandomTemplate(string datatable)
  }
 
 
-// I DID NOT CREATE THE ABOVE FUNCTIONS. THE TABULATION IS FUCKED UP AND ITS NOT MY FAULT.
+// THE TABULATION IS FUCKED UP AND ITS NOT MY FAULT.
 
 boolean createDataTable(string strFileName, string[] strHeaders, string[] strHeaderTypes)
 {

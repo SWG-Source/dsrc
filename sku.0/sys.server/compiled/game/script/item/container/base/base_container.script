@@ -1,11 +1,6 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
+/*
  * Title:        base_container.script
  * Description:  base container script
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INCLUDES ********************************************************/
@@ -74,7 +69,3 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 	return SCRIPT_CONTINUE;
 }
 
-/***** FUNCTIONS *******************************************************/
-
-
-/***** MESSAGEHANDLERS *************************************************/

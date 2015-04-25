@@ -26,7 +26,6 @@ delayAction:invasionHalfWayPoint:900		invasion
 signalMaster;invasionHalfWayPoint;none		invasionHalfWayPoint										
 delayAction:cityAttackUnsuccessful:1800		invasion										
 signalMaster;cityAttackUnsuccessful;none		cityAttackUnsuccessful										
-messageTo;defense_camp;wsToggleInvulnerability;none		invasion										
 delayAction:invasionCleanup:1		invasionCompleted										
 delayAction:defendersEvacuate:1		defenseLostCity										
 signalMaster;defendersEvacuate;none		defendersEvacuate										Cleanup objects from the battlefield

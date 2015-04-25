@@ -1,12 +1,6 @@
-/**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        test.qa_resource_reward.script
+/* Title:        test.qa_resource_reward.script
  * Description:  Allows a tester to access the Resource Veteran Reward to get various resources for crafting.
  		 Most of the code for this script was borrowed from script/systems/veteran_reward/resource
- * @author       $Author: James Michener$
- * @version      $Revision: 1.0.0$
  */
 
 include library.sui;
@@ -287,9 +281,6 @@ void showResourceStats(obj_id player, obj_id resource)
 }
 
 
-/**
- * insert witty comment here
- */
 void chooseResourceClass(obj_id player, String parentClass)
 {
 	chooseResourceClass(player, parentClass, false);
@@ -431,7 +422,7 @@ string [] filterTopLevelResourceList(String parentClass)
 {
 	String[] resourceClasses = null;
 	
-	//OMG SYNTAX NIGHTMARE!!
+	//Syntax Nightmare
 	String [] tempResourceClass = getImmediateResourceChildClasses(parentClass);
 	Vector tempResourceClassTwo = null;
 

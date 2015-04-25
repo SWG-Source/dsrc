@@ -1,11 +1,6 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        medicine_damage.script
  * Description:  Testing script that makes a random damage medicine
- * @author
- * @version      $Revision:$
  */
 
 
@@ -15,9 +10,6 @@ include library.utils;
 include library.healing;
 include library.consumable;
 include library.player_stomach;
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 
@@ -54,12 +46,6 @@ trigger OnAttach()
 
 	return SCRIPT_CONTINUE;
 }
-
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
 
 /***** FUNCTIONS *************************************************/
 

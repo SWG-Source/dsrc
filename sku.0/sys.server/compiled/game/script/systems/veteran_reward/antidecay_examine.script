@@ -1,9 +1,6 @@
-/**
- * Copyright (c)2000-2005 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems/veteran_reward/antidecay_examine.script
- * Description:  Updates Examine window with information that the item has anti decay applied to it.  Also returns Anti Decay Kit back when item is destroyed
+/*
+ Title:        systems/veteran_reward/antidecay_examine.script
+ Description:  Updates Examine window with information that the item has anti decay applied to it.  Also returns Anti Decay Kit back when item is destroyed
  */
 
 include library.utils;

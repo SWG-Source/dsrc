@@ -11,8 +11,8 @@ trigger OnPreloadComplete()
 		return SCRIPT_CONTINUE;
 
 	LOG("bomb_spawner","OnPreloadComplete");	
-	//if an obj oid exists, check it. If it is still around, just exit.
-	//if not remove the oid
+	// If an obj oid exists, check it. If it is still around, just exit.
+	// If not remove the oid
 	if(hasObjVar(self, "spawn.oid"))
 	{
 		obj_id currentObject = getObjIdObjVar(self, "spawn.oid");
@@ -52,8 +52,8 @@ messageHandler handleTangibleRespawn()
 
 	LOG("bomb_spawner","handleTangibleRespawn");
 
-	//if an obj oid exists, check it. If it is still around, just exit.
-	//if not remove the oid
+	// If an obj oid exists, check it. If it is still around, just exit.
+	// If not remove the oid
 	if(hasObjVar(self, "spawn.oid"))
 	{	
 		obj_id currentObject = getObjIdObjVar(self, "spawn.oid");

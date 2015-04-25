@@ -802,7 +802,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 	}
 
 	obj_id bcd = beast_lib.getBeastBCD(self);
-	if(!beast_lib.hasBeastName(self) || (hasObjVar(bcd, beast_lib.OBJVAR_OLD_PET_IDENTIFIER) && !hasObjVar(bcd, beast_lib.OBJVAR_OLD_PET_RENAMED)))
+	if(!ai_lib.isInCombat(player) && !ai_lib.isAiDead(self) && !ai_lib.aiIsDead(player))
 	{
 		mi.addRootMenu(menu_info_types.SERVER_MENU2, new string_id("beast", "name_beast"));
 	}
@@ -883,7 +883,7 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 	if(item == menu_info_types.SERVER_MENU2)
 	{
-		if(!beast_lib.hasBeastName(self) || (hasObjVar(bcd, beast_lib.OBJVAR_OLD_PET_IDENTIFIER) && !hasObjVar(bcd, beast_lib.OBJVAR_OLD_PET_RENAMED)))
+		if(!ai_lib.isInCombat(player) && !ai_lib.isAiDead(self) && !ai_lib.aiIsDead(player))
 		{
 			sui.inputbox(self, player, "@beast:name_d", sui.OK_CANCEL, "@beast:name_t", sui.INPUT_NORMAL, null, "handleSetBeastName", null);
 		}
@@ -1268,8 +1268,7 @@ trigger OnDefenderCombatAction(obj_id attacker, obj_id weapon, int combatResult)
 	return SCRIPT_CONTINUE;
 }
 
-//onSawAttack never fires for beasts, yet we have this here because Eidson swears it worked at one point
-//Travis thinks it never worked
+//onSawAttack never fires for beasts, yet we have this here because Development swears it worked at one point
 trigger OnSawAttack(obj_id defender, obj_id[] attackers)
 {
 

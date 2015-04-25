@@ -1,3 +1,5 @@
+//
+
 include library.ai_lib;
 include library.colors_hex;
 include library.factions;
@@ -1022,6 +1024,7 @@ messageHandler invasionHalfWayPoint()
 	CustomerServiceLog("gcw_city_invasion", "gcw_city.invasionHalfWayPoint: invasionHalfWayPoint has sent all players messages regarding the combat phase being half over Message sent at: "+getGameTime()+" session: "+params.getInt(trial.MESSAGE_SESSION));	
 
 	messageToPlayersOnPlanet("notifyPlayerOfGcwCityEventAnnouncement", webster, 0.0f, announcementOrigin, announcementRadius, false);	
+	setInvulnerable(defendingGeneral, false);
 	return SCRIPT_CONTINUE;
 }
 

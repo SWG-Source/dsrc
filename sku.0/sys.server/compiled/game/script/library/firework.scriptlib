@@ -1,11 +1,6 @@
 /**
- * Copyright (C)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        firework.scriptlib
  * Description:  for "firework" functions
- * @author       $Author: rpalacio $
- * @version      $Revision: #13 $
  */
 
 /***** INCLUDES ********************************************************/

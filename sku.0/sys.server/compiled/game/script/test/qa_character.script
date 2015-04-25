@@ -1,15 +1,6 @@
 //**********************************************************
-// Copyright (c) ©2008 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
-// Title:		qasetup.script
-// Version:		Version 1.00
+// Title:		qaset
 // Description:  	QA Character Setup Tool
-//			- Revamp of the QASetup tool
-//
-//
-// @author       	$Author: Mikkel Jensen
-// @version      	$All Revisions:
 //***********************************************************
 
 include java.util.HashSet;
@@ -90,14 +81,9 @@ const string[] BASIC_MOD_STRINGS = {
 };
 
 //****************QATool Main Menu*************************************************
-//
-//
-//*********************************************************************************
 
 trigger OnSpeaking(string text)
 {
-	//obj_id player = sui.getPlayerId(params);
-	//obj_id pInv = utils.getInventoryContainer(player);
 	debugConsoleMsg(self, text);
 	java.util.StringTokenizer st = new java.util.StringTokenizer (text);
 
@@ -119,7 +105,7 @@ trigger OnSpeaking(string text)
 	return SCRIPT_CONTINUE;
 }
 
-//Generates the main menu for the QASetup scrip
+//Generates the main menu for the QASetup script
 void qaToolMainMenu(obj_id self)
 {
 	qa.refreshMenu(self, QASETUP_PROMPT, QASETUP_TITLE, QASETUP_MAIN_MENU, "handleMainMenu", true, "qasetup.pid", "qasetup.qasetup");
@@ -147,12 +133,10 @@ messageHandler handleMainMenu()
 			if (previousSelection == "Quick Buff")
 			{
 				quickBuff(self);
-//				sendSystemMessageTestingOnly(self, "bla bla bla The quick buff function is not yet implemented.");
 			}
 
 			if (previousSelection == "Set Template")
 			{
-				//setProfession(self);
 				String[] templateList =  dataTableGetColumnNames(TEMPLATE_TABLE);
 				qa.refreshMenu(self, "Select the profession you wish to use.", "Set Profession", templateList, "handleSetProfession", true, "profession.pid", "qasetup.qasetup");
 
@@ -161,7 +145,6 @@ messageHandler handleMainMenu()
 			if (previousSelection == "Generate Equipment")
 			{
 				qa.refreshMenu(self, "Select the equipment type you want to generate.", "Generate Equipment", EQUIPMENT_OPTIONS, "handleEquipmentMenu", true, "equipment.pid", "equipment.qasetup");
-				//sendSystemMessageTestingOnly(self, "The generate equipment function is not yet implemented.");
 				return SCRIPT_CONTINUE;
 			}
 
@@ -184,37 +167,10 @@ on what a well prepared high level player would use.
 void quickBuff(obj_id self)
 {
 	string prof = getSkillTemplate(self);
-	//if(prof != "entertainer_1a")
-	//{
-	/*	for (int i = 0; i < BUFF_SKILLS.length; i++)
-		{
-			skill.grantSkillToPlayer(self, BUFF_SKILLS[i]);
-			sendSystemMessageTestingOnly(self, "Granting Skill: " + BUFF_SKILLS[i]);
-			skill.recalcPlayerPools(self, true);
-		};
 
-
-		//utils.removeScriptVarTree(self,"performance");
-		const string[] buffComponentKeys =
-		{
-			"action_cost_reduction",
-			"dodge",
-			"energy",
-			"kinetic"
-		};
-		const int[] buffComponentValues =
-		{
-			1, 1, 5, 5
-		};
-*/
 		obj_id recipientId = self;
 		obj_id bufferId = recipientId;
-		//float currentBuffTime = performance.inspireGetMaxDuration(recipientId);
 		buff.applyBuff(recipientId, "buildabuff_inspiration", 3600);
-/*		utils.setScriptVar(recipientId, "performance.buildabuff.buffComponentKeys", buffComponentKeys);
-		utils.setScriptVar(recipientId, "performance.buildabuff.buffComponentValues", buffComponentValues);
-		utils.setScriptVar(recipientId, "performance.buildabuff.bufferId", bufferId);
-*/
 
 		addSkillModModifier(self, "buildabuff_expertise_action_all", "expertise_action_all", 9, 3600, false, true);
 		addSkillModModifier(self, "buildabuff_expertise_glancing_blow_all", "expertise_glancing_blow_all", 7, 3600, false, true);
@@ -222,15 +178,8 @@ void quickBuff(obj_id self)
 		addSkillModModifier(self, "buildabuff_expertise_innate_protection_kinetic", "expertise_innate_protection_kinetic", 3750, 3600, false, true);
 
 		messageTo(self, "recalcPools", null, .25f, false);
-		//skill.recalcPlayerPools(self, true);
 		messageTo(self, "recalcArmor", null, .25f, false);
-//	}
 
-	/*	for (int i = 0; i < BUFF_SKILLS.length; i++)
-		{
-			skill.revokeSkillSilent(self, BUFF_SKILLS[i]);
-			sendSystemMessageTestingOnly(self, "Removing Skill: " + BUFF_SKILLS[i]);
-		};*/
 		buff.applyBuff((recipientId), "me_buff_health_2", 3600);
 		buff.applyBuff((recipientId), "me_buff_action_3", 3600);
 		buff.applyBuff((recipientId), "me_buff_strength_3", 3600);
@@ -287,7 +236,6 @@ messageHandler handleSetProfession()
 				int n = 0;
 				if(selectedTemplate[i] != "null")
 				{
-					//expertiseSkills[n] = selectedTemplate[i];
 					sendSystemMessageTestingOnly(self, "selectedTemp: " + selectedTemplate[i]);
 				}
 			}
@@ -295,7 +243,6 @@ messageHandler handleSetProfession()
 			sendSystemMessageTestingOnly(self, "Class template: " + selectedProf);
 			if(!previousSelection == "null")
 			{
-				//handleProfessionLevelToNinety(self, selectedProf);
 				setTemplate(self, selectedTemplate, selectedProf);
 			}
 		}
@@ -359,10 +306,7 @@ void revokeAllSkills(obj_id player)
 	skill.recalcPlayerPools(player, true);
 }
 
-/**************************** Expertise **********************************
-
-
-*************************************************************************/
+//**************************** Expertise **********************************
 
 // Grants expertise skills to the player based on the template skillList
 void setTemplate(obj_id self, string[] skillList, string baseClass)
@@ -386,7 +330,6 @@ void setTemplate(obj_id self, string[] skillList, string baseClass)
 		{
 
 			string[] modString = split(expertiseSkill, ':');
-			//string mod = modString[1];
 			string scriptVarName = "qacharacter.exotic" + exotic;
 			utils.setScriptVar(self, scriptVarName, modString[1]);
 			exotic++;
@@ -396,7 +339,6 @@ void setTemplate(obj_id self, string[] skillList, string baseClass)
 		if(expertiseSkill.startsWith("mod_basic") && basic <= 3)
 		{
 			string[] modString = split(expertiseSkill, ':');
-			//string mod = modString[1];
 			string scriptVarName = "qacharacter.basic" + basic;
 			utils.setScriptVar(self, scriptVarName, modString[1]);
 			basic++;
@@ -440,10 +382,7 @@ void writeTemplateFile()
 	qaToolMainMenu(self);
 }
 
-/************************************* SELECT MODS ******************************************
-
-
-********************************************************************************************/
+//************************************* SELECT MODS ******************************************
 
 void startModSelection()
 {
@@ -545,141 +484,3 @@ string[] getExoticMods()
 
 	return skillMods;
 }
-
-/************************************* GENERATE EQUIPMENT ***********************************
-
-
-********************************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-/*
-messageHandler handleEquipmentMenu()
-{
-
-	if(utils.hasScriptVar(self, "equipment.pid"))
-	{
-		qa.checkParams(params, "equipment");
-		int idx = sui.getListboxSelectedRow(params);
-		int btn = sui.getIntButtonPressed(params);
-		string previousMainMenuArray[] = utils.getStringArrayScriptVar( self, "equipment.qasetup" );
-
-		if(btn == sui.BP_CANCEL)
-		{
-			return SCRIPT_CONTINUE;
-		}
-
-		else
-		{
-			string previousSelection = previousMainMenuArray[idx];
-			if(previousSelection == "Prefered Mods")
-			{
-				selectMods();
-			}
-
-			if(previousSelection == "All")
-			{
-
-			}
-
-			if(previousSelection == "Weapon")
-			{
-
-			}
-
-			if(previousSelection == "Armor")
-			{
-
-			}
-
-			if(previousSelection == "Powerups")
-			{
-				//generatePowerup();
-			}
-
-			if(previousSelection == "Consumables")
-			{
-
-			}
-
-			else
-			{
-				sendSystemMessageTestingOnly(self, "Could not start the selected option");
-				return SCRIPT_CONTINUE;
-			}
-		}
-	}
-	return SCRIPT_CONTINUE;
-}
-
-
-void selectMods()
-{
-	int m =0;
-	obj_id self = getSelf();
-	if(!utils.hasScriptVar(self, "ModSelection"))
-	{
-		m = 0;
-		boolean modSelection = removeMods();
-		utils.setScriptVar(self, "ModSelection", 1);
-	}
-
-	if(!utils.hasScriptVar(self, MOD_TYPES[m]))
-	{
-		qa.refreshMenu(self, "Select the three basic mods you want to use.", "Select Mods", BASIC_MOD_STRINGS, "handleMod", true, "profession.pid", "qasetup.qasetup");
-
-	}
-
-}
-
-boolean removeMods()
-{
-	obj_id self = getSelf();
-	for (int j = 1; j < MOD_TYPES.length; j++)
-	{
-		if(utils.hasScriptVar(self, MOD_TYPES[j]))
-		{
-			utils.removeScriptVar(self, MOD_TYPES[j]);
-		}
-
-	}
-
-/*
-	if(utils.hasScriptVar(self, "basic1"))
-	{
-		utils.removeScriptVar(self, "basic1");
-	}
-	if(utils.hasScriptVar(self, "basic2"))
-	{
-		utils.removeScriptVar(self, "basic2");
-	}
-	if(utils.hasScriptVar(self, "basic3"))
-	{
-		utils.removeScriptVar(self, "basic3");
-	}
-	if(utils.hasScriptVar(self, "exotic1"))
-	{
-		utils.removeScriptVar(self, "exotic1");
-	}
-	if(utils.hasScriptVar(self, "exotic2"))
-	{
-		utils.removeScriptVar(self, "exotic2");
-	}
-	if(utils.hasScriptVar(self, "exotic3"))
-	{
-		utils.removeScriptVar(self, "exotic3");
-	}
-	return true;
-}
-
-
-
-*/

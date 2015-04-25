@@ -27,19 +27,16 @@ trigger OnSpeaking(string text)
 			return SCRIPT_CONTINUE;
 
 		}
-		debugSpeakMsg( self, "making rock mites!" );
 		setObjVar( self, "rockMiteMaking", 0 );
 		messageTo( self, "spawnMite", null, 0, false );
 	}
 	else if ( ( text.equals( "stop" ) ||  text.equals( "die" ) ) && hasObjVar( self, "rockMiteMaking" ))
 	{
 		removeObjVar( self, "rockMiteMaking");
-		debugSpeakMsg( self, "No more rock mites for you!" );
 	}
 
 	if ( text.equals( "die" ) && hasObjVar( self, "miteReg" ))
 	{
-		debugSpeakMsg( self, "MUAHAHAH!!!!" );
 		killAllMites( self );
 	}
 

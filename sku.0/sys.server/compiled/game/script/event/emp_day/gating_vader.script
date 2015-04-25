@@ -15,7 +15,7 @@ messageHandler spawnStormtroopers()
 	string spawn = "stormtrooper_novatrooper";
 	location here = getLocation(self);
 
-	location outsideLoc = here;
+	location outsideLoc = (location)here.clone();
 	outsideLoc.z += 15;
 
 	for(int i = 0; i < 10; i++)
@@ -29,9 +29,9 @@ messageHandler spawnStormtroopers()
 	obj_id room1Cell = getCellId(self, "room1");
 	obj_id room2Cell = getCellId(self, "room2");
 	obj_id room3Cell = getCellId(self, "room3");
-	location room1Loc = here;
-	location room2Loc = here;
-	location room3Loc = here;
+	location room1Loc = (location)here.clone();
+	location room2Loc = (location)here.clone();
+	location room3Loc = (location)here.clone();
 	room1Loc.x = 2.1f;
 	room1Loc.z = 1.5f;
 	room1Loc.cell = room1Cell;

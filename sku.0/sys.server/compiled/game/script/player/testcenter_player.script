@@ -1,11 +1,7 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        testcenter_player.script
- * Description:  Allows the player to set a messaged alarm at a given time interval.
- * @author       Thomas Blair
- * @version      $Revision:$
  */
 
 

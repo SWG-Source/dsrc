@@ -1,5 +1,6 @@
 include library.create;
 include library.ai_lib;
+include library.performance;
 
 
 trigger OnInitialize ()
@@ -35,7 +36,7 @@ void spawnEveryone(obj_id self)
 	spawnChadraFans(self);
 	spawnCheatedGambler(self);
 	spawnEntAlcove(self);
-	spawnPilot(self);
+	spawnJunkDealer(self);
 	// spawnHanandChewie(self);
 	return;
 }
@@ -502,6 +503,11 @@ void spawnBithBand (obj_id self)
 	obj_id horn = create.object ("bith_musician", hornloc);
 	obj_id fizz = create.object ("bith_musician", fizzloc);
 	obj_id bandfill = create.object ("bith_musician", bfloc);
+	setObjVar (figrin, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
+	setObjVar (box, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
+	setObjVar (horn, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
+	setObjVar (fizz, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
+	setObjVar (bandfill, performance.NPC_ENTERTAINMENT_NO_ENTERTAIN, 1);
 	ai_lib.setDefaultCalmMood (figrin, "themepark_music_3");
 	ai_lib.setDefaultCalmMood (box, "themepark_music_2");
 	ai_lib.setDefaultCalmMood (horn, "themepark_music_3");
@@ -611,19 +617,15 @@ void spawnEntAlcove(obj_id self)
 	return;
 }
 
-void spawnPilot(obj_id self)
+void spawnJunkDealer(obj_id self)
 {
-	obj_id room = getCellId (self, "private_room");
-	location pilotLoc = new location (-21.2103f, -0.895f, 24.3324f, "tatooine", room);
-	int yaw = 178;
-	obj_id pilot = create.object ("object/mobile/space_privateer_tier1_tatooine.iff", pilotLoc);
-	setYaw(pilot, yaw);
-	setCreatureStatic (pilot, true);
-	setInvulnerable (pilot, true);
-	setName (pilot, "Dravis (Privateer Pilot Trainer)");
-	ai_lib.setDefaultCalmMood (pilot, "npc_imperial");
-	attachScript (pilot, "conversation.tatooine_privateer_trainer_1");
-	attachScript (pilot, "planet_map.map_loc_creature");
+	obj_id room = getCellId (self, "private_room2");
+	location junkLoc = new location (-30.9152f, -0.52f, 6.8631f, "tatooine", room);
+	int yaw = 25;
+	obj_id junkDealer = create.object ("junk_dealer", junkLoc);
+	setYaw(junkDealer, yaw);
+	setInvulnerable (junkDealer, true);
+	ai_lib.setDefaultCalmMood (junkDealer, "npc_imperial");
 	
 	return;
 }

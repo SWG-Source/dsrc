@@ -1,12 +1,9 @@
 /********************************************************************************************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        quest\task\patrol.script
  * Description:  Patrol Quest Task. Reads from Quest Data Table and creates a Patrol route of 8 points
  *				 around a location of a given radius. (modified code of "go_to_location.script")
- * @author       Benjamin Norris
- * @version      $Revision:$
  **********************************************************************/
 
 

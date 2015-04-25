@@ -1,11 +1,6 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        image_designer_response
  * Description:  handles the triggers sent back from the result of image designing
- * @author       $Author:$
- * @version      $Revision:$
  **********************************************************************/
 
 
@@ -303,6 +298,3 @@ trigger OnImageDesignCanceled()
 	return SCRIPT_CONTINUE;
 }
 
-/***** COMMANDHANDLERS *************************************************/
-
-/***** FUNCTIONS *******************************************************/

@@ -1,13 +1,6 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        systems.beast.beast_steroid_injector
+/* Title:        systems.beast.beast_steroid_injector
  * Description:  Beast XP buff
- * @author       $Author:Jesse Benjamin$
- * @version      $Revision:1.0$
- **********************************************************************/
-
+*/
 
 /***** INCLUDES ********************************************************/
 include library.beast_lib;
@@ -157,14 +150,6 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 	return SCRIPT_CONTINUE;
 }
-
-
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
 
 /***** FUNCTIONS *******************************************************/
 boolean addXpBuff(obj_id injector, obj_id beast)

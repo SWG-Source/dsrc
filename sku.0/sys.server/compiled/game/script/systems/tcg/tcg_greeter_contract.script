@@ -1,9 +1,6 @@
-/**
- *
- * Title:	tcg_greeter_contract.script
- * Description:	This script allows the player to place greeter NPCs in valid structures.
- * @author	Jeff Haskell
- * @version	1.0
+/*
+ Title:	tcg_greeter_contract.script
+ Description:	This script allows the player to place greeter NPCs in valid structures.
  */
 
 /***** INCLUDES ********************************************************/
@@ -14,7 +11,7 @@ include library.sui;
 include library.utils;
 include library.vendor_lib;
 
-//-----------------LOGGING
+// LOGGING
 const boolean LOGGING_ON				= true;
 const string LOGGING_CATEGORY				= "greeter";
 
@@ -47,7 +44,7 @@ trigger OnInitialize()
 {
 	blog("tcg_greeter_contract.OnInitialize: Init.");
 
-	// check to make sure an owner has been set
+	// Check to make sure an owner has been set
 	obj_id owner = vendor_lib.getObjectOwner(self);
 	if(!isValidId(owner))
 	{
@@ -56,7 +53,7 @@ trigger OnInitialize()
 		return SCRIPT_CONTINUE;
 	}
 	
-	// check to see if we chould automatically recreate the target creature when initialized
+	// Check to see if we chould automatically recreate the target creature when initialized
 	if(!hasObjVar(self, vendor_lib.CHILD_GREETER_NONVENDOR_ID_OBJVAR))
 		return SCRIPT_CONTINUE;
 	
@@ -174,8 +171,8 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 			return SCRIPT_CONTINUE;
 
 		obj_id greeter = getObjIdObjVar(self, vendor_lib.CHILD_GREETER_NONVENDOR_ID_OBJVAR);
-		//if the greeter OID isn't valid or doesn't exists, we don't care
-		//remove the greeter
+		// If the greeter OID isn't valid or doesn't exists, we don't care
+		// remove the greeter
 		vendor_lib.removeObjectFromController(self, greeter);
 		sendDirtyObjectMenuNotification(self);
 
@@ -188,7 +185,7 @@ trigger OnTransferred(obj_id sourceContainer, obj_id destContainer, obj_id trans
 	if(!isValidId(destContainer) || !exists(destContainer))
 		return SCRIPT_CONTINUE;
 	
-	if(!vendor_lib.controllerContainmentCheck(self)) //we are not in a player structure anymore
+	if(!vendor_lib.controllerContainmentCheck(self)) // We are not in a player structure anymore
 	{
 		if(!hasObjVar(self, vendor_lib.CHILD_GREETER_NONVENDOR_ID_OBJVAR))
 			return SCRIPT_CONTINUE;
@@ -206,7 +203,7 @@ trigger OnDestroy()
 		return SCRIPT_CONTINUE;
 
 	obj_id greeter = getObjIdObjVar(self, vendor_lib.CHILD_GREETER_NONVENDOR_ID_OBJVAR);
-	//if the greeter OID isn't valid or doesn't exists, we don't care
+	// If the greeter OID isn't valid or doesn't exists, we don't care
 	//remove the greeter
 	vendor_lib.removeObjectFromController(self, greeter);
  	return SCRIPT_CONTINUE;
@@ -382,8 +379,8 @@ boolean getGreeterData(obj_id self, obj_id player)
 		return false;
 	}
 	
-	//Overwrite everything if the objvars already exist.  Otherwise we'll have issues when player selects a different
-	//greeter gender
+	// Overwrite everything if the objvars already exist.  Otherwise we'll have issues when player selects a different
+	// greeter gender
 
 	blog("tcg_greeter_contract.getGreeterData: Setting individual vars from dictionary.");	
 	string greeterNames	= greeterDict.getString(vendor_lib.COL_GREETER_CREATURE_NAME);
@@ -398,8 +395,8 @@ boolean getGreeterData(obj_id self, obj_id player)
 	int greeterHasMoods	= greeterDict.getInt(vendor_lib.COL_MOODS);
 	int greeterCanColor	= greeterDict.getInt(vendor_lib.COL_COLOR);
 	
-	//save the scriptvars on player for use later
-	utils.setObjVar(self, vendor_lib.GREETER_NAMES_OBJVAR, greeterNames); //this is a non split list in string form
+	// Save the scriptvars on player for use later
+	utils.setObjVar(self, vendor_lib.GREETER_NAMES_OBJVAR, greeterNames); // This is a non split list in string form
 	utils.setObjVar(self, vendor_lib.GREETER_STRING_ID_OBJVAR, greeterStrIds);	
 	utils.setObjVar(self, vendor_lib.GREETER_TYPE_NICHE, greeterNiche);	
 	utils.setObjVar(self, vendor_lib.GREETER_CAN_DRESS_OBJVAR, greeterDressable);
@@ -411,7 +408,7 @@ boolean getGreeterData(obj_id self, obj_id player)
 	utils.setObjVar(self, vendor_lib.GREETER_MOODS_OBJVAR, greeterHasMoods);	
 	utils.setObjVar(self, vendor_lib.GREETER_COLOR_OBJVAR, greeterCanColor);	
 
-	string[] appearanceChoices = split(greeterStrIds, ','); //there may be more than one appearance so evaluate this possiblity by splitting the string 
+	string[] appearanceChoices = split(greeterStrIds, ','); // There may be more than one appearance so evaluate this possiblity by splitting the string 
 	if(appearanceChoices == null)
 	{
 		blog("tcg_greeter_contract.getGreeterData: appearanceChoices == null.");
@@ -434,7 +431,7 @@ boolean getGreeterData(obj_id self, obj_id player)
 		blog("tcg_greeter_contract.getGreeterData: appearanceCreatureNames & appearanceCreatureNamesLength are not the same size.");
 		return false;
 	}
-	//we don't need the creature string name becasue that is just used for a menu that won't be created for a list on length = 1
+	// We don't need the creature string name becasue that is just used for a menu that won't be created for a list on length = 1
 	if(appearanceChoicesLength == 1 && appearanceCreatureNamesLength == 1)
 	{
 		blog("tcg_greeter_contract.getGreeterData: Going to name nonvendor handler.");
@@ -448,7 +445,7 @@ boolean getGreeterData(obj_id self, obj_id player)
 	
 	int appearanceLength = appearanceChoices.length;
 
-	if(appearanceLength != appearanceChoicesLength) //we already know that appearanceChoicesLength & appearanceCreatureNamesLength are the same
+	if(appearanceLength != appearanceChoicesLength) // We already know that appearanceChoicesLength & appearanceCreatureNamesLength are the same
 	{
 		blog("tcg_greeter_contract.getGreeterData: appearanceChoiceStrings.length != appearanceChoicesLength. appearanceChoiceStrings.length: "+ appearanceLength +"listLength: "+appearanceChoicesLength);	
 		return false;
@@ -465,7 +462,7 @@ boolean getGreeterData(obj_id self, obj_id player)
 		blog("tcg_greeter_contract.getGreeterData: appearanceStrings was null or had wrong length.");	
 		return false;
 	}
-	//set the appearanceChoices list scriptvar on player to use later 
+	// Set the appearanceChoices list scriptvar on player to use later 
 	utils.setObjVar(self, vendor_lib.GREETER_APPEARANCE_LIST, appearanceChoices);
 	utils.setObjVar(self, vendor_lib.GREETER_CREATURENAME_LIST_OBJVAR, appearanceCreatureNames);
 	int pid = sui.listbox(self, player, utils.packStringId(SID_GREETER_APPEARANCE_TYPE_D), sui.OK_CANCEL, utils.packStringId(SID_GREETER_APPEARANCE_TYPE_T), appearanceStrings, "handleGreeterAppearanceSelection", true);

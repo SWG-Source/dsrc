@@ -5,6 +5,8 @@ include library.create;
 include library.trial;
 include library.space_dungeon;
 include library.instance;
+include library.locations;
+include library.spawning;
 
 const string SPAWNED_LIST			= "spawned";
 const string SPAWNED				= SPAWNED_LIST+"."+"spawnNumber_";
@@ -322,14 +324,39 @@ void spawnCreatures(int x, string datatable, obj_id self )
 		}
 	}
 	//Boss Mob Check is done, and if he's there our spawn string has been updated
-
-	obj_id spawnedCreature = create.object (spawn, spawnPoint);
-	if (!isIdValid(spawnedCreature))
+	
+	location locTest = spawnPoint;
+	//Radius check
+	if(dataTableHasColumn(datatable, "radius"))
 	{
-		CustomerServiceLog("bad_spawner_data", "spawner " + self + ", datatable " + datatable + ", row " + x + ", mob " + spawn + " doesn't exist");
-		removeObjVar (self, SPAWNED + x);
-		return;
+		float fltRadius = dataTableGetFloat(datatable, x, "radius");
+		if(fltRadius != 0)
+		{
+			locTest = spawning.getRandomLocationInCircle(locTest, fltRadius);
+		}
 	}
+	
+	//Planet Level Check
+	int level = -1;
+	if(dataTableHasColumn(datatable, "planet_level"))
+	{
+		int useLevel = dataTableGetInt(datatable, x, "planet_level");
+		if(useLevel != 0)
+		{
+			level = getRandomPlanetCreatureLevel(self, spawn, locTest);
+
+		}
+	}
+
+		obj_id spawnedCreature = create.object (spawn, locTest, level);
+	
+		if (!isIdValid(spawnedCreature))
+		{
+			CustomerServiceLog("bad_spawner_data", "spawner " + self + ", datatable " + datatable + ", row " + x + ", mob " + spawn + " doesn't exist");
+			removeObjVar (self, SPAWNED + x);
+			return;
+		}
+
 
 	if (dataTableHasColumn (datatable, "convo_script"))
 	{
@@ -490,4 +517,58 @@ boolean canSpawnByConfigSetting()
 		return false;
 
 	return true;
+}
+
+//Stolen from interior_spawner
+int getRandomPlanetCreatureLevel(obj_id spawner, string npcType, location here)
+{
+	// get planet level range
+	int minLevel = locations.getMinDifficultyForPlanet(here.area);
+	int maxLevel = locations.getMaxDifficultyForPlanet(here.area);
+
+	utils.setScriptVar(spawner, "testing_planetMinLevel", minLevel);
+	utils.setScriptVar(spawner, "testing_planetMaxLevel", maxLevel);
+	utils.setScriptVar(spawner, "testing_here.area", here.area);
+	
+	int level = minLevel;
+	
+	//get creature data
+	dictionary creatureDict = utils.dataTableGetRow(create.CREATURE_TABLE, npcType);
+
+	//dynamic level for planet
+	if( creatureDict != null )
+	{
+		int baseLevel = creatureDict.getInt("BaseLevel");
+		level = baseLevel;
+
+			if ( minLevel > 0 && maxLevel > 0 )
+			{
+				if ( level < minLevel || level > maxLevel )
+				{
+					if ( level < minLevel )
+					{
+						level = minLevel;
+					}
+					else if ( level > maxLevel )
+					{
+						level = maxLevel;
+					}
+
+					CustomerServiceLog ("interior_spawner_level", "Spawner " + spawner + " tried to spawn a creature whose base level from creatures.tab ("+ baseLevel +") was outside of the planet's range ("+ minLevel +" to "+ maxLevel +").");
+				}
+			}
+	}
+
+	//validate level
+	if( level < 1 )
+	{
+		level = 1;
+	}
+
+	/*if( level > 90 )
+	{
+		level = 90;
+	}*/
+	
+	return level;
 }

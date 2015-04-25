@@ -10,7 +10,7 @@ inherits systems.gcw.gcw_city_pylon;
 trigger OnAttach()
 {
 	setObjVar(self, gcw.GCW_TOOL_TEMPLATE_OBJVAR, "object/tangible/gcw/crafting_quest/gcw_tower_tool.iff");
-	return SCRIPT_CONTINUE;	
+	return super.OnAttach(self);
 }
 
 string getConstructionQuest()

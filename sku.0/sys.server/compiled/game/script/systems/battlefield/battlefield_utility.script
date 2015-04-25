@@ -1,13 +1,6 @@
-/**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
- * Title:        battlefield_utility
+/*Title:        battlefield_utility
  * Description:  a player script for managing battlefields.  For testing only.
- *
- * @author       $Author:$
- * @version      $Revision:$
- **********************************************************************/
+*/
 
 
 /***** INCLUDES ********************************************************/
@@ -15,9 +8,6 @@ include library.battlefield;
 include library.factions;
 include library.regions;
 include library.utils;
-
-/***** CONSTANTS *******************************************************/
-
 
 /***** TRIGGERS ********************************************************/
 trigger OnSpeaking(string text)
@@ -246,13 +236,4 @@ trigger OnSpeaking(string text)
 
 	return SCRIPT_CONTINUE;
 }
-
-
-/***** MESSAGEHANDLERS *************************************************/
-
-
-/***** COMMANDHANDLERS *************************************************/
-
-
-/***** FUNCTIONS *******************************************************/
 

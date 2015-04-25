@@ -1,19 +1,11 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
  * Title:        factory_crate.script
  * Description:  script for containers that do not accept items
- * @author       $Author:$
- * @version      $Revision:$
  */
 
 /***** INHERITS ********************************************************/
 
 inherits item.container.remove_only;
-
-/***** INCLUDES ********************************************************/
-
 
 /***** CONSTANTS *******************************************************/
 

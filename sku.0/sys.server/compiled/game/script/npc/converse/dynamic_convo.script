@@ -183,7 +183,7 @@ trigger OnStartNpcConversation (obj_id speaker)
 
 	if (dialogResponse.length == 0)
 	{
-		chat.chat(self, openDialog);
+		chat.chat(self, speaker, openDialog);
 		return SCRIPT_OVERRIDE;
 	}
 	

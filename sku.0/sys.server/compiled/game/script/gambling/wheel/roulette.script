@@ -1,4 +1,3 @@
-
 /***** INCLUDES ********************************************************/
 include library.sui;
 include library.utils;
@@ -44,7 +43,7 @@ trigger OnInitialize()
 		gameType = getStringObjVar(self, gambling.VAR_PREDEFINED_TYPE);
 		
 	gambling.initializeTable(self, gameType);
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 /***** HANDLERS ********************************************************/

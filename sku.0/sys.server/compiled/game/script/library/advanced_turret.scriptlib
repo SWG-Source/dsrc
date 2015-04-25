@@ -387,6 +387,18 @@ boolean isValidTarget(obj_id turret, obj_id target)
 		return false;
 	}
 
+	if(hasScript(turret, "systems.gcw.gcw_turret") && hasScript(target, "ai.smuggler_spawn_enemy"))
+	{
+		return false;
+		//2/1/15: Temp hack so turrets focus on enemy rather than BH NPC's in Bestine
+	}
+
+	if(ai_lib.isAnimal(target) && hasScript(turret, "systems.gcw.gcw_turret"))
+	{
+		return false;
+		//2/1/15: Temp hack so turrets focus on enemy rather than wild creatures.
+	}
+
 	if(isMob(target) && isIdValid(getMaster(target)))
 	{
 		obj_id cd = callable.getCallableCD(target);

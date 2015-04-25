@@ -24,7 +24,6 @@ const string DATA_COLOR_2_COLUMN		= "index_color_2";
 
 trigger OnAboutToReceiveItem(obj_id srcContainer, obj_id transferer, obj_id item)
 {
-	// for CTS, allow all contained item(s) to be unpacked
 	if ( utils.hasLocalVar(self, "ctsBeingUnpacked") )
 	{
 		return SCRIPT_CONTINUE;
@@ -58,14 +57,14 @@ boolean shouldBeInKit(obj_id item, obj_id player, obj_id armorKit)
 	string excludedArmorAppearances = armorKitData.getString(DATA_EXCLUDED_ARMOR_COLUMN);
 	if ( checkForMatchingArmorAppearance(excludedArmorAppearances, itemAppearanceName, player) )
 	{
-		// found an excluded armor appearance
+		// Found an excluded armor appearance
 		return false;
 	}
 
 	string eligibleArmorAppearances = armorKitData.getString(DATA_ELIGIBLE_ARMOR_COLUMN);
 	if ( checkForMatchingArmorAppearance(eligibleArmorAppearances, itemAppearanceName, player) )
 	{
-		// found an eligible armor appearance
+		// Found an eligible armor appearance
 		return true;
 	}
 	return false;
@@ -173,7 +172,7 @@ void activateArmorKit(obj_id armorKit, obj_id player)
 			{				
 				if ( hasObjVar(armor, TEXTURE_OBJVAR_NAME) )
 				{
-					// removing the armor kit texture
+					// Removing the armor kit texture
 					int previousTexture = getIntObjVar(armor, TEXTURE_OBJVAR_NAME);
 					int previousColor_1 = getIntObjVar(armor, COLOR_OBJVAR_NAME_01);
 					int previousColor_2 = getIntObjVar(armor, COLOR_OBJVAR_NAME_02);
@@ -186,7 +185,7 @@ void activateArmorKit(obj_id armorKit, obj_id player)
 					removeObjVar(armor, COLOR_OBJVAR_NAME_01);
 					removeObjVar(armor, COLOR_OBJVAR_NAME_02);
 					
-					//tell the player the transfer was a success
+					// Tell the player the transfer was a success
 					prose_package pp = new prose_package();
 					prose.setStringId(pp, new string_id("tcg", "armor_kit_texture_reverted"));
 					prose.setTT(pp, getEncodedName(armor));
@@ -204,7 +203,7 @@ void activateArmorKit(obj_id armorKit, obj_id player)
 					int kitColor_1 = armorKitData.getInt(DATA_COLOR_1_COLUMN);
 					int kitColor_2 = armorKitData.getInt(DATA_COLOR_2_COLUMN);
 				
-					// setting the armor kit texture
+					// Setting the armor kit texture
 					int currentTexture= getRangedIntCustomVarValue(armor, TEXTURE_CUSTVAR_NAME);
 					int currentColor_1 = getRangedIntCustomVarValue(armor, COLOR_CUSTVAR_NAME_01);
 					int currentColor_2 = getRangedIntCustomVarValue(armor, COLOR_CUSTVAR_NAME_02);
@@ -223,7 +222,7 @@ void activateArmorKit(obj_id armorKit, obj_id player)
 					setRangedIntCustomVarValue(armor, COLOR_CUSTVAR_NAME_01, kitColor_1);
 					setRangedIntCustomVarValue(armor, COLOR_CUSTVAR_NAME_02, kitColor_2);
 					
-					//tell the player the transfer was a success
+					// Tell the player the transfer was a success
 					prose_package pp = new prose_package();
 					prose.setStringId(pp, new string_id("tcg", "armor_kit_texture_applied"));
 					prose.setTT(pp, getEncodedName(armor));

@@ -1,11 +1,9 @@
 /**********************************************************************
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
+
  *
  * Title:        travel_player_space_dungeon_falcon
  * Description:  Attaches to a player that handles traveling to a space dungeon
- * @author       Vijay Thakkar
- * @version      1.0
+
  **********************************************************************/
 
 

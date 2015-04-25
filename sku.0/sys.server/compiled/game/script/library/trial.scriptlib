@@ -2622,7 +2622,7 @@ location[] shuffleByIndex(string type, location[] ppl, int idx)
 
 		for (int q=0;q<idx;q++)
 		{
-			newPpl.addElement(oldPpl[q]);
+			newPpl.addElement(((location)(oldPpl[q])));
 		}
 	}
 

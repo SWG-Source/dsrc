@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9015562	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	166.616	2.30389	1567.38	0.771246	0	-0.636537	0		$|
+9015562	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	166.616	2.30389	1567.38	0.771246	0	-0.636537	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/dant_commoner.iff|$|
 9015563	0	object/static/structure/dantooine/dant_cooking_stone.iff	0	173.742	2.47343	1571.13	0.979258	0.102015	-0.121053	-0.12646		$|
 9015564	0	object/static/structure/dantooine/dant_fence_8m.iff	0	172.79	2.83447	1574	0.811837	0.089664	-0.573472	0.0633375		$|
 9015565	0	object/static/structure/dantooine/dant_fence_8m.iff	0	175.049	2.74818	1581.65	0.790584	0.152045	-0.582503	0.112027		$|

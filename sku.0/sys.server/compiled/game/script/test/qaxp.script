@@ -1,56 +1,9 @@
 //**********************************************************
-// Copyright (c) ©2005, 2006 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:		qaxp.script
-// Version:		Version 2.00
 // Description:  	QA XP Tool
-//			- allows Tester to give their test character valid NPE and Space XP based upon their test character profession
+//			- allows Tester to give their test character valid NPE and Space Prestige/XP based upon their test character profession
 //			- will not allow invalid XP types to be awarded to test characters (example: giveing a trader combat experience)
-//			
-//
-// Version Changes:	- Added new XP Types to include pilot prestige
-//
-// @author       	$Author: Jesse Benjamin  
-// @version      	$All Revisions:  Jeff Haskell & James Michener
 //*********************************************************************
-/*
-REFERENCE - CURRENT PROFESSIONS
-
-smuggler_1a
-bounty_hunter_1a
-officer_1a
-commando_1a
-force_sensitive_1a
-medic_1a
-spy_1a
-entertainer_2a
-trader_1a
-trader_1b
-trader_1c
-trader_1d
-*/
-
-// ======================================================================
-// Library Includes
-// ======================================================================
-
-//**********************************************************
-// Copyright (c) ©2005, 2006 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
-// Title:		qaxp.script
-// Version:		Version 2.00
-// Description:  	QA XP Tool
-//			- allows Tester to give their test character valid NPE and Space Prestige based upon their test character profession
-//			- will not allow invalid XP types to be awarded to test characters (example: giveing a trader combat experience)
-//			
-//
-// Version Changes:	- Added new XP Types to include pilot prestige
-//
-// @author       	$Author: Jesse Benjamin  
-// @version      	$All Revisions:  Jeff Haskell && James Michener
-//***********************************************************
 /*
 REFERENCE - CURRENT PROFESSIONS
 

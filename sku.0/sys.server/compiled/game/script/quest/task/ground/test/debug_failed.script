@@ -26,7 +26,7 @@ trigger OnTaskCompleted(int questCrc, int taskId)
 {
 	LOG("groundquests", "quest.task.ground.debug_failed:OnTaskCompleted(" + questCrc + ", " + taskId + ")");
 	questCompleteQuest(questCrc, self);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskCompleted(self, questCrc, taskId);
 }
 
 
@@ -38,5 +38,5 @@ trigger OnTaskActivated(int questCrc, int taskId)
 	params.put("questCrc", questCrc);
 	params.put("taskId", taskId);
 	messageTo(self, "completeDebugQuest", params, 5.0f, false);
-	return SCRIPT_CONTINUE;
+	return super.OnTaskActivated(self, questCrc, taskId);
 }

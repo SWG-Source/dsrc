@@ -1,18 +1,10 @@
 /********************************************************************************************
- * Copyright (c) ©2000,2001 Sony Online Entertainment Inc.
- * All Rights Reserved
- ********************************************************************************************
- * Title:        pvp_damage_tracker
+* Title:        pvp_damage_tracker
  *
  * Description:  tracks pvp damage done to a player to determine gcw point allotment
  *
- * @author       $Author: Traivs Hicks
- * @1.0 author	 $Kai Steinmann
- * @3.0 author	 $Thomas Eidson
- * @version      $Revision: 3.0
- *
- * @changelog	 $Completely hijacked by THicks for V. 2.0 This script used to track an abstract pvp rating
- * 		  and now serves as a Credit For Kills tracker in the Chapter 3 GCW Rank System.
+ * @changelog	 $This script used to track an abstract pvp rating
+ * 		  and now serves as a Credit For Kills tracker in the GCW Rank System.
  ********************************************************************************************
 
 /***** INCLUDES *****************************************************************************/

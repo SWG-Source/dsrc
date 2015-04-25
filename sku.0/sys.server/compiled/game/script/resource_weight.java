@@ -1,10 +1,6 @@
-/**
- * Title:        resource_weight.java
- * Description:  resource data used during crafting/manufacturing
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        resource_weight.java
+ Description:  resource data used during crafting/manufacturing
  */
 
 package script;

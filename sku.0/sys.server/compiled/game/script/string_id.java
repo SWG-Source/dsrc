@@ -1,10 +1,6 @@
-/**
- * Title:        string_id
- * Description:  Wrapper for a string table id.
- * Copyright:    Copyright (c) 2001
- * Company:      Sony Online Entertainment
- * @author       Steve Jakab
- * @version 1.0
+/*
+ Title:        string_id
+ Description:  Wrapper for a string table id.
  */
 
 package script;

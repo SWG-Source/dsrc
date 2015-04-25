@@ -1,6 +1,6 @@
 /*
 This script controls the 'eggs' that nunas lay while roaming around inside of
-a player's house.  These egss are considered 'rotten' and can be picked up and 
+a player's house.  These eggs are considered 'rotten' and can be picked up and 
 placed outside (within 40m of the player's home).
 Once placed outside, they can:
 A. Fertilize the 'lawn' and cause a collectible flower to grow (can be consumed for a collection)
@@ -29,8 +29,8 @@ const string THIS_SCRIPT 			= "systems.tcg.tcg_pet_extras";
 
 trigger OnInitialize()
 {
-	//Here we need to store the data from the House the egg was created in..
-	//A Player must place the eggs within 40m of the house they were created in.
+	// Here we need to store the data from the House the egg was created in..
+	// A Player must place the eggs within 40m of the house they were created in.
 	obj_id rottenEgg = getSelf();
 	if(utils.isInHouseCellSpace(rottenEgg))
 	{
@@ -58,8 +58,8 @@ trigger OnInitialize()
 
 trigger OnAttach()
 {
-	//Here we need to store the data from the House the egg was created in..
-	//A Player must place the eggs within 40m of the house they were created in.
+	// Here we need to store the data from the House the egg was created in..
+	// A Player must place the eggs within 40m of the house they were created in.
 	obj_id rottenEgg = getSelf();
 	if(utils.isInHouseCellSpace(rottenEgg))
 	{
@@ -77,11 +77,11 @@ trigger OnAttach()
 trigger OnAboutToBeTransferred(obj_id destContainer, obj_id transferer)
 {
 /*
-You can put the following in the nuna egg’s OnAboutToBeTransferred() trigger to only allow it to be transferred 
+You can put the following in the nuna eggs OnAboutToBeTransferred() trigger to only allow it to be transferred 
 from cell->player inventory or player inventory->world
 
 
-Then in the nuna egg’s OnTransferred() trigger, if the destination container is the world cell *and* the nuna egg 
+Then in the nuna eggs OnTransferred() trigger, if the destination container is the world cell *and* the nuna egg 
 isObjectPersisted(), destroy the object, and create a non-persisted replacement.
 */
 /*
@@ -112,7 +112,7 @@ isObjectPersisted(), destroy the object, and create a non-persisted replacement.
 	// can only go from player inventory to world
 	else if (templateNameSourceContainer. equals(“object/tangible/inventory/character_inventory.iff”))
 	{
-		if destContainer is not world cell  // I don’t know the call to check for this off the top of my head
+		if destContainer is not world cell  // I dont know the call to check for this off the top of my head
 			return SCRIPT_OVERRIDE;
 
 		return SCRIPT_CONTINUE;
@@ -134,7 +134,7 @@ trigger OnObjectMenuRequest(obj_id player, menu_info mi)
 		sendSystemMessage(player, SID_WHILE_DEAD);
 		return SCRIPT_CONTINUE;
 	}
-	//You must be the owner of the house
+	// You must be the owner of the house
 	obj_id structure = getTopMostContainer(rottenEgg);
 	if(!player_structure.isOwner(structure, player))
 		return SCRIPT_CONTINUE;	
@@ -162,14 +162,14 @@ trigger OnObjectMenuSelect(obj_id player, int item)
 
 	if(item == menu_info_types.ITEM_USE)
 	{
-		//we need to find out exactly where the egg is at.
+		// We need to find out exactly where the egg is at.
 		if(utils.isNestedWithinAPlayer(rottenEgg))
 		{
 			if(getTopMostContainer(self) == player)
 			{
 				LOG("sissynoid", "In Player's Inventory - Player in World");
 				placeRottenEgg(player, rottenEgg);
-				//allow them to place the egg - look at City Decoration Script for guidance
+				// Allow them to place the egg - look at City Decoration Script for guidance
 			}
 			else
 				sendSystemMessage(player, SID_NOT_OUTSIDE);
@@ -200,27 +200,27 @@ void placeRottenEgg(obj_id player, obj_id rottenEgg)
 		return;
 	}
 	
-	//let's make sure they are in range of their house.
+	// Let's make sure they are in range of their house.
 	location structureLoc = getLocation(playerHouse);
 	float dist = utils.getDistance2D(loc, structureLoc);
 	if((dist > 50))
 	{
-		//You are too far away from your home, please move closer
+		// You are too far away from your home, please move closer
 		sendSystemMessage( player, SID_TOO_FAR_FROM_HOME );		
 		return;
 	}
 		
-	//Move Egg to the player's location.
+	// Move Egg to the player's location.
 	setLocation(rottenEgg, loc);	
-	//the old object is persisted because the player put it in his inventory. - create a new unpersisted object.
+	// The old object is persisted because the player put it in his inventory. - create a new unpersisted object.
 	obj_id replacementEggs = createObject("object/tangible/tcg/series4/house_pet_rotten_egg.iff", getLocation(rottenEgg));
-	//set objvars so we can track how long the item has been in the world.
+	// Set objvars so we can track how long the item has been in the world.
 	attachScript(replacementEggs, "systems.tcg.tcg_pet_extras");
 	attachScript(replacementEggs, "item.special.nomove");
 	setObjVar(replacementEggs, "placed_in_world",getCalendarTime());
 	setObjVar(replacementEggs, "placed_by", player);
 	setObjVar(replacementEggs, "flower_cycle_phase", 0);
-	//Set the owner to the egg itself - so the player can't pick it up.
+	// Set the owner to the egg itself - so the player can't pick it up.
 	setOwner(replacementEggs, replacementEggs);
 	
 	destroyObject(rottenEgg);
@@ -234,13 +234,13 @@ void placeRottenEgg(obj_id player, obj_id rottenEgg)
 messageHandler handleRottenEggPulseUpdate()
 {
 	LOG("sissynoid", "Pulsing Rotten Egg.");
-	//pulse update every 30 minutes during the egg's lifespan.
+	// Pulse update every 30 minutes during the egg's lifespan.
 	int randRoll = rand(1, 100);
 	if(randRoll >= 1 && randRoll <= 10)
 	{
 		if(!hasObjVar(self, "placed_by"))
 		{
-			//Destroy the egg because we don't have an owner.
+			// Destroy the egg because we don't have an owner.
 			destroyObject(self);
 			return SCRIPT_CONTINUE;
 		}
@@ -251,7 +251,7 @@ messageHandler handleRottenEggPulseUpdate()
 
 		if(exists(newItem) && isIdValid(newItem))
 		{
-			//dead flower - it will be destroyed in 5 minutes
+			//Dead flower - it will be destroyed in 5 minutes
 			attachScript(newItem, THIS_SCRIPT);
 			setOwner(newItem, newItem);
 			setObjVar(newItem, "placed_by", originalOwner);
@@ -275,29 +275,29 @@ messageHandler handleRottenEggPulseUpdate()
 			return SCRIPT_CONTINUE;
 		}
 		
-		//Flower Phase Updates
+		// Flower Phase Updates
 		if(getIntObjVar(self, "flower_cycle_phase") < 1)
 		{
 			LOG("sissynoid", "Phase 1 Flower Update");
 			if(!hasObjVar(self, "placed_by"))
 			{
-				//Destroy the egg because we don't have an owner.
+				// Destroy the egg because we don't have an owner.
 				destroyObject(self);
 				return SCRIPT_CONTINUE;
 			}
 			obj_id originalOwner = getObjIdObjVar(self, "placed_by");
-			//Giv it the phase 1 flower appearance
+			// Give it the phase 1 flower appearance
 			location myLoc = getLocation(self);
 			destroyObject(self);
 			obj_id newItem = createObject(NUNA_FLOWER_01, myLoc);
 			
 			if(exists(newItem) && isIdValid(newItem))
 			{
-				//phase 1 complete
+				// Phase 1 complete
 				attachScript(newItem, THIS_SCRIPT);
 				setObjVar(newItem, "flower_cycle_phase", 1);
 				setObjVar(newItem, "placed_by", originalOwner);
-				//No one can pick it yet.
+				// No one can pick it yet.
 				setOwner(newItem, newItem);
 
 				if(!isGod(originalOwner))
@@ -312,12 +312,12 @@ messageHandler handleRottenEggPulseUpdate()
 			LOG("sissynoid", "Phase 2 Flower Update");
 			if(!hasObjVar(self, "placed_by"))
 			{
-				//Destroy the egg because we don't have an owner.
+				// Destroy the egg because we don't have an owner.
 				destroyObject(self);
 				return SCRIPT_CONTINUE;
 			}
 			obj_id originalOwner = getObjIdObjVar(self, "placed_by");
-			//Giv it the phase 2 flower appearance
+			//Give it the phase 2 flower appearance
 			location myLoc = getLocation(self);
 			destroyObject(self);
 			obj_id newItem = createObject(NUNA_FLOWER_02, myLoc);
@@ -341,12 +341,12 @@ messageHandler handleRottenEggPulseUpdate()
 			LOG("sissynoid", "Phase 3 Flower Update");
 			if(!hasObjVar(self, "placed_by"))
 			{
-				//Destroy the egg because we don't have an owner.
+				// Destroy the egg because we don't have an owner.
 				destroyObject(self);
 				return SCRIPT_CONTINUE;
 			}
 			obj_id originalOwner = getObjIdObjVar(self, "placed_by");
-			//Giv it the phase 3 flower appearance
+			// Give it the phase 3 flower appearance
 			location myLoc = getLocation(self);
 			destroyObject(self);
 			obj_id newItem = createObject(NUNA_FLOWER_03, myLoc);
@@ -356,7 +356,7 @@ messageHandler handleRottenEggPulseUpdate()
 				setObjVar(newItem, "flower_cycle_phase", 3);
 				setObjVar(newItem, "placed_by", originalOwner);
 				setObjVar(newItem, "can_be_picked", 1);
-				//The owner can now pick the flower!
+				// The owner can now pick the flower!
 				setOwner(newItem, originalOwner);
 			}
 			return SCRIPT_CONTINUE;
@@ -369,7 +369,7 @@ messageHandler handleRottenEggPulseUpdate()
 	return SCRIPT_CONTINUE;
 }
 
-//dead flower handler
+// Dead flower handler
 messageHandler handleDestroyDeadFlowerUpdate()
 {
 	destroyObject(self);

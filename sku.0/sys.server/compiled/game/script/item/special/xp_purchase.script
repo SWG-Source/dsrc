@@ -1,25 +1,3 @@
-include library.prose;
-include library.sui;
-include library.temp_schematic;
-include library.utils;
-include library.xp;
-
-const string_id SID_MENU_LEARN						= new string_id("item/xp_purchase", "menu_learn");
-const string_id SID_MSG_NO_MIN_SKILL				= new string_id("item/xp_purchase", "msg_no_min_skill");
-const string_id SID_MSG_NO_XP						= new string_id("item/xp_purchase", "msg_no_xp");
-const string_id SID_MSG_NOT_ENOUGH_XP				= new string_id("item/xp_purchase", "msg_not_enough_xp");
-const string_id SID_MSG_ALREADY_HAVE_SCHEMATIC		= new string_id("item/xp_purchase", "msg_already_have_schematic");
-const string_id SID_MSG_ALREADY_HAVE_COMMAND		= new string_id("item/xp_purchase", "msg_already_have_command");
-const string_id SID_MSG_LEARNED_SCHEMATIC			= new string_id("item/xp_purchase", "msg_learned_schematic");
-const string_id SID_MSG_LEARNED_COMMAND				= new string_id("item/xp_purchase", "msg_learned_command");
-
-const string_id SUI_PROMPT1							= new string_id("item/xp_purchase", "sui_prompt1");
-const string_id SUI_PROMPT2							= new string_id("item/xp_purchase", "sui_prompt2");
-
-const string SUI_TITLE								= "@item/xp_purchase:sui_title";
-
-const int MENU_TYPE									= menu_info_types.SERVER_MENU10;
-
 /***********************************************************************************************
 
 XP PURCHASE SCRIPT
@@ -56,6 +34,28 @@ need to wait for the player to learn before doing something special. The params 
 will have the obj_id of the player under the key, "player".
 
 ***********************************************************************************************/
+
+include library.prose;
+include library.sui;
+include library.temp_schematic;
+include library.utils;
+include library.xp;
+
+const string_id SID_MENU_LEARN						= new string_id("item/xp_purchase", "menu_learn");
+const string_id SID_MSG_NO_MIN_SKILL				= new string_id("item/xp_purchase", "msg_no_min_skill");
+const string_id SID_MSG_NO_XP						= new string_id("item/xp_purchase", "msg_no_xp");
+const string_id SID_MSG_NOT_ENOUGH_XP				= new string_id("item/xp_purchase", "msg_not_enough_xp");
+const string_id SID_MSG_ALREADY_HAVE_SCHEMATIC		= new string_id("item/xp_purchase", "msg_already_have_schematic");
+const string_id SID_MSG_ALREADY_HAVE_COMMAND		= new string_id("item/xp_purchase", "msg_already_have_command");
+const string_id SID_MSG_LEARNED_SCHEMATIC			= new string_id("item/xp_purchase", "msg_learned_schematic");
+const string_id SID_MSG_LEARNED_COMMAND				= new string_id("item/xp_purchase", "msg_learned_command");
+
+const string_id SUI_PROMPT1							= new string_id("item/xp_purchase", "sui_prompt1");
+const string_id SUI_PROMPT2							= new string_id("item/xp_purchase", "sui_prompt2");
+
+const string SUI_TITLE								= "@item/xp_purchase:sui_title";
+
+const int MENU_TYPE									= menu_info_types.SERVER_MENU10;
 
 trigger OnObjectMenuRequest(obj_id player, menu_info mi) {
 

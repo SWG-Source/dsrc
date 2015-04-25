@@ -451,36 +451,3 @@ string getHeavyWeaponDotName(obj_id player, int elementalDamageType, boolean sin
 	return 	finalAttackName;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

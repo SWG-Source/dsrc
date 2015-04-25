@@ -2,7 +2,6 @@
 systems.collections.collection_gcw.script
 Player uses the item this script is attached to consume the item and grant GCW points.
 The item this script is attached to is a reward from the collection system.
-Authors: Jesse Benjamin, James Michener, and Jeff Haskell
 */
 
 //libraries

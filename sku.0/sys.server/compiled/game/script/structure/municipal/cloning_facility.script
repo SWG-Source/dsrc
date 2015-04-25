@@ -1,11 +1,8 @@
 /**
- * Copyright (c)2000-2002 Sony Online Entertainment Inc.
- * All Rights Reserved
- *
+
  * Title:        cloning_facility.script
  * Description:  script for cloning facilities
- * @author       $Author:$
- * @version      $Revision:$
+
  */
 
 /***** INCLUDES ********************************************************/
@@ -31,7 +28,7 @@ const string DATATABLE_TERMINAL_LIST				= "datatables/structure/municipal/clonin
 trigger OnInitialize()
 {
 	messageTo( self, "handleTerminalSpawning", null, 5f, false );
-	return SCRIPT_CONTINUE;
+	return super.OnInitialize(self);
 }
 
 trigger OnDetach()
@@ -44,7 +41,7 @@ trigger OnDetach()
 		messageTo(planet, "unregisterCloningFacility", params, 1.0f, false);
 	}
 
-	return SCRIPT_CONTINUE;
+	return super.OnDetach(self);
 }
 
 

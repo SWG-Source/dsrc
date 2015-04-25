@@ -1,7 +1,4 @@
 //**********************************************************
-// Copyright (c) ©2007 Sony Online Entertainment Inc.
-// All Rights Reserved
-//
 // Title:		qasetup.script
 // Version:		Version 1.00
 // Description:  	QA Character Setup Tool
@@ -10,10 +7,6 @@
 //			- Outfits the character with modded armor, weapons, clothes and jewelry
 //		 	- Creates powerups and GCW base stims
 //			- In addition the tool can instantly grant the character buffs equivilant to that of a high end player
-//
-//
-// @author       	$Author: Mikkel Jensen
-// @version      	$All Revisions:
 //***********************************************************
 /*
 Todo list
@@ -582,7 +575,7 @@ const string[] JEDI_TANK =
 	"expertise_fs_path_cloud_minds_1"
 };
 
-//Jedi – Solo / PvE
+//Jedi Solo / PvE
 const string[] JEDI_SOLO =
 {
 	"expertise_fs_general_enhanced_strength_1",
@@ -969,7 +962,6 @@ trigger OnSpeaking(string text)
 {
 	//obj_id player = sui.getPlayerId(params);
 	//obj_id pInv = utils.getInventoryContainer(player);
-	debugConsoleMsg(self, text);
 	java.util.StringTokenizer tok = new java.util.StringTokenizer (text);
 
 	//pInv = players inventory
@@ -977,8 +969,9 @@ trigger OnSpeaking(string text)
 
 	if (text == "qasetup")
 	{
+		sendSystemMessage(self, "*******************************************************", null);
 		sendSystemMessage(self, "QA-Setup Commands - Say 'qasetup' to show this list", null);
-		sendSystemMessage(self, "Using a template code will set you character to level 90 with a preset expertise template, suitable weapon, ", null);
+		sendSystemMessage(self, "Using a template code will set your character to level 90 with a preset expertise template, suitable weapon(s), ", null);
 		sendSystemMessage(self, "modded armor and clothing as well as some generic items that high level players would normally carry.", null);
 		sendSystemMessage(self, "Use on of the following key phrases to set you template:", null);
 		sendSystemMessage(self, "qa_bh_rifle, An offensive BH build that focuses on a high damage output.", null);
@@ -994,9 +987,38 @@ trigger OnSpeaking(string text)
 		sendSystemMessage(self, "qa_spy_ranged, Less damage potential but the ranged spy has the benifit of being effective at long range", null);
 		sendSystemMessage(self, "qa_smuggler_hybrid, A smuggler build with both the melee and pistol lines. Very high damage potential, but suffers from high action costs", null);
 		sendSystemMessage(self, "qa_smuggler_melee, This build uses the smuggler melee line in addition to improved heals and armor", null);
+		sendSystemMessage(self, "'qa_buff' to grant your character a full set of buffs (Entertainer, Medic, Food and Mustafarian Injector buff", null);
+		sendSystemMessage(self, "", null);
+		sendSystemMessage(self, "For a list of commands to gain ONLY modded armor, clothing, and weapons, say 'qaobjects'", null);
+		sendSystemMessage(self, "*******************************************************", null);
+
+	}
+
+	if (text == "qaobjects")
+	{
+		sendSystemMessage(self, "*******************************************************", null);
+		sendSystemMessage(self, "QA-Objects Commands - Say 'qaobjects' to show this list", null);
+		sendSystemMessage(self, "Using a template code will set your character with suitable weapon(s), ", null);
+		sendSystemMessage(self, "modded armor and clothing as well as some generic items that high level players would normally carry.", null);
+		sendSystemMessage(self, "Use on of the following key phrases to set you template:", null);
+		sendSystemMessage(self, "qa_objects_bh_rifle, An offensive BH build that focuses on a high damage output.", null);
+		sendSystemMessage(self, "qa_objects_bh_carbine, A BH build using the Carbine line and most of the available defensive options. A strong tank.", null);
+		sendSystemMessage(self, "qa_objects_commando, A typical commando build with strong defense and debuff abilities.", null);
+		sendSystemMessage(self, "qa_objects_officer_Melee, An officer build with the officer melee line. Probably the the highest burst damage template available.", null);
+		sendSystemMessage(self, "qa_objects_officer_Ranged, This build focuses more on support through the supply line, group buffs and ranged abilities", null);
+		sendSystemMessage(self, "qa_objects_jedi_tank, Jedi with a full defensive setup. Very strong tank.", null);
+		sendSystemMessage(self, "qa_objects_jedi_solo, sacrifices some defense for more damage and versatility", null);
+		sendSystemMessage(self, "qa_objects_medic_support, Set up with full heals and debuff abilities. No weapon skills or threat reduction", null);
+		sendSystemMessage(self, "qa_objects_medic_carbine, This template drops some of the less popular debuffs in favor of carbine skills and threat reduction", null);
+		sendSystemMessage(self, "qa_objects_spy_melee, Melee spy with very high 'out of stealth' damage. The tradeoff is the risk of being in close with the spys low defense", null);
+		sendSystemMessage(self, "qa_objects_spy_ranged, Less damage potential but the ranged spy has the benifit of being effective at long range", null);
+		sendSystemMessage(self, "qa_objects_smuggler_hybrid, A smuggler build with both the melee and pistol lines. Very high damage potential, but suffers from high action costs", null);
+		sendSystemMessage(self, "qa_objects_smuggler_melee, This build uses the smuggler melee line in addition to improved heals and armor", null);
 		sendSystemMessage(self, "", null);
 		sendSystemMessage(self, "'qa_buff' to grant your character a full set of buffs (Entertainer, Medic, Food and Mustafarian Injector buff", null);
-
+		sendSystemMessage(self, "", null);
+		sendSystemMessage(self, "For a list of commands to set your character to level 90 with a preset expertise template, say 'qasetup'", null);
+		sendSystemMessage(self, "*******************************************************", null);
 
 	}
 
@@ -1009,12 +1031,29 @@ trigger OnSpeaking(string text)
 		static_item.createNewItemFunction("weapon_tow_rifle_lightning_cannon_04_01", pInv);
 	}
 
+	if (text == "qa_objects_bh_rifle")
+	{
+		issueAssaultArmorSet((self), ARMOR_SET_ASSAULT_4, "rangedDps", "shirtRifle");
+		issueClothes((self), CLOTHES, "rangedDps", "shirtRifle");
+		createPup ((self), "expertise_action_weapon_0", POWERUP_ITEMS, 10);
+		static_item.createNewItemFunction("weapon_tow_rifle_lightning_cannon_04_01", pInv);
+		sendSystemMessage(self, "You have received your objects.", null);
+	}
+
 	if (text == "qa_bh_carbine")
 	{
 		setTemplate((self), BH_CARBINE, "bounty_hunter_1a");
 		issueAssaultArmorSet((self), ARMOR_SET_ASSAULT_4, "rangedDps", "shirtCarbine");
 		issueClothes((self), CLOTHES, "rangedDps", "shirtCarbine");
 		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
+	}
+
+	if (text == "qa_objects_bh_carbine")
+	{
+		issueAssaultArmorSet((self), ARMOR_SET_ASSAULT_4, "rangedDps", "shirtCarbine");
+		issueClothes((self), CLOTHES, "rangedDps", "shirtCarbine");
+		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_commando")
@@ -1028,6 +1067,17 @@ trigger OnSpeaking(string text)
 		static_item.createNewItemFunction("weapon_mandalorian_heavy_04_01",pInv);
 	}
 
+	if (text == "qa_objects_commando")
+	{
+		issueAssaultArmorSet((self), ARMOR_SET_ASSAULT_1, "rangedTank", "shirtTank");
+		issueClothes((self), CLOTHES, "rangedDps", "shirtTank");
+		createPup ((self), "expertise_critical_heavy", POWERUP_ITEMS, 10);
+		static_item.createNewItemFunction("weapon_tow_heavy_acid_beam_04_01", pInv);
+		static_item.createNewItemFunction("weapon_tow_cannon_04_02", pInv);
+		static_item.createNewItemFunction("weapon_mandalorian_heavy_04_01",pInv);
+		sendSystemMessage(self, "You have received your objects.", null);
+	}
+
 	if (text == "qa_officer_Melee")
 	{
 		setTemplate((self), OFFICER_MELEE, "officer_1a");
@@ -1038,6 +1088,16 @@ trigger OnSpeaking(string text)
 		attachMods(melee, "shirt1h");
 	}
 
+	if (text == "qa_objects_officer_Melee")
+	{
+		issueBattleArmorSet((self), ARMOR_SET_BATTLE_4, "meleeDps", "shirt1h");
+		issueClothes((self), CLOTHES, "meleeDps", "shirt1h");
+		createPup ((self), "expertise_critical_1h", POWERUP_ITEMS, 10);
+		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
+		attachMods(melee, "shirt1h");
+		sendSystemMessage(self, "You have received your objects.", null);
+	}
+
 	if (text == "qa_officer_Ranged")
 	{
 		setTemplate((self), OFFICER_RANGED, "officer_1a");
@@ -1045,6 +1105,15 @@ trigger OnSpeaking(string text)
 		issueClothes((self), CLOTHES, "rangedDps", "shirtTank");
 		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
 	}
+
+	if (text == "qa_objects_officer_Ranged")
+	{
+		issueBattleArmorSet((self), ARMOR_SET_BATTLE_4, "rangedDps", "shirtTank");
+		issueClothes((self), CLOTHES, "rangedDps", "shirtTank");
+		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
+		sendSystemMessage(self, "You have received your objects.", null);
+	}
+
 	if (text == "qa_jedi_tank")
 	{
 		setTemplate((self), JEDI_TANK, "force_sensitive_1a");
@@ -1058,6 +1127,21 @@ trigger OnSpeaking(string text)
 		static_item.createNewItemFunction("item_tow_lava_crystal_06_01", pInv);
 		obj_id lightsaber = createObject("object/weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_gen4_must.iff", pInv, "");
 		attachMods(lightsaber, "shirtTank");
+	}
+
+	if (text == "qa_objects_jedi_tank")
+	{
+		static_item.createNewItemFunction("item_jedi_robe_06_01", pInv);
+		issueClothes((self), CLOTHES, "tank", "shirtTank");
+		createPup ((self), "combat_parry", POWERUP_ITEMS, 6);
+		static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
+		static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
+		static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
+		static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
+		static_item.createNewItemFunction("item_tow_lava_crystal_06_01", pInv);
+		obj_id lightsaber = createObject("object/weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_gen4_must.iff", pInv, "");
+		attachMods(lightsaber, "shirtTank");
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_jedi_solo")
@@ -1075,6 +1159,21 @@ trigger OnSpeaking(string text)
 		attachMods(lightsaber, "shirtTank");
 	}
 
+	if (text == "qa_objects_jedi_solo")
+	{
+		static_item.createNewItemFunction("item_jedi_robe_06_01", pInv);
+		issueClothes((self), CLOTHES, "tank", "shirtTank");
+		createPup ((self), "combat_parry", POWERUP_ITEMS, 6);
+		static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
+		static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
+		static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
+		static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
+		static_item.createNewItemFunction("item_tow_lava_crystal_06_01", pInv);
+		obj_id lightsaber = createObject("object/weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_gen4_must.iff", pInv, "");
+		attachMods(lightsaber, "shirtTank");
+		sendSystemMessage(self, "You have received your objects.", null);
+	}
+
 	if (text == "qa_medic_support")
 	{
 		setTemplate((self), MEDIC_SUPPORT, "medic_1a");
@@ -1083,12 +1182,28 @@ trigger OnSpeaking(string text)
 		createPup ((self), "expertise_healing_all", POWERUP_ITEMS, 8);
 	}
 
+	if (text == "qa_objects_medic_support")
+	{
+		issueBattleArmorSet((self), ARMOR_SET_BATTLE_3, "healer", "shirtHealer");
+		issueClothes((self), CLOTHES, "healer", "shirtHealer");
+		createPup ((self), "expertise_healing_all", POWERUP_ITEMS, 8);
+		sendSystemMessage(self, "You have received your objects.", null);
+	}
+
 	if (text == "qa_medic_carbine")
 	{
 		setTemplate((self), MEDIC_CARBINE, "medic_1a");
 		issueBattleArmorSet((self), ARMOR_SET_BATTLE_3, "healer", "shirtTank");
 		issueClothes((self), CLOTHES, "healer", "shirtTank");
 		createPup ((self), "expertise_healing_all", POWERUP_ITEMS, 8);
+	}
+
+	if (text == "qa_objects_medic_carbine")
+	{
+		issueBattleArmorSet((self), ARMOR_SET_BATTLE_3, "healer", "shirtTank");
+		issueClothes((self), CLOTHES, "healer", "shirtTank");
+		createPup ((self), "expertise_healing_all", POWERUP_ITEMS, 8);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_spy_melee")
@@ -1101,6 +1216,16 @@ trigger OnSpeaking(string text)
 		attachMods(melee, "shirt1h");
 	}
 
+	if (text == "qa_objects_spy_melee")
+	{
+		issueReconArmorSet((self), ARMOR_SET_RECON_2, "meleeSpy", "shirt1h");
+		issueClothes((self), CLOTHES, "meleeSpy", "shirt1h");
+		createPup ((self), "expertise_critical_1h", POWERUP_ITEMS, 10);
+		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
+		attachMods(melee, "shirt1h");
+		sendSystemMessage(self, "You have received your objects.", null);
+	}
+
 
 	if (text == "qa_spy_ranged")
 	{
@@ -1108,6 +1233,14 @@ trigger OnSpeaking(string text)
 		issueReconArmorSet((self), ARMOR_SET_RECON_2, "rangedSpy", "shirtCarbine");
 		issueClothes((self), CLOTHES, "rangedSpy", "shirtCarbine");
 		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
+	}
+
+	if (text == "qa_objects_spy_ranged")
+	{
+		issueReconArmorSet((self), ARMOR_SET_RECON_2, "rangedSpy", "shirtCarbine");
+		issueClothes((self), CLOTHES, "rangedSpy", "shirtCarbine");
+		createPup ((self), "expertise_action_weapon_1", POWERUP_ITEMS, 10);
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 
@@ -1121,6 +1254,16 @@ trigger OnSpeaking(string text)
 		attachMods(melee, "shirt1h");
 	}
 
+	if (text == "qa_objects_smuggler_hybrid")
+	{
+		issueReconArmorSet((self), ARMOR_SET_RECON_3, "meleeDps", "shirt1h");
+		issueClothes((self), CLOTHES, "meleeDps", "shirtTank");
+		createPup ((self), "combat_dodge", POWERUP_ITEMS, 8);
+		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
+		attachMods(melee, "shirt1h");
+		sendSystemMessage(self, "You have received your objects.", null);
+	}
+
 
 	if (text == "qa_smuggler_melee")
 	{
@@ -1130,6 +1273,16 @@ trigger OnSpeaking(string text)
 		createPup ((self), "expertise_action_weapon_4", POWERUP_ITEMS, 10);
 		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
 		attachMods(melee, "shirt1h");
+	}
+
+	if (text == "qa_objects_smuggler_melee")
+	{
+		issueReconArmorSet((self), ARMOR_SET_RECON_3, "meleeDps", "shirt1h");
+		issueClothes((self), CLOTHES, "meleeDps", "shirtTank");
+		createPup ((self), "expertise_action_weapon_4", POWERUP_ITEMS, 10);
+		obj_id melee = weapons.createWeapon("object/weapon/melee/sword/sword_acid.iff", pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
+		attachMods(melee, "shirt1h");
+		sendSystemMessage(self, "You have received your objects.", null);
 	}
 
 	if (text == "qa_buff")
@@ -1488,6 +1641,7 @@ void addEntBuff (obj_id recipientId)
 	buff.applyBuff((recipientId), "me_buff_precision_3", 3600);
 	buff.applyBuff((recipientId), "towPoisonResistAbsorb_3", 3600);
 	buff.applyBuff((recipientId), "drink_flameout", 3600);
+	sendSystemMessage(recipientId, "Buffs granted.", null);
 
 }
 

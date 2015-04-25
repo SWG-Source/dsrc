@@ -1,5 +1,5 @@
-/**
- * flytext_test.script
+/*
+ flytext_test.script
  */
 
 trigger OnHearSpeech(obj_id objSpeaker, string strText)

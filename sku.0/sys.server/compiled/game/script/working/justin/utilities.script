@@ -41,18 +41,6 @@ trigger OnSpeaking(string text)
 			{
 				createObject("object/tangible/terminal/terminal_character_builder.iff", pInv, "");
 			}
-			/*
-			int numRows = dataTableGetNumRows("datatables/skill/skills.iff");
-			int iter = 0;
-			for(iter = 0; iter < numRows; ++iter)
-			{
-				String skillName = dataTableGetString("datatables/skill/skills.iff", iter, "NAME");
-				if(! hasSkill(self, skillName))
-				{
-					grantSkill(self, skillName);
-				}
-			}
-			*/
 		}
 		else if(cmd == "completed")
 		{
@@ -81,7 +69,6 @@ trigger OnSpeaking(string text)
 					String arg2 = st.nextToken();
 					if(arg2 != null)
 					{
-						//quests.activate(arg2, self, null);
 						int questId = questGetQuestId(arg2);
 						questActivateQuest(questId, self, null);
 					}

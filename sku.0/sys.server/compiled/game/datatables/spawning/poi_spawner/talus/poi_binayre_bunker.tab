@@ -1,0 +1,19 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value	radius	planet_level
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s	f	i[0]
+binayre_hooligan		world	5567.605	102	-4079.78		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_hooligan		hall1	3.724331	0.25	-4.03778		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_scalawag		ramp1	-3.39485	-3.25	4.812099		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_scalawag		room1	4.569571	-6.75	-4.67991		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_ruffian		ramp2	4.490562	-10.25	-18.4297		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_ruffian		room2	-2.52216	-13.75	-6.409		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_pirate		room2	-5.84259	-13.7499	3.453553		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_pirate		hallway	3.178744	-13.7584	11.65006		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_smuggler		foyer	15.67674	-13.7584	9.06001		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_swindler		foyer	13.91796	-13.7584	0.265667		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_swindler		core	15.46966	-13.7584	-10.6632		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_chief		core	13.69103	-11.5	-20.8501		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_pirate		hallway	3.178744	-13.7584	11.65006		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_pirate		hallway	3.178744	-13.7584	11.65006		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_scalawag		room1	4.569571	-6.75	-4.67991		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_scalawag		room1	4.569571	-6.75	-4.67991		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1
+binayre_hooligan		world	5567.605	102	-4079.78		theme_park.dungeon.generic_death			360	int:ai.defaultCalmBehavior=2						1.5	1

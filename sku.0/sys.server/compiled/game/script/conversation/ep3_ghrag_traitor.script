@@ -1,8 +1,8 @@
 // ======================================================================
 //
 // ep3_ghrag_traitor.script
-// Copyright 2004, Sony Online Entertainment
-// All Rights Reserved.
+// 
+// 
 //
 // Created with SwgConversationEditor 1.30 - DO NOT EDIT THIS AUTO-GENERATED FILE!
 //
@@ -671,6 +671,7 @@ trigger OnObjectMenuRequest (obj_id player, menu_info menuInfo)
 	menu_info_data menuInfoData = menuInfo.getMenuItemById (menu);
 	menuInfoData.setServerNotify (false);
 	setCondition (self, CONDITION_CONVERSABLE);
+	faceTo(self, player);
 
 	return SCRIPT_CONTINUE;
 }

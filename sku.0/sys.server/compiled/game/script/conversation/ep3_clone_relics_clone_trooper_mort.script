@@ -1,8 +1,8 @@
 // ======================================================================
 //
 // ep3_clone_relics_clone_trooper_mort.script
-// Copyright 2004, Sony Online Entertainment
-// All Rights Reserved.
+//
+//
 //
 // Created with SwgConversationEditor 1.36 - DO NOT EDIT THIS AUTO-GENERATED FILE!
 //
@@ -4242,6 +4242,8 @@ trigger OnInitialize ()
 	setCondition (self, CONDITION_CONVERSABLE);
 	setInvulnerable (self, true);
 	setName(self, new string_id( "ep3/npc_names", "clone_relics_mort" ));
+	obj_id cup1 = createObject ("object/tangible/item/con_drinking_glass_01.iff", self, "");
+	equip (cup1, self);
 	return SCRIPT_CONTINUE;
 }
 
@@ -4250,6 +4252,8 @@ trigger OnAttach ()
 	setCondition (self, CONDITION_CONVERSABLE);
 	setInvulnerable (self, true);
 	setName(self, new string_id( "ep3/npc_names", "clone_relics_mort" ));
+	obj_id cup1 = createObject ("object/tangible/item/con_drinking_glass_01.iff", self, "");
+	equip (cup1, self);
 	return SCRIPT_CONTINUE;
 }
 

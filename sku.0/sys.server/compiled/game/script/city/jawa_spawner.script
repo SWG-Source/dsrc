@@ -95,15 +95,17 @@ void doSpawn (obj_id self)
 	int maxPop = getIntObjVar (self, "pop");
 	
 	location me = getLocation(self);
-	location here = locations.getGoodLocationAroundLocation(me, 10f, 10f, 10f, 10f);
+	/*location here = locations.getGoodLocationAroundLocation(me, 10f, 10f, 10f, 10f);
 	if (here == null)
 	{
 		debugServerConsoleMsg (self, "jawa_spawner couldn't find a good location!");
 		return;
-	}		
+	}
+
+	*/		
 	
 	string spawn = npcToSpawn();
-	obj_id npc = create.object (spawn, here);
+	obj_id npc = create.object (spawn, me);
 	attachScript (npc, "city.jawa_wander");
 	
 	setInvulnerable(npc, true);

@@ -71,7 +71,7 @@ obj_id staticObject( string objectName, location spawnLocation )
 	return creature;
 }
 
-/* -----------------12/5/2002 2:49PM-----------------
+/* ----------------------------------
  *	creates an object from template, creature datatable or npc datatable
  *
  * @param 		objectName			the templatename, creature or NPC type to create
@@ -242,7 +242,7 @@ obj_id themeParkObject( string objectName, float xOffset, float zOffset )
 }
 
 
-/* -----------------12/11/2002 3:31PM----------------
+/* ---------------------------------
  * Used to create an NPC of a specified species or from a specific species-list
  *
  * @params creatureName			the name of the creature to spawn
@@ -867,7 +867,9 @@ void initializeCreature( obj_id creature, string creatureName, dictionary creatu
 	{
 		float runSpeed = ai_lib.AI_MAX_MOVEMENT_SPEED * aiGetMovementSpeedPercent(creature);
 		runSpeed *= speedMod;
+		float walkSpeed = 2.0f;
 		setBaseRunSpeed(creature, runSpeed);
+		setBaseWalkSpeed(creature, walkSpeed);
 
 		// Never let an ai walk at a speed faster than it can run
 		{

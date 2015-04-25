@@ -1,7 +1,3 @@
-/**
- * myscript.script
- */
-//include steve.mylib;
 include library.ai_lib;
 include library.armor;
 include library.buff;
@@ -11,7 +7,6 @@ include library.factions;
 include library.fs_dyn_village;
 include library.fs_quests;
 include library.jedi;
-//include library.lair;
 include library.pclib;
 include library.player_structure;
 include library.quests;
@@ -41,28 +36,13 @@ trigger OnAttach()
 	else
 		other = self;
 
-//	System.out.println("about to deref null array in Java!");
-//	obj_id[] dummyObj = null;
-//	int xxx = dummyObj.length;
-//	System.out.println("after deref null array in Java!");
 
-//	System.out.println("about to deref null ref in Java!");
-//	obj_id dummyObj = null;
-//	int xxx = dummyObj.getValue();
-//	System.out.println("after deref null ref in Java!");
-
-//	System.out.println("about to divide by 0 in Java!");
-//	int dummy = 0;
-//	int xxx = 2 / dummy;
-//	System.out.println("after divide by 0 in Java!");
 
 	debugServerConsoleMsg(self, "about to crash in C!");
 	debugServerConsoleMsg(null, "crashing in C!");
 	debugServerConsoleMsg(self, "after crash in C!");
 
 	messageTo(self, "myMessageHandler", null, 0, true);
-
-//	int x = mylib.mylibfunc(1);
 
 #ifdef DEBUG
 	debugServerConsoleMsg(null, "in debug mode");
@@ -115,13 +95,6 @@ trigger OnAttach()
 		debugConsoleMsg(self, "fail");
 
 	debugConsoleMsg(self, "sublist");
-//	obj_var_list root = new obj_var_list("", 3);
-//	root.setObjVar("item1", 123);
-//	root.setObjVar("item2", 123.456f);
-//	obj_var_list subList = new obj_var_list("sublist", 1);
-//	subList.setObjVar("sub item", "yadayada");
-//	root.setObjVar(subList);
-//	result = setObjVar(self, "", root);
 
 	result = setObjVar(self, "item1", 123);
 	result = setObjVar(self, "item2", 123.456f);
@@ -173,7 +146,6 @@ trigger OnSpeaking(string text)
 	}
 	else if (text == "testlib")
 	{
-//		mylib.mylibfunc(0);
 	}
 	else if (text == "testweapon")
 	{
@@ -201,7 +173,6 @@ trigger OnSpeaking(string text)
 	{
 		debugServerConsoleMsg(self, "broadcasting message");
 		dictionary params = new dictionary();
-//		broadcastMessage("testmessaging", "myMessageHandler", params);
 	}
 	else if (text == "messageTo")
 	{
@@ -271,8 +242,6 @@ trigger OnSpeaking(string text)
 		obj_id target = getLookAtTarget(self);
 		if ( !isIdValid(target) )
 			  target = self;
-
-//		debugSpeakMsg(self, "jedi state = " + getJediState(target));
 	}
 	else if (text == "getjedi")
 	{
@@ -326,18 +295,7 @@ trigger OnSpeaking(string text)
 		else
 			debugSpeakMsg(self, "not jedi");
 	}
-/*
-	else if (text == "testskill")
-	{
-		string skillName = "jedi_dark_side_master";
-		int graph = getSkillGraphType(skillName);
-		int needed = getSkillPrerequisiteSkillsNeeded(skillName);
-		int jedi = getSkillPrerequisiteJediState(skillName);
-		debugConsoleMsg(self, "graph = " + graph);
-		debugConsoleMsg(self, "needed = " + needed);
-		debugConsoleMsg(self, "jedi = " + jedi);
-	}
-*/
+
 	else if (text == "testlocation")
 	{
 		obj_id target = getLookAtTarget(self);
@@ -361,11 +319,6 @@ trigger OnSpeaking(string text)
 		}
 		else
 			debugSpeakMsg(self, "no target");
-
-		//location newPos = new location(myPos);
-		//newPos.x += 10.0f;
-		//float distance = getDistance(myPos, newPos);
-		//debugSpeakMsg(self, "distance = " + distance);
 	}
 	else if (text == "isgod")
 	{
@@ -465,16 +418,11 @@ trigger OnSpeaking(string text)
 	}
 	else if (text == "testxp")
 	{
-//		grantExperiencePoints(self, "scout", -100);
 		dictionary params = new dictionary();
 		params.put("xp_type", "scout");
 		params.put("amt", 13);
 		params.put("verbose", true);
 		messageTo(self, "grantUnmodifiedExperienceOnSelf", params, 0.1f, false);
-//		int cap = getExperienceCap(self, "bountyhunter");
-//		debugSpeakMsg(self, "bountyhunter cap = " + cap);
-//		cap = getExperienceCap(self, "resource_harvesting_inorganic");
-//		debugSpeakMsg(self, "resource_harvesting_inorganic cap = " + cap);
 	}
 	else if (text == "makemerebel")
 	{
@@ -558,18 +506,11 @@ trigger OnSpeaking(string text)
 			positions[i] = new location(x, 0, z);
 		}
 
-		//obj_id theater = createTheater(templates, positions, mypos, "steve.theater_test");
 		obj_id theater = createTheater("datatables/theater/test.iff", mypos, "steve.theater_test");
-		//obj_id theater = createTheater("datatables/theater/test2.iff", "fred", TLT_getGoodLocation);
-		//obj_id theater = createTheater("datatables/theater/fs_quest_intro/fs_village_quest_intro.iff", getLocation(self), "", TLT_flatten);
 		if ( isIdValid(theater) )
 		{
 			theater.getScriptVars().put("creator", self);
 			getScriptVars().put("theater", theater);
-//			debugSpeakMsg(self, "Created theater " + theater + ", will delete in 30 secs");
-//			dictionary params = new dictionary();
-//			params.put("theater", theater);
-//			messageTo(self, "destroyTheater", params, 30.0f, false);
 		}
 		else
 		{
@@ -624,7 +565,6 @@ trigger OnSpeaking(string text)
 	else if (text == "testspeed")
 	{
 		debugSpeakMsg(self, "My run speed = " + getRunSpeed(self));
-		//messageTo(self, "startSpeedTest", null, 10.0f, false);
 	}
 	else if (text == "testschematic")
 	{
@@ -1053,11 +993,6 @@ trigger OnSpeaking(string text)
 			if ( isQuestComplete(self, id) )
 				clearCompletedQuest(self, id);
 		}
-
-		// activate the old phase 2 or 3 quest
-//		activateQuest(self, quests.getQuestId(oldQuest));
-//		if ( !hasScript(self, questScript))
-//			attachScript(self, questScript);
 	}
 	else if (text == "testphase23bug")
 	{
@@ -1176,7 +1111,6 @@ trigger OnSpeaking(string text)
 		if ( info != null )
 		{
 			info.minRange = 10.0f;
-			//info.midRange = 40.0f;
 			info.maxRange = 80.0f;
 			setWeaponRangeInfo(weapon, info);
 		}
@@ -1268,12 +1202,9 @@ trigger OnSpeaking(string text)
 	else if (text == "testarmorloot3")
 	{
 		obj_id target = createObject("object/tangible/component/armor/armor_layer_generic.iff", getLocation(self));
-		//obj_id target = createObject("object/tangible/component/armor/armor_segment_generic.iff", getLocation(self));
-		//obj_id target = createObject("object/tangible/component/armor/armor_core_generic.iff", getLocation(self));
 		if ( isIdValid(target) )
 		{
 			armor.initializeArmor(target, 0, 0);
-			//armor.setAbsoluteArmorData(target, AL_basic, AC_battle, 1100, 5000);
 			armor.setAbsoluteArmorSpecialProtection(target, 8, 75);
 			debugSpeakMsg(self, "armor created");
 		}
@@ -1334,7 +1265,6 @@ trigger OnSpeaking(string text)
 			debugSpeakMsg(self, "Playing psg fx " + fx);
 			debugSpeakMsg(self, "Psg transform = " + finalTransform);
 			playClientEffectObj(self, fx, self, "", finalTransform);
-			//playClientEffectObj(self, fx, self, "");
 		}
 		else
 		{
@@ -1413,20 +1343,7 @@ trigger OnSpeaking(string text)
 		obj_id id = create.object("gnort", loc);
 		debugSpeakMsg(self, "Spawned id " + id);
 	}
-/*
-	else if (text == "testnewspawn")
-	{
-		location loc = getLocation(self);
-		obj_id id = spawnCreature("gnort", loc);
-		debugSpeakMsg(self, "Spawned id " + id);
-	}
-	else if (text == "testnewspawn2")
-	{
-		location loc = getLocation(self);
-		obj_id id = spawnCreature("canoid", loc);
-		debugSpeakMsg(self, "Spawned id " + id);
-	}
-*/
+
 	else if (text == "spawngnorts")
 	{
 		location base = getLocation(self);
@@ -1437,43 +1354,7 @@ trigger OnSpeaking(string text)
 			create.object("gnort", new location(base.x + x, base.y, base.z + z));
 		}
 	}
-/*
-	else if (text == "spawnnewgnorts")
-	{
-		location base = getLocation(self);
-		for ( int i = 0; i < 100; ++i )
-		{
-			float x = rand(-50.0f, 50.0f);
-			float z = rand(-50.0f, 50.0f);
-			spawnCreature("gnort", new location(base.x + x, base.y, base.z + z));
-		}
-	}
-*/
-/*
-	else if (text == "testnewlair")
-	{
-		obj_id lairId = lair.createDefaultLair("datatables/npc_lair/new_gnort.iff", getLocation(self));
-		debugSpeakMsg(self, "lair id " + lairId);
-	}
-*/
-/*
-	else if (text == "testsaa")
-	{
-		string[][] foo = new string[10][];
-		foo[0] = new string[2];
-		foo[0][0] = "a";
-		foo[0][1] = "b";
-		utils.setScriptVar(self, "foo", foo);
-		string[][] bar = utils.getStringArrayArrayScriptVar(self, "foo");
-		if ( bar != null )
-		{
-			debugSpeakMsg(self, "OK");
-			debugSpeakMsg(self, bar[0][0]+bar[0][1]);
-		}
-		else
-			debugSpeakMsg(self, "ERROR");
-	}
-*/
+
 	else if (text == "testpatrol")
 	{
 		obj_id target = getLookAtTarget(self);
@@ -1482,8 +1363,7 @@ trigger OnSpeaking(string text)
 			string[] scripts = getScriptList(target);
 			if ( scripts != null )
 			{
-//				for ( int i = 0; i < scripts.length; ++i )
-//  					detachScript(target, scripts[i]);
+
 			}
 
 			location targetLoc = getLocation(target);
@@ -1640,28 +1520,7 @@ trigger OnSpeaking(string text)
 		else
 			debugSpeakMsg(self, "no hate");
 	}
-/*
-	else if (text == "testlairhate")
-	{
-		obj_id target = getLookAtTarget(self);
-		{
-			Vector lairHateList = utils.getJavaVectorScriptVar(target, lair.SCRIPTVAR_LAIR_HATE);
-			if ( lairHateList != null )
-			{
-				int count = lairHateList.size();
-				for ( int i = 0; i < count; ++i )
-				{
-					Object[] hateData = (Object[])(lairHateList.get(i));
-					obj_id attacker = (obj_id)(hateData[lair_hate_compare.LAIR_HATE_INDEX_ATTACKER]);
-					int hate        = ((Integer)(hateData[lair_hate_compare.LAIR_HATE_INDEX_HATE])).intValue();
-					debugSpeakMsg(self, "hate of " + hate + " to " + attacker);
-				}
-			}
-			else
-				debugSpeakMsg(self, "Not a lair?");
-		}
-	}
-*/
+
 	else if (text == "testnumai")
 	{
 		debugSpeakMsg(self, "Num ai on server = " + getNumAI());
@@ -1857,12 +1716,6 @@ trigger OnSkillModsChanged(string[] modNames, int[] modValues)
 	}
 	return SCRIPT_CONTINUE;
 }
-
-//trigger OnContainerChildGainItem(obj_id item, obj_id source, obj_id transferer)
-//{
-//	debugSpeakMsg(self, "I got item " + item + " from source " + source + ", transferer = " + transferer);
-//	return SCRIPT_CONTINUE;
-//}
 
 messageHandler handleTestScriptVars()
 {
