@@ -6,4 +6,4 @@
 @class object_template 7
 
 
-sharedTemplate = "object/tangible/deed/player_house_deed/shared_player_house_tcg_8_bespin_house_deed.iff"
+sharedTemplate = "object/tangible/tcg/series1/shared_structure_deed_barn.iff"
