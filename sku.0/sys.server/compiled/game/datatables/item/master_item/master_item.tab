@@ -8243,4 +8243,4 @@ item_heroic_tusken_meat_rack	object/tangible/loot/npc_loot/heroic_tusken_meat_ra
 item_heroic_tusken_shelves	object/tangible/loot/npc_loot/heroic_tusken_shelves.iff												Tusken Raider Shelves	A curved shelving unit from Tatooine.	
 item_heroic_tusken_stairs	object/tangible/loot/npc_loot/heroic_tusken_stairs.iff												Tusken Raider Stairs	A stair unit from Tatooine.	
 item_heroic_tusken_vent_pillar	object/tangible/loot/npc_loot/heroic_tusken_vent_pillar.iff												Tusken Raider Vents	A vent unit from Tatooine.	
-item_tcg_loot_reward_series8_bespin_house_deed	object/building/player/player_house_tcg_8_bespin_house.iff												cloud city house	a cloud city house	
+item_tcg_loot_reward_series8_bespin_house_deed	object/tangible/deed/player_house_deed/player_house_tcg_8_bespin_house_deed.iff												cloud city house	a cloud city house	
