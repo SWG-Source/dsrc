@@ -18,7 +18,7 @@
 
 @class object_template 2
 
-sharedTemplate = "object/building/player/construction/shared_construction_player_house_tcg_bespin_house.iff"
+sharedTemplate = "object/building/player/construction/shared_construction_player_house_tcg_8_bespin_house.iff"
 
 tintIndex = 0
 

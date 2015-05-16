@@ -391,5 +391,5 @@ object/building/player/player_house_tcg_vip_bunker.iff	object/building/player/co
 																							object/tangible/terminal/terminal_player_structure.iff	-4.5	0.46	6.33	entrance	90	
 																													
 																													
-object/building/player/player_house_tcg_8_bespin_house.iff	object/building/player/construction/construction_player_house_tcg_bespin_house.iff			2	8								13	5	7200	0	1												
-																							object/tangible/terminal/terminal_player_structure.iff	0	0.7071	0		42	
+object/building/player/player_house_tcg_8_bespin_house.iff	object/building/player/construction/construction_player_house_tcg_8_bespin_house.iff			2	8								13	5	7200	0	1												
+																							object/tangible/terminal/terminal_player_structure.iff	0	0.7071	0	elevator	42	

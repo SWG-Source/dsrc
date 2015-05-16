@@ -8,17 +8,17 @@
 
 
 structureFootprintFileName = "footprint/building/player/shared_player_house_tcg_bespin_house.sfp"
-
+			      
 @class object_template 6
 clearFloraRadius = 38
 
 objectName = "player_structure"  "player_house_tcg_8_bespin_house_n"
 
-detailedDescription = "player_structure"  "player_house_atat_d"
+detailedDescription = "player_structure"  "player_house_tcg_8_bespin_house_d"
 
 appearanceFilename = ""
 
 portalLayoutFilename = "appearance/ply_all_bespin_house.pob"
-clientDataFile = "clientdata/building/shared_player_house_atat.cdf"
+clientDataFile = "clientdata/building/shared_player_house_tatooine_small_style_01.cdf"
 
 //noBuildRadius = 48
