@@ -536,7 +536,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1677793	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	130.573	6	187.741	0.714421	0	0.699716	0		$|
 1677796	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	201.936	6.0023	254.209	0.223882	0	0.974616	0		$|
 1697358	0	object/building/naboo/hospital_naboo_style01.iff	0	1126.24	6	66.4424	0.938444	0	0.345432	0		$|
-1697385	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	1000.88	6	144.395	0.419322	0	0.907837	0		$|
+1697385	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	1000.88	6	144.395	0.419322	0	0.907837	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/theednpc.iff|$|
 1697387	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_02.iff	0	1183.41	6	33.6392	0.907837	0	-0.419322	0		$|
 1697390	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	971.771	6	99.0464	0.907837	0	-0.419322	0		$|
 1697399	0	object/building/naboo/filler_building_naboo_theed_style_5.iff	0	1047.29	6	34.0405	0.938444	0	0.345432	0		$|
