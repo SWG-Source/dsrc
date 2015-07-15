@@ -1,0 +1,42 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+artisan		world	-5138.4917	6	4228.3643	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+junk_dealer		world	-5147.8413	6.5221	4158.5503	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+junk_dealer		world	-5114.5728	6.5221	4161.2173	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+rsf_security_guard		world	-5032.0767	6	4091.7148	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+junk_dealer		world	-5086.8296	6	4142.3247	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5256.7192	6	4254.4297	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5260.5615	6	4215.335	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5135.6899	6	4219.7563	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5124.3184	6	4230.7021	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5165.3682	6	4173.3179	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5171.3628	6	4148.3901	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5123.127	6	4201.3174	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5090.6694	6	4173.2734	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5088.5049	6	4152.207	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner		world	-5076.5566	6	4162.0898	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+junk_dealer		world	-5222.7759	6	4217.6772	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+junk_dealer		world	-5.5917	-0.895	-20.4189	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+gungan_hunter		world	-5138.4917	6	4229.3643	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+commoner Javeezo		world	-5156.2256	6.2139	4129.3516	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+fringer mob		world	-29.8622	7.9418	9.7957	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+rsf_palace_guard		world	-29.8622	7.9418	10.8957	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+nexus		world	37.2	7.9418	15.4	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+mercenary		world	-37.5788	7.9418	22.3791	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+gungan_guard		world	-37.5788	7.9418	23.3791	-90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+rsf_commando		world	28.3576	0.7494	-68.7484	178	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+gungan_hermit		world	28.3576	0.7494	-67.6484	-90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+chassis _broker		world	16.0073	8	-54.1014	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+rsf_security_officer		world	-23.1153	0.7494	-72.4079	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+gungan_grand_army_soldier		world	-23.1153	0.7494	-71.3079	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+gungan_outcast		world	-24.2153	0.7494	-71.3079	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+crackdown_rebel_recruit_hard		world	-5132.7646	6	4082.2024	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+crackdown_rebel_guardsman		world	-5160.9902	6.5221	4159.54	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+crackdown_rebel_guard_captain		world	-5126.48	6.5221	4130.79	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+imperial_recruiter		world	-4927.9526	6	4231.1235	160	theme_park.dungeon.generic_death			300	 					
+imperial_recruiter		world	-4936.2417	6	4231.0767	180	theme_park.dungeon.generic_death			300						
+crackdown_rebel_rifleman		world	-5130.5083	6	4081.489	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+crackdown_rebel_recruit_hard		world	-5132.0737	6	4083.1643	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+base_elite_dark_trooper		world	-5167.7129	6	4235.708	90	theme_park.dungeon.generic_death			300	 int:ai.defaultCalmBehavior=2					
+naboo_police		world	-5206.3198	6	4182.7998	90	theme_park.dungeon.generic_death			100	city_wander					
+
