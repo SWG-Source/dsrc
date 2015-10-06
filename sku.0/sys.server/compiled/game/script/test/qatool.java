@@ -1991,15 +1991,21 @@ public class qatool extends script.base_script
 							{
 								for(int i = 0; i < buildoutRows.length; i++)
 								{
-									persistObject(buildoutRows[i]);
-									sendSystemMessageTestingOnly(self, "Object: "+buildoutRows[i]+" persisted.");
-									persistedObjects++;
-									Thread.sleep(1);
+									if(buildoutRows[i] > 0)
+									{
+										obj_id buildoutObject = utils.stringToObjId("" + buildoutRows[i]);
+										if (persistObject(buildoutObject)) {
+											 sendSystemMessageTestingOnly(self, "Persisted item " + buildoutObject);	
+											persistedObjects++;
+										} else {
+											 sendSystemMessageTestingOnly(self, "Error persisting item " + buildoutObject + ".");
+										}
+									}
 								}
 							}
 						}
 					}
-					sendSystemMessageTestingOnly(self, "Planet persisted.  " + persistedObjects + " objects persisted");
+					sendSystemMessageTestingOnly(self, "Planet persisted.  " + persistedObjects + " objects persisted.");
                 }
 				else sendSystemMessageTestingOnly(self, "Syntax: /qatool persistplanet <planet scene id>; ex: /qatool persistplanet tatooine");
 			}
