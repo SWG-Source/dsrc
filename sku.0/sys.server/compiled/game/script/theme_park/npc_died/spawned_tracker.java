@@ -1,4 +1,4 @@
-package script.systems.spawning;
+package script.theme_park.npc_died.spawned_tracker;
 
 import script.*;
 import script.base_class.*;
