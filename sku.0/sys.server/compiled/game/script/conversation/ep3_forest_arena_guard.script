@@ -139,8 +139,8 @@ trigger OnAttach ()
 	if (!hasObjVar(self, "space_dungeon.ticket.dungeon"))
 		setObjVar(self, "space_dungeon.ticket.dungeon", "kash_the_arena");
 		
-	if (!hasScript(self, "Item.travel_ticket.travel_space_dungeon"))
-		attachScript(self, "Item.travel_ticket.travel_space_dungeon");
+	if (!hasScript(self, "item.travel_ticket.travel_space_dungeon"))
+		attachScript(self, "item.travel_ticket.travel_space_dungeon");
 
 	return SCRIPT_CONTINUE;
 }
