@@ -11,4 +11,4 @@
 
 sharedTemplate = "object/building/yavin/shared_temple_exar_kun.iff"
 
-scripts = +["theme_park.yavin4.exar_kun_temple_spawner"]
+scripts = +["theme_park.rebel.exar_kun_temple_spawner"]
