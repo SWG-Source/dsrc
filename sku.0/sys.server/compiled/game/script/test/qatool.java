@@ -1976,36 +1976,13 @@ public class qatool extends script.base_script
 				if (st.hasMoreTokens())
                 {
                     String buildoutPlanet = st.nextToken();
-					String buildoutPath = "datatables/buildout/" + buildoutPlanet + "/" + buildoutPlanet + "_";
-					int persistedObjects = 0;
 					
-					for(int x = 1; x < 9; x++) // we assume that a planet is comprised of 8x8 regions
-					{
-						for(int y = 1; y < 9; y++)
-						{
-							String buildoutRegionPath = buildoutPath + x + "_" + y + "_ws.iff";
-							int[] buildoutRows = dataTableGetIntColumn(buildoutRegionPath, "objid");
-							sendSystemMessageTestingOnly(self, "Trying to load " + buildoutRegionPath);
-							
-							if(buildoutRows != null)
-							{
-								for(int i = 0; i < buildoutRows.length; i++)
-								{
-									if(buildoutRows[i] > 0)
-									{
-										obj_id buildoutObject = utils.stringToObjId("" + buildoutRows[i]);
-										if (persistObject(buildoutObject)) {
-											 sendSystemMessageTestingOnly(self, "Persisted item " + buildoutObject);	
-											persistedObjects++;
-										} else {
-											 sendSystemMessageTestingOnly(self, "Error persisting item " + buildoutObject + ".");
-										}
-									}
-								}
-							}
-						}
-					}
-					sendSystemMessageTestingOnly(self, "Planet persisted.  " + persistedObjects + " objects persisted.");
+					//cells first
+					pPlanet("cell", buildoutPlanet);
+					
+					//buildouts
+					pPlanet("buildout", buildoutPlanet);
+
                 }
 				else sendSystemMessageTestingOnly(self, "Syntax: /qatool persistplanet <planet scene id>; ex: /qatool persistplanet tatooine");
 			}
@@ -2951,6 +2928,60 @@ public class qatool extends script.base_script
             return "The string ID must contain braces. Example: [conversation/tatooine_espa_watto]:s_106 ";
         }
     }
+	
+	public void pPlanet(string runtype="cell", string buildoutPlanet = "") {
+		if (buildoutPlanet != ""){
+			String buildoutPath = "datatables/buildout/" + buildoutPlanet + "/" + buildoutPlanet + "_";
+			int persistedObjects = 0;
+			
+			for(int x = 1; x < 9; x++) // we assume that a planet is comprised of 8x8 regions
+			{
+				for(int y = 1; y < 9; y++)
+				{
+					String buildoutRegionPath = buildoutPath + x + "_" + y + "_ws.iff";
+					int[] buildoutRows = dataTableGetIntColumn(buildoutRegionPath, "objid");
+					int[] cellIndexRows = dataTableGetIntColumn(buildoutRegionPath, "cell_index");
+					sendSystemMessageTestingOnly(self, "Trying to load " + buildoutRegionPath);
+					
+					if(buildoutRows != null)
+					{
+						for(int i = 0; i < buildoutRows.length; i++)
+						{
+							if(buildoutRows[i] > 0)
+							{
+								obj_id buildoutObject = utils.stringToObjId("" + buildoutRows[i]);
+								
+								if (runtype == "cell")
+									if (cellIndexRows[i] > 0) {
+										if (persistObject(buildoutObject)) {
+											sendSystemMessageTestingOnly(self, "Persisted item " + buildoutObject);	
+											persistedObjects++;
+										}
+									} else {
+										sendSystemMessageTestingOnly(self, "Skipping container " + buildoutObject + ".");
+									}
+								}
+								
+								
+								if (runtype == "buildout")
+									if (cellIndexRows[i] == 0) {
+										if (persistObject(buildoutObject)) {
+											sendSystemMessageTestingOnly(self, "Persisted item " + buildoutObject);	
+											persistedObjects++;
+										}
+									} else {
+										sendSystemMessageTestingOnly(self, "Skipping cell " + buildoutObject + ".");
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			sendSystemMessageTestingOnly(self, "Planet persisted.  " + persistedObjects + " objects persisted.");
+		}
+	}
+	
     public void mitigationToolFunction(obj_id self, obj_id lookAtTarget) throws InterruptedException
     {
         if (isIdValid(lookAtTarget))
