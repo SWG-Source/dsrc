@@ -2,6 +2,29 @@ objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objv
 i	i	h	i	f	f	f	f	f	f	f	s	p
 164357	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	135.829	60	85.4697	0.919102	0	-0.394019	0		$|
 1189173	0	object/building/tatooine/fort_tusken.iff	0	128.855	22.3141	95.7622	0.000797477	9.46E-05	1	0.000151986	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_tusken_stronghold.iff|$|
+1189174	1189173	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1189175	1189173	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1189176	1189173	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1189177	1189173	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1189178	1189173	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1189179	1189173	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1189180	1189173	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1189181	1189173	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1189182	1189173	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1189183	1189173	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+1189184	1189173	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+1189185	1189173	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+1189186	1189173	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+1189187	1189173	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+1189188	1189173	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
+1189189	1189173	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
+1189190	1189173	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
+1189191	1189173	object/cell/cell.iff	18	0	0	0	1	0	0	0		$|
+1189192	1189173	object/cell/cell.iff	19	0	0	0	1	0	0	0		$|
+1189193	1189173	object/cell/cell.iff	20	0	0	0	1	0	0	0		$|
+1189194	1189173	object/cell/cell.iff	21	0	0	0	1	0	0	0		$|
+1189195	1189173	object/cell/cell.iff	22	0	0	0	1	0	0	0		$|
+1189196	1189173	object/cell/cell.iff	23	0	0	0	1	0	0	0		$|
 6945356	0	object/static/structure/general/prp_junk_s4.iff	0	135.991	60.4111	81.2261	0.924909	0	0.380188	0		$|
 6945358	0	object/static/structure/general/prp_junk_s2.iff	0	131.679	60.8077	81.1387	-0.241845	0.472895	0.827327	0.182789		$|
 6945360	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	138.403	60	88.0239	0.384073	0	0.923303	0		$|

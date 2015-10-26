@@ -12,6 +12,18 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1213341	0	object/static/structure/tatooine/debris_tatt_pipe_narrow_2.iff	0	33.9657	52	807.545	0.320061	0	0.947397	0		$|
 1213342	0	object/building/tatooine/shuttleport_tatooine.iff	0	47.5333	52	825.093	-0.706544	0	0.707669	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Anchorhead Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
 1213343	0	object/building/tatooine/housing_tatt_style01_med.iff	0	131.753	52	787.661	-0.00079638	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/anchorhead_cantina.iff|$|
+1213344	1213343	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1213345	1213343	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1213346	1213343	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1213347	1213343	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1213348	1213343	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1213349	1213343	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1213350	1213343	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1213351	1213343	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1213352	1213343	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1213353	1213343	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+1213354	1213343	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+1213355	1213343	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1213367	0	object/building/tatooine/filler_building_tatt_style01_01.iff	0	94.4924	52	830.728	-0.0107961	0	0.999942	0		$|
 1253898	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	95.726	52	731.185	0.893822	0	0.448423	0		$|
 1254187	0	object/static/structure/tatooine/debris_tatt_pipe_narrow_2.iff	0	86.994	52.78	746.894	0.789986	0	0.613125	0		$|
@@ -156,6 +168,16 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1385846	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	66.526	52	833.199	0.988012	0	0.15438	0		$|
 1385847	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	67.8132	52	835.864	-0.324796	0	0.945784	0		$|
 1400845	0	object/building/tatooine/cloning_facility_tatooine_small.iff	0	62.9695	52	786.146	0.714421	0	0.699716	0		$|
+1400846	1400845	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1400847	1400845	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1400848	1400845	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1400849	1400845	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1400850	1400845	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1400851	1400845	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1400852	1400845	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1400853	1400845	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1400854	1400845	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1400855	1400845	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 1407919	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	144.229	52	791.022	-0.689499	0	0.724287	0		$|
 1407920	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	120.687	52	800.221	1	0	0	0		$|
 1407922	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	121.321	52	816.973	0.9998	0	0.0199987	0		$|

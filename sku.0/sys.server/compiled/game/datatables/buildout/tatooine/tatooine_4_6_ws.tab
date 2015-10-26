@@ -26,6 +26,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5525442	0	object/tangible/camp/camp_cot.iff	0	4.11609	5.38333	462.378	1	0	0	0		$|
 5525443	0	object/tangible/camp/camp_cot.iff	0	0.234253	5.31929	462.305	-0.444662	0	0.895699	0		$|
 5525465	0	object/building/military/military_base_shed_rebel_style_01.iff	0	7.95361	5.91337	544.088	1	0	0	0		$|
+5525466	5525465	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+5525467	5525465	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+5525468	5525465	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+5525469	5525465	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+5525470	5525465	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+5525471	5525465	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 5525472	0	object/static/structure/corellia/corl_banner_govt_angled_s01.iff	0	1.53687	9.80694	553.243	1	0	0	0		$|
 5525473	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	12.2062	5.82203	534.137	1	0	0	0		$|
 5525474	0	object/static/structure/general/streetlamp_small_style_01.iff	0	7.88489	9.55754	551.049	0.00579634	0.999983	0	0		$|

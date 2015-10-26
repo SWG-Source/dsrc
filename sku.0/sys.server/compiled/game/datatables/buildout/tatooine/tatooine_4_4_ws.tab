@@ -55,6 +55,16 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 895009	0	object/static/particle/pt_poi_droid_weld_sparks.iff	0	570.742	41.385	1861	1	0	0	0		$|
 895010	0	object/static/structure/general/data_terminal_free_s1.iff	0	570.891	41	1861.28	-0.223883	0	0.974616	0		$|
 4235596	0	object/building/general/tatooine_tusken_bunker.iff	0	574.057	41	1873.39	-0.225736	0	0.974188	0		$|
+4235597	4235596	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+4235598	4235596	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+4235599	4235596	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+4235600	4235596	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4235601	4235596	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+4235602	4235596	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+4235603	4235596	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+4235604	4235596	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+4235605	4235596	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+4235606	4235596	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 5995609	0	object/tangible/container/loot/placable_loot_crate.iff	0	564.7	41	1872.68	1	0	0	0		$|
 8795360	0	object/static/structure/general/debris_deathstar_storage.iff	0	1188.56	2.50634	825.504	0.973666	0	0	0.227978		$|
 8795361	0	object/static/structure/general/escape_pod.iff	0	1195.6	8.75244	820.506	0.761803	-0.352493	-0.530082	0.120076		$|

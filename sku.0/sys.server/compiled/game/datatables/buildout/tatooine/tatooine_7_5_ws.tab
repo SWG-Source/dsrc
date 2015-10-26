@@ -105,6 +105,17 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1324931	0	object/static/structure/general/skeleton_bith_head.iff	0	1620.42	35.3035	1875.08	0.769735	-0.408907	0.468509	-0.144227		$|
 1324932	0	object/static/structure/general/skeleton_bith_head.iff	0	1634.71	33.4033	1879.11	0.943511	-0.130131	-0.0972893	0.28877		$|
 4235584	0	object/building/general/tatooine_hutt_cave.iff	0	1084.56	51.5318	603.074	0.81073	0	-0.58542	0		$|
+4235585	4235584	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+4235586	4235584	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+4235587	4235584	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+4235588	4235584	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4235589	4235584	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+4235590	4235584	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+4235591	4235584	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+4235592	4235584	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+4235593	4235584	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+4235594	4235584	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+4235595	4235584	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 5996504	0	object/tangible/jedi/force_shrine_stone.iff	0	1168.41	187.21	110.255	0.707107	0	0.707107	0		$|
 5996505	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1163.99	187.929	108.658	0.707115	0	0.707098	0		$|
 5996506	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1172.67	187.929	108.692	1	0	0	0		$|
