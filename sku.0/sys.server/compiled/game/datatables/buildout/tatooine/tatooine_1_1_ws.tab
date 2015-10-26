@@ -31,6 +31,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2116432	0	object/static/structure/corellia/corl_power_connector.iff	0	2017.55	90.0011	1799.9	0.0399893	0	0.9992	0		$|
 2116433	0	object/static/structure/corellia/corl_power_connector.iff	0	2017.39	90.0029	1801.89	0.0399893	0	0.9992	0		$|
 8445742	0	object/building/military/outpost_shed.iff	0	2034.65	90	1811.8	-0.678264	0	0.734818	0		$|
+8445743	8445742	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8445744	8445742	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+8445745	8445742	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8445746	8445742	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+8445747	8445742	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+8445748	8445742	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 8445756	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	2040	90	1794	0.99955	0	-0.0299955	0		$|
 8445757	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	2040	95.0361	1794	1	0	0	0		$|
 8445758	0	object/static/structure/general/tankfarm_s01.iff	0	2036.54	90	1802.71	0.0399893	0	0.9992	0		$|
