@@ -33,7 +33,7 @@ trigger OnSpeaking(string text)
 		i++;
 	}
 
-	text.toLowerCase();
+	text = text.toLowerCase();
 
 	if (text.startsWith("dungeonticket"))
 	{

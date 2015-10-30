@@ -1965,7 +1965,7 @@ messageHandler makeSpaceStation()
 	{
 		for(int intI = 0; intI< strAdditionalScripts.length; intI++)
 		{
-			if(strAdditionalScripts!="")
+			if(strAdditionalScripts[intI]!="")
 			{
 				attachScript(objStation, strAdditionalScripts[intI]);
 			}

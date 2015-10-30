@@ -490,7 +490,7 @@ messageHandler handleAbilitySelection()
 								//GET AN ARRAY OF ALL THE SKILLS BASED ON THE PROFESSION
 								string[] professionSkillCodes = getProfessionSkillCodes( self, professionCodeSelection );
 								
-								if (professionSkillCodes != "")
+								if (professionSkillCodes[0] != "")
 								{
 									//sendSystemMessageTestingOnly(self, "professionSkillCodes == something");
 																		

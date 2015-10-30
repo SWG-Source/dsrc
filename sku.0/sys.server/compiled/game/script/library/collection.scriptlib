@@ -337,7 +337,7 @@ boolean updateCraftingSlot(obj_id player, string template)
 
 	string[] collectionTemplateCol = dataTableGetStringColumn(COLLECTION_REWARD_TABLE, CRAFTING_TEMPLATE );
 
-	if (collectionTemplateCol == null || collectionTemplateCol.equals(""))
+	if (collectionTemplateCol == null || collectionTemplateCol[0].equals(""))
 		return false;
 
 	int row = dataTableSearchColumnForString(template, CRAFTING_TEMPLATE, COLLECTION_REWARD_TABLE);

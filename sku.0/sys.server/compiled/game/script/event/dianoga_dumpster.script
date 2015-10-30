@@ -1170,7 +1170,7 @@ string getSarlaccCollectionColumn(obj_id self)
 
 	for(int i = 0; i < foodList.length-1; i++)
 	{
-		if(foodList[i] == null || foodList.equals(""))
+		if(foodList[i] == null || foodList[i].equals(""))
 			continue;
 
 		allEdibles.add(foodList[i]);

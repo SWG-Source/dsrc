@@ -493,10 +493,10 @@ void removeFromPlayerList(obj_id instance_id, obj_id player, int group)
 
 	for (int i=0;i<groupSplit.length;i++)
 	{
-		if (groupSplit.equals(""+player))
+		if (groupSplit[i].equals(""+player))
 			continue;
 
-		newList.concat("_"+groupSplit);
+		newList = newList.concat("_"+groupSplit);
 	}
 
 	if (newList == "")
@@ -506,7 +506,7 @@ void removeFromPlayerList(obj_id instance_id, obj_id player, int group)
 	}
 
 	if (newList.startsWith("_"))
-		newList.substring(1);
+		newList = newList.substring(1);
 
 	utils.setScriptVar(instance_id, PLAYER_LIST+"_"+group, newList);
 }

@@ -1033,7 +1033,7 @@ void prependModNameToObject(obj_id object, string modSIDreference)
 
 	string[] parsedString = split(baseName, ':');
 
-	if(!modName.startsWith("[") && !modName.startsWith("@") && !modName.equals("") && !modName.equals(null) && parsedString.length > 1)
+	if(!modName.startsWith("[") && !modName.startsWith("@") && !modName.equals("") && parsedString.length > 1)
 	{
 		string stfFile = parsedString[0];
 		string reference = parsedString[1];

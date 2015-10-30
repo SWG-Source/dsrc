@@ -1182,7 +1182,7 @@ void checkForAddSetBonus(obj_id item, obj_id player)
 	int numberOfSetItems = getNumSetItems(player, item, setBonusIndex);
 	string setBonusBuffName = getSetBonusBuffName(item, setBonusIndex, numberOfSetItems);
 
-	if(!setBonusBuffName.equals(null) && !setBonusBuffName.equals("none"))
+	if(!setBonusBuffName.equals("none"))
 	{
 		if(!buff.hasBuff(player, setBonusBuffName))
 		{
@@ -1209,7 +1209,7 @@ void checkForRemoveSetBonus(obj_id item, obj_id player)
 	if(utils.hasScriptVar(item, NO_SET_ITEM_EQUIP_SPAM))
 		utils.removeScriptVar(item, NO_SET_ITEM_EQUIP_SPAM);
 	
-	if(!setBonusBuffName.equals(null) && !setBonusBuffName.equals("none"))
+	if(!setBonusBuffName.equals("none"))
 	{
 		if(buff.hasBuff(player, setBonusBuffName))
 			buff.removeBuff(player, setBonusBuffName);
