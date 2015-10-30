@@ -1089,7 +1089,7 @@ boolean quickSay( obj_id npc, string speech )
 {
 	// Get reference to base.
 	obj_id poiBaseObject = getBaseObject( npc );
-	if ( (poiBaseObject == null) || (poiBaseObject == obj_id.NULL_ID) )
+	if ( (poiBaseObject == obj_id.NULL_ID) )
 		return false;
 
 	// Load convo file.

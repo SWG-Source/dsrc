@@ -906,7 +906,7 @@ public class combat_engine
 				attacker.aims=3;
 			}
 			String strAimMod = getWeaponStringType(weapon.weaponType);
-			strAimMod.concat("_aim");
+			strAimMod = strAimMod.concat("_aim");
 			int intBaseAimMod = base_class.getSkillStatisticModifier(attacker.id, "aim");
 			aimsMod = attacker.aims * (base_class.getSkillStatisticModifier(attacker.id, strAimMod)+intBaseAimMod);
 

@@ -3718,7 +3718,7 @@ boolean canPerformCommand(obj_id player, obj_id pet, string command)
 	string[] abilityList = getTrainedSkills(pet);
 	for(int i=0;i<abilityList.length;i++)
 	{
-		if(abilityList == "")
+		if(abilityList[i] == "")
 			continue;
 
 		if(abilityList[i].equals(command) && i <= additionalAbilitySlot)
@@ -3799,7 +3799,7 @@ int calculateTrainingPointsSpent(obj_id pet, string passedAbility)
 
 	for(int i = 0; i < attackList.length; i++)
 	{
-		if(attackList == "empty")
+		if(attackList[i] == "empty")
 			continue;
 
 

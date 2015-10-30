@@ -292,7 +292,7 @@ void createRangerLoot(obj_id mob, int level, string object, obj_id container)
 int getNumLootItems(int level, obj_id destContainer)
 {
 	float lvl = level;
-	int numItems = 1 + (int)Math.ceil(level/30);
+	int numItems = 1 + (int)Math.ceil((level/30));
 
 	int free = getVolumeFree(destContainer);
 	if(free < numItems)
@@ -336,12 +336,12 @@ obj_id createHEPObject(obj_id container, int power, int count)
 		{
 			setObjVar(hep, HEP_BASE_POWER, power);
 			setCount(hep, power);
-			setObjVar(hep, HEP_EFFECTIVENESS, Math.round(power / 2));
+			setObjVar(hep, HEP_EFFECTIVENESS, Math.round((power / 2));
 		}
 		else
 		{
 			setObjVar(hep, HEP_EFFECTIVENESS, power);
-			power = Math.round(power/2);
+			power = Math.round((power/2));
 			setObjVar(hep, HEP_BASE_POWER, power);
 			setCount(hep, power);
 		}

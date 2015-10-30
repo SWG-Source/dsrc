@@ -3807,7 +3807,7 @@ float getAttackerBlockReduction(obj_id attacker)
 
 int getBlockAmmount(obj_id player)
 {
-	int blockAmmount = isPlayer(player) || beast_lib.isBeast(player) ? 25 : Math.round(getLevel(player) * 2);
+	int blockAmmount = isPlayer(player) || beast_lib.isBeast(player) ? 25 : Math.round((getLevel(player) * 2));
 
 	float blockStat = 0.0f;
 	blockStat += (float)getEnhancedSkillStatisticModifierUncapped(player, "strength_modified");

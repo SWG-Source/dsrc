@@ -356,7 +356,7 @@ obj_id[] spawnExterior(obj_id hq, string tbl)
 		string colName = dataTableGetColumnName(tbl, i);
 
 		string[] locs = dataTableGetStringColumnNoDefaults(tbl, i);
-		if ( locs != null && !locs.equals("") )
+		if ( locs != null)
 		{
 			for ( int n = 0; n < locs.length; n++ )
 			{

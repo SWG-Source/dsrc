@@ -685,7 +685,7 @@ void delegateFactionPoints(obj_id self, obj_id target, string params)
 		prose.setDI(ppSuiTitle, available);
 		string prompt = " \0" + packOutOfBandProsePackage(null, ppSuiTitle);
 
-		int pid = sui.transfer(self, self, prompt, title, utils.packStringId(SID_SUI_DELEGATE_FACTION_TITLE), Math.round(available), utils.packStringId(SID_SUI_DELEGATE_FACTION_CAT), 0, "handleDelegateSui", ratioFrom, ratioTo);
+		int pid = sui.transfer(self, self, prompt, title, utils.packStringId(SID_SUI_DELEGATE_FACTION_TITLE), available, utils.packStringId(SID_SUI_DELEGATE_FACTION_CAT), 0, "handleDelegateSui", ratioFrom, ratioTo);
 		if ( pid > -1 )
 		{
 			utils.setScriptVar(self, "delegate.pid", pid);
