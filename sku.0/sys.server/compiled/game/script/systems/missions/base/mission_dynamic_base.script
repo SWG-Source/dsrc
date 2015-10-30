@@ -2519,20 +2519,28 @@ string getRandomMissionCreatorName()
 	{
 		case 1:
 			strTemplate = "object/creature/player/bothan_male.iff";
+			break;
 		case 2:
 			strTemplate = "object/creature/player/moncal_male.iff";
+			break;
 		case 3:
 			strTemplate = "object/creature/player/trandoshan_male.iff";
+			break;
 		case 4:
 			strTemplate = "object/creature/player/twilek_male.iff";
+			break;
 		case 5:
 			strTemplate = "object/creature/player/rodian_male.iff";
+			break;
 		case 6:
 			strTemplate = "object/creature/player/zabrak_male.iff";
+			break;
 		case 7:
 			strTemplate = "object/creature/player/wookiee_male.iff";
+			break;
 		case 8:
 			strTemplate = "object/creature/player/human_male.iff";
+			break;
 	}
 
 	//PROFILER_START("Actual name call");
@@ -2555,20 +2563,28 @@ string getRandomSpeciesName(string strSpecies)
 		{
 			case 1:
 				strTemplate = "object/creature/player/bothan_male.iff";
+				break;
 			case 2:
 				strTemplate = "object/creature/player/moncal_male.iff";
+				break;
 			case 3:
 				strTemplate = "object/creature/player/trandoshan_male.iff";
+				break;
 			case 4:
 				strTemplate = "object/creature/player/twilek_male.iff";
+				break;
 			case 5:
 				strTemplate = "object/creature/player/rodian_male.iff";
+				break;
 			case 6:
 				strTemplate = "object/creature/player/zabrak_male.iff";
+				break;
 			case 7:
 				strTemplate = "object/creature/player/wookiee_male.iff";
+				break;
 			case 8:
 				strTemplate = "object/creature/player/human_male.iff";
+				break;
 		}
 
 	}

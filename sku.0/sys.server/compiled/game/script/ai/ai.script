@@ -1345,7 +1345,7 @@ trigger OnIncapacitated(obj_id attacker)
 		{
 			obj_id[] haters = getHateList(self);
 
-			if (haters != null || haters.length > 0)
+			if (haters.length > 0)
 			{
 				for(int i=0;i<haters.length;i++)
 				{
