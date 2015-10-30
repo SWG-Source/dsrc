@@ -812,7 +812,7 @@ void defaultFishingUpdate(obj_id target, int action)
 				if ( checkForCatch(target, -0.25f) )
 					setWait = false;
 			}
-
+			break;
 		case FA_SMALL_REEL:
 			updateFishingLocation(target, action);
 			break;

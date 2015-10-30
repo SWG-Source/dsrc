@@ -574,6 +574,7 @@ Vector getAvailableCloningFacilities(obj_id player)
 						factionFacilityDist = dist;
 					}
 				}
+				break;
 			case CLONE_TYPE_PVP_REGION_ADVANCED_IMPERIAL:
 				if(!factions.isImperial(player))
 					break;

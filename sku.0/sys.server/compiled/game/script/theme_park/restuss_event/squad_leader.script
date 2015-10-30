@@ -158,16 +158,22 @@ messageHandler pathToNextPoint()
 	{
 		case restuss_event.PATROL:
 			ai_lib.setPatrolPath(self, patrolPoints);
+			break;
 		case restuss_event.PATROL_ONCE:
 			ai_lib.setPatrolOncePath(self, patrolPoints);
+			break;
 		case restuss_event.PATROL_FLIP:
 			ai_lib.setPatrolFlipPath(self, patrolPoints);
+			break;
 		case restuss_event.PATROL_FLIP_ONCE:
 			ai_lib.setPatrolFlipOncePath(self, patrolPoints);
+			break;
 		case restuss_event.PATROL_RANDOM:
 			ai_lib.setPatrolRandomPath(self, patrolPoints);
+			break;
 		case restuss_event.PATROL_RANDOM_ONCE:
 			ai_lib.setPatrolRandomOncePath(self, patrolPoints);
+			break;
 	}
 
 	return SCRIPT_CONTINUE;
