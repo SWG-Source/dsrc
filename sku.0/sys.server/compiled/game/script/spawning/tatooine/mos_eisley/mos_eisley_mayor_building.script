@@ -1,0 +1,50 @@
+include library.create;
+include library.ai_lib;
+include library.performance;
+
+
+trigger OnInitialize ()
+{
+	debugServerConsoleMsg (self, "Initialized Mos Eisley Mayor Building Spawner Script");
+	dictionary params = new dictionary ();
+	messageTo (self, "spawnThings", null, 1, true);
+	return SCRIPT_CONTINUE;
+}
+
+void spawnEveryone(obj_id self)
+{
+	spawnMayor(self);
+	spawnNewbiePilotHelper(self);
+	return;
+}
+
+void spawnMayor (obj_id self)
+{
+	obj_id room = getCellId (self, "mainroom");
+	location mayor_loc = new location (0.1f, 2.5f, 7.5f, "tatooine", room);
+	int mayor_yaw = 180;
+	
+	obj_id mayor = create.object ("mos_eisley_mayor", mayor_loc);
+	setYaw (mayor, mayor_yaw);
+	setCreatureStatic (mayor, true);
+	attachScript(mayor, "conversation.mos_eisley_mayor");
+	return;
+}
+
+void spawnNewbiePilotHelper (obj_id self)
+{
+	obj_id room = getCellId (self, "mainroom");
+	location pilot_loc = new location (-1.9f, 1.1f, -5.7f, "tatooine", room);
+	int pilot_yaw = 2;
+	
+	obj_id pilot = create.object ("newbie_pilot_informer", pilot_loc);
+	setYaw (pilot, pilot_yaw);
+	setCreatureStatic (pilot, true);
+	return;
+}
+
+messageHandler spawnThings ()
+{
+	spawnEveryone(self);
+	return SCRIPT_CONTINUE;
+}
