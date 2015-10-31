@@ -336,7 +336,7 @@ obj_id createHEPObject(obj_id container, int power, int count)
 		{
 			setObjVar(hep, HEP_BASE_POWER, power);
 			setCount(hep, power);
-			setObjVar(hep, HEP_EFFECTIVENESS, Math.round((power / 2));
+			setObjVar(hep, HEP_EFFECTIVENESS, Math.round((power / 2)));
 		}
 		else
 		{
