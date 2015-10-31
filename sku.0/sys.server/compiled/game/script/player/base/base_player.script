@@ -7864,7 +7864,7 @@ trigger OnCityChanged( int oldCityId, int newCityId )
 			specpart = specpart + ", " + localize( new string_id( "city/city", spec ) );
 		}
 
-/*
+
 		obj_id mayor = cityGetLeader( newCityId );
 		if (isIdValid(mayor))
 		{
@@ -7874,7 +7874,7 @@ trigger OnCityChanged( int oldCityId, int newCityId )
 				specpart = specpart + ", " + localize( new string_id( "city/city", "mayor_prompt" ) ) + mayorName;
 			}
 		}
-*/
+
 
 		int factionId = cityGetFaction(newCityId);
 		if (##"imperial" == factionId)
@@ -7888,7 +7888,8 @@ trigger OnCityChanged( int oldCityId, int newCityId )
 		//Update 8: Adding City Visitor Message
 		obj_id cityHallId = cityGetCityHall(newCityId);
 		string cityName = cityGetName(newCityId);
-		if(hasObjVar(cityHallId, "city_visitor_message"))
+		
+        if(cityHallId != obj_id.NULL_ID && cityName.length() > 0 && hasObjVar(cityHallId, "city_visitor_message"))
 		{
 			string cityVisitorMessage = getStringObjVar(cityHallId, "city_visitor_message");
 			sendConsoleMessage(self, "City(" + cityName + ") Message: " + cityVisitorMessage + "\\#DFDFDF");
