@@ -3,9 +3,6 @@ include library.combat;
 include library.utils;
 include library.create;
 
-// No longer used.
-
-/*
 const int MAX_SPAWN_TRIES = 5;
 
 
@@ -202,4 +199,3 @@ obj_id spawnActor(string datatable, int x)
 
 	return spawnedCreature;
 }
-*/
