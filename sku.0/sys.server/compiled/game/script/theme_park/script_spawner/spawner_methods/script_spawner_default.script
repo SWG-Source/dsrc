@@ -121,7 +121,6 @@ obj_id spawnActor(string datatable, int x)
 
 	if (!isIdValid (room) && (spawnRoom != "world"))
 	{
-		CustomerServiceLog("bad_spawner_data", "spawner " + self + ", datatable " + datatable + ", row " + x + ", mob " + spawn + ", room " + spawnRoom + " doesn't exist");
 		return obj_id.NULL_ID;
 	}
 
@@ -133,24 +132,11 @@ obj_id spawnActor(string datatable, int x)
 		return obj_id.NULL_ID;
 
 
-	string scriptOne = dataTableGetString (datatable, x, "scriptOne");
-	string scriptTwo = dataTableGetString (datatable, x, "scriptTwo");
-	string scriptThree = dataTableGetString (datatable, x, "scriptThree");
+	string scriptOne = dataTableGetString (datatable, x, "script");
 
 	if (scriptOne != null && scriptOne != "")
 	{
 		attachScript (spawnedCreature, scriptOne);
-	}
-
-
-	if (scriptTwo != null && scriptTwo != "")
-	{
-		attachScript (spawnedCreature, scriptTwo);
-	}
-
-	if (scriptThree != null && scriptThree != "")
-	{
-		attachScript (spawnedCreature, scriptThree);
 	}
 
 	string creatureName = dataTableGetString (datatable, x, "name");

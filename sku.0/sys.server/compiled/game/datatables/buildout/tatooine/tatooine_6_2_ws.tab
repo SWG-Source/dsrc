@@ -116,14 +116,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1106036	0	object/static/structure/tatooine/jawa/tent_jawa_01_large.iff	0	1179.25	5.00003	1574.47	0.908966	0	-0.41687	0		$|
 1106038	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	1204.31	5.00003	1605.91	0.953847	0	-0.300293	0		$|
 1106039	0	object/static/structure/tatooine/jawa/tent_jawa_01_med.iff	0	1208.28	5.00003	1619.4	0.952334	0	0.305058	0		$|
-1106041	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1164.07	5.00003	1458.99	0.953847	0	-0.300293	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
+1106041	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1164.07	5.00003	1458.99	0.953847	0	-0.300293	0		$|
 1106068	0	object/building/tatooine/filler_building_block_64x16_style_01.iff	0	1214.22	5	1343.68	0.952817	0	0.303545	0		$|
 1106340	0	object/building/tatooine/filler_building_block_64x16_style_02.iff	0	1346.89	5	1230.42	0.900447	0	-0.434967	0		$|
 1106344	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1289.31	5	1298.06	-0.334238	0	0.942489	0		$|
 1106346	0	object/building/tatooine/filler_building_tatt_style01_02.iff	0	1339.74	5	1258.36	0.94441	0	0.328769	0		$|
 1106352	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1316.02	5	1275.64	0.939373	0	0.342898	0		$|
-1106368	0	object/building/tatooine/starport_tatooine.iff	0	1570.98	5	1342.91	-0.700285	0	0.713864	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Eisley Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
-1106369	1106368	object/cell/cell.iff	1	0	0	0	1	0	0	0	theme_park.script_spawner.spawner_methods.script_spawner_default	spawn_table|4|datatables/spawning/building_spawns/mos_eisley_staport.iff|$|
+1106368	0	object/building/tatooine/starport_tatooine.iff	0	1570.98	5	1342.91	-0.700285	0	0.713864	0	structure.municipal.starport:theme_park.script_spawner.spawner_methods.script_spawner_default:theme_park.script_spawner.spawner_methods.gcw_spawner	spawn_table|4|datatables/spawning/building_spawns/mos_eisley_staport.iff|ravel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Eisley Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
+1106369	1106368	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1106370	1106368	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1106371	1106368	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1106372	1106368	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
