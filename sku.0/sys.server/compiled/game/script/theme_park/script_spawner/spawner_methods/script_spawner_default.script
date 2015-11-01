@@ -8,14 +8,12 @@ const int MAX_SPAWN_TRIES = 5;
 
 trigger OnAttach ()
 {
-	//debugSpeakMsg (self, "STARTED SPAWNING");
 	messageTo ( self, "beginSpawn", null, 1, false );
 	return SCRIPT_CONTINUE;
 }
 
 trigger OnInitialize ()
 {
-	//debugSpeakMsg (self, "STARTED SPAWNING");
 	messageTo ( self, "beginSpawn", null, 1, false );
 	return SCRIPT_CONTINUE;
 }
@@ -31,7 +29,6 @@ messageHandler beginSpawn ()
 	}
 
 	int numberOfCreaturesToSpawn = dataTableGetNumRows (datatable);
-//	LOG("SCRIPT_SPAWNER_DEFAULT_beginSpawn", "Number of Creatures to Spawn is: " + numberOfCreaturesToSpawn);
 	if ( numberOfCreaturesToSpawn <= 0 )
 		return SCRIPT_CONTINUE;
 
@@ -45,22 +42,18 @@ messageHandler beginSpawn ()
 	boolean failed = false;
 	for (int i = 0; i < spawned.length; ++i)
 	{
-//		LOG("SCRIPT_SPAWNER_BEGINSPAWN", "Spawned[i] = " + spawned[i]);
 		if ( spawned[i] == obj_id.NULL_ID || spawned[i] == null)
 		{
 			spawned[i] = spawnActor(datatable, i);
 			if (spawned[i] == obj_id.NULL_ID)
 			{
 				failed = true;
-			//	CustomerServiceLog("Spawn", "Could not spawn object " + dataTableGetString (datatable, i, "spawns") +
-			//		" from datatable" + datatable + ", spawn egg = " + self);
 			}
 		}
 	}
 
 	if ( failed )
 	{
-//		LOG("SCRIPT_SPAWNER_DEFAULT_beginSpawn", "Cycle failed, resending call to spawn");
 		spawnedCount++;
 		if (spawnedCount <= MAX_SPAWN_TRIES)
 			messageTo ( self, "beginSpawn", null, 1, false );
@@ -77,8 +70,6 @@ messageHandler tellingMomIDied() {
 	obj_id corpseObjId = params.getObjId("spawnMob");
 	string datatable = getStringObjVar (self, "spawn_table");
 	obj_id[] spawned = utils.getObjIdArrayScriptVar (self, "spawnList");
-
-//	LOG("SCRIPT_SPAWNER_TELLINGMOMIDIED", "Validate public corpse is equal to ID passed from respawn script: " + corpse + " =? " + corpseObjId);
 
 	if (datatable == null)
 	{
