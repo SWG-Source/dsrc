@@ -122,7 +122,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1106344	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1289.31	5	1298.06	-0.334238	0	0.942489	0		$|
 1106346	0	object/building/tatooine/filler_building_tatt_style01_02.iff	0	1339.74	5	1258.36	0.94441	0	0.328769	0		$|
 1106352	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1316.02	5	1275.64	0.939373	0	0.342898	0		$|
-1106368	0	object/building/tatooine/starport_tatooine.iff	0	1570.98	5	1342.91	-0.700285	0	0.713864	0	structure.municipal.starport:theme_park.script_spawner.spawner_methods.gcw_spawner:theme_park.script_spawner.spawner_methods.script_spawner_default	spawn_table|4|datatables/spawning/building_spawns/mos_eisley_starport.iff|ravel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Eisley Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
+1106368	0	object/building/tatooine/starport_tatooine.iff	0	1570.98	5	1342.91	-0.700285	0	0.713864	0	structure.municipal.starport:theme_park.script_spawner.spawner_methods.script_spawner_default	spawn_table|4|datatables/spawning/building_spawns/mos_eisley_starport.iff|ravel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Eisley Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
 1106369	1106368	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1106370	1106368	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1106371	1106368	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
@@ -724,7 +724,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1274865	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1356.98	5	1623.29	-0.413044	0	0.910711	0		$|
 1274869	0	object/building/tatooine/filler_building_tatt_style01_08.iff	0	1366.94	5	1271.6	0.904752	0	-0.425939	0		$|
 1274871	0	object/building/tatooine/filler_building_block_64x16_style_01.iff	0	1462.47	5	1321.46	0.94352	0	0.331317	0		$|
-1274876	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1416.23	5	1285.85	0.909628	0	-0.415423	0		$|
+1274876	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1416.23	5	1285.85	0.909628	0	-0.415423	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 1274882	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1406.4	5	1271.71	0.429739	0	0.902953	0		$|
 1274889	0	object/static/structure/tatooine/beam_tatooine_overhead_style_02.iff	0	1441.39	5	1323.24	0.904752	0	-0.42594	0		$|
 1274890	0	object/building/tatooine/filler_building_block_64x16_style_01.iff	0	1552.86	5	1239.05	0.899444	0	-0.437036	0		$|
