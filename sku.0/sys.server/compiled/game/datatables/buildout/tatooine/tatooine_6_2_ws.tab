@@ -487,7 +487,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1189605	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1328.97	5	1418.91	0.958244	0	0.285952	0		$|
 1189606	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1328.83	5	1423.42	0.958244	0	0.285952	0		$|
 1189607	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	1437.88	5	1435.89	0.466913	0	0.884304	0		$|
-1189630	0	object/building/tatooine/guild_combat_tatooine_style_01.iff	0	1418	5	1468.59	0.476432	0	0.879211	0	theme_park.script_spawner.spawner_methods.script_spawner_default	spawn_table|4|datatables/spawning/building_spawns/tatooine_mos_eisley_war_guild.iff|$|
+1189630	0	object/building/tatooine/guild_combat_tatooine_style_01.iff	0	1418	5	1468.59	0.476432	0	0.879211	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/tatooine_mos_eisley_war_guild.iff|$|
 1189631	1189630	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1189632	1189630	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1189633	1189630	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
@@ -788,7 +788,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1279912	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	1512.28	5.03685	1272.43	-0.27502	0.0201192	0.960807	0.0284619		$|
 1279914	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	1497.13	5.05208	1286.6	0.915775	-0.00708065	0.400006	0.0360681		$|
 1279952	0	object/building/tatooine/filler_building_block_64x16_style_01.iff	0	1305.33	5	1342.36	0.893108	0	-0.449842	0		$|
-1279956	0	object/building/tatooine/guild_commerce_tatooine_style_01.iff	0	1391.72	5	1429.42	-0.281921	0	0.959438	0	theme_park.script_spawner.spawner_methods.script_spawner_default	spawn_table|4|datatables/spawning/building_spawns/mos_eisley_mayor_building.iff|$|
+1279956	0	object/building/tatooine/guild_commerce_tatooine_style_01.iff	0	1391.72	5	1429.42	-0.281921	0	0.959438	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/mos_eisley_mayor_building.iff|$|
 1279957	1279956	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1279958	1279956	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1279959	1279956	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
