@@ -284,14 +284,9 @@ void spawnCreatures(int x, string datatable, obj_id self )
 
 	string planet = myself.area;
 	string spawnRoom = dataTableGetString (datatable, x, "room");
-	
-	if (spawnRoom != "world") {
-		obj_id room = getCellId (self, spawnRoom);
-	} else {
-		obj_id room = obj_id.NULL_ID;
-	}
+	obj_id room = getCellId (self, spawnRoom);
 
-	if ((spawnRoom != "world") && !isIdValid (room))
+	if (!isIdValid (room) && (spawnRoom != "world"))
 	{
 		CustomerServiceLog("bad_spawner_data", "spawner " + self + ", datatable " + datatable + ", row " + x + ", mob " + spawn + ", room " + spawnRoom + " doesn't exist");
 		removeObjVar (self, SPAWNED + x);
