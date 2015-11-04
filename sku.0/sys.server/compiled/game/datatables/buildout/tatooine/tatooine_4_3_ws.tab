@@ -81,7 +81,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 926481	926472	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 926482	926472	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 926483	926472	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
-1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Bestine Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/bestine_starport.iff|$| |$|
+1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Bestine Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/bestine_starport.iff|$|
 1026825	1026824	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1026826	1026824	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1026827	1026824	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
