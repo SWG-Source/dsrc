@@ -6,6 +6,17 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1775422	0	object/static/item/item_food_vegetable_s02.iff	0	1621.56	75.9679	713.371	1	0	0	0		$|
 1775423	0	object/static/item/item_food_vegetable_s01.iff	0	1616.14	75.9773	709.328	1	0	0	0		$|
 5095968	0	object/building/general/rori_torton_cave.iff	0	187.909	92.6429	1592.43	0.810963	0	0.585097	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/rori/pygmytortoncave.iff|$|
+5095969	5095968	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+5095970	5095968	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+5095971	5095968	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+5095972	5095968	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+5095973	5095968	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+5095974	5095968	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+5095975	5095968	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+5095976	5095968	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+5095977	5095968	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+5095978	5095968	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+5095979	5095968	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 9715893	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1620.03	75.9486	707.55	1	0	0	0		$|
 9715894	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1612.03	75.952	707.581	1	0	0	0		$|
 9715895	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1608.16	75.9597	711.672	0.707107	0	-0.707106	0		$|
