@@ -13,6 +13,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725877	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	41.9149	123.324	1875.98	1	0	0	0		$|
 9725880	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	41.8668	123.32	1892.37	1	0	0	0		$|
 9725893	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	56.0028	117.04	1888.35	1	0	0	0		$|
+9725894	9725893	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 9725901	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	57.1894	125.193	1886.88	1	0	0	0		$|
 9725902	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	44.8122	124.716	1889.74	1	0	0	0		$|
 9725905	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	45.0241	125.033	1884.03	1	0	0	0		$|
