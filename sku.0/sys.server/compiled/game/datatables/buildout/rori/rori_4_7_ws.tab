@@ -3,9 +3,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 479839	0	object/static/installation/mockup_power_generator_fusion_style_1.iff	0	917.835	82.4685	425.793	1	0	0	0		$|
 479840	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	908	91.8947	396.788	1	0	0	0		$|
 479843	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	902.344	77.2	456.737	1	0	0	0		$|
+479844	479843	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 479845	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	928.379	77.2	457.213	1	0	0	0		$|
+479846	479845	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 479848	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	930.468	77.2	410.886	0.707107	0	0.707106	0		$|
+479849	479848	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 479850	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	894.032	77.2	411.205	0.707107	0	-0.707106	0		$|
+479851	479850	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 479874	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	908.598	77.2	435.92	1	0	0	0		$|
 479876	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	922.062	77.4839	423.372	1	0	0	0		$|
 479877	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	840.502	97.742	456.749	1	0	0	0		$|
