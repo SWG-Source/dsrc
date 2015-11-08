@@ -2,6 +2,10 @@ objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objv
 i	i	h	i	f	f	f	f	f	f	f	s	p
 625318	0	object/tangible/container/loot/placable_loot_crate.iff	0	839.371	94.0216	1110.61	0.644827	0	0.764329	0		$|
 1696443	0	object/building/naboo/ply_nboo_house_s_s02_fp1.iff	0	864.275	101.196	1105.67	0.707107	0	-0.707106	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/maulerpoi.iff|$|
+1696444	1696443	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1696445	1696443	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1696446	1696443	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1696447	1696443	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1696448	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	887.815	94.0037	1119.27	-3.20013e-008	0	1	0		$|
 1696449	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	887.821	94.0052	1106.37	1	0	0	0		$|
 1696450	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	887.708	94.0038	1127.46	1	0	0	0		$|
