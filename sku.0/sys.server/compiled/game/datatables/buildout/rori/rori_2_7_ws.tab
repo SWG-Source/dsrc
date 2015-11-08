@@ -12,6 +12,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7555632	0	object/building/military/military_base_shed_rebel_style_01.iff	0	759.416	76	973.539	0.35012	0	0.936705	0		$|
 7555639	0	object/building/military/military_base_shed_rebel_style_01.iff	0	773.568	76	986.069	0.35012	0	0.936705	0		$|
 7555646	0	object/building/military/military_outpost_guard_house_rebel.iff	0	815.55	76	921.273	-0.044985	0	0.998988	0		$|
+7555647	7555646	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+7555648	7555646	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 7555697	0	object/static/structure/general/data_terminal_s1.iff	0	821.039	82.9589	917.987	0.744909	0	-0.667166	0		$|
 7555698	0	object/static/item/item_con_barrel_lg_s1.iff	0	809.087	82.9598	916.512	0.670883	0	0.741563	0		$|
 7555699	0	object/static/item/item_con_barrel_lg_s1.iff	0	818.276	83.0121	927.069	-0.039989	0	0.9992	0		$|
