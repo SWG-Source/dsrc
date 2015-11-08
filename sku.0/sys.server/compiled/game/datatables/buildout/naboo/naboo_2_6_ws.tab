@@ -44,7 +44,22 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1677488	0	object/static/structure/naboo/bridge_stairs_s01.iff	0	339.087	6	2038.39	0.707107	0	0.707107	0		$|
 1677489	0	object/static/structure/naboo/enclosed_walkway_s02.iff	0	339.083	6	2026.17	-0.707107	0	0.707107	0		$|
 1692086	0	object/building/naboo/guild_university_naboo_style_01.iff	0	692	6	1948.5	1	0	0	0		$|
+1692087	1692086	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1692088	1692086	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1692089	1692086	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1692090	1692086	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1692091	1692086	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1692092	1692086	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1692093	1692086	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1692094	1692086	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1692095	1692086	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1697350	0	object/building/naboo/cloning_facility_naboo.iff	0	1268.64	6	1981.96	0.907837	0	-0.419322	0		$|
+1697351	1697350	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1697352	1697350	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1697353	1697350	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1697354	1697350	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1697355	1697350	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1697356	1697350	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1697357	0	object/building/naboo/shuttleport_naboo.iff	0	1154.39	6	2042.93	0.907837	0	-0.419322	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Theed Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 1714352	0	object/static/structure/naboo/bridge_stairs_s01.iff	0	886.249	6	1625.84	0.924909	0	-0.380188	0		$|
 1714353	0	object/static/structure/naboo/bridge_stairs_s01.iff	0	984.711	6	1723.24	0.380188	0	0.924909	0		$|
