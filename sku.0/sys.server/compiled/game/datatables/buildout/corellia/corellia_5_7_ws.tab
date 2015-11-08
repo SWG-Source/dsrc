@@ -8,6 +8,17 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 192334	0	object/static/particle/particle_test_31.iff	0	827.984	48.7725	632.813	1	0	0	0		$|
 192337	0	object/static/particle/particle_test_31.iff	0	822.092	46.4622	505.901	1	0	0	0		$|
 4275364	0	object/building/general/corellia_drall_cave.iff	0	1021.74	32.2214	85.2769	0.707107	0	0.707106	0		$|
+4275365	4275364	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+4275366	4275364	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+4275367	4275364	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+4275368	4275364	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4275369	4275364	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+4275370	4275364	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+4275371	4275364	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+4275372	4275364	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+4275373	4275364	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+4275374	4275364	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+4275375	4275364	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 8675708	0	object/tangible/camp/camp_tent_s5.iff	0	1811.28	30.1654	893.765	1	0	0	0		$|
 8675709	0	object/tangible/camp/camp_light_s2.iff	0	1807.32	29.8893	893.049	1	0	0	0		$|
 8675710	0	object/tangible/camp/camp_lawn_chair.iff	0	1807.67	30.2339	896.373	-0.440178	0	0.897911	0		$|
