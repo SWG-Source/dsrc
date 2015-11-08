@@ -13,7 +13,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4395602	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1589.87	50.5099	546.645	0.996157	0	-0.0875866	0		$|
 4395627	0	object/static/creature/imperial_at_st.iff	0	1607.42	50.5	548.068	0.89791	0	-0.440178	0		$|
 8375462	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1613.8	50.5342	556.938	0.92388	0	0.382683	0		$|
+8375463	8375462	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 8375464	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1590.07	50.5	580.234	0.92388	0	0.382683	0		$|
+8375465	8375464	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 8375506	0	object/tangible/camp/camp_tent_s6.iff	0	1580.6	50.5	558.939	0.380925	0	0.924606	0		$|
 8375507	0	object/tangible/camp/camp_tent_s6.iff	0	1597.91	50.5	548.163	0.678557	0	0.734548	0		$|
 8375508	0	object/static/structure/general/banner_imperial_style_01.iff	0	1589.47	50.5	555.171	0.954535	0	0.298098	0		$|
