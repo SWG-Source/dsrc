@@ -16,7 +16,19 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3605949	0	object/static/installation/mockup_power_generator_fusion_style_1.iff	0	1134	24	657	0.707107	0	0.707107	0		$|
 3605952	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	1186	24	593	1	0	0	0		$|
 3605954	0	object/building/military/outpost_cloning_facility_s02.iff	0	1152	24	654	3.20013e-008	0	1	0		$|
+3605955	3605954	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+3605956	3605954	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+3605957	3605954	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+3605958	3605954	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+3605959	3605954	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+3605960	3605954	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 3605968	0	object/building/military/outpost_shed_s04.iff	0	1140	24	592	1	0	0	0		$|
+3605969	3605968	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+3605970	3605968	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+3605971	3605968	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+3605972	3605968	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+3605973	3605968	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+3605974	3605968	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 3605975	0	object/static/structure/military/military_wall_weak_imperial_16_style_01.iff	0	1195.42	25.0376	611.136	0.707108	0	-0.707105	0		$|
 3605976	0	object/static/structure/military/military_wall_weak_imperial_16_style_01.iff	0	1152.54	25.0085	611.038	0.707121	0	-0.707092	0		$|
 3605983	0	object/static/installation/mockup_mining_liquid_harvester_style_1.iff	0	1189.95	24	588.415	1	0	0	0		$|
@@ -89,7 +101,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9705691	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	2003.78	180.197	10.0037	0.0641596	0	0.99794	0		$|
 9705698	0	object/tangible/camp/campfire_logs_ash.iff	0	2004.28	180.222	10.481	1	0	0	0		$|
 9875353	0	object/building/military/outpost_starport.iff	0	1174	24	614	1	0	0	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Research Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
+9875354	9875353	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 9875413	0	object/building/military/outpost_shed.iff	0	1208	24	592	1	0	0	0		$|
+9875414	9875413	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+9875415	9875413	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+9875416	9875413	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+9875417	9875413	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+9875418	9875413	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+9875419	9875413	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 9875427	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1142	24	580	1	0	0	0		$|
 9875428	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1174	24	580	1	0	0	0		$|
 9875429	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1206	24	580	1	0	0	0		$|
@@ -135,3 +154,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9925359	0	object/static/structure/corellia/corl_power_box_node.iff	0	1175	24	584	1	0	0	0		$|
 9925360	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1163	24	584	1	0	0	0		$|
 9925364	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1175	24	654	3.20013e-008	0	1	0		$|
+9925365	9925364	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+9925366	9925364	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+9925367	9925364	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+9925368	9925364	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
