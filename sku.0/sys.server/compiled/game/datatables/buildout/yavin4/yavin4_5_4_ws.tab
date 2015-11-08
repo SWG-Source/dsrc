@@ -1,6 +1,16 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 3705352	0	object/building/yavin/temple_woolamander.iff	0	548.722	81	1426.03	-0.403919	0	0.914795	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/yavin4/woolmander_cave.iff|$|
+3705353	3705352	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+3705354	3705352	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+3705355	3705352	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+3705356	3705352	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+3705357	3705352	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+3705358	3705352	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+3705359	3705352	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+3705360	3705352	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+3705361	3705352	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+3705362	3705352	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 8845362	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	940.266	106.123	1471.87	1	0	0	0		$|
 8845364	0	object/tangible/gravestone/gravestone03.iff	0	941.035	106.399	1467.3	1	0	0	0		$|
 8845365	0	object/tangible/gravestone/gravestone02.iff	0	942.995	106.323	1468.98	1	0	0	0		$|
