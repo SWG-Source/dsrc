@@ -1,6 +1,15 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 1855519	0	object/building/corellia/guild_university_corellia_style_01.iff	0	40	28	1704	-0.707106	0	0.707107	0		$|
+1855520	1855519	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1855521	1855519	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1855522	1855519	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1855523	1855519	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1855524	1855519	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1855525	1855519	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1855526	1855519	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1855527	1855519	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1855528	1855519	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1855580	0	object/building/corellia/filler_building_corellia_style_05.iff	0	28.3125	28	1495.15	0.382683	0	0.92388	0		$|
 1855652	0	object/building/corellia/filler_block_corellia_64x32_s02.iff	0	9.2918	28	1593.21	0.923879	0	0.382684	0		$|
 1855706	0	object/building/corellia/filler_building_corellia_style_02.iff	0	72.0175	28	1555.15	1	0	0	0		$|

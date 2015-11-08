@@ -47,6 +47,16 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6035992	0	object/static/structure/general/skeleton_human_head.iff	0	1355.9	31.971	1731.22	0.227202	0	0.973848	0		$|
 6035993	0	object/static/structure/general/skeleton_human_head.iff	0	1355.32	31.9946	1730.91	0.246632	0	0.969109	0		$|
 6035994	0	object/building/general/corellia_nyax_bunker.iff	0	1365.83	31	1708.2	0.971338	0	-0.237703	0		$|
+6035995	6035994	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+6035996	6035994	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+6035997	6035994	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+6035998	6035994	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+6035999	6035994	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+6036000	6035994	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+6036001	6035994	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+6036002	6035994	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+6036003	6035994	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+6036004	6035994	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 6036005	0	object/static/structure/corellia/corl_power_connector.iff	0	1357.87	31.191	1700.2	0.242557	0	0.970137	0		$|
 6036008	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	1353.61	30.8871	1697.31	0.227202	0	0.973848	0		$|
 6036009	0	object/static/item/item_container_energy_gas.iff	0	1360.31	31	1704.91	0.8499	0	0.526943	0		$|
@@ -65,8 +75,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825711	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	625.845	25.9561	1596.09	0.930507	0	0.366273	0		$|
 9825714	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	614.439	26.1159	1607.06	0.930507	0	0.366273	0		$|
 9825721	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	643.506	18.5033	1618.59	0.919102	0	-0.394019	0		$|
+9825722	9825721	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 9825726	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	643.536	29.5181	1616.44	0.998488	0	-0.0549723	0		$|
 9825728	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	625.932	18.3558	1600.86	0.919102	0	-0.394019	0		$|
+9825729	9825728	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 9825730	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	625.799	29.5041	1598.83	0.998488	0	-0.054972	0		$|
 9825741	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	638.734	26.9504	1612.12	0.930508	0	-0.366273	0		$|
 9825742	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	634.234	26.8951	1607.64	0.919102	0	-0.394019	0		$|
