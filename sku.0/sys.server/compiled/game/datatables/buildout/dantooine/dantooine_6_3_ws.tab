@@ -1,6 +1,8 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 8465731	0	object/building/military/military_outpost_guard_house_imperial.iff	0	454.208	7	2042.44	0.707389	0	0.706824	0		$|
+8465732	8465731	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8465733	8465731	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 8465748	0	object/static/structure/general/banner_imperial_style_01.iff	0	447.637	7	2046.49	-0.696707	0	0.717356	0		$|
 8465761	0	object/tangible/furniture/all/frn_all_command_console.iff	0	458.504	14.0385	2046.98	0.930508	0	0.366273	0		$|
 8465763	0	object/tangible/furniture/all/frn_all_technical_console_s02.iff	0	458.417	13.9064	2037.52	0.9998	0	0.0199987	0		$|
