@@ -163,6 +163,16 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1717345	0	object/static/structure/general/streetlamp_large_style_02.iff	0	543.836	-157.321	2040.54	0	0	1	0		$|
 1717347	0	object/static/structure/general/streetlamp_large_style_02.iff	0	543.981	-157.34	1987.18	0	0	1	0		$|
 1865359	0	object/building/naboo/hotel_naboo_theed.iff	0	617.122	-150	2013.98	0.707109	0	-0.707105	0		$|
+1865360	1865359	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1865361	1865359	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1865362	1865359	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1865363	1865359	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1865364	1865359	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1865365	1865359	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1865366	1865359	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1865367	1865359	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1865368	1865359	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1865369	1865359	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 1865372	0	object/static/structure/general/bench_generic_style_1.iff	0	639.4	-150	1997.67	0.707107	0	0.707107	0		$|
 1865373	0	object/static/structure/general/bench_generic_style_1.iff	0	639.342	-150	2000.94	0.707107	0	0.707107	0		$|
 1865374	0	object/static/flora/potted_plant_flowers_orange.iff	0	639.521	-150	1995.92	0.838177	0	-0.545398	0		$|
