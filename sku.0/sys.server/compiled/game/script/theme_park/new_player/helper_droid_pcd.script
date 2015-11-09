@@ -1,4 +1,4 @@
-include library.veteran_deprecated;
+include library.veteran;
 
 const int ALLOW_DELETE_AGE = 3*60*60;
 const string NEW_PLAYER_SCRIPT = "theme_park.new_player.new_player";
@@ -27,9 +27,9 @@ trigger OnDestroy()
 	
 	// if account age is at or greater than set cap, 
 	// allow them to delete their helper droid.
-	if ( hasObjVar(player, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+	if ( hasObjVar(player, veteran.OBJVAR_TIME_ACTIVE) )
 	{
-		int accountTime = getIntObjVar(player, veteran_deprecated.OBJVAR_TIME_ACTIVE);
+		int accountTime = getIntObjVar(player, veteran.OBJVAR_TIME_ACTIVE);
 		if ( accountTime >= ACCOUNT_AGE_CAP )
 		{
 			return SCRIPT_CONTINUE;

@@ -8,7 +8,7 @@ include library.pet_lib;
 include library.prose;
 include library.sui;
 include library.utils;
-include library.veteran_deprecated;
+include library.veteran;
 include library.xp;
 include library.weapons;
 
@@ -408,9 +408,9 @@ messageHandler handleHelperDroidCheck()
 		{
 			// if account age is less than set cap,
 			// let them know how to call a stored droid or how they can get help later.
-			if ( hasObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+			if ( hasObjVar(self, veteran.OBJVAR_TIME_ACTIVE) )
 			{
-				int accountTime = getIntObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE);
+				int accountTime = getIntObjVar(self, veteran.OBJVAR_TIME_ACTIVE);
 				if ( accountTime < ACCOUNT_AGE_CAP )
 				{
 					if ( !hasObjVar(self, "new_player.advice.showRefusedHelp") )
@@ -428,9 +428,9 @@ messageHandler handleHelperDroidCheck()
 	{
 		// if account age is less than set cap,
 		// automatically call the helper droid.
-		if ( hasObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+		if ( hasObjVar(self, veteran.OBJVAR_TIME_ACTIVE) )
 		{
-			int accountTime = getIntObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE);
+			int accountTime = getIntObjVar(self, veteran.OBJVAR_TIME_ACTIVE);
 			if ( accountTime < ACCOUNT_AGE_CAP )
 			{
 				if(callable.hasCDCallable(helperDroidPcd))
@@ -519,9 +519,9 @@ messageHandler setupHelperDroid()
 		{
 			// if account age is at or greater than set cap,
 			// don't automatically call the helper droid.
-			if ( hasObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+			if ( hasObjVar(self, veteran.OBJVAR_TIME_ACTIVE) )
 			{
-				int accountTime = getIntObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE);
+				int accountTime = getIntObjVar(self, veteran.OBJVAR_TIME_ACTIVE);
 				if ( accountTime >= ACCOUNT_AGE_CAP )
 				{
 					return SCRIPT_CONTINUE;
@@ -2684,9 +2684,9 @@ messageHandler handleSetupPeriodicProgressCheck()
 
 	// if account age is at or greater than set cap,
 	// don't check on their quest progress or prompt them for help.
-	if ( hasObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+	if ( hasObjVar(self, veteran.OBJVAR_TIME_ACTIVE) )
 	{
-		int accountTime = getIntObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE);
+		int accountTime = getIntObjVar(self, veteran.OBJVAR_TIME_ACTIVE);
 		if ( accountTime >= ACCOUNT_AGE_CAP )
 		{
 			return SCRIPT_CONTINUE;
@@ -2725,9 +2725,9 @@ messageHandler handlePeriodicProgressCheck()
 
 	// if account age is at or greater than set cap,
 	// don't check on their quest progress or prompt them for help.
-	if ( hasObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+	if ( hasObjVar(self, veteran.OBJVAR_TIME_ACTIVE) )
 	{
-		int accountTime = getIntObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE);
+		int accountTime = getIntObjVar(self, veteran.OBJVAR_TIME_ACTIVE);
 		if ( accountTime > ACCOUNT_AGE_CAP )
 		{
 			return SCRIPT_CONTINUE;

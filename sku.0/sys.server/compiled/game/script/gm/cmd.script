@@ -28,7 +28,7 @@ include library.sui;
 include library.target_dummy;
 include library.trace;
 include library.utils;
-include library.veteran_deprecated;
+include library.veteran;
 include library.xp;
 include library.weapons;
 include library.static_item;
@@ -3643,7 +3643,7 @@ commandHandler cmdHasVeteranReward()
 	if (!"true".equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
 		return SCRIPT_CONTINUE;
 
-	if ( isGod(self) && veteran_deprecated.checkVeteranTarget(target) )
+	if ( isGod(self) && veteran.checkVeteranTarget(target) )
 	{
 		if ( params == null || params.length() == 0 )
 		{
@@ -3652,15 +3652,15 @@ commandHandler cmdHasVeteranReward()
 		}
 
 		int milestone = parseMilestone(params);
-		if ( milestone >= 1 && milestone <= veteran_deprecated.MAX_MILESTONE)
+		if ( milestone >= 1 && milestone <= veteran.MAX_MILESTONE)
 		{
-			if ( veteran_deprecated.checkVeteranMilestone(target, milestone) )
-				sendSystemMessage(self, veteran_deprecated.SID_HAS_MILESTONE);
+			if ( veteran.checkVeteranMilestone(target, milestone) )
+				sendSystemMessage(self, veteran.SID_HAS_MILESTONE);
 			else
-				sendSystemMessage(self, veteran_deprecated.SID_HAS_NOT_MILESTONE);
+				sendSystemMessage(self, veteran.SID_HAS_NOT_MILESTONE);
 		}
 		else
-			sendSystemMessage(self, veteran_deprecated.SID_MILESTONE_OUT_OF_RANGE);
+			sendSystemMessage(self, veteran.SID_MILESTONE_OUT_OF_RANGE);
 	}
 	return SCRIPT_CONTINUE;
 }
@@ -3673,7 +3673,7 @@ commandHandler cmdSetVeteranReward()
 	if (!"true".equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
 		return SCRIPT_CONTINUE;
 
-	if ( isGod(self) && veteran_deprecated.checkVeteranTarget(target) )
+	if ( isGod(self) && veteran.checkVeteranTarget(target) )
 	{
 		if ( params == null || params.length() == 0 )
 		{
@@ -3682,14 +3682,14 @@ commandHandler cmdSetVeteranReward()
 		}
 
 		int milestone = parseMilestone(params);
-		if ( milestone >= 1 && milestone <= veteran_deprecated.MAX_MILESTONE )
+		if ( milestone >= 1 && milestone <= veteran.MAX_MILESTONE )
 		{
 			CustomerServiceLog("veteran", "GM %TU setting player %TT milestone " + milestone, self, target);
-			veteran_deprecated.setVeteranMilestone(target, milestone);
-			sendSystemMessage(self, veteran_deprecated.SID_OK);
+			veteran.setVeteranMilestone(target, milestone);
+			sendSystemMessage(self, veteran.SID_OK);
 		}
 		else
-			sendSystemMessage(self, veteran_deprecated.SID_MILESTONE_OUT_OF_RANGE);
+			sendSystemMessage(self, veteran.SID_MILESTONE_OUT_OF_RANGE);
 	}
 	return SCRIPT_CONTINUE;
 }
@@ -3702,7 +3702,7 @@ commandHandler cmdClearVeteranReward()
 	if (!"true".equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
 		return SCRIPT_CONTINUE;
 
-	if ( isGod(self) && veteran_deprecated.checkVeteranTarget(target) )
+	if ( isGod(self) && veteran.checkVeteranTarget(target) )
 	{
 		if ( params == null || params.length() == 0 )
 		{
@@ -3711,14 +3711,14 @@ commandHandler cmdClearVeteranReward()
 		}
 
 		int milestone = parseMilestone(params);
-		if ( milestone >= 1 && milestone <= veteran_deprecated.MAX_MILESTONE )
+		if ( milestone >= 1 && milestone <= veteran.MAX_MILESTONE )
 		{
 			CustomerServiceLog("veteran", "GM %TU clearing player %TT milestone " + milestone, self, target);
-			veteran_deprecated.clearVeteranMilestone(target, milestone);
-			sendSystemMessage(self, veteran_deprecated.SID_OK);
+			veteran.clearVeteranMilestone(target, milestone);
+			sendSystemMessage(self, veteran.SID_OK);
 		}
 		else
-			sendSystemMessage(self, veteran_deprecated.SID_MILESTONE_OUT_OF_RANGE);
+			sendSystemMessage(self, veteran.SID_MILESTONE_OUT_OF_RANGE);
 	}
 	return SCRIPT_CONTINUE;
 }
@@ -3743,19 +3743,19 @@ commandHandler cmdOverrideActiveMonths()
 		if ( months <= 0 )
 		{
 			// clear the fake data
-			removeObjVar(self, veteran_deprecated.OBJVAR_FAKE_VETERAN);
-			removeObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE);
-			sendSystemMessage(self, veteran_deprecated.SID_ACTIVE_MONTHS_CLEARED);
+			removeObjVar(self, veteran.OBJVAR_FAKE_VETERAN);
+			removeObjVar(self, veteran.OBJVAR_TIME_ACTIVE);
+			sendSystemMessage(self, veteran.SID_ACTIVE_MONTHS_CLEARED);
 		}
 		else
 		{
-			int days = months * veteran_deprecated.DAYS_PER_MONTH;
-			setObjVar(self, veteran_deprecated.OBJVAR_FAKE_VETERAN_TOTAL_TIME, days);
-			setObjVar(self, veteran_deprecated.OBJVAR_FAKE_VETERAN_ENTITLED_TIME, days);
-			setObjVar(self, veteran_deprecated.OBJVAR_FAKE_VETERAN_LOGIN_TIME, 0);
-			setObjVar(self, veteran_deprecated.OBJVAR_FAKE_VETERAN_ENTITLED_LOGIN_TIME, 0);
-			setObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE, days);
-			sendSystemMessage(self, veteran_deprecated.SID_OK);
+			int days = months * veteran.DAYS_PER_MONTH;
+			setObjVar(self, veteran.OBJVAR_FAKE_VETERAN_TOTAL_TIME, days);
+			setObjVar(self, veteran.OBJVAR_FAKE_VETERAN_ENTITLED_TIME, days);
+			setObjVar(self, veteran.OBJVAR_FAKE_VETERAN_LOGIN_TIME, 0);
+			setObjVar(self, veteran.OBJVAR_FAKE_VETERAN_ENTITLED_LOGIN_TIME, 0);
+			setObjVar(self, veteran.OBJVAR_TIME_ACTIVE, days);
+			sendSystemMessage(self, veteran.SID_OK);
 		}
 	}
 	return SCRIPT_CONTINUE;
