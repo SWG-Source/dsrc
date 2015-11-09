@@ -100,7 +100,7 @@ include library.trial;
 include library.utils;
 include library.vehicle;
 include library.vendor_lib;
-include library.veteran_deprecated;
+include library.veteran;
 include library.weapons;
 include library.xp;
 include library.restuss_event;
@@ -2042,7 +2042,7 @@ trigger OnLogin()
 		}
 	}
 
-	veteran_deprecated.updateVeteranTime(self);
+	veteran.updateVeteranTime(self);
 
 	// Check to see if the player was renamed.
 	if (hasObjVar(self, "renamePerformed"))
@@ -2820,7 +2820,7 @@ trigger OnLogout()
 		pclib.relinquishConsents(self);
 	}
 
-	self.getScriptVars().remove(veteran_deprecated.SCRIPTVAR_VETERAN_LOGGED_IN);
+	self.getScriptVars().remove(veteran.SCRIPTVAR_VETERAN_LOGGED_IN);
 
 	obj_id objBuilding = getTopMostContainer(self);
 	if(isIdValid(objBuilding) && objBuilding != self )
@@ -2892,7 +2892,7 @@ trigger OnUnloadedFromMemory()
 
 trigger OnImmediateLogout()
 {
-	self.getScriptVars().remove(veteran_deprecated.SCRIPTVAR_VETERAN_LOGGED_IN);
+	self.getScriptVars().remove(veteran.SCRIPTVAR_VETERAN_LOGGED_IN);
 
 	// Customer service logging for extraordinary profit
 	if(utils.hasScriptVar(self, "profit")) {
@@ -12576,7 +12576,7 @@ messageHandler cmdSetExperienceResult()
  */
 trigger OnPerformEmote(string emote)
 {
-	int[] emotes = dataTableGetIntColumn(veteran_deprecated.EMOTES_DATATABLE, veteran_deprecated.EMOTES_COLUMN_EMOTE);
+	int[] emotes = dataTableGetIntColumn(veteran.EMOTES_DATATABLE, veteran.EMOTES_COLUMN_EMOTE);
 	if ( emotes == null)
 	{
 		return SCRIPT_CONTINUE;
@@ -12589,10 +12589,10 @@ trigger OnPerformEmote(string emote)
 		if ( emoteCrc == emotes[i] )
 		{
 			// see if the player has the emote group that the veteran emote belongs to
-			int[] playerEmotes = getIntArrayObjVar(self, veteran_deprecated.OBJVAR_VETERAN_EMOTES);
+			int[] playerEmotes = getIntArrayObjVar(self, veteran.OBJVAR_VETERAN_EMOTES);
 			if ( playerEmotes != null)
 			{
-				int emoteGroup = dataTableGetInt(veteran_deprecated.EMOTES_DATATABLE, i, veteran_deprecated.EMOTES_COLUMN_GROUP);
+				int emoteGroup = dataTableGetInt(veteran.EMOTES_DATATABLE, i, veteran.EMOTES_COLUMN_GROUP);
 				for ( int j = 0; j < playerEmotes.length; ++j )
 				{
 					if ( emoteGroup == playerEmotes[j])
@@ -12622,11 +12622,11 @@ commandHandler cmdGetVeteranRewardTime()
 	{
 		if ( !isIdValid(target) )
 			target = self;
-		if ( veteran_deprecated.checkVeteranTarget(target) )
+		if ( veteran.checkVeteranTarget(target) )
 		{
-			int veteranTime = getIntObjVar(target, veteran_deprecated.OBJVAR_TIME_ACTIVE);
+			int veteranTime = getIntObjVar(target, veteran.OBJVAR_TIME_ACTIVE);
 			prose_package pp = new prose_package();
-			pp.stringId = veteran_deprecated.SID_VETERAN_TIME_ACTIVE;
+			pp.stringId = veteran.SID_VETERAN_TIME_ACTIVE;
 			pp.target.id = target;
 			pp.digitInteger = veteranTime;
 			sendSystemMessageProse(self, pp);
@@ -12634,16 +12634,16 @@ commandHandler cmdGetVeteranRewardTime()
 	}
 	else
 	{
-		if ( hasObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+		if ( hasObjVar(self, veteran.OBJVAR_TIME_ACTIVE) )
 		{
-			int veteranTime = getIntObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE);
+			int veteranTime = getIntObjVar(self, veteran.OBJVAR_TIME_ACTIVE);
 			prose_package pp = new prose_package();
-			pp.stringId = veteran_deprecated.SID_VETERAN_SELF_TIME_ACTIVE;
+			pp.stringId = veteran.SID_VETERAN_SELF_TIME_ACTIVE;
 			pp.digitInteger = veteranTime;
 			sendSystemMessageProse(self, pp);
 		}
 		else
-			sendSystemMessage(self, veteran_deprecated.SID_SYSTEM_INACTIVE);
+			sendSystemMessage(self, veteran.SID_SYSTEM_INACTIVE);
 	}
 	return SCRIPT_CONTINUE;
 }
@@ -12657,19 +12657,19 @@ commandHandler cmdListVeteranRewards()
 	if (!"true".equals(getConfigSetting("GameServer", "enableVeteranRewards")))
 		return SCRIPT_CONTINUE;
 
-	if ( !isGod(self) && !hasObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+	if ( !isGod(self) && !hasObjVar(self, veteran.OBJVAR_TIME_ACTIVE) )
 	{
 		// don't let normal players see the list until we activate the system
-		sendSystemMessage(self, veteran_deprecated.SID_SYSTEM_INACTIVE);
+		sendSystemMessage(self, veteran.SID_SYSTEM_INACTIVE);
 		return SCRIPT_CONTINUE;
 	}
 
-	int[] templateCrcs = dataTableGetIntColumn(veteran_deprecated.REWARDS_DATATABLE, veteran_deprecated.REWARDS_COLUMN_TEMPLATE);
+	int[] templateCrcs = dataTableGetIntColumn(veteran.REWARDS_DATATABLE, veteran.REWARDS_COLUMN_TEMPLATE);
 	if ( templateCrcs == null)
 	{
 		return SCRIPT_CONTINUE;
 	}
-	int[] milestones = dataTableGetIntColumn(veteran_deprecated.REWARDS_DATATABLE, veteran_deprecated.REWARDS_COLUMN_MILESTONE);
+	int[] milestones = dataTableGetIntColumn(veteran.REWARDS_DATATABLE, veteran.REWARDS_COLUMN_MILESTONE);
 	if ( milestones == null)
 	{
 		return SCRIPT_CONTINUE;
@@ -12686,11 +12686,11 @@ commandHandler cmdListVeteranRewards()
 	}
 
 	string[] milestonesText = new string[nameIds.length];
-	string daysText = getString(veteran_deprecated.SID_DAYS);
+	string daysText = getString(veteran.SID_DAYS);
 	for ( int i = 0; i < nameIds.length; ++i )
 	{
 		if ( nameIds[i] != null )
-			milestonesText[i] = "@" + nameIds[i] + " :\\>200" + (milestones[i] * veteran_deprecated.DAYS_PER_MILESTONE) + daysText;
+			milestonesText[i] = "@" + nameIds[i] + " :\\>200" + (milestones[i] * veteran.DAYS_PER_MILESTONE) + daysText;
 		else
 			milestonesText[i] = "<error>";
 	}
@@ -12711,23 +12711,23 @@ messageHandler handleVeteranMilestoneSelected()
 {
 	if ( (params == null) || (params.isEmpty()) )
 	{
-		veteran_deprecated.cleanupPlayerData(self);
+		veteran.cleanupPlayerData(self);
 		return SCRIPT_CONTINUE;
 	}
 
 	int bp = sui.getIntButtonPressed(params);
 	if ( bp == sui.BP_CANCEL )
 	{
-		veteran_deprecated.cleanupPlayerData(self);
+		veteran.cleanupPlayerData(self);
 		return SCRIPT_CONTINUE;
 	}
 
 	int rowSelected = sui.getListboxSelectedRow(params);
-	int[] milestones = self.getScriptVars().getIntArray(veteran_deprecated.SCRIPTVAR_AVAILABLE_MILESTONES);
+	int[] milestones = self.getScriptVars().getIntArray(veteran.SCRIPTVAR_AVAILABLE_MILESTONES);
 	if ( milestones == null || milestones.length < 1 || rowSelected < 0 )
 	{
-		veteran_deprecated.cleanupPlayerData(self);
-		sendSystemMessage(self, veteran_deprecated.SID_BAD_MILESTONE);
+		veteran.cleanupPlayerData(self);
+		sendSystemMessage(self, veteran.SID_BAD_MILESTONE);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -12738,13 +12738,13 @@ messageHandler handleVeteranMilestoneSelected()
 	{
 		if ( (rowSelected + 1) == milestones[i] )
 		{
-			veteran_deprecated.requestVeteranRewards(self, milestones[i]);
+			veteran.requestVeteranRewards(self, milestones[i]);
 			return SCRIPT_CONTINUE;
 		}
 	}
 
-	veteran_deprecated.cleanupPlayerData(self);
-	sendSystemMessage(self, veteran_deprecated.SID_BAD_MILESTONE);
+	veteran.cleanupPlayerData(self);
+	sendSystemMessage(self, veteran.SID_BAD_MILESTONE);
 	return SCRIPT_CONTINUE;
 }
 
@@ -12755,35 +12755,35 @@ messageHandler handleVeteranRewardSelected()
 {
 	if ( (params == null) || (params.isEmpty()) )
 	{
-		veteran_deprecated.cleanupPlayerData(self);
+		veteran.cleanupPlayerData(self);
 		return SCRIPT_CONTINUE;
 	}
 
 	int bp = sui.getIntButtonPressed(params);
 	if ( bp == sui.BP_CANCEL )
 	{
-		veteran_deprecated.cleanupPlayerData(self);
+		veteran.cleanupPlayerData(self);
 		return SCRIPT_CONTINUE;
 	}
 
 	int rowSelected = sui.getListboxSelectedRow(params);
 	if ( rowSelected < 0 )
 	{
-		veteran_deprecated.cleanupPlayerData(self);
-		sendSystemMessage(self, veteran_deprecated.SID_BAD_REWARD);
+		veteran.cleanupPlayerData(self);
+		sendSystemMessage(self, veteran.SID_BAD_REWARD);
 		return SCRIPT_CONTINUE;
 	}
 
-	int result = veteran_deprecated.givePlayerReward(self, rowSelected, true);
-	if (result == veteran_deprecated.GIVE_PLAYER_REWARD_SUCCESS)
+	int result = veteran.givePlayerReward(self, rowSelected, true);
+	if (result == veteran.GIVE_PLAYER_REWARD_SUCCESS)
 	{
-		veteran_deprecated.cleanupPlayerData(self);
-		sendSystemMessage(self, veteran_deprecated.SID_REWARD_GIVEN);
+		veteran.cleanupPlayerData(self);
+		sendSystemMessage(self, veteran.SID_REWARD_GIVEN);
 	}
-	else if (result == veteran_deprecated.GIVE_PLAYER_REWARD_FAILED)
+	else if (result == veteran.GIVE_PLAYER_REWARD_FAILED)
 	{
-		veteran_deprecated.cleanupPlayerData(self);
-		sendSystemMessage(self, veteran_deprecated.SID_REWARD_ERROR);
+		veteran.cleanupPlayerData(self);
+		sendSystemMessage(self, veteran.SID_REWARD_ERROR);
 	}
 	else
 	{
@@ -12804,7 +12804,7 @@ messageHandler handleVeteranRewardConfirmed()
 {
 	if ( (params == null) || (params.isEmpty()) )
 	{
-		veteran_deprecated.cleanupPlayerData(self);
+		veteran.cleanupPlayerData(self);
 		return SCRIPT_CONTINUE;
 	}
 
@@ -12812,39 +12812,39 @@ messageHandler handleVeteranRewardConfirmed()
 	if ( bp == sui.BP_CANCEL )
 	{
 		// display the select rewards window
-		if ( !self.getScriptVars().hasKey(veteran_deprecated.SCRIPTVAR_SELECTED_MILESTONE) )
+		if ( !self.getScriptVars().hasKey(veteran.SCRIPTVAR_SELECTED_MILESTONE) )
 		{
-			veteran_deprecated.cleanupPlayerData(self);
+			veteran.cleanupPlayerData(self);
 		}
 		else
 		{
-			self.getScriptVars().remove(veteran_deprecated.SCRIPTVAR_SELECTED_REWARD);
-			int milestone = self.getScriptVars().getInt(veteran_deprecated.SCRIPTVAR_SELECTED_MILESTONE);
-			veteran_deprecated.requestVeteranRewards(self, milestone);
+			self.getScriptVars().remove(veteran.SCRIPTVAR_SELECTED_REWARD);
+			int milestone = self.getScriptVars().getInt(veteran.SCRIPTVAR_SELECTED_MILESTONE);
+			veteran.requestVeteranRewards(self, milestone);
 		}
 
 		return SCRIPT_CONTINUE;
 	}
 
 	// get the index of the selected reward
-	if ( !self.getScriptVars().hasKey(veteran_deprecated.SCRIPTVAR_SELECTED_REWARD) )
+	if ( !self.getScriptVars().hasKey(veteran.SCRIPTVAR_SELECTED_REWARD) )
 	{
 		CustomerServiceLog("veteran", "handleVeteranRewardConfirmed could not find SCRIPTVAR_SELECTED_REWARD for player %TU", self);
-		veteran_deprecated.cleanupPlayerData(self);
+		veteran.cleanupPlayerData(self);
 		return SCRIPT_CONTINUE;
 	}
 
-	int rewardIndex = self.getScriptVars().getInt(veteran_deprecated.SCRIPTVAR_SELECTED_REWARD);
-	int result = veteran_deprecated.givePlayerReward(self, rewardIndex, false);
-	if (result == veteran_deprecated.GIVE_PLAYER_REWARD_SUCCESS)
+	int rewardIndex = self.getScriptVars().getInt(veteran.SCRIPTVAR_SELECTED_REWARD);
+	int result = veteran.givePlayerReward(self, rewardIndex, false);
+	if (result == veteran.GIVE_PLAYER_REWARD_SUCCESS)
 	{
-		veteran_deprecated.cleanupPlayerData(self);
-		sendSystemMessage(self, veteran_deprecated.SID_REWARD_GIVEN);
+		veteran.cleanupPlayerData(self);
+		sendSystemMessage(self, veteran.SID_REWARD_GIVEN);
 	}
 	else
 	{
-		veteran_deprecated.cleanupPlayerData(self);
-		sendSystemMessage(self, veteran_deprecated.SID_REWARD_ERROR);
+		veteran.cleanupPlayerData(self);
+		sendSystemMessage(self, veteran.SID_REWARD_ERROR);
 	}
 
 	return SCRIPT_CONTINUE;
@@ -12869,23 +12869,23 @@ commandHandler cmdFlashSpeeder()
 			int free_space = getVolumeFree(inv);
 			if (free_space < 1)
 			{
-				sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_no_inv_space"));
+				sendSystemMessage(self, new string_id(veteran.VETERAN_STRING_TABLE, "flash_speeder_no_inv_space"));
 				return SCRIPT_CONTINUE;
 			}
 			// The player hasn't received a speeder yet, so make that call.
-			if (veteran_deprecated.checkFlashSpeederReward(self))
-				sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_granted"));
+			if (veteran.checkFlashSpeederReward(self))
+				sendSystemMessage(self, new string_id(veteran.VETERAN_STRING_TABLE, "flash_speeder_granted"));
 			else
-				sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_grant_failed"));
+				sendSystemMessage(self, new string_id(veteran.VETERAN_STRING_TABLE, "flash_speeder_grant_failed"));
 		}
 		else
 		{
 			// The player has already received a free speeder. Now he must pay for extras.
-			sui.msgbox(self, self, "@" + veteran_deprecated.VETERAN_STRING_TABLE + ":flash_speeder_replace_prompt", sui.YES_NO, "msgFlashSpeederConfirmed");
+			sui.msgbox(self, self, "@" + veteran.VETERAN_STRING_TABLE + ":flash_speeder_replace_prompt", sui.YES_NO, "msgFlashSpeederConfirmed");
 		}
 	}
 	else
-		sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_not_eligible"));
+		sendSystemMessage(self, new string_id(veteran.VETERAN_STRING_TABLE, "flash_speeder_not_eligible"));
 
 
 	return SCRIPT_CONTINUE;
@@ -12899,9 +12899,9 @@ messageHandler msgFlashSpeederConfirmed()
 		return SCRIPT_CONTINUE;
 	}
 
-	if (getTotalMoney(self) < veteran_deprecated.FLASH_SPEEDER_COST)
+	if (getTotalMoney(self) < veteran.FLASH_SPEEDER_COST)
 	{
-		sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_no_credits"));
+		sendSystemMessage(self, new string_id(veteran.VETERAN_STRING_TABLE, "flash_speeder_no_credits"));
 		return SCRIPT_CONTINUE;
 	}
 
@@ -12909,11 +12909,11 @@ messageHandler msgFlashSpeederConfirmed()
 	int free_space = getVolumeFree(inv);
 	if (free_space < 1)
 	{
-		sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_no_inv_space"));
+		sendSystemMessage(self, new string_id(veteran.VETERAN_STRING_TABLE, "flash_speeder_no_inv_space"));
 		return SCRIPT_CONTINUE;
 	}
 
-	money.pay(self, money.ACCT_VEHICLE_REPAIRS, veteran_deprecated.FLASH_SPEEDER_COST, "msgFlashSpeederPaid", null);
+	money.pay(self, money.ACCT_VEHICLE_REPAIRS, veteran.FLASH_SPEEDER_COST, "msgFlashSpeederPaid", null);
 
 	return SCRIPT_CONTINUE;
 }
@@ -12925,10 +12925,10 @@ messageHandler msgFlashSpeederPaid()
 	{
 		createObjectInInventoryAllowOverload("object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff", self);
 		CustomerServiceLog("flash_speeder", "%TU has purchased a new JtL pre-order Flash Speeder.", self);
-		sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_granted"));
+		sendSystemMessage(self, new string_id(veteran.VETERAN_STRING_TABLE, "flash_speeder_granted"));
 	}
 	else
-		sendSystemMessage(self, new string_id(veteran_deprecated.VETERAN_STRING_TABLE, "flash_speeder_grant_failed"));
+		sendSystemMessage(self, new string_id(veteran.VETERAN_STRING_TABLE, "flash_speeder_grant_failed"));
 
 	return SCRIPT_CONTINUE;
 }
