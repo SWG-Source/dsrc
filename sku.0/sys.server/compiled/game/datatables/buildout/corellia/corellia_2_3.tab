@@ -284,3 +284,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -580006126	0	object/tangible/quest/content/holiday_loveday_barrel.iff	0	844.977	21	1603.86	0.228753	0	0.973485	0	quest.task.ground.wave_event_controller	$|
 -1918016706	0	object/tangible/quest/content/holiday_loveday_barrel.iff	0	1013.85	21	1609.47	-0.382683	0	0.92388	0	quest.task.ground.wave_event_controller	$|
 -1792032112	0	object/tangible/quest/content/holiday_loveday_barrel.iff	0	622.128	21	1558.02	1	0	0	0	quest.task.ground.wave_event_controller	$|
+-1236611938	0	object/tangible/planet_map_location/city.iff	0	1169	21	1866	1	0	0	0	planet_map.map_loc	$|

@@ -19,3 +19,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -42838000	0	object/building/kashyyyk/thm_kash_rodian_bannerpole_s01.iff	0	0	195	0	1	0	0	0		$|
 -716077606	0	object/tangible/ground_spawning/area_spawner.iff	0	1911.6	18	457.348	1	0	0	0	systems.spawning.spawn_tangible	registerWithController|0|1|spawn.object|4|object/tangible/meatlump/event/meatlump_bomb_01_04.iff|$|
 268517870	0	object/tangible/weather_object/weather_object_base.iff	0	0	195	0	1	0	0	0		$|
+-1303866368	0	object/tangible/planet_map_location/city.iff	0	1972.01	18	462.004	-0.165038	0	0.696135	0		$|
