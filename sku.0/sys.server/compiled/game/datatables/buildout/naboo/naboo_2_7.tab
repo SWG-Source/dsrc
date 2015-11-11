@@ -638,3 +638,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -224690053	-1551938285	object/static/worldbuilding/terminal/wall_monitorscreen_text_03.iff	1	1.41834	1.42315	-2.88208	0.715475	0	-0.698639	0		$|
 -945626147	-1551938285	object/building/kashyyyk/frn_sordaan_armory_static.iff	1	2.48476	0.662425	-1.06308	0.488874	0	0.872354	0		$|
 -797314927	-1551938285	object/tangible/ground_spawning/area_spawner.iff	1	0.0748728	0.267105	-1.02578	0.99489	0	-0.100962	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|9.000000|fltMinSpawnTime|2|3.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|chronicle_reward_vendor|strSpawnerType|4|area|strSpawns|4|chronicles_reward_vendor|$|
+-19864356	0	object/tangible/planet_map_location/city.iff	0	1348.73	5.94832	142.789	0.938444	0	0.345432	0		$|
