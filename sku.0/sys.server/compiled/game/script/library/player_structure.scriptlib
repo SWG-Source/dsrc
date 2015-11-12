@@ -3194,7 +3194,7 @@ void finalizePackUp(obj_id player, obj_id structure)
 		+ isAbandoned + "," + where.toString()
 		+ " into device (" + scd + ")");
 
-	/*//if structure is in a city, we need to mail the mayor
+	//if structure is in a city, we need to mail the mayor
 	if(city.isInCity(structure))
 	{
 		int city_id = getCityAtLocation( getLocation( structure ), 0 );
@@ -3210,7 +3210,7 @@ void finalizePackUp(obj_id player, obj_id structure)
 		prose.setTU(pp, structure_name);
 
 		utils.sendMail(SELF_PACKUP_EMAIL_TITLE, pp, mayor, "Galactic Housing Authority");
-	}*/
+	}
 	return;
 }
 
@@ -3294,7 +3294,7 @@ void finalizeAbandonedStructurePackUp(obj_id player, obj_id structure)
 		" (" + player + ") is ABOUT to pack abandoned structure (" + structure + ",abandoned=" + isAbandoned + "," + where.toString() + ") owned by player " +
 		 getPlayerName(structure_owner) + " (" + structure_owner + ")");
 
-	/*//if structure is in a city, we need to mail the mayor
+	//if structure is in a city, we need to mail the mayor
 	if(city.isInCity(structure))
 	{
 		int city_id = getCityAtLocation( getLocation( structure ), 0 );
@@ -3310,7 +3310,7 @@ void finalizeAbandonedStructurePackUp(obj_id player, obj_id structure)
 		prose.setTU(pp, structure_name);
 
 		utils.sendMail(PACKUP_EMAIL_TITLE, pp, mayor, "Galactic Vacant Building Demolishing Movement");
-	}*/
+	}
 
 	return;
 }
