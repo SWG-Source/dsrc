@@ -215,3 +215,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -35235729	0	object/static/structure/general/planter_generic_style_2.iff	0	878.659	6	951.39	0.823371	0	0.567504	0		$|
 -1952108923	0	object/static/structure/general/planter_generic_style_2.iff	0	865.235	6	951.573	-0.513886	0	0.857858	0		$|
 -676992732	0	object/tangible/space/content_infrastructure/generic_egg_small.iff	0	480.27	6	1090.86	1	0	0	0	systems.dungeon_sequencer.sequence_controller:systems.gcw.gcw_city	worldLoc|0|1|instance.data_table|4|datatables/gcw/gcw_city_dearic.iff|$|
+-1293866355	0	object/tangible/planet_map_location/city.iff	0	244.894	6	1164.87	-0.165038	0	0.696135	0		$|

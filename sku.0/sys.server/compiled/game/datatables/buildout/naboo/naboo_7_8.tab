@@ -151,3 +151,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1722371904	1741483	object/tangible/spawning/static_npc/event_promoter_neutral.iff	10	-23	1.6	-15	1	0	0	0	systems.event_perk.promoter_spawner	npc_name|4|An Event Promoter|promoter_type|4|neutral|quest_script|4|systems.event_perk.promoter|spawns|4|commoner|$|
 -2071155459	0	object/static/flora/potted_plant_flowers_purple.iff	0	913.627	-192	685.709	0.99487	0	-0.101165	0		$|
 -1605690499	0	object/tangible/collection/flower_03.iff	0	913.683	-192	675.838	1	0	0	0	systems.collections.consume_click	collection.slotName|4|col_flower_01:flower_03|$|
+-19866356	0	object/tangible/planet_map_location/city.iff	0	1199.29	-192	520.328	0.938444	0	0.345432	0		$|
