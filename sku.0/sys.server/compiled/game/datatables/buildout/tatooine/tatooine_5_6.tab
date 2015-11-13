@@ -156,3 +156,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -111343362	0	object/tangible/spawning/city_sign_spawner.iff	0	1425.44	7	1477.56	1	0	0	0	systems.spawning.spawn_tangible	spawn.object|4|object/tangible/sign/all_sign_city_s03.iff|$|
 -1622709074	0	object/tangible/spawning/city_sign_spawner.iff	0	1635.9	6.83316	1436.43	1	0	0	0	systems.spawning.spawn_tangible	spawn.object|4|object/tangible/sign/all_sign_city_s03.iff|$|
 -1599410942	0	object/tangible/spawning/city_sign_spawner.iff	0	1821.33	7	1137.18	1	0	0	0	systems.spawning.spawn_tangible	spawn.object|4|object/tangible/sign/all_sign_city_s03.iff|$|
+-19844657	0	object/tangible/planet_map_location/city.iff	0	1238.18	7	1013.85	0.938444	0	0.345432	0		$|
