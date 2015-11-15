@@ -1,5 +1,5 @@
 /**
- * Title:        veteran_deprecated.scriptlib
+ * Title:        veteran.scriptlib
  * Description:  handles the veteran reward system
  */
 
@@ -780,15 +780,15 @@ boolean checkVeteranTarget(obj_id target)
 {
 	if ( isIdValid(target) && isPlayer(target) )
 	{
-		if ( hasObjVar(target, veteran_deprecated.OBJVAR_TIME_ACTIVE) )
+		if ( hasObjVar(target, veteran.OBJVAR_TIME_ACTIVE) )
 		{
 			return true;
 		}
 		else
-			sendSystemMessage(getSelf(), veteran_deprecated.SID_SYSTEM_INACTIVE);
+			sendSystemMessage(getSelf(), veteran.SID_SYSTEM_INACTIVE);
 	}
 	else
-		sendSystemMessage(getSelf(), veteran_deprecated.SID_INVALID_TARGET);
+		sendSystemMessage(getSelf(), veteran.SID_INVALID_TARGET);
 	return false;
 }
 
@@ -876,12 +876,12 @@ boolean checkFlashSpeederReward(obj_id player)
 {
 	if (!isIdValid(player))
 	{
-		LOG("flash_speeder", "veteran_deprecated.checkFlashSpeeder: Player is invalid.");
+		LOG("flash_speeder", "veteran.checkFlashSpeeder: Player is invalid.");
 		return false;
 	}
 	if (!isPlayer(player))
 	{
-		LOG("flash_speeder", "veteran_deprecated.checkFlashSpeeder: " + player + " is not a player.");
+		LOG("flash_speeder", "veteran.checkFlashSpeeder: " + player + " is not a player.");
 		return false;
 	}
 	if (isUsingAdminLogin(player))
