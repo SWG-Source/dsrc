@@ -13,7 +13,7 @@ include library.utils;
 const string OBJVAR_NEXT_PROMPT_TIME = "veteran_rewards.next_prompt_time";
 const string OBJVAR_SOROSUUB_CLAIMED_ITEMS = "veteran_rewards.items_claimed.sorosuub";
 const string OBJVAR_6MOJTL_CONSUMED_EVENTS = "veteran_rewards.events_consumed.6moJTL";
-const string OBJVAR_DEPRECATED_ONETIME_ITEMS = "veteran.onetime";
+const string OBJVAR_ONETIME_ITEMS = "veteran.onetime";
 
 const string SCRIPTVAR_ALREADY_LOGGED_IN = "veteran_rewards.logged_in";
 const string SCRIPTVAR_ALREADY_CHECKED_AUTOPROMPT = "veteran_rewards.auto_prompted";
@@ -77,7 +77,7 @@ trigger OnLogin()
 		utils.removeScriptVar(self,SCRIPTVAR_ITEM);
 		utils.removeScriptVar(self,SCRIPTVAR_REWARD_TAGS);
 
-		int[] onetimes = getIntArrayObjVar(self,  OBJVAR_DEPRECATED_ONETIME_ITEMS);
+		int[] onetimes = getIntArrayObjVar(self,  OBJVAR_ONETIME_ITEMS);
 		if ( onetimes != null )
 		{
 			// Convert old veteran reward records to the new system
@@ -94,7 +94,7 @@ trigger OnLogin()
 				setObjVar(self, OBJVAR_6MOJTL_CONSUMED_EVENTS, (int)1);
 			}
 
-			removeObjVar(self,  OBJVAR_DEPRECATED_ONETIME_ITEMS);
+			removeObjVar(self,  OBJVAR_ONETIME_ITEMS);
 		}
 
 		veteranWriteAccountDataToObjvars(self);
