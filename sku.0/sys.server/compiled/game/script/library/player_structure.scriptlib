@@ -3186,13 +3186,11 @@ void finalizePackUp(obj_id player, obj_id structure)
 
 	// put the house into the structure control device
 	putIn(structure, scd);
-	if ( !structure_owner.isLoaded() )
-	{
-		const int maxDepth = isFactory(structure) ? 101 : 1;
+	
+	const int maxDepth = isFactory(structure) ? 101 : 1;
 
-		moveToOfflinePlayerDatapadAndUnload(scd, structure_owner, maxDepth + 1); // add one for the scd
-		fixLoadWith(structure, structure_owner, maxDepth);
-	}
+	moveToOfflinePlayerDatapadAndUnload(scd, structure_owner, maxDepth + 1); // add one for the scd
+	fixLoadWith(structure, structure_owner, maxDepth);
 
 	CustomerServiceLog("housepackup", "Player/Owner " + getPlayerName(player) +
 		" (" + player + ") packed structure (" + structure + ",abandoned="
