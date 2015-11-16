@@ -3050,39 +3050,7 @@ void finalizePackUp(obj_id player, obj_id structure)
 			);
 		return;
 	}
-	blog("player_structure.finalizePackUp getting datapad");
-	// get data pad
-	obj_id datapad = utils.getPlayerDatapad(player);
-	if(!isIdValid(datapad))
-	{
-		blog("player_structure.finalizePackUp datapad not valid.");
 
-		CustomerServiceLog("housepackup", "Structure (" + structure + ") could not be packed by player/owner ("
-			+ getPlayerName(player) + ") - datapad was not valid"
-			);
-		return;
-	}
-
-	blog("player_structure.finalizePackUp creating SCD");
-	// Create a new structure control device in the datapad
-	obj_id scd = createObjectOverloaded("object/intangible/house/generic_house_control_device.iff", datapad);
-	if(!isIdValid(scd))
-	{
-		CustomerServiceLog("housepackup", "Structure (" + structure + ") could not be packed by player/owner ("
-			+ getPlayerName(player) + ") - scd was not valid"
-			);
-		return;
-	}
-	attachScript(scd, "structure.house_control_device");
-
-	//If the structure is a factory, turn it off
-	if(player_structure.isFactory(structure) && isHarvesterActive(structure))
-	{
-		CustomerServiceLog("housepackup", "Structure (" + structure + ") was a factory that was active. Turning off factory for player/owner ("
-			+ getPlayerName(player) + ") OID (" + player + ")"
-			);
-		deactivate(structure);
-	}
 	// eject all players from house
 	obj_id[] players = getPlayersInBuilding(structure);
 	if (players != null)
@@ -3094,6 +3062,41 @@ void finalizePackUp(obj_id player, obj_id structure)
 			expelFromBuilding(players[i]);
 		}
 	}
+
+	blog("player_structure.finalizePackUp getting datapad");
+	// get data pad
+	obj_id datapad = utils.getPlayerDatapad(structure_owner);
+	if(!isIdValid(datapad))
+	{
+		blog("player_structure.finalizePackUp datapad not valid.");
+
+		CustomerServiceLog("housepackup", "Structure (" + structure + ") could not be packed by player/owner ("
+			+ getPlayerName(structure_owner) + ") - datapad was not valid"
+			);
+		return;
+	}
+
+	blog("player_structure.finalizePackUp creating SCD");
+	// Create a new structure control device in the datapad
+	obj_id scd = createObjectOverloaded("object/intangible/house/generic_house_control_device.iff", datapad);
+	if(!isIdValid(scd))
+	{
+		CustomerServiceLog("housepackup", "Structure (" + structure + ") could not be packed by player/owner ("
+			+ getPlayerName(structure_owner) + ") - scd was not valid"
+			);
+		return;
+	}
+	attachScript(scd, "structure.house_control_device");
+
+	//If the structure is a factory, turn it off
+	if(player_structure.isFactory(structure) && isHarvesterActive(structure))
+	{
+		CustomerServiceLog("housepackup", "Structure (" + structure + ") was a factory that was active. Turning off factory for player/owner ("
+			+ getPlayerName(structure_owner) + ") OID (" + structure_owner + ")"
+			);
+		deactivate(structure);
+	}
+	
 	// Destroy vendors inside this structure.
 	string[] cells = getCellNames(structure);
 	if( cells != null)
@@ -3112,7 +3115,7 @@ void finalizePackUp(obj_id player, obj_id structure)
 						if (!isIdValid(owner))
 							owner = getOwner( contents[j] );
 
-						vendor_lib.finalizePackUp(owner, contents[j], player, isAbandoned);
+						vendor_lib.finalizePackUp(owner, contents[j], owner, isAbandoned);
 					}
 
 					if(isIdValid(contents[j]))
@@ -3155,12 +3158,14 @@ void finalizePackUp(obj_id player, obj_id structure)
 			cityRemoveCitizen( cityId, resident );
 		}
 	}
+	
 	//we need removed even if we aren't a citizen.
 	city.removeStructureFromCity(structure);
 
 	// set the template objvar, this is required by the re-placement code
 	string template = getTemplateName(structure);
 	setDeedTemplate(scd, template);
+	
 	// add the scene restrictions
 	if(hasObjVar(structure, VAR_DEED_SCENE))
 	{
