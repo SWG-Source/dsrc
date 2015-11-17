@@ -3097,7 +3097,7 @@ void finalizePackUp(obj_id player, obj_id structure)
 		}
 		
 		// Create a new structure control device
-		obj_id scd = createObject("object/intangible/house/generic_house_control_device.iff", where`);
+		obj_id scd = createObject("object/intangible/house/generic_house_control_device.iff", where);
 
 		setName(scd, structName);
 		setOwner(scd, player);
@@ -3106,7 +3106,6 @@ void finalizePackUp(obj_id player, obj_id structure)
 		if (!persistObject(scd))
 		{
 			LOG("LOG_CHANNEL", "player_structure.finalizePackup persist SCD failed!");
-			return SCRIPT_CONTINUE;
 		}
 
 		attachScript(scd, "structure.house_control_device");
