@@ -3010,7 +3010,15 @@ void finalizePackUp(obj_id player, obj_id structure)
 	blog("player_structure.finalizePackUp isAbandoned: "+isAbandoned);
 
 	obj_id structure_owner = getOwner(structure);
-
+	location where = getLocation(structure);
+	string structName = getStructureName(structure);
+	
+	// Get the structure name
+	if (structName == null || structName.length() < 1)
+	{
+		structName = "Building";
+	}
+	
 	if(structure_owner != player && isAbandoned)
 	{
 		CustomerServiceLog("housepackup", "Structure (" + structure + ") was abandoned and was not being packed by Owner ("
@@ -3050,28 +3058,115 @@ void finalizePackUp(obj_id player, obj_id structure)
 			);
 		return;
 	}
-
-	// eject all players from house
-	obj_id[] players = getPlayersInBuilding(structure);
-	if (players != null)
+	
+	if (isBuilding(structure))
 	{
-		blog("player_structure.finalizePackUp Players are in the building that is about to be packed.");
-
-		for (int i = 0; i < players.length; i++)
+		// eject all players from house
+		obj_id[] players = getPlayersInBuilding(structure);
+		if (players != null)
 		{
-			expelFromBuilding(players[i]);
+			for (int i = 0; i < players.length; i++)
+			{
+				expelFromBuilding(players[i]);
+			}
 		}
-	}
+		
+		// Destroy vendors inside this structure.
+		string[] cells = getCellNames(structure);
+		if( cells != null)
+		{
+			for(int i = 0; i < cells.length; i++)
+			{
+				obj_id cellid = getCellId(structure, cells[i]);
+				obj_id contents[] = getContents(cellid);
+				if(contents != null)
+				{
+					for(int j=0; j<contents.length; j++)
+					{
+						if(hasCondition(contents[j], CONDITION_VENDOR))
+						{
+							obj_id owner = getObjIdObjVar(contents[j], "vendor_owner");
+							if (!isIdValid(owner))
+								owner = getOwner( contents[j] );
 
+							vendor_lib.finalizePackUp(owner, contents[j], player, player_structure.isAbandoned(structure));
+						}
+					}
+				}
+			}
+		}
+		
+		// Create a new structure control device
+		obj_id scd = createObject("object/intangible/house/generic_house_control_device.iff", where`);
+
+		setName(scd, structName);
+		setOwner(scd, player);
+	
+		// Persist the structure control device		
+		if (!persistObject(scd))
+		{
+			LOG("LOG_CHANNEL", "player_structure.finalizePackup persist SCD failed!");
+			return SCRIPT_CONTINUE;
+		}
+
+		attachScript(scd, "structure.house_control_device");
+
+		// destroy waypoint if it exists
+		if(hasObjVar(structure, VAR_WAYPOINT_STRUCTURE))
+		{
+			obj_id waypoint = getObjIdObjVar(structure, VAR_WAYPOINT_STRUCTURE);
+			if(isIdValid(waypoint))
+			{
+				destroyWaypointInDatapad(waypoint, player);
+				removeObjVar(structure, VAR_WAYPOINT_STRUCTURE);
+			}
+		}
+
+		// Destroy house sign and name the control device whatever the building name was
+		destroyStructureSign(structure);
+		//destroyBaseObjects(structure);
+
+		// Remove the structure as the player's residence
+		if ( isResidence( structure, player ) )
+		{
+			setHouseId( player, obj_id.NULL_ID );
+			removeObjVar( structure, VAR_RESIDENCE_BUILDING );
+
+			// Also remove the player from his current city.
+			city.removeCitizen( player, structure );
+		}
+
+		city.removeStructureFromCity( structure );
+
+		// set the template objvar, this is required by the re-placement code
+		string template = getTemplateName(structure);
+		setDeedTemplate(scd, template);
+		
+		// if the structure is a "lot over limit structure", set objvar to indicate it has been moved to the datapad
+		if (isIdValid(player) && exists(player))
+		{
+			obj_id lotOverlimitStructure = getObjIdObjVar(player, "lotOverlimit.structure_id");
+			if (isIdValid(lotOverlimitStructure) && (lotOverlimitStructure == structure))
+			{
+				setObjVar(player, "lotOverlimit.structure_location", "Datapad");
+			}
+		}
+
+		// put the house into the structure control device
+		putIn(structure, scd ); 
+	}
+	
 	blog("player_structure.finalizePackUp getting datapad");
+	
+	
 	// get data pad
-	obj_id datapad = utils.getPlayerDatapad(structure_owner);
+	obj_id datapad = utils.getPlayerDatapad(player);
 	if(!isIdValid(datapad))
 	{
 		blog("player_structure.finalizePackUp datapad not valid.");
 
 		CustomerServiceLog("housepackup", "Structure (" + structure + ") could not be packed by player/owner ("
-			+ getPlayerName(structure_owner) + ") - datapad was not valid"
+			+ getPlayerName(player) + ") - datapad was not valid"
 			);
 		return;
 	}
@@ -3082,7 +3177,7 @@ void finalizePackUp(obj_id player, obj_id structure)
 	if(!isIdValid(scd))
 	{
 		CustomerServiceLog("housepackup", "Structure (" + structure + ") could not be packed by player/owner ("
-			+ getPlayerName(structure_owner) + ") - scd was not valid"
+			+ getPlayerName(player) + ") - scd was not valid"
 			);
 		return;
 	}
@@ -3092,46 +3187,11 @@ void finalizePackUp(obj_id player, obj_id structure)
 	if(player_structure.isFactory(structure) && isHarvesterActive(structure))
 	{
 		CustomerServiceLog("housepackup", "Structure (" + structure + ") was a factory that was active. Turning off factory for player/owner ("
-			+ getPlayerName(structure_owner) + ") OID (" + structure_owner + ")"
+			+ getPlayerName(player) + ") OID (" + player + ")"
 			);
 		deactivate(structure);
 	}
-	
-	// Destroy vendors inside this structure.
-	string[] cells = getCellNames(structure);
-	if( cells != null)
-	{
-		for(int i = 0; i < cells.length; i++)
-		{
-			obj_id cellid = getCellId(structure, cells[i]);
-			obj_id contents[] = getContents(cellid);
-			if(contents != null)
-			{
-				for(int j=0; j<contents.length; j++)
-				{
-					if(hasCondition(contents[j], CONDITION_VENDOR))
-					{
-						obj_id owner = getObjIdObjVar(contents[j], "vendor_owner");
-						if (!isIdValid(owner))
-							owner = getOwner( contents[j] );
 
-						vendor_lib.finalizePackUp(owner, contents[j], owner, isAbandoned);
-					}
-
-					if(isIdValid(contents[j]))
-					{
-						messageTo(contents[j], "OnPack", null, 1.0f, false);
-					}
-				}
-			}
-		}
-	}
-	// Get the structure name
-	string structName = getStructureName(structure);
-	if (structName == null || structName.length() < 1)
-	{
-		structName = "Building";
-	}
 	// destroy waypoint if it exists
 	if(hasObjVar(structure, VAR_WAYPOINT_STRUCTURE))
 	{
@@ -3158,39 +3218,37 @@ void finalizePackUp(obj_id player, obj_id structure)
 			cityRemoveCitizen( cityId, resident );
 		}
 	}
-	
 	//we need removed even if we aren't a citizen.
 	city.removeStructureFromCity(structure);
 
 	// set the template objvar, this is required by the re-placement code
 	string template = getTemplateName(structure);
 	setDeedTemplate(scd, template);
-	
 	// add the scene restrictions
 	if(hasObjVar(structure, VAR_DEED_SCENE))
 	{
 		setObjVar(scd, VAR_DEED_SCENE, getDeedScene(structure));
 	}
 
-	location where = getLocation(structure);
-
 	// if the structure is a "lot over limit structure", set objvar to indicate it has been moved to the datapad
-	if (isIdValid(structure_owner) && exists(structure_owner))
+	if (isIdValid(player) && exists(player))
 	{
-		obj_id lotOverlimitStructure = getObjIdObjVar(structure_owner, "lotOverlimit.structure_id");
+		obj_id lotOverlimitStructure = getObjIdObjVar(player, "lotOverlimit.structure_id");
 		if (isIdValid(lotOverlimitStructure) && (lotOverlimitStructure == structure))
 		{
-			setObjVar(structure_owner, "lotOverlimit.structure_location", "Datapad");
+			setObjVar(player, "lotOverlimit.structure_location", "Datapad");
 		}
 	}
 
 	// put the house into the structure control device
 	putIn(structure, scd);
-	
-	const int maxDepth = isFactory(structure) ? 101 : 1;
+	if ( !player.isLoaded() )
+	{
+		const int maxDepth = isFactory(structure) ? 101 : 1;
 
-	moveToOfflinePlayerDatapadAndUnload(scd, structure_owner, maxDepth + 1); // add one for the scd
-	fixLoadWith(structure, structure_owner, maxDepth);
+		moveToOfflinePlayerDatapadAndUnload(scd, player, maxDepth + 1); // add one for the scd
+		fixLoadWith(structure, player, maxDepth);
+	}
 
 	CustomerServiceLog("housepackup", "Player/Owner " + getPlayerName(player) +
 		" (" + player + ") packed structure (" + structure + ",abandoned="
