@@ -1,9 +1,0 @@
-/**
- * Title:        field.script
- * Description:  script to be attached to factional mine fields
- */
-
-/***** INCLUDES ********************************************************/
-
-inherits faction_perk.base.factional_deed;
-
