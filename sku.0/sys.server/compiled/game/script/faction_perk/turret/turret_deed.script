@@ -1,4 +1,0 @@
-/***** INCLUDES ********************************************************/
-
-inherits faction_perk.base.factional_deed;
-
