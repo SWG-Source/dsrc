@@ -5870,9 +5870,9 @@ public class base_player extends script.base_script
             
 	    int city_rank = city.getCityRank(newCityId);
             string_id rank_name = new string_id("city/city", "rank" + city_rank);
-            String city_name = cityGetName(newCityId);
+            city_name = cityGetName(newCityId);
             String spec = city.cityGetSpecString(newCityId);
-            prose_package pp = new prose_package();
+            pp = new prose_package();
             pp.stringId = SID_ENTER_CITY;
             pp.target.set(city_name);
             String specpart = localize(rank_name);
@@ -5893,7 +5893,7 @@ public class base_player extends script.base_script
             sendSystemMessageProse(self, pp);
             obj_id cityHallId = cityGetCityHall(newCityId);
             String cityName = cityGetName(newCityId);
-            if(cityHallId != NULL && cityName != NULL && hasObjVar(cityHallId, "city_visitor_message"))
+            if(cityHallId != null && cityName != null && hasObjVar(cityHallId, "city_visitor_message"))
 	    {
                 String cityVisitorMessage = getStringObjVar(cityHallId, "city_visitor_message");
                 sendConsoleMessage(self, "City(" + cityName + ") Message: " + cityVisitorMessage + "\\#DFDFDF");
