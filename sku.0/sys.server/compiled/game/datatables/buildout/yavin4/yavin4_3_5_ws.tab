@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-8995407	0	object/static/flora/flora_decd_scorched_massassi_broke.iff	0	990.189	309.174	903.07	0.676373	-0.25177	0.551232	0.418658		$|
-8995408	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1285.22	107.103	1775.85	0.730602	0	-0.682804	0		$|
-8995409	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1286.28	104.816	1775.7	1	0	0	0		$|
-8995437	0	object/static/structure/general/debris_deathstar_storage.iff	0	1885.58	87.1575	1167.84	0.802761	-0.484834	0.34561	0.032645		$|
+8995407	0	object/static/flora/flora_decd_scorched_massassi_broke.iff	0	990.1887	309.1736	903.0703	0.6763729	0	0.5512321	-0.2517704		$|
+8995408	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1285.221	107.1027	1775.847	0.7306019	0	-0.6828038	0		$|
+8995409	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1286.278	104.8156	1775.699	1	0	0	0		$|
+8995437	0	object/static/structure/general/debris_deathstar_storage.iff	0	1885.581	87.15755	1167.845	0.8027606	0	0.3456099	-0.4848336		$|

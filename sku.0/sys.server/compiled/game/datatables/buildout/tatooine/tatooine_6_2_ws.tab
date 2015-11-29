@@ -2149,6 +2149,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1509360	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	1405.979	5	1058.925	0.7518054	0	-0.659385	0		$|
 1509361	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	1404.176	5	1061.113	-0.02079511	0	0.9997838	0		$|
 1509362	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	1403.373	5	1058.785	0.110574	0	0.9938675	0		$|
+1509363	0	object/tangible/furniture/tatooine/frn_tato_tbl_cafe_table_style_01.iff	0	1410.923	5	1100.001	0.7838232	0	0.6209841	0		$|
 1509364	0	object/tangible/furniture/tatooine/frn_tato_tbl_cafe_table_style_01.iff	0	1404.417	5	1059.639	0.9592133	0	0.2826832	0		$|
 1509366	0	object/tangible/furniture/tatooine/frn_tato_tbl_cafe_table_style_01.iff	0	1399.688	5	1087.566	0.8482176	0	0.5296479	0		$|
 1509367	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	1401.307	5	1086.383	0.9011465	0	-0.4335147	0		$|
@@ -2859,6 +2860,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9655503	0	object/static/structure/general/prp_junk_s7.iff	0	1432.151	8.149743	1314.201	-0.3259546	0	-0.1214984	0.8933275		$|
 9655504	0	object/static/structure/general/debris_deathstar_conduit.iff	0	1432.198	6.337298	1321.609	-3.010175E-09	0	3.185939E-08	0.9955661		$|
 9655505	0	object/static/structure/general/landing_pad_shuttle.iff	0	1398.659	5	1505.751	0.8775825	0	-0.4794256	0		$|
+9655506	0	object/tangible/furniture/all/frn_all_toolchest_lg_s01.iff	0	1408.152	5	1504.261	0.8419009	0	-0.5396322	0		$|
 9655507	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1389.829	5	1508.048	0.9915619	0	0.1296341	0		$|
 9755365	0	object/static/structure/general/droid_r5_powerdown.iff	0	1477.836	5.17	1315.904	0.7744189	0	0	0.6326732		$|
 9995352	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1353.63	5	1303.284	0.7381992	0	0.6745828	0		$|

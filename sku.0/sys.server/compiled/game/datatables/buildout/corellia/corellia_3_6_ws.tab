@@ -801,6 +801,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7125360	0	object/tangible/crafting/station/public_weapon_station.iff	0	692.4756	74	1281.459	0.9880116	0	0.1543797	0		$|
 7125365	0	object/tangible/crafting/station/public_clothing_station.iff	0	632.1277	78	1164.612	0.07991467	0	0.9968017	0		$|
 7125366	0	object/tangible/crafting/station/public_food_station.iff	0	646.1536	78	1184.317	0.06764731	0	0.9977093	0		$|
+8305404	0	object/tangible/sign/all_sign_city_s01.iff	0	926.0388	30.98999	716.9116	1	0	0	0		$|
+8305410	0	object/tangible/sign/all_sign_city_s01.iff	0	1071.738	28.62572	723.7969	1	0	0	0		$|
+8305411	0	object/tangible/sign/all_sign_city_s01.iff	0	1068.969	31	948.178	1	0	0	0		$|
+8305412	0	object/tangible/sign/all_sign_city_s01.iff	0	796.0103	22.0337	1571.572	1	0	0	0		$|
 8675401	0	object/static/item/item_rifle.iff	0	680.1741	74.22137	1289.777	0.7371101	0	-0.4123089	-0.4672812		$|
 8675402	0	object/static/item/item_food_fruit_s01.iff	0	680.1843	74	1289.919	1	0	0	0		$|
 8675403	0	object/static/item/item_con_drink_flask.iff	0	679.9011	75.48632	1289.932	1	0	0	0		$|

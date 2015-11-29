@@ -1,5 +1,13 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
+2055840	0	object/tangible/sign/all_sign_city_s01.iff	0	1038.277	280	889.9106	1	0	0	0		$|
+2055846	0	object/tangible/sign/all_sign_city_s01.iff	0	1121.289	301.6396	1004.563	1	0	0	0		$|
+2055847	0	object/tangible/sign/all_sign_city_s01.iff	0	1112.763	299.9368	1165.354	1	0	0	0		$|
+2055848	0	object/tangible/sign/all_sign_city_s01.iff	0	1127.67	299.9532	1211.378	1	0	0	0		$|
+2055849	0	object/tangible/sign/all_sign_city_s01.iff	0	1230.658	300	1357.542	0.9238796	0	-0.3826834	0		$|
+2055850	0	object/tangible/sign/all_sign_city_s01.iff	0	1260.437	308	1387.287	0.9909014	0	0.1345903	0		$|
+2055851	0	object/tangible/sign/all_sign_city_s01.iff	0	1285.171	308	1436.63	1	0	0	0		$|
+2055852	0	object/tangible/sign/all_sign_city_s01.iff	0	1284.983	324	1593.377	1	0	0	0		$|
 3055747	0	object/building/corellia/shuttleport_corellia.iff	0	1017.496	280	897.0098	-7.414812E-08	0	1	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Doaba Guerfel Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 3055759	0	object/building/corellia/skyscraper_corellia_style_03.iff	0	1139.731	290	853.417	1	0	0	0		$|
 3055763	0	object/building/corellia/guild_commerce_corellia_style_01.iff	0	1111.906	290	933.1719	-1.16295E-07	0	1	0		$|

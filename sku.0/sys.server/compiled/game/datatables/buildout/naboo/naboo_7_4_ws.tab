@@ -643,6 +643,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7085363	0	object/static/naboo/waterfall_200m.iff	0	1090.744	331.5041	464.983	0.9267985	0	0.375559	0		$|
 8725359	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s07.iff	0	1093.749	350.1581	654.1381	0.990216	0	-0.1395428	0		$|
 8725360	0	object/static/structure/general/nboo_imprv_flower_urn_s01.iff	0	1041.946	346.5037	539.1659	0.659983	0	0.75128	0		$|
+8845415	0	object/tangible/sign/all_sign_city_s03.iff	0	1219.678	326	460.2142	0.8050719	0	-0.5931773	0		$|
 8845416	0	object/building/naboo/association_hall_civilian_naboo.iff	0	815.4663	360	675.014	-3.200127E-08	0	1	0		$|
 8845417	8845416	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
 8845418	8845416	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
@@ -678,6 +679,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8905442	0	object/static/structure/general/cave_wall_damprock_style_01.iff	0	1089.97	324.489	453.0627	0.9742299	0	-0.01598606	0.2127477		$|
 8905443	0	object/static/structure/general/cave_wall_damprock_style_01.iff	0	1078.451	324.6329	463.1389	0.9836469	0	0.003580001	0.019676		$|
 8905496	0	object/building/naboo/housing_naboo_style_3.iff	0	965.2939	360	631.6774	-0.5360876	0	0.8441625	0		$|
+9795376	0	object/tangible/sign/all_sign_city_s03.iff	0	633.9268	305.5488	545.3591	0.99995	0	-0.00999918	0		$|
+9795377	0	object/tangible/sign/all_sign_city_s03.iff	0	477.1367	323.1624	748.4556	0.8938219	0	-0.4484222	0		$|
 9895358	0	object/static/naboo/waterfall_mist_small.iff	0	1087.597	327.3344	452.123	1	0	0	0		$|
 9895359	0	object/static/naboo/waterfall_mist_small.iff	0	1076.143	328.5302	460.8229	1	0	0	0		$|
 9895360	0	object/static/naboo/waterfall_200m.iff	0	1075.904	354.092	448.5719	0.9425326	0	0.3341142	0		$|

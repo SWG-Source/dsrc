@@ -3679,6 +3679,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8095730	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1551.534	7	1285.404	0.9047517	0	0.4259395	0		occupied.limit|0|1|$|
 8095732	0	object/static/item/item_con_ration_kit_lg.iff	0	1550.144	7.7	1284.459	0.9460424	0	-0.3240429	0		$|
 8095733	0	object/static/item/item_con_ration_kit_m.iff	0	1550.178	7.7	1284.153	0.9689124	0	0.2474041	0		$|
+8335413	0	object/tangible/sign/all_sign_city_s03.iff	0	1285.953	7.870818	829.1357	1	0	0	0	systems.sign.sign:object.sign	$|
+8335414	0	object/tangible/sign/all_sign_city_s03.iff	0	1206.675	7.894952	849.6208	0.9989877	0	-0.04498482	0	systems.sign.sign:object.sign	$|
+8335415	0	object/tangible/sign/all_sign_city_s03.iff	0	1127.646	7	934.1753	0.8577086	0	0.5141361	0	systems.sign.sign:object.sign	$|
+8335416	0	object/tangible/sign/all_sign_city_s03.iff	0	1252.753	7	1390.061	0.7144213	0	-0.6997158	0	systems.sign.sign:object.sign	$|
+8335417	0	object/tangible/sign/all_sign_city_s03.iff	0	1425.394	7	1477.606	1	0	0	0	systems.sign.sign:object.sign	$|
+8335418	0	object/tangible/sign/all_sign_city_s03.iff	0	1635.916	6.833287	1436.541	0.9068701	0	0.4214104	0	systems.sign.sign:object.sign	$|
+8335419	0	object/tangible/sign/all_sign_city_s03.iff	0	1821.337	7	1137.21	0.9249091	0	0.3801884	0	systems.sign.sign:object.sign	$|
 8555725	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1206.099	7	875.3059	0.9838436	0	0.1790301	0		occupied.limit|0|1|$|
 8555726	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1207.999	7	875.4604	0.8653239	0	-0.5012131	0		occupied.limit|0|1|$|
 8555727	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1210.329	7	874.4475	1	0	0	0		occupied.limit|0|1|$|
