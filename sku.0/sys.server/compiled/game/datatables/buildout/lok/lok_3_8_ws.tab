@@ -1,11 +1,11 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-5685426	0	object/static/structure/general/trash_pile_s01.iff	0	1515.781	11.85881	46.43115	-0.1798041	0	0.9836516	0.009836941		$|
-5685427	0	object/static/structure/general/trash_pile_s01.iff	0	1520.399	11.72975	35.73145	0.3105735	0	0.9505494	0		$|
-5685428	0	object/static/structure/general/trash_pile_s01.iff	0	1506.142	12.00062	37.41943	0.8050717	0	-0.5931775	0		$|
-5685429	0	object/static/structure/general/trash_pile_s01.iff	0	1506.986	12.00979	37.81592	1	0	0	0		$|
-5685430	0	object/static/structure/general/trash_pile_s01.iff	0	1506.68	12.00291	37.00098	1	0	0	0		$|
-9025491	0	object/static/structure/general/prp_engine.iff	0	1507.13	11.69933	44.53271	0.8823327	0	-0.4706261	0		$|
-9025492	0	object/static/structure/general/prp_junk_s1.iff	0	1509.596	12.08629	42.7998	0.9068702	0	0	0		$|
-9025493	0	object/static/structure/tatooine/debris_tatt_radar_dish.iff	0	1522.524	10.69551	38.67627	0.9293799	0	-0.207827	-0.06657301		$|
-9025494	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1515.809	11.64726	41.3335	0.9123064	0	0.2088051	-0.07859506		$|
+5685426	0	object/static/structure/general/trash_pile_s01.iff	0	1515.78	11.8588	46.4312	-0.179804	0.00983694	0.983652	0.00179812		$|
+5685427	0	object/static/structure/general/trash_pile_s01.iff	0	1520.4	11.7298	35.7314	0.310574	0	0.950549	0		$|
+5685428	0	object/static/structure/general/trash_pile_s01.iff	0	1506.14	12.0006	37.4194	0.805072	0	-0.593177	0		$|
+5685429	0	object/static/structure/general/trash_pile_s01.iff	0	1506.99	12.0098	37.8159	1	0	0	0		$|
+5685430	0	object/static/structure/general/trash_pile_s01.iff	0	1506.68	12.0029	37.001	1	0	0	0		$|
+9025491	0	object/static/structure/general/prp_engine.iff	0	1507.13	11.6993	44.5327	0.882333	0	-0.470626	0		$|
+9025492	0	object/static/structure/general/prp_junk_s1.iff	0	1509.6	12.0863	42.7998	0.90687	0	0	0.42141		$|
+9025493	0	object/static/structure/tatooine/debris_tatt_radar_dish.iff	0	1522.52	10.6955	38.6763	0.92938	-0.066573	-0.207827	0.297706		$|
+9025494	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1515.81	11.6473	41.3335	0.912306	-0.0785951	0.208805	-0.343395		$|

@@ -1,12 +1,12 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9725632	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1063.979	364.4542	887.2339	0.4124328	0	0.8341123	0.1623445		$|
-9725633	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1071.109	365.8281	892.0942	-0.05471028	0	0.8987835	-0.0307683		$|
-9725634	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1077.043	365.9122	886.4089	-0.5391031	0	0.7538723	-0.2184564		$|
-9725635	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1075.297	365.8028	878.5583	0.8164885	0	-0.3994562	0.3744588		$|
-9725636	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1065.905	364.9182	878.4653	0.8801643	0	0.3072115	0.3375335		$|
-9725645	0	object/static/structure/general/tato_cave_rock_large.iff	0	1070.16	371.8708	884.0593	1	0	0	0		$|
-9725646	0	object/static/structure/general/tato_cave_rock_med.iff	0	1069.937	369.3378	883.9617	0.7109135	0	0	0.7032794		$|
-9725647	0	object/static/structure/general/tato_cave_rock_med.iff	0	1070.053	374.1874	883.9661	1	0	0	0		$|
-9725651	0	object/static/particle/particle_campfire_style_1.iff	0	1069.981	374.2906	883.8967	1	0	0	0		$|
-9725652	0	object/static/particle/particle_campfire_style_1.iff	0	1069.811	369.4946	883.7976	1	0	0	0		$|
+9725632	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1063.98	364.454	887.234	0.412433	0.162344	0.834112	-0.328329		$|
+9725633	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1071.11	365.828	892.094	-0.0547103	-0.0307683	0.898784	-0.433876		$|
+9725634	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1077.04	365.912	886.409	-0.539103	-0.218456	0.753872	-0.305486		$|
+9725635	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1075.3	365.803	878.558	0.816489	0.374459	-0.399456	0.183199		$|
+9725636	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1065.91	364.918	878.465	0.880164	0.337533	0.307212	-0.130396		$|
+9725645	0	object/static/structure/general/tato_cave_rock_large.iff	0	1070.16	371.871	884.059	1	0	0	0		$|
+9725646	0	object/static/structure/general/tato_cave_rock_med.iff	0	1069.94	369.338	883.962	0.710914	0.703279	0	0		$|
+9725647	0	object/static/structure/general/tato_cave_rock_med.iff	0	1070.05	374.187	883.966	1	0	0	0		$|
+9725651	0	object/static/particle/particle_campfire_style_1.iff	0	1069.98	374.291	883.897	1	0	0	0		$|
+9725652	0	object/static/particle/particle_campfire_style_1.iff	0	1069.81	369.495	883.798	1	0	0	0		$|

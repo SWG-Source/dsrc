@@ -1,7 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9015694	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	1984.556	2046.053	1716.733	1	0	0	0		$|
-9015695	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1984.822	1.849489	1733.023	0.9996875	0	-0.02499737	0		$|
-9015696	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1985.223	1.401184	1699.986	0.0741355	0	0.9972481	0		$|
-9015697	0	object/static/structure/dantooine/dant_totem_pole.iff	0	2003	1.171697	1717	0.7316884	0	0.6816394	0		$|
-9015698	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1967	2.054777	1717	0.7109142	0	-0.7032787	0		$|
+9015694	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	1984.56	-1.94701	1716.73	1	0	0	0		$|
+9015695	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1984.82	1.84949	1733.02	0.999687	0	-0.0249974	0		$|
+9015696	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1985.22	1.40118	1699.99	0.0741355	0	0.997248	0		$|
+9015697	0	object/static/structure/dantooine/dant_totem_pole.iff	0	2003	1.1717	1717	0.731688	0	0.681639	0		$|
+9015698	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1967	2.05478	1717	0.710914	0	-0.703279	0		$|

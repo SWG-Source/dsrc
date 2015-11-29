@@ -1,17 +1,17 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-8605481	0	object/static/structure/dantooine/dant_boundary_post.iff	0	2002.344	1.561634	1726.09	0.7451744	0	-0.6668696	0		$|
-8605482	0	object/static/structure/dantooine/dant_skull_bol.iff	0	2001.262	1.402815	1726.083	0.710914	0	-0.7032789	0		$|
-8605483	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	2013.156	1.698627	1732.996	0.96639	0	0.2570806	0		$|
-8605484	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	2016.786	1.190974	1730.99	0.4888721	0	0.8723555	0		$|
-8605485	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	2015.082	0.4807846	1715.698	0.8960526	0	-0.4439479	0		$|
-8605486	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	2027.329	0.3350237	1727.94	-0.2238827	0	0.9746161	0		$|
-8605487	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	2013.922	2.409931	1722.679	1	0	0	0		$|
-8605488	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	2016.698	2.308479	1722.708	0.728271	0	0	-0.6852893		$|
-8605489	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	2019.614	2.246513	1722.636	0.6637315	0	0	0.7479711		$|
-8605490	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	2007.214	2.121616	1722.65	0.953742	0	0.28981	-0.02323439		$|
-8605491	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	2011.172	2.211046	1722.925	-0.005796315	0	0.9999832	0		$|
-9015482	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	34.84473	2045.681	1302.681	0.8050718	0	-0.5931773	0		$|
-9015483	0	object/building/endor/endr_lake_rail2m.iff	0	34.82593	3.934452	1302.744	0.005731257	0	-0.000866195	0.9887545		$|
-9015484	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	34.7998	2044.841	1302.719	0.9909014	0	0.1345903	0		$|
-9015486	0	object/static/structure/dantooine/dant_skull_bol.iff	0	34.79883	1.040541	1302.78	0.9838437	0	0.1790296	0		$|
+8605481	0	object/static/structure/dantooine/dant_boundary_post.iff	0	2002.34	1.56163	1726.09	0.745174	0	-0.66687	0		$|
+8605482	0	object/static/structure/dantooine/dant_skull_bol.iff	0	2001.26	1.40281	1726.08	0.710914	0	-0.703279	0		$|
+8605483	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	2013.16	1.69863	1733	0.96639	0	0.257081	0		$|
+8605484	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	2016.79	1.19097	1730.99	0.488872	0	0.872356	0		$|
+8605485	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	2015.08	0.480785	1715.7	0.896053	0	-0.443948	0		$|
+8605486	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	2027.33	0.335024	1727.94	-0.223883	0	0.974616	0		$|
+8605487	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	2013.92	2.40993	1722.68	1	0	0	0		$|
+8605488	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	2016.7	2.30848	1722.71	0.728271	-0.685289	0	0		$|
+8605489	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	2019.61	2.24651	1722.64	0.663731	0.747971	0	0		$|
+8605490	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	2007.21	2.12162	1722.65	0.953742	-0.0232344	0.28981	-0.0764626		$|
+8605491	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	2011.17	2.21105	1722.93	-0.00579632	0	0.999983	0		$|
+9015482	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	34.8447	-2.31872	1302.68	0.805072	0	-0.593177	0		$|
+9015483	0	object/building/endor/endr_lake_rail2m.iff	0	34.8259	3.93445	1302.74	0.00573126	0.988755	-0.000866195	-0.149436		$|
+9015484	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	34.7998	-3.15946	1302.72	0.990901	0	0.13459	0		$|
+9015486	0	object/static/structure/dantooine/dant_skull_bol.iff	0	34.7988	1.04054	1302.78	0.983844	0	0.17903	0		$|

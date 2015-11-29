@@ -1,8 +1,8 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9505462	0	object/static/structure/corellia/corl_imprv_arch_lg_s02.iff	0	293.4792	2043.988	1672.944	1	0	0	0		$|
-9505463	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	299.8301	2041.7	1664.146	0.9568021	0	0	0		$|
-9505464	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	280.7739	2037.217	1649.119	0.8638208	0	0.2958801	-0.1321319		$|
-9505474	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	307.9924	2035.731	1648.916	-0.6711441	0	0.7412594	-0.007412843		$|
-9505521	0	object/static/structure/corellia/corl_banner_govt_tall_s01.iff	0	292.3174	2047.68	1692.805	0.9780309	0	0	0		$|
-9505526	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	282.4734	1.718883	1706.391	0.9780309	0	0	0		$|
+9505462	0	object/static/structure/corellia/corl_imprv_arch_lg_s02.iff	0	293.479	-4.01224	1672.94	1	0	0	0		$|
+9505463	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	299.83	-6.30029	1664.15	0.956802	0	0	0.29074		$|
+9505464	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	280.774	-10.7826	1649.12	0.863821	-0.132132	0.29588	-0.385759		$|
+9505474	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	307.992	-12.2687	1648.92	-0.671144	-0.00741284	0.741259	0.00671166		$|
+9505521	0	object/static/structure/corellia/corl_banner_govt_tall_s01.iff	0	292.317	-0.320186	1692.81	0.978031	0	0	-0.20846		$|
+9505526	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	282.473	1.71888	1706.39	0.978031	0	0	0.20846		$|

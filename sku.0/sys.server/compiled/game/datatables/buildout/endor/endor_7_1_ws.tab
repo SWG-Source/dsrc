@@ -1,9 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9705743	0	object/static/structure/naboo/gungan_relic_s01.iff	0	1959.669	102.9976	1513.658	0.4801242	0	0.8772005	0		$|
-9705746	0	object/static/structure/dathomir/nsister_tent_house_style_01.iff	0	1944.91	111.4124	1525.827	0.9804468	0	0.006780444	-0.03432966		$|
-9705748	0	object/static/structure/dathomir/nsister_tent_house_style_01.iff	0	1963.274	112.7767	1530.4	0.9033464	0	0.4009503	-0.1487367		$|
-9705749	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1940.215	108.5303	1505.782	-0.1943125	0	0.9081083	-0.36271		$|
-9705751	0	object/static/structure/dantooine/dant_fire_pit.iff	0	1948.802	110.6143	1514.779	1	0	0	0		$|
-9705754	0	object/static/structure/dantooine/dant_rack_spears.iff	0	1959.196	112.3164	1523.41	-0.5863097	0	-0.02618226	0.8090782		$|
-9705756	0	object/static/structure/dantooine/dant_hide_tanning_s01.iff	0	1942.163	112.0115	1519.254	-0.4934196	0	0.5620677	0.5165112		$|
+9705743	0	object/static/structure/naboo/gungan_relic_s01.iff	0	1959.67	102.998	1513.66	0.480124	0	0.8772	0		$|
+9705749	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1940.21	108.53	1505.78	-0.194313	-0.36271	0.908108	0.0776109		$|
+9705751	0	object/static/structure/dantooine/dant_fire_pit.iff	0	1948.8	110.614	1514.78	1	0	0	0		$|
+9705754	0	object/static/structure/dantooine/dant_rack_spears.iff	0	1959.2	112.316	1523.41	-0.58631	0.809078	-0.0261823	-0.0307901		$|
+9705756	0	object/static/structure/dantooine/dant_hide_tanning_s01.iff	0	1942.16	112.011	1519.25	-0.49342	0.516511	0.562068	0.416933		$|
