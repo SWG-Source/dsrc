@@ -1,10 +1,11 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-7325424	0	object/tangible/jedi/force_shrine_stone.iff	0	1474.55	99.8774	530.558	0.707107	0	0.707107	0		$|
-7325425	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1470.13	100.252	528.961	0.707121	0	0.707092	0		$|
-7325426	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1478.81	100.252	528.995	1	0	0	0		$|
-7325427	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1473.58	100.252	528.95	0	0	1	0		$|
-7325428	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1475.38	100.242	528.902	1	0	0	0		$|
-7325429	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	1474.49	82.2981	528.961	1	0	0	0		$|
-7325430	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1474.55	100.536	530.555	1	0	0	0		$|
-9725438	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1460.72	126.907	1359.15	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_scout_hut.iff|$|
+7325424	0	object/tangible/jedi/force_shrine_stone.iff	0	1474.551	99.87744	530.5581	0.7071069	0	0.707107	0		$|
+7325425	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1470.129	100.2517	528.9612	0.7071205	0	0.7070925	0		$|
+7325426	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1478.814	100.2517	528.9951	1	0	0	0		$|
+7325427	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1473.583	100.2517	528.95	0	0	1	0		$|
+7325428	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1475.376	100.2417	528.9021	1	0	0	0		$|
+7325429	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	1474.492	82.29812	528.9609	1	0	0	0		$|
+7325430	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1474.554	100.5363	530.5547	1	0	0	0		$|
+9725436	0	object/static/structure/dathomir/mtn_clan_hut_s01.iff	0	1460.618	128.8249	1359.16	0.7144206	0	-0.6997166	0		$|
+9725438	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1460.717	126.9067	1359.155	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_scout_hut.iff|$|

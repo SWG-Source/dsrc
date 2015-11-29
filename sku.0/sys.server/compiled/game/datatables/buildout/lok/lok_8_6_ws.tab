@@ -1,3 +1,19 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-5645584	0	object/building/lok/mining_cave_01.iff	0	331.805	72.6623	1846.9	-0.352737	0.0148624	0.934868	0.0371248		$|
+5645584	0	object/building/lok/mining_cave_01.iff	0	331.8052	72.66228	1846.901	-0.3527371	0	0.9348676	0.01486243		$|
+5645585	5645584	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
+5645586	5645584	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
+5645587	5645584	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|
+5645588	5645584	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
+5645589	5645584	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
+5645590	5645584	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
+5645591	5645584	object/cell/cell.iff	7	0	0	0	1	9.809089E-45	0	0		$|
+4777476	5645591	object/tangible/collection/rare_melee_engineer_sword.iff	0	-24.12518	-65.4377	-244.3805	0.6399153	0	-0.3098252	-0.3911143		$|
+4777482	5645591	object/tangible/container/corpse/player_corpse.iff	0	-24.11242	-65.43659	-243.8948	0.3483371	0	0.9373693	0		$|
+4777491	5645591	object/tangible/container/corpse/player_corpse.iff	0	-25.28068	-65.36786	-246.312	0.8203164	0	-0.5711229	0.01823413		$|
+4777495	5645591	object/tangible/lair/base/trash_dark.iff	0	-24.64284	-65.8014	-248.318	0.153435	0	0.7380066	-0.6362414		$|
+4777500	5645591	object/tangible/camp/camp_chair_s1.iff	0	-25.37006	-65.05604	-244.6223	-0.6316043	0	-0.3081267	0.6469798		$|
+5645592	5645584	object/cell/cell.iff	8	0	0	0	1	1.121039E-44	0	0		$|
+5645593	5645584	object/cell/cell.iff	9	0	0	0	1	1.261169E-44	0	0		$|
+5645594	5645584	object/cell/cell.iff	10	0	0	0	1	1.401298E-44	0	0		$|
+5645595	5645584	object/cell/cell.iff	11	0	0	0	1	1.541428E-44	0	0		$|

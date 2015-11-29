@@ -1,10 +1,10 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9015489	0	object/static/structure/general/poi_all_rebl_corral_32x32_s01.iff	0	1919.33	6.33456	1870.96	0.978031	0	-0.20846	0		$|
-9015490	0	object/static/structure/general/droid_r5_powerdown.iff	0	1929.14	7.0576	1872.1	0.781265	-0.56068	0.0158023	-0.273885		$|
-9015491	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1921.73	7.30035	1876.61	-0.669203	0.170758	0.566389	0.449681		$|
-9015492	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1924.7	7.51754	1875.15	0.817221	-0.284492	0.473351	0.164783		$|
-9015493	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1923.36	7.16011	1873.68	0.905038	-0.120275	0.255301	0.318216		$|
-9015494	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1926.23	7.18263	1873.97	-0.643247	0.0525467	0.762457	-0.0461611		$|
-9015495	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1912.43	7.12235	1867.31	0.975897	0	-0.21823	0		$|
-9015496	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	1909.58	7.96512	1867.19	0.844588	0	0.535416	0		$|
+9015489	0	object/static/structure/general/poi_all_rebl_corral_32x32_s01.iff	0	1919.335	6.334558	1870.959	0.9780309	0	-0.2084599	0		$|
+9015490	0	object/static/structure/general/droid_r5_powerdown.iff	0	1929.145	7.057595	1872.1	0.7812653	0	0.01580227	-0.5606799		$|
+9015491	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1921.727	7.300349	1876.612	-0.669203	0	0.5663887	0.1707575		$|
+9015492	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1924.702	7.517538	1875.149	0.8172208	0	0.4733508	-0.2844919		$|
+9015493	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1923.362	7.160108	1873.681	0.9050379	0	0.2553012	-0.1202747		$|
+9015494	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1926.234	7.182628	1873.974	-0.6432473	0	0.7624571	0.05254669		$|
+9015495	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1912.429	7.122346	1867.315	0.9758974	0	-0.2182296	0		$|
+9015496	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	1909.584	7.965122	1867.194	0.8445885	0	0.5354161	0		$|

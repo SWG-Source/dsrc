@@ -1,5 +1,5 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-2055788	0	object/building/endor/endor_lake_hut.iff	0	410.501	-2.17984	8.36353	1	0	0	0		$|
-9705534	0	object/building/endor/endor_lake_platform.iff	0	432.157	0.214018	6.55176	0.796084	0	-0.605186	0		$|
-9705537	0	object/building/endor/endor_lake_walkway_square.iff	0	419.624	-9.58755	5.8894	0.796084	0	-0.605186	0		$|
+2055788	0	object/building/endor/endor_lake_hut.iff	0	410.5015	2045.82	8.363525	1	0	0	0		$|
+9705534	0	object/building/endor/endor_lake_platform.iff	0	432.1572	0.2140183	6.551758	0.7960838	0	-0.6051864	0		$|
+9705537	0	object/building/endor/endor_lake_walkway_square.iff	0	419.6243	2038.412	5.889404	0.7960839	0	-0.6051862	0		$|

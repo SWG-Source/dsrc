@@ -1,16 +1,16 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-937346	0	object/static/structure/general/prp_engine.iff	0	50.1104	61.1597	1216.15	0.884675	0	0.466208	0		$|
-937347	0	object/static/structure/general/prp_engine.iff	0	71.7021	56.5664	1222.53	0.856032	-0.284945	-0.232312	-0.363382		$|
-937348	0	object/static/structure/general/prp_engine_component.iff	0	71.2964	56.3716	1214.81	0.882333	0	0.470626	0		$|
-937349	0	object/static/structure/general/prp_engine_component.iff	0	62.3442	57.0628	1214.01	1	0	0	0		$|
-937353	0	object/static/structure/general/prp_junk_s8.iff	0	74.8433	56.8195	1227.12	0.893152	0.291033	-0.106235	0.326026		$|
-937354	0	object/static/structure/general/debris_deathstar_small_chunk.iff	0	83.4424	56.2145	1225.63	-0.465517	0.128566	0.797629	0.361322		$|
-937355	0	object/static/structure/general/debris_deathstar_small_tube.iff	0	62.625	57.3238	1218.37	-0.580787	0.100284	0.791713	0.160685		$|
-5685393	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1140.59	15.5163	407.033	-0.4313	-0.577043	0.35524	0.595656		$|
-5685400	0	object/tangible/camp/camp_tent_s1.iff	0	1137.78	15.6525	407.475	0.555699	0	0.831383	0		$|
-8335411	0	object/static/structure/general/tie_bomber_debris_01.iff	0	39.4575	61.5145	1214.35	-0.616812	-0.120418	0.776227	-0.0501312		$|
-9025472	0	object/static/structure/general/skeleton_human_head.iff	0	1140.76	15.331	405.296	0.319106	0.118684	0.890126	0.302921		$|
-9025473	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1139.41	15.2809	404.606	0.999438	0.029992	0.014993	-0.00045		$|
-5685394	0	object/static/item/item_armor_chitin_chestplate.iff	0	1139.42	15.2992	406.179	0.724694	-0.68889	0.014511	-0.00627711		$|
-5685396	0	object/static/item/item_armor_composite_helmet.iff	0	1140.97	13.7959	405.167	0.990216	0.139543	0	0		$|
+937346	0	object/static/structure/general/prp_engine.iff	0	50.11035	61.15971	1216.149	0.884675	0	0.4662082	0		$|
+937347	0	object/static/structure/general/prp_engine.iff	0	71.70215	56.56636	1222.535	0.8560322	0	-0.2323121	-0.2849451		$|
+937348	0	object/static/structure/general/prp_engine_component.iff	0	71.29639	56.37157	1214.806	0.8823329	0	0.4706258	0		$|
+937349	0	object/static/structure/general/prp_engine_component.iff	0	62.34424	57.06281	1214.014	1	0	0	0		$|
+937353	0	object/static/structure/general/prp_junk_s8.iff	0	74.84326	56.8195	1227.119	0.8931522	0	-0.1062354	0.2910332		$|
+937354	0	object/static/structure/general/debris_deathstar_small_chunk.iff	0	83.44238	56.21455	1225.634	-0.465517	0	0.7976285	0.1285659		$|
+937355	0	object/static/structure/general/debris_deathstar_small_tube.iff	0	62.625	57.3238	1218.367	-0.5807872	0	0.791713	0.1002839		$|
+5685393	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1140.594	15.51627	407.0332	-0.4313004	0	0.3552399	-0.5770428		$|
+5685394	0	object/static/item/armor_chitin_chestplate.iff	0	1139.419	15.29922	406.1792	0.7246935	0	0.01451102	-0.68889		$|
+5685396	0	object/static/item/armor_composite_helmet.iff	0	1140.975	13.79586	405.1675	0.990216	0	0	0.1395431		$|
+5685400	0	object/tangible/camp/camp_tent_s1.iff	0	1137.777	15.65245	407.4746	0.5556995	0	0.8313833	0		$|
+8335411	0	object/static/structure/general/tie_bomber_debris_01.iff	0	39.45752	61.51445	1214.347	-0.6168122	0	0.7762274	-0.1204183		$|
+9025472	0	object/static/structure/general/skeleton_human_head.iff	0	1140.763	15.33105	405.2964	0.319106	0	0.8901261	0.1186837		$|
+9025473	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1139.41	15.28089	404.6064	0.9994376	0	0.01499301	0.02999202		$|

@@ -1,8 +1,8 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-978357	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	719.979	518.541	1172.66	1	0	0	0		$|
-978358	0	object/static/particle/pt_flocking_glowzees.iff	0	721.021	522.965	1171.73	1	0	0	0		$|
-978359	0	object/static/particle/pt_flocking_glowzees.iff	0	723.041	504.309	1168.61	1	0	0	0		$|
-978360	0	object/static/particle/pt_flocking_glowzees.iff	0	722.552	514.492	1168.04	1	0	0	0		$|
-9725807	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	722.096	506.172	1170.19	0.852524	0	0.522687	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_mtn_bane_back_spider.iff|$|
-9725812	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	722.286	502.686	1170.21	1	0	0	0		$|
+978357	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	719.979	518.5406	1172.664	1	0	0	0		$|
+978358	0	object/static/particle/pt_flocking_glowzees.iff	0	721.0215	522.9651	1171.733	1	0	0	0		$|
+978359	0	object/static/particle/pt_flocking_glowzees.iff	0	723.041	504.3091	1168.606	1	0	0	0		$|
+978360	0	object/static/particle/pt_flocking_glowzees.iff	0	722.5518	514.4922	1168.044	1	0	0	0		$|
+9725807	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	722.0962	506.172	1170.188	0.8525244	0	0.5226875	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_mtn_bane_back_spider.iff|$|
+9725812	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	722.2856	502.6863	1170.214	1	0	0	0		$|

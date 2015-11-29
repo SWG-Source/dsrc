@@ -1,13 +1,13 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-8515563	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	358.922	7.50029	436.312	0.707108	0	-0.707105	0		$|
-8515586	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	358.934	7.52692	428.681	-0.707107	0	0.707107	0		$|
-8515588	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	358.925	7.5337	420.459	-0.707107	0	0.707107	0		$|
-8515590	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	365.907	11.7588	428.372	3.03555e-008	-1.49011e-008	0.707106	0.707108		$|
-8515591	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	350.885	5.35802	434.422	2.95653e-008	1.22464e-008	0.92388	-0.382683		$|
-8515592	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	365.894	11.7461	420.156	0	0	0.707106	0.707108		$|
-8515643	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	366.925	11.7556	420.181	-0.707107	0.707107	4.52566e-008	2.98024e-008		$|
-8515646	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	358.921	7.55192	412.254	-0.707107	0	0.707107	0		$|
-8515649	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	349.196	7.6733	414.88	0	0	0.707106	0.707108		$|
-8515650	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	351.94	10.7832	420.155	0.707108	0.707105	0	0		$|
-8515651	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	351.92	11.7903	420.17	0.707108	-0.707105	0	0		$|
+8515563	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	358.9224	7.500289	436.312	0.7071084	0	-0.707105	0		$|
+8515586	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	358.9336	7.52692	428.6812	-0.7071071	0	0.7071068	0		$|
+8515588	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	358.9248	7.533697	420.4595	-0.7071071	0	0.7071068	0		$|
+8515590	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	365.9068	11.75881	428.3721	3.035547E-08	0	0.7071056	-1.490114E-08		$|
+8515591	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	350.8854	5.358019	434.4224	2.956531E-08	0	0.9238797	1.224635E-08		$|
+8515592	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	365.8936	11.74606	420.1563	0	0	0.7071059	0		$|
+8515643	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	366.9246	11.75562	420.1807	-0.7071071	0	4.525662E-08	0.7071068		$|
+8515646	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	358.9215	7.551918	412.2539	-0.7071069	0	0.707107	0		$|
+8515649	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	349.1963	7.673305	414.8799	0	0	0.7071059	0		$|
+8515650	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	351.9399	10.78317	420.1548	0.7071084	0	0	0.7071051		$|
+8515651	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	351.92	11.79033	420.1699	0.7071084	0	0	-0.7071051		$|
