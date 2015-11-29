@@ -1116,3 +1116,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4026531	0	object/static/structure/general/droid_r5_torso.iff	0	2012.64	28	1771.15	-0.0264239	0	0.999651	0		$|
 4026532	0	object/static/structure/general/droid_repairdroidtorso.iff	0	2011.94	28	1770.73	-0.312988	0	0.949757	0		$|
 4026533	0	object/static/structure/general/droid_r3_head.iff	0	2012.34	27.2962	1770.79	0.956802	-0.29074	0	0		$|
+164639	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1898	28	1424	0	0	0.993868	0	space.content_tools.npc_spawner	$|
