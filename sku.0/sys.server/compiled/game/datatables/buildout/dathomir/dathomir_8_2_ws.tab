@@ -1,4 +1,4 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9725714	0	object/static/structure/general/prp_junk_s3.iff	0	737.493	396.956	1216.27	0.867695	-0.122521	0.403206	-0.263663		$|
-9725724	0	object/static/structure/general/prp_junk_s5.iff	0	737.578	397.096	1216.4	0.868874	-0.174015	0.392953	-0.245694		$|
+9725714	0	object/static/structure/general/prp_junk_s3.iff	0	737.4932	396.9557	1216.271	0.8676953	0	0.4032062	-0.1225208		$|
+9725724	0	object/static/structure/general/prp_junk_s5.iff	0	737.5776	397.0963	1216.396	0.8688737	0	0.3929528	-0.1740147		$|

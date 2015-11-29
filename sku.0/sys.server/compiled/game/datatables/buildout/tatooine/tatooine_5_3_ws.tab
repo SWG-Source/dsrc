@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-8985396	0	object/static/structure/general/gravestone_generic_style_02.iff	0	1881.23	8.34433	1067.47	0.950796	0	-0.309816	0		$|
-8985397	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	1881.05	4.65438	1065.43	1	0	0	0		$|
-8985398	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	1882.7	5.4322	1065.34	-0.690064	-0.154312	0.690064	0.154312		$|
-8985400	0	object/static/structure/general/gravestone_generic_style_04.iff	0	1880.13	8.33348	1066.59	0.949235	0	-0.314567	0		$|
+8985396	0	object/static/structure/general/gravestone_generic_style_02.iff	0	1881.226	8.344329	1067.471	0.9507964	0	-0.3098164	0		$|
+8985397	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	1881.049	4.654377	1065.427	1	0	0	0		$|
+8985398	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	1882.701	5.432202	1065.34	-0.6900636	0	0.6900636	-0.1543116		$|
+8985400	0	object/static/structure/general/gravestone_generic_style_04.iff	0	1880.127	8.333479	1066.588	0.9492354	0	-0.3145666	0		$|

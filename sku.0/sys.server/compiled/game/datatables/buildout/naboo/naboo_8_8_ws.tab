@@ -1,14 +1,14 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-7825492	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1428.41	-210.627	829.881	0.979061	0	0	-0.203567		$|
-7825493	0	object/static/structure/naboo/gungan_relic_s01.iff	0	1417.63	-222.044	838.245	1	0	0	0		$|
-7825494	0	object/static/structure/naboo/gungan_statue_s01.iff	0	1440.08	-210.911	840.06	-0.0757237	0	0.997129	0		$|
-7825495	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	1444.46	-211.485	841.726	0.71442	0	-0.699717	0		$|
-7825497	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	1420.79	-210.842	823.348	1	0	0	0		$|
-7825499	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1416.94	-211.867	813.125	0.395367	-0.217121	0.887233	0.0967528		$|
-7825500	0	object/static/flora/flora_tree_palm_sm.iff	0	1414.43	-216.658	822.361	1	0	0	0		$|
-7825501	0	object/static/flora/flora_tree_palm_sm.iff	0	1436.41	-216.572	825.371	1	0	0	0		$|
-7825502	0	object/static/flora/flora_tree_palm_sm.iff	0	1421.64	-214.594	852.156	1	0	0	0		$|
-7825503	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1418.48	-211.874	811.321	1	0	0	0		$|
-7825505	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1417.77	-210.785	833.688	1	0	0	0		$|
-7825514	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1439.91	-212.484	839.644	1	0	0	0		$|
+7825492	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1428.409	1837.373	829.8813	0.979061	0	0	0		$|
+7825493	0	object/static/structure/naboo/gungan_relic_s01.iff	0	1417.625	1825.956	838.2451	1	0	0	0		$|
+7825494	0	object/static/structure/naboo/gungan_statue_s01.iff	0	1440.082	1837.089	840.0596	-0.07572373	0	0.9971288	0		$|
+7825495	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	1444.462	1836.515	841.7256	0.7144203	0	-0.6997168	0		$|
+7825497	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	1420.788	1837.158	823.3481	1	0	0	0		$|
+7825499	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1416.939	1836.133	813.1255	0.3953668	0	0.8872331	-0.2171208		$|
+7825500	0	object/static/flora/flora_tree_palm_sm.iff	0	1414.427	1831.342	822.3608	1	0	0	0		$|
+7825501	0	object/static/flora/flora_tree_palm_sm.iff	0	1436.408	1831.428	825.3706	1	0	0	0		$|
+7825502	0	object/static/flora/flora_tree_palm_sm.iff	0	1421.639	1833.406	852.1563	1	0	0	0		$|
+7825503	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1418.482	1836.126	811.3213	1	0	0	0		$|
+7825505	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1417.767	1837.215	833.6885	1	0	0	0		$|
+7825514	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1439.914	1835.516	839.644	1	0	0	0		$|

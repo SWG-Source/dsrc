@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9015388	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1977.88	2.04808	1892.4	0.924909	0	-0.380188	0		$|
-9015389	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1958.04	2.09005	1893.56	0.939373	0	0.342898	0		$|
-9015391	0	object/building/endor/endor_lake_platform_cap.iff	0	1969.94	-9.21542	1922.89	-0.696707	0	0.717356	0		$|
-9015393	0	object/static/structure/dantooine/dant_cooking_stone.iff	0	1970.5	1.52843	1905.16	-0.684637	-0.0818525	0.715133	-0.114703		$|
+9015388	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1977.882	2.048084	1892.398	0.9249091	0	-0.3801884	0		$|
+9015389	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1958.041	2.090049	1893.559	0.9393727	0	0.3428977	0		$|
+9015391	0	object/building/endor/endor_lake_platform_cap.iff	0	1969.943	2038.785	1922.885	-0.6967068	0	0.7173561	0		$|
+9015393	0	object/static/structure/dantooine/dant_cooking_stone.iff	0	1970.504	1.528432	1905.161	-0.6846372	0	0.7151331	-0.08185246		$|

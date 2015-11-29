@@ -1,9 +1,9 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9015682	0	object/static/structure/general/atat_destroyed.iff	0	1790.8	-2.8287	232.882	1	0	0	0		$|
-9015683	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.37	-3.86159	244.365	1	0	0	0		$|
-9015684	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1791.32	-1.58263	238.76	1	0	0	0		$|
-9015685	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.29	-0.148682	232.168	0.610472	0.37202	0.62521	-0.31311		$|
-9015686	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.25	0.969353	233.066	0.978351	0.0824291	0.060618	0.179888		$|
-9015687	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1791.74	0.291054	232.887	0.644235	0.0643643	-0.249818	0.720007		$|
-9015688	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1789.73	0.595888	230.079	0.0802431	-0.0672985	0.706165	-0.70026		$|
+9015682	0	object/static/structure/general/atat_destroyed.iff	0	1790.797	2045.171	232.8818	1	0	0	0		$|
+9015683	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.368	2044.138	244.3647	1	0	0	0		$|
+9015684	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1791.319	2046.417	238.7598	1	0	0	0		$|
+9015685	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.294	2047.851	232.1685	0.6104716	0	0.6252098	0.37202		$|
+9015686	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1790.246	0.9693532	233.0659	0.9783514	0	0.06061803	0.08242905		$|
+9015687	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1791.741	0.291054	232.8872	0.6442347	0	-0.2498184	0.06436432		$|
+9015688	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1789.725	0.5958878	230.0786	0.08024307	0	0.7061645	-0.06729854		$|

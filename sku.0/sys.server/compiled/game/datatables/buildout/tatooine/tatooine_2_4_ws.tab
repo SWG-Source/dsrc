@@ -1,16 +1,16 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-420	0	object/static/particle/particle_smoke.iff	0	353.42	30.7416	1490.27	1	0	0	0		$|
-1317841	0	object/static/structure/tatooine/skeleton_krayt_head_style_02.iff	0	1493.99	29.4479	135.317	0.72387	-0.0799484	-0.681147	-0.0752299		$|
-1317842	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1501.38	28.4962	135.474	0.770282	0.0365692	0.635742	-0.0340677		$|
-1317843	0	object/static/structure/tatooine/skeleton_krayt_tail.iff	0	1508.63	28.4636	132.523	0.962379	0.0723141	-0.261173	0.0196248		$|
-8155839	0	object/static/installation/mockup_mining_ore_harvester_style_2.iff	0	353.854	28.1769	1491.47	1	0	0	0		$|
-8155842	0	object/static/structure/general/data_terminal_s2.iff	0	354.317	26.8141	1486.15	0.670586	0	0.741832	0		$|
-8155846	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	354.759	27.2596	1485.07	0.99995	0	0.00999983	0		$|
-8155847	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	353.991	27.1372	1483.34	0.248176	0	0.968715	0		$|
-8155848	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	355.159	27.5323	1484.75	0.180134	-0.682068	0.687715	-0.171415		$|
-8155849	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	353.707	27.4057	1484.39	-0.5653	0	0.824886	0		$|
-8155857	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	404.596	21.1623	105.998	0.958258	0.102855	-0.0166526	0.266242		$|
-8155858	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	402.454	20.4415	108.6	0.908996	-0.0335273	-0.391928	0.137823		$|
-8155859	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	400.184	21.1684	103.82	0.957117	0.278176	0.00525731	-0.0807297		$|
-8155865	0	object/static/structure/general/tato_cave_rock_large.iff	0	401.955	21.6823	106.068	1	0	0	0		$|
+420	0	object/static/particle/particle_smoke.iff	0	353.4199	30.74162	1490.268	1	0	0	0		$|
+1317841	0	object/static/structure/tatooine/skeleton_krayt_head_style_02.iff	0	1493.992	29.4479	135.3169	0.7238697	0	-0.6811472	-0.07994838		$|
+1317842	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1501.38	28.49615	135.4738	0.7702822	0	0.6357416	0.03656921		$|
+1317843	0	object/static/structure/tatooine/skeleton_krayt_tail.iff	0	1508.635	28.46363	132.5231	0.9623794	0	-0.2611732	0.0723141		$|
+8155839	0	object/static/installation/mockup_mining_ore_harvester_style_2.iff	0	353.8535	28.17694	1491.466	1	0	0	0		$|
+8155842	0	object/static/structure/general/data_terminal_s2.iff	0	354.3174	26.81414	1486.147	0.6705859	0	0.7418318	0		$|
+8155846	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	354.7593	27.25963	1485.074	0.99995	0	0.009999834	0		$|
+8155847	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	353.9907	27.13724	1483.344	0.2481755	0	0.9687151	0		$|
+8155848	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	355.1587	27.5323	1484.75	0.180134	0	0.6877149	-0.6820683		$|
+8155849	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	353.707	27.40569	1484.389	-0.5652997	0	0.8248858	0		$|
+8155857	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	404.5957	21.16232	105.998	0.9582582	0	-0.01665263	0.1028551		$|
+8155858	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	402.4541	20.44151	108.5997	0.9089957	0	-0.3919276	-0.0335273		$|
+8155859	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	400.1841	21.16837	103.8204	0.9571171	0	0.005257312	0.278176		$|
+8155865	0	object/static/structure/general/tato_cave_rock_large.iff	0	401.9551	21.68226	106.0679	1	0	0	0		$|

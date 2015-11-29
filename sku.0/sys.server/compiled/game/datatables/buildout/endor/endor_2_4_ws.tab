@@ -1,12 +1,12 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-7255457	0	object/tangible/jedi/force_shrine_stone.iff	0	1088.17	200.477	341.604	0.707107	0	0.707107	0		$|
-7255458	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1083.75	201.513	340.007	0.707113	0	0.7071	0		$|
-7255459	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1092.43	201.512	340.041	1	0	0	0		$|
-7255460	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1087.2	201.513	339.996	0	0	1	0		$|
-7255461	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1089	201.503	339.948	1	0	0	0		$|
-7255462	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	1088.11	183.559	340.007	1	0	0	0		$|
-7255463	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1088.17	201.513	341.601	1	0	0	0		$|
-9705458	0	object/static/structure/general/tato_cave_rock_large.iff	0	765.861	14.434	1990.58	0.974633	0.00152453	0.223249	0.015736		$|
-9705459	0	object/static/structure/general/tato_cave_rock_med.iff	0	767.578	16.991	1989.7	-0.697786	0.575908	-0.328504	-0.271126		$|
-9705460	0	object/static/structure/general/tato_cave_rock_large.iff	0	767.494	19.8634	1991.57	-0.414801	-0.493463	0.587858	-0.48873		$|
+7255457	0	object/tangible/jedi/force_shrine_stone.iff	0	1088.171	200.4766	341.6041	0.7071069	0	0.707107	0		$|
+7255458	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1083.75	201.5135	340.0072	0.7071129	0	0.7071001	0		$|
+7255459	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1092.434	201.5121	340.0411	1	0	0	0		$|
+7255460	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1087.203	201.5131	339.996	0	0	1	0		$|
+7255461	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1088.997	201.5028	339.9481	1	0	0	0		$|
+7255462	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	1088.112	183.5593	340.007	1	0	0	0		$|
+7255463	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1088.174	201.5129	341.6007	1	0	0	0		$|
+9705458	0	object/static/structure/general/tato_cave_rock_large.iff	0	765.8608	14.434	1990.579	0.9746333	0	0.2232489	0.001524534		$|
+9705459	0	object/static/structure/general/tato_cave_rock_med.iff	0	767.5776	16.99101	1989.701	-0.697786	0	-0.3285041	0.5759081		$|
+9705460	0	object/static/structure/general/tato_cave_rock_large.iff	0	767.4937	19.86343	1991.568	-0.4148009	0	0.5878577	-0.4934635		$|

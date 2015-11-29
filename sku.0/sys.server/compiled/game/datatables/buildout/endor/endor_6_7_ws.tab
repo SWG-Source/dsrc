@@ -1,16 +1,16 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-2305366	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1859.81	200.464	1692.51	1	0	0	0		$|
-2305367	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1827.26	201.097	1649.6	1	0	0	0		$|
-2305368	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1863.78	199.354	1649.44	1	0	0	0		$|
-9705549	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	10.6841	207.307	216.934	0.793048	0	-0.609159	0		$|
-9705588	0	object/static/structure/general/poi_all_impl_corral_32x32_s01.iff	0	255.306	205.414	1764.53	0.696707	0	0.717356	0		$|
-9705590	0	object/static/structure/general/banner_imperial_style_01.iff	0	267.028	205.059	1761.69	-0.618663	0.220414	0.753575	0.0282502		$|
-9705594	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	257.826	205.422	1757.75	0.980128	0.158173	0.0190723	-0.118183		$|
-9705598	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	257.092	205.625	1755.16	0.995491	-0.0948572	0	0		$|
-9705731	0	object/building/endor/endor_forest_hut.iff	0	1819.29	10.538	120.936	0.50622	0	0.862404	0		$|
-9705732	0	object/building/endor/endor_forest_hut.iff	0	1829.44	12.1063	104.51	0.717911	0	-0.696135	0		$|
-9705733	0	object/building/endor/endor_forest_hut.iff	0	1819.93	9.98734	147.926	0.100626	0	0.994924	0		$|
-9705734	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1864.85	200.257	1703.95	0.956608	0.105653	-0.269906	0.02981		$|
-9705736	0	object/static/structure/dantooine/dant_large_communal.iff	0	1867.65	197.617	1671.39	0.995953	-0.0898786	0	0		$|
-9705737	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1832.77	200.566	1679.91	0.939373	0	-0.342898	0		$|
+2305366	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1859.807	200.4644	1692.514	1	0	0	0		$|
+2305367	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1827.256	201.097	1649.604	1	0	0	0		$|
+2305368	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1863.779	199.3541	1649.436	1	0	0	0		$|
+9705549	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	10.68408	207.3073	216.9341	0.7930479	0	-0.6091592	0		$|
+9705588	0	object/static/structure/general/poi_all_impl_corral_32x32_s01.iff	0	255.3057	205.4144	1764.525	0.6967067	0	0.7173561	0		$|
+9705590	0	object/static/structure/general/banner_imperial_style_01.iff	0	267.0283	205.059	1761.692	-0.618663	0	0.7535753	0.2204143		$|
+9705594	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	257.8257	205.4217	1757.754	0.9801278	0	0.01907233	0.1581725		$|
+9705598	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	257.0916	205.6248	1755.158	0.9954908	0	0	-0.09485719		$|
+9705731	0	object/building/endor/endor_forest_hut.iff	0	1819.286	10.53795	120.936	0.5062203	0	0.8624042	0		$|
+9705732	0	object/building/endor/endor_forest_hut.iff	0	1829.445	12.1063	104.5098	0.7179107	0	-0.6961352	0		$|
+9705733	0	object/building/endor/endor_forest_hut.iff	0	1819.925	9.987343	147.9258	0.1006258	0	0.9949243	0		$|
+9705734	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1864.847	200.257	1703.952	0.9566084	0	-0.2699057	0.1056534		$|
+9705736	0	object/static/structure/dantooine/dant_large_communal.iff	0	1867.651	197.6169	1671.393	0.9959527	0	0	-0.08987857		$|
+9705737	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1832.766	200.5662	1679.909	0.9393727	0	-0.3428978	0		$|

@@ -1,13 +1,13 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-4725529	0	object/static/structure/general/camp_tent_s01.iff	0	1404.29	28.624	530.674	1	0	0	0		$|
-4725530	0	object/static/structure/general/camp_tent_s01.iff	0	1400.93	28.6016	538.302	0.577609	0	0.816314	0		$|
-4725532	0	object/static/structure/general/campfire_fresh.iff	0	1405.38	28.7115	535.179	1	0	0	0		$|
-4725534	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1407.15	28.6743	534.578	0.886995	0	-0.461779	0		$|
-4725535	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1404.16	28.5114	534.585	0.867819	0	0.49688	0		$|
-4725536	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1404.66	28.5765	536.284	0.27078	0	0.962641	0		$|
-9165526	0	object/static/structure/general/skeleton_human_headandbody.iff	0	681.249	42.8022	1116.67	0.991754	-0.124684	0.00045797	-0.0296301		$|
-9825429	0	object/static/structure/general/escape_pod.iff	0	684.103	43.2694	1118.24	-0.525402	0.167709	0.827335	-0.106504		$|
-9825433	0	object/static/structure/general/droid_r5_head.iff	0	674.352	40.5851	1113.08	-0.357693	0	0.933839	0		$|
-9825434	0	object/static/structure/general/droid_r5_leg.iff	0	674.136	42.3597	1119.2	0.120503	0	0.992713	0		$|
-9825435	0	object/static/structure/general/droid_r5_torso.iff	0	679.358	42.6422	1117.03	0.816774	0	0.576958	0		$|
+4725529	0	object/static/structure/general/camp_tent_s01.iff	0	1404.292	28.62402	530.6743	1	0	0	0		$|
+4725530	0	object/static/structure/general/camp_tent_s01.iff	0	1400.929	28.60155	538.3018	0.5776089	0	0.8163137	0		$|
+4725532	0	object/static/structure/general/campfire_fresh.iff	0	1405.385	28.71145	535.1793	1	0	0	0		$|
+4725534	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1407.145	28.67431	534.5781	0.8869949	0	-0.4617792	0		$|
+4725535	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1404.162	28.51141	534.5854	0.8678192	0	0.4968801	0		$|
+4725536	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1404.662	28.57652	536.2841	0.2707804	0	0.9626411	0		$|
+9165526	0	object/static/structure/general/skeleton_human_headandbody.iff	0	681.249	42.8022	1116.667	0.9917539	0	0.0004579704	-0.1246843		$|
+9825429	0	object/static/structure/general/escape_pod.iff	0	684.1025	43.26939	1118.235	-0.5254022	0	0.8273349	0.1677091		$|
+9825433	0	object/static/structure/general/r5_head.iff	0	674.3521	40.58509	1113.076	-0.3576931	0	0.9338392	0		$|
+9825434	0	object/static/structure/general/r5_leg.iff	0	674.1357	42.35971	1119.198	0.1205027	0	0.992713	0		$|
+9825435	0	object/static/structure/general/r5_torso.iff	0	679.3584	42.64222	1117.026	0.8167736	0	0.5769583	0		$|

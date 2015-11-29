@@ -1,15 +1,15 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-2735781	0	object/static/particle/pt_lair_med_burn.iff	0	213.474	53.569	514.667	1	0	0	0		$|
-9505537	0	object/building/endor/endor_lake_platform_cap.iff	0	1317.34	48.9332	607.605	0.748499	0	0.663135	0		$|
-9505583	0	object/static/structure/general/skeleton_human_head.iff	0	1317.4	61.7975	603.485	-0.62161	0	0.783327	0		$|
-9505587	0	object/static/structure/general/skeleton_human_head.iff	0	1316.6	61.5995	611.686	-0.685869	0	0.727726	0		$|
-9505590	0	object/static/structure/general/campfire_ash.iff	0	1313.85	57.9446	605.537	1	0	0	0		$|
-9505601	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	878.241	63.8436	1802.85	1	0	0	0		$|
-9505602	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	881.08	64.5838	1801.42	1	0	0	0		$|
-9505603	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	877.748	64.6495	1796.89	1	0	0	0		$|
-9505605	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	874.104	61.6144	1805.78	1	0	0	0		$|
-9505612	0	object/static/structure/general/streetlamp_small_style_01.iff	0	878.243	63.1175	1799.59	1	0	0	0		$|
-9575439	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	213.177	47.6924	516.788	-0.0388878	-0.00488646	0.991435	-0.124579		$|
-9575440	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	215.632	47.4683	513.551	0.642486	-0.0621155	0.754343	0.119666		$|
-9575441	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	212.038	47.6328	512.822	0.934938	0.123872	0.330245	-0.0385361		$|
+2735781	0	object/static/particle/pt_lair_med_burn.iff	0	213.4741	53.56895	514.6665	1	0	0	0		$|
+9505537	0	object/building/endor/endor_lake_platform_cap.iff	0	1317.337	48.9332	607.6052	0.7484995	0	0.6631354	0		$|
+9505583	0	object/static/structure/general/skeleton_human_head.iff	0	1317.396	61.79747	603.4849	-0.62161	0	0.7833269	0		$|
+9505587	0	object/static/structure/general/skeleton_human_head.iff	0	1316.596	61.59954	611.686	-0.6858686	0	0.7277256	0		$|
+9505590	0	object/static/structure/general/campfire_ash.iff	0	1313.849	57.94464	605.5369	1	0	0	0		$|
+9505601	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	878.2412	63.84359	1802.847	1	0	0	0		$|
+9505602	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	881.0796	64.58382	1801.421	1	0	0	0		$|
+9505603	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	877.7476	64.64946	1796.891	1	0	0	0		$|
+9505605	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	874.104	61.61443	1805.777	1	0	0	0		$|
+9505612	0	object/static/structure/general/streetlamp_small_style_01.iff	0	878.2432	63.11752	1799.589	1	0	0	0		$|
+9575439	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	213.1768	47.69241	516.7876	-0.03888785	0	0.9914353	-0.004886456		$|
+9575440	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	215.6318	47.4683	513.5508	0.6424864	0	0.7543426	-0.06211554		$|
+9575441	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	212.0376	47.63281	512.8215	0.9349378	0	0.3302453	0.1238724		$|
