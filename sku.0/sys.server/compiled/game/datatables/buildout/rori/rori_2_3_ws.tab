@@ -116,9 +116,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2666243	0	object/static/structure/naboo/streetlamp_naboo_theed_style_1.iff	0	887.6216	79.99948	1603.15	1	0	0	0		$|
 2666244	0	object/static/structure/naboo/streetlamp_naboo_theed_style_1.iff	0	958.9268	80	1590.804	1	0	0	0		$|
 3175602	0	object/tangible/terminal/terminal_mission_bounty.iff	0	913.6143	80	1860.233	0.01079623	0	0.9999418	0		$|
-3375595	0	object/tangible/sign/all_sign_city_s02.iff	0	1191.32	80.01823	1752.885	0.7071066	0	0.7071068	0		$|
-3375596	0	object/tangible/sign/all_sign_city_s02.iff	0	1159.431	80	1667.913	-3.200127E-08	0	1	0		$|
-3375597	0	object/tangible/sign/all_sign_city_s02.iff	0	1087.292	80	1605.848	0.7071069	0	0.7071065	0		$|
 3625376	0	object/static/item/item_medical_console.iff	0	1039.936	81.17008	1844.642	0.7071078	0	-0.7071057	0		$|
 3625377	0	object/static/item/item_medic_bag.iff	0	1041.435	79.96838	1845.888	0.9847265	0	0	-0.1741081		$|
 3625378	0	object/static/item/item_medic_stimpack.iff	0	1041.625	80.73515	1844.929	0.7418312	0	0	0		$|

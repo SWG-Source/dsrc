@@ -669,11 +669,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3695547	0	object/tangible/speaker/speaker.iff	0	689.7944	330	712.7529	-0.326219	0	0.9452942	0		$|
 3695552	0	object/tangible/terminal/terminal_bank.iff	0	782.5264	330	589.8149	0.9944926	0	0.1048071	0		$|
 3695553	0	object/tangible/terminal/terminal_bank.iff	0	784.4829	330	589.373	0.9944926	0	0.104807	0		$|
-4435407	0	object/tangible/sign/all_sign_city_s03.iff	0	710.4258	315	317.3892	1	0	0	0		$|
-4435408	0	object/tangible/sign/all_sign_city_s03.iff	0	561.4468	315.0337	316.1943	1	0	0	0		$|
-4435409	0	object/tangible/sign/all_sign_city_s03.iff	0	575.6338	327.559	278.8389	1	0	0	0		$|
-4435410	0	object/tangible/sign/all_sign_city_s03.iff	0	542.0093	330	193.4956	0.707107	0	0.7071065	0		$|
-4435411	0	object/tangible/sign/all_sign_city_s03.iff	0	526.4922	330	232.0835	1	0	0	0		$|
 5406050	0	object/static/structure/general/streetlamp_small_style_01.iff	0	570.1387	333.8486	277.8911	-0.0007963968	0	0	0		$|
 5406062	0	object/static/structure/general/streetlamp_medium_blue_style_02.iff	0	573.4556	330	224.5308	1	0	0	0		$|
 5406122	0	object/static/structure/general/streetlamp_medium_blue_style_02.iff	0	565.0869	330	180.541	3.200127E-08	0	1	0		$|

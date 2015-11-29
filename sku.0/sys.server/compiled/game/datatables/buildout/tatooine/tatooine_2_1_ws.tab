@@ -835,10 +835,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3005832	0	object/tangible/terminal/terminal_bank.iff	0	1032.379	75	1650.641	-0.6711779	0	0.7412961	0		$|
 3315378	0	object/tangible/terminal/terminal_mission.iff	0	938.981	75	1725.859	0.7109142	0	-0.7032786	0		$|
 3315380	0	object/tangible/terminal/terminal_mission_bounty.iff	0	939.1079	75	1732.78	0.7109138	0	-0.703279	0		$|
-3665799	0	object/tangible/sign/all_sign_city_s01.iff	0	922.2954	75	1736.667	1	0	0	0		$|
-3665800	0	object/tangible/sign/all_sign_city_s01.iff	0	836.3643	75	1678.77	1	0	0	0		$|
-3665801	0	object/tangible/sign/all_sign_city_s01.iff	0	851.9849	75	1601.273	0.8738654	0	-0.4861679	0		$|
-3665802	0	object/tangible/sign/all_sign_city_s01.iff	0	1110.614	74.65617	1573.78	0.8710631	0	-0.4646147	-0.1405717		$|
 3735352	0	object/tangible/crafting/station/public_structure_station.iff	0	899.4902	75	1684.475	-0.6931112	0	0.7208307	0		$|
 3735353	0	object/tangible/crafting/station/public_clothing_station.iff	0	880.5518	75	1673.656	0.6822212	0	0.7311458	0		$|
 3735354	0	object/tangible/crafting/station/public_food_station.iff	0	882.2075	75	1631.822	0.8391923	0	-0.5438348	0		$|
