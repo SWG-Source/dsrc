@@ -1,11 +1,11 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-8905381	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	360.258	158.487	118.389	0.929101	-0.0201348	-0.365719	0.0511521		$|
-8905383	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	365.615	158.157	107.007	0.120406	-0.0396979	0.991919	-0.00481883		$|
-8905384	0	object/static/flora/flora_decd_scorched_massassi_broke.iff	0	249.994	103.29	1017.17	0.0142072	-0.428879	0.722497	-0.542087		$|
-8995410	0	object/static/structure/general/campfire_ash.iff	0	914.783	104.939	1301.35	1	0	0	0		$|
-8995411	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	912.419	105.225	1296.58	0.974794	0	0.223106	0		$|
-8995412	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	912.709	105.253	1296.71	1	0	0	0		$|
-8995413	0	object/static/structure/dantooine/dant_gate.iff	0	842.623	82.3173	1788.31	0.968912	0	0.247404	0		$|
-8995414	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	843.607	82.3369	1789.85	0.877357	0.0195406	-0.47916	0.0163708		$|
-8995415	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	844.247	80.2011	1791.22	1	0	0	0		$|
+8905381	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	360.2578	158.4868	118.3887	0.9291005	0	-0.3657188	-0.02013485		$|
+8905383	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	365.6152	158.1566	107.0073	0.1204064	0	0.991919	-0.03969794		$|
+8905384	0	object/static/flora/flora_decd_scorched_massassi_broke.iff	0	249.9944	103.2905	1017.165	0.0142072	0	0.7224973	-0.428879		$|
+8995410	0	object/static/structure/general/campfire_ash.iff	0	914.7832	104.9391	1301.352	1	0	0	0		$|
+8995411	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	912.4192	105.2254	1296.581	0.9747941	0	0.2231065	0		$|
+8995412	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	912.7092	105.2529	1296.708	1	0	0	0		$|
+8995413	0	object/static/structure/dantooine/dant_gate.iff	0	842.6226	82.31726	1788.309	0.9689124	0	0.2474041	0		$|
+8995414	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	843.6069	82.33693	1789.85	0.8773573	0	-0.47916	0.01954064		$|
+8995415	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	844.2466	80.20113	1791.223	1	0	0	0		$|

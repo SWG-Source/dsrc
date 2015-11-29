@@ -237,6 +237,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365551	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	34.70362	28	1868.417	0.7071069	0	0.707107	0		$|
 2365552	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	34.66102	28	1859.705	1	0	0	0		$|
 2365553	0	object/static/structure/general/streetlamp_large_style_01.iff	0	18.75642	28	1928.629	1	0	0	0		$|
+3695451	0	object/tangible/sign/all_sign_city_s02.iff	0	159.1089	28	1437.789	0.3826834	0	0.9238796	0		$|
+3695452	0	object/tangible/sign/all_sign_city_s02.iff	0	168.1861	28	1447.075	0.3826834	0	0.9238796	0		$|
+3695453	0	object/tangible/sign/all_sign_city_s02.iff	0	145.835	28	1608.949	0.3826834	0	0.9238796	0		$|
+3695454	0	object/tangible/sign/all_sign_city_s02.iff	0	116.7335	28	1677.946	1	0	0	0		$|
+3695455	0	object/tangible/sign/all_sign_city_s02.iff	0	96	28	1738	0.7071069	0	0.7071065	0		$|
+3695456	0	object/tangible/sign/all_sign_city_s02.iff	0	96	28	1750	0.7071069	0	0.7071065	0		$|
+3695457	0	object/tangible/sign/all_sign_city_s02.iff	0	20.09372	28	1904.049	0.9238796	0	0.3826834	0		$|
 4026522	0	object/building/corellia/filler_block_corellia_32x16_s01.iff	0	11.39851	28	1310.851	0.738199	0	0.6745832	0		$|
 4335793	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	20.6418	28	1368.053	0.9838436	0	0.1790301	0		$|
 4335794	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	22.54121	28	1368.208	0.8653239	0	-0.5012131	0		$|
