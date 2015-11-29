@@ -1134,10 +1134,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6415837	0	object/tangible/terminal/terminal_mission_artisan.iff	0	256.9512	2.97659	1060.7	0.2626777	0	0.9648836	0		$|
 6415839	0	object/tangible/terminal/terminal_mission_scout.iff	0	292.5713	2	926.9644	0.9305076	0	-0.3662726	0		$|
 8135352	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	438.1851	0	1083.131	0.8196487	0	0.5728664	0		$|
-8355467	0	object/tangible/sign/all_sign_city_s02.iff	0	22.45166	2	1026.875	-0.2092388	0	0.9778646	0		$|
-8355469	0	object/tangible/sign/all_sign_city_s02.iff	0	411.8799	2	1445.954	1	0	0	0		$|
-8355470	0	object/tangible/sign/all_sign_city_s02.iff	0	446.1548	2	901.8018	-0.0007963699	0	0.9999997	0		$|
-8355471	0	object/tangible/sign/all_sign_city_s02.iff	0	310.8574	2	903.084	0.2272021	0	0.9738477	0		$|
 8595452	0	object/static/item/item_container_weapons.iff	0	441.9487	2	974.5474	0.7109135	0	-0.7032794	0		$|
 8595453	0	object/static/item/item_crate_spice.iff	0	443.5791	2	974.2637	0.7518057	0	-0.6593847	0		$|
 8595454	0	object/static/item/item_crate_spice.iff	0	444.2881	2	973.8145	-0.6748753	0	0.7379322	0		$|
