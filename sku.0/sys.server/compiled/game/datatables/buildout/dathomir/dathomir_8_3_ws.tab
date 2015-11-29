@@ -1,5 +1,5 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9725760	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1292.396	551.9673	1077.538	0.7484996	0	0.6631352	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_mtn_spawn.iff|$|
-9725761	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1296.644	550.4576	1069.105	-0.4252189	0	0.9050906	0		$|
-9725763	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1298.192	549.7314	1059.768	0.6858686	0	0.7277256	0		$|
+9725760	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1292.4	551.967	1077.54	0.7485	0	0.663135	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_mtn_spawn.iff|$|
+9725761	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1296.64	550.458	1069.11	-0.425219	0	0.905091	0		$|
+9725763	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1298.19	549.731	1059.77	0.685869	0	0.727726	0		$|

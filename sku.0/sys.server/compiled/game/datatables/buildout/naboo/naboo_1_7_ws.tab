@@ -1,12 +1,12 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-7085355	0	object/static/naboo/waterfall_200m.iff	0	2045.17	7.930787	245.1011	0.9982005	0	-0.05996401	0		$|
-8305360	0	object/static/structure/dantooine/dant_fence_8m.iff	0	918.0356	1851.409	949.5874	1	0	0	0		$|
-8305362	0	object/static/structure/dantooine/dant_fence_8m.iff	0	914.9497	1851.411	945.6401	0.7744193	0	0.6326727	0		$|
-8305363	0	object/static/structure/general/campfire_burnt.iff	0	918.7471	1851.394	945.4336	1	0	0	0		$|
-8305364	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	919.5347	1851.122	947.6899	0.9191024	0	0.3940187	0		$|
-8305365	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	917.0518	1851.407	948.5591	1	0	0	0		$|
-8305366	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	916.1602	1851.407	948.4155	1	0	0	0		$|
-8305367	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	916.6318	1851.396	943.2505	1	0	0	0		$|
-8305368	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	916.7695	1851.397	944.1709	1	0	0	0		$|
-8305369	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	921.0444	1851.39	945.8311	1	0	0	0		$|
+7085355	0	object/static/naboo/waterfall_200m.iff	0	2045.17	7.93079	245.101	0.998201	0	-0.059964	0		$|
+8305360	0	object/static/structure/dantooine/dant_fence_8m.iff	0	918.036	-196.591	949.587	1	0	0	0		$|
+8305362	0	object/static/structure/dantooine/dant_fence_8m.iff	0	914.95	-196.589	945.64	0.774419	0	0.632673	0		$|
+8305363	0	object/static/structure/general/campfire_burnt.iff	0	918.747	-196.606	945.434	1	0	0	0		$|
+8305364	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	919.535	-196.878	947.69	0.919102	0	0.394019	0		$|
+8305365	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	917.052	-196.593	948.559	1	0	0	0		$|
+8305366	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	916.16	-196.593	948.416	1	0	0	0		$|
+8305367	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	916.632	-196.604	943.25	1	0	0	0		$|
+8305368	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	916.77	-196.603	944.171	1	0	0	0		$|
+8305369	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	921.044	-196.61	945.831	1	0	0	0		$|

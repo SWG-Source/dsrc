@@ -1,9 +1,8 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-9725511	0	object/static/structure/dathomir/nsister_tent_house_style_01.iff	0	790.4033	113.6513	1230.452	0.6822214	0	0.7311458	0		$|
-9725534	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	791.2598	111.5412	1230.125	1	0	0	0		$|
-9725537	0	object/static/structure/general/campfire_ash.iff	0	783.2632	112.9436	1230.889	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_outcast_hut.iff|$|
-9725538	0	object/static/structure/general/skeleton_human_head.iff	0	786.1284	115.4252	1233.272	0.7616117	0	-0.6480337	0		$|
-9725539	0	object/static/structure/general/skeleton_human_head.iff	0	785.6523	114.8985	1232.764	0.780707	0	-0.6248973	0		$|
-9725540	0	object/static/structure/general/skeleton_human_head.iff	0	785.481	114.5996	1228.914	0.7109134	0	-0.7032797	0		$|
-9725541	0	object/static/structure/general/skeleton_human_head.iff	0	785.6069	115.177	1228.36	0.7384688	0	-0.6742876	0		$|
+9725534	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	791.26	111.541	1230.13	1	0	0	0		$|
+9725537	0	object/static/structure/general/campfire_ash.iff	0	783.263	112.944	1230.89	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_outcast_hut.iff|$|
+9725538	0	object/static/structure/general/skeleton_human_head.iff	0	786.128	115.425	1233.27	0.761612	0	-0.648034	0		$|
+9725539	0	object/static/structure/general/skeleton_human_head.iff	0	785.652	114.899	1232.76	0.780707	0	-0.624897	0		$|
+9725540	0	object/static/structure/general/skeleton_human_head.iff	0	785.481	114.6	1228.91	0.710913	0	-0.70328	0		$|
+9725541	0	object/static/structure/general/skeleton_human_head.iff	0	785.607	115.177	1228.36	0.738469	0	-0.674288	0		$|

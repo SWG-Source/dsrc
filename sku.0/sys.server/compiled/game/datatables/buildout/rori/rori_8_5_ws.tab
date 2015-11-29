@@ -1,24 +1,14 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-479722	0	object/building/general/rori_kobola_cave.iff	0	1222.545	97.83487	135.0312	-0.4356825	0	0.9001005	0		$|
-479723	479722	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
-479811	479723	object/tangible/container/loot/placable_loot_crate.iff	0	27.48754	-28.13056	-9.625689	-0.6883542	0	0.708756	0.1107455		$|
-479724	479722	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
-479908	479724	object/tangible/container/loot/placable_loot_crate.iff	0	47.22879	-47.26789	-13.26153	0.4669129	0	0.8843035	0		$|
-479918	479724	object/tangible/container/loot/placable_loot_crate.iff	0	54.31875	-68.27966	-42.09926	0.6931113	0	0.7208306	0		$|
-479725	479722	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|
-479910	479725	object/tangible/container/loot/placable_loot_crate.iff	0	96.92488	-62.24946	-15.61941	0.7313594	0	-0.6813323	-0.0204461		$|
-479726	479722	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
-479727	479722	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
-479728	479722	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
-479729	479722	object/cell/cell.iff	7	0	0	0	1	9.809089E-45	0	0		$|
-479943	479729	object/tangible/container/loot/placable_loot_crate.iff	0	88.15343	-66.90842	-142.2984	0.9820042	0	-0.188859	0		$|
-479730	479722	object/cell/cell.iff	8	0	0	0	1	1.121039E-44	0	0		$|
-479945	479730	object/tangible/container/loot/placable_loot_crate.iff	0	136.6286	-66.23997	-104.1978	0.8080274	0	-0.5891449	0		$|
-479731	479722	object/cell/cell.iff	9	0	0	0	1	1.261169E-44	0	0		$|
-479956	479731	object/tangible/container/loot/placable_loot_crate.iff	0	191.4448	-66.76933	-102.643	-0.6967068	0	0.7173561	0		$|
-4796165	479731	object/tangible/collection/rare_pistol_or5_de10.iff	0	192.5329	-65.28911	-105.9721	-0.7062617	0	0	0		$|
-479732	479722	object/cell/cell.iff	10	0	0	0	1	1.401298E-44	0	0		$|
-479878	479732	object/tangible/container/loot/placable_loot_crate.iff	0	45.41957	-48.81538	-100.6174	0.7296447	0	0.6808271	0.06329817		$|
-479733	479722	object/cell/cell.iff	11	0	0	0	1	1.541428E-44	0	0		$|
-479898	479733	object/tangible/container/loot/placable_loot_crate.iff	0	75.85264	-46.53733	-142.2982	0.717911	0	0.6961348	0		$|
+479722	0	object/building/general/rori_kobola_cave.iff	0	1222.54	97.8349	135.031	-0.435683	0	0.9001	0		$|
+479723	479722	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+479724	479722	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+479725	479722	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+479726	479722	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+479727	479722	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+479728	479722	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+479729	479722	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+479730	479722	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+479731	479722	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+479732	479722	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+479733	479722	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|

@@ -1,20 +1,20 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-8365446	0	object/tangible/camp/camp_tent_s6.iff	0	2002.776	142.5971	81.11891	0.9323275	0	0.3616151	0		$|
-8365447	0	object/tangible/camp/camp_tent_s5.iff	0	2009.028	155.7753	95.38426	0.4024607	0	0.9154371	0		$|
-8365450	0	object/static/structure/general/streetlamp_large_red_style_01_on.iff	0	1997.506	141.785	88.05946	0.2867153	0	0.9580159	0		$|
-8365451	0	object/static/structure/general/streetlamp_large_red_style_01_on.iff	0	2012.97	154.1924	95.73647	0.8543003	0	0.5197797	0		$|
-8365453	0	object/static/item/item_tool_sensor_beacon.iff	0	1980.628	150.9616	86.67582	1	0	0	0		$|
-8365454	0	object/static/item/item_tool_sensor_beacon.iff	0	1997.975	155.7662	62.33855	1	0	0	0		$|
-8365456	0	object/static/item/item_tool_sensor_beacon.iff	0	2016.813	142.7814	82.59292	1	0	0	0		$|
-8365457	0	object/static/item/item_tool_sensor_beacon.iff	0	2017.72	145.9022	102.362	1	0	0	0		$|
-8365458	0	object/static/flora/flora_decd_dath_blacktree.iff	0	2006.884	145.8702	79.35907	1	0	0	0		$|
-8365460	0	object/static/structure/general/banner_rebel_style_01.iff	0	1997.423	141.9711	84.33015	0.8391923	0	-0.5438349	0		$|
-8365538	0	object/static/item/item_tool_sensor_beacon.iff	0	2015.179	161.0818	59.26354	1	0	0	0		$|
-9725619	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1051.166	119.1908	856.1369	0.7248363	0	0.688921	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_bane_back_spider_rock.iff|$|
-9725622	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.394	122.6512	858.6891	0.5191678	0	0.5345555	0.4783829		$|
-9725623	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.05	127.0522	857.4632	0.6011233	0	0.6189396	0.3626475		$|
-9725624	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.21	124.9563	858.4052	0.5846708	0	0.6019993	0.3901232		$|
-9725626	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.352	126.9975	854.7052	-0.5788009	0	0.6038702	0.3674972		$|
-9725628	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.46	124.9645	853.7165	-0.5444614	0	0.5725703	0.4145798		$|
-9725629	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.511	122.6298	853.4261	-0.5041647	0	0.5353062	0.461693		$|
+8365446	0	object/tangible/camp/camp_tent_s6.iff	0	2002.78	142.597	81.1189	0.932328	0	0.361615	0		$|
+8365447	0	object/tangible/camp/camp_tent_s5.iff	0	2009.03	155.775	95.3843	0.402461	0	0.915437	0		$|
+8365450	0	object/static/structure/general/streetlamp_large_red_style_01_on.iff	0	1997.51	141.785	88.0595	0.286715	0	0.958016	0		$|
+8365451	0	object/static/structure/general/streetlamp_large_red_style_01_on.iff	0	2012.97	154.192	95.7365	0.8543	0	0.51978	0		$|
+8365453	0	object/static/item/item_tool_sensor_beacon.iff	0	1980.63	150.962	86.6758	1	0	0	0		$|
+8365454	0	object/static/item/item_tool_sensor_beacon.iff	0	1997.98	155.766	62.3385	1	0	0	0		$|
+8365456	0	object/static/item/item_tool_sensor_beacon.iff	0	2016.81	142.781	82.5929	1	0	0	0		$|
+8365457	0	object/static/item/item_tool_sensor_beacon.iff	0	2017.72	145.902	102.362	1	0	0	0		$|
+8365458	0	object/static/flora/flora_decd_dath_blacktree.iff	0	2006.88	145.87	79.3591	1	0	0	0		$|
+8365460	0	object/static/structure/general/banner_rebel_style_01.iff	0	1997.42	141.971	84.3302	0.839192	0	-0.543835	0		$|
+8365538	0	object/static/item/item_tool_sensor_beacon.iff	0	2015.18	161.082	59.2635	1	0	0	0		$|
+9725619	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1051.17	119.191	856.137	0.724836	0	0.688921	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_bane_back_spider_rock.iff|$|
+9725622	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.39	122.651	858.689	0.519168	0.478383	0.534555	0.464612		$|
+9725623	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.05	127.052	857.463	0.601123	0.362648	0.61894	0.352208		$|
+9725624	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.21	124.956	858.405	0.584671	0.390123	0.601999	0.378893		$|
+9725626	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.35	126.998	854.705	-0.578801	0.367497	0.60387	-0.406541		$|
+9725628	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.46	124.965	853.716	-0.544461	0.41458	0.57257	-0.451495		$|
+9725629	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.51	122.63	853.426	-0.504165	0.461693	0.535306	-0.496089		$|

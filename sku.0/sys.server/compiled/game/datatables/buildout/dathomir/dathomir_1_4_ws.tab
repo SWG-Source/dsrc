@@ -1,26 +1,26 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1105891	0	object/static/particle/pt_flocking_glowzees.iff	0	1574.263	338.0026	1260.824	1	0	0	0		$|
-1105896	0	object/static/particle/pt_flocking_glowzees.iff	0	1574.084	343.0391	1260.555	1	0	0	0		$|
-1105897	0	object/static/particle/pt_flocking_glowzees.iff	0	1573.758	326.9537	1259.775	1	0	0	0		$|
-8365587	0	object/tangible/camp/camp_tent_s6.iff	0	1893.428	122.674	1514.284	0.972614	0	0.2241172	-0.06013383		$|
-8365588	0	object/static/structure/general/banner_imperial_style_01.iff	0	1893.461	123.3877	1519.384	0.435324	0	0.9002737	0		$|
-8365589	0	object/static/structure/general/banner_imperial_style_01.iff	0	1888.446	122.6181	1513.466	0.3989747	0	0.9169616	0		$|
-8365594	0	object/static/structure/general/camp_tent_s01.iff	0	1874.721	123.4613	1514.456	0.4631674	0	0.8845162	0.02601007		$|
-8365595	0	object/static/structure/general/camp_tent_s01.iff	0	1876.083	123.0987	1508.805	0.9535061	0	0.2972711	0.002374746		$|
-8365596	0	object/static/structure/general/camp_tent_s01.iff	0	1882.136	122.6451	1510.461	0.8849632	0	-0.4638404	-0.03983583		$|
-8365625	0	object/static/structure/general/streetlamp_medium_style_01_on.iff	0	1887.84	121.4876	1516.091	0.7629789	0	-0.6438295	-0.04940211		$|
-8365629	0	object/static/structure/general/streetlamp_medium_style_01_on.iff	0	1890.69	121.8113	1519.749	0.9678294	0	-0.2416327	-0.06572683		$|
-8365632	0	object/static/structure/general/campfire_fresh.iff	0	1878.324	123.019	1512.163	0.9988262	0	0.001127038	-0.02906451		$|
-8365639	0	object/building/military/military_outpost_guard_tower_1.iff	0	1912.185	127.5052	1536.215	0.3826834	0	0.9238796	0		$|
-9725548	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1624.488	266.3485	1306.165	0.7550932	0	-0.6556175	0		$|
-9725549	0	object/building/endor/endor_tiki_torch.iff	0	1627.548	264.6204	1309.116	1	0	0	0		$|
-9725550	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1604.83	277.1732	1303.643	-0.1003861	0	0.9498081	0.1972718		$|
-9725552	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1606.062	276.4603	1311.267	0.9762866	0	-0.006697115	0.16835		$|
-9725553	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1590.415	291.9626	1304.318	-0.1712726	0	0.939616	0.213282		$|
-9725554	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1591.571	291.4976	1312.126	0.9762866	0	-0.006697002	0.1683501		$|
-9725559	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1575.851	309.0766	1304.366	-0.09442357	0	0.9560117	0.2001944		$|
-9725560	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1574.574	309.3213	1313.334	0.9459256	0	-0.2020558	0.1680148		$|
-9725567	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1559.092	322.1566	1295.928	0.9880115	0	0.1543801	0		$|
-9725568	0	object/building/endor/endor_tiki_torch.iff	0	1562.886	321.998	1297.184	1	0	0	0		$|
-9725575	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1574.503	327.4489	1265.227	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_west_mtn_spawn.iff|$|
+1105891	0	object/static/particle/pt_flocking_glowzees.iff	0	1574.26	338.003	1260.82	1	0	0	0		$|
+1105896	0	object/static/particle/pt_flocking_glowzees.iff	0	1574.08	343.039	1260.56	1	0	0	0		$|
+1105897	0	object/static/particle/pt_flocking_glowzees.iff	0	1573.76	326.954	1259.78	1	0	0	0		$|
+8365587	0	object/tangible/camp/camp_tent_s6.iff	0	1893.43	122.674	1514.28	0.972614	-0.0601338	0.224117	-0.0133155		$|
+8365588	0	object/static/structure/general/banner_imperial_style_01.iff	0	1893.46	123.388	1519.38	0.435324	0	0.900274	0		$|
+8365589	0	object/static/structure/general/banner_imperial_style_01.iff	0	1888.45	122.618	1513.47	0.398975	0	0.916962	0		$|
+8365594	0	object/static/structure/general/camp_tent_s01.iff	0	1874.72	123.461	1514.46	0.463167	0.0260101	0.884516	-0.0493004		$|
+8365595	0	object/static/structure/general/camp_tent_s01.iff	0	1876.08	123.099	1508.81	0.953506	0.00237475	0.297271	-0.0495005		$|
+8365596	0	object/static/structure/general/camp_tent_s01.iff	0	1882.14	122.645	1510.46	0.884963	-0.0398358	-0.46384	-0.0102644		$|
+8365625	0	object/static/structure/general/streetlamp_medium_style_01_on.iff	0	1887.84	121.488	1516.09	0.762979	-0.0494021	-0.64383	0.0301035		$|
+8365629	0	object/static/structure/general/streetlamp_medium_style_01_on.iff	0	1890.69	121.811	1519.75	0.967829	-0.0657268	-0.241633	0.0244902		$|
+8365632	0	object/static/structure/general/campfire_fresh.iff	0	1878.32	123.019	1512.16	0.998826	-0.0290645	0.00112704	-0.0387316		$|
+8365639	0	object/building/military/military_outpost_guard_tower_1.iff	0	1912.18	127.505	1536.21	0.382683	0	0.92388	0		$|
+9725548	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1624.49	266.348	1306.17	0.755093	0	-0.655617	0		$|
+9725549	0	object/building/endor/endor_tiki_torch.iff	0	1627.55	263.7	1309.12	1	0	0	0		$|
+9725550	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1604.83	277.173	1303.64	-0.100386	0.197272	0.949808	-0.221068		$|
+9725552	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1606.06	276.46	1311.27	0.976287	0.16835	-0.00669712	-0.135933		$|
+9725553	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1590.42	291.963	1304.32	-0.171273	0.213282	0.939616	-0.205665		$|
+9725554	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1591.57	291.498	1312.13	0.976287	0.16835	-0.006697	-0.135933		$|
+9725559	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1575.85	309.077	1304.37	-0.0944236	0.200194	0.956012	-0.192479		$|
+9725560	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1574.57	309.321	1313.33	0.945926	0.168015	-0.202056	-0.190182		$|
+9725567	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1559.09	322.157	1295.93	0.988012	0	0.15438	0		$|
+9725568	0	object/building/endor/endor_tiki_torch.iff	0	1562.89	321.7	1297.18	1	0	0	0		$|
+9725575	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1574.5	327.449	1265.23	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_west_mtn_spawn.iff|$|

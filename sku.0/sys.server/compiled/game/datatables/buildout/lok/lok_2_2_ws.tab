@@ -1,14 +1,14 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-3515447	0	object/tangible/camp/camp_light_s1.iff	0	961.7847	17.97056	1324.192	1	0	0	0		$|
-3515448	0	object/tangible/camp/camp_light_s1.iff	0	955.0024	17.97056	1330.946	1	0	0	0		$|
-3515449	0	object/tangible/camp/camp_light_s1.iff	0	961.8281	17.97056	1330.59	1	0	0	0		$|
-3515450	0	object/tangible/camp/camp_light_s1.iff	0	955.1802	17.97056	1324.354	1	0	0	0		$|
-9685909	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	1715.608	11.71455	395.4165	0.7071072	0	-0.7071063	0		$|
-9685910	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	1705.115	11.94072	394.8916	1	0	0	0		$|
-9685911	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	1719.611	11.8756	395.7183	1	0	0	0		$|
-9685912	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	1711.769	11.87009	395.355	1	0	0	0		$|
-9685913	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	955.5083	10.97882	1331.428	1	0	0	0		$|
-9685914	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	962.3521	11.03826	1331.076	1	0	0	0		$|
-9685915	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	955.6572	10.85607	1324.904	1	0	0	0		$|
-9685916	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	962.2808	10.96559	1324.746	1	0	0	0		$|
+3515447	0	object/tangible/camp/camp_light_s1.iff	0	961.785	17.9706	1324.19	1	0	0	0		$|
+3515448	0	object/tangible/camp/camp_light_s1.iff	0	955.002	17.9706	1330.95	1	0	0	0		$|
+3515449	0	object/tangible/camp/camp_light_s1.iff	0	961.828	17.9706	1330.59	1	0	0	0		$|
+3515450	0	object/tangible/camp/camp_light_s1.iff	0	955.18	17.9706	1324.35	1	0	0	0		$|
+9685909	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	1715.61	11.7146	395.417	0.707107	0	-0.707106	0		$|
+9685910	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	1705.11	11.9407	394.892	1	0	0	0		$|
+9685911	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	1719.61	11.8756	395.718	1	0	0	0		$|
+9685912	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	1711.77	11.8701	395.355	1	0	0	0		$|
+9685913	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	955.508	10.9788	1331.43	1	0	0	0		$|
+9685914	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	962.352	11.0383	1331.08	1	0	0	0		$|
+9685915	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	955.657	10.8561	1324.9	1	0	0	0		$|
+9685916	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	962.281	10.9656	1324.75	1	0	0	0		$|

@@ -1,7 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-8315387	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	169.4859	69.11372	1361.002	0.7071074	0	0.7071061	0		$|
-8315388	0	object/static/structure/general/tato_cave_rock_med.iff	0	168.1735	72.97214	1362.024	1	0	0	0		$|
-8315391	0	object/static/structure/general/tato_cave_rock_med.iff	0	168.1219	73.1237	1360.052	-0.6592757	0	0.501184	0.3392122		$|
-8315392	0	object/static/structure/general/tato_cave_rock_med.iff	0	170.9394	72.96993	1359.899	-0.44046	0	0.7013024	0.1602785		$|
-8315393	0	object/static/structure/general/tato_cave_rock_med.iff	0	170.8064	72.81606	1362.066	0.7690728	0	0.3071774	-0.557169		$|
+8315387	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	169.486	69.1137	1361	0.707107	0	0.707106	0		$|
+8315388	0	object/static/structure/general/tato_cave_rock_med.iff	0	168.174	72.9721	1362.02	1	0	0	0		$|
+8315391	0	object/static/structure/general/tato_cave_rock_med.iff	0	168.122	73.1237	1360.05	-0.659276	0.339212	0.501184	-0.446212		$|
+8315392	0	object/static/structure/general/tato_cave_rock_med.iff	0	170.939	72.9699	1359.9	-0.44046	0.160278	0.701302	-0.537104		$|
+8315393	0	object/static/structure/general/tato_cave_rock_med.iff	0	170.806	72.8161	1362.07	0.769073	-0.557169	0.307177	-0.0610873		$|

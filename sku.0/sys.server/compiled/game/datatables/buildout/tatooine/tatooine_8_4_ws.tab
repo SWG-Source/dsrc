@@ -1,15 +1,14 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-5995564	0	object/building/general/tatooine_beetle_cave.iff	0	399.7686	115.4121	754.0427	-0.2819217	0	0.9594374	0		$|
-5995565	5995564	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
-5995566	5995564	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
-5995567	5995564	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|
-5995568	5995564	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
-5995569	5995564	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
-5995570	5995564	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
-5995571	5995564	object/cell/cell.iff	7	0	0	0	1	9.809089E-45	0	0		$|
-5995572	5995564	object/cell/cell.iff	8	0	0	0	1	1.121039E-44	0	0		$|
-5995573	5995564	object/cell/cell.iff	9	0	0	0	1	1.261169E-44	0	0		$|
-4888555	5995573	object/tangible/collection/rare_melee_blksn_razor.iff	0	194.2304	-66.86695	-103.1762	-0.7002059	0	0.0105039	-0.01070758		$|
-5995574	5995564	object/cell/cell.iff	10	0	0	0	1	1.401298E-44	0	0		$|
-5995575	5995564	object/cell/cell.iff	11	0	0	0	1	1.541428E-44	0	0		$|
+5995564	0	object/building/general/tatooine_beetle_cave.iff	0	399.769	115.412	754.043	-0.281922	0	0.959437	0		$|
+5995565	5995564	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+5995566	5995564	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+5995567	5995564	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+5995568	5995564	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+5995569	5995564	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+5995570	5995564	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+5995571	5995564	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+5995572	5995564	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+5995573	5995564	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+5995574	5995564	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+5995575	5995564	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
