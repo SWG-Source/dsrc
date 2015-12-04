@@ -5,3 +5,6 @@
 @class object_template 5
 
 moveFlags = [ MF_player ]
+
+scripts = +["item.armor.new_armor"]
+
