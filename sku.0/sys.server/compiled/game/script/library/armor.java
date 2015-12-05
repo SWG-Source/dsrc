@@ -770,13 +770,16 @@ public class armor extends script.base_script
             while (keys.hasMoreElements())
             {
                 String key = (String)(keys.nextElement());
-                float value = componentData.getFloatObjVar(key);
-                float newValue = rescaleArmorData(key, fromRow, toRow, value);
-                if (newValue != Float.MIN_VALUE)
-                {
-                    debugServerConsoleMsg(null, "Armor scaling component data " + key + " from " + value + " to " + newValue + "(fromRow = " + fromRow + ", toRow = " + toRow + ")");
-                    setObjVar(schematic, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".scaled." + key, newValue);
-                    removeObjVar(schematic, craftinglib.COMPONENT_ATTRIBUTE_INTERNAL_OBJVAR_NAME + "." + key);
+                // scaling ignored the fact that not all objvars were floats.  Instead of letting it throw a warning, just scale objvars that are floats and ints
+                if(componentData.isFloatObjVar(key) || componentData.isIntObjVar(key)) {
+                    float value = (componentData.isFloatObjVar(key) ? componentData.getFloatObjVar(key) : componentData.getIntObjVar(key));
+                    float newValue = (float) rescaleArmorData(key, fromRow, toRow, value);
+                    if (newValue != Float.MIN_VALUE)
+                    {
+                        debugServerConsoleMsg(null, "Armor scaling component data " + key + " from " + value + " to " + newValue + "(fromRow = " + fromRow + ", toRow = " + toRow + ")");
+                        setObjVar(schematic, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".scaled." + key, newValue);
+                        removeObjVar(schematic, craftinglib.COMPONENT_ATTRIBUTE_INTERNAL_OBJVAR_NAME + "." + key);
+                    }
                 }
             }
             setObjVar(schematic, craftinglib.COMPONENT_ATTRIBUTE_INTERNAL_OBJVAR_NAME + ".isScaled", true);

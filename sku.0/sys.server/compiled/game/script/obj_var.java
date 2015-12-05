@@ -357,6 +357,10 @@ public class obj_var implements Comparable, Serializable
 		catch( ClassCastException err )
 		{
 			System.err.println("WARNING: Java obj_var.getFloatData tried to get item " + m_name + " of type " + m_data.getClass());
+			System.err.println("------- Caught NON-FATAL Class Cast Exception -------");
+			System.err.println("Stack:");
+			err.printStackTrace();
+			System.err.println("------- End of Caught Class Cast Exception, Continuing execution --------");
 		}
 		return 0.0f;
 	}	// getFloatData
@@ -535,7 +539,7 @@ public class obj_var implements Comparable, Serializable
 		return data;
 	}	// getStringIdArrayData
 
-	/**
+	/** 
 	 * Accessor function.
 	 *
 	 * @return the obj_var data as an attrib_mod
