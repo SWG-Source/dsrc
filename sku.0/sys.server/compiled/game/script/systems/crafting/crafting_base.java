@@ -138,11 +138,12 @@ public class crafting_base extends script.base_script
                 {
                     if (component.getData() instanceof Integer)
                     {
-                        itemAttributes[i].currentValue = component.getIntData();
+                        itemAttributes[i].currentValue = (float) component.getIntData();
                     }
                     else if (itemAttributes[i].minValue != itemAttributes[i].maxValue)
                     {
                         debugServerConsoleMsg(null, "updating attrib " + (itemAttributes[i].name).getAsciiId() + ", current value = " + itemAttributes[i].currentValue + " by component value " + component.getFloatData());
+                        // Cekis: This may be a bug - why incremenet if a float (in this condition), but just re-assign if an int?
                         itemAttributes[i].currentValue += component.getFloatData();
                     }
                     else 
@@ -209,11 +210,13 @@ public class crafting_base extends script.base_script
         draft_schematic.slot[] slots = schematic.getSlots();
         draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
         draft_schematic.attribute[] experimentalAttribs = schematic.getExperimentalAttribs();
+        /* Cekis: pointless loop.
         for (int i = 0; i < objectAttribs.length; ++i)
         {
             float modifiedValue = objectAttribs[i].currentValue;
             String attribName = (objectAttribs[i].name).getAsciiId();
         }
+        */
         String[] obj_attributes = new String[objectAttribs.length];
         for (int i = 0; i < obj_attributes.length; ++i)
         {
@@ -533,11 +536,13 @@ public class crafting_base extends script.base_script
         }
         draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
         dictionary craftingValuesDictionary = new dictionary();
+        /* Cekis: this is a totally pointless loop!  Commenting out for now.
         for (int i = 0; i < objectAttribs.length; ++i)
         {
             float modifiedValue = objectAttribs[i].currentValue;
             String attribName = (objectAttribs[i].name).getAsciiId();
         }
+        */
         calcAndSetPrototypeProperties(prototype, objectAttribs, craftingValuesDictionary);
         setSchematicAttributes(self, objectAttribs);
         craftinglib.storeTissueDataAsObjvars(craftingValuesDictionary, objectAttribs, prototype, true);
@@ -582,6 +587,7 @@ public class crafting_base extends script.base_script
     }
     public int OnManufactureObject(obj_id self, obj_id player, obj_id newObject, draft_schematic schematic, boolean isPrototype, boolean isRealObject) throws InterruptedException
     {
+        /* Cekis: unused vars and a pointless loop.  Commenting out for now.
         draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
         draft_schematic.attribute[] experimentalAttribs = schematic.getExperimentalAttribs();
         for (int i = 0; i < objectAttribs.length; ++i)
@@ -589,6 +595,7 @@ public class crafting_base extends script.base_script
             float modifiedValue = objectAttribs[i].currentValue;
             String attribName = (objectAttribs[i].name).getAsciiId();
         }
+        */
         if (isPrototype)
         {
             OnFinalizeSchematic(self, player, newObject, schematic);
@@ -651,6 +658,7 @@ public class crafting_base extends script.base_script
     }
     public int OnMakeCraftedItem(obj_id self, obj_id prototype, draft_schematic schematic, float qualityPercent) throws InterruptedException
     {
+        /* Cekis: look kids!  Pointless vars and Another pointless loop!  Commenting out for now.
         draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
         draft_schematic.attribute[] experimentalAttribs = schematic.getExperimentalAttribs();
         for (int i = 0; i < objectAttribs.length; ++i)
@@ -658,11 +666,12 @@ public class crafting_base extends script.base_script
             float modifiedValue = objectAttribs[i].currentValue;
             String attribName = (objectAttribs[i].name).getAsciiId();
         }
+        */
         debugServerConsoleMsg(null, "OnMakeCraftedItem enter, quality = " + qualityPercent);
         dictionary craftingValuesDictionary = new dictionary();
         for (int i = 0; i < objectAttribs.length; ++i)
         {
-            objectAttribs[i].currentValue = objectAttribs[i].minValue + (objectAttribs[i].maxValue - objectAttribs[i].minValue) * (qualityPercent / 100.0f);
+            objectAttribs[i].currentValue = objectAttribs[i].maxValue * (qualityPercent / 100.0f);
         }
         setSchematicAttributes(self, objectAttribs);
         calcAndSetPrototypeProperties(prototype, objectAttribs);

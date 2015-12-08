@@ -58,8 +58,20 @@ public class new_armor extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         int ourType = getGameObjectType(self);
+        System.out.println("---- Checking to see if I should remove the script. ----");
+        System.out.println("--- Found type: " + ourType);
+        System.out.println("--- GOT_armor: " + GOT_armor);
+        System.out.println("--- GOT_component_armor: " + GOT_component_armor);
+        System.out.println("--- GOT_component_new_armor: " + GOT_component_new_armor);
+        System.out.println("--- GOT_cybernetic: " + GOT_cybernetic);
+        System.out.println("--- GOT_cybernetic_arm: " + GOT_cybernetic_arm);
+        System.out.println("--- GOT_cybernetic_legs: " + GOT_cybernetic_legs);
+        System.out.println("--- GOT_cybernetic_torso: " + GOT_cybernetic_torso);
         if (!isGameObjectTypeOf(ourType, GOT_armor) && !isGameObjectTypeOf(ourType, GOT_component_armor) && !isGameObjectTypeOf(ourType, GOT_component_new_armor) && !isGameObjectTypeOf(ourType, GOT_cybernetic) && !isGameObjectTypeOf(ourType, GOT_cybernetic_arm) && !isGameObjectTypeOf(ourType, GOT_cybernetic_legs) && !isGameObjectTypeOf(ourType, GOT_cybernetic_torso))
         {
+            System.out.println("!!!!Removing armor script!!!!!");
+            System.out.println("--- This is probably bad... removing because game object type of item () doesn't match one of the exceptions: ");
+
             detachScript(self, "item.armor.new_armor");
         }
         return SCRIPT_CONTINUE;
