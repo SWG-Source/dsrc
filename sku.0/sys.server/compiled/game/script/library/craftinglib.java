@@ -1139,7 +1139,9 @@ public class craftinglib extends script.base_script
         }
         if (hasObjVar(stationId, OBJVAR_CRAFTING_STATION_BONUS) == true)
         {
-            craftingStationMod = getFloatObjVar(stationId, OBJVAR_CRAFTING_STATION_BONUS) / 10;
+            // Cekis: not sure why a float divided by an int is desired here (was just 10), so changing the int to a float
+            // as the former would have resulted in potential loss in precision.
+            craftingStationMod = getFloatObjVar(stationId, OBJVAR_CRAFTING_STATION_BONUS) / 10.0f;
         }
         debugServerConsoleMsg(null, "craftinglib::calcPerExperimentationCheckMod - craftingStationMod = " + craftingStationMod);
         float playerSkillMod = 0;
@@ -1686,7 +1688,8 @@ public class craftinglib extends script.base_script
     public static boolean storeSecondarySkillBonuses(obj_id prototype, draft_schematic schematic) throws InterruptedException
     {
         draft_schematic.slot[] slots = schematic.getSlots();
-        draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
+        // Cekis: never used - waste of processing.
+        // draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
         String category = getProtoTypeCategory(prototype);
         for (int i = 0; i < slots.length; ++i)
         {
