@@ -14,4 +14,4 @@
 
 sharedTemplate = "object/mobile/ep3/shared_ep3_dr_price.iff"
 
-scripts = +["conversation.ep3_imp_drprice"]
+scripts = +["conversation.ep3_imp_dr_price"]
