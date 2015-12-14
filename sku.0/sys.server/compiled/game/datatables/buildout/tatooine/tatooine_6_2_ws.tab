@@ -124,7 +124,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1106344	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1289.31	5	1298.06	-0.334238	0	0.942489	0		$|
 1106346	0	object/building/tatooine/filler_building_tatt_style01_02.iff	0	1339.74	5	1258.36	0.94441	0	0.328769	0		$|
 1106352	0	object/building/tatooine/filler_building_tatt_style01_03.iff	0	1316.02	5	1275.64	0.939373	0	0.342898	0		$|
-1106368	0	object/building/tatooine/starport_tatooine.iff	0	1570.98	5	1342.91	-0.700285	0	0.713864	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/mos_eisley_starport.iff|ravel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Eisley Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
+1106368	0	object/building/tatooine/starport_tatooine.iff	0	1570.98	5	1342.91	-0.700285	0	0.713864	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/mos_eisley_starport.iff|travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Eisley Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
 1106369	1106368	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1106370	1106368	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1106371	1106368	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
@@ -141,6 +141,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1106382	1106368	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1106383	1106368	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1106384	1106368	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
+1279065	1106372	object/tangible/terminal/terminal_space.iff	1	0.19	0.64	62.12	1	0	0	0	space.terminal.terminal_space	$|
+1279066	1106372	object/tangible/terminal/terminal_space.iff	2	6.5	0.64	57.63	0.7	0	0.7	0	space.terminal.terminal_space	$|
+1279067	1106372	object/tangible/terminal/terminal_space.iff	3	-5.68	0.64	57.43	-0.7	0	0.7	0	space.terminal.terminal_space	$|
+4265836	1106372	object/tangible/terminal/terminal_newsnet.iff	4	15.48	0.64	54.39	0.71	0	-0.7	0	systems.gcw.newsnet_terminal	$|
+4265837	1106372	object/tangible/terminal/terminal_newsnet.iff	5	0	0.64	48.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
+3795685	1106378	object/tangible/terminal/terminal_space.iff	1	-40.41	1.64	46.18	-0.99	0	0.08	0	space.terminal.terminal_space	$|
+3795686	1106378	object/tangible/terminal/terminal_space.iff	2	-37.48	1.64	49.10	-0.76	0	0.65	0	space.terminal.terminal_space	$|
+3795687	1106378	object/tangible/terminal/terminal_space.iff	3	-44.45	1.64	50.22	0.65	0	0.76	0	space.terminal.terminal_space	$|
+3795688	1106378	object/tangible/terminal/terminal_space.iff	4	-41.45	1.64	53.15	0.08	0	0.99	0	space.terminal.terminal_space	$|
 1106423	0	object/building/tatooine/filler_building_tatt_style01_01.iff	0	1452.66	5	1264.9	-0.331024	0	0.943622	0		$|
 1106435	0	object/static/structure/tatooine/jawa/tent_jawa_01_large.iff	0	1395.09	4.98634	1529.17	0.900447	0	0.434966	0		$|
 1106438	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1314.74	4.98979	1465.01	0.896052	0	0.443948	0		$|
