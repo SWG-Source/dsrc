@@ -20,6 +20,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2835552	2835549	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 2835560	0	object/building/military/outpost_starport.iff	0	1972.01	18	462.004	-0.329145	0	0.944279	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Science Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 2835561	2835560	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+3946221	2835561	object/tangible/terminal/terminal_space.iff	1	-7.6	0	-19.5	1	0	0	0	space.terminal.terminal_space	$|
 2835569	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1932.92	18	473.874	0.435682	0	0.900101	0	planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_science_outpost_spawns.iff|healing.canhealshock|0|1|safeLogout|0|1|$|
 2835570	2835569	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2835571	2835569	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
