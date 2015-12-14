@@ -411,6 +411,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1261664	1261651	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 1261665	1261651	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1261666	1261651	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
+1442993	1261655	object/tangible/terminal/terminal_space.iff	1	0.19	0.64	62.12	1	0	0	0	space.terminal.terminal_space	$|
+1442994	1261655	object/tangible/terminal/terminal_space.iff	2	6.5	0.64	57.63	0.7	0	0.7	0	space.terminal.terminal_space	$|
+1442995	1261655	object/tangible/terminal/terminal_space.iff	3	-5.68	0.64	57.43	-0.7	0	0.7	0	space.terminal.terminal_space	$|
+4265842	1261655	object/tangible/terminal/terminal_newsnet.iff	4	6.5	0.64	49.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
+4265843	1261655	object/tangible/terminal/terminal_newsnet.iff	5	-8.5	0.64	49.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
+3795699	1261661	object/tangible/terminal/terminal_space.iff	1	-40.41	1.64	46.18	-0.99	0	0.08	0	space.terminal.terminal_space	$|
+3795700	1261661	object/tangible/terminal/terminal_space.iff	2	-37.48	1.64	49.10	-0.76	0	0.65	0	space.terminal.terminal_space	$|
+3795701	1261661	object/tangible/terminal/terminal_space.iff	3	-44.45	1.64	50.22	0.65	0	0.76	0	space.terminal.terminal_space	$|
+3795702	1261661	object/tangible/terminal/terminal_space.iff	4	-41.45	1.64	53.15	0.08	0	0.99	0	space.terminal.terminal_space	$|
 1261667	0	object/building/tatooine/shuttleport_tatooine.iff	0	1296.78	5	115.43	0.779214	0	0.626758	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Espa Shuttleport East|travel.shuttle_available|0|1|travel.version|0|3|$|
 1261668	0	object/building/tatooine/filler_building_tatt_style01_06.iff	0	1314.84	5	84.916	0.953847	0	0.300293	0		$|
 1261670	0	object/building/tatooine/filler_building_tatt_style01_07.iff	0	1363.72	5	83.1404	-0.296281	0	0.955101	0		$|
