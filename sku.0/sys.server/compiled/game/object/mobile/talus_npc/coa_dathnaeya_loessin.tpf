@@ -7,4 +7,4 @@
 
 @class object_template 0
 
-sharedTemplate = "object/mobile/shared_coa_dathnaeya_loessin.iff"
+sharedTemplate = "object/mobile/talus_npc/shared_coa_dathnaeya_loessin.iff"
