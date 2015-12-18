@@ -321,24 +321,25 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028582	1028574	object/cell/cell.iff	8	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1028583	1028574	object/cell/cell.iff	9	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1028590	0	object/building/tatooine/association_hall_civilian_tatooine.iff	0	928.921	12	569.878	-0.329522	0	0.944148	0		$|
-1028591	1028590	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-1028592	1028590	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
-1028593	1028590	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
-1028594	1028590	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
-1028595	1028590	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
-1028596	1028590	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
-1028597	1028590	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
-1028598	1028590	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
-1028599	1028590	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
-1028600	1028590	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
-1028601	1028590	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
-1028602	1028590	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
-1028603	1028590	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
-1028604	1028590	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
-1028605	1028590	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
-1028606	1028590	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
-1028607	1028590	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
-1028644	0	object/building/tatooine/cantina_tatooine.iff	0	643.74	12	427.231	0.986156	0	0.165823	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/ep3_bestine_cantina.iff|$|
+1212350	1028590	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1212351	1028590	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1212352	1028590	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1212353	1028590	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1212354	1028590	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1212355	1028590	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1212356	1028590	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1212357	1028590	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1212358	1028590	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1212359	1028590	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+1212360	1028590	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+1261560	1028590	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+1261561	1028590	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+1261562	1028590	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+1261563	1028590	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
+1261564	1028590	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
+1261565	1028590	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
+5566043	1212359	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	0	1.75	-14	0.844588	0	-0.535416	0	space.content_tools.npc_spawner	$|
+1028644	0	object/building/tatooine/cantina_tatooine.iff	0	643.74	12	427.231	0.986156	0	0.165823	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_bestine_cantina.iff|$|
 1028645	1028644	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1028646	1028644	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1028647	1028644	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
