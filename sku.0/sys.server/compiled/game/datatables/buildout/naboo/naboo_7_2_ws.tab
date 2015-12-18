@@ -465,6 +465,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5036450	0	object/static/item/item_scrolling_screen.iff	0	664.632	8.77047	1348.76	0.958244	0	0.285952	0		$|
 5036451	0	object/static/item/item_scrolling_screen.iff	0	671.396	8.71604	1350.34	0.462486	0	0.886627	0		$|
 5036453	0	object/static/item/item_tech_console_sectional_c.iff	0	666.374	6.01233	1350.09	-0.652437	0	0.757843	0		$|
+5036449	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	668	6.01233	1349	0.844588	0	-0.535416	0	space.content_tools.npc_spawner	$|
 5285763	0	object/building/general/naboo_narglatch_cave.iff	0	1744.6	41.077	1508.74	0.0799147	0	0.996802	0		$|
 5285764	5285763	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 5285765	5285763	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
