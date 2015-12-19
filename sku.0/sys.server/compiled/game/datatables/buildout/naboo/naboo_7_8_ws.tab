@@ -197,6 +197,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1741499	1741484	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1741500	1741484	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 1741501	1741484	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
+8346077	1741494	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	0	1.75	-14	1	0	0	0	space.content_tools.npc_spawner	$|
 1741502	0	object/building/naboo/guild_commerce_naboo_style_01.iff	0	1072.15	-192	557.081	0.92388	0	-0.382683	0		$|
 1741503	1741502	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1741504	1741502	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
