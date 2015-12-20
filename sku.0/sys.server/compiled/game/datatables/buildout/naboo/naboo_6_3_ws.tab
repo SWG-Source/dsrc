@@ -1,6 +1,7 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
 1418871	0	object/building/naboo/emperors_retreat.iff	0	372.63	291.909	154.746	0.761612	0	0.648034	0		$|
+3725509	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	396	292	199	0.38268	0	-0.92388	0	space.content_tools.npc_spawner	$|
 1418934	0	object/static/structure/general/tato_cave_rock_med.iff	0	373.235	292.157	155.821	0.80051	0.560136	-0.0278931	-0.211313		$|
 1418936	0	object/static/structure/general/tato_cave_rock_med.iff	0	374.087	292.206	152.007	0.891568	0	0	-0.452886		$|
 1418937	0	object/static/structure/general/tato_cave_rock_large.iff	0	372.378	292.294	153.545	0.616846	0.0849729	0.466638	0.628116		$|
