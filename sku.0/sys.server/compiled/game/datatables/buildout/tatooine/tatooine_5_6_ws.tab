@@ -1704,7 +1704,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 3945423	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.5400390625	7	1163.30004882813	.000000327000009292533	0	1	0		$|
 3945425	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1754.46997070312	7	1146.80004882813	0	0	1	0		$|
 3945426	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1757.02001953125	4.721519947052	1143.76000976563	.966389834880829	0	-.257081061601639	0		$|
-4005516	0	object/building/tatooine/starport_tatooine.iff	0	1238.18	7	1013.85	0.953847	0	0.300293	0	theme_park.dungeon.generic_spawner:structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Entha Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/poi_spawner/tatooine/mosentha_starport.iff|$|
+4005516	0	object/building/tatooine/starport_tatooine.iff	0	1238.18	7	1013.85	0.953847	0	0.300293	0	theme_park.dungeon.generic_spawner:structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Entha Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
 4005517	4005516	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4005518	4005516	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4005519	4005516	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
