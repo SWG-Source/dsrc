@@ -43,7 +43,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1283319	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	858.529	8.96798	635.428	0.778766	0.0849005	-0.621536	-0.0027228		$|
 1283320	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	857.564	8.98904	633.526	0.167887	-0.053793	0.98397	0.0268817		$|
 1283321	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	859.506	9.04778	635.084	0.167887	-0.053793	0.98397	0.0268817		$|
-1289932	0	object/building/military/military_base_shed_imperial_style_01.iff	0	836.613	8.46101	605.076	0.99999	0	0.00437247	0		$|
+1289932	0	object/building/military/military_base_shed_imperial_style_01.iff	0	836.613	8.46101	605.076	0.99999	0	0.00437247	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/tat_imperial_oasis.iff|$|
 1289933	1289932	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1289934	1289932	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1289935	1289932	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
