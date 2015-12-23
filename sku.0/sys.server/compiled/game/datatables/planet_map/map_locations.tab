@@ -50,7 +50,9 @@ object/building/military/outpost_cloning_facility_s03.iff		cloningfacility
 object/building/military/outpost_starport.iff		starport			
 object/building/military/small_imperial_cloning_facility.iff		cloningfacility			
 object/building/military/small_imperial_cloning_facility_s02.iff		cloningfacility			
-object/building/corellia/capitol_corellia.iff		capitol			
+object/building/military/military_base_shed_imperial_style_cantina_s01.iff		cantina
+object/building/military/military_base_shed_imperial_style_hospital_01.iff		medicalcenter
+object/building/corellia/capitol_corellia.iff		capitol
 object/building/poi/scout_camp_s4.iff			camp		1
 object/building/poi/scout_camp_s5.iff			camp		1
 object/building/player/city/cloning_naboo.iff		cloningfacility			
