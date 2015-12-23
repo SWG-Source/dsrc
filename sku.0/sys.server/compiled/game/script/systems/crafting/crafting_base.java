@@ -658,8 +658,8 @@ public class crafting_base extends script.base_script
     }
     public int OnMakeCraftedItem(obj_id self, obj_id prototype, draft_schematic schematic, float qualityPercent) throws InterruptedException
     {
-        /* Cekis: look kids!  Pointless vars and Another pointless loop!  Commenting out for now.
         draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
+        /* Cekis: look kids!  Pointless vars and Another pointless loop!  Commenting out for now.
         draft_schematic.attribute[] experimentalAttribs = schematic.getExperimentalAttribs();
         for (int i = 0; i < objectAttribs.length; ++i)
         {
