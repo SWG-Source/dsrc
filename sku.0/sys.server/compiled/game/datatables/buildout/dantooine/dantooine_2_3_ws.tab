@@ -1,10 +1,10 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1365875	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1937	3	1666	1	0	0	0	planet_map.map_loc	planetMap.category|4|cantina|portalLayoutCrc|0|-242217168|healing.canhealshock|0|1|safeLogout|0|1|$|
+1365875	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1937	3	1666	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/dant_imperial_outpost_cantina.iff|planetMap.category|4|cantina|portalLayoutCrc|0|-242217168|healing.canhealshock|0|1|safeLogout|0|1|$|
 1365876	1365875	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 1365877	1365875	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 1365878	1365875	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-5097116	1365878	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	0	0.1	-5.7	1	0	0	0	space.content_tools.npc_spawner	$|
+5097116	1365878	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	0	0.1	-5.7	1	0	0	0	space.content_tools.npc_spawner	$|
 1365879	1365875	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 1365880	1365875	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
 1365881	1365875	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
