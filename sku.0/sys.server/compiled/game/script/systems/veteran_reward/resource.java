@@ -152,35 +152,30 @@ public class resource extends script.base_script
         switch (bp)
         {
             case sui.BP_OK:
-            
-            {
                 obj_id[] resourceTypes = (self.getScriptVars()).getObjIdArray(SCRIPTVAR_TYPES);
                 int rowSelected = sui.getListboxSelectedRow(params);
                 if (rowSelected >= 0 && rowSelected < resourceTypes.length)
                 {
                     showResourceStats(sui.getPlayerId(params), resourceTypes[rowSelected]);
-                    cleanup();
+                    //cleanup();
                 }
-                else 
+                else
                 {
                     String resourceClass = (self.getScriptVars()).getString(SCRIPTVAR_BASE_CLASS);
                     chooseResourceClass(sui.getPlayerId(params), resourceClass);
                 }
-            }
-            break;
+                break;
             case sui.BP_CANCEL:
-            
-            {
                 String resourceClass = (self.getScriptVars()).getString(SCRIPTVAR_BASE_CLASS);
                 if (!resourceClass.equals(ROOT_RESOURCE_CLASS))
                 {
                     chooseResourceClass(sui.getPlayerId(params), getResourceParentClass(resourceClass));
                     break;
                 }
-            }
+                // note: break is purposefully missing here such to carry over to default case and cleanup.
             default:
-            cleanup();
-            break;
+                cleanup();
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -336,12 +331,12 @@ public class resource extends script.base_script
             string_id temp = new string_id("obj_attr_n", resourceAttribs[i].getName());
             attribStrings = utils.addElement(attribStrings, "@" + temp + " = " + resourceAttribs[i].getValue());
         }
-        int pid = sui.listbox(getSelf(), player, "@" + SID_CONFIRM_RESOURCE_SELECTION, sui.OK_CANCEL, "@" + SID_RESOURCE_TITLE, attribStrings, "handleChooseResourceTypeStats", false, false);
+        int pid = sui.listbox(self, player, "@" + SID_CONFIRM_RESOURCE_SELECTION, sui.OK_CANCEL, "@" + SID_RESOURCE_TITLE, attribStrings, "handleChooseResourceTypeStats", false, false);
         if (pid >= 0)
         {
             sui.setSUIProperty(pid, sui.LISTBOX_BTN_CANCEL, sui.PROP_TEXT, "@back");
             sui.showSUIPage(pid);
-            ((getSelf()).getScriptVars()).put(SCRIPTVAR_RESOURCECHOSEN, resource);
+            ((self).getScriptVars()).put(SCRIPTVAR_RESOURCECHOSEN, resource);
         }
         else 
         {
