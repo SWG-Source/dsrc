@@ -12,3 +12,5 @@ objectName = "wearables_name"  "default_gauntlets"
 detailedDescription = "wearables_detail"  "default_gauntlets"
 
 arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/gauntlets_long.iff"
+
+gameObjectType = GOT_armor_hand
