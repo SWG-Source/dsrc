@@ -765,6 +765,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3375652	3375651	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 3375653	3375651	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3375654	3375651	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+3375680	3375654	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	-4.2	0.625	-3.54	1	0	0	0	space.content_tools.npc_spawner	$|
 3695624	0	object/tangible/sign/all_sign_city_s03.iff	0	744.385	21	1488.69	0.851111	0	0.524986	0		$|
 3695647	0	object/tangible/sign/all_sign_city_s03.iff	0	559.194	21	1516.75	0.707107	0	0.707107	0		$|
 3695649	0	object/tangible/sign/all_sign_city_s03.iff	0	484.541	21.1096	1290.09	1	0	0	0		$|

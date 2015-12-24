@@ -8,4 +8,4 @@ nameGeneratorType = "bothan"
 
 @class object_template 0
 
-sharedTemplate = "object/mobile/shared_coa_vayde_quellium.iff"
+sharedTemplate = "object/mobile/talus_npc/shared_coa_vayde_quellium.iff"

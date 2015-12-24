@@ -1,10 +1,10 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1365875	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1937	3	1666	1	0	0	0	planet_map.map_loc	planetMap.category|4|cantina|portalLayoutCrc|0|-242217168|healing.canhealshock|0|1|safeLogout|0|1|$|
+1365875	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1937	3	1666	1	0	0	0	planet_map.map_loc:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/dant_imperial_outpost_cantina.iff|planetMap.category|4|cantina|portalLayoutCrc|0|-242217168|healing.canhealshock|0|1|safeLogout|0|1|$|
 1365876	1365875	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 1365877	1365875	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 1365878	1365875	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
-5097116	1365878	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	0	0.1	-5.7	1	0	0	0	space.content_tools.npc_spawner	$|
+5097116	1365878	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	0	0.1	-5.7	1	0	0	0	space.content_tools.npc_spawner	$|
 1365879	1365875	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 1365880	1365875	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
 1365881	1365875	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
@@ -134,8 +134,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2955583	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1887	3	1752	1	0	0	0		$|
 2955584	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1943	3	1752	1	0	0	0		$|
 2955585	0	object/building/military/outpost_starport.iff	0	1915	3	1728	-3.20E-08	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Imperial Outpost|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-688757533|$|
-2955586	2955585	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
-2939393 2955586 object/tangible/terminal/terminal_space.iff	1   -7.6	0	-19.5   1   0   0   0	space.terminal.terminal_space	$|
+2955586	2955585	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+3975461	2955586	object/tangible/terminal/terminal_space.iff	1	-7.418754	0.146595	-19.25819	1	0	0	0	space.terminal.terminal_space	$|
 2955587	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1919.56	3	1740.79	1	0	0	0		$|
 2955596	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1907.06	3	1749.7	-0.703845	0	0.710354	0		$|
 2955599	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1906.31	3.12649	1750.25	0.999989	0	-0.00460156	0		$|

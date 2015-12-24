@@ -221,6 +221,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1256068	1256055	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 1256069	1256055	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1256070	1256055	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
+5566054	1256068	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	-28.69707	0	9.063158	0.988012	0	-0.15438	0	space.content_tools.npc_spawner	$|
 1257855	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	1101.84	5	555.138	0.173324	0	0.984865	0		$|
 1257872	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1077.38	5	509.195	0.908966	0	-0.416871	0		$|
 1257874	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1084.9	5	502.598	0.924909	0	-0.380189	0		$|
