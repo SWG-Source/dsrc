@@ -18,6 +18,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1213347	1213343	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1213348	1213343	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1213349	1213343	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+924012	1213349	object/tangible/terminal/terminal_mission_rebel.iff	1	0.3572978	-3.966173	-3.557604	0.7071072	0	-0.7071063	0		$|
+924014	1213349	object/tangible/terminal/terminal_mission_rebel.iff	2	0.37303	-3.966173	-1.895806	0.7071075	0	-0.707106	0		$|
 1213350	1213343	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1213351	1213343	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1213352	1213343	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|

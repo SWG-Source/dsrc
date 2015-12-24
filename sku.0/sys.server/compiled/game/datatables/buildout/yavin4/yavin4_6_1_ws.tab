@@ -88,6 +88,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8735498	8735494	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 8735499	8735494	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 8735500	8735494	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+7105741	8735497	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	0.023	0.125	-5	1	0	0	0	space.content_tools.npc_spawner	$|
 8735515	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	1950.34	37	1991.4	3.20013e-008	0	1	0		$|
 8735516	8735515	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 8735517	8735515	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
@@ -95,3 +96,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8735519	8735515	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 8735520	8735515	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 8735521	8735515	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+7105712	8735518	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	0.023	0.125	-5	1	0	0	0	space.content_tools.npc_spawner	$|
+1491025	8735521	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	-4.00	0.125	-3.683	0.707106	0	0.707106	0	space.content_tools.npc_spawner	$|
