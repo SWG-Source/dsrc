@@ -30,6 +30,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 189373	189372	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 189374	189372	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 189375	189372	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+4548418	189375	object/tangible/collection/rare_melee_nightsister_energy_lance.iff	1	8.416181	1.693266	-3.905514	-0.1502182	0	0.09717558	0.7831659		$|
 189376	189372	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 189377	189372	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 189378	189372	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
@@ -180,6 +181,18 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2666195	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	33.0413	126.924	1871.71	0.857667	0.00845965	0.514113	-0.00492122		$|
 2666196	0	object/static/structure/general/skeleton_human_body.iff	0	22.6829	128.19	1870.4	-0.0320369	-0.12087	0.976546	-0.175279		$|
 4115618	0	object/building/general/dathomir_nsister_rancor_cave.iff	0	87.2322	114.826	2035.59	-0.0242013	0	0.999707	0	theme_park.nightsister.nsister_rancor_cave	$|
+4115619	4115618	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
+4115620	4115618	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
+4115621	4115618	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|
+4115622	4115618	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
+4115623	4115618	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
+4115624	4115618	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
+4115625	4115618	object/cell/cell.iff	7	0	0	0	1	9.809089E-45	0	0		$|
+4548486	4115625	object/tangible/collection/rare_melee_wke_toothpick.iff	1	-23.38357	-62.58871	-260.1092	0.9409319	0	-0.2705689	-0.05625689		$|
+4115626	4115618	object/cell/cell.iff	8	0	0	0	1	1.121039E-44	0	0		$|
+4115627	4115618	object/cell/cell.iff	9	0	0	0	1	1.261169E-44	0	0		$|
+4115628	4115618	object/cell/cell.iff	10	0	0	0	1	1.401298E-44	0	0		$|
+4115629	4115618	object/cell/cell.iff	11	0	0	0	1	1.541428E-44	0	0		$|
 6055606	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	89.5862	123.382	1971.08	0.805072	0	-0.593177	0		$|
 7015480	0	object/static/structure/general/tato_cave_rock_large.iff	0	80.5771	121.96	2023.45	0.728648	-0.215903	-0.0292371	0.64931		$|
 7015483	0	object/static/structure/general/tato_cave_rock_med.iff	0	81.7498	122.01	2024.06	1	0	0	0		$|
