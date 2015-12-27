@@ -577,6 +577,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5365465	0	object/static/item/wp_carbine_ee3_combined.iff	0	714.986	80.9041	1852.71	0.768054	0	0	-0.640385		$|
 5385721	0	object/static/structure/general/escape_pod.iff	0	419.348	81.8722	1609.27	0.317425	0.794267	0.510029	-0.0908358		$|
 5385722	0	object/static/structure/general/escape_pod_door.iff	0	421.273	81.3862	1606.14	-0.595221	0.334332	0.250602	0.686391		$|
+-1	0	object/tangible/spawning/ep3/clone_relics/nym_starmap_spawner.iff	0	419.273	85.2	1606.14	-0.595221	0.334332	0.250602	0.686391		$|
 5405672	0	object/static/item/item_bottle_fat.iff	0	1160.25	80.1581	1777.7	0.663731	0	0	0.747971		$|
 5405704	0	object/static/item/item_bottle_pear.iff	0	1160.44	80	1777.55	1	0	0	0		$|
 5405738	0	object/static/item/item_bottle_tall.iff	0	1159.48	80	1779.66	1	0	0	0		$|
