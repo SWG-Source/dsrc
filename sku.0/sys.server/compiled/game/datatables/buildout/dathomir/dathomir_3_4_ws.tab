@@ -26,6 +26,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 189368	0	object/static/structure/general/skeleton_human_head.iff	0	27.3066	127.642	1965.05	0.0242008	0	0.999707	0		$|
 189369	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	0.528564	125.354	1982.09	0.979061	0	0.203569	0		$|
 189370	0	object/static/structure/general/skeleton_human_head.iff	0	0.528809	126.683	1982.1	0.0841037	0	0.996457	0		$|
+-1	0	object/tangible/spawning/ep3/clone_relics/jedi_starfighter_spawner.iff	0	124	124.8	1980	1	0	0	0		$|
 189372	0	object/building/dathomir/night_sister_stronghold.iff	0	9.75708	130.5	1911.97	0.942755	0	0.333487	0		$|
 189373	189372	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 189374	189372	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
