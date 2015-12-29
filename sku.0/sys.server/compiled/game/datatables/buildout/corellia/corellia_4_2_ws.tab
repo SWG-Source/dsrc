@@ -63,6 +63,25 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855470	1855460	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 1855471	1855460	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1855473	0	object/building/corellia/association_hall_civilian_corellia.iff	0	1772.42	28	1424.24	1	0	0	0		$|
+1855474	1855473	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1855475	1855473	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1855476	1855473	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1855477	1855473	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1855478	1855473	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1855479	1855473	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1855480	1855473	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1855481	1855473	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1855482	1855473	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1855483	1855473	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+1855484	1855473	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+1855485	1855473	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+1855486	1855473	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+1855487	1855473	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+1855488	1855473	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
+1855489	1855473	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
+1855490	1855473	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
+1509607	1855483	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	0	1.75	-14	0.844588	0	-0.535416	0	space.content_tools.npc_spawner	$|
+4608437	1855483	object/tangible/collection/rare_melee_kashyyyk_blade_stick.iff	2	-1.56429	2.48303	-14.5934	0.9832418	0	0.01449411	-0.1297189		$|
 1855491	0	object/building/corellia/cloning_corellia.iff	0	1548	28	1644	0.707109	0	0.707104	0		$|
 1855492	1855491	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1855493	1855491	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
