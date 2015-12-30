@@ -269,6 +269,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4965637	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1785.61	20	252.094	1	0	0	0		$|
 4965638	0	object/building/military/outpost_starport.iff	0	1884.24	20	253.514	0.707107	0	0.707106	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Imperial Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 4965639	4965638	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+7355459	4965639	object/tangible/terminal/terminal_space.iff	1	-7.467643	0.146595	-19.19954	1	0	0	0		$|
 5315409	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1814.66	20	260.999	0.922997	0	-0.384808	0		$|
 5315413	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1817.03	20	258.895	-0.693111	0	0.720831	0		$|
 5315414	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1871.29	20	341.115	0.988771	0	0.149438	0		$|
@@ -889,12 +890,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5316174	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1903.85	32.1256	348.985	1	0	0	0		$|
 5316175	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1920.93	32.1286	349.126	1	0	0	0		$|
 5555402	0	object/building/military/military_base_shed_imperial_barracks_s01.iff	0	1933	20	246	0.707107	0	-0.707106	0		$|
-5555403	5555402	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-5555404	5555402	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
-5555405	5555402	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
-5555406	5555402	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
-5555407	5555402	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
-5555408	5555402	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+5555449	5555402	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
+5555460	5555402	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
+5555517	5555402	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|
+5555518	5555402	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
+1179103	5555518	object/tangible/collection/storm_trooper_left_bracer.iff	1	2.425423	-0.4939412	1.371302	0.8925098	0	-0.08346137	-0.08646096		$|
+5555519	5555402	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
+5555520	5555402	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
 5555521	0	object/building/military/military_base_shed_imperial_barracks_s01.iff	0	1933	20	263	-0.707107	0	0.707107	0		$|
 5555522	5555521	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 5555523	5555521	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
