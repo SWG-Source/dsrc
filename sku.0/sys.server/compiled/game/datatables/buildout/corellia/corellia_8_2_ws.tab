@@ -8,9 +8,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365754	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	635.325	315	387.55	1	0	0	0		$|
 2365761	0	object/building/corellia/guild_combat_corellia_style_01.iff	0	727.663	315	360.325	-0.707107	0	0.707107	0		$|
 2365762	2365761	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+4607006	2365762	object/tangible/collection/rare_melee_tulrus_sword.iff	1	0.303237	5.969707	10.03612	-0.5026473	0	0.5001973	-0.4972649		$|
 2365763	2365761	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2365764	2365761	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 2365765	2365761	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1112730	2365765	object/tangible/collection/plant_06.iff	1	6.801495	1.133057	0.02276124	1	0	0	0		$|
 2365766	2365761	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 2365767	2365761	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 2365768	2365761	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
@@ -32,15 +34,26 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365805	2365803	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2365806	2365803	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 2365807	2365803	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1095006	2365807	object/tangible/gambling/slot/standard.iff	1	4.410891	1.276682	-22.0438	0.9999973	0	-0.002301926	0		$|
+1095007	2365807	object/tangible/gambling/slot/standard.iff	2	0.3378506	1.275782	-22.00167	0.9999973	0	-0.002301926	0		$|
+1095008	2365807	object/tangible/gambling/wheel/roulette.iff	3	-1.14261	1.085977	-16.14094	0.9999973	0	-0.002301926	0		$|
+1095009	2365807	object/tangible/gambling/wheel/roulette.iff	4	9.50218	1.086939	-16.15126	0.9999973	0	-0.002301926	0		$|
+1095010	2365807	object/tangible/gambling/slot/standard.iff	5	8.45293	1.276682	-22.14753	0.9999973	0	-0.002301926	0		$|
 2365808	2365803	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 2365809	2365803	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1095000	2365809	object/tangible/gambling/wheel/roulette.iff	1	-15.91992	1.000861	-0.1241322	0.9999964	0	0.002698067	0		$|
+1095001	2365809	object/tangible/gambling/wheel/roulette.iff	2	-15.88282	1.000877	4.245212	0.9999964	0	0.002698067	0		$|
+1095002	2365809	object/tangible/gambling/slot/standard.iff	3	-12.33354	1.000694	-0.1672761	0.7090043	0	-0.705205	0		$|
+1095003	2365809	object/tangible/gambling/slot/standard.iff	4	-12.13112	1.000541	-0.1892359	0.7051967	0	0.7090116	0		$|
+1095004	2365809	object/tangible/gambling/slot/standard.iff	5	-11.97108	1.0008	4.115673	0.6961365	0	0.7179096	0		$|
+1095005	2365809	object/tangible/gambling/slot/standard.iff	6	-12.1723	1.000648	4.142407	0.717904	0	-0.6961425	0		$|
 2365810	2365803	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 2365811	2365803	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 2365812	2365803	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 2365813	2365803	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
-2365824	0	object/building/corellia/shuttleport_corellia.iff	0	480.307	330	222.708	-0.0307917	0	0.999526	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Bela Vista Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
+2365824	0	object/building/corellia/shuttleport_corellia.iff	0	480.307	330	222.708	-0.0307917	0	0.999526	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Bela Vistal Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 2365825	0	object/building/corellia/filler_building_corellia_style_03.iff	0	529.108	330	261.333	0.707107	0	-0.707106	0		$|
-2365842	0	object/building/corellia/shuttleport_corellia.iff	0	806.402	330	605.118	0.994964	0	0.10023	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Bela Vista Shuttleport B|travel.shuttle_available|0|1|travel.version|0|3|$|
+2365842	0	object/building/corellia/shuttleport_corellia.iff	0	806.402	330	605.118	0.994964	0	0.10023	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Bela Vistal Shuttleport B|travel.shuttle_available|0|1|travel.version|0|3|$|
 2365897	0	object/building/corellia/skyscraper_corellia_style_05.iff	0	604.019	314.999	645.688	0.293321	0	0.956014	0		$|
 2365901	0	object/building/corellia/cloning_corellia.iff	0	739.647	315	423.985	0.707108	0	-0.707105	0		$|
 2365902	2365901	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
@@ -415,7 +428,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3375363	3375352	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 3375364	3375352	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 3375365	3375352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+4612695	3375365	object/tangible/collection/rare_heavy_corellian_destroyer.iff	1	-23.76932	-0.2453802	8.59674	0.08610218	0	0.7018451	0.0983379		$|
 3375366	3375352	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+-1	3375366	object/tangible/collection/hanging_light_02_02.iff	1	-33.77066	4.292605	-22.9507	1	0	0	0		$|
 3375367	3375352	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 3375372	0	object/building/corellia/hospital_corellia_s02.iff	0	569.248	330	202.187	1	0	0	0		$|
 3375373	3375372	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
