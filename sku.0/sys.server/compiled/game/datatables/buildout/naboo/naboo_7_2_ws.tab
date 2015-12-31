@@ -99,7 +99,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1717512	1717500	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1717513	1717500	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 1717514	1717500	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
-1717500	0	object/building/naboo/hospital_naboo.iff	0	822.3345	3.75	1215.063	1	0	0	0		$|
+1717500	0	object/building/naboo/hospital_naboo_style01.iff	0	822.3345	3.75	1215.063	1	0	0	0		$|
 1717501	1717500	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
 1717502	1717500	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
 7677074	1717502	object/tangible/collection/datapad_08.iff	2	18.19289	1.011201	0.2911234	0.8419008	0	0.5396323	0		$|
