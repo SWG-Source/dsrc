@@ -27,6 +27,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4505518	0	object/static/structure/military/military_column_med_rebel_style_01.iff	0	1641	96	1749	1	0	0	0		$|
 4505529	0	object/building/military/outpost_starport.iff	0	1623.56	96	1770.8	3.20013e-008	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Rebel Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 4505530	4505529	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+3315599	4505530	object/tangible/terminal/terminal_space.iff	1	-7.405805	0.146595	-19.10296	1	0	0	0		$|
 4505531	0	object/static/structure/military/military_wall_weak_rebl_style_01.iff	0	1625.91	94.6633	1771.79	0.707108	0	-0.707105	0		$|
 4505533	0	object/static/structure/military/military_column_med_rebel_style_01.iff	0	1625.87	94.9005	1768.22	1	0	0	0		$|
 4505534	0	object/static/structure/military/military_wall_weak_rebl_style_01.iff	0	1629.72	94.7013	1768.08	1	0	0	0		$|
