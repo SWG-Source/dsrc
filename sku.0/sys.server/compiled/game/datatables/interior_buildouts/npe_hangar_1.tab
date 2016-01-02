@@ -67,6 +67,6 @@ object/tangible/npe/npe_target_crate.iff	0	1	0	0	0	1	-30.5736	-9.88E-06	27.9145	
 object/tangible/npe/npe_target_crate.iff	0	1	0	0	0	1	-30.6011	-9.95E-06	29.9839	pvpCanAttack|0|1|$|	script.npe.npe_target_crate	medicalroom	0
 object/tangible/npe/npe_node.iff	0	1	0	0	0	1	-19.3754	-4.79E-06	34.0611	strSequenceIdentifier|4|medDroid|$|	script.content_tools.sequencer_object	medicalroom	0
 object/tangible/npe/npe_tutorial_cabinet.iff	0	1	0	0.0168139	0	0.999859	-23.1733	-2.60E-06	24.6628	$|	script.npe.npe_tutorial_cabinet	medicalroom	0
-object/tangible/npe/npe_tutorial_door_terminal.iff	0	1	0	0	0	1	-15.9994	2.98E-05	6.7802	pvpCanAttack|0|1|$|	"script.npe.npe_tutorial_door_terminal,script.systems.npc_lair.lair_destruct,script.systems.npc_lair.lair_interactivity"	medicalroom	0
+object/tangible/npe/npe_tutorial_door_terminal.iff	0	1	0	0	0	1	-15.75	2.98E-05	6.7802	pvpCanAttack|0|1|$|	"script.npe.npe_tutorial_door_terminal,script.systems.npc_lair.lair_destruct,script.systems.npc_lair.lair_interactivity"	medicalroom	0
 object/tangible/npe/npe_station_alarm.iff	-0.0032679	0.0309039	0.999517	0.999935	0.0110297	0.00292822	-13.1161	5.19697	6.88678	$|	script.npe.npe_station_alarm	medicalroom	0
 object/tangible/npe/npe_station_alarm.iff	0.999958	-0.00920502	0	0	0	1	-34.1234	4.72545	29.2055	$|	script.npe.npe_station_alarm	medicalroom	0
