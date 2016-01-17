@@ -1971,18 +1971,6 @@ public class qatool extends script.base_script
                 sui.msgbox(self, self, allHelpData, sui.OK_ONLY, QATOOL_TITLE, "noHandler");
                 return SCRIPT_CONTINUE;
             }
-			else if((toLower(command)).equals("persistplanet"))
-			{
-				if (st.hasMoreTokens())
-                {
-                    String buildoutPlanet = st.nextToken();
-					
-					int persistedObjs = pPlanet(buildoutPlanet);
-					sendSystemMessageTestingOnly(self, "Successfully persisted " + persistedObjs + " objects for " + buildoutPlanet);
-
-                }
-				else sendSystemMessageTestingOnly(self, "Syntax: /qatool persistplanet <planet scene id>; ex: /qatool persistplanet tatooine");
-			}
             else 
             {
                 sendSystemMessageTestingOnly(self, "No such QA Tool Command.  Please check your spelling");
@@ -2554,45 +2542,6 @@ public class qatool extends script.base_script
         int successInt = lootLoggerMain(self, iterationInt, creatureName, scriptString);
         return SCRIPT_CONTINUE;
     }
-	
-	public int pPlanet(String buildoutPlanet) 
-	{
-		int persistedObjects = 0;
-		
-		if (buildoutPlanet != "")
-		{
-			String buildoutPath = "datatables/buildout/" + buildoutPlanet + "/" + buildoutPlanet + "_";
-
-			for(int x = 1; x < 9; x++) // we assume that a planet is comprised of 8x8 regions
-			{
-				for(int y = 1; y < 9; y++)
-				{
-					String buildoutRegionPath = buildoutPath + x + "_" + y + "_ws.iff";
-					int[] buildoutRows = dataTableGetIntColumn(buildoutRegionPath, "objid");
-					int[] cellIndexRows = dataTableGetIntColumn(buildoutRegionPath, "cell_index");
-
-					if(buildoutRows != null)
-					{
-						for(int i = 0; i < buildoutRows.length; i++)
-						{
-							if(buildoutRows[i] > 0)
-							{
-								obj_id buildoutObject = obj_id.getObjId(buildoutRows[i]);
-
-								if (cellIndexRows[i] == 0) {
-									if (persistObject(buildoutObject)) {
-										persistedObjects++;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		return persistedObjects;
-	}
 	
     public void cleanAllScriptVars(obj_id player) throws InterruptedException
     {

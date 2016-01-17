@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
+import script.library.space_quest;
 
 public class delivery_no_pickup extends script.space.quest_logic.delivery
 {
@@ -17,6 +18,46 @@ public class delivery_no_pickup extends script.space.quest_logic.delivery
     {
         setObjVar(self, "delivering", 1);
         setObjVar(self, "delivery_nopickup", 1);
+		String questName = getStringObjVar(self, space_quest.QUEST_NAME);
+        String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
+        obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
+        if ((questName == null) || (questType == null))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        String qTable = "datatables/spacequest/" + questType + "/" + questName + ".iff";
+        sendSystemMessageTestingOnly(player, "table is " + qTable);
+		dictionary questInfo = dataTableGetRow(qTable, 0);
+        if (questInfo == null)
+        {
+            sendSystemMessageTestingOnly(player, "Debug: Failed to open quest table " + qTable);
+            return SCRIPT_CONTINUE;
+        }
+        setObjVar(self, "pickupShip", questInfo.getString("pickupShip"));
+        setObjVar(self, "deliveryShip", questInfo.getString("deliveryShip"));
+        setObjVar(self, "pickupPoint", questInfo.getString("pickupPoint"));
+        setObjVar(self, "deliveryPoint", questInfo.getString("deliveryPoint"));
+        int numAttackShipLists = questInfo.getInt("numAttackShipLists");
+        setObjVar(self, "numAttackShipLists", numAttackShipLists);
+        for (int i = 0; i < numAttackShipLists; i++)
+        {
+            String[] attackShips = dataTableGetStringColumn(qTable, "attackShips" + (i + 1));
+            space_quest.cleanArray(self, "attackShips" + (i + 1), attackShips);
+        }
+        setObjVar(self, "attackPeriod", questInfo.getInt("attackPeriod"));
+        setObjVar(self, "attackListType", questInfo.getInt("attackListType"));
+        String questZone = getStringObjVar(self, space_quest.QUEST_ZONE);
+        if ((getCurrentSceneName()).startsWith(questZone))
+        {
+            dictionary outparams = new dictionary();
+            outparams.put("player", player);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+        }
+        int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
+        if (questid != 0)
+        {
+            questActivateTask(questid, 0, player);
+        }
         return SCRIPT_CONTINUE;
     }
     public int deliveryNoPickupAttack(obj_id self, dictionary params) throws InterruptedException
