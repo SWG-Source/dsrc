@@ -7,18 +7,24 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 192328	0	object/static/particle/particle_test_31.iff	0	850.454	39.403	654.707	1	0	0	0		$|
 192334	0	object/static/particle/particle_test_31.iff	0	827.984	48.7725	632.813	1	0	0	0		$|
 192337	0	object/static/particle/particle_test_31.iff	0	822.092	46.4622	505.901	1	0	0	0		$|
-4275364	0	object/building/general/corellia_drall_cave.iff	0	1021.74	32.2214	85.2769	0.707107	0	0.707106	0		$|
+4275364	0	object/building/general/corellia_drall_cave.iff	0	1021.74	32.2214	85.2769	0.707107	0	0.707106	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/corellia/drall_patriot_cave.iff|$|
 4275365	4275364	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4275366	4275364	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+6036048	4275366	object/tangible/container/loot/placable_loot_crate.iff	2	50.30782	-67.14603	-44.26173	0.883348	0	-0.4388346	-0.0536553		$|
 4275367	4275364	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 4275368	4275364	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 4275369	4275364	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 4275370	4275364	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 4275371	4275364	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 4275372	4275364	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+6036049	4275372	object/tangible/container/loot/placable_loot_crate.iff	8	113.4743	-67.04577	-86.76102	0.0005240655	0	0.9944801	0.004972445		$|
+6036050	4275372	object/tangible/container/loot/placable_loot_crate.iff	8	137.6884	-66.88319	-86.221	-0.2320325	0	0.9705241	-0.01027166		$|
 4275373	4275364	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+4612071	4275373	object/tangible/collection/rare_pistol_oppressor.iff	9	195.0427	-65.97031	-97.34206	0.7141976	0	-0.01785868	-0.01749109		$|
+6036051	4275373	object/tangible/container/loot/placable_loot_crate.iff	9	195.4821	-66.66642	-100.1481	0.8658943	0	-0.4950873	-0.02174893		$|
 4275374	4275364	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 4275375	4275364	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+6036047	4275375	object/tangible/container/loot/placable_loot_crate.iff	11	90.55807	-46.44537	-147.3711	0.9415455	0	0.3339077	0.03217201		$|
 8675708	0	object/tangible/camp/camp_tent_s5.iff	0	1811.28	30.1654	893.765	1	0	0	0		$|
 8675709	0	object/tangible/camp/camp_light_s2.iff	0	1807.32	29.8893	893.049	1	0	0	0		$|
 8675710	0	object/tangible/camp/camp_lawn_chair.iff	0	1807.67	30.2339	896.373	-0.440178	0	0.897911	0		$|
