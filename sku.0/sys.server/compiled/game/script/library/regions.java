@@ -50,7 +50,7 @@ public class regions extends script.base_script
     public static final int MISSION_TATOOINE_MOS_EISLEY = 5;
     public static final int MISSION_TATOOINE_MOS_ENTHA = 6;
     public static final int MISSION_TATOOINE_MOS_ESPA = 7;
-    public static final int MISSION_TATOOINE_MOS_TEIKE = 8;
+    public static final int MISSION_TATOOINE_MOS_TAIKE = 8;
     public static final int MISSION_TATOOINE_WAYFAR = 9;
     public static final int MISSION_NABOO_THEED = 10;
     public static final int MISSION_NABOO_DEEJA_PEAK = 11;
@@ -190,9 +190,9 @@ public class regions extends script.base_script
         {
             return MISSION_TATOOINE_MOS_ESPA;
         }
-        else if (strRegionName.equals("mos_teike"))
+        else if (strRegionName.equals("mos_taike"))
         {
-            return MISSION_TATOOINE_MOS_TEIKE;
+            return MISSION_TATOOINE_MOS_TAIKE;
         }
         else if (strRegionName.equals("wayfar"))
         {
