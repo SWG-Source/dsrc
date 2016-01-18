@@ -684,19 +684,25 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6035519	0	object/tangible/terminal/terminal_bank.iff	0	969.447	31	741.243	1	0	0	0		$|
 6035520	0	object/tangible/terminal/terminal_bank.iff	0	625.076	78	998.444	0.22233	0	0.974971	0		$|
 6035521	0	object/tangible/terminal/terminal_bank.iff	0	594.766	78	1079.87	0.978031	0	-0.20846	0		$|
-6035619	0	object/building/general/corellia_afarathu_cave.iff	0	1572.61	28.3908	879.162	0.5653	0	0.824886	0		$|
+6035619	0	object/building/general/corellia_afarathu_cave.iff	0	1572.61	28.3908	879.162	0.5653	0	0.824886	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/corellia/afarathu_cave.iff|$|
 6035620	6035619	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 6035621	6035619	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 6035622	6035619	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8075612	6035622	object/tangible/container/loot/placable_loot_crate.iff	3	8.758899	-40.67611	-57.97881	-0.05470095	0	0.9975768	0.03357967		$|
 6035623	6035619	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 6035624	6035619	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+8075613	6035624	object/tangible/container/loot/placable_loot_crate.iff	5	-4.211177	-46.39348	-152.3618	0.992357	0	0.005937986	0.08468977		$|
 6035625	6035619	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 6035626	6035619	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
-4607461	6035626	object/tangible/collection/rare_rifle_fallann_hyper_rifle.iff	1	5.468354	-62.52239	-231.3239	-0.6731262	0	-0.2165663	0.7065765		$|
+4607461	6035626	object/tangible/collection/rare_rifle_fallann_hyper_rifle.iff	7	5.468354	-62.52239	-231.3239	-0.6731262	0	-0.2165663	0.7065765		$|
+8075614	6035626	object/tangible/container/loot/placable_loot_crate.iff	7	-18.95936	-62.23055	-263.2796	0.9984879	0	0.05497213	0		$|
 6035627	6035619	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 6035628	6035619	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+8075615	6035628	object/tangible/container/loot/placable_loot_crate.iff	9	-9.051013	-69.16073	-91.85801	-0.2915016	0	0.9565703	0		$|
 6035629	6035619	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+4305488	6035629	object/tangible/dungeon/corellian_corvette/corvette_search_imperial_destroy_02.iff	10	-21.68234	-80.4725	-154.5072	0.9979514	0	0	0.04997916		$|
 6035630	6035619	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+8075616	6035630	object/tangible/container/loot/placable_loot_crate.iff	11	-90.83533	-101.0066	-101.4583	1	0	0	0		$|
 6476217	0	object/tangible/terminal/terminal_mission_scout.iff	0	827.92	86.9383	1053.14	-0.561168	0	0.827702	0		$|
 6476219	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	829.322	86.9527	1050.52	-0.362358	0	0.932039	0		$|
 6476221	0	object/tangible/terminal/terminal_mission_artisan.iff	0	828.689	86.9427	1051.74	-0.480124	0	0.8772	0		$|
