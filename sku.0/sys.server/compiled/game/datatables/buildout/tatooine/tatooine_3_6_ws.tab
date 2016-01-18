@@ -418,7 +418,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4265842	1261655	object/tangible/terminal/terminal_newsnet.iff	4	6.5	0.64	49.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
 4265843	1261655	object/tangible/terminal/terminal_newsnet.iff	5	-8.5	0.64	49.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
 3795699	1261661	object/tangible/terminal/terminal_space.iff	1	-40.41	1.64	46.18	-0.99	0	0.08	0	space.terminal.terminal_space	$|
-3795700	1261661	object/tangible/terminal/terminal_space.iff	2	-37.48	1.64	49.10	-0.76	0	0.65	0	space.terminal.terminal_space	$|
+3795700	1261661	object/tangible/terminal/terminal_space.iff	2	-37.48	1.64	49.1	-0.76	0	0.65	0	space.terminal.terminal_space	$|
 3795701	1261661	object/tangible/terminal/terminal_space.iff	3	-44.45	1.64	50.22	0.65	0	0.76	0	space.terminal.terminal_space	$|
 3795702	1261661	object/tangible/terminal/terminal_space.iff	4	-41.45	1.64	53.15	0.08	0	0.99	0	space.terminal.terminal_space	$|
 1261667	0	object/building/tatooine/shuttleport_tatooine.iff	0	1296.78	5	115.43	0.779214	0	0.626758	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Espa Shuttleport East|travel.shuttle_available|0|1|travel.version|0|3|$|
@@ -1198,7 +1198,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3985427	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	1169.68	5	524.752	0.808027	0	-0.589145	0		$|
 3985428	0	object/tangible/furniture/tatooine/frn_tato_table_small_style_01.iff	0	1168.32	5	525.114	1	0	0	0		$|
 3985439	0	object/tangible/terminal/terminal_mission_rebel.iff	0	1284.46	5	350.448	-0.315322	0	0.948985	0		$|
-4005422	0	object/building/tatooine/hospital_tatooine_style02.iff	0	951.52099609375	5	57.76953125	.990901410579681	0	-.134589925408363	0		$|
+4005422	0	object/building/tatooine/hospital_tatooine_style02.iff	0	951.5209960938	5	57.76953125	0.9909014106	0	-0.1345899254	0		$|
 4005423	4005422	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4005424	4005422	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4005425	4005422	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
@@ -1267,7 +1267,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4365368	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1184.67	5	136.456	1	0	0	0		$|
 4365369	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1161.8	5	112.566	1	0	0	0		$|
 4365370	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1127.62	10.6388	64.0764	0	0.959661	0	0.281157		$|
-4365371	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1171.72	10.6742	61.0266	7.92E-09	0.247404	3.10E-08	0.968912		$|
+4365371	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1171.72	10.6742	61.0266	7.92E-09	0.247404	0.000000031	0.968912		$|
 4425362	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1016.5	5	129.358	1	0	0	0		$|
 4425363	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1025.37	5	131.918	1	0	0	0		$|
 4425364	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1027.15	5	74.2085	0.990901	0	-0.13459	0		$|
