@@ -1,5 +1,5 @@
 regionName	geometry	minX_or_centerX	minZ_or_centerZ	maxX_or_radius	maxZ	pvpType	geographicalType	minDifficultyType	maxDifficultyType	spawnableType	missionType	buildable	municipal	visible	notify	environmentFlags
-s	"e(rectangle=0,circle=1)[rectangle]"	f	f	f	f	"e(normal=0,truce=1,pvp_battlefield=2,pve_battlefield=3,pvp_advanced=4)[normal]"	"e(desert=0,forest=1,jungle=2,plateau=3,oasis=4,canyon=5,lake=6,lakeshore=7,beach=8,ocean=9,underwater=10,river=11,volcano=12,swamp=13,plains=14,prairie=15,mountains=16,hills=17,grassland=18,wasteland=19,city=20,fictional=21,pathfind=22,default=23,theater=24,overload=25)[default]"	i	i	"e(spawnFalse=0,spawnTrue=1,mission=2,default=3,difficulty=5)[spawnFalse]"	"e(none=0,destroy=1,other=2,tatooine_anchorhead=3,tatooine_bestine=4,tatooine_mos_eisley=5,tatooine_mos_entha=6,tatooine_mos_espa=7,tatooine_mos_teike=8,tatooine_wayfar=9,naboo_theed=10,naboo_deeja_peak=11,naboo_kaadara=12,naboo_moenia=13,naboo_keren=14,tatooine_bib_1=15,corellia_coronet=16,corellia_tyrena=17,corellia_bela_vistal=18,corellia_vreni_island=19,corellia_kor_vella=20,corellia_daoba_guerfel=21,rori_narmle=22,rori_restuss=23,talus_dearic=24,talus_nashal=25,yavin4_labor_outpost=26,yavin4_mining_outpost=27,endor_neutral_outpost=28,dantooine_mining_outpost=29,dantooine_pirate_outpost=30,dathomir_trade_outpost=31,dathomir_survey_outpost=32,lok_nyms_stronghold=33)[none]"	b[1]	b[0]	b[0]	b[0]	s
+s	"e(rectangle=0,circle=1)[rectangle]"	f	f	f	f	"e(normal=0,truce=1,pvp_battlefield=2,pve_battlefield=3,pvp_advanced=4)[normal]"	"e(desert=0,forest=1,jungle=2,plateau=3,oasis=4,canyon=5,lake=6,lakeshore=7,beach=8,ocean=9,underwater=10,river=11,volcano=12,swamp=13,plains=14,prairie=15,mountains=16,hills=17,grassland=18,wasteland=19,city=20,fictional=21,pathfind=22,default=23,theater=24,overload=25)[default]"	i	i	"e(spawnFalse=0,spawnTrue=1,mission=2,default=3,difficulty=5)[spawnFalse]"	"e(none=0,destroy=1,other=2,tatooine_anchorhead=3,tatooine_bestine=4,tatooine_mos_eisley=5,tatooine_mos_entha=6,tatooine_mos_espa=7,tatooine_mos_taike=8,tatooine_wayfar=9,naboo_theed=10,naboo_deeja_peak=11,naboo_kaadara=12,naboo_moenia=13,naboo_keren=14,tatooine_bib_1=15,corellia_coronet=16,corellia_tyrena=17,corellia_bela_vistal=18,corellia_vreni_island=19,corellia_kor_vella=20,corellia_daoba_guerfel=21,rori_narmle=22,rori_restuss=23,talus_dearic=24,talus_nashal=25,yavin4_labor_outpost=26,yavin4_mining_outpost=27,endor_neutral_outpost=28,dantooine_mining_outpost=29,dantooine_pirate_outpost=30,dathomir_trade_outpost=31,dathomir_survey_outpost=32,lok_nyms_stronghold=33)[none]"	b[1]	b[0]	b[0]	b[0]	s
 mission_default	rectangle	-8000	-8000	8000	8000	normal	wasteland	1	90	mission	other	1	0	0	0	
 @tatooine_region_names:world_spawner	rectangle	-8000	-8000	8000	8000	normal	default	10	30	default	other	1	0	0	0	
 @tatooine_region_names:bestine	circle	-1218	-3688	336		normal	city	0	0	spawnFalse	other	0	1	1	0	
@@ -8,14 +8,14 @@ mission_default	rectangle	-8000	-8000	8000	8000	normal	wasteland	1	90	mission	ot
 @tatooine_region_names:mos_eisley	circle	3460	-4768	456		normal	city	0	0	spawnFalse	other	0	1	1	1	
 @tatooine_region_names:mos_entha	circle	1488	3256	424		normal	city	0	0	spawnFalse	other	0	1	1	0	
 @tatooine_region_names:mos_espa	circle	-2940	2190	533		normal	city	0	0	spawnFalse	other	0	1	1	0	
-@tatooine_region_names:mos_teike	circle	3832	2360	264		normal	city	0	0	spawnFalse	other	0	1	1	0	
+@tatooine_region_names:mos_taike	circle	3832	2360	264		normal	city	0	0	spawnFalse	other	0	1	1	0	
 @tatooine_region_names:wayfar	circle	-5174	-6582	230		normal	city	0	0	spawnFalse	other	0	1	1	0	
 @tatooine_region_names:anchorhead	circle	102	-5360	125		normal	city	0	0	spawnFalse	other	0	1	1	0	
 bestine_nobuild_1	circle	-1218	-3688	700		normal	default	0	0	spawnFalse	none	0	0	0	0	
 mos_eisley_nobuild_1	circle	3460	-4768	900		normal	default	0	0	spawnFalse	none	0	0	0	0	
 mos_entha_nobuild_1	circle	1488	3256	900		normal	default	0	0	spawnFalse	none	0	0	0	0	
 mos_espa_nobuild_1	circle	-2712	2464	1100		normal	default	0	0	spawnFalse	none	0	0	0	0
-mos_teike_nobuild_1	circle	3832	2360	500		normal	default	0	0	spawnFalse	none	0	0	0	0
+mos_taike_nobuild_1	circle	3832	2360	500		normal	default	0	0	spawnFalse	none	0	0	0	0
 wayfar_nobuild_1	circle	-5174	-6582	500		normal	default	0	0	spawnFalse	none	0	0	0	0
 anchorhead_nobuild_1	circle	102	-5360	400		normal	default	0	0	spawnFalse	none	0	0	0	0
 @tatooine_region_names:plateau	rectangle	-1408	-7088	7760	1376	normal	wasteland	1	90	mission	other	1	0	0	0
@@ -62,10 +62,10 @@ wayfar_deliver_6	circle	-5176.259766	-6611.976563	7		normal	default	0	0	spawnFal
 wayfar_deliver_7	circle	-5217.623535	-6578.639648	2		normal	default	0	0	spawnFalse	tatooine_wayfar	0	0	0	0
 wayfar_deliver_8	circle	-5219.651367	-6548.299805	7		normal	default	0	0	spawnFalse	tatooine_wayfar	0	0	0	0
 wayfar_deliver_9	circle	-5277.279297	-6558.477051	7		normal	default	0	0	spawnFalse	tatooine_wayfar	0	0	0	0
-mos_teike_deliver_1	circle	3780.437012	2362.027344	7		normal	default	0	0	spawnFalse	tatooine_mos_teike	0	0	0	0
-mos_teike_deliver_2	circle	3856.657715	2342.810547	2		normal	default	0	0	spawnFalse	tatooine_mos_teike	0	0	0	0
-mos_teike_deliver_3	circle	3806.828857	2359.704346	10		normal	default	0	0	spawnFalse	tatooine_mos_teike	0	0	0	0
-mos_teike_deliver_4	circle	3951.110352	2282.93457	5		normal	default	0	0	spawnFalse	tatooine_mos_teike	0	0	0	0
+mos_taike_deliver_1	circle	3780.437012	2362.027344	7		normal	default	0	0	spawnFalse	tatooine_mos_taike	0	0	0	0
+mos_taike_deliver_2	circle	3856.657715	2342.810547	2		normal	default	0	0	spawnFalse	tatooine_mos_taike	0	0	0	0
+mos_taike_deliver_3	circle	3806.828857	2359.704346	10		normal	default	0	0	spawnFalse	tatooine_mos_taike	0	0	0	0
+mos_taike_deliver_4	circle	3951.110352	2282.93457	5		normal	default	0	0	spawnFalse	tatooine_mos_taike	0	0	0	0
 mos_eisley_deliver_1	circle	3526.85376	-4700.741211	7		normal	default	0	0	spawnFalse	tatooine_mos_eisley	0	0	0	0
 mos_eisley_deliver_2	circle	3527.437988	-4721.164063	2		normal	default	0	0	spawnFalse	tatooine_mos_eisley	0	0	0	0
 mos_eisley_deliver_3	circle	3357.536133	-4649.485352	10		normal	default	0	0	spawnFalse	tatooine_mos_eisley	0	0	0	0
