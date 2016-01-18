@@ -2,7 +2,7 @@ objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objv
 i	i	h	i	f	f	f	f	f	f	f	s	p
 568322	0	object/building/tatooine/filler_building_tatt_style01_01.iff	0	1775.5	16.1	279.23	-0.706262	0	0.70795	0		$|
 574339	0	object/building/tatooine/filler_building_tatt_style01_04.iff	0	1796.37	19.9418	338.795	0.00579652	0	0.999983	0		$|
-574343	0	object/building/tatooine/filler_building_tatt_style01_06.iff	0	1818.89	27.5	271.716	0.891568	0	-0.452886	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
+574343	0	object/building/tatooine/filler_building_tatt_style01_06.iff	0	1818.89	27.5	271.716	0.891568	0	-0.452886	0		$|
 938384	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1819.91	28.0213	314.69	0.65272	0.0401579	0.755511	0.0393229		$|
 938387	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1818.47	28.0252	313.17	0.997139	-0.0192962	-0.0702959	0.0200083		$|
 938398	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1834.49	24.963	327.299	1	0	0	0		$|
@@ -47,7 +47,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1282875	0	object/static/structure/tatooine/debris_tatt_pipe_dual_unconnected.iff	0	1744.47	11.686	332.659	0.0906716	0	0.995881	0		$|
 1282879	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1763.04	14.2188	342.56	-0.226111	-0.219802	0.947753	-0.0482109		$|
 1282880	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1762.43	13.914	343.436	0.428946	-0.194691	0.874729	0.113796		$|
-1282881	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1778.39	20	331.351	0.0066761	0	0.999978	0		$|
+1282881	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1778.39	20	331.351	0.0066761	0	0.999978	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 1282882	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1778.38	20	330.436	-0.500855	0	0.865531	0		$|
 1282883	0	object/static/structure/tatooine/debris_tatt_pipe_narrow_1.iff	0	1745.22	8.39	277.762	-0.458047	0	0.888928	0		$|
 1282886	0	object/static/structure/tatooine/debris_tatt_pipe_narrow_2.iff	0	1742.5	8.39	285.775	0.857709	0	0.514135	0		$|
