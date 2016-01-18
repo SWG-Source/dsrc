@@ -67,3 +67,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -762551927	1154123	object/tangible/collection/hanging_light_02_05.iff	3	-3.34267	4.73339	6.81257	1	0	0	0	systems.collections.consume_click	collection.aggro|4|false|collection.slotName|4|col_hanging_light_02:hanging_light_02_05|$|
 -1700728953	0	object/tangible/spawning/city_sign_spawner.iff	0	1664.64	5.77537	339.667	1	0	0	0	systems.spawning.spawn_tangible	spawn.object|4|object/tangible/sign/all_sign_city_s01.iff|$|
 -1043760948	0	object/tangible/spawning/city_sign_spawner.iff	0	1834.07	9.78521	399.893	1	0	0	0	systems.spawning.spawn_tangible	spawn.object|4|object/tangible/sign/all_sign_city_s01.iff|$|
+-19844657	0	object/tangible/planet_map_location/city.iff	0	1809.4033	28	305.294	0.938444	0	0.345432	0		$|
