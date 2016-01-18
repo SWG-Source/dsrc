@@ -1,0 +1,26 @@
+spawns	name	room	loc_x	loc_y	loc_z	script	yaw	mood	respawn_time	spawn_objvar
+s	s	s	f	f	f	s	f	s	i	s
+afarathu_cult_savage		r1	11	-16	-9.34	theme_park.dungeon.generic_death	-161	npc_accusing	909
+afarathu_cult_follower		r1	10.1	-17.06	-11.76	theme_park.dungeon.generic_death	29	nervous	909
+afarathu_cult_follower		r2	2.98	-25.69	-28.73	theme_park.dungeon.generic_death	-23	conversation	909
+afarathu_cult_follower		r2	2.86	-25.75	-27.02	theme_park.dungeon.generic_death	172	conversation	909
+afarathu_cult_bodyguard		r3	-11.32	-39.8	-56.6	theme_park.dungeon.generic_death	88	conversation	909
+afarathu_cult_brute		r3	2.39	-41.13	-73.38	theme_park.dungeon.generic_death	55	entertained	909
+afarathu_cult_zealot		r3	5.89	-40.83	-72.88	theme_park.dungeon.generic_death	-172	sad	909
+afarathu_cult_follower		r3	5.07	-40.53	-69.71	theme_park.dungeon.generic_death	132	happy	909
+afarathu_cult_savage		r4	37.27	-46	-61.94	theme_park.dungeon.generic_death	46	npc_accusing	909
+afarathu_cult_bodyguard		r4	50.53	-46.04	-92.71	theme_park.dungeon.generic_death	-86	conversation	909
+afarathu_cult_brute		r4	48.43	-46.28	-92.63	theme_park.dungeon.generic_death	89	npc_imperial	909
+afarathu_cult_follower		r4	27.76	-45.49	-101.46	theme_park.dungeon.generic_death	-137	nervous	909
+afarathu_cult_zealot		r5	-6.02	-45.43	-145.02	theme_park.dungeon.generic_death	-48	sad	909
+afarathu_cult_savage		r5	54.46	-56.52	-159.54	theme_park.dungeon.generic_death	-75	npc_imperial	909
+afarathu_cult_brute		r5	53.11	-56.73	-160.8	theme_park.dungeon.generic_death	-75	npc_imperial	909
+afarathu_cult_bodyguard		r6	-15.35	-63.99	-181.11	theme_park.dungeon.generic_death	111	conversation	909
+afarathu_cult_savage		r6	-12.25	-64.05	-182.15	theme_park.dungeon.generic_death	-69	conversation	909
+afarathu_cult_follower		r6	-12.07	-64.11	-180.37	theme_park.dungeon.generic_death	-109	npc_imperial	909
+afarathu_cult_brute		r8	-106.21	-69.17	-131.56	theme_park.dungeon.generic_death	-77	threaten	909
+afarathu_cult_follower		r8	-58.09	-70.96	-186.18	theme_park.dungeon.generic_death	-135	conversation	909
+afarathu_cult_savage		r10	-25.46	-79.24	-139.63	theme_park.dungeon.generic_death	59	conversation	909
+afarathu_cult_leader		r11	-89.99	-101.02	-105.03	theme_park.dungeon.generic_death	-146	conversation	909
+afarathu_cult_bodyguard		r11	-91.27	-101.06	-106.68	theme_park.dungeon.generic_death	31	conversation	909
+afarathu_cult_bodyguard		r11	-88	-101	-106	theme_park.dungeon.generic_death	-89	nervous	909
