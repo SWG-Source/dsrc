@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	s
-60390	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	9.9415102005	-0.129381001	1872.6098632813	1	0	0	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
+60390	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	9.9415102005	-0.129381001	1872.6098632813	1	0	0	0		$|
 60391	0	object/static/tatooine/rock_spire_smooth_tatooine_style_1.iff	0	183.4929962158	0	1998.08984375	1	0	0	0		$|
 81316	0	object/static/terrain/tatooine/rock_arch_small_tatooine_style_1.iff	0	49.5838012695	0	1731.16015625	0.8138794303	0	0.5810337067	0		$|
 102317	0	object/static/terrain/tatooine/rock_arch_large_tatooine_style_1.iff	0	24.3892993927	0	1832.6801757813	-0.4282110035	0	0.9036790133	0		$|
@@ -286,7 +286,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 1154073	0	object/building/tatooine/filler_building_tatt_style01_10.iff	0	1527.7099609375	7	1043.6201171875	1	0	0	0	structure.filler.filler	$|
 1154086	0	object/building/tatooine/filler_building_block_64x16_style_02.iff	0	1425.1899414063	7	1373.3901367188	0.999987483	0	0.0050045876	0	structure.filler.filler	$|
 1154096	0	object/building/tatooine/filler_building_block_64x16_style_02.iff	0	1322.8299560547	7	893.087890625	0.7108806968	0	0.7033122778	0	structure.filler.filler	$|
-1154108	0	object/building/tatooine/filler_building_block_64x32_style_01.iff	0	1242.0200195313	7	1144.8000488281	0.0391912982	0	0.9992319942	0	structure.filler.filler	$|
+1154108	0	object/building/tatooine/filler_building_block_64x32_style_01.iff	0	1242.0200195313	7	1144.8000488281	0.0391912982	0	0.9992319942	0	structure.filler.filler:theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 1154133	0	object/building/tatooine/filler_building_block_64x32_style_01.iff	0	1373.7900390625	7	919.7470703125	0.9999873638	0	-0.0050308788	0	structure.filler.filler	$|
 1154136	0	object/building/tatooine/filler_building_tatt_style01_02.iff	0	1323.8100585938	7	940.7629394531	0.9998000264	0	-0.0199986994	0	structure.filler.filler	$|
 1154138	0	object/building/tatooine/filler_building_tatt_style01_10.iff	0	1425.1300048828	7	928.0700683594	0.9229965806	0	-0.3848081827	0	structure.filler.filler	$|
