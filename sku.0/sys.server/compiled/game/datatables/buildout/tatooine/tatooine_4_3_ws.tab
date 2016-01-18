@@ -7,7 +7,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 360	0	object/static/item/item_con_ration_kit_lg.iff	0	1033.06	10.88	565.682	-0.399064	0	0.916923	0		$|
 366	0	object/static/item/item_container_inorganic_minerals.iff	0	1033.15	10	565.739	0.922997	0	-0.384808	0		$|
 367	0	object/static/item/item_con_ration_kit_m.iff	0	1033.23	10.88	565.283	-0.315322	0	0.948985	0		$|
-370	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	885.572	12	404.569	0.707107	0	-0.707106	0		$|
+370	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	885.572	12	404.569	0.707107	0	-0.707106	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 372	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	863.794	12	470.695	0.900447	0	-0.434965	0		$|
 373	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	818.92	12	409.867	-0.693112	0	0.72083	0		$|
 374	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	810.891	12	409.85	0.993395	0	-0.114747	0		$|

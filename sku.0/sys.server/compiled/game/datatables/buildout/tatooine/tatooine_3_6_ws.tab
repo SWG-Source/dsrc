@@ -20,7 +20,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1224067	0	object/static/structure/tatooine/stone_hovel_tatooine_style_01.iff	0	1796.78	5.0213	926.247	0.637152	0	0.770739	0		$|
 1224080	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	1811.81	5.47564	941.414	0.984727	0	0.174108	0		$|
 1224118	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	1818.14	5.24703	924.956	0.952334	0	0.305058	0		$|
-1250066	0	object/building/military/military_imperial_detachment_hq.iff	0	1532.55	5.70915	49.689	0.764586	0	-0.644522	0		$|
+1250066	0	object/building/military/military_imperial_detachment_hq.iff	0	1532.55	5.70915	49.689	0.764586	0	-0.644522	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 1250067	1250066	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1250068	1250066	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1250069	1250066	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
