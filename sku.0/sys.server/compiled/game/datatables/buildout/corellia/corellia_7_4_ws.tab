@@ -20,7 +20,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6036089	6036087	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 6036090	6036087	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 6036091	6036087	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
-1110114	6036091	object/tangible/collection/rebel_battle_helmet.iff	1	2.930826	-1.123202	4.739508	0.08323511	0	0.9677652	-0.2368283		$|
+1110114	6036091	object/tangible/collection/rebel_battle_helmet.iff	1	2.930826	-1.123202	4.739508	0.08323511	-0.2368283	0.9677652	-0.02037		$|
 6036092	6036087	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 6036093	6036087	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 6036094	0	object/static/installation/mockup_power_generator_solar_style_1.iff	0	19.3447	30.2272	798.728	0.998988	0	0.044985	0		$|
