@@ -3,7 +3,7 @@ s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
 newbie_pilot_informer		foyer4	1.1	0.6	66.3	33			explain	300						
 nexus_travel_01		arrivals1	49.2	0.6	47.3	-93			npc_sitting_chair	300						
 corellia_jesseb_convorr		arrivals2	50	1.0	22.9	35	conversation.corellia_coronet_starport_master			300
-object/tangible/collection/col_jalopy_crate_04.iff		foyer4	-11.9	0.6	50.8	55										
+object/tangible/collection/col_jalopy_crate_04.iff		foyer4	-11.9	0.6	50.8	55
 object/tangible/spawning/spawn_egg.iff		arrivals1	37.3	0.6	40.9	-160	city.interior_2_convo								
 object/tangible/spawning/spawn_egg.iff		foyer4	-6.7	0.6	65.7	30	city.interior_2_convo								
 object/tangible/spawning/spawn_egg.iff		foyer1	7.2	0.6	75.5	179	city.interior_2_convo								
