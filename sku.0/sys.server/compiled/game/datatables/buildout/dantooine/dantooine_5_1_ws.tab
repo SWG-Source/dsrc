@@ -120,7 +120,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8565434	8565430	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 8565435	8565430	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
 8565436	8565430	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-4706005	8565436	object/tangible/collection/rare_melee_valarian_knuckler.iff	1	-4.155926	0.985956	-5.207168	0.7109174	0	0	0		$|
+4706005	8565436	object/tangible/collection/rare_melee_valarian_knuckler.iff	1	-4.155926	0.985956	-5.207168	0.7109174	0	0	-0.70328		$|
 8565437	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1652	2	1844	1	0	0	0		$|
 8565438	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1652	2	1744	1	0	0	0		$|
 8565439	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1524	2	1744	1	0	0	0		$|
