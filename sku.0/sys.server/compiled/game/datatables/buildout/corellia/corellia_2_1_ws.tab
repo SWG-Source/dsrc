@@ -90,7 +90,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2775409	0	object/building/corellia/hotel_corellia.iff	0	628.229	23.4	2042.08	7.33659e-008	0	1	0		$|
 2775410	2775409	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2775411	2775409	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
-4611173	2775411	object/tangible/collection/rare_pistol_d18_liquidator.iff	2	1.673712	1.741289	19.3884	-0.7038453	0	0	0		$|
+4611173	2775411	object/tangible/collection/rare_pistol_d18_liquidator.iff	2	1.673712	1.741289	19.3884	-0.7038453	0	0	0.71035		$|
 2775412	2775409	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 2775413	2775409	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1094995	2775413	object/tangible/gambling/slot/standard.iff	4	4.289219	1.302408	-22.07954	0.9999964	0	0.002698069	0		$|
