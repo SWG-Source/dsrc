@@ -20,7 +20,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6036049	4275372	object/tangible/container/loot/placable_loot_crate.iff	8	113.4743	-67.04577	-86.76102	0.0005240655	0	0.9944801	0.004972445		$|
 6036050	4275372	object/tangible/container/loot/placable_loot_crate.iff	8	137.6884	-66.88319	-86.221	-0.2320325	0	0.9705241	-0.01027166		$|
 4275373	4275364	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
-4612071	4275373	object/tangible/collection/rare_pistol_oppressor.iff	9	195.0427	-65.97031	-97.34206	0.7141976	0	-0.01785868	-0.01749109		$|
+4612071	4275373	object/tangible/collection/rare_pistol_oppressor.iff	9	195.0427	-65.97031	-97.34206	0.7141976	-0.01749	-0.01785868	0.69950		$|
 6036051	4275373	object/tangible/container/loot/placable_loot_crate.iff	9	195.4821	-66.66642	-100.1481	0.8658943	0	-0.4950873	-0.02174893		$|
 4275374	4275364	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 4275375	4275364	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
