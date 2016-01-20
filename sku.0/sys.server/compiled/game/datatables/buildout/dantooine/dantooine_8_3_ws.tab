@@ -5,11 +5,17 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 529324	529322	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 529325	529322	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 529326	529322	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+529346	529326	object/tangible/container/loot/placable_loot_crate.iff	4	51.4471	-44.4211	-103.465	0.94441	0	-0.328769	0		$|
 529327	529322	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+529349	529327	object/tangible/container/loot/placable_loot_crate.iff	5	-10.4971	-45.4992	-147.5	1	0	0	0		$|
+529353	529327	object/tangible/container/loot/placable_loot_crate.iff	5	58.0106	-57.5355	-184.28	1	0	0	0		$|
 529328	529322	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 529329	529322	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 529330	529322	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+4706092	529330	object/tangible/collection/rare_carbine_blackscale_hall_sweeper.iff	8	-70.7881	-69.7817	-149.062	0.542982	-0.153703	0.161715	0.809564		$|
 529331	529322	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+529363	529331	object/tangible/container/loot/placable_loot_crate.iff	9	-11.69	-69.1962	-89.8369	0.0799147	0	0.996802	0		$|
+4465373	529331	object/tangible/dungeon/corellian_corvette/corvette_search_imperial_destroy_03.iff	9	-10.4094	-69.0209	-90.5859	0.990922	-0.0965763	0.0920533	0.016496		$|
 529332	529322	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 529333	529322	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 8465680	0	object/static/structure/dantooine/dant_fence_8m.iff	0	695.57	60.4164	1859.11	0.667463	0	0.744643	0		$|
