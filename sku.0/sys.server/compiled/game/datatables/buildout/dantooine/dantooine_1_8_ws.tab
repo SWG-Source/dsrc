@@ -13,11 +13,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 200332	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1983.74	47.0935	1227.71	0.163466	0	0.986549	0		$|
 200333	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1991.66	52.5132	1231.93	0.346844	0	0.937924	0		$|
 200334	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1999.7	59.7882	1236.06	0.474331	0	0.880347	0		$|
-8535482	0	object/building/general/dantooine_force_crystal_hunter_sd_cave.iff	0	1951.85	56.0141	1261.22	3.20013e-008	0	1	0		$|
+8535482	0	object/building/general/dantooine_force_crystal_hunter_sd_cave.iff	0	1951.85	56.0141	1261.22	3.20013e-008	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/force_crystal_hunter_cave.iff|$|
 8535483	8535482	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 8535484	8535482	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+200336	8535484	object/tangible/container/loot/placable_loot_crate.iff	2	45.6698	-47.059	-6.79665	0.00920352	0	0.999958	0		$|
 8535485	8535482	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 8535486	8535482	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4706034	8535486	object/tangible/collection/rare_melee_white_thranta_knuckler.iff	4	92.0613	-75.169	-62.7524	-0.0743107	0.750478	-0.652659	-0.0727811		$|
+8535511	8535486	object/tangible/container/loot/placable_loot_crate.iff	4	61.0221	-75.2442	-57.589	-0.291502	0	0.95657	0		$|
 8535487	8535482	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 8535488	8535482	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 8535489	8535482	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
