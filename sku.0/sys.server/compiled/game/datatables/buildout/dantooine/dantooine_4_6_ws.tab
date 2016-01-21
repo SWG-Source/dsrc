@@ -69,6 +69,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6205564	6205563	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 6205565	6205563	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 5097115	6205565	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	2	-9.3787	0.625	2.9884	0.7793	0	0.6267	0	space.content_tools.npc_spawner	$|
+4706605	6205565	object/tangible/collection/rare_carbine_cy_m.iff	2	-9.66396	0.968258	2.12113	-0.672327	0.718307	0.0459669	-0.172914		$|
 6205566	6205563	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
 6205567	6205563	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 7105353	0	object/building/military/outpost_starport.iff	0	1411.64	3	432.012	0.407033	0	0.913414	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mining Outpost|travel.shuttle_available|0|1|travel.version|0|3|portalLayoutCrc|0|-688757533|$|
