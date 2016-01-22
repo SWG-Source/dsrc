@@ -12,3 +12,5 @@ objectName = "wearables_name"  "bracer_s01"
 detailedDescription = "wearables_detail"  "bracer_s01"
 
 arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/bracer_l.iff"
+
+gameObjectType = GOT_armor_arm
