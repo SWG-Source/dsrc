@@ -13,4 +13,4 @@ specialProtection = [
 encumbrance [0] = 13
 encumbrance [1] = 8
 encumbrance [2] = 120
-vulnerability = 0 | DT_elemental_cold | DT_elemental_electrical | DT_stun | DT_restraint
+vulnerability = 0 | DT_elemental_cold | DT_elemental_electrical | DT_stun | DT_restraint

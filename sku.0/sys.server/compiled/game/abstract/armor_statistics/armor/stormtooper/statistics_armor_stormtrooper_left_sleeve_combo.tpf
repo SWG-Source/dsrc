@@ -23,4 +23,4 @@ specialProtection = []
 encumbrance [0] = 30
 encumbrance [1] = 30
 encumbrance [2] = 30
-vulnerability = 0
+vulnerability = 0
