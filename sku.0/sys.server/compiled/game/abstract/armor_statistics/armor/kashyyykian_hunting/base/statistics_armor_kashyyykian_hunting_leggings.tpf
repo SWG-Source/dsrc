@@ -13,4 +13,4 @@ specialProtection = []
 encumbrance [0] = 60
 encumbrance [1] = 140
 encumbrance [2] = 20
-vulnerability = 0 | DT_stun | DT_restraint
+vulnerability = 0 | DT_stun | DT_restraint
