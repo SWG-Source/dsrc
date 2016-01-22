@@ -13,4 +13,4 @@ specialProtection = [
 encumbrance [0] = 45
 encumbrance [1] = 18
 encumbrance [2] = 3
-vulnerability = 0 | DT_kinetic | DT_blast | DT_stun | DT_elemental_acid | DT_elemental_cold | DT_elemental_heat | DT_restraint
+vulnerability = 0 | DT_kinetic | DT_blast | DT_stun | DT_elemental_acid | DT_elemental_cold | DT_elemental_heat | DT_restraint
