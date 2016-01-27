@@ -74,18 +74,18 @@ public class spawner_area extends script.base_script
             int intRoll = rand(0, strSpawns.length - 1);
             if (fltSizes.length == 0)
             {
-                setName(self, "BAD NUMBER OF SIZES !@!@@ IN FILE " + strFileName);
+                setName(self, "Missing spawn sizes in " + strFileName);
             }
             if (fltSizes.length != strSpawns.length)
             {
-                setName(self, "Missing either spawns or sizes in " + strFileName);
+                setName(self, "MISSING VALUES: Each spawn must have an associated size (" + strFileName + ")");
             }
             fltSize = fltSizes[intRoll];
             strSpawn = strSpawns[intRoll];
         }
         if (strSpawn == null || strSpawn.length() < 1)
         {
-            setName(self, "Mangled spawner. strSpawn is " + strSpawn + ".");
+            setName(self, "Mangled spawner. strSpawn objvar is missing.");
             return SCRIPT_CONTINUE;
         }
         location locTest = spawning.getRandomLocationInCircle(getLocation(self), fltRadius);
@@ -140,6 +140,19 @@ public class spawner_area extends script.base_script
         }
         return 32f;
     }
+    private float getRespawnTime(obj_id self){
+        try {
+            if (hasObjVar(self, "fltRespawnTime")) {
+                return getFloatObjVar(self, "fltRespawnTime");
+            } else {
+                return rand(getFloatObjVar(self, "fltMinSpawnTime"), getFloatObjVar(self, "fltMaxSpawnTime"));
+            }
+        }
+        catch(Exception e){
+            setName(self, "BAD SPAWNEGG!!  Could not get a respawn time from datatable.");
+            return 0;
+        }
+    }
     public void createMob(String strId, obj_id objLocationObject, location locLocation, float fltRadius, obj_id self) throws InterruptedException
     {
         if (!spawning.checkSpawnCount(self))
@@ -148,48 +161,40 @@ public class spawner_area extends script.base_script
         }
         float spawnerYaw = getYaw(self);
         int intIndex = strId.indexOf(".iff");
-        float fltMinSpawnTime = getFloatObjVar(self, "fltMinSpawnTime");
-        float fltMaxSpawnTime = getFloatObjVar(self, "fltMaxSpawnTime");
-        float fltRespawnTime = rand(fltMinSpawnTime, fltMaxSpawnTime);
+        float fltRespawnTime = getRespawnTime(self);
+
+        if (isIdValid(objLocationObject))
+        {
+            destroyObject(objLocationObject);
+        }
+        obj_id objTemplate;
         if (intIndex > -1)
         {
-            obj_id objTemplate = createObject(strId, locLocation);
-            if (isIdValid(objLocationObject))
-            {
-                destroyObject(objLocationObject);
-            }
+            objTemplate = createObject(strId, locLocation);
             if (!isIdValid(objTemplate))
             {
+                setName(self, "BAD MOB OF TYPE " + strId);
                 return;
             }
-            spawning.incrementSpawnCount(self);
-            spawning.addToSpawnDebugList(self, objTemplate);
-            setObjVar(objTemplate, "objParent", self);
-            setObjVar(objTemplate, "fltRespawnTime", fltRespawnTime);
-            attachScript(objTemplate, "systems.spawning.spawned_tracker");
-            setYaw(objTemplate, spawnerYaw);
         }
         else 
         {
-            if (isIdValid(objLocationObject))
-            {
-                destroyObject(objLocationObject);
-            }
-            obj_id objMob = create.object(strId, locLocation);
-            if (!isIdValid(objMob))
+            objTemplate = create.object(strId, locLocation);
+            if (!isIdValid(objTemplate))
             {
                 setName(self, "BAD MOB OF TYPE " + strId);
                 return;
             }
             int intBehavior = getIntObjVar(self, "intDefaultBehavior");
-            ai_lib.setDefaultCalmBehavior(objMob, intBehavior);
-            spawning.incrementSpawnCount(self);
-            spawning.addToSpawnDebugList(self, objMob);
-            setObjVar(objMob, "objParent", self);
-            setObjVar(objMob, "fltRespawnTime", fltRespawnTime);
-            attachScript(objMob, "systems.spawning.spawned_tracker");
-            setYaw(objMob, spawnerYaw);
+            ai_lib.setDefaultCalmBehavior(objTemplate, intBehavior);
         }
+        spawning.incrementSpawnCount(self);
+        spawning.addToSpawnDebugList(self, objTemplate);
+        setObjVar(objTemplate, "objParent", self);
+        setObjVar(objTemplate, "fltRespawnTime", fltRespawnTime);
+        attachScript(objTemplate, "systems.spawning.spawned_tracker");
+        setYaw(objTemplate, spawnerYaw);
+
         if (!spawning.checkSpawnCount(self))
         {
             return;
@@ -205,10 +210,7 @@ public class spawner_area extends script.base_script
         }
         else 
         {
-            float fltMinSpawnTime = getFloatObjVar(self, "fltMinSpawnTime");
-            float fltMaxSpawnTime = getFloatObjVar(self, "fltMaxSpawnTime");
-            float fltRespawnTime = rand(fltMinSpawnTime, fltMaxSpawnTime);
-            messageTo(self, "doSpawnEvent", null, fltRespawnTime, false);
+            messageTo(self, "doSpawnEvent", null, getRespawnTime(self), false);
         }
         return SCRIPT_CONTINUE;
     }
