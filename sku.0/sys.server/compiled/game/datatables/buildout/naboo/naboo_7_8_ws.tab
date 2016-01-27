@@ -251,7 +251,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1741549	1741535	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1741550	1741535	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1741551	1741535	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
-1741551	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	1126.62	-192	555.717	-0.00579701	0	0.999983	0		$|
+1741551	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	1126.62	-192	555.717	-0.00579701	0	0.999983	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 1741552	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	1118.53	-192	509.927	-0.00579701	0	0.999983	0		$|
 1741553	0	object/building/naboo/shuttleport_naboo.iff	0	1041.24	-192	457.604	0.920007	0	0.391903	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Kaadara Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 1741554	0	object/building/naboo/parking_garage_naboo_style_1.iff	0	1013.11	-192	429.889	0.368784	0	0.929516	0		$|
@@ -608,7 +608,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3555431	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1184.17	-192	451.384	-0.362358	0	0.932039	0		$|
 3955391	0	object/static/structure/naboo/nboo_imprv_pristine_wall_sml_s03.iff	0	1097.16	-192	533.32	0.707107	0	-0.707106	0		$|
 3955392	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	1095	-192.492	528.157	1	0	0	0		$|
-3955393	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s02.iff	0	1097.14	-192.492	522.309	-3.20E-08	0	1	0		$|
+3955393	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s02.iff	0	1097.14	-192.492	522.309	-0.000000032	0	1	0		$|
 3955394	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s02.iff	0	1097.15	-192.492	534.301	0.707108	0	0.707105	0		$|
 4105610	0	object/building/naboo/guild_theater_naboo_s01.iff	0	1228.88	-192	621.332	0.707108	0	0.707106	0		$|
 4105611	4105610	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
@@ -638,9 +638,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4105659	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_large_s01.iff	0	1279	-192	490	0.707107	0	0.707106	0		$|
 4105662	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_small_s01.iff	0	1279	-192	491	1	0	0	0		$|
 4105663	0	object/static/structure/naboo/nboo_imprv_short_curved_wall_small_s01.iff	0	1291	-192	495	0.707107	0	0.707106	0		$|
-4105664	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	1294.97	-193.311	490.989	-3.20E-08	0	1	0		$|
+4105664	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	1294.97	-193.311	490.989	-0.000000032	0	1	0		$|
 4105665	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	1279	-193.311	491	1	0	0	0		$|
-4105667	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	1291	-193.311	495	-3.20E-08	0	1	0		$|
+4105667	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	1291	-193.311	495	-0.000000032	0	1	0		$|
 4105668	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	1283	-193.311	495	1	0	0	0		$|
 4105669	0	object/static/structure/naboo/streetlamp_naboo_theed_style_1.iff	0	1287	-192	480	1	0	0	0		$|
 4105670	0	object/static/flora/potted_plant_flowers_orange.iff	0	1295.01	-192	492.913	-0.60976	0	0.792586	0		$|
