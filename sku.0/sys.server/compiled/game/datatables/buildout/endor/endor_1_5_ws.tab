@@ -14,3 +14,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 733407	733396	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 9705888	0	object/static/structure/dantooine/dant_large_mudhut.iff	0	1313.02	204.277	1364.15	0.637151	0	0.770739	0		$|
 9705892	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1316.89	202.223	1363.37	1	0	0	0		$|
+733408	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1305.630859	8.518555641	706.2835693	1	0	0	0		$|
+733409	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1294.918457	10.40739441	682.734436	1	0	0	0		$|
+2055796	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1328.044434	201.0033875	1358.007202	1	0	0	0		$|
