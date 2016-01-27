@@ -90,3 +90,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9705909	0	object/building/endor/endor_catwalk.iff	0	70.6118	28.9419	1013.68	0.992809	0	-0.119712	0		$|
 9705911	0	object/building/endor/endor_forest_hut.iff	0	74.2699	14.3391	999.729	1	0	0	0		$|
 9705913	0	object/building/endor/endor_forest_hut.iff	0	88.9268	14.887	997.859	0.796084	0	-0.605186	0		$|
+4845423	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	82.9489	15.4826	984.374	1	0	0	0		$|
+4845442	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	74.4437	20.7706	944.288	1	0	0	0		$|
