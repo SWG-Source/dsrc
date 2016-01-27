@@ -80,7 +80,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 79426	79411	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 79427	79411	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 79428	79411	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
-100316	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	806.606	6	507.279	1	0	0	0		$|
+100316	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	806.606	6	507.279	1	0	0	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 100317	0	object/static/structure/naboo/obelisk_naboo_theed_style_1.iff	0	730.184	6	124.197	1	0	0	0		$|
 100318	0	object/static/structure/naboo/bridge_naboo_theed_style_1.iff	0	890.963	0.243319	215.728	0.972514	0	0.232843	0		$|
 100319	0	object/static/structure/naboo/bridge_naboo_theed_style_1.iff	0	862.936	0.00747681	466.625	0.985585	0	-0.169182	0		$|
@@ -158,7 +158,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1340342	0	object/static/item/item_katana.iff	0	579.884	6.4111	211.288	0.587407	-0.393641	-0.393641	0.587407		$|
 1340343	0	object/static/item/item_fruit_melon.iff	0	579.703	7.26491	209.191	1	0	0	0		$|
 1340344	0	object/static/item/item_slave_brazier.iff	0	581.247	7.91981	210.573	0.705834	-0.042401	0.0424009	0.705834		$|
-1340345	0	object/static/item/item_katana.iff	0	580.691	8.14117	210.589	3.20E-08	1	0	0		$|
+1340345	0	object/static/item/item_katana.iff	0	580.691	8.14117	210.589	0.000000032	1	0	0		$|
 1340346	0	object/tangible/furniture/elegant/coffee_table_s01.iff	0	765.572	6	233.785	-0.000397898	0	1	0		$|
 1340347	0	object/tangible/furniture/elegant/end_table_s01.iff	0	767.035	6	233.408	0.707388	0	-0.706825	0		$|
 1340348	0	object/tangible/furniture/elegant/end_table_s01.iff	0	764.101	6	233.44	0.707388	0	-0.706825	0		$|
@@ -171,7 +171,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1340358	0	object/static/item/item_ryyk_blade.iff	0	766.205	6.45685	233.893	-0.228088	0.683734	-0.650374	0.239787		$|
 1340359	0	object/static/item/item_ryyk_blade.iff	0	763.601	7.98108	233.718	0.27262	0.65244	-0.27262	0.65244		$|
 1340360	0	object/static/item/item_ryyk_blade.iff	0	763.044	8.01682	233.71	-0.222967	-0.671034	-0.222967	0.671034		$|
-1340362	0	object/building/naboo/shuttleport_naboo.iff	0	267.895	6	76.1606	3.20E-08	0	1	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Theed Shuttleport B|travel.shuttle_available|0|1|travel.version|0|3|$|
+1340362	0	object/building/naboo/shuttleport_naboo.iff	0	267.895	6	76.1606	0.000000032	0	1	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Theed Shuttleport B|travel.shuttle_available|0|1|travel.version|0|3|$|
 1340373	0	object/building/naboo/shuttleport_naboo.iff	0	732.983	6	206.332	0.707107	0	0.707106	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Theed Shuttleport C|travel.shuttle_available|0|1|travel.version|0|3|$|
 1340399	0	object/static/item/item_container_inorganic_minerals.iff	0	1017.74	6	147.498	0.663731	0	0.747971	0		$|
 1340400	0	object/static/item/item_container_energy_gas.iff	0	1012.3	6	142.621	0.777573	0	0.628793	0		$|
@@ -214,7 +214,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1678063	0	object/static/installation/mockup_power_generator_photo_bio_style_1.iff	0	507.294	6	12.4761	0.707109	0	0.707105	0		$|
 1678096	0	object/static/structure/naboo/obelisk_naboo_theed_style_1.iff	0	531.303	6	60.3018	1	0	0	0		$|
 1688886	0	object/static/structure/naboo/arch_bronze_naboo_theed.iff	0	648	6	212	1	0	0	0		$|
-1688889	0	object/static/structure/naboo/arch_triumph_naboo_theed.iff	0	648	6	90	2.01E-07	0	1	0		$|
+1688889	0	object/static/structure/naboo/arch_triumph_naboo_theed.iff	0	648	6	90	0.000000201	0	1	0		$|
 1692066	0	object/building/naboo/guild_combat_naboo_style_01.iff	0	687.248	6	6.58398	1	0	0	0		$|
 1692067	1692066	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1692068	1692066	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
@@ -373,7 +373,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2776040	0	object/tangible/terminal/terminal_bazaar.iff	0	460.299	6.55	75.1689	0.707107	0	-0.707106	0		$|
 2776041	0	object/tangible/terminal/terminal_bazaar.iff	0	438.324	6.55	53.1519	1	0	0	0		$|
 2776042	0	object/tangible/terminal/terminal_bazaar.iff	0	416.284	6.55	75.1987	0.707107	0	0.707106	0		$|
-2776043	0	object/tangible/terminal/terminal_bazaar.iff	0	438.309	6.55	97.1289	-3.20E-08	0	1	0		$|
+2776043	0	object/tangible/terminal/terminal_bazaar.iff	0	438.309	6.55	97.1289	-0.000000032	0	1	0		$|
 2776044	0	object/tangible/terminal/terminal_bazaar.iff	0	1133.62	6	160.102	0.419322	0	0.907837	0		$|
 2776045	0	object/tangible/terminal/terminal_bazaar.iff	0	1125.84	6	150.965	0.419322	0	0.907837	0		$|
 2776046	0	object/tangible/furniture/all/frn_bench_generic.iff	0	1131.68	6	157.817	0.419322	0	0.907837	0		$|
@@ -526,7 +526,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6336420	0	object/tangible/terminal/terminal_mission_artisan.iff	0	371.547	6	318.012	0.42838	0	0.903599	0		$|
 6336422	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	373.355	6	319.481	0.432892	0	0.901446	0		$|
 6336439	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	605.816	6	269.762	1	0	0	0		$|
-6336442	0	object/tangible/furniture/elegant/chest_s01.iff	0	604.354	6	271.069	-3.20E-08	0	1	0		$|
+6336442	0	object/tangible/furniture/elegant/chest_s01.iff	0	604.354	6	271.069	-0.000000032	0	1	0		$|
 6336443	0	object/tangible/furniture/elegant/chest_s01.iff	0	604.188	6	268.156	0	0	1	0		$|
 6336444	0	object/tangible/furniture/elegant/chair_s01.iff	0	605.799	6	271.985	0.267499	0	0.963558	0		$|
 6645417	0	object/soundobject/soundobject_city_crowd_small.iff	0	629.73	6	183.599	1	0	0	0		$|
@@ -610,7 +610,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8905467	0	object/static/structure/naboo/nboo_imprv_flagpole_s01.iff	0	688.692	18.7227	156.241	1	0	0	0		$|
 8905468	0	object/static/structure/naboo/nboo_imprv_flagpole_s01.iff	0	717.398	14.6446	218.428	1	0	0	0		$|
 8905469	0	object/static/structure/naboo/nboo_imprv_bannerpole_s01.iff	0	632.003	9.28815	327.253	1	0	0	0		$|
-8905470	0	object/static/structure/naboo/nboo_imprv_bannerpole_s01.iff	0	663.913	9.28815	327.281	-3.20E-08	0	1	0		$|
+8905470	0	object/static/structure/naboo/nboo_imprv_bannerpole_s01.iff	0	663.913	9.28815	327.281	-0.000000032	0	1	0		$|
 8905471	0	object/static/structure/naboo/nboo_imprv_flagpole_s01.iff	0	656.921	107.874	796.832	1	0	0	0		$|
 8905472	0	object/static/structure/naboo/nboo_imprv_flagpole_s01.iff	0	792.716	18.3871	295.685	1	0	0	0		$|
 8905473	0	object/static/structure/naboo/nboo_imprv_flagpole_s01.iff	0	792.614	18.3871	324.413	1	0	0	0		$|
@@ -660,12 +660,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1677430	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	438.337	6	12.2974	1	0	0	0		$|
 1677435	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	543.979	5.94944	18.3145	0.734818	0	-0.678264	0		$|
 1677442	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	378.662	6	11.6753	1	0	0	0		$|
-1677503	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	303.016	6	8.5874	3.48E-07	0	1	0		$|
+1677503	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	303.016	6	8.5874	0.000000348	0	1	0		$|
 1677602	0	object/building/naboo/filler_building_naboo_theed_style_3.iff	0	201.672	6	178.738	0.70711	0	-0.707104	0		$|
 1677606	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_02.iff	0	151.07	6	152.138	0.707109	0	0.707105	0		$|
 1677691	0	object/building/naboo/filler_building_naboo_theed_style_10.iff	0	491.771	6	67.0181	0.707107	0	0.707107	0		$|
 1677694	0	object/building/naboo/filler_building_naboo_theed_style_4.iff	0	497.548	6	97.4219	1	0	0	0		$|
-1677772	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	262.97	6	281.574	3.20E-08	0	1	0		$|
+1677772	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	262.97	6	281.574	0.000000032	0	1	0		$|
 1677774	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_02.iff	0	155.915	6	229.843	0.963771	0	-0.266731	0		$|
 1677778	0	object/building/naboo/filler_building_naboo_theed_style_8.iff	0	289.728	6	281.125	1	0	0	0		$|
 1677786	0	object/building/naboo/filler_building_naboo_theed_style_10.iff	0	311.353	6	256.364	-0.468594	0	0.883413	0		$|
