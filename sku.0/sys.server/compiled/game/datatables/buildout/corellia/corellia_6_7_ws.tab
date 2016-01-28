@@ -7,10 +7,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2055849	0	object/tangible/sign/all_sign_city_s01.iff	0	1230.66	300	1357.54	0.92388	0	-0.382683	0		$|
 2055850	0	object/tangible/sign/all_sign_city_s01.iff	0	1260.44	308	1387.29	0.990901	0	0.13459	0		$|
 2055851	0	object/tangible/sign/all_sign_city_s01.iff	0	1285.17	308	1436.63	1	0	0	0		$|
-2055852	0	object/tangible/sign/all_sign_city_s01.iff	0	1284.98	324	1593.38	1	0	0	0		$|
-3055747	0	object/building/corellia/shuttleport_corellia.iff	0	1017.5	280	897.01	-7.41481e-008	0	1	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Doaba Guerfel Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
+2055852	0	object/tangible/sign/all_sign_city_s01.iff	0	1284.98	324	1593.38	1	0	0	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
+3055747	0	object/building/corellia/shuttleport_corellia.iff	0	1017.5	280	897.01	-7.41481E-08	0	1	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Doaba Guerfel Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 3055759	0	object/building/corellia/skyscraper_corellia_style_03.iff	0	1139.73	290	853.417	1	0	0	0		$|
-3055763	0	object/building/corellia/guild_commerce_corellia_style_01.iff	0	1111.91	290	933.172	-1.16295e-007	0	1	0		$|
+3055763	0	object/building/corellia/guild_commerce_corellia_style_01.iff	0	1111.91	290	933.172	-1.16295E-07	0	1	0		$|
 3055764	3055763	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 3055765	3055763	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3055766	3055763	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
@@ -53,7 +53,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3075371	3075362	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 3075372	3075362	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 3075373	0	object/building/corellia/skyscraper_corellia_style_04.iff	0	1097.02	300	1276.97	0.707108	0	0.707106	0		$|
-3075377	0	object/building/corellia/skyscraper_corellia_style_05.iff	0	1171.19	300	1355.74	9.52217e-008	0	1	0		$|
+3075377	0	object/building/corellia/skyscraper_corellia_style_05.iff	0	1171.19	300	1355.74	9.52217E-08	0	1	0		$|
 3075405	0	object/building/corellia/guild_university_corellia_style_01.iff	0	1066.04	300	1188.93	0.215983	0	0.976397	0		$|
 3075406	3075405	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 3075407	3075405	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
@@ -87,7 +87,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3075478	0	object/building/corellia/filler_historic_32x16_s02.iff	0	1069.17	300	1084.69	0.707109	0	0.707105	0		$|
 3075483	0	object/building/corellia/filler_historic_32x16_s01.iff	0	1111.07	300	1085.52	0.707109	0	-0.707104	0		$|
 3075494	0	object/building/corellia/filler_building_corellia_style_07.iff	0	1158.65	300	1092.07	0.92388	0	-0.382683	0		$|
-3075520	0	object/building/corellia/filler_block_corellia_64x32_s02.iff	0	1082.83	300	1020.71	-3.20013e-008	0	1	0		$|
+3075520	0	object/building/corellia/filler_block_corellia_64x32_s02.iff	0	1082.83	300	1020.71	-0.000000032	0	1	0		$|
 3075526	0	object/building/corellia/bank_corellia.iff	0	1161.58	299.656	1290.65	0.92388	0	0.382683	0		$|
 3075565	0	object/building/corellia/filler_building_corellia_style_05.iff	0	1121.12	300	1329.21	0.92388	0	-0.382683	0		$|
 3075609	0	object/building/corellia/association_hall_civilian_corellia.iff	0	1271.18	300	1268.39	0.92388	0	-0.382683	0		$|
@@ -125,7 +125,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3075745	0	object/static/structure/corellia/corl_imprv_arch_lg_s01.iff	0	1095.18	290	884.235	0.707108	0	0.707105	0		$|
 3075746	0	object/static/structure/corellia/corl_fountain_circle_s01.iff	0	1041	280	908	1	0	0	0		$|
 3075747	0	object/static/structure/general/bench_generic_style_1.iff	0	1041	280	900	1	0	0	0		$|
-3075748	0	object/static/structure/general/bench_generic_style_1.iff	0	1041	280	894	-3.20013e-008	0	1	0		$|
+3075748	0	object/static/structure/general/bench_generic_style_1.iff	0	1041	280	894	-0.000000032	0	1	0		$|
 3075749	0	object/static/structure/general/bench_generic_style_1.iff	0	1044	280	897	0.707106	0	0.707107	0		$|
 3075750	0	object/static/structure/general/bench_generic_style_1.iff	0	1038	280	897	-0.707106	0	0.707107	0		$|
 3075754	0	object/static/flora/potted_plant_leaves_ivy.iff	0	1040	280	897	0.45108	0	0.892484	0		$|
@@ -142,7 +142,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3075825	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1153	290	889	0.707108	0	0.707106	0		$|
 3075826	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1153	290	879	0.707108	0	0.707106	0		$|
 3075828	0	object/static/structure/general/bench_generic_style_1.iff	0	1150	290	884	0.707108	0	-0.707105	0		$|
-3075829	0	object/static/structure/general/bench_generic_style_1.iff	0	1147	290	887	-5.30747e-008	0	1	0		$|
+3075829	0	object/static/structure/general/bench_generic_style_1.iff	0	1147	290	887	-5.30747E-08	0	1	0		$|
 3075830	0	object/static/structure/general/bench_generic_style_1.iff	0	1144	290	884	0.707107	0	0.707107	0		$|
 3075831	0	object/static/structure/general/bench_generic_style_1.iff	0	1147	290	881	1	0	0	0		$|
 3075832	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1143	295.021	980	1	0	0	0		$|
@@ -150,16 +150,16 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3075861	0	object/static/structure/corellia/corl_imprv_arch_lg_s01.iff	0	1089.95	300	1076.15	1	0	0	0		$|
 3075863	0	object/static/structure/corellia/corl_imprv_arch_lg_s01.iff	0	1089.68	300	1094.56	1	0	0	0		$|
 3375570	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1121.96	300	1052.52	0.707108	0	0.707105	0		$|
-3375571	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1121.96	300	1060.52	4.10541e-007	0	1	0		$|
-3375572	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1077.96	300	1060.52	6.63422e-007	0	1	0		$|
+3375571	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1121.96	300	1060.52	4.10541E-07	0	1	0		$|
+3375572	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1077.96	300	1060.52	6.63422E-07	0	1	0		$|
 3375573	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1113.96	300	1060.52	1	0	0	0		$|
 3375574	0	object/static/structure/corellia/corl_imprv_arch_sm_s02.iff	0	1116.96	300	1044.52	1	0	0	0		$|
 3375575	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1077.96	300	1052.52	0.707108	0	0.707106	0		$|
-3375576	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1077.96	300	1044.52	2.41953e-007	0	1	0		$|
+3375576	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1077.96	300	1044.52	0.000000242	0	1	0		$|
 3375577	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1085.96	300	1060.52	1	0	0	0		$|
 3375578	0	object/static/structure/corellia/corl_imprv_arch_lg_s02.iff	0	1099.96	300	1060.52	1	0	0	0		$|
 3375579	0	object/static/structure/corellia/corl_imprv_arch_sm_s02.iff	0	1082.96	300	1044.52	1	0	0	0		$|
-3375580	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1121.96	300	1044.52	2.41953e-007	0	1	0		$|
+3375580	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1121.96	300	1044.52	0.000000242	0	1	0		$|
 3375582	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1105.96	300	1044.52	1	0	0	0		$|
 3375583	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1093.96	300	1044.52	1	0	0	0		$|
 3375584	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1099.96	300	1044.52	1	0	0	0		$|
@@ -172,16 +172,16 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4026621	0	object/static/creature/droids_r2.iff	0	1288.93	308	1409.04	-0.440178	0	0.897911	0		$|
 4026623	0	object/static/structure/general/data_terminal_s2.iff	0	1289.28	308	1406.48	0.851111	0	-0.524986	0		$|
 4026628	0	object/static/item/item_music_red_ball_jet_organ.iff	0	1255.14	308	1425.84	0.109778	0	0.993956	0		$|
-4026629	0	object/static/item/item_speaker.iff	0	1253.17	308	1422.89	-3.20013e-008	0	1	0		$|
+4026629	0	object/static/item/item_speaker.iff	0	1253.17	308	1422.89	-0.000000032	0	1	0		$|
 4026630	0	object/static/item/item_speaker.iff	0	1263.49	308	1426.09	0.382683	0	0.92388	0		$|
 4026631	0	object/static/item/item_music_microphone_s1.iff	0	1258.45	308	1424.17	0.140332	0	0.990105	0		$|
 4026637	0	object/static/creature/corellia_bageraset.iff	0	1117.48	300	1095.18	1	0	0	0		$|
 4026639	0	object/static/creature/corellia_murra.iff	0	1111.71	300	1094.84	1	0	0	0		$|
 4026640	0	object/static/item/item_cage_bamboo.iff	0	1112.6	300	1093.68	0.995953	0	-0.0898786	0		$|
 4026641	0	object/static/creature/corellia_durni.iff	0	1112.43	300.095	1093.61	0.767799	0	0.640691	0		$|
-4026644	0	object/static/item/item_speaker.iff	0	1312.49	308	1427.15	-3.20013e-008	0	1	0		$|
-4026645	0	object/static/item/item_speaker.iff	0	1319.09	308	1427.27	-3.20013e-008	0	1	0		$|
-4026646	0	object/static/item/item_music_red_ball_jet_organ.iff	0	1315.27	308	1428.43	-3.20013e-008	0	1	0		$|
+4026644	0	object/static/item/item_speaker.iff	0	1312.49	308	1427.15	-0.000000032	0	1	0		$|
+4026645	0	object/static/item/item_speaker.iff	0	1319.09	308	1427.27	-0.000000032	0	1	0		$|
+4026646	0	object/static/item/item_music_red_ball_jet_organ.iff	0	1315.27	308	1428.43	-0.000000032	0	1	0		$|
 4026648	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1355	308	1579.83	1	0	0	0		$|
 4026649	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1353.94	308	1580	0.953847	0	-0.300293	0		$|
 4026650	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1352.91	308	1580.66	1	0	0	0		$|
@@ -208,7 +208,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4345353	4345352	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4345354	4345352	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4345355	4345352	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
-4345356	0	object/static/structure/corellia/corl_stair_large_s01.iff	0	1289.89	308	1581.26	-3.20013e-008	0	1	0		$|
+4345356	0	object/static/structure/corellia/corl_stair_large_s01.iff	0	1289.89	308	1581.26	-0.000000032	0	1	0		$|
 4345390	0	object/building/corellia/cloning_corellia.iff	0	1264.99	324	1642.87	0.382683	0	0.92388	0		$|
 4345391	4345390	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4345392	4345390	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
@@ -272,7 +272,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4395512	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	1262.81	313	1430.09	0.970137	0	0.242556	0		$|
 4395513	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	1262.81	308	1430.09	0.970137	0	0.242556	0		$|
 4395514	0	object/static/structure/corellia/corl_imprv_arch_lg_s01.iff	0	1274.28	312.28	1423.98	0.970137	0	0.242556	0		$|
-4395515	0	object/static/structure/corellia/corl_imprv_arch_lg_s01.iff	0	1274.28	310.41	1423.98	-4.31847e-008	0.970137	-1.35117e-008	-0.242556		$|
+4395515	0	object/static/structure/corellia/corl_imprv_arch_lg_s01.iff	0	1274.28	310.41	1423.98	-4.31847E-08	0.970137	-1.35117E-08	-0.242556		$|
 4395535	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1249	308	1396	0.92388	0	0.382683	0		$|
 4395536	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1246	308	1400	0.92388	0	0.382683	0		$|
 4395537	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1242	308	1405	0.707107	0	0.707106	0		$|
@@ -280,7 +280,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4395539	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1245	308	1416	0.382685	0	0.923879	0		$|
 4395540	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1248	308	1420	0.382685	0	0.923879	0		$|
 4395541	0	object/static/structure/corellia/corl_fountain_statue_heroic_s01.iff	0	1249	308	1408	1	0	0	0		$|
-4395542	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	1295.17	307.699	1410.83	0.863968	9.44131e-009	-0.503546	-6.69304e-009		$|
+4395542	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	1295.17	307.699	1410.83	0.863968	9.44131E-09	-0.503546	-6.69304E-09		$|
 4395544	0	object/static/structure/corellia/corl_imprv_arch_sm_s01.iff	0	1081.67	300	1123.78	0.707107	0	0.707106	0		$|
 4395545	0	object/static/structure/corellia/corl_imprv_arch_sm_s01.iff	0	1091.67	300	1113.78	1	0	0	0		$|
 4395546	0	object/static/structure/corellia/corl_imprv_arch_sm_s01.iff	0	1084.67	300	1130.78	0.92388	0	-0.382683	0		$|
@@ -305,10 +305,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4445392	0	object/static/structure/corellia/corl_fountain_rectangle_s01.iff	0	1163.93	364	1475.08	1	0	0	0		$|
 4445393	0	object/static/structure/general/bench_generic_style_1.iff	0	1163.96	364	1480.05	1	0	0	0		$|
 4445394	0	object/static/structure/general/bench_generic_style_1.iff	0	1167.96	364	1475.05	0.707108	0	0.707106	0		$|
-4445395	0	object/static/structure/general/bench_generic_style_1.iff	0	1163.96	364.009	1470.05	-3.20013e-008	0	1	0		$|
+4445395	0	object/static/structure/general/bench_generic_style_1.iff	0	1163.96	364.009	1470.05	-0.000000032	0	1	0		$|
 4445396	0	object/static/structure/general/bench_generic_style_1.iff	0	1159.96	364	1475.05	0.707108	0	-0.707106	0		$|
 4445397	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1163.96	364.009	1467.05	1	0	0	0		$|
-4445398	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1163.96	364	1482.36	-3.20013e-008	0	1	0		$|
+4445398	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1163.96	364	1482.36	-0.000000032	0	1	0		$|
 4445399	0	object/tangible/terminal/terminal_mission.iff	0	1245.32	308	1475.33	0.382684	0	0.923879	0		$|
 4445405	0	object/tangible/terminal/terminal_mission.iff	0	1245.49	308	1478.51	0.923879	0	0.382684	0		$|
 4445409	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	1245.81	306.886	1476.92	0.707117	0	0.707096	0		$|
@@ -323,8 +323,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5316178	0	object/tangible/terminal/terminal_bazaar.iff	0	1177.08	300.3	1306.29	-0.382683	0	0.92388	0		$|
 5316179	0	object/tangible/terminal/terminal_bazaar.iff	0	1146.06	300.3	1275.04	0.92388	0	0.382683	0		$|
 5406018	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1112.01	294.324	893.028	1	0	0	0		$|
-5406023	0	object/static/structure/general/streetlamp_medium_style_02.iff	0	1100.13	292.506	901.305	-3.20013e-008	0	1	0		$|
-5406045	0	object/static/structure/general/streetlamp_medium_style_02.iff	0	1123.51	292.435	901.286	-3.20013e-008	0	1	0		$|
+5406023	0	object/static/structure/general/streetlamp_medium_style_02.iff	0	1100.13	292.506	901.305	-0.000000032	0	1	0		$|
+5406045	0	object/static/structure/general/streetlamp_medium_style_02.iff	0	1123.51	292.435	901.286	-0.000000032	0	1	0		$|
 5406048	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1094.91	295.945	884.399	-0.000796489	0	0	1		$|
 5406059	0	object/static/structure/general/streetlamp_small_style_02.iff	0	1139.68	297.241	868.731	0.345449	0.628897	0.339967	0.607928		$|
 5406067	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1135.92	298.031	949.934	-0.00579639	0	0	0.999983		$|
@@ -336,9 +336,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5406148	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1127.97	307.969	1005.96	-0.000796383	0	0	1		$|
 5406522	0	object/static/structure/general/streetlamp_large_style_02.iff	0	1066.73	300.593	1153.27	0.975305	0	-0.220863	0		$|
 5406527	0	object/static/structure/general/streetlamp_large_style_02.iff	0	1092.75	300.601	1165.4	0.978508	0	-0.206209	0		$|
-5406608	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1126.19	302.374	1125.51	0.988012	7.32593e-008	-0.15438	-1.1447e-008		$|
+5406608	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1126.19	302.374	1125.51	0.988012	7.32593E-08	-0.15438	-1.1447E-08		$|
 5406619	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1116.94	302.371	1153.04	0.986418	0	-0.164252	0		$|
-5406673	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1130.56	305.948	1206.74	-3.08842e-008	0.965092	8.38143e-009	-0.261909		$|
+5406673	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1130.56	305.948	1206.74	-3.08842E-08	0.965092	8.38143E-09	-0.261909		$|
 5406724	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1258.61	306.784	1280.82	0.653281	0.653281	-0.270598	0.270598		$|
 5406732	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1177.3	311.226	1275.07	0.329973	0.338767	0.252631	0.844116		$|
 5406832	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1177.05	311.494	1306.14	0.353553	-0.353553	-0.146447	0.853553		$|
@@ -347,13 +347,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5406863	0	object/static/structure/general/streetlamp_large_style_02.iff	0	1231.2	300	1358.1	0.92388	0	0.382683	0		$|
 5406864	0	object/static/structure/general/streetlamp_large_style_02.iff	0	1259.85	307.967	1386.66	0.92388	0	0.382683	0		$|
 5406966	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1250.85	309.297	1407.97	1	0	0	0		$|
-5406971	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1274.22	318.212	1423.79	-3.02867e-008	0.970137	7.57236e-009	-0.242556		$|
+5406971	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1274.22	318.212	1423.79	-3.02867E-08	0.970137	7.57236E-09	-0.242556		$|
 5406989	0	object/static/structure/general/streetlamp_medium_green_style_01.iff	0	1243.78	312.111	1476.99	1	0	0	0		$|
 5407022	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	1293.89	308	1572.86	0.707107	0	-0.707106	0		$|
 5407026	0	object/static/structure/general/streetlamp_small_red_style_02.iff	0	1285.88	324	1629.87	0.92388	0	0.382683	0		$|
 5407027	0	object/static/structure/general/streetlamp_small_red_style_02.iff	0	1278.4	324	1622.35	1	0	0	0		$|
-5407030	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1303.31	313.945	1423.28	-3.12983e-008	0.978031	6.67099e-009	-0.20846		$|
-5407033	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1287.8	313.882	1389.41	-3.123e-008	0.975897	6.98363e-009	-0.21823		$|
+5407030	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1303.31	313.945	1423.28	-3.12983E-08	0.978031	6.67099E-09	-0.20846		$|
+5407033	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1287.8	313.882	1389.41	-3.123E-08	0.975897	0.000000007	-0.21823		$|
 5407035	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1320.67	311.194	1363.23	1	0	0	0		$|
 5407040	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1343.33	311.162	1405.09	1	0	0	0		$|
 5407044	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1215.97	300	1332.97	1	0	0	0		$|
@@ -364,7 +364,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5585438	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1242.34	308	1475.29	-0.382683	0	0.92388	0		$|
 5585440	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1242.25	308	1478.41	0.92388	0	-0.382683	0		$|
 5585442	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1243.87	308	1480.28	1	0	0	0		$|
-5585444	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1243.74	308	1473.5	-3.20013e-008	0	1	0		$|
+5585444	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1243.74	308	1473.5	-0.000000032	0	1	0		$|
 5585446	0	object/tangible/terminal/terminal_mission_scout.iff	0	1247.34	308	1476.97	0.707107	0	0.707106	0		$|
 5585448	0	object/tangible/terminal/terminal_mission_scout.iff	0	1240.28	308	1476.88	0.707107	0	-0.707106	0		$|
 5585466	0	object/tangible/terminal/terminal_mission_scout.iff	0	1152.44	300	1225.18	-0.382683	0	0.92388	0		$|
@@ -379,10 +379,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5585505	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1139.87	290	889.126	0.707107	0	0.707106	0		$|
 5585507	0	object/tangible/terminal/terminal_mission_scout.iff	0	1151.96	290	878.961	-0.707107	0	0.707107	0		$|
 5585509	0	object/tangible/terminal/terminal_mission_entertainer.iff	0	1152.14	290	889.094	0.707107	0	-0.707106	0		$|
-5585511	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1125.87	290	900.485	-3.20013e-008	0	1	0		$|
-5585513	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1127.94	290	900.479	-3.20013e-008	0	1	0		$|
-5585534	0	object/tangible/terminal/terminal_bazaar.iff	0	1040.63	280	917.169	-3.20013e-008	0	1	0		$|
-5585535	0	object/tangible/terminal/terminal_bank.iff	0	1043.38	279.999	917.005	-3.20013e-008	0	1	0		$|
+5585511	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1125.87	290	900.485	-0.000000032	0	1	0		$|
+5585513	0	object/tangible/terminal/terminal_mission_artisan.iff	0	1127.94	290	900.479	-0.000000032	0	1	0		$|
+5585534	0	object/tangible/terminal/terminal_bazaar.iff	0	1040.63	280	917.169	-0.000000032	0	1	0		$|
+5585535	0	object/tangible/terminal/terminal_bank.iff	0	1043.38	279.999	917.005	-0.000000032	0	1	0		$|
 5585561	0	object/static/structure/corellia/corl_tent_small.iff	0	1210.32	300.345	1322.66	0.92335	-0.0135312	0.382329	0.0326533		$|
 5585563	0	object/static/item/item_briefcase.iff	0	1209.74	300	1323.33	1	0	0	0		$|
 5585564	0	object/tangible/furniture/all/frn_all_table_s03.iff	0	1208.2	300	1320.44	1	0	0	0		$|
@@ -394,7 +394,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7125390	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1029	300	1178	1	0	0	0		$|
 7125392	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1016	300	1165	0.707107	0	0.707106	0		$|
 7125393	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	1042	300	1165	0.707111	0	0.707102	0		$|
-7125394	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1021	300	1178	2.41953e-007	0	1	0		$|
+7125394	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1021	300	1178	0.000000242	0	1	0		$|
 7125395	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1037	300	1178	0	0	1	0		$|
 7125396	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1037	300	1152	0	0	1	0		$|
 7125397	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1021	300	1152	0	0	1	0		$|
@@ -406,7 +406,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7125403	0	object/tangible/crafting/station/public_clothing_station.iff	0	1026	300	1154	0.707107	0	0.707107	0		$|
 7125405	0	object/tangible/crafting/station/public_food_station.iff	0	1018	300	1162	0.707108	0	0.707106	0		$|
 7125406	0	object/tangible/crafting/station/public_food_station.iff	0	1018	300	1168	0.707114	0	0.707099	0		$|
-7125408	0	object/tangible/crafting/station/public_structure_station.iff	0	1026	300	1176	-3.20013e-008	0	1	0		$|
+7125408	0	object/tangible/crafting/station/public_structure_station.iff	0	1026	300	1176	-0.000000032	0	1	0		$|
 7125409	0	object/tangible/crafting/station/public_structure_station.iff	0	1032	300	1176	0	0	1	0		$|
 7125411	0	object/tangible/crafting/station/public_weapon_station.iff	0	1040	300	1168	0.707108	0	-0.707106	0		$|
 7125412	0	object/tangible/crafting/station/public_weapon_station.iff	0	1040	300	1160	-0.707107	0	0.707107	0		$|
