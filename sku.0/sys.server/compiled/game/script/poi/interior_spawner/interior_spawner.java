@@ -63,7 +63,7 @@ public class interior_spawner extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int interiorNpcDied(obj_id self, dictionary params) throws InterruptedException
+    public int npcDied(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id deadNpc = params.getObjId("object");
         if (!utils.hasScriptVar(self, SCRIPTVAR_CREATIONS))
@@ -194,7 +194,7 @@ public class interior_spawner extends script.base_script
         dictionary row = dataTableGetRow(table, spawner);
         if (row == null)
         {
-            LOG("POI_SPAWNER", "Spawner " + self + " had a null dictionary entry in datatable " + table);
+            LOG("POI_SPAWNER", "Spawner Object ID (" + self + ") was not found in datatable " + table);
             return 120.0f;
         }
         float delay = row.getFloat(DELAY);
@@ -300,7 +300,7 @@ public class interior_spawner extends script.base_script
             here.z = here.z + newZ;
         }
         obj_id npc = create.object(npcType, here, level);
-        create.addDestroyMessage(npc, "interiorNpcDied", 3, spawner);
+        create.addDestroyMessage(npc, "npcDied", 3, spawner);
         float npcYaw;
         if(hasObjVar(spawner, "intRandomYaw") && getIntObjVar(spawner, "intRandomYaw") > 0){
             npcYaw = rand(0,360);
@@ -311,15 +311,18 @@ public class interior_spawner extends script.base_script
             LOG("POI_SPAWNER", "Setting NPC (" + npc + ") Yaw to Spawner (" + spawner + ") value of: " + npcYaw);
         }
         setYaw(npc, npcYaw);
+        // note: if SENTINEL does not have a value, it is assumed to be the default value of 1.
         if (isNpcSentinel(row, spawner))
         {
             setObjVar(npc, "SENTINEL", 1);
             ai_lib.setDefaultCalmBehavior(npc, ai_lib.BEHAVIOR_SENTINEL);
+            LOG("POI_SPAWNER", "Setting NPC (" + npc + ") Behavior to SENTINEL.");
         }
         else 
         {
             setObjVar(npc, "LOITER", 1);
             ai_lib.setDefaultCalmBehavior(npc, ai_lib.BEHAVIOR_LOITER);
+            LOG("POI_SPAWNER", "Setting NPC (" + npc + ") Behavior to LOITER.");
         }
         if (scripts != null && !scripts.equals(""))
         {
