@@ -43,7 +43,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1154047	0	object/static/item/item_medic_bacta_tank.iff	0	922.606	-192	639.526	0.983844	0	0.17903	0		$|
 1154049	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	923.583	-192	639.204	0.924909	0	0.380189	0		$|
 1154059	0	object/static/item/item_bacta_ampules.iff	0	923.737	-191.684	639.912	0.683341	0.683341	0.181783	-0.181783		$|
-1259938	0	object/building/military/military_imperial_detachment_hq.iff	0	1272.94	-196.627	276.336	0.997189	0	-0.0749297	0		$|
+1259938	0	object/building/military/military_imperial_detachment_hq.iff	0	1272.94	-196.627	276.336	0.997189	0	-0.0749297	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 1259939	1259938	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1259940	1259938	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1259941	1259938	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
