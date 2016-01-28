@@ -301,8 +301,16 @@ public class interior_spawner extends script.base_script
         }
         obj_id npc = create.object(npcType, here, level);
         create.addDestroyMessage(npc, "interiorNpcDied", 3, spawner);
-        float spawnerYaw = getYaw(spawner);
-        setYaw(npc, spawnerYaw);
+        float npcYaw;
+        if(hasObjVar(spawner, "intRandomYaw") && getIntObjVar(spawner, "intRandomYaw") > 0){
+            npcYaw = rand(0,360);
+            LOG("POI_SPAWNER", "Setting NPC (" + npc + ") Yaw to Random value of: " + npcYaw);
+        }
+        else{
+            npcYaw = getYaw(spawner);
+            LOG("POI_SPAWNER", "Setting NPC (" + npc + ") Yaw to Spawner (" + spawner + ") value of: " + npcYaw);
+        }
+        setYaw(npc, npcYaw);
         if (isNpcSentinel(row, spawner))
         {
             setObjVar(npc, "SENTINEL", 1);
