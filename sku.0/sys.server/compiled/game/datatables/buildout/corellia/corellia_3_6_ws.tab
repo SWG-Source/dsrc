@@ -52,15 +52,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1331992	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1109.03	30.5976	840.095	0.707107	0	0.707107	0		$|
 1331993	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1108.02	30.6297	840.229	0.963771	0	-0.266731	0		$|
 1331994	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1108.62	31.4579	839.31	0.999687	0	-0.0249974	0		$|
-1610866	0	object/static/structure/corellia/corl_imprv_bridge_insert_s01.iff	0	386.46	19.39	1111.61	-3.24463e-008	0.959661	8.56226e-009	0.281158		$|
-1610867	0	object/static/structure/corellia/corl_imprv_bridge_insert_s01.iff	0	661.01	11.5713	1210.92	-4.25639e-008	0.99875	-1.8649e-009	-0.049979		$|
+1610866	0	object/static/structure/corellia/corl_imprv_bridge_insert_s01.iff	0	386.46	19.39	1111.61	-3.24463E-08	0.959661	8.56226E-09	0.281158		$|
+1610867	0	object/static/structure/corellia/corl_imprv_bridge_insert_s01.iff	0	661.01	11.5713	1210.92	-4.25639E-08	0.99875	-1.8649E-09	-0.049979		$|
 1610875	0	object/tangible/furniture/all/frn_bench_generic.iff	0	399.599	86	1043.41	0.862606	0	-0.505877	0		$|
 1610876	0	object/tangible/furniture/all/frn_bench_generic.iff	0	397.858	86	1040.3	0.862606	0	-0.505877	0		$|
 1610877	0	object/tangible/furniture/all/frn_bench_generic.iff	0	394.271	86	1038.01	0.990534	0	-0.137264	0		$|
 1610878	0	object/tangible/furniture/all/frn_bench_generic.iff	0	390.861	86	1038.74	0.946042	0	0.324043	0		$|
 1610879	0	object/tangible/furniture/all/frn_bench_generic.iff	0	399.642	86	1047.61	-0.603353	0	0.797474	0		$|
 1610880	0	object/tangible/furniture/all/frn_bench_generic.iff	0	397.208	86	1050.08	-0.174108	0	0.984726	0		$|
-2955365	0	object/building/corellia/filler_historic_32x16_s02.iff	0	788.835	86	1199.78	3.27029e-007	0	1	0		$|
+2955365	0	object/building/corellia/filler_historic_32x16_s02.iff	0	788.835	86	1199.78	0.000000327	0	1	0		$|
 2955370	0	object/building/corellia/filler_historic_32x16_s01.iff	0	753.107	86	1235.32	0.703845	0	0.710353	0		$|
 2955381	0	object/building/corellia/filler_historic_32x16_s02.iff	0	621.702	85.5943	1127.8	0.272314	0	0.962209	0		$|
 2955393	0	object/building/corellia/guild_university_corellia_style_01.iff	0	407.389	86	1017.03	0.967663	0	0.252245	0		$|
@@ -543,7 +543,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3695395	0	object/tangible/furniture/tatooine/frn_tato_tbl_cafe_table_style_01.iff	0	750.45	86	1243.68	0.935897	0	-0.352274	0		$|
 3695396	0	object/static/item/item_con_ration_kit_m.iff	0	752.238	87.4632	1241.32	0.973666	0	-0.227978	0		$|
 3695397	0	object/static/item/item_con_ration_kit_lg.iff	0	751.967	87.4632	1241.47	-0.689498	0	0.724287	0		$|
-3695398	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	751.966	86.7632	1241.44	0.768054	0	-0.640385	0		$|
+3695398	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	751.966	86.7632	1241.44	0.768054	0	-0.640385	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 3695399	0	object/static/item/item_ammo_rocket.iff	0	750.681	86.7589	1244.07	0.935897	0	-0.352274	0		$|
 3695400	0	object/static/item/item_ammo_rocket.iff	0	750.633	86.7589	1244.24	0.771246	0	-0.636537	0		$|
 3695401	0	object/static/item/item_rocket_launcher.iff	0	750.621	86.77	1243.63	0.603112	0.359546	0.362223	0.613006		$|
@@ -552,7 +552,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3695404	0	object/static/item/item_con_ration_kit_lg.iff	0	751.315	86.7906	1241.45	0.870293	0	-0.492534	0		$|
 3695405	0	object/static/item/item_con_ration_kit_lg.iff	0	750.966	86.7906	1241.22	0.983844	0	-0.179029	0		$|
 3695408	0	object/static/item/item_tool_sensor_beacon.iff	0	752.385	86	1242.41	0.99995	0	-0.00999984	0		$|
-3695409	0	object/static/item/item_rifle.iff	0	752.776	86.1188	1243.11	-1.94927e-008	3.16582e-008	0.807558	0.589788		$|
+3695409	0	object/static/item/item_rifle.iff	0	752.776	86.1188	1243.11	-1.94927E-08	3.16582E-08	0.807558	0.589788		$|
 4255419	0	object/building/corellia/starport_corellia.iff	0	960.296	31	846.22	-0.0157951	0	0.999875	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Kor Vella Starport|travel.shuttle_available|0|1|travel.version|0|3|$|
 4255420	4255419	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4255421	4255419	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
@@ -626,7 +626,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5406143	0	object/static/structure/general/streetlamp_large_style_02.iff	0	919.003	101	1084.68	0.41651	0	0.909132	0		$|
 5406155	0	object/static/structure/general/streetlamp_large_green_style_02.iff	0	735.13	88.7647	1155.32	0.950796	0	0.309816	0		$|
 5406161	0	object/static/structure/general/streetlamp_large_green_style_02.iff	0	719.432	88.7833	1162.85	0.983844	0	0.179029	0		$|
-5406173	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	710.67	91.9452	1250.83	-0.000796364	0.00999984	7.9639e-006	0.99995		$|
+5406173	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	710.67	91.9452	1250.83	-0.000796364	0.00999984	7.9639E-06	0.99995		$|
 5406212	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	669.057	76.3718	1305.22	0.9998	0	0.0199987	0		$|
 5406224	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	697.974	76.3777	1303.95	1	0	0	0		$|
 5406257	0	object/static/structure/general/streetlamp_large_style_02.iff	0	644.018	78	1375.15	-0.000365086	0	1	0		$|
@@ -711,7 +711,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6476227	0	object/tangible/terminal/terminal_mission_artisan.iff	0	835.108	86.8743	1066.67	0.997551	0	-0.0699428	0		$|
 6476229	0	object/tangible/terminal/terminal_mission_artisan.iff	0	664.994	80.4709	1152.49	0.798861	0	-0.601516	0		$|
 6476231	0	object/tangible/terminal/terminal_mission_artisan.iff	0	656.087	80.4982	1147.27	0.996802	0	0.0799147	0		$|
-6476233	0	object/tangible/terminal/terminal_mission_scout.iff	0	668.064	74	1303.47	-3.20013e-008	0	1	0		$|
+6476233	0	object/tangible/terminal/terminal_mission_scout.iff	0	668.064	74	1303.47	-0.000000032	0	1	0		$|
 6476235	0	object/tangible/terminal/terminal_mission_scout.iff	0	699.542	74	1302.12	-0.0149995	0	0.999888	0		$|
 6476237	0	object/tangible/terminal/terminal_mission_scout.iff	0	436.052	86	1038.75	0.968912	0	0.247404	0		$|
 6476239	0	object/tangible/terminal/terminal_mission_scout.iff	0	410.541	86	1052.95	0.965693	0	0.259688	0		$|
@@ -759,9 +759,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825465	0	object/static/structure/general/prp_junk_s5.iff	0	575.129	28.2166	521.107	0.932327	0	0	-0.361615		$|
 9825466	0	object/static/structure/general/prp_junk_s8.iff	0	580.333	27.9056	515.016	0.528306	-0.417736	-0.334913	0.658956		$|
 9825471	0	object/static/structure/general/poi_protocolarm.iff	0	579.324	28.0126	516.397	1	0	0	0		$|
-9825485	0	object/static/structure/general/escape_pod_door.iff	0	581.794	28.052	517.829	0.707107	0.707106	-7.72715e-009	7.72715e-009		$|
+9825485	0	object/static/structure/general/escape_pod_door.iff	0	581.794	28.052	517.829	0.707107	0.707106	-7.72715E-09	7.72715E-09		$|
 2955360	0	object/building/corellia/filler_slum_24x16_s01.iff	0	787.72	86	1257.63	0.980067	0	-0.198669	0		$|
-2955362	0	object/building/corellia/filler_slum_24x16_s02.iff	0	714.405	85.9958	1233.47	3.20013e-008	0	1	0		$|
+2955362	0	object/building/corellia/filler_slum_24x16_s02.iff	0	714.405	85.9958	1233.47	0.000000032	0	1	0		$|
 2955375	0	object/building/corellia/filler_slum_24x16_s02.iff	0	776.515	86	1165.62	0.707108	0	0.707106	0		$|
 2955378	0	object/building/corellia/filler_slum_24x16_s02.iff	0	681.427	86	958.916	0.412321	0	0.911039	0		$|
 2955386	0	object/building/corellia/filler_slum_24x16_s02.iff	0	707.374	86	979.438	0.946042	0	-0.324043	0		$|
