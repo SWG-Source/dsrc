@@ -27,8 +27,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1065377	0	object/static/structure/general/streetlamp_large_style_02.iff	0	855.312	4	1749.58	1	0	0	0		$|
 1065381	0	object/static/structure/corellia/corl_fountain_statue_contemplate_s01.iff	0	854.01	4	1764.76	-0.00420366	0	0.999991	0		$|
 1065391	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s04.iff	0	851.224	4	1764.76	1	0	0	0		$|
-1065392	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s04.iff	0	856.84	4	1764.76	3.20013e-008	0	1	0		$|
-1065395	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s04.iff	0	839.482	4	1764.88	3.20013e-008	0	1	0		$|
+1065392	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s04.iff	0	856.84	4	1764.76	0.000000032	0	1	0		$|
+1065395	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s04.iff	0	839.482	4	1764.88	0.000000032	0	1	0		$|
 1065396	0	object/tangible/furniture/all/frn_all_potted_plants_sml_s04.iff	0	833.866	4	1764.88	1	0	0	0		$|
 1065397	0	object/static/structure/corellia/corl_fountain_statue_contemplate_s01.iff	0	836.696	4	1764.88	0.999991	0	0.00420394	0		$|
 1110695	0	object/tangible/collection/flower_01.iff	0	981.405	4.37749	1816.3	1	0	0	0		$|
@@ -38,7 +38,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1738366	0	object/static/structure/general/streetlamp_large_style_02.iff	0	814.017	24	1948.94	0.886995	0	0.461779	0		$|
 2515364	0	object/static/structure/general/streetlamp_large_style_02.iff	0	498.761	17.2997	2012.77	1	0	0	0		$|
 2515365	0	object/static/structure/general/streetlamp_large_style_02.iff	0	539.558	23.3479	1988.21	1	0	0	0		$|
-2515366	0	object/static/structure/general/streetlamp_large_style_02.iff	0	569.883	23.4	1991.55	7.33659e-008	0	1	0		$|
+2515366	0	object/static/structure/general/streetlamp_large_style_02.iff	0	569.883	23.4	1991.55	7.33659E-08	0	1	0		$|
 2515367	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	584.91	23.4	1990.93	1	0	0	0		$|
 2515368	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	584.818	24.105	1990.96	0.930508	0	0.366273	0		$|
 2775354	0	object/static/structure/general/streetlamp_small_style_01.iff	0	724.007	25.4735	1937.77	1	0	0	0		$|
@@ -85,9 +85,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2775398	0	object/tangible/furniture/all/frn_all_couch_lg_s2.iff	0	728	24.3	1946	0	0	1	0		$|
 2775399	0	object/tangible/furniture/all/frn_all_couch_lg_s2.iff	0	732	24.3	1946	0	0	1	0		$|
 2775400	0	object/tangible/furniture/all/frn_all_couch_lg_s2.iff	0	732	24.3	1949	0	0	1	0		$|
-2775401	0	object/static/naboo/waterfall_naboo_crest_01.iff	0	722.163	29.6293	1921.8	6.14252e-006	0	1	0		$|
+2775401	0	object/static/naboo/waterfall_naboo_crest_01.iff	0	722.163	29.6293	1921.8	6.14252E-06	0	1	0		$|
 2775402	0	object/static/naboo/waterfall_naboo_crest_01.iff	0	724.638	29.6447	1921.45	1	0	0	0		$|
-2775409	0	object/building/corellia/hotel_corellia.iff	0	628.229	23.4	2042.08	7.33659e-008	0	1	0		$|
+2775409	0	object/building/corellia/hotel_corellia.iff	0	628.229	23.4	2042.08	7.33659E-08	0	1	0		$|
 2775410	2775409	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2775411	2775409	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4611173	2775411	object/tangible/collection/rare_pistol_d18_liquidator.iff	2	1.673712	1.741289	19.3884	-0.7038453	0	0	0.71035		$|
@@ -110,7 +110,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2775417	2775409	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 2775418	2775409	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 2775419	2775409	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
-2775427	0	object/building/corellia/filler_historic_32x16_s01.iff	0	576.646	23.4	1975.42	1	0	0	0		$|
+2775427	0	object/building/corellia/filler_historic_32x16_s01.iff	0	576.646	23.4	1975.42	1	0	0	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 2775432	0	object/building/corellia/filler_historic_32x16_s02.iff	0	577.938	23.4	2035.63	1	0	0	0		$|
 2775452	0	object/static/flora/potted_plant_flowers_orange.iff	0	601	23.4	2017	0.850236	0	-0.526401	0		$|
 2775453	0	object/static/flora/potted_plant_flowers_orange.iff	0	611	23.4	2017	0.998149	0	-0.0608173	0		$|
@@ -137,7 +137,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3005463	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	633.657	23.4	1987.66	-0.382683	0	0.92388	0		$|
 3005464	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	622.343	23.4	1987.66	0.382683	0	0.92388	0		$|
 3005465	0	object/static/structure/corellia/corl_fountain_circle_s01.iff	0	628	23.4	1982	0.382683	0	0.92388	0		$|
-3005475	0	object/building/corellia/filler_slum_16x16_s01.iff	0	441	14.6	2018	2.85506e-006	0	1	0		$|
+3005475	0	object/building/corellia/filler_slum_16x16_s01.iff	0	441	14.6	2018	2.85506E-06	0	1	0		$|
 3005479	0	object/building/corellia/filler_slum_16x32_s02.iff	0	468	14.6	2041	1	0	0	0		$|
 3005526	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	452	14.6	2033	0.707108	0	-0.707106	0		$|
 3005527	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	460.698	14.6	2017.56	0.707107	0	0.707106	0		$|
@@ -158,7 +158,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3005580	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	478	14.6	2045	0.707107	0	0.707106	0		$|
 3005587	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	430	14.6	2023	0.707108	0	0.707106	0		$|
 3005588	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	430	14.6	2007	1	0	0	0		$|
-3005589	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	430	12.6	2007	-3.20013e-008	1	0	0		$|
+3005589	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	430	12.6	2007	-0.000000032	1	0	0		$|
 3005590	0	object/static/structure/corellia/corl_imprv_gate_sm_s02.iff	0	430	14.6	2042	0.707107	0	-0.707106	0		$|
 3005680	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	602.223	23.4	1982.12	1	0	0	0		$|
 3005683	0	object/tangible/terminal/terminal_bank.iff	0	603.715	23.4	1982.14	0.707108	0	0.707105	0		$|
@@ -183,7 +183,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3005707	3005694	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 3005708	3005694	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 3005709	3005694	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
-3055537	0	object/building/corellia/filler_historic_32x16_s01.iff	0	1003.48	4.30735	1783.51	0.999893	-0.00202547	-3.02328e-005	0.0144617		$|
+3055537	0	object/building/corellia/filler_historic_32x16_s01.iff	0	1003.48	4.30735	1783.51	0.999893	-0.00202547	-3.02328E-05	0.0144617		$|
 3055542	0	object/building/corellia/filler_historic_32x16_s02.iff	0	951.729	4.06189	1826.72	-0.707098	0.00353551	0.707097	-0.00353552		$|
 3055562	0	object/tangible/furniture/modern/sofa_chair_modern_style_01.iff	0	994.44	4.78626	1751.49	0.994897	0	0.100898	0		$|
 3055563	0	object/tangible/furniture/modern/sofa_chair_modern_style_01.iff	0	995.243	4.64681	1755.41	-0.100899	0	0.994897	0		$|
@@ -262,7 +262,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3375567	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	783	23.8896	1947	0.92388	0	0.382683	0		$|
 3375568	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	793	24	1947	0.382684	0	0.923879	0		$|
 3375569	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	793	24	1957	0.92388	0	0.382683	0		$|
-4705376	0	object/tangible/terminal/terminal_bazaar.iff	0	602.253	23.4	1980.85	3.20013e-008	0	1	0		$|
+4705376	0	object/tangible/terminal/terminal_bazaar.iff	0	602.253	23.4	1980.85	0.000000032	0	1	0		$|
 4705377	0	object/tangible/terminal/terminal_bazaar.iff	0	602.29	23.4	1983.31	1	0	0	0		$|
 5075490	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	606.043	20.9936	2007.83	1	0	0	0		$|
 5075491	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	606.183	20.9512	2018.17	1	0	0	0		$|
@@ -281,17 +281,17 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6025425	0	object/static/structure/general/streetlamp_large_style_02.iff	0	940.136	4.71173	1839.59	1	0	0	0		$|
 7125422	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	709.243	24.9885	1912.71	0.970137	0	0.242556	0		$|
 7125423	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	709.243	29.9273	1912.71	0.970137	0	0.242556	0		$|
-7125424	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	701.985	27.8648	1916.39	-3.75295e-008	0.707107	-2.26283e-008	-0.707107		$|
+7125424	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	701.985	27.8648	1916.39	-3.75295E-08	0.707107	-2.26283E-08	-0.707107		$|
 7125425	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	724.134	25.0085	1908.98	1	0	0	0		$|
 7125426	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	724.134	29.9473	1908.98	1	0	0	0		$|
 7125427	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	738.855	29.9396	1912.87	0.966979	0	-0.254857	0		$|
 7125428	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	738.855	25.0008	1912.87	0.966979	0	-0.254857	0		$|
-7125429	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	746.012	27.8648	1916.65	-2.33689e-008	0.724565	-3.66158e-008	-0.689206		$|
+7125429	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	746.012	27.8648	1916.65	-2.33689E-08	0.724565	-3.66158E-08	-0.689206		$|
 7125432	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	746.01	29.7713	1916.65	0.724568	0	0.689203	0		$|
 7125433	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	701.98	29.7713	1916.39	0.707107	0	0.707107	0		$|
-7125441	0	object/static/structure/corellia/corl_fountain_rectangle_s01.iff	0	723.343	27.6896	1921.99	6.63422e-007	0	1	0		$|
+7125441	0	object/static/structure/corellia/corl_fountain_rectangle_s01.iff	0	723.343	27.6896	1921.99	6.63422E-07	0	1	0		$|
 7125442	0	object/static/structure/corellia/corl_stair_small_s01.iff	0	723.345	24.3336	1927.66	1	0	0	0		$|
-7125443	0	object/static/structure/corellia/corl_stair_small_s01.iff	0	723.34	24.3336	1915.93	-3.20013e-008	0	1	0		$|
+7125443	0	object/static/structure/corellia/corl_stair_small_s01.iff	0	723.34	24.3336	1915.93	-0.000000032	0	1	0		$|
 7125449	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	725.512	23.0829	1919.27	0.70711	0	0.707103	0		$|
 7125450	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	725.512	23.0829	1920.27	0.70711	0	0.707104	0		$|
 7125451	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	725.512	23.0829	1921.27	0.70711	0	0.707104	0		$|
@@ -317,11 +317,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9665503	0	object/tangible/furniture/all/frn_bench_generic.iff	0	608.996	23.4	2009.05	1	0	0	0		$|
 9665504	0	object/tangible/furniture/all/frn_bench_generic.iff	0	606.007	23.4	2009.06	1	0	0	0		$|
 9665505	0	object/tangible/furniture/all/frn_bench_generic.iff	0	602.992	23.4	2009.06	1	0	0	0		$|
-9665506	0	object/tangible/furniture/all/frn_bench_generic.iff	0	602.996	23.4	2017	-3.20013e-008	0	1	0		$|
-9665507	0	object/tangible/furniture/all/frn_bench_generic.iff	0	605.996	23.4	2016.97	-3.20013e-008	0	1	0		$|
-9665508	0	object/tangible/furniture/all/frn_bench_generic.iff	0	608.983	23.4	2016.94	-3.20013e-008	0	1	0		$|
+9665506	0	object/tangible/furniture/all/frn_bench_generic.iff	0	602.996	23.4	2017	-0.000000032	0	1	0		$|
+9665507	0	object/tangible/furniture/all/frn_bench_generic.iff	0	605.996	23.4	2016.97	-0.000000032	0	1	0		$|
+9665508	0	object/tangible/furniture/all/frn_bench_generic.iff	0	608.983	23.4	2016.94	-0.000000032	0	1	0		$|
 9665509	0	object/tangible/furniture/all/frn_bench_generic.iff	0	784.088	23.8847	1951.93	0.707107	0	-0.707107	0		$|
-9665510	0	object/tangible/furniture/all/frn_bench_generic.iff	0	787.989	23.9998	1947.95	-3.20013e-008	0	1	0		$|
+9665510	0	object/tangible/furniture/all/frn_bench_generic.iff	0	787.989	23.9998	1947.95	-0.000000032	0	1	0		$|
 9665511	0	object/tangible/furniture/all/frn_bench_generic.iff	0	792.003	24	1951.97	0.707107	0	0.707107	0		$|
 9665512	0	object/tangible/furniture/all/frn_bench_generic.iff	0	787.997	23.9589	1955.94	1	0	0	0		$|
 9665513	0	object/tangible/furniture/all/frn_bench_generic.iff	0	646.019	23.4	2010.96	0.707107	0	-0.707107	0		$|
@@ -338,7 +338,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9665524	0	object/tangible/furniture/all/frn_bench_generic.iff	0	839.483	4	1767.25	0.707107	0	0.707106	0		$|
 9665525	0	object/tangible/furniture/all/frn_bench_generic.iff	0	833.931	4	1767.16	0.707107	0	-0.707106	0		$|
 9665526	0	object/tangible/furniture/all/frn_bench_generic.iff	0	833.85	4	1762.62	0.707107	0	-0.707107	0		$|
-2775437	0	object/building/corellia/filler_slum_24x16_s01.iff	0	578.628	23.4	2006.71	6.63422e-007	0	1	0		$|
+2775437	0	object/building/corellia/filler_slum_24x16_s01.iff	0	578.628	23.4	2006.71	6.63422E-07	0	1	0		$|
 2775439	0	object/building/corellia/filler_slum_24x16_s02.iff	0	599.316	23.4	1957.28	0.707107	0	0.707107	0		$|
 3055592	0	object/building/corellia/filler_slum_24x16_s02.iff	0	832.796	4	1741.75	0.707107	0	0.707107	0		$|
 3055690	0	object/building/corellia/filler_slum_24x16_s01.iff	0	920.984	3.95414	1826.53	0.707108	0	-0.707106	0		$|
