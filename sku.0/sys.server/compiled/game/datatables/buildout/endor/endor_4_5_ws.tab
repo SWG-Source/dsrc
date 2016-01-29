@@ -174,8 +174,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6645603	6645602	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 6645604	6645602	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 6645605	6645602	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
--1	6645605	object/tangible/collection/col_force_shui_painting_03.iff	1	-1.229405	2.387	1.163829	-0.000728834	0	0.9151158	0.4031895		$|
--2	6645605	object/tangible/collection/col_ent_fan_02.iff	2	-2.747032	1.641202	-2.369418	0.7109063	0	-0.003791782	0.003259151		$|
+6645628	6645605	object/tangible/terminal/terminal_bazaar.iff	3	-3.30637	0.74	-0.249622	0.707108	0	0.707105	0		$|
+6645630	6645605	object/tangible/terminal/terminal_bazaar.iff	3	-3.29913	0.74	-3.50341	0.707107	0	0.707107	0		$|
+6645631	6645605	object/tangible/terminal/terminal_bank.iff	3	2.74725	0.74	-4.14698	1	0	0	0		$|
+6645632	6645605	object/tangible/terminal/terminal_bank.iff	3	2.7606	0.74	0.306336	-3.20013e-08	0	1	0		$|
+497442568	6645605	object/tangible/collection/col_force_shui_painting_03.iff	3	-1.2294	2.387	1.16383	-0.000728834	0.40319	0.915116	-0.000321116		$|
+605442523	6645605	object/tangible/collection/col_ent_fan_02.iff	3	-2.74703	1.6412	-2.36942	0.710906	0.00325915	-0.00379178	0.703269		$|
 6645606	6645602	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 6645687	0	object/tangible/crafting/station/public_food_station.iff	0	1190.93	80	1562.24	0.678264	0	0.734818	0		$|
 6645688	0	object/tangible/crafting/station/public_food_station.iff	0	1190.32	80.0019	1554.51	0.678264	0	0.734818	0		$|
