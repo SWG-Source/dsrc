@@ -39,3 +39,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8655377	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1994.28	12.7291	1351.89	0.707107	7.72715e-009	-0.707106	-7.72715e-009		$|
 8655381	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1994.28	12.9531	1335.89	1	0	0	0		$|
 8655392	0	object/building/military/military_outpost_guard_tower_1.iff	0	1966.75	13.0239	1334.33	-0.539219	-0.0743652	0.831342	0.11218		$|
+2975364	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1981.077637	12.9642992	1333.597168	1	0	0	0		$|
+2975365	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1989.180664	13.16772079	1336.315918	1	0	0	0		$|

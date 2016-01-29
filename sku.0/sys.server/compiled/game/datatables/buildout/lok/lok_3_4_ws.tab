@@ -81,3 +81,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9505645	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	451.743	12.0105	17.7828	0.728272	0	-0.685289	0		$|
 9505646	0	object/tangible/camp/camp_cot.iff	0	453.713	12.195	15.2456	0.891568	0	-0.452886	0		$|
 9505648	0	object/static/structure/general/campfire_fresh.iff	0	449.394	11.9584	19.6254	1	0	0	0		$|
+3515434	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1201.795166	15.80171013	1822.067505	1	0	0	0		$|
+3515443	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	448.955078	12.16427898	13.842407	1	0	0	0		$|
+3515444	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	451.946045	12.10436726	12.686523	1	0	0	0		$|
