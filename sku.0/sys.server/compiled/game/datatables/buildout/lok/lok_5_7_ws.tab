@@ -394,18 +394,22 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8145362	8145352	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 8145375	0	object/building/tatooine/cantina_tatooine.iff	0	499.718	11.88	968.887	0.945784	0	-0.324796	0	theme_park.lok.cantina:planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.empire_day_interior_npc_spawner	healing.canhealshock|0|1|safeLogout|0|1|empire_day_spawn_table|4|datatables/spawning/building_spawns/empire_day_rebel_nyms.iff|$|
 8145376	8145375	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+493439929	8145376	object/tangible/collection/col_force_shui_table_05.iff	1	37.4934	0.286801	0.211066	0.761813	-0.254988	-0.45217	-0.38751		$|
 8145377	8145375	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 8145378	8145375	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+600439794	8145378	object/tangible/collection/col_ent_instrument_01.iff	3	-13.4047	-0.781179	-2.6666	-0.370639	0.543169	0.63872	0.39954		$|
 8145379	8145375	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 8145380	8145375	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 8145381	8145375	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 8145382	8145375	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 8145383	8145375	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 8145384	8145375	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+4777287	8145384	object/tangible/collection/rare_melee_or5_sword.iff	9	-1.42184	-0.165135	13.5209	0.0966146	0.47774	0.160521	0.85829		$|
 8145385	8145375	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 8145386	8145375	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 8145387	8145375	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 8145388	8145375	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+521439722	8145388	object/tangible/collection/hanging_light_02_06.iff	13	-27.9985	3.81286	10.2143	1	0	0	0		$|
 8145389	8145375	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 8145390	8145375	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 8145391	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	538.801	11.8321	982.327	0.310194	0	0.950673	0		$|
