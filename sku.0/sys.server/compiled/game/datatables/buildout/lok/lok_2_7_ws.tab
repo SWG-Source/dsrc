@@ -14,3 +14,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9025473	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1139.41	15.2809	404.606	0.999438	0.029992	0.014993	-0.00045		$|
 5685394	0	object/static/item/item_armor_chitin_chestplate.iff	0	1139.42	15.2992	406.179	0.724694	-0.68889	0.014511	-0.00627711		$|
 5685396	0	object/static/item/item_armor_composite_helmet.iff	0	1140.97	13.7959	405.167	0.990216	0.139543	0	0		$|
+2975353	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1140.934082	15.41119766	402.524902	1	0	0	0		$|
+2975359	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	66.733887	56.55156708	1218.007813	1	0	0	0		$|
+2975360	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	63.416016	56.71060562	1212.021484	1	0	0	0		$|

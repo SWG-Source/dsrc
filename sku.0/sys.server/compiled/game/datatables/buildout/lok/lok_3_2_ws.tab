@@ -30,3 +30,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8655627	0	object/static/item/item_armor_bone_chestplate.iff	0	210.477	12.0148	1650.74	0.71442	-0.699717	0	0		$|
 8655628	0	object/static/item/item_armor_bone_helmet.iff	0	210.888	12.0055	1650.2	-0.704354	0.636473	-0.145399	-0.278652		$|
 8655629	0	object/static/item/item_armor_chitin_chestplate.iff	0	202.973	11.9251	1642.18	-0.455817	0.488001	0.570971	0.477575		$|
+3515433	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	209.366699	11.99524117	1647.428223	1	0	0	0		$|
+3515445	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	780.700439	12.19129753	510.154297	1	0	0	0		$|
