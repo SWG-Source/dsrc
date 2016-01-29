@@ -188,8 +188,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855685	1855671	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1855686	1855671	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1855687	1855671	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
-1855687	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	1968	28	1644	1	0	0	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
-1855694	0	object/static/structure/corellia/corl_fountain_statue_heroic_s01.iff	0	1838	28	1674	0.707106	0	0.707107	0		$|
+1855687	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	1968	28	1644	1	0	0	0		$|
+1855694	0	object/static/structure/corellia/corl_fountain_statue_heroic_s01.iff	0	1838	28	1674	0.707106	0	0.707107	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 1855695	0	object/static/structure/corellia/corl_fountain_statue_contemplate_s01.iff	0	1838	28	1714	-0.707106	0	0.707107	0		$|
 1855696	0	object/static/structure/corellia/corl_fountain_circle_s01.iff	0	1838	28	1694	-0.000000032	0	1	0		$|
 1855697	0	object/static/structure/corellia/corl_fountain_brazier_round_s01.iff	0	1853.24	28	1639.35	1	0	0	0		$|
