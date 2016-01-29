@@ -274,6 +274,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4105717	0	object/tangible/terminal/terminal_mission.iff	0	403.74	12	1030.4	1	0	0	0		$|
 4105719	0	object/tangible/terminal/terminal_mission.iff	0	400.898	12	1030.4	1	0	0	0		$|
 4705364	0	object/building/military/outpost_starport.iff	0	458.587	9	1398.2	3.20E-08	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Nym's Stronghold|travel.shuttle_available|0|1|travel.version|0|3|$|
+4705365	4705364	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+4116124	4705365	object/tangible/terminal/terminal_space.iff	1	-7.4394	0.146595	-19.2085	1	0	0	0		$|
 4705366	0	object/tangible/terminal/terminal_bazaar.iff	0	459.197	8.75554	1410.64	-0.00999987	0	0.99995	0		$|
 4705367	0	object/tangible/terminal/terminal_bazaar.iff	0	461.661	8.76014	1410.66	0	0	1	0		$|
 4705368	0	object/static/item/item_container_inorganic_minerals.iff	0	467.888	8.75985	1410.46	1	0	0	0		$|
