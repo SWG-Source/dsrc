@@ -848,7 +848,7 @@ public class locations extends script.base_script
         String buildout_table = "datatables/buildout/areas_" + loc.area + ".iff";
         float locX = loc.x;
         float locZ = loc.z;
-        if (!dataTableOpen(buildout_table))
+        if (loc.area.indexOf("space_npe_falcon") >= 0 || !dataTableOpen(buildout_table))
         {
             return NO_AREA;
         }
@@ -886,7 +886,7 @@ public class locations extends script.base_script
         String buildout_table = "datatables/buildout/areas_" + loc.area + ".iff";
         float locX = loc.x;
         float locZ = loc.z;
-        if (!dataTableOpen(buildout_table))
+        if (loc.area.indexOf("space_npe_falcon") >= 0 || !dataTableOpen(buildout_table))
         {
             return -1;
         }
