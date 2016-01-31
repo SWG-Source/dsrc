@@ -7414,7 +7414,7 @@ public class utils extends script.base_script
     public static dictionary getCoordinatesInBuildoutRow(String scene, int buildout_row) throws InterruptedException
     {
 		if (scene == "space_npe_falcon") {
-			return NULL;
+			return null;
 		}
 		
         String datatable = "datatables/buildout/areas_" + scene + ".iff";
@@ -7424,7 +7424,7 @@ public class utils extends script.base_script
     public static obj_id[] getPlayersInBuildoutRow(String scene, int buildout_row) throws InterruptedException
     {
 		if (scene == "space_npe_falcon") {
-			return NULL;
+			return null;
 		}
 		
         String datatable = "datatables/buildout/areas_" + scene + ".iff";
@@ -7434,7 +7434,7 @@ public class utils extends script.base_script
     public static obj_id[] getPlayersInBuildoutArea(String scene, String buildout_area) throws InterruptedException
     {
 		if (scene == "space_npe_falcon") {
-			return NULL;
+			return null;
 		}	
 	
         String datatable = "datatables/buildout/areas_" + scene + ".iff";
