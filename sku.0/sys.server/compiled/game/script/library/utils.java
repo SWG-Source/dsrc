@@ -7413,30 +7413,18 @@ public class utils extends script.base_script
     }
     public static dictionary getCoordinatesInBuildoutRow(String scene, int buildout_row) throws InterruptedException
     {
-		if (scene == "space_npe_falcon") {
-			return NULL;
-		}
-		
         String datatable = "datatables/buildout/areas_" + scene + ".iff";
         dictionary data = dataTableGetRow(datatable, buildout_row);
         return data;
     }
     public static obj_id[] getPlayersInBuildoutRow(String scene, int buildout_row) throws InterruptedException
     {
-		if (scene == "space_npe_falcon") {
-			return NULL;
-		}
-		
         String datatable = "datatables/buildout/areas_" + scene + ".iff";
         dictionary data = dataTableGetRow(datatable, buildout_row);
         return getPlayersInBuildoutDimensions(scene, data.getFloat("x1"), data.getFloat("x2"), data.getFloat("z1"), data.getFloat("z2"));
     }
     public static obj_id[] getPlayersInBuildoutArea(String scene, String buildout_area) throws InterruptedException
     {
-		if (scene == "space_npe_falcon") {
-			return NULL;
-		}	
-	
         String datatable = "datatables/buildout/areas_" + scene + ".iff";
         int rowNum = dataTableSearchColumnForString(buildout_area, 0, datatable);
         if (rowNum == -1)
