@@ -380,7 +380,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1945388	1945387	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1945389	1945387	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1945390	1945387	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+4656394	1945390	object/tangible/collection/rare_melee_hammer_miner.iff	3	-0.157184	2.7079	-28.9712	0.70739	0	0	-0.706823		$|
 1945391	1945387	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4015374	1945391	object/tangible/terminal/terminal_mission_imperial.iff	4	-0.0322413	7.90013	-38.8244	0.99995	0	0.00999984	0		$|
 1945392	1945387	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1945393	1945387	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1945394	1945387	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
