@@ -33,7 +33,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
             setShipComponentEfficiencyEnergy(self, intSlots[intI], 1.0f);
         }
         String strCapitalShipType = getStringObjVar(self, "strCapitalShipType");
-        if ((strCapitalShipType == null) || (strCapitalShipType.equals("")))
+        if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType == "null") //yes, it seems there's a literal string "null" somewhere
         {
             debugSpeakMsg(self, "BAD CAPITAL SHIP DEFINED!");
         }
@@ -164,7 +164,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
             setShipSlotTargetable(objShip, intSlots[intI], false);
         }
         String strCapitalShipType = getStringObjVar(objShip, "strCapitalShipType");
-        if (strCapitalShipType == null)
+	if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType == "null")
         {
             return;
         }
@@ -241,7 +241,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
     public void processDamagePhase(obj_id objShip) throws InterruptedException
     {
         String strCapitalShipType = getStringObjVar(objShip, "strCapitalShipType");
-        if (strCapitalShipType == null)
+	if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType == "null")
         {
             return;
         }
