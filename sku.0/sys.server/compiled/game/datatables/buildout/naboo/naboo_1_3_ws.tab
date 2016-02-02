@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-6335638	0	object/building/general/bunker_imperial_weapons_research_facility_01.iff	0	1686.11	40	769.447	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/wpnresdevnaboo.iff|$|
+6335638	0	object/building/general/bunker_imperial_weapons_research_facility_01.iff	0	1686.11	40	769.447	1	0	0	0		$|
 6335639	6335638	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 6335640	6335638	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 7955423	6335640	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	0.177927002	0.25	3.061834097	1	0	0	0		intRandomYaw|0|1|$|
