@@ -7,6 +7,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6335641	6335638	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 6335642	6335638	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 6335643	6335638	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+895062	6335643	object/tangible/hq_destructible/security_terminal.iff	5	-2.20984	-12	69.5749	0.307628	0	0.951507	0		$|
 7955424	6335643	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	6.372735977	-11.99999237	26.04125595	1	0	0	0		intRandomYaw|0|1|$|
 7955425	6335643	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	1.669890046	-11.99999237	32.01260376	1	0	0	0		intRandomYaw|0|1|$|
 7955426	6335643	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	24.49976349	-11.99999237	50.95751953	1	0	0	0		intRandomYaw|0|1|$|
@@ -18,6 +19,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6335644	6335638	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 7955457	6335644	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	-42.16753769	-20	46.73845673	1	0	0	0		intRandomYaw|0|1|$|
 6335645	6335638	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+7147359	6335645	object/tangible/collection/scout_trooper_right_bracer.iff	7	-49.5421	-19.1646	30.8702	-0.500073	-0.517275	-0.455002	0.524715		$|
 7955458	6335645	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-54.84635925	-20	43.08141708	1	0	0	0		intRandomYaw|0|1|$|
 7955459	6335645	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-75.93115234	-20	49.24638748	1	0	0	0		intRandomYaw|0|1|$|
 7955460	6335645	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-57.02999878	-20	31.81618118	1	0	0	0		intRandomYaw|0|1|$|
@@ -26,12 +28,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7955463	6335645	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-71.11289978	-20	28.67909813	1	0	0	0		intRandomYaw|0|1|$|
 7955464	6335645	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-70.28878021	-20	66.01026917	1	0	0	0		intRandomYaw|0|1|$|
 6335646	6335638	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+895063	6335646	object/tangible/terminal/terminal_hq.iff	8	-54.534	-20	4.50888	1	0	0	0		$|
 7955467	6335646	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-68.59714508	-20	19.25701904	1	0	0	0		intRandomYaw|0|1|$|
 7955468	6335646	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-65.13464355	-20	13.14475536	1	0	0	0		intRandomYaw|0|1|$|
 7955469	6335646	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-60.38989258	-20	7.886723995	1	0	0	0		intRandomYaw|0|1|$|
 7955470	6335646	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-50.6929245	-20	17.14463234	1	0	0	0		intRandomYaw|0|1|$|
 7955471	6335646	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-75.4693985	-20	10.04710197	1	0	0	0		intRandomYaw|0|1|$|
 6335647	6335638	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+895058	6335647	object/tangible/hq_destructible/override_terminal.iff	9	-48.8282	-20	87.4537	-0.302867	0	0.953033	0		$|
 7955465	6335647	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-49.05033875	-20	80.18929291	1	0	0	0		intRandomYaw|0|1|$|
 7955466	6335647	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-75.90290833	-20	75.81641388	1	0	0	0		intRandomYaw|0|1|$|
 6335648	6335638	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
@@ -44,6 +48,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7955432	6335650	object/tangible/poi/spawnegg/interior_spawnegg.iff	12	73.05275726	-12	58.38097382	1	0	0	0		intRandomYaw|0|1|$|
 7955433	6335650	object/tangible/poi/spawnegg/interior_spawnegg.iff	12	50.71149063	-12	58.86149597	1	0	0	0		intRandomYaw|0|1|$|
 6335651	6335638	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+895061	6335651	object/tangible/hq_destructible/uplink_terminal.iff	13	41.7514	-20	144.657	-0.468595	0	0.883413	0		$|
 7955436	6335651	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	35.28840256	-19.99999619	143.6979218	1	0	0	0		intRandomYaw|0|1|$|
 7955437	6335651	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	30.79430008	-19.99999619	117.7076721	1	0	0	0		intRandomYaw|0|1|$|
 7955438	6335651	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	13.11166191	-19.99999619	124.7630539	1	0	0	0		intRandomYaw|0|1|$|
@@ -64,6 +69,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7955445	6335656	object/tangible/poi/spawnegg/interior_spawnegg.iff	18	-30.45957756	-19.99999619	63.00999451	1	0	0	0		intRandomYaw|0|1|$|
 7955446	6335656	object/tangible/poi/spawnegg/interior_spawnegg.iff	18	-30.55627823	-19.99999619	28.35592461	1	0	0	0		intRandomYaw|0|1|$|
 6335657	6335638	object/cell/cell.iff	19	0	0	0	1	0	0	0		$|
+895060	6335657	object/tangible/hq_destructible/power_regulator.iff	19	-27.3938	-20.4743	107.678	-3.20013e-08	0	1	0		$|
 7955441	6335657	object/tangible/poi/spawnegg/interior_spawnegg.iff	19	-9.496912003	-19.99999619	101.3249207	1	0	0	0		intRandomYaw|0|1|$|
 7955442	6335657	object/tangible/poi/spawnegg/interior_spawnegg.iff	19	-35.87125397	-19.99999619	102.2570419	1	0	0	0		intRandomYaw|0|1|$|
 7955443	6335657	object/tangible/poi/spawnegg/interior_spawnegg.iff	19	-10.43215942	-19.99999619	95.64440918	1	0	0	0		intRandomYaw|0|1|$|
