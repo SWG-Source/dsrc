@@ -499,7 +499,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3295533	0	object/static/naboo/waterfall_mist_small.iff	0	1078.29	325.1	466.201	1	0	0	0		$|
 3295535	0	object/static/naboo/waterfall_mist_small.iff	0	1090.82	325.565	448.221	1	0	0	0		$|
 4015372	0	object/tangible/terminal/terminal_mission_imperial.iff	0	765.372	360	663.135	0.94441	0	0.328769	0		$|
-4295393	0	object/building/general/naboo_veermok_cave.iff	0	1607.38	290.343	490.454	0.661411	0	0.750023	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/veermok.iff|$|
+4295393	0	object/building/general/naboo_veermok_cave.iff	0	1607.38	290.343	490.454	0.661411	0	0.750023	0		$|
 4295394	4295393	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4295406	4295394	object/tangible/poi/spawnegg/interior_spawnegg.iff	1	22.82221031	-27.42152786	-8.679873466	1	0	0	0		intRandomYaw|0|1|$|
 4295395	4295393	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
