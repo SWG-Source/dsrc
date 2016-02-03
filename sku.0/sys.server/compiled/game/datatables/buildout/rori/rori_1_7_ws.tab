@@ -7,10 +7,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1233868	1233864	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1233869	1233864	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1233870	1233864	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1234018	1233870	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	19.6	-12	28.8	1	0	0	0		intRandomYaw|0|1|$|
 1233871	1233864	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1233872	1233864	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1233873	1233864	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1234017	1233873	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	41.5	-12	58.1	1	0	0	0		intRandomYaw|0|1|$|
 1233874	1233864	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+1234004	1233874	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	1.2	-12	62.7	1	0	0	0		intRandomYaw|0|1|$|
 1233875	1233864	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1233876	1233864	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1233877	1233864	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
@@ -20,8 +23,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1233881	1233864	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
 1233882	1233864	object/cell/cell.iff	18	0	0	0	1	0	0	0		$|
 1233883	1233864	object/cell/cell.iff	19	0	0	0	1	0	0	0		$|
+1234003	1233883	object/tangible/poi/spawnegg/interior_spawnegg.iff	19	50.3	-20	110.1	1	0	0	0		intRandomYaw|0|1|$|
 1233884	1233864	object/cell/cell.iff	20	0	0	0	1	0	0	0		$|
 1233885	1233864	object/cell/cell.iff	21	0	0	0	1	0	0	0		$|
+1234001	1233885	object/tangible/poi/spawnegg/interior_spawnegg.iff	21	48.6	-20	154.5	1	0	0	0		intRandomYaw|0|1|$|
+1234002	1233885	object/tangible/poi/spawnegg/interior_spawnegg.iff	21	48.7	-20	140.1	1	0	0	0		intRandomYaw|0|1|$|
 1233886	1233864	object/cell/cell.iff	22	0	0	0	1	0	0	0		$|
 1233887	1233864	object/cell/cell.iff	23	0	0	0	1	0	0	0		$|
 1233888	1233864	object/cell/cell.iff	24	0	0	0	1	0	0	0		$|
