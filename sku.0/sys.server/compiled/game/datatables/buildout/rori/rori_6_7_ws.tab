@@ -5,6 +5,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5096032	5095990	object/tangible/poi/spawnegg/interior_spawnegg.iff	1	-13.58056545	-4.341571331	-5.698585987	1	0	0	0		intRandomYaw|0|1|$|
 5096033	5095990	object/tangible/poi/spawnegg/interior_spawnegg.iff	1	22.08051872	-26.72802544	-7.172896862	1	0	0	0		intRandomYaw|0|1|$|
 5095991	5095989	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+5096047	5095991	object/tangible/container/loot/placable_loot_crate_skeleton_human.iff	2	55.3925	-68.1263	-45.7365	0.998875	0.0449798	0.000674747	-0.0149843		$|
+5096066	5095991	object/tangible/container/loot/placable_loot_crate_skeleton_ithorian.iff	2	39.8253	-45.9568	-59.2559	0.993347	0.0348013	0.00184554	-0.109761		$|
 5096034	5095991	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	49.15400696	-48.7415657	-60.57906342	1	0	0	0		intRandomYaw|0|1|$|
 5096035	5095991	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	25.85153008	-42.5551033	-64.05337524	1	0	0	0		intRandomYaw|0|1|$|
 5096036	5095991	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	44.23813248	-47.09199524	-29.16382217	1	0	0	0		intRandomYaw|0|1|$|
@@ -26,12 +28,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5095996	5095989	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 5096052	5095996	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	76.84905243	-65.57919312	-141.3714752	1	0	0	0		intRandomYaw|0|1|$|
 5095997	5095989	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+4795577	5095997	object/tangible/collection/rare_melee_cy_m_sword.iff	8	137.183	-66.8197	-127.693	0.505173	0.489292	0.510484	0.494773		$|
+5096065	5095997	object/tangible/container/loot/placable_loot_crate_skeleton_bith.iff	8	137.273	-66.783	-128.521	0.972407	0.0681799	-0.22256	0.0156047		$|
 5096055	5095997	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	125.6832199	-66.73545837	-108.7733536	1	0	0	0		intRandomYaw|0|1|$|
 5096056	5095997	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	115.6299591	-67.14820862	-89.44378662	1	0	0	0		intRandomYaw|0|1|$|
 5096057	5095997	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	136.9188843	-66.14466095	-115.3044128	1	0	0	0		intRandomYaw|0|1|$|
 5096058	5095997	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	142.592865	-67.08347321	-92.06335449	1	0	0	0		intRandomYaw|0|1|$|
 5096059	5095997	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	147.0394592	-66.99702454	-125.5911179	1	0	0	0		intRandomYaw|0|1|$|
 5095998	5095989	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+5096064	5095998	object/tangible/container/loot/placable_loot_crate_skeleton_human.iff	9	187.186	-65.5256	-107.319	0.9992	0.0399893	0	0		$|
 5096060	5095998	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	162.344101	-66.85808563	-97.282341	1	0	0	0		intRandomYaw|0|1|$|
 5096061	5095998	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	188.0822906	-66.14566803	-102.5817108	1	0	0	0		intRandomYaw|0|1|$|
 5096062	5095998	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	186.2275848	-65.9683609	-96.49252319	1	0	0	0		intRandomYaw|0|1|$|
@@ -40,6 +45,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5096037	5095999	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	51.65569305	-51.02204514	-89.27708435	1	0	0	0		intRandomYaw|0|1|$|
 5096038	5095999	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	49.26670837	-50.31642532	-93.69017029	1	0	0	0		intRandomYaw|0|1|$|
 5096000	5095989	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+5096043	5096000	object/tangible/container/loot/placable_loot_crate_skeleton_bith.iff	11	80.7025	-46.2253	-137.369	0.842149	-0.0329796	-0.537437	0.0293191		$|
 5096041	5096000	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	91.11118317	-46.76744461	-142.5668945	1	0	0	0		intRandomYaw|0|1|$|
 5096042	5096000	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	75.95957947	-46.53578186	-142.4866486	1	0	0	0		intRandomYaw|0|1|$|
 5096011	0	object/static/structure/general/rock_beach_dark_lg.iff	0	1509.52	90.5859	1350.6	0.540302	0	0.841471	0		$|
