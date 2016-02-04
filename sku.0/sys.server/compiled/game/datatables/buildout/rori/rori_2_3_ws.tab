@@ -192,7 +192,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7327516	4635402	object/tangible/collection/flower_07.iff	7	30.03812	2.128778	52.96695	1	0	0	0		$|
 4635403	4635395	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 4635404	4635395	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
--2	4635404	object/tangible/collection/col_force_shui_painting_01.iff	9	-21.61129	5.538293	62.96899	-0.000128741	0	0.00587124	-0.004931522		$|
+496440932	4635404	object/tangible/collection/col_force_shui_painting_01.iff	9	-21.6113	5.53829	62.969	-0.000128741	-0.00493152	0.00587124	0.999971		$|
 4635405	4635395	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 4635406	0	object/building/naboo/guild_university_naboo_style_01.iff	0	1133	80	1678	1	0	0	0		$|
 4635407	4635406	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
@@ -334,7 +334,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1165532	4635593	object/tangible/gambling/wheel/roulette.iff	4	9.456625	1.066149	-16.12253	0.9999973	0	-0.002301926	0		$|
 1165533	4635593	object/tangible/gambling/slot/standard.iff	4	8.407198	1.255892	-22.11873	0.9999973	0	-0.002301926	0		$|
 4635594	4635589	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
--1	4635594	object/tangible/collection/col_ent_instrument_05.iff	5	24.89288	2.084108	-18.28293	-0.6372751	0	0.2334376	0.347241		$|
+604440840	4635594	object/tangible/collection/col_ent_instrument_05.iff	0	24.8929	2.08411	-18.2829	-0.637275	0.347241	0.233438	0.647156		$|
 4635595	4635589	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1165523	4635595	object/tangible/gambling/wheel/roulette.iff	6	-16.00736	1.000796	0.01247017	0.9999973	0	-0.002301923	0		$|
 1165524	4635595	object/tangible/gambling/wheel/roulette.iff	6	-16.01365	1.000811	4.382331	0.9999973	0	-0.002301923	0		$|
