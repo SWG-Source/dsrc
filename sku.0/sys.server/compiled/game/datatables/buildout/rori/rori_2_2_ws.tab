@@ -87,7 +87,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2935493	2935492	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2935494	2935492	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2935495	2935492	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+4065384	2935495	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	0.006927438	0.125265002	-4.834097385	1	0	0	0		intRandomYaw|0|1|$|
 2935496	2935492	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4065385	2935496	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	4.026690006	0.125266001	2.118536949	1	0	0	0		intRandomYaw|0|1|$|
 2935497	2935492	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 2935498	2935492	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 2935506	0	object/static/vehicle/static_tie_bomber.iff	0	566.171	75.9997	530.824	0.124675	0	0.992198	0		$|
