@@ -11,7 +11,7 @@ import script.base_script;
 import script.library.utils;
 import script.library.craftinglib;
 
-public class lightweight_turret extends script.systems.crafting.community_crafting.component.base_component
+public class lightweight_turret extends script.systems.crafting.community_crafting.base_component
 {
     public lightweight_turret()
     {

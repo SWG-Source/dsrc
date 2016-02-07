@@ -21,7 +21,7 @@ import script.library.trainerlocs;
 import script.library.weapons;
 import script.library.skill;
 
-public class tutorial_base extends script.base_script
+public class tutorial_base extends script.theme_park
 {
     public tutorial_base()
     {

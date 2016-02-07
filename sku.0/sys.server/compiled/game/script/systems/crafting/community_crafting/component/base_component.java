@@ -11,7 +11,7 @@ import script.base_script;
 import script.library.utils;
 import script.library.craftinglib;
 
-public class base_component extends script.systems.crafting.crafting_base
+public class base_component extends script.systems.crafting.community_crafting
 {
     public base_component()
     {
