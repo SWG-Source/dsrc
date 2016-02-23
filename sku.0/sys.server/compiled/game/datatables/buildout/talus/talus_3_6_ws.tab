@@ -894,7 +894,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5555460	5555402	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
 5555517	5555402	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|
 5555518	5555402	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
-1179103	5555518	object/tangible/collection/storm_trooper_left_bracer.iff	1	2.425423	-0.4939412	1.371302	0.8925098	0	-0.08346137	-0.08646096		$|
+1179103	5555518	object/tangible/collection/storm_trooper_left_bracer.iff	4	2.42542	-0.493941	1.3713	0.89251	-0.086461	-0.0834614	-0.434724		$|
 5555519	5555402	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
 5555520	5555402	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
 5555521	0	object/building/military/military_base_shed_imperial_barracks_s01.iff	0	1933	20	263	-0.707107	0	0.707107	0		$|
