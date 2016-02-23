@@ -64,3 +64,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8715377	0	object/static/structure/general/debris_deathstar_small_tube.iff	0	769.528	74.1006	1069.11	0.731176	0.00792499	0.667319	-0.141439		$|
 8715378	0	object/static/structure/general/debris_deathstar_large_tube.iff	0	769.621	73.7041	1067.11	0.989554	-0.0918132	0.0102679	-0.110666		$|
 8715379	0	object/static/structure/dantooine/dant_totem_pole.iff	0	501.143	25.3181	1580.4	0.666258	0.0405375	0.742169	-0.060352		$|
+937400	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	74.91333	30.06835938	525.344238	1	0	0	0		$|
+1094858	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	901.68335	50.10965729	662.004883	1	0	0	0		$|
+1094859	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	763.6604	76.3720932	1074.76416	1	0	0	0		$|
