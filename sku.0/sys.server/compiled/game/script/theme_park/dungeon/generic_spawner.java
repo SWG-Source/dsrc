@@ -232,12 +232,12 @@ public class generic_spawner extends script.base_script
             String roomName = dataTableGetString(datatable, passThrough, "room_objvar");
             String roomObjVar = dataTableGetString(datatable, passThrough, "room_objvar_name");
             String roomObjVarValue = dataTableGetString(datatable, passThrough, "room_objvar_value");
-            if (roomName == null && roomName.equals(""))
+            if (roomName == null || roomName.equals(""))
             {
                 setObjVar(self, "problem", "No room name");
                 return;
             }
-            if (roomObjVar == null && roomObjVar.equals(""))
+            if (roomObjVar == null || roomObjVar.equals(""))
             {
                 setObjVar(self, "problem", "No ObjVar Name");
                 return;
