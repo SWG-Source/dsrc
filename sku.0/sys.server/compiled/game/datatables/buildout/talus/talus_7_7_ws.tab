@@ -212,6 +212,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4265418	0	object/building/corellia/hotel_corellia.iff	0	232.575	2	1068.15	0.724836	0	0.688922	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/talus_nashal_hotel.iff|$|
 4265419	4265418	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4265420	4265418	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+4665354	4265420	object/tangible/terminal/terminal_bank.iff	2	5.37364	0.999959	23.9853	-0.382683	0	0.92388	0		$|
+4665355	4265420	object/tangible/terminal/terminal_bank.iff	2	-5.35611	0.999959	23.9475	0.382683	0	0.92388	0		$|
 4265421	4265418	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 4265422	4265418	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1076995	4265422	object/tangible/gambling/slot/standard.iff	4	4.308154	1.292173	-22.06452	0.9999973	0	-0.002301926	0		$|
@@ -219,7 +221,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1076997	4265422	object/tangible/gambling/wheel/roulette.iff	4	-1.245351	1.101468	-16.1611	0.9999973	0	-0.002301926	0		$|
 1076998	4265422	object/tangible/gambling/wheel/roulette.iff	4	9.399273	1.10243	-16.17192	0.9999973	0	-0.002301926	0		$|
 1076999	4265422	object/tangible/gambling/slot/standard.iff	4	8.350098	1.292173	-22.16883	0.9999973	0	-0.002301926	0		$|
--1	4265422	object/tangible/collection/col_ent_fan_03.iff	4	-0.3016396	1.742037	-0.473394	0.7073904	0	0	0		$|
+610444468	4265422	object/tangible/collection/col_ent_fan_03.iff	4	-0.30164	1.74204	-0.473394	0.70739	0	0	0.706823		$|
 4265423	4265418	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 4265424	4265418	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1077000	4265424	object/tangible/gambling/wheel/roulette.iff	6	-16.03509	1.000838	-0.09601808	0.9999734	0	-0.007301867	0		$|
@@ -232,7 +234,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4265426	4265418	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 4265427	4265418	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 4265428	4265418	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
--2	4265428	object/tangible/collection/col_force_shui_table_01.iff	10	-20.91045	2.099051	-2.771324	0.6546927	0	-0.2630543	-0.2606104		$|
+500444722	4265428	object/tangible/collection/col_force_shui_table_01.iff	10	-20.9104	2.09905	-2.77132	0.654693	-0.26061	-0.263054	0.658985		$|
 4265429	0	object/building/corellia/association_hall_civilian_corellia.iff	0	225.612	2	998.527	0.541902	0	0.840441	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/talus_nashal_guild_hall.iff|$|
 4265475	0	object/building/corellia/hospital_corellia_s02.iff	0	407.75	2	1069.74	0.986418	0	-0.164252	0		$|
 4265476	4265475	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
