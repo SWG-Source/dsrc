@@ -22,3 +22,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8795371	0	object/static/structure/general/campfire_ash.iff	0	1498.8	9.41091	1802.81	1	0	0	0		$|
 8795372	0	object/tangible/camp/camp_lawn_chair.iff	0	1497.88	9.45013	1803.42	0.256311	0	0.966594	0		$|
 8795373	0	object/tangible/camp/camp_lawn_chair.iff	0	1499.71	9.48752	1803.04	-0.380925	0	0.924606	0		$|
+498	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	113.42041	16.89082146	1039.669678	1	0	0	0		$|
+506	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	769.013428	7.511413097	376.435059	1	0	0	0		$|
+894823	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1488.251709	8.698589325	1804.448975	1	0	0	0		$|
