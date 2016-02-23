@@ -12,3 +12,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9505584	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1585.26	139.832	1192.24	-0.625519	0	0.780209	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/talus/talus_world_npc.iff|$|
 9505585	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1587.25	139.559	1184.13	-0.625519	0	0.780209	0		$|
 9505586	0	object/static/structure/corellia/corl_power_connector.iff	0	1586.24	141.173	1187.96	-0.625519	0	0.780209	0		$|
+2735810	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1588.503418	140.34198	1192.752441	1	0	0	0		$|
