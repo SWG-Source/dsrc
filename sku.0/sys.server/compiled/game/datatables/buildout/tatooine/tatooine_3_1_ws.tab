@@ -1,5 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
+134372	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	361.021973	8.631569862	1384.041504	1	0	0	0		$|
 134373	0	object/tangible/camp/camp_tent_s2.iff	0	365.383	8.31201	1377.84	-0.233618	0	0.972329	0		$|
 134374	0	object/tangible/camp/campfire_logs_ash.iff	0	360.611	8.87009	1375.19	1	0	0	0		$|
 134375	0	object/tangible/camp/camp_spit.iff	0	360.002	8.94718	1375.05	1	0	0	0		$|
