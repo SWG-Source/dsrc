@@ -15,11 +15,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1213344	1213343	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1213345	1213343	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1213346	1213343	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+7268212	1213346	object/tangible/collection/hanging_light_01.iff	3	-9.61923	1.00421	3.96648	1	0	0	0		$|
 1213347	1213343	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1213348	1213343	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1213349	1213343	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
-924012	1213349	object/tangible/terminal/terminal_mission_rebel.iff	1	0.3572978	-3.966173	-3.557604	0.7071072	0	-0.7071063	0		$|
-924014	1213349	object/tangible/terminal/terminal_mission_rebel.iff	2	0.37303	-3.966173	-1.895806	0.7071075	0	-0.707106	0		$|
+924012	1213349	object/tangible/terminal/terminal_mission_rebel.iff	6	0.3572978	-3.966173	-3.557604	0.7071072	0	-0.7071063	0		$|
+924014	1213349	object/tangible/terminal/terminal_mission_rebel.iff	6	0.37303	-3.966173	-1.895806	0.7071075	0	-0.707106	0		$|
+4015461	1213349	object/tangible/dungeon/corellian_corvette/corvette_search_imperial_assassination_02.iff	6	-1.96896	-3.96617	-6.90904	1	0	0	0		$|
+609457601	1213349	object/tangible/collection/col_ent_instrument_03.iff	6	-1.39639	-2.40951	-9.02944	-0.328964	0.145915	0.931418	-0.0543271		$|
 1213350	1213343	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1213351	1213343	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1213352	1213343	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
