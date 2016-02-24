@@ -398,29 +398,31 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1261434	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1291.23	5	266.727	0.847676	0	-0.530514	0		$|
 1261651	0	object/building/tatooine/starport_tatooine.iff	0	1267.22	5	31.6096	0.877581	0	-0.479429	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mos Espa Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/mos_espa_starport.iff|$|
 1261652	1261651	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1101532	1261652	object/tangible/collection/plant_01.iff	1	-0.219214	0.639421	72.922	1	0	0	0		$|
 1261653	1261651	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1261654	1261651	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1261655	1261651	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1442993	1261655	object/tangible/terminal/terminal_space.iff	4	-0.0640029	0.639421	61.8041	0.99995	0	0.00999919	0		$|
+1442994	1261655	object/tangible/terminal/terminal_space.iff	4	6.06849	0.639421	57.0662	0.699148	0	0.714977	0		$|
+1442995	1261655	object/tangible/terminal/terminal_space.iff	4	-6.28408	0.639421	57.358	0.708227	0	-0.705985	0		$|
+4265842	1261655	object/tangible/terminal/terminal_newsnet.iff	4	6.31936	0.639421	49.2874	1	0	0	0		$|
+4265843	1261655	object/tangible/terminal/terminal_newsnet.iff	4	-8.3216	0.639421	49.7878	1	0	0	0		$|
 1261656	1261651	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1261657	1261651	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1261658	1261651	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1261659	1261651	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1261660	1261651	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1261661	1261651	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+3795699	1261661	object/tangible/terminal/terminal_space.iff	10	-40.4306	1.63942	46.4638	0.998182	0	-0.0602729	0		$|
+3795700	1261661	object/tangible/terminal/terminal_space.iff	10	-37.8872	1.63942	49.2306	0.760119	0	-0.649784	0		$|
+3795701	1261661	object/tangible/terminal/terminal_space.iff	10	-44.0882	1.63942	50.2278	0.640385	0	0.768054	0		$|
+3795702	1261661	object/tangible/terminal/terminal_space.iff	10	-41.4777	1.63942	52.9311	0.04799	0	0.998848	0		$|
 1261662	1261651	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1261663	1261651	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1261664	1261651	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 1261665	1261651	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1261666	1261651	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
-1442993	1261655	object/tangible/terminal/terminal_space.iff	1	0.19	0.64	62.12	1	0	0	0	space.terminal.terminal_space	$|
-1442994	1261655	object/tangible/terminal/terminal_space.iff	2	6.5	0.64	57.63	0.7	0	0.7	0	space.terminal.terminal_space	$|
-1442995	1261655	object/tangible/terminal/terminal_space.iff	3	-5.68	0.64	57.43	-0.7	0	0.7	0	space.terminal.terminal_space	$|
-4265842	1261655	object/tangible/terminal/terminal_newsnet.iff	4	6.5	0.64	49.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
-4265843	1261655	object/tangible/terminal/terminal_newsnet.iff	5	-8.5	0.64	49.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
-3795699	1261661	object/tangible/terminal/terminal_space.iff	1	-40.41	1.64	46.18	-0.99	0	0.08	0	space.terminal.terminal_space	$|
-3795700	1261661	object/tangible/terminal/terminal_space.iff	2	-37.48	1.64	49.1	-0.76	0	0.65	0	space.terminal.terminal_space	$|
-3795701	1261661	object/tangible/terminal/terminal_space.iff	3	-44.45	1.64	50.22	0.65	0	0.76	0	space.terminal.terminal_space	$|
-3795702	1261661	object/tangible/terminal/terminal_space.iff	4	-41.45	1.64	53.15	0.08	0	0.99	0	space.terminal.terminal_space	$|
+5995583	1261651	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 1261667	0	object/building/tatooine/shuttleport_tatooine.iff	0	1296.78	5	115.43	0.779214	0	0.626758	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Mos Espa Shuttleport East|travel.shuttle_available|0|1|travel.version|0|3|$|
 1261668	0	object/building/tatooine/filler_building_tatt_style01_06.iff	0	1314.84	5	84.916	0.953847	0	0.300293	0		$|
 1261670	0	object/building/tatooine/filler_building_tatt_style01_07.iff	0	1363.72	5	83.1404	-0.296281	0	0.955101	0		$|
