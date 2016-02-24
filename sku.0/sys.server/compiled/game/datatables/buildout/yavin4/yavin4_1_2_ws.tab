@@ -243,3 +243,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8495466	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	1922.87	207.748	881.417	0.962264	-0.00728889	-0.0464495	0.268024		$|
 8695448	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	631.74	30.2811	230.861	0.998852	0.029176	-0.0147984	-0.0350008		$|
 8695464	0	object/static/flora/flora_decd_scorched_tallbirch_broke.iff	0	1260.31	66.7463	610.058	0.898216	-0.00439455	-0.00898246	0.43944		$|
+2955755	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	637.195312	30.71892929	237.450684	1	0	0	0		$|
+2955787	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1923.041992	206.335556	891.077637	1	0	0	0		$|
+7146331	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1295.7	73	488.93	1	0	0	0		$|
