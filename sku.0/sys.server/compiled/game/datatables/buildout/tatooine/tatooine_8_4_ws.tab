@@ -10,7 +10,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5995571	5995564	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 5995572	5995564	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 5995573	5995564	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
-4888555	5995573	object/weapon/melee/special/blacksun_razor_generic.iff	1	194.2304	-66.86695	-103.1762	-0.7002059	0	0.0105039	-0.01070758	systems.collections.consume_click	collection.slotName|4|col_rare_melee_01:blksn_razor_01|$|
+4888555	5995573	object/tangible/collection/rare_melee_blksn_razor.iff	0	194.23	-66.867	-103.176	-0.700206	-0.0107076	0.0105039	0.713783		$|
 5995574	5995564	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 5995575	5995564	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 9645552	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	403.725586	102.9482651	724.926636	1	0	0	0		$|
