@@ -46,3 +46,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825442	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	1571.35	16.8485	490.406	1	0	0	0		$|
 9825453	0	object/static/particle/particle_smoke.iff	0	1571.63	19.4805	490.453	1	0	0	0		$|
 9825469	0	object/static/structure/tatooine/debris_tatt_pipe_dual_unconnected.iff	0	1567.35	18.4021	477.531	1	0	0	0		$|
+33549	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1571.496582	20.13495255	483.178833	1	0	0	0		$|
+33629	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	147.311523	24.84224701	1892.732651	1	0	0	0		$|
+33630	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	152.559082	25.12332726	1888.001556	1	0	0	0		$|
