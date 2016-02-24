@@ -1,17 +1,14 @@
 package script.poi.interior_spawner;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
 import java.util.Vector;
-import script.base_script;
 
 import script.library.utils;
 import script.library.ai_lib;
 import script.library.create;
 import script.library.locations;
+import script.location;
+import script.obj_id;
+import script.dictionary;
 
 public class interior_spawner extends script.base_script
 {
@@ -300,6 +297,7 @@ public class interior_spawner extends script.base_script
             here.z = here.z + newZ;
         }
         obj_id npc = create.object(npcType, here, level);
+        LOG("POI_SPAWNER","---Spawn egg ("+spawner.toString()+") at location ("+here.x+","+here.y+","+here.z+") just spawned a level "+level+" NPC ("+npc+").");
         create.addDestroyMessage(npc, "npcDied", 3, spawner);
         float npcYaw;
         if(hasObjVar(spawner, "intRandomYaw") && getIntObjVar(spawner, "intRandomYaw") > 0){

@@ -249,3 +249,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1254542	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	1745.19	32.8675	1332.28	1	0	0	0		$|
 1283216	0	object/static/tatooine/rock_spire_smooth_tatooine_style_2.iff	0	650.211	135.844	1587.89	1	0	0	0		$|
 1283220	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	610.115	138.48	1602.93	1	0	0	0		$|
+403	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	33.814453	190.2492218	1917.165527	1	0	0	0		$|
+404	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	34.144043	191.2199707	1923.765869	1	0	0	0		$|
+405	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1263.839844	94.77199554	902.273193	1	0	0	0		$|
