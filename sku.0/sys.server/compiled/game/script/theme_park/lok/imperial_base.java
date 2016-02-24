@@ -121,7 +121,7 @@ public class imperial_base extends script.base_script
         location here = new location(1.51f, 1.01f, -14.82f, "lok", mainhall);
         obj_id officer6 = createSpawnerObject("rtp_imperial_lieutenant", here, ai_lib.BEHAVIOR_LOITER, 210, 309);
         setYaw(officer6, -153);
-        attachScript(officer6, "theme_park.npc_died.spawned_tracker");
+        attachScript(officer6, "systems.spawning.spawned_tracker");
         setObjVar(self, "StrongholdInhabitants.officer6", officer6);
         setObjVar(officer6, "Stronghold", self);
         return;
