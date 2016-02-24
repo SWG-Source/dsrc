@@ -325,6 +325,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028578	1028574	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1028579	1028574	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1028580	1028574	object/cell/cell.iff	6	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
+4887974	1028580	object/tangible/collection/rare_melee_hk_lance.iff	6	-8.01937	4.08892	2.10738	-0.479248	-0.480904	0.516908	0.521401		$|
 1028581	1028574	object/cell/cell.iff	7	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1028582	1028574	object/cell/cell.iff	8	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1028583	1028574	object/cell/cell.iff	9	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
