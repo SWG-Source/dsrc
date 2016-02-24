@@ -72,15 +72,22 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 926472	0	object/building/tatooine/capitol_tatooine.iff	0	888.05	12	505.266	0.432613	0	0.90158	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/bestine_capitol_spawns.iff|$|
 926473	926472	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 926474	926472	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+546457763	926474	object/tangible/collection/col_force_shui_painting_02.iff	2	-0.126236	4.13341	24.0755	-0.000790609	0.119712	0.992808	-9.53311e-05		$|
 926475	926472	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 926476	926472	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 926477	926472	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 926478	926472	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 926479	926472	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 926480	926472	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+4892082	926480	object/tangible/collection/rare_pistol_kyd21.iff	8	-22.005	4.03342	26.0503	0.0111052	-0.70319	0.710826	0.0112306		$|
+5565564	926480	object/tangible/terminal/terminal_bestine_quests_02.iff	8	-19.6625	3.22324	13.5289	1	0	0	0		$|
+5565565	926480	object/tangible/furniture/modern/searchable_desk_01.iff	8	-21.6551	3.22324	25.5563	1	0	0	0		$|
 926481	926472	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+5165613	926481	object/tangible/terminal/terminal_mission_imperial.iff	9	13.6185	3.22324	21.9119	0.707107	0	0.707107	0		$|
+5165615	926481	object/tangible/terminal/terminal_mission_imperial.iff	9	28.3305	3.22324	21.7497	0.707107	0	-0.707106	0		$|
 926482	926472	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 926483	926472	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+5565562	926483	object/tangible/furniture/modern/searchable_desk_02.iff	11	19.5487	3.22346	-23.8199	-0.703845	0	0.710353	0		$|
 3795757	926480	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	-21.47	3.223	27.3	0	0	1	0	space.content_tools.npc_spawner	$|
 1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Bestine Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/bestine_starport.iff|$|
 1026825	1026824	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
