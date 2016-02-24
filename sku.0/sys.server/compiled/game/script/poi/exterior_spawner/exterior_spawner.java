@@ -1,6 +1,7 @@
 package script.poi.exterior_spawner;
 
-import script.*;
+
+import script.obj_id;
 
 public class exterior_spawner extends script.poi.interior_spawner.interior_spawner
 {

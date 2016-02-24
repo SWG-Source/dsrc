@@ -1,16 +1,35 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-6075870	0	object/building/general/talus_binyare_bunker.iff	0	1487.79	102	15.9927	0.70711	0	-0.707103	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/talus/poi_binayre_bunker.iff|$|
+6075870	0	object/building/general/talus_binyare_bunker.iff	0	1487.79	102	15.9927	0.70711	0	-0.707103	0		$|
 6075871	6075870	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 6075872	6075870	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+6725430	6075872	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	3.724330902	0.25	-4.03777504	1	0	0	0		intRandomYaw|0|1|$|
 6075873	6075870	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 6075874	6075870	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+6725431	6075874	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	-3.394849777	-3.25	4.81209898	1	0	0	0		intRandomYaw|0|1|$|
 6075875	6075870	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+6725432	6075875	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	4.569571018	-6.75	-4.679909229	1	0	0	0		intRandomYaw|0|1|$|
+8095603	6075875	object/tangible/container/loot/placable_loot_crate.iff	5	6.25874	-6.75158	-10.3713	1	0	0	0		$|
 6075876	6075870	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+6725433	6075876	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	4.490561962	-10.25	-18.42971611	1	0	0	0		intRandomYaw|0|1|$|
 6075877	6075870	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+6725434	6075877	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-2.522160769	-13.74996853	-6.409002304	1	0	0	0		intRandomYaw|0|1|$|
+6725435	6075877	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-5.842591763	-13.74992466	3.453552961	1	0	0	0		intRandomYaw|0|1|$|
+178364	6075877	object/tangible/container/loot/placable_loot_crate.iff	7	0.0912908	-13.7499	1.28479	0.707107	0	-0.707106	0		$|
+4885837	6075877	object/tangible/terminal/terminal_syren5_comm_array.iff	7	-6.26443	-13.75	-13.8875	1	0	0	0		$|
 6075878	6075870	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+6725437	6075878	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	3.178743839	-13.75841522	11.65006447	1	0	0	0		intRandomYaw|0|1|$|
+8095744	6075878	object/tangible/container/loot/placable_loot_crate.iff	8	6.44687	-13.7584	9.11993	1	0	0	0		$|
 6075879	6075870	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+6725438	6075879	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	15.67673874	-13.75841522	9.060009956	1	0	0	0		intRandomYaw|0|1|$|
+6725439	6075879	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	13.91795826	-13.75841522	0.265667319	1	0	0	0		intRandomYaw|0|1|$|
+3795397	6075879	object/tangible/dungeon/corellian_corvette/corvette_search_neutral_assassination_01.iff	9	12.9835	-13.7584	14.3034	0.707107	0	0.707106	0		$|
+8095745	6075879	object/tangible/container/loot/placable_loot_crate.iff	9	18.1858	-13.7584	-0.508322	-0.703845	0	0.710353	0		$|
 6075880	6075870	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+6725440	6075880	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	15.46966171	-13.75839043	-10.66317558	1	0	0	0		intRandomYaw|0|1|$|
+6725441	6075880	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	13.69102573	-11.5	-20.85014343	1	0	0	0		intRandomYaw|0|1|$|
+4885840	6075880	object/tangible/terminal/terminal_syren5_shield_generator.iff	10	17.3063	-11.5	-21.6956	1	0	0	0		$|
+8095746	6075880	object/tangible/container/loot/placable_loot_crate.iff	10	10.5856	-11.5	-21.6118	1	0	0	0		$|
 6075881	0	object/static/installation/mockup_power_generator_fusion_style_1.iff	0	1502.79	102	15.9927	1	0	0	0		$|
 6075882	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	1506.79	100.152	7.99268	0.707111	0	0.707102	0		$|
 6075883	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	1506.79	100.152	23.9927	0.707111	0	0.707102	0		$|
@@ -55,3 +74,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6725424	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1475.35	102	10.1555	1	0	0	0		$|
 6725425	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1475.42	102	11.9111	1	0	0	0		$|
 6725426	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1475.43	102.885	11.4941	0.768054	0	0.640385	0		$|
+6725427	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1471.605469	102	16.217529	1	0	0	0		$|

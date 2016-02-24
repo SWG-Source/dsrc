@@ -46,3 +46,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8535390	0	object/static/structure/general/campfire_smoldering.iff	0	685.763	42.2538	1059.34	1	0	0	0		$|
 9035371	0	object/static/flora/flora_decd_dath_azerontree.iff	0	1349.22	42.9504	158.695	1	0	0	0		$|
 9035374	0	object/static/structure/tatooine/bridge_tatooine_small_style_03.iff	0	1898.09	-0.140366	323.183	0.744912	0	0.667163	0		$|
+2035861	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	211.89563	7.920475006	1433.414185	1	0	0	0		$|
+2035864	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1480.939758	53.49504089	1272.769531	1	0	0	0		$|
+2035865	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1993.736702	7.620039463	979.8873291	1	0	0	0		$|
+2035886	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1920.962692	2.583880424	325.4968567	1	0	0	0		$|

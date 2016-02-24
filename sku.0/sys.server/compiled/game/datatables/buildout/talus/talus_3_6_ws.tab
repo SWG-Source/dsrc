@@ -894,7 +894,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5555460	5555402	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
 5555517	5555402	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|
 5555518	5555402	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
-1179103	5555518	object/tangible/collection/storm_trooper_left_bracer.iff	1	2.425423	-0.4939412	1.371302	0.8925098	0	-0.08346137	-0.08646096		$|
+1179103	5555518	object/tangible/collection/storm_trooper_left_bracer.iff	4	2.42542	-0.493941	1.3713	0.89251	-0.086461	-0.0834614	-0.434724		$|
 5555519	5555402	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
 5555520	5555402	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
 5555521	0	object/building/military/military_base_shed_imperial_barracks_s01.iff	0	1933	20	263	-0.707107	0	0.707107	0		$|
@@ -1133,3 +1133,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9795446	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1646.23	39.003	1795.36	-0.535752	0.052895	0.840824	-0.0564458		$|
 8595464	0	object/static/item/item_container_weapon.iff	0	1942.86	20	256.216	1	0	0	0		$|
 8595465	0	object/static/item/item_container_weapon.iff	0	1941.61	20	256.259	1	0	0	0		$|
+937398	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	28.668945	36.30018234	1614.695313	1	0	0	0		$|
+937399	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	26.991943	35.99457932	1621.616211	1	0	0	0		$|
+1094910	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	604.720703	39.99070358	1653.20166	1	0	0	0		$|
+9686028	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1798.737061	20	212.874023	1	0	0	0		$|
+9686029	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	2012.40625	20	189.566895	1	0	0	0		$|
+9686030	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1935.70166	20	375.252197	1	0	0	0		$|
