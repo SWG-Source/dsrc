@@ -1,16 +1,30 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-3705352	0	object/building/yavin/temple_woolamander.iff	0	548.722	81	1426.03	-0.403919	0	0.914795	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/yavin4/woolmander_cave.iff|$|
+3705352	0	object/building/yavin/temple_woolamander.iff	0	548.722	81	1426.03	-0.403919	0	0.914795	0		$|
 3705353	3705352	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 3705354	3705352	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3705355	3705352	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+468334	3705355	object/tangible/container/loot/placable_loot_crate.iff	3	-0.114021	2.0202	-6.74917	-3.20013e-08	0	1	0		$|
+468333	3705355	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	-0.806356013	2.020203114	6.004621029	1	0	0	0		intRandomYaw|0|1|$|
+468335	3705355	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	15.35353565	2.020200968	-0.472202003	1	0	0	0		intRandomYaw|0|1|$|
+468336	3705355	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	-18.53961945	2.020200014	-0.402530998	1	0	0	0		intRandomYaw|0|1|$|
 3705356	3705352	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 3705357	3705352	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 3705358	3705352	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 3705359	3705352	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+468340	3705359	object/tangible/container/loot/placable_loot_crate.iff	7	-59.3123	2.21342	4.98791	0.707107	0	0.707106	0		$|
+468343	3705359	object/tangible/container/loot/placable_loot_crate.iff	7	-81.4453	2.02019	4.7836	0.707107	0	-0.707106	0		$|
+4245471	3705359	object/tangible/dungeon/corellian_corvette/corvette_search_imperial_rescue_01.iff	7	-75.5101	2.02019	25.7386	0.963771	0	0.266731	0		$|
+4638832	3705359	object/tangible/collection/rare_pistol_sr_combat.iff	7	-81.6022	2.85705	4.87099	-0.632279	0.316956	-0.317209	0.631776		$|
+468341	3705359	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-59.32005692	2.051445484	21.05906105	1	0	0	0		intRandomYaw|0|1|$|
+468342	3705359	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-59.24731064	2.020195007	-11.05656815	1	0	0	0		intRandomYaw|0|1|$|
+468344	3705359	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-84.06556702	2.020191908	5.01512289	1	0	0	0		intRandomYaw|0|1|$|
 3705360	3705352	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 3705361	3705352	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+468337	3705361	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	53.38688278	2.020210981	4.981026173	1	0	0	0		intRandomYaw|0|1|$|
 3705362	3705352	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+468338	3705362	object/tangible/container/loot/placable_loot_crate.iff	10	78.6063	2.02021	5.06478	0.707107	0	-0.707107	0		$|
+468339	3705362	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	74.39707947	2.020212889	4.749608994	1	0	0	0		intRandomYaw|0|1|$|
 8845362	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	940.266	106.123	1471.87	1	0	0	0		$|
 8845364	0	object/tangible/gravestone/gravestone03.iff	0	941.035	106.399	1467.3	1	0	0	0		$|
 8845365	0	object/tangible/gravestone/gravestone02.iff	0	942.995	106.323	1468.98	1	0	0	0		$|
@@ -33,3 +47,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8995473	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1607.24	148.724	1136.73	0.822502	0	-0.568762	0		$|
 8995474	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1614.48	148.241	1134.15	0.585743	0	0.810497	0		$|
 8995475	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1611.06	146.543	1136.05	1	0	0	0		$|
+468331	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	480.6660156	81	1390.819824	1	0	0	0		$|
+468332	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	511.8817139	81	1360.809387	1	0	0	0		$|
+3495402	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	64.88858032	51.25648499	1368.504089	1	0	0	0		$|
