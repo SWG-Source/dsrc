@@ -5,6 +5,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1514805	0	object/building/tatooine/poi_tosche_station.iff	0	1883.26	65	845.593	0.696707	0	0.717356	0		$|
 1514806	1514805	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1514807	1514805	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+4889778	1514807	object/tangible/collection/rare_pistol_blackfalcon.iff	2	-0.0545489	1.17077	-9.87164	0.240944	0.634231	0.701612	0.217804		$|
 1514808	1514805	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1514809	1514805	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1514810	1514805	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|

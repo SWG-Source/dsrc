@@ -33,3 +33,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7146303	0	object/static/structure/general/droid_r2_head.iff	0	1742.78	140.894	1016.05	1	0	0	0		$|
 7146304	0	object/static/structure/general/droid_r2_leg.iff	0	1741.27	141.129	1017.27	0.710689	-0.703063	0.0177711	-0.0175802		$|
 7146305	0	object/static/structure/general/droid_r2_torso.iff	0	1742.66	141.1	1017.41	0.728272	-0.685289	0	0		$|
+7146307	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1862.57	122.896	1007.06	1	0	0	0		$|
+7146308	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1855.02	123.308	1010.54	1	0	0	0		$|
+7146309	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1847.21	123.543	1009.63	1	0	0	0		$|

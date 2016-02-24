@@ -568,6 +568,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 1157735	1157727	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1157736	1157727	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1157737	1157727	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+1099330	1157737	object/tangible/collection/rebel_battle_gloves.iff	10	0.814734	-0.876223	-1.57009	0.847735	0.133313	-0.252975	-0.446741		$|
 1157738	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	1197.5799560547	4	1186.6499023438	0.7306012511	0	0.6828046441	0		$|
 1157739	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	1193.6099853516	4	1243.7800292969	0.7168052793	0	0.6972727776	0		$|
 1157754	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	1376.3399658203	7	1400.4399414063	1	0	0	0		$|
@@ -1324,7 +1325,15 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 1233973	1233971	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1233974	1233971	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1233975	1233971	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1100615	1233975	object/tangible/collection/flower_06.iff	4	5.57275	1.62741	11.5696	1	0	0	0		$|
+1106102	1233975	object/tangible/gambling/slot/standard.iff	4	0.440787	1	-22.1515	1	0	0	0		$|
+1106103	1233975	object/tangible/gambling/slot/standard.iff	4	4.50948	1	-22.1639	1	0	0	0		$|
+1106104	1233975	object/tangible/gambling/slot/standard.iff	4	8.45737	1	-22.1371	1	0	0	0		$|
 1233976	1233971	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1106097	1233976	object/tangible/gambling/slot/standard.iff	5	26.4483	1.28309	4.50794	0.707388	0	-0.706826	0		$|
+1106098	1233976	object/tangible/gambling/slot/standard.iff	5	14.0718	1.28309	6.43775	0.710914	0	0.703279	0		$|
+1106099	1233976	object/tangible/gambling/slot/standard.iff	5	14.0351	1.28309	-6.2812	0.710915	0	0.703278	0		$|
+1106100	1233976	object/tangible/gambling/wheel/roulette.iff	5	20.185	1.28309	5.74463	1	0	0	0		$|
 1233977	1233971	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1233978	1233971	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1233979	1233971	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|

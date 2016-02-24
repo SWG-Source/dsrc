@@ -50,6 +50,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1289936	1289932	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1289937	1289932	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1289938	1289932	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1095998	1289938	object/tangible/collection/shock_trooper_right_bracer.iff	6	-5.26933	1.2339	-3.96373	-0.0155753	0.0275843	0.709709	0.703782		$|
 1289939	0	object/building/military/military_outpost_guard_tower_1.iff	0	806.644	7.62129	608.975	0.99995	0	-0.00999983	0		$|
 1289991	0	object/static/structure/general/banner_imperial_style_01.iff	0	831.16	8.5	613.121	0.999843	0.00271433	0.010114	-0.014323		$|
 1289999	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	796.188	6.22465	666.708	0.930508	0	-0.366272	0		$|
