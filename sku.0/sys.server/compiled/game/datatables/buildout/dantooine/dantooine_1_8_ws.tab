@@ -13,12 +13,25 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 200332	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1983.74	47.0935	1227.71	0.163466	0	0.986549	0		$|
 200333	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1991.66	52.5132	1231.93	0.346844	0	0.937924	0		$|
 200334	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1999.7	59.7882	1236.06	0.474331	0	0.880347	0		$|
-8535482	0	object/building/general/dantooine_force_crystal_hunter_sd_cave.iff	0	1951.85	56.0141	1261.22	3.20013e-008	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/force_crystal_hunter_cave.iff|$|
+8535482	0	object/building/general/dantooine_force_crystal_hunter_sd_cave.iff	0	1951.85	56.0141	1261.22	3.20013e-008	0	1	0		$|
 8535483	8535482	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8535498	8535483	object/tangible/poi/spawnegg/interior_spawnegg.iff	1	23.54712296	-29.80154419	-15.05016613	1	0	0	0		intRandomYaw|0|1|$|
 8535484	8535482	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+8535499	8535484	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	22.75145531	-40.60446548	-47.28037643	1	0	0	0		intRandomYaw|0|1|$|
+8535500	8535484	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	51.5237999	-48.65758896	-64.42123413	1	0	0	0		intRandomYaw|0|1|$|
+8535501	8535484	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	45.69174576	-47.80649567	-62.10869217	1	0	0	0		intRandomYaw|0|1|$|
+8535502	8535484	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	49.6161232	-48.02411652	-18.92257118	1	0	0	0		intRandomYaw|0|1|$|
+8535503	8535484	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	48.93991852	-47.07242584	-7.141627789	1	0	0	0		intRandomYaw|0|1|$|
+8535505	8535484	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	52.62257385	-67.93469238	-42.07501221	1	0	0	0		intRandomYaw|0|1|$|
 200336	8535484	object/tangible/container/loot/placable_loot_crate.iff	2	45.6698	-47.059	-6.79665	0.00920352	0	0.999958	0		$|
 8535485	8535482	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8535504	8535485	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	89.23966217	-65.22011566	-30.80838585	1	0	0	0		intRandomYaw|0|1|$|
 8535486	8535482	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+8535506	8535486	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	69.39627838	-75.52272797	-57.49768066	1	0	0	0		intRandomYaw|0|1|$|
+8535507	8535486	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	65.21089172	-75.5415802	-65.63469696	1	0	0	0		intRandomYaw|0|1|$|
+8535508	8535486	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	86.42470551	-76.56774139	-65.32893372	1	0	0	0		intRandomYaw|0|1|$|
+8535509	8535486	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	91.80693054	-76.24759674	-83.33487701	1	0	0	0		intRandomYaw|0|1|$|
+8535510	8535486	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	73.31215668	-77.06681824	-88.07292175	1	0	0	0		intRandomYaw|0|1|$|
 4706034	8535486	object/tangible/collection/rare_melee_white_thranta_knuckler.iff	4	92.0613	-75.169	-62.7524	-0.0743107	0.750478	-0.652659	-0.0727811		$|
 8535511	8535486	object/tangible/container/loot/placable_loot_crate.iff	4	61.0221	-75.2442	-57.589	-0.291502	0	0.95657	0		$|
 8535487	8535482	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
