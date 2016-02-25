@@ -1718,23 +1718,23 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 4005518	4005516	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4005519	4005516	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 4005520	4005516	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4265841	4005520	object/tangible/terminal/terminal_newsnet.iff	4	6.8685	0.639421	49.5035	1	0	0	0		$|
 4005521	4005516	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 4005522	4005516	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 4005523	4005516	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 4005524	4005516	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 4005525	4005516	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 4005526	4005516	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+3795692	4005526	object/tangible/terminal/terminal_space.iff	10	-40.3899	1.63942	46.4032	0.997529	0	-0.0702515	0		$|
+3795693	4005526	object/tangible/terminal/terminal_space.iff	10	-37.9023	1.63942	49.2205	0.753583	0	-0.657353	0		$|
+3795694	4005526	object/tangible/terminal/terminal_space.iff	10	-44.1221	1.63942	50.0933	0.648034	0	0.761611	0		$|
+3795695	4005526	object/tangible/terminal/terminal_space.iff	10	-41.5662	1.63942	52.8483	0.057976	0	0.998318	0		$|
 4005527	4005516	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 4005528	4005516	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 4005529	4005516	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 4005530	4005516	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 4005531	4005516	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 4005532	4005516	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
-4265841	4005520	object/tangible/terminal/terminal_newsnet.iff	1	6.5	0.64	49.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
-3795692	4005526	object/tangible/terminal/terminal_space.iff	1	-40.41	1.64	46.18	-0.99	0	0.08	0	space.terminal.terminal_space	$|
-3795693	4005526	object/tangible/terminal/terminal_space.iff	2	-37.48	1.64	49.1	-0.76	0	0.65	0	space.terminal.terminal_space	$|
-3795694	4005526	object/tangible/terminal/terminal_space.iff	3	-44.45	1.64	50.22	0.65	0	0.76	0	space.terminal.terminal_space	$|
-3795695	4005526	object/tangible/terminal/terminal_space.iff	4	-41.45	1.64	53.15	0.08	0	0.99	0	space.terminal.terminal_space	$|
 4005533	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	1340.3100585938	9.251250267	1053.580078125	1	0	0	0		$|
 4005534	0	object/building/tatooine/filler_building_block_64x16_style_02.iff	0	1182.1700439453	7	1108.0100097656	0.3762539923	0	0.9265170097	0	structure.filler.filler	$|
 4005537	0	object/building/tatooine/filler_building_block_64x16_style_01.iff	0	1144.0699462891	7	1038.919921875	0.7990983725	0	-0.6012004614	0	structure.filler.filler	$|

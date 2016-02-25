@@ -222,7 +222,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6645787	0	object/static/item/item_container_inorganic_minerals.iff	0	1190.52	80	1557.63	0.999388	0	0.0349929	0		$|
 6705352	0	object/building/military/outpost_starport.iff	0	1070.41	73	1554.06	-0.362358	0	0.932039	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Smuggler's Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 6705353	6705352	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-3435617	6705353	object/tangible/terminal/terminal_space.iff	1	-7.401289	0.146595	-19.21798	1	0	0	0		$|
+3435617	6705353	object/tangible/terminal/terminal_space.iff	1	-7.40129	0.146595	-19.218	1	0	0	0		$|
 6705354	0	object/building/military/outpost_cloning_facility.iff	0	1135.49	80	1618.06	0.488872	0	0.872356	0		$|
 6705355	6705354	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 6705356	6705354	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
