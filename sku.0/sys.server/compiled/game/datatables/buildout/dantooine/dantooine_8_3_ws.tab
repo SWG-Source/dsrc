@@ -1,23 +1,41 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-529322	0	object/building/general/dantooine_janta_cave.iff	0	961.727	74.2809	3.00439	-0.652136	0	0.758102	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/janta_cave.iff|$|
+529322	0	object/building/general/dantooine_janta_cave.iff	0	961.727	74.2809	3.00439	-0.652136	0	0.758102	0		$|
 529323	529322	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 529324	529322	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+529341	529324	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	9.646007538	-23.21339035	-23.14383125	1	0	0	0		intRandomYaw|0|1|$|
 529325	529322	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+529342	529325	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	5.886486053	-40.90317917	-76.06769562	1	0	0	0		intRandomYaw|0|1|$|
+529343	529325	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	-11.25333405	-40.62334061	-78.14917755	1	0	0	0		intRandomYaw|0|1|$|
 529326	529322	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+529344	529326	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	39.2567215	-45.77373505	-57.03393173	1	0	0	0		intRandomYaw|0|1|$|
+529345	529326	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	44.09768677	-46.23182297	-92.68983459	1	0	0	0		intRandomYaw|0|1|$|
 529346	529326	object/tangible/container/loot/placable_loot_crate.iff	4	51.4471	-44.4211	-103.465	0.94441	0	-0.328769	0		$|
 529327	529322	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+529347	529327	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	-0.540067017	-44.8968277	-140.5220947	1	0	0	0		intRandomYaw|0|1|$|
+529348	529327	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	-10.33716679	-44.54055405	-136.5695801	1	0	0	0		intRandomYaw|0|1|$|
 529349	529327	object/tangible/container/loot/placable_loot_crate.iff	5	-10.4971	-45.4992	-147.5	1	0	0	0		$|
 529353	529327	object/tangible/container/loot/placable_loot_crate.iff	5	58.0106	-57.5355	-184.28	1	0	0	0		$|
 529328	529322	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 529329	529322	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+529355	529329	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-10.76630592	-63.98707199	-224.1595154	1	0	0	0		intRandomYaw|0|1|$|
+529356	529329	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-7.012625217	-64.45516205	-236.5915222	1	0	0	0		intRandomYaw|0|1|$|
 529330	529322	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+529357	529330	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-63.15408325	-70.32534027	-178.3486938	1	0	0	0		intRandomYaw|0|1|$|
+529358	529330	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-99.23536682	-70.28019714	-118.9204941	1	0	0	0		intRandomYaw|0|1|$|
+529365	529330	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-82.22270203	-100.4080276	-142.2389526	1	0	0	0		intRandomYaw|0|1|$|
 4706092	529330	object/tangible/collection/rare_carbine_blackscale_hall_sweeper.iff	8	-70.7881	-69.7817	-149.062	0.542982	-0.153703	0.161715	0.809564		$|
 529331	529322	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+529359	529331	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-69.95039368	-68.58544922	-102.0300522	1	0	0	0		intRandomYaw|0|1|$|
+529360	529331	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-68.78916931	-70.30937958	-87.81950378	1	0	0	0		intRandomYaw|0|1|$|
+529361	529331	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-37.83337021	-70.50406647	-106.8530884	1	0	0	0		intRandomYaw|0|1|$|
+529362	529331	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-31.70995712	-70.15242767	-92.63324738	1	0	0	0		intRandomYaw|0|1|$|
 529363	529331	object/tangible/container/loot/placable_loot_crate.iff	9	-11.69	-69.1962	-89.8369	0.0799147	0	0.996802	0		$|
 4465373	529331	object/tangible/dungeon/corellian_corvette/corvette_search_imperial_destroy_03.iff	9	-10.4094	-69.0209	-90.5859	0.990922	-0.0965763	0.0920533	0.016496		$|
 529332	529322	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 529333	529322	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+529366	529333	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-83.03827667	-99.84002686	-99.59963989	1	0	0	0		intRandomYaw|0|1|$|
+529367	529333	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-96.93262482	-100.6253891	-100.2331085	1	0	0	0		intRandomYaw|0|1|$|
 8465680	0	object/static/structure/dantooine/dant_fence_8m.iff	0	695.57	60.4164	1859.11	0.667463	0	0.744643	0		$|
 8465681	0	object/static/structure/dantooine/dant_fence_8m.iff	0	691.854	59.7228	1854.58	0.685869	0	0.727726	0		$|
 8465682	0	object/static/structure/dantooine/dant_fence_8m.iff	0	692.102	60	1846.17	0.741827	0	0.670592	0		$|
@@ -80,3 +98,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465884	0	object/static/item/item_container_electronics.iff	0	729.685	60	1854.69	0.188077	0	0.982154	0		$|
 8465894	0	object/static/structure/general/banner_rebel_style_01.iff	0	715.414	60	1862.72	0.178246	0	0.983986	0		$|
 8465895	0	object/static/structure/general/banner_rebel_style_01.iff	0	736.583	60	1838.55	0.825336	0	-0.564642	0		$|
+529338	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	914.539551	52.2177124	28.553711	1	0	0	0		$|
