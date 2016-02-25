@@ -63,7 +63,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 529423	529402	object/tangible/poi/spawnegg/interior_spawnegg.iff	29	-60.19334412	-65.4928894	-230.9612885	1	0	0	0		intRandomYaw|0|1|$|
 529424	529402	object/tangible/poi/spawnegg/interior_spawnegg.iff	29	-54.567379	-65.61791229	-232.5149841	1	0	0	0		intRandomYaw|0|1|$|
 529425	529402	object/tangible/container/loot/placable_loot_crate.iff	29	-67.9807	-64.6895	-232.643	0.707107	0	0.707107	0		$|
-529404	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1901.49	7.21525	1636.56	-0.0257937	0	0.999667	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/dant_world_npc.iff|$|
+529404	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1901.49	7.21525	1636.56	-0.0257937	0	0.999667	0		$|
 529405	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1878.3	8.70643	1622.26	1	0	0	0		$|
 529406	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1927.09	6.92169	1622.31	1	0	0	0		$|
 529408	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1884.98	7.60797	1639.41	0.891568	0	0.452886	0		$|
