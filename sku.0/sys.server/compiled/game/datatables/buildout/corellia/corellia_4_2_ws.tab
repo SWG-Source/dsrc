@@ -8,6 +8,22 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1211541	0	object/static/structure/general/streetlamp_medium_style_02_on.iff	0	1877.42	28	1707.72	0.707107	0	-0.707106	0		$|
 1211542	0	object/static/creature/droids_protocol_droid_gold.iff	0	1873.8	28	1699.58	0.877583	0	-0.479425	0		$|
 1211545	0	object/building/general/bunker_corellia_tomi_jinsin.iff	0	1529.76	2.96651	1080.5	0.911039	0	-0.412321	0		$|
+1211546	1211545	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1211547	1211545	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1211548	1211545	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1211561	1211548	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	-512.81	-3.21	-5055.64	1	0	0	0		intRandomYaw|0|1|$|
+1211549	1211545	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1211550	1211545	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1211560	1211550	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	-517.92	-3.78	-5070.5	1	0	0	0		intRandomYaw|0|1|$|
+1211551	1211545	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1211559	1211551	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	-507.71	-3.8	-5072.67	1	0	0	0		intRandomYaw|0|1|$|
+1211552	1211545	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1211558	1211552	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-510.88	-3.78	-5062.78	1	0	0	0		intRandomYaw|0|1|$|
+1211553	1211545	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1211554	1211545	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1211555	1211554	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-508.99	-10.78	-5075.12	1	0	0	0		intRandomYaw|0|1|$|
+1211556	1211554	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-516.97	-10.78	-5065.64	1	0	0	0		intRandomYaw|0|1|$|
+1211557	1211554	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-520.98	-10.78	-5067.99	1	0	0	0		intRandomYaw|0|1|$|
 1211565	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1525.24	8.35486	1092.6	1	0	0	0		$|
 1211566	0	object/static/structure/military/bunker_pillar_style_04.iff	0	1525.25	3.2	1092.57	1	0	0	0		$|
 1211569	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	1529.12	3.81409	1092.18	0.934943	0	0.354799	0		$|
@@ -54,10 +70,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855461	1855460	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1855462	1855460	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1855463	1855460	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+4607185	1855463	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	-236.4	29.3	-4570.49	1	0	0	0		intRandomYaw|0|1|$|
+4607188	1855463	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	-216.92	29.3	-4560.04	1	0	0	0		intRandomYaw|0|1|$|
 1855464	1855460	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1855465	1855460	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1855466	1855460	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1855467	1855460	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+4607182	1855467	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	-245.46	26.36	-4571.95	1	0	0	0		intRandomYaw|0|1|$|
 4607158	1855467	object/tangible/quest/corellia_coronet_diktat_search_desk.iff	1	-33.79225	1.294224	-2.555527	0.707107	0	0.7071065	0		$|
 4607159	1855467	object/tangible/quest/corellia_coronet_diktat_search_terminal.iff	2	-34.15485	2.274531	-1.873781	-0.5403023	0	0.841471	0		$|
 1855468	1855460	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -115,6 +134,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855529	0	object/building/corellia/hospital_corellia.iff	0	1958	28	1704	-0.00000167	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/ep3/ep3_coronet_medical_center.iff|$|
 1855530	1855529	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1855531	1855529	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1211544	1855531	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	-105.89	28.26	-4435.91	1	0	0	0		intRandomYaw|0|1|$|
 1855532	1855529	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1855533	1855529	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1855534	1855529	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
@@ -185,6 +205,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855682	1855671	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1855683	1855671	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1855684	1855671	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+1211512	1855684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-66.07	28.97	-4682.81	1	0	0	0		intRandomYaw|0|1|$|
 1855685	1855671	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1855686	1855671	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1855687	1855671	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
