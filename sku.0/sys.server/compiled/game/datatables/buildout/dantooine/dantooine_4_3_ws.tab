@@ -76,7 +76,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465858	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-71.97775269	-18	-85.47014618	1	0	0	0		intRandomYaw|0|1|$|
 8465859	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-81.31250763	-18	-97.00535583	1	0	0	0		intRandomYaw|0|1|$|
 8465860	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-62.80376434	-18	-110.5256805	1	0	0	0		intRandomYaw|0|1|$|
-4705448	8575684	object/tangible/collection/rare_melee_white_thranta_lance.iff	13	-65.0165	-17.9718	-114.702	-0.579459	-0.413768	0.397223	0.578997	$|
+4705448	8575684	object/tangible/collection/rare_melee_white_thranta_lance.iff	13	-65.0165	-17.9718	-114.702	-0.579459	-0.413768	0.397223	0.578997		$|
 8465549	8575684	object/tangible/container/drum/warren_drum_skeleton.iff	13	-66.14	-18	-96.59	0.87	0	0.5	0	theme_park.warren.goodbye_letter_maker	warren.bldg|0|8575671|$|
 8465550	8575684	object/tangible/container/drum/warren_drum_skeleton.iff	13	-65.73	-17.94	-114.27	0	0	0	0.31	theme_park.warren.passkey_maker	warren.passkeyNumber|0|1|warren.bldg|0|8575671|$|
 8555708	8575684	object/tangible/container/drum/warren_drum_tech_chest.iff	13	-77.16	-18	-78.21	0.71	0	0.71	0	theme_park.warren.passkey_maker	warren.passkeyNumber|0|2|warren.bldg|0|8575671|$|
