@@ -365,3 +365,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 228009168	0	object/tangible/planet_map_location/city.iff	0	1920	8	1696	1	0	0	0		$|
 1296918	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1920.2	3	1711	1	0	0	0	space.content_tools.npc_spawner	$|
 1296919	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1922	3	1711	1	0	0	0	space.content_tools.npc_spawner	$|
+9165391	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1913.902832	3	1779.505615	1	0	0	0		$|
+9165392	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1913.227539	3	1620.734863	1	0	0	0		$|
