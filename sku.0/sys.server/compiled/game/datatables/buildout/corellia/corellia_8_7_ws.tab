@@ -23,3 +23,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825560	0	object/static/structure/general/droid_r4_powerdown.iff	0	123.913	26.1343	301.865	-0.504797	0.0674443	0.85998	-0.0326455		$|
 9825575	0	object/static/structure/general/poi_powerdroid_powerdown.iff	0	123.466	26.2664	302.767	0.848615	-0.0289673	0.526147	-0.046721		$|
 9825582	0	object/tangible/furniture/all/frn_all_toolchest_lg_s01.iff	0	120.983	26.1666	302.661	0.413046	0	0.91071	0		$|
+33550	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	155.759766	27.22945404	279.611816	1	0	0	0		$|
+33551	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	160.986816	27.41061211	272.912109	1	0	0	0		$|

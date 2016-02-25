@@ -42,3 +42,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825900	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1678.4	-0.292973	1929.56	3.20013e-008	0	1	0		$|
 9825901	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1678.38	-0.153373	1938.15	0.707105	0	0.707108	0		$|
 9825904	0	object/static/structure/corellia/corl_imprv_arch_sm_s03.iff	0	1698.97	-0.700641	1946.81	1	0	0	0		$|
+33603	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	431.6581726	2.228694916	1115.450439	1	0	0	0		$|
+33604	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	434.5713806	2.938066244	1125.886475	1	0	0	0		$|
+33605	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	423.4996033	1.062686682	1116.7229	1	0	0	0		$|
