@@ -32,7 +32,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7925630	0	object/building/endor/endor_tiki_torch.iff	0	1352.01	121	81.6836	-0.624897	0	0.780707	0		$|
 7925656	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1543.88	106.16	79.9751	0.975897	0	-0.21823	0		$|
 7925657	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1291.85	106.96	79.9526	0.955337	0	-0.29552	0		$|
-7925658	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1416.15	106.8	79.4966	0.281157	0	0.959662	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_bridge.iff|$|
+7925658	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1416.15	106.8	79.4966	0.281157	0	0.959662	0		$|
 9725762	0	object/static/structure/dantooine/dant_boundary_post.iff	0	842.066	131.381	1216.02	0.721381	0	0.692538	0		$|
 9725767	0	object/static/structure/dathomir/night_sister_banner_s02.iff	0	842.913	128.206	1214.95	0.155167	0	0.987888	0		$|
 9725769	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	842.109	127.707	1216.05	1	0	0	0		$|
@@ -43,3 +43,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725800	0	object/static/structure/general/skeleton_human_head.iff	0	842.399	134.356	1217.41	0.830941	0	-0.556361	0		$|
 9725801	0	object/static/structure/general/skeleton_human_head.iff	0	843.529	134.382	1215.17	0.810963	0	0.585097	0		$|
 9725841	0	object/static/structure/general/streetlamp_small_green_style_02.iff	0	842.268	125.763	1216.13	1	0	0	0		$|
+7925643	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1212.851013	121.3592453	73.894531	1	0	0	0		$|
+7925645	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1613.966217	121	78.783691	1	0	0	0		$|

@@ -94,28 +94,27 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1026826	1026824	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1026827	1026824	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1026828	1026824	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1279068	1026828	object/tangible/terminal/terminal_space.iff	4	0.185629	0.639421	62.1194	0.999954	0	-0.00960228	0		$|
+1279069	1026828	object/tangible/terminal/terminal_space.iff	4	6.49914	0.639421	57.6256	0.713028	0	0.701136	0		$|
+1279070	1026828	object/tangible/terminal/terminal_space.iff	4	-5.85543	0.639421	57.4329	-0.694257	0	0.719728	0		$|
+4265835	1026828	object/tangible/terminal/terminal_newsnet.iff	4	15.4152	0.639421	54.3473	-0.703845	0	0.710353	0		$|
 1026829	1026824	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1026830	1026824	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1026831	1026824	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1102713	1026831	object/tangible/collection/plant_08.iff	7	34.2225	0.639417	40.4672	1	0	0	0		$|
 1026832	1026824	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1026833	1026824	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1026834	1026824	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+3795675	1026834	object/tangible/terminal/terminal_space.iff	10	-40.4018	1.63942	46.4372	0.998182	0	-0.0602729	0		$|
+3795676	1026834	object/tangible/terminal/terminal_space.iff	10	-37.8586	1.63942	49.2041	0.760119	0	-0.649784	0		$|
+3795677	1026834	object/tangible/terminal/terminal_space.iff	10	-44.0594	1.63942	50.2011	0.640385	0	0.768054	0		$|
+3795678	1026834	object/tangible/terminal/terminal_space.iff	10	-41.449	1.63942	52.9045	0.0479901	0	0.998848	0		$|
 1026835	1026824	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1026836	1026824	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1026837	1026824	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 1026838	1026824	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1026839	1026824	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1026840	1026824	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
-1102713	1026831	object/tangible/collection/plant_08.iff	7	34.22	0.64	40.47	0	0	1	0	systems.collections.consume_click	collection.slotName|4|col_plant_01:plant_08|$|
-1279068	1026828	object/tangible/terminal/terminal_space.iff	1	0.19	0.64	62.12	1	0	0	0	space.terminal.terminal_space	$|
-1279069	1026828	object/tangible/terminal/terminal_space.iff	2	6.5	0.64	57.63	0.7	0	0.7	0	space.terminal.terminal_space	$|
-1279070	1026828	object/tangible/terminal/terminal_space.iff	3	-5.68	0.64	57.43	-0.7	0	0.7	0	space.terminal.terminal_space	$|
-4265834	1026828	object/tangible/terminal/terminal_newsnet.iff	4	15.48	0.64	54.39	0.71	0	-0.7	0	systems.gcw.newsnet_terminal	$|
-4265835	1026828	object/tangible/terminal/terminal_newsnet.iff	5	0	0.64	48.35	1	0	0	0	systems.gcw.newsnet_terminal	$|
-3795675	1026834	object/tangible/terminal/terminal_space.iff	1	-40.41	1.64	46.18	-0.99	0	0.08	0	space.terminal.terminal_space	$|
-3795676	1026834	object/tangible/terminal/terminal_space.iff	2	-37.48	1.64	49.1	-0.76	0	0.65	0	space.terminal.terminal_space	$|
-3795677	1026834	object/tangible/terminal/terminal_space.iff	3	-44.45	1.64	50.22	0.65	0	0.76	0	space.terminal.terminal_space	$|
-3795678	1026834	object/tangible/terminal/terminal_space.iff	4	-41.45	1.64	53.15	0.08	0	0.99	0	space.terminal.terminal_space	$|
 1027887	0	object/building/tatooine/housing_tatt_style01_small.iff	0	674.808	26	226.958	0.813878	0	0.581036	0		$|
 1027888	1027887	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1027889	1027887	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|

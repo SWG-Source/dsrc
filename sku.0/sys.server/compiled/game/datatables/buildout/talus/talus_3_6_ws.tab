@@ -269,7 +269,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4965637	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1785.61	20	252.094	1	0	0	0		$|
 4965638	0	object/building/military/outpost_starport.iff	0	1884.24	20	253.514	0.707107	0	0.707106	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Imperial Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 4965639	4965638	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-7355459	4965639	object/tangible/terminal/terminal_space.iff	1	-7.467643	0.146595	-19.19954	1	0	0	0		$|
+7355459	4965639	object/tangible/terminal/terminal_space.iff	1	-7.46764	0.146595	-19.1995	1	0	0	0		$|
 5315409	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1814.66	20	260.999	0.922997	0	-0.384808	0		$|
 5315413	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1817.03	20	258.895	-0.693111	0	0.720831	0		$|
 5315414	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1871.29	20	341.115	0.988771	0	0.149438	0		$|

@@ -88,16 +88,23 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8535533	0	object/static/structure/general/skeleton_human_head.iff	0	182.782	8.53862	1256.31	0.611782	-0.0490473	0.786979	0.063093		$|
 8535534	0	object/static/structure/general/skeleton_human_head.iff	0	182.167	8.47537	1255.9	-0.00420107	0.000147098	0.999379	0.0349925		$|
 8535535	0	object/static/structure/general/skeleton_human_head.iff	0	181.597	8.44375	1256.2	-0.493222	0.00246613	0.869889	0.00434948		$|
-8535537	0	object/building/general/cave_02_damprock.iff	0	101.724	11.5446	1020.31	0.986418	0	0.164252	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/damprock_cave.iff|$|
+8535537	0	object/building/general/cave_02_damprock.iff	0	101.724	11.5446	1020.31	0.986418	0	0.164252	0		$|
 8535538	8535537	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 8535539	8535537	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+8695535	8535539	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	55.91520691	-68.47590637	-39.28940201	1	0	0	0		intRandomYaw|0|1|$|
 8535540	8535537	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 8535541	8535537	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 8535542	8535537	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 8535543	8535537	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+8695538	8535543	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	62.82084656	-66.50696564	-134.1946716	1	0	0	0		intRandomYaw|0|1|$|
 8535544	8535537	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 8535545	8535537	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+8695540	8535545	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	112.707634	-66.33864594	-107.2757568	1	0	0	0		intRandomYaw|0|1|$|
+8695542	8535545	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	131.6912537	-66.54064941	-94.54445648	1	0	0	0		intRandomYaw|0|1|$|
+8695543	8535545	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	151.820282	-66.56446075	-111.7184143	1	0	0	0		intRandomYaw|0|1|$|
 8535546	8535537	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+8695544	8535546	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	188.7104797	-65.94814301	-98.89992523	1	0	0	0		intRandomYaw|0|1|$|
+8695546	8535546	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	192.9647827	-66.91439819	-106.5640488	1	0	0	0		intRandomYaw|0|1|$|
 8535547	8535537	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 8535548	8535537	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 4706063	8535548	object/tangible/collection/rare_rifle_lithitanium_rifle.iff	11	77.8989	-46.1541	-137.663	0.50906	-0.236355	0.483523	0.671713	$|
