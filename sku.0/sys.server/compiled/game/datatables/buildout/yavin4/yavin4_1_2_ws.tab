@@ -104,7 +104,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3035482	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1299.65	73	489.399	1	0	0	0		$|
 3035484	0	object/building/military/outpost_starport.iff	0	1252.57	73	437.824	0.707107	0	-0.707106	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Labor Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 3035485	3035484	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-2655375	3035485	object/tangible/terminal/terminal_space.iff	0	-7.423114	0.146595	-19.24381	1	0	0	0		$|
+2655375	3035485	object/tangible/terminal/terminal_space.iff	1	-7.42311	0.146595	-19.2438	1	0	0	0		$|
 3035491	0	object/tangible/furniture/tatooine/frn_tato_table_small_style_01.iff	0	1285.19	73	491.853	1	0	0	0		$|
 3035493	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	1284.13	73	491.113	0.847255	0	0.531186	0		$|
 3035494	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_02.iff	0	1286.39	73	492.586	-0.52762	0	0.849481	0		$|

@@ -16,9 +16,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1418880	1418871	object/cell/cell.iff	9	0	0	0	1	1.261169E-44	0	0		$|
 1418881	1418871	object/cell/cell.iff	10	0	0	0	1	1.401298E-44	0	0		$|
 1418882	1418871	object/cell/cell.iff	11	0	0	0	1	1.541428E-44	0	0		$|
-8865510	1418882	object/tangible/terminal/terminal_space.iff	0	-16.02633	0.200001	-33.26461	1	0	0	0		$|
-8865511	1418882	object/tangible/terminal/terminal_space.iff	0	-13.17546	0.200001	-33.25811	1	0	0	0		$|
-8865518	1418882	object/tangible/terminal/terminal_space.iff	0	-18.94603	0.2	-33.28943	1	0	0	0		$|
+8865510	1418882	object/tangible/terminal/terminal_space.iff	11	-16.0263	0.200001	-33.2646	1	0	0	0		$|
+8865511	1418882	object/tangible/terminal/terminal_space.iff	11	-13.1755	0.200001	-33.2581	1	0	0	0		$|
+8865518	1418882	object/tangible/terminal/terminal_space.iff	11	-18.946	0.2	-33.2894	1	0	0	0		$|
 1418883	1418871	object/cell/cell.iff	12	0	0	0	1	1.681558E-44	0	0		$|
 1418884	1418871	object/cell/cell.iff	13	0	0	0	1	1.821688E-44	0	0		$|
 1418885	1418871	object/cell/cell.iff	14	0	0	0	1	1.961818E-44	0	0		$|

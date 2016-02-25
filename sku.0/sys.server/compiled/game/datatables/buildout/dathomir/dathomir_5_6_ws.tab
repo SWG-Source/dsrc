@@ -44,7 +44,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5645556	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	576.807	6.88544	1006.42	0.990216	0	0.139543	0		$|
 6915358	0	object/building/military/outpost_starport.iff	0	592.308	6.03961	1039.28	-0.267499	0	0.963558	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Trade Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 6915359	6915358	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-3946222	6915359	object/tangible/terminal/terminal_space.iff	1	-7.6	0	-19.5	1	0	0	0	space.terminal.terminal_space	$|
+3946222	6915359	object/tangible/terminal/terminal_space.iff	1	-7.41268	0.146595	-19.2121	1	0	0	0		$|
 6955366	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	603.157	6	987.739	1	0	0	0	planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_trade_outpost_spawns.iff|healing.canhealshock|0|1|safeLogout|0|1|$|
 955367	6955366	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 6955368	6955366	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
