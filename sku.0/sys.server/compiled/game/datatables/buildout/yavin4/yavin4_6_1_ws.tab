@@ -2,7 +2,7 @@ objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objv
 i	i	h	i	f	f	f	f	f	f	f	s	p
 1512719	0	object/building/military/outpost_starport.iff	0	1984.56	37	1957.53	-6.63422e-007	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Imperial Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 1512720	1512719	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-1512788	1512720	object/tangible/terminal/terminal_space.iff	0	-8.76259	0.146595	-19.14923	1	0	0	0		$|
+1512788	1512720	object/tangible/terminal/terminal_space.iff	1	-8.76259	0.146595	-19.1492	1	0	0	0		$|
 1512785	0	object/static/structure/general/streetlamp_small_style_01_on.iff	0	1993.89	37	1942.27	0.999388	0	0.0349929	0		$|
 1512786	0	object/static/vehicle/static_lambda_shuttle.iff	0	1984.35	37.048	1937.23	0.706262	0	0.707951	0		$|
 1512787	0	object/static/structure/general/streetlamp_small_style_01_on.iff	0	1972.44	37	1932.48	0.999388	0	0.0349929	0		$|

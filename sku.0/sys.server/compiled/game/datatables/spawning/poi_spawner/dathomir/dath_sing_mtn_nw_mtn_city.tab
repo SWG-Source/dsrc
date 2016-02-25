@@ -1,9 +1,0 @@
-spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value	planet_level
-s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s	i[0]
-singing_mtn_clan_dragoon		world	-7085.054688	384.2415161	5908.715332	-70	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
-singing_mtn_clan_dragoon		world	-7084.6	383.9	5906.7	-156	theme_park.dungeon.generic_death	npc_meditate		3600	int:ai.defaultCalmBehavior=1						1
-singing_mtn_clan_initiate		world	-7086.500977	384.5938721	5863.165527	175	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
-singing_mtn_clan_initiate		world	-7084.5	384.5	5863.3	175	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
-singing_mtn_clan_initiate		world	-7088.3	384.8	5863.1	175	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=1						1
-singing_mtn_clan_arch_witch		world	-7070.679199	388.2139282	5921.424316	-133	theme_park.dungeon.generic_death	happy		3600	int:ai.defaultCalmBehavior=1						1
-singing_mountain_clan_rancor		world	-7085.478027	385.0592346	5830.932129	175	theme_park.dungeon.generic_death			3600	int:ai.defaultCalmBehavior=2						1

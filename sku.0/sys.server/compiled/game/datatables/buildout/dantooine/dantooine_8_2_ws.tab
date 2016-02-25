@@ -1,0 +1,4 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+529339	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	909.10791	47.85289001	2047.725098	1	0	0	0		$|
+529340	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	920.569824	46.66617203	2007.503906	1	0	0	0		$|

@@ -3,24 +3,34 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1105902	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1068.74	461.87	1174.25	0.902509	0.0135387	-0.430409	0.00645662		$|
 1105905	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1077.76	461.02	1184.09	1	0	0	0		$|
 1105908	0	object/static/particle/pt_flocking_glowzees.iff	0	1069.07	461.138	1175.45	1	0	0	0		$|
-2635352	0	object/building/tatooine/cave_tatooine_style_02.iff	0	1698.04	118.627	874.673	0.884675	0	0.466209	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_imp_prison_cave.iff|$|
+2635352	0	object/building/tatooine/cave_tatooine_style_02.iff	0	1698.04	118.627	874.673	0.884675	0	0.466209	0		$|
 2635353	2635352	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2635354	2635352	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2635355	2635352	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8395452	2635355	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	-27.20772743	-38.24858093	-64.54293823	1	0	0	0		intRandomYaw|0|1|$|
 2635356	2635352	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+8395453	2635356	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	-29.07706642	-51.09053421	-114.1423874	1	0	0	0		intRandomYaw|0|1|$|
 2635357	2635352	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+8575465	2635357	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	-12.22964382	-48.43250275	-167.7812042	1	0	0	0		intRandomYaw|0|1|$|
 2635358	2635352	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 2635359	2635352	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 2635360	2635352	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 2635361	2635352	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+8575466	2635361	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-62.3471756	-66.37563324	-194.555481	1	0	0	0		intRandomYaw|0|1|$|
+8575467	2635361	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-63.65757751	-67.07936096	-197.3415222	1	0	0	0		intRandomYaw|0|1|$|
 2635362	2635352	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 2635363	2635352	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+8575468	2635363	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	60.8498497	-80.47678375	-231.6949158	1	0	0	0		intRandomYaw|0|1|$|
+8575469	2635363	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	41.87997055	-79.35388184	-249.6578217	1	0	0	0		intRandomYaw|0|1|$|
+8575470	2635363	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	43.28978348	-81.72787476	-239.550827	1	0	0	0		intRandomYaw|0|1|$|
 2635364	2635352	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 2635365	2635352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+8575471	2635365	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	11.83082485	-79.3368454	-277.0304565	1	0	0	0		intRandomYaw|0|1|$|
 2635366	2635352	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 2635367	2635352	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 2635368	2635352	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 2635369	2635352	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
+8575472	2635369	object/tangible/poi/spawnegg/interior_spawnegg.iff	17	-147.5395355	-118.5793991	-334.2179565	1	0	0	0		intRandomYaw|0|1|$|
 2665353	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1691.99	128	844.084	0.898261	0	-0.439462	0		$|
 2665354	0	object/static/structure/corellia/corl_imprv_wall_4x32_s03.iff	0	1693.4	127.998	870.263	-0.475732	0	0.87959	0		$|
 2665357	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1711.81	128	855.297	0.839192	0	-0.543835	0		$|
@@ -556,6 +566,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5335773	5335771	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 5335774	5335771	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 5335775	5335771	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4355509	5335775	object/tangible/dungeon/corellian_corvette/corvette_search_rebel_destroy_03.iff	4	2.38425	0.125266	0.0371531	0.822276	0	0.569089	0		$|
 5335776	5335771	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 5335777	5335771	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 5335778	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	1861.88	128	768.068	0.707107	0	0.707107	0		$|
@@ -591,6 +602,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5335808	5335806	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 5335809	5335806	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 5335810	5335806	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4355510	5335810	object/tangible/dungeon/corellian_corvette/corvette_search_rebel_rescue_02.iff	4	2.35618	0.125266	-0.0536095	-3.20013e-08	0	1	0		$|
 5335811	5335806	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 5335812	5335806	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 5335813	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	1837.75	128	767.377	0.707107	0	0.707107	0		$|
@@ -630,7 +642,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725608	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1068.34	461.094	1174.67	1	0	0	0		$|
 9725610	0	object/building/endor/endor_tiki_torch.iff	0	1072.45	460.926	1176.56	1	0	0	0		$|
 9725611	0	object/static/structure/general/skeleton_human_head.iff	0	1072.46	462.43	1176.55	0.947651	0	0.319309	0		$|
-9725614	0	object/static/flora/flora_decd_dath_blacktree.iff	0	1073.99	463.185	1171.05	-0.495491	-0.0799621	0.853877	-0.137798	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_mtn_potted_plant.iff|$|
+9725614	0	object/static/flora/flora_decd_dath_blacktree.iff	0	1073.99	463.185	1171.05	-0.495491	-0.0799621	0.853877	-0.137798		$|
 9725616	0	object/static/flora/flora_shrb_dath_glingi.iff	0	1065.17	462.766	1175.24	0.764842	0	-0.644218	0		$|
 9725617	0	object/static/flora/flora_shrb_dath_glingi.iff	0	1069.6	462.024	1171.67	1	0	0	0		$|
 9765354	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	2027.28	128	948.202	-0.707107	0	0.707107	0		$|
@@ -665,3 +677,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9765389	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	1921.91	128	1040.59	0.90687	0	0.42141	0		$|
 9765390	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	1768.41	128	1064.42	0.989506	0	0.144492	0		$|
 9765391	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	1696.25	128	1062.93	0.882333	0	-0.470626	0		$|
+1105909	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1078.083008	461.069458	1181.001953	1	0	0	0		$|
+1105910	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1101.258301	446.5675049	1199.215576	1	0	0	0		$|
+1105911	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1078.383301	462.1099854	1174.657715	1	0	0	0		$|
+1105912	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1071.517578	461.6935425	1180.241943	1	0	0	0		$|
+9185412	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1916.044922	130.1003113	784.0938721	1	0	0	0		$|
+9185413	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1674.327148	130.1124268	793.5327148	1	0	0	0		$|
+9185414	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1745.746582	130	1098.40979	1	0	0	0		$|
