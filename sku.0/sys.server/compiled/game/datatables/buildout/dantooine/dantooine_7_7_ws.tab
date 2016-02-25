@@ -107,7 +107,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8695546	8535546	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	192.9647827	-66.91439819	-106.5640488	1	0	0	0		intRandomYaw|0|1|$|
 8535547	8535537	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 8535548	8535537	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
-4706063	8535548	object/tangible/collection/rare_rifle_lithitanium_rifle.iff	11	77.8989	-46.1541	-137.663	0.50906	-0.236355	0.483523	0.671713	$|
+4706063	8535548	object/tangible/collection/rare_rifle_lithitanium_rifle.iff	11	77.8989	-46.1541	-137.663	0.50906	-0.236355	0.483523	0.671713		$|
 8695572	0	object/static/naboo/waterfall_200m.iff	0	87.0615	64.592	1025.34	0.937646	0	0.347591	0		$|
 8695573	0	object/static/naboo/waterfall_200m.iff	0	77.9541	64.592	1029.03	0.992761	0	-0.120107	0		$|
 8695574	0	object/static/naboo/waterfall_mist_lg.iff	0	82.2871	6.52063	1047.92	1	0	0	0		$|
