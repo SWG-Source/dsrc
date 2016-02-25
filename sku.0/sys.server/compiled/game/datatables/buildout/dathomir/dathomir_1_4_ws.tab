@@ -23,4 +23,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725560	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1574.57	309.321	1313.33	0.945926	0.168015	-0.202056	-0.190182		$|
 9725567	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1559.09	322.157	1295.93	0.988012	0	0.15438	0		$|
 9725568	0	object/building/endor/endor_tiki_torch.iff	0	1562.89	321.7	1297.18	1	0	0	0		$|
-9725575	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1574.5	327.449	1265.23	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_sing_mtn_west_mtn_spawn.iff|$|
+9725575	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1574.5	327.449	1265.23	1	0	0	0		$|
+1105890	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1574.046387	325.7238159	1270.280701	1	0	0	0		$|
+1105901	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1631.787598	264.6102905	1305.908691	1	0	0	0		$|

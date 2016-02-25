@@ -630,7 +630,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725608	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1068.34	461.094	1174.67	1	0	0	0		$|
 9725610	0	object/building/endor/endor_tiki_torch.iff	0	1072.45	460.926	1176.56	1	0	0	0		$|
 9725611	0	object/static/structure/general/skeleton_human_head.iff	0	1072.46	462.43	1176.55	0.947651	0	0.319309	0		$|
-9725614	0	object/static/flora/flora_decd_dath_blacktree.iff	0	1073.99	463.185	1171.05	-0.495491	-0.0799621	0.853877	-0.137798	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_mtn_potted_plant.iff|$|
+9725614	0	object/static/flora/flora_decd_dath_blacktree.iff	0	1073.99	463.185	1171.05	-0.495491	-0.0799621	0.853877	-0.137798		$|
 9725616	0	object/static/flora/flora_shrb_dath_glingi.iff	0	1065.17	462.766	1175.24	0.764842	0	-0.644218	0		$|
 9725617	0	object/static/flora/flora_shrb_dath_glingi.iff	0	1069.6	462.024	1171.67	1	0	0	0		$|
 9765354	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	2027.28	128	948.202	-0.707107	0	0.707107	0		$|
@@ -665,3 +665,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9765389	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	1921.91	128	1040.59	0.90687	0	0.42141	0		$|
 9765390	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	1768.41	128	1064.42	0.989506	0	0.144492	0		$|
 9765391	0	object/static/structure/general/streetlamp_large_red_style_01.iff	0	1696.25	128	1062.93	0.882333	0	-0.470626	0		$|
+1105909	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1078.083008	461.069458	1181.001953	1	0	0	0		$|
+1105910	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1101.258301	446.5675049	1199.215576	1	0	0	0		$|
+1105911	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1078.383301	462.1099854	1174.657715	1	0	0	0		$|
+1105912	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1071.517578	461.6935425	1180.241943	1	0	0	0		$|
+9185412	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1916.044922	130.1003113	784.0938721	1	0	0	0		$|
+9185413	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1674.327148	130.1124268	793.5327148	1	0	0	0		$|
+9185414	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1745.746582	130	1098.40979	1	0	0	0		$|
