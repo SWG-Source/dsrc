@@ -16,7 +16,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725780	0	object/static/structure/military/military_wall_strong_imperial_16_style_01.iff	0	1430.39	85.7012	1359.77	0.099281	-0.0042274	0.801579	-0.589574		$|
 9725794	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1421.45	89.4339	1377.94	0.720553	0.579795	-0.324519	0.198315		$|
 9725795	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1413.8	87.9101	1354.11	0.62733	0.485218	0.480046	-0.374936		$|
-9725802	0	object/building/military/military_outpost_guard_tower_1.iff	0	1446.87	89.6077	1367.49	0.973769	-0.167154	-0.0261184	-0.152155	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_bull_rancor_reb_collection.iff|$|
+9725802	0	object/building/military/military_outpost_guard_tower_1.iff	0	1446.87	89.6077	1367.49	0.973769	-0.167154	-0.0261184	-0.152155		$|
 9725805	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1443.73	87.7198	1363.1	1	0	0	0		$|
 9725806	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1451.73	86.5079	1363.45	1	0	0	0		$|
 9725811	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	1450.14	89.2993	1387.94	0.617199	0.196955	0.386196	0.656602		$|
@@ -30,3 +30,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725838	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1389.6	90.8165	1389.88	0.946042	0	-0.324043	0		$|
 9725839	0	object/static/structure/tatooine/skeleton_krayt_tail.iff	0	1403.45	86.2769	1340.99	1	0	0	0		$|
 9725843	0	object/static/structure/tatooine/skeleton_greater_krayt_spine_medium.iff	0	1427.26	90.6072	1391.12	0.870293	0	0.492535	0		$|
+1105955	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1433.704102	89.85951996	1368.359375	1	0	0	0		$|
+1105956	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1405.018555	90.95259857	1381.476562	1	0	0	0		$|

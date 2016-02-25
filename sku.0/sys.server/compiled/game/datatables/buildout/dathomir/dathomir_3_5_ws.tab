@@ -17,4 +17,26 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725653	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1564.98	131.961	1599.91	1	0	0	0		$|
 9725658	0	object/static/structure/dantooine/dant_rack_spears.iff	0	1569.65	130.275	1593.7	-0.456397	0.103009	0.88311	-0.0347415		$|
 9725674	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1576.79	129.694	1597.09	0.993584	-0.081188	0.0101426	-0.0780804		$|
-9725677	0	object/tangible/furniture/all/frn_all_throwpillow_med_s01.iff	0	1575.52	130.054	1598.06	0.94078	-0.0458306	0.321991	-0.0956783	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_nsister_vs_sing_mtn_battle.iff|$|
+9725677	0	object/tangible/furniture/all/frn_all_throwpillow_med_s01.iff	0	1575.52	130.054	1598.06	0.94078	-0.0458306	0.321991	-0.0956783		$|
+4005685	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1576	128.4611816	1590	1	0	0	0		$|
+4005686	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1576	126.357254	1580	1	0	0	0		$|
+4005688	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1586	122.8058701	1570	1	0	0	0		$|
+4005689	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1576	124.5347595	1570	1	0	0	0		$|
+4005690	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1566	126.5607834	1570	1	0	0	0		$|
+4005691	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1576.162109	123.281601	1555.98999	1	0	0	0		$|
+4005692	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1556	126.9788055	1560	1	0	0	0		$|
+4005693	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1596	120.5737991	1560	1	0	0	0		$|
+4005696	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1596	120.3264618	1550	1	0	0	0		$|
+4005697	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1576	122.7792358	1550	1	0	0	0		$|
+4005698	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1556	125.8315048	1550	1	0	0	0		$|
+4005699	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1576	130.2954559	1480	1	0	0	0		$|
+4005700	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1566	129.0972137	1490	1	0	0	0		$|
+4005701	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1586	129.499588	1490	1	0	0	0		$|
+4005705	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1576	128.5825958	1500	1	0	0	0		$|
+4005707	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1576	127.0329132	1510	1	0	0	0		$|
+4005708	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1556	126.2290955	1510	1	0	0	0		$|
+4005709	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1596	125.6801987	1510	1	0	0	0		$|
+4005710	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1546	125.3536682	1520	1	0	0	0		$|
+4005711	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1566	125.4653244	1520	1	0	0	0		$|
+4005712	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1586	124.6795807	1520	1	0	0	0		$|
+4005713	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1606	122.0980453	1520	1	0	0	0		$|
