@@ -499,3 +499,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8515670	0	object/static/structure/general/tankfarm_s01.iff	0	1398.92	46	1437.19	1	0	0	0		$|
 8855664	0	object/building/military/military_base_shed_rebel_style_01.iff	0	1401.18	46	1463.23	1	0	0	0		portalLayoutCrc|0|1376564094|$|
 -1	0	object/tangible/npc/ris_armorquest_spawner.iff	0	1386.13	126	1926.7	1	0	0	0	npc.static_quest.quest_armorsmith	spawns|4|ris_inventor|$|
+3735618	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1693.673828	17.52339935	794.566895	1	0	0	0		$|
+3735620	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	924.600098	3.353742361	231.384766	1	0	0	0		$|
+3735621	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	919.476074	2.474677324	228.135742	1	0	0	0		$|
+3975385	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1348.983398	35.5768013	158.286621	1	0	0	0		$|
+4465396	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1543.927246	30	1461.540527	1	0	0	0		$|
