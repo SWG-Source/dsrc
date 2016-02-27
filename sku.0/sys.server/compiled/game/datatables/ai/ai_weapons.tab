@@ -6,9 +6,6 @@ pirate_pistol	object/weapon/ranged/pistol/pistol_d18.iff	object/weapon/ranged/pi
 pirate_rifle_low_level	object/weapon/ranged/rifle/rifle_laser.iff	object/weapon/ranged/rifle/rifle_dlt20a.iff		
 pirate_carbine_low_level	object/weapon/ranged/carbine/carbine_laser.iff	object/weapon/ranged/carbine/carbine_dh17.iff		
 pirate_pistol_low_level	object/weapon/ranged/pistol/pistol_d18.iff	object/weapon/ranged/pistol/pistol_striker.iff		
-pirate_rifle_low_level	object/weapon/ranged/rifle/rifle_laser.iff	object/weapon/ranged/rifle/rifle_dlt20a.iff		
-pirate_carbine_low_level	object/weapon/ranged/carbine/carbine_laser.iff	object/weapon/ranged/carbine/carbine_dh17.iff		
-pirate_pistol_low_level	object/weapon/ranged/pistol/pistol_d18.iff	object/weapon/ranged/pistol/pistol_striker.iff		
 pirate_sword	object/weapon/melee/sword/sword_blade_ryyk.iff	object/weapon/melee/axe/axe_vibroaxe.iff	object/weapon/melee/knife/knife_vibroblade.iff	object/weapon/melee/axe/axe_heavy_duty.iff
 pirate_polearm	object/weapon/melee/polearm/lance_staff_metal.iff	object/weapon/melee/polearm/lance_vibrolance.iff	object/weapon/melee/polearm/polearm_vibro_axe.iff	
 pirate_unarmed	object/weapon/melee/special/vibroknuckler.iff	unarmed		
