@@ -671,3 +671,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1714857	0	object/building/naboo/filler_building_naboo_theed_style_6.iff	0	597.788	330	716.363	0.696992	0	0.717079	0		$|
 1717279	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	1001.76	350	601.809	0.696134	0	0.717911	0		$|
 4295407	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1622.633789	289.9527283	507.690674	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	1061	388	402	1	0	0	0	poi.badge.badge_exploration	badge|0|76|$|

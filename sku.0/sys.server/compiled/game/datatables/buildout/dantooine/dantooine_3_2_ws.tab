@@ -158,3 +158,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9015588	0	object/static/structure/general/skeleton_human_head.iff	0	713.029	13.6602	1413.78	0.965092	0	-0.261909	0		$|
 3625421	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	716.519775	11.14108658	1419.353516	1	0	0	0		$|
 3625422	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	708.800537	10.93066502	1415.628418	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	234	2	438	1	0	0	0	poi.badge.badge_exploration	badge|0|84|$|

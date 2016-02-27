@@ -403,3 +403,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9685859	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1376.43	21.4336	1967.28	-0.653282	0.65328	-0.270598	-0.270598		$|
 9685860	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1374.69	21.0644	1964.84	0.92388	0	-0.382683	0		$|
 9685861	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1376.13	21.7904	1968.41	0.92388	0	-0.382683	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	234	12	1010	1	0	0	0	poi.badge.badge_exploration	badge|0|98|$|

@@ -92,3 +92,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4335587	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1610.724121	122	1945.172729	1	0	0	0		$|
 4335588	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1606.905273	122	1938.255127	1	0	0	0		$|
 4335589	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1631.299805	125	1924.647461	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	1601	122	1933	1	0	0	0	poi.badge.badge_exploration	badge|0|82|$|

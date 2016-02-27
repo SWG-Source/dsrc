@@ -18,3 +18,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1670454	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	2045.13	4.98431	757.127	0.917121	0	0.39861	0		$|
 1670487	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1960.86	2.4837	723.432	0.784718	-0.212274	-0.520434	-0.261355		$|
 5505363	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1961.42	5.55384	723.631	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	2030	5	721	1	0	0	0	poi.badge.badge_exploration	badge|0|19|$|

@@ -241,3 +241,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9705359	0	object/building/endor/endr_lake_rail4m.iff	0	361.93	7.01516	265.02	0.98166	-0.0178896	0.148363	-0.118368		$|
 9705361	0	object/building/endor/endr_lake_rail8m.iff	0	356.903	9.39536	270.935	0.719181	-0.0858911	-0.683546	0.0903687		$|
 2055801	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	366.4259033	6.536687851	266.233887	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	1428	1	823	1	0	0	0	poi.badge.badge_exploration	badge|0|87|$|

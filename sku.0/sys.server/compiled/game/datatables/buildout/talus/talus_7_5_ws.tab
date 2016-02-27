@@ -129,3 +129,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2735730	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	169.25	6	1011.819763	1	0	0	0		$|
 2735731	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	49.135254	6	983.5565186	1	0	0	0		$|
 2735772	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1377.74707	43.03320313	1097.494629	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	37	6	962	1	0	0	0	poi.badge.badge_exploration	badge|0|90|$|
