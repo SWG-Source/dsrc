@@ -313,3 +313,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9875560	0	object/static/structure/general/prp_junk_s8.iff	0	1577.65	99	1820.68	1	0	0	0		$|
 9875561	0	object/static/structure/general/prp_junk_s8.iff	0	1570.37	99	1816.9	1	0	0	0		$|
 2055785	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	687.022461	181.6108398	1901.506592	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	1516	90	1823	1	0	0	0	poi.badge.badge_exploration	badge|0|89|$|

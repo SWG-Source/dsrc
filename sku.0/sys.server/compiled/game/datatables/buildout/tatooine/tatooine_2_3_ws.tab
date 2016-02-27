@@ -64,3 +64,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8156015	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	599.722	39.6577	1669.05	0.962425	0	0	-0.271547		$|
 8156018	0	object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff	0	1032.73	28.1355	743.567	-0.31209	-0.372023	0.87313	-0.0429345		$|
 1106885	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	676.72168	30	210.39209	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	1652	35	1826	1	0	0	0	poi.badge.badge_exploration	badge|0|12|$|

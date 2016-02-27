@@ -15,3 +15,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8155871	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1024.8	40.0342	1684.2	1	0	0	0		$|
 8155872	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1018.14	40.5965	1690.58	1	0	0	0		$|
 435	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1024.562988	41.24019241	1695.714355	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	2022	19	728	1	0	0	0	poi.badge.badge_exploration	badge|0|16|$|

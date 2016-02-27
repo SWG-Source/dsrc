@@ -265,3 +265,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8425484	0	object/static/flora/flora_flower_tato_funnel_sm.iff	0	394.292	8.92105	1423.71	1	0	0	0		$|
 1475021	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1288.96	6.44365	465.59	1	0	0	0		$|
 1475022	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1284	5.70503	432.97	1	0	0	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	1258	10	405	1	0	0	0	poi.badge.badge_exploration	badge|0|18|$|

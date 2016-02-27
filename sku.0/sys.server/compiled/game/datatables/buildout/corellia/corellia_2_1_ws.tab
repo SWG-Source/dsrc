@@ -342,3 +342,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2775439	0	object/building/corellia/filler_slum_24x16_s02.iff	0	599.316	23.4	1957.28	0.707107	0	0.707107	0		$|
 3055592	0	object/building/corellia/filler_slum_24x16_s02.iff	0	832.796	4	1741.75	0.707107	0	0.707107	0		$|
 3055690	0	object/building/corellia/filler_slum_24x16_s01.iff	0	920.984	3.95414	1826.53	0.707108	0	-0.707106	0		$|
+-1	0	object/tangible/spawning/spawn_egg.iff	0	724	24	1946	1	0	0	0	poi.badge.badge_exploration	badge|0|80|$|
