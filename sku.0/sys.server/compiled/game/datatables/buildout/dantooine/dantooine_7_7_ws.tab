@@ -144,4 +144,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8895404	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	784.658	21.1925	415.925	1	0	0	0		$|
 3625439	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	795.754883	23.3411293	415.470703	1	0	0	0		$|
 3625443	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1362.118652	2.021153212	1741.391113	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	99	9	1107	1	0	0	0	poi.badge.badge_exploration	badge|0|30|$|
+-1	0	object/tangible/poi/tatooine/explore_dantooine_jedi_ruins.iff	0	99	9	1107	1	0	0	0		$|

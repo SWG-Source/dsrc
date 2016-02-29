@@ -4,7 +4,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4255640	4255435	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4255695	4255640	object/tangible/poi/spawnegg/interior_spawnegg.iff	1	2.625596046	-4.961918831	9.180895805	1	0	0	0		intRandomYaw|0|1|$|
 4255641	4255435	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
--1	4255641	object/tangible/spawning/spawn_egg.iff	2	-10.8	-37.6	-47.2	1	0	0	0	poi.badge.badge_exploration	badge|0|93|$|
+-1	4255641	object/tangible/poi/tatooine/explore_tal_aqualish_cave.iff	2	-10.8	-37.6	-47.2	1	0	0	0		$|
 4255694	4255641	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	9.569526672	-23.83769608	-26.90782928	1	0	0	0		intRandomYaw|0|1|$|
 4255642	4255435	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 4255691	4255642	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	12.0078783	-40.30416489	-77.77951813	1	0	0	0		intRandomYaw|0|1|$|

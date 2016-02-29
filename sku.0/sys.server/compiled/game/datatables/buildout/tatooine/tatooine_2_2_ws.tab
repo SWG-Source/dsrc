@@ -210,4 +210,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1563476	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	861.109375	40	1701.143555	1	0	0	0		$|
 1563477	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	806.041016	40	1709.104492	1	0	0	0		$|
 1683902	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	726.671387	41.60870361	99.500977	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	1496	56	1781	1	0	0	0	poi.badge.badge_exploration	badge|0|14|$|
+-1	0	object/tangible/poi/tatooine/explore_krayt_skeleton.iff	0	1496	56	1781	1	0	0	0		$|

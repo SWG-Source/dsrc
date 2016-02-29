@@ -12,7 +12,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1189177	1189173	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 7875696	1189177	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	-14.5819521	6.36902523	-17.63271332	1	0	0	0		intRandomYaw|0|1|$|
 1189178	1189173	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
--1	1189178	object/tangible/spawning/spawn_egg.iff	5	5.17	8.1	-29.3	1	0	0	0	poi.badge.badge_exploration	badge|0|13|$|
+-1	1189178	object/tangible/poi/tatooine/explore_tusken_pool.iff	5	5.17	8.1	-29.3	1	0	0	0		$|
 7875792	1189178	object/tangible/container/loot/placable_loot_crate.iff	5	-0.358753	8.52015	-35.1524	0.791414	0.0685275	0.606487	-0.0337772		$|
 7875698	1189178	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	-0.896174073	8.612736702	-42.70040512	1	0	0	0		intRandomYaw|0|1|$|
 1189179	1189173	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|

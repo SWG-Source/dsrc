@@ -109,4 +109,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6205454	0	object/static/structure/dantooine/dant_boundary_post.iff	0	975.819	3	1170.39	0.601835	0	0.798621	0		$|
 6205455	0	object/static/structure/dantooine/dant_hide_tanning_s01.iff	0	966.604	3	1155.17	0.827255	0	0.561827	0		$|
 6205456	0	object/static/structure/dantooine/dant_fish_rack.iff	0	956.562	3	1159.03	0.99995	0	0.00999988	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	1040	3	1165	1	0	0	0	poi.badge.badge_exploration	badge|0|85|$|
+-1	0	object/tangible/poi/tatooine/explore_dan_dantari_village2.iff	0	1040	3	1165	1	0	0	0		$|

@@ -118,5 +118,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8595357	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1073.24	-0.34785	1024.98	0.916962	0	-0.398974	0		$|
 8595358	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1059.47	-0.348262	1018.31	0.916962	0	-0.398974	0		$|
 8595359	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_01.iff	0	1065.57	-0.347851	1018.99	0.916962	0	-0.398974	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	1517	0	644	1	0	0	0	poi.badge.badge_exploration	badge|0|17|$|
--2	0	object/tangible/spawning/spawn_egg.iff	0	166	32	1721	1	0	0	0	poi.badge.badge_exploration	badge|0|15|$|
+-1	0	object/tangible/poi/tatooine/explore_tat_lars_homestead.iff	0	1517	0	644	1	0	0	0		$|
+-2	0	object/tangible/poi/tatooine/explore_escape_pod.iff	0	166	32	1721	1	0	0	0		$|

@@ -289,5 +289,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6645621	0	object/static/item/item_bottle_pear.iff	0	459.355	30	1621.3	1	0	0	0		$|
 6645622	0	object/static/item/item_bowl_plain.iff	0	453.338	30	1622.04	1	0	0	0		$|
 6645623	0	object/static/item/item_basket_shallow.iff	0	456.859	30	1633.31	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	1955	261	1619	1	0	0	0	poi.badge.badge_exploration	badge|0|88|$|
--2	0	object/tangible/spawning/spawn_egg.iff	0	564	33	1677	1	0	0	0	poi.badge.badge_exploration	badge|0|86|$|
+-1	0	object/tangible/poi/tatooine/explore_end_dulok_village.iff	0	1955	261	1619	1	0	0	0		$|
+-2	0	object/tangible/poi/tatooine/explore_end_ewok_tree_village.iff	0	564	33	1677	1	0	0	0		$|

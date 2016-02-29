@@ -614,4 +614,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365954	0	object/building/corellia/filler_slum_24x16_s02.iff	0	538.694	315	569.485	-0.00730028	0	0.999973	0		$|
 2395555	0	object/static/corellia/rock_bowl_agrilat_single.iff	0	643.971	313.067	575.412	1	0	0	0		$|
 2395558	0	object/building/corellia/filler_slum_24x16_s01.iff	0	632.31	315	665.297	-0.486168	0	0.873865	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	620	314	535	1	0	0	0	poi.badge.badge_exploration	badge|0|81|$|
+-1	0	object/tangible/poi/tatooine/explore_cor_bela_vistal_fountain.iff	0	620	314	535	1	0	0	0		$|
