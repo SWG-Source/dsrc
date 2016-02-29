@@ -1139,5 +1139,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9686028	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1798.737061	20	212.874023	1	0	0	0		$|
 9686029	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	2012.40625	20	189.566895	1	0	0	0		$|
 9686030	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1935.70166	20	375.252197	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	1913	20	349	1	0	0	0	poi.badge.badge_exploration	badge|0|91|$|
--2	0	object/tangible/spawning/spawn_egg.iff	0	1644	39	1798	1	0	0	0	poi.badge.badge_exploration	badge|0|92|$|
+-1	0	object/tangible/poi/tatooine/explore_tal_imp_base.iff	0	1913	20	349	1	0	0	0		$|
+-2	0	object/tangible/poi/tatooine/explore_tal_imp_vs_reb_battle.iff	0	1644	39	1798	1	0	0	0		$|

@@ -134,4 +134,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4065382	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	548.396484	75.99646759	513.324219	1	0	0	0		$|
 4065383	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	549.36084	76	447.42041	1	0	0	0		$|
 4065401	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	578.568359	76	511.381348	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	511	75	483	1	0	0	0	poi.badge.badge_exploration	badge|0|96|$|
+-1	0	object/tangible/poi/tatooine/explore_ror_imp_camp.iff	0	511	75	483	1	0	0	0		$|

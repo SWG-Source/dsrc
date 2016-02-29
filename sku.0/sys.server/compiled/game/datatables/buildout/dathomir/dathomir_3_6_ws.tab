@@ -16,4 +16,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725726	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	910.752	16.3813	1108.15	1	0	0	0		$|
 1105989	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	918.57373	21.82620049	1136.126221	1	0	0	0		$|
 1105990	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	910.498779	22.92370224	1137.802734	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	2008	19	1103	1	0	0	0	poi.badge.badge_exploration	badge|0|26|$|
+-1	0	object/tangible/poi/tatooine/explore_dathomir_sarlaac.iff	0	2008	19	1103	1	0	0	0		$|

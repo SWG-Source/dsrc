@@ -134,4 +134,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2215401	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1106.674805	5	1516.823242	1	0	0	0		$|
 2215402	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1084.040039	5	1554.029663	1	0	0	0		$|
 2215403	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1128.391602	5	1589.30249	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	1084	5	1640	1	0	0	0	poi.badge.badge_exploration	badge|0|79|$|
+-1	0	object/tangible/poi/tatooine/explore_cor_rogue_corsec_base.iff	0	1084	5	1640	1	0	0	0		$|

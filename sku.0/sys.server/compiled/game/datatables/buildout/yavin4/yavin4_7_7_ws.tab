@@ -5,7 +5,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3465381	3465379	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3465382	3465379	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 3465383	3465379	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
--1	3465383	object/tangible/spawning/spawn_egg.iff	4	0	0	4	1	0	0	0	poi.badge.badge_exploration	badge|0|23|$|
+-1	3465383	object/tangible/poi/tatooine/explore_yavin_exar_kun.iff	4	0	0	4	1	0	0	0		$|
 3465384	3465379	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 3465385	3465379	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 3465386	3465379	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|

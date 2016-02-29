@@ -6,4 +6,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9685494	0	object/static/structure/tatooine/stone_hovel_tatooine_style_01.iff	0	1779.96	15.0472	922.236	0.382683	0	0.92388	0		$|
 3515415	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1786.439941	15.15198326	917.080444	1	0	0	0		$|
 3515416	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1782.854004	14.33568573	911.23877	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	466	13	892	1	0	0	0	poi.badge.badge_exploration	badge|0|99|$|
+-1	0	object/tangible/poi/tatooine/explore_lok_kimogila_skeleton.iff	0	466	13	892	1	0	0	0		$|

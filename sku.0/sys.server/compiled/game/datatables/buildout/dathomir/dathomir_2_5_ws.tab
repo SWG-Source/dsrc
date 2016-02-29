@@ -22,4 +22,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725955	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	884.145	122.479	1300.13	0.999388	0	-0.0349929	0		$|
 9725956	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	885.136	122.487	1300.2	0.999388	0	-0.0349929	0		$|
 9185411	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	34.233398	131.0275421	964.8274536	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	1707	14	574	1	0	0	0	poi.badge.badge_exploration	badge|0|27|$|
+-1	0	object/tangible/poi/tatooine/explore_dat_escape_pod.iff	0	1707	14	574	1	0	0	0		$|

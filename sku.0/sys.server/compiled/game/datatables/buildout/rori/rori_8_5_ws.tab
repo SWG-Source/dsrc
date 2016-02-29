@@ -7,7 +7,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 479805	479723	object/tangible/poi/spawnegg/interior_spawnegg.iff	1	2.234396935	-14.2860899	-8.547611237	1	0	0	0		intRandomYaw|0|1|$|
 479806	479723	object/tangible/poi/spawnegg/interior_spawnegg.iff	1	23.84892845	-26.25502396	-6.982348919	1	0	0	0		intRandomYaw|0|1|$|
 479724	479722	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
--1	479724	object/tangible/spawning/spawn_egg.iff	2	23.7	-35.7	-24.9	1	0	0	0	poi.badge.badge_exploration	badge|0|94|$|
+-1	479724	object/tangible/poi/tatooine/explore_ror_kobala_spice_mine.iff	2	23.7	-35.7	-24.9	1	0	0	0		$|
 479908	479724	object/tangible/container/loot/placable_loot_crate.iff	2	47.2288	-47.2679	-13.2615	0.466913	0	0.884303	0		$|
 479918	479724	object/tangible/container/loot/placable_loot_crate.iff	2	54.3187	-68.2797	-42.0993	0.693111	0	0.720831	0		$|
 479812	479724	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	23.29545975	-39.71167374	-43.17869949	1	0	0	0		intRandomYaw|0|1|$|

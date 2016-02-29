@@ -139,4 +139,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3515373	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1828.546143	12.03850269	627.031738	1	0	0	0		$|
 3515408	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	657.031982	13.2328186	769.276855	1	0	0	0		$|
 3515409	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	657.559082	12.86862183	773.078125	1	0	0	0		$|
--1	0	object/tangible/spawning/spawn_egg.iff	0	1043	358	1506	1	0	0	0	poi.badge.badge_exploration	badge|0|24|$|
+-1	0	object/tangible/poi/tatooine/explore_lok_volcano.iff	0	1043	358	1506	1	0	0	0		$|
