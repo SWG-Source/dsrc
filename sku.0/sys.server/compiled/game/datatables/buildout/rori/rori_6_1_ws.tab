@@ -217,3 +217,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -15	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	1612	96	1751	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|cll8_work_path_3_7375869_0|registerWithController|0|1|$|
 -16	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	1609	96	1718	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|cll8_work_path_4_7375869_0|registerWithController|0|1|$|
 -17	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	1642	96	1718	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|cll8_work_path_5_7375869_0|registerWithController|0|1|$|
+-18	0	object/tangible/spawning/static_npc/junk_dealer/junk_dealer_arms.iff	0	1654	96	1757	0	0	0	1		$|
