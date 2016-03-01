@@ -1,5 +1,7 @@
 @base object/mobile/shared_mobile.iff
 
+@class creature_object_template 10
+
 acceleration[MT_walk] = 3
 acceleration[MT_run] = 9
 

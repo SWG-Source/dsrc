@@ -1,5 +1,5 @@
 @base object/intangible/base/shared_base_intangible.iff
-@class mission_list_entry_object_template 0
+//@class mission_list_entry_object_template 0
 @class intangible_object_template 0
 @class object_template 5
 

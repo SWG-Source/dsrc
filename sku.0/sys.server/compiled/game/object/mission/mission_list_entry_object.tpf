@@ -2,7 +2,7 @@
 
 @base object/intangible/base/intangible_base.iff
 
-@class mission_list_entry_object_template 0
+//@class mission_list_entry_object_template 0
 
 @class intangible_object_template 0
 

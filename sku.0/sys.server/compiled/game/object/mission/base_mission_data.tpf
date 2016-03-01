@@ -1,5 +1,5 @@
 @base object/intangible/base/intangible_base.iff
-@class mission_data_object_template 0
+//@class mission_data_object_template 0
 
 @class intangible_object_template 0
 
