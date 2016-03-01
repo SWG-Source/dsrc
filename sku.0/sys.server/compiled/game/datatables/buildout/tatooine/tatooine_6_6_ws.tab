@@ -18,6 +18,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1154120	0	object/building/tatooine/housing_tatt_style01_med.iff	0	1732.99	11.6173	343.211	0.700562	0	0.713591	0	planet_map.map_loc	planetMap.category|4|cantina|$|
 1154121	1154120	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1154122	1154120	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1106522	1154122	object/tangible/gambling/slot/standard.iff	2	9.16549	0.408271	-10.4758	1	0	0	0		$|
+1106523	1154122	object/tangible/gambling/slot/standard.iff	2	7.06044	0.408271	-10.4629	1	0	0	0		$|
+1106524	1154122	object/tangible/gambling/slot/standard.iff	2	4.89996	0.408271	-10.553	1	0	0	0		$|
+1106525	1154122	object/tangible/gambling/wheel/roulette.iff	2	10.1964	0.40827	-8.35277	1	0	0	0		$|
+1106526	1154122	object/tangible/gambling/wheel/roulette.iff	2	10.1807	0.408271	-6.09439	1	0	0	0		$|
+1106527	1154122	object/tangible/gambling/wheel/roulette.iff	2	-10.3061	0.408271	1.97434	1	0	0	0		$|
+1106528	1154122	object/tangible/gambling/slot/standard.iff	2	-11.012	0.408271	-0.543962	0.707107	0	0.707107	0		$|
+1106529	1154122	object/tangible/gambling/slot/standard.iff	2	-7.94289	0.408271	2.75964	-3.20013e-08	0	1	0		$|
 1154123	1154120	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1154124	1154120	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1154125	1154120	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|

@@ -660,7 +660,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1223847	1223845	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1223848	1223845	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1223849	1223845	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1106011	1223849	object/tangible/gambling/slot/standard.iff	4	0.384282	0.999499	-22.1791	1	0	0	0		$|
+1106012	1223849	object/tangible/gambling/slot/standard.iff	4	4.43562	1	-22.1384	1	0	0	0		$|
+1106013	1223849	object/tangible/gambling/slot/standard.iff	4	8.28021	1	-22.1715	1	0	0	0		$|
 1223850	1223845	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1106005	1223850	object/tangible/gambling/slot/standard.iff	5	27.1022	1.28309	-1.85513	0.707107	0	-0.707106	0		$|
+1106008	1223850	object/tangible/gambling/slot/standard.iff	5	14.2777	1.28309	6.32069	0.707107	0	0.707106	0		$|
+1106009	1223850	object/tangible/gambling/slot/standard.iff	5	14.1065	1.28309	-6.28863	0.707107	0	0.707106	0		$|
+1106010	1223850	object/tangible/gambling/wheel/roulette.iff	5	18.5391	1.28309	5.37386	1	0	0	0		$|
 1223851	1223845	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1223852	1223845	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1223853	1223845	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
