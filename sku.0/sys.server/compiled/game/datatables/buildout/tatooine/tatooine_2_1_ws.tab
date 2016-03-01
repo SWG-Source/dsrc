@@ -81,6 +81,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1134568	1134557	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1134569	1134557	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1134570	1134557	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+1106531	1134570	object/tangible/gambling/wheel/roulette.iff	13	-31.9715	-0.519991	6.07928	1	0	0	0		$|
+1106532	1134570	object/tangible/gambling/wheel/roulette.iff	13	-31.9352	-0.519991	13.9577	1	0	0	0		$|
+1106533	1134570	object/tangible/gambling/wheel/roulette.iff	13	-23.9556	-0.519991	6.13396	1	0	0	0		$|
+1106545	1134570	object/tangible/gambling/slot/standard.iff	13	-26.5608	-0.519991	5.35536	1	0	0	0		$|
+1106546	1134570	object/tangible/gambling/slot/standard.iff	13	-28.9129	-0.519991	5.32529	1	0	0	0		$|
+1106547	1134570	object/tangible/gambling/slot/standard.iff	13	-32.7576	-0.519991	9.18493	0.707107	0	0.707106	0		$|
+1106548	1134570	object/tangible/gambling/slot/standard.iff	13	-32.6856	-0.519991	11.4782	0.707107	0	0.707106	0		$|
 1134571	1134557	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1134572	1134557	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1134573	0	object/building/tatooine/housing_tatt_style01_small.iff	0	917.909	75	1720.12	0.0123911	0	0.999923	0		$|
