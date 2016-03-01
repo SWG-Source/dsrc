@@ -127,7 +127,8 @@ public class quests extends script.base_script
         setWaypointName(waypoint, display);
         setObjVar(player, questId + ".entry", entry);
         setObjVar(player, questId + ".file", file);
-        setObjVar(waypoint, "player", player);
+        // can't set objvars on waypoints I suppose.
+        //setObjVar(waypoint, "player", player);
         setObjVar(player, "questID", questId);
         return waypoint;
     }
