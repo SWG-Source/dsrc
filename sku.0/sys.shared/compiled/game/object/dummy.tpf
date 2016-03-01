@@ -1,4 +1,4 @@
-@class tangible_object_template 0
+@class tangible_object_template 10
 
 // enum type CombatSkeleton:
 //     CS_none		(// all "body" or not attackable)
@@ -109,34 +109,44 @@
 //     object		// template type tangible_object_template
 
 // enum type CombatSkeleton
-combatSkeleton = CS_none
+// combatSkeleton = CS_none
 // list, of type struct Equipment
-equipment = [ [
-	slot = 0,
-	object = "tangible_object_template"] ]
+//equipment = [ [
+//	slot = 0,
+//	object = "tangible_object_template"] ]
 // floating point
-weight = 0.0
+//weight = 0.0
 // integer
-maxHitPoints = 0
+//maxHitPoints = 0
 // string id
-popupHelpId = "stringIdTable" 0
+//popupHelpId = "stringIdTable" 0
 // boolean
-visible = false
+//visible = false
 // floating point
-qualityRating = 0.0
+//qualityRating = 0.0
 // list, of type template type armor_template
-armor = [ "tangible_object_template" ]
+//armor = [ "tangible_object_template" ]
 // string
-appearanceData = ""
+//appearanceData = ""
 // string
-appearanceFilename = ""
+//appearanceFilename = ""
 // boolean
-hasSound = false
+//hasSound = false
 // enum type SoundType
-soundIndex = ST_nothing
+//soundIndex = ST_nothing
 // floating point
-soundRange = 0.0
+//soundRange = 0.0
 
+paletteColorCustomizationVariables = []
+rangedIntCustomizationVariables = []
+constStringCustomizationVariables = []
+socketDestinations = []
+structureFootprintFileName = ""
+useStructureFootprintOutline = false
+targetable = false
+certificationsRequired = []
+customizationVariableMapping = []
+clientVisabilityFlag = CVF_always
 
-@class starwars_object_template 0
+// @class starwars_object_template 0
 
