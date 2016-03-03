@@ -400,7 +400,9 @@ public class masterspawner extends script.base_script
         location wuherLoc = new location(8.46f, 1.0f, 0.35f, "tatooine", room);
         obj_id wuher = create.object("wuher", wuherLoc);
         create.addDestroyMessage(wuher, "wuherDied", 10f, self);
-        setCreatureStatic(wuher, true);
+        // all bartenders should move around and do their job... nobody gets away with just standing around.
+        // (removing setCreatureStatic to allow Wuher to move around.)
+        // setCreatureStatic(wuher, true);
         setInvulnerable(wuher, true);
         setYaw(wuher, 47);
         ai_lib.setDefaultCalmMood(wuher, "npc_imperial");
