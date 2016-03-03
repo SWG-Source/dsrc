@@ -61,7 +61,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8315373	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	342.019	42.2899	2000.27	-0.305816	0	0.95209	0		$|
 8315374	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	341.434	42.53	2000.03	0.804127	0	0.594458	0		$|
 8315375	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	340.773	43.0354	1999.85	0.846409	0	0.532534	0		$|
-8475477	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	87.1211	10.3349	1580.13	0.764203	0.186594	-0.563065	-0.253249		$|
+8475477	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	87.1211	10.3349	1580.13	0.764203	0.186594	-0.563065	-0.253249	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/talus/talus_commoner.iff|$|
 8475478	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	87.7264	11.9945	1579.49	1	0	0	0		$|
 8475479	0	object/static/structure/general/campfire_ash.iff	0	86.9421	11.8926	1576.92	1	0	0	0		$|
 8475480	0	object/static/structure/general/skeleton_human_headandbody.iff	0	85.6686	11.7777	1578.7	0.999238	-0.000749809	-0.0249861	0.0299861		$|
