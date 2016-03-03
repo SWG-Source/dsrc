@@ -43,7 +43,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6055692	0	object/static/structure/general/skeleton_human_head.iff	0	1350.02	91.1427	931.859	0.990216	0.139543	0	0		$|
 6475955	0	object/static/structure/general/streetlamp_small_red_style_02.iff	0	1350.06	83.685	933.417	1	0	0	0		$|
 9715633	0	object/static/structure/general/poi_nboo_corral_32x32_s01.iff	0	989.072	76.0259	581.051	-0.286715	0	0.958016	0		$|
-9715636	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	997.339	76.2203	580.327	0.961055	0	0.276356	0		$|
+9715636	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	997.339	76.2203	580.327	0.961055	0	0.276356	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/rori/rori_commoner.iff|$|
 9715637	0	object/tangible/camp/camp_cot.iff	0	999.29	76.6211	580.959	0.719702	0.681932	0.113857	-0.0635219		$|
 9715644	0	object/tangible/camp/camp_cot.iff	0	997.673	76.7167	579.481	-0.0390897	0.999136	0.00959974	0.0103836		$|
 9715652	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	995.45	75.7936	573.819	0.951353	-0.114713	0.283896	0.034232		$|

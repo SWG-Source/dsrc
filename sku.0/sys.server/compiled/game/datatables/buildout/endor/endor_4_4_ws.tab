@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-4735482	0	object/static/structure/dantooine/dant_large_mudhut_no_flora_05m.iff	0	958.897	6.13152	1051.93	-0.696707	0	0.717356	0		$|
+4735482	0	object/static/structure/dantooine/dant_large_mudhut_no_flora_05m.iff	0	958.897	6.13152	1051.93	-0.696707	0	0.717356	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/endor/endor_commoner.iff|$|
 4735483	0	object/static/structure/dantooine/dant_mud_oven.iff	0	944.395	5.87281	1051.5	0.714421	0	0.699716	0		$|
 4735484	0	object/tangible/camp/camp_cot_s2.iff	0	961.734	6.18271	1047.77	0.822502	0	0.568762	0		$|
 4735485	0	object/tangible/camp/camp_cot_s2.iff	0	960.468	6.15097	1047.22	0.819648	0	0.572867	0		$|

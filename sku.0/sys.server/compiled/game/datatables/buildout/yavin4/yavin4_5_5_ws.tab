@@ -13,7 +13,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8735563	0	object/tangible/camp/camp_tent_s4.iff	0	1595.84	101.814	1539.32	0.990412	0.0594962	-0.12445	0.007476		$|
 8735564	0	object/tangible/camp/camp_tent_s3.iff	0	1587.99	101.458	1541.79	-0.561168	0	0.827702	0		$|
 8735565	0	object/tangible/camp/camp_tent_s3.iff	0	1588.14	101.937	1532.43	0.366899	-0.0180327	0.929925	0.0173116		$|
-8735573	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	1591.19	101.822	1536.42	0.897857	0.0269438	-0.439264	0.0131819		$|
+8735573	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	1591.19	101.822	1536.42	0.897857	0.0269438	-0.439264	0.0131819	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/yavin4/yavin_commoner.iff|$|
 8735575	0	object/tangible/furniture/tatooine/frn_tato_table_small_style_01.iff	0	1592.08	101.791	1537.23	0.998888	0.0249774	-0.000999629	0.0399768		$|
 8735577	0	object/static/item/item_tool_radio.iff	0	1591.69	102.364	1537.53	0.688611	0.00448635	0.72408	0.0387771		$|
 8735584	0	object/static/item/item_tool_sensor_frequency_jammer_s2.iff	0	1590.18	101.733	1537.72	1	0	0	0		$|

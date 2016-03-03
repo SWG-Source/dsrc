@@ -204,7 +204,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2745839	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	466.602	22.9537	869.002	0.958244	0	-0.285952	0		$|
 2745859	0	object/building/tatooine/filler_building_tatt_style01_07.iff	0	641.698	11.8822	980.657	-0.707107	0	0.707107	0		$|
 2745861	0	object/building/tatooine/filler_building_tatt_style01_07.iff	0	641.737	11.9529	932.991	-0.707105	0	0.707108	0		$|
-2745863	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	643.692	11.8316	956.9	-3.20E-08	0	1	0		$|
+2745863	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	643.692	11.8316	956.9	-3.20E-08	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/lok/lok_commoner.iff|$|
 2745865	2745864	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2745866	2745864	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2745867	2745864	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
