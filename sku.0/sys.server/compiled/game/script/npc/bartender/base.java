@@ -1,22 +1,16 @@
 package script.npc.bartender;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
 import script.library.chat;
-import script.library.consumable;
 import script.library.factions;
 import script.library.money;
 import script.library.prose;
 import script.library.sui;
 import script.library.township;
 import script.library.utils;
+
+import java.util.Vector;
 
 public class base extends script.base_script
 {
@@ -70,7 +64,7 @@ public class base extends script.base_script
     };
     public static final String CONVONAME = "bartender";
     public static final String STF = "bartender";
-    public static final string_id[] OPT_DEFAULT = 
+    public static final string_id[] OPT_DEFAULT =
     {
         new string_id(STF, "opt_buy"),
         new string_id(STF, "talk_to_me")
@@ -239,13 +233,10 @@ public class base extends script.base_script
         {
             if (rand(0, 10) < 4)
             {
-                if (bartenderMove(self))
-                {
-                    return SCRIPT_CONTINUE;
-                }
+                bartenderMove(self);
             }
         }
-        playBarAnimation(self, true);
+        playBarAnimation(self);
         messageTo(self, "handleTick", null, rand(15f, 30f), false);
         return SCRIPT_CONTINUE;
     }
@@ -288,32 +279,31 @@ public class base extends script.base_script
                 switch (rand(1, 2))
                 {
                     case 1:
-                    float barYaw = yaw + rand(-10f, 10f);
-                    setYaw(self, barYaw);
-                    break;
+                        float barYaw = yaw + rand(-10f, 10f);
+                        setYaw(self, barYaw);
+                        break;
                     case 2:
                     default:
-                    float yawAway = yaw - 180f + rand(-10f, 10f);
-                    setYaw(self, yawAway);
-                    faceBar = false;
+                        float yawAway = yaw - 180f + rand(-10f, 10f);
+                        setYaw(self, yawAway);
+                        faceBar = false;
                     break;
                 }
-                playBarAnimation(self, faceBar);
+                playBarAnimation(self);
             }
             removeLocationTarget(locationName);
             removeObjVar(self, VAR_LOC_BASE + "." + locationName);
         }
-        messageTo(self, "handleTick", null, rand(30f, 45f), false);
         return SCRIPT_CONTINUE;
     }
-    public void playBarAnimation(obj_id self, boolean isFacingBar) throws InterruptedException
+    public void playBarAnimation(obj_id self) throws InterruptedException
     {
         if (!isIdValid(self))
         {
             return;
         }
         String anim = "check_wrist_device";
-        if (isFacingBar)
+        if (getYaw(self) == getFloatObjVar(self, "heading"))
         {
             int tidx = rand(0, ANIMS_TOWARD.length - 1);
             anim = ANIMS_TOWARD[tidx];
@@ -390,7 +380,7 @@ public class base extends script.base_script
                     float nz = z1;
                     if (z1 < z2)
                     {
-                        nx = rand(z1, z2);
+                        nz = rand(z1, z2);
                     }
                     else if (z2 < z1)
                     {
@@ -404,6 +394,8 @@ public class base extends script.base_script
                 }
                 if (there != null)
                 {
+                    // clean up past locations
+                    //cleanDestinations(self);
                     int now = getGameTime();
                     float heading = (heading1 + heading2) / 2f;
                     setObjVar(self, VAR_LOC_BASE + "." + now + ".location", there);
@@ -430,6 +422,11 @@ public class base extends script.base_script
     }
     public void updateDestination(obj_id self) throws InterruptedException
     {
+        cleanDestinations(self);
+        bartenderMove(self);
+    }
+    public void cleanDestinations(obj_id self) throws InterruptedException
+    {
         if (hasObjVar(self, VAR_LOC_BASE))
         {
             obj_var_list ovl = getObjVarList(self, VAR_LOC_BASE);
@@ -451,7 +448,6 @@ public class base extends script.base_script
             }
             removeObjVar(self, VAR_LOC_BASE);
         }
-        bartenderMove(self);
     }
     public int showBuySui(obj_id target) throws InterruptedException
     {
