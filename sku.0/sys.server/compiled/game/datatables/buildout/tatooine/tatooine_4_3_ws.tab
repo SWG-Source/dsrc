@@ -328,7 +328,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028581	1028574	object/cell/cell.iff	7	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1028582	1028574	object/cell/cell.iff	8	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1028583	1028574	object/cell/cell.iff	9	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
-1028590	0	object/building/tatooine/association_hall_civilian_tatooine.iff	0	928.921	12	569.878	-0.329522	0	0.944148	0		$|
+1028590	0	object/building/tatooine/association_hall_civilian_tatooine.iff	0	928.921	12	569.878	-0.329522	0	0.944148	0	theme_park.tatooine.bestine_pilots_club.masterspawner	$|
 1212350	1028590	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1212351	1028590	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1212352	1028590	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
