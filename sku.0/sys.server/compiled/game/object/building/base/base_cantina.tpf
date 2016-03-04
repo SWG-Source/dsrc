@@ -8,5 +8,5 @@
 
 @class object_template 5
 scripts = +["structure.municipal.cantina"]
-objvars = +["healing.canhealshock"=1]
+objvars = +["healing.canhealshock"=1, "intSpawnBartender"=1]
 moveFlags = [ MF_gm ]
