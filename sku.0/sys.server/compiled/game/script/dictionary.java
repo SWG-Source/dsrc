@@ -156,6 +156,7 @@ public class dictionary implements Serializable
 		catch (IOException x)
 		{
 			System.err.println("IOException:  "+x.toString());
+			System.err.println("Reason: Could not unpack byte string: '" + source + "'");
 		}
 
 		return null;
