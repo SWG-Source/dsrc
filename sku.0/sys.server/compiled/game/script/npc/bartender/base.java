@@ -234,9 +234,12 @@ public class base extends script.base_script
             if (rand(0, 10) < 4)
             {
                 bartenderMove(self);
+                playBarAnimation(self);
+            }
+            else {
+                playBarAnimation(self);
             }
         }
-        playBarAnimation(self);
         messageTo(self, "handleTick", null, rand(15f, 30f), false);
         return SCRIPT_CONTINUE;
     }
@@ -273,9 +276,7 @@ public class base extends script.base_script
             if (hasObjVar(self, VAR_LOC_BASE + "." + locationName + ".heading"))
             {
                 float yaw = getFloatObjVar(self, VAR_LOC_BASE + "." + locationName + ".heading");
-                location here = getLocation(self);
                 boolean faceBar = true;
-                location faceLoc = null;
                 switch (rand(1, 2))
                 {
                     case 1:
@@ -289,6 +290,7 @@ public class base extends script.base_script
                         faceBar = false;
                     break;
                 }
+                setObjVar(self,"facingBar",faceBar);
                 playBarAnimation(self);
             }
             removeLocationTarget(locationName);
@@ -303,7 +305,7 @@ public class base extends script.base_script
             return;
         }
         String anim = "check_wrist_device";
-        if (getYaw(self) == getFloatObjVar(self, "heading"))
+        if (getBooleanObjVar(self,"facingBar"))
         {
             int tidx = rand(0, ANIMS_TOWARD.length - 1);
             anim = ANIMS_TOWARD[tidx];
@@ -394,8 +396,6 @@ public class base extends script.base_script
                 }
                 if (there != null)
                 {
-                    // clean up past locations
-                    //cleanDestinations(self);
                     int now = getGameTime();
                     float heading = (heading1 + heading2) / 2f;
                     setObjVar(self, VAR_LOC_BASE + "." + now + ".location", there);
