@@ -184,6 +184,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3005669	3005666	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 4607384	3005669	object/tangible/collection/rare_melee_xandank_lance.iff	1	-0.07898277	2.015273	17.88626	0.7073907	0	0	0		$|
 3005670	3005666	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1491047	3005670	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	7.6	1.0	5.0	1	0	0	0		$|
+1491048	3005670	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	7.6	1.0	6.9	1	0	0	0		$|
 1095028	3005670	object/tangible/gambling/slot/standard.iff	1	4.397291	1.312001	-22.09156	0.9999973	0	-0.002301926	0		$|
 1095029	3005670	object/tangible/gambling/slot/standard.iff	2	0.3240089	1.311101	-22.049	0.9999973	0	-0.002301926	0		$|
 1095030	3005670	object/tangible/gambling/wheel/roulette.iff	3	-1.155838	1.121297	-16.18844	0.9999973	0	-0.002301926	0		$|
