@@ -660,6 +660,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1223847	1223845	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1223848	1223845	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1223849	1223845	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1443039	1223849	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	7.6	1.0	5.1	1	0	0	0		$|
 1106011	1223849	object/tangible/gambling/slot/standard.iff	4	0.384282	0.999499	-22.1791	1	0	0	0		$|
 1106012	1223849	object/tangible/gambling/slot/standard.iff	4	4.43562	1	-22.1384	1	0	0	0		$|
 1106013	1223849	object/tangible/gambling/slot/standard.iff	4	8.28021	1	-22.1715	1	0	0	0		$|
