@@ -666,6 +666,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1106013	1223849	object/tangible/gambling/slot/standard.iff	4	8.28021	1	-22.1715	1	0	0	0		$|
 1223850	1223845	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1443040	1223850	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	5	15.6	1.3	9.9	1	0	0	0		$|
+4275655	1223850	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	5	20.3	1.6	12.7	1	0	0	0		$|
 1106005	1223850	object/tangible/gambling/slot/standard.iff	5	27.1022	1.28309	-1.85513	0.707107	0	-0.707106	0		$|
 1106008	1223850	object/tangible/gambling/slot/standard.iff	5	14.2777	1.28309	6.32069	0.707107	0	0.707106	0		$|
 1106009	1223850	object/tangible/gambling/slot/standard.iff	5	14.1065	1.28309	-6.28863	0.707107	0	0.707106	0		$|
