@@ -1205,3 +1205,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4026549	0	object/static/item/item_armor_chitin_helmet.iff	0	1024.48	21.3532	1760.12	0.382683	0	0.92388	0		$|
 4026556	0	object/static/structure/general/droid_r3_torso.iff	0	507.263	21	1297.82	1	0	0	0		$|
 4026557	0	object/static/structure/general/droid_r4_leg.iff	0	506.804	21	1297.35	1	0	0	0		$|
+9526237	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1071	21	1754	1	0	0	0		$|
