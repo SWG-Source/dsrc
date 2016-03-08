@@ -336,6 +336,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4778181	6595512	object/tangible/collection/rare_carbine_nym_slugthrower.iff	4	1.73235	11.2984	-39.0515	-0.504059	0.459759	0.624709	0.379847		$|
 6595513	6595508	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 6595514	6595508	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+5146158	6595514	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	6	-23.5	4.2	-36.8	1	0	0	0		$|
 6595515	6595508	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 6595516	6595508	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 6595517	6595508	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
