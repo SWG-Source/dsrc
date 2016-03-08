@@ -1387,3 +1387,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4935940	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1380.733	63.4667	333	1	0	0	0		$|
 4935941	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1405.713	60.1034	368.99	1	0	0	0		$|
 4935942	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1405.957	55.7825	392.43	1	0	0	0		$|
+189678	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	759	12	500	1	0	0	0		$|
+189679	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	757	12	507	1	0	0	0		$|
