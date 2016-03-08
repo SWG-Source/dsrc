@@ -395,6 +395,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8145359	8145352	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 8145360	8145352	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 8145361	8145352	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+4485392	8145361	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	9	-13.4	1.6	-15.6	0.89101	0	0.45399	0		$|
 8145362	8145352	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 8145375	0	object/building/tatooine/cantina_tatooine.iff	0	499.718	11.88	968.887	0.945784	0	-0.324796	0	theme_park.lok.cantina:planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.empire_day_interior_npc_spawner	healing.canhealshock|0|1|safeLogout|0|1|empire_day_spawn_table|4|datatables/spawning/building_spawns/empire_day_rebel_nyms.iff|$|
 8145376	8145375	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
