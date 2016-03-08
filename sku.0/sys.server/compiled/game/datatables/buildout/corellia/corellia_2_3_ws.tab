@@ -44,11 +44,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1935459	1935456	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1935460	1935456	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1935461	1935456	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
-525454240	1935461	object/tangible/collection/col_force_shui_painting_05.iff	5	11.20586	2.887409	6.949521	0.0007547463	0.3193086	0.9476505	0		$|
+525454240	1935461	object/tangible/collection/col_force_shui_painting_05.iff	5	11.2059	2.88741	6.94952	0.000754746	0.319309	0.94765	0.00025431		$|
 1935462	1935456	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1935463	1935456	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1935464	1935456	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
-1109498	1935464	object/tangible/collection/scout_trooper_left_bicep.iff	1	3.06917	0.9484675	-14.00506	-0.568882	0.0110503	0.613852	0.547207		$|
+1109498	1935464	object/tangible/collection/scout_trooper_left_bicep.iff	8	3.06917	0.948467	-14.0051	-0.568882	0.0110503	0.613852	0.547207		$|
 1935465	1935456	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1935466	0	object/building/corellia/association_hall_civilian_corellia.iff	0	641.988	21	1275.94	1	0	0	0		$|
 1935513	0	object/building/corellia/cloning_corellia.iff	0	453.445	21	1398.31	0.707107	0	0.707107	0		$|
@@ -97,7 +97,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1935688	1935683	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1935689	1935683	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1935690	1935683	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
-1112729	1935690	object/tangible/collection/flower_08.iff	1	54.1622	0.632308	47.64178	-0.3043011	0	0.9525761	0		$|
+1112729	1935690	object/tangible/collection/flower_08.iff	7	54.1622	0.632308	47.6418	-0.304301	0	0.952576	0		$|
 1935691	1935683	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1935692	1935683	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1935693	1935683	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
@@ -765,7 +765,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2625353	2625352	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2625354	2625352	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2625355	2625352	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
--4	2625355	object/tangible/collection/hanging_light_02_10.iff	1	-15.49157	3.523299	0.5998853	1	0	0	0		$|
+514454336	2625355	object/tangible/collection/hanging_light_02_10.iff	3	-15.49157	3.523299	0.5998853	1	0	0	0		$|
 2625356	2625352	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 2625357	2625352	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 2625358	2625352	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
@@ -775,6 +775,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2625362	2625352	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 2625363	2625352	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 2625364	2625352	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+1570630	2625364	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	12	-24.1	-0.9	-2509.3	1	0	0	0		$|
 2625365	2625352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 2625366	2625352	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 2625367	2625352	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
