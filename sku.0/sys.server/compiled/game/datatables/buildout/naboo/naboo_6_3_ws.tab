@@ -8,7 +8,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5775511	1418874	object/tangible/terminal/terminal_mission_imperial.iff	0	3.501986	0.2	-17.76742	0.2815403	0	0.9595497	0		$|
 5775513	1418874	object/tangible/terminal/terminal_mission_imperial.iff	0	22.29844	0.2	-17.65716	-0.2559252	0	0.9666967	0		$|
 1418875	1418871	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
-4295592	1418875	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	22.33858	0.2	-42.56847	0.38268	0	-0.92388	0	space.content_tools.npc_spawner	$|
+4295592	1418875	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	22.33858	0.2	-42.56847	0.38268	0	-0.92388	0		$|
 1418876	1418871	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
 1418877	1418871	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
 1418878	1418871	object/cell/cell.iff	7	0	0	0	1	9.809089E-45	0	0		$|
@@ -21,6 +21,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8865518	1418882	object/tangible/terminal/terminal_space.iff	11	-18.946	0.2	-33.2894	1	0	0	0		$|
 1418883	1418871	object/cell/cell.iff	12	0	0	0	1	1.681558E-44	0	0		$|
 1418884	1418871	object/cell/cell.iff	13	0	0	0	1	1.821688E-44	0	0		$|
+7825987	1418884	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	13	-44.5	0.2	-31.0	0.72537	0	-0.68835	0		$|
 1418885	1418871	object/cell/cell.iff	14	0	0	0	1	1.961818E-44	0	0		$|
 1418886	1418871	object/cell/cell.iff	15	0	0	0	1	2.101948E-44	0	0		$|
 1418887	1418871	object/cell/cell.iff	16	0	0	0	1	2.242078E-44	0	0		$|
