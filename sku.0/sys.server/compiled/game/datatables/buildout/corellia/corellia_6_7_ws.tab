@@ -35,6 +35,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3075364	3075362	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3075365	3075362	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 3075366	3075362	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1414935	3075366	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	0.7	1.0	4.7	1	0	0	0		$|
+1414936	3075366	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	-1.0	1.0	4.7	1	0	0	0		$|
 1095017	3075366	object/tangible/gambling/slot/standard.iff	1	4.312568	1.234087	-21.98637	0.9999973	0	-0.002301926	0		$|
 1095018	3075366	object/tangible/gambling/slot/standard.iff	2	0.2392743	1.233186	-21.94396	0.9999973	0	-0.002301926	0		$|
 1095019	3075366	object/tangible/gambling/wheel/roulette.iff	3	-1.240545	1.043382	-16.08333	0.9999973	0	-0.002301926	0		$|
