@@ -204,7 +204,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4505566	0	object/static/item/item_armor_bone_helmet.iff	0	1627.08	95.2094	1761.15	0.707387	0	0.706826	0		$|
 -1	0	object/tangible/poi/tatooine/explore_ror_rebel_outpost.iff	0	1616	96	1695	1	0	0	0		$|
 -2	0	object/tangible/npc/rebel_recruiter_spawner.iff	0	1635	96	1729	0	0	1	0		$|
-7375869	3375654	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	-4.2	0.625	-3.54	1	0	0	0	space.content_tools.npc_spawner	$|
 -6	0	object/tangible/ground_spawning/patrol_spawner.iff	0	1635	96	1716	1	0	0	0	systems.spawning.spawner_patrol	fltMaxSpawnTime|2|360.000000|fltMinSpawnTime|2|120.000000|fltRadius|2|0.000000|intDefaultBehavior|0|3|intGoodLocationSpawner|0|0|intSpawnCount|0|2|intSpawnSystem|0|1|patrolPathType|4|oscillate|registerWithController|0|1|strName|4|rebel_patrol_01|strPatrolPointNames|5|rebel_patrol_1_7375869_0:rebel_patrol_2_7375869_0:rebel_patrol_3_7375869_0:rebel_patrol_4_7375869_0:rebel_patrol_5_7375869_0:|strSpawnerType|4|patrol|strSpawns|4|rebel_staff_sergeant|$|
 -7	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	1621	96	1718	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|rebel_patrol_1_7375869_0|registerWithController|0|1|$|
 -8	0	object/tangible/ground_spawning/patrol_waypoint.iff	0	1619	96	1701	1	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|rebel_patrol_2_7375869_0|registerWithController|0|1|$|
