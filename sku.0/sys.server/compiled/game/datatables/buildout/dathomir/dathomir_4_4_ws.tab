@@ -25,6 +25,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3946221	2835561	object/tangible/terminal/terminal_space.iff	1	-7.42434	0.146595	-19.2073	1	0	0	0		$|
 2835569	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1932.92	18	473.874	0.435682	0	0.900101	0	planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_science_outpost_spawns.iff|healing.canhealshock|0|1|safeLogout|0|1|$|
 2835570	2835569	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+3946244	2835570	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	5.2	0.6	3.4	0.97992	0	-0.19937	0		$|
 2835571	2835569	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2835572	2835569	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 2835573	2835569	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
