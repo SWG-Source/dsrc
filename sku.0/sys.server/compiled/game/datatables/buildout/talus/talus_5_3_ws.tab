@@ -120,7 +120,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3175365	3175352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 3175366	3175352	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 3175367	3175352	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
-3175368	3175352	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
+5535537	3175352	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 3175368	0	object/building/corellia/guild_combat_corellia_style_01.iff	0	540	6	1196	3.20E-08	0	1	0		$|
 3175369	3175368	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 3175370	3175368	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
@@ -153,6 +153,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3175397	3175388	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 3175398	3175388	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 3175399	3175388	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+1500440	3175399	object/tangible/terminal/terminal_mission_rebel.iff	11	-24.3402	-0.894985	3.19001	-3.20013e-08	0	1	0		$|
 3175400	3175388	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 3175401	3175388	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 3175402	3175388	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
