@@ -47,9 +47,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3946222	6915359	object/tangible/terminal/terminal_space.iff	1	-7.41268	0.146595	-19.2121	1	0	0	0		$|
 6955366	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	603.157	6	987.739	1	0	0	0	planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_trade_outpost_spawns.iff|healing.canhealshock|0|1|safeLogout|0|1|$|
 6955367	6955366	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-8346148	6955367	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	4.0	0.6	5.5	0.04362	0	-0.99905	0		$|
 6955368	6955366	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 6955369	6955366	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8346148	6955369	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	-3.0	0.6	-7.7	0.96363	0	0.26724	0		$|
 6955370	6955366	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 6955398	0	object/building/military/outpost_shed.iff	0	577.423	6	992.553	0.92388	0	0.382683	0		$|
 6955399	6955398	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
