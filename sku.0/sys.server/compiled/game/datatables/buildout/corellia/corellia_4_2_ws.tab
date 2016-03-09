@@ -94,6 +94,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855481	1855473	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1855482	1855473	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1855483	1855473	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+4608437	1855483	object/tangible/collection/rare_melee_kashyyyk_blade_stick.iff	10	-1.56429	2.48303	-14.5934	0.9832418	-0.12972	0.01449411	-0.12727		$|
+1509607	1855483	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	10	0	1.75	-14	0.844588	0	-0.535416	0		$|
 1855484	1855473	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 3375685	1855484	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	11	1.4	1.7	-21.2	1	0	0	0		$|
 1855485	1855473	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
@@ -102,8 +104,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855488	1855473	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1855489	1855473	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 1855490	1855473	object/cell/cell.iff	17	0	0	0	1	0	0	0		$|
-1509607	1855483	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	17	17	1.75	-14	0.844588	0	-0.535416	0		$|
-4608437	1855483	object/tangible/collection/rare_melee_kashyyyk_blade_stick.iff	17	-1.56429	2.48303	-14.5934	0.9832418	-0.12972	0.01449411	-0.12727		$|
 1855491	0	object/building/corellia/cloning_corellia.iff	0	1548	28	1644	0.707109	0	0.707104	0		$|
 1855492	1855491	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1855493	1855491	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
@@ -1219,6 +1219,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1211613	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1988.13	23.51	1043.7	1	0	0	0		$|
 1211614	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1939.85	31.61	1044.88	1	0	0	0		$|
 1211615	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1934.64	32.16	1089.62	1	0	0	0		$|
-164639	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1910	28	1425	1	0	0	0		$|
-164640	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1909	28	1425	1	0	0	0		$|
-164641	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1909	28	1425	1	0	0	0		$|
+164639	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1910	28	1425	0	0	-1	0		$|
+164640	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1909	28	1425	0	0	-1	0		$|
+164641	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1911	28	1425	0	0	-1	0		$|

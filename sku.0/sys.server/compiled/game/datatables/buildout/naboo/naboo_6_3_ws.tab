@@ -21,7 +21,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8865518	1418882	object/tangible/terminal/terminal_space.iff	11	-18.946	0.2	-33.2894	1	0	0	0		$|
 1418883	1418871	object/cell/cell.iff	12	0	0	0	1	1.681558E-44	0	0		$|
 1418884	1418871	object/cell/cell.iff	13	0	0	0	1	1.821688E-44	0	0		$|
-7825987	1418884	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	13	-44.5	0.2	-31.0	0.72537	0	-0.68835	0		$|
+7825987	1418884	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	13	-44.5	0.2	-31.0	1	0	0	0		$|
 1418885	1418871	object/cell/cell.iff	14	0	0	0	1	1.961818E-44	0	0		$|
 1418886	1418871	object/cell/cell.iff	15	0	0	0	1	2.101948E-44	0	0		$|
 1418887	1418871	object/cell/cell.iff	16	0	0	0	1	2.242078E-44	0	0		$|
@@ -114,4 +114,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6336771	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	133.592285	362.2127075	394.074463	1	0	0	0		$|
 6336772	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	261.702637	297.386322	300.395508	1	0	0	0		$|
 6336773	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	287.438721	230.8905334	136.932861	1	0	0	0		$|
-91598	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	465	292	158	0.76041	0	-0.64945	0		$|
+91598	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	364	292	157	0.70710	0	0.70710	0		$|

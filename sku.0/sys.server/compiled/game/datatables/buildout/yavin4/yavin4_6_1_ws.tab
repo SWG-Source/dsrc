@@ -99,4 +99,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8735521	8735515	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 7105712	8735518	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	0.023	0.125	-5	1	0	0	0	space.content_tools.npc_spawner	$|
 1491025	8735521	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	-4.00	0.125	-3.683	0.707106	0	0.707106	0	space.content_tools.npc_spawner	$|
-1233869	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1980	37	1995	0.30902	0	-0.95106	0	space.content_tools.npc_spawner	$|
+1233869	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1981	37	1990	0.30902	0	0.95105	0		$|

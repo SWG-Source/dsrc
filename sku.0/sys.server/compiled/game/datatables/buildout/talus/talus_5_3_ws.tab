@@ -206,7 +206,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3175571	3175564	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 3175572	3175564	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 3175573	3175564	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
-2195677	3175573	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	9	-23.3	2.1	73.7	0.7071	0	-0.7071	0		$|
+2195677	3175573	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	9	-23.3	2.1	73.7	0.7071	0	0.7071	0		$|
 3175574	3175564	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 3175575	0	object/building/corellia/garage_corellia.iff	0	167.164	6	1010.7	0.701642	0	0.71253	0		$|
 3175576	0	object/building/corellia/garage_corellia.iff	0	660	6	1226	0.707109	0	0.707105	0		$|
