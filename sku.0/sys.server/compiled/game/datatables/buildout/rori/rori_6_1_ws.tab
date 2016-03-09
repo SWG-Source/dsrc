@@ -100,7 +100,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4505633	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1645.64	96	1735.29	0.707108	0	-0.707105	0		$|
 4505634	4505633	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4505635	4505633	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
-7375869	4505635	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	-8.6	0.625	3.8	1	0	0	0		$|
+7375869	4505635	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	-8.6	0.625	3.8	0.70710	0	0.70710	0		$|
 4505636	4505633	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 4505637	4505633	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 4505663	0	object/building/military/outpost_shed_s04.iff	0	1599.65	96	1725.2	0.707107	0	0.707107	0		$|
