@@ -232,6 +232,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1741537	1741535	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1741538	1741535	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1741539	1741535	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4295480	1741539	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	2.19	0.64	67.12	0	0	1	0		$|
 1270280	1741539	object/tangible/terminal/terminal_space.iff	4	-1.12528	0.639421	58.7617	-0.7	0	0.714142	0		$|
 1270281	1741539	object/tangible/terminal/terminal_space.iff	4	0.983456	0.639421	58.7455	0.710071	0	0.70413	0		$|
 4115561	1741539	object/tangible/terminal/terminal_newsnet.iff	4	-15.7898	0.639421	54.6116	0.745174	0	0.66687	0		$|

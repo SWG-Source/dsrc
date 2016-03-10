@@ -161,6 +161,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4265367	4265355	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 4265368	4265355	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 4265369	4265355	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+2637002	4265369	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	14	-56.6	1.0	8.6	0.89101	0	-0.45399	0		$|
 4265370	4265355	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 4265371	4265355	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 4265372	0	object/building/corellia/cantina_corellia.iff	0	189.396	2	1221.87	1	0	0	0	structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/clone_relic/ep3_nashal_cantina.iff|$|

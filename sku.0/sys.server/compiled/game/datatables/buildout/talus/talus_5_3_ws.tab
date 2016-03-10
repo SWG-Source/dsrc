@@ -119,6 +119,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3175364	3175352	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 3175365	3175352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 3175366	3175352	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+2636995	3175366	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	14	-56.6	1.0	8.6	0.89101	0	-0.45399	0		$|
 3175367	3175352	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 5535537	3175352	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 3175368	0	object/building/corellia/guild_combat_corellia_style_01.iff	0	540	6	1196	3.20E-08	0	1	0		$|
