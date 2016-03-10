@@ -129,6 +129,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1106370	1106368	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1106371	1106368	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1106372	1106368	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+3795684	1106372	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	2.19	0.64	67.12	0	0	1	0		$|
 1279065	1106372	object/tangible/terminal/terminal_space.iff	4	0.189046	0.639421	61.8747	1	0	0	0		$|
 1279066	1106372	object/tangible/terminal/terminal_space.iff	4	6.41503	0.639421	57.2603	0.706263	0	0.707951	0		$|
 1279067	1106372	object/tangible/terminal/terminal_space.iff	4	-5.94061	0.639421	57.3051	-0.701136	0	0.713028	0		$|
@@ -2215,7 +2216,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7106287	0	object/static/structure/general/droid_r4_torso.iff	0	1974.68	5	1389.69	1	0	0	0		$|
 7106288	0	object/static/structure/general/droid_r5_head.iff	0	1974.37	5	1390.11	1	0	0	0		$|
 7106289	0	object/static/structure/general/droid_r5_leg.iff	0	1973.71	5	1388.76	1	0	0	0		$|
-9655494	0	object/building/tatooine/hospital_tatooine_style02.iff	0	1481.21	5	1390.9	0.950796	0	0.309817	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/eisleymed.iff|$|
+9655494	0	object/building/tatooine/hospital_tatooine_style02.iff	0	1481.21	5	1390.9	0.950796	0	0.309817	0		$|
 9655495	9655494	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 9655496	9655494	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 7106355	9655496	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	-2.6	0	1.9	1	0	0	0		$|
