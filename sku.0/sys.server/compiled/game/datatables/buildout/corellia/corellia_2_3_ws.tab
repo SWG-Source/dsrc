@@ -109,6 +109,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1935695	1935683	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1935696	1935683	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 1935697	1935683	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+1509583	1935697	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	14	-56.6	1.0	8.6	0.89101	0	-0.45399	0		$|
 1935698	1935683	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1935699	1935683	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 1935700	0	object/building/corellia/skyscraper_corellia_style_01.iff	0	1020.05	21	1776.25	0.382683	0	0.92388	0		$|

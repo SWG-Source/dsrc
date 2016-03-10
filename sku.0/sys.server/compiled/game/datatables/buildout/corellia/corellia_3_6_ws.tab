@@ -583,6 +583,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4255431	4255419	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 4255432	4255419	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 4255433	4255419	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+1509598	4255433	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	14	-56.6	1.0	8.6	0.89101	0	-0.45399	0		$|
 4255434	4255419	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 4255435	4255419	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 4255445	0	object/building/corellia/filler_block_corellia_32x16_s01.iff	0	961.263	31.4223	734.784	1	0	0	0		$|

@@ -208,6 +208,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855684	1855671	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 1211512	1855684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	50	1.0	22.9	1	0	0	0		intRandomYaw|0|1|$|
 1855685	1855671	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+1509606	1855685	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	14	-56.6	1.0	8.6	0.89101	0	-0.45399	0		$|
 1855686	1855671	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 1855687	1855671	object/cell/cell.iff	16	0	0	0	1	0	0	0		$|
 1855687	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	1968	28	1644	1	0	0	0		$|
