@@ -2291,3 +2291,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -14	0	object/path_waypoint/path_waypoint_jawa6.iff	0	1596	5	1323	1	0	0	0		$|
 -15	0	object/tangible/poi/tatooine/poi_city_jawa_convo.iff	0	1437	5	1256	1	0	0	0		$|
 -16	0	object/tangible/poi/tatooine/poi_city_jawa_convo.iff	0	1423	5	1228	1	0	0	0		$|
+3355709	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1486	5	1333	0.72211	0	-0.691778	0		$|
+3355710	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1486	5	1349	0.72211	0	-0.691778	0		$|
