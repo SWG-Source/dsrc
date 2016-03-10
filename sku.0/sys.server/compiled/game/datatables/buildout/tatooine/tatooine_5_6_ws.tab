@@ -2040,3 +2040,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 9755374	0	object/static/structure/general/droid_r5_powerdown.iff	0	1300.2099609375	7	1066.4301757813	0.7583613992	0	0.6518345475	0		$|
 9755375	0	object/static/structure/general/droid_ra7_powerdown.iff	0	1301.0699462891	7	1063.5300292969	0.8498991728	0	0.5269455314	0		$|
 9755376	0	object/static/structure/general/droid_r3_powerdown.iff	0	1301.9499511719	7.1033701897	1063.3198242188	0.8551274538	-0.5184177756	0	0		$|
+3355714	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1293	7	1101	0.29237	0	-0.9563	0		$|
+3355715	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1304	7	1093	0.95106	0	0.30902	0		$|
