@@ -1394,3 +1394,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1443017	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	923	12	476	0.27564	0	0.96126	0		$|
 3355708	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	740	12	480	0.28402	0	0.95882	0		$|
 3355707	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	755	12	528	0.95882	0	0.28402	0		$|
+4006232	0	object/tangible/spawning/spawn_egg.iff	0	677.89	12	456.17	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
