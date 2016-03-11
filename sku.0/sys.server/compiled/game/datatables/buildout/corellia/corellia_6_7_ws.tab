@@ -448,6 +448,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1509590	9665362	object/tangible/terminal/terminal_space.iff	10	-41.5785	1.63942	52.8938	0.057976	0	0.998318	0		$|
 9665363	9665352	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 9665364	9665352	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+5245540	9665364	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	12	-44.7	2.6	35.2	0.70711	0	-0.70711	0		$|
 9665365	9665352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 9665366	9665352	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1509591	9665366	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	14	-56.6	1.0	8.6	0.89101	0	-0.45399	0		$|
@@ -460,3 +461,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825939	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	461.228	289.164	1873.02	0.707107	0	-0.707107	0		$|
 9825941	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	476.04	289.313	1872.74	0.707107	0	-0.707107	0		$|
 3075527	0	object/building/corellia/filler_slum_24x16_s02.iff	0	1041.97	279.999	922.522	0.707108	0	-0.707106	0		$|
+3375637	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1280	308	1438	0.24192	0	-0.9703	0		$|
