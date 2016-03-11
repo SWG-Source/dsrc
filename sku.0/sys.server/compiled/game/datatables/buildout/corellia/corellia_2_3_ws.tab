@@ -107,6 +107,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1509581	1935693	object/tangible/terminal/terminal_space.iff	10	-44.0867	1.63942	50.0366	0.657353	0	0.753583	0		$|
 1935694	1935683	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1935695	1935683	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+5245542	1935695	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	12	-44.7	2.6	35.2	0.70711	0	-0.70711	0		$|
 1935696	1935683	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 1935697	1935683	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1509583	1935697	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	14	-56.6	1.0	8.6	0.89101	0	-0.45399	0		$|
@@ -1208,3 +1209,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4026556	0	object/static/structure/general/droid_r3_torso.iff	0	507.263	21	1297.82	1	0	0	0		$|
 4026557	0	object/static/structure/general/droid_r4_leg.iff	0	506.804	21	1297.35	1	0	0	0		$|
 9526237	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1071	21	1754	1	0	0	0		$|
+3375640	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1091	21	1810	0.40674	0	0.91355	0		$|
