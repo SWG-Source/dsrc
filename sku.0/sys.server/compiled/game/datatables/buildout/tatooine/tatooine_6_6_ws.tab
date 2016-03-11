@@ -210,3 +210,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8885783	0	object/static/particle/particle_newbie_refrigerator_steam.iff	0	1920.21	10.1844	441.249	-0.25785	0	0.966185	0		$|
 8885785	0	object/static/particle/particle_newbie_refrigerator_steam.iff	0	1918.82	9.95291	438.76	-0.25785	0	0.966185	0		$|
 8885786	0	object/soundobject/soundobject_hovering.iff	0	1920.82	8.73838	439.062	1	0	0	0		$|
+4006308	0	object/tangible/spawning/spawn_egg.iff	0	1745.97	11.62	341.19	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
