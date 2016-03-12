@@ -1,38 +1,9 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import java.util.Arrays;
-import java.lang.System;
-import java.lang.Math;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Vector;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import script.script_entry;
-import script.library.player_structure;
-import script.library.healing;
-import script.library.ai_lib;
-import script.library.pclib;
-import script.library.armor;
-import script.library.chat;
-import script.library.performance;
-import script.library.trial;
-import script.library.cloninglib;
-import script.library.static_item;
+import java.io.*;
+import java.util.*;
 
 public class utils extends script.base_script
 {
@@ -55,7 +26,7 @@ public class utils extends script.base_script
     public static final String TIP_IN_AMMOUNT = TIP + ".tip_in_ammount";
     public static final String TIP_IN_THACK = TIP + ".tip_in_timeHack";
     public static final String TIP_OUT_THACK = TIP + ".tip_out_timeHack";
-    public static final String TRIAL_STRUCTURE = FREE_TRIAL + ".trial_structure";
+    //public static final String TRIAL_STRUCTURE = FREE_TRIAL + ".trial_structure";
     public static final int TIP_NUM_MAX = 25;
     public static final int TIP_AMT_MAX = 100000;
     public static final String NO_TRADE_SCRIPT = "item.special.nomove";
@@ -71,10 +42,10 @@ public class utils extends script.base_script
         waypoint_colors.purple,
         waypoint_colors.white
     };
-    public static final string_id SID_SECONDS = new string_id("spam", "seconds");
-    public static final string_id SID_MINUTES = new string_id("spam", "minutes");
-    public static final string_id SID_HOURS = new string_id("spam", "hours");
-    public static final string_id SID_DAYS = new string_id("spam", "days");
+    //public static final string_id SID_SECONDS = new string_id("spam", "seconds");
+    //public static final string_id SID_MINUTES = new string_id("spam", "minutes");
+    //public static final string_id SID_HOURS = new string_id("spam", "hours");
+    //public static final string_id SID_DAYS = new string_id("spam", "days");
     public static final string_id SID_OUT_OF_RANGE = new string_id("spam", "out_of_range");
     public static final int COMMANDO = 1;
     public static final int SMUGGLER = 2;
@@ -86,21 +57,21 @@ public class utils extends script.base_script
     public static final int TRADER = 8;
     public static final int ENTERTAINER = 9;
     public static final String LIFEDAY_OWNER = "lifeday.owner";
-    public static final String XMAS_RECEIVED_V1 = "gift.xmas05";
-    public static final String XMAS_RECEIVED_V2 = "gift.xmas05v2";
+    //public static final String XMAS_RECEIVED_V1 = "gift.xmas05";
+    //public static final String XMAS_RECEIVED_V2 = "gift.xmas05v2";
     public static final String XMAS_RECEIVED_VI1 = "gift.xmas06";
-    public static final String XMAS_RECEIVED_VI2 = "gift.xmas06v2";
-    public static final String XMAS_RECEIVED_VII1 = "gift.xmas07";
-    public static final String XMAS_RECEIVED_VII2 = "gift.xmas07v2";
+    //public static final String XMAS_RECEIVED_VI2 = "gift.xmas06v2";
+    //public static final String XMAS_RECEIVED_VII1 = "gift.xmas07";
+    //public static final String XMAS_RECEIVED_VII2 = "gift.xmas07v2";
     public static final String XMAS_NOT_RECEIVED_TUTORIAL = "gift.xmas06_inTutorialFail";
-    public static final String XMAS_RECEIVED_VIII1 = "gift.xmas08";
-    public static final String XMAS_RECEIVED_VIII2 = "gift.xmas08v2";
+    //public static final String XMAS_RECEIVED_VIII1 = "gift.xmas08";
+    //public static final String XMAS_RECEIVED_VIII2 = "gift.xmas08v2";
     public static final String XMAS_RECEIVED_IX_01 = "gift.xmas09";
-    public static final String EMPIRE_DAY_RECEIVED_VI = "gift.empire08";
+    //public static final String EMPIRE_DAY_RECEIVED_VI = "gift.empire08";
     public static final string_id GIFT_GRANTED = new string_id("system_msg", "gift_granted");
     public static final string_id GIFT_GRANTED_SUB = new string_id("system_msg", "gift_granted_sub");
-    public static final int HOUSE_CURRENT = 0;
-    public static final int HOUSE_HISTORY = 1;
+    //public static final int HOUSE_CURRENT = 0;
+    //public static final int HOUSE_HISTORY = 1;
     public static final int HOUSE_MAX = 2;
     public static final obj_id OBJ_ID_BIO_LINK_PENDING = obj_id.getObjId(1);
     public static final String VENDOR_SCRIPT = "terminal.vendor";
@@ -2877,7 +2848,7 @@ public class utils extends script.base_script
             int[] tempVal = new int[count];
             for (int i = 0; i < count; ++i)
             {
-                tempVal[i] = (((Integer)val.get(i))).intValue();
+                tempVal[i] = (Integer) val.get(i);
             }
             result = setLocalVar(target, path, tempVal);
         }
@@ -2887,7 +2858,7 @@ public class utils extends script.base_script
             boolean[] tempVal = new boolean[count];
             for (int i = 0; i < count; ++i)
             {
-                tempVal[i] = (((Boolean)val.get(i))).booleanValue();
+                tempVal[i] = (Boolean) val.get(i);
             }
             result = setLocalVar(target, path, tempVal);
         }
@@ -3620,15 +3591,7 @@ public class utils extends script.base_script
     }
     public static boolean setScriptVar(obj_id target, String path, Vector val) throws InterruptedException
     {
-        if (!isIdValid(target))
-        {
-            return false;
-        }
-        if ((path == null) || (path.equals("")))
-        {
-            return false;
-        }
-        if (val == null || val.isEmpty())
+        if (!isIdValid(target) || path == null || path.equals("") || val == null || val.isEmpty())
         {
             return false;
         }
@@ -3644,7 +3607,7 @@ public class utils extends script.base_script
             int[] tempVal = new int[count];
             for (int i = 0; i < count; ++i)
             {
-                tempVal[i] = (((Integer)val.get(i))).intValue();
+                tempVal[i] = (Integer) val.get(i);
             }
             result = setScriptVar(target, path, tempVal);
         }
@@ -3654,7 +3617,7 @@ public class utils extends script.base_script
             boolean[] tempVal = new boolean[count];
             for (int i = 0; i < count; ++i)
             {
-                tempVal[i] = (((Boolean)val.get(i))).booleanValue();
+                tempVal[i] = (Boolean) val.get(i);
             }
             result = setScriptVar(target, path, tempVal);
         }
@@ -3664,7 +3627,7 @@ public class utils extends script.base_script
             float[] tempVal = new float[count];
             for (int i = 0; i < count; ++i)
             {
-                tempVal[i] = (((Float)val.get(i))).intValue();
+                tempVal[i] = ((Float)val.get(i)).intValue();
             }
             result = setScriptVar(target, path, tempVal);
         }
@@ -3702,16 +3665,11 @@ public class utils extends script.base_script
     }
     public static boolean setScriptVar(obj_id target, String path, dictionary val) throws InterruptedException
     {
-        if (!isIdValid(target))
+        if (!isIdValid(target) || path == null || path.equals(""))
         {
             return false;
         }
-        if ((path == null) || (path.equals("")))
-        {
-            return false;
-        }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean hasScriptVar(obj_id target, String path) throws InterruptedException
@@ -3742,184 +3700,145 @@ public class utils extends script.base_script
     }
     public static boolean removeScriptVar(obj_id target, String path) throws InterruptedException
     {
-        if ((target == null) || (target == obj_id.NULL_ID))
+        if (target == null || target == obj_id.NULL_ID || path == null || path.equals(""))
         {
             return false;
         }
-        if ((path == null) || (path.equals("")))
-        {
-            return false;
-        }
-        deltadictionary dd = target.getScriptVars();
-        dd.remove(path);
+        target.getScriptVars().remove(path);
         return true;
     }
     public static boolean removeScriptVarTree(obj_id target, String path) throws InterruptedException
     {
-        if ((target == null) || (target == obj_id.NULL_ID))
+        if (target == null || target == obj_id.NULL_ID || path == null || path.equals(""))
         {
             return false;
         }
-        if ((path == null) || (path.equals("")))
-        {
-            return false;
-        }
-        deltadictionary dd = target.getScriptVars();
-        Enumeration keys = dd.keys();
+        Enumeration keys = target.getScriptVars().keys();
         while (keys.hasMoreElements())
         {
             String key = (String)(keys.nextElement());
             if (key.equals(path) || key.startsWith(path + "."))
             {
-                dd.remove(key);
+                target.getScriptVars().remove(key);
             }
         }
         return true;
     }
     public static int getIntScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getInt(path);
+        return target.getScriptVars().getInt(path);
     }
     public static int[] getIntArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getIntArray(path);
+        return target.getScriptVars().getIntArray(path);
     }
     public static float getFloatScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getFloat(path);
+        return target.getScriptVars().getFloat(path);
     }
     public static float[] getFloatArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getFloatArray(path);
+        return target.getScriptVars().getFloatArray(path);
     }
     public static long getLongScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getLong(path);
+        return target.getScriptVars().getLong(path);
     }
     public static long[] getLongArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getLongArray(path);
+        return target.getScriptVars().getLongArray(path);
     }
     public static double getDoubleScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getDouble(path);
+        return target.getScriptVars().getDouble(path);
     }
     public static double[] getDoubleArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getDoubleArray(path);
+        return target.getScriptVars().getDoubleArray(path);
     }
     public static String getStringScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getString(path);
+        return target.getScriptVars().getString(path);
     }
     public static String[] getStringArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getStringArray(path);
+        return target.getScriptVars().getStringArray(path);
     }
     public static String[][] getStringArrayArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getStringArrayArray(path);
+        return target.getScriptVars().getStringArrayArray(path);
     }
     public static transform[] getTransformArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getTransformArray(path);
+        return target.getScriptVars().getTransformArray(path);
     }
     public static transform getTransformScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getTransform(path);
+        return target.getScriptVars().getTransform(path);
     }
     public static boolean getBooleanScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getBoolean(path);
+        return target.getScriptVars().getBoolean(path);
     }
     public static boolean[] getBooleanArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getBooleanArray(path);
+        return target.getScriptVars().getBooleanArray(path);
     }
     public static location getLocationScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getLocation(path);
+        return target.getScriptVars().getLocation(path);
     }
     public static location[] getLocationArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getLocationArray(path);
+        return target.getScriptVars().getLocationArray(path);
     }
     public static obj_id getObjIdScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getObjId(path);
+        return target.getScriptVars().getObjId(path);
     }
     public static obj_id[] getObjIdArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getObjIdArray(path);
+        return target.getScriptVars().getObjIdArray(path);
     }
     public static Vector getResizeableObjIdArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getResizeableObjIdArray(path);
+        return target.getScriptVars().getResizeableObjIdArray(path);
     }
     public static Vector getResizeableLocationArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getResizeableLocationArray(path);
+        return target.getScriptVars().getResizeableLocationArray(path);
     }
     public static Vector getResizeableIntArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getResizeableIntArray(path);
+        return target.getScriptVars().getResizeableIntArray(path);
     }
     public static Vector getResizeableFloatArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getResizeableFloatArray(path);
+        return target.getScriptVars().getResizeableFloatArray(path);
     }
     public static Vector getResizeableStringArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getResizeableStringArray(path);
+        return target.getScriptVars().getResizeableStringArray(path);
     }
     public static Vector getResizeableTransformArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getResizeableTransformArray(path);
+        return target.getScriptVars().getResizeableTransformArray(path);
     }
     public static Vector getResizeableVectorArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getResizeableVectorArray(path);
+        return target.getScriptVars().getResizeableVectorArray(path);
     }
     public static string_id getStringIdScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getStringId(path);
+        return target.getScriptVars().getStringId(path);
     }
     public static string_id[] getStringIdArrayScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getStringIdArray(path);
+        return target.getScriptVars().getStringIdArray(path);
     }
     public static dictionary getDictionaryScriptVar(obj_id target, String path) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        return dd.getDictionary(path);
+        return target.getScriptVars().getDictionary(path);
     }
     public static boolean emptyContainer(obj_id target) throws InterruptedException
     {
@@ -3932,9 +3851,8 @@ public class utils extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            destroyObject(content);
         }
         return true;
     }
@@ -3949,12 +3867,9 @@ public class utils extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            obj_id contentsItem = contents[i];
-            if (!utils.hasScriptVar(contentsItem, "storytellerLoot"))
-            {
-                destroyObject(contentsItem);
+        for (obj_id content : contents) {
+            if (!utils.hasScriptVar(content, "storytellerLoot")) {
+                destroyObject(content);
             }
         }
         return true;
@@ -3981,8 +3896,7 @@ public class utils extends script.base_script
         locHeading.x = locStart.x + locHeading.x;
         locHeading.z = locStart.z + locHeading.z;
         locHeading.y = locStart.y + locHeading.y;
-        float fltAngle = thetaDegrees(locStart, locHeading);
-        return fltAngle;
+        return thetaDegrees(locStart, locHeading);
     }
     public static float thetaDegrees(location direction) throws InterruptedException
     {
@@ -4003,17 +3917,10 @@ public class utils extends script.base_script
             return 0;
         }
         int intCount = 0;
-        for (int intI = 0; intI < objObjects.length; intI++)
-        {
-            String strString = getStringObjVar(objObjects[intI], strObjVar);
-            if (strString != null)
-            {
-                int intIndex = strString.indexOf(strSubString);
-                if (intIndex > -1)
-                {
-                    intCount = intCount + 1;
-                }
-            }
+        for (obj_id objObject : objObjects) {
+            String strString = getStringObjVar(objObject, strObjVar);
+            if (strString != null && strString.contains(strSubString))
+                intCount++;
         }
         return intCount;
     }
@@ -4131,8 +4038,7 @@ public class utils extends script.base_script
     }
     public static obj_id cloneObject(obj_id template, obj_id container) throws InterruptedException
     {
-        String templateName = getTemplateName(template);
-        obj_id clone = createObject(templateName, container, "");
+        obj_id clone = createObject(getTemplateName(template), container, "");
         if (!isIdValid(clone))
         {
             return null;
@@ -4142,8 +4048,7 @@ public class utils extends script.base_script
     }
     public static obj_id cloneObject(obj_id template, location loc) throws InterruptedException
     {
-        String templateName = getTemplateName(template);
-        obj_id clone = createObject(templateName, loc);
+        obj_id clone = createObject(getTemplateName(template), loc);
         if (!isIdValid(clone))
         {
             return null;
@@ -4170,7 +4075,7 @@ public class utils extends script.base_script
     }
     public static boolean copyObjVar(obj_id target, String basePath, obj_var ov) throws InterruptedException
     {
-        if (!isIdValid(target))
+        if (!isIdValid(target) || ov == null)
         {
             return false;
         }
@@ -4178,92 +4083,71 @@ public class utils extends script.base_script
         {
             basePath = "";
         }
-        if (ov == null)
-        {
-            return false;
-        }
-        String name = ov.getName();
-        String path = basePath + name;
+        String path = basePath + ov.getName();
         Object dta = ov.getData();
         if (dta instanceof Integer)
         {
-            int val = ov.getIntData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getIntData());
         }
         else if (dta instanceof int[])
         {
-            int[] val = ov.getIntArrayData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getIntArrayData());
         }
         else if (dta instanceof Float)
         {
-            float val = ov.getFloatData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getFloatData());
         }
         else if (dta instanceof float[])
         {
-            float[] val = ov.getFloatArrayData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getFloatArrayData());
         }
         else if (dta instanceof Boolean)
         {
-            boolean val = ov.getBooleanData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getBooleanData());
         }
         else if (dta instanceof Boolean[])
         {
-            boolean[] val = ov.getBooleanArrayData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getBooleanArrayData());
         }
         else if (dta instanceof String)
         {
-            String val = ov.getStringData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getStringData());
         }
         else if (dta instanceof String[])
         {
-            String[] val = ov.getStringArrayData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getStringArrayData());
         }
         else if (dta instanceof obj_id)
         {
-            obj_id val = ov.getObjIdData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getObjIdData());
         }
         else if (dta instanceof obj_id[])
         {
-            obj_id[] val = ov.getObjIdArrayData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getObjIdArrayData());
         }
         else if (dta instanceof location)
         {
-            location val = ov.getLocationData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getLocationData());
         }
         else if (dta instanceof location[])
         {
-            location[] val = ov.getLocationArrayData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getLocationArrayData());
         }
         else if (dta instanceof string_id)
         {
-            string_id val = ov.getStringIdData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getStringIdData());
         }
         else if (dta instanceof string_id[])
         {
-            string_id[] val = ov.getStringIdArrayData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getStringIdArrayData());
         }
         else if (dta instanceof attrib_mod)
         {
-            attrib_mod val = ov.getAttribModData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getAttribModData());
         }
         else if (dta instanceof attrib_mod[])
         {
-            attrib_mod[] val = ov.getAttribModArrayData();
-            return setObjVar(target, path, val);
+            return setObjVar(target, path, ov.getAttribModArrayData());
         }
         return false;
     }
@@ -4298,7 +4182,7 @@ public class utils extends script.base_script
         {
             rootName = "";
         }
-        else if (rootName != null && rootName.length() > 0)
+        else if (rootName.length() > 0)
         {
             if (!Character.isLetterOrDigit(rootName.charAt(0)))
             {
@@ -4312,7 +4196,7 @@ public class utils extends script.base_script
         Enumeration keys = dict.keys();
         while (keys.hasMoreElements())
         {
-            String key = null;
+            String key;
             try
             {
                 key = (String)keys.nextElement();
@@ -4324,11 +4208,11 @@ public class utils extends script.base_script
             Object data = dict.get(key);
             if (data instanceof Integer)
             {
-                setObjVar(object, rootName + key, (((Integer)data)).intValue());
+                setObjVar(object, rootName + key, ((Integer)data).intValue());
             }
             else if (data instanceof Float)
             {
-                setObjVar(object, rootName + key, (((Float)data)).floatValue());
+                setObjVar(object, rootName + key, ((Float)data).floatValue());
             }
             else if (data instanceof String)
             {
@@ -4346,9 +4230,6 @@ public class utils extends script.base_script
             {
                 saveDictionaryAsObjVar(object, rootName + key, (dictionary)data);
             }
-            else 
-            {
-            }
         }
         return true;
     }
@@ -4358,40 +4239,21 @@ public class utils extends script.base_script
         {
             return null;
         }
-        String strTestString = toLower(strSearchString);
-        final String[] FACTION_SEARCH_STRINGS = 
-        {
-            factions.FACTION_IMPERIAL,
-            factions.FACTION_REBEL
-        };
-        for (int intI = 0; intI < FACTION_SEARCH_STRINGS.length; intI++)
-        {
-            int intIndex = strTestString.indexOf(toLower(FACTION_SEARCH_STRINGS[intI]));
-            if (intIndex > -1)
-            {
-                return FACTION_SEARCH_STRINGS[intI];
-            }
-        }
+        if(toLower(strSearchString).contains(toLower(factions.FACTION_IMPERIAL)))
+            return factions.FACTION_IMPERIAL;
+        else if(toLower(strSearchString).contains(toLower(factions.FACTION_REBEL)))
+            return factions.FACTION_REBEL;
         return null;
     }
     public static boolean setBatchObjVar(obj_id target, String base_path, Object[] array) throws InterruptedException
     {
-        if (!isIdValid(target))
+        if (!isIdValid(target) || base_path == null || base_path.equals("") || array == null || array.length == 0)
         {
             return false;
         }
-        if ((base_path == null) || (base_path.equals("")))
-        {
-            return false;
-        }
-        if ((array == null) || (array.length == 0))
-        {
-            return false;
-        }
-        if (hasObjVar(target, base_path))
-        {
-            removeObjVar(target, base_path);
-        }
+
+        removeObjVar(target, base_path);
+
         int BatchSize = 10;
         boolean litmus = true;
         int n = 0;
@@ -4411,22 +4273,13 @@ public class utils extends script.base_script
     }
     public static void removeBatchObjVar(obj_id target, String base_path) throws InterruptedException
     {
-        if (!isIdValid(target))
+        if (!isIdValid(target) || base_path == null || base_path.equals("") || !hasObjVar(target, base_path))
         {
             return;
         }
-        if ((base_path == null) || (base_path.equals("")))
-        {
-            return;
-        }
-        if (!hasObjVar(target, base_path))
-        {
-            return;
-        }
-        if (hasObjVar(target, base_path))
-        {
-            removeObjVar(target, base_path);
-        }
+
+        removeObjVar(target, base_path);
+
         obj_var_list list = getObjVarList(target, null);
         if (list == null)
         {
@@ -4445,22 +4298,13 @@ public class utils extends script.base_script
     }
     public static boolean setBatchObjVar(obj_id target, String base_path, int[] array) throws InterruptedException
     {
-        if (!isIdValid(target))
+        if (!isIdValid(target) || (base_path == null) || (base_path.equals("")) || (array == null) || (array.length == 0))
         {
             return false;
         }
-        if ((base_path == null) || (base_path.equals("")))
-        {
-            return false;
-        }
-        if ((array == null) || (array.length == 0))
-        {
-            return false;
-        }
-        if (hasObjVar(target, base_path))
-        {
-            removeObjVar(target, base_path);
-        }
+
+        removeObjVar(target, base_path);
+
         int BatchSize = 10;
         boolean litmus = true;
         int n = 0;
@@ -4480,22 +4324,13 @@ public class utils extends script.base_script
     }
     public static boolean setResizeableBatchObjVar(obj_id target, String base_path, Vector vector) throws InterruptedException
     {
-        if (!isIdValid(target))
+        if (!isIdValid(target) || (base_path == null) || (base_path.equals("")) || (vector == null) || (vector.size() == 0))
         {
             return false;
         }
-        if ((base_path == null) || (base_path.equals("")))
-        {
-            return false;
-        }
-        if ((vector == null) || (vector.size() == 0))
-        {
-            return false;
-        }
-        if (hasObjVar(target, base_path))
-        {
-            removeObjVar(target, base_path);
-        }
+
+        removeObjVar(target, base_path);
+
         int BatchSize = 10;
         boolean litmus = true;
         int n = 0;
@@ -4515,15 +4350,7 @@ public class utils extends script.base_script
     }
     public static boolean setObjectArrayObjVar(obj_id target, String path, Vector vec) throws InterruptedException
     {
-        if (!isIdValid(target))
-        {
-            return false;
-        }
-        if ((path == null) || (path.equals("")))
-        {
-            return false;
-        }
-        if ((vec == null) || (vec.size() == 0))
+        if (!isIdValid(target) || (path == null) || (path.equals("")) || (vec == null) || (vec.size() == 0))
         {
             return false;
         }
@@ -4531,40 +4358,30 @@ public class utils extends script.base_script
         Object test = vec.elementAt(0);
         if (test instanceof String)
         {
-            String[] tmp = new String[size];
-            vec.toArray(tmp);
-            return setObjVar(target, path, tmp);
+            return setObjVar(target, path, vec.toArray(new String[size]));
         }
         else if (test instanceof string_id)
         {
-            string_id[] tmp = new string_id[size];
-            vec.toArray(tmp);
-            return setObjVar(target, path, tmp);
+            return setObjVar(target, path, vec.toArray(new string_id[size]));
         }
         else if (test instanceof obj_id)
         {
-            obj_id[] tmp = new obj_id[size];
-            vec.toArray(tmp);
-            return setObjVar(target, path, tmp);
+            return setObjVar(target, path, vec.toArray(new obj_id[size]));
         }
         else if (test instanceof attrib_mod)
         {
-            attrib_mod[] tmp = new attrib_mod[size];
-            vec.toArray(tmp);
-            return setObjVar(target, path, tmp);
+            return setObjVar(target, path, vec.toArray(new attrib_mod[size]));
         }
         else if (test instanceof location)
         {
-            location[] tmp = new location[size];
-            vec.toArray(tmp);
-            return setObjVar(target, path, tmp);
+            return setObjVar(target, path, vec.toArray(new location[size]));
         }
         else if (test instanceof Integer)
         {
             int[] tmp = new int[size];
             for (int i = 0; i < vec.size(); i++)
             {
-                tmp[i] = (((Integer)(vec.get(i)))).intValue();
+                tmp[i] = (Integer) (vec.get(i));
             }
             return setObjVar(target, path, tmp);
         }
@@ -4572,15 +4389,7 @@ public class utils extends script.base_script
     }
     public static String[] getStringBatchObjVar(obj_id target, String base_path) throws InterruptedException
     {
-        if (!isIdValid(target))
-        {
-            return null;
-        }
-        if ((base_path == null) || (base_path.equals("")))
-        {
-            return null;
-        }
-        if (!hasObjVar(target, base_path))
+        if (!isIdValid(target) || (base_path == null) || (base_path.equals("")) || !hasObjVar(target, base_path))
         {
             return null;
         }
@@ -4614,15 +4423,7 @@ public class utils extends script.base_script
     }
     public static Vector getResizeableStringBatchObjVar(obj_id target, String base_path) throws InterruptedException
     {
-        if (!isIdValid(target))
-        {
-            return null;
-        }
-        if ((base_path == null) || (base_path.equals("")))
-        {
-            return null;
-        }
-        if (!hasObjVar(target, base_path))
+        if (!isIdValid(target) || (base_path == null) || (base_path.equals("")) || !hasObjVar(target, base_path))
         {
             return null;
         }
@@ -4806,7 +4607,7 @@ public class utils extends script.base_script
                 _ret = new int[ret.size()];
                 for (int _i = 0; _i < ret.size(); ++_i)
                 {
-                    _ret[_i] = ((Integer)ret.get(_i)).intValue();
+                    _ret[_i] = (Integer) ret.get(_i);
                 }
             }
             return _ret;
@@ -5056,17 +4857,16 @@ public class utils extends script.base_script
             return null;
         }
         int cnt = getIntScriptVar(target, base_path);
-        deltadictionary dd = target.getScriptVars();
         Vector ret = new Vector();
         for (int i = 0; i < cnt; i++)
         {
-            Vector tmp = dd.getResizeableObjIdArray(base_path + "." + i);
+            Vector tmp = target.getScriptVars().getResizeableObjIdArray(base_path + "." + i);
             if ((tmp != null) && (tmp.size() > 0))
             {
                 ret.addAll(tmp);
             }
         }
-        if ((ret != null) && (ret.size() > 0))
+        if ((ret.size() > 0))
         {
             return ret;
         }
@@ -5096,11 +4896,10 @@ public class utils extends script.base_script
             return null;
         }
         int cnt = getIntScriptVar(target, base_path);
-        deltadictionary dd = target.getScriptVars();
         Vector ret = new Vector();
         for (int i = 0; i < cnt; i++)
         {
-            Vector tmp = dd.getResizeableStringArray(base_path + "." + i);
+            Vector tmp = target.getScriptVars().getResizeableStringArray(base_path + "." + i);
             if ((tmp != null) && (tmp.size() > 0))
             {
                 ret.addAll(tmp);
@@ -5136,11 +4935,10 @@ public class utils extends script.base_script
             return null;
         }
         int cnt = getIntScriptVar(target, base_path);
-        deltadictionary dd = target.getScriptVars();
         Vector ret = new Vector();
         for (int i = 0; i < cnt; i++)
         {
-            Vector tmp = dd.getResizeableLocationArray(base_path + "." + i);
+            Vector tmp = target.getScriptVars().getResizeableLocationArray(base_path + "." + i);
             if ((tmp != null) && (tmp.size() > 0))
             {
                 ret.addAll(tmp);
@@ -5167,11 +4965,10 @@ public class utils extends script.base_script
             return null;
         }
         int cnt = getIntScriptVar(target, base_path);
-        deltadictionary dd = target.getScriptVars();
         Vector ret = new Vector();
         for (int i = 0; i < cnt; i++)
         {
-            Vector tmp = dd.getResizeableIntArray(base_path + "." + i);
+            Vector tmp = target.getScriptVars().getResizeableIntArray(base_path + "." + i);
             if ((tmp != null) && (tmp.size() > 0))
             {
                 ret.addAll(tmp);
@@ -5197,14 +4994,10 @@ public class utils extends script.base_script
         Vector ret = getResizeableIntBatchScriptVar(target, base_path);
         if ((ret != null) && (ret.size() > 0))
         {
-            int[] _ret = new int[0];
-            if (ret != null)
+            int[] _ret = new int[ret.size()];
+            for (int _i = 0; _i < ret.size(); ++_i)
             {
-                _ret = new int[ret.size()];
-                for (int _i = 0; _i < ret.size(); ++_i)
-                {
-                    _ret[_i] = ((Integer)ret.get(_i)).intValue();
-                }
+                _ret[_i] = (Integer) ret.get(_i);
             }
             return _ret;
         }
@@ -5298,55 +5091,39 @@ public class utils extends script.base_script
     }
     public static boolean checkConfigFlag(String strSection, String strConfigSetting) throws InterruptedException
     {
-        String strTest = getConfigSetting(strSection, strConfigSetting);
-        if (strTest != null)
-        {
-            strTest = toLower(strTest);
-            if (strTest.equals("true"))
-            {
-                return true;
-            }
-            if (strTest.equals("1"))
-            {
-                return true;
-            }
-            return false;
-        }
-        else 
-        {
-            return false;
-        }
+        String strTest = toLower(getConfigSetting(strSection, strConfigSetting));
+        return (strTest != null && (strTest.equals("true") || strTest.equals("1")));
     }
     public static boolean checkServerSpawnLimits() throws InterruptedException
     {
+        final int intNumPlayers = getNumPlayers();
+        // nobody is playing... spawn away Merrill...
+        if(intNumPlayers <= 0) return true;
         final int intServerSpawnLimit = getServerSpawnLimit();
         final int intNumCreatures = utils.getNumCreaturesForSpawnLimit();
-        final int intNumPlayers = getNumPlayers();
-        if (intNumPlayers > 0)
+
+        if (intServerSpawnLimit > 0)
         {
-            if (intServerSpawnLimit > 0)
+            if (intNumCreatures > intServerSpawnLimit)
             {
-                if (intNumCreatures > intServerSpawnLimit)
+                return false;
+            }
+        }
+        else
+        {
+            if (intNumPlayers < 200000)
+            {
+                if (intNumCreatures > 5000)
                 {
                     return false;
                 }
             }
-            else 
+            else
             {
-                if (intNumPlayers < 200000)
+                float fltRatio = (float)(intNumCreatures / intNumPlayers);
+                if (fltRatio > 10)
                 {
-                    if (intNumCreatures > 5000)
-                    {
-                        return false;
-                    }
-                }
-                else 
-                {
-                    float fltRatio = (float)(intNumCreatures / intNumPlayers);
-                    if (fltRatio > 10)
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
         }
@@ -5430,11 +5207,7 @@ public class utils extends script.base_script
                 time_str += ", ";
             }
         }
-        if (time_str != null && !time_str.equals(""))
-        {
-            return time_str;
-        }
-        return "";
+        return time_str;
     }
     public static String formatTime(int seconds) throws InterruptedException
     {
@@ -5442,7 +5215,10 @@ public class utils extends script.base_script
         {
             return "";
         }
+
         int[] convert_time = player_structure.convertSecondsTime(seconds);
+        if(convert_time == null) return "";
+
         int idx = 0;
         for (int i = 0; i < convert_time.length; i++)
         {
@@ -5465,11 +5241,7 @@ public class utils extends script.base_script
                 time_str += ":";
             }
         }
-        if (time_str != null && !time_str.equals(""))
-        {
-            return time_str;
-        }
-        return "";
+        return time_str;
     }
     public static String formatTime(float fTime) throws InterruptedException
     {
@@ -5605,7 +5377,7 @@ public class utils extends script.base_script
                 tmp.add(array[i]);
             }
         }
-        if ((tmp == null) || (tmp.size() == 0))
+        if (tmp.size() == 0)
         {
             return null;
         }
@@ -5656,17 +5428,18 @@ public class utils extends script.base_script
     {
         if (strObjVar == null)
         {
-            LOG("DESIGNER_FATAL", "Null objVar paseed into addListener");
+            LOG("DESIGNER_FATAL", "Null objVar passed into addListener");
             return;
         }
         if (!isIdValid(objTarget))
         {
-            LOG("DESIGNER_FATAL", "Null owner paseed into addListener");
+            LOG("DESIGNER_FATAL", "Null owner passed into addListener");
             return;
         }
         if (!isIdValid(objListener))
         {
-            LOG("DESIGNER_FATAL", "Null listener paseed into addListener");
+            LOG("DESIGNER_FATAL", "Null listener passed into addListener");
+            return;
         }
         dictionary dctParams = new dictionary();
         dctParams.put("objListener", objListener);
@@ -5678,17 +5451,18 @@ public class utils extends script.base_script
     {
         if (strObjVar == null)
         {
-            LOG("DESIGNER_FATAL", "Null objVar paseed into removeListener");
+            LOG("DESIGNER_FATAL", "Null objVar passed into removeListener");
             return;
         }
         if (!isIdValid(objTarget))
         {
-            LOG("DESIGNER_FATAL", "Null target paseed into removeListener");
+            LOG("DESIGNER_FATAL", "Null target passed into removeListener");
             return;
         }
         if (!isIdValid(objListener))
         {
-            LOG("DESIGNER_FATAL", "Null listener paseed into removeListeer");
+            LOG("DESIGNER_FATAL", "Null listener passed into removeListener");
+            // no return here as we need to let this remove any null listeners anyway.
         }
         dictionary dctParams = new dictionary();
         dctParams.put("objListener", objListener);
@@ -5700,17 +5474,18 @@ public class utils extends script.base_script
     {
         if (strObjVar == null)
         {
-            LOG("DESIGNER_FATAL", "Null objVar paseed into messageListeners");
+            LOG("DESIGNER_FATAL", "Null objVar passed into messageListeners");
             return;
         }
         if (!isIdValid(objOwner))
         {
-            LOG("DESIGNER_FATAL", "Null owner paseed into messageListeners");
+            LOG("DESIGNER_FATAL", "Null owner passed into messageListeners");
             return;
         }
         if (strMessageName == null)
         {
-            LOG("DESIGNER_FATAL", "Null messageName paseed into messageListeners");
+            LOG("DESIGNER_FATAL", "Null messageName passed into messageListeners");
+            return;
         }
         if (hasObjVar(objOwner, strObjVar))
         {
@@ -5728,18 +5503,15 @@ public class utils extends script.base_script
     {
         if (isTheater(strLairType))
         {
-            int intIndex = strLairType.indexOf("medium");
-            if (intIndex > 0)
+            if (strLairType.contains("medium"))
             {
                 return 40;
             }
-            intIndex = strLairType.indexOf("small");
-            if (intIndex > 0)
+            if (strLairType.contains("small"))
             {
                 return 24;
             }
-            intIndex = strLairType.indexOf("large");
-            if (intIndex > 0)
+            if (strLairType.contains("large"))
             {
                 return 72;
             }
@@ -5749,16 +5521,7 @@ public class utils extends script.base_script
     }
     public static boolean isTheater(String strLairType) throws InterruptedException
     {
-        if (strLairType == null)
-        {
-            return false;
-        }
-        int intIndex = strLairType.indexOf("theater");
-        if (intIndex > 0)
-        {
-            return true;
-        }
-        return false;
+        return strLairType != null && strLairType.contains("theater");
     }
     public static boolean isAppropriateName(String name) throws InterruptedException
     {
@@ -5782,11 +5545,7 @@ public class utils extends script.base_script
     }
     public static boolean setNonProfaneName(obj_id target, String name) throws InterruptedException
     {
-        if (!isIdValid(target) || name == null || name.equals(""))
-        {
-            return false;
-        }
-        if (!isAppropriateName(name))
+        if (!isIdValid(target) || name == null || name.equals("") || !isAppropriateName(name))
         {
             return false;
         }
@@ -5822,11 +5581,9 @@ public class utils extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isIdValid(objects[i]))
-            {
-                destroyObject(objects[i]);
+        for (obj_id object : objects) {
+            if (isIdValid(object)) {
+                destroyObject(object);
             }
         }
     }
@@ -5836,17 +5593,16 @@ public class utils extends script.base_script
         {
             return null;
         }
-        String filename = null;
         String fullPath = getTemplateName(target);
         if (fullPath != null && !fullPath.equals(""))
         {
             String[] tmp = split(fullPath, '/');
             if (tmp != null && tmp.length > 0)
             {
-                filename = tmp[tmp.length - 1];
+                return tmp[tmp.length - 1];
             }
         }
-        return filename;
+        return null;
     }
     public static int getFirstNonValidIdIndex(obj_id[] ids) throws InterruptedException
     {
@@ -5880,17 +5636,11 @@ public class utils extends script.base_script
     }
     public static void moneyInMetric(obj_id objTransferer, String strAccount, int intAmount) throws InterruptedException
     {
-        int intTime = getGameTime();
-        String strSpam = "moneyIn;" + intTime + ";" + objTransferer + ";" + strAccount + ";" + intAmount;
-        logBalance(strSpam);
-        return;
+        logBalance("moneyIn;" + getGameTime() + ";" + objTransferer + ";" + strAccount + ";" + intAmount);
     }
     public static void moneyOutMetric(obj_id objTransferer, String strAccount, int intAmount) throws InterruptedException
     {
-        int intTime = getGameTime();
-        String strSpam = "moneyOut;" + intTime + ";" + objTransferer + ";" + strAccount + ";" + intAmount;
-        logBalance(strSpam);
-        return;
+        logBalance("moneyOut;" + getGameTime() + ";" + objTransferer + ";" + strAccount + ";" + intAmount);
     }
     public static int getValidAttributeIndex(String[] array) throws InterruptedException
     {
@@ -6064,25 +5814,14 @@ public class utils extends script.base_script
     {
         return getStringCardinalDirection(locTest1, locTest2, false);
     }
-    public static boolean isContainer(obj_id target) throws InterruptedException
-    {
-        if (isIdValid(target))
-        {
-            return (getContainerType(target) != 0);
-        }
-        return false;
+    public static boolean isContainer(obj_id target) throws InterruptedException {
+        return isIdValid(target) && (getContainerType(target) != 0);
     }
-    public static boolean noIncapDrainAttributes(obj_id target, int actionCost, int mindCost) throws InterruptedException
-    {
-        if (!isIdValid(target) || actionCost < 0)
-        {
+    public static boolean noIncapDrainAttributes(obj_id target, int actionCost, int mindCost) throws InterruptedException {
+        if (!isIdValid(target) || actionCost < 0) {
             return false;
         }
-        if (getAttrib(target, ACTION) < actionCost)
-        {
-            return false;
-        }
-        return drainAttributes(target, actionCost, 0);
+        return getAttrib(target, ACTION) >= actionCost && drainAttributes(target, actionCost, 0);
     }
     public static int getUnbuffedWoundedMaxAttrib(obj_id target, int attrib) throws InterruptedException
     {
@@ -6090,8 +5829,7 @@ public class utils extends script.base_script
         {
             return -1;
         }
-        int unmodmax = getUnmodifiedMaxAttrib(target, attrib);
-        return unmodmax;
+        return getUnmodifiedMaxAttrib(target, attrib);
     }
     public static boolean validatePlayerHairStyle(obj_id player) throws InterruptedException
     {
@@ -6099,14 +5837,13 @@ public class utils extends script.base_script
         {
             return false;
         }
-        String hair_table = "datatables/customization/hair_assets_skill_mods.iff";
         obj_id hair = getObjectInSlot(player, "hair");
         if (!isIdValid(hair))
         {
             return false;
         }
-        String hair_template = getTemplateName(hair);
-        int idx = dataTableSearchColumnForString(hair_template, "SERVER_TEMPLATE", hair_table);
+        String hair_table = "datatables/customization/hair_assets_skill_mods.iff";
+        int idx = dataTableSearchColumnForString(getTemplateName(hair), "SERVER_TEMPLATE", hair_table);
         if (idx < 0)
         {
             return false;
@@ -6119,8 +5856,7 @@ public class utils extends script.base_script
         String player_template = getTemplateName(player);
         if (!player_template.equals(required_template))
         {
-            int new_hair_idx = dataTableSearchColumnForString(player_template, "SERVER_PLAYER_TEMPLATE", hair_table);
-            String new_hair_template = dataTableGetString(hair_table, new_hair_idx, "SERVER_TEMPLATE");
+            String new_hair_template = dataTableGetString(hair_table, dataTableSearchColumnForString(player_template, "SERVER_PLAYER_TEMPLATE", hair_table), "SERVER_TEMPLATE");
             if (new_hair_template == null)
             {
                 CustomerServiceLog("imageDesigner", getFirstName(player) + "(" + player + ") has an invalid hairstyle, but a replacement cannot be found!");
@@ -6141,10 +5877,10 @@ public class utils extends script.base_script
         {
             for (int intI = 0; intI < strScripts.length; intI++)
             {
-                strTest = strTest + strScripts[intI];
+                strTest += strScripts[intI];
                 if (intI < strScripts.length - 1)
                 {
-                    strTest = strTest + ",";
+                    strTest += ",";
                 }
             }
         }
@@ -6152,7 +5888,6 @@ public class utils extends script.base_script
     }
     public static String[] getUsableScriptList(obj_id objObject) throws InterruptedException
     {
-        String strTest = "";
         String[] strScripts = getScriptList(objObject);
         debugSpeakMsg(objObject, "script list is " + strScripts.length);
         if (strScripts.length > 0)
@@ -6162,7 +5897,7 @@ public class utils extends script.base_script
             for (int intI = 0; intI < strScripts.length; intI++)
             {
                 String script = strScripts[intI];
-                if (script.indexOf("script.") > -1)
+                if (script.contains("script."))
                 {
                     script = script.substring(7);
                     debugSpeakMsg(objObject, "setting array to  " + script);
@@ -6175,8 +5910,7 @@ public class utils extends script.base_script
     }
     public static String[] unpackScriptString(String strScripts) throws InterruptedException
     {
-        String[] strTest = split(strScripts, ',');
-        return strTest;
+        return split(strScripts, ',');
     }
     public static boolean isEquipped(obj_id item) throws InterruptedException
     {
@@ -6252,58 +5986,35 @@ public class utils extends script.base_script
                 }
             }
         }
-        if (attackable_targets.size() < 1)
-        {
-            return null;
-        }
-        else 
+        if (attackable_targets.size() >= 1)
         {
             obj_id[] _attackable_targets = new obj_id[0];
-            if (attackable_targets != null)
-            {
-                _attackable_targets = new obj_id[attackable_targets.size()];
-                attackable_targets.toArray(_attackable_targets);
-            }
+            _attackable_targets = new obj_id[attackable_targets.size()];
+            attackable_targets.toArray(_attackable_targets);
             return _attackable_targets;
         }
+        return null;
     }
     public static obj_id getTrapDroidId(obj_id player) throws InterruptedException
     {
-        obj_id dataPad = getPlayerDatapad(player);
-        Vector data = getResizeableContents(dataPad);
-        for (int i = 0; i < data.size(); i++)
-        {
-            if (callable.hasCDCallable(((obj_id)data.get(i))) && hasObjVar(((obj_id)data.get(i)), "module_data.trap_bonus"))
-            {
-                return ((obj_id)data.get(i));
+        Vector data = getResizeableContents(getPlayerDatapad(player));
+        if(data == null) return null;
+        for (Object aData : data) {
+            if (callable.hasCDCallable(((obj_id) aData)) && hasObjVar(((obj_id) aData), "module_data.trap_bonus")) {
+                return ((obj_id) aData);
             }
         }
         return null;
     }
     public static int getTimeLeft(obj_id player, String toCheckFor, int timePenalty) throws InterruptedException
     {
-        int currentTime = getGameTime();
         int timeCalled = utils.getIntScriptVar(player, toCheckFor);
-        if (timeCalled < 1)
-        {
-            return -1;
-        }
-        int timeDone = timeCalled + timePenalty;
-        int timeLeft = timeDone - currentTime;
-        return timeLeft;
+        return timeCalled < 1 ? -1 : timeCalled + timePenalty - getGameTime();
     }
     public static int getTimeLeft(obj_id player, String toCheckFor, String modifiedTime) throws InterruptedException
     {
-        int currentTime = getGameTime();
         int timeCalled = utils.getIntScriptVar(player, toCheckFor);
-        if (timeCalled < 1)
-        {
-            return -1;
-        }
-        int timePenalty = utils.getIntScriptVar(player, modifiedTime);
-        int timeDone = timeCalled + timePenalty;
-        int timeLeft = timeDone - currentTime;
-        return timeLeft;
+        return timeCalled < 1 ? -1 : timeCalled + utils.getIntScriptVar(player, modifiedTime) - getGameTime();
     }
     public static boolean isFreeTrial(obj_id player) throws InterruptedException
     {
@@ -6336,7 +6047,6 @@ public class utils extends script.base_script
         try
         {
             int intReturn = script_entry.callMessageHandlers(strNotificationName, objTarget, dctParams);
-            return;
         }
         catch(Throwable err)
         {
@@ -6350,7 +6060,6 @@ public class utils extends script.base_script
         try
         {
             script_entry.runScripts(strTrigger, params);
-            return;
         }
         catch(Throwable err)
         {
@@ -6361,13 +6070,9 @@ public class utils extends script.base_script
     }
     public static String getCellName(obj_id building, obj_id cell) throws InterruptedException
     {
-        String[] cellNames = getCellNames(building);
-        for (int i = 0; i < cellNames.length; i++)
-        {
-            String cellName = cellNames[i];
+        for (String cellName : getCellNames(building)) {
             obj_id thisCell = getCellId(building, cellName);
-            if (thisCell == cell)
-            {
+            if (thisCell == cell) {
                 return cellName;
             }
         }
@@ -6407,16 +6112,12 @@ public class utils extends script.base_script
         if (isIdValid(mount))
         {
             pet_lib.doDismountNow(rider, false);
-            String name = getTemplateName(mount);
             if (vehicle.isJetPackVehicle(mount))
             {
-                string_id jetDismount = new string_id("pet/pet_menu", "jetpack_dismount");
-                sendSystemMessage(rider, jetDismount);
-                obj_id petControlDevice = callable.getCallableCD(mount);
-                vehicle.storeVehicle(petControlDevice, rider);
+                sendSystemMessage(rider, new string_id("pet/pet_menu", "jetpack_dismount"));
+                vehicle.storeVehicle(callable.getCallableCD(mount), rider);
             }
         }
-        return;
     }
     public static location getLocationFromTransform(transform trTest) throws InterruptedException
     {
@@ -6431,8 +6132,7 @@ public class utils extends script.base_script
     {
         if (hasObjVar(item, prefix + "classRequired"))
         {
-            String requiredClasses = getStringObjVar(item, prefix + "classRequired");
-            java.util.StringTokenizer st = new java.util.StringTokenizer(requiredClasses, ",");
+            java.util.StringTokenizer st = new java.util.StringTokenizer(getStringObjVar(item, prefix + "classRequired"), ",");
             String requiredText = "";
             boolean qualifies = false;
             while (st.hasMoreTokens())
@@ -6470,14 +6170,10 @@ public class utils extends script.base_script
     public static boolean testItemClassRequirements(obj_id player, String requiredClasses, boolean silent) throws InterruptedException
     {
         java.util.StringTokenizer st = new java.util.StringTokenizer(requiredClasses, ",");
-        String requiredText = "";
         while (st.hasMoreTokens())
         {
-            String classId = st.nextToken();
-            if (isProfession(player, stringToInt(classId)))
-            {
+            if (isProfession(player, stringToInt(st.nextToken())))
                 return true;
-            }
         }
         if (!silent)
         {
@@ -6485,14 +6181,8 @@ public class utils extends script.base_script
         }
         return false;
     }
-    public static boolean testItemClassRequirements(obj_id player, obj_id thing, boolean silent, String prefix) throws InterruptedException
-    {
-        if (!hasObjVar(thing, prefix + "classRequired"))
-        {
-            return true;
-        }
-        String requiredClasses = getStringObjVar(thing, prefix + "classRequired");
-        return testItemClassRequirements(player, requiredClasses, silent);
+    public static boolean testItemClassRequirements(obj_id player, obj_id thing, boolean silent, String prefix) throws InterruptedException {
+        return !hasObjVar(thing, prefix + "classRequired") || testItemClassRequirements(player, getStringObjVar(thing, prefix + "classRequired"), silent);
     }
     public static boolean testItemLevelRequirements(obj_id player, obj_id thing, boolean silent, String prefix) throws InterruptedException
     {
@@ -6523,8 +6213,7 @@ public class utils extends script.base_script
         {
             if (!silent)
             {
-                prose_package pp = prose.getPackage(new string_id("spam", "abilityrequired"), "@cmd_n:" + toLower(commandRequired));
-                sendSystemMessageProse(player, pp);
+                sendSystemMessageProse(player, prose.getPackage(new string_id("spam", "abilityrequired"), "@cmd_n:" + toLower(commandRequired)));
             }
             return false;
         }
@@ -6541,8 +6230,7 @@ public class utils extends script.base_script
         {
             if (!silent)
             {
-                prose_package pp = prose.getPackage(new string_id("spam", "skill_required"), "@skl_n:" + toLower(skillRequired));
-                sendSystemMessageProse(player, pp);
+                sendSystemMessageProse(player, prose.getPackage(new string_id("spam", "skill_required"), "@skl_n:" + toLower(skillRequired)));
             }
             return false;
         }
@@ -6664,14 +6352,7 @@ public class utils extends script.base_script
     }
     public static boolean isAntiDecay(obj_id item) throws InterruptedException
     {
-        if (isIdValid(item) && hasObjVar(item, "antidecay"))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return isIdValid(item) && hasObjVar(item, "antidecay");
     }
     public static boolean makeAntiDecay(obj_id item) throws InterruptedException
     {
@@ -6681,39 +6362,22 @@ public class utils extends script.base_script
             attachScript(item, "systems.veteran_reward.antidecay_examine");
             return true;
         }
-        else 
-        {
-            return false;
-        }
+        return false;
     }
     public static boolean removeAntiDecay(obj_id item) throws InterruptedException
     {
         if (isIdValid(item))
         {
-            if (hasObjVar(item, "antidecay"))
-            {
-                removeObjVar(item, "antidecay");
-            }
+            removeObjVar(item, "antidecay");
             return true;
         }
-        else 
-        {
-            return false;
-        }
+        return false;
     }
     public static boolean validItemForAntiDecay(obj_id item) throws InterruptedException
     {
         if (isIdValid(item))
         {
-            if (jedi.isLightsaber(item))
-            {
-                return true;
-            }
-            if (isGameObjectTypeOf(item, GOT_armor_psg))
-            {
-                return false;
-            }
-            if (cloninglib.isDamagedOnCloneGOT(getGameObjectType(item)) || isGameObjectTypeOf(item, GOT_weapon))
+            if (jedi.isLightsaber(item) || cloninglib.isDamagedOnCloneGOT(getGameObjectType(item)) || isGameObjectTypeOf(item, GOT_weapon))
             {
                 return true;
             }
@@ -6751,14 +6415,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        if (hasSkill(player, "social_language_wookiee_comprehend"))
-        {
-            return false;
-        }
-        else 
-        {
-            return true;
-        }
+        return !hasSkill(player, "social_language_wookiee_comprehend");
     }
     public static void emoteWookieeConfusion(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -6771,33 +6428,29 @@ public class utils extends script.base_script
         {
             return;
         }
-        String[] pairs = split(objVarList, ',');
-        for (int i = 0; i < pairs.length; i++)
-        {
-            String[] objVarToSet = split(pairs[i], '=');
+        for (String pair : split(objVarList, ',')) {
+            String[] objVarToSet = split(pair, '=');
             String objVarValue = objVarToSet[1];
             String[] objVarNameAndType = split(objVarToSet[0], ':');
             String objVarType = objVarNameAndType[0];
             String objVarName = objVarNameAndType[1];
-            if (objVarType.equals("string"))
-            {
-                setObjVar(object, objVarName, objVarValue);
-            }
-            else if (objVarType.equals("int"))
-            {
-                setObjVar(object, objVarName, utils.stringToInt(objVarValue));
-            }
-            else if (objVarType.equals("float"))
-            {
-                setObjVar(object, objVarName, utils.stringToFloat(objVarValue));
-            }
-            else if (objVarType.equals("boolean") || objVarType.equals("bool"))
-            {
-                setObjVar(object, objVarName, utils.stringToInt(objVarValue));
-            }
-            else 
-            {
-                setObjVar(object, objVarName, objVarValue);
+            switch (objVarType) {
+                case "string":
+                    setObjVar(object, objVarName, objVarValue);
+                    break;
+                case "int":
+                    setObjVar(object, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                case "float":
+                    setObjVar(object, objVarName, utils.stringToFloat(objVarValue));
+                    break;
+                case "boolean":
+                case "bool":
+                    setObjVar(object, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                default:
+                    setObjVar(object, objVarName, objVarValue);
+                    break;
             }
         }
     }
@@ -6807,33 +6460,29 @@ public class utils extends script.base_script
         {
             return;
         }
-        String[] pairs = split(objVarList, ',');
-        for (int i = 0; i < pairs.length; i++)
-        {
-            String[] objVarToSet = split(pairs[i], '=');
+        for (String pair : split(objVarList, ',')) {
+            String[] objVarToSet = split(pair, '=');
             String objVarValue = objVarToSet[1];
             String[] objVarNameAndType = split(objVarToSet[0], ';');
             String objVarType = objVarNameAndType[0];
             String objVarName = objVarNameAndType[1];
-            if (objVarType.equals("string"))
-            {
-                setObjVar(object, objVarName, objVarValue);
-            }
-            else if (objVarType.equals("int"))
-            {
-                setObjVar(object, objVarName, utils.stringToInt(objVarValue));
-            }
-            else if (objVarType.equals("float"))
-            {
-                setObjVar(object, objVarName, utils.stringToFloat(objVarValue));
-            }
-            else if (objVarType.equals("boolean") || objVarType.equals("bool"))
-            {
-                setObjVar(object, objVarName, utils.stringToInt(objVarValue));
-            }
-            else 
-            {
-                setObjVar(object, objVarName, objVarValue);
+            switch (objVarType) {
+                case "string":
+                    setObjVar(object, objVarName, objVarValue);
+                    break;
+                case "int":
+                    setObjVar(object, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                case "float":
+                    setObjVar(object, objVarName, utils.stringToFloat(objVarValue));
+                    break;
+                case "boolean":
+                case "bool":
+                    setObjVar(object, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                default:
+                    setObjVar(object, objVarName, objVarValue);
+                    break;
             }
         }
     }
@@ -6845,9 +6494,7 @@ public class utils extends script.base_script
             setObjVar(subject, "recordLoc", recordLoc);
             return true;
         }
-        location verifyLoc = getLocationObjVar(subject, "recordLoc");
-        location here = getLocation(getTopMostContainer(subject));
-        float distanceDifference = getDistance(verifyLoc, here);
+        float distanceDifference = getDistance(getLocationObjVar(subject, "recordLoc"), getLocation(getTopMostContainer(subject)));
         if (distanceDifference > distance || distanceDifference == -1f)
         {
             destroyObject(subject);
@@ -6862,9 +6509,7 @@ public class utils extends script.base_script
             setObjVar(subject, "recordLoc", recordLoc);
             return true;
         }
-        location verifyLoc = getLocationObjVar(subject, "recordLoc");
-        location here = getLocation(getTopMostContainer(subject));
-        float distanceDifference = getDistance(verifyLoc, here);
+        float distanceDifference = getDistance(getLocationObjVar(subject, "recordLoc"), getLocation(getTopMostContainer(subject)));
         if (distanceDifference > distance || distanceDifference == -1f)
         {
             destroyObject(subject);
@@ -6949,7 +6594,6 @@ public class utils extends script.base_script
         {
             return false;
         }
-        String classTemplate = getSkillTemplate(player);
         String professionName = "";
         switch (profession)
         {
@@ -6983,11 +6627,8 @@ public class utils extends script.base_script
             default:
             break;
         }
-        if (classTemplate != null && classTemplate.startsWith(professionName))
-        {
-            return true;
-        }
-        return false;
+        String classTemplate = getSkillTemplate(player);
+        return classTemplate != null && classTemplate.startsWith(professionName);
     }
     public static int getPlayerProfession(obj_id player) throws InterruptedException
     {
@@ -7051,8 +6692,7 @@ public class utils extends script.base_script
         {
             ByteArrayInputStream byteInput = new ByteArrayInputStream(source);
             ObjectInputStream ois = new ObjectInputStream(byteInput);
-            Object result = ois.readObject();
-            return result;
+            return ois.readObject();
         }
         catch(ClassNotFoundException x)
         {
@@ -7094,8 +6734,7 @@ public class utils extends script.base_script
         {
             if (player_structure.isBuilding(getTopMostContainer(ownerContainer)))
             {
-                location loc = getLocation(oldItem);
-                newItem = createObject(newTemplateName, loc);
+                newItem = createObject(newTemplateName, getLocation(oldItem));
                 if (isIdValid(newItem))
                 {
                     if (isObjectPersisted(oldItem) && !isObjectPersisted(newItem))
@@ -7105,7 +6744,7 @@ public class utils extends script.base_script
                 }
                 CustomerServiceLog("replaceSnowflakeItem: ", "Old Item (" + oldItem + ") is contained in a building (" + getTopMostContainer(ownerContainer) + ")");
                 CustomerServiceLog("replaceSnowflakeItem: ", "New Item (" + newItem + ") was created in building (" + getTopMostContainer(ownerContainer) + ")");
-                CustomerServiceLog("replaceSnowflakeItem: ", "New Item (" + newItem + ")s location is in a building (" + getTopMostContainer(ownerContainer) + ") is x = " + loc.x + " y = " + loc.y + " z = " + loc.z + "and cell = " + getCellName(getTopMostContainer(ownerContainer), loc.cell));
+                CustomerServiceLog("replaceSnowflakeItem: ", "New Item (" + newItem + ")s location is in a building (" + getTopMostContainer(ownerContainer) + ")");
             }
         }
         else 
@@ -7137,7 +6776,7 @@ public class utils extends script.base_script
                         if (strItemTemplate.equals(oldTemplates[j]))
                         {
                             String newTemplate = dataTableGetString("datatables/item/snowflake_item_swaps.iff", j, "NEW_TEMPLATE");
-                            if (newTemplate != null || !newTemplate.equals(""))
+                            if (newTemplate != null && !newTemplate.equals(""))
                             {
                                 replaceSnowflakeItem(objContents[i], newTemplate);
                             }
@@ -7146,56 +6785,22 @@ public class utils extends script.base_script
                 }
             }
         }
-        return;
     }
     public static boolean isVendorObject(obj_id object) throws InterruptedException
     {
-        if (hasScript(object, VENDOR_SCRIPT))
-        {
-            return true;
-        }
-        return false;
+        return hasScript(object, VENDOR_SCRIPT);
     }
     public static boolean isBazaarObject(obj_id object) throws InterruptedException
     {
-        if (hasScript(object, BAZAAR_SCRIPT))
-        {
-            return true;
-        }
-        return false;
+        return hasScript(object, BAZAAR_SCRIPT);
     }
-    public static boolean isInVendor(obj_id item) throws InterruptedException
-    {
+    public static boolean isInVendor(obj_id item) throws InterruptedException {
         obj_id ownerContainer = getContainedBy(item);
-        if (!isIdValid(ownerContainer))
-        {
-            return false;
-        }
-        obj_id parentContainer = getContainedBy(ownerContainer);
-        if (hasObjVar(parentContainer, "vendor"))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return isIdValid(ownerContainer) && hasObjVar(getContainedBy(ownerContainer), "vendor");
     }
-    public static boolean isInBazaar(obj_id item) throws InterruptedException
-    {
+    public static boolean isInBazaar(obj_id item) throws InterruptedException {
         obj_id ownerContainer = getContainedBy(item);
-        if (!isIdValid(ownerContainer))
-        {
-            return false;
-        }
-        if (hasScript(ownerContainer, "terminal.bazaar"))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return isIdValid(ownerContainer) && hasScript(ownerContainer, "terminal.bazaar");
     }
     public static boolean outOfRange(obj_id self, obj_id player, float distance, boolean message) throws InterruptedException
     {
@@ -7217,19 +6822,16 @@ public class utils extends script.base_script
     }
     public static float roundFloatByDecimal(float number) throws InterruptedException
     {
-        float tempNumber = number * 100;
-        int result = (int)Math.round(tempNumber);
-        float finalResult = (float)result / 100;
-        return finalResult;
+        return (float) Math.round(number * 100) / 100;
     }
     public static void housePackingDecreaseIncrease(obj_id objPlayer, int change) throws InterruptedException
     {
+        int[] housePacking;
         if (change > 0)
         {
-            int[] housePacking = new int[utils.HOUSE_MAX];
             if (!hasObjVar(objPlayer, "housePackup"))
             {
-                setObjVar(objPlayer, "housePackup", housePacking);
+                setObjVar(objPlayer, "housePackup", new int[utils.HOUSE_MAX]);
             }
             housePacking = getIntArrayObjVar(objPlayer, "housePackup");
             if (housePacking.length != utils.HOUSE_MAX)
@@ -7245,7 +6847,7 @@ public class utils extends script.base_script
                 int resetTime = getGameTime() + player_structure.TIME_TO_NEXT_PACKUP;
                 setObjVar(objPlayer, "maxHousePackupTimer", resetTime);
             }
-            else 
+            else
             {
                 int dailyHousePacking = getIntObjVar(objPlayer, "dailyHousePackup");
                 dailyHousePacking++;
@@ -7277,9 +6879,8 @@ public class utils extends script.base_script
                 }
             }
         }
-        else 
+        else
         {
-            int[] housePacking = new int[utils.HOUSE_MAX];
             housePacking = getIntArrayObjVar(objPlayer, "housePackup");
             if (housePacking.length != utils.HOUSE_MAX)
             {
@@ -7330,19 +6931,13 @@ public class utils extends script.base_script
         {
             return false;
         }
-        for (int n = 0; n < contents.length; n++)
-        {
-            int got = getGameObjectType(contents[n]);
-            if (isGameObjectTypeOf(got, GOT_resource_container))
-            {
-                obj_id resourceCrate = contents[n];
-                if (isIdValid(resourceCrate))
-                {
-                    obj_id resourceId = getResourceContainerResourceType(resourceCrate);
-                    if (isIdValid(resourceId))
-                    {
-                        if (isResourceDerivedFrom(resourceId, resource))
-                        {
+        for (obj_id content : contents) {
+            int got = getGameObjectType(content);
+            if (isGameObjectTypeOf(got, GOT_resource_container)) {
+                if (isIdValid(content)) {
+                    obj_id resourceId = getResourceContainerResourceType(content);
+                    if (isIdValid(resourceId)) {
+                        if (isResourceDerivedFrom(resourceId, resource)) {
                             return true;
                         }
                     }
@@ -7351,29 +6946,23 @@ public class utils extends script.base_script
         }
         return false;
     }
-    public static obj_id[] validateObjIdArray(obj_id[] source) throws InterruptedException
+    public static obj_id[] validateObjIdArray(obj_id[] objIds) throws InterruptedException
     {
         Vector target = new Vector();
         target.setSize(0);
-        for (int i = 0; i < source.length; i++)
-        {
-            if (isIdValid(source[i]) && exists(source[i]))
-            {
-                addElement(target, source[i]);
+        for (obj_id objId : objIds) {
+            if (isIdValid(objId) && exists(objId)) {
+                addElement(target, objId);
             }
         }
-        if (target != null)
-        {
-            source = new obj_id[target.size()];
-            target.toArray(source);
+        objIds = new obj_id[target.size()];
+        target.toArray(objIds);
 
-        }
-        return source;
+        return objIds;
     }
     public static obj_id[] getPlayersInBuildoutRow(obj_id player) throws InterruptedException
     {
-        location loc = getLocation(player);
-        return getPlayersInBuildoutRow(loc.area, locations.getBuildoutAreaRow(player));
+        return getPlayersInBuildoutRow(getLocation(player).area, locations.getBuildoutAreaRow(player));
     }
     public static obj_id[] getPlayersInBuildoutDimensions(String scene, float x1, float x2, float z1, float z2) throws InterruptedException
     {
@@ -7399,7 +6988,7 @@ public class utils extends script.base_script
             }
             utils.addElement(playersInArea, allPlayers[i]);
         }
-        if (playersInArea == null || playersInArea.size() == 0)
+        if (playersInArea.size() == 0)
         {
             return null;
         }
@@ -7413,67 +7002,29 @@ public class utils extends script.base_script
     }
     public static dictionary getCoordinatesInBuildoutRow(String scene, int buildout_row) throws InterruptedException
     {
-        String datatable = "datatables/buildout/areas_" + scene + ".iff";
-        dictionary data = dataTableGetRow(datatable, buildout_row);
-        return data;
+        return dataTableGetRow("datatables/buildout/areas_" + scene + ".iff", buildout_row);
     }
     public static obj_id[] getPlayersInBuildoutRow(String scene, int buildout_row) throws InterruptedException
     {
-        String datatable = "datatables/buildout/areas_" + scene + ".iff";
-        dictionary data = dataTableGetRow(datatable, buildout_row);
+        dictionary data = dataTableGetRow("datatables/buildout/areas_" + scene + ".iff", buildout_row);
         return getPlayersInBuildoutDimensions(scene, data.getFloat("x1"), data.getFloat("x2"), data.getFloat("z1"), data.getFloat("z2"));
     }
     public static obj_id[] getPlayersInBuildoutArea(String scene, String buildout_area) throws InterruptedException
     {
-        String datatable = "datatables/buildout/areas_" + scene + ".iff";
-        int rowNum = dataTableSearchColumnForString(buildout_area, 0, datatable);
+        int rowNum = dataTableSearchColumnForString(buildout_area, 0, "datatables/buildout/areas_" + scene + ".iff");
         if (rowNum == -1)
         {
             return null;
         }
         return getPlayersInBuildoutRow(scene, rowNum);
     }
-    public static obj_id[] getAllNpcInBuildoutArea(obj_id baseObject) throws InterruptedException
-    {
-        location loc = getLocation(baseObject);
-        int buildout_area = locations.getBuildoutAreaRow(baseObject);
-        obj_id[] allObjects = getAllObjectsInBuildoutArea(loc.area, buildout_area);
-        if (allObjects == null || allObjects.length == 0)
-        {
-            return null;
-        }
-        Vector allNpc = new Vector();
-        allNpc.setSize(0);
-        for (int i = 0; i < allObjects.length; i++)
-        {
-            if (!isMob(allObjects[i]))
-            {
-                continue;
-            }
-            allNpc.add(allObjects[i]);
-        }
-        if (allNpc == null || allNpc.size() == 0)
-        {
-            return null;
-        }
-        if (allNpc != null)
-        {
-            allObjects = new obj_id[allNpc.size()];
-            allNpc.toArray(allObjects);
-
-        }
-        return allObjects;
-    }
     public static obj_id[] getAllObjectsInBuildoutArea(obj_id baseObject) throws InterruptedException
     {
-        location loc = getLocation(baseObject);
-        int buildout_row = locations.getBuildoutAreaRow(baseObject);
-        return getAllObjectsInBuildoutArea(loc.area, buildout_row);
+        return getAllObjectsInBuildoutArea(getLocation(baseObject).area, locations.getBuildoutAreaRow(baseObject));
     }
     public static obj_id[] getAllObjectsInBuildoutArea(String scene, int buildout_row) throws InterruptedException
     {
-        String datatable = "datatables/buildout/areas_" + scene + ".iff";
-        dictionary data = dataTableGetRow(datatable, buildout_row);
+        dictionary data = dataTableGetRow("datatables/buildout/areas_" + scene + ".iff", buildout_row);
         float x1 = data.getFloat("x1");
         float x2 = data.getFloat("x2");
         float z1 = data.getFloat("z1");
@@ -7499,16 +7050,13 @@ public class utils extends script.base_script
             }
             objectsInArea.add(allObjects[i]);
         }
-        if (objectsInArea == null || objectsInArea.size() == 0)
+        if (objectsInArea.size() == 0)
         {
             return null;
         }
         obj_id[] _objectsInArea = new obj_id[0];
-        if (objectsInArea != null)
-        {
-            _objectsInArea = new obj_id[objectsInArea.size()];
-            objectsInArea.toArray(_objectsInArea);
-        }
+        _objectsInArea = new obj_id[objectsInArea.size()];
+        objectsInArea.toArray(_objectsInArea);
         return _objectsInArea;
     }
     public static Vector shuffleArray(Vector list) throws InterruptedException
@@ -7561,7 +7109,6 @@ public class utils extends script.base_script
             CustomerServiceLog("grantGift", getFirstName(player) + "(" + player + ") did not have an inventory container. Didn't receive Christmas '06 gift, but not blocked from future attempt.");
             return false;
         }
-        obj_id giftSelf = static_item.createNewItemFunction("item_lifeday_gift_self_01_02", inv);
         obj_id giftOther = static_item.createNewItemFunction("item_lifeday_gift_other_01_02", inv);
         setObjVar(giftOther, LIFEDAY_OWNER, player);
         utils.sendMail(GIFT_GRANTED_SUB, GIFT_GRANTED, player, "System");
@@ -7633,11 +7180,8 @@ public class utils extends script.base_script
         String updateObjvar = utils.CTS_OBJVAR_HISTORY + ".1";
         if (!hasObjVar(player, updateObjvar))
         {
-            if ((ctsOjbvars == null) && !retrievedCtsOjbvars)
-            {
-                ctsOjbvars = getCharacterRetroactiveCtsObjvars(player);
-                retrievedCtsOjbvars = true;
-            }
+            ctsOjbvars = getCharacterRetroactiveCtsObjvars(player);
+            retrievedCtsOjbvars = true;
             if ((ctsOjbvars != null) && (ctsOjbvars.length > 0))
             {
                 utils.updateRespecCTSObjvars(player, ctsOjbvars);
@@ -7651,7 +7195,6 @@ public class utils extends script.base_script
             if ((ctsOjbvars == null) && !retrievedCtsOjbvars)
             {
                 ctsOjbvars = getCharacterRetroactiveCtsObjvars(player);
-                retrievedCtsOjbvars = true;
             }
             if ((ctsOjbvars != null) && (ctsOjbvars.length > 0))
             {
@@ -7828,12 +7371,10 @@ public class utils extends script.base_script
                 HashSet abilitiesCurrentNoDupes = new HashSet();
                 for (int i = 0; i < abilitiesCurrent.size(); ++i)
                 {
-                    abilitiesCurrentNoDupes.add(new Integer(((Integer)abilitiesCurrent.get(i)).intValue()));
+                    abilitiesCurrentNoDupes.add(new Integer((Integer) abilitiesCurrent.get(i)));
                 }
-                Iterator abilitiesIterator = abilitiesCurrentNoDupes.iterator();
-                while (abilitiesIterator.hasNext())
-                {
-                    Integer ability = (Integer)abilitiesIterator.next();
+                for (Object abilitiesCurrentNoDupe : abilitiesCurrentNoDupes) {
+                    Integer ability = (Integer) abilitiesCurrentNoDupe;
                     abilities.add(ability);
                 }
                 if (abilities.size() != abilitiesCurrentNoDupes.size())
@@ -7845,21 +7386,21 @@ public class utils extends script.base_script
             {
                 int[] abilitiesNew = new int[abilities.size()];
                 Iterator abilitiesIterator = abilities.iterator();
-                String strAbilitiesNew = new String();
+                String strAbilitiesNew = "";
                 int i = 0;
                 while (abilitiesIterator.hasNext() && (i < abilitiesNew.length))
                 {
                     Integer ability = (Integer)abilitiesIterator.next();
-                    abilitiesNew[i] = ability.intValue();
+                    abilitiesNew[i] = ability;
                     strAbilitiesNew += "" + abilitiesNew[i] + ", ";
                     ++i;
                 }
-                String strAbilitiesCurrent = new String();
+                String strAbilitiesCurrent = "";
                 if ((abilitiesCurrent != null) && (abilitiesCurrent.size() > 0))
                 {
                     for (int j = 0; j < abilitiesCurrent.size(); ++j)
                     {
-                        strAbilitiesCurrent += "" + ((Integer)abilitiesCurrent.get(j)).intValue() + ", ";
+                        strAbilitiesCurrent += "" + (Integer) abilitiesCurrent.get(j) + ", ";
                     }
                 }
                 CustomerServiceLog("CharacterTransferRetroactiveHistory", "changing " + beast_lib.PLAYER_KNOWN_SKILLS_LIST + " objvar for " + player + " from (" + strAbilitiesCurrent + ") to (" + strAbilitiesNew + ")");
@@ -7985,7 +7526,7 @@ public class utils extends script.base_script
         {
             left = 1;
         }
-        if (text.indexOf(":") < 0)
+        if (!text.contains(":"))
         {
             return text;
         }

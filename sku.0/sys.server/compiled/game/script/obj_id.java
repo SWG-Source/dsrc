@@ -264,22 +264,12 @@ public final class obj_id implements Comparable, Serializable
 
 	public boolean hasScriptDictionary(Object key)
 	{
-		boolean result = false;
-		if (scriptDictionary != null)
-		{
-			result = scriptDictionary.containsKey(key);
-		}
-		return result;
+		return scriptDictionary != null && scriptDictionary.containsKey(key);
 	}
 
 	public boolean hasScriptVar(Object key)
 	{
-		boolean result = false;
-		if (scriptVars != null)
-		{
-			result = scriptVars.hasKey(key);
-		}
-		return result;
+		return scriptVars != null && scriptVars.hasKey(key);
 	}
 
 	/**
