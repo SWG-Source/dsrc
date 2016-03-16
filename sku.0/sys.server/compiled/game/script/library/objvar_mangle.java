@@ -1,12 +1,6 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.obj_id;
 
 public class objvar_mangle extends script.base_script
 {
@@ -56,18 +50,18 @@ public class objvar_mangle extends script.base_script
         removeObjVar(self, varName + "_mangled.segment");
         setObjVar(self, varName + "_mangled.count", values.length);
         int pos, segment;
+        int segmentLength;
+        int[] segmentValues;
         for (pos = 0, segment = 0; pos < values.length; pos += INTS_PER_SEGMENT, ++segment)
         {
-            int segmentLength = values.length - pos;
+            segmentLength = values.length - pos;
             if (segmentLength > INTS_PER_SEGMENT)
             {
                 segmentLength = INTS_PER_SEGMENT;
             }
-            int[] segmentValues = new int[segmentLength];
-            for (int i = 0; i < segmentLength; ++i)
-            {
-                segmentValues[i] = values[pos + i];
-            }
+            segmentValues = new int[segmentLength];
+            System.arraycopy(values, pos, segmentValues, 0, segmentLength);
+
             if (segmentValues.length > 0)
             {
                 setObjVar(self, varName + "_mangled.segment." + segment, segmentValues);
@@ -88,9 +82,10 @@ public class objvar_mangle extends script.base_script
         float[] values = new float[count];
         int segment = 0;
         int valuePos = 0;
+        float[] segmentValues;
         while (valuePos < count)
         {
-            float[] segmentValues = getFloatArrayObjVar(self, varName + "_mangled.segment." + segment);
+            segmentValues = getFloatArrayObjVar(self, varName + "_mangled.segment." + segment);
             if (segmentValues == null)
             {
                 break;
@@ -112,19 +107,20 @@ public class objvar_mangle extends script.base_script
         removeObjVar(self, varName);
         removeObjVar(self, varName + "_mangled.segment");
         setObjVar(self, varName + "_mangled.count", values.length);
-        int pos, segment;
+        int pos;
+        int segment;
+        int segmentLength;
+        float[] segmentValues;
+
         for (pos = 0, segment = 0; pos < values.length; pos += FLOATS_PER_SEGMENT, ++segment)
         {
-            int segmentLength = values.length - pos;
+            segmentLength = values.length - pos;
             if (segmentLength > FLOATS_PER_SEGMENT)
             {
                 segmentLength = FLOATS_PER_SEGMENT;
             }
-            float[] segmentValues = new float[segmentLength];
-            for (int i = 0; i < segmentLength; ++i)
-            {
-                segmentValues[i] = values[pos + i];
-            }
+            segmentValues = new float[segmentLength];
+            System.arraycopy(values, pos, segmentValues, 0, segmentLength);
             if (segmentValues.length > 0)
             {
                 setObjVar(self, varName + "_mangled.segment." + segment, segmentValues);
@@ -145,9 +141,10 @@ public class objvar_mangle extends script.base_script
         String[] values = new String[count];
         int segment = 0;
         int valuePos = 0;
+        String[] segmentValues;
         while (valuePos < count)
         {
-            String[] segmentValues = getStringArrayObjVar(self, varName + "_mangled.segment." + segment);
+            segmentValues = getStringArrayObjVar(self, varName + "_mangled.segment." + segment);
             if (segmentValues == null)
             {
                 break;
@@ -178,9 +175,11 @@ public class objvar_mangle extends script.base_script
         String[] values = new String[count];
         int segment = 0;
         int valuePos = 0;
+        String[] segmentValues;
+
         while (valuePos < count)
         {
-            String[] segmentValues = getStringArrayObjVar(self, varName + "_mangled.segment." + segment);
+            segmentValues = getStringArrayObjVar(self, varName + "_mangled.segment." + segment);
             if (segmentValues == null)
             {
                 break;
@@ -191,13 +190,11 @@ public class objvar_mangle extends script.base_script
                 values[valuePos++] = segmentValues[i];
             }
         }
+
         if (valuePos != count)
         {
             String[] strNewStrings = new String[valuePos];
-            for (int intI = 0; intI < valuePos; intI++)
-            {
-                strNewStrings[intI] = values[intI];
-            }
+            System.arraycopy(values, 0, strNewStrings, 0, valuePos);
             return strNewStrings;
         }
         return values;
@@ -207,19 +204,20 @@ public class objvar_mangle extends script.base_script
         removeObjVar(self, varName);
         removeObjVar(self, varName + "_mangled.segment");
         setObjVar(self, varName + "_mangled.count", values.length);
-        int pos, segment;
+        int pos;
+        int segment;
+        int segmentLength;
+        String[] segmentValues;
+
         for (pos = 0, segment = 0; pos < values.length; pos += STRINGS_PER_SEGMENT, ++segment)
         {
-            int segmentLength = values.length - pos;
+            segmentLength = values.length - pos;
             if (segmentLength > STRINGS_PER_SEGMENT)
             {
                 segmentLength = STRINGS_PER_SEGMENT;
             }
-            String[] segmentValues = new String[segmentLength];
-            for (int i = 0; i < segmentLength; ++i)
-            {
-                segmentValues[i] = values[pos + i];
-            }
+            segmentValues = new String[segmentLength];
+            System.arraycopy(values, pos, segmentValues, 0, segmentLength);
             if (segmentValues.length > 0)
             {
                 setObjVar(self, varName + "_mangled.segment." + segment, segmentValues);
@@ -240,9 +238,11 @@ public class objvar_mangle extends script.base_script
         obj_id[] values = new obj_id[count];
         int segment = 0;
         int valuePos = 0;
+        obj_id[] segmentValues;
+
         while (valuePos < count)
         {
-            obj_id[] segmentValues = getObjIdArrayObjVar(self, varName + "_mangled.segment." + segment);
+            segmentValues = getObjIdArrayObjVar(self, varName + "_mangled.segment." + segment);
             if (segmentValues == null)
             {
                 break;
@@ -264,19 +264,21 @@ public class objvar_mangle extends script.base_script
         removeObjVar(self, varName);
         removeObjVar(self, varName + "_mangled.segment");
         setObjVar(self, varName + "_mangled.count", values.length);
-        int pos, segment;
+        int pos;
+        int segment;
+        int segmentLength;
+        obj_id[] segmentValues;
+
         for (pos = 0, segment = 0; pos < values.length; pos += OBJIDS_PER_SEGMENT, ++segment)
         {
-            int segmentLength = values.length - pos;
+            segmentLength = values.length - pos;
             if (segmentLength > OBJIDS_PER_SEGMENT)
             {
                 segmentLength = OBJIDS_PER_SEGMENT;
             }
-            obj_id[] segmentValues = new obj_id[segmentLength];
-            for (int i = 0; i < segmentLength; ++i)
-            {
-                segmentValues[i] = values[pos + i];
-            }
+            segmentValues = new obj_id[segmentLength];
+            System.arraycopy(values, pos, segmentValues, 0, segmentLength);
+
             if (segmentValues.length > 0)
             {
                 setObjVar(self, varName + "_mangled.segment." + segment, segmentValues);

@@ -1,25 +1,11 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
-import script.library.badge;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.chat;
-import script.library.combat_consts;
-import script.library.dot;
-import script.library.factions;
-import script.library.locations;
-import script.library.movement;
-import script.library.pet_lib;
-import script.library.skill;
-import script.library.utils;
+import java.util.Vector;
 
 public class ai_lib extends script.base_script
 {
@@ -37,11 +23,11 @@ public class ai_lib extends script.base_script
     public static final int BEHAVIOR_SENTINEL = 1;
     public static final int BEHAVIOR_LOITER = 2;
     public static final int BEHAVIOR_STOP = 3;
-    public static final String DIF_VERY_EASY = "veryEasy";
-    public static final String DIF_EASY = "easy";
-    public static final String DIF_MEDIUM = "medium";
-    public static final String DIF_HARD = "hard";
-    public static final String DIF_VERY_HARD = "veryHard";
+    //public static final String DIF_VERY_EASY = "veryEasy";
+    //public static final String DIF_EASY = "easy";
+    //public static final String DIF_MEDIUM = "medium";
+    //public static final String DIF_HARD = "hard";
+    //public static final String DIF_VERY_HARD = "veryHard";
     public static final String ALLY_LIST = "allyList";
     public static final String CREATURE_TABLE = "datatables/mob/creatures.iff";
     public static final String CREATURE_NAME_FILE = "mob/creature_names";
@@ -62,8 +48,8 @@ public class ai_lib extends script.base_script
     public static final int FORMATION_WEDGE = 1;
     public static final int FORMATION_LINE = 2;
     public static final int FORMATION_BOX = 3;
-    public static final int DIFFICULTY_NORMAL = 0;
-    public static final int DIFFICULTY_ELITE = 1;
+    //public static final int DIFFICULTY_NORMAL = 0;
+    //public static final int DIFFICULTY_ELITE = 1;
     public static final int DIFFICULTY_BOSS = 2;
     public static final String SHARED_HEALTH_LIST = "shared_health_list";
     public static boolean isWithinLeash(obj_id ai) throws InterruptedException
@@ -105,18 +91,10 @@ public class ai_lib extends script.base_script
         }
         if (needsCombatTriggerVolumes)
         {
-            
-            {
-                final boolean promiscuous = true;
-                final float alertRadius = 64.0f;
-                createTriggerVolume(ai_lib.ALERT_VOLUME_NAME, alertRadius, promiscuous);
-            }
-            
-            {
-                final boolean promiscuous = false;
-                final float aggroRadius = aiGetAggroRadius(self);
-                createTriggerVolume(ai_lib.AGGRO_VOLUME_NAME, aggroRadius, promiscuous);
-            }
+            // Create ALERT trigger volume
+            createTriggerVolume(ai_lib.ALERT_VOLUME_NAME, 64.0f, true);
+            // Create AGGRO trigger volume, AI needs an aggro trigger volume because they could be factionally aggressive towards something
+            createTriggerVolume(ai_lib.AGGRO_VOLUME_NAME, aiGetAggroRadius(self), false);
         }
     }
     public static void clearCombatData() throws InterruptedException
@@ -152,8 +130,7 @@ public class ai_lib extends script.base_script
     }
     public static void setMood(obj_id npc, String mood) throws InterruptedException
     {
-        obj_id thisNpc = getSelf();
-        if (thisNpc != npc)
+        if (getSelf() != npc)
         {
             dictionary parms = new dictionary();
             parms.put("animMood", mood);
@@ -186,15 +163,11 @@ public class ai_lib extends script.base_script
         {
             mood = getStringObjVar(npc, "ai.defaultCalmMood");
         }
-        else 
-        {
-        }
         setAnimationMood(npc, mood);
     }
     public static void doAction(obj_id npc, String anim) throws InterruptedException
     {
-        obj_id thisNpc = getSelf();
-        if (thisNpc != npc)
+        if (getSelf() != npc)
         {
             dictionary parms = new dictionary();
             parms.put("anim", anim);
@@ -307,8 +280,8 @@ public class ai_lib extends script.base_script
     }
     public static void setPatrolPath(obj_id npc, location[] patrolLoc, int startPoint) throws InterruptedException
     {
-        LOGC(aiLoggingEnabled(npc), "debug_ai", ("ai_lib::setPatrolPath() self(" + npc + ") getName(" + getName(npc) + ") patrolLength(" + patrolLoc + ")"));
-        if (isIdValid(npc) && patrolLoc != null)
+        LOGC(aiLoggingEnabled(npc), "debug_ai", ("ai_lib::setPatrolPath() self(" + npc + ") getName(" + getName(npc) + ") patrolLength(" + patrolLoc.length + ")"));
+        if (isIdValid(npc))
         {
             utils.setScriptVar(npc, SCRIPTVAR_CACHED_PATROL_PATH, patrolLoc);
             utils.setScriptVar(npc, SCRIPTVAR_CACHED_PATROL_TYPE, PATROL_FLAG_REPEAT);
@@ -468,17 +441,12 @@ public class ai_lib extends script.base_script
             resumeMovement(npc);
         }
     }
-    public static boolean canPatrol(obj_id npc) throws InterruptedException
-    {
-        if (isIdValid(npc))
-        {
-            return utils.hasScriptVar(npc, SCRIPTVAR_CACHED_PATROL_TYPE);
-        }
-        return false;
+    public static boolean canPatrol(obj_id npc) throws InterruptedException {
+        return isIdValid(npc) && utils.hasScriptVar(npc, SCRIPTVAR_CACHED_PATROL_TYPE);
     }
     public static location[] parseWaypoints(obj_id npc, String[] waypoints) throws InterruptedException
     {
-        if (!isIdValid(npc) || waypoints != null)
+        if (!isIdValid(npc) || waypoints == null)
         {
             return null;
         }
@@ -494,9 +462,10 @@ public class ai_lib extends script.base_script
         }
         location[] patrolLocs = new location[waypoints.length];
         location patrolLoc = new location(baseLoc);
+        float[] coords;
         for (int i = 0; i < waypoints.length; i++)
         {
-            float[] coords = parseWaypoints(waypoints[i]);
+            coords = parseWaypoints(waypoints[i]);
             if (coords != null && coords.length == 2)
             {
                 patrolLoc.x = baseLoc.x + coords[0];
@@ -512,33 +481,9 @@ public class ai_lib extends script.base_script
     }
     public static float[] parseWaypoints(String text) throws InterruptedException
     {
-        int intIndex = 0;
-        int intI = 0;
-        intIndex = text.indexOf(",");
-        String strText1 = "";
-        String strText2 = "";
-        if (intIndex < 0)
-        {
-            return null;
-        }
-        else 
-        {
-            while (intI < text.length())
-            {
-                if (intI < intIndex)
-                {
-                    strText1 = strText1 + text.charAt(intI);
-                }
-                else if (intI > intIndex)
-                {
-                    strText2 = strText2 + text.charAt(intI);
-                }
-                intI = intI + 1;
-            }
-        }
         float[] returnCoords = new float[2];
-        returnCoords[0] = Float.parseFloat(strText1);
-        returnCoords[1] = Float.parseFloat(strText2);
+        returnCoords[0] = Float.parseFloat(text.split(",")[0]);
+        returnCoords[1] = Float.parseFloat(text.split(",")[1]);
         return returnCoords;
     }
     public static void setIgnoreCombat(obj_id npc) throws InterruptedException
@@ -576,8 +521,7 @@ public class ai_lib extends script.base_script
             return;
         }
         utils.setScriptVar(npc, "ai.recentlyBarked", getGameTime() + rand(20, 45));
-        location loc = getLocation(npc);
-        if (locations.isInCity(loc))
+        if (locations.isInCity(getLocation(npc)))
         {
             if (rand(1, 100) != 1)
             {
@@ -591,10 +535,7 @@ public class ai_lib extends script.base_script
                 return;
             }
         }
-        String diction = getStringObjVar(npc, "ai.diction");
-        String stringFile = "npc_reaction/" + diction;
-        String textString = text + "_" + rand(1, 16);
-        string_id speakString = new string_id(stringFile, textString);
+        string_id speakString = new string_id("npc_reaction/" + getStringObjVar(npc, "ai.diction"), text + "_" + rand(1, 16));
         if (getString(speakString) == null)
         {
             debugServerConsoleMsg(npc, "WARNING: Npc_reaction " + speakString + " - does it exist?");
@@ -609,119 +550,44 @@ public class ai_lib extends script.base_script
     public static boolean isMonster(obj_id npc) throws InterruptedException
     {
         int myNiche = aiGetNiche(npc);
-        if (myNiche == NICHE_MONSTER || myNiche == NICHE_HERBIVORE || myNiche == NICHE_CARNIVORE || myNiche == NICHE_PREDATOR)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return myNiche == NICHE_MONSTER || myNiche == NICHE_HERBIVORE || myNiche == NICHE_CARNIVORE || myNiche == NICHE_PREDATOR;
     }
     public static boolean isDroid(obj_id npc) throws InterruptedException
     {
-        int niche = aiGetNiche(npc);
-        if (niche == NICHE_DROID)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return aiGetNiche(npc) == NICHE_DROID;
     }
     public static boolean isPredator(obj_id npc) throws InterruptedException
     {
-        int niche = aiGetNiche(npc);
-        if (niche == NICHE_PREDATOR)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return aiGetNiche(npc) == NICHE_PREDATOR;
     }
     public static boolean isCarnivore(obj_id npc) throws InterruptedException
     {
-        int niche = aiGetNiche(npc);
-        if (niche == NICHE_CARNIVORE)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return aiGetNiche(npc) == NICHE_CARNIVORE;
     }
     public static boolean isHerbivore(obj_id npc) throws InterruptedException
     {
-        int niche = aiGetNiche(npc);
-        if (niche == NICHE_HERBIVORE)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return aiGetNiche(npc) == NICHE_HERBIVORE;
     }
     public static boolean isVehicle(obj_id npc) throws InterruptedException
     {
-        int niche = aiGetNiche(npc);
-        if (niche == NICHE_VEHICLE)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return aiGetNiche(npc) == NICHE_VEHICLE;
     }
     public static boolean isAndroid(obj_id npc) throws InterruptedException
     {
-        int niche = aiGetNiche(npc);
-        if (niche == NICHE_ANDROID)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return aiGetNiche(npc) == NICHE_ANDROID;
     }
     public static boolean isHumanoid(obj_id target) throws InterruptedException
     {
-        if (isPlayer(target))
-        {
-            return true;
-        }
-        else 
-        {
-            int niche = aiGetNiche(target);
-            if (niche == NICHE_NPC || niche == NICHE_ANDROID)
-            {
-                return true;
-            }
-        }
-        return false;
+        int niche = aiGetNiche(target);
+        return isPlayer(target) || niche == NICHE_NPC || niche == NICHE_ANDROID;
     }
     public static boolean isNpc(obj_id npc) throws InterruptedException
     {
-        int myNiche = aiGetNiche(npc);
-        return (myNiche == NICHE_NPC);
+        return (aiGetNiche(npc) == NICHE_NPC);
     }
     public static boolean isTurret(obj_id npc) throws InterruptedException
     {
-        int got = getGameObjectType(npc);
-        if (isGameObjectTypeOf(got, GOT_installation_turret))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return isGameObjectTypeOf(getGameObjectType(npc), GOT_installation_turret);
     }
     public static void setIgnoreCombat(obj_id npc, boolean b) throws InterruptedException
     {
@@ -793,21 +659,11 @@ public class ai_lib extends script.base_script
     {
         return isAiDead(npc);
     }
-    public static boolean isAiDead(obj_id npc) throws InterruptedException
-    {
-        if (!isMob(npc))
-        {
+    public static boolean isAiDead(obj_id npc) throws InterruptedException {
+        if (!isMob(npc)) {
             return (isDisabled(npc));
         }
-        if (isIncapacitated(npc))
-        {
-            return true;
-        }
-        if (isDead(npc))
-        {
-            return true;
-        }
-        return false;
+        return isIncapacitated(npc) || isDead(npc);
     }
     public static void aiFollow(obj_id npc, obj_id target) throws InterruptedException
     {
@@ -841,13 +697,8 @@ public class ai_lib extends script.base_script
         setObjVar(npc, "ai.persistantFollowing.max_dist", max_dist);
         follow(npc, target, min_dist, max_dist);
     }
-    public static boolean isFollowing(obj_id npc) throws InterruptedException
-    {
-        if (!isIdValid(npc))
-        {
-            return false;
-        }
-        return hasObjVar(npc, "ai.persistantFollowing");
+    public static boolean isFollowing(obj_id npc) throws InterruptedException {
+        return isIdValid(npc) && hasObjVar(npc, "ai.persistantFollowing");
     }
     public static obj_id getFollowTarget(obj_id npc) throws InterruptedException
     {
@@ -950,9 +801,8 @@ public class ai_lib extends script.base_script
             removeObjVar(npc, "ai.inFormation");
             return;
         }
-        int formationType = getIntObjVar(npc, "ai.formationType");
         int position = getIntObjVar(npc, "ai.formationPosition");
-        switch (formationType)
+        switch (getIntObjVar(npc, "ai.formationType"))
         {
             case FORMATION_WEDGE:
             followInWedgeFormation(npc, leader, position);
@@ -1050,11 +900,7 @@ public class ai_lib extends script.base_script
     }
     public static void pathAwayFrom(obj_id npc, obj_id target) throws InterruptedException
     {
-        if (!isIdValid(npc) || !isIdValid(target))
-        {
-            return;
-        }
-        if (npc == target)
+        if (npc == target || !isIdValid(npc) || !isIdValid(target))
         {
             return;
         }
@@ -1161,8 +1007,7 @@ public class ai_lib extends script.base_script
         String creatureName = getCreatureName(npc);
         if (creatureName != null || !beast_lib.isBeast(npc))
         {
-            String socialGroup = dataTableGetString(CREATURE_TABLE, creatureName, "socialGroup");
-            return socialGroup;
+            return dataTableGetString(CREATURE_TABLE, creatureName, "socialGroup");
         }
         return null;
     }
@@ -1171,9 +1016,7 @@ public class ai_lib extends script.base_script
         boolean result = false;
         if (!pet_lib.isPet(npc) && !pet_lib.isPet(target) && !beast_lib.isBeast(npc) && !beast_lib.isBeast(target))
         {
-            final String npcCreatureName = getCreatureName(npc);
-            final String targetCreatureName = getCreatureName(target);
-            if (npcCreatureName != null && targetCreatureName != null)
+            if (getCreatureName(npc) != null && getCreatureName(target) != null)
             {
                 String mySocialGroup = getSocialGroup(npc);
                 String yourSocialGroup = getSocialGroup(target);
@@ -1194,31 +1037,19 @@ public class ai_lib extends script.base_script
         }
         return result;
     }
-    public static boolean isHerdingCreature(obj_id npc) throws InterruptedException
-    {
-        if (isNpc(npc) || isPlayer(npc) || isAndroid(npc))
-        {
+    public static boolean isHerdingCreature(obj_id npc) throws InterruptedException {
+        if (isNpc(npc) || isPlayer(npc) || isAndroid(npc)) {
             return false;
         }
         String creatureName = getCreatureName(npc);
-        if (creatureName != null)
-        {
-            boolean isHerding = (dataTableGetInt(CREATURE_TABLE, creatureName, "herd") == 1);
-            return isHerding;
-        }
-        return false;
+        return creatureName != null && (dataTableGetInt(CREATURE_TABLE, creatureName, "herd") == 1);
     }
-    public static boolean isStalkingCreature(obj_id ai) throws InterruptedException
-    {
-        if (isPlayer(ai) || (aiGetNiche(ai) == NICHE_NPC) || isAndroid(ai))
-        {
-            return false;
-        }
-        if (hasScript(ai, "ai.pet_advance"))
-        {
-            return false;
-        }
-        return aiIsStalker(ai);
+    public static boolean isStalkingCreature(obj_id ai) throws InterruptedException {
+        if (!(isPlayer(ai) || aiGetNiche(ai) == NICHE_NPC || isAndroid(ai)))
+            if (!hasScript(ai, "ai.pet_advance"))
+                if (aiIsStalker(ai))
+                    return true;
+        return false;
     }
     public static boolean isAggroToward(obj_id npc, obj_id threat) throws InterruptedException
     {
@@ -1254,14 +1085,8 @@ public class ai_lib extends script.base_script
         {
             return true;
         }
-        int npcNiche = ai_lib.aiGetNiche(npc);
-        int threatNiche = ai_lib.aiGetNiche(threat);
-        if (npcNiche == NICHE_CARNIVORE)
-        {
-            if (threatNiche == NICHE_HERBIVORE)
-            {
-                return true;
-            }
+        if (ai_lib.aiGetNiche(npc) == NICHE_CARNIVORE && ai_lib.aiGetNiche(threat) == NICHE_HERBIVORE) {
+            return true;
         }
         return false;
     }
@@ -1281,24 +1106,16 @@ public class ai_lib extends script.base_script
         }
         return aiIsAggressive(ai);
     }
-    public static boolean isHealingNpc(obj_id npc) throws InterruptedException
-    {
-        if (isPlayer(npc))
-        {
+    public static boolean isHealingNpc(obj_id npc) throws InterruptedException {
+        if (isPlayer(npc)) {
             return false;
         }
         int niche = aiGetNiche(npc);
-        if (niche != NICHE_NPC || niche != NICHE_ANDROID)
-        {
+        if (niche != NICHE_NPC && niche != NICHE_ANDROID) {
             return false;
         }
         String creatureName = getCreatureName(npc);
-        if (creatureName != null)
-        {
-            boolean isHealer = (dataTableGetInt(CREATURE_TABLE, creatureName, "healer") != 0);
-            return isHealer;
-        }
-        return false;
+        return creatureName != null && (dataTableGetInt(CREATURE_TABLE, creatureName, "healer") != 0);
     }
     public static boolean incapacitateMob(obj_id target) throws InterruptedException
     {
@@ -1306,29 +1123,14 @@ public class ai_lib extends script.base_script
         {
             return false;
         }
-        boolean result = true;
-        result &= setHealth(target, -50);
-        result &= setAction(target, -50);
-        result &= setMind(target, -50);
-        return result;
+        return setHealth(target, -50) && setAction(target, -50) && setMind(target, -50);
     }
-    public static boolean isHumanSkeleton(obj_id npc) throws InterruptedException
-    {
-        if (isPlayer(npc))
-        {
+    public static boolean isHumanSkeleton(obj_id npc) throws InterruptedException {
+        if (isPlayer(npc)) {
             return true;
         }
         int speciesNum = ai_lib.aiGetSpecies(npc);
-        if (speciesNum == -1)
-        {
-            return false;
-        }
-        String skeleton = dataTableGetString("datatables/ai/species.iff", speciesNum, "Skeleton");
-        if (skeleton.equals("human"))
-        {
-            return true;
-        }
-        return false;
+        return speciesNum != -1 && dataTableGetString("datatables/ai/species.iff", speciesNum, "Skeleton").equals("human");
     }
     public static String getSkeleton(int speciesNum) throws InterruptedException
     {
@@ -1336,8 +1138,7 @@ public class ai_lib extends script.base_script
         {
             return null;
         }
-        String skeleton = dataTableGetString("datatables/ai/species.iff", speciesNum, "Skeleton");
-        return skeleton;
+        return dataTableGetString("datatables/ai/species.iff", speciesNum, "Skeleton");
     }
     public static String getSkeleton(obj_id npc) throws InterruptedException
     {
@@ -1362,47 +1163,46 @@ public class ai_lib extends script.base_script
         switch (rand(0, 13))
         {
             case 0:
-            anim = ai_lib.ACTION_THREATEN;
-            break;
+                break;
             case 1:
-            anim = "alert";
-            break;
+                anim = "alert";
+                break;
             case 2:
-            anim = "angry";
-            break;
+                anim = "angry";
+                break;
             case 3:
-            anim = "gesticulate_wildly";
-            break;
+                anim = "gesticulate_wildly";
+                break;
             case 4:
-            anim = "greet";
-            break;
+                anim = "greet";
+                break;
             case 5:
-            anim = "look_casual";
-            break;
+                anim = "look_casual";
+                break;
             case 6:
-            anim = "look_left";
-            break;
+                anim = "look_left";
+                break;
             case 7:
-            anim = "look_right";
-            break;
+                anim = "look_right";
+                break;
             case 8:
-            anim = "point_accusingly";
-            break;
+                anim = "point_accusingly";
+                break;
             case 9:
-            anim = "pound_fist_chest";
-            break;
+                anim = "pound_fist_chest";
+                break;
             case 10:
-            anim = "pound_fist_palm";
-            break;
+                anim = "pound_fist_palm";
+                break;
             case 11:
-            anim = "taunt1";
-            break;
+                anim = "taunt1";
+                break;
             case 12:
-            anim = "taunt2";
-            break;
+                anim = "taunt2";
+                break;
             case 13:
-            anim = "taunt3";
-            break;
+                anim = "taunt3";
+                break;
         }
         ai_lib.doAction(npc, anim);
     }
@@ -1428,83 +1228,82 @@ public class ai_lib extends script.base_script
             return;
         }
         String anim = "celebrate";
-        switch (rand(0, 23))
+        switch (rand(0, 24))
         {
             case 0:
-            anim = "celebrate";
-            break;
+                break;
             case 1:
-            anim = "applause_excited";
-            break;
+                anim = "applause_excited";
+                break;
             case 2:
-            anim = "belly_laugh";
-            break;
+                anim = "belly_laugh";
+                break;
             case 3:
-            anim = "celebrate1";
-            break;
+                anim = "celebrate1";
+                break;
             case 4:
-            anim = "coup_de_grace";
-            break;
+                anim = "coup_de_grace";
+                break;
             case 5:
-            anim = "dismiss";
-            break;
+                anim = "dismiss";
+                break;
             case 6:
-            anim = "flex_biceps";
-            break;
+                anim = "flex_biceps";
+                break;
             case 7:
-            anim = "laugh_pointing";
-            break;
+                anim = "laugh_pointing";
+                break;
             case 8:
-            anim = "point_accusingly";
-            break;
+                anim = "point_accusingly";
+                break;
             case 9:
-            anim = "pound_fist_chest";
-            break;
+                anim = "pound_fist_chest";
+                break;
             case 10:
-            anim = "pound_fist_palm";
-            break;
+                anim = "pound_fist_palm";
+                break;
             case 11:
-            anim = "salute1";
-            break;
+                anim = "salute1";
+                break;
             case 12:
-            anim = "salute2";
-            break;
+                anim = "salute2";
+                break;
             case 13:
-            anim = "shrug_hands";
-            break;
+                anim = "shrug_hands";
+                break;
             case 14:
-            anim = "shrug_shoulders";
-            break;
+                anim = "shrug_shoulders";
+                break;
             case 15:
-            anim = "smack_self";
-            break;
+                anim = "smack_self";
+                break;
             case 16:
-            anim = "shake_head_disgust";
-            break;
+                anim = "shake_head_disgust";
+                break;
             case 17:
-            anim = "snap_finger1";
-            break;
+                anim = "snap_finger1";
+                break;
             case 18:
-            anim = "snap_finger2";
-            break;
+                anim = "snap_finger2";
+                break;
             case 19:
-            anim = "tap_head";
-            break;
+                anim = "tap_head";
+                break;
             case 20:
-            anim = "taunt1";
-            break;
+                anim = "taunt1";
+                break;
             case 21:
-            anim = "taunt2";
-            break;
+                anim = "taunt2";
+                break;
             case 22:
-            anim = "taunt3";
-            break;
+                anim = "taunt3";
+                break;
             case 23:
-            anim = "yawn";
-            break;
+                anim = "yawn";
+                break;
             case 24:
-            anim = "check_wrist_device";
-            break;
+                anim = "check_wrist_device";
+                break;
         }
         doAction(npc, anim);
     }
@@ -1539,7 +1338,7 @@ public class ai_lib extends script.base_script
     }
     public static void aiSetPosture(obj_id npc, int newPosture) throws InterruptedException
     {
-        if ((getState(npc, STATE_COMBAT) != 1))
+        if (getState(npc, STATE_COMBAT) != 1)
         {
             setPostureClientImmediate(npc, newPosture);
         }
@@ -1551,71 +1350,42 @@ public class ai_lib extends script.base_script
             doCombatResults("change_posture", cbtAnimationResults, null);
         }
     }
-    public static boolean canSit(obj_id npc) throws InterruptedException
-    {
+    public static boolean canSit(obj_id npc) throws InterruptedException {
         int speciesNum = ai_lib.aiGetSpecies(npc);
-        if (speciesNum == -1)
-        {
-            return false;
-        }
-        boolean hasSitAnims = (dataTableGetInt("datatables/ai/species.iff", speciesNum, "CanSit") == 1);
-        return hasSitAnims;
+        return speciesNum != -1 && dataTableGetInt("datatables/ai/species.iff", speciesNum, "CanSit") == 1;
     }
-    public static boolean canLieDown(obj_id npc) throws InterruptedException
-    {
+    public static boolean canLieDown(obj_id npc) throws InterruptedException {
         int speciesNum = ai_lib.aiGetSpecies(npc);
-        if (speciesNum == -1)
-        {
-            return false;
-        }
-        boolean hasLayAnims = (dataTableGetInt("datatables/ai/species.iff", speciesNum, "CanLieDown") == 1);
-        return hasLayAnims;
+        return speciesNum != -1 && dataTableGetInt("datatables/ai/species.iff", speciesNum, "CanLieDown") == 1;
     }
-    public static boolean isInSameBuilding(obj_id npc, obj_id target) throws InterruptedException
-    {
-        if (!isIdValid(npc))
-        {
-            return false;
-        }
-        if (!isIdValid(target))
-        {
+    public static boolean isInSameBuilding(obj_id npc, obj_id target) throws InterruptedException {
+        if (!isIdValid(npc) || !isIdValid(target)) {
             return false;
         }
         obj_id npcCell = getLocation(npc).cell;
         obj_id targetCell = getLocation(target).cell;
-        if (isIdValid(npcCell) == false && isIdValid(targetCell) == false)
-        {
-            return true;
+        if (!isIdValid(npcCell) && !isIdValid(targetCell)) {
+            return true; //we're both outside
         }
-        else if (isIdValid(npcCell) == false || isIdValid(targetCell) == false)
-        {
+        else if (!isIdValid(npcCell) || !isIdValid(targetCell)) {
             return false;
         }
         obj_id npcBldg = getTopMostContainer(npc);
         obj_id targetBldg = getTopMostContainer(target);
-        if (npcBldg == targetBldg)
-        {
-            return (canSee(npc, target));
-        }
-        else 
-        {
-            return false;
-        }
+        return npcBldg == targetBldg && (canSee(npc, target));//we're in the same building (and can see each other)
     }
     public static String getAttackString(int hash) throws InterruptedException
     {
-        String outstring = "@combat_effects:";
         if (hash == 0)
         {
             return "@combat_effects:none";
         }
         int[] attacks = dataTableGetIntColumn("datatables/ai/special_attack.iff", "ATTACK_HASH");
-        String[] attackstrings = dataTableGetStringColumn("datatables/ai/special_attack.iff", "ATTACK_STRING");
         for (int i = 0; i < attacks.length; i++)
         {
             if (hash == attacks[i])
             {
-                return "@combat_effects:" + attackstrings[i];
+                return "@combat_effects:" + dataTableGetStringColumn("datatables/ai/special_attack.iff", "ATTACK_STRING")[i];
             }
         }
         return "@combat_effects:unknown_attack";
@@ -1627,10 +1397,7 @@ public class ai_lib extends script.base_script
         {
             return null;
         }
-        else 
-        {
-            return dataTableGetString(CREATURE_TABLE, creatureName, "milkType");
-        }
+        return dataTableGetString(CREATURE_TABLE, creatureName, "milkType");
     }
     public static boolean checkForSmuggler(obj_id player) throws InterruptedException
     {
@@ -1638,39 +1405,35 @@ public class ai_lib extends script.base_script
         {
             return false;
         }
-        else 
+        int evadeScan = 0;
+        if (hasSkill(player, "class_smuggler_phase1_novice"))
         {
-            int evadeScan = 0;
-            if (hasSkill(player, "class_smuggler_phase1_novice"))
-            {
-                evadeScan = evadeScan + 15;
-            }
-            if (hasSkill(player, "class_smuggler_phase2_03"))
-            {
-                evadeScan = evadeScan + 15;
-            }
-            if (hasSkill(player, "class_smuggler_phase2_novice"))
-            {
-                evadeScan = evadeScan + 15;
-            }
-            if (hasSkill(player, "class_smuggler_phase3_novice"))
-            {
-                evadeScan = evadeScan + 15;
-            }
-            if (hasSkill(player, "class_smuggler_phase4_novice"))
-            {
-                evadeScan = evadeScan + 15;
-            }
-            if (hasSkill(player, "class_smuggler_phase4_master"))
-            {
-                evadeScan = evadeScan + 20;
-            }
-            int roll = rand(1, 100);
-            if (roll > evadeScan)
-            {
-                sendSystemMessage(player, SMUGGLER_SCAN_FAIL);
-                return false;
-            }
+            evadeScan += 15;
+        }
+        if (hasSkill(player, "class_smuggler_phase2_03"))
+        {
+            evadeScan += 15;
+        }
+        if (hasSkill(player, "class_smuggler_phase2_novice"))
+        {
+            evadeScan += 15;
+        }
+        if (hasSkill(player, "class_smuggler_phase3_novice"))
+        {
+            evadeScan += 15;
+        }
+        if (hasSkill(player, "class_smuggler_phase4_novice"))
+        {
+            evadeScan += 15;
+        }
+        if (hasSkill(player, "class_smuggler_phase4_master"))
+        {
+            evadeScan += 20;
+        }
+        if (rand(1, 100) > evadeScan)
+        {
+            sendSystemMessage(player, SMUGGLER_SCAN_FAIL);
+            return false;
         }
         sendSystemMessage(player, SMUGGLER_SCAN_SUCCESS);
         return true;
@@ -1684,7 +1447,7 @@ public class ai_lib extends script.base_script
         int mindTrick = 0;
         if (isGod(player))
         {
-            mindTrick += 101;
+            return true;
         }
         else if (badge.hasBadge(player, "bdg_jedi_elder") || getState(player, STATE_GLOWING_JEDI) != 0)
         {
@@ -1698,12 +1461,7 @@ public class ai_lib extends script.base_script
         {
             mindTrick += 10;
         }
-        int roll = rand(1, 100);
-        if (roll > mindTrick)
-        {
-            return false;
-        }
-        return true;
+        return rand(1, 100) <= mindTrick;
     }
     public static boolean setupNpc(obj_id npc, boolean conversable, boolean invulnerable) throws InterruptedException
     {
@@ -1732,11 +1490,11 @@ public class ai_lib extends script.base_script
         }
         Vector linkedCreatures = new Vector();
         linkedCreatures.setSize(0);
-        for (int i = 0; i < creatures.length; i++)
-        {
-            if ((getSocialGroup(creatures[i])).equals(socialGroup))
-            {
-                utils.addElement(linkedCreatures, creatures[i]);
+        String creatureSocialGroup;
+        for (obj_id creature : creatures) {
+            creatureSocialGroup = getSocialGroup(creature);
+            if (creatureSocialGroup != null && creatureSocialGroup.equals(socialGroup)) {
+                utils.addElement(linkedCreatures, creature);
             }
         }
         if (linkedCreatures.size() == 0)
@@ -1744,20 +1502,14 @@ public class ai_lib extends script.base_script
             return;
         }
         obj_id[] creatureList = new obj_id[0];
-        if (linkedCreatures != null)
-        {
-            creatureList = new obj_id[linkedCreatures.size()];
-            linkedCreatures.toArray(creatureList);
-        }
-        if (creatureList == null || creatureList.length == 0)
+        creatureList = new obj_id[linkedCreatures.size()];
+        linkedCreatures.toArray(creatureList);
+
+        if (creatureList.length == 0)
         {
             return;
         }
         utils.setScriptVar(subject, ALLY_LIST, creatureList);
-        for (int k = 0; k < creatureList.length; k++)
-        {
-            utils.setScriptVar(subject, ALLY_LIST, creatureList);
-        }
     }
     public static void establishAgroLink(obj_id subject, obj_id[] allies) throws InterruptedException
     {
@@ -1766,10 +1518,6 @@ public class ai_lib extends script.base_script
             return;
         }
         utils.setScriptVar(subject, ALLY_LIST, allies);
-        for (int i = 0; i < allies.length; i++)
-        {
-            utils.setScriptVar(allies[i], ALLY_LIST, allies);
-        }
     }
     public static void triggerAgroLinks(obj_id subject, obj_id attacker) throws InterruptedException
     {
@@ -1782,17 +1530,12 @@ public class ai_lib extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < allyList.length; i++)
-        {
-            if (isIdValid(allyList[i]) && exists(allyList[i]) && !isDead(allyList[i]))
-            {
-                if (!isInCombat(allyList[i]))
-                {
-                    startCombat(allyList[i], attacker);
-                }
-                else 
-                {
-                    addHate(allyList[i], attacker, 1);
+        for (obj_id ally : allyList) {
+            if (isIdValid(ally) && exists(ally) && !isDead(ally)) {
+                if (!isInCombat(ally)) {
+                    startCombat(ally, attacker);
+                } else {
+                    addHate(ally, attacker, 1);
                 }
             }
         }
@@ -1804,10 +1547,8 @@ public class ai_lib extends script.base_script
         String creatureName = getCreatureName(creature);
         if (creatureName.indexOf("elite_") < 1 && creatureName.indexOf("boss_") < 1)
         {
-            dictionary creatureDict = utils.dataTableGetRow(CREATURE_TABLE, creatureName);
-            create.initializeCreature(creature, creatureName, creatureDict, getLevel(creature) + 1);
+            create.initializeCreature(creature, creatureName, utils.dataTableGetRow(CREATURE_TABLE, creatureName), getLevel(creature) + 1);
         }
-        return;
     }
     public static boolean mindTrick(obj_id player, obj_id target) throws InterruptedException
     {
@@ -1861,28 +1602,23 @@ public class ai_lib extends script.base_script
             {
                 return totalDamage;
             }
-            for (int q = 0; q < allies.size(); q++)
-            {
-                if (!isIdValid(((obj_id)allies.get(q))) || !exists(((obj_id)allies.get(q))) || isDead(((obj_id)allies.get(q))) || aiIsTethered(((obj_id)allies.get(q))))
-                {
+            for (Object ally : allies) {
+                if (!isIdValid(((obj_id) ally)) || !exists(((obj_id) ally)) || isDead(((obj_id) ally)) || aiIsTethered(((obj_id) ally))) {
                     continue;
                 }
-                validList.add(((obj_id)allies.get(q)));
+                validList.add(((obj_id) ally));
             }
             utils.setScriptVar(self, ai_lib.SHARED_HEALTH_LIST, validList);
             if (validList.size() < 2)
             {
                 return totalDamage;
             }
-            int divisor = validList.size();
-            int split = Math.round((float)totalDamage / (float)divisor);
-            for (int k = 0; k < validList.size(); k++)
-            {
-                if (((obj_id)validList.get(k)) == self)
-                {
+            int split = Math.round((float) totalDamage / (float) validList.size());
+            for (Object aValidList : validList) {
+                if (aValidList == self) {
                     continue;
                 }
-                damage(((obj_id)validList.get(k)), DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, split);
+                damage(((obj_id) aValidList), DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, split);
             }
             return split;
         }

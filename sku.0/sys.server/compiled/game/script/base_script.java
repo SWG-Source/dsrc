@@ -21,14 +21,13 @@ public class base_script extends script.base_class
     
     public int OnLocateObject(obj_id self, dictionary params) throws InterruptedException
     {
-        location l = getLocation(self);
         obj_id requestor = params.getObjId("requestor");
         if (requestor != null)
         {
             String callbackMethod = params.getString("callback");
             if (callbackMethod != null)
             {
-                params.put("location", l);
+                params.put("location", getLocation(self));
                 messageTo(requestor, callbackMethod, params, 0, false);
             }
         }
@@ -39,8 +38,7 @@ public class base_script extends script.base_class
         obj_id waypoint = params.getObjId("waypoint");
         if (waypoint != null)
         {
-            boolean isActive = params.getBoolean("isActive");
-            _setWaypointActiveNative(waypoint, isActive);
+            _setWaypointActiveNative(waypoint, params.getBoolean("isActive"));
         }
         return SCRIPT_CONTINUE;
     }
@@ -77,9 +75,8 @@ public class base_script extends script.base_class
         {
             return;
         }
-        int count = objvars.getNumItems();
         int elem = getFirstFreeIndex(names);
-        for (int i = 0; i < count && elem >= 0 && elem < names.length; ++i)
+        for (int i = 0; i < objvars.getNumItems() && elem >= 0 && elem < names.length; ++i)
         {
             obj_var o = objvars.getObjVar(i);
             if (o != null)
@@ -126,9 +123,7 @@ public class base_script extends script.base_class
                 String oldname = "\"" + k.toString();
                 String name = oldname.replace('.', '+');
                 debugServerConsoleMsg(self, "scriptvar name: " + name);
-                Object v = scriptvars.getObject(k);
-                String attrib = v.toString();
-                sortedValues.put(name, attrib);
+                sortedValues.put(name, scriptvars.getObject(k));
             }
             Iterator keysSet = (sortedValues.keySet()).iterator();
             while (keysSet.hasNext() && i < names.length)

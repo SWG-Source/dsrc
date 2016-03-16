@@ -1,50 +1,7 @@
 package script.ai;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.ai.ai_aggro;
-import script.ai.ai_combat;
-import script.ai.ai_combat_assist;
-import java.lang.Math;
-import script.library.ai_lib;
-import script.library.attrib;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.callable;
-import script.library.camping;
-import script.library.chat;
-import script.library.collection;
-import script.library.colors;
-import script.library.corpse;
-import script.library.create;
-import script.library.factions;
-import script.library.gcw;
-import script.library.group;
-import script.library.groundquests;
-import script.library.instance;
-import script.library.locations;
-import script.library.loot;
-import script.library.performance;
-import script.library.permissions;
-import script.library.pet_lib;
-import script.library.posture;
-import script.library.prose;
-import script.library.resource;
-import script.library.scheduled_drop;
-import script.library.scenario;
-import script.library.scout;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.storyteller;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
+import script.library.*;
 
 public class ai extends script.base_script
 {

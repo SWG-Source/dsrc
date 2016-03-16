@@ -5,23 +5,10 @@
 
 package script;
 
-import java.io.FileNotFoundException;
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Enumeration;
-import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.Vector;
-import script.obj_id;
-import script.region;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.IOException;
 
 
 public class base_class
@@ -1552,7 +1539,7 @@ public class base_class
         if ( id == 0 )
             return null;
 
-        return obj_id.getObjId(new Long(id));
+        return obj_id.getObjId(id);
     } // getObjId
 
     /**
@@ -1819,10 +1806,13 @@ public class base_class
         int[] array = getIntArrayObjVar(object, name);
         if (array != null)
         {
+            /*
             Integer[] newArray = new Integer[array.length];
             for ( int i = 0; i < array.length; ++i )
                 newArray[i] = new Integer(array[i]);
             return new Vector(Arrays.asList(newArray));
+            */
+            return new Vector(Arrays.asList(array));
         }
         return null;
     }
@@ -1859,10 +1849,13 @@ public class base_class
         float[] array = getFloatArrayObjVar(object, name);
         if (array != null)
         {
+            /*
             Float[] newArray = new Float[array.length];
             for ( int i = 0; i < array.length; ++i )
                 newArray[i] = new Float(array[i]);
             return new Vector(Arrays.asList(newArray));
+            */
+            return new Vector(Arrays.asList(array));
         }
         return null;
     }
@@ -2054,10 +2047,7 @@ public class base_class
      */
     public static boolean getBooleanObjVar(obj_id object, String name)
     {
-        int value = getIntObjVar(object, name);
-        if ( value == 0 )
-            return false;
-        return true;
+        return getIntObjVar(object, name) != 0;
     }
     /**
      * Finds an attrib_mod obj_var with a given name on an object.
@@ -2505,7 +2495,7 @@ public class base_class
             int[] x = new int[data.size()];
             for ( int i = 0; i < x.length; ++i )
             {
-                x[i] = ((Integer)data.get(i)).intValue();
+                x[i] = (int) data.get(i);
             }
             return setObjVar(object, name, x);
         }
@@ -2514,7 +2504,7 @@ public class base_class
             float[] x = new float[data.size()];
             for ( int i = 0; i < x.length; ++i )
             {
-                x[i] = ((Float)data.get(i)).floatValue();
+                x[i] = (float) data.get(i);
             }
             return setObjVar(object, name, x);
         }
@@ -2523,7 +2513,7 @@ public class base_class
             boolean[] x = new boolean[data.size()];
             for ( int i = 0; i < x.length; ++i )
             {
-                x[i] = ((Boolean)data.get(i)).booleanValue();
+                x[i] = (boolean) data.get(i);
             }
             return setObjVar(object, name, x);
         }
@@ -2796,9 +2786,9 @@ public class base_class
      */
     public static void testAbortScript() throws InterruptedException
     {
-        long startTime = script_entry.getScriptStartTime();
         if (script_entry.getScriptStartTime() > 0)
         {
+            long startTime = script_entry.getScriptStartTime();
             long currentTime = System.currentTimeMillis();
             if (currentTime > startTime + script_entry.getScriptInterruptMs())
             {
@@ -3527,8 +3517,7 @@ public class base_class
     }
     public static void setModValue(String modName, int value)
     {
-        obj_id self = getSelf();
-        _setModValue(self, modName, value);
+        _setModValue(getSelf(), modName, value);
     }
 
 
@@ -3655,7 +3644,7 @@ public class base_class
     */
     public static void chatSendToRoom(String roomName, String localizedMessageText, String outOfBand)
     {
-        obj_id self = getSelf();
+        //obj_id self = getSelf();
         //String avatarName = getName(self);
         _chatSendToRoom("SYSTEM", roomName, localizedMessageText, outOfBand);
     }
@@ -3675,9 +3664,7 @@ public class base_class
     */
     public static void chatEnterRoom(String roomName)
     {
-        obj_id self = getSelf();
-        String avatarName = getName(self);
-        _chatEnterRoom(avatarName, roomName);
+        _chatEnterRoom(getName(getSelf()), roomName);
     }
     private static native void _chatEnterRoom(String who, String roomName);
 
@@ -3695,9 +3682,7 @@ public class base_class
     */
     public static void chatExitRoom(String roomName)
     {
-        obj_id self = getSelf();
-        String avatarName = getName(self);
-        _chatExitRoom(avatarName, roomName);
+        _chatExitRoom(getName(getSelf()), roomName);
     }
     private static native void _chatExitRoom(String who, String roomName);
 
@@ -3707,9 +3692,7 @@ public class base_class
     public static native void chatRemoveModeratorFromRoom(String roomName, String moderatorName);
     public static void chatSendInstantMessage(String to, String localizedMessageText, String outOfBand)
     {
-        obj_id self = getSelf();
-        String avatarName = getName (self);
-        _chatSendInstantMessage(avatarName, to, localizedMessageText, outOfBand);
+        _chatSendInstantMessage(getName (getSelf()), to, localizedMessageText, outOfBand);
     }
     private static native void _chatSendInstantMessage(String from, String to, String localizedMessageText, String outOfBand);
 
@@ -3825,8 +3808,7 @@ public class base_class
     */
     public static void sendQuestSystemMessage(obj_id to, prose_package pp)
     {
-        String oob = packOutOfBandProsePackage(null, pp);
-        sendQuestSystemMessage(to, null, oob);
+        sendQuestSystemMessage(to, null, packOutOfBandProsePackage(null, pp));
     }
 
     /**
@@ -3870,8 +3852,7 @@ public class base_class
     */
     public static void sendSystemMessageProse (String to, prose_package pp)
     {
-        String oob = packOutOfBandProsePackage (null, pp);
-        sendSystemMessage (to, null, oob);
+        sendSystemMessage (to, null, packOutOfBandProsePackage (null, pp));
     }
 
     /**
@@ -3907,8 +3888,7 @@ public class base_class
     */
     public static void sendSystemMessageProse (obj_id to, prose_package pp)
     {
-        String oob = packOutOfBandProsePackage (null, pp);
-        sendSystemMessage (to, null, oob);
+        sendSystemMessage (to, null, packOutOfBandProsePackage (null, pp));
         //sendSystemMessageProse (getChatName (to), pp);
     }
 
@@ -3937,8 +3917,7 @@ public class base_class
 
     public static void sendFactionalSystemMessagePlanet(prose_package pp, location loc, float radius, boolean notifyImperial, boolean notifyRebel)
     {
-        String oob = packOutOfBandProsePackage(null, pp);
-        sendFactionalSystemMessagePlanet(oob, loc, radius, notifyImperial, notifyRebel);
+        sendFactionalSystemMessagePlanet(packOutOfBandProsePackage(null, pp), loc, radius, notifyImperial, notifyRebel);
     }
 
     public static void sendFactionalSystemMessagePlanet(string_id messageId, location loc, float radius, boolean notifyImperial, boolean notifyRebel)
@@ -3956,8 +3935,7 @@ public class base_class
     */
     public static void sendSystemMessagePlanetTestingOnly (String localizedMessageText)
     {
-        String room = getGameChatCode () + "." + getGalaxyName () + "." + getCurrentSceneName () + ".system";
-        chatSendToRoom (room, localizedMessageText, null);
+        chatSendToRoom (getGameChatCode () + "." + getGalaxyName () + "." + getCurrentSceneName () + ".system", localizedMessageText, null);
     }
 
     /**
@@ -3965,8 +3943,7 @@ public class base_class
     */
     public static void sendSystemMessagePlanetOob (String oob)
     {
-        String room = getGameChatCode () + "." + getGalaxyName () + "." + getCurrentSceneName () + ".system";
-        chatSendToRoom (room, null, oob);
+        chatSendToRoom (getGameChatCode () + "." + getGalaxyName () + "." + getCurrentSceneName () + ".system", null, oob);
     }
 
     /**
@@ -3984,8 +3961,7 @@ public class base_class
     */
     public static void sendSystemMessagePlanetProse (prose_package pp)
     {
-        String oob = packOutOfBandProsePackage (null, pp);
-        sendSystemMessagePlanetOob (oob);
+        sendSystemMessagePlanetOob (packOutOfBandProsePackage (null, pp));
     }
 
     //--------------------------------------------------------------
@@ -3996,8 +3972,7 @@ public class base_class
     */
     public static void sendSystemMessageGalaxyTestingOnly (String localizedMessageText)
     {
-        String room = getGameChatCode () + "." + getGalaxyName () + ".system";
-        chatSendToRoom (room, localizedMessageText, null);
+        chatSendToRoom (getGameChatCode () + "." + getGalaxyName () + ".system", localizedMessageText, null);
     }
 
     /**
@@ -4005,8 +3980,7 @@ public class base_class
     */
     public static void sendSystemMessageGalaxyOob (String oob)
     {
-        String room = getGameChatCode () + "." + getGalaxyName () + ".system";
-        chatSendToRoom (room, null, oob);
+        chatSendToRoom (getGameChatCode () + "." + getGalaxyName () + ".system", null, oob);
     }
 
     /**
@@ -4024,8 +3998,7 @@ public class base_class
     */
     public static void sendSystemMessageGalaxyProse (prose_package pp)
     {
-        String oob = packOutOfBandProsePackage (null, pp);
-        sendSystemMessageGalaxyOob (oob);
+        sendSystemMessageGalaxyOob (packOutOfBandProsePackage (null, pp));
     }
 
     //--------------------------------------------------------------
@@ -4080,8 +4053,7 @@ public class base_class
      */
     public static void sendCombatSpamMessageProse(obj_id player, prose_package pp, int spamType)
     {
-        String oob = packOutOfBandProsePackage(null, pp);
-        sendCombatSpamMessageOob(player, null, oob, true, false, false, spamType);
+        sendCombatSpamMessageOob(player, null, packOutOfBandProsePackage(null, pp), true, false, false, spamType);
     }
 
     /**
@@ -4090,8 +4062,7 @@ public class base_class
     public static void sendCombatSpamMessageProse(obj_id attacker, obj_id defender, prose_package pp, boolean sendToAttacker, boolean sendToDefender, boolean sendToBystanders, int spamType)
     {
         //@todo: send to other players
-        String oob = packOutOfBandProsePackage(null, pp);
-        sendCombatSpamMessageOob(attacker, defender, oob, sendToAttacker, sendToDefender, sendToBystanders, spamType);
+        sendCombatSpamMessageOob(attacker, defender, packOutOfBandProsePackage(null, pp), sendToAttacker, sendToDefender, sendToBystanders, spamType);
     }
 
     /**
@@ -4233,8 +4204,7 @@ public class base_class
 
     public static boolean isGameObjectTypeOf (obj_id obj, int typeToTestAgainst)
     {
-        final int type = getGameObjectType (obj);
-        return isGameObjectTypeOf (type, typeToTestAgainst);
+        return isGameObjectTypeOf (getGameObjectType (obj), typeToTestAgainst);
     }
 
     /****************************************************************
@@ -5257,14 +5227,8 @@ public class base_class
         Acceptable colors are: red, blue, yellow, white, green, and orange
 
     */
-    public static boolean setWaypointColor(obj_id waypoint, String color)
-    {
-        if(waypoint != null)
-        {
-            return _setWaypointColorNative(waypoint, color);
-        }
-        else
-            return false;
+    public static boolean setWaypointColor(obj_id waypoint, String color) {
+        return waypoint != null && _setWaypointColorNative(waypoint, color);
     }
 
     /** @brief set the visibility of a waypoint in a player's datapad */
@@ -5302,12 +5266,6 @@ public class base_class
     /** @brief set the region for a waypoint */
     public static void setWaypointRegion(obj_id w, region r)
     {
-        if(w != null)
-        {
-            if(r != null)
-            {
-            }
-        }
     }
 
     private static native void _setWaypointName(long waypoint, String name);
@@ -6124,7 +6082,7 @@ public class base_class
          *
          * @return the combined string
          */
-        static public String join(String s1, String s2)
+        public static String join(String s1, String s2)
         {
             if (s1 != null && s2 != null)
                 return s1 + s2;
@@ -8693,8 +8651,8 @@ public class base_class
      * @param state The index of the mental state to get
      * @param value The amount to add to the mental state.
      * @param duration The time to hold the mental state.  This does not include attack and decay time.
-     * @param attackTime The time before the modifier is fully active.
-     * @param decayTime The time for the modifier to decay to zero.
+     * @param attackRate The time before the modifier is fully active.
+     * @param decayRate The time for the modifier to decay to zero.
      * @return a success code
      */
     private static native boolean _addMentalStateModifierToward(long creature, long target, int state, float value, float duration, float attackRate, float decayRate);

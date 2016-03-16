@@ -122,9 +122,8 @@ public class utils extends script.base_script
         if (fArray.length > 1)
         {
             float fSum = 0.0f;
-            for (int i = 0; i < fArray.length; i++)
-            {
-                fSum += fArray[i];
+            for (float aFArray : fArray) {
+                fSum += aFArray;
             }
             float fRandom = rand() * fSum;
             fSum = 0.0f;
@@ -184,30 +183,26 @@ public class utils extends script.base_script
             "pants1",
             "utility_belt"
         };
-        obj_id curArmor = null;
+        obj_id curArmor;
         obj_id inv = utils.getInventoryContainer(player);
         String classTemplate = getSkillTemplate(player);
-        for (int i = 0; i < armorSlots.length; i++)
-        {
-            curArmor = getObjectInSlot(player, armorSlots[i]);
-            if ((isIdValid(curArmor) && !armor.isArmorCertified(player, curArmor)) || (isMando(curArmor) && !hasSpecialSkills(player)))
-            {
+        prose_package pp;
+
+        for (String armorSlot : armorSlots) {
+            curArmor = getObjectInSlot(player, armorSlot);
+            if ((isIdValid(curArmor) && !armor.isArmorCertified(player, curArmor)) || (isMando(curArmor) && !hasSpecialSkills(player))) {
                 totalUnequipped++;
-                prose_package pp = new prose_package();
+                pp = new prose_package();
                 pp = prose.setStringId(pp, new string_id("spam", "armor_lost_cert"));
                 pp = prose.setTT(pp, curArmor);
                 sendSystemMessageProse(player, pp);
                 putInOverloaded(curArmor, inv);
             }
-            if (!isIdNull(curArmor) && hasObjVar(curArmor, "armor.fake_armor") && hasObjVar(curArmor, "dynamic_item.required_skill"))
-            {
-                String requiredSkill = getStringObjVar(curArmor, "dynamic_item.required_skill");
-                if (classTemplate != null && !classTemplate.equals(""))
-                {
-                    if (!classTemplate.startsWith(requiredSkill))
-                    {
+            if (!isIdNull(curArmor) && hasObjVar(curArmor, "armor.fake_armor") && hasObjVar(curArmor, "dynamic_item.required_skill")) {
+                if (classTemplate != null && !classTemplate.equals("")) {
+                    if (!classTemplate.startsWith(getStringObjVar(curArmor, "dynamic_item.required_skill"))) {
                         totalUnequipped++;
-                        prose_package pp = new prose_package();
+                        pp = new prose_package();
                         pp = prose.setStringId(pp, new string_id("spam", "armor_lost_cert"));
                         pp = prose.setTT(pp, curArmor);
                         sendSystemMessageProse(player, pp);
@@ -219,23 +214,19 @@ public class utils extends script.base_script
         obj_id[] equipSlots = metrics.getWornItems(player);
         if (equipSlots != null && equipSlots.length > 0)
         {
-            for (int i = 0; i < equipSlots.length; i++)
-            {
-                if (!static_item.validateLevelRequired(player, (equipSlots[i])))
-                {
+            for (obj_id equipSlot : equipSlots) {
+                if (!static_item.validateLevelRequired(player, (equipSlot))) {
                     totalUnequipped++;
-                    prose_package pp = new prose_package();
+                    pp = new prose_package();
                     pp = prose.setStringId(pp, new string_id("spam", "item_lost_cert"));
-                    pp = prose.setTT(pp, equipSlots[i]);
+                    pp = prose.setTT(pp, equipSlot);
                     sendSystemMessageProse(player, pp);
-                    putInOverloaded(equipSlots[i], inv);
-                }
-                else if (!static_item.validateLevelRequiredForWornEffect(player, (equipSlots[i])))
-                {
-                    static_item.removeWornBuffs(equipSlots[i], player);
-                    prose_package pp = new prose_package();
+                    putInOverloaded(equipSlot, inv);
+                } else if (!static_item.validateLevelRequiredForWornEffect(player, (equipSlot))) {
+                    static_item.removeWornBuffs(equipSlot, player);
+                    pp = new prose_package();
                     pp = prose.setStringId(pp, new string_id("spam", "item_lost_cert_effect"));
-                    pp = prose.setTT(pp, equipSlots[i]);
+                    pp = prose.setTT(pp, equipSlot);
                     sendSystemMessageProse(player, pp);
                 }
             }
@@ -244,7 +235,7 @@ public class utils extends script.base_script
         if (isIdValid(weapon) && !combat.hasCertification(player, weapon))
         {
             totalUnequipped++;
-            prose_package pp = new prose_package();
+            pp = new prose_package();
             pp = prose.setStringId(pp, new string_id("spam", "weapon_lost_cert"));
             pp = prose.setTT(pp, weapon);
             sendSystemMessageProse(player, pp);
@@ -255,7 +246,7 @@ public class utils extends script.base_script
         if (isIdValid(hold_l) && !performance.isDancePropCertified(player, hold_l))
         {
             totalUnequipped++;
-            prose_package pp = new prose_package();
+            pp = new prose_package();
             pp = prose.setStringId(pp, new string_id("spam", "prop_lost_cert"));
             pp = prose.setTT(pp, hold_l);
             sendSystemMessageProse(player, pp);
@@ -265,7 +256,7 @@ public class utils extends script.base_script
         if (isIdValid(hold_r) && !performance.isDancePropCertified(player, hold_r))
         {
             totalUnequipped++;
-            prose_package pp = new prose_package();
+            pp = new prose_package();
             pp = prose.setStringId(pp, new string_id("spam", "prop_lost_cert"));
             pp = prose.setTT(pp, hold_r);
             sendSystemMessageProse(player, pp);
@@ -275,7 +266,7 @@ public class utils extends script.base_script
         if (performance.isValidDanceProp(hold_l) && performance.isValidDanceProp(hold_r) && !hasCommand(player, "prop_dual_wield"))
         {
             totalUnequipped++;
-            prose_package pp = new prose_package();
+            pp = new prose_package();
             pp = prose.setStringId(pp, new string_id("spam", "dual_prop_lost_cert"));
             pp = prose.setTT(pp, hold_l);
             sendSystemMessageProse(player, pp);
@@ -285,27 +276,21 @@ public class utils extends script.base_script
         obj_id[] appearanceItems = getAllItemsFromAppearanceInventory(player);
         if (appearanceItems != null && appearanceItems.length > 0)
         {
-            for (int i = 0; i < appearanceItems.length; ++i)
-            {
-                curArmor = appearanceItems[i];
-                if ((isIdValid(curArmor) && !armor.isArmorCertified(player, curArmor)) || (isMando(curArmor) && !hasSpecialSkills(player)))
-                {
+            for (obj_id appearanceItem : appearanceItems) {
+                curArmor = appearanceItem;
+                if ((isIdValid(curArmor) && !armor.isArmorCertified(player, curArmor)) || (isMando(curArmor) && !hasSpecialSkills(player))) {
                     totalUnequipped++;
-                    prose_package pp = new prose_package();
+                    pp = new prose_package();
                     pp = prose.setStringId(pp, new string_id("spam", "armor_lost_cert"));
                     pp = prose.setTT(pp, curArmor);
                     sendSystemMessageProse(player, pp);
                     putInOverloaded(curArmor, inv);
                 }
-                if (!isIdNull(curArmor) && hasObjVar(curArmor, "armor.fake_armor") && hasObjVar(curArmor, "dynamic_item.required_skill"))
-                {
-                    String requiredSkill = getStringObjVar(curArmor, "dynamic_item.required_skill");
-                    if (classTemplate != null && !classTemplate.equals(""))
-                    {
-                        if (!classTemplate.startsWith(requiredSkill))
-                        {
+                if (!isIdNull(curArmor) && hasObjVar(curArmor, "armor.fake_armor") && hasObjVar(curArmor, "dynamic_item.required_skill")) {
+                    if (classTemplate != null && !classTemplate.equals("")) {
+                        if (!classTemplate.startsWith(getStringObjVar(curArmor, "dynamic_item.required_skill"))) {
                             totalUnequipped++;
-                            prose_package pp = new prose_package();
+                            pp = new prose_package();
                             pp = prose.setStringId(pp, new string_id("spam", "armor_lost_cert"));
                             pp = prose.setTT(pp, curArmor);
                             sendSystemMessageProse(player, pp);
@@ -313,19 +298,16 @@ public class utils extends script.base_script
                         }
                     }
                 }
-                if (!static_item.validateLevelRequired(player, curArmor))
-                {
+                if (!static_item.validateLevelRequired(player, curArmor)) {
                     totalUnequipped++;
-                    prose_package pp = new prose_package();
+                    pp = new prose_package();
                     pp = prose.setStringId(pp, new string_id("spam", "item_lost_cert"));
                     pp = prose.setTT(pp, curArmor);
                     sendSystemMessageProse(player, pp);
                     putInOverloaded(curArmor, inv);
-                }
-                else if (!static_item.validateLevelRequiredForWornEffect(player, curArmor))
-                {
+                } else if (!static_item.validateLevelRequiredForWornEffect(player, curArmor)) {
                     static_item.removeWornBuffs(curArmor, player);
-                    prose_package pp = new prose_package();
+                    pp = new prose_package();
                     pp = prose.setStringId(pp, new string_id("spam", "item_lost_cert_effect"));
                     pp = prose.setTT(pp, curArmor);
                     sendSystemMessageProse(player, pp);
@@ -428,22 +410,15 @@ public class utils extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < objIdArray.length; i++)
-        {
-            if (objIdArray[i] == objTarget)
-            {
+        for (obj_id anObjIdArray : objIdArray) {
+            if (anObjIdArray == objTarget) {
                 return true;
             }
         }
         return false;
     }
-    public static boolean isElementInArray(Vector objIdArray, Object objTarget) throws InterruptedException
-    {
-        if (objIdArray == null || objIdArray.isEmpty())
-        {
-            return false;
-        }
-        return objIdArray.contains(objTarget);
+    public static boolean isElementInArray(Vector objIdArray, Object objTarget) throws InterruptedException {
+        return !(objIdArray == null || objIdArray.isEmpty()) && objIdArray.contains(objTarget);
     }
     public static int getElementPositionInArray(Vector array, Object element) throws InterruptedException
     {
@@ -594,10 +569,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < objSourceArray.length; i++)
-        {
-            objDestinationArray[i] = objSourceArray[i];
-        }
+        System.arraycopy(objSourceArray, 0, objDestinationArray, 0, objSourceArray.length);
         return objDestinationArray;
     }
     public static obj_id[] copyArray(obj_id[] oldArray, obj_id[] newArray) throws InterruptedException
@@ -606,10 +578,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static int[] copyArray(int[] oldArray, int[] newArray) throws InterruptedException
@@ -618,10 +587,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static float[] copyArray(float[] oldArray, float[] newArray) throws InterruptedException
@@ -630,10 +596,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static boolean[] copyArray(boolean[] oldArray, boolean[] newArray) throws InterruptedException
@@ -642,10 +605,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static String[] copyArray(String[] oldArray, String[] newArray) throws InterruptedException
@@ -654,10 +614,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static region[] copyArray(region[] oldArray, region[] newArray) throws InterruptedException
@@ -666,10 +623,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static location[] copyArray(location[] oldArray, location[] newArray) throws InterruptedException
@@ -678,10 +632,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static string_id[] copyArray(string_id[] oldArray, string_id[] newArray) throws InterruptedException
@@ -690,10 +641,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static attrib_mod[] copyArray(attrib_mod[] oldArray, attrib_mod[] newArray) throws InterruptedException
@@ -702,10 +650,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < oldArray.length; i++)
-        {
-            newArray[i] = oldArray[i];
-        }
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
         return newArray;
     }
     public static String[] copyArrayOfRange(String[] oldArray, String[] newArray, int startIndex, int stopIndex) throws InterruptedException
@@ -760,8 +705,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        obj_id objObject = obj_id.getObjId(lngId.longValue());
-        return objObject;
+        return obj_id.getObjId(lngId.longValue());
     }
     public static obj_id[] stringToObjId(String[] text) throws InterruptedException
     {
@@ -892,10 +836,6 @@ public class utils extends script.base_script
             return null;
         }
         Vector ret = new Vector(Arrays.asList(array));
-        if (ret == null)
-        {
-            return null;
-        }
         if (elements == null || elements.length == 0)
         {
             return ret;
@@ -991,10 +931,8 @@ public class utils extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < items.length; i++)
-        {
-            if (getDistance2D(loc, getLocation(items[i])) < dist)
-            {
+        for (obj_id item : items) {
+            if (getDistance2D(loc, getLocation(item)) < dist) {
                 return false;
             }
         }
@@ -1011,14 +949,8 @@ public class utils extends script.base_script
             return array1;
         }
         obj_id[] toPass = new obj_id[array1.length + array2.length];
-        for (int i = 0; i < array1.length; i++)
-        {
-            toPass[i] = array1[i];
-        }
-        for (int i = 0; i < array2.length; i++)
-        {
-            toPass[i + array1.length] = array2[i];
-        }
+        System.arraycopy(array1, 0, toPass, 0, array1.length);
+        System.arraycopy(array2, 0, toPass, array1.length, array2.length);
         return toPass;
     }
     public static Vector concatArrays(Vector array1, Vector array2) throws InterruptedException
@@ -1056,7 +988,7 @@ public class utils extends script.base_script
         Object[] toPass = new Object[array2.length];
         for (int i = 0; i < array2.length; i++)
         {
-            toPass[i] = new Integer(array2[i]);
+            toPass[i] = array2[i];
         }
         return concatArrays(array1, toPass);
     }
@@ -1069,7 +1001,7 @@ public class utils extends script.base_script
         Object[] toPass = new Object[array2.length];
         for (int i = 0; i < array2.length; i++)
         {
-            toPass[i] = new Float(array2[i]);
+            toPass[i] = array2[i];
         }
         return concatArrays(array1, toPass);
     }
@@ -1082,7 +1014,7 @@ public class utils extends script.base_script
         Object[] toPass = new Object[array2.length];
         for (int i = 0; i < array2.length; i++)
         {
-            toPass[i] = new Boolean(array2[i]);
+            toPass[i] = array2[i];
         }
         return concatArrays(array1, toPass);
     }
@@ -1097,14 +1029,8 @@ public class utils extends script.base_script
             return array1;
         }
         String[] toPass = new String[array1.length + array2.length];
-        for (int i = 0; i < array1.length; i++)
-        {
-            toPass[i] = array1[i];
-        }
-        for (int i = 0; i < array2.length; i++)
-        {
-            toPass[i + array1.length] = array2[i];
-        }
+        System.arraycopy(array1, 0, toPass, 0, array1.length);
+        System.arraycopy(array2, 0, toPass, array1.length, array2.length);
         return toPass;
     }
     public static boolean isSubset(obj_id[] array1, obj_id[] array2) throws InterruptedException
@@ -1175,21 +1101,15 @@ public class utils extends script.base_script
         }
         Vector nameList = new Vector();
         nameList.setSize(0);
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isPlayer(players[i]))
-            {
-                nameList = addElement(nameList, getName(players[i]));
+        for (obj_id player : players) {
+            if (isPlayer(player)) {
+                nameList = addElement(nameList, getName(player));
             }
         }
         if (nameList.size() == players.length)
         {
-            String[] _nameList = new String[0];
-            if (nameList != null)
-            {
-                _nameList = new String[nameList.size()];
-                nameList.toArray(_nameList);
-            }
+            String[] _nameList = new String[nameList.size()];
+            nameList.toArray(_nameList);
             return _nameList;
         }
         else 
@@ -1205,26 +1125,20 @@ public class utils extends script.base_script
         }
         Vector nameList = new Vector();
         nameList.setSize(0);
-        obj_id self = getSelf();
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (isIdValid(targets[i]))
-            {
-                String itemName = getEncodedName(targets[i]);
-                if (itemName != null)
-                {
+        String itemName;
+
+        for (obj_id target : targets) {
+            if (isIdValid(target)) {
+                itemName = getEncodedName(target);
+                if (itemName != null) {
                     nameList = addElement(nameList, itemName);
                 }
             }
         }
         if (nameList.size() == targets.length)
         {
-            String[] _nameList = new String[0];
-            if (nameList != null)
-            {
-                _nameList = new String[nameList.size()];
-                nameList.toArray(_nameList);
-            }
+            String[] _nameList = new String[nameList.size()];
+            nameList.toArray(_nameList);
             return _nameList;
         }
         else 
@@ -1252,11 +1166,7 @@ public class utils extends script.base_script
         {
             return true;
         }
-        if (getObjIdObjVar(target, VAR_OWNER) == player)
-        {
-            return true;
-        }
-        return false;
+        return getObjIdObjVar(target, VAR_OWNER) == player;
     }
     public static boolean isCoOwner(obj_id target, obj_id player) throws InterruptedException
     {
@@ -1269,11 +1179,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        if (getElementPositionInArray(coowners, player) > -1)
-        {
-            return true;
-        }
-        return false;
+        return getElementPositionInArray(coowners, player) > -1;
     }
     public static obj_id[] getContents(obj_id container, boolean recurse, Vector excludedNodes) throws InterruptedException
     {
@@ -1319,15 +1225,22 @@ public class utils extends script.base_script
             {
                 exclude = false;
             }
+            obj_id item;
+            boolean keepItem;
+            int idx;
+            int itemGameObjectType;
+            int containerType;
+            obj_id[] newContents;
+
             for (int i = 0; i < contents.size(); i++)
             {
-                obj_id item = ((obj_id)contents.get(i));
+                item = ((obj_id)contents.get(i));
                 if (isIdValid(item))
                 {
-                    boolean keepItem = true;
+                    keepItem = true;
                     if (exclude)
                     {
-                        int idx = excludedNodes.indexOf(item);
+                        idx = excludedNodes.indexOf(item);
                         if (idx > -1)
                         {
                             contents = removeElementAt(contents, i);
@@ -1337,13 +1250,13 @@ public class utils extends script.base_script
                     }
                     if (keepItem)
                     {
-                        int itemGameObjectType = getGameObjectType(item);
+                        itemGameObjectType = getGameObjectType(item);
                         if (itemGameObjectType != GOT_misc_factory_crate && itemGameObjectType != GOT_chronicles_quest_holocron)
                         {
-                            int containerType = getContainerType(item);
+                            containerType = getContainerType(item);
                             if (containerType != 0)
                             {
-                                obj_id[] newContents = getContents(item);
+                                newContents = getContents(item);
                                 if (newContents != null)
                                 {
                                     contents = concatArrays(contents, newContents);
@@ -1385,8 +1298,7 @@ public class utils extends script.base_script
             return null;
         }
         Vector toExclude = addElement(null, bank);
-        obj_id[] contents = getContents(player, true, toExclude);
-        return contents;
+        return getContents(player, true, toExclude);
     }
     public static obj_id[] getFilteredPlayerContents(obj_id player) throws InterruptedException
     {
@@ -1398,7 +1310,7 @@ public class utils extends script.base_script
         obj_id bank = getPlayerBank(player);
         if (isIdValid(bank))
         {
-            toExclude = addElement(toExclude, bank);
+            toExclude = addElement(null, bank);
         }
         obj_id missionBag = getMissionBag(player);
         if (isIdValid(missionBag))
@@ -1425,21 +1337,15 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < allObjects.length; i++)
-        {
-            if (getObjIdObjVar(allObjects[i], VAR_OWNER) == player)
-            {
-                ownedObjects = addElement(ownedObjects, allObjects[i]);
+        for (obj_id allObject : allObjects) {
+            if (getObjIdObjVar(allObject, VAR_OWNER) == player) {
+                ownedObjects = addElement(ownedObjects, allObject);
             }
         }
         if (ownedObjects.size() > 0)
         {
-            obj_id[] _ownedObjects = new obj_id[0];
-            if (ownedObjects != null)
-            {
-                _ownedObjects = new obj_id[ownedObjects.size()];
-                ownedObjects.toArray(_ownedObjects);
-            }
+            obj_id[] _ownedObjects = new obj_id[ownedObjects.size()];
+            ownedObjects.toArray(_ownedObjects);
             return _ownedObjects;
         }
         return null;
@@ -1479,19 +1385,11 @@ public class utils extends script.base_script
             }
             else 
             {
-                obj_id player = getContainingPlayer(item);
-                obj_id bank = getPlayerBank(player);
+                obj_id bank = getPlayerBank(getContainingPlayer(item));
                 if (isIdValid(bank))
                 {
                     obj_id containedBy = getContainedBy(item);
-                    if (containedBy == bank)
-                    {
-                        return false;
-                    }
-                    else 
-                    {
-                        return true;
-                    }
+                    return containedBy != bank;
                 }
                 else 
                 {
@@ -1520,11 +1418,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        if (isIdValid(getContainingNpcCreature(item)))
-        {
-            return true;
-        }
-        return false;
+        return isIdValid(getContainingNpcCreature(item));
     }
     public static obj_id getContainingNpcCreature(obj_id item) throws InterruptedException
     {
@@ -1560,11 +1454,8 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).equals(strTemplate)) {
                         return true;
                     }
                 }
@@ -1580,17 +1471,13 @@ public class utils extends script.base_script
             LOG("utils", "playerHasItemByTemplateInDataPad::pDataPad " + pDataPad);
             obj_id[] objContents = getContents(pDataPad, true);
             LOG("utils", "playerHasItemByTemplateInDataPad::objContents.length " + objContents.length);
-            if (objContents != null)
-            {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    LOG("utils", "playerHasItemByTemplateInDataPad::strItemTemplate " + strItemTemplate);
-                    LOG("utils", "playerHasItemByTemplateInDataPad::strTemplate " + strTemplate);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
-                        return true;
-                    }
+            String strItemTemplate;
+            for (obj_id objContent : objContents) {
+                strItemTemplate = getTemplateName(objContent);
+                LOG("utils", "playerHasItemByTemplateInDataPad::strItemTemplate " + strItemTemplate);
+                LOG("utils", "playerHasItemByTemplateInDataPad::strTemplate " + strTemplate);
+                if (strItemTemplate.equals(strTemplate)) {
+                    return true;
                 }
             }
         }
@@ -1609,11 +1496,11 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(pDataPad, recurse);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
+                String strItemTemplate;
+
+                for (obj_id objContent : objContents) {
+                    strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals(strTemplate)) {
                         ++count;
                     }
                 }
@@ -1626,11 +1513,8 @@ public class utils extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                String inventoryObject = getTemplateName(contents[i]);
-                if (inventoryObject.equals(desiredTemplate))
-                {
+            for (obj_id content : contents) {
+                if (getTemplateName(content).equals(desiredTemplate)) {
                     return true;
                 }
             }
@@ -1642,12 +1526,9 @@ public class utils extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                String inventoryObject = getTemplateName(contents[i]);
-                if (inventoryObject.equals(desiredTemplate))
-                {
-                    return contents[i];
+            for (obj_id content : contents) {
+                if (getTemplateName(content).equals(desiredTemplate)) {
+                    return content;
                 }
             }
         }
@@ -1658,10 +1539,8 @@ public class utils extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasObjVar(contents[i], desiredObjVar))
-                {
+            for (obj_id content : contents) {
+                if (hasObjVar(content, desiredObjVar)) {
                     return true;
                 }
             }
@@ -1673,13 +1552,9 @@ public class utils extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                String inventoryObject = getTemplateName(contents[i]);
-                if (inventoryObject.equals(desiredTemplate))
-                {
-                    if (hasObjVar(contents[i], desiredObjVar))
-                    {
+            for (obj_id content : contents) {
+                if (getTemplateName(content).equals(desiredTemplate)) {
+                    if (hasObjVar(content, desiredObjVar)) {
                         return true;
                     }
                 }
@@ -1695,11 +1570,8 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(objBank, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).equals(strTemplate)) {
                         return true;
                     }
                 }
@@ -1726,14 +1598,13 @@ public class utils extends script.base_script
     public static obj_id getStaticItemInBankOrInventory(obj_id player, String staticItem) throws InterruptedException
     {
         obj_id[] contents = getInventoryAndEquipment(player);
+        String itemName;
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                String itemName = getStaticItemName(contents[i]);
-                if (itemName != null && staticItem != null && staticItem.equals(itemName))
-                {
-                    return contents[i];
+            for (obj_id content : contents) {
+                itemName = getStaticItemName(content);
+                if (itemName != null && staticItem != null && staticItem.equals(itemName)) {
+                    return content;
                 }
             }
         }
@@ -1743,12 +1614,10 @@ public class utils extends script.base_script
             contents = getContents(bank, true);
             if (contents != null && contents.length > 0)
             {
-                for (int i = 0; i < contents.length; i++)
-                {
-                    String itemName = static_item.getStaticItemName(contents[i]);
-                    if (itemName != null && staticItem != null && staticItem.equals(itemName))
-                    {
-                        return contents[i];
+                for (obj_id content : contents) {
+                    itemName = static_item.getStaticItemName(content);
+                    if (itemName != null && staticItem != null && staticItem.equals(itemName)) {
+                        return content;
                     }
                 }
             }
@@ -1766,12 +1635,12 @@ public class utils extends script.base_script
         {
             if (contents != null && contents.length > 0)
             {
-                for (int i = 0; i < contents.length; i++)
-                {
-                    String itemName = getStaticItemName(contents[i]);
-                    if (itemName != null && staticItem != null && staticItem.equals(itemName))
-                    {
-                        return contents[i];
+                String itemName;
+
+                for (obj_id content : contents) {
+                    itemName = getStaticItemName(content);
+                    if (itemName != null && staticItem != null && staticItem.equals(itemName)) {
+                        return content;
                     }
                 }
             }
@@ -1787,16 +1656,11 @@ public class utils extends script.base_script
             obj_id[] contents = getInventoryAndEquipment(player);
             if (contents != null && contents.length > 0)
             {
-                for (int i = 0; i < contents.length; i++)
-                {
-                    if (contents[i] != null)
-                    {
-                        if (static_item.isStaticItem(contents[i]))
-                        {
-                            String itemName = getStaticItemName(contents[i]);
-                            if (itemName.equals(staticItem))
-                            {
-                                objectList = addElement(objectList, contents[i]);
+                for (obj_id content : contents) {
+                    if (content != null) {
+                        if (static_item.isStaticItem(content)) {
+                            if (getStaticItemName(content).equals(staticItem)) {
+                                objectList = addElement(objectList, content);
                             }
                         }
                     }
@@ -1816,12 +1680,11 @@ public class utils extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                String itemName = getStaticItemName(contents[i]);
-                if (itemName != null && staticItem != null && staticItem.equals(itemName))
-                {
-                    return contents[i];
+            String itemName;
+            for (obj_id content : contents) {
+                itemName = getStaticItemName(content);
+                if (itemName != null && staticItem != null && staticItem.equals(itemName)) {
+                    return content;
                 }
             }
         }
@@ -1829,13 +1692,7 @@ public class utils extends script.base_script
     }
     public static int countOfStackedItemsInArray(obj_id[] items) throws InterruptedException
     {
-        int totalCount = 0;
-        for (int i = 0; i < items.length; i++)
-        {
-            int itemCount = getCount(items[i]);
-            totalCount = itemCount + totalCount;
-        }
-        return totalCount;
+        return items.length;
     }
     public static obj_id getItemPlayerHasByTemplate(obj_id objPlayer, String strTemplate) throws InterruptedException
     {
@@ -1845,12 +1702,9 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
-                        return objContents[i];
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).equals(strTemplate)) {
+                        return objContent;
                     }
                 }
             }
@@ -1865,12 +1719,9 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(pDataPad, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
-                        return objContents[i];
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).equals(strTemplate)) {
+                        return objContent;
                     }
                 }
             }
@@ -1885,12 +1736,9 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(objBank, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
-                        return objContents[i];
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).equals(strTemplate)) {
+                        return objContent;
                     }
                 }
             }
@@ -1950,19 +1798,14 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(container, recurse);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String itemTemplate = getTemplateName(objContents[intI]);
-                    if (itemTemplate.equals(template))
-                    {
-                        if (!allowEquipped)
-                        {
-                            if (isEquipped(objContents[intI]))
-                            {
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).equals(template)) {
+                        if (!allowEquipped) {
+                            if (isEquipped(objContent)) {
                                 continue;
                             }
                         }
-                        objectList = addElement(objectList, objContents[intI]);
+                        objectList = addElement(objectList, objContent);
                     }
                 }
             }
@@ -2010,12 +1853,9 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(container, recurse);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String itemTemplate = getTemplateName(objContents[intI]);
-                    if (itemTemplate.startsWith(template))
-                    {
-                        objectList = addElement(objectList, objContents[intI]);
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).startsWith(template)) {
+                        objectList = addElement(objectList, objContent);
                     }
                 }
             }
@@ -2040,12 +1880,9 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
-                        objectList = addElement(objectList, objContents[i]);
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).equals(strTemplate)) {
+                        objectList = addElement(objectList, objContent);
                     }
                 }
             }
@@ -2056,12 +1893,9 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(objBank, true);
             if (objContents != null)
             {
-                for (int j = 0; j < objContents.length; j++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[j]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
-                        objectList = addElement(objectList, objContents[j]);
+                for (obj_id objContent : objContents) {
+                    if (getTemplateName(objContent).equals(strTemplate)) {
+                        objectList = addElement(objectList, objContent);
                     }
                 }
             }
@@ -2080,9 +1914,8 @@ public class utils extends script.base_script
         obj_id[] objContents = getInventoryAndEquipment(objPlayer);
         if (objContents != null)
         {
-            for (int i = 0; i < objContents.length; i++)
-            {
-                objectList = addElement(objectList, objContents[i]);
+            for (obj_id objContent : objContents) {
+                objectList = addElement(objectList, objContent);
             }
         }
         obj_id objBank = getPlayerBank(objPlayer);
@@ -2091,9 +1924,8 @@ public class utils extends script.base_script
             objContents = getContents(objBank, true);
             if (objContents != null)
             {
-                for (int j = 0; j < objContents.length; j++)
-                {
-                    objectList = addElement(objectList, objContents[j]);
+                for (obj_id objContent : objContents) {
+                    objectList = addElement(objectList, objContent);
                 }
             }
         }
@@ -2107,13 +1939,9 @@ public class utils extends script.base_script
     }
     public static location getRandomLocationInRing(location locOrigin, float fltMinDistance, float fltMaxDistance) throws InterruptedException
     {
-        float fltRand = rand();
-        float fltDistance = (fltMaxDistance - fltMinDistance) * fltRand + fltMinDistance;
-        obj_id objTest = null;
-        debugServerConsoleMsg(objTest, "fltDistance is " + fltDistance);
-        float fltAngle = rand(0, 360);
-        locOrigin = rotatePointXZ(locOrigin, fltDistance, fltAngle);
-        return locOrigin;
+        float fltDistance = (fltMaxDistance - fltMinDistance) * rand() + fltMinDistance;
+        debugServerConsoleMsg(null, "fltDistance is " + fltDistance);
+        return rotatePointXZ(locOrigin, fltDistance, rand(0, 360));
     }
     public static location rotatePointXZ(location locOrigin, float fltDistance, float fltAngle) throws InterruptedException
     {
@@ -2168,9 +1996,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        float yaw = getYaw(target);
-        location newLoc = rotatePointXZ(origin, distance, yaw);
-        return newLoc;
+        return rotatePointXZ(origin, distance, getYaw(target));
     }
     public static attrib_mod createAttribMod(int attrib, int value, float duration, float attack, float decay) throws InterruptedException
     {
@@ -2243,31 +2069,30 @@ public class utils extends script.base_script
         float duration = am.getDuration();
         int amt = am.getValue();
         int attack = (int)(am.getAttack());
-        int decay = (int)(am.getDecay());
         if (attack < 0)
         {
             switch (attack)
             {
                 case (int)healing.AM_HEAL_WOUND:
-                if (amt < 0)
-                {
-                    amt = 0;
-                }
-                break;
+                    if (amt < 0)
+                    {
+                        amt = 0;
+                    }
+                    break;
                 case (int)healing.AM_HEAL_SHOCK:
-                if (amt < 0)
-                {
-                    amt = 0;
-                }
-                litmus &= healShockWound(target, amt);
-                break;
+                    if (amt < 0)
+                    {
+                        amt = 0;
+                    }
+                    litmus = healShockWound(target, amt);
+                    break;
                 case (int)healing.AM_ADD_SHOCK:
-                if (amt < 0)
-                {
-                    amt = 0;
-                }
-                litmus &= addShockWound(target, amt);
-                break;
+                    if (amt < 0)
+                    {
+                        amt = 0;
+                    }
+                    litmus = addShockWound(target, amt);
+                    break;
             }
         }
         else 
@@ -2286,19 +2111,13 @@ public class utils extends script.base_script
             return false;
         }
         boolean ret = true;
-        for (int i = 0; i < am.length; i++)
-        {
-            ret &= addAttribMod(target, am[i]);
+        for (attrib_mod anAm : am) {
+            ret &= addAttribMod(target, anAm);
         }
         return ret;
     }
-    public static boolean setHeading(obj_id target, float heading) throws InterruptedException
-    {
-        if (target == null)
-        {
-            return false;
-        }
-        return setYaw(target, heading);
+    public static boolean setHeading(obj_id target, float heading) throws InterruptedException {
+        return target != null && setYaw(target, heading);
     }
     public static dictionary parseKeyPairList(String keyPairList, char delim) throws InterruptedException
     {
@@ -2312,14 +2131,14 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < pairs.length; i++)
-        {
-            String[] tmp = split(pairs[i], '=');
-            if ((tmp != null) && (tmp.length == 2))
-            {
-                int val = stringToInt(tmp[1]);
-                if (val != -1)
-                {
+        String[] tmp;
+        int val;
+
+        for (String pair : pairs) {
+            tmp = split(pair, '=');
+            if ((tmp != null) && (tmp.length == 2)) {
+                val = stringToInt(tmp[1]);
+                if (val != -1) {
                     d.put(tmp[0], val);
                 }
             }
@@ -2330,31 +2149,19 @@ public class utils extends script.base_script
     {
         return parseKeyPairList(keyPairList, ',');
     }
-    public static boolean putInPlayerInventory(obj_id player, obj_id item) throws InterruptedException
-    {
-        if ((!isIdValid(player)) || (!isPlayer(player)) || (item == null))
-        {
+    public static boolean putInPlayerInventory(obj_id player, obj_id item) throws InterruptedException {
+        if ((!isIdValid(player)) || (!isPlayer(player)) || (item == null)) {
             return false;
         }
         obj_id inventory = getObjectInSlot(player, SLOT_INVENTORY);
-        if (inventory == null)
-        {
-            return false;
-        }
-        return putIn(item, inventory);
+        return inventory != null && putIn(item, inventory);
     }
-    public static boolean putInPlayerDatapad(obj_id player, obj_id item) throws InterruptedException
-    {
-        if ((!isIdValid(player)) || (!isPlayer(player)) || (item == null))
-        {
+    public static boolean putInPlayerDatapad(obj_id player, obj_id item) throws InterruptedException {
+        if ((!isIdValid(player)) || (!isPlayer(player)) || (item == null)) {
             return false;
         }
         obj_id datapad = getObjectInSlot(player, SLOT_DATAPAD);
-        if (datapad == null)
-        {
-            return false;
-        }
-        return putIn(item, datapad);
+        return datapad != null && putIn(item, datapad);
     }
     public static obj_id getInventoryContainer(obj_id target) throws InterruptedException
     {
@@ -2447,8 +2254,7 @@ public class utils extends script.base_script
         {
             return null;
         }
-        String strPackedId = "@" + strId.getTable() + ":" + strId.getAsciiId();
-        return strPackedId;
+        return "@" + strId.getTable() + ":" + strId.getAsciiId();
     }
     public static string_id unpackString(String strId) throws InterruptedException
     {
@@ -2476,13 +2282,14 @@ public class utils extends script.base_script
             obj_id[] players = getPlayerCreaturesInRange(actor, 128.0f);
             if (players != null)
             {
-                for (int i = 0; i < players.length; ++i)
-                {
-                    java.util.StringTokenizer st2 = new java.util.StringTokenizer(getName(players[i]));
-                    String playerName = toLower(st2.nextToken());
-                    if (compareName.equals(playerName))
-                    {
-                        return players[i];
+                StringTokenizer st2;
+                String playerName;
+
+                for (obj_id player : players) {
+                    st2 = new StringTokenizer(getName(player));
+                    playerName = toLower(st2.nextToken());
+                    if (compareName.equals(playerName)) {
+                        return player;
                     }
                 }
             }
@@ -2498,7 +2305,6 @@ public class utils extends script.base_script
         cbtAttackerResults.endPosture = intPosture;
         cbtAttackerResults.weapon = null;
         doCombatResults(strPlayback, cbtAttackerResults, null);
-        return;
     }
     public static obj_id[] getBuildingsInObjIdList(obj_id[] items) throws InterruptedException
     {
@@ -2508,14 +2314,9 @@ public class utils extends script.base_script
         }
         Vector buildings = new Vector();
         buildings.setSize(0);
-        for (int i = 0; i < items.length; i++)
-        {
-            if (getCellNames(items[i]) == null)
-            {
-            }
-            else 
-            {
-                buildings = addElement(buildings, items[i]);
+        for (obj_id item : items) {
+            if (getCellNames(item) != null) {
+                buildings = addElement(buildings, item);
             }
         }
         if ((buildings == null) || (buildings.size() == 0))
@@ -2525,11 +2326,8 @@ public class utils extends script.base_script
         else 
         {
             obj_id[] _buildings = new obj_id[0];
-            if (buildings != null)
-            {
-                _buildings = new obj_id[buildings.size()];
-                buildings.toArray(_buildings);
-            }
+            _buildings = new obj_id[buildings.size()];
+            buildings.toArray(_buildings);
             return _buildings;
         }
     }
@@ -2550,21 +2348,15 @@ public class utils extends script.base_script
         }
         Vector ret = new Vector();
         ret.setSize(0);
-        for (int i = 0; i < contents.length; i++)
-        {
-            int myType = getGameObjectType(contents[i]);
-            if (!allowDerived)
-            {
-                if (myType == got)
-                {
-                    ret = addElement(ret, contents[i]);
+        for (obj_id content : contents) {
+            int myType = getGameObjectType(content);
+            if (!allowDerived) {
+                if (myType == got) {
+                    ret = addElement(ret, content);
                 }
-            }
-            else 
-            {
-                if (isGameObjectTypeOf(myType, got))
-                {
-                    ret = addElement(ret, contents[i]);
+            } else {
+                if (isGameObjectTypeOf(myType, got)) {
+                    ret = addElement(ret, content);
                 }
             }
         }
@@ -2573,11 +2365,8 @@ public class utils extends script.base_script
             return null;
         }
         obj_id[] _ret = new obj_id[0];
-        if (ret != null)
-        {
-            _ret = new obj_id[ret.size()];
-            ret.toArray(_ret);
-        }
+        _ret = new obj_id[ret.size()];
+        ret.toArray(_ret);
         return _ret;
     }
     public static obj_id[] getContainedGOTObjects(obj_id container, int got, boolean recurse) throws InterruptedException
@@ -2609,11 +2398,9 @@ public class utils extends script.base_script
         }
         Vector ret = new Vector();
         ret.setSize(0);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], var))
-            {
-                ret = addElement(ret, contents[i]);
+        for (obj_id content : contents) {
+            if (hasObjVar(content, var)) {
+                ret = addElement(ret, content);
             }
         }
         if ((ret == null) || (ret.size() == 0))
@@ -2621,11 +2408,8 @@ public class utils extends script.base_script
             return null;
         }
         obj_id[] _ret = new obj_id[0];
-        if (ret != null)
-        {
-            _ret = new obj_id[ret.size()];
-            ret.toArray(_ret);
-        }
+        _ret = new obj_id[ret.size()];
+        ret.toArray(_ret);
         return _ret;
     }
     public static obj_id[] getContainedObjectsWithObjVar(obj_id container, String var) throws InterruptedException
@@ -2653,11 +2437,9 @@ public class utils extends script.base_script
         }
         Vector ret = new Vector();
         ret.setSize(0);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasScript(contents[i], script))
-            {
-                ret = addElement(ret, contents[i]);
+        for (obj_id content : contents) {
+            if (hasScript(content, script)) {
+                ret = addElement(ret, content);
             }
         }
         if ((ret == null) || (ret.size() == 0))
@@ -2665,11 +2447,8 @@ public class utils extends script.base_script
             return null;
         }
         obj_id[] _ret = new obj_id[0];
-        if (ret != null)
-        {
-            _ret = new obj_id[ret.size()];
-            ret.toArray(_ret);
-        }
+        _ret = new obj_id[ret.size()];
+        ret.toArray(_ret);
         return _ret;
     }
     public static obj_id[] getContainedObjectsWithScript(obj_id container, String script) throws InterruptedException
@@ -2678,39 +2457,23 @@ public class utils extends script.base_script
     }
     public static void sendMail(string_id subject, string_id body, String to, String from) throws InterruptedException
     {
-        String body_oob = chatMakePersistentMessageOutOfBandBody(null, body);
-        String subject_str = "@" + subject.toString();
-        chatSendPersistentMessage(from, to, subject_str, null, body_oob);
-        return;
+        chatSendPersistentMessage(from, to, "@" + subject.toString(), null, chatMakePersistentMessageOutOfBandBody(null, body));
     }
     public static void sendMail(string_id subject, string_id body, obj_id to, String from) throws InterruptedException
     {
-        String body_oob = chatMakePersistentMessageOutOfBandBody(null, body);
-        String subject_str = "@" + subject.toString();
-        chatSendPersistentMessage(from, to, subject_str, null, body_oob);
+        chatSendPersistentMessage(from, to, "@" + subject.toString(), null, chatMakePersistentMessageOutOfBandBody(null, body));
     }
     public static void sendMail(string_id subject, prose_package body, obj_id to, String from) throws InterruptedException
     {
-        String body_oob = chatMakePersistentMessageOutOfBandBody(null, body);
-        String subject_str = "@" + subject.toString();
-        chatSendPersistentMessage(from, to, subject_str, null, body_oob);
+        chatSendPersistentMessage(from, to, "@" + subject.toString(), null, chatMakePersistentMessageOutOfBandBody(null, body));
     }
     public static void sendMail(string_id subject, prose_package body, String to, String from) throws InterruptedException
     {
-        String body_oob = chatMakePersistentMessageOutOfBandBody(null, body);
-        String subject_str = "@" + subject.toString();
-        chatSendPersistentMessage(from, to, subject_str, null, body_oob);
+        chatSendPersistentMessage(from, to, "@" + subject.toString(), null, chatMakePersistentMessageOutOfBandBody(null, body));
     }
     public static boolean isNightTime() throws InterruptedException
     {
-        if (getLocalTime() < getLocalDayLength())
-        {
-            return false;
-        }
-        else 
-        {
-            return true;
-        }
+        return getLocalTime() >= getLocalDayLength();
     }
     public static void sendSystemMessageTestingOnly(obj_id[] players, String message) throws InterruptedException
     {
@@ -2718,11 +2481,9 @@ public class utils extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isIdValid(players[i]) && exists(players[i]))
-            {
-                sendSystemMessageTestingOnly(players[i], message);
+        for (obj_id player : players) {
+            if (isIdValid(player) && exists(player)) {
+                sendSystemMessageTestingOnly(player, message);
             }
         }
     }
@@ -2732,11 +2493,9 @@ public class utils extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isIdValid(players[i]) && exists(players[i]))
-            {
-                sendSystemMessage(players[i], message);
+        for (obj_id player : players) {
+            if (isIdValid(player) && exists(player)) {
+                sendSystemMessage(player, message);
             }
         }
     }
@@ -2746,11 +2505,9 @@ public class utils extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isIdValid(players[i]) && exists(players[i]))
-            {
-                sendSystemMessageProse(players[i], message);
+        for (obj_id player : players) {
+            if (isIdValid(player) && exists(player)) {
+                sendSystemMessageProse(player, message);
             }
         }
     }
@@ -2914,8 +2671,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, location[] val) throws InterruptedException
@@ -2928,8 +2684,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, String val) throws InterruptedException
@@ -2942,8 +2697,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, String[] val) throws InterruptedException
@@ -2956,8 +2710,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, obj_id val) throws InterruptedException
@@ -2970,8 +2723,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, obj_id[] val) throws InterruptedException
@@ -2984,8 +2736,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, int val) throws InterruptedException
@@ -2998,8 +2749,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, int[] val) throws InterruptedException
@@ -3012,8 +2762,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, float val) throws InterruptedException
@@ -3026,8 +2775,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, float[] val) throws InterruptedException
@@ -3040,8 +2788,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, boolean val) throws InterruptedException
@@ -3054,8 +2801,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, transform val) throws InterruptedException
@@ -3068,8 +2814,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, transform[] val) throws InterruptedException
@@ -3082,8 +2827,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, vector val) throws InterruptedException
@@ -3096,8 +2840,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, vector[] val) throws InterruptedException
@@ -3110,8 +2853,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, boolean[] val) throws InterruptedException
@@ -3124,8 +2866,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean setLocalVar(obj_id target, String path, dictionary val) throws InterruptedException
@@ -3138,14 +2879,12 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.put(path, val);
+        target.getScriptDictionary().put(path, val);
         return true;
     }
     public static boolean hasLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.containsKey(path);
+        return target.getScriptDictionary().containsKey(path);
     }
     public static boolean removeLocalVar(obj_id target, String path) throws InterruptedException
     {
@@ -3157,74 +2896,60 @@ public class utils extends script.base_script
         {
             return false;
         }
-        dictionary dd = target.getScriptDictionary();
-        dd.remove(path);
+        target.getScriptDictionary().remove(path);
         return true;
     }
     public static int getIntLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getInt(path);
+        return target.getScriptDictionary().getInt(path);
     }
     public static int[] getIntArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getIntArray(path);
+        return target.getScriptDictionary().getIntArray(path);
     }
     public static float getFloatLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getFloat(path);
+        return target.getScriptDictionary().getFloat(path);
     }
     public static float[] getFloatArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getFloatArray(path);
+        return target.getScriptDictionary().getFloatArray(path);
     }
     public static String getStringLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getString(path);
+        return target.getScriptDictionary().getString(path);
     }
     public static String[] getStringArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getStringArray(path);
+        return target.getScriptDictionary().getStringArray(path);
     }
     public static transform[] getTransformArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getTransformArray(path);
+        return target.getScriptDictionary().getTransformArray(path);
     }
     public static boolean getBooleanLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getBoolean(path);
+        return target.getScriptDictionary().getBoolean(path);
     }
     public static boolean[] getBooleanArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getBooleanArray(path);
+        return target.getScriptDictionary().getBooleanArray(path);
     }
     public static location getLocationLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getLocation(path);
+        return target.getScriptDictionary().getLocation(path);
     }
     public static location[] getLocationArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getLocationArray(path);
+        return target.getScriptDictionary().getLocationArray(path);
     }
     public static obj_id getObjIdLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getObjId(path);
+        return target.getScriptDictionary().getObjId(path);
     }
     public static obj_id[] getObjIdArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getObjIdArray(path);
+        return target.getScriptDictionary().getObjIdArray(path);
     }
     public static Vector getResizeableObjIdArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
@@ -3243,9 +2968,8 @@ public class utils extends script.base_script
         dictionary dd = target.getScriptDictionary();
         int[] intArray = dd.getIntArray(path);
         Vector rszArray = new Vector(intArray.length + 1);
-        for (int i = 0; i < intArray.length; ++i)
-        {
-            rszArray.add(new Integer(intArray[i]));
+        for (int anIntArray : intArray) {
+            rszArray.add(anIntArray);
         }
         return rszArray;
     }
@@ -3254,9 +2978,8 @@ public class utils extends script.base_script
         dictionary dd = target.getScriptDictionary();
         float[] fltArray = dd.getFloatArray(path);
         Vector rszArray = new Vector(fltArray.length + 10);
-        for (int i = 0; i < fltArray.length; ++i)
-        {
-            rszArray.add(new Float(fltArray[i]));
+        for (float aFltArray : fltArray) {
+            rszArray.add(aFltArray);
         }
         return rszArray;
     }
@@ -3270,30 +2993,25 @@ public class utils extends script.base_script
     {
         dictionary dd = target.getScriptDictionary();
         transform[] trArray = dd.getTransformArray(path);
-        Vector v1 = new Vector(Arrays.asList(trArray));
-        return v1;
+        return new Vector(Arrays.asList(trArray));
     }
     public static Vector getResizeableVectorArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
         dictionary dd = target.getScriptDictionary();
         vector[] vctArray = dd.getVectorArray(path);
-        Vector v1 = new Vector(Arrays.asList(vctArray));
-        return v1;
+        return new Vector(Arrays.asList(vctArray));
     }
     public static string_id getStringIdLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getStringId(path);
+        return target.getScriptDictionary().getStringId(path);
     }
     public static string_id[] getStringIdArrayLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getStringIdArray(path);
+        return target.getScriptDictionary().getStringIdArray(path);
     }
     public static dictionary getDictionaryLocalVar(obj_id target, String path) throws InterruptedException
     {
-        dictionary dd = target.getScriptDictionary();
-        return dd.getDictionary(path);
+        return target.getScriptDictionary().getDictionary(path);
     }
     public static boolean setScriptVar(obj_id target, String path, location val) throws InterruptedException
     {
@@ -3305,8 +3023,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, location[] val) throws InterruptedException
@@ -3319,8 +3036,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, String val) throws InterruptedException
@@ -3333,8 +3049,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, String[] val) throws InterruptedException
@@ -3347,8 +3062,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, String[][] val) throws InterruptedException
@@ -3361,8 +3075,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, obj_id val) throws InterruptedException
@@ -3375,8 +3088,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, obj_id[] val) throws InterruptedException
@@ -3389,8 +3101,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, int val) throws InterruptedException
@@ -3403,8 +3114,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, int[] val) throws InterruptedException
@@ -3417,8 +3127,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, long val) throws InterruptedException
@@ -3431,8 +3140,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, long[] val) throws InterruptedException
@@ -3445,8 +3153,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, double val) throws InterruptedException
@@ -3459,8 +3166,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, double[] val) throws InterruptedException
@@ -3473,8 +3179,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, float val) throws InterruptedException
@@ -3487,8 +3192,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, float[] val) throws InterruptedException
@@ -3501,8 +3205,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, boolean val) throws InterruptedException
@@ -3515,8 +3218,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, transform val) throws InterruptedException
@@ -3529,8 +3231,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, transform[] val) throws InterruptedException
@@ -3543,8 +3244,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, vector val) throws InterruptedException
@@ -3557,8 +3257,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, vector[] val) throws InterruptedException
@@ -3571,8 +3270,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, boolean[] val) throws InterruptedException
@@ -3585,8 +3283,7 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        dd.put(path, val);
+        target.getScriptVars().put(path, val);
         return true;
     }
     public static boolean setScriptVar(obj_id target, String path, Vector val) throws InterruptedException
@@ -3686,11 +3383,11 @@ public class utils extends script.base_script
         {
             return false;
         }
-        deltadictionary dd = target.getScriptVars();
-        Enumeration keys = dd.keys();
+        Enumeration keys = target.getScriptVars().keys();
+        String key;
         while (keys.hasMoreElements())
         {
-            String key = (String)(keys.nextElement());
+            key = (String) (keys.nextElement());
             if (key.equals(path) || key.startsWith(path + "."))
             {
                 return true;
@@ -3714,9 +3411,10 @@ public class utils extends script.base_script
             return false;
         }
         Enumeration keys = target.getScriptVars().keys();
+        String key;
         while (keys.hasMoreElements())
         {
-            String key = (String)(keys.nextElement());
+            key = (String) (keys.nextElement());
             if (key.equals(path) || key.startsWith(path + "."))
             {
                 target.getScriptVars().remove(key);
@@ -3917,8 +3615,9 @@ public class utils extends script.base_script
             return 0;
         }
         int intCount = 0;
+        String strString;
         for (obj_id objObject : objObjects) {
-            String strString = getStringObjVar(objObject, strObjVar);
+            strString = getStringObjVar(objObject, strObjVar);
             if (strString != null && strString.contains(strSubString))
                 intCount++;
         }
@@ -4011,13 +3710,12 @@ public class utils extends script.base_script
         {
             basePath = "";
         }
-        String name = ovl.getName();
-        String path = basePath + name;
-        boolean litmus = true;
+        String path = basePath + ovl.getName();
         int numItems = ovl.getNumItems();
+        obj_var ov;
         for (int i = 0; i < numItems; i++)
         {
-            obj_var ov = ovl.getObjVar(i);
+            ov = ovl.getObjVar(i);
             if (ov != null)
             {
                 if (ov instanceof obj_var_list)
@@ -4064,9 +3762,10 @@ public class utils extends script.base_script
             return;
         }
         int numItems = ovl.getNumItems();
+        obj_var ov;
         for (int x = 0; x < numItems; x++)
         {
-            obj_var ov = ovl.getObjVar(x);
+            ov = ovl.getObjVar(x);
             if (ov != null)
             {
                 copyObjVar(template, clone, ov.getName());
@@ -4166,7 +3865,7 @@ public class utils extends script.base_script
                 result[i] = true;
             }
         }
-        if (result == null || result.length == 0)
+        if (result.length == 0)
         {
             result[0] = false;
         }
@@ -4194,6 +3893,7 @@ public class utils extends script.base_script
             }
         }
         Enumeration keys = dict.keys();
+        Object data;
         while (keys.hasMoreElements())
         {
             String key;
@@ -4205,7 +3905,7 @@ public class utils extends script.base_script
             {
                 return false;
             }
-            Object data = dict.get(key);
+            data = dict.get(key);
             if (data instanceof Integer)
             {
                 setObjVar(object, rootName + key, ((Integer)data).intValue());
@@ -4258,11 +3958,9 @@ public class utils extends script.base_script
         boolean litmus = true;
         int n = 0;
         Vector toSet = new Vector();
-        for (int i = 0; i < array.length; i++)
-        {
-            toSet.add(array[i]);
-            if (toSet.size() >= BatchSize)
-            {
+        for (Object anArray : array) {
+            toSet.add(anArray);
+            if (toSet.size() >= BatchSize) {
                 litmus &= setObjectArrayObjVar(target, base_path + "." + n, toSet);
                 toSet.clear();
                 n++;
@@ -4285,9 +3983,8 @@ public class utils extends script.base_script
         {
             return;
         }
-        int listLength = list.getNumItems();
         int intQ = 0;
-        for (int i = 0; i < listLength; i++)
+        for (int i = 0; i < list.getNumItems(); i++)
         {
             if (hasObjVar(target, base_path + "." + intQ))
             {
@@ -4309,11 +4006,9 @@ public class utils extends script.base_script
         boolean litmus = true;
         int n = 0;
         Vector toSet = new Vector();
-        for (int i = 0; i < array.length; i++)
-        {
-            toSet.add(new Integer(array[i]));
-            if (toSet.size() >= BatchSize)
-            {
+        for (int anArray : array) {
+            toSet.add(anArray);
+            if (toSet.size() >= BatchSize) {
                 litmus &= setObjectArrayObjVar(target, base_path + "." + n, toSet);
                 toSet.clear();
                 n++;
@@ -4335,11 +4030,9 @@ public class utils extends script.base_script
         boolean litmus = true;
         int n = 0;
         Vector toSet = new Vector();
-        for (int i = 0; i < vector.size(); i++)
-        {
-            toSet.add(vector.get(i));
-            if (toSet.size() >= BatchSize)
-            {
+        for (Object aVector : vector) {
+            toSet.add(aVector);
+            if (toSet.size() >= BatchSize) {
                 litmus &= setObjectArrayObjVar(target, base_path + "." + n, toSet);
                 toSet.clear();
                 n++;
@@ -4412,11 +4105,8 @@ public class utils extends script.base_script
         if ((ret != null) && (ret.size() > 0))
         {
             String[] _ret = new String[0];
-            if (ret != null)
-            {
-                _ret = new String[ret.size()];
-                ret.toArray(_ret);
-            }
+            _ret = new String[ret.size()];
+            ret.toArray(_ret);
             return _ret;
         }
         return null;
@@ -4482,11 +4172,8 @@ public class utils extends script.base_script
         if ((ret != null) && (ret.size() > 0))
         {
             string_id[] _ret = new string_id[0];
-            if (ret != null)
-            {
-                _ret = new string_id[ret.size()];
-                ret.toArray(_ret);
-            }
+            _ret = new string_id[ret.size()];
+            ret.toArray(_ret);
             return _ret;
         }
         return null;
@@ -4524,11 +4211,8 @@ public class utils extends script.base_script
         if ((ret != null) && (ret.size() > 0))
         {
             obj_id[] _ret = new obj_id[0];
-            if (ret != null)
-            {
-                _ret = new obj_id[ret.size()];
-                ret.toArray(_ret);
-            }
+            _ret = new obj_id[ret.size()];
+            ret.toArray(_ret);
             return _ret;
         }
         return null;
@@ -4555,9 +4239,10 @@ public class utils extends script.base_script
             return null;
         }
         int numItems = ovl.getNumItems();
+        obj_id[] tmp;
         for (int i = 0; i < numItems; i++)
         {
-            obj_id[] tmp = getObjIdArrayObjVar(target, base_path + "." + i);
+            tmp = getObjIdArrayObjVar(target, base_path + "." + i);
             if ((tmp != null) && (tmp.length > 0))
             {
                 ret = concatArrays(ret, tmp);
@@ -4602,14 +4287,11 @@ public class utils extends script.base_script
         if ((ret != null) && (ret.size() > 0))
         {
             int[] _ret = new int[0];
-            if (ret != null)
-            {
-                _ret = new int[ret.size()];
-                for (int _i = 0; _i < ret.size(); ++_i)
-                {
-                    _ret[_i] = (Integer) ret.get(_i);
-                }
-            }
+            _ret = new int[ret.size()];
+            for (int _i = 0; _i < ret.size(); ++_i)
+			{
+				_ret[_i] = (Integer) ret.get(_i);
+			}
             return _ret;
         }
         return null;
@@ -4672,9 +4354,10 @@ public class utils extends script.base_script
         Vector ret = new Vector();
         ret.setSize(0);
         int numItems = ovl.getNumItems();
+        attrib_mod[] tmp;
         for (int i = 0; i < numItems; i++)
         {
-            attrib_mod[] tmp = getAttribModArrayObjVar(target, base_path + "." + i);
+            tmp = getAttribModArrayObjVar(target, base_path + "." + i);
             if ((tmp != null) && (tmp.length > 0))
             {
                 ret = concatArrays(ret, tmp);
@@ -4683,11 +4366,8 @@ public class utils extends script.base_script
         if ((ret != null) && (ret.size() > 0))
         {
             attrib_mod[] _ret = new attrib_mod[0];
-            if (ret != null)
-            {
-                _ret = new attrib_mod[ret.size()];
-                ret.toArray(_ret);
-            }
+            _ret = new attrib_mod[ret.size()];
+            ret.toArray(_ret);
             return _ret;
         }
         return null;
@@ -4714,9 +4394,10 @@ public class utils extends script.base_script
             return null;
         }
         int numItems = ovl.getNumItems();
+        location[] tmp;
         for (int i = 0; i < numItems; i++)
         {
-            location[] tmp = getLocationArrayObjVar(target, base_path + "." + i);
+            tmp = getLocationArrayObjVar(target, base_path + "." + i);
             if ((tmp != null) && (tmp.length > 0))
             {
                 ret = concatArrays(ret, tmp);
@@ -4725,11 +4406,8 @@ public class utils extends script.base_script
         if ((ret != null) && (ret.size() > 0))
         {
             location[] _ret = new location[0];
-            if (ret != null)
-            {
-                _ret = new location[ret.size()];
-                ret.toArray(_ret);
-            }
+            _ret = new location[ret.size()];
+            ret.toArray(_ret);
             return _ret;
         }
         return null;
@@ -4858,9 +4536,10 @@ public class utils extends script.base_script
         }
         int cnt = getIntScriptVar(target, base_path);
         Vector ret = new Vector();
+        Vector tmp;
         for (int i = 0; i < cnt; i++)
         {
-            Vector tmp = target.getScriptVars().getResizeableObjIdArray(base_path + "." + i);
+            tmp = target.getScriptVars().getResizeableObjIdArray(base_path + "." + i);
             if ((tmp != null) && (tmp.size() > 0))
             {
                 ret.addAll(tmp);
@@ -4905,7 +4584,7 @@ public class utils extends script.base_script
                 ret.addAll(tmp);
             }
         }
-        if ((ret != null) && (ret.size() > 0))
+        if ((ret.size() > 0))
         {
             return ret;
         }
@@ -4936,15 +4615,16 @@ public class utils extends script.base_script
         }
         int cnt = getIntScriptVar(target, base_path);
         Vector ret = new Vector();
+        Vector tmp;
         for (int i = 0; i < cnt; i++)
         {
-            Vector tmp = target.getScriptVars().getResizeableLocationArray(base_path + "." + i);
+            tmp = target.getScriptVars().getResizeableLocationArray(base_path + "." + i);
             if ((tmp != null) && (tmp.size() > 0))
             {
                 ret.addAll(tmp);
             }
         }
-        if ((ret != null) && (ret.size() > 0))
+        if ((ret.size() > 0))
         {
             return ret;
         }
@@ -4966,15 +4646,16 @@ public class utils extends script.base_script
         }
         int cnt = getIntScriptVar(target, base_path);
         Vector ret = new Vector();
+        Vector tmp;
         for (int i = 0; i < cnt; i++)
         {
-            Vector tmp = target.getScriptVars().getResizeableIntArray(base_path + "." + i);
+            tmp = target.getScriptVars().getResizeableIntArray(base_path + "." + i);
             if ((tmp != null) && (tmp.size() > 0))
             {
                 ret.addAll(tmp);
             }
         }
-        if ((ret != null) && (ret.size() > 0))
+        if ((ret.size() > 0))
         {
             return ret;
         }
@@ -5068,7 +4749,7 @@ public class utils extends script.base_script
         {
             return Integer.parseInt(setting);
         }
-        catch(NumberFormatException err)
+        catch(NumberFormatException ignored)
         {
         }
         return 0;
@@ -5084,7 +4765,7 @@ public class utils extends script.base_script
         {
             return Float.parseFloat(setting);
         }
-        catch(NumberFormatException err)
+        catch(NumberFormatException ignored)
         {
         }
         return 0;
@@ -5165,7 +4846,7 @@ public class utils extends script.base_script
                 time_str += ", ";
             }
         }
-        if (time_str != null && !time_str.equals(""))
+        if (!time_str.equals(""))
         {
             return time_str;
         }
@@ -5360,21 +5041,17 @@ public class utils extends script.base_script
         }
         Vector tmp = new Vector();
         java.text.Collator myCol = java.text.Collator.getInstance();
-        for (int i = 0; i < array.length; i++)
-        {
+        for (String anArray : array) {
             boolean inserted = false;
-            for (int n = 0; n < tmp.size(); n++)
-            {
-                if (myCol.compare(array[i], tmp.elementAt(n)) < 0)
-                {
-                    tmp.add(n, array[i]);
+            for (int n = 0; n < tmp.size(); n++) {
+                if (myCol.compare(anArray, tmp.elementAt(n)) < 0) {
+                    tmp.add(n, anArray);
                     inserted = true;
                     break;
                 }
             }
-            if (!inserted)
-            {
-                tmp.add(array[i]);
+            if (!inserted) {
+                tmp.add(anArray);
             }
         }
         if (tmp.size() == 0)
@@ -5401,27 +5078,27 @@ public class utils extends script.base_script
         switch (species)
         {
             case SPECIES_HUMAN:
-            return "human";
+                return "human";
             case SPECIES_BOTHAN:
-            return "bothan";
+                return "bothan";
             case SPECIES_RODIAN:
-            return "rodian";
+                return "rodian";
             case SPECIES_TWILEK:
-            return "twilek";
+                return "twilek";
             case SPECIES_TRANDOSHAN:
-            return "trandoshan";
+                return "trandoshan";
             case SPECIES_MON_CALAMARI:
-            return "moncalamari";
+                return "moncalamari";
             case SPECIES_WOOKIEE:
-            return "wookiee";
+                return "wookiee";
             case SPECIES_ZABRAK:
-            return "zabrak";
+                return "zabrak";
             case SPECIES_ITHORIAN:
-            return "ithorian";
+                return "ithorian";
             case SPECIES_SULLUSTAN:
-            return "sullustan";
+                return "sullustan";
             default:
-            return "unknown";
+                return "unknown";
         }
     }
     public static void addListener(String strObjVar, obj_id objListener, obj_id objTarget) throws InterruptedException
@@ -5445,7 +5122,6 @@ public class utils extends script.base_script
         dctParams.put("objListener", objListener);
         dctParams.put("strObjVar", strObjVar);
         messageTo(objTarget, "addListener", dctParams, 0, true);
-        return;
     }
     public static void removeListener(String strObjVar, obj_id objListener, obj_id objTarget) throws InterruptedException
     {
@@ -5468,7 +5144,6 @@ public class utils extends script.base_script
         dctParams.put("objListener", objListener);
         dctParams.put("strObjVar", strObjVar);
         messageTo(objTarget, "removeListener", dctParams, 0, true);
-        return;
     }
     public static void messageListeners(String strObjVar, obj_id objOwner, String strMessageName, dictionary dctParams) throws InterruptedException
     {
@@ -5497,7 +5172,6 @@ public class utils extends script.base_script
                 intI = intI + 1;
             }
         }
-        return;
     }
     public static int getTheaterSize(String strLairType) throws InterruptedException
     {
@@ -5551,29 +5225,17 @@ public class utils extends script.base_script
         }
         return setName(target, name);
     }
-    public static boolean setNonReservedName(obj_id target, String name) throws InterruptedException
-    {
-        if (!isIdValid(target) || name == null || name.equals(""))
-        {
+    public static boolean setNonReservedName(obj_id target, String name) throws InterruptedException {
+        if (!isIdValid(target) || name == null || name.equals("")) {
             return false;
         }
-        if (!isNameReserved(name))
-        {
-            return setName(target, name);
-        }
-        return false;
+        return !isNameReserved(name) && setName(target, name);
     }
-    public static boolean setFilteredName(obj_id target, String name) throws InterruptedException
-    {
-        if (!isIdValid(target) || name == null || name.equals(""))
-        {
+    public static boolean setFilteredName(obj_id target, String name) throws InterruptedException {
+        if (!isIdValid(target) || name == null || name.equals("")) {
             return false;
         }
-        if (!isNameReserved(name))
-        {
-            return setNonProfaneName(target, name);
-        }
-        return false;
+        return !isNameReserved(name) && setNonProfaneName(target, name);
     }
     public static void destroyObjects(obj_id[] objects) throws InterruptedException
     {
@@ -5894,9 +5556,10 @@ public class utils extends script.base_script
         {
             debugSpeakMsg(objObject, "list length is " + strScripts.length);
             String[] strCorrectArray = new String[strScripts.length];
+            String script;
             for (int intI = 0; intI < strScripts.length; intI++)
             {
-                String script = strScripts[intI];
+                script = strScripts[intI];
                 if (script.contains("script."))
                 {
                     script = script.substring(7);
@@ -5953,43 +5616,31 @@ public class utils extends script.base_script
         obj_id[] objects = getObjectsInRange(loc, radius);
         Vector attackable_targets = new Vector();
         attackable_targets.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isMob(objects[i]))
-            {
-                if (pvpCanAttack(attacker, objects[i]))
-                {
-                    if (!isIncapacitated(objects[i]) && !isDead(objects[i]))
-                    {
-                        if (isPlayer(objects[i]))
-                        {
-                            if (!player_targets)
-                            {
+        for (obj_id object : objects) {
+            if (isMob(object)) {
+                if (pvpCanAttack(attacker, object)) {
+                    if (!isIncapacitated(object) && !isDead(object)) {
+                        if (isPlayer(object)) {
+                            if (!player_targets) {
                                 continue;
                             }
                         }
-                        if (canSee(attacker, objects[i]))
-                        {
-                            attackable_targets = utils.addElement(attackable_targets, objects[i]);
+                        if (canSee(attacker, object)) {
+                            attackable_targets = utils.addElement(attackable_targets, object);
                         }
                     }
                 }
-            }
-            else if (ai_lib.isTurret(objects[i]))
-            {
-                if (pvpCanAttack(attacker, objects[i]))
-                {
-                    if (canSee(attacker, objects[i]))
-                    {
-                        attackable_targets = utils.addElement(attackable_targets, objects[i]);
+            } else if (ai_lib.isTurret(object)) {
+                if (pvpCanAttack(attacker, object)) {
+                    if (canSee(attacker, object)) {
+                        attackable_targets = utils.addElement(attackable_targets, object);
                     }
                 }
             }
         }
         if (attackable_targets.size() >= 1)
         {
-            obj_id[] _attackable_targets = new obj_id[0];
-            _attackable_targets = new obj_id[attackable_targets.size()];
+            obj_id[] _attackable_targets = new obj_id[attackable_targets.size()];
             attackable_targets.toArray(_attackable_targets);
             return _attackable_targets;
         }
@@ -6071,8 +5722,7 @@ public class utils extends script.base_script
     public static String getCellName(obj_id building, obj_id cell) throws InterruptedException
     {
         for (String cellName : getCellNames(building)) {
-            obj_id thisCell = getCellId(building, cellName);
-            if (thisCell == cell) {
+            if (getCellId(building, cellName) == cell) {
                 return cellName;
             }
         }
@@ -6135,10 +5785,13 @@ public class utils extends script.base_script
             java.util.StringTokenizer st = new java.util.StringTokenizer(getStringObjVar(item, prefix + "classRequired"), ",");
             String requiredText = "";
             boolean qualifies = false;
+            String classId;
+            String tmp;
+
             while (st.hasMoreTokens())
             {
-                String classId = st.nextToken();
-                String tmp = "@skl_n:class_" + classId + "\0";
+                classId = st.nextToken();
+                tmp = "@skl_n:class_" + classId + "\0";
                 if (st.hasMoreTokens())
                 {
                     tmp += "\n\\>117\0";
@@ -6258,23 +5911,17 @@ public class utils extends script.base_script
     {
         if (items != null)
         {
-            for (int i = 0; i < items.length; ++i)
-            {
-                if (isIdValid(items[i]) && (testPlayers || !isPlayer(items[i])))
-                {
-                    if (novendor && hasScript(items[i], "terminal.vendor"))
-                    {
+            obj_id result;
+            for (obj_id item : items) {
+                if (isIdValid(item) && (testPlayers || !isPlayer(item))) {
+                    if (novendor && hasScript(item, "terminal.vendor")) {
                         continue;
                     }
-                    if (!canTrade(items[i]))
-                    {
-                        return items[i];
-                    }
-                    else if (utils.isContainer(items[i]))
-                    {
-                        obj_id result = findNoTradeItem(getContents(items[i]), testPlayers);
-                        if (isIdValid(result))
-                        {
+                    if (!canTrade(item)) {
+                        return item;
+                    } else if (utils.isContainer(item)) {
+                        result = findNoTradeItem(getContents(item), testPlayers);
+                        if (isIdValid(result)) {
                             return result;
                         }
                     }
@@ -6298,14 +5945,12 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < waypoints.length; ++i)
-        {
-            if (isIdValid(waypoints[i]))
-            {
-                String waypointName = getWaypointName(waypoints[i]);
-                if (waypointName != null && waypointName.equals(name))
-                {
-                    return waypoints[i];
+        String waypointName;
+        for (obj_id waypoint : waypoints) {
+            if (isIdValid(waypoint)) {
+                waypointName = getWaypointName(waypoint);
+                if (waypointName != null && waypointName.equals(name)) {
+                    return waypoint;
                 }
             }
         }
@@ -6322,12 +5967,9 @@ public class utils extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < waypoints.length; ++i)
-        {
-            if (isIdValid(waypoints[i]))
-            {
-                if (waypoints[i] == waypoint)
-                {
+        for (obj_id waypoint1 : waypoints) {
+            if (isIdValid(waypoint1)) {
+                if (waypoint1 == waypoint) {
                     return true;
                 }
             }
@@ -6396,11 +6038,9 @@ public class utils extends script.base_script
             return null;
         }
         Vector localMemberIdsVector = new Vector();
-        for (int i = 0; i < groupMemberIds.length; ++i)
-        {
-            if (isIdValid(groupMemberIds[i]) && exists(groupMemberIds[i]) && isPlayer(groupMemberIds[i]))
-            {
-                localMemberIdsVector.addElement(groupMemberIds[i]);
+        for (obj_id groupMemberId : groupMemberIds) {
+            if (isIdValid(groupMemberId) && exists(groupMemberId) && isPlayer(groupMemberId)) {
+                localMemberIdsVector.addElement(groupMemberId);
             }
         }
         if (localMemberIdsVector == null || localMemberIdsVector.size() < 1)
@@ -6428,13 +6068,17 @@ public class utils extends script.base_script
         {
             return;
         }
+        String[] objVarToSet;
+        String objVarValue;
+        String[] objVarNameAndType;
+        String objVarName;
+
         for (String pair : split(objVarList, ',')) {
-            String[] objVarToSet = split(pair, '=');
-            String objVarValue = objVarToSet[1];
-            String[] objVarNameAndType = split(objVarToSet[0], ':');
-            String objVarType = objVarNameAndType[0];
-            String objVarName = objVarNameAndType[1];
-            switch (objVarType) {
+            objVarToSet = split(pair, '=');
+            objVarValue = objVarToSet[1];
+            objVarNameAndType = split(objVarToSet[0], ':');
+            objVarName = objVarNameAndType[1];
+            switch (objVarNameAndType[0]) {
                 case "string":
                     setObjVar(object, objVarName, objVarValue);
                     break;
@@ -6460,13 +6104,17 @@ public class utils extends script.base_script
         {
             return;
         }
+        String[] objVarToSet;
+        String objVarValue;
+        String[] objVarNameAndType;
+        String objVarName;
+
         for (String pair : split(objVarList, ',')) {
-            String[] objVarToSet = split(pair, '=');
-            String objVarValue = objVarToSet[1];
-            String[] objVarNameAndType = split(objVarToSet[0], ';');
-            String objVarType = objVarNameAndType[0];
-            String objVarName = objVarNameAndType[1];
-            switch (objVarType) {
+            objVarToSet = split(pair, '=');
+            objVarValue = objVarToSet[1];
+            objVarNameAndType = split(objVarToSet[0], ';');
+            objVarName = objVarNameAndType[1];
+            switch (objVarNameAndType[0]) {
                 case "string":
                     setObjVar(object, objVarName, objVarValue);
                     break;
@@ -6490,8 +6138,7 @@ public class utils extends script.base_script
     {
         if (!hasObjVar(subject, "recordLoc"))
         {
-            location recordLoc = getLocation(subject);
-            setObjVar(subject, "recordLoc", recordLoc);
+            setObjVar(subject, "recordLoc", getLocation(subject));
             return true;
         }
         float distanceDifference = getDistance(getLocationObjVar(subject, "recordLoc"), getLocation(getTopMostContainer(subject)));
@@ -6598,34 +6245,34 @@ public class utils extends script.base_script
         switch (profession)
         {
             case COMMANDO:
-            professionName = "commando";
-            break;
+                professionName = "commando";
+                break;
             case SMUGGLER:
-            professionName = "smuggler";
-            break;
+                professionName = "smuggler";
+                break;
             case MEDIC:
-            professionName = "medic";
-            break;
+                professionName = "medic";
+                break;
             case OFFICER:
-            professionName = "officer";
-            break;
+                professionName = "officer";
+                break;
             case SPY:
-            professionName = "spy";
-            break;
+                professionName = "spy";
+                break;
             case BOUNTY_HUNTER:
-            professionName = "bounty";
-            break;
+                professionName = "bounty";
+                break;
             case FORCE_SENSITIVE:
-            professionName = "force";
-            break;
+                professionName = "force";
+                break;
             case TRADER:
-            professionName = "trader";
-            break;
+                professionName = "trader";
+                break;
             case ENTERTAINER:
-            professionName = "entertainer";
-            break;
+                professionName = "entertainer";
+                break;
             default:
-            break;
+                break;
         }
         String classTemplate = getSkillTemplate(player);
         return classTemplate != null && classTemplate.startsWith(professionName);
@@ -6768,17 +6415,13 @@ public class utils extends script.base_script
             obj_id[] objContents = getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    for (int j = 0; j < oldTemplates.length; j++)
-                    {
-                        String strItemTemplate = getTemplateName(objContents[i]);
-                        if (strItemTemplate.equals(oldTemplates[j]))
-                        {
-                            String newTemplate = dataTableGetString("datatables/item/snowflake_item_swaps.iff", j, "NEW_TEMPLATE");
-                            if (newTemplate != null && !newTemplate.equals(""))
-                            {
-                                replaceSnowflakeItem(objContents[i], newTemplate);
+                String newTemplate;
+                for (obj_id objContent : objContents) {
+                    for (int j = 0; j < oldTemplates.length; j++) {
+                        if (getTemplateName(objContent).equals(oldTemplates[j])) {
+                            newTemplate = dataTableGetString("datatables/item/snowflake_item_swaps.iff", j, "NEW_TEMPLATE");
+                            if (newTemplate != null && !newTemplate.equals("")) {
+                                replaceSnowflakeItem(objContent, newTemplate);
                             }
                         }
                     }
@@ -6908,11 +6551,7 @@ public class utils extends script.base_script
             {
                 return false;
             }
-            if (!hasObjVar(house, "player_structure.admin.adminList"))
-            {
-                return false;
-            }
-            return true;
+            return hasObjVar(house, "player_structure.admin.adminList");
         }
         return false;
     }
@@ -6931,11 +6570,12 @@ public class utils extends script.base_script
         {
             return false;
         }
+        obj_id resourceId;
         for (obj_id content : contents) {
             int got = getGameObjectType(content);
             if (isGameObjectTypeOf(got, GOT_resource_container)) {
                 if (isIdValid(content)) {
-                    obj_id resourceId = getResourceContainerResourceType(content);
+                    resourceId = getResourceContainerResourceType(content);
                     if (isIdValid(resourceId)) {
                         if (isResourceDerivedFrom(resourceId, resource)) {
                             return true;
@@ -6978,26 +6618,22 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < allPlayers.length; i++)
-        {
-            location loc = getLocation(trial.getTop(allPlayers[i]));
-            if (loc.x < x1 || loc.x > x2 || loc.z < z1 || loc.z > z2)
-            {
+        location loc;
+        for (obj_id allPlayer : allPlayers) {
+            loc = getLocation(trial.getTop(allPlayer));
+            if (loc.x < x1 || loc.x > x2 || loc.z < z1 || loc.z > z2) {
                 LOG("doLogging", "" + loc.x + " vs: " + x1 + ", " + x2 + " and " + loc.z + " vs: " + z1 + ", " + z2);
                 continue;
             }
-            utils.addElement(playersInArea, allPlayers[i]);
+            utils.addElement(playersInArea, allPlayer);
         }
         if (playersInArea.size() == 0)
         {
             return null;
         }
         obj_id[] _playersInArea = new obj_id[0];
-        if (playersInArea != null)
-        {
-            _playersInArea = new obj_id[playersInArea.size()];
-            playersInArea.toArray(_playersInArea);
-        }
+        _playersInArea = new obj_id[playersInArea.size()];
+        playersInArea.toArray(_playersInArea);
         return _playersInArea;
     }
     public static dictionary getCoordinatesInBuildoutRow(String scene, int buildout_row) throws InterruptedException
@@ -7041,14 +6677,13 @@ public class utils extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < allObjects.length; i++)
-        {
-            location testLoc = getLocation(trial.getTop(allObjects[i]));
-            if (testLoc.x < x1 || testLoc.x > x2 || testLoc.z < z1 || testLoc.z > z2)
-            {
+        location testLoc;
+        for (obj_id allObject : allObjects) {
+            testLoc = getLocation(trial.getTop(allObject));
+            if (testLoc.x < x1 || testLoc.x > x2 || testLoc.z < z1 || testLoc.z > z2) {
                 continue;
             }
-            objectsInArea.add(allObjects[i]);
+            objectsInArea.add(allObject);
         }
         if (objectsInArea.size() == 0)
         {
@@ -7152,9 +6787,10 @@ public class utils extends script.base_script
         }
         Vector resizeList = new Vector();
         resizeList.setSize(0);
+        obj_id tempRider;
         for (int i = 1; i <= 25; ++i)
         {
-            obj_id tempRider = getObjectInSlot(vehicle, "rider" + i);
+            tempRider = getObjectInSlot(vehicle, "rider" + i);
             if (!isIdValid(tempRider) || !exists(tempRider))
             {
                 continue;
@@ -7234,23 +6870,17 @@ public class utils extends script.base_script
             -1,
             -1
         };
-        for (int i = 0; i < ctsOjbvars.length; ++i)
-        {
-            if ((ctsOjbvars[i] != null) && ctsOjbvars[i].containsKey(respec.PROF_LEVEL_ARRAY) && ctsOjbvars[i].isIntArray(respec.PROF_LEVEL_ARRAY))
-            {
-                int[] levelArray = ctsOjbvars[i].getIntArray(respec.PROF_LEVEL_ARRAY);
-                if ((levelArray != null) && (levelArray.length == 3))
-                {
-                    if (levelArray[0] > recpecLevelsFromTransfer[0])
-                    {
+        for (dictionary ctsOjbvar : ctsOjbvars) {
+            if ((ctsOjbvar != null) && ctsOjbvar.containsKey(respec.PROF_LEVEL_ARRAY) && ctsOjbvar.isIntArray(respec.PROF_LEVEL_ARRAY)) {
+                int[] levelArray = ctsOjbvar.getIntArray(respec.PROF_LEVEL_ARRAY);
+                if ((levelArray != null) && (levelArray.length == 3)) {
+                    if (levelArray[0] > recpecLevelsFromTransfer[0]) {
                         recpecLevelsFromTransfer[0] = levelArray[0];
                     }
-                    if (levelArray[1] > recpecLevelsFromTransfer[1])
-                    {
+                    if (levelArray[1] > recpecLevelsFromTransfer[1]) {
                         recpecLevelsFromTransfer[1] = levelArray[1];
                     }
-                    if (levelArray[2] > recpecLevelsFromTransfer[2])
-                    {
+                    if (levelArray[2] > recpecLevelsFromTransfer[2]) {
                         recpecLevelsFromTransfer[2] = levelArray[2];
                     }
                 }
@@ -7331,28 +6961,21 @@ public class utils extends script.base_script
             return;
         }
         HashSet abilities = new HashSet();
-        for (int i = 0; i < ctsOjbvars.length; ++i)
-        {
-            if (ctsOjbvars[i] != null)
-            {
+        String objVarName;
+        for (dictionary ctsOjbvar : ctsOjbvars) {
+            if (ctsOjbvar != null) {
                 int j = 0;
-                while (true)
-                {
-                    final String objVarName = beast_lib.PLAYER_KNOWN_SKILLS_LIST + "." + j;
-                    if (ctsOjbvars[i].containsKey(objVarName) && ctsOjbvars[i].isIntArray(objVarName))
-                    {
-                        final int[] objVarValue = ctsOjbvars[i].getIntArray(objVarName);
-                        if ((objVarValue != null) && (objVarValue.length > 0))
-                        {
-                            for (int k = 0; k < objVarValue.length; ++k)
-                            {
-                                abilities.add(new Integer(objVarValue[k]));
+                while (true) {
+                    objVarName = beast_lib.PLAYER_KNOWN_SKILLS_LIST + "." + j;
+                    if (ctsOjbvar.containsKey(objVarName) && ctsOjbvar.isIntArray(objVarName)) {
+                        final int[] objVarValue = ctsOjbvar.getIntArray(objVarName);
+                        if ((objVarValue != null) && (objVarValue.length > 0)) {
+                            for (int anObjVarValue : objVarValue) {
+                                abilities.add(anObjVarValue);
                             }
                         }
                         ++j;
-                    }
-                    else 
-                    {
+                    } else {
                         break;
                     }
                 }
@@ -7369,12 +6992,12 @@ public class utils extends script.base_script
             else 
             {
                 HashSet abilitiesCurrentNoDupes = new HashSet();
-                for (int i = 0; i < abilitiesCurrent.size(); ++i)
-                {
-                    abilitiesCurrentNoDupes.add(new Integer((Integer) abilitiesCurrent.get(i)));
+                for (Object anAbilitiesCurrent : abilitiesCurrent) {
+                    abilitiesCurrentNoDupes.add(new Integer((Integer) anAbilitiesCurrent));
                 }
+                Integer ability;
                 for (Object abilitiesCurrentNoDupe : abilitiesCurrentNoDupes) {
-                    Integer ability = (Integer) abilitiesCurrentNoDupe;
+                    ability = (Integer) abilitiesCurrentNoDupe;
                     abilities.add(ability);
                 }
                 if (abilities.size() != abilitiesCurrentNoDupes.size())
@@ -7388,9 +7011,10 @@ public class utils extends script.base_script
                 Iterator abilitiesIterator = abilities.iterator();
                 String strAbilitiesNew = "";
                 int i = 0;
+                Integer ability;
                 while (abilitiesIterator.hasNext() && (i < abilitiesNew.length))
                 {
-                    Integer ability = (Integer)abilitiesIterator.next();
+                    ability = (Integer) abilitiesIterator.next();
                     abilitiesNew[i] = ability;
                     strAbilitiesNew += "" + abilitiesNew[i] + ", ";
                     ++i;
@@ -7398,9 +7022,8 @@ public class utils extends script.base_script
                 String strAbilitiesCurrent = "";
                 if ((abilitiesCurrent != null) && (abilitiesCurrent.size() > 0))
                 {
-                    for (int j = 0; j < abilitiesCurrent.size(); ++j)
-                    {
-                        strAbilitiesCurrent += "" + (Integer) abilitiesCurrent.get(j) + ", ";
+                    for (Object anAbilitiesCurrent : abilitiesCurrent) {
+                        strAbilitiesCurrent += "" + (Integer) anAbilitiesCurrent + ", ";
                     }
                 }
                 CustomerServiceLog("CharacterTransferRetroactiveHistory", "changing " + beast_lib.PLAYER_KNOWN_SKILLS_LIST + " objvar for " + player + " from (" + strAbilitiesCurrent + ") to (" + strAbilitiesNew + ")");
@@ -7423,19 +7046,14 @@ public class utils extends script.base_script
             0,
             0
         };
-        for (int i = 0; i < ctsOjbvars.length; ++i)
-        {
-            if ((ctsOjbvars[i] != null) && ctsOjbvars[i].containsKey(player_structure.HOUSE_PACKUP_ARRAY_OBJVAR) && ctsOjbvars[i].isIntArray(player_structure.HOUSE_PACKUP_ARRAY_OBJVAR))
-            {
-                int[] housePackupCTSValues = ctsOjbvars[i].getIntArray(player_structure.HOUSE_PACKUP_ARRAY_OBJVAR);
-                if ((housePackupCTSValues != null) && (housePackupCTSValues.length == 2))
-                {
-                    if (housePackupCTSValues[0] > 0)
-                    {
+        for (dictionary ctsOjbvar : ctsOjbvars) {
+            if ((ctsOjbvar != null) && ctsOjbvar.containsKey(player_structure.HOUSE_PACKUP_ARRAY_OBJVAR) && ctsOjbvar.isIntArray(player_structure.HOUSE_PACKUP_ARRAY_OBJVAR)) {
+                int[] housePackupCTSValues = ctsOjbvar.getIntArray(player_structure.HOUSE_PACKUP_ARRAY_OBJVAR);
+                if ((housePackupCTSValues != null) && (housePackupCTSValues.length == 2)) {
+                    if (housePackupCTSValues[0] > 0) {
                         housePackupNewValues[0] += housePackupCTSValues[0];
                     }
-                    if (housePackupCTSValues[1] > 0)
-                    {
+                    if (housePackupCTSValues[1] > 0) {
                         housePackupNewValues[1] += housePackupCTSValues[1];
                     }
                 }
