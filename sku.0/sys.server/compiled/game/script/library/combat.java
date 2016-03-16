@@ -1,26 +1,9 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
 import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.beast_lib;
-import script.library.colors;
-import script.library.weapons;
-import script.library.utils;
-import script.library.jedi;
-import script.library.armor;
-import script.library.heavyweapons;
-import script.library.movement;
-import script.library.buff;
-import script.library.space_utils;
-import script.library.group;
-import script.library.static_item;
-import script.library.prose;
+import java.util.Vector;
 
 public class combat extends script.base_script
 {

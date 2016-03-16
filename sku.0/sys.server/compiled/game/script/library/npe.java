@@ -76,102 +76,88 @@ public class npe extends script.base_script
     }
     public static boolean performTransitionFromClusterWideData(obj_id player, dictionary[] stations, String station) throws InterruptedException
     {
-        if (station.equals(DUNGEON_SPACE_STATION + "*"))
-        {
-            dictionary info = getNpeInstanceInfo(DUNGEON_SPACE_STATION);
-            int instance_index = getBestStationInstanceIndex(player, stations);
-            if (instance_index == -1 || instance_index >= stations.length)
-            {
-                return false;
-            }
-            dictionary station_info = stations[instance_index];
-            if (station_info == null)
-            {
-                return false;
-            }
-            if (utils.hasScriptVar(player, SCRIPT_VAR_FROM_ORD_SPACE))
-            {
-                removeObjVar(player, SCRIPT_VAR_FROM_ORD_SPACE);
-                utils.removeScriptVar(player, SCRIPT_VAR_FROM_ORD_SPACE);
-                info.put("cell", FROM_ORD_SPACE_TO_STATION_CELL);
-                location cell_loc = new location(FROM_ORD_SPACE_TO_STATION_X, FROM_ORD_SPACE_TO_STATION_Y, FROM_ORD_SPACE_TO_STATION_Z);
-                info.put("cell_loc", cell_loc);
-            }
-            obj_id station_id = station_info.getObjId("building_id");
-            String planet = info.getString("planet");
-            location world_loc = new location(station_info.getFloat("world_location.x"), station_info.getFloat("world_location.y"), station_info.getFloat("world_location.z"));
-            String cell = info.getString("cell");
-            location cell_loc = info.getLocation("cell_loc");
-            randomizeLocation(cell_loc);
-            LIVE_LOG("npe", "Found " + stations.length + " buildings, moving " + player + " to " + station_id + " s:" + planet + " c:" + cell + " w:" + world_loc.x + " " + world_loc.y + " " + world_loc.z + " l:" + cell_loc.x + " " + cell_loc.y + " " + cell_loc.z);
-            if (utils.hasScriptVar(player, SCRIPT_VAR_DO_HYPERSPACE))
-            {
-                utils.removeScriptVar(player, SCRIPT_VAR_DO_HYPERSPACE);
-                hyperspacePlayerToLocation(player, planet, world_loc.x, world_loc.y, world_loc.z, station_id, cell, cell_loc.x, cell_loc.y, cell_loc.z, "msgNpeInstanceTravelComplete", false);
-            }
-            else 
-            {
-                warpPlayer(player, planet, world_loc.x, world_loc.y, world_loc.z, station_id, cell, cell_loc.x, cell_loc.y, cell_loc.z, "msgNpeInstanceTravelComplete", false);
-            }
-            return true;
-        }
-        else if (station.equals(DUNGEON_ORD_SPACE_STATION + "*"))
-        {
-            if (utils.hasScriptVar(player, SCRIPT_VAR_ORD_SPACE_DESTINATION))
-            {
-                location new_loc = utils.getLocationScriptVar(player, SCRIPT_VAR_ORD_SPACE_DESTINATION);
-                utils.removeScriptVar(player, SCRIPT_VAR_ORD_SPACE_DESTINATION);
-                int index = getBestDungeonInstanceIndex(player, stations);
-                String scene = SCENE_SPACE_ORD_MANTELL;
-                if (!isIdValid(getPlanetByName(scene)))
-                {
+        dictionary info;
+        dictionary station_info;
+        obj_id station_id;
+        String planet;
+        location world_loc;
+        String cell;
+        location cell_loc;
+        switch (station) {
+            case DUNGEON_SPACE_STATION + "*":
+                int instance_index = getBestStationInstanceIndex(player, stations);
+                if (instance_index == -1 || instance_index >= stations.length) {
                     return false;
                 }
-                obj_id ship = setupLaunchToSpace(player);
-                if (!isIdValid(ship))
-                {
+                station_info = stations[instance_index];
+                if (station_info == null) {
                     return false;
                 }
-                new_loc.area = scene;
-                location ground_loc = getWorldLocation(player);
-                obj_id[] members = new obj_id[0];
-                randomizeSpaceLocation(new_loc);
-                space_transition.launch(player, ship, members, new_loc, ground_loc);
-                return true;
-            }
-            else 
-            {
-                String ord_scene = getCurrentSceneName();
-                dictionary info = getNpeInstanceInfo(DUNGEON_ORD_SPACE_STATION);
-                dictionary station_info = getBestOrdSpaceStation(player, stations, ord_scene);
-                if (station_info == null)
-                {
-                    return false;
+                info = getNpeInstanceInfo(DUNGEON_SPACE_STATION);
+                if (utils.hasScriptVar(player, SCRIPT_VAR_FROM_ORD_SPACE)) {
+                    removeObjVar(player, SCRIPT_VAR_FROM_ORD_SPACE);
+                    utils.removeScriptVar(player, SCRIPT_VAR_FROM_ORD_SPACE);
+                    cell_loc = new location(FROM_ORD_SPACE_TO_STATION_X, FROM_ORD_SPACE_TO_STATION_Y, FROM_ORD_SPACE_TO_STATION_Z);
+                    info.put("cell", FROM_ORD_SPACE_TO_STATION_CELL);
+                    info.put("cell_loc", cell_loc);
                 }
-                setObjVar(player, npe.VAR_ORD_SCENE_NAME, ord_scene);
-                obj_id station_id = station_info.getObjId("building_id");
-                String planet = info.getString("planet");
-                location world_loc = new location(station_info.getFloat("world_location.x"), station_info.getFloat("world_location.y"), station_info.getFloat("world_location.z"));
-                String cell = info.getString("cell");
-                location cell_loc = info.getLocation("cell_loc");
+                world_loc = new location(station_info.getFloat("world_location.x"), station_info.getFloat("world_location.y"), station_info.getFloat("world_location.z"));
+                station_id = station_info.getObjId("building_id");
+                planet = info.getString("planet");
+                cell = info.getString("cell");
+                cell_loc = info.getLocation("cell_loc");
                 randomizeLocation(cell_loc);
                 LIVE_LOG("npe", "Found " + stations.length + " buildings, moving " + player + " to " + station_id + " s:" + planet + " c:" + cell + " w:" + world_loc.x + " " + world_loc.y + " " + world_loc.z + " l:" + cell_loc.x + " " + cell_loc.y + " " + cell_loc.z);
-                if (utils.hasScriptVar(player, SCRIPT_VAR_DO_HYPERSPACE))
-                {
+                if (utils.hasScriptVar(player, SCRIPT_VAR_DO_HYPERSPACE)) {
                     utils.removeScriptVar(player, SCRIPT_VAR_DO_HYPERSPACE);
                     hyperspacePlayerToLocation(player, planet, world_loc.x, world_loc.y, world_loc.z, station_id, cell, cell_loc.x, cell_loc.y, cell_loc.z, "msgNpeInstanceTravelComplete", false);
-                }
-                else 
-                {
+                } else {
                     warpPlayer(player, planet, world_loc.x, world_loc.y, world_loc.z, station_id, cell, cell_loc.x, cell_loc.y, cell_loc.z, "msgNpeInstanceTravelComplete", false);
                 }
                 return true;
-            }
-        }
-        else 
-        {
-            LIVE_LOG("npe", "Player is trying to perform a cluster wide transition, but is going to an unsupported station " + station + " should be " + DUNGEON_SPACE_STATION + "*, " + DUNGEON_ORD_SPACE_STATION + "*");
-            return false;
+            case DUNGEON_ORD_SPACE_STATION + "*":
+                if (utils.hasScriptVar(player, SCRIPT_VAR_ORD_SPACE_DESTINATION)) {
+                    if (!isIdValid(getPlanetByName(SCENE_SPACE_ORD_MANTELL))) {
+                        return false;
+                    }
+                    utils.removeScriptVar(player, SCRIPT_VAR_ORD_SPACE_DESTINATION);
+                    obj_id ship = setupLaunchToSpace(player);
+                    if (!isIdValid(ship)) {
+                        return false;
+                    }
+                    location new_loc = utils.getLocationScriptVar(player, SCRIPT_VAR_ORD_SPACE_DESTINATION);
+                    new_loc.area = SCENE_SPACE_ORD_MANTELL;
+                    location ground_loc = getWorldLocation(player);
+                    obj_id[] members = new obj_id[0];
+                    randomizeSpaceLocation(new_loc);
+                    space_transition.launch(player, ship, members, new_loc, ground_loc);
+                    return true;
+                } else {
+                    String ord_scene = getCurrentSceneName();
+                    station_info = getBestOrdSpaceStation(player, stations, ord_scene);
+                    if (station_info == null) {
+                        return false;
+                    }
+                    info = getNpeInstanceInfo(DUNGEON_ORD_SPACE_STATION);
+                    setObjVar(player, npe.VAR_ORD_SCENE_NAME, ord_scene);
+                    station_id = station_info.getObjId("building_id");
+                    planet = info.getString("planet");
+                    world_loc = new location(station_info.getFloat("world_location.x"), station_info.getFloat("world_location.y"), station_info.getFloat("world_location.z"));
+                    cell = info.getString("cell");
+                    cell_loc = info.getLocation("cell_loc");
+                    randomizeLocation(cell_loc);
+                    LIVE_LOG("npe", "Found " + stations.length + " buildings, moving " + player + " to " + station_id + " s:" + planet + " c:" + cell + " w:" + world_loc.x + " " + world_loc.y + " " + world_loc.z + " l:" + cell_loc.x + " " + cell_loc.y + " " + cell_loc.z);
+                    if (utils.hasScriptVar(player, SCRIPT_VAR_DO_HYPERSPACE)) {
+                        utils.removeScriptVar(player, SCRIPT_VAR_DO_HYPERSPACE);
+                        hyperspacePlayerToLocation(player, planet, world_loc.x, world_loc.y, world_loc.z, station_id, cell, cell_loc.x, cell_loc.y, cell_loc.z, "msgNpeInstanceTravelComplete", false);
+                    } else {
+                        warpPlayer(player, planet, world_loc.x, world_loc.y, world_loc.z, station_id, cell, cell_loc.x, cell_loc.y, cell_loc.z, "msgNpeInstanceTravelComplete", false);
+                    }
+                    return true;
+                }
+            default:
+                LIVE_LOG("npe", "Player is trying to perform a cluster wide transition, but is going to an unsupported station " + station + " should be " + DUNGEON_SPACE_STATION + "*, " + DUNGEON_ORD_SPACE_STATION + "*");
+                return false;
         }
     }
     public static dictionary getNpeInstanceInfo(String row) throws InterruptedException
@@ -229,9 +215,8 @@ public class npe extends script.base_script
                 LOG("npe", "getBestStationInstanceIndex: Got a null entry in stations array");
                 continue;
             }
-            obj_id new_station = stations[i].getObjId("building_id");
             int new_pop = stations[i].getInt("population_num");
-            if (!isIdValid(new_station))
+            if (!isIdValid(stations[i].getObjId("building_id")))
             {
                 LOG("npe", "getBestStationInstanceIndex: stations array passed into getBestStationInstanceIndex contained a null or invalid station id");
                 continue;
@@ -273,10 +258,9 @@ public class npe extends script.base_script
             }
             sendSystemMessageTestingOnly(player, "The station Gamma index override you specified is null! Defaulting to normal behavior");
         }
-        int numOrdSpace = getNumberOfOrdSpaceScenes();
         int return_index = -1;
         int population = -1;
-        for (int i = 0; i < dungeons.length && i < numOrdSpace; ++i)
+        for (int i = 0; i < dungeons.length && i < getNumberOfOrdSpaceScenes(); ++i)
         {
             if (dungeons[i] == null)
             {
@@ -322,11 +306,7 @@ public class npe extends script.base_script
         {
             return true;
         }
-        if (new_pop < pop)
-        {
-            return true;
-        }
-        return false;
+        return new_pop < pop;
     }
     public static dictionary getBestOrdSpaceStation(obj_id player, dictionary[] stations, String ord_scene) throws InterruptedException
     {
@@ -353,18 +333,15 @@ public class npe extends script.base_script
             }
             sendSystemMessageTestingOnly(player, "The station Gamma index override you specified is null! Defaulting to normal behavior");
         }
-        String ord_num_str = ord_scene.substring(ord_scene.length() - 1);
-        int ord_num_ind = utils.stringToInt(ord_num_str);
+        int ord_num_ind = utils.stringToInt(ord_scene.substring(ord_scene.length() - 1));
         --ord_num_ind;
         if (ord_num_ind > 0 && ord_num_ind < stations.length && stations[ord_num_ind] != null && isIdValid(stations[ord_num_ind].getObjId("building_id")))
         {
             return stations[ord_num_ind];
         }
-        for (int i = 0; i < stations.length; ++i)
-        {
-            if (stations[i] != null && isIdValid(stations[i].getObjId("building_id")))
-            {
-                return stations[i];
+        for (dictionary station : stations) {
+            if (station != null && isIdValid(station.getObjId("building_id"))) {
+                return station;
             }
         }
         return null;
@@ -388,8 +365,7 @@ public class npe extends script.base_script
     }
     public static String getOpenOrdMantellSpaceZone() throws InterruptedException
     {
-        int maxIndex = getNumberOfOrdSpaceScenes();
-        int returnIndex = rand(1, maxIndex);
+        int returnIndex = rand(1, getNumberOfOrdSpaceScenes());
         if (returnIndex == 1)
         {
             return SCENE_SPACE_ORD_MANTELL;
@@ -602,7 +578,6 @@ public class npe extends script.base_script
     {
         obj_id pInv = utils.getInventoryContainer(player);
         int pSpecies = getSpecies(player);
-        String playerTemplate = getSkillTemplate(player);
         int pGender = getGender(player);
         HashSet theSet = new HashSet();
         if (utils.isProfession(player, utils.FORCE_SENSITIVE))
@@ -765,8 +740,6 @@ public class npe extends script.base_script
     }
     public static obj_id grantNpeResourceStack(obj_id player, String strResourceType, int intAmount) throws InterruptedException
     {
-        int maxResource = 1000000;
-        obj_id objContainer = utils.getInventoryContainer(player);
         obj_id[] objResourceIds = getResourceTypes(strResourceType);
         obj_id objResourceId = null;
         if ((objResourceIds != null) && (objResourceIds.length > 0))
@@ -777,22 +750,19 @@ public class npe extends script.base_script
         {
             return null;
         }
+        obj_id objContainer = utils.getInventoryContainer(player);
         obj_id objStack = getResourceStack(objContainer, objResourceId);
         if (isIdValid(objStack))
         {
             int intCount = getResourceContainerQuantity(objStack);
+            int maxResource = 1000000;
             intCount += intAmount;
             if (intCount > maxResource)
             {
-                intCount = intCount - maxResource;
-                intAmount = intAmount - intCount;
-                addResourceToContainer(objStack, objResourceId, intAmount, null);
-                objStack = null;
+                intCount -= maxResource;
+                intAmount -= intCount;
             }
-            else 
-            {
-                addResourceToContainer(objStack, objResourceId, intAmount, null);
-            }
+            addResourceToContainer(objStack, objResourceId, intAmount, null);
         }
         else 
         {
@@ -806,8 +776,6 @@ public class npe extends script.base_script
     }
     public static int harvestNpeResourceStack(obj_id player, String strResourceType, int intAmount) throws InterruptedException
     {
-        int maxResource = 1000000;
-        obj_id objContainer = utils.getInventoryContainer(player);
         obj_id[] objResourceIds = getResourceTypes(strResourceType);
         obj_id objResourceId = null;
         if ((objResourceIds != null) && (objResourceIds.length > 0))
@@ -818,26 +786,21 @@ public class npe extends script.base_script
         {
             return 0;
         }
+        obj_id objContainer = utils.getInventoryContainer(player);
         obj_id objStack = getResourceStack(objContainer, objResourceId);
         if (isIdValid(objStack))
         {
+            int maxResource = 1000000;
             int intCount = getResourceContainerQuantity(objStack);
             intCount += intAmount;
             if (intCount > maxResource)
             {
-                intCount = intCount - maxResource;
-                intAmount = intAmount - intCount;
-                addResourceToContainer(objStack, objResourceId, intAmount, null);
-                objStack = null;
-                utils.setScriptVar(player, "resource.lastAmt", intAmount);
-                return intAmount;
+                intCount -= maxResource;
+                intAmount -= intCount;
             }
-            else 
-            {
-                addResourceToContainer(objStack, objResourceId, intAmount, null);
-                utils.setScriptVar(player, "resource.lastAmt", intAmount);
-                return intAmount;
-            }
+            addResourceToContainer(objStack, objResourceId, intAmount, null);
+            utils.setScriptVar(player, "resource.lastAmt", intAmount);
+            return intAmount;
         }
         else 
         {
@@ -852,7 +815,6 @@ public class npe extends script.base_script
     }
     public static obj_id getResourceStack(obj_id objContainer, obj_id objResource) throws InterruptedException
     {
-        int maxResource = 1000000;
         if (!isIdValid(objContainer))
         {
             return null;
@@ -862,15 +824,11 @@ public class npe extends script.base_script
         {
             return null;
         }
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            obj_id objType = getResourceContainerResourceType(objContents[intI]);
-            if (objType == objResource)
-            {
-                int intCount = getResourceContainerQuantity(objContents[intI]);
-                if (intCount < maxResource)
-                {
-                    return objContents[intI];
+        int maxResource = 1000000;
+        for (obj_id objContent : objContents) {
+            if (getResourceContainerResourceType(objContent) == objResource) {
+                if (getResourceContainerQuantity(objContent) < maxResource) {
+                    return objContent;
                 }
             }
         }
@@ -878,14 +836,9 @@ public class npe extends script.base_script
     }
     public static boolean giveCreditPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id credits = new string_id("npe", "pop_credits");
-        String stfCredits = utils.packStringId(credits);
-        int hadNotif = utils.getIntScriptVar(player, "npe.credits");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.credits") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 10, credits, "sound/c3po_29.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 10, new string_id("npe", "pop_credits"), "sound/c3po_29.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.credits", 1);
             return true;
         }
@@ -893,25 +846,13 @@ public class npe extends script.base_script
     }
     public static boolean giveAutoPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id autoAttack = new string_id("npe", "pop_auto_attack");
-        String stfAuto = utils.packStringId(autoAttack);
-        int hadNotif = utils.getIntScriptVar(player, "npe.pop_auto");
-        if (hadNotif == 0)
-        {
-            return true;
-        }
-        return false;
+        return utils.getIntScriptVar(player, "npe.pop_auto") == 0;
     }
     public static boolean giveEquipPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id equip = new string_id("npe", "pop_equip");
-        String stfEquip = utils.packStringId(equip);
-        int hadNotif = utils.getIntScriptVar(player, "npe.pop_equip");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.pop_equip") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 3, equip, "sound/c3po_31.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 3, new string_id("npe", "pop_equip"), "sound/c3po_31.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.pop_equip", 1);
             return true;
         }
@@ -919,14 +860,9 @@ public class npe extends script.base_script
     }
     public static boolean giveInvPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id inventory = new string_id("npe", "pop_inventory");
-        String stfInv = utils.packStringId(inventory);
-        int hadNotif = utils.getIntScriptVar(player, "npe.pop_inv");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.pop_inv") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 3, inventory, "sound/c3po_43.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 3, new string_id("npe", "pop_inventory"), "sound/c3po_43.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.pop_inv", 1);
             return true;
         }
@@ -934,14 +870,9 @@ public class npe extends script.base_script
     }
     public static boolean giveAttackPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id attack = new string_id("npe", "pop_attack");
-        String stfAttack = utils.packStringId(attack);
-        int hadNotif = utils.getIntScriptVar(player, "npe.pop_attack");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.pop_attack") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 4, attack, "sound/c3po_21.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 4, new string_id("npe", "pop_attack"), "sound/c3po_21.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.pop_attack", 1);
             return true;
         }
@@ -949,14 +880,9 @@ public class npe extends script.base_script
     }
     public static boolean giveTargetPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id target = new string_id("npe", "pop_target");
-        String stfTarget = utils.packStringId(target);
-        int hadNotif = utils.getIntScriptVar(player, "npe.pop_target");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.pop_target") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 8, target, "sound/c3po_51.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 8, new string_id("npe", "pop_target"), "sound/c3po_51.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.pop_target", 1);
             return true;
         }
@@ -964,14 +890,9 @@ public class npe extends script.base_script
     }
     public static boolean giveMapPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id map = new string_id("npe", "pop_map");
-        String stfMap = utils.packStringId(map);
-        int hadNotif = utils.getIntScriptVar(player, "npe.map");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.map") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 8, map, "sound/c3po_46.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 8, new string_id("npe", "pop_map"), "sound/c3po_46.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.map", 1);
             return true;
         }
@@ -979,49 +900,29 @@ public class npe extends script.base_script
     }
     public static boolean giveJournPopUp(obj_id player) throws InterruptedException
     {
-        string_id journal = new string_id("npe", "pop_journal");
-        String stfJournal = utils.packStringId(journal);
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 12, journal, "sound/c3po_44.snd", "object/mobile/c_3po.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 12, new string_id("npe", "pop_journal"), "sound/c3po_44.snd", "object/mobile/c_3po.iff");
         utils.setScriptVar(player, "npe.journal", 1);
         return true;
     }
     public static boolean giveQuestHelperPopUp(obj_id player) throws InterruptedException
     {
-        string_id helper = new string_id("npe", "pop_quest_helper");
-        String stfHelper = utils.packStringId(helper);
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 7, helper, "sound/c3po_50b.snd", "object/mobile/c_3po.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 7, new string_id("npe", "pop_quest_helper"), "sound/c3po_50b.snd", "object/mobile/c_3po.iff");
         utils.setScriptVar(player, "npe.quest_helper", 1);
         return true;
     }
     public static boolean giveQuestHelperPopUp2(obj_id player) throws InterruptedException
     {
-        string_id helper = new string_id("npe", "pop_quest_helper2");
-        String stfHelper = utils.packStringId(helper);
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
         utils.setScriptVar(player, "npe.quest_helper", 1);
         return true;
     }
     public static boolean giveCraftPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id craft = new string_id("npe", "pop_craft");
-        string_id craft2 = new string_id("npe", "pop_craft2");
-        string_id craft3 = new string_id("npe", "pop_craft3");
-        String stfCraft = utils.packStringId(craft);
-        String stfCraft2 = utils.packStringId(craft2);
-        String stfCraft3 = utils.packStringId(craft3);
-        int hadNotif = utils.getIntScriptVar(player, "npe.craft");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.craft") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 15, craft, "sound/c3po_26.snd", "object/mobile/c_3po.iff");
-            commTutorialPlayer(droid, player, 12, craft2, "sound/c3po_27.snd", "object/mobile/c_3po.iff");
-            commTutorialPlayer(droid, player, 14, craft3, "sound/c3po_28.snd", "object/mobile/c_3po.iff");
+            obj_id droid = utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis");
+            commTutorialPlayer(droid, player, 15, new string_id("npe", "pop_craft"), "sound/c3po_26.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(droid, player, 12, new string_id("npe", "pop_craft2"), "sound/c3po_27.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(droid, player, 14, new string_id("npe", "pop_craft3"), "sound/c3po_28.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.craft", 1);
             return true;
         }
@@ -1029,14 +930,9 @@ public class npe extends script.base_script
     }
     public static boolean givePistolPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id equip_pistol = new string_id("npe", "pop_equip_pistol");
-        String stfEquipPistol = utils.packStringId(equip_pistol);
-        int hadNotif = utils.getIntScriptVar(player, "npe.equip_pistol");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.equip_pistol") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 8, equip_pistol, "sound/c3po_83.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 8, new string_id("npe", "pop_equip_pistol"), "sound/c3po_83.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.equip_pistol", 1);
             return true;
         }
@@ -1044,14 +940,9 @@ public class npe extends script.base_script
     }
     public static boolean giveCarbinePopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id equip_carbine = new string_id("npe", "pop_equip_carbine");
-        String stfEquipCarbine = utils.packStringId(equip_carbine);
-        int hadNotif = utils.getIntScriptVar(player, "npe.equip_carbine");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.equip_carbine") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 8, equip_carbine, "sound/c3po_82.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 8, new string_id("npe", "pop_equip_carbine"), "sound/c3po_82.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.equip_carbine", 1);
             return true;
         }
@@ -1059,14 +950,9 @@ public class npe extends script.base_script
     }
     public static boolean giveRiflePopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id equip_rifle = new string_id("npe", "pop_equip_rifle");
-        String stfEquipRifle = utils.packStringId(equip_rifle);
-        int hadNotif = utils.getIntScriptVar(player, "npe.equip_rifle");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.equip_rifle") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 8, equip_rifle, "sound/c3po_84.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 8, new string_id("npe", "pop_equip_rifle"), "sound/c3po_84.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.equip_rifle", 1);
             return true;
         }
@@ -1074,14 +960,9 @@ public class npe extends script.base_script
     }
     public static boolean give1hPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id equip_sword = new string_id("npe", "pop_equip_sword");
-        String stfEquipSword = utils.packStringId(equip_sword);
-        int hadNotif = utils.getIntScriptVar(player, "npe.equip_sword");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.equip_sword") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 8, equip_sword, "sound/c3po_86.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 8, new string_id("npe", "pop_equip_sword"), "sound/c3po_86.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.equip_sword", 1);
             return true;
         }
@@ -1089,14 +970,9 @@ public class npe extends script.base_script
     }
     public static boolean give2hPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id equip_axe = new string_id("npe", "pop_equip_axe");
-        String stfEquipAxe = utils.packStringId(equip_axe);
-        int hadNotif = utils.getIntScriptVar(player, "npe.equip_axe");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.equip_axe") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 8, equip_axe, "sound/c3po_81.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 8, new string_id("npe", "pop_equip_axe"), "sound/c3po_81.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.equip_axe", 1);
             return true;
         }
@@ -1104,14 +980,9 @@ public class npe extends script.base_script
     }
     public static boolean givePolePopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id equip_staff = new string_id("npe", "pop_equip_staff");
-        String stfEquipStaff = utils.packStringId(equip_staff);
-        int hadNotif = utils.getIntScriptVar(player, "npe.equip_staff");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.equip_staff") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 9, equip_staff, "sound/c3po_85.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 9, new string_id("npe", "pop_equip_staff"), "sound/c3po_85.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.equip_staff", 1);
             return true;
         }
@@ -1119,14 +990,9 @@ public class npe extends script.base_script
     }
     public static boolean giveUnarmPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id equip_unarmed = new string_id("npe", "pop_equip_unarmed");
-        String stfEquipUnarmed = utils.packStringId(equip_unarmed);
-        int hadNotif = utils.getIntScriptVar(player, "npe.equip_unarmed");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.equip_unarmed") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 11, equip_unarmed, "sound/c3po_87.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 11, new string_id("npe", "pop_equip_unarmed"), "sound/c3po_87.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.equip_unarmed", 1);
             return true;
         }
@@ -1134,14 +1000,9 @@ public class npe extends script.base_script
     }
     public static boolean giveHealPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id heal = new string_id("npe", "pop_heal");
-        String stfHeal = utils.packStringId(heal);
-        int hadNotif = utils.getIntScriptVar(player, "npe.heal");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.heal") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 7, heal, "sound/c3po_90.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 7, new string_id("npe", "pop_heal"), "sound/c3po_90.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.heal", 1);
             return true;
         }
@@ -1149,17 +1010,11 @@ public class npe extends script.base_script
     }
     public static boolean givePerformPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id perform = new string_id("npe", "pop_perform");
-        string_id flourish = new string_id("npe", "pop_flourish");
-        String stfPerform = utils.packStringId(perform);
-        String stfFlourish = utils.packStringId(flourish);
-        int hadNotif = utils.getIntScriptVar(player, "npe.perform");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.perform") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 16, perform, "sound/c3po_93.snd", "object/mobile/c_3po.iff");
-            commTutorialPlayer(droid, player, 13, flourish, "sound/c3po_88.snd", "object/mobile/c_3po.iff");
+            obj_id droid = utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis");
+            commTutorialPlayer(droid, player, 16, new string_id("npe", "pop_perform"), "sound/c3po_93.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(droid, player, 13, new string_id("npe", "pop_flourish"), "sound/c3po_88.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.perform", 1);
             return true;
         }
@@ -1167,76 +1022,53 @@ public class npe extends script.base_script
     }
     public static boolean giveGrenadePopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id grenade = new string_id("npe", "pop_grenade");
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 10, grenade, "", "object/mobile/dressed_npe_commando.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 10, new string_id("npe", "pop_grenade"), "", "object/mobile/dressed_npe_commando.iff");
         return true;
     }
     public static boolean giveChatPopUp(obj_id player) throws InterruptedException
     {
-        string_id chat = new string_id("npe", "pop_chat");
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 10, chat, "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 10, new string_id("npe", "pop_chat"), "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
         return true;
     }
     public static boolean giveGroupPopUp1(obj_id player) throws InterruptedException
     {
-        string_id chat = new string_id("npe", "pop_group");
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 10, chat, "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 10, new string_id("npe", "pop_group"), "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
         return true;
     }
     public static boolean giveGroupPopUp2(obj_id player) throws InterruptedException
     {
-        string_id chat = new string_id("npe", "pop_group2");
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 20, chat, "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 20, new string_id("npe", "pop_group2"), "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
         return true;
     }
     public static boolean giveEscPopUp(obj_id player) throws InterruptedException
     {
-        string_id chat = new string_id("npe", "pop_escape");
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 10, chat, "sound/vo_c3po_xtra2.snd", "object/mobile/c_3po.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 10, new string_id("npe", "pop_escape"), "sound/vo_c3po_xtra2.snd", "object/mobile/c_3po.iff");
         return true;
     }
     public static boolean giveEntXpPopUp(obj_id player) throws InterruptedException
     {
-        string_id chat = new string_id("npe", "pop_entxp");
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 10, chat, "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 10, new string_id("npe", "pop_entxp"), "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
         return true;
     }
     public static boolean giveTraderXpPopUp(obj_id player) throws InterruptedException
     {
-        string_id chat = new string_id("npe", "pop_tradexp");
-        obj_id building = getTopMostContainer(player);
-        obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-        commTutorialPlayer(droid, player, 10, chat, "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
+        commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 10, new string_id("npe", "pop_tradexp"), "sound/dro_r2_3_danger.snd", "object/mobile/r2.iff");
         return true;
     }
     public static boolean giveStationWaypoint(obj_id player) throws InterruptedException
     {
-        obj_id[] waypoints = getWaypointsInDatapad(player);
         boolean theyHave = false;
-        for (int i = 0; i < waypoints.length; i++)
-        {
-            String myName = getWaypointName(waypoints[i]);
-            if (myName.equals("Station Gamma"))
-            {
+        String myName;
+        for (obj_id waypoint1 : getWaypointsInDatapad(player)) {
+            myName = getWaypointName(waypoint1);
+            if (myName.equals("Station Gamma")) {
                 theyHave = true;
+                break;
             }
         }
-        if (theyHave == false)
+        if (!theyHave)
         {
-            location gamma = new location(663, -1002, 2039, "space_ord_mantell", null);
-            obj_id waypoint = createWaypointInDatapad(player, gamma);
+            obj_id waypoint = createWaypointInDatapad(player, new location(663, -1002, 2039, "space_ord_mantell", null));
             setWaypointName(waypoint, "Station Gamma");
             setWaypointColor(waypoint, "space");
             setWaypointVisible(waypoint, true);
@@ -1247,13 +1079,9 @@ public class npe extends script.base_script
     }
     public static boolean giveHarvestPopUp(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id harvest = new string_id("npe", "pop_harvest");
-        int hadNotif = utils.getIntScriptVar(player, "npe.harvest");
-        if (hadNotif == 0)
+        if (utils.getIntScriptVar(player, "npe.harvest") == 0)
         {
-            obj_id building = getTopMostContainer(player);
-            obj_id droid = utils.getObjIdScriptVar(building, "objDroidInvis");
-            commTutorialPlayer(droid, player, 6, harvest, "sound/c3po_89.snd", "object/mobile/c_3po.iff");
+            commTutorialPlayer(utils.getObjIdScriptVar(getTopMostContainer(player), "objDroidInvis"), player, 6, new string_id("npe", "pop_harvest"), "sound/c3po_89.snd", "object/mobile/c_3po.iff");
             utils.setScriptVar(player, "npe.harvest", 1);
             return true;
         }
@@ -1261,10 +1089,6 @@ public class npe extends script.base_script
     }
     public static void npeNpcVendor(obj_id player, obj_id npc) throws InterruptedException
     {
-        string_id stfPrompt = new string_id("npe", "store_prompt");
-        string_id stfTitle = new string_id("npe", "store_title");
-        String prompt = utils.packStringId(stfPrompt);
-        String title = utils.packStringId(stfTitle);
         String[] options = new String[2];
         string_id[] items = new string_id[2];
         items[0] = new string_id("npe", "store_item3");
@@ -1273,12 +1097,20 @@ public class npe extends script.base_script
         {
             options[i] = utils.packStringId(items[i]);
         }
-        int pid = sui.listbox(npc, player, prompt, sui.OK_CANCEL, title, options, "npeHandleBuy", false, false);
-        sui.showSUIPage(pid);
+        sui.showSUIPage(sui.listbox(
+                npc,
+                player,
+                utils.packStringId(new string_id("npe", "store_prompt")),
+                sui.OK_CANCEL,
+                utils.packStringId(new string_id("npe", "store_title")),
+                options,
+                "npeHandleBuy",
+                false,
+                false
+        ));
     }
     public static void giveTemplatePointer(obj_id player) throws InterruptedException
     {
-        String playerTemplate = getSkillTemplate(player);
         if (utils.isProfession(player, utils.BOUNTY_HUNTER))
         {
             groundquests.sendSignal(player, "npe_solo_profession_2_end");
@@ -1327,9 +1159,7 @@ public class npe extends script.base_script
     }
     public static void commTutorialPlayer(obj_id owner, obj_id player, float duration, string_id text, String sfx, String appearance) throws InterruptedException
     {
-        prose_package pp = prose.getPackage(text);
-        commPlayers(owner, appearance, sfx, duration, player, pp);
-        return;
+        commPlayers(owner, appearance, sfx, duration, player, prose.getPackage(text));
     }
     public static void sendDelayed3poPopup(obj_id player, int timeDelay, int duration, String soundFile, String strFile, String strMessage, String scriptVarName) throws InterruptedException
     {
@@ -1344,16 +1174,13 @@ public class npe extends script.base_script
     }
     public static void removeAllQuests(obj_id player) throws InterruptedException
     {
-        int[] allQuests = questGetAllActiveQuestIds(player);
-        for (int y = 0; y < allQuests.length; y++)
-        {
-            questClearQuest(allQuests[y], player);
+        for (int quest : questGetAllActiveQuestIds(player)) {
+            questClearQuest(quest, player);
         }
     }
     public static obj_id[] giveProfessionWeapon(obj_id player) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        String playerTemplate = getSkillTemplate(player);
         HashSet theSet = new HashSet();
         if (utils.isProfession(player, utils.SMUGGLER))
         {
@@ -1398,21 +1225,15 @@ public class npe extends script.base_script
     }
     public static void reGrantReWorkedQuests(obj_id player) throws InterruptedException
     {
-        String[] questList = dataTableGetStringColumn(QUEST_REWORK_TABLE, GROUND_QUESTS);
-        int listLength = questList.length;
-        for (int i = 0; i < listLength; i++)
-        {
-            if (groundquests.isQuestActive(player, questList[i]))
-            {
-                groundquests.clearQuest(player, questList[i]);
-                if (!questList[i].equals("npe_scout_1a") && !questList[i].equals("npe_brawler_2a"))
-                {
-                    groundquests.grantQuestNoAcceptUI(player, questList[i], false);
+        for (String quest : dataTableGetStringColumn(QUEST_REWORK_TABLE, GROUND_QUESTS)) {
+            if (groundquests.isQuestActive(player, quest)) {
+                groundquests.clearQuest(player, quest);
+                if (!quest.equals("npe_scout_1a") && !quest.equals("npe_brawler_2a")) {
+                    groundquests.grantQuestNoAcceptUI(player, quest, false);
                 }
             }
         }
         setObjVar(player, QUEST_REWORK_VAR, QUEST_ENUMERATION);
-        return;
     }
     public static void clearActiveSpaceQuests(obj_id player) throws InterruptedException
     {
@@ -1432,14 +1253,12 @@ public class npe extends script.base_script
             }
         }
         setObjVar(player, QUEST_REWORK_VAR, QUEST_ENUMERATION);
-        return;
     }
     public static boolean hasReachedMaxTutorialLevel(obj_id player) throws InterruptedException
     {
-        int playerLevel = getLevel(player);
         if (hasObjVar(player, "npe"))
         {
-            if (playerLevel >= LEVEL_CAP)
+            if (getLevel(player) >= LEVEL_CAP)
             {
                 return true;
             }

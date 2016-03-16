@@ -28,8 +28,7 @@ public class generic_spawner extends script.base_script
     public static final String GENERIC_SPAWNER_ACTIVE = "genericSpawner.isActive";
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        String name = getTemplateName(self);
-        if (name.equals("object/building/general/bunker_allum_mine.iff"))
+        if (getTemplateName(self).equals("object/building/general/bunker_allum_mine.iff"))
         {
             String setting = getConfigSetting("Dungeon", "Death_Watch");
             if (setting == null || setting.equals("false") || setting.equals("0"))
@@ -49,8 +48,7 @@ public class generic_spawner extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        String name = getTemplateName(self);
-        if (name.equals("object/building/general/bunker_allum_mine.iff"))
+        if (getTemplateName(self).equals("object/building/general/bunker_allum_mine.iff"))
         {
             String setting = getConfigSetting("Dungeon", "Death_Watch");
             if (setting == null || setting.equals("false") || setting.equals("0"))
@@ -75,15 +73,13 @@ public class generic_spawner extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
-        int numberOfCreaturesToSpawn = dataTableGetNumRows(datatable);
         int x = utils.getIntScriptVar(self, "spawnCounter");
         setDungeonActive(self, true);
-        while (x < numberOfCreaturesToSpawn)
+        while (x < dataTableGetNumRows(datatable))
         {
             if (hasObjVar(self, SPAWNED + x))
             {
-                obj_id check = getObjIdObjVar(self, SPAWNED + x);
-                if (!check.isLoaded())
+                if (!getObjIdObjVar(self, SPAWNED + x).isLoaded())
                 {
                     spawnCreatures(x, datatable, self);
                 }
@@ -126,30 +122,18 @@ public class generic_spawner extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isPlayer(objects[i]))
-            {
-                if (instance.isInInstanceArea(objects[i]))
-                {
-                    instance.requestExitPlayer(self, objects[i], 1);
+        for (obj_id object : objects) {
+            if (isPlayer(object)) {
+                if (instance.isInInstanceArea(object)) {
+                    instance.requestExitPlayer(self, object, 1);
                     continue;
-                }
-                else 
-                {
-                    space_dungeon.verifyPlayerSession(objects[i]);
+                } else {
+                    space_dungeon.verifyPlayerSession(object);
                     continue;
                 }
             }
-            if (isMob(objects[i]))
-            {
-                trial.cleanupNpc(objects[i]);
-                continue;
-            }
-            if (trial.isTempObject(objects[i]))
-            {
-                trial.cleanupNpc(objects[i]);
-                continue;
+            if (isMob(object) || trial.isTempObject(object)) {
+                trial.cleanupNpc(object);
             }
         }
         return SCRIPT_CONTINUE;
@@ -161,24 +145,14 @@ public class generic_spawner extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int spawn_num = params.getInt("spawnNumber");
-        obj_id spawn_mob = params.getObjId("spawnMob");
-        if (hasObjVar(self, SPAWNED + spawn_num) && (spawn_mob == getObjIdObjVar(self, SPAWNED + spawn_num)))
+        if (hasObjVar(self, SPAWNED + spawn_num) && (params.getObjId("spawnMob") == getObjIdObjVar(self, SPAWNED + spawn_num)))
         {
-            String datatable = getStringObjVar(self, "spawn_table");
-            spawnCreatures(spawn_num, datatable, self);
+            spawnCreatures(spawn_num, getStringObjVar(self, "spawn_table"), self);
         }
         return SCRIPT_CONTINUE;
     }
-    public boolean isDungeonActive(obj_id dungeon) throws InterruptedException
-    {
-        if (utils.hasScriptVar(dungeon, GENERIC_SPAWNER_ACTIVE))
-        {
-            return utils.getBooleanScriptVar(dungeon, GENERIC_SPAWNER_ACTIVE);
-        }
-        else 
-        {
-            return true;
-        }
+    public boolean isDungeonActive(obj_id dungeon) throws InterruptedException {
+        return !utils.hasScriptVar(dungeon, GENERIC_SPAWNER_ACTIVE) || utils.getBooleanScriptVar(dungeon, GENERIC_SPAWNER_ACTIVE);
     }
     public void setDungeonActive(obj_id dungeon, boolean state) throws InterruptedException
     {
@@ -186,42 +160,30 @@ public class generic_spawner extends script.base_script
     }
     public void attachRoomScripts(obj_id self, String datatable) throws InterruptedException
     {
-        String[] roomsToLock = dataTableGetStringColumnNoDefaults(datatable, "special_room");
-        int numRooms = roomsToLock.length;
         int passThrough = 0;
-        while (passThrough < numRooms)
+        while (passThrough < dataTableGetStringColumnNoDefaults(datatable, "special_room").length)
         {
             String roomName = dataTableGetString(datatable, passThrough, "special_room");
             String roomScript = dataTableGetString(datatable, passThrough, "special_room_script");
-            if (roomName == null && roomName.equals(""))
+            if (roomName == null || roomName.equals(""))
             {
-                setObjVar(self, "problem", "No room name");
+                setObjVar(self, "problem", "No Special Room Name found.");
                 return;
             }
-            if (roomScript == null && roomScript.equals(""))
+            if (roomScript == null || roomScript.equals(""))
             {
-                setObjVar(self, "problem", "No Script");
+                setObjVar(self, "problem", "No Special Room Script found.");
                 return;
             }
-            obj_id roomObj = self;
-            if (roomName.equals("self"))
-            {
-                roomObj = self;
-            }
-            else 
-            {
-                roomObj = getCellId(self, roomName);
-            }
+            obj_id roomObj = roomName.equals("self") ? self : getCellId(self, roomName);
             attachScript(roomObj, roomScript);
             setObjVar(self, "set_room", passThrough);
-            passThrough = passThrough + 1;
+            passThrough++;
         }
-        return;
     }
     public void setRoomObjVars(obj_id self, String datatable) throws InterruptedException
     {
-        String[] roomsToSet = dataTableGetStringColumnNoDefaults(datatable, "room_objvar");
-        int numRooms = roomsToSet.length;
+        int numRooms = dataTableGetStringColumnNoDefaults(datatable, "room_objvar").length;
         if (numRooms == 0)
         {
             return;
@@ -230,28 +192,24 @@ public class generic_spawner extends script.base_script
         while (passThrough < numRooms)
         {
             String roomName = dataTableGetString(datatable, passThrough, "room_objvar");
-            String roomObjVar = dataTableGetString(datatable, passThrough, "room_objvar_name");
-            String roomObjVarValue = dataTableGetString(datatable, passThrough, "room_objvar_value");
             if (roomName == null || roomName.equals(""))
             {
                 setObjVar(self, "problem", "No room name");
                 return;
             }
+            String roomObjVar = dataTableGetString(datatable, passThrough, "room_objvar_name");
             if (roomObjVar == null || roomObjVar.equals(""))
             {
                 setObjVar(self, "problem", "No ObjVar Name");
                 return;
             }
-            obj_id roomObj = getCellId(self, roomName);
-            setObjVar(roomObj, roomObjVar, roomObjVarValue);
-            passThrough = passThrough + 1;
+            setObjVar(getCellId(self, roomName), roomObjVar, dataTableGetString(datatable, passThrough, "room_objvar_value"));
+            passThrough++;
         }
-        return;
     }
     public void spawnCreatures(int x, String datatable, obj_id self) throws InterruptedException
     {
         String spawn = dataTableGetString(datatable, x, "spawns");
-        String creatureName = dataTableGetString(datatable, x, "name");
         float xCoord = dataTableGetFloat(datatable, x, "loc_x");
         float yCoord = dataTableGetFloat(datatable, x, "loc_y");
         float zCoord = dataTableGetFloat(datatable, x, "loc_z");
@@ -265,7 +223,7 @@ public class generic_spawner extends script.base_script
             removeObjVar(self, SPAWNED + x);
             return;
         }
-        location spawnPoint = new location(xCoord, yCoord, zCoord, planet, room);
+        String creatureName = dataTableGetString(datatable, x, "name");
         if (dataTableHasColumn(datatable, "boss") && dataTableHasColumn(datatable, "boss_chance") && dataTableHasColumn(datatable, "boss_name"))
         {
             String boss = dataTableGetString(datatable, x, "boss");
@@ -291,7 +249,7 @@ public class generic_spawner extends script.base_script
                 }
             }
         }
-        location locTest = spawnPoint;
+        location locTest = new location(xCoord, yCoord, zCoord, planet, room);
         if (dataTableHasColumn(datatable, "radius"))
         {
             float fltRadius = dataTableGetFloat(datatable, x, "radius");
@@ -303,8 +261,7 @@ public class generic_spawner extends script.base_script
         int level = -1;
         if (dataTableHasColumn(datatable, "planet_level"))
         {
-            int useLevel = dataTableGetInt(datatable, x, "planet_level");
-            if (useLevel != 0)
+            if (dataTableGetInt(datatable, x, "planet_level") != 0)
             {
                 level = getRandomPlanetCreatureLevel(self, spawn, locTest);
             }
@@ -400,17 +357,13 @@ public class generic_spawner extends script.base_script
                 ai_lib.setDefaultCalmMood(spawnedCreature, creatureMood);
             }
         }
-        return;
     }
     public int animationMood(obj_id self, dictionary params) throws InterruptedException
     {
-        int x = params.getInt("x");
-        String datatable = params.getString("datatable");
-        obj_id spawnedCreature = params.getObjId("spawnedCreature");
-        String creatureAnimationMood = dataTableGetString(datatable, x, "animation_mood");
+        String creatureAnimationMood = dataTableGetString(params.getString("datatable"), params.getInt("x"), "animation_mood");
         if (creatureAnimationMood != null && !creatureAnimationMood.equals(""))
         {
-            ai_lib.setAnimationMood(spawnedCreature, creatureAnimationMood);
+            ai_lib.setAnimationMood(params.getObjId("spawnedCreature"), creatureAnimationMood);
         }
         return SCRIPT_CONTINUE;
     }
@@ -421,47 +374,35 @@ public class generic_spawner extends script.base_script
             return;
         }
         String[] pairs = split(objVarList, ',');
-        for (int i = 0; i < pairs.length; i++)
-        {
-            String[] objVarToSet = split(pairs[i], '=');
+        for (String pair : pairs) {
+            String[] objVarToSet = split(pair, '=');
             String objVarValue = objVarToSet[1];
             String[] objVarNameAndType = split(objVarToSet[0], ':');
             String objVarType = objVarNameAndType[0];
             String objVarName = objVarNameAndType[1];
-            if (objVarType.equals("string"))
-            {
-                setObjVar(creature, objVarName, objVarValue);
-            }
-            else if (objVarType.equals("int"))
-            {
-                setObjVar(creature, objVarName, utils.stringToInt(objVarValue));
-            }
-            else if (objVarType.equals("float"))
-            {
-                setObjVar(creature, objVarName, utils.stringToFloat(objVarValue));
-            }
-            else if (objVarType.equals("boolean") || objVarType.equals("bool"))
-            {
-                setObjVar(creature, objVarName, utils.stringToInt(objVarValue));
-            }
-            else 
-            {
-                setObjVar(creature, objVarName, objVarValue);
+            switch (objVarType) {
+                case "string":
+                    setObjVar(creature, objVarName, objVarValue);
+                    break;
+                case "int":
+                    setObjVar(creature, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                case "float":
+                    setObjVar(creature, objVarName, utils.stringToFloat(objVarValue));
+                    break;
+                case "boolean":
+                case "bool":
+                    setObjVar(creature, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                default:
+                    setObjVar(creature, objVarName, objVarValue);
+                    break;
             }
         }
     }
-    public boolean canSpawnByConfigSetting() throws InterruptedException
-    {
+    public boolean canSpawnByConfigSetting() throws InterruptedException {
         String disableSpawners = getConfigSetting("GameServer", "disableGenericSpawner");
-        if (disableSpawners == null)
-        {
-            return true;
-        }
-        if (disableSpawners.equals("true") || disableSpawners.equals("1"))
-        {
-            return false;
-        }
-        return true;
+        return disableSpawners == null || !(disableSpawners.equals("true") || disableSpawners.equals("1"));
     }
     public int getRandomPlanetCreatureLevel(obj_id spawner, String npcType, location here) throws InterruptedException
     {

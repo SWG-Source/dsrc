@@ -1,12 +1,7 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.obj_id;
+import script.string_id;
 
 public class player_stomach extends script.base_script
 {
@@ -42,11 +37,7 @@ public class player_stomach extends script.base_script
     }
     public static boolean isValidStomach(int idx) throws InterruptedException
     {
-        if ((idx >= STOMACH_FOOD) && (idx < STOMACH_MAX))
-        {
-            return true;
-        }
-        return false;
+        return (idx >= STOMACH_FOOD) && (idx < STOMACH_MAX);
     }
     public static String getStomachVar(int stomach) throws InterruptedException
     {
@@ -58,13 +49,11 @@ public class player_stomach extends script.base_script
     }
     public static string_id getStomachFullMsg(int stomach) throws InterruptedException
     {
-        String lookup = dataTableGetString(DATATABLE_STOMACH, stomach, COL_MSG_FULL);
-        return new string_id("error_message", lookup);
+        return new string_id("error_message", dataTableGetString(DATATABLE_STOMACH, stomach, COL_MSG_FULL));
     }
     public static string_id getTargetFullMsg(int stomach) throws InterruptedException
     {
-        String lookup = dataTableGetString(DATATABLE_STOMACH, stomach, COL_TARGET_FULL);
-        return new string_id("error_message", lookup);
+        return new string_id("error_message", dataTableGetString(DATATABLE_STOMACH, stomach, COL_TARGET_FULL));
     }
     public static int setStomach(obj_id player, int stomach, int vol, int stamp) throws InterruptedException
     {
@@ -80,13 +69,12 @@ public class player_stomach extends script.base_script
         {
             return -1;
         }
-        boolean litmus = true;
         int maxSize = getStomachMaxSize(stomach);
         if (vol > maxSize)
         {
             vol = maxSize;
         }
-        litmus &= setObjVar(player, getStomachVar(stomach), vol);
+        boolean litmus = setObjVar(player, getStomachVar(stomach), vol);
         litmus &= setObjVar(player, getStampVar(stomach), stamp);
         if (litmus)
         {
@@ -103,8 +91,7 @@ public class player_stomach extends script.base_script
     }
     public static boolean canAddToStomach(obj_id player, int[] vol) throws InterruptedException
     {
-        boolean result = true;
-        return result;
+        return true;
     }
     public static boolean addToStomach(obj_id player, int stomach, int vol) throws InterruptedException
     {
@@ -116,8 +103,7 @@ public class player_stomach extends script.base_script
     }
     public static boolean addToStomach(obj_id player, obj_id target, int[] vol) throws InterruptedException
     {
-        boolean litmus = true;
-        return litmus;
+        return true;
     }
     public static boolean addToStomach(obj_id player, int[] vol) throws InterruptedException
     {
@@ -133,19 +119,12 @@ public class player_stomach extends script.base_script
         {
             return -1;
         }
-        int curVol = 0;
-        int stamp = 0;
-        int curTime = getGameTime();
-        int deltaTime = 0;
         int digestRate = getStomachDigestRate(stomach);
-        int digestCycles = 0;
-        int digested = 0;
-        curVol = getIntObjVar(player, getStomachVar(stomach));
-        stamp = getIntObjVar(player, getStampVar(stomach));
-        deltaTime = curTime - stamp;
-        digestCycles = deltaTime / digestRate;
-        digested = digestCycles * getStomachDigestValue(stomach);
-        curVol -= digested;
+        int curVol = getIntObjVar(player, getStomachVar(stomach));
+        int stamp = getIntObjVar(player, getStampVar(stomach));
+        int digestCycles = (getGameTime() - stamp) / digestRate;
+
+        curVol -= (digestCycles * getStomachDigestValue(stomach));
         if (curVol < 0)
         {
             curVol = 0;

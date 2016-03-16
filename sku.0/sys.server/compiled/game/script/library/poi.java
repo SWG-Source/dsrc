@@ -1,19 +1,6 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.structure;
-import script.library.utils;
-import script.library.factions;
-import script.library.scenario;
-import script.library.chat;
 
 public class poi extends script.base_script
 {
@@ -91,8 +78,7 @@ public class poi extends script.base_script
     }
     public static obj_id createObject(String template, float x, float z, int level) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return createObject(poiObject, template, x, z, level);
+        return createObject(getSelf(), template, x, z, level);
     }
     public static obj_id createObject(obj_id poiObject, String name, String template, float x, float y) throws InterruptedException
     {
@@ -110,8 +96,7 @@ public class poi extends script.base_script
     }
     public static obj_id createObject(String name, String template, float x, float y, int level) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return createObject(poiObject, name, template, x, y, level);
+        return createObject(getSelf(), name, template, x, y, level);
     }
     public static obj_id createObject(obj_id poiObject, String strName, location locCenter) throws InterruptedException
     {
@@ -120,9 +105,7 @@ public class poi extends script.base_script
     public static obj_id createObject(obj_id poiObject, String strName, location locCenter, int level) throws InterruptedException
     {
         location locHome = getLocation(poiObject);
-        float fltX = locCenter.x - locHome.x;
-        float fltZ = locCenter.z - locHome.z;
-        return createObject(poiObject, strName, fltX, fltZ, level);
+        return createObject(poiObject, strName, locCenter.x - locHome.x, locCenter.z - locHome.z, level);
     }
     public static obj_id createNpc(obj_id poiObject, String type, float x, float z) throws InterruptedException
     {
@@ -161,8 +144,7 @@ public class poi extends script.base_script
     }
     public static obj_id createNpc(String type, float x, float z, int level) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return createNpc(poiObject, type, x, z, level);
+        return createNpc(getSelf(), type, x, z, level);
     }
     public static obj_id createNpc(obj_id poiObject, String ident, String type, float x, float z) throws InterruptedException
     {
@@ -252,8 +234,7 @@ public class poi extends script.base_script
     }
     public static obj_id createNpc(String ident, String type, float x, float z, int level) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return createNpc(poiObject, ident, type, x, z, level);
+        return createNpc(getSelf(), ident, type, x, z, level);
     }
     public static obj_id findObject(obj_id poiObject, String name) throws InterruptedException
     {
@@ -266,8 +247,7 @@ public class poi extends script.base_script
     }
     public static obj_id findObject(String name) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return findObject(poiObject, name);
+        return findObject(getSelf(), name);
     }
     public static String findObjectName(obj_id poiObject) throws InterruptedException
     {
@@ -275,8 +255,7 @@ public class poi extends script.base_script
     }
     public static String findObjectName() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return findObjectName(poiObject);
+        return findObjectName(getSelf());
     }
     public static void setDestroyMessage(obj_id poiObject, String name, String messageHandlerName, int delay) throws InterruptedException
     {
@@ -303,8 +282,7 @@ public class poi extends script.base_script
     }
     public static void setDestroyMessage(String name, String messageHandlerName) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        setDestroyMessage(poiObject, name, messageHandlerName, 0);
+        setDestroyMessage(getSelf(), name, messageHandlerName, 0);
     }
     public static void setDestroyMessage(obj_id poiObject, String messageHandlerName, int delay) throws InterruptedException
     {
@@ -320,13 +298,11 @@ public class poi extends script.base_script
     }
     public static void setDestroyMessage(String messageHandlerName, int delay) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        setDestroyMessage(poiObject, messageHandlerName, delay);
+        setDestroyMessage(getSelf(), messageHandlerName, delay);
     }
     public static void setDestroyMessage(String messageHandlerName) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        setDestroyMessage(poiObject, messageHandlerName, 0);
+        setDestroyMessage(getSelf(), messageHandlerName, 0);
     }
     public static void grantCredit(obj_id poiObject, obj_id player) throws InterruptedException
     {
@@ -348,8 +324,7 @@ public class poi extends script.base_script
     }
     public static void grantCredit(obj_id player) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        grantCredit(poiObject, player);
+        grantCredit(getSelf(), player);
     }
     public static void removeCredit(obj_id poiObject, obj_id player) throws InterruptedException
     {
@@ -366,8 +341,7 @@ public class poi extends script.base_script
     }
     public static void removeCredit(obj_id player) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        removeCredit(poiObject, player);
+        removeCredit(getSelf(), player);
     }
     public static void denyCredit(obj_id poiObject, obj_id player) throws InterruptedException
     {
@@ -386,54 +360,31 @@ public class poi extends script.base_script
     }
     public static void denyCredit(obj_id player) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        denyCredit(poiObject, player);
+        denyCredit(getSelf(), player);
     }
-    public static boolean isGrantedCredit(obj_id poiObject, obj_id player) throws InterruptedException
-    {
+    public static boolean isGrantedCredit(obj_id poiObject, obj_id player) throws InterruptedException {
         obj_id poiBaseObject = getBaseObject(poiObject);
-        if (poiBaseObject == null || poiBaseObject == obj_id.NULL_ID)
-        {
-            return false;
-        }
-        String objVarName = player.toString();
-        return isGrantedCredit(poiBaseObject, objVarName);
+        return !(poiBaseObject == null || poiBaseObject == obj_id.NULL_ID) && isGrantedCredit(poiBaseObject, player.toString());
     }
     public static boolean isGrantedCredit(obj_id player) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return isGrantedCredit(poiObject, player);
+        return isGrantedCredit(getSelf(), player);
     }
     public static boolean isGrantedCredit(obj_id poiBaseObject, String objVarName) throws InterruptedException
     {
-        if (hasObjVar(poiBaseObject, POI_CREDIT_LIST + "." + objVarName))
-        {
-            return true;
-        }
-        return false;
+        return hasObjVar(poiBaseObject, POI_CREDIT_LIST + "." + objVarName);
     }
-    public static boolean isDeniedCredit(obj_id poiObject, obj_id player) throws InterruptedException
-    {
+    public static boolean isDeniedCredit(obj_id poiObject, obj_id player) throws InterruptedException {
         obj_id poiBaseObject = getBaseObject(poiObject);
-        if (poiBaseObject == null || poiBaseObject == obj_id.NULL_ID)
-        {
-            return false;
-        }
-        String objVarName = player.toString();
-        return isDeniedCredit(poiBaseObject, objVarName);
+        return !(poiBaseObject == null || poiBaseObject == obj_id.NULL_ID) && isDeniedCredit(poiBaseObject, player.toString());
     }
     public static boolean isDeniedCredit(obj_id player) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return isDeniedCredit(poiObject, player);
+        return isDeniedCredit(getSelf(), player);
     }
     public static boolean isDeniedCredit(obj_id poiBaseObject, String objVarName) throws InterruptedException
     {
-        if (hasObjVar(poiBaseObject, POI_DENY_LIST + "." + objVarName))
-        {
-            return true;
-        }
-        return false;
+        return hasObjVar(poiBaseObject, POI_DENY_LIST + "." + objVarName);
     }
     public static void addToStringList(obj_id element, String name) throws InterruptedException
     {
@@ -452,8 +403,7 @@ public class poi extends script.base_script
     }
     public static void addToStringList(String name) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        addToStringList(poiObject, name);
+        addToStringList(getSelf(), name);
     }
     public static void removeFromStringList(obj_id element) throws InterruptedException
     {
@@ -468,8 +418,7 @@ public class poi extends script.base_script
     }
     public static void removeFromStringList() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        removeFromStringList(poiObject);
+        removeFromStringList(getSelf());
     }
     public static void removeFromStringList(obj_id poiObject, String name) throws InterruptedException
     {
@@ -489,16 +438,13 @@ public class poi extends script.base_script
     }
     public static void removeFromStringList(String name) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        removeFromStringList(poiObject, name);
+        removeFromStringList(getSelf(), name);
     }
     public static void addToMasterList(obj_id poiBaseObject, obj_id elementToAdd) throws InterruptedException
     {
-        return;
     }
     public static void removeFromMasterList(obj_id poiBaseObject, obj_id elementToRemove) throws InterruptedException
     {
-        return;
     }
     public static boolean isInMasterList(obj_id poiBaseObject, obj_id element) throws InterruptedException
     {
@@ -519,8 +465,7 @@ public class poi extends script.base_script
     }
     public static obj_id getBaseObject() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return getBaseObject(poiObject);
+        return getBaseObject(getSelf());
     }
     public static void baseObjectDestroyed(obj_id poiBaseObject) throws InterruptedException
     {
@@ -561,7 +506,7 @@ public class poi extends script.base_script
             return getStringObjVar(poiBaseObject, POI_DIFFICULTY);
         }
         int difficulty = getIntObjVar(poiBaseObject, "intDifficulty");
-        String diff = "easy";
+        String diff;
         if (difficulty <= 4)
         {
             diff = "veryEasy";
@@ -587,36 +532,23 @@ public class poi extends script.base_script
     }
     public static String getDifficulty() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return getDifficulty(poiObject);
+        return getDifficulty(getSelf());
     }
     public static int getIntDifficulty() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        String diff = getDifficulty(poiObject);
-        if (diff.equals("veryEasy"))
-        {
-            return DIFF_VEASY;
-        }
-        else if (diff.equals("easy"))
-        {
-            return DIFF_EASY;
-        }
-        else if (diff.equals("medium"))
-        {
-            return DIFF_MEDIUM;
-        }
-        else if (diff.equals("hard"))
-        {
-            return DIFF_HARD;
-        }
-        else if (diff.equals("veryHard"))
-        {
-            return DIFF_VHARD;
-        }
-        else 
-        {
-            return DIFF_UNKNOWN;
+        switch (getDifficulty(getSelf())) {
+            case "veryEasy":
+                return DIFF_VEASY;
+            case "easy":
+                return DIFF_EASY;
+            case "medium":
+                return DIFF_MEDIUM;
+            case "hard":
+                return DIFF_HARD;
+            case "veryHard":
+                return DIFF_VHARD;
+            default:
+                return DIFF_UNKNOWN;
         }
     }
     public static String getFaction(obj_id poiObject) throws InterruptedException
@@ -630,8 +562,7 @@ public class poi extends script.base_script
     }
     public static String getFaction() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return getFaction(poiObject);
+        return getFaction(getSelf());
     }
     public static float getFactionValue(obj_id poiObject) throws InterruptedException
     {
@@ -644,8 +575,7 @@ public class poi extends script.base_script
     }
     public static float getFactionValue() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return getFactionValue(poiObject);
+        return getFactionValue(getSelf());
     }
     public static String getObjective(obj_id poiObject) throws InterruptedException
     {
@@ -658,8 +588,7 @@ public class poi extends script.base_script
     }
     public static String getObjective() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return getObjective(poiObject);
+        return getObjective(getSelf());
     }
     public static void setFaction(obj_id poiObject, String faction) throws InterruptedException
     {
@@ -672,8 +601,7 @@ public class poi extends script.base_script
     }
     public static void setFaction(String faction) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        setFaction(poiObject, faction);
+        setFaction(getSelf(), faction);
     }
     public static void setFactionValue(obj_id poiObject, float factionValue) throws InterruptedException
     {
@@ -686,8 +614,7 @@ public class poi extends script.base_script
     }
     public static void setFactionValue(float factionValue) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        setFactionValue(poiObject, factionValue);
+        setFactionValue(getSelf(), factionValue);
     }
     public static void complete(obj_id poiObject, int status) throws InterruptedException
     {
@@ -700,13 +627,8 @@ public class poi extends script.base_script
         {
             return;
         }
-        switch (status)
-        {
-            case POI_SUCCESS:
+        if (status == POI_SUCCESS) {
             awardFactionStanding(poiBaseObject);
-            break;
-            case POI_FAIL:
-            break;
         }
         sendMissionStatus(poiBaseObject, status);
         messageTo(poiBaseObject, "cleanUpRoutine", null, 60, false);
@@ -714,8 +636,7 @@ public class poi extends script.base_script
     }
     public static void complete(int status) throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        complete(poiObject, status);
+        complete(getSelf(), status);
     }
     public static void complete(obj_id poiObject) throws InterruptedException
     {
@@ -734,13 +655,11 @@ public class poi extends script.base_script
     }
     public static void complete() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        complete(poiObject);
+        complete(getSelf());
     }
     public static void awardFactionStanding(obj_id poiBaseObject) throws InterruptedException
     {
         String faction = getFaction(poiBaseObject);
-        float factionValue = getFactionValue(poiBaseObject);
         if (faction == null)
         {
             return;
@@ -750,12 +669,10 @@ public class poi extends script.base_script
         {
             return;
         }
-        int count = playerList.getNumItems();
-        for (int i = 0; i < count; ++i)
+
+        for (int i = 0; i < playerList.getNumItems(); ++i)
         {
-            obj_var playerVar = playerList.getObjVar(i);
-            obj_id player = utils.stringToObjId(playerVar.getName());
-            factions.addFactionStanding(player, faction, factionValue);
+            factions.addFactionStanding(utils.stringToObjId(playerList.getObjVar(i).getName()), faction, getFactionValue(poiBaseObject));
         }
     }
     public static void sendMissionStatus(obj_id poiBaseObject, int status) throws InterruptedException
@@ -768,17 +685,17 @@ public class poi extends script.base_script
         switch (status)
         {
             case POI_SUCCESS:
-            messageTo(objMission, "destructionSuccess", null, 0, true);
-            break;
+                messageTo(objMission, "destructionSuccess", null, 0, true);
+                break;
             case POI_INCOMPLETE:
-            messageTo(objMission, "destructionIncomplete", null, 0, true);
-            break;
+                messageTo(objMission, "destructionIncomplete", null, 0, true);
+                break;
             case POI_FAIL:
-            messageTo(objMission, "destructionFail", null, 0, true);
-            break;
+                messageTo(objMission, "destructionFail", null, 0, true);
+                break;
             default:
-            messageTo(objMission, "destructionIncomplete", null, 0, true);
-            break;
+                messageTo(objMission, "destructionIncomplete", null, 0, true);
+                break;
         }
     }
     public static void baseObjectRemovedFromWorld(obj_id poiBaseObject) throws InterruptedException
@@ -807,8 +724,7 @@ public class poi extends script.base_script
         }
         if (hasObjVar(poiObject, "npc_lair.target"))
         {
-            obj_id target = getObjIdObjVar(poiObject, "npc_lair.target");
-            if (!exists(target))
+            if (!exists(getObjIdObjVar(poiObject, "npc_lair.target")))
             {
                 return true;
             }
@@ -817,8 +733,7 @@ public class poi extends script.base_script
     }
     public static boolean isComplete() throws InterruptedException
     {
-        obj_id poiObject = getSelf();
-        return isComplete(poiObject);
+        return isComplete(getSelf());
     }
     public static boolean setTitle(obj_id npc, String title) throws InterruptedException
     {
@@ -832,26 +747,12 @@ public class poi extends script.base_script
         {
             return false;
         }
-        string_id titleid = new string_id(convo, title);
-        String name = getName(npc);
-        setName(npc, getString(titleid) + " " + name);
+        setName(npc, getString(new string_id(convo, title)) + " " + getName(npc));
         return true;
     }
-    public static boolean isNpcTagged(obj_id npc, String tag) throws InterruptedException
-    {
+    public static boolean isNpcTagged(obj_id npc, String tag) throws InterruptedException {
         obj_id found = findObject(tag);
-        if ((found == null) || (found == obj_id.NULL_ID))
-        {
-            return false;
-        }
-        else if (found == npc)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return !((found == null) || (found == obj_id.NULL_ID)) && found == npc;
     }
     public static boolean quickSay(obj_id npc, String speech) throws InterruptedException
     {
@@ -861,7 +762,7 @@ public class poi extends script.base_script
             return false;
         }
         String convo = getStringObjVar(poiBaseObject, scenario.VAR_SCENARIO_CONVO);
-        if (convo.equals(null) || convo.equals(""))
+        if (convo == null || convo.equals(""))
         {
             return false;
         }
@@ -890,9 +791,7 @@ public class poi extends script.base_script
         {
             return null;
         }
-        int count = getIntObjVar(poiBaseObject, scenario.VAR_MEDIATOR_COUNT);
-        int index = rand(0, count - 1);
-        return poi.findObject(scenario.MEDIATOR + "_" + index);
+        return poi.findObject(scenario.MEDIATOR + "_" + rand(0, getIntObjVar(poiBaseObject, scenario.VAR_MEDIATOR_COUNT) - 1));
     }
     public static obj_id getRandomAntagonist(obj_id poiobj) throws InterruptedException
     {
@@ -901,8 +800,6 @@ public class poi extends script.base_script
         {
             return null;
         }
-        int count = getIntObjVar(poiBaseObject, scenario.VAR_ANTAGONIST_COUNT);
-        int index = rand(0, count - 1);
-        return poi.findObject(scenario.ANTAGONIST + "_" + index);
+        return poi.findObject(scenario.ANTAGONIST + "_" + rand(0, getIntObjVar(poiBaseObject, scenario.VAR_ANTAGONIST_COUNT) - 1));
     }
 }

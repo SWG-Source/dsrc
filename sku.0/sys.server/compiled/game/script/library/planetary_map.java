@@ -1,24 +1,7 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.locations;
-import script.library.city;
-import script.library.player_structure;
-import script.library.structure;
-import script.library.factions;
-import script.library.regions;
-import script.library.hq;
-import script.library.instance;
-import script.library.utils;
-import script.library.sui;
-import java.util.Arrays;
 import java.util.Vector;
 
 public class planetary_map extends script.base_script
@@ -76,7 +59,6 @@ public class planetary_map extends script.base_script
         {
             return addTerminalLocation(self);
         }
-        String locType = "map";
         String planet = getCurrentSceneName();
         if ((planet == null) || (planet.equals("")))
         {
@@ -110,16 +92,13 @@ public class planetary_map extends script.base_script
         {
             category = CITY;
             locationName = getCityRegionName(here);
-            locType = "CITY";
         }
         else 
         {
-            dictionary row = new dictionary();
-            row = dataTableGetRow(TBL, template);
+            dictionary row = dataTableGetRow(TBL, template);
             if ((row == null) || (row.isEmpty()))
             {
-                String msg = "WARNING: map_location -> obj_id " + self + " unable to locate template (" + template + ") in datatable!";
-                debugServerConsoleMsg(self, msg);
+                debugServerConsoleMsg(self, "WARNING: map_location -> obj_id " + self + " unable to locate template (" + template + ") in datatable!");
             }
             else 
             {
@@ -155,8 +134,7 @@ public class planetary_map extends script.base_script
         }
         if (player_structure.isCivic(self))
         {
-            int city_id = getCityAtLocation(getLocation(self), 0);
-            locationName = cityGetName(city_id);
+            locationName = cityGetName(getCityAtLocation(getLocation(self), 0));
             flags = MLF_INACTIVE;
         }
         else if (player_structure.isCommercial(self))
@@ -220,14 +198,7 @@ public class planetary_map extends script.base_script
         {
             return null;
         }
-        if (r.length > 1)
-        {
-            for (int i = 0; i < r.length; i++)
-            {
-            }
-        }
-        region city = r[0];
-        return city.getName();
+        return r[0].getName();
     }
     public static void removeMapLocation(obj_id self) throws InterruptedException
     {
@@ -235,15 +206,6 @@ public class planetary_map extends script.base_script
         {
             return;
         }
-        String template = getTemplateName(self);
-        if (template != null)
-        {
-        }
-        location here = getLocation(self);
-        if (here != null)
-        {
-        }
-        String planet = getCurrentSceneName();
         removePlanetaryMapLocation(self);
     }
     public static boolean addCreatureLocation(obj_id self) throws InterruptedException
@@ -252,7 +214,6 @@ public class planetary_map extends script.base_script
         {
             return false;
         }
-        String locType = "map";
         String planet = getCurrentSceneName();
         if ((planet == null) || (planet.equals("")))
         {
@@ -275,14 +236,11 @@ public class planetary_map extends script.base_script
                 }
                 if (cType.equals("junk_dealer"))
                 {
-                    String myName = getEncodedName(self);
-                    return addPlanetaryMapLocation(self, myName, (int)here.x, (int)here.z, CAT_VENDOR, SUB_VENDOR_JUNK, MLT_STATIC, NO_FLAG);
+                    return addPlanetaryMapLocation(self, getEncodedName(self), (int)here.x, (int)here.z, CAT_VENDOR, SUB_VENDOR_JUNK, MLT_STATIC, NO_FLAG);
                 }
                 else if (cType.startsWith("trainer_"))
                 {
-                    String myName = getEncodedName(self);
-                    String subCat = cType;
-                    return addPlanetaryMapLocation(self, myName, (int)here.x, (int)here.z, CAT_TRAINER, subCat, MLT_STATIC, NO_FLAG);
+                    return addPlanetaryMapLocation(self, getEncodedName(self), (int)here.x, (int)here.z, CAT_TRAINER, cType, MLT_STATIC, NO_FLAG);
                 }
             }
         }
@@ -335,20 +293,13 @@ public class planetary_map extends script.base_script
                     map_location[] mapLocs = getPlanetaryMapLocations(CITY, null);
                     if (mapLocs != null && mapLocs.length > 0)
                     {
-                        for (int i = 0; i < mapLocs.length; i++)
-                        {
-                            if ((mapLocs[i].getLocationName()).equals(cityName))
-                            {
-                                string_id sid_cityName = utils.unpackString(cityName);
-                                location cityLoc = new location(mapLocs[i].getX(), 0, mapLocs[i].getY());
-                                String cardinalString = utils.getStringCardinalDirection(cityLoc, here, true);
-                                if (cardinalString != null && !cardinalString.equals(""))
-                                {
-                                    String locName = getString(sid_cityName) + " (" + cardinalString + ")";
-                                    return addPlanetaryMapLocation(self, locName, (int)here.x, (int)here.z, CAT_TERMINAL, subCat, MLT_STATIC, NO_FLAG);
-                                }
-                                else 
-                                {
+                        String cardinalString;
+                        for (map_location mapLoc : mapLocs) {
+                            if ((mapLoc.getLocationName()).equals(cityName)) {
+                                cardinalString = utils.getStringCardinalDirection(new location(mapLoc.getX(), 0, mapLoc.getY()), here, true);
+                                if (cardinalString != null && !cardinalString.equals("")) {
+                                    return addPlanetaryMapLocation(self, getString(utils.unpackString(cityName)) + " (" + cardinalString + ")", (int) here.x, (int) here.z, CAT_TERMINAL, subCat, MLT_STATIC, NO_FLAG);
+                                } else {
                                     break;
                                 }
                             }
@@ -377,15 +328,17 @@ public class planetary_map extends script.base_script
         }
         float min = Float.POSITIVE_INFINITY;
         int locIdx = -1;
-        float x = 0f;
-        float z = 0f;
-        location there = new location();
+        float x;
+        float z;
+        location there;
+        float dist;
+
         for (int n = 0; n < map_locs.length; n++)
         {
             x = (float)(map_locs[n].getX());
             z = (float)(map_locs[n].getY());
             there = new location(x, 0, z);
-            float dist = utils.getDistance2D(here, there);
+            dist = utils.getDistance2D(here, there);
             if (dist < min)
             {
                 min = dist;
@@ -441,32 +394,25 @@ public class planetary_map extends script.base_script
         entries.setSize(0);
         Vector params = new Vector();
         params.setSize(0);
-        for (int i = 0; i < cats.length; i++)
-        {
-            String cat = cats[i];
-            String[] subs = getUniquePlanetaryMapCategories(cat);
-            if ((subs != null) && (subs.length > 0))
-            {
+
+        String[] subs;
+
+        for (String cat : cats) {
+            subs = getUniquePlanetaryMapCategories(cat);
+            if ((subs != null) && (subs.length > 0)) {
                 LOG("find", "showFindSui: cat = " + cat + " sub count = " + subs.length);
-                string_id sid_cat = new string_id("map_loc_cat_n", cat);
-                for (int n = 0; n < subs.length; n++)
-                {
-                    string_id sid_sub = new string_id("map_loc_cat_n", subs[n]);
-                    entries = utils.addElement(entries, getString(sid_cat) + ": " + getString(sid_sub));
-                    params = utils.addElement(params, subs[n]);
+                for (String sub : subs) {
+                    entries = utils.addElement(entries, getString(new string_id("map_loc_cat_n", cat)) + ": " + getString(new string_id("map_loc_cat_n", sub)));
+                    params = utils.addElement(params, sub);
                 }
-            }
-            else 
-            {
+            } else {
                 entries = utils.addElement(entries, "@map_loc_cat_n:" + cat);
                 params = utils.addElement(params, cat);
             }
         }
         if ((entries != null) && (entries.size() > 0))
         {
-            String title = utils.packStringId(SID_FIND_TITLE);
-            String prompt = utils.packStringId(SID_FIND_PROMPT);
-            int pid = sui.listbox(self, self, prompt, sui.OK_CANCEL, title, entries, "handleFindSui");
+            int pid = sui.listbox(self, self, utils.packStringId(SID_FIND_PROMPT), sui.OK_CANCEL, utils.packStringId(SID_FIND_TITLE), entries, "handleFindSui");
             if (pid > -1)
             {
                 utils.setScriptVar(self, SCRIPTVAR_FIND_SUI, pid);
@@ -481,8 +427,7 @@ public class planetary_map extends script.base_script
         obj_id self = getSelf();
         if (utils.hasScriptVar(self, SCRIPTVAR_FIND_SUI))
         {
-            int pid = utils.getIntScriptVar(self, SCRIPTVAR_FIND_SUI);
-            forceCloseSUIPage(pid);
+            forceCloseSUIPage(utils.getIntScriptVar(self, SCRIPTVAR_FIND_SUI));
             cleanupFindSui();
         }
     }
@@ -501,23 +446,17 @@ public class planetary_map extends script.base_script
         }
         Vector unique = new Vector();
         unique.setSize(0);
-        for (int i = 0; i < cats.length; i++)
-        {
-            if (utils.getElementPositionInArray(unique, cats[i]) == -1)
-            {
-                unique = utils.addElement(unique, cats[i]);
+        for (String cat : cats) {
+            if (utils.getElementPositionInArray(unique, cat) == -1) {
+                unique = utils.addElement(unique, cat);
             }
         }
         if ((unique == null) || (unique.size() == 0))
         {
             return null;
         }
-        String[] _unique = new String[0];
-        if (unique != null)
-        {
-            _unique = new String[unique.size()];
-            unique.toArray(_unique);
-        }
+        String[] _unique = new String[unique.size()];
+        unique.toArray(_unique);
         return _unique;
     }
     public static boolean updateFacilityActive(obj_id facility, boolean isActive) throws InterruptedException
@@ -539,7 +478,7 @@ public class planetary_map extends script.base_script
         {
             return false;
         }
-        byte flags = maploc.getFlags();
+        byte flags;
         if (isActive)
         {
             flags = MLF_ACTIVE;

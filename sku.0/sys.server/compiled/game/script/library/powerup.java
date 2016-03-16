@@ -1,18 +1,6 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import java.util.Enumeration;
-import java.lang.Integer;
-import script.library.combat;
-import script.library.jedi;
 
 public class powerup extends script.base_script
 {
@@ -61,46 +49,39 @@ public class powerup extends script.base_script
         if (ovl != null)
         {
             int numItems = ovl.getNumItems();
+            String name;
             for (int i = 0; i < numItems; i++)
             {
-                obj_var ov = ovl.getObjVar(i);
-                String name = ov.getName();
-                String varpath = powerup.VAR_POWERUP_BASE + "." + name;
-                float mod = getFloatObjVar(weapon, varpath);
-                String log;
-                if (name.equals("damage"))
-                {
-                    names[idx] = "cat_pup.pup_damage";
-                    attribs[idx] = formatter.format(mod);
-                }
-                else if (name.equals("speed"))
-                {
-                    names[idx] = "cat_pup.pup_speed";
-                    attribs[idx] = formatter.format(mod);
-                }
-                else if (name.equals("accuracy"))
-                {
-                    names[idx] = "cat_pup.pup_accuracy";
-                    attribs[idx] = intFormat.format(mod);
-                }
-                else if (name.equals("wound"))
-                {
-                    names[idx] = "cat_pup.pup_wound";
-                    attribs[idx] = formatter.format(mod);
-                }
-                else if (name.equals("elementalDamage"))
-                {
-                    names[idx] = "cat_pup.pup_elemental";
-                    attribs[idx] = formatter.format(mod);
-                }
-                else if (name.equals("actionCost"))
-                {
-                    names[idx] = "cat_pup.pup_action";
-                    attribs[idx] = formatter.format(mod);
-                }
-                else 
-                {
-                    idx--;
+                name = ovl.getObjVar(i).getName();
+                float mod = getFloatObjVar(weapon, powerup.VAR_POWERUP_BASE + "." + name);
+                switch (name) {
+                    case "damage":
+                        names[idx] = "cat_pup.pup_damage";
+                        attribs[idx] = formatter.format(mod);
+                        break;
+                    case "speed":
+                        names[idx] = "cat_pup.pup_speed";
+                        attribs[idx] = formatter.format(mod);
+                        break;
+                    case "accuracy":
+                        names[idx] = "cat_pup.pup_accuracy";
+                        attribs[idx] = intFormat.format(mod);
+                        break;
+                    case "wound":
+                        names[idx] = "cat_pup.pup_wound";
+                        attribs[idx] = formatter.format(mod);
+                        break;
+                    case "elementalDamage":
+                        names[idx] = "cat_pup.pup_elemental";
+                        attribs[idx] = formatter.format(mod);
+                        break;
+                    case "actionCost":
+                        names[idx] = "cat_pup.pup_action";
+                        attribs[idx] = formatter.format(mod);
+                        break;
+                    default:
+                        idx--;
+                        break;
                 }
                 idx++;
             }
@@ -130,8 +111,7 @@ public class powerup extends script.base_script
         }
         if (hasPowerUpInstalled(target))
         {
-            prose_package ppAlreadyPowered = prose.getPackage(PROSE_ALREADY_POWERED, target);
-            sendSystemMessageProse(player, ppAlreadyPowered);
+            sendSystemMessageProse(player, prose.getPackage(PROSE_ALREADY_POWERED, target));
             return false;
         }
         int iGot = getGameObjectType(powerup);
@@ -162,40 +142,38 @@ public class powerup extends script.base_script
         switch (powerupType)
         {
             case TYPE_MELEE:
-            if (!combat.isMeleeWeapon(target))
-            {
-                sendSystemMessage(player, new string_id("powerup_d", "apply_fail_not_melee"));
-                LOG("powerup", "Melee weapon failure");
-                return false;
-            }
-            break;
+                if (!combat.isMeleeWeapon(target))
+                {
+                    sendSystemMessage(player, new string_id("powerup_d", "apply_fail_not_melee"));
+                    LOG("powerup", "Melee weapon failure");
+                    return false;
+                }
+                break;
             case TYPE_RANGED:
-            if (!combat.isRangedWeapon(target))
-            {
-                sendSystemMessage(player, new string_id("powerup_d", "apply_fail_not_ranged"));
-                LOG("powerup", "Ranged weapon failure");
-                return false;
-            }
-            break;
+                if (!combat.isRangedWeapon(target))
+                {
+                    sendSystemMessage(player, new string_id("powerup_d", "apply_fail_not_ranged"));
+                    LOG("powerup", "Ranged weapon failure");
+                    return false;
+                }
+                break;
             case TYPE_GRENADE:
-            int weaponType = getWeaponType(target);
-            if (weaponType != WEAPON_TYPE_THROWN)
-            {
-                sendSystemMessage(player, new string_id("powerup_d", "apply_fail_not_grenade"));
-                LOG("powerup", "Grenade weapon failure");
-                return false;
-            }
-            break;
+                if (getWeaponType(target) != WEAPON_TYPE_THROWN)
+                {
+                    sendSystemMessage(player, new string_id("powerup_d", "apply_fail_not_grenade"));
+                    LOG("powerup", "Grenade weapon failure");
+                    return false;
+                }
+                break;
             default:
-            sendSystemMessage(player, new string_id("powerup_d", "apply_failed_type_unknown"));
-            LOG("powerup", "Default faulure");
-            return false;
+                sendSystemMessage(player, new string_id("powerup_d", "apply_failed_type_unknown"));
+                LOG("powerup", "Default faulure");
+                return false;
         }
         String template = getTemplateName(powerup);
         if (template.equals("object/tangible/powerup/weapon/ranged_power.iff") || template.equals("object/tangible/powerup/weapon/melee_element_dispursal_tuner.iff"))
         {
-            int elementalDamage = getWeaponElementalValue(target);
-            if (elementalDamage < 1)
+            if (getWeaponElementalValue(target) < 1)
             {
                 sendSystemMessage(player, new string_id("powerup_d", "apply_fail_no_elemental"));
                 LOG("powerup", "Elemental failure");
@@ -212,34 +190,31 @@ public class powerup extends script.base_script
         if (ovl != null)
         {
             int numItems = ovl.getNumItems();
+            obj_var ov;
+            String name;
             for (int i = 0; i < numItems; i++)
             {
-                obj_var ov = ovl.getObjVar(i);
-                String name = ov.getName();
-                String varpath = VAR_POWERUP_BASE + "." + name;
-                if (name.equals("speed"))
-                {
-                    speedMod = ov.getFloatData();
-                }
-                else if (name.equals("damage"))
-                {
-                    damageMod = ov.getFloatData();
-                }
-                else if (name.equals("accuracy"))
-                {
-                    accuracyMod = ov.getFloatData();
-                }
-                else if (name.equals("wound"))
-                {
-                    woundMod = ov.getFloatData();
-                }
-                else if (name.equals("elementalDamage"))
-                {
-                    elementalMod = ov.getFloatData();
-                }
-                else if (name.equals("actionCost"))
-                {
-                    actionMod = ov.getFloatData();
+                ov = ovl.getObjVar(i);
+                name = ov.getName();
+                switch (name) {
+                    case "speed":
+                        speedMod = ov.getFloatData();
+                        break;
+                    case "damage":
+                        damageMod = ov.getFloatData();
+                        break;
+                    case "accuracy":
+                        accuracyMod = ov.getFloatData();
+                        break;
+                    case "wound":
+                        woundMod = ov.getFloatData();
+                        break;
+                    case "elementalDamage":
+                        elementalMod = ov.getFloatData();
+                        break;
+                    case "actionCost":
+                        actionMod = ov.getFloatData();
+                        break;
                 }
             }
         }
@@ -306,8 +281,7 @@ public class powerup extends script.base_script
         LOG("powerup", "----------- Done Applying powerup ----------");
         destroyObject(powerup);
         attachScript(target, SCRIPT_WEAPON);
-        prose_package ppApply = prose.getPackage(PROSE_POWERUP_APPLY, powerup, target);
-        sendSystemMessageProse(player, ppApply);
+        sendSystemMessageProse(player, prose.getPackage(PROSE_POWERUP_APPLY, powerup, target));
         return true;
     }
     public static boolean cleanupWeaponPowerup(obj_id weapon) throws InterruptedException
@@ -317,49 +291,46 @@ public class powerup extends script.base_script
         if (ovl != null)
         {
             int numItems = ovl.getNumItems();
+            String name;
+            String varpath;
             for (int i = 0; i < numItems; i++)
             {
-                obj_var ov = ovl.getObjVar(i);
-                String name = ov.getName();
-                String varpath = VAR_POWERUP_BASE + "." + name;
-                if (name.equals("speed"))
-                {
-                    float curSpeed = getWeaponAttackSpeed(weapon);
-                    float speedDiff = getFloatObjVar(weapon, varpath);
-                    setWeaponAttackSpeed(weapon, curSpeed + speedDiff);
-                }
-                else if (name.equals("damage"))
-                {
-                    int curMinDmg = getWeaponMinDamage(weapon);
-                    float dmgDiff = getFloatObjVar(weapon, varpath);
-                    setWeaponMinDamage(weapon, curMinDmg - (int)dmgDiff);
-                    int curMaxDmg = getWeaponMaxDamage(weapon);
-                    setWeaponMaxDamage(weapon, curMaxDmg - (int)dmgDiff);
-                }
-                else if (name.equals("accuracy"))
-                {
-                    int curAcc = getWeaponAccuracy(weapon);
-                    float accDiff = getFloatObjVar(weapon, varpath);
-                    setWeaponAccuracy(weapon, curAcc - (int)accDiff);
-                }
-                else if (name.equals("wound"))
-                {
-                    float curWound = getWeaponWoundChance(weapon);
-                    float woundDiff = getFloatObjVar(weapon, varpath);
-                    LOG("powerup", "Reverting wound: curWound=" + curWound + ", woundDiff=" + woundDiff + ", newWound=" + (curWound - woundDiff));
-                    setWeaponWoundChance(weapon, curWound - woundDiff);
-                }
-                else if (name.equals("elementalDamage"))
-                {
-                    int curEDmg = getWeaponElementalValue(weapon);
-                    float eDmgDiff = getFloatObjVar(weapon, varpath);
-                    setWeaponElementalValue(weapon, curEDmg - (int)eDmgDiff);
-                }
-                else if (name.equals("actionCost"))
-                {
-                    float curAction = getWeaponAttackCost(weapon);
-                    float actionDiff = getFloatObjVar(weapon, varpath);
-                    setWeaponAttackCost(weapon, (int)curAction - (int)actionDiff);
+                name = ovl.getObjVar(i).getName();
+                varpath = VAR_POWERUP_BASE + "." + name;
+                switch (name) {
+                    case "speed":
+                        float curSpeed = getWeaponAttackSpeed(weapon);
+                        float speedDiff = getFloatObjVar(weapon, varpath);
+                        setWeaponAttackSpeed(weapon, curSpeed + speedDiff);
+                        break;
+                    case "damage":
+                        int curMinDmg = getWeaponMinDamage(weapon);
+                        float dmgDiff = getFloatObjVar(weapon, varpath);
+                        setWeaponMinDamage(weapon, curMinDmg - (int) dmgDiff);
+                        int curMaxDmg = getWeaponMaxDamage(weapon);
+                        setWeaponMaxDamage(weapon, curMaxDmg - (int) dmgDiff);
+                        break;
+                    case "accuracy":
+                        int curAcc = getWeaponAccuracy(weapon);
+                        float accDiff = getFloatObjVar(weapon, varpath);
+                        setWeaponAccuracy(weapon, curAcc - (int) accDiff);
+                        break;
+                    case "wound":
+                        float curWound = getWeaponWoundChance(weapon);
+                        float woundDiff = getFloatObjVar(weapon, varpath);
+                        LOG("powerup", "Reverting wound: curWound=" + curWound + ", woundDiff=" + woundDiff + ", newWound=" + (curWound - woundDiff));
+                        setWeaponWoundChance(weapon, curWound - woundDiff);
+                        break;
+                    case "elementalDamage":
+                        int curEDmg = getWeaponElementalValue(weapon);
+                        float eDmgDiff = getFloatObjVar(weapon, varpath);
+                        setWeaponElementalValue(weapon, curEDmg - (int) eDmgDiff);
+                        break;
+                    case "actionCost":
+                        float curAction = getWeaponAttackCost(weapon);
+                        float actionDiff = getFloatObjVar(weapon, varpath);
+                        setWeaponAttackCost(weapon, (int) curAction - (int) actionDiff);
+                        break;
                 }
             }
         }
@@ -385,8 +356,7 @@ public class powerup extends script.base_script
             {
                 return;
             }
-            prose_package ppExpire = prose.getPackage(PROSE_POWERUP_EXPIRE, target);
-            sendSystemMessageProse(owner, ppExpire);
+            sendSystemMessageProse(owner, prose.getPackage(PROSE_POWERUP_EXPIRE, target));
             return;
         }
         setObjVar(target, VAR_POWERUP_USES_LEFT, cnt);

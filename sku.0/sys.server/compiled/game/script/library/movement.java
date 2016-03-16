@@ -1,14 +1,10 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
+import script.string_id;
 
-import script.library.utils;
+import java.util.Vector;
 
 public class movement extends script.base_script
 {
@@ -104,8 +100,7 @@ public class movement extends script.base_script
         {
             utils.setScriptVar(target, MOVEMENT_OBJVAR + "." + name + ".strength", strength);
         }
-        final boolean result = refresh(target);
-        return result;
+        return refresh(target);
     }
     public static boolean removeMovementModifier(obj_id target, String name) throws InterruptedException
     {
@@ -145,44 +140,32 @@ public class movement extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < mods.length; i++)
-        {
-            removeMovementModifier(target, mods[i], false);
+        for (String mod : mods) {
+            removeMovementModifier(target, mod, false);
         }
         return refresh(target);
     }
-    public static boolean removeAllModifiersOfType(obj_id target, int type) throws InterruptedException
-    {
+    public static boolean removeAllModifiersOfType(obj_id target, int type) throws InterruptedException {
         String[] mods = getAllModifiers(target);
-        if (mods == null || mods.length == 0)
-        {
+        if (mods == null || mods.length == 0) {
             return false;
         }
         boolean removed = false;
-        for (int i = 0; i < mods.length; i++)
-        {
-            if (getType(mods[i]) == type && buff.canBeDispelled(mods[i]))
-            {
-                removeMovementModifier(target, mods[i], false);
+        for (String mod : mods) {
+            if (getType(mod) == type && buff.canBeDispelled(mod)) {
+                removeMovementModifier(target, mod, false);
                 removed = true;
             }
         }
-        if (removed)
-        {
-            return refresh(target);
-        }
-        else 
-        {
-            return false;
-        }
+        return removed && refresh(target);
     }
     public static boolean hasMovementModifier(obj_id target) throws InterruptedException
     {
-        deltadictionary dd = target.getScriptVars();
-        java.util.Enumeration keys = dd.keys();
+        java.util.Enumeration keys = target.getScriptVars().keys();
+        String key;
         while (keys.hasMoreElements())
         {
-            String key = (String)(keys.nextElement());
+            key = (String)(keys.nextElement());
             if (key.startsWith(MOVEMENT_OBJVAR + "."))
             {
                 return true;
@@ -192,11 +175,7 @@ public class movement extends script.base_script
     }
     public static boolean hasMovementModifier(obj_id target, String name) throws InterruptedException
     {
-        if (utils.hasScriptVar(target, MOVEMENT_OBJVAR + "." + name + ".time"))
-        {
-            return true;
-        }
-        return false;
+        return utils.hasScriptVar(target, MOVEMENT_OBJVAR + "." + name + ".time");
     }
     public static int getType(String name) throws InterruptedException
     {
@@ -242,21 +221,15 @@ public class movement extends script.base_script
     }
     public static boolean isValidModifier(int nameCrc) throws InterruptedException
     {
-        int row = dataTableSearchColumnForInt(nameCrc, "name", MOVEMENT_TABLE);
-        return (row >= 0);
+        return (dataTableSearchColumnForInt(nameCrc, "name", MOVEMENT_TABLE) >= 0);
     }
     public static boolean isRoot(String name) throws InterruptedException
     {
         return (isRoot(getStringCrc(name.toLowerCase())) || isStunEffect(name));
     }
-    public static boolean isRoot(int nameCrc) throws InterruptedException
-    {
+    public static boolean isRoot(int nameCrc) throws InterruptedException {
         int row = dataTableSearchColumnForInt(nameCrc, "name", MOVEMENT_TABLE);
-        if (row >= 0)
-        {
-            return (dataTableGetInt(MOVEMENT_TABLE, row, "type") == MT_ROOT);
-        }
-        return false;
+        return row >= 0 && (dataTableGetInt(MOVEMENT_TABLE, row, "type") == MT_ROOT);
     }
     public static boolean isSnare(String name) throws InterruptedException
     {
@@ -279,53 +252,33 @@ public class movement extends script.base_script
     {
         return isPersisted(getStringCrc(name.toLowerCase()));
     }
-    public static boolean isPersisted(int nameCrc) throws InterruptedException
-    {
+    public static boolean isPersisted(int nameCrc) throws InterruptedException {
         int row = dataTableSearchColumnForInt(nameCrc, "name", MOVEMENT_TABLE);
-        if (row >= 0)
-        {
-            return (dataTableGetInt(MOVEMENT_TABLE, row, "persistence") == 1);
-        }
-        return false;
+        return row >= 0 && (dataTableGetInt(MOVEMENT_TABLE, row, "persistence") == 1);
     }
     public static boolean canAffectOnFoot(String name) throws InterruptedException
     {
         return canAffectOnFoot(getStringCrc(name.toLowerCase()));
     }
-    public static boolean canAffectOnFoot(int nameCrc) throws InterruptedException
-    {
+    public static boolean canAffectOnFoot(int nameCrc) throws InterruptedException {
         int row = dataTableSearchColumnForInt(nameCrc, "name", MOVEMENT_TABLE);
-        if (row >= 0)
-        {
-            return (dataTableGetInt(MOVEMENT_TABLE, row, "affects_onfoot") == 1);
-        }
-        return false;
+        return row >= 0 && (dataTableGetInt(MOVEMENT_TABLE, row, "affects_onfoot") == 1);
     }
     public static boolean canAffectVehicles(String name) throws InterruptedException
     {
         return canAffectVehicles(getStringCrc(name.toLowerCase()));
     }
-    public static boolean canAffectVehicles(int nameCrc) throws InterruptedException
-    {
+    public static boolean canAffectVehicles(int nameCrc) throws InterruptedException {
         int row = dataTableSearchColumnForInt(nameCrc, "name", MOVEMENT_TABLE);
-        if (row >= 0)
-        {
-            return (dataTableGetInt(MOVEMENT_TABLE, row, "affects_vehicle") == 1);
-        }
-        return false;
+        return row >= 0 && (dataTableGetInt(MOVEMENT_TABLE, row, "affects_vehicle") == 1);
     }
     public static boolean canAffectMounts(String name) throws InterruptedException
     {
         return canAffectMounts(getStringCrc(name.toLowerCase()));
     }
-    public static boolean canAffectMounts(int nameCrc) throws InterruptedException
-    {
+    public static boolean canAffectMounts(int nameCrc) throws InterruptedException {
         int row = dataTableSearchColumnForInt(nameCrc, "name", MOVEMENT_TABLE);
-        if (row >= 0)
-        {
-            return (dataTableGetInt(MOVEMENT_TABLE, row, "affects_mount") == 1);
-        }
-        return false;
+        return row >= 0 && (dataTableGetInt(MOVEMENT_TABLE, row, "affects_mount") == 1);
     }
     public static boolean isStunEffect(String name) throws InterruptedException
     {
@@ -338,10 +291,8 @@ public class movement extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < movementMods.length; i++)
-        {
-            if (isStunEffect(movementMods[i]))
-            {
+        for (String movementMod : movementMods) {
+            if (isStunEffect(movementMod)) {
                 return true;
             }
         }
@@ -356,11 +307,9 @@ public class movement extends script.base_script
         }
         Vector effectList = new Vector();
         effectList.setSize(0);
-        for (int i = 0; i < movementMods.length; i++)
-        {
-            if (isStunEffect(movementMods[i]))
-            {
-                effectList.add(movementMods[i]);
+        for (String movementMod : movementMods) {
+            if (isStunEffect(movementMod)) {
+                effectList.add(movementMod);
             }
         }
         return utils.toStaticStringArray(effectList);
@@ -368,15 +317,15 @@ public class movement extends script.base_script
     public static String[] getAllModifiers(obj_id target) throws InterruptedException
     {
         Vector mods = new Vector();
-        deltadictionary dd = target.getScriptVars();
-        java.util.Enumeration keys = dd.keys();
+        java.util.Enumeration keys = target.getScriptVars().keys();
+        String key;
+
         while (keys.hasMoreElements())
         {
-            String key = (String)(keys.nextElement());
+            key = (String)(keys.nextElement());
             if (key.startsWith(MOVEMENT_OBJVAR + ".") && key.endsWith(".time"))
             {
-                String[] vars = split(key, '.');
-                mods.add(vars[1]);
+                mods.add(split(key, '.')[1]);
             }
         }
         return utils.toStaticStringArray(mods);
@@ -394,73 +343,58 @@ public class movement extends script.base_script
     }
     public static float _recalculateMovementModifiers(obj_id target) throws InterruptedException
     {
-        float boostMod = 0.0f;
-        float snareMod = 0.0f;
-        float permaBoost = 0.0f;
-        float permaSnare = 1.0f;
         String[] mods = getAllModifiers(target);
         testStunEffects(target);
         if (mods == null || mods.length == 0)
         {
             return 1.0f;
         }
+        float boostMod = 0.0f;
+        float snareMod = 0.0f;
+        float permaBoost = 0.0f;
+        float permaSnare = 1.0f;
+        float adj;
         obj_id mount = getMountId(target);
-        for (int i = 0; i < mods.length; i++)
-        {
-            if (isPlayer(target) && isIdValid(mount))
-            {
-                if (hasScript(mount, "systems.vehicle_system.vehicle_base"))
-                {
-                    if (!canAffectVehicles(mods[i]))
-                    {
+        for (String mod : mods) {
+            if (isPlayer(target) && isIdValid(mount)) {
+                if (hasScript(mount, "systems.vehicle_system.vehicle_base")) {
+                    if (!canAffectVehicles(mod)) {
+                        continue;
+                    }
+                } else {
+                    if (!canAffectMounts(mod)) {
                         continue;
                     }
                 }
-                else 
-                {
-                    if (!canAffectMounts(mods[i]))
-                    {
-                        continue;
-                    }
-                }
-            }
-            else 
-            {
-                if (!canAffectOnFoot(mods[i]))
-                {
+            } else {
+                if (!canAffectOnFoot(mod)) {
                     continue;
                 }
             }
-            if (isRoot(mods[i]))
-            {
+            if (isRoot(mod)) {
                 return 0.0f;
             }
-            float adj = _getMovementPercentageAdjustment(target, mods[i]);
-            if (adj == Float.NEGATIVE_INFINITY)
-            {
+            adj = _getMovementPercentageAdjustment(target, mod);
+            if (adj == Float.NEGATIVE_INFINITY) {
                 continue;
             }
-            int type = getType(mods[i]);
-            switch (type)
-            {
+            switch (getType(mod)) {
                 case MT_BOOST:
-                if (adj > boostMod)
-                {
-                    boostMod = adj;
-                }
-                break;
+                    if (adj > boostMod) {
+                        boostMod = adj;
+                    }
+                    break;
                 case MT_SNARE:
-                if (adj < snareMod)
-                {
-                    snareMod = adj;
-                }
-                break;
+                    if (adj < snareMod) {
+                        snareMod = adj;
+                    }
+                    break;
                 case MT_PERMABOOST:
-                permaBoost += adj;
-                break;
+                    permaBoost += adj;
+                    break;
                 case MT_PERMASNARE:
-                permaSnare *= (1.0f + adj);
-                break;
+                    permaSnare *= (1.0f + adj);
+                    break;
             }
         }
         if (snareMod < 0.0)
@@ -477,35 +411,28 @@ public class movement extends script.base_script
     }
     public static boolean checkForMovementImmunity(obj_id target, String name) throws InterruptedException
     {
-        int modifierType = getType(name);
         if (isPlayer(target) && !buff.canBeDispelled(name))
         {
             return false;
         }
         boolean resisted = false;
-        int stunResist = getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_stun");
-        int snareResist = getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_snare");
-        int rootResist = getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_root");
-        if (modifierType == MT_STUN)
-        {
-            if (rand(1, 99) < stunResist)
-            {
-                resisted = true;
-            }
-        }
-        else if (modifierType == MT_SNARE)
-        {
-            if (rand(1, 99) < snareResist)
-            {
-                resisted = true;
-            }
-        }
-        else if (modifierType == MT_ROOT)
-        {
-            if (rand(1, 99) < rootResist)
-            {
-                resisted = true;
-            }
+        int roll = rand(1,99);
+        switch (getType(name)) {
+            case MT_STUN:
+                if (roll < getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_stun")) {
+                    resisted = true;
+                }
+                break;
+            case MT_SNARE:
+                if (roll < getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_snare")) {
+                    resisted = true;
+                }
+                break;
+            case MT_ROOT:
+                if (roll < getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_root")) {
+                    resisted = true;
+                }
+                break;
         }
         return resisted;
     }
@@ -513,17 +440,13 @@ public class movement extends script.base_script
     {
         boolean isStunned = hasStunEffect(target);
         setState(target, STATE_STUNNED, isStunned);
-        float turnRate = isStunned ? 0.0f : 360.0f;
         return isStunned;
     }
     public static void updateMovementImmunity(obj_id target) throws InterruptedException
     {
-        int stunResist = getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_stun");
-        int snareResist = getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_snare");
-        int rootResist = getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_root");
         dictionary dict = new dictionary();
         dict.put("self", target);
-        if (stunResist >= 100)
+        if (getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_stun") >= 100)
         {
             if (removeAllModifiersOfType(target, movement.MT_STUN))
             {
@@ -533,7 +456,7 @@ public class movement extends script.base_script
                 messageTo(target, "messageDetrimentalRemoved", dict, 0.0f, false);
             }
         }
-        if (snareResist >= 100)
+        if (getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_snare") >= 100)
         {
             if (removeAllModifiersOfType(target, movement.MT_SNARE))
             {
@@ -543,7 +466,7 @@ public class movement extends script.base_script
                 messageTo(target, "messageDetrimentalRemoved", dict, 0.0f, false);
             }
         }
-        if (rootResist >= 100)
+        if (getEnhancedSkillStatisticModifierUncapped(target, "movement_resist_root") >= 100)
         {
             if (removeAllModifiersOfType(target, movement.MT_ROOT))
             {

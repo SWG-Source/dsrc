@@ -1,43 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.structure;
-import script.library.sui;
-import script.library.corpse;
-import script.library.jedi;
-import script.library.utils;
-import script.library.prose;
-import script.library.healing;
-import script.library.battlefield;
-import script.library.combat;
-import script.library.factions;
-import script.library.dot;
-import script.library.group;
-import script.library.pvp;
-import script.library.ai_lib;
-import script.library.innate;
-import script.library.player_stomach;
-import script.library.slots;
-import script.library.money;
-import script.library.player_structure;
-import script.library.meditation;
-import script.library.city;
-import script.library.force_rank;
-import script.library.missions;
-import script.library.bounty_hunter;
-import script.library.smuggler;
-import script.library.buff;
-import script.ai.ai_combat;
-import java.util.Arrays;
 import java.util.Vector;
-import java.util.Enumeration;
 
 public class pclib extends script.base_script
 {
@@ -203,20 +168,11 @@ public class pclib extends script.base_script
             minCost = MIN_CLONING_SICKNESS_COST / 2;
             maxCost = MAX_CLONING_SICKNESS_COST / 2;
         }
-        float level = getLevel(player);
-        float costRatio = level / 90f;
-        float cost = minCost + ((maxCost - minCost) * costRatio);
-        return (int)cost;
+        return (int) (minCost + ((maxCost - minCost) * (getLevel(player) / 90f)));
     }
     public static boolean canAffordCloningSicknessCure(obj_id player) throws InterruptedException
     {
-        int cost = getCloningSicknessCureCost(player);
-        int balance = getTotalMoney(player);
-        if (cost > balance)
-        {
-            return false;
-        }
-        return true;
+        return getCloningSicknessCureCost(player) <= getTotalMoney(player);
     }
     public static void cureCloningSickness(obj_id player) throws InterruptedException
     {
@@ -263,10 +219,6 @@ public class pclib extends script.base_script
         CustomerServiceLog("Trade", "  Processing Tip, Player: " + player + " " + getName(player) + " Target: " + target + " " + getName(target) + " Amount: " + amt + " Cash: " + useCash);
         if (target.isLoaded() && !isPlayer(target))
         {
-            if (targetName == null || targetName.equals(""))
-            {
-                targetName = utils.getStringName(target);
-            }
             CustomerServiceLog("Trade", "  Tip -- Player: " + player + " " + getName(player) + " -- Tip aborted: Target isn't a player.");
             prose_package ppNoTipTarget = prose.getPackage(SID_MAY_NOT_TIP_TARGET);
             prose.setTT(ppNoTipTarget, target);
@@ -314,8 +266,7 @@ public class pclib extends script.base_script
             if (amt > cash)
             {
                 CustomerServiceLog("Trade", "  Tip -- Player: " + player + " " + getName(player) + " Target: " + target + " -- Tip aborted: Insufficient cash. Amt: " + amt + " Cash: " + cash);
-                prose_package nsfCash = prose.getPackage(PROSE_TIP_NSF_CASH, target, amt);
-                sendSystemMessageProse(player, nsfCash);
+                sendSystemMessageProse(player, prose.getPackage(PROSE_TIP_NSF_CASH, target, amt));
                 return false;
             }
             CustomerServiceLog("Trade", "  Tip -- Player: " + player + " " + getName(player) + " Target: " + target + " -- Transferring Cash! Amt: " + amt);
@@ -337,8 +288,7 @@ public class pclib extends script.base_script
             if (amt > bank)
             {
                 CustomerServiceLog("Trade", "  Tip -- Player: " + player + " " + getName(player) + " Target: " + target + " -- Tip aborted: Insufficient bank balance. Amt: " + amt + " Bank: " + bank);
-                prose_package nsfBank = prose.getPackage(PROSE_TIP_NSF_BANK, target, amt);
-                sendSystemMessageProse(player, nsfBank);
+                sendSystemMessageProse(player, prose.getPackage(PROSE_TIP_NSF_BANK, target, amt));
                 return false;
             }
             int pid = showTipSui(player, target, targetName, amt);
@@ -358,9 +308,7 @@ public class pclib extends script.base_script
             return -1;
         }
         CustomerServiceLog("Trade", "  Tip -- Player: " + player + " " + getName(player) + " Target: " + target + " -- Showing bank tip wire UI.");
-        String title = utils.packStringId(SID_TIP_WIRE_TITLE);
-        String prompt = utils.packStringId(SID_TIP_WIRE_PROMPT);
-        int cBox = sui.msgbox(player, player, prompt, sui.YES_NO, title, "handleWireConfirm");
+        int cBox = sui.msgbox(player, player, utils.packStringId(SID_TIP_WIRE_PROMPT), sui.YES_NO, utils.packStringId(SID_TIP_WIRE_TITLE), "handleWireConfirm");
         if (cBox > -1)
         {
             utils.setScriptVar(player, VAR_TIP_SUI, cBox);
@@ -455,14 +403,12 @@ public class pclib extends script.base_script
         }
         if (utils.getElementPositionInArray(consentTo, target) > -1)
         {
-            prose_package pp = prose.getPackage(PROSE_CONSENT_ALREADY_CONSENTING, getPlayerFullName(target));
-            sendSystemMessageProse(player, pp);
+            sendSystemMessageProse(player, prose.getPackage(PROSE_CONSENT_ALREADY_CONSENTING, getPlayerFullName(target)));
             return false;
         }
         else if (consentTo.size() >= LIMIT_CONSENT_TO)
         {
-            prose_package pp = prose.getPackage(PROSE_CONSENT_LIST_FULL, LIMIT_CONSENT_TO);
-            sendSystemMessageProse(player, pp);
+            sendSystemMessageProse(player, prose.getPackage(PROSE_CONSENT_LIST_FULL, LIMIT_CONSENT_TO));
             return false;
         }
         else 
@@ -520,8 +466,7 @@ public class pclib extends script.base_script
                 {
                     setObjVar(player, VAR_CONSENT_TO_ID, consentTo);
                 }
-                prose_package pp = prose.getPackage(PROSE_UNCONSENT, getPlayerFullName(target));
-                sendSystemMessageProse(player, pp);
+                sendSystemMessageProse(player, prose.getPackage(PROSE_UNCONSENT, getPlayerFullName(target)));
                 dictionary d = new dictionary();
                 d.put(DICT_CONSENTER_ID, player);
                 messageTo(target, HANDLER_RECEIVED_UNCONSENT, d, 0, true);
@@ -549,11 +494,7 @@ public class pclib extends script.base_script
         }
         boolean isConsented = false;
         obj_id[] consentFrom = getObjIdArrayObjVar(player, VAR_CONSENT_FROM_ID);
-        if ((consentFrom == null) || (consentFrom.length == 0))
-        {
-        }
-        else 
-        {
+        if ((consentFrom != null) && (consentFrom.length != 0)) {
             if (utils.getElementPositionInArray(consentFrom, target) > -1)
             {
                 isConsented = true;
@@ -596,9 +537,8 @@ public class pclib extends script.base_script
             dictionary d = new dictionary();
             d.put(corpse.DICT_PLAYER_ID, player);
             boolean litmus = true;
-            for (int i = 0; i < consentFromList.length; i++)
-            {
-                litmus &= messageTo(consentFromList[i], HANDLER_CONSENT_TO_LOGOUT, d, 0, true);
+            for (obj_id consentFromItem : consentFromList) {
+                litmus &= messageTo(consentFromItem, HANDLER_CONSENT_TO_LOGOUT, d, 0, true);
             }
             removeObjVar(player, VAR_CONSENT_FROM_BASE);
             return litmus;
@@ -629,8 +569,7 @@ public class pclib extends script.base_script
         {
             return;
         }
-        int dam = -(getAttrib(player, HEALTH) + 50);
-        addAttribModifier(player, HEALTH, dam, 0f, 0f, MOD_POOL);
+        addAttribModifier(player, HEALTH, -(getAttrib(player, HEALTH) + 50), 0f, 0f, MOD_POOL);
         coupDeGrace(player, killer, false, usePVPRules);
     }
     public static void coupDeGrace(obj_id victim, obj_id killer, boolean playAnim) throws InterruptedException
@@ -659,11 +598,9 @@ public class pclib extends script.base_script
         if (!victim.isAuthoritative() || !killer.isAuthoritative())
         {
             requestSameServer(victim, killer);
-            int expireTime = getGameTime() + 60;
-            utils.setScriptVar(victim, "death.beingCoupDeGraced", expireTime);
-            int numberOfTries = 1;
+            utils.setScriptVar(victim, "death.beingCoupDeGraced", getGameTime() + 60);
             dictionary dict = new dictionary();
-            dict.put("numberOfTries", numberOfTries);
+            dict.put("numberOfTries", 1);
             dict.put("victim", victim);
             dict.put("killer", killer);
             dict.put("playAnim", playAnim);
@@ -673,8 +610,7 @@ public class pclib extends script.base_script
         }
         if (isDead(victim))
         {
-            prose_package pp = prose.getPackage(PROSE_TARGET_ALREADY_DEAD, victim);
-            sendSystemMessageProse(killer, pp);
+            sendSystemMessageProse(killer, prose.getPackage(PROSE_TARGET_ALREADY_DEAD, victim));
             return;
         }
         if (!isIncapacitated(victim))
@@ -689,7 +625,7 @@ public class pclib extends script.base_script
             setObjVar(victim, VAR_DEATHBLOW_STAMP, getGameTime());
         }
         gcw.releaseGcwPointCredit(victim);
-        obj_id master = null;
+        obj_id master;
         obj_id pvpKiller = killer;
         if (!isPlayer(killer))
         {
@@ -736,12 +672,6 @@ public class pclib extends script.base_script
             playDeathBlowAnimation(victim, killer);
         }
         boolean dueling = pvpIsDueling(victim, pvpKiller);
-        if (getPosture(victim) != POSTURE_DEAD)
-        {
-            if (!setPosture(victim, POSTURE_DEAD))
-            {
-            }
-        }
         if (killer != victim)
         {
             prose_package ppToKiller = prose.getPackage(PROSE_TARGET_DEAD, victim);
@@ -760,9 +690,6 @@ public class pclib extends script.base_script
                 return;
             }
         }
-        else 
-        {
-        }
         playerDeath(victim, killer, dueling);
     }
     public static void playDeathBlowAnimation(obj_id victim, obj_id killer) throws InterruptedException
@@ -775,11 +702,7 @@ public class pclib extends script.base_script
         if (dataTableOpen(DATATABLE_AI_SPECIES))
         {
             int species = getSpecies(killer);
-            if (species == -1)
-            {
-            }
-            else 
-            {
+            if (species != -1) {
                 skeleton = dataTableGetString(DATATABLE_AI_SPECIES, species, DATATABLE_COL_SKELETON);
             }
         }
@@ -840,8 +763,7 @@ public class pclib extends script.base_script
         }
         else 
         {
-            prose_package ppToVictim = prose.getPackage(PROSE_VICTIM_DEAD, killer);
-            sendSystemMessageProse(player, ppToVictim);
+            sendSystemMessageProse(player, prose.getPackage(PROSE_VICTIM_DEAD, killer));
         }
         float factionMod = 1.0f;
         if (!isPlayer(killer) && isMob(killer) && isIdValid(getMaster(killer)))
@@ -894,10 +816,9 @@ public class pclib extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < myHateList.length; i++)
-        {
-            removeHateTarget(self, myHateList[i]);
-            removeHateTarget(myHateList[i], self);
+        for (obj_id hateItem : myHateList) {
+            removeHateTarget(self, hateItem);
+            removeHateTarget(hateItem, self);
         }
     }
     public static boolean playerRevive(obj_id player) throws InterruptedException
@@ -920,8 +841,7 @@ public class pclib extends script.base_script
             return false;
         }
         setObjVar(player, "fullHealClone", true);
-        boolean warped = sendToCloneSpawn(player, HANDLER_CLONE_RESPAWN, reviveLoc, spawnLoc);
-        if (!warped)
+        if (!sendToCloneSpawn(player, HANDLER_CLONE_RESPAWN, reviveLoc, spawnLoc))
         {
             sendSystemMessage(player, cloninglib.SID_RESPAWN_CURRENT_LOCATION);
             messageTo(player, HANDLER_CLONE_RESPAWN, null, 2, true);
@@ -942,24 +862,18 @@ public class pclib extends script.base_script
         obj_id[] items = utils.getFilteredPlayerContents(player);
         if ((items != null) && (items.length > 0))
         {
-            for (int i = 0; i < items.length; i++)
-            {
-                int got = getGameObjectType(items[i]);
-                if (isGameObjectTypeOf(got, GOT_clothing) || isGameObjectTypeOf(got, GOT_armor))
-                {
-                    equip(items[i], player);
+            int got;
+            for (obj_id item : items) {
+                got = getGameObjectType(item);
+                if (isGameObjectTypeOf(got, GOT_clothing) || isGameObjectTypeOf(got, GOT_armor)) {
+                    equip(item, player);
                 }
             }
         }
         return true;
     }
-    public static boolean autoInsureItem(obj_id item) throws InterruptedException
-    {
-        if (!isIdValid(item))
-        {
-            return false;
-        }
-        return setAutoInsured(item);
+    public static boolean autoInsureItem(obj_id item) throws InterruptedException {
+        return isIdValid(item) && setAutoInsured(item);
     }
     public static boolean resurrectPlayer(obj_id target) throws InterruptedException
     {
@@ -971,8 +885,7 @@ public class pclib extends script.base_script
         {
             return false;
         }
-        int posture = getPosture(target);
-        if (posture == POSTURE_DEAD)
+        if (getPosture(target) == POSTURE_DEAD)
         {
             clearEffectsForDeath(target);
             if (utils.hasScriptVar(target, VAR_SUI_CLONE))
@@ -1006,22 +919,16 @@ public class pclib extends script.base_script
         setCombatTarget(target, null);
         stopCombat(target);
         obj_id[] objEnemies = getHateList(target);
-        for (int i = 0; i < objEnemies.length; i++)
-        {
-            if (!isIdValid(objEnemies[i]) || !exists(objEnemies[i]))
-            {
+        for (obj_id objEnemy : objEnemies) {
+            if (!isIdValid(objEnemy) || !exists(objEnemy)) {
                 continue;
             }
-            if (!isPlayer(objEnemies[i]))
-            {
-                if (isIdValid(objEnemies[i]) && exists(objEnemies[i]) && isIdValid(target) && exists(target))
-                {
-                    removeHateTarget(objEnemies[i], target);
+            if (!isPlayer(objEnemy)) {
+                if (isIdValid(objEnemy) && exists(objEnemy) && isIdValid(target) && exists(target)) {
+                    removeHateTarget(objEnemy, target);
                 }
-            }
-            else 
-            {
-                setCombatTarget(objEnemies[i], null);
+            } else {
+                setCombatTarget(objEnemy, null);
             }
         }
         removeObjVar(target, "intBurstRunning");
@@ -1116,13 +1023,15 @@ public class pclib extends script.base_script
             return;
         }
         boolean isTrandoshan = isSpecies(player, SPECIES_TRANDOSHAN);
+        obj_id object;
+
         for (int i = 0; i < slots.EQ_SLOTS.length; ++i)
         {
-            if (isTrandoshan && slots.EQ_SLOTS[i] == slots.SHOES)
+            if (isTrandoshan && slots.EQ_SLOTS[i].equals(slots.SHOES))
             {
                 continue;
             }
-            obj_id object = getObjectInSlot(player, slots.EQ_SLOTS[i]);
+            object = getObjectInSlot(player, slots.EQ_SLOTS[i]);
             if (isIdValid(object))
             {
                 destroyObject(object);
@@ -1145,11 +1054,9 @@ public class pclib extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < contents.length; ++i)
-        {
-            if (isIdValid(contents[i]))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (isIdValid(content)) {
+                destroyObject(content);
             }
         }
     }
@@ -1169,11 +1076,9 @@ public class pclib extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < contents.length; ++i)
-        {
-            if (isIdValid(contents[i]))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (isIdValid(content)) {
+                destroyObject(content);
             }
         }
     }
@@ -1277,9 +1182,10 @@ public class pclib extends script.base_script
         }
         dot.removeAllDots(player);
         removeAllAttribModifiers(player);
+        String objvarName;
         for (int i = 0; i < NUM_ATTRIBUTES; i++)
         {
-            String objvarName = "healing." + (healing.attributeToString(i)).toLowerCase() + "_enhance";
+            objvarName = "healing." + ((healing.attributeToString(i)) != null ? (healing.attributeToString(i)).toLowerCase() : "") + "_enhance";
             if (hasObjVar(player, objvarName))
             {
                 removeObjVar(player, objvarName);
@@ -1317,11 +1223,7 @@ public class pclib extends script.base_script
             containers = utils.addElement(containers, c);
             c = getContainedBy(c);
         }
-        if (utils.getElementPositionInArray(containers, player) > -1)
-        {
-            return true;
-        }
-        return false;
+        return utils.getElementPositionInArray(containers, player) > -1;
     }
     public static boolean msgAttachScript(obj_id player, String scriptName) throws InterruptedException
     {
@@ -1415,43 +1317,38 @@ public class pclib extends script.base_script
     {
         Vector resourceList = new Vector();
         resourceList.setSize(0);
-        for (int i = 0; i < resources.length; i++)
-        {
-            if (!isResourceDerivedFrom(resources[i], resourceClass))
-            {
+        String parent;
+        String child;
+
+        for (obj_id resource : resources) {
+            if (!isResourceDerivedFrom(resource, resourceClass)) {
                 continue;
             }
-            String parent = getResourceClass(resources[i]);
-            String child = null;
-            if (parent == null)
-            {
+            parent = getResourceClass(resource);
+            child = null;
+            if (parent == null) {
                 continue;
             }
-            while (!parent.equals(resourceClass))
-            {
+            while (!parent.equals(resourceClass)) {
                 child = parent;
                 parent = getResourceParentClass(child);
             }
-            if (child == null)
-            {
-                child = "\\#pcontrast1 " + getResourceName(resources[i]) + "\\#.";
+            if (child == null) {
+                child = "\\#pcontrast1 " + getResourceName(resource) + "\\#.";
             }
-            for (int j = 0; j < branchLevel; j++)
-            {
+            for (int j = 0; j < branchLevel; j++) {
                 child = "    " + child;
             }
-            if (resourceList.indexOf(child) == -1)
-            {
+            if (resourceList.indexOf(child) == -1) {
                 resourceList.add(child);
             }
         }
         for (int i = 0; i < resourceList.size(); i++)
         {
-            String parent = ((String)resourceList.get(i)).trim();
-            String[] childBranch = buildSortedResourceList(resources, parent, branchLevel + 1);
-            for (int j = 0; j < childBranch.length; j++)
-            {
-                resourceList.add(++i, childBranch[j]);
+            parent = ((String) resourceList.get(i)).trim();
+            String[] childBranchs = buildSortedResourceList(resources, parent, branchLevel + 1);
+            for (String childBranch : childBranchs) {
+                resourceList.add(++i, childBranch);
             }
         }
         String[] _resourceList = new String[0];
@@ -1465,21 +1362,19 @@ public class pclib extends script.base_script
     public static String createResourcePlanetReport(String[] resourceList, String planet, String resourceClass) throws InterruptedException
     {
         String report = "Incoming planetary survey report...\n\n" + "\\#pcontrast3 Planet: \\#pcontrast1 " + toUpper(planet, 0) + "\n" + "\\#pcontrast3 Resource Class: \\#pcontrast1 " + getClassString(resourceClass) + "\n\n" + "\\#pcontrast3 Resources located...\\#.\n\n";
-        for (int i = 0; i < resourceList.length; i++)
-        {
-            String resourceName = resourceList[i].trim();
-            if (resourceName.startsWith("\\#"))
-            {
+        String resourceName;
+        obj_id resourceId;
+
+        for (String resource : resourceList) {
+            resourceName = resource.trim();
+            if (resourceName.startsWith("\\#")) {
                 resourceName = resourceName.substring(13, resourceName.length() - 3);
             }
-            obj_id resourceId = getResourceTypeByName(resourceName);
-            if (resourceId == null)
-            {
-                report += "    " + getTab(resourceList[i]) + getClassString(resourceName) + "\n";
-            }
-            else 
-            {
-                report += "        " + resourceList[i] + "\n";
+            resourceId = getResourceTypeByName(resourceName);
+            if (resourceId == null) {
+                report += "    " + getTab(resource) + getClassString(resourceName) + "\n";
+            } else {
+                report += "        " + resource + "\n";
             }
         }
         report += "\n\n";

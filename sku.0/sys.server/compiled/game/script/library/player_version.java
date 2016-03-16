@@ -1,15 +1,7 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.obj_id;
 
-import script.library.utils;
-import java.util.Arrays;
 import java.util.Vector;
 
 public class player_version extends script.base_script
@@ -19,11 +11,7 @@ public class player_version extends script.base_script
     }
     public static boolean updateSkills(obj_id player) throws InterruptedException
     {
-        if (!isIdValid(player) || (!isPlayer(player)))
-        {
-            return false;
-        }
-        return true;
+        return !(!isIdValid(player) || (!isPlayer(player)));
     }
     public static void zeroPlayerSkillData(obj_id player) throws InterruptedException
     {
@@ -34,26 +22,22 @@ public class player_version extends script.base_script
         String[] mods = getSkillStatModListingForPlayer(player);
         if ((mods != null) && (mods.length > 0))
         {
-            for (int i = 0; i < mods.length; i++)
-            {
-                int val = getSkillStatMod(player, mods[i]);
-                applySkillStatisticModifier(player, mods[i], -val);
+            for (String mod : mods) {
+                applySkillStatisticModifier(player, mod, -getSkillStatMod(player, mod));
             }
         }
         String[] cmds = getCommandListingForPlayer(player);
         if ((cmds != null) && (cmds.length > 0))
         {
-            for (int i = 0; i < cmds.length; i++)
-            {
-                revokeCommand(player, cmds[i]);
+            for (String cmd : cmds) {
+                revokeCommand(player, cmd);
             }
         }
         int[] schematics = getSchematicListingForPlayer(player);
         if ((schematics != null) && (schematics.length > 0))
         {
-            for (int i = 0; i < schematics.length; i++)
-            {
-                revokeSchematic(player, schematics[i]);
+            for (int schematic : schematics) {
+                revokeSchematic(player, schematic);
             }
         }
     }
@@ -64,37 +48,34 @@ public class player_version extends script.base_script
             return null;
         }
         Vector ret = new Vector();
-        for (int i = 0; i < skillList.length; i++)
-        {
-            LOG("playerVersion", "ordering skill = " + skillList[i]);
-            String[] reqs = getSkillPrerequisiteSkills(skillList[i]);
-            if ((reqs == null) || (reqs.length == 0))
-            {
+        String[] reqs;
+        int idx;
+        int pos;
+
+        for (String skill : skillList) {
+            LOG("playerVersion", "ordering skill = " + skill);
+            reqs = getSkillPrerequisiteSkills(skill);
+            if ((reqs == null) || (reqs.length == 0)) {
                 LOG("playerVersion", "	reqs = null || length = 0... appending...");
-                ret.add(skillList[i]);
-            }
-            else 
-            {
-                int idx = ret.size();
-                for (int n = 0; n < reqs.length; n++)
-                {
-                    LOG("playerVersion", "	testing ret for: " + reqs[n]);
-                    int pos = ret.indexOf(reqs[n]);
-                    if (pos > -1)
-                    {
-                        LOG("playerVersion", "**	found req(" + reqs[n] + ") at ret idx = " + pos);
-                        if (pos < idx)
-                        {
+                ret.add(skill);
+            } else {
+                idx = ret.size();
+                for (String req : reqs) {
+                    LOG("playerVersion", "	testing ret for: " + req);
+                    pos = ret.indexOf(req);
+                    if (pos > -1) {
+                        LOG("playerVersion", "**	found req(" + req + ") at ret idx = " + pos);
+                        if (pos < idx) {
                             LOG("playerVersion", "**	updating insert idx to " + pos);
                             idx = pos;
                         }
                     }
                 }
-                LOG("playerVersion", "	- inserting " + skillList[i] + " @ idx = " + idx);
-                ret.add(idx, skillList[i]);
+                LOG("playerVersion", "	- inserting " + skill + " @ idx = " + idx);
+                ret.add(idx, skill);
             }
         }
-        if ((ret == null) || (ret.size() == 0))
+        if (ret.size() == 0)
         {
             return null;
         }

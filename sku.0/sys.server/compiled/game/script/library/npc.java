@@ -68,7 +68,6 @@ public class npc extends script.base_script
     public static void hueClothes(obj_id newClothes, String clothes) throws InterruptedException
     {
         debugServerConsoleMsg(getSelf(), "WARNING: SOMETHING IS STILL USING NPC.SCRIPTLIB hueClothes( obj_id newClothes, string clothes )");
-        return;
     }
     public static String chooseSpecies(String type, int number, String gender) throws InterruptedException
     {
@@ -88,12 +87,10 @@ public class npc extends script.base_script
     public static void dressUp(obj_id npc, String type, String gender) throws InterruptedException
     {
         debugServerConsoleMsg(getSelf(), "WARNING: SOMETHING IS STILL USING NPC.SCRIPTLIB dressUp (obj_id npc, string type, string gender)");
-        return;
     }
     public static void dressHair(obj_id npc, String name, String gender) throws InterruptedException
     {
         debugServerConsoleMsg(getSelf(), "WARNING: SOMETHING IS STILL USING NPC.SCRIPTLIB dressHair (obj_id npc, string name, string gender)");
-        return;
     }
     public static obj_id makeStormtrooperInside(obj_id bldg, String cellName) throws InterruptedException
     {
@@ -103,7 +100,6 @@ public class npc extends script.base_script
     public static void scriptAttach(obj_id npc, String type) throws InterruptedException
     {
         debugServerConsoleMsg(getSelf(), "WARNING: SOMETHING IS STILL USING NPC.SCRIPTLIB scriptAttach (obj_id npc, string type)");
-        return;
     }
     public static obj_id makeDroid(location loc) throws InterruptedException
     {
@@ -168,7 +164,6 @@ public class npc extends script.base_script
     public static void spamErrorMsg(String text) throws InterruptedException
     {
         debugServerConsoleMsg(getSelf(), "WARNING: SOMETHING IS STILL USING NPC.SCRIPTLIB spamErrorMsg( string text )");
-        return;
     }
     public static String getClothingTemplateName(String tableName, int column) throws InterruptedException
     {

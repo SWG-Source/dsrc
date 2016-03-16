@@ -34,10 +34,8 @@ public class conversing extends script.base_script
     {
         if (!ai_lib.isInCombat(self))
         {
-            int anims = getIntObjVar(self, "animsLeft");
             String action = "wave_hail";
-            int move = rand(1, 10);
-            switch (move)
+            switch (rand(1, 10))
             {
                 case 1:
                 action = "check_wrist_device";
@@ -71,8 +69,7 @@ public class conversing extends script.base_script
                 break;
             }
             doAnimationAction(self, action);
-            int speed = rand(15, 25);
-            messageTo(self, "playAnimation", null, speed, false);
+            messageTo(self, "playAnimation", null, rand(15, 25), false);
         }
         return SCRIPT_CONTINUE;
     }

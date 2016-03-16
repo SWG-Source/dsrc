@@ -1,17 +1,9 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
 import java.util.Enumeration;
 import java.util.Map;
-import script.library.skill;
-import script.library.trial;
 
 public class armor extends script.base_script
 {
@@ -103,9 +95,9 @@ public class armor extends script.base_script
     public static final String SID_ARMOR_CATEGORY = "armor_category";
     public static final Integer[] ARMOR_CATEGORY_INDEXES = 
     {
-        new Integer(AC_reconnaissance),
-        new Integer(AC_battle),
-        new Integer(AC_assault)
+            AC_reconnaissance,
+            AC_battle,
+            AC_assault
     };
     public static final String[] SID_ARMOR_CATEGORIES = 
     {
@@ -116,27 +108,27 @@ public class armor extends script.base_script
     public static final Map ARMOR_CATEGORY_MAP = collections.newMap(ARMOR_CATEGORY_INDEXES, SID_ARMOR_CATEGORIES);
     public static final Integer[] ARMOR_PENALTY_DATATABLE_TYPES = 
     {
-        new Integer(getStringCrc("basic_recon")),
-        new Integer(getStringCrc("std_recon")),
-        new Integer(getStringCrc("adv_recon")),
-        new Integer(getStringCrc("basic_battle")),
-        new Integer(getStringCrc("std_battle")),
-        new Integer(getStringCrc("adv_battle")),
-        new Integer(getStringCrc("basic_assault")),
-        new Integer(getStringCrc("std_assault")),
-        new Integer(getStringCrc("adv_assault"))
+            getStringCrc("basic_recon"),
+            getStringCrc("std_recon"),
+            getStringCrc("adv_recon"),
+            getStringCrc("basic_battle"),
+            getStringCrc("std_battle"),
+            getStringCrc("adv_battle"),
+            getStringCrc("basic_assault"),
+            getStringCrc("std_assault"),
+            getStringCrc("adv_assault")
     };
     public static final Integer[] ARMOR_PENALTY_OBJECT_TYPES = 
     {
-        new Integer(AC_reconnaissance * 10 + AL_basic),
-        new Integer(AC_reconnaissance * 10 + AL_standard),
-        new Integer(AC_reconnaissance * 10 + AL_advanced),
-        new Integer(AC_battle * 10 + AL_basic),
-        new Integer(AC_battle * 10 + AL_standard),
-        new Integer(AC_battle * 10 + AL_advanced),
-        new Integer(AC_assault * 10 + AL_basic),
-        new Integer(AC_assault * 10 + AL_standard),
-        new Integer(AC_assault * 10 + AL_advanced)
+            AL_basic,
+            AL_standard,
+            AL_advanced,
+            AC_battle * 10 + AL_basic,
+            AC_battle * 10 + AL_standard,
+            AC_battle * 10 + AL_advanced,
+            AC_assault * 10 + AL_basic,
+            AC_assault * 10 + AL_standard,
+            AC_assault * 10 + AL_advanced
     };
     public static final Map ARMOR_PENALTY_TYPE_MAP = collections.newMap(ARMOR_PENALTY_OBJECT_TYPES, ARMOR_PENALTY_DATATABLE_TYPES);
     public static final int ARMOR_MOVE_PENALTY = 0;
@@ -145,10 +137,10 @@ public class armor extends script.base_script
     public static final int ARMOR_DEFENSE_PENALTY = 3;
     public static final Integer[] ARMOR_PENALTY_INDEXES = 
     {
-        new Integer(ARMOR_MOVE_PENALTY),
-        new Integer(ARMOR_ACCURACY_PENALTY),
-        new Integer(ARMOR_ATTACK_PENALTY),
-        new Integer(ARMOR_DEFENSE_PENALTY)
+            ARMOR_MOVE_PENALTY,
+            ARMOR_ACCURACY_PENALTY,
+            ARMOR_ATTACK_PENALTY,
+            ARMOR_DEFENSE_PENALTY
     };
     public static final String[] ARMOR_PENALTY_DATATABLE_COLUMNS = 
     {
@@ -408,23 +400,19 @@ public class armor extends script.base_script
         {
             return null;
         }
-        String attrib_inc = dataTableGetString(DATATABLE_ARMOR, layerRow, DATATABLE_ATTRIB_INC_COL);
-        String attrib_dec = dataTableGetString(DATATABLE_ARMOR, layerRow, DATATABLE_ATTRIB_DEC_COL);
-        String[] attrib_incs = split(attrib_inc, ',');
-        String[] attrib_decs = split(attrib_dec, ',');
+        String[] attrib_incs = split(dataTableGetString(DATATABLE_ARMOR, layerRow, DATATABLE_ATTRIB_INC_COL), ',');
+        String[] attrib_decs = split(dataTableGetString(DATATABLE_ARMOR, layerRow, DATATABLE_ATTRIB_DEC_COL), ',');
         dictionary protections = new dictionary();
         if (attrib_incs != null)
         {
-            for (int i = 0; i < attrib_incs.length; ++i)
-            {
-                protections.addFloat(attrib_incs[i], newValue);
+            for (String attrib_inc : attrib_incs) {
+                protections.addFloat(attrib_inc, newValue);
             }
         }
         if (attrib_decs != null)
         {
-            for (int i = 0; i < attrib_decs.length; ++i)
-            {
-                protections.addFloat(attrib_decs[i], -newValue);
+            for (String attrib_dec : attrib_decs) {
+                protections.addFloat(attrib_dec, -newValue);
             }
         }
         return protections;
@@ -435,12 +423,12 @@ public class armor extends script.base_script
         {
             return null;
         }
-        Object o = ARMOR_PENALTY_TYPE_MAP.get(new Integer(armorCategory * 10 + armorLevel));
+        Object o = ARMOR_PENALTY_TYPE_MAP.get(armorCategory * 10 + armorLevel);
         if (o == null || !(o instanceof Integer))
         {
             return null;
         }
-        int row = dataTableSearchColumnForInt((((Integer)o)).intValue(), DATATABLE_TYPE_PENALTY_COL, DATATABLE_ARMOR_PENALTY);
+        int row = dataTableSearchColumnForInt((Integer) o, DATATABLE_TYPE_PENALTY_COL, DATATABLE_ARMOR_PENALTY);
         if (row < 0)
         {
             return null;
@@ -459,7 +447,7 @@ public class armor extends script.base_script
     }
     public static float[] getScaledArmorPenalties(obj_id armor, float generalProtection, int armorRow, int armorLevel, int armorCategory) throws InterruptedException
     {
-        float[] penalties = null;
+        float[] penalties;
         if (isIdValid(armor))
         {
             penalties = utils.getFloatArrayScriptVar(armor, SCRIPTVAR_CACHED_PENALTIES);
@@ -508,9 +496,10 @@ public class armor extends script.base_script
             "firerate"
         };
         float[] certPenalties = new float[penalties.length];
+        String certName;
         for (int i = 0; i < ARMOR_DEFENSE_PENALTY; i++)
         {
-            String certName = armorCatNames[armorCategory] + "_" + armorPenaltyNames[i] + "_mitigate_";
+            certName = armorCatNames[armorCategory] + "_" + armorPenaltyNames[i] + "_mitigate_";
             certPenalties[i] = penalties[i];
             for (int j = 3; j > 0; j--)
             {
@@ -536,27 +525,22 @@ public class armor extends script.base_script
         obj_id[] wornItems = metrics.getWornItems(player);
         if (wornItems != null)
         {
-            for (int i = 0; i < wornItems.length; i++)
-            {
-                int got = getGameObjectType(wornItems[i]);
-                if (isGameObjectTypeOf(got, GOT_armor) && (!isGameObjectTypeOf(got, GOT_armor_foot) && !isGameObjectTypeOf(got, GOT_armor_hand)))
-                {
+            int got;
+            for (obj_id wornItem : wornItems) {
+                got = getGameObjectType(wornItem);
+                if (isGameObjectTypeOf(got, GOT_armor) && (!isGameObjectTypeOf(got, GOT_armor_foot) && !isGameObjectTypeOf(got, GOT_armor_hand))) {
                     float[] penalties;
-                    penalties = getFinalArmorPenalties(player, wornItems[i]);
-                    if (penalties == null)
-                    {
+                    penalties = getFinalArmorPenalties(player, wornItem);
+                    if (penalties == null) {
                         continue;
                     }
-                    if (penalties[0] > movePenalty)
-                    {
+                    if (penalties[0] > movePenalty) {
                         movePenalty = penalties[0];
                     }
-                    if (penalties[1] > toHitPenalty)
-                    {
+                    if (penalties[1] > toHitPenalty) {
                         toHitPenalty = penalties[1];
                     }
-                    if (penalties[2] > fireRatePenalty)
-                    {
+                    if (penalties[2] > fireRatePenalty) {
                         fireRatePenalty = penalties[2];
                     }
                 }
@@ -588,7 +572,6 @@ public class armor extends script.base_script
         {
             buff.removeBuff(player, (1005058320));
         }
-        return;
     }
     public static void calculateWornArmor(obj_id player) throws InterruptedException
     {
@@ -596,11 +579,10 @@ public class armor extends script.base_script
         int armorCount = 0;
         if (wornItems != null)
         {
-            for (int i = 0; i < wornItems.length; i++)
-            {
-                int got = getGameObjectType(wornItems[i]);
-                if (isGameObjectTypeOf(got, GOT_armor) && !isGameObjectTypeOf(got, GOT_armor_psg))
-                {
+            int got;
+            for (obj_id wornItem : wornItems) {
+                got = getGameObjectType(wornItem);
+                if (isGameObjectTypeOf(got, GOT_armor) && !isGameObjectTypeOf(got, GOT_armor_psg)) {
                     armorCount++;
                     break;
                 }
@@ -614,7 +596,6 @@ public class armor extends script.base_script
         {
             utils.removeScriptVar(player, SCRIPTVAR_ARMOR_COUNT);
         }
-        return;
     }
     public static float[] getFinalArmorPenalties(obj_id player, obj_id armorPiece) throws InterruptedException
     {
@@ -631,8 +612,7 @@ public class armor extends script.base_script
             CustomerServiceLog("armor", "WARNING: could not find armor datatable row for armor " + armorPiece);
             return null;
         }
-        String armorBaseObjVar = armor.getArmorBaseObjvar(armorType);
-        obj_var_list armorData = getObjVarList(armorPiece, armorBaseObjVar);
+        obj_var_list armorData = getObjVarList(armorPiece, armor.getArmorBaseObjvar(armorType));
         if (armorData == null)
         {
             CustomerServiceLog("armor", "WARNING: unable to get armor data for armor/component " + armorPiece);
@@ -672,7 +652,6 @@ public class armor extends script.base_script
             return true;
         }
         int armorType = getGameObjectType(armorPiece);
-        int armorCategory = -1;
         if (isGameObjectTypeOf(armorType, GOT_cybernetic))
         {
             return true;
@@ -685,8 +664,7 @@ public class armor extends script.base_script
         {
             armorType = GOT_armor;
         }
-        int armorRow = armor.getArmorDatatableRow(armorPiece);
-        if (armorRow < 0)
+        if (armor.getArmorDatatableRow(armorPiece) < 0)
         {
             if (hasScript(armorPiece, "item.armor.new_armor"))
             {
@@ -709,8 +687,8 @@ public class armor extends script.base_script
                 return false;
             }
         }
-        String armorBaseObjVar = armor.getArmorBaseObjvar(armorType);
-        obj_var_list armorData = getObjVarList(armorPiece, armorBaseObjVar);
+        obj_var_list armorData = getObjVarList(armorPiece, armor.getArmorBaseObjvar(armorType));
+        int armorCategory;
         if (armorData != null)
         {
             if (!armorData.hasObjVar(armor.OBJVAR_ARMOR_CATEGORY))
@@ -733,11 +711,7 @@ public class armor extends script.base_script
             CustomerServiceLog("armor", "WARNING: could not determine armor type for armor " + armorPiece);
             return false;
         }
-        if (hasCommand(player, "wear_all_armor"))
-        {
-            return true;
-        }
-        return false;
+        return hasCommand(player, "wear_all_armor");
     }
     public static float convertArmorData(float value, int fromRow, int toRow, String column) throws InterruptedException
     {
@@ -767,13 +741,15 @@ public class armor extends script.base_script
         if (!hasObjVar(schematic, craftinglib.COMPONENT_ATTRIBUTE_INTERNAL_OBJVAR_NAME + ".isScaled"))
         {
             Enumeration keys = componentData.keys();
+            float value;
+            float newValue;
+            String key;
             while (keys.hasMoreElements())
             {
-                String key = (String)(keys.nextElement());
-                // scaling ignored the fact that not all objvars were floats.  Instead of letting it throw a warning, just scale objvars that are floats and ints
+                key = (String)(keys.nextElement());
                 if(componentData.isFloatObjVar(key) || componentData.isIntObjVar(key)) {
-                    float value = (componentData.isFloatObjVar(key) ? componentData.getFloatObjVar(key) : componentData.getIntObjVar(key));
-                    float newValue = (float) rescaleArmorData(key, fromRow, toRow, value);
+                    value = (componentData.isFloatObjVar(key) ? componentData.getFloatObjVar(key) : componentData.getIntObjVar(key));
+                    newValue = rescaleArmorData(key, fromRow, toRow, value);
                     if (newValue != Float.MIN_VALUE)
                     {
                         debugServerConsoleMsg(null, "Armor scaling component data " + key + " from " + value + " to " + newValue + "(fromRow = " + fromRow + ", toRow = " + toRow + ")");
@@ -804,57 +780,53 @@ public class armor extends script.base_script
     }
     public static void updateItemAttributes(obj_id schematic, draft_schematic.attribute[] itemAttributes, int armorRow) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        float resourceScale;
+        float value;
+        String componentName;
+        float componentValue;
+        int minProtection;
+        int maxProtection;
+        int minCondition;
+        int maxCondition;
+
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if ((itemAttributes[i].name).equals(OBJVAR_GENERAL_PROTECTION))
-            {
-                float resourceScale = dataTableGetFloat(DATATABLE_ARMOR, armorRow, DATATABLE_RES_GEN_PROT_COL) / 100.0f;
-                float value = itemAttributes[i].currentValue * resourceScale;
-                String componentName = craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".scaled." + OBJVAR_GENERAL_PROTECTION;
-                if (hasObjVar(schematic, componentName))
-                {
-                    float componentValue = getFloatObjVar(schematic, componentName);
+            if ((itemAttribute.name).equals(OBJVAR_GENERAL_PROTECTION)) {
+                resourceScale = dataTableGetFloat(DATATABLE_ARMOR, armorRow, DATATABLE_RES_GEN_PROT_COL) / 100.0f;
+                value = itemAttribute.currentValue * resourceScale;
+                componentName = craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".scaled." + OBJVAR_GENERAL_PROTECTION;
+                if (hasObjVar(schematic, componentName)) {
+                    componentValue = getFloatObjVar(schematic, componentName);
                     value += componentValue;
-                    int minProtection = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MIN_GEN_PROT_COL);
-                    int maxProtection = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MAX_GEN_PROT_COL);
-                    if (maxProtection != minProtection && minProtection != 0)
-                    {
-                        value += ((float)minProtection) / ((float)(maxProtection - minProtection));
+                    minProtection = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MIN_GEN_PROT_COL);
+                    maxProtection = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MAX_GEN_PROT_COL);
+                    if (maxProtection != minProtection && minProtection != 0) {
+                        value += ((float) minProtection) / ((float) (maxProtection - minProtection));
                     }
-                    debugServerConsoleMsg(null, "Armor scaling general protection from resource value " + itemAttributes[i].currentValue + ", component value " + componentValue + " to " + value);
+                    debugServerConsoleMsg(null, "Armor scaling general protection from resource value " + itemAttribute.currentValue + ", component value " + componentValue + " to " + value);
+                } else {
+                    debugServerConsoleMsg(null, "Armor scaling general protection from resource value " + itemAttribute.currentValue + " to " + value);
                 }
-                else 
-                {
-                    debugServerConsoleMsg(null, "Armor scaling general protection from resource value " + itemAttributes[i].currentValue + " to " + value);
-                }
-                itemAttributes[i].currentValue = value;
-            }
-            else if ((itemAttributes[i].name).equals(OBJVAR_CONDITION))
-            {
-                float resourceScale = dataTableGetFloat(DATATABLE_ARMOR, armorRow, DATATABLE_RES_CONDITION_COL) / 100.0f;
-                float value = itemAttributes[i].currentValue * resourceScale;
-                String componentName = craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".scaled." + OBJVAR_CONDITION;
-                if (hasObjVar(schematic, componentName))
-                {
-                    float componentValue = getFloatObjVar(schematic, componentName);
+                itemAttribute.currentValue = value;
+            } else if ((itemAttribute.name).equals(OBJVAR_CONDITION)) {
+                resourceScale = dataTableGetFloat(DATATABLE_ARMOR, armorRow, DATATABLE_RES_CONDITION_COL) / 100.0f;
+                value = itemAttribute.currentValue * resourceScale;
+                componentName = craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".scaled." + OBJVAR_CONDITION;
+                if (hasObjVar(schematic, componentName)) {
+                    componentValue = getFloatObjVar(schematic, componentName);
                     value += componentValue;
-                    int minCondition = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MIN_CONDITION_COL);
-                    int maxCondition = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MAX_CONDITION_COL);
-                    if (maxCondition != minCondition && minCondition != 0)
-                    {
-                        value += ((float)minCondition) / ((float)(maxCondition - minCondition));
+                    minCondition = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MIN_CONDITION_COL);
+                    maxCondition = dataTableGetInt(DATATABLE_ARMOR, armorRow, DATATABLE_MAX_CONDITION_COL);
+                    if (maxCondition != minCondition && minCondition != 0) {
+                        value += ((float) minCondition) / ((float) (maxCondition - minCondition));
                     }
-                    debugServerConsoleMsg(null, "Armor scaling condition from resource value " + itemAttributes[i].currentValue + ", component value " + componentValue + " to " + value);
+                    debugServerConsoleMsg(null, "Armor scaling condition from resource value " + itemAttribute.currentValue + ", component value " + componentValue + " to " + value);
+                } else {
+                    debugServerConsoleMsg(null, "Armor scaling condition from resource value " + itemAttribute.currentValue + " to " + value);
                 }
-                else 
-                {
-                    debugServerConsoleMsg(null, "Armor scaling condition from resource value " + itemAttributes[i].currentValue + " to " + value);
-                }
-                itemAttributes[i].currentValue = value;
+                itemAttribute.currentValue = value;
             }
         }
     }
@@ -865,10 +837,14 @@ public class armor extends script.base_script
         if (componentData != null)
         {
             Enumeration keys = componentData.keys();
+            String key;
+            float value;
+            boolean haveAttribute;
+
             while (keys.hasMoreElements())
             {
-                String key = (String)(keys.nextElement());
-                float value = componentData.getFloatObjVar(key);
+                key = (String)(keys.nextElement());
+                value = componentData.getFloatObjVar(key);
                 if (value < 0)
                 {
                     value = 0;
@@ -877,11 +853,9 @@ public class armor extends script.base_script
                 {
                     value = 1.0f;
                 }
-                boolean haveAttribute = false;
-                for (int i = 0; i < itemAttributes.length; ++i)
-                {
-                    if ((itemAttributes[i].name).equals(key))
-                    {
+                haveAttribute = false;
+                for (draft_schematic.attribute itemAttribute : itemAttributes) {
+                    if ((itemAttribute.name).equals(key)) {
                         haveAttribute = true;
                         break;
                     }
@@ -1070,8 +1044,7 @@ public class armor extends script.base_script
         {
             return -1;
         }
-        int row = dataTableSearchColumnForString(template, "crafted_object_template", DATATABLE_MASTER_ARMOR);
-        return row;
+        return dataTableSearchColumnForString(template, "crafted_object_template", DATATABLE_MASTER_ARMOR);
     }
     public static int getArmorCategoryByTemplate(String template) throws InterruptedException
     {
@@ -1080,28 +1053,17 @@ public class armor extends script.base_script
         {
             return -1;
         }
-        int cat = dataTableGetInt(DATATABLE_MASTER_ARMOR, row, "category");
-        return cat;
+        return dataTableGetInt(DATATABLE_MASTER_ARMOR, row, "category");
     }
-    public static boolean setArmorDataPercent(obj_id target, int armorLevel, int armorCategory, float generalProtection, float condition) throws InterruptedException
-    {
-        if (!initializeArmor(target, armorLevel, armorCategory))
-        {
-            return false;
-        }
-        return _setArmorDataPercent(target, generalProtection, condition, false);
+    public static boolean setArmorDataPercent(obj_id target, int armorLevel, int armorCategory, float generalProtection, float condition) throws InterruptedException {
+        return initializeArmor(target, armorLevel, armorCategory) && _setArmorDataPercent(target, generalProtection, condition, false);
     }
     public static boolean setArmorDataPercent(obj_id target, float generalProtection, float condition) throws InterruptedException
     {
         return _setArmorDataPercent(target, generalProtection, condition, true);
     }
-    public static boolean setAbsoluteArmorData(obj_id target, int armorLevel, int armorCategory, int generalProtection, int condition) throws InterruptedException
-    {
-        if (!initializeArmor(target, armorLevel, armorCategory))
-        {
-            return false;
-        }
-        return setAbsoluteArmorData(target, generalProtection, condition);
+    public static boolean setAbsoluteArmorData(obj_id target, int armorLevel, int armorCategory, int generalProtection, int condition) throws InterruptedException {
+        return initializeArmor(target, armorLevel, armorCategory) && setAbsoluteArmorData(target, generalProtection, condition);
     }
     public static boolean setAbsoluteArmorData(obj_id target, int generalProtection, int condition) throws InterruptedException
     {
@@ -1247,8 +1209,7 @@ public class armor extends script.base_script
             CustomerServiceLog("armor", "WARNING: armor object (" + armor + ") missing objvar " + genProtectionObjVar);
             return -1;
         }
-        float value = getFloatObjVar(armor, genProtectionObjVar);
-        float genProtection = getAbsoluteArmorAttribute(value, row, DATATABLE_MIN_GEN_PROT_COL);
+        float genProtection = getAbsoluteArmorAttribute(getFloatObjVar(armor, genProtectionObjVar), row, DATATABLE_MIN_GEN_PROT_COL);
         utils.setScriptVar(armor, SCRIPTVAR_CACHED_GENERAL_PROTECTION, (int)genProtection);
         return (int)genProtection;
     }
@@ -1268,30 +1229,35 @@ public class armor extends script.base_script
         {
             return protections;
         }
-        String baseObjvar = getArmorBaseObjvar(armor);
         boolean isLayer = isArmorLayer(armor);
         float generalProtection = 0;
         if (!isLayer)
         {
             generalProtection = getArmorGeneralProtection(armor);
         }
+        obj_var layer;
+        dictionary layerProtections;
+        Enumeration keys;
+        Object key;
+        float protection;
+
         for (int i = 0; i < NUM_DATATABLE_ARMOR_LAYERS; i++)
         {
-            obj_var layer = getObjVar(armor, baseObjvar + "." + OBJVAR_LAYER_PREFIX + i);
+            layer = getObjVar(armor, getArmorBaseObjvar(armor) + "." + OBJVAR_LAYER_PREFIX + i);
             if (layer != null)
             {
-                dictionary layerProtections = getAbsoluteArmorSpecialProtection(armor, DATATABLE_LAYER_ROW + i, layer.getFloatData(), row);
+                layerProtections = getAbsoluteArmorSpecialProtection(armor, DATATABLE_LAYER_ROW + i, layer.getFloatData(), row);
                 if (layerProtections != null)
                 {
                     if (protections == null)
                     {
                         protections = new dictionary();
                     }
-                    Enumeration keys = layerProtections.keys();
+                    keys = layerProtections.keys();
                     while (keys.hasMoreElements())
                     {
-                        Object key = keys.nextElement();
-                        float protection = layerProtections.getFloat(key);
+                        key = keys.nextElement();
+                        protection = layerProtections.getFloat(key);
                         if (!isLayer && protection + generalProtection < 0)
                         {
                             protection = -generalProtection;
@@ -1330,10 +1296,13 @@ public class armor extends script.base_script
             efficiency = 0;
         }
         Enumeration keys = protections.keys();
+        String key;
+        float value;
+
         while (keys.hasMoreElements())
         {
-            String key = (String)(keys.nextElement());
-            float value = protections.getFloat(key) * efficiency;
+            key = (String) (keys.nextElement());
+            value = protections.getFloat(key) * efficiency;
             if (value + generalProtection < 0)
             {
                 value = -generalProtection;
@@ -1392,9 +1361,11 @@ public class armor extends script.base_script
     }
     public static void recalculateArmorForMob(obj_id mob) throws InterruptedException
     {
-        int mobGeneralArmor = (int)getFloatObjVar(mob, OBJVAR_ARMOR_BASE + "." + OBJVAR_GENERAL_PROTECTION);
-        int innateProtectionAll = (int)getSkillStatisticModifier(mob, "expertise_innate_protection_all");
-        utils.setScriptVar(mob, SCRIPTVAR_CACHED_GENERAL_PROTECTION, (mobGeneralArmor + innateProtectionAll));
+        utils.setScriptVar(
+                mob,
+                SCRIPTVAR_CACHED_GENERAL_PROTECTION,
+                ((int) getFloatObjVar(mob, OBJVAR_ARMOR_BASE + "." + OBJVAR_GENERAL_PROTECTION) + (int) getSkillStatisticModifier(mob, "expertise_innate_protection_all"))
+        );
     }
     public static void recalculateArmorForPlayer(obj_id objPlayer) throws InterruptedException
     {
@@ -1431,17 +1402,23 @@ public class armor extends script.base_script
         int lastArmorType = -1;
         int numLikePieces = 0;
         int armorSetWorn = -1;
-        int numClothingPieces = 0;
         int[] armorTallyType = 
         {
             0,
             0,
             0
         };
+        obj_id objArmor;
+        float fltWeight;
+        float fltSpecialProt;
+        int thisArmorType;
+        float fltArmorGeneralProtection;
+        float fltReduction;
+
         for (int intI = 0; intI < strArmor.length; intI++)
         {
-            obj_id objArmor = getObjectInSlot(objPlayer, strArmor[intI]);
-            float fltWeight = fltWeightings[intI];
+            objArmor = getObjectInSlot(objPlayer, strArmor[intI]);
+            fltWeight = fltWeightings[intI];
             if (strArmor[intI].equals("chest2") && isIdNull(objArmor))
             {
                 objArmor = getObjectInSlot(objPlayer, "chest1");
@@ -1458,7 +1435,7 @@ public class armor extends script.base_script
                 {
                     if (hasObjVar(objArmor, "armor.fake_armor." + DATATABLE_SPECIAL_PROTECTIONS[i]))
                     {
-                        float fltSpecialProt = (float)getIntObjVar(objArmor, "armor.fake_armor." + DATATABLE_SPECIAL_PROTECTIONS[i]);
+                        fltSpecialProt = (float) getIntObjVar(objArmor, "armor.fake_armor." + DATATABLE_SPECIAL_PROTECTIONS[i]);
                         if (fltSpecialProt != 0)
                         {
                             fltSpecialProts[i] += fltWeight * fltSpecialProt;
@@ -1477,7 +1454,7 @@ public class armor extends script.base_script
             }
             if (hasObjVar(objArmor, "armor.armorCategory"))
             {
-                int thisArmorType = getIntObjVar(objArmor, "armor.armorCategory");
+                thisArmorType = getIntObjVar(objArmor, "armor.armorCategory");
                 if (intI == 0)
                 {
                     lastArmorType = getIntObjVar(objArmor, "armor.armorCategory");
@@ -1500,8 +1477,8 @@ public class armor extends script.base_script
             {
                 LOG("armor.recalculateArmorForPlayer ", "checking is armor of obj_id:  " + objArmor);
                 dictionary dctSpecialProtections = getArmorSpecialProtections(objArmor);
-                float fltArmorGeneralProtection = (float)utils.getIntScriptVar(objArmor, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
-                float fltReduction = combat.getArmorDecayPercentage(objArmor);
+                fltArmorGeneralProtection = (float) utils.getIntScriptVar(objArmor, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION);
+                fltReduction = combat.getArmorDecayPercentage(objArmor);
                 fltArmorGeneralProtection = fltArmorGeneralProtection * fltReduction;
                 if (dctSpecialProtections != null)
                 {
@@ -1509,7 +1486,7 @@ public class armor extends script.base_script
                     {
                         if (armor.DATATABLE_SPECIAL_PROTECTIONS[intJ] != null)
                         {
-                            float fltSpecialProt = dctSpecialProtections.getFloat(armor.DATATABLE_SPECIAL_PROTECTIONS[intJ]);
+                            fltSpecialProt = dctSpecialProtections.getFloat(armor.DATATABLE_SPECIAL_PROTECTIONS[intJ]);
                             if (fltSpecialProt != 0)
                             {
                                 fltSpecialProts[intJ] += fltWeight * fltSpecialProt;
@@ -1526,10 +1503,10 @@ public class armor extends script.base_script
         float fltInnateProtectionAll = getSkillStatisticModifier(objPlayer, "expertise_innate_protection_all");
         fltGeneralProtection = fltGeneralProtection / fltTotal;
         dictionary dctProtections = new dictionary();
+        int intMod;
         for (int intI = 0; intI < fltSpecialProts.length; intI++)
         {
             fltSpecialProts[intI] = fltSpecialProts[intI] / fltTotal;
-            fltTempProtection = 0;
             fltSpecialProts[intI] += fltInnateProtectionAll;
             fltSpecialProts[intI] += getSkillStatisticModifier(objPlayer, "expertise_innate_protection_" + DATATABLE_SPECIAL_PROTECTIONS[intI]);
             fltSpecialProts[intI] += getSkillStatisticModifier(objPlayer, "expertise_armorset_protection_" + armorSetWorn + "_" + DATATABLE_SPECIAL_PROTECTIONS[intI]);
@@ -1545,17 +1522,15 @@ public class armor extends script.base_script
             {
                 fltSpecialProts[intI] += fltTempProtection = getSkillStatisticModifier(objPlayer, "expertise_overridable_protection_" + DATATABLE_SPECIAL_PROTECTIONS[intI]) + fltGenericProtection;
             }
-            int intMod = (int)(fltSpecialProts[intI] + fltGeneralProtection + 0.5f);
+            intMod = (int) (fltSpecialProts[intI] + fltGeneralProtection + 0.5f);
             applySkillStatisticModifier(objPlayer, DATATABLE_SPECIAL_PROTECTIONS[intI], -1 * getSkillStatisticModifier(objPlayer, DATATABLE_SPECIAL_PROTECTIONS[intI]));
             applySkillStatisticModifier(objPlayer, DATATABLE_SPECIAL_PROTECTIONS[intI], intMod);
             dctProtections.put(armor.DATATABLE_SPECIAL_PROTECTIONS[intI], fltSpecialProts[intI]);
         }
         utils.setScriptVar(objPlayer, armor.SCRIPTVAR_CACHED_SPECIAL_PROTECTIONS, dctProtections);
-        int intProtection = (int)fltGeneralProtection;
-        utils.setScriptVar(objPlayer, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION, intProtection);
+        utils.setScriptVar(objPlayer, armor.SCRIPTVAR_CACHED_GENERAL_PROTECTION, (int)fltGeneralProtection);
         utils.setScriptVar(objPlayer, "armor.armor_set_worn", armorSetWorn);
         utils.setScriptVar(objPlayer, "armor.armor_type_tally", armorTallyType);
-        return;
     }
     public static void recalculatePseudoArmorForPlayer(obj_id objPlayer, obj_id item, boolean applyArmor) throws InterruptedException
     {
@@ -1568,16 +1543,19 @@ public class armor extends script.base_script
         if (intProtection > 0)
         {
             dictionary dctProtections = new dictionary();
+            int armorValue;
+            int intMod;
+
             for (int intI = 0; intI < fltSpecialProts.length; intI++)
             {
-                int armorValue = 0;
+                armorValue = 0;
                 if (applyArmor)
                 {
                     armorValue = intProtection;
                     fltSpecialProts[intI] += fltInnateProtectionAll;
                     fltSpecialProts[intI] += getSkillStatisticModifier(objPlayer, "expertise_innate_protection_" + DATATABLE_SPECIAL_PROTECTIONS[intI]);
                     fltSpecialProts[intI] += getSkillStatisticModifier(objPlayer, "expertise_armorset_protection_" + "_" + DATATABLE_SPECIAL_PROTECTIONS[intI]);
-                    int intMod = (int)(fltSpecialProts[intI] + armorValue + 0.5f);
+                    intMod = (int) (fltSpecialProts[intI] + armorValue + 0.5f);
                     applySkillStatisticModifier(objPlayer, DATATABLE_SPECIAL_PROTECTIONS[intI], -1 * getSkillStatisticModifier(objPlayer, DATATABLE_SPECIAL_PROTECTIONS[intI]));
                     applySkillStatisticModifier(objPlayer, DATATABLE_SPECIAL_PROTECTIONS[intI], intMod);
                     dctProtections.put(armor.DATATABLE_SPECIAL_PROTECTIONS[intI], fltSpecialProts[intI]);
@@ -1601,7 +1579,6 @@ public class armor extends script.base_script
         {
             recalculateArmorForPlayer(objPlayer);
         }
-        return;
     }
     public static String getPseudoArmorLevel(int pseudoLevel) throws InterruptedException
     {
@@ -1652,12 +1629,11 @@ public class armor extends script.base_script
     }
     public static int getExpertiseArmorSetId(obj_id wearer) throws InterruptedException
     {
-        int armorSetId = -1;
         if (utils.hasScriptVar(wearer, "armor.armor_set_worn"))
         {
             return utils.getIntScriptVar(wearer, "armor.armor_set_worn");
         }
-        return armorSetId;
+        return -1;
     }
     public static boolean turnArmorIntoSchem(obj_id player, obj_id armor) throws InterruptedException
     {
@@ -1680,9 +1656,7 @@ public class armor extends script.base_script
         {
             return false;
         }
-        String limitedUseTemplate = "object/tangible/loot/loot_schematic/deconstructed_armor_schematic.iff";
-        obj_id pInv = utils.getInventoryContainer(player);
-        obj_id newSchem = createObjectOverloaded(limitedUseTemplate, pInv);
+        obj_id newSchem = createObjectOverloaded("object/tangible/loot/loot_schematic/deconstructed_armor_schematic.iff", utils.getInventoryContainer(player));
         CustomerServiceLog("new_armor_conversion", "New schematic(" + schemName + ") converted from armor(" + armor + ") for player " + getFirstName(player) + "(" + player + ")");
         if (!isIdValid(newSchem) || !exists(newSchem))
         {
@@ -1691,8 +1665,7 @@ public class armor extends script.base_script
         setName(newSchem, utils.packStringId(getNameFromTemplate(template)));
         setObjVar(newSchem, "loot_schematic.schematic", "object/draft_schematic/armor/" + schemName + ".iff");
         setObjVar(newSchem, "loot_schematic.uses", 1);
-        int gotType = getGameObjectType(armor);
-        if (gotType == GOT_cybernetic_forearm)
+        if (getGameObjectType(armor) == GOT_cybernetic_forearm)
         {
             setObjVar(newSchem, "loot_schematic.skill_req", "class_engineering_phase1_master");
         }
