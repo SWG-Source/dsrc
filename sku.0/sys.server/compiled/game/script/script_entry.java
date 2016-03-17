@@ -391,7 +391,7 @@ public class script_entry
 			{
 				if (params == null)
 				{
-					meth = cls.getDeclaredMethod(method, null);
+					meth = cls.getDeclaredMethod(method);
 				}
 				else
 				{
@@ -1033,7 +1033,7 @@ public class script_entry
 			Method meth = null;
 			if (params == null)
 			{
-				meth = cls.getDeclaredMethod(method, null);
+				meth = cls.getDeclaredMethod(method);
 			}
 			else
 			{
