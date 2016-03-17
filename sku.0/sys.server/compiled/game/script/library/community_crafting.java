@@ -1625,10 +1625,10 @@ public class community_crafting extends script.base_script
                 {
                     try
                     {
-                        method = cls.getDeclaredMethod(FUNCTION_NAME, null);
+                        method = cls.getDeclaredMethod(FUNCTION_NAME);
                         if (method != null)
                         {
-                            if (method.isAccessible() == false)
+                            if (!method.isAccessible())
                             {
                                 method.setAccessible(true);
                             }
@@ -1638,7 +1638,7 @@ public class community_crafting extends script.base_script
                     {
                         method = script_class_loader.NO_METHOD;
                     }
-                    if (method != null && methods != null)
+                    if (method != null)
                     {
                         methods.put(method, method);
                     }
