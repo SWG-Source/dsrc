@@ -1,21 +1,9 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.ai_lib;
-import script.library.city;
-import script.library.beast_lib;
-import script.library.instance;
-import script.library.pet_lib;
-import script.library.player_structure;
-import script.library.space_utils;
-import script.library.utils;
+import java.util.Arrays;
+import java.util.Vector;
 
 public class storyteller extends script.base_script
 {
@@ -143,28 +131,26 @@ public class storyteller extends script.base_script
         {
             return null;
         }
-        float yaw = getYaw(player);
-        return createTheaterObject(token, inBuildout, getLocation(player), yaw);
+        return createTheaterObject(token, inBuildout, getLocation(player), getYaw(player));
     }
     public static obj_id createTheaterObject(obj_id token, boolean inBuildout, location createLoc, float yaw) throws InterruptedException
     {
         String itemName = getStaticItemName(token);
-        dictionary dict = new dictionary();
         int row = dataTableSearchColumnForString(itemName, "name", storyteller.STORYTELLER_DATATABLE);
         if (row == -1)
         {
             return null;
         }
-        dict = dataTableGetRow(storyteller.STORYTELLER_DATATABLE, itemName);
+        dictionary dict = dataTableGetRow(storyteller.STORYTELLER_DATATABLE, itemName);
         String template = dict.getString("template_name");
-        String objVarString = dict.getString("objvar");
-        String scriptString = dict.getString("scripts");
         obj_id theater = create.object(template, createLoc);
         setYaw(theater, yaw);
         if (!isIdValid(theater))
         {
             return null;
         }
+        String objVarString = dict.getString("objvar");
+        String scriptString = dict.getString("scripts");
         static_item.setObjVarString(theater, objVarString);
         static_item.setScriptString(theater, scriptString);
         setStaticItemName(theater, getStaticItemName(token));
@@ -180,8 +166,7 @@ public class storyteller extends script.base_script
         {
             return null;
         }
-        float yaw = getYaw(player);
-        return createPropObject(token, player, inBuildout, getLocation(player), yaw);
+        return createPropObject(token, player, inBuildout, getLocation(player), getYaw(player));
     }
     public static obj_id createPropObject(obj_id token, obj_id player, boolean inBuildout, location createLoc, float yaw) throws InterruptedException
     {
@@ -189,19 +174,15 @@ public class storyteller extends script.base_script
         if (canDeployStorytellerToken(player, createLoc, token))
         {
             String itemName = getStaticItemName(token);
-            dictionary dict = new dictionary();
-            dictionary dict_m = new dictionary();
             int row = dataTableSearchColumnForString(itemName, "name", STORYTELLER_DATATABLE);
             if (row == -1)
             {
                 return null;
             }
-            dict = dataTableGetRow(STORYTELLER_DATATABLE, itemName);
+            dictionary dict = dataTableGetRow(STORYTELLER_DATATABLE, itemName);
             String template = dict.getString("template_name");
             String objVarString = dict.getString("objvar");
             String scriptString = dict.getString("scripts");
-            dict_m = dataTableGetRow(STATIC_ITEM_DATATABLE, itemName);
-            String finalName = dict_m.getString("string_name");
             prop = create.object(template, createLoc);
             if (isIdValid(prop))
             {
@@ -222,6 +203,7 @@ public class storyteller extends script.base_script
                     setObjVar(prop, "storytellerid", player);
                     setObjVar(prop, "storytellerName", getName(player));
                 }
+                String finalName = dataTableGetRow(STATIC_ITEM_DATATABLE, itemName).getString("string_name");
                 setObjVar(prop, "storytellerCreationLoc", createLoc);
                 setObjVar(prop, "storytellerTokenName", itemName);
                 attachScript(prop, STORYTELLER_PROP_CONTROL_SCRIPT);
@@ -238,19 +220,15 @@ public class storyteller extends script.base_script
         obj_id prop = null;
         if (canDeployStorytellerToken(player, createLoc, tokenName))
         {
-            dictionary dict = new dictionary();
-            dictionary dict_m = new dictionary();
             int row = dataTableSearchColumnForString(tokenName, "name", STORYTELLER_DATATABLE);
             if (row == -1)
             {
                 return null;
             }
-            dict = dataTableGetRow(STORYTELLER_DATATABLE, tokenName);
+            dictionary dict = dataTableGetRow(STORYTELLER_DATATABLE, tokenName);
             String template = dict.getString("template_name");
             String objVarString = dict.getString("objvar");
             String scriptString = dict.getString("scripts");
-            dict_m = dataTableGetRow(STATIC_ITEM_DATATABLE, tokenName);
-            String finalName = dict_m.getString("string_name");
             prop = create.object(template, createLoc);
             if (isIdValid(prop))
             {
@@ -271,6 +249,7 @@ public class storyteller extends script.base_script
                     setObjVar(prop, "storytellerid", player);
                     setObjVar(prop, "storytellerName", getName(player));
                 }
+                String finalName = dataTableGetRow(STATIC_ITEM_DATATABLE, tokenName).getString("string_name");
                 setObjVar(prop, "storytellerCreationLoc", createLoc);
                 setObjVar(prop, "storytellerTokenName", tokenName);
                 attachScript(prop, STORYTELLER_PROP_CONTROL_SCRIPT);
@@ -284,8 +263,7 @@ public class storyteller extends script.base_script
     public static obj_id createNpcAtLocation(obj_id token) throws InterruptedException
     {
         obj_id player = utils.getContainingPlayer(token);
-        float yaw = getYaw(player);
-        return createNpcAtLocation(token, player, getLocation(player), yaw);
+        return createNpcAtLocation(token, player, getLocation(player), getYaw(player));
     }
     public static obj_id createNpcAtLocation(obj_id token, obj_id player, location createLoc, float yaw) throws InterruptedException
     {
@@ -407,13 +385,12 @@ public class storyteller extends script.base_script
     public static void removeStorytellerPersistedEffect(obj_id self) throws InterruptedException
     {
         obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 165.0f);
-        if (players != null || players.length > 0)
+        if (players != null && players.length > 0)
         {
             stopClientEffectObjByLabel(players, self, "storyteller_persisted_effect", false);
             removeObjVar(self, storyteller.EFFECT_ACTIVE_OBJVAR);
             removeTriggerVolume("storytellerPersistedEffect");
         }
-        return;
     }
     public static boolean allowTokenPlacementInInteriors(obj_id token) throws InterruptedException
     {
@@ -469,12 +446,7 @@ public class storyteller extends script.base_script
     }
     public static boolean isTokenFlaggedWithDailyUsage(String tokenName) throws InterruptedException
     {
-        int dailyUses = getTokenDailyUsageAmount(tokenName);
-        if (dailyUses > 0)
-        {
-            return true;
-        }
-        return false;
+        return getTokenDailyUsageAmount(tokenName) > 0;
     }
     public static int getTokenDailyUsesAvailable(obj_id token) throws InterruptedException
     {
@@ -500,11 +472,9 @@ public class storyteller extends script.base_script
     }
     public static boolean hasTokenUsesAvailable(obj_id token) throws InterruptedException
     {
-        int num = 0;
         if (isTokenFlaggedWithDailyUsage(getStaticItemName(token)))
         {
-            num = getTokenDailyUsesAvailable(token);
-            if (num > 0)
+            if (getTokenDailyUsesAvailable(token) > 0)
             {
                 return true;
             }
@@ -532,7 +502,6 @@ public class storyteller extends script.base_script
             setObjVar(token, STORYTELLER_DAILY_COUNT_OBJVAR, dailyCount);
             sendDirtyAttributesNotification(token);
         }
-        return;
     }
     public static void resetTokenDailyCount(obj_id token) throws InterruptedException
     {
@@ -556,15 +525,12 @@ public class storyteller extends script.base_script
                 }
             }
         }
-        return;
     }
     public static void setTokenDailyCountResetTime(obj_id token) throws InterruptedException
     {
-        int currentTime = getCalendarTime();
         int timeUntilAlarm = createDailyAlarmClock(token, "storytellerEffectTokenDailyAlarm", null, 4, 0, 0);
-        int alarmStamp = currentTime + timeUntilAlarm;
+        int alarmStamp = getCalendarTime() + timeUntilAlarm;
         setObjVar(token, storyteller.STORYTELLER_DAILY_COUNT_RESET, alarmStamp);
-        return;
     }
     public static boolean canDeployStorytellerToken(obj_id player, location here, obj_id token) throws InterruptedException
     {
@@ -710,13 +676,9 @@ public class storyteller extends script.base_script
         region[] regionsHere = getRegionsAtPoint(here);
         if (regionsHere != null && regionsHere.length > 0)
         {
-            for (int i = 0; i < regionsHere.length; i++)
-            {
-                region testRegion = regionsHere[i];
-                String regionName = testRegion.getName();
-                int nameCheck = regionName.indexOf("storytellerblocked");
-                if (nameCheck > -1)
-                {
+            for (region testRegion : regionsHere) {
+                int nameCheck = testRegion.getName().indexOf("storytellerblocked");
+                if (nameCheck > -1) {
                     return true;
                 }
             }
@@ -797,56 +759,39 @@ public class storyteller extends script.base_script
         obj_id[] storytellerObjects = getAllObjectsWithObjVar(getLocation(player), 165.0f, "storytellerid");
         if (storytellerObjects != null && storytellerObjects.length > 0)
         {
-            for (int i = 0; i < storytellerObjects.length; i++)
-            {
-                obj_id object = storytellerObjects[i];
-                obj_id myStoryteller = getObjIdObjVar(object, "storytellerid");
-                if (isIdValid(myStoryteller))
-                {
+            obj_id myStoryteller;
+            obj_id[] playerInStory;
+            String effectName;
+            for (obj_id object : storytellerObjects) {
+                myStoryteller = getObjIdObjVar(object, "storytellerid");
+                if (isIdValid(myStoryteller)) {
                     if (myStoryteller == storytellerPlayer)
-                    {
-                        if (hasObjVar(object, storyteller.EFFECT_ACTIVE_OBJVAR) && hasObjVar(object, storyteller.EFFECT_TOKEN_NAME))
-                        {
-                            String storytellerTokenName = getStringObjVar(object, storyteller.EFFECT_TOKEN_NAME);
-                            location here = getLocation(object);
-                            String effectName = storyteller.getEffectName(storytellerTokenName);
-                            obj_id[] playerInStory = 
-                            {
-                                player
-                            };
+                        if (hasObjVar(object, storyteller.EFFECT_ACTIVE_OBJVAR) && hasObjVar(object, storyteller.EFFECT_TOKEN_NAME)) {
+                            effectName = storyteller.getEffectName(getStringObjVar(object, storyteller.EFFECT_TOKEN_NAME));
+                            playerInStory = new obj_id[]{player};
                             playClientEffectObj(playerInStory, effectName, object, "", null, "storyteller_persisted_effect");
                         }
-                    }
                 }
             }
         }
-        return;
     }
     public static void stopStorytellerEffectsInAreaToPlayer(obj_id player, obj_id storytellerPlayer) throws InterruptedException
     {
         obj_id[] storytellerObjects = getAllObjectsWithObjVar(getLocation(player), 165.0f, "storytellerid");
         if (storytellerObjects != null && storytellerObjects.length > 0)
         {
-            for (int i = 0; i < storytellerObjects.length; i++)
-            {
-                obj_id object = storytellerObjects[i];
-                obj_id myStoryteller = getObjIdObjVar(object, "storytellerid");
-                if (isIdValid(myStoryteller))
-                {
-                    if (myStoryteller == storytellerPlayer)
-                    {
-                        if (hasObjVar(object, storyteller.EFFECT_ACTIVE_OBJVAR) && hasObjVar(object, storyteller.EFFECT_TOKEN_NAME))
-                        {
-                            String storytellerTokenName = getStringObjVar(object, storyteller.EFFECT_TOKEN_NAME);
-                            location here = getLocation(object);
-                            String effectName = storyteller.getEffectName(storytellerTokenName);
+            obj_id myStoryteller;
+            for (obj_id object : storytellerObjects) {
+                myStoryteller = getObjIdObjVar(object, "storytellerid");
+                if (isIdValid(myStoryteller)) {
+                    if (myStoryteller == storytellerPlayer) {
+                        if (hasObjVar(object, storyteller.EFFECT_ACTIVE_OBJVAR) && hasObjVar(object, storyteller.EFFECT_TOKEN_NAME)) {
                             stopClientEffectObjByLabel(player, object, "storyteller_persisted_effect", false);
                         }
                     }
                 }
             }
         }
-        return;
     }
     public static String[] recordBlueprintData(obj_id blueprint, obj_id[] storytellerObjects, obj_id player) throws InterruptedException
     {
@@ -854,43 +799,35 @@ public class storyteller extends script.base_script
         blueprintString.setSize(0);
         Vector validStorytellerObjects = new Vector();
         validStorytellerObjects.setSize(0);
-        for (int i = 0; i < storytellerObjects.length; i++)
-        {
-            obj_id object = storytellerObjects[i];
-            obj_id objectOwner = getObjIdObjVar(object, "storytellerid");
-            if (!isIdValid(objectOwner) || objectOwner != player)
-            {
+        obj_id objectOwner;
+        obj_id blueprintAuthor;
+        String tokenName;
+        String[] excludedTokens = {"st_fn_storyteller_vendor"};
+        location tokLoc;
+
+        for (obj_id object : storytellerObjects) {
+            objectOwner = getObjIdObjVar(object, "storytellerid");
+            if (!isIdValid(objectOwner) || objectOwner != player) {
                 continue;
             }
-            if (hasObjVar(object, storyteller.BLUEPRINT_AUTHOR_OBJVAR))
-            {
-                obj_id blueprintAuthor = getObjIdObjVar(object, storyteller.BLUEPRINT_AUTHOR_OBJVAR);
-                if (!isIdValid(blueprintAuthor) || blueprintAuthor != player)
-                {
+            if (hasObjVar(object, storyteller.BLUEPRINT_AUTHOR_OBJVAR)) {
+                blueprintAuthor = getObjIdObjVar(object, storyteller.BLUEPRINT_AUTHOR_OBJVAR);
+                if (!isIdValid(blueprintAuthor) || blueprintAuthor != player) {
                     continue;
                 }
             }
-            String tokenName = getStaticItemName(object);
-            if (tokenName == null || tokenName.length() < 1)
-            {
+            tokenName = getStaticItemName(object);
+            if (tokenName == null || tokenName.length() < 1) {
                 continue;
             }
-            String[] excludedTokens = 
-            {
-                "st_fn_storyteller_vendor"
-            };
             boolean isExcludedToken = false;
-            location tokLoc = getLocation(object);
             obj_id whatAmIStandingOn = getStandingOn(object);
-            for (int q = 0; q < excludedTokens.length; q++)
-            {
-                if (tokenName.equals(excludedTokens[q]) || storyteller.getTokenType(tokenName) == storyteller.OTHER || isIdValid(tokLoc.cell) || (isIdValid(whatAmIStandingOn) && player_structure.isBuilding(whatAmIStandingOn)))
-                {
+            for (String excludedToken : excludedTokens) {
+                if (tokenName.equals(excludedToken) || storyteller.getTokenType(tokenName) == storyteller.OTHER || isIdValid(getLocation(object).cell) || (isIdValid(whatAmIStandingOn) && player_structure.isBuilding(whatAmIStandingOn))) {
                     isExcludedToken = true;
                 }
             }
-            if (isExcludedToken)
-            {
+            if (isExcludedToken) {
                 continue;
             }
             utils.addElement(validStorytellerObjects, object);
@@ -905,82 +842,69 @@ public class storyteller extends script.base_script
             }
             return _blueprintString;
         }
-        location centerLoc = new location();
         float maxX = -99999.0f;
         float maxZ = -99999.0f;
         float minX = 99999.0f;
         float minZ = 99999.0f;
-        for (int j = 0; j < validStorytellerObjects.size(); j++)
-        {
-            obj_id object = ((obj_id)validStorytellerObjects.get(j));
-            obj_id objectOwner = getObjIdObjVar(object, "storytellerid");
-            if (!isIdValid(objectOwner) || objectOwner != player)
-            {
+        obj_id object;
+        for (Object validStorytellerObject : validStorytellerObjects) {
+            object = ((obj_id) validStorytellerObject);
+            objectOwner = getObjIdObjVar(object, "storytellerid");
+            if (!isIdValid(objectOwner) || objectOwner != player) {
                 continue;
             }
             location objLoc = getLocation(object);
-            if (objLoc.x > maxX)
-            {
+            if (objLoc.x > maxX) {
                 maxX = objLoc.x;
             }
-            if (objLoc.z > maxZ)
-            {
+            if (objLoc.z > maxZ) {
                 maxZ = objLoc.z;
             }
-            if (objLoc.x < minX)
-            {
+            if (objLoc.x < minX) {
                 minX = objLoc.x;
             }
-            if (objLoc.z < minZ)
-            {
+            if (objLoc.z < minZ) {
                 minZ = objLoc.z;
             }
         }
-        centerLoc = new location(maxX - ((maxX - minX) / 2), 0.0f, maxZ - ((maxZ - minZ) / 2));
-        for (int i = 0; i < validStorytellerObjects.size(); i++)
-        {
-            obj_id validStoryObject = ((obj_id)validStorytellerObjects.get(i));
-            String tokenName = getStaticItemName(validStoryObject);
-            location playerLoc = getLocation(player);
+        obj_id validStoryObject;
+        location playerLoc;
+        for (Object validStorytellerObject : validStorytellerObjects) {
+            validStoryObject = ((obj_id) validStorytellerObject);
+            tokenName = getStaticItemName(validStoryObject);
+            playerLoc = getLocation(player);
             float playerYaw = getYaw(player);
             location objLoc = getLocation(validStoryObject);
             float objYaw = getYaw(validStoryObject);
-            if (playerYaw != 0)
-            {
+            if (playerYaw != 0) {
                 objLoc = storyteller.rotateSavedBlueprintDataXZ(playerLoc, objLoc, playerYaw);
             }
-            float yawDiff = playerYaw - objYaw;
             float terrainHeight = objLoc.y;
             location creationLoc = getLocationObjVar(validStoryObject, "storytellerCreationLoc");
-            if (creationLoc != null)
-            {
+            if (creationLoc != null) {
                 terrainHeight = creationLoc.y;
             }
             float locX = objLoc.x - playerLoc.x;
             float locY = objLoc.y - terrainHeight;
             float locZ = objLoc.z - playerLoc.z;
-            if (locY < 0.001f)
-            {
+            if (locY < 0.001f) {
                 locY = 0.0f;
             }
             int combatLevel = 0;
             int difficulty = 0;
-            if (isMob(validStoryObject))
-            {
+            if (isMob(validStoryObject)) {
                 combatLevel = getLevel(validStoryObject);
                 difficulty = getIntObjVar(validStoryObject, "difficultyClass");
             }
             String effect = "none";
-            if (hasObjVar(validStoryObject, storyteller.EFFECT_ACTIVE_OBJVAR) && hasObjVar(validStoryObject, storyteller.EFFECT_TOKEN_NAME))
-            {
+            if (hasObjVar(validStoryObject, storyteller.EFFECT_ACTIVE_OBJVAR) && hasObjVar(validStoryObject, storyteller.EFFECT_TOKEN_NAME)) {
                 effect = getStringObjVar(validStoryObject, storyteller.EFFECT_TOKEN_NAME);
                 String effectEntry = buildBlueprintObjectData(storyteller.BLUEPRINT_TOKEN_NEEDED, effect, 0.0f, 0.0f, 0.0f, 0.0f, 0, 0, "none");
                 utils.addElement(blueprintString, effectEntry);
             }
-            String newEntry = buildBlueprintObjectData(storyteller.BLUEPRINT_TOKEN_NEEDED, tokenName, locX, locY, locZ, yawDiff, combatLevel, difficulty, effect);
+            String newEntry = buildBlueprintObjectData(storyteller.BLUEPRINT_TOKEN_NEEDED, tokenName, locX, locY, locZ, playerYaw - objYaw, combatLevel, difficulty, effect);
             utils.addElement(blueprintString, newEntry);
-            if (blueprintString.size() >= BLUEPRINT_MAX_NUM_OBJECTS)
-            {
+            if (blueprintString.size() >= BLUEPRINT_MAX_NUM_OBJECTS) {
                 break;
             }
         }
@@ -1015,8 +939,7 @@ public class storyteller extends script.base_script
     }
     public static int getBlueprintObjectDataSize(String blueprintObjectData) throws InterruptedException
     {
-        String[] parse = split(blueprintObjectData, '~');
-        return parse.length;
+        return split(blueprintObjectData, '~').length;
     }
     public static int getRequiredBlueprintDataSize() throws InterruptedException
     {
@@ -1025,11 +948,7 @@ public class storyteller extends script.base_script
     }
     public static boolean validateBlueprintData(String blueprintObjectData) throws InterruptedException
     {
-        if (getBlueprintObjectDataSize(blueprintObjectData) == getRequiredBlueprintDataSize())
-        {
-            return true;
-        }
-        return false;
+        return getBlueprintObjectDataSize(blueprintObjectData) == getRequiredBlueprintDataSize();
     }
     public static obj_id createBlueprintObject(String objectData, obj_id blueprintController, obj_id player, location targetLoc, float targetYaw) throws InterruptedException
     {
@@ -1095,16 +1014,14 @@ public class storyteller extends script.base_script
     }
     public static void handleBlueprintObjectElevation(obj_id blueprintObject, dictionary params) throws InterruptedException
     {
-        if (params != null || !params.isEmpty())
+        if (params != null && !params.isEmpty())
         {
             float yOffset = params.getFloat("yOffset");
-            obj_id player = params.getObjId("player");
             location here = getLocation(blueprintObject);
             setObjVar(blueprintObject, "storytellerCreationLoc", here);
             location newElevationLoc = new location(here.x, here.y + yOffset, here.z);
             setLocation(blueprintObject, newElevationLoc);
         }
-        return;
     }
     public static location getBlueprintObjectLocation(String spawnString, location centerLoc) throws InterruptedException
     {
@@ -1115,52 +1032,39 @@ public class storyteller extends script.base_script
     }
     public static boolean isBlueprintTokenLoaded(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        if (utils.stringToInt(parse[0]) == 1)
-        {
-            return true;
-        }
-        return false;
+        return utils.stringToInt(split(spawnString, '~')[0]) == 1;
     }
     public static String getBlueprintItemName(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        return parse[1];
+        return split(spawnString, '~')[1];
     }
     public static float getBlueprintItemLocX(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        return utils.stringToFloat(parse[2]);
+        return utils.stringToFloat(split(spawnString, '~')[2]);
     }
     public static float getBlueprintItemLocY(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        return utils.stringToFloat(parse[3]);
+        return utils.stringToFloat(split(spawnString, '~')[3]);
     }
     public static float getBlueprintItemLocZ(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        return utils.stringToFloat(parse[4]);
+        return utils.stringToFloat(split(spawnString, '~')[4]);
     }
     public static float getBlueprintItemYaw(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        return utils.stringToFloat(parse[5]);
+        return utils.stringToFloat(split(spawnString, '~')[5]);
     }
     public static int getBlueprintItemCombatLevel(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        return utils.stringToInt(parse[6]);
+        return utils.stringToInt(split(spawnString, '~')[6]);
     }
     public static int getBlueprintItemDifficulty(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        return utils.stringToInt(parse[7]);
+        return utils.stringToInt(split(spawnString, '~')[7]);
     }
     public static String getBlueprintItemEffect(String spawnString) throws InterruptedException
     {
-        String[] parse = split(spawnString, '~');
-        return parse[8];
+        return split(spawnString, '~')[8];
     }
     public static void blueprintParseConversion(obj_id blueprint) throws InterruptedException
     {
@@ -1194,19 +1098,9 @@ public class storyteller extends script.base_script
         {
             utils.setBatchObjVar(blueprint, storyteller.BLUEPRINT_OBJECTS_OBJVAR, blueprintObjects);
         }
-        return;
     }
-    public static boolean doIAutoDeclineStorytellerInvites(obj_id player) throws InterruptedException
-    {
-        if (hasObjVar(player, storyteller.VAR_AUTODECLINE_STORY_INVITES))
-        {
-            return true;
-        }
-        if (utils.hasScriptVar(player, "battlefield.active"))
-        {
-            return true;
-        }
-        return false;
+    public static boolean doIAutoDeclineStorytellerInvites(obj_id player) throws InterruptedException {
+        return hasObjVar(player, storyteller.VAR_AUTODECLINE_STORY_INVITES) || utils.hasScriptVar(player, "battlefield.active");
     }
     public static int storyAssistantSui(obj_id storytellerPlayer, String storytellerName, obj_id player) throws InterruptedException
     {
@@ -1214,8 +1108,7 @@ public class storyteller extends script.base_script
         prose_package pp = prose.getPackage(new string_id("storyteller", "assistant_invite"));
         prose.setTO(pp, storytellerName);
         String msg = "\0" + packOutOfBandProsePackage(null, pp);
-        int pid = sui.msgbox(storytellerPlayer, player, msg, 2, title, sui.YES_NO, "storyAssistantHandler");
-        return pid;
+        return sui.msgbox(storytellerPlayer, player, msg, 2, title, sui.YES_NO, "storyAssistantHandler");
     }
     public static void storyAssistantAcepted(obj_id storytellerPlayer, String storytellerName, obj_id player) throws InterruptedException
     {
@@ -1228,7 +1121,6 @@ public class storyteller extends script.base_script
         messageTo(storytellerPlayer, "handleStorytellerAssistantHasBeenAdded", webster, 0, false);
         utils.setScriptVar(player, "storytellerAssistant", storytellerPlayer);
         utils.setScriptVar(player, "storytellerAssistantName", storytellerName);
-        return;
     }
     public static void storyPlayerRemoveAssistant(obj_id storytellerPlayer, String storytellerName, obj_id player) throws InterruptedException
     {
@@ -1241,7 +1133,6 @@ public class storyteller extends script.base_script
         dictionary webster = new dictionary();
         webster.put("removedPlayerName", getName(player));
         messageTo(storytellerPlayer, "handleStorytellerAssistantHasBeenRemoved", webster, 0, false);
-        return;
     }
     public static int storyInviteSui(obj_id storytellerPlayer, String storytellerName, obj_id player) throws InterruptedException
     {
@@ -1249,8 +1140,7 @@ public class storyteller extends script.base_script
         prose_package pp = prose.getPackage(new string_id("storyteller", "sui_invite_body"));
         prose.setTO(pp, storytellerName);
         String msg = "\0" + packOutOfBandProsePackage(null, pp);
-        int pid = sui.msgbox(storytellerPlayer, player, msg, 2, title, sui.YES_NO, "storyInviteHandler");
-        return pid;
+        return sui.msgbox(storytellerPlayer, player, msg, 2, title, sui.YES_NO, "storyInviteHandler");
     }
     public static void storyInviteAcepted(obj_id storytellerPlayer, String storytellerName, obj_id player, obj_id storytellerAssistant) throws InterruptedException
     {
@@ -1272,7 +1162,6 @@ public class storyteller extends script.base_script
         utils.setScriptVar(player, "storytellerid", storytellerPlayer);
         utils.setScriptVar(player, "storytellerName", storytellerName);
         showStorytellerEffectsInAreaToPlayer(player, storytellerPlayer);
-        return;
     }
     public static void storyPlayerRemovedFromStory(obj_id storytellerPlayer, String storytellerName, obj_id player) throws InterruptedException
     {
@@ -1285,7 +1174,6 @@ public class storyteller extends script.base_script
         dictionary webster = new dictionary();
         webster.put("removedPlayerName", getName(player));
         messageTo(storytellerPlayer, "handleStorytellerPlayerHasBeenRemoved", webster, 0, false);
-        return;
     }
     public static boolean storytellerCombatCheck(obj_id attacker, obj_id target) throws InterruptedException
     {
@@ -1361,14 +1249,7 @@ public class storyteller extends script.base_script
             {
                 obj_id attackerNpcStoryteller = getObjIdObjVar(attacker, "storytellerid");
                 obj_id targetNpcStoryteller = getObjIdObjVar(target, "storytellerid");
-                if (attackerNpcStoryteller == targetNpcStoryteller)
-                {
-                    return true;
-                }
-                else 
-                {
-                    return false;
-                }
+                return attackerNpcStoryteller == targetNpcStoryteller;
             }
             else 
             {
@@ -1383,14 +1264,7 @@ public class storyteller extends script.base_script
                 {
                     obj_id playerStorytellerId = utils.getObjIdScriptVar(storyPlayer, "storytellerid");
                     obj_id npcStorytellerId = getObjIdObjVar(storyNpc, "storytellerid");
-                    if (isIdValid(playerStorytellerId) && isIdValid(npcStorytellerId) && playerStorytellerId == npcStorytellerId)
-                    {
-                        return true;
-                    }
-                    else 
-                    {
-                        return false;
-                    }
+                    return isIdValid(playerStorytellerId) && isIdValid(npcStorytellerId) && playerStorytellerId == npcStorytellerId;
                 }
                 else 
                 {
@@ -1431,9 +1305,9 @@ public class storyteller extends script.base_script
         };
         Vector storytellerTokenTypes = new Vector();
         storytellerTokenTypes.setSize(0);
-        for (int i = 0; i < sid_storytellerTokenTypes.length; i++)
-        {
-            String tokenType = utils.packStringId(new string_id("storyteller", sid_storytellerTokenTypes[i]));
+        String tokenType;
+        for (String sid_storytellerTokenType : sid_storytellerTokenTypes) {
+            tokenType = utils.packStringId(new string_id("storyteller", sid_storytellerTokenType));
             storytellerTokenTypes = utils.addElement(storytellerTokenTypes, tokenType);
         }
         String[] _storytellerTokenTypes = new String[0];
@@ -1530,11 +1404,8 @@ public class storyteller extends script.base_script
             utils.copyArray(finalList, tempList);
             finalList[0] = "item_costume_kit";
             int nextFinalListSlot = 1;
-            for (int k = 0; k < tempList.length; k++)
-            {
-                String ref = tempList[k];
-                if (!ref.equals("item_costume_kit"))
-                {
+            for (String ref : tempList) {
+                if (!ref.equals("item_costume_kit")) {
                     finalList[nextFinalListSlot] = ref;
                     ++nextFinalListSlot;
                 }
@@ -1623,9 +1494,7 @@ public class storyteller extends script.base_script
         {
             return;
         }
-        int oldPid = utils.getIntScriptVar(storytellerVendor, scriptvar_path + ".pid");
         String[] tokenReferences = utils.getStringBatchScriptVar(storytellerVendor, scriptvar_path + ".tokenReferences");
-        String[] tokens = utils.getStringBatchScriptVar(storytellerVendor, scriptvar_path + ".tokens");
         int tokenType = utils.getIntScriptVar(storytellerVendor, scriptvar_path + ".tokenType");
         utils.removeScriptVar(storytellerVendor, scriptvar_path + ".pid");
         utils.removeBatchScriptVar(storytellerVendor, scriptvar_path + ".tokenReferences");
@@ -1692,7 +1561,6 @@ public class storyteller extends script.base_script
         }
         givePurchasedToken(storytellerVendor, player, token_reference, tokenName, cost, 0);
         storyteller.displayStorytellerTokenPurchaseSUI(player, tokenType, storytellerVendor);
-        return;
     }
     public static boolean requestNumCharges(int tokenType, String token_reference) throws InterruptedException
     {
@@ -1708,11 +1576,7 @@ public class storyteller extends script.base_script
         {
             return true;
         }
-        if (token_reference.equals("item_costume_kit"))
-        {
-            return true;
-        }
-        return false;
+        return token_reference.equals("item_costume_kit");
     }
     public static void storytellerSellTokenWithCharges(dictionary params, obj_id storytellerVendor) throws InterruptedException
     {
@@ -1753,7 +1617,6 @@ public class storyteller extends script.base_script
             givePurchasedToken(storytellerVendor, player, token_reference, tokenName, cost * numCharges, numCharges);
             storyteller.displayStorytellerTokenPurchaseSUI(player, tokenType, storytellerVendor);
         }
-        return;
     }
     public static void givePurchasedToken(obj_id storytellerVendor, obj_id player, String tokenReference, String tokenName, int cost, int numCharges) throws InterruptedException
     {
@@ -1765,8 +1628,7 @@ public class storyteller extends script.base_script
         }
         if (!money.hasFunds(player, money.MT_TOTAL, cost))
         {
-            prose_package pp = prose.getPackage(new string_id("storyteller", "token_purchase_not_enough_credits"), tokenName);
-            sendSystemMessageProse(player, pp);
+            sendSystemMessageProse(player, prose.getPackage(new string_id("storyteller", "token_purchase_not_enough_credits"), tokenName));
         }
         else 
         {
@@ -1793,10 +1655,8 @@ public class storyteller extends script.base_script
             }
             CustomerServiceLog("storyteller", "(" + player + ")" + getName(player) + " has purchased (" + item + ")" + getName(item));
             logBalance("storyteller;" + getGameTime() + ";item;" + tokenReference + ";" + cost);
-            prose_package pp = prose.getPackage(new string_id("storyteller", "token_purchase_complete"), player, item);
-            sendSystemMessageProse(player, pp);
+            sendSystemMessageProse(player, prose.getPackage(new string_id("storyteller", "token_purchase_complete"), player, item));
         }
-        return;
     }
     public static void confirmCleanuptime(obj_id object) throws InterruptedException
     {

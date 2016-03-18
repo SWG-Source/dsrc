@@ -1,16 +1,11 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
-import script.library.player_structure;
-import script.library.utils;
-import script.library.xp;
+import java.util.Vector;
 
 public class turnstile extends script.base_script
 {
@@ -54,11 +49,9 @@ public class turnstile extends script.base_script
         obj_id[] contents = player_structure.getObjectsInBuilding(building);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasScript(contents[i], "terminal.vendor"))
-                {
-                    setEntranceCharge(contents[i], fee);
+            for (obj_id content : contents) {
+                if (hasScript(content, "terminal.vendor")) {
+                    setEntranceCharge(content, fee);
                 }
             }
         }
@@ -76,7 +69,7 @@ public class turnstile extends script.base_script
             }
             else 
             {
-                prose_package pp = prose.getPackage(SID_WAIT_TURNSTILE, (int)(((removeTime + 900 - curTime) / 60) + 1));
+                prose_package pp = prose.getPackage(SID_WAIT_TURNSTILE, ((removeTime + 900 - curTime) / 60) + 1);
                 sendSystemMessageProse(player, pp);
                 return false;
             }
@@ -107,13 +100,8 @@ public class turnstile extends script.base_script
         }
         return getIntObjVar(building, VAR_TURNSTILE_TIME);
     }
-    public static boolean hasTurnstile(obj_id building) throws InterruptedException
-    {
-        if (building == null)
-        {
-            return false;
-        }
-        return hasObjVar(building, VAR_TURNSTILE_BASE);
+    public static boolean hasTurnstile(obj_id building) throws InterruptedException {
+        return building != null && hasObjVar(building, VAR_TURNSTILE_BASE);
     }
     public static boolean removeTurnstile(obj_id building) throws InterruptedException
     {
@@ -130,11 +118,9 @@ public class turnstile extends script.base_script
         obj_id[] contents = player_structure.getObjectsInBuilding(building);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasScript(contents[i], "terminal.vendor"))
-                {
-                    setEntranceCharge(contents[i], 0);
+            for (obj_id content : contents) {
+                if (hasScript(content, "terminal.vendor")) {
+                    setEntranceCharge(content, 0);
                 }
             }
         }
@@ -229,11 +215,7 @@ public class turnstile extends script.base_script
         }
         obj_id[] patrons = getObjIdArrayObjVar(building, VAR_TURNSTILE_PATRON_IDS);
         int arrayPosition = utils.getElementPositionInArray(patrons, player);
-        if (arrayPosition == -1)
-        {
-            return false;
-        }
-        return true;
+        return arrayPosition != -1;
     }
     public static boolean hasExpired(obj_id building, obj_id player) throws InterruptedException
     {
@@ -252,14 +234,7 @@ public class turnstile extends script.base_script
         {
             return false;
         }
-        if (timestamps[arrayPosition] < getGameTime())
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return timestamps[arrayPosition] < getGameTime();
     }
     public static boolean cleanupExpiredPatrons(obj_id building) throws InterruptedException
     {
@@ -291,9 +266,8 @@ public class turnstile extends script.base_script
                 expired = utils.addElement(expired, patrons[i]);
             }
         }
-        for (int i = 0; i < expired.size(); i++)
-        {
-            removePatron(building, ((obj_id)expired.get(i)));
+        for (Object anExpired : expired) {
+            removePatron(building, ((obj_id) anExpired));
         }
         return true;
     }

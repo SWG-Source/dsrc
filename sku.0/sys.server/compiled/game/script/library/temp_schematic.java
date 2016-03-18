@@ -1,14 +1,8 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.prose;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class temp_schematic extends script.base_script
 {
@@ -64,10 +58,8 @@ public class temp_schematic extends script.base_script
             int total = useCount + getIntObjVar(player, ovpath);
             setObjVar(player, ovpath, total);
             string_id product_name = getProductNameFromSchematic(schematic);
-            prose_package ppTempGrant = prose.getPackage(PROSE_TEMP_GRANT, product_name, useCount);
-            sendSystemMessageProse(player, ppTempGrant);
-            prose_package ppUsesLeft = prose.getPackage(PROSE_USES_LEFT, product_name, total);
-            sendSystemMessageProse(player, ppUsesLeft);
+            sendSystemMessageProse(player, prose.getPackage(PROSE_TEMP_GRANT, product_name, useCount));
+            sendSystemMessageProse(player, prose.getPackage(PROSE_USES_LEFT, product_name, total));
             if (isIdValid(bioLink))
             {
                 setObjVar(player, VAR_TEMP_SCHEMATIC_BIO_LINK + "." + schematic, bioLink);

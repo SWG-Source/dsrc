@@ -1,14 +1,10 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
+import script.string_id;
 
-import script.library.utils;
+import java.util.Vector;
 
 public class skill_template extends script.base_script
 {
@@ -44,11 +40,7 @@ public class skill_template extends script.base_script
     }
     public static boolean isValidWorkingSkill(String skillName) throws InterruptedException
     {
-        if (skillName == null || skillName.equals(""))
-        {
-            return false;
-        }
-        return true;
+        return !(skillName == null || skillName.equals(""));
     }
     public static String getNextWorkingSkill(obj_id player) throws InterruptedException
     {
@@ -154,8 +146,7 @@ public class skill_template extends script.base_script
             return null;
         }
         java.util.Enumeration e = xpReqs.keys();
-        String xpType = (String)(e.nextElement());
-        return xpType;
+        return (String)(e.nextElement());
     }
     public static boolean isQualifiedForWorkingSkill(obj_id player) throws InterruptedException
     {
@@ -180,11 +171,7 @@ public class skill_template extends script.base_script
         java.util.Enumeration e = xpReqs.keys();
         String xpType = (String)(e.nextElement());
         int xpCost = xpReqs.getInt(xpType);
-        if (getExperiencePoints(player, xpType) < xpCost)
-        {
-            return false;
-        }
-        return true;
+        return getExperiencePoints(player, xpType) >= xpCost;
     }
     public static boolean earnWorkingSkill(obj_id player) throws InterruptedException
     {
@@ -212,11 +199,9 @@ public class skill_template extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < skillList.length; i++)
-        {
-            if (!hasSkill(player, skillList[i]))
-            {
-                setWorkingSkill(player, skillList[i]);
+        for (String aSkillList : skillList) {
+            if (!hasSkill(player, aSkillList)) {
+                setWorkingSkill(player, aSkillList);
                 break;
             }
         }
@@ -246,36 +231,24 @@ public class skill_template extends script.base_script
         Vector allNewObjectsResizable = new Vector();
         allNewObjectsResizable.setSize(0);
         boolean success = true;
-        for (int i = 0; i < items.length; i++)
-        {
-            obj_id newItem = null;
-            if (items[i].endsWith(".iff"))
-            {
-                newItem = createObjectInInventoryAllowOverload(items[i], player);
+        obj_id newItem;
+        for (String item : items) {
+            if (item.endsWith(".iff")) {
+                newItem = createObjectInInventoryAllowOverload(item, player);
+            } else {
+                newItem = static_item.createNewItemFunction(item, player);
             }
-            else 
-            {
-                newItem = static_item.createNewItemFunction(items[i], player);
-            }
-            if (!isIdValid(newItem))
-            {
-                LOG("roadmap", "ERROR - Could not create roadmap item (" + items[i] + ")");
+            if (!isIdValid(newItem)) {
+                LOG("roadmap", "ERROR - Could not create roadmap item (" + item + ")");
                 success = false;
-            }
-            else 
-            {
+            } else {
                 utils.addElement(allNewObjectsResizable, newItem);
             }
         }
         string_id itemDesc = utils.unpackString(getRoadmapItemDesc(skillTemplate, skillName));
-        prose_package pp = prose.getPackage(new string_id("base_player", "skill_template_item_reward"), itemDesc);
-        sendSystemMessageProse(player, pp);
-        obj_id[] allNewObjects = new obj_id[0];
-        if (allNewObjectsResizable != null)
-        {
-            allNewObjects = new obj_id[allNewObjectsResizable.size()];
-            allNewObjectsResizable.toArray(allNewObjects);
-        }
+        sendSystemMessageProse(player, prose.getPackage(new string_id("base_player", "skill_template_item_reward"), itemDesc));
+        obj_id[] allNewObjects = new obj_id[allNewObjectsResizable.size()];
+        allNewObjectsResizable.toArray(allNewObjects);
         showLootBox(player, allNewObjects);
         return success;
     }
@@ -288,6 +261,7 @@ public class skill_template extends script.base_script
         }
         String[] templateNames = dataTableGetStringColumn(ITEM_REWARD_TABLE, "roadmapTemplateName");
         String[] templateSkills = dataTableGetStringColumn(ITEM_REWARD_TABLE, "roadmapSkillName");
+        String itemDesc;
         for (int i = row; i < templateSkills.length; i++)
         {
             if (!templateNames[i].equals(skillTemplate))
@@ -296,7 +270,7 @@ public class skill_template extends script.base_script
             }
             if (templateSkills[i].equals(workingSkill))
             {
-                String itemDesc = dataTableGetString(ITEM_REWARD_TABLE, i, "stringId");
+                itemDesc = dataTableGetString(ITEM_REWARD_TABLE, i, "stringId");
                 if (itemDesc != null && !itemDesc.equals(""))
                 {
                     return itemDesc;
@@ -314,6 +288,10 @@ public class skill_template extends script.base_script
         }
         String[] templateNames = dataTableGetStringColumn(ITEM_REWARD_TABLE, "roadmapTemplateName");
         String[] templateSkills = dataTableGetStringColumn(ITEM_REWARD_TABLE, "roadmapSkillName");
+        String defaultItem;
+        String wookieeItem;
+        String ithorianItem;
+
         for (int i = row; i < templateSkills.length; i++)
         {
             if (!templateNames[i].equals(skillTemplate))
@@ -322,11 +300,11 @@ public class skill_template extends script.base_script
             }
             if (templateSkills[i].equals(workingSkill))
             {
-                String defaultItem = dataTableGetString(ITEM_REWARD_TABLE, i, "itemDefault");
+                defaultItem = dataTableGetString(ITEM_REWARD_TABLE, i, "itemDefault");
                 int species = getSpecies(player);
                 if (species == SPECIES_WOOKIEE)
                 {
-                    String wookieeItem = dataTableGetString(ITEM_REWARD_TABLE, i, "itemWookiee");
+                    wookieeItem = dataTableGetString(ITEM_REWARD_TABLE, i, "itemWookiee");
                     if (wookieeItem != null && !wookieeItem.equals(""))
                     {
                         return wookieeItem;
@@ -334,7 +312,7 @@ public class skill_template extends script.base_script
                 }
                 else if (species == SPECIES_ITHORIAN)
                 {
-                    String ithorianItem = dataTableGetString(ITEM_REWARD_TABLE, i, "itemIthorian");
+                    ithorianItem = dataTableGetString(ITEM_REWARD_TABLE, i, "itemIthorian");
                     if (ithorianItem != null && !ithorianItem.equals(""))
                     {
                         return ithorianItem;

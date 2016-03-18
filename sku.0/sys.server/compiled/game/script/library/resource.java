@@ -1,16 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.buff;
-import script.library.city;
-import script.library.utils;
+import java.util.Vector;
 
 public class resource extends script.base_script
 {
@@ -212,7 +204,7 @@ public class resource extends script.base_script
         {
             containerTemplate = DEFAULT_CONTAINER;
         }
-        int chunks = (int)(amt / CONTAINER_VOLUME_MAX);
+        int chunks = amt / CONTAINER_VOLUME_MAX;
         if (amt % CONTAINER_VOLUME_MAX > 0)
         {
             chunks++;
@@ -222,11 +214,7 @@ public class resource extends script.base_script
             if (total > 0)
             {
                 obj_id crate = createObject(containerTemplate, targetContainer, "");
-                if ((crate == null) || (crate == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
+                if ((crate != null) && (crate != obj_id.NULL_ID)) {
                     int containerAmount = CONTAINER_VOLUME_MAX;
                     if (total < CONTAINER_VOLUME_MAX)
                     {
@@ -242,12 +230,8 @@ public class resource extends script.base_script
         {
             return null;
         }
-        obj_id[] _ret = new obj_id[0];
-        if (ret != null)
-        {
-            _ret = new obj_id[ret.size()];
-            ret.toArray(_ret);
-        }
+        obj_id[] _ret = new obj_id[ret.size()];
+        ret.toArray(_ret);
         return _ret;
     }
     public static obj_id[] create(obj_id resourceId, int amt, obj_id targetContainer) throws InterruptedException
@@ -277,7 +261,7 @@ public class resource extends script.base_script
             return null;
         }
         obj_id resourceId = null;
-        if ((loc == null || loc.compareTo(new location()) == 0 || (loc.cell != null && loc.cell != obj_id.NULL_ID)) && isIdValid(targetContainer))
+        if ((loc.compareTo(new location()) == 0 || (loc.cell != null && loc.cell != obj_id.NULL_ID)) && isIdValid(targetContainer))
         {
             obj_id topmost = getTopMostContainer(targetContainer);
             if (topmost != targetContainer)
@@ -358,7 +342,6 @@ public class resource extends script.base_script
         {
             rangeVal = 1;
         }
-        int resVal = getSkillStatMod(user, "surveying") / 20;
         int range_min = getIntObjVar(tool, VAR_SURVEY_RANGE_MIN);
         int range_max = getIntObjVar(tool, VAR_SURVEY_RANGE_MAX);
         int res_min = getIntObjVar(tool, VAR_SURVEY_RESOLUTION_MIN);
@@ -415,8 +398,7 @@ public class resource extends script.base_script
         }
         if (!isResourceDerivedFrom(typeId, resource_class))
         {
-            prose_package pp = prose.getPackage(SID_WRONG_TOOL, type);
-            sendSystemMessageProse(user, pp);
+            sendSystemMessageProse(user, prose.getPackage(SID_WRONG_TOOL, type));
             return SAMPLE_STOP_LOOP;
         }
         float density = getResourceEfficiency(typeId, getLocation(user));
@@ -426,8 +408,7 @@ public class resource extends script.base_script
         }
         else if (density < 0.1f)
         {
-            prose_package proseFailed = prose.getPackage(SID_EFFICIENCY_TOO_LOW, type);
-            sendSystemMessageProse(user, proseFailed);
+            sendSystemMessageProse(user, prose.getPackage(SID_EFFICIENCY_TOO_LOW, type));
             return SAMPLE_STOP_LOOP;
         }
         int modVal = getSkillStatMod(user, "surveying");
@@ -438,8 +419,7 @@ public class resource extends script.base_script
             float famt = BASE_SAMPLE_AMOUNT * deltaDensity;
             if (famt < 1)
             {
-                prose_package proseFailed = prose.getPackage(SID_TRACE_AMOUNT, type);
-                sendSystemMessageProse(user, proseFailed);
+                sendSystemMessageProse(user, prose.getPackage(SID_TRACE_AMOUNT, type));
                 return SAMPLE_STOP_LOOP;
             }
             location nodecritloc = null;
@@ -528,7 +508,6 @@ public class resource extends script.base_script
                 }
                 else 
                 {
-                    int critRoll = rand(1, 100);
                     int rollResult = 10;
                     if (isGod(user))
                     {
@@ -536,7 +515,7 @@ public class resource extends script.base_script
                     }
                     if (roll <= rollResult)
                     {
-                        critRoll = rand(1, 100);
+                        int critRoll = rand(1, 100);
                         if (critRoll <= 50)
                         {
                             sendSystemMessage(user, SID_CRITICAL_SUCCESS);
@@ -602,10 +581,10 @@ public class resource extends script.base_script
                         }
                     }
                 }
-                int expertiseResourceIncrease = (int)getSkillStatisticModifier(user, "expertise_resource_sampling_increase");
+                int expertiseResourceIncrease = getSkillStatisticModifier(user, "expertise_resource_sampling_increase");
                 if (expertiseResourceIncrease > 0)
                 {
-                    amt += (int)(amt * (float)(expertiseResourceIncrease / 100.0f));
+                    amt += (int)(amt * expertiseResourceIncrease / 100.0f);
                 }
                 if (buff.hasBuff(user, "tcg_series4_falleens_fist"))
                 {
@@ -636,29 +615,28 @@ public class resource extends script.base_script
                                 merriam.put("resource", typeId);
                                 messageTo(user, "forceSensitiveQuestInfo", merriam, 1, false);
                             }
-                            prose_package proseSuccess = prose.getPackage(SID_SAMPLE_LOCATED, type, amt);
-                            sendSystemMessageProse(user, proseSuccess);
+                            sendSystemMessageProse(user, prose.getPackage(SID_SAMPLE_LOCATED, type, amt));
                             if (isResourceDerivedFrom(typeId, "radioactive"))
+                        {
+                            int pe = resource.getResourceAttribute(typeId, "res_potential_energy");
+                            if (pe > 500)
                             {
-                                int pe = resource.getResourceAttribute(typeId, "res_potential_energy");
-                                if (pe > 500)
+                                int damage = (pe - 500) / 2;
+                                if (damage < 1)
                                 {
-                                    int damage = (pe - 500) / 2;
-                                    if (damage < 1)
-                                    {
-                                        damage = 1;
-                                    }
-                                    int current = getAttrib(user, HEALTH);
-                                    if (damage > current)
-                                    {
-                                        damage = (current - 1);
-                                    }
-                                    addAttribModifier(user, HEALTH, (damage * -1), 0, 0, MOD_POOL);
-                                    int fatigue = damage / 4;
-                                    addShockWound(user, fatigue);
-                                    sendSystemMessage(user, SID_EFFECTS_OF_RADIATION_SICKNESS);
+                                    damage = 1;
                                 }
+                                int current = getAttrib(user, HEALTH);
+                                if (damage > current)
+                                {
+                                    damage = (current - 1);
+                                }
+                                addAttribModifier(user, HEALTH, (damage * -1), 0, 0, MOD_POOL);
+                                int fatigue = damage / 4;
+                                addShockWound(user, fatigue);
+                                sendSystemMessage(user, SID_EFFECTS_OF_RADIATION_SICKNESS);
                             }
+                        }
                             return SAMPLE_CONTINUE_LOOP;
                         }
                         else 
@@ -674,13 +652,11 @@ public class resource extends script.base_script
         }
         else 
         {
-            prose_package proseFailed = prose.getPackage(SID_DENSITY_BELOW_THESHOLD, type);
-            sendSystemMessageProse(user, proseFailed);
+            sendSystemMessageProse(user, prose.getPackage(SID_DENSITY_BELOW_THESHOLD, type));
             return SAMPLE_STOP_LOOP;
         }
         setObjVar(user, VAR_SAMPLE_STAMP, getGameTime() - TIME_FAIL_BONUS);
-        prose_package proseFailed = prose.getPackage(SID_SAMPLE_FAILED, type);
-        sendSystemMessageProse(user, proseFailed);
+        sendSystemMessageProse(user, prose.getPackage(SID_SAMPLE_FAILED, type));
         return SAMPLE_CONTINUE_LOOP_NOSAMPLE;
     }
     public static String getResourceContainerTemplate(obj_id typeId) throws InterruptedException
@@ -704,38 +680,48 @@ public class resource extends script.base_script
         }
         Vector dsrc = new Vector();
         dsrc.setSize(0);
-        String resource_class = getStringObjVar(tool, resource.VAR_SURVEY_CLASS);
+
         dsrc = utils.addElement(dsrc, utils.packStringId(SID_SUI_SURVEY_TOOL_PROPERTIES_RESOURCE_HEADER));
+
         prose_package ppResource = prose.getPackage(SID_SUI_SURVEY_TOOL_PROPERTIES_RESOURCE);
-        prose.setTO(ppResource, resource_class);
+        prose.setTO(ppResource, getStringObjVar(tool, resource.VAR_SURVEY_CLASS));
         dsrc = utils.addElement(dsrc, " \0" + packOutOfBandProsePackage(null, ppResource));
         dsrc = utils.addElement(dsrc, " ");
+
         int res_min = getIntObjVar(tool, resource.VAR_SURVEY_RESOLUTION_MIN);
         int res_max = getIntObjVar(tool, resource.VAR_SURVEY_RESOLUTION_MAX);
         int res_val = getIntObjVar(tool, resource.VAR_SURVEY_RESOLUTION_VALUE);
         dsrc = utils.addElement(dsrc, utils.packStringId(SID_SUI_SURVEY_TOOL_PROPERTIES_RESOLUTION));
+
         prose_package ppResMin = prose.getPackage(SID_SUI_SURVEY_TOOL_PROPERTIES_RESOLUTION_MIN);
         prose.setDI(ppResMin, res_min);
         dsrc = utils.addElement(dsrc, " \0" + packOutOfBandProsePackage(null, ppResMin));
+
         prose_package ppResMax = prose.getPackage(SID_SUI_SURVEY_TOOL_PROPERTIES_RESOLUTION_MAX);
         prose.setDI(ppResMax, res_max);
         dsrc = utils.addElement(dsrc, " \0" + packOutOfBandProsePackage(null, ppResMax));
+
         prose_package ppResVal = prose.getPackage(SID_SUI_SURVEY_TOOL_PROPERTIES_RESOLUTION_VAL);
         prose.setDI(ppResVal, res_val);
         dsrc = utils.addElement(dsrc, " \0" + packOutOfBandProsePackage(null, ppResVal));
         dsrc = utils.addElement(dsrc, " ");
+
         int range_min = getIntObjVar(tool, resource.VAR_SURVEY_RANGE_MIN);
         int range_max = getIntObjVar(tool, resource.VAR_SURVEY_RANGE_MAX);
         int range_val = getIntObjVar(tool, resource.VAR_SURVEY_RANGE_VALUE);
+
         dsrc = utils.addElement(dsrc, utils.packStringId(SID_SUI_SURVEY_TOOL_PROPERTIES_RANGE));
         prose_package ppRangeMin = prose.getPackage(SID_SUI_SURVEY_TOOL_PROPERTIES_RANGE_MIN);
         prose.setDI(ppRangeMin, range_min);
+
         dsrc = utils.addElement(dsrc, " \0" + packOutOfBandProsePackage(null, ppRangeMin));
         prose_package ppRangeMax = prose.getPackage(SID_SUI_SURVEY_TOOL_PROPERTIES_RANGE_MAX);
         prose.setDI(ppRangeMax, range_max);
+
         dsrc = utils.addElement(dsrc, " \0" + packOutOfBandProsePackage(null, ppRangeMax));
         prose_package ppRangeVal = prose.getPackage(SID_SUI_SURVEY_TOOL_PROPERTIES_RANGE_VAL);
         prose.setDI(ppRangeVal, range_val);
+
         dsrc = utils.addElement(dsrc, " \0" + packOutOfBandProsePackage(null, ppRangeVal));
         if ((dsrc != null) && (dsrc.size() > 0))
         {
@@ -953,12 +939,12 @@ public class resource extends script.base_script
         {
             return "";
         }
-        dictionary row = dataTableGetRow(DATATABLE_RESOURCES, rowNum);
         int i = 0;
         String res = null;
-        while ((res == null) || (res.equals("")))
+        int numRows = dataTableGetNumRows(DATATABLE_RESOURCES);
+        while ((res == null) || (res.equals("")) || i > numRows)
         {
-            res = row.getString("CLASS " + i++);
+            res = dataTableGetRow(DATATABLE_RESOURCES, rowNum).getString("CLASS " + i++);
         }
         return res;
     }
@@ -972,16 +958,13 @@ public class resource extends script.base_script
         obj_id[] items = getInventoryAndEquipment(target);
         if ((items != null) && (items.length > 0))
         {
-            for (int i = 0; i < items.length; i++)
-            {
-                if (isGameObjectTypeOf(getGameObjectType(items[i]), GOT_resource_container))
-                {
-                    obj_id rId = getResourceContainerResourceType(items[i]);
-                    if (isIdValid(rId))
-                    {
-                        if (isResourceDerivedFrom(rId, "energy") || isResourceDerivedFrom(rId, "radioactive"))
-                        {
-                            cnt += getPotentialEnergyValue(items[i]);
+            obj_id rId;
+            for (obj_id item : items) {
+                if (isGameObjectTypeOf(getGameObjectType(item), GOT_resource_container)) {
+                    rId = getResourceContainerResourceType(item);
+                    if (isIdValid(rId)) {
+                        if (isResourceDerivedFrom(rId, "energy") || isResourceDerivedFrom(rId, "radioactive")) {
+                            cnt += getPotentialEnergyValue(item);
                         }
                     }
                 }
@@ -1005,8 +988,7 @@ public class resource extends script.base_script
         {
             return 0;
         }
-        float ratio = getEnergyPowerRatio(rType);
-        return Math.round(ratio * amt);
+        return Math.round(getEnergyPowerRatio(rType) * amt);
     }
     public static float getEnergyPowerRatio(obj_id rType) throws InterruptedException
     {
@@ -1047,24 +1029,19 @@ public class resource extends script.base_script
         dictionary resourceInfo = new dictionary();
         if ((items != null) && (items.length > 0))
         {
-            for (int i = 0; i < items.length; i++)
-            {
-                if (isGameObjectTypeOf(getGameObjectType(items[i]), GOT_resource_container))
-                {
-                    obj_id resourceType = getResourceContainerResourceType(items[i]);
-                    if (isIdValid(resourceType))
-                    {
-                        if (isResourceDerivedFrom(resourceType, "energy_renewable_site_limited_geothermal"))
-                        {
-                            if (tempListUniqueList.size() == 0)
-                            {
+            obj_id resourceType;
+            for (obj_id item : items) {
+                if (isGameObjectTypeOf(getGameObjectType(item), GOT_resource_container)) {
+                    resourceType = getResourceContainerResourceType(item);
+                    if (isIdValid(resourceType)) {
+                        if (isResourceDerivedFrom(resourceType, "energy_renewable_site_limited_geothermal")) {
+                            if (tempListUniqueList.size() == 0) {
                                 tempListUniqueList.addElement(resourceType);
                                 resourceName = getResourceName(resourceType);
                                 resourceQuality = getResourceAttribute(resourceType, "res_quality");
                             }
-                            if (tempListUniqueList.contains(resourceType))
-                            {
-                                cnt += getResourceContainerQuantity(items[i]);
+                            if (tempListUniqueList.contains(resourceType)) {
+                                cnt += getResourceContainerQuantity(item);
                             }
                         }
                     }
@@ -1099,29 +1076,25 @@ public class resource extends script.base_script
         {
             return false;
         }
-        for (int i = 0, j = contents.length; i < j; i++)
-        {
-            if (!isIdValid(contents[i]) || !exists(contents[i]))
-            {
+        obj_id container;
+        String parent;
+
+        for (obj_id content : contents) {
+            if (!isIdValid(content) || !exists(content)) {
                 continue;
             }
-            if (!isResourceContainer(contents[i]))
-            {
+            if (!isResourceContainer(content)) {
                 continue;
             }
-            obj_id container = getResourceContainerResourceType(contents[i]);
-            if (!isIdValid(container))
-            {
+            container = getResourceContainerResourceType(content);
+            if (!isIdValid(container)) {
                 continue;
             }
-            String name = getResourceClass(container);
-            String typeName = getResourceName(container);
-            String parent = getResourceParentClass(name);
+            parent = getResourceParentClass(getResourceClass(container));
             parent = getResourceParentClass(parent);
             parent = getResourceParentClass(parent);
-            if (resource.equals(parent) && getResourceContainerQuantity(contents[i]) >= quantity)
-            {
-                removeResourceFromContainer(contents[i], getResourceContainerResourceType(contents[i]), quantity);
+            if (resource.equals(parent) && getResourceContainerQuantity(content) >= quantity) {
+                removeResourceFromContainer(content, getResourceContainerResourceType(content), quantity);
                 return true;
             }
         }
@@ -1134,28 +1107,23 @@ public class resource extends script.base_script
         {
             return false;
         }
-        for (int i = 0, j = contents.length; i < j; i++)
-        {
-            if (!isIdValid(contents[i]) || !exists(contents[i]))
-            {
+        obj_id container;
+        String parent;
+        for (obj_id content : contents) {
+            if (!isIdValid(content) || !exists(content)) {
                 continue;
             }
-            if (!isResourceContainer(contents[i]))
-            {
+            if (!isResourceContainer(content)) {
                 continue;
             }
-            obj_id container = getResourceContainerResourceType(contents[i]);
-            if (!isIdValid(container))
-            {
+            container = getResourceContainerResourceType(content);
+            if (!isIdValid(container)) {
                 continue;
             }
-            String name = getResourceClass(container);
-            String typeName = getResourceName(container);
-            String parent = getResourceParentClass(name);
+            parent = getResourceParentClass(getResourceClass(container));
             parent = getResourceParentClass(parent);
             parent = getResourceParentClass(parent);
-            if (resource.equals(parent) && getResourceContainerQuantity(contents[i]) >= quantity)
-            {
+            if (resource.equals(parent) && getResourceContainerQuantity(content) >= quantity) {
                 return true;
             }
         }

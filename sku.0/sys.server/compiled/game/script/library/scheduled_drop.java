@@ -1,15 +1,9 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
 
-import script.library.static_item;
-import script.library.utils;
+import java.util.Vector;
 
 public class scheduled_drop extends script.base_script
 {
@@ -99,9 +93,8 @@ public class scheduled_drop extends script.base_script
         {
             return 0;
         }
-        for (int i = 0, j = promotionList.length; i < j; i++)
-        {
-            weight += promotionList[i].getInt("promotionWeight");
+        for (dictionary aPromotionList : promotionList) {
+            weight += aPromotionList.getInt("promotionWeight");
         }
         return weight;
     }
@@ -141,15 +134,15 @@ public class scheduled_drop extends script.base_script
         }
         Vector allStaticItems = new Vector();
         allStaticItems.setSize(0);
-        for (int i = 0, j = promotionNames.length; i < j; i++)
-        {
-            for (int k = 0, l = allItems.length; k < l; k++)
-            {
-                String promotionList = dataTableGetString(DATATABLE_SCHEDULE, promotionNames[i], DATATABLE_SCHEDULE_PROMO_LIST);
-                if (allPromotionLists[k].equals(promotionList))
-                {
-                    dictionary cardEntry = new dictionary();
-                    cardEntry.put("promotionName", promotionNames[i]);
+        String promotionList;
+        dictionary cardEntry;
+
+        for (String promotionName : promotionNames) {
+            for (int k = 0, l = allItems.length; k < l; k++) {
+                promotionList = dataTableGetString(DATATABLE_SCHEDULE, promotionName, DATATABLE_SCHEDULE_PROMO_LIST);
+                if (allPromotionLists[k].equals(promotionList)) {
+                    cardEntry = new dictionary();
+                    cardEntry.put("promotionName", promotionName);
                     cardEntry.put("promotionList", allPromotionLists[k]);
                     cardEntry.put("promotionItem", allItems[k]);
                     cardEntry.put("promotionWeight", allWeights[k]);
@@ -185,11 +178,10 @@ public class scheduled_drop extends script.base_script
         scheduledPromotions.setSize(0);
         int currentDate = getCalendarTime();
         testingSpam(self, "currentDate: " + currentDate + " realTime: " + getCalendarTimeStringLocal(currentDate));
-        for (int i = 0, promotionsLength = promotions.length; i < promotionsLength; i++)
-        {
-            dictionary currentPromotion = dataTableGetRow(DATATABLE_SCHEDULE, promotions[i]);
-            if (!(currentPromotion.getString(DATATABLE_SCHEDULE_PROMO_TYPE)).equals(promotionType))
-            {
+        dictionary currentPromotion;
+        for (String promotion : promotions) {
+            currentPromotion = dataTableGetRow(DATATABLE_SCHEDULE, promotion);
+            if (!(currentPromotion.getString(DATATABLE_SCHEDULE_PROMO_TYPE)).equals(promotionType)) {
                 continue;
             }
             int startHour = currentPromotion.getInt(DATATABLE_SCHEDULE_PROMO_START_HOUR);
@@ -207,8 +199,7 @@ public class scheduled_drop extends script.base_script
             int endYear = currentPromotion.getInt(DATATABLE_SCHEDULE_PROMO_END_YEAR);
             int endDate = getCalendarTime(endYear, endMonth, endDay, endHour, endMinute, endSecond);
             testingSpam(self, "Scheduled Promotion: " + currentPromotion.getString(DATATABLE_SCHEDULE_PROMO_NAME) + " Start: " + startDate + " End: " + endDate);
-            if (startDate <= currentDate && endDate >= currentDate)
-            {
+            if (startDate <= currentDate && endDate >= currentDate) {
                 scheduledPromotions = utils.addElement(scheduledPromotions, currentPromotion.getString(DATATABLE_SCHEDULE_PROMO_NAME));
             }
         }
@@ -227,13 +218,12 @@ public class scheduled_drop extends script.base_script
     public static dictionary[] getPromotionMaxDrops(String[] promotions) throws InterruptedException
     {
         obj_id self = getSelf();
-        Vector maxDrops = new Vector();
-        maxDrops.setSize(0);
         String[] allPromotions = getSchedulerPromotions();
         int[] allDrops = getSchedulerMaxDrops();
         Vector promotionsWithDrops = new Vector();
         promotionsWithDrops.setSize(0);
         testingSpam(self, "getPromotionMaxDrops allPromotions.length: " + allPromotions.length + " promotions.length: " + promotions.length);
+        dictionary tempPromotion;
         for (int i = 0, j = promotions.length; i < j; i++)
         {
             for (int k = 0, l = allPromotions.length; k < l; k++)
@@ -241,7 +231,7 @@ public class scheduled_drop extends script.base_script
                 testingSpam(self, "allPromotions[" + k + "]: " + allPromotions[k] + " promotions[" + i + "]: " + promotions[i] + " allDrops[" + k + "]: " + allDrops[k]);
                 if (promotions[i].equals(allPromotions[k]))
                 {
-                    dictionary tempPromotion = new dictionary();
+                    tempPromotion = new dictionary();
                     tempPromotion.put("promotion", promotions[i]);
                     tempPromotion.put("promotionMaxDrops", modifyPromotionCountByServer(allDrops[k]));
                     promotionsWithDrops = utils.addElement(promotionsWithDrops, tempPromotion);
@@ -259,7 +249,7 @@ public class scheduled_drop extends script.base_script
     public static int modifyPromotionCountByServer(int promotionCount) throws InterruptedException
     {
         String serverName = toLower(getConfigSetting("CentralServer", "clusterName"));
-        float percentOfCount = 0.0f;
+        float percentOfCount;
         if (serverName == null || serverName.length() <= 0)
         {
             percentOfCount = 0.01f;
@@ -276,13 +266,11 @@ public class scheduled_drop extends script.base_script
     }
     public static int getLastClusterUpdateTime() throws InterruptedException
     {
-        obj_id planet = getPlanetByName("tatooine");
-        return getIntObjVar(planet, CLUSTER_OBJVAR_LAST_UPDATE);
+        return getIntObjVar(getPlanetByName("tatooine"), CLUSTER_OBJVAR_LAST_UPDATE);
     }
     public static void setLastClusterUpdateTime(int date) throws InterruptedException
     {
-        obj_id planet = getPlanetByName("tatooine");
-        setObjVar(planet, CLUSTER_OBJVAR_LAST_UPDATE, date);
+        setObjVar(getPlanetByName("tatooine"), CLUSTER_OBJVAR_LAST_UPDATE, date);
     }
     public static void removeLastClusterUpdateTime() throws InterruptedException
     {
@@ -297,9 +285,8 @@ public class scheduled_drop extends script.base_script
     {
         obj_id planet = getPlanetByName("tatooine");
         String[] promotions = getSchedulerPromotions();
-        for (int i = 0, j = promotions.length; i < j; i++)
-        {
-            removeObjVar(planet, "tcg." + promotions[i] + ".count");
+        for (String promotion : promotions) {
+            removeObjVar(planet, "tcg." + promotion + ".count");
         }
     }
     public static void setClusterPromotions(dictionary[] promotionsWithMaxDrops) throws InterruptedException
@@ -314,9 +301,8 @@ public class scheduled_drop extends script.base_script
             messageTo(planet, "clearPromotions", null, 1.0f, false);
             return;
         }
-        for (int i = 0, j = promotionsWithMaxDrops.length; i < j; i++)
-        {
-            messageTo(planet, "setPromotion", promotionsWithMaxDrops[i], 1.0f, false);
+        for (dictionary promotionsWithMaxDrop : promotionsWithMaxDrops) {
+            messageTo(planet, "setPromotion", promotionsWithMaxDrop, 1.0f, false);
         }
     }
     public static void instantiatePromotionsOnCluster() throws InterruptedException
@@ -330,17 +316,10 @@ public class scheduled_drop extends script.base_script
         String[] currentPromotions = getScheduledPromotions("card");
         obj_id self = getSelf();
         testingSpam(self, "Card promotions length: " + currentPromotions.length);
-        if (currentPromotions == null)
-        {
-            setClusterPromotions(null);
-        }
-        else 
-        {
-            setClusterPromotions(getPromotionMaxDrops(currentPromotions));
-        }
+        setClusterPromotions(getPromotionMaxDrops(currentPromotions));
         currentPromotions = getScheduledPromotions("item");
         testingSpam(self, "Item promotions length: " + currentPromotions.length);
-        if (currentPromotions != null && currentPromotions.length > 0)
+        if (currentPromotions.length > 0)
         {
             setClusterPromotions(getPromotionMaxDrops(currentPromotions));
         }
@@ -354,12 +333,10 @@ public class scheduled_drop extends script.base_script
         }
         Vector validatedPromotions = new Vector();
         validatedPromotions.setSize(0);
-        for (int i = 0, j = promotionNames.length; i < j; i++)
-        {
-            int countLeft = getIntObjVar(planet, "tcg." + promotionNames[i] + ".count");
-            if (countLeft > 0 || countLeft == -1)
-            {
-                validatedPromotions = utils.addElement(validatedPromotions, promotionNames[i]);
+        for (String promotionName : promotionNames) {
+            int countLeft = getIntObjVar(planet, "tcg." + promotionName + ".count");
+            if (countLeft > 0 || countLeft == -1) {
+                validatedPromotions = utils.addElement(validatedPromotions, promotionName);
             }
         }
         String[] _validatedPromotions = new String[0];
@@ -375,21 +352,21 @@ public class scheduled_drop extends script.base_script
         switch (systemToDrop)
         {
             case SYSTEM_COMBAT_NORMAL:
-            return CARD_DELAY_COMBAT_NORMAL;
+                return CARD_DELAY_COMBAT_NORMAL;
             case SYSTEM_COMBAT_ELITE:
-            return CARD_DELAY_COMBAT_ELITE;
+                return CARD_DELAY_COMBAT_ELITE;
             case SYSTEM_COMBAT_BOSS:
-            return CARD_DELAY_COMBAT_BOSS;
+                return CARD_DELAY_COMBAT_BOSS;
             case SYSTEM_COMBAT_SPACE:
-            return CARD_DELAY_COMBAT_SPACE;
+                return CARD_DELAY_COMBAT_SPACE;
             case SYSTEM_ENTERTAINER:
-            return CARD_DELAY_ENTERTAINER;
+                return CARD_DELAY_ENTERTAINER;
             case SYSTEM_CRAFTER:
-            return CARD_DELAY_CRAFTER;
+                return CARD_DELAY_CRAFTER;
             case SYSTEM_UNKNOWN:
-            return CARD_DELAY_DEFAULT;
+                return CARD_DELAY_DEFAULT;
             default:
-            return CARD_DELAY_DEFAULT;
+                return CARD_DELAY_DEFAULT;
         }
     }
     public static boolean hasCardDelay(obj_id player, int systemToDrop) throws InterruptedException
@@ -418,17 +395,17 @@ public class scheduled_drop extends script.base_script
         switch (systemToDrop)
         {
             case SYSTEM_COMBAT_NORMAL:
-            return (rand(1, DROP_CHANCE_COMBAT_NORMAL) == 1 ? true : false);
+            return (rand(1, DROP_CHANCE_COMBAT_NORMAL) == 1);
             case SYSTEM_COMBAT_ELITE:
-            return (rand(1, DROP_CHANCE_COMBAT_ELITE) == 1 ? true : false);
+            return (rand(1, DROP_CHANCE_COMBAT_ELITE) == 1);
             case SYSTEM_COMBAT_BOSS:
-            return (rand(1, DROP_CHANCE_COMBAT_BOSS) == 1 ? true : false);
+            return (rand(1, DROP_CHANCE_COMBAT_BOSS) == 1);
             case SYSTEM_COMBAT_SPACE:
-            return (rand(1, DROP_CHANCE_COMBAT_SPACE) == 1 ? true : false);
+            return (rand(1, DROP_CHANCE_COMBAT_SPACE) == 1);
             case SYSTEM_ENTERTAINER:
-            return (rand(1, DROP_CHANCE_ENTERTAINER) == 1 ? true : false);
+            return (rand(1, DROP_CHANCE_ENTERTAINER) == 1);
             case SYSTEM_CRAFTER:
-            return (rand(1, DROP_CHANCE_CRAFTER) == 1 ? true : false);
+            return (rand(1, DROP_CHANCE_CRAFTER) == 1);
             case SYSTEM_UNKNOWN:
             return false;
             default:
@@ -438,10 +415,7 @@ public class scheduled_drop extends script.base_script
     public static obj_id dropCard(int systemToDrop, obj_id container) throws InterruptedException
     {
         obj_id self = getSelf();
-        obj_id card = null;
         String typeName = "card";
-        String staticItemName = "";
-        String promotionName = "";
         instantiatePromotionsOnCluster();
         if (!isIdValid(container) || !exists(container))
         {
@@ -469,6 +443,8 @@ public class scheduled_drop extends script.base_script
         }
         dictionary[] promotionalItems = getStaticItemsForAllPromotions(promotions);
         int index = getRandomStaticItem(promotionalItems);
+        String staticItemName = "";
+        String promotionName;
         if (promotionalItems.length > index && index >= 0)
         {
             staticItemName = promotionalItems[index].getString("promotionItem");
@@ -479,7 +455,7 @@ public class scheduled_drop extends script.base_script
             CustomerServiceLog("tcg", "ERROR dropCard() tcg.getRandomStaticItem(promotionalItems) out of bounds index for type: " + staticItemName + ".");
             return null;
         }
-        card = static_item.createNewItemFunction(staticItemName, container);
+        obj_id card = static_item.createNewItemFunction(staticItemName, container);
         if (!isIdValid(card) || !exists(card))
         {
             if (isIdValid(self) && isGod(self) && hasObjVar(self, "qa_tcg"))

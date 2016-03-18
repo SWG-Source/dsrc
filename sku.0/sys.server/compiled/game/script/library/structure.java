@@ -1,17 +1,11 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
-import script.library.skill;
-import script.library.utils;
-import script.library.list;
-import script.library.datatable;
+import java.util.Vector;
 
 public class structure extends script.base_script
 {
@@ -108,11 +102,7 @@ public class structure extends script.base_script
             return false;
         }
         obj_id topMost = getTopMostContainer(target);
-        if ((topMost == target) || (topMost == null))
-        {
-            return false;
-        }
-        return true;
+        return !((topMost == target) || (topMost == null));
     }
     public static String getRandomCell(obj_id structure) throws InterruptedException
     {
@@ -154,11 +144,7 @@ public class structure extends script.base_script
             if (!cellName.equals(""))
             {
                 obj_id cellId = getCellId(structure, cellName);
-                if ((cellId == null) || (cellId == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
+                if ((cellId != null) && (cellId != obj_id.NULL_ID)) {
                     return cellId;
                 }
             }
@@ -188,11 +174,12 @@ public class structure extends script.base_script
         String[] tpfs = dataTableGetStringColumn(DATATABLE_STRUCTURE_VERSION, DATATABLE_COL_STRUCTURE);
         if ((tpfs != null) && (tpfs.length > 0))
         {
+            String dataScript;
             for (int i = 0; i < tpfs.length; i++)
             {
                 if (tpfs[i].equals(facilityTemplate))
                 {
-                    String dataScript = dataTableGetString(DATATABLE_STRUCTURE_VERSION, i, DATATABLE_COL_SCRIPT);
+                    dataScript = dataTableGetString(DATATABLE_STRUCTURE_VERSION, i, DATATABLE_COL_SCRIPT);
                     if (dataScript.equals(scriptName))
                     {
                         return dataTableGetInt(DATATABLE_STRUCTURE_VERSION, i, columnName);
@@ -229,11 +216,7 @@ public class structure extends script.base_script
         }
         int current = getIntObjVar(facility, VAR_STRUCTURE_VERSION_TERMINAL);
         int latest = getFacilityTerminalVersion(facility, scriptName);
-        if (current >= latest)
-        {
-            return true;
-        }
-        return false;
+        return current >= latest;
     }
     public static boolean isCurrentSpawnVersion(obj_id facility, String scriptName) throws InterruptedException
     {
@@ -243,11 +226,7 @@ public class structure extends script.base_script
         }
         int current = getIntObjVar(facility, VAR_STRUCTURE_VERSION_SPAWN);
         int latest = getFacilitySpawnVersion(facility, scriptName);
-        if (current >= latest)
-        {
-            return true;
-        }
-        return false;
+        return current >= latest;
     }
     public static obj_id[] getPlayersInStructure(obj_id facility) throws InterruptedException
     {
@@ -260,52 +239,36 @@ public class structure extends script.base_script
         switch (getContainerType(facility))
         {
             case 0:
-            break;
+                break;
             case 1:
-            obj_id[] contents = getContents(facility);
-            if ((contents == null) || (contents.length == 0))
-            {
-                return null;
-            }
-            for (int i = 0; i < contents.length; i++)
-            {
-                if ((getTemplateName(contents[i])).equals(TEMPLATE_CELL))
+                obj_id[] contents = getContents(facility);
+                if ((contents == null) || (contents.length == 0))
                 {
-                    cells = utils.addElement(cells, contents[i]);
+                    return null;
                 }
-            }
-            break;
-            case 2:
-            case 3:
-            case 4:
-            default:
-            break;
+                for (obj_id content : contents) {
+                    if ((getTemplateName(content)).equals(TEMPLATE_CELL)) {
+                        cells = utils.addElement(cells, content);
+                    }
+                }
+                break;
         }
         if ((cells == null) || (cells.size() == 0))
         {
             return null;
         }
         obj_id[] cellsArray = new obj_id[0];
-        if (cells != null)
-        {
-            cellsArray = new obj_id[cells.size()];
-            cells.toArray(cellsArray);
-        }
+        cellsArray = new obj_id[cells.size()];
+        cells.toArray(cellsArray);
         Vector players = new Vector();
         players.setSize(0);
-        for (int i = 0; i < cellsArray.length; i++)
-        {
-            obj_id[] cellContents = getContents(cellsArray[i]);
-            if ((cellContents == null) || (cellContents.length == 0))
-            {
-            }
-            else 
-            {
-                for (int n = 0; n < cellContents.length; n++)
-                {
-                    if (isPlayer(cellContents[n]))
-                    {
-                        players = utils.addElement(players, cellContents[n]);
+        obj_id[] cellContents;
+        for (obj_id aCellsArray : cellsArray) {
+            cellContents = getContents(aCellsArray);
+            if ((cellContents != null) && (cellContents.length != 0)) {
+                for (obj_id cellContent : cellContents) {
+                    if (isPlayer(cellContent)) {
+                        players = utils.addElement(players, cellContent);
                     }
                 }
             }
@@ -316,12 +279,8 @@ public class structure extends script.base_script
         }
         else 
         {
-            obj_id[] _players = new obj_id[0];
-            if (players != null)
-            {
-                _players = new obj_id[players.size()];
-                players.toArray(_players);
-            }
+            obj_id[] _players = new obj_id[players.size()];
+            players.toArray(_players);
             return _players;
         }
     }
@@ -344,10 +303,6 @@ public class structure extends script.base_script
             if ((coowners != null) && (coowners.size() > 0))
             {
                 setObjVar(structure, utils.VAR_COOWNERS, coowners);
-                if (isHouse)
-                {
-                    setObjVar(player, VAR_PLAYER_HOME, structure);
-                }
                 return true;
             }
         }
@@ -355,13 +310,9 @@ public class structure extends script.base_script
         {
             obj_id[] newCoOwners = new obj_id[1];
             newCoOwners[0] = player;
-            if ((newCoOwners != null) && (newCoOwners.length > 0))
+            if ((newCoOwners.length > 0))
             {
                 setObjVar(structure, utils.VAR_COOWNERS, newCoOwners);
-                if (isHouse)
-                {
-                    setObjVar(player, VAR_PLAYER_HOME, structure);
-                }
                 return true;
             }
         }
@@ -394,9 +345,6 @@ public class structure extends script.base_script
             else 
             {
                 setObjVar(structure, utils.VAR_COOWNERS, coowners);
-            }
-            if (isHouse)
-            {
             }
             return true;
         }
@@ -442,11 +390,7 @@ public class structure extends script.base_script
             return false;
         }
         obj_id[] terminals = createStructureTerminals(facility, datatable);
-        if ((terminals == null) || (terminals.length == 0))
-        {
-            return false;
-        }
-        return true;
+        return !((terminals == null) || (terminals.length == 0));
     }
     public static obj_id[] createStructureTerminals(obj_id facility, String datatable) throws InterruptedException
     {
@@ -481,11 +425,7 @@ public class structure extends script.base_script
                 obj_id CELL_ID = obj_id.NULL_ID;
                 LOG("structureTerminal", "retrieved terminal data...");
                 LOG("structureTerminal", "loc = " + X + ", " + Y + ". " + Z + " H = " + relativeHeading + " cell = " + CELL_NAME);
-                if (CELL_NAME.equals(WORLD_DELTA))
-                {
-                }
-                else 
-                {
+                if (!CELL_NAME.equals(WORLD_DELTA)) {
                     CELL_ID = getCellId(facility, CELL_NAME);
                 }
                 if (CELL_ID == null)
@@ -494,7 +434,7 @@ public class structure extends script.base_script
                 }
                 else 
                 {
-                    obj_id terminal_id = obj_id.NULL_ID;
+                    obj_id terminal_id;
                     location spot = new location(X, Y, Z, sceneName, CELL_ID);
                     float HEADING = relativeHeading;
                     if (CELL_ID == obj_id.NULL_ID)
@@ -546,9 +486,8 @@ public class structure extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < terminals.length; i++)
-        {
-            destroyObject(terminals[i]);
+        for (obj_id terminal : terminals) {
+            destroyObject(terminal);
         }
         removeObjVar(facility, VAR_STRUCTURE_TERMINALS);
         return true;
@@ -652,14 +591,7 @@ public class structure extends script.base_script
                 count++;
             }
         } while (doContinue);
-        if (count > 0)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return count > 0;
     }
     public static boolean cleanupFillerSpawns(obj_id building) throws InterruptedException
     {
@@ -668,14 +600,9 @@ public class structure extends script.base_script
             return false;
         }
         obj_id[] eggs = getObjIdArrayObjVar(building, VAR_FILLER_SPAWN_CURRENT_EGG);
-        if ((eggs == null) || (eggs.length == 0))
-        {
-        }
-        else 
-        {
-            for (int i = 0; i < eggs.length; i++)
-            {
-                destroyObject(eggs[i]);
+        if ((eggs != null) && (eggs.length != 0)) {
+            for (obj_id egg : eggs) {
+                destroyObject(egg);
             }
         }
         removeObjVar(building, VAR_FILLER_SPAWN_CURRENT_BASE);
@@ -692,11 +619,16 @@ public class structure extends script.base_script
         if (dataTableOpen(table))
         {
             String[] buildingTemplates = dataTableGetStringColumn(table, DATATABLE_COL_TEMPLATE);
+            dictionary d;
+            location bLoc;
+            location loc;
+            String lookup;
+            String[] eggs;
             for (int i = 0; i < buildingTemplates.length; i++)
             {
                 if (buildingTemplates[i].equals(buildingTemplate))
                 {
-                    dictionary d = new dictionary();
+                    d = new dictionary();
                     int idx = dataTableGetInt(table, i, DATATABLE_COL_IDX);
                     if ((spawnIdx == -1) || (spawnIdx == idx))
                     {
@@ -704,8 +636,8 @@ public class structure extends script.base_script
                         float dx = dataTableGetFloat(table, i, DATATABLE_COL_X);
                         float dy = dataTableGetFloat(table, i, DATATABLE_COL_Y);
                         float dz = dataTableGetFloat(table, i, DATATABLE_COL_Z);
-                        location bLoc = getLocation(building);
-                        location loc = new location(bLoc.x + dx, bLoc.y + dy, bLoc.z + dz, bLoc.area, bLoc.cell);
+                        bLoc = getLocation(building);
+                        loc = new location(bLoc.x + dx, bLoc.y + dy, bLoc.z + dz, bLoc.area, bLoc.cell);
                         float bYaw = getYaw(building);
                         if (bYaw != 0.0f)
                         {
@@ -713,15 +645,15 @@ public class structure extends script.base_script
                             loc = utils.rotatePointXZ(bLoc, dist, bYaw);
                         }
                         d.put(DICT_LOC, loc);
-                        String lookup = DATATABLE_FILLER_BASE + getCurrentSceneName() + DATATABLE_FILLER_EGG_ENDING;
+                        lookup = DATATABLE_FILLER_BASE + getCurrentSceneName() + DATATABLE_FILLER_EGG_ENDING;
                         if (dataTableOpen(lookup))
                         {
-                            String[] eggs = dataTableGetStringColumn(lookup, DATATABLE_COL_TEMPLATE);
+                            eggs = dataTableGetStringColumn(lookup, DATATABLE_COL_TEMPLATE);
                             switch (eggIdx)
                             {
                                 case -1:
-                                eggIdx = rand(0, eggs.length - 1);
-                                default:
+                                    eggIdx = rand(0, eggs.length - 1);
+                                    default:
                                 if (eggIdx < eggs.length)
                                 {
                                     d.put(DICT_TEMPLATE, eggs[eggIdx]);

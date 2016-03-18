@@ -1,18 +1,12 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.ai_lib;
-import script.library.space_utils;
-import script.library.spawning;
 import script.library.create;
+import script.library.spawning;
+import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class spawner_random_proxy extends script.base_script
 {
@@ -130,7 +124,7 @@ public class spawner_random_proxy extends script.base_script
         }
         CustomerServiceLog("holidaySpawner", "spawner_random.doSpawnEvent: strSpawns: " + strSpawnType);
         String strSpawn = strSpawnType;
-        if (strSpawnType.indexOf(".iff") < 0)
+        if (!strSpawnType.contains(".iff"))
         {
             String strFileName = "datatables/spawning/ground_spawning/types/" + strSpawnType + ".iff";
             if (dataTableOpen(strFileName))
@@ -341,7 +335,6 @@ public class spawner_random_proxy extends script.base_script
             return;
         }
         messageTo(self, "doSpawnEvent", null, fltRespawnTime, false);
-        return;
     }
     public int spawnDestroyed(obj_id self, dictionary params) throws InterruptedException
     {
@@ -363,18 +356,9 @@ public class spawner_random_proxy extends script.base_script
         messageTo(self, "doSpawnEvent", null, 2, false);
         return SCRIPT_CONTINUE;
     }
-    public boolean canSpawnByConfigSetting() throws InterruptedException
-    {
+    public boolean canSpawnByConfigSetting() throws InterruptedException {
         String disableSpawners = getConfigSetting("GameServer", "disableAreaSpawners");
-        if (disableSpawners == null)
-        {
-            return true;
-        }
-        if (disableSpawners.equals("true") || disableSpawners.equals("1"))
-        {
-            return false;
-        }
-        return true;
+        return disableSpawners == null || !(disableSpawners.equals("true") || disableSpawners.equals("1"));
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {
@@ -385,11 +369,9 @@ public class spawner_random_proxy extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < spawns.length; ++i)
-            {
-                if (isIdValid(spawns[i]) && exists(spawns[i]))
-                {
-                    messageTo(spawns[i], "selfDestruct", null, 5, false);
+            for (obj_id spawn : spawns) {
+                if (isIdValid(spawn) && exists(spawn)) {
+                    messageTo(spawn, "selfDestruct", null, 5, false);
                 }
             }
         }

@@ -1,20 +1,10 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine.combat_data;
+import script.combat_engine.weapon_data;
 
-import script.library.combat;
-import script.library.factions;
-import script.library.heavyweapons;
-import script.library.powerup;
-import script.library.smuggler;
-import script.library.trace;
-import script.library.utils;
+import java.util.Vector;
 
 public class weapons extends script.base_script
 {
@@ -138,7 +128,7 @@ public class weapons extends script.base_script
     public static int _GetTableValue(String col, String searchArg, int VIA_what) throws InterruptedException
     {
         String searchCol = COL_SCHEMATIC_NAME;
-        int row = -1;
+        int row;
         if (VIA_what == VIA_TEMPLATE)
         {
             searchCol = COL_TEMPLATE_HASH;
@@ -440,10 +430,10 @@ public class weapons extends script.base_script
     }
     public static obj_id _createFromDictionary(dictionary dat, obj_id container, float speed, float damage, float effeciency, float elementalVal, boolean overloadInv) throws InterruptedException
     {
-        obj_id obj = null;
+        obj_id obj;
         if (!dat.containsKey(COL_TEMPLATE))
         {
-            return obj;
+            return null;
         }
         if (overloadInv)
         {
@@ -455,7 +445,7 @@ public class weapons extends script.base_script
         }
         if (obj == null)
         {
-            return obj;
+            return null;
         }
         setWeaponAttributes(obj, dat, speed, damage, effeciency, elementalVal);
         return obj;
@@ -505,8 +495,6 @@ public class weapons extends script.base_script
         {
             accuracy = minAccuracy;
         }
-        int minRange = getMinRangeDistance(dat);
-        int maxRange = getMaxRangeDistance(dat);
         int minAttackCost = getAttackCostLow(dat);
         int maxAttackCost = getAttackCostHigh(dat);
         int valueRange = maxAttackCost - minAttackCost;
@@ -528,14 +516,13 @@ public class weapons extends script.base_script
         setWeaponMaxDamage(weapon, damageHigh);
         setWeaponAttackSpeed(weapon, (float)speed / 100.0f);
         setWeaponWoundChance(weapon, (float)woundChance / 10.0f);
-        setMaxHitpoints(weapon, (int)(hp));
-        setHitpoints(weapon, (int)(hp));
+        setMaxHitpoints(weapon, hp);
+        setHitpoints(weapon, hp);
         setWeaponAccuracy(weapon, accuracy);
         setWeaponDamageType(weapon, damType);
         setWeaponAttackCost(weapon, attackCost);
         setWeaponElementalDamage(weapon, elementalType, elementalValue);
         setHeavyWeaponAoeSplashPercent(weapon);
-        return;
     }
     public static void setWeaponAttributes(obj_id weapon, dictionary dat, float percentOfMax) throws InterruptedException
     {
@@ -548,8 +535,7 @@ public class weapons extends script.base_script
         {
             return null;
         }
-        dictionary dic = dataTableGetRow(WEAPON_DATA_TABLE, row);
-        return dic;
+        return dataTableGetRow(WEAPON_DATA_TABLE, row);
     }
     public static dictionary getWeaponDat(obj_id weapon) throws InterruptedException
     {
@@ -563,8 +549,7 @@ public class weapons extends script.base_script
         {
             return null;
         }
-        dictionary dict = dataTableGetRow(WEAPON_CORE_TABLE, row);
-        return dict;
+        return dataTableGetRow(WEAPON_CORE_TABLE, row);
     }
     public static obj_id createPossibleWeapon(String name, obj_id container, float percentOfMax) throws InterruptedException
     {
@@ -602,7 +587,7 @@ public class weapons extends script.base_script
     public static obj_id createWeapon(String name, obj_id container, int VIA_what, float speed, float damage, float effeciency, float elementalVal, boolean overloadInv) throws InterruptedException
     {
         String col = COL_SCHEMATIC_NAME;
-        int row = -1;
+        int row;
         if (VIA_what == VIA_TEMPLATE)
         {
             col = COL_TEMPLATE_HASH;
@@ -623,7 +608,7 @@ public class weapons extends script.base_script
         }
         dictionary dic = dataTableGetRow(WEAPON_DATA_TABLE, row);
         obj_id weapon = _createFromDictionary(dic, container, speed, damage, effeciency, elementalVal, overloadInv);
-        if (weapon != null && name.indexOf("component") > -1)
+        if (weapon != null && name.contains("component"))
         {
             attachScript(weapon, "item.special.serialize_component");
         }
@@ -638,19 +623,14 @@ public class weapons extends script.base_script
     {
         String type = toLower(fragment);
         String[] allWeaps = dataTableGetStringColumn(WEAPON_DATA_TABLE, COL_TEMPLATE);
-        String lookFor = "all";
-        if (type.equals("melee"))
-        {
-            lookFor = "special";
-        }
         Vector names = new Vector();
-        String template = "";
+        String template;
         for (int i = 0; i < allWeaps.length; i++)
         {
             template = dataTableGetString(WEAPON_DATA_TABLE, i, COL_TEMPLATE);
-            if (template != null && (type.equals("all") || template.indexOf(type) > -1))
+            if (template != null && (type.equals("all") || template.contains(type)))
             {
-                if (template.indexOf("component") > -1)
+                if (template.contains("component"))
                 {
                     continue;
                 }
@@ -677,11 +657,11 @@ public class weapons extends script.base_script
             return -1;
         }
         int numCreated = 0;
-        dictionary dic = null;
+        dictionary dic;
         for (int i = 0; i < allWeaps.length; i++)
         {
             dic = dataTableGetRow(WEAPON_DATA_TABLE, i);
-            if (nameFragment.equals("all") || (dic.getString(col)).indexOf(nameFragment) > -1)
+            if (nameFragment.equals("all") || (dic.getString(col)).contains(nameFragment))
             {
                 numCreated = (_createFromDictionary(dic, container, percentOfMax) != null ? numCreated + 1 : numCreated);
             }
@@ -698,21 +678,18 @@ public class weapons extends script.base_script
         nameFragment = toLower(nameFragment);
         String[] allEntries = dataTableGetStringColumnNoDefaults(WEAPON_DATA_TABLE, col);
         trace.log(WEAPONS, "Got " + allEntries.length + " schematic entries from col " + col);
-        for (int i = 0; i < allEntries.length; i++)
-        {
-            if (!nameFragment.equals("all") && (toLower(allEntries[i])).indexOf(nameFragment) < 0)
-            {
-                trace.log(WEAPONS, allEntries[i] + " does will not be adjusted.");
+        String path;
+        for (String allEntry : allEntries) {
+            if (!nameFragment.equals("all") && !(toLower(allEntry)).contains(nameFragment)) {
+                trace.log(WEAPONS, allEntry + " does will not be adjusted.");
                 continue;
             }
-            trace.log(WEAPONS, allEntries[i] + " will be " + (grant ? "granted" : "revoked"));
-            String path = "object/draft_schematic/weapon/";
-            if ((grant ? grantSchematic(player, path + allEntries[i] + ".iff") : revokeSchematic(player, path + allEntries[i] + ".iff")))
-            {
-                sendSystemMessageTestingOnly(player, "Schematic " + (grant ? "granted: " : "revoked: ") + allEntries[i]);
+            trace.log(WEAPONS, allEntry + " will be " + (grant ? "granted" : "revoked"));
+            path = "object/draft_schematic/weapon/";
+            if ((grant ? grantSchematic(player, path + allEntry + ".iff") : revokeSchematic(player, path + allEntry + ".iff"))) {
+                sendSystemMessageTestingOnly(player, "Schematic " + (grant ? "granted: " : "revoked: ") + allEntry);
             }
         }
-        return;
     }
     public static obj_id createLimitedUseSchematic(String name, int numUses, obj_id container, String schematicNameKey) throws InterruptedException
     {
@@ -724,12 +701,12 @@ public class weapons extends script.base_script
     }
     public static obj_id createLimitedUseSchematic(String name, int VIA_what, int numUses, obj_id container, String schematicNameKey, String skillRequired) throws InterruptedException
     {
-        if ((toLower(name)).indexOf("component") > -1)
+        if ((toLower(name)).contains("component"))
         {
             return null;
         }
         String col = COL_SCHEMATIC_NAME;
-        int row = -1;
+        int row;
         if (VIA_what == VIA_TEMPLATE)
         {
             col = COL_TEMPLATE_HASH;
@@ -751,7 +728,7 @@ public class weapons extends script.base_script
         obj_id obj = createObject("object/tangible/loot/loot_schematic/generic_limited_use.iff", container, "");
         if (obj == null)
         {
-            return obj;
+            return null;
         }
         setObjVar(obj, "loot_schematic.schematic", "object/draft_schematic/weapon/" + schematicName + ".iff");
         setObjVar(obj, "loot_schematic.uses", numUses);
@@ -813,7 +790,6 @@ public class weapons extends script.base_script
             }
             validateWeaponData(weapon, weaponDat);
         }
-        return;
     }
     public static boolean coredWeaponConversion(obj_id weapon) throws InterruptedException
     {
@@ -832,12 +808,12 @@ public class weapons extends script.base_script
             CustomerServiceLog("weap_conversion_bad", "WEAPON TEMPLATE IS: " + template);
             return false;
         }
-        int damageType = 0;
-        int elementalType = 0;
-        int elementalValue = 0;
-        int accuracy = 0;
-        float coreBonus = 0.0f;
-        float craftedBonus = 0.0f;
+        int damageType;
+        int elementalType;
+        int elementalValue;
+        int accuracy;
+        float coreBonus;
+        float craftedBonus;
         coreBonus = getWeaponCoreQualityMin(weapon);
         craftedBonus = coreBonus + getWeaponComponentBonusesMinDamage(weapon);
         int tableMin = getCoreMinDamage(weapon, weaponCoreDat);
@@ -936,12 +912,7 @@ public class weapons extends script.base_script
             int currentElementalDamage = getWeaponElementalValue(weapon);
             int minElementalDamage = getElementalValueLow(weaponDat);
             int maxElementalDamage = getElementalValueHigh(weaponDat);
-            if (currentElementalDamageType != clickMasterDamageType)
-            {
-                
-            }
-            
-            {
+            if (currentElementalDamageType != clickMasterDamageType){
                 setWeaponElementalType(weapon, clickMasterDamageType);
             }
             if (currentElementalDamage < minElementalDamage || currentElementalDamage > maxElementalDamage)
@@ -983,8 +954,8 @@ public class weapons extends script.base_script
         int clickMasterMaxDamage = getMaxDamageHighCap(weaponDat);
         int clickMasterLowMinDamage = getMinDamageLowCap(weaponDat);
         int clickMasterLowMaxDamage = getMaxDamageLowCap(weaponDat);
-        int finalMinDamage = 0;
-        int finalMaxDamage = 0;
+        int finalMinDamage;
+        int finalMaxDamage;
         finalMinDamage = (int)(clickMasterLowMinDamage + ((clickMasterMinDamage - clickMasterLowMinDamage) * .99f));
         finalMaxDamage = (int)(clickMasterLowMaxDamage + ((clickMasterMaxDamage - clickMasterLowMaxDamage) * .99f));
         setObjVar(saber, jedi.VAR_SABER_DEFAULT_STATS + "." + jedi.VAR_MIN_DMG, finalMinDamage);
@@ -1094,10 +1065,6 @@ public class weapons extends script.base_script
         int clickMasterDamageType = getDamageType(weaponDat);
         if (currentDamageType != clickMasterDamageType)
         {
-            
-        }
-        
-        {
             setObjVar(crate, "crafting_attributes.crafting:damageType", (float)(clickMasterDamageType));
         }
         float weaponElementalType = getFloatObjVar(crate, "crafting_attributes.crafting:elementalType");
@@ -1107,10 +1074,6 @@ public class weapons extends script.base_script
             float currentElementalDamage = getFloatObjVar(crate, "crafting_attributes.crafting:elementalValue");
             int clickMasterElementalDamage = ((getElementalValueLow(weaponDat) + getElementalValueHigh(weaponDat)) / 2);
             if (weaponElementalType != clickMasterElementalDamageType)
-            {
-                
-            }
-            
             {
                 setObjVar(crate, "crafting_attributes.crafting:elementalType", (float)(clickMasterElementalDamageType));
             }
@@ -1126,14 +1089,7 @@ public class weapons extends script.base_script
     {
         int currentVersion = getConversionId(object);
         int masterVersion = CONVERSION_VERSION;
-        if (currentVersion == masterVersion)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return currentVersion == masterVersion;
     }
     public static void validateWeaponFactoryCrateFromSchematic(obj_id crate) throws InterruptedException
     {
@@ -1147,12 +1103,7 @@ public class weapons extends script.base_script
                 if (weaponObjectTemplate != null && !weaponObjectTemplate.equals(""))
                 {
                     dictionary weaponDat = getWeaponDat(weaponObjectTemplate);
-                    if (weaponDat == null)
-                    {
-                        return;
-                    }
-                    else 
-                    {
+                    if (weaponDat != null) {
                         validateWeaponFacoryCrateRange(crate, weaponDat);
                     }
                 }
@@ -1257,7 +1208,6 @@ public class weapons extends script.base_script
         dctWeaponStats.put("attackSpeed", fltAttackSpeed);
         dctWeaponStats.put("damageRadius", fltDamageRadius);
         utils.setScriptVar(objWeapon, "dctWeaponStats", dctWeaponStats);
-        return;
     }
     public static void adjustWeaponRangeForExpertise(obj_id player, obj_id self, boolean modify) throws InterruptedException
     {
@@ -1303,10 +1253,6 @@ public class weapons extends script.base_script
             int damageType = getNewWeaponDamageType(weapon);
             if (currentDamageType != damageType)
             {
-                
-            }
-            
-            {
                 setWeaponDamageType(weapon, damageType);
             }
         }
@@ -1324,10 +1270,6 @@ public class weapons extends script.base_script
         int currentDamageType = getWeaponDamageType(weapon);
         int damageType = getDamageType(weaponDat);
         if (currentDamageType != damageType)
-        {
-            
-        }
-        
         {
             setWeaponDamageType(weapon, damageType);
         }
@@ -1383,8 +1325,7 @@ public class weapons extends script.base_script
         {
             return 0;
         }
-        int appBonus = dataTableGetInt(WEAPON_APP_BONUS_TABLE, row, "ele_bonus");
-        return appBonus;
+        return dataTableGetInt(WEAPON_APP_BONUS_TABLE, row, "ele_bonus");
     }
     public static int getCoreMinDamage(obj_id prototype, dictionary weaponDat) throws InterruptedException
     {
@@ -1405,8 +1346,7 @@ public class weapons extends script.base_script
         }
         int wpType = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_TYPE);
         String weaponType = WEAPON_TYPES[wpType];
-        int minDamage = weaponDat.getInt(weaponType + "_min_damage");
-        return minDamage;
+        return weaponDat.getInt(weaponType + "_min_damage");
     }
     public static int getCoreMaxDamage(obj_id prototype, dictionary weaponDat) throws InterruptedException
     {
@@ -1426,9 +1366,7 @@ public class weapons extends script.base_script
             return -1;
         }
         int wpType = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_TYPE);
-        String weaponType = WEAPON_TYPES[wpType];
-        int maxDamage = weaponDat.getInt(weaponType + "_max_damage");
-        return maxDamage;
+        return weaponDat.getInt(WEAPON_TYPES[wpType] + "_max_damage");
     }
     public static int getWeaponSpeed(obj_id prototype) throws InterruptedException
     {
@@ -1443,8 +1381,7 @@ public class weapons extends script.base_script
             CustomerServiceLog("weaponsCraftingError", "getWeaponSpeed::Could not find template(" + template + ") in weapon appearance table for prototype " + prototype);
             return 1;
         }
-        int speed = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_SPEED);
-        return speed;
+        return dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_SPEED);
     }
     public static int getNewWeaponWoundChance(obj_id prototype) throws InterruptedException
     {
@@ -1459,8 +1396,7 @@ public class weapons extends script.base_script
             CustomerServiceLog("weaponsCraftingError", "getNewWeaponWoundChance::Could not find template(" + template + ") in weapon appearance table for prototype " + prototype);
             return 0;
         }
-        int woundChance = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_WOUND);
-        return woundChance;
+        return dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_WOUND);
     }
     public static int getNewWeaponAttackCost(obj_id prototype) throws InterruptedException
     {
@@ -1475,8 +1411,7 @@ public class weapons extends script.base_script
             CustomerServiceLog("weaponsCraftingError", "getNewWeaponAttackCost::Could not find template(" + template + ") in weapon appearance table for prototype " + prototype);
             return 0;
         }
-        int attackCost = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_COST);
-        return attackCost;
+        return dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_COST);
     }
     public static int getNewWeaponAccuracy(obj_id prototype) throws InterruptedException
     {
@@ -1491,8 +1426,7 @@ public class weapons extends script.base_script
             CustomerServiceLog("weaponsCraftingError", "getNewWeaponAccuracy::Could not find template(" + template + ") in weapon appearance table for prototype " + prototype);
             return 0;
         }
-        int wpnAcc = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_ACC);
-        return wpnAcc;
+        return dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_ACC);
     }
     public static int getNewWeaponTableElementType(obj_id prototype) throws InterruptedException
     {
@@ -1507,8 +1441,7 @@ public class weapons extends script.base_script
             CustomerServiceLog("weaponsCraftingError", "getNewWeaponTableElementType::Could not find template(" + template + ") in weapon appearance table for prototype " + prototype);
             return -1;
         }
-        int elementType = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_ELEMENT_TYPE);
-        return elementType;
+        return dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_ELEMENT_TYPE);
     }
     public static int getNewWeaponTableElementalValue(obj_id prototype, dictionary weaponDat) throws InterruptedException
     {
@@ -1529,8 +1462,7 @@ public class weapons extends script.base_script
         }
         int wpType = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_TYPE);
         String weaponType = WEAPON_TYPES[wpType];
-        int elementalValue = weaponDat.getInt("elemental_" + weaponType + "_average_damage");
-        return elementalValue;
+        return weaponDat.getInt("elemental_" + weaponType + "_average_damage");
     }
     public static int getNewWeaponDamageType(obj_id prototype) throws InterruptedException
     {
@@ -1545,8 +1477,7 @@ public class weapons extends script.base_script
             CustomerServiceLog("weaponsCraftingError", "getNewWeaponDamageType::Could not find template(" + template + ") in weapon appearance table for prototype " + prototype);
             return -1;
         }
-        int damageType = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_DAMAGE_TYPE);
-        return damageType;
+        return dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_DAMAGE_TYPE);
     }
     public static int getNewWeaponMaxRange(obj_id prototype) throws InterruptedException
     {
@@ -1561,8 +1492,7 @@ public class weapons extends script.base_script
             CustomerServiceLog("weaponsCraftingError", "getNewWeaponMaxRange::Could not find template(" + template + ") in weapon appearance table for prototype " + prototype);
             return -1;
         }
-        int maxRange = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_MAX_RANGE);
-        return maxRange;
+        return dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_MAX_RANGE);
     }
     public static int getNewWeaponMinRange(obj_id prototype) throws InterruptedException
     {
@@ -1577,8 +1507,7 @@ public class weapons extends script.base_script
             CustomerServiceLog("weaponsCraftingError", "getNewWeaponMinRange::Could not find template(" + template + ") in weapon appearance table for prototype " + prototype);
             return -1;
         }
-        int minRange = dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_MIN_RANGE);
-        return minRange;
+        return dataTableGetInt(WEAPON_APP_TABLE, row, WEAPON_APP_MIN_RANGE);
     }
     public static boolean performSocketing(obj_id prototype, String[] expMods) throws InterruptedException
     {
@@ -1596,9 +1525,8 @@ public class weapons extends script.base_script
         {
             int sockets = 0;
             int experimentModTotal = 0;
-            for (int j = 0; j < mods.length; ++j)
-            {
-                experimentModTotal += mods[j];
+            for (int mod : mods) {
+                experimentModTotal += mod;
             }
             if (experimentModTotal > craftinglib.socketThreshold)
             {
@@ -1625,25 +1553,22 @@ public class weapons extends script.base_script
     }
     public static String getDamageTypeString(int type) throws InterruptedException
     {
-        boolean initializedDamageTypeNames = false;
-        if (!initializedDamageTypeNames)
-        {
-            initializedDamageTypeNames = true;
-            int next = 0;
-            DAMAGE_TYPE_NAMES[next++] = "kinetic";
-            DAMAGE_TYPE_NAMES[next++] = "energy";
-            DAMAGE_TYPE_NAMES[next++] = "blast";
-            DAMAGE_TYPE_NAMES[next++] = "stun";
-            DAMAGE_TYPE_NAMES[next++] = "restraint";
-            DAMAGE_TYPE_NAMES[next++] = "elemental_heat";
-            DAMAGE_TYPE_NAMES[next++] = "elemental_cold";
-            DAMAGE_TYPE_NAMES[next++] = "elemental_acid";
-            DAMAGE_TYPE_NAMES[next++] = "elemental_electrical";
-            DAMAGE_TYPE_NAMES[next++] = "environmental_heat";
-            DAMAGE_TYPE_NAMES[next++] = "environmental_cold";
-            DAMAGE_TYPE_NAMES[next++] = "environmental_acid";
-            DAMAGE_TYPE_NAMES[next++] = "environmental_electrical";
-        }
+        int next = 0;
+
+        DAMAGE_TYPE_NAMES[next++] = "kinetic";
+        DAMAGE_TYPE_NAMES[next++] = "energy";
+        DAMAGE_TYPE_NAMES[next++] = "blast";
+        DAMAGE_TYPE_NAMES[next++] = "stun";
+        DAMAGE_TYPE_NAMES[next++] = "restraint";
+        DAMAGE_TYPE_NAMES[next++] = "elemental_heat";
+        DAMAGE_TYPE_NAMES[next++] = "elemental_cold";
+        DAMAGE_TYPE_NAMES[next++] = "elemental_acid";
+        DAMAGE_TYPE_NAMES[next++] = "elemental_electrical";
+        DAMAGE_TYPE_NAMES[next++] = "environmental_heat";
+        DAMAGE_TYPE_NAMES[next++] = "environmental_cold";
+        DAMAGE_TYPE_NAMES[next++] = "environmental_acid";
+        DAMAGE_TYPE_NAMES[next] = "environmental_electrical";
+
         int i = 0;
         int c = 1;
         while (c < type)
@@ -1656,32 +1581,28 @@ public class weapons extends script.base_script
     public static boolean storeWeaponCraftingValues(obj_id prototype, obj_id schematicId, draft_schematic schematic) throws InterruptedException
     {
         draft_schematic.slot[] slots = schematic.getSlots();
-        draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
-        draft_schematic.attribute[] experimentalAttribs = schematic.getExperimentalAttribs();
-        for (int i = 0; i < slots.length; ++i)
-        {
-            obj_id componentId = slots[i].ingredients[0].ingredient;
-            if (!isIdValid(componentId) || !exists(componentId))
-            {
+        obj_id componentId;
+        String reStatMod;
+        String statModified;
+        for (draft_schematic.slot slot : slots) {
+            componentId = slot.ingredients[0].ingredient;
+            if (!isIdValid(componentId) || !exists(componentId)) {
                 componentId = schematicId;
-                if (!isIdValid(componentId) || !exists(componentId))
-                {
+                if (!isIdValid(componentId) || !exists(componentId)) {
                     continue;
                 }
             }
-            if (hasObjVar(componentId, "reverse_engineering.reverse_engineering_modifier"))
-            {
+            if (hasObjVar(componentId, "reverse_engineering.reverse_engineering_modifier")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar reverse_engineering.reverse_engineering_modifier");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting RE Bit data now on prototype " + prototype);
-                String reStatMod = getStringObjVar(componentId, "reverse_engineering.reverse_engineering_modifier");
+                reStatMod = getStringObjVar(componentId, "reverse_engineering.reverse_engineering_modifier");
                 int ratio = getIntObjVar(componentId, "reverse_engineering.reverse_engineering_ratio");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ratio " + ratio + " on prototype " + prototype);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::reStatMod " + reStatMod + " on prototype " + prototype);
                 setObjVar(prototype, craftinglib.OBJVAR_RE_RATIO, ratio);
                 setObjVar(prototype, craftinglib.OBJVAR_RE_STAT_MODIFIED, reStatMod);
             }
-            if (hasObjVar(componentId, "reverse_engineering.reverse_engineering_power"))
-            {
+            if (hasObjVar(componentId, "reverse_engineering.reverse_engineering_power")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar reverse_engineering.reverse_engineering_power");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting RE Bit data now on prototype " + prototype);
                 float powerMod = getIntObjVar(componentId, "reverse_engineering.reverse_engineering_power");
@@ -1690,132 +1611,107 @@ public class weapons extends script.base_script
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::powerMod after modification of 40% " + powerMod + " on prototype " + prototype);
                 setObjVar(prototype, craftinglib.OBJVAR_RE_VALUE, powerMod);
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar" + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting coreQualityLow data now on prototype " + prototype);
                 float coreQualityLow = getFloatObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::coreQualityLow " + coreQualityLow + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MIN, coreQualityLow);
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar" + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting coreQualityHigh data now on prototype " + prototype);
                 float coreQualityHigh = getFloatObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::coreQualityHigh " + coreQualityHigh + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MAX, coreQualityHigh);
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "appearanceBonusLow"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "appearanceBonusLow")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar" + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "appearanceBonusLow");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting coreQuality data now on prototype " + prototype);
                 float appBonus = getFloatObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "appearanceBonusLow");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::appearanceBonusLow " + appBonus + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_MODIFIER_APPEARANCE_BONUS_MIN, appBonus);
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "appearanceBonusHigh"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "appearanceBonusHigh")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar" + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "appearanceBonusHigh");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting coreQuality data now on prototype " + prototype);
                 float appBonus = getFloatObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "appearanceBonusHigh");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::appearanceBonusHigh " + appBonus + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_MODIFIER_APPEARANCE_BONUS_MAX, appBonus);
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting gasQualityLow data now on prototype " + prototype);
-                if (!hasObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MIN))
-                {
+                if (!hasObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MIN)) {
                     float gasQualityLow = getIntObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow");
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::gasQualityLow " + gasQualityLow + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN, gasQualityLow);
-                }
-                else 
-                {
+                } else {
                     float gasQualityLow = getIntObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MIN);
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::gasQualityLow " + gasQualityLow + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN, gasQualityLow);
                 }
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting gasQualityHigh data now on prototype " + prototype);
-                if (!hasObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MAX))
-                {
+                if (!hasObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MAX)) {
                     float gasQualityHigh = getIntObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh");
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::gasQualityHigh " + gasQualityHigh + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX, gasQualityHigh);
-                }
-                else 
-                {
+                } else {
                     float gasQualityHigh = getIntObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MAX);
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::gasQualityHigh " + gasQualityHigh + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX, gasQualityHigh);
                 }
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting meleeComponentQualityLow data now on prototype " + prototype);
-                if (!hasObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MIN))
-                {
+                if (!hasObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MIN)) {
                     float meleeQuality = getIntObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow");
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::meleeComponentQualityLow " + meleeQuality + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN, meleeQuality);
-                }
-                else 
-                {
+                } else {
                     float meleeQuality = getIntObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MIN);
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::meleeComponentQualityLow " + meleeQuality + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN, meleeQuality);
                 }
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting meleeComponentQualityHigh data now on prototype " + prototype);
-                if (!hasObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MAX))
-                {
+                if (!hasObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MAX)) {
                     float meleeQuality = getIntObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh");
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::meleeComponentQualityHigh " + meleeQuality + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX, meleeQuality);
-                }
-                else 
-                {
+                } else {
                     float meleeQuality = getIntObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MAX);
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::meleeComponentQualityHigh " + meleeQuality + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX, meleeQuality);
                 }
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "elementalValue"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "elementalValue")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "elementalValue");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting elementalValue data now on prototype " + prototype);
                 float elementalValue = getFloatObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "elementalValue");
-                if (elementalValue >= 0.0f)
-                {
+                if (elementalValue >= 0.0f) {
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::elementalValue " + elementalValue + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_ELEMENTAL_VALUE, elementalValue);
                 }
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "elementalType"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "elementalType")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "elementalType");
                 float elementalType = getFloatObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "elementalType");
-                if (elementalType >= 0)
-                {
+                if (elementalType >= 0) {
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting elementalType data now on prototype " + prototype);
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::elementalType " + elementalType + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_ELEMENTAL_TYPE, elementalType);
                 }
             }
-            if (hasObjVar(componentId, craftinglib.OBJVAR_RE_STAT_MODIFIED))
-            {
+            if (hasObjVar(componentId, craftinglib.OBJVAR_RE_STAT_MODIFIED)) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.OBJVAR_RE_STAT_MODIFIED);
-                String statModified = getStringObjVar(componentId, craftinglib.OBJVAR_RE_STAT_MODIFIED);
+                statModified = getStringObjVar(componentId, craftinglib.OBJVAR_RE_STAT_MODIFIED);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting statModified data now on prototype " + prototype);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::statModified " + statModified + " on prototype " + prototype);
                 setObjVar(prototype, craftinglib.OBJVAR_RE_STAT_MODIFIED, statModified);
@@ -1824,73 +1720,63 @@ public class weapons extends script.base_script
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ratio " + ratio + " on prototype " + prototype);
                 setObjVar(prototype, craftinglib.OBJVAR_RE_RATIO, ratio);
             }
-            if (hasObjVar(componentId, craftinglib.OBJVAR_RE_VALUE))
-            {
+            if (hasObjVar(componentId, craftinglib.OBJVAR_RE_VALUE)) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.OBJVAR_RE_VALUE);
                 float powerBit = getFloatObjVar(componentId, craftinglib.OBJVAR_RE_VALUE);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting powerBit data now on prototype " + prototype);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::powerBit " + powerBit + " on prototype " + prototype);
                 setObjVar(prototype, craftinglib.OBJVAR_RE_VALUE, powerBit);
             }
-            if (hasObjVar(componentId, OBJVAR_WP_CORE_QUALITY_MIN))
-            {
+            if (hasObjVar(componentId, OBJVAR_WP_CORE_QUALITY_MIN)) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + OBJVAR_WP_CORE_QUALITY_MIN);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting coreQualityLow data now on prototype " + prototype);
                 float coreQuality = getFloatObjVar(componentId, OBJVAR_WP_CORE_QUALITY_MIN);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::coreQualityLow " + coreQuality + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MIN, coreQuality);
             }
-            if (hasObjVar(componentId, OBJVAR_WP_CORE_QUALITY_MAX))
-            {
+            if (hasObjVar(componentId, OBJVAR_WP_CORE_QUALITY_MAX)) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + OBJVAR_WP_CORE_QUALITY_MAX);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting coreQualityHigh data now on prototype " + prototype);
                 float coreQuality = getFloatObjVar(componentId, OBJVAR_WP_CORE_QUALITY_MAX);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::coreQualityHigh " + coreQuality + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MAX, coreQuality);
             }
-            if (hasObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MIN))
-            {
+            if (hasObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MIN)) {
                 float gasQuality = getFloatObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MIN);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + OBJVAR_MODIFIER_GAS_QUALITY_MIN);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting gasQualityLow data now to " + gasQuality + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN, gasQuality);
             }
-            if (hasObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MAX))
-            {
+            if (hasObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MAX)) {
                 float gasQuality = getFloatObjVar(componentId, OBJVAR_MODIFIER_GAS_QUALITY_MAX);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + OBJVAR_MODIFIER_GAS_QUALITY_MAX);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting gasQualityHigh data now to " + gasQuality + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX, gasQuality);
             }
-            if (hasObjVar(componentId, OBJVAR_ELEMENTAL_VALUE))
-            {
+            if (hasObjVar(componentId, OBJVAR_ELEMENTAL_VALUE)) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + OBJVAR_ELEMENTAL_VALUE);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting elementalValue data now on prototype " + prototype);
                 float elementalValue = getFloatObjVar(componentId, OBJVAR_ELEMENTAL_VALUE);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::elementalValue " + elementalValue + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_ELEMENTAL_VALUE, elementalValue);
             }
-            if (hasObjVar(componentId, OBJVAR_ELEMENTAL_TYPE))
-            {
+            if (hasObjVar(componentId, OBJVAR_ELEMENTAL_TYPE)) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + OBJVAR_ELEMENTAL_TYPE);
                 float elementalType = getFloatObjVar(componentId, OBJVAR_ELEMENTAL_TYPE);
-                if (elementalType >= 0)
-                {
+                if (elementalType >= 0) {
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting elementalType data now on prototype " + prototype);
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::elementalType " + elementalType + " on prototype " + prototype);
                     setObjVar(prototype, OBJVAR_ELEMENTAL_TYPE, elementalType);
                 }
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreLevel"))
-            {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreLevel")) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreLevel");
-                int corelevel = (int)getFloatObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreLevel");
+                int corelevel = (int) getFloatObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreLevel");
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting corelevel data now on prototype " + prototype);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::corelevel " + corelevel + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_WP_LEVEL, corelevel);
             }
-            if (hasObjVar(componentId, weapons.OBJVAR_MODIFIER_COMPONENT_BONUS_MIN) && !hasObjVar(prototype, OBJVAR_NEW_WP_WEAPON))
-            {
+            if (hasObjVar(componentId, weapons.OBJVAR_MODIFIER_COMPONENT_BONUS_MIN) && !hasObjVar(prototype, OBJVAR_NEW_WP_WEAPON)) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::componentBonus::ingredient " + componentId + " has the objvar " + weapons.OBJVAR_MODIFIER_COMPONENT_BONUS_MIN);
                 float previousBonus = getFloatObjVar(prototype, weapons.OBJVAR_MODIFIER_COMPONENT_BONUS_MIN);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::componentBonus::previousBonusMin " + previousBonus + " from prototype " + prototype);
@@ -1899,8 +1785,7 @@ public class weapons extends script.base_script
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::componentBonus::setting componentBonus data now on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MIN, (previousBonus + componentBonus));
             }
-            if (hasObjVar(componentId, weapons.OBJVAR_MODIFIER_COMPONENT_BONUS_MAX) && !hasObjVar(prototype, OBJVAR_NEW_WP_WEAPON))
-            {
+            if (hasObjVar(componentId, weapons.OBJVAR_MODIFIER_COMPONENT_BONUS_MAX) && !hasObjVar(prototype, OBJVAR_NEW_WP_WEAPON)) {
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::componentBonus::ingredient " + componentId + " has the objvar " + weapons.OBJVAR_MODIFIER_COMPONENT_BONUS_MAX);
                 float previousBonus = getFloatObjVar(prototype, weapons.OBJVAR_MODIFIER_COMPONENT_BONUS_MAX);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::componentBonus::previousBonusMax " + previousBonus + " from prototype " + prototype);
@@ -1909,35 +1794,28 @@ public class weapons extends script.base_script
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::componentBonus::setting componentBonus data now on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MAX, (previousBonus + componentBonus));
             }
-            if (hasObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MIN))
-            {
+            if (hasObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MIN)) {
                 float meleeQuality = getFloatObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MIN);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + OBJVAR_MODIFIER_MELEE_QUALITY_MIN);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting meleeQuality_min data now to " + meleeQuality + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN, meleeQuality);
             }
-            if (hasObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MAX))
-            {
+            if (hasObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MAX)) {
                 float meleeQuality = getFloatObjVar(componentId, OBJVAR_MODIFIER_MELEE_QUALITY_MAX);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + OBJVAR_MODIFIER_MELEE_QUALITY_MAX);
                 CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting meleeQuality_max data now to " + meleeQuality + " on prototype " + prototype);
                 setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX, meleeQuality);
             }
-            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_ranged") || hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_melee"))
-            {
-                if (isRangedCore(prototype) || isMeleeCore(prototype) || isHeavyCore(prototype))
-                {
-                    int critBonus = 0;
-                    if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_ranged"))
-                    {
+            if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_ranged") || hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_melee")) {
+                if (isRangedCore(prototype) || isMeleeCore(prototype) || isHeavyCore(prototype)) {
+                    int critBonus;
+                    if (hasObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_ranged")) {
                         CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_ranged");
                         critBonus = getIntObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_ranged");
                         setObjVar(prototype, OBJVAR_CRIT_BONUS_RANGED, critBonus);
                         CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting critBonus data now to " + critBonus + " on prototype " + prototype);
                         setCategorizedSkillModBonus(prototype, "weapon", "combat_critical_ranged", critBonus);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_melee");
                         critBonus = getIntObjVar(componentId, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "combat_critical_melee");
                         setObjVar(prototype, OBJVAR_CRIT_BONUS_MELEE, critBonus);
@@ -1946,33 +1824,27 @@ public class weapons extends script.base_script
                     }
                 }
             }
-            if (hasObjVar(componentId, "attribute.bonus"))
-            {
+            if (hasObjVar(componentId, "attribute.bonus")) {
                 LOG("sissynoid", "attribute.bonus found");
                 int[] attribsModified = getAttributeBonuses(componentId);
-                if (attribsModified != null && attribsModified.length > 0)
-                {
+                if (attribsModified != null && attribsModified.length > 0) {
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::ingredient " + componentId + " has an attribute bonus.");
                     int[] attribBonus = new int[NUM_ATTRIBUTES];
-                    for (int j = 0; j < attribsModified.length; ++j)
-                    {
-                        if (attribsModified[j] > 0)
-                        {
+                    for (int j = 0; j < attribsModified.length; ++j) {
+                        if (attribsModified[j] > 0) {
                             attribBonus[j] = attribsModified[j];
                             CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting Attribute Bonus " + ATTRIBUTES[j] + " To " + attribsModified[j]);
                         }
                     }
                     setAttributeBonuses(prototype, attribBonus);
                 }
-                if (hasObjVar(componentId, "attribute.bonus") && hasObjVar(prototype, "armor.general_protection"))
-                {
+                if (hasObjVar(componentId, "attribute.bonus") && hasObjVar(prototype, "armor.general_protection")) {
                     CustomerServiceLog("new_weapon_crafting", "Cybernetics: Component(" + componentId + ") is being added to a Cybernetic(" + prototype + ") that has an Armor Core; Armor Value Reduction will occur by design.");
                     LOG("sissynoid", "Cybernetic has Armor Core and Modules - Nerf the Core: prototype: " + prototype);
                     setObjVar(prototype, "modifyCyberneticArmorValue", true);
                 }
             }
-            if (hasObjVar(componentId, "cybernetic.special_protection"))
-            {
+            if (hasObjVar(componentId, "cybernetic.special_protection")) {
                 LOG("sissynoid", "Cybernetic Protection Module found!");
                 int protectionType = getIntObjVar(componentId, "cybernetic.special_protection");
                 setObjVar(prototype, "cybernetic.special_protection.type", protectionType);
@@ -1981,17 +1853,14 @@ public class weapons extends script.base_script
                 CustomerServiceLog("new_weapon_crafting", "Cybernetics: Component(" + componentId + ") has Special Protection - Adding these to the Cybernetic(" + prototype + "): protection type: (" + protectionType + ") and Value: (" + protectionValue + ").");
                 LOG("sissynoid", "WEAPON SCRIPTLIB: protection module type: " + protectionType + " and Value: " + protectionValue);
             }
-            if (hasObjVar(componentId, OBJVAR_CRIT_BONUS_MELEE) || hasObjVar(componentId, OBJVAR_CRIT_BONUS_RANGED))
-            {
-                if (hasObjVar(componentId, OBJVAR_CRIT_BONUS_MELEE))
-                {
+            if (hasObjVar(componentId, OBJVAR_CRIT_BONUS_MELEE) || hasObjVar(componentId, OBJVAR_CRIT_BONUS_RANGED)) {
+                if (hasObjVar(componentId, OBJVAR_CRIT_BONUS_MELEE)) {
                     int critBonus = getIntObjVar(componentId, OBJVAR_CRIT_BONUS_MELEE);
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting critBonus data now to " + critBonus + " on prototype " + prototype);
                     setCategorizedSkillModBonus(prototype, "weapon", "combat_critical_melee", critBonus);
                     setObjVar(prototype, OBJVAR_CRIT_BONUS_MELEE, critBonus);
                 }
-                if (hasObjVar(componentId, OBJVAR_CRIT_BONUS_RANGED))
-                {
+                if (hasObjVar(componentId, OBJVAR_CRIT_BONUS_RANGED)) {
                     int critBonus = getIntObjVar(componentId, OBJVAR_CRIT_BONUS_RANGED);
                     CustomerServiceLog("new_weapon_crafting", "storeWeaponCraftingValues::setting critBonus data now to " + critBonus + " on prototype " + prototype);
                     setCategorizedSkillModBonus(prototype, "weapon", "combat_critical_ranged", critBonus);
@@ -2007,272 +1876,203 @@ public class weapons extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            float attribValue = itemAttributes[i].currentValue;
-            if (((itemAttributes[i].name).getAsciiId()).equals("gasQualityLow"))
-            {
-                if (hasObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN))
-                {
-                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow"))
-                    {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            float attribValue = itemAttribute.currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("gasQualityLow")) {
+                if (hasObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN)) {
+                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow")) {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") dont have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow");
                         attribValue = getFloatObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new gasQualityLow value is " + attribValue);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow");
                         attribValue /= NEW_COMPONENT_MODIFIER;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new gasQualityLow value is " + attribValue);
                     }
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN, attribValue);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::gasQualityLow on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN, attribValue);
-                }
-                else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow"))
-                {
+                } else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow")) {
                     attribValue = getFloatObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityLow");
                     attribValue /= NEW_COMPONENT_MODIFIER;
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::gasQualityLow on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MIN, attribValue);
                 }
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("gasQualityHigh"))
-            {
-                if (hasObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX))
-                {
-                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh"))
-                    {
+            if (((itemAttribute.name).getAsciiId()).equals("gasQualityHigh")) {
+                if (hasObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX)) {
+                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh")) {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") dont have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh");
                         attribValue = getFloatObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new gasQualityHigh value is " + attribValue);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh");
                         attribValue /= NEW_COMPONENT_MODIFIER;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new gasQualityHigh value is " + attribValue);
                     }
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX, attribValue);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::gasQualityHigh on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX, attribValue);
-                }
-                else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh"))
-                {
+                } else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh")) {
                     attribValue = getFloatObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "gasQualityHigh");
                     attribValue /= NEW_COMPONENT_MODIFIER;
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::gasQualityLow on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_GAS_QUALITY_MAX, attribValue);
                 }
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("componentBonusLow"))
-            {
-                if (hasObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MIN))
-                {
-                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusLow"))
-                    {
+            if (((itemAttribute.name).getAsciiId()).equals("componentBonusLow")) {
+                if (hasObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MIN)) {
+                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusLow")) {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") dont have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusLow");
                         attribValue = getFloatObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MIN);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new componentBonusLow value is " + attribValue);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusLow");
                         attribValue /= NEW_COMPONENT_MODIFIER;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new componentBonusLow value is " + attribValue);
                     }
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         setObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MIN, attribValue);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::componentBonusLow on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MIN, attribValue);
-                }
-                else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusLow"))
-                {
+                } else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusLow")) {
                     attribValue = getFloatObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusLow");
                     attribValue /= NEW_COMPONENT_MODIFIER;
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::gasQualityHigh on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MIN, attribValue);
                 }
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("componentBonusHigh"))
-            {
-                if (hasObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MAX))
-                {
-                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusHigh"))
-                    {
+            if (((itemAttribute.name).getAsciiId()).equals("componentBonusHigh")) {
+                if (hasObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MAX)) {
+                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusHigh")) {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") dont have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusHigh");
                         attribValue = getFloatObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MAX);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new componentBonusHigh value is " + attribValue);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusHigh");
                         attribValue /= NEW_COMPONENT_MODIFIER;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new componentBonusHigh value is " + attribValue);
                     }
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         setObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MAX, attribValue);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::componentBonusHigh on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MAX, attribValue);
-                }
-                else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusHigh"))
-                {
+                } else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusHigh")) {
                     attribValue = getFloatObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "componentBonusHigh");
                     attribValue /= NEW_COMPONENT_MODIFIER;
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::gasQualityLow on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_COMPONENT_BONUS_MAX, attribValue);
                 }
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("meleeComponentQualityLow"))
-            {
-                if (hasObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN))
-                {
-                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow"))
-                    {
+            if (((itemAttribute.name).getAsciiId()).equals("meleeComponentQualityLow")) {
+                if (hasObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN)) {
+                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow")) {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") dont have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow");
                         attribValue = getFloatObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new meleeComponentQualityLow value is " + attribValue);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow");
                         attribValue /= NEW_COMPONENT_MODIFIER;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new meleeComponentQualityLow value is " + attribValue);
                     }
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN, attribValue);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::meleeComponentQualityLow on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN, attribValue);
-                }
-                else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow"))
-                {
+                } else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow")) {
                     attribValue = getFloatObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityLow");
                     attribValue /= NEW_COMPONENT_MODIFIER;
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::gasQualityLow on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MIN, attribValue);
                 }
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("meleeComponentQualityHigh"))
-            {
-                if (hasObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX))
-                {
-                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh"))
-                    {
+            if (((itemAttribute.name).getAsciiId()).equals("meleeComponentQualityHigh")) {
+                if (hasObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX)) {
+                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh")) {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") dont have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh");
                         attribValue = getFloatObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new meleeComponentQualityHigh value is " + attribValue);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh");
                         attribValue /= NEW_COMPONENT_MODIFIER;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new meleeComponentQualityHigh value is " + attribValue);
                     }
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX, attribValue);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::meleeComponentQualityHigh on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX, attribValue);
-                }
-                else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh"))
-                {
+                } else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh")) {
                     attribValue = getFloatObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "meleeComponentQualityHigh");
                     attribValue /= NEW_COMPONENT_MODIFIER;
-                    if (attribValue > NEW_COMPONENT_CAP)
-                    {
+                    if (attribValue > NEW_COMPONENT_CAP) {
                         attribValue = NEW_COMPONENT_CAP;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::gasQualityLow on prototype(" + prototype + ")was higher than the cap of " + NEW_COMPONENT_CAP + ", so we lowered it to the cap.");
                     }
                     setObjVar(prototype, OBJVAR_MODIFIER_MELEE_QUALITY_MAX, attribValue);
                 }
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("coreQualityLow"))
-            {
-                if (hasObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MIN))
-                {
-                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow"))
-                    {
+            if (((itemAttribute.name).getAsciiId()).equals("coreQualityLow")) {
+                if (hasObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MIN)) {
+                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow")) {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") dont have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow");
                         attribValue = getFloatObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MIN);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new gasQualityLow value is " + attribValue);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow");
                         attribValue /= WP_CORE_MODIFIER;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new coreQualityLow value is " + attribValue);
                     }
                     setObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MIN, attribValue);
                     setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow", attribValue);
-                }
-                else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow"))
-                {
+                } else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow")) {
                     attribValue = getFloatObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityLow");
                     attribValue /= WP_CORE_MODIFIER;
                     setObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MIN, attribValue);
                 }
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("coreQualityHigh"))
-            {
-                if (hasObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MAX))
-                {
-                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh"))
-                    {
+            if (((itemAttribute.name).getAsciiId()).equals("coreQualityHigh")) {
+                if (hasObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MAX)) {
+                    if (!hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh")) {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") dont have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh");
                         attribValue = getFloatObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MAX);
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new gasQualityHigh value is " + attribValue);
-                    }
-                    else 
-                    {
+                    } else {
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::we(" + prototype + ") have the objvar " + craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh");
                         attribValue /= WP_CORE_MODIFIER;
                         CustomerServiceLog("new_weapon_crafting", "setComponentObjVars::new coreQualityHigh value is " + attribValue);
                     }
                     setObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MAX, attribValue);
                     setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh", attribValue);
-                }
-                else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh"))
-                {
+                } else if (hasObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh")) {
                     attribValue = getFloatObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + "coreQualityHigh");
                     attribValue /= WP_CORE_MODIFIER;
                     setObjVar(prototype, OBJVAR_WP_CORE_QUALITY_MAX, attribValue);
@@ -2281,13 +2081,8 @@ public class weapons extends script.base_script
         }
         return true;
     }
-    public static boolean isCoredWeapon(obj_id weapon) throws InterruptedException
-    {
-        if (!isIdValid(weapon) || !exists(weapon))
-        {
-            return false;
-        }
-        return hasObjVar(weapon, OBJVAR_NEW_WP_WEAPON);
+    public static boolean isCoredWeapon(obj_id weapon) throws InterruptedException {
+        return !(!isIdValid(weapon) || !exists(weapon)) && hasObjVar(weapon, OBJVAR_NEW_WP_WEAPON);
     }
     public static float getWeaponComponentBonusesMinDamage(obj_id weapon) throws InterruptedException
     {
@@ -2345,26 +2140,17 @@ public class weapons extends script.base_script
         {
             return false;
         }
-        String template = getTemplateName(core);
-        if (template.equals("object/tangible/component/weapon/core/weapon_core_ranged_base.iff"))
-        {
-            return true;
-        }
-        else if (template.equals("object/tangible/component/weapon/core/weapon_core_ranged_advanced.iff"))
-        {
-            return true;
-        }
-        else if (template.equals("object/tangible/component/weapon/core/weapon_core_ranged_basic.iff"))
-        {
-            return true;
-        }
-        else if (template.equals("object/tangible/component/weapon/core/weapon_core_ranged_standard.iff"))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
+        switch (getTemplateName(core)) {
+            case "object/tangible/component/weapon/core/weapon_core_ranged_base.iff":
+                return true;
+            case "object/tangible/component/weapon/core/weapon_core_ranged_advanced.iff":
+                return true;
+            case "object/tangible/component/weapon/core/weapon_core_ranged_basic.iff":
+                return true;
+            case "object/tangible/component/weapon/core/weapon_core_ranged_standard.iff":
+                return true;
+            default:
+                return false;
         }
     }
     public static boolean isHeavyCore(obj_id core) throws InterruptedException
@@ -2373,22 +2159,15 @@ public class weapons extends script.base_script
         {
             return false;
         }
-        String template = getTemplateName(core);
-        if (template.equals("object/tangible/component/weapon/core/weapon_core_heavy_base.iff"))
-        {
-            return true;
-        }
-        else if (template.equals("object/tangible/component/weapon/core/weapon_core_heavy_advanced.iff"))
-        {
-            return true;
-        }
-        else if (template.equals("object/tangible/component/weapon/core/weapon_core_heavy_standard.iff"))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
+        switch (getTemplateName(core)) {
+            case "object/tangible/component/weapon/core/weapon_core_heavy_base.iff":
+                return true;
+            case "object/tangible/component/weapon/core/weapon_core_heavy_advanced.iff":
+                return true;
+            case "object/tangible/component/weapon/core/weapon_core_heavy_standard.iff":
+                return true;
+            default:
+                return false;
         }
     }
     public static boolean isMeleeCore(obj_id core) throws InterruptedException
@@ -2397,26 +2176,17 @@ public class weapons extends script.base_script
         {
             return false;
         }
-        String template = getTemplateName(core);
-        if (template.equals("object/tangible/component/weapon/core/weapon_core_melee_base.iff"))
-        {
-            return true;
-        }
-        else if (template.equals("object/tangible/component/weapon/core/weapon_core_melee_basic.iff"))
-        {
-            return true;
-        }
-        else if (template.equals("object/tangible/component/weapon/core/weapon_core_melee_standard.iff"))
-        {
-            return true;
-        }
-        else if (template.equals("object/tangible/component/weapon/core/weapon_core_melee_advanced.iff"))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
+        switch (getTemplateName(core)) {
+            case "object/tangible/component/weapon/core/weapon_core_melee_base.iff":
+                return true;
+            case "object/tangible/component/weapon/core/weapon_core_melee_basic.iff":
+                return true;
+            case "object/tangible/component/weapon/core/weapon_core_melee_standard.iff":
+                return true;
+            case "object/tangible/component/weapon/core/weapon_core_melee_advanced.iff":
+                return true;
+            default:
+                return false;
         }
     }
     public static float verifyDamageRangeMin(obj_id weapon, float currentDamage, dictionary coreData) throws InterruptedException
@@ -2543,8 +2313,8 @@ public class weapons extends script.base_script
         {
             return false;
         }
-        float coreBonus = 0.0f;
-        float craftedBonus = 0.0f;
+        float coreBonus;
+        float craftedBonus;
         int coreLevel = getCoreLevel(item);
         if (coreLevel <= 0)
         {
@@ -2621,18 +2391,13 @@ public class weapons extends script.base_script
         if (isIdValid(player) && isIdValid(weapon))
         {
             String weaponTemplate = getTemplateName(weapon);
-            if (weaponTemplate.indexOf("grenade") <= -1 && !utils.hasScriptVar(weapon, "illegalStorytellerWeapon"))
+            if (!weaponTemplate.contains("grenade") && !utils.hasScriptVar(weapon, "illegalStorytellerWeapon"))
             {
                 String msg = "Weapon gained from a storyteller NPC via an exploit was detected in " + source + ". Player (" + player + ") and weapon | " + getName(weapon) + " | " + weaponTemplate + " | (" + weapon + ").";
                 CustomerServiceLog("storyteller_weapon_exploit", msg);
                 CustomerServiceLog("storyteller_weapon_exploit", logWeaponStats(weapon));
-                obj_id playerInv = utils.getInventoryContainer(player);
-                if (isIdValid(playerInv))
-                {
-                }
             }
         }
-        return;
     }
     public static String logWeaponStats(obj_id weapon) throws InterruptedException
     {

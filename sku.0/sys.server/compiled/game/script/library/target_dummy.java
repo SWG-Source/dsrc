@@ -1,18 +1,12 @@
 package script.library;
 
+import script.combat_engine.combat_data;
+import script.combat_engine.hit_result;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.combat;
-import script.library.space_utils;
-import script.library.sui;
-import script.library.utils;
+import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.Vector;
 
 public class target_dummy extends script.base_script
 {
@@ -150,7 +144,7 @@ public class target_dummy extends script.base_script
             }
             location controllerLocation = getLocation(controller);
             location awayLoc = utils.getRandomAwayLocation(controllerLocation, 1.f, 2.f);
-            if ((awayLoc.cell != null) || isIdValid(awayLoc.cell))
+            if ((awayLoc.cell != null) && isIdValid(awayLoc.cell))
             {
                 awayLoc = (location)controllerLocation.clone();
             }
@@ -243,7 +237,6 @@ public class target_dummy extends script.base_script
         removeObjVar(controller, target_dummy.TARGET_DUMMY_ID_OBJVAR);
         removeTargetDummyFromPermissions(targetDummy);
         destroyObject(targetDummy);
-        return;
     }
     public static void removeTargetDummyFromPermissions(obj_id targetDummy) throws InterruptedException
     {
@@ -255,7 +248,6 @@ public class target_dummy extends script.base_script
                 permissionsRemoveAllowed(structure, targetDummy.toString());
             }
         }
-        return;
     }
     public static void removeTargetDummyFromPermissionsViaController(obj_id controller, obj_id targetDummy) throws InterruptedException
     {
@@ -267,7 +259,6 @@ public class target_dummy extends script.base_script
                 permissionsRemoveAllowed(structure, targetDummy.toString());
             }
         }
-        return;
     }
     public static obj_id setTargetDummyOwner(obj_id controller) throws InterruptedException
     {
@@ -284,9 +275,6 @@ public class target_dummy extends script.base_script
             {
                 setOwner(controller, owner);
                 CustomerServiceLog("target_dummy", "target_dummy.scriptlib:setTargetDummyOwner - Target Dummy Controller: " + controller + " Ownership given to Owner OID: " + owner);
-            }
-            else 
-            {
             }
         }
         return owner;
@@ -385,7 +373,6 @@ public class target_dummy extends script.base_script
     }
     public static boolean initializeTargetDummy(obj_id targetDummy, int combatLevel, int difficulty) throws InterruptedException
     {
-        boolean result = false;
         String creatureName = getCreatureName(targetDummy);
         dictionary creatureDict = utils.dataTableGetRow(create.CREATURE_TABLE, creatureName);
         if (creatureDict != null)
@@ -393,15 +380,15 @@ public class target_dummy extends script.base_script
             creatureDict.put("difficultyClass", difficulty);
             create.initializeCreature(targetDummy, creatureName, creatureDict, combatLevel);
             setNpcDifficulty(targetDummy, difficulty);
-            result = false;
             obj_id controller = target_dummy.getTargetDummyController(targetDummy);
             if (isIdValid(controller))
             {
                 setObjVar(controller, "intCombatDifficulty", combatLevel);
                 setObjVar(controller, "difficultyClass", difficulty);
+                return true;
             }
         }
-        return result;
+        return false;
     }
     public static int getTargetDummyDifficulty(obj_id targetDummy) throws InterruptedException
     {
@@ -426,7 +413,6 @@ public class target_dummy extends script.base_script
         String prompt = utils.packStringId(new string_id("target_dummy", "combat_level_prompt"));
         String name = utils.packStringId(new string_id("target_dummy", "combat_level_name"));
         sui.inputbox(targetDummy, player, prompt, sui.OK_CANCEL, name, sui.INPUT_NORMAL, null, "handleTargetDummyLevelSelect", null);
-        return;
     }
     public static void promptForCombatDifficulty(obj_id targetDummy, obj_id player) throws InterruptedException
     {
@@ -441,8 +427,7 @@ public class target_dummy extends script.base_script
             elite,
             boss
         };
-        int pid = sui.listbox(targetDummy, player, prompt, sui.OK_CANCEL, title, difficulties, "handleTargetDummyDifficultySelect");
-        return;
+        sui.listbox(targetDummy, player, prompt, sui.OK_CANCEL, title, difficulties, "handleTargetDummyDifficultySelect");
     }
     public static void showTargetDummyDefenseListSui(obj_id targetDummy, obj_id player) throws InterruptedException
     {
@@ -458,7 +443,6 @@ public class target_dummy extends script.base_script
         {
             utils.setScriptVar(player, "targetDummy.pidTargetDummyDefenses", pid);
         }
-        return;
     }
     public static String[] getTargetDummySkillModsOptions(obj_id targetDummy) throws InterruptedException
     {
@@ -477,14 +461,12 @@ public class target_dummy extends script.base_script
         String prompt = utils.packStringId(new string_id("target_dummy", "combat_defensive_skill_mod_prompt"));
         prompt += "  " + utils.packStringId(new string_id("target_dummy", target_dummy.TARGET_DUMMY_DEFENSES[skill_mod_selected])) + " :";
         sui.inputbox(targetDummy, player, prompt, "handleTargetDummyDefensiveSkillModSet");
-        return;
     }
     public static void setTargetDummyDefensiveValue(obj_id targetDummy, obj_id player, int value) throws InterruptedException
     {
         int skillModIndex = utils.getIntScriptVar(player, "targetDummySkillModSelected");
         String skillModName = target_dummy.TARGET_DUMMY_DEFENSES[skillModIndex];
         setTargetDummyDefensiveValue(targetDummy, player, value, skillModName);
-        return;
     }
     public static void setTargetDummyDefensiveValue(obj_id targetDummy, obj_id player, int value, String skillModName) throws InterruptedException
     {
@@ -535,7 +517,6 @@ public class target_dummy extends script.base_script
         {
             setObjVar(controller, "target_dummy_defense." + skillModName, value);
         }
-        return;
     }
     public static void confirmClearYourCombatData(obj_id targetDummy, obj_id player) throws InterruptedException
     {
@@ -543,7 +524,6 @@ public class target_dummy extends script.base_script
         String prompt = utils.packStringId(new string_id("target_dummy", "data_cleared_confirm_prompt"));
         String handler = "confirmClearYourCombatData";
         buildConfirmClearCombatDataSui(targetDummy, player, title, prompt, handler);
-        return;
     }
     public static void confirmClearAllCombatData(obj_id targetDummy, obj_id player) throws InterruptedException
     {
@@ -551,7 +531,6 @@ public class target_dummy extends script.base_script
         String prompt = utils.packStringId(new string_id("target_dummy", "data_all_cleared_confirm_prompt"));
         String handler = "confirmClearAllCombatData";
         buildConfirmClearCombatDataSui(targetDummy, player, title, prompt, handler);
-        return;
     }
     public static void buildConfirmClearCombatDataSui(obj_id targetDummy, obj_id player, String title, String prompt, String handler) throws InterruptedException
     {
@@ -565,7 +544,6 @@ public class target_dummy extends script.base_script
         setSUIProperty(pid, sui.MSGBOX_BTN_CANCEL, sui.PROP_TEXT, cancel_button);
         utils.setScriptVar(player, "clearCombatData.openSui", pid);
         sui.showSUIPage(pid);
-        return;
     }
     public static void clearYourCombatData(obj_id targetDummy, obj_id player) throws InterruptedException
     {
@@ -580,7 +558,6 @@ public class target_dummy extends script.base_script
                 removeObjVar(controller, target_dummy.BASE_TARGET_DUMMY_VAR);
             }
         }
-        return;
     }
     public static void clearAllCombatData(obj_id targetDummy, obj_id player) throws InterruptedException
     {
@@ -595,7 +572,6 @@ public class target_dummy extends script.base_script
                 removeObjVar(controller, target_dummy.BASE_TARGET_DUMMY_VAR);
             }
         }
-        return;
     }
     public static void sendTargetDummyCombatData(obj_id attacker, obj_id defender, combat_data actionData, hit_result hitData) throws InterruptedException
     {
@@ -607,7 +583,6 @@ public class target_dummy extends script.base_script
         {
             recoredCombatResultViaController(attacker, defender, actionData, hitData);
         }
-        return;
     }
     public static void recoredCombatResultViaController(obj_id attacker, obj_id targetDummy, combat_data actionData, hit_result hitData) throws InterruptedException
     {
@@ -616,7 +591,6 @@ public class target_dummy extends script.base_script
         {
             recoredCombatResult(attacker, controller, actionData, hitData);
         }
-        return;
     }
     public static void recoredCombatResult(obj_id attacker, obj_id controller, combat_data actionData, hit_result hitData) throws InterruptedException
     {
@@ -626,14 +600,10 @@ public class target_dummy extends script.base_script
         boolean attackParried = hitData.parry;
         int damageDone = hitData.damage;
         boolean criticalHit = hitData.critical;
-        int criticalDamage = hitData.critDamage;
         boolean strikethroughHit = hitData.strikethrough;
-        float strikethroughAmmount = hitData.strikethroughAmmount;
         boolean glancingHit = hitData.glancing;
         boolean evadedDamage = hitData.evadeResult;
-        float evadeAmmount = hitData.evadeAmmount;
         boolean blockedHit = hitData.blockResult;
-        int blockAmount = hitData.block;
         obj_id combatDataOwner = attacker;
         if (beast_lib.isBeast(attacker))
         {
@@ -670,8 +640,7 @@ public class target_dummy extends script.base_script
         storeCumulativeCombatData(specificAttackData, INDEX_NUM_OF_ATTACKS, 1);
         if (!hitData.success)
         {
-            int indexOfAvoidanceType = -1;
-            int numAvoided = 1;
+            int indexOfAvoidanceType;
             if (attackMissed)
             {
                 indexOfAvoidanceType = INDEX_NUM_MISSED;
@@ -688,11 +657,8 @@ public class target_dummy extends script.base_script
             {
                 indexOfAvoidanceType = INDEX_NUM_MISSED;
             }
-            if (indexOfAvoidanceType > -1)
-            {
-                storeCumulativeCombatData(allAttacksData, indexOfAvoidanceType, 1);
-                storeCumulativeCombatData(specificAttackData, indexOfAvoidanceType, 1);
-            }
+            storeCumulativeCombatData(allAttacksData, indexOfAvoidanceType, 1);
+            storeCumulativeCombatData(specificAttackData, indexOfAvoidanceType, 1);
         }
         else 
         {
@@ -736,13 +702,10 @@ public class target_dummy extends script.base_script
         utils.setScriptVar(controller, baseAllAttacksVar, allAttacksData);
         utils.setScriptVar(controller, baseSpecificAttackVar, specificAttackData);
         utils.setScriptVar(controller, baseAttackerVar + "." + LAST_ATTACK_TIME_VAR, getGameTime());
-        return;
     }
     public static void storeCumulativeCombatData(int[] dataArray, int index, int newData) throws InterruptedException
     {
-        int previousData = dataArray[index];
-        dataArray[index] = previousData + newData;
-        return;
+        dataArray[index] = dataArray[index] + newData;
     }
     public static void storeComparisonCombatData(int[] dataArray, int newData) throws InterruptedException
     {
@@ -760,25 +723,14 @@ public class target_dummy extends script.base_script
         {
             dataArray[INDEX_SMALLEST_ATTACK] = newData;
         }
-        return;
     }
     public static boolean recordAsNormalHit(hit_result hitData) throws InterruptedException
     {
-        boolean criticalHit = hitData.critical;
-        boolean strikethroughHit = hitData.strikethrough;
-        boolean glancingHit = hitData.glancing;
-        boolean evadedDamage = hitData.evadeResult;
-        boolean blockedHit = hitData.blockResult;
-        if (!criticalHit && !strikethroughHit)
-        {
-            return true;
-        }
-        return false;
+        return !hitData.critical && !hitData.strikethrough;
     }
     public static void reportCombatData(obj_id player, obj_id targetDummy) throws InterruptedException
     {
         reportCombatDataViaController(player, targetDummy, obj_id.NULL_ID);
-        return;
     }
     public static void reportCombatDataViaController(obj_id player, obj_id targetDummy, obj_id controller) throws InterruptedException
     {
@@ -816,11 +768,10 @@ public class target_dummy extends script.base_script
         {
             sendSystemMessage(player, new string_id("target_dummy", "placement_no_combat_data"));
         }
-        return;
     }
     public static String getCombatDataReportString(obj_id reportDataObject, obj_id player) throws InterruptedException
     {
-        String report = "";
+        String report;
         String baseAttackerVar = BASE_TARGET_DUMMY_VAR + "." + player;
         if (utils.hasScriptVarTree(reportDataObject, baseAttackerVar))
         {
@@ -828,13 +779,16 @@ public class target_dummy extends script.base_script
             Vector attackTypes = new Vector();
             attackTypes.setSize(0);
             Enumeration keys = vars.keys();
+            String key;
+            String[] data;
+            String attackType;
             while (keys.hasMoreElements())
             {
-                String key = (String)(keys.nextElement());
+                key = (String) (keys.nextElement());
                 if (key.startsWith(baseAttackerVar + "."))
                 {
-                    String[] data = split(key, '.');
-                    String attackType = data[2];
+                    data = split(key, '.');
+                    attackType = data[2];
                     if (!attackType.equals(LAST_ATTACK_TIME_VAR))
                     {
                         utils.addElement(attackTypes, attackType);
@@ -846,17 +800,15 @@ public class target_dummy extends script.base_script
             int[] initialDamageDoneArray = new int[numItems - 1];
             String[] sortedAttackTypes = new String[numItems];
             int initialIdx = 0;
-            for (int i = 0; i < numItems; i++)
-            {
-                String attackName = ((String)attackTypes.get(i));
-                if (attackName.equals(ALL_ATTACKS_SUB_VAR))
-                {
+            String attackName;
+            String baseSpecificAttackVar;
+            for (Object attackType1 : attackTypes) {
+                attackName = ((String) attackType1);
+                if (attackName.equals(ALL_ATTACKS_SUB_VAR)) {
                     sortedAttackTypes[0] = attackName;
-                }
-                else 
-                {
+                } else {
                     initialAttackTypes[initialIdx] = attackName;
-                    String baseSpecificAttackVar = baseAttackerVar + "." + attackName;
+                    baseSpecificAttackVar = baseAttackerVar + "." + attackName;
                     int[] tempAttackData = utils.getIntArrayScriptVar(reportDataObject, baseSpecificAttackVar);
                     initialDamageDoneArray[initialIdx] = tempAttackData[INDEX_TOTAL_DAMAGE_DONE];
                     initialIdx = initialIdx + 1;
@@ -865,20 +817,18 @@ public class target_dummy extends script.base_script
             int[] ascendingDataArray = new int[initialDamageDoneArray.length];
             utils.copyArray(initialDamageDoneArray, ascendingDataArray);
             Arrays.sort(ascendingDataArray);
+            String name;
             for (int j = 0; j < ascendingDataArray.length; j++)
             {
-                int data = ascendingDataArray[j];
-                int index = utils.getElementPositionInArray(initialDamageDoneArray, data);
-                String name = initialAttackTypes[index];
+                int index = utils.getElementPositionInArray(initialDamageDoneArray, ascendingDataArray[j]);
+                name = initialAttackTypes[index];
                 sortedAttackTypes[(ascendingDataArray.length) - j] = name;
                 initialDamageDoneArray[index] = -1;
             }
-            int numAttackTypes = sortedAttackTypes.length;
             report = utils.packStringId(REPORT_TITLE_SID) + addLineBreaks(1);
-            for (int idx = 0; idx < numAttackTypes; idx++)
-            {
-                String attackTypeName = sortedAttackTypes[idx];
-                String attackTypeVarName = baseAttackerVar + "." + attackTypeName;
+            String attackTypeVarName;
+            for (String attackTypeName : sortedAttackTypes) {
+                attackTypeVarName = baseAttackerVar + "." + attackTypeName;
                 int[] attackData = utils.getIntArrayScriptVar(reportDataObject, attackTypeVarName);
                 int numAttacks = attackData[INDEX_NUM_OF_ATTACKS];
                 int totalDamageDone = attackData[INDEX_TOTAL_DAMAGE_DONE];
@@ -893,7 +843,6 @@ public class target_dummy extends script.base_script
                 int numEvadedDamage = attackData[INDEX_NUM_EVADED_HITS];
                 int numBlockedHit = attackData[INDEX_NUM_BLOCKED_HITS];
                 int numSuccessfulAttacks = attackData[INDEX_NUM_SUCCESSFUL_HITS];
-                int numNormalHits = attackData[INDEX_NUM_NORMAL_HITS];
                 int averageDamage = totalDamageDone / numAttacks;
                 float percentageMissed = getPercentage(numMissed, numAttacks);
                 float percentageDodged = getPercentage(numDodged, numAttacks);
@@ -903,7 +852,6 @@ public class target_dummy extends script.base_script
                 float percentageGlancing = getPercentage(numGlancingHit, numAttacks);
                 float percentageEvaded = getPercentage(numEvadedDamage, numAttacks);
                 float percentageBlocked = getPercentage(numBlockedHit, numAttacks);
-                float percentageNormal = getPercentage(numNormalHits, numAttacks);
                 report += YELLOW + utils.packStringId(REPORT_ATTACK_TYPE_SID);
                 report += WHITE + utils.packStringId(new string_id("cmd_n", attackTypeName)) + addLineBreaks(1);
                 report += GREEN + utils.packStringId(REPORT_NUM_ATTACKS_SID) + WHITE + numAttacks + addLineBreaks(1);
@@ -939,13 +887,12 @@ public class target_dummy extends script.base_script
                 showRawCombatData(player, controller);
             }
         }
-        return;
     }
     public static void showRawCombatData(obj_id player, obj_id controller) throws InterruptedException
     {
         if (isGod(player))
         {
-            String report = "";
+            String report;
             String baseAttackerVar = BASE_TARGET_DUMMY_VAR + "." + player;
             if (utils.hasScriptVarTree(controller, baseAttackerVar))
             {
@@ -953,13 +900,16 @@ public class target_dummy extends script.base_script
                 Vector attackTypes = new Vector();
                 attackTypes.setSize(0);
                 Enumeration keys = vars.keys();
+                String key;
+                String[] data;
+                String attackType;
                 while (keys.hasMoreElements())
                 {
-                    String key = (String)(keys.nextElement());
+                    key = (String) (keys.nextElement());
                     if (key.startsWith(baseAttackerVar + "."))
                     {
-                        String[] data = split(key, '.');
-                        String attackType = data[2];
+                        data = split(key, '.');
+                        attackType = data[2];
                         if (!attackType.equals(LAST_ATTACK_TIME_VAR))
                         {
                             utils.addElement(attackTypes, attackType);
@@ -967,21 +917,19 @@ public class target_dummy extends script.base_script
                     }
                 }
                 report = utils.packStringId(REPORT_TITLE_SID) + addLineBreaks(1);
-                for (int i = 0; i < attackTypes.size(); i++)
-                {
-                    String attackTypeName = ((String)attackTypes.get(i));
-                    String attackTypeVarName = baseAttackerVar + "." + attackTypeName;
+                String attackTypeName;
+                String attackTypeVarName;
+
+                for (Object attackType1 : attackTypes) {
+                    attackTypeName = ((String) attackType1);
+                    attackTypeVarName = baseAttackerVar + "." + attackTypeName;
                     int[] attackData = utils.getIntArrayScriptVar(controller, attackTypeVarName);
                     report += attackTypeName + ": { ";
-                    for (int j = 0; j < attackData.length; j++)
-                    {
+                    for (int j = 0; j < attackData.length; j++) {
                         report += attackData[j];
-                        if (j == attackData.length - 1)
-                        {
+                        if (j == attackData.length - 1) {
                             report += " }" + sui.newLine();
-                        }
-                        else 
-                        {
+                        } else {
                             report += ", ";
                         }
                     }
@@ -1005,7 +953,6 @@ public class target_dummy extends script.base_script
             utils.setScriptVar(player, "target_dummy.rawCombatReportSui", pid);
             sui.showSUIPage(pid);
         }
-        return;
     }
     public static float getPercentage(float num, float total) throws InterruptedException
     {
@@ -1021,7 +968,6 @@ public class target_dummy extends script.base_script
         {
             detachScript(targetDummy, "ai.creature_combat");
         }
-        return;
     }
     public static void freezeMob(obj_id targetDummy) throws InterruptedException
     {
@@ -1046,11 +992,8 @@ public class target_dummy extends script.base_script
             removeAttackerFromCombat(targetDummy, player);
             if (enemies != null && enemies.length > 0)
             {
-                for (int i = 0; i < enemies.length; i++)
-                {
-                    obj_id enemy = enemies[i];
-                    if (isIdValid(enemy) && enemy != player)
-                    {
+                for (obj_id enemy : enemies) {
+                    if (isIdValid(enemy) && enemy != player) {
                         removeAttackerFromCombat(targetDummy, enemy);
                     }
                 }
@@ -1070,20 +1013,17 @@ public class target_dummy extends script.base_script
                 destroyObject(targetDummy);
             }
         }
-        return;
     }
     public static void removeAttackerFromCombat(obj_id targetDummy, obj_id player) throws InterruptedException
     {
         removeHateTarget(targetDummy, player);
         removeHateTarget(player, targetDummy);
         stopCombat(player);
-        return;
     }
     public static void enterIntoCombat(obj_id targetDummy, obj_id player) throws InterruptedException
     {
         startCombat(targetDummy, player);
         addHate(targetDummy, player, 1000.0f);
-        return;
     }
     public static final String DATA = "datatables/tcg/target_dummy_extras.iff";
     public static final String TYPE_COLUMN = "target_dummy_type";
@@ -1097,11 +1037,10 @@ public class target_dummy extends script.base_script
     };
     public static boolean hasTargetDummyExtras(obj_id targetDummy) throws InterruptedException
     {
-        for (int i = 0; i < EXTRA_TYPES.length; i++)
-        {
-            String testExtra = getTargetDummyAnim(targetDummy, EXTRA_TYPES[i]);
-            if (testExtra != null && testExtra.length() > 0)
-            {
+        String testExtra;
+        for (String EXTRA_TYPE : EXTRA_TYPES) {
+            testExtra = getTargetDummyAnim(targetDummy, EXTRA_TYPE);
+            if (testExtra != null && testExtra.length() > 0) {
                 return true;
             }
         }
@@ -1110,32 +1049,22 @@ public class target_dummy extends script.base_script
     public static boolean hasTargetDummyRandomAnim(obj_id targetDummy) throws InterruptedException
     {
         String testAnim = getTargetDummyAnim(targetDummy, RANDON_ANIM_COLUMN);
-        if (testAnim != null && testAnim.length() > 0)
-        {
-            return true;
-        }
-        return false;
+        return testAnim != null && testAnim.length() > 0;
     }
     public static boolean hasTargetDummyTrickAnim(obj_id targetDummy) throws InterruptedException
     {
         String testTrick = getTargetDummyAnim(targetDummy, TRICK_ANIM_COLUMN);
-        if (testTrick != null && testTrick.length() > 0)
-        {
-            return true;
-        }
-        return false;
+        return testTrick != null && testTrick.length() > 0;
     }
     public static void doTargetDummyRandomAnim(obj_id targetDummy) throws InterruptedException
     {
         String animName = getTargetDummyAnim(targetDummy, RANDON_ANIM_COLUMN);
         doTargetDummyAnimation(targetDummy, animName);
-        return;
     }
     public static void doTargetDummyTrick(obj_id targetDummy) throws InterruptedException
     {
         String trickName = getTargetDummyAnim(targetDummy, TRICK_ANIM_COLUMN);
         doTargetDummyAnimation(targetDummy, trickName);
-        return;
     }
     public static String getTargetDummyAnim(obj_id targetDummy, String column) throws InterruptedException
     {
@@ -1158,7 +1087,6 @@ public class target_dummy extends script.base_script
             doAnimationAction(targetDummy, animName);
             setObjVar(targetDummy, TARGET_DUMMY_LAST_EXTRAS_ANIM, animName);
         }
-        return;
     }
     public static String getTargetDummyExtrasData(obj_id targetDummy, String column) throws InterruptedException
     {

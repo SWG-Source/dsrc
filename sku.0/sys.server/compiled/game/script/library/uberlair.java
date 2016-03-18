@@ -1,14 +1,8 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.poi;
+import script.dictionary;
+import script.location;
+import script.obj_id;
 
 public class uberlair extends script.base_script
 {
@@ -23,19 +17,20 @@ public class uberlair extends script.base_script
         String[] strLargeMobs = dataTableGetStringColumnNoDefaults(lairDatatable, "strLargeMobs");
         String[] strLargeMobScript = dataTableGetStringColumnNoDefaults(lairDatatable, "strLargeMobScripts");
         LOG("uberlairs", "objLargeMobSpawners length is " + objLargeMobSpawners.length);
-        for (int intI = 0; intI < objLargeMobSpawners.length; intI++)
-        {
-            if (strLargeMobs.length == 0)
-            {
+        String strMobToSpawn;
+        location locSpawnLocation;
+        obj_id objMob;
+
+        for (obj_id objLargeMobSpawner : objLargeMobSpawners) {
+            if (strLargeMobs.length == 0) {
                 LOG("DESIGNER_FATAL", lairType + " has large mob spawners but no large mobs!");
                 break;
             }
-            String strMobToSpawn = strLargeMobs[rand(0, strLargeMobs.length - 1)];
-            location locSpawnLocation = getLocation(objLargeMobSpawners[intI]);
-            obj_id objMob = poi.createObject(poiBaseObject, strMobToSpawn, locSpawnLocation);
+            strMobToSpawn = strLargeMobs[rand(0, strLargeMobs.length - 1)];
+            locSpawnLocation = getLocation(objLargeMobSpawner);
+            objMob = poi.createObject(poiBaseObject, strMobToSpawn, locSpawnLocation);
             ai_lib.setDefaultCalmBehavior(objMob, ai_lib.BEHAVIOR_SENTINEL);
-            if (strLargeMobScript.length > 0)
-            {
+            if (strLargeMobScript.length > 0) {
                 attachScript(objMob, strLargeMobScript[0]);
                 setObjVar(objMob, "uberlair.strScript", strLargeMobScript[0]);
             }
@@ -43,7 +38,6 @@ public class uberlair extends script.base_script
             setObjVar(objMob, "uberlair.locSpawnLocation", locSpawnLocation);
             setObjVar(objMob, "uberlair.objParent", poiBaseObject);
         }
-        return;
     }
     public static void spawnNpcLairMobiles(obj_id poiBaseObject, obj_id[] objMobSpawners) throws InterruptedException
     {
@@ -65,6 +59,9 @@ public class uberlair extends script.base_script
         setObjVar(poiBaseObject, "intTotalMobs", intTotalMobs);
         int intIndex = getIntObjVar(poiBaseObject, "intSpawnIndex");
         int intCounter = 0;
+        String strMobToSpawn;
+        location locSpawnLocation;
+        obj_id objMob;
         for (int intI = intIndex; intI < intMobCount; intI++)
         {
             if (intCounter > SPAWNS_PER_EVENT)
@@ -78,11 +75,11 @@ public class uberlair extends script.base_script
                 LOG("DESIGNER_FATAL", lairType + " has large mob spawners but no large mobs!");
                 break;
             }
-            String strMobToSpawn = strMobs[rand(0, strMobs.length - 1)];
-            location locSpawnLocation = getLocation(objMobSpawners[rand(0, objMobSpawners.length - 1)]);
+            strMobToSpawn = strMobs[rand(0, strMobs.length - 1)];
+            locSpawnLocation = getLocation(objMobSpawners[rand(0, objMobSpawners.length - 1)]);
             locSpawnLocation.x = locSpawnLocation.x + rand(-2, 2);
             locSpawnLocation.z = locSpawnLocation.z + rand(-2, 2);
-            obj_id objMob = poi.createObject(poiBaseObject, strMobToSpawn, locSpawnLocation);
+            objMob = poi.createObject(poiBaseObject, strMobToSpawn, locSpawnLocation);
             ai_lib.setDefaultCalmBehavior(objMob, ai_lib.BEHAVIOR_SENTINEL);
             if (strMobScript.length > 0)
             {
@@ -97,7 +94,6 @@ public class uberlair extends script.base_script
         setObjVar(poiBaseObject, "intSpawnCount", intMobCount);
         removeObjVar(poiBaseObject, "intSpawnIndex");
         messageTo(poiBaseObject, "spawnFormations", null, 3, false);
-        return;
     }
     public static void respawnMobile(obj_id poiBaseObject, location locSpawnLocation, String strMobToSpawn, String strScript) throws InterruptedException
     {
@@ -115,7 +111,6 @@ public class uberlair extends script.base_script
             attachScript(objMob, strScript);
         }
         setObjVar(poiBaseObject, "intSpawnCount", intCurrentSpawnCount);
-        return;
     }
     public static void createFormations(obj_id objParent) throws InterruptedException
     {
@@ -125,12 +120,17 @@ public class uberlair extends script.base_script
         LOG("uber", "lairDatatable is " + lairDatatable);
         String[] strFormations = dataTableGetStringColumnNoDefaults(lairDatatable, "strFormations");
         location[] locOffsets = getPatrolOffsets(getLocation(objParent), 50);
+        String strFormationDataTable;
+        String[] strMobs;
+        String[] strLeader;
+        obj_id objLeader;
+        dictionary dctParams;
         for (int intI = 0; intI < strFormations.length; intI++)
         {
-            String strFormationDataTable = "datatables/uberlair/formations/" + strFormations[intI] + ".iff";
+            strFormationDataTable = "datatables/uberlair/formations/" + strFormations[intI] + ".iff";
             LOG("uber", "formation datatable is " + strFormationDataTable);
-            String[] strMobs = dataTableGetStringColumnNoDefaults(strFormationDataTable, "strMobs");
-            String[] strLeader = dataTableGetStringColumnNoDefaults(strFormationDataTable, "strLeader");
+            strMobs = dataTableGetStringColumnNoDefaults(strFormationDataTable, "strMobs");
+            strLeader = dataTableGetStringColumnNoDefaults(strFormationDataTable, "strLeader");
             if (strMobs.length == 0)
             {
                 LOG("DESIGNER_FATAL", "mobs in a formation file of " + strFormationDataTable + " is blank");
@@ -141,12 +141,12 @@ public class uberlair extends script.base_script
                 LOG("DESIGNER_FATAL", "leader in a formation file of " + strFormationDataTable + " is blank");
                 return;
             }
-            obj_id objLeader = poi.createObject(objParent, strLeader[0], locOffsets[intI]);
+            objLeader = poi.createObject(objParent, strLeader[0], locOffsets[intI]);
             LOG("uber", "created leader at " + locOffsets[intI]);
             if (objLeader != null)
             {
                 attachScript(objLeader, "systems.npc_lair.uber_lair_formation_leader");
-                dictionary dctParams = new dictionary();
+                dctParams = new dictionary();
                 dctParams.put("locWaypoints", locOffsets);
                 dctParams.put("strFormationMembers", strMobs);
                 dctParams.put("intOffset", intI);
@@ -155,7 +155,6 @@ public class uberlair extends script.base_script
                 messageTo(objLeader, "createFormation", dctParams, 3, false);
             }
         }
-        return;
     }
     public static location[] getPatrolOffsets(location locParentLocation, float fltDistance) throws InterruptedException
     {

@@ -1,17 +1,7 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_create;
-import script.library.ship_ai;
 import script.library.locations;
-import script.library.utils;
+import script.*;
 
 public class spawn_egg_manager extends script.base_script
 {
@@ -34,7 +24,6 @@ public class spawn_egg_manager extends script.base_script
         LOG("spawn", "Spawning stuff");
         setObjVar(self, "intNoDump", 1);
         location locTest = getLocation(self);
-        String strArea = locTest.area;
         String strDataTable = "";
         String strName = locations.getCityName(locTest);
         if (strName != null)
@@ -72,7 +61,7 @@ public class spawn_egg_manager extends script.base_script
             vector vctI = vctJ.cross(vctK);
             vctJ = vctK.cross(vctI);
             vector vctP = new vector(fltPX[intI], fltPY[intI], fltPZ[intI]);
-            transform tranCreation = new transform();
+            transform tranCreation;
             try
             {
                 tranCreation = new transform(vctI, vctJ, vctK, vctP);
@@ -88,11 +77,7 @@ public class spawn_egg_manager extends script.base_script
             if (!strObject[intI].equals(""))
             {
                 obj_id objTest = createObject(strObject[intI], tranCreation, null);
-                if ((!isIdValid(objTest)) || (!objTest.isLoaded()))
-                {
-                }
-                else 
-                {
+                if ((isIdValid(objTest)) && (objTest.isLoaded())) {
                     if (!strObjVars[intI].equals(""))
                     {
                         if ((isIdValid(objTest)) && (objTest.isLoaded()))
@@ -103,19 +88,15 @@ public class spawn_egg_manager extends script.base_script
                     if (!strScripts[intI].equals(""))
                     {
                         String[] strScriptArray = split(strScripts[intI], ',');
-                        for (int intJ = 0; intJ < strScriptArray.length; intJ++)
-                        {
-                            if ((isIdValid(objTest)) && (objTest.isLoaded()))
-                            {
-                                String script = strScriptArray[intJ];
-                                if (script.indexOf("script.") > -1)
-                                {
+                        String script;
+                        for (String aStrScriptArray : strScriptArray) {
+                            if ((isIdValid(objTest)) && (objTest.isLoaded())) {
+                                script = aStrScriptArray;
+                                if (script.contains("script.")) {
                                     script = script.substring(7);
                                 }
-                                if (!script.equals(""))
-                                {
-                                    if (!hasScript(objTest, script))
-                                    {
+                                if (!script.equals("")) {
+                                    if (!hasScript(objTest, script)) {
                                         attachScript(objTest, script);
                                     }
                                 }

@@ -1,18 +1,9 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.jedi;
-import java.lang.Math;
-import script.library.loot;
-import script.library.pgc_quests;
-import script.library.storyteller;
+import script.dictionary;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class static_item extends script.base_script
 {
@@ -73,8 +64,7 @@ public class static_item extends script.base_script
                 return null;
             }
         }
-        dictionary itemData = new dictionary();
-        itemData = dataTableGetRow(MASTER_ITEM_TABLE, itemName);
+        dictionary itemData = dataTableGetRow(MASTER_ITEM_TABLE, itemName);
         if (charges > 0)
         {
             itemData.put("charges", itemData.getInt("charges") + charges);
@@ -134,21 +124,19 @@ public class static_item extends script.base_script
     }
     public static void initializeObject(obj_id object, dictionary itemData) throws InterruptedException
     {
-        String scriptList = itemData.getString("scripts");
         String itemName = itemData.getString("name");
         if (itemName == null || itemName.equals(""))
         {
             LOG("create", object + " InitializeObject FAILED: No NAME field in datatable or bad dictionary passed in");
             return;
         }
+        String scriptList = itemData.getString("scripts");
         if (scriptList != null && !scriptList.equals(""))
         {
             String[] scriptArray = split(scriptList, ',');
-            for (int i = 0; i < scriptArray.length; i++)
-            {
-                if (!hasScript(object, scriptArray[i]))
-                {
-                    attachScript(object, scriptArray[i]);
+            for (String aScriptArray : scriptArray) {
+                if (!hasScript(object, aScriptArray)) {
+                    attachScript(object, aScriptArray);
                 }
             }
         }
@@ -180,17 +168,15 @@ public class static_item extends script.base_script
             case 5:
             break;
         }
-        return;
     }
     public static boolean initializeArmor(obj_id object, String itemName) throws InterruptedException
     {
-        dictionary itemData = new dictionary();
         int row = dataTableSearchColumnForString(itemName, 0, ARMOR_STAT_BALANCE_TABLE);
         if (row == -1)
         {
             return false;
         }
-        itemData = dataTableGetRow(ARMOR_STAT_BALANCE_TABLE, row);
+        dictionary itemData = dataTableGetRow(ARMOR_STAT_BALANCE_TABLE, row);
         float condition = itemData.getFloat("condition_multiplier");
         float generalProtection = itemData.getFloat("protection");
         int armorLevel = itemData.getInt("armor_level");
@@ -223,34 +209,22 @@ public class static_item extends script.base_script
         if (attributeBonus != null && !attributeBonus.equals(""))
         {
             String[] stringArray = split(attributeBonus, ',');
-            for (int i = 0; i < stringArray.length; i++)
-            {
-                String[] attributeArray = split(stringArray[i], '=');
-                for (int x = 0; x < attributeArray.length; x++)
-                {
+            String[] attributeArray;
+            for (String aStringArray : stringArray) {
+                attributeArray = split(aStringArray, '=');
+                for (String anAttributeArray : attributeArray) {
                     int attribute = 0;
-                    if (attributeArray[0].equalsIgnoreCase("health"))
-                    {
+                    if (attributeArray[0].equalsIgnoreCase("health")) {
                         attribute = HEALTH;
-                    }
-                    else if (attributeArray[0].equalsIgnoreCase("action"))
-                    {
+                    } else if (attributeArray[0].equalsIgnoreCase("action")) {
                         attribute = ACTION;
-                    }
-                    else if (attributeArray[0].equalsIgnoreCase("mind"))
-                    {
+                    } else if (attributeArray[0].equalsIgnoreCase("mind")) {
                         attribute = MIND;
-                    }
-                    else if (attributeArray[0].equalsIgnoreCase("constitution"))
-                    {
+                    } else if (attributeArray[0].equalsIgnoreCase("constitution")) {
                         attribute = CONSTITUTION;
-                    }
-                    else if (attributeArray[0].equalsIgnoreCase("stamina"))
-                    {
+                    } else if (attributeArray[0].equalsIgnoreCase("stamina")) {
                         attribute = STAMINA;
-                    }
-                    else if (attributeArray[0].equalsIgnoreCase("willpower"))
-                    {
+                    } else if (attributeArray[0].equalsIgnoreCase("willpower")) {
                         attribute = WILLPOWER;
                     }
                     setAttributeBonus(object, attribute, utils.stringToInt(attributeArray[1]));
@@ -261,9 +235,11 @@ public class static_item extends script.base_script
         if (dict != null)
         {
             java.util.Enumeration keys = dict.keys();
+            String skillModName;
+
             while (keys.hasMoreElements())
             {
-                String skillModName = (String)keys.nextElement();
+                skillModName = (String)keys.nextElement();
                 int skillModValue = dict.getInt(skillModName);
                 setSkillModBonus(object, skillModName, skillModValue);
             }
@@ -275,11 +251,10 @@ public class static_item extends script.base_script
         if (colorMods != null && !colorMods.equals(""))
         {
             String[] colorArray = split(colorMods, ',');
-            for (int i = 0; i < colorArray.length; i++)
-            {
-                String[] colorIndex = split(colorArray[i], '=');
-                for (int x = 0; x < colorIndex.length; x++)
-                {
+            String[] colorIndex;
+            for (String aColorArray : colorArray) {
+                colorIndex = split(aColorArray, '=');
+                for (String aColorIndex : colorIndex) {
                     hue.setColor(object, "/private/" + colorIndex[0], Integer.parseInt(colorIndex[1]));
                 }
             }
@@ -288,13 +263,12 @@ public class static_item extends script.base_script
     }
     public static boolean initializeWeapon(obj_id object, String itemName) throws InterruptedException
     {
-        dictionary itemData = new dictionary();
         int row = dataTableSearchColumnForString(itemName, 0, WEAPON_STAT_BALANCE_TABLE);
         if (row == -1)
         {
             return false;
         }
-        itemData = dataTableGetRow(WEAPON_STAT_BALANCE_TABLE, row);
+        dictionary itemData = dataTableGetRow(WEAPON_STAT_BALANCE_TABLE, row);
         int minDamage = itemData.getInt("min_damage");
         int maxDamage = itemData.getInt("max_damage");
         int attackSpeed = itemData.getInt("attack_speed");
@@ -342,9 +316,11 @@ public class static_item extends script.base_script
         if (dict != null)
         {
             java.util.Enumeration keys = dict.keys();
+            String skillModName;
+
             while (keys.hasMoreElements())
             {
-                String skillModName = (String)keys.nextElement();
+                skillModName = (String)keys.nextElement();
                 int skillModValue = dict.getInt(skillModName);
                 setSkillModBonus(object, skillModName, skillModValue);
             }
@@ -368,26 +344,18 @@ public class static_item extends script.base_script
         if (attributeBonus != null && !attributeBonus.equals(""))
         {
             String[] stringArray = split(attributeBonus, ',');
-            for (int i = 0; i < stringArray.length; i++)
-            {
-                String[] attributeArray = split(stringArray[i], '=');
-                for (int x = 0; x < attributeArray.length; x++)
-                {
+            String[] attributeArray;
+            for (String aStringArray : stringArray) {
+                attributeArray = split(aStringArray, '=');
+                for (String anAttributeArray : attributeArray) {
                     int attribute = 0;
-                    if (attributeArray[0].equalsIgnoreCase("health"))
-                    {
+                    if (attributeArray[0].equalsIgnoreCase("health")) {
                         attribute = HEALTH;
-                    }
-                    else if (attributeArray[0].equalsIgnoreCase("action"))
-                    {
+                    } else if (attributeArray[0].equalsIgnoreCase("action")) {
                         attribute = ACTION;
-                    }
-                    else if (attributeArray[0].equalsIgnoreCase("constitution"))
-                    {
+                    } else if (attributeArray[0].equalsIgnoreCase("constitution")) {
                         attribute = CONSTITUTION;
-                    }
-                    else if (attributeArray[0].equalsIgnoreCase("stamina"))
-                    {
+                    } else if (attributeArray[0].equalsIgnoreCase("stamina")) {
                         attribute = STAMINA;
                     }
                     setAttributeBonus(object, attribute, utils.stringToInt(attributeArray[1]));
@@ -398,9 +366,10 @@ public class static_item extends script.base_script
         if (dict != null)
         {
             java.util.Enumeration keys = dict.keys();
+            String skillModName;
             while (keys.hasMoreElements())
             {
-                String skillModName = (String)keys.nextElement();
+                skillModName = (String)keys.nextElement();
                 int skillModValue = dict.getInt(skillModName);
                 setSkillModBonus(object, skillModName, skillModValue);
             }
@@ -412,11 +381,10 @@ public class static_item extends script.base_script
         if (colorMods != null && !colorMods.equals(""))
         {
             String[] colorArray = split(colorMods, ',');
-            for (int i = 0; i < colorArray.length; i++)
-            {
-                String[] colorIndex = split(colorArray[i], '=');
-                for (int x = 0; x < colorIndex.length; x++)
-                {
+            String[] colorIndex;
+            for (String aColorArray : colorArray) {
+                colorIndex = split(aColorArray, '=');
+                for (String aColorIndex : colorIndex) {
                     hue.setColor(object, "/private/" + colorIndex[0], Integer.parseInt(colorIndex[1]));
                 }
             }
@@ -425,7 +393,6 @@ public class static_item extends script.base_script
     }
     public static boolean initializeStorytellerObject(obj_id newObject, String itemName) throws InterruptedException
     {
-        dictionary itemData = new dictionary();
         if (!dataTableOpen(storyteller.STORYTELLER_DATATABLE))
         {
             return false;
@@ -435,13 +402,10 @@ public class static_item extends script.base_script
         {
             return false;
         }
-        itemData = dataTableGetRow(storyteller.STORYTELLER_DATATABLE, row);
-        String template = itemData.getString("template_name");
+        dictionary itemData = dataTableGetRow(storyteller.STORYTELLER_DATATABLE, row);
         int type = itemData.getInt("type");
-        String objvarString = itemData.getString("objvar");
-        String scriptString = itemData.getString("scripts");
-        setObjVarString(newObject, objvarString, type);
-        setScriptString(newObject, scriptString, type);
+        setObjVarString(newObject, itemData.getString("objvar"), type);
+        setScriptString(newObject, itemData.getString("scripts"), type);
         String name = getString(new string_id("static_item_n", itemName)) + getString(new string_id("storyteller", "token_label"));
         if (pgc_quests.isPgcRelicObject(newObject))
         {
@@ -456,34 +420,12 @@ public class static_item extends script.base_script
     }
     public static void setObjVarString(obj_id object, String objVarString, int type) throws InterruptedException
     {
-        switch (type)
-        {
-            case storyteller.PROP:
-            break;
-            case storyteller.STATIC_EFFECT:
-            break;
-            case storyteller.IMMEDIATE_EFFECT:
-            break;
-            case storyteller.COMBAT_NPC:
-            break;
-            case storyteller.FLAVOR_NPC:
-            break;
-            case storyteller.OTHER:
-            break;
-            case storyteller.THEATER:
-            break;
-        }
         if (objVarString != null && objVarString.length() > 0)
         {
-            if (objVarString.equals("none"))
-            {
-            }
-            else 
-            {
+            if (!objVarString.equals("none")) {
                 utils.setObjVarsList(object, objVarString);
             }
         }
-        return;
     }
     public static void setScriptString(obj_id object, String scriptString) throws InterruptedException
     {
@@ -494,25 +436,21 @@ public class static_item extends script.base_script
         switch (type)
         {
             case storyteller.PROP:
-            attachScript(object, "systems.storyteller.prop_token");
-            break;
+                attachScript(object, "systems.storyteller.prop_token");
+                break;
             case storyteller.STATIC_EFFECT:
-            attachScript(object, "systems.storyteller.effect_token");
-            break;
             case storyteller.IMMEDIATE_EFFECT:
-            attachScript(object, "systems.storyteller.effect_token");
-            break;
+                attachScript(object, "systems.storyteller.effect_token");
+                break;
             case storyteller.COMBAT_NPC:
-            attachScript(object, "systems.storyteller.npc_token");
-            break;
             case storyteller.FLAVOR_NPC:
-            attachScript(object, "systems.storyteller.npc_token");
-            break;
+                attachScript(object, "systems.storyteller.npc_token");
+                break;
             case storyteller.OTHER:
-            break;
+                break;
             case storyteller.THEATER:
-            attachScript(object, "systems.storyteller.theater_token");
-            break;
+                attachScript(object, "systems.storyteller.theater_token");
+                break;
         }
         if (scriptString == null || scriptString.equals("") || scriptString.equals("none"))
         {
@@ -523,19 +461,13 @@ public class static_item extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < parse.length; i++)
-        {
-            attachScript(object, parse[i]);
+        for (String aParse : parse) {
+            attachScript(object, aParse);
         }
     }
     public static boolean validateLevelRequired(obj_id player, int requiredLevel) throws InterruptedException
     {
-        int playerLevel = getLevel(player);
-        if (playerLevel < requiredLevel)
-        {
-            return false;
-        }
-        return true;
+        return getLevel(player) >= requiredLevel;
     }
     public static boolean validateLevelRequired(obj_id player, obj_id item) throws InterruptedException
     {
@@ -597,33 +529,27 @@ public class static_item extends script.base_script
         }
         int count = getCount(item);
         int newCount = count - amount;
-        if (count < amount)
-        {
-            return;
-        }
-        else if (newCount <= 0)
-        {
-            destroyObject(item);
-        }
-        else 
-        {
-            setCount(item, newCount);
+        if (count >= amount) {
+            if (newCount <= 0)
+			{
+				destroyObject(item);
+			}
+			else
+			{
+				setCount(item, newCount);
+			}
         }
     }
     public static void decrementUnstackedStaticItemAmount(obj_id[] items, int amount) throws InterruptedException
     {
         int totalCount = amount;
-        for (int i = 0; i < items.length; i++)
-        {
-            int itemCount = getCount(items[i]);
-            if (itemCount <= totalCount)
-            {
-                destroyObject(items[i]);
-            }
-            else if (itemCount > totalCount)
-            {
+        for (obj_id item : items) {
+            int itemCount = getCount(item);
+            if (itemCount <= totalCount) {
+                destroyObject(item);
+            } else if (itemCount > totalCount) {
                 totalCount = itemCount - totalCount;
-                setCount(items[i], totalCount);
+                setCount(item, totalCount);
                 return;
             }
             totalCount = totalCount - itemCount;
@@ -636,8 +562,7 @@ public class static_item extends script.base_script
             LOG("create", " Bad itemName passed into the getMasterItemDictionary " + itemName);
             return null;
         }
-        dictionary itemData = new dictionary();
-        itemData = dataTableGetRow(MASTER_ITEM_TABLE, itemName);
+        dictionary itemData = dataTableGetRow(MASTER_ITEM_TABLE, itemName);
         if (itemData == null)
         {
             LOG("create", itemName + " Initalize from getMasterItemDictionary could not happen because row in datatable is bad");
@@ -666,14 +591,7 @@ public class static_item extends script.base_script
     public static boolean isStaticItem(obj_id item) throws InterruptedException
     {
         String itemName = getStaticItemName(item);
-        if (itemName == null || itemName.equals(""))
-        {
-            return false;
-        }
-        else 
-        {
-            return true;
-        }
+        return !(itemName == null || itemName.equals(""));
     }
     public static boolean isStaticItem(String itemName) throws InterruptedException
     {
@@ -699,14 +617,14 @@ public class static_item extends script.base_script
         switch (getStaticObjectType(itemName))
         {
             case 1:
-            itemData = getStaticItemWeaponDictionary(itemName);
-            break;
+                itemData = getStaticItemWeaponDictionary(itemName);
+                break;
             case 2:
-            itemData = getStaticArmorDictionary(itemName);
-            break;
+                itemData = getStaticArmorDictionary(itemName);
+                break;
             case 3:
-            itemData = getStaticItemDictionary(itemName);
-            break;
+                itemData = getStaticItemDictionary(itemName);
+                break;
         }
         return itemData;
     }
@@ -717,8 +635,7 @@ public class static_item extends script.base_script
             LOG("create", " Itemname is Bad " + itemName);
             return null;
         }
-        dictionary itemData = new dictionary();
-        itemData = dataTableGetRow(WEAPON_STAT_BALANCE_TABLE, itemName);
+        dictionary itemData = dataTableGetRow(WEAPON_STAT_BALANCE_TABLE, itemName);
         if (itemData == null)
         {
             LOG("create", itemName + " Initalize from getStaticItemWeaponDictionary could not happen because row in datatable is bad");
@@ -745,8 +662,7 @@ public class static_item extends script.base_script
             LOG("create", " Itemname is Bad " + itemName);
             return null;
         }
-        dictionary itemData = new dictionary();
-        itemData = dataTableGetRow(ITEM_STAT_BALANCE_TABLE, itemName);
+        dictionary itemData = dataTableGetRow(ITEM_STAT_BALANCE_TABLE, itemName);
         if (itemData == null)
         {
             LOG("create", itemName + " Initalize from getStaticItemDictionary could not happen because row in datatable is bad");
@@ -773,8 +689,7 @@ public class static_item extends script.base_script
             LOG("create", " Itemname is Bad " + itemName);
             return null;
         }
-        dictionary itemData = new dictionary();
-        itemData = dataTableGetRow(ARMOR_STAT_BALANCE_TABLE, itemName);
+        dictionary itemData = dataTableGetRow(ARMOR_STAT_BALANCE_TABLE, itemName);
         if (itemData == null)
         {
             LOG("create", itemName + " Initalize from getStaticArmorDictionary could not happen because row in datatable is bad");
@@ -796,18 +711,16 @@ public class static_item extends script.base_script
     }
     public static void versionUpdate(obj_id self, dictionary itemData) throws InterruptedException
     {
-        String itemName = itemData.getString("name");
-        obj_id player = utils.getContainingPlayer(self);
-        obj_id bioLink = getBioLink(self);
-        String currentTemplate = getTemplateName(self);
         String staticName = getStaticItemName(self);
-        if (staticName.equals("") || staticName == null)
+        if (staticName.equals(""))
         {
             return;
         }
         int itemRow = dataTableSearchColumnForString(staticName, "name", MASTER_ITEM_TABLE);
         String tableTemplate = dataTableGetString(MASTER_ITEM_TABLE, itemRow, "template_name");
-        if (!currentTemplate.equals(tableTemplate))
+        obj_id player = utils.getContainingPlayer(self);
+        obj_id bioLink = getBioLink(self);
+        if (!getTemplateName(self).equals(tableTemplate))
         {
             CustomerServiceLog("versionUpdate: ", "Old Item's (" + self + ") object template has changed. A new one must be created.");
             obj_id container = getContainedBy(self);
@@ -859,6 +772,7 @@ public class static_item extends script.base_script
         {
             setBioLink(self, bioLink);
         }
+        String itemName = itemData.getString("name");
         setStaticItemName(self, itemName);
         String objVarList = itemData.getString("creation_objvars");
         if (objVarList != null && !objVarList.equals(""))
@@ -872,28 +786,24 @@ public class static_item extends script.base_script
             setCount(self, chargeList);
         }
         initializeObject(self, itemData);
-        return;
     }
     public static void validateWornEffects(obj_id player) throws InterruptedException
     {
         obj_id[] equipSlots = metrics.getWornItems(player);
         if (equipSlots != null && equipSlots.length > 0)
         {
-            for (int i = 0; i < equipSlots.length; i++)
-            {
-                String itemName = getStaticItemName(equipSlots[i]);
-                if (itemName != null && !itemName.equals(""))
-                {
-                    dictionary itemData = getStaticObjectTypeDictionary(itemName);
-                    if (itemData != null)
-                    {
+            String itemName;
+            dictionary itemData;
+            for (obj_id equipSlot : equipSlots) {
+                itemName = getStaticItemName(equipSlot);
+                if (itemName != null && !itemName.equals("")) {
+                    itemData = getStaticObjectTypeDictionary(itemName);
+                    if (itemData != null) {
                         String buffName = itemData.getString("buff_name");
-                        if (buffName != null && !buffName.equals(""))
-                        {
-                            if (validateLevelRequiredForWornEffect(player, (equipSlots[i])))
-                            {
-                                applyWornBuffs(equipSlots[i], getContainedBy(equipSlots[i]));
-                                checkForAddSetBonus(equipSlots[i], getContainedBy(equipSlots[i]));
+                        if (buffName != null && !buffName.equals("")) {
+                            if (validateLevelRequiredForWornEffect(player, (equipSlot))) {
+                                applyWornBuffs(equipSlot, getContainedBy(equipSlot));
+                                checkForAddSetBonus(equipSlot, getContainedBy(equipSlot));
                             }
                         }
                     }
@@ -930,35 +840,29 @@ public class static_item extends script.base_script
             return;
         }
         String buffName = itemData.getString("buff_name");
-        String clientEffect = itemData.getString("client_effect");
-        int requiredLevel = itemData.getInt("required_level_for_effect");
-        int playerLevel = getLevel(player);
         if (buffName == null || buffName.equals(""))
         {
             LOG("create", "Worn Buff Name is bad");
             return;
         }
-        if (static_item.validateLevelRequired(player, requiredLevel))
+        if (static_item.validateLevelRequired(player, itemData.getInt("required_level_for_effect")))
         {
             if (buff.canApplyBuff(player, buffName))
             {
                 buff.applyBuff(player, player, buffName);
-                playClientEffectObj(player, clientEffect, player, "");
+                playClientEffectObj(player, itemData.getString("client_effect"), player, "");
             }
             else 
             {
                 utils.setScriptVar(self, "buffNotApplied", true);
                 sendSystemMessage(player, ALREADY_HAVE_SIMILAR_BUFF);
-                return;
             }
         }
         else 
         {
             utils.setScriptVar(self, "buffNotApplied", true);
             sendSystemMessage(player, SID_ITEM_LEVEL_TOO_LOW);
-            return;
         }
-        return;
     }
     public static void removeWornBuffs(obj_id self, obj_id player) throws InterruptedException
     {
@@ -988,7 +892,6 @@ public class static_item extends script.base_script
         {
             utils.removeScriptVar(self, "buffNotApplied");
         }
-        return;
     }
     public static void checkForAddSetBonus(obj_id item, obj_id player) throws InterruptedException
     {
@@ -1010,7 +913,6 @@ public class static_item extends script.base_script
                 }
             }
         }
-        return;
     }
     public static void checkForRemoveSetBonus(obj_id item, obj_id player) throws InterruptedException
     {
@@ -1032,7 +934,7 @@ public class static_item extends script.base_script
                 buff.removeBuff(player, setBonusBuffName);
             }
             String lowerSetBonusBuffName = getSetBonusBuffName(item, setBonusIndex, numberOfSetItems);
-            if (!lowerSetBonusBuffName.equals(null) && !lowerSetBonusBuffName.equals("none"))
+            if (lowerSetBonusBuffName != null && !lowerSetBonusBuffName.equals("none"))
             {
                 if (!buff.hasBuff(player, lowerSetBonusBuffName))
                 {
@@ -1042,7 +944,7 @@ public class static_item extends script.base_script
             else 
             {
                 lowerSetBonusBuffName = getSetBonusBuffName(item, setBonusIndex, (numberOfSetItems - 1));
-                if (!lowerSetBonusBuffName.equals(null) && !lowerSetBonusBuffName.equals("none"))
+                if (lowerSetBonusBuffName !=null && !lowerSetBonusBuffName.equals("none"))
                 {
                     if (!buff.hasBuff(player, lowerSetBonusBuffName))
                     {
@@ -1051,7 +953,6 @@ public class static_item extends script.base_script
                 }
             }
         }
-        return;
     }
     public static boolean isSetBonusItem(obj_id item) throws InterruptedException
     {
@@ -1084,12 +985,9 @@ public class static_item extends script.base_script
         obj_id[] equippedItems = metrics.getWornItems(player);
         if (equippedItems != null && equippedItems.length > 0)
         {
-            for (int i = 0; i < equippedItems.length; i++)
-            {
-                if (isSetBonusItem(equippedItems[i]))
-                {
-                    if (setBonusIndex == getSetBonusIndex(equippedItems[i]))
-                    {
+            for (obj_id equippedItem : equippedItems) {
+                if (isSetBonusItem(equippedItem)) {
+                    if (setBonusIndex == getSetBonusIndex(equippedItem)) {
                         numSetItems++;
                     }
                 }
@@ -1115,8 +1013,7 @@ public class static_item extends script.base_script
     }
     public static String getItemType(String itemName) throws InterruptedException
     {
-        dictionary itemData = new dictionary();
-        itemData = dataTableGetRow(MASTER_ITEM_TABLE, itemName);
+        dictionary itemData = dataTableGetRow(MASTER_ITEM_TABLE, itemName);
         if (itemData == null)
         {
             return "";
@@ -1137,24 +1034,24 @@ public class static_item extends script.base_script
         dictionary masterItemData = getMasterItemDictionary(itemName);
         String itemType = static_item.getItemType(itemName);
         dictionary specificItemData = null;
-        if (itemType.equals("weapon"))
-        {
-            specificItemData = getStaticItemWeaponDictionary(itemName);
-        }
-        else if (itemType.equals("armor"))
-        {
-            specificItemData = getStaticArmorDictionary(itemName);
-        }
-        else if (itemType.equals("item"))
-        {
-            specificItemData = getStaticItemDictionary(itemName);
+        switch (itemType) {
+            case "weapon":
+                specificItemData = getStaticItemWeaponDictionary(itemName);
+                break;
+            case "armor":
+                specificItemData = getStaticArmorDictionary(itemName);
+                break;
+            case "item":
+                specificItemData = getStaticItemDictionary(itemName);
+                break;
         }
         if (specificItemData != null)
         {
             java.util.Enumeration e = specificItemData.keys();
+            String s;
             while (e.hasMoreElements())
             {
-                String s = (e.nextElement()).toString();
+                s = (e.nextElement()).toString();
                 masterItemData.put(s, specificItemData.get(s));
             }
         }
@@ -1162,18 +1059,16 @@ public class static_item extends script.base_script
     }
     public static void getAttributes(obj_id player, String staticItemName, String[] names, String[] attribs) throws InterruptedException
     {
-        String itemType = static_item.getItemType(staticItemName);
-        if (itemType.equals("weapon"))
-        {
-            getStaticWeaponObjectAttributes(player, staticItemName, names, attribs);
-        }
-        else if (itemType.equals("armor"))
-        {
-            getStaticArmorObjectAttributes(player, staticItemName, names, attribs);
-        }
-        else if (itemType.equals("item"))
-        {
-            getStaticItemObjectAttributes(player, staticItemName, names, attribs);
+        switch (static_item.getItemType(staticItemName)) {
+            case "weapon":
+                getStaticWeaponObjectAttributes(player, staticItemName, names, attribs);
+                break;
+            case "armor":
+                getStaticArmorObjectAttributes(player, staticItemName, names, attribs);
+                break;
+            case "item":
+                getStaticItemObjectAttributes(player, staticItemName, names, attribs);
+                break;
         }
     }
     public static void getStaticWeaponObjectAttributes(obj_id player, String staticItemName, String[] names, String[] attribs) throws InterruptedException
@@ -1203,7 +1098,7 @@ public class static_item extends script.base_script
         int damageType = itemData.getInt("damage_type");
         String wpn_damage_type = "cat_wpn_damage.wpn_damage_type";
         names[free] = wpn_damage_type;
-        String damageTypeStr = "kinetic";
+        String damageTypeStr;
         if (damageType == 1)
         {
             damageTypeStr = "kinetic";
@@ -1244,9 +1139,10 @@ public class static_item extends script.base_script
         if (dict != null)
         {
             java.util.Enumeration keys = dict.keys();
+            String skillModName;
             while (keys.hasMoreElements())
             {
-                String skillModName = (String)keys.nextElement();
+                skillModName = (String)keys.nextElement();
                 int skillModValue = dict.getInt(skillModName);
                 names[free] = statstf + skillModName;
                 attribs[free++] = Integer.toString(skillModValue);
@@ -1282,18 +1178,17 @@ public class static_item extends script.base_script
         int damageType = itemData.getInt("damage_type");
         String wpn_damage_type = "cat_wpn_damage.wpn_damage_type";
         names[free] = wpn_damage_type;
-        String damageTypeStr = "kinetic";
-        if (damageType == 1)
-        {
-            damageTypeStr = "kinetic";
-        }
-        else if (damageType == 2)
-        {
-            damageTypeStr = "energy";
-        }
-        else 
-        {
-            damageTypeStr = "unknown";
+        String damageTypeStr;
+        switch(damageType){
+            case 1:
+                damageTypeStr = "kinetic";
+                break;
+            case 2:
+                damageTypeStr = "energy";
+                break;
+            default:
+                damageTypeStr = "unknown";
+                break;
         }
         attribs[free++] = at + "armor_eff_" + damageTypeStr;
         int tier = itemData.getInt("tier");
@@ -1307,9 +1202,10 @@ public class static_item extends script.base_script
         if (dict != null)
         {
             java.util.Enumeration keys = dict.keys();
+            String skillModName;
             while (keys.hasMoreElements())
             {
-                String skillModName = (String)keys.nextElement();
+                skillModName = (String)keys.nextElement();
                 int skillModValue = dict.getInt(skillModName);
                 names[free] = statstf + skillModName;
                 attribs[free++] = Integer.toString(skillModValue);
@@ -1391,9 +1287,10 @@ public class static_item extends script.base_script
         if (dict != null)
         {
             java.util.Enumeration keys = dict.keys();
+            String skillModName;
             while (keys.hasMoreElements())
             {
-                String skillModName = (String)keys.nextElement();
+                skillModName = (String)keys.nextElement();
                 int skillModValue = dict.getInt(skillModName);
                 names[free] = statstf + skillModName;
                 attribs[free++] = Integer.toString(skillModValue);
@@ -1405,7 +1302,7 @@ public class static_item extends script.base_script
         names[free] = "tier";
         attribs[free++] = "" + tier;
         names[free] = "tooltip.tier";
-        attribs[free++] = "" + tier;
+        attribs[free] = "" + tier;
     }
     public static dictionary parseSkillModifiers(obj_id player, String skillMods) throws InterruptedException
     {
@@ -1413,11 +1310,10 @@ public class static_item extends script.base_script
         if (skillMods != null && !skillMods.equals(""))
         {
             String[] stringArray = split(skillMods, ',');
-            for (int i = 0; i < stringArray.length; i++)
-            {
-                String[] modsArray = split(stringArray[i], '=');
-                for (int x = 0; x < modsArray.length; x += 2)
-                {
+            String[] modsArray;
+            for (String aStringArray : stringArray) {
+                modsArray = split(aStringArray, '=');
+                for (int x = 0; x < modsArray.length; x += 2) {
                     dict.put(modsArray[0], utils.stringToInt(modsArray[1]));
                 }
             }
@@ -1460,11 +1356,7 @@ public class static_item extends script.base_script
             return null;
         }
         String strAppearance = dctItemInfo.getString("strBaseAppearance");
-        if (strAppearance.endsWith(".iff"))
-        {
-        }
-        else 
-        {
+        if (!strAppearance.endsWith(".iff")) {
             String[] strTemplates = dataTableGetStringColumnNoDefaults("datatables/item/dynamic_item/appearances/" + strAppearance + ".iff", "strTemplate");
             if ((strTemplates == null) || (strTemplates.length < 1))
             {
@@ -1550,7 +1442,7 @@ public class static_item extends script.base_script
     {
         String armorBalanceTable = "datatables/item/dynamic_item/root_balance_data/armor_data.iff";
         String modifiersTable = "datatables/item/dynamic_item/modifiers/armor_mods.iff";
-        String armorTypeTable = "datatables/item/dynamic_item/types/armor.iff";
+        //String armorTypeTable = "datatables/item/dynamic_item/types/armor.iff";
         int minLevel = dataTableGetInt(armorBalanceTable, 0, "minLevel");
         int protectIncreasePerLevel = dataTableGetInt(armorBalanceTable, 0, "protectIncreasePerLevel");
         int minRawProtection = dataTableGetInt(armorBalanceTable, 0, "minRawProtection");
@@ -1563,10 +1455,10 @@ public class static_item extends script.base_script
         float minSpecialMod = dataTableGetFloat(armorBalanceTable, 0, "minSpecialMod");
         float maxSpecialMod = dataTableGetFloat(armorBalanceTable, 0, "maxSpecialMod");
         float baseSpecialMod = dataTableGetFloat(armorBalanceTable, 0, "baseSpecialMod");
-        float baseMod = minBaseMod;
-        float primaryMod = minPrimaryMod;
-        float specialMod = minSpecialMod;
-        int armorTypeModRow = 0;
+        float baseMod;
+        float primaryMod;
+        float specialMod;
+        int armorTypeModRow;
         if (boolSetupData)
         {
             baseMod = rand(minBaseMod, maxBaseMod);
@@ -1696,7 +1588,6 @@ public class static_item extends script.base_script
     }
     public static obj_id setupDynamicWeapon(obj_id objWeapon, String itemName, int intLevel, dictionary dctWeaponStats, dictionary dctItemInfo, boolean boolSetupData) throws InterruptedException
     {
-        obj_id self = getSelf();
         dictionary dctItemNames = new dictionary();
         if (boolSetupData)
         {
@@ -1706,8 +1597,8 @@ public class static_item extends script.base_script
                 dctItemNames.put("strBaseName", strBaseName);
             }
         }
-        float fltMinDamageVal = 0;
-        float fltMaxDamageVal = 0;
+        float fltMinDamageVal;
+        float fltMaxDamageVal;
         if (boolSetupData)
         {
             fltMinDamageVal = rand(0f, 1f);
@@ -1734,7 +1625,7 @@ public class static_item extends script.base_script
         int intMaxDamage = intMaxDamageMin + (int)fltMax;
         float fltAttackSpeed = dctWeaponStats.getFloat(strWeaponString + "_attack_speed");
         float fltMaxRange = dctWeaponStats.getFloat(strWeaponString + "_max_range");
-        int intDamageType = DAMAGE_NONE;
+        int intDamageType;
         if (boolSetupData)
         {
             intDamageType = dctItemInfo.getInt("baseDamageType");
@@ -1855,11 +1746,9 @@ public class static_item extends script.base_script
                 setObjVar(item, "skillmod.bonus." + statBonusNames[i], statBonuses[i]);
             }
         }
-        return;
     }
     public static int generateStatMod(int level) throws InterruptedException
     {
-        final float VARIANCE = 0.125f;
         final float BASE_MOD = 0.2f;
         final float MAX_MOD = 0.312f;
         final float FLOOR_CHANCE = 60.0f;
@@ -1867,12 +1756,7 @@ public class static_item extends script.base_script
         float exponentIncrement = 18 / varianceIncrements;
         float baseMod = level * BASE_MOD;
         float maxMod = level * MAX_MOD;
-        float currentIncrement = 0.0f;
-        float finalModFloat = baseMod;
-        if (varianceIncrements < 1)
-        {
-            varianceIncrements = 1.0f;
-        }
+        float currentIncrement;
         if (exponentIncrement < 1)
         {
             exponentIncrement = 1.0f;
@@ -1891,7 +1775,6 @@ public class static_item extends script.base_script
             currentIncrement = (float)Math.pow(FLOOR_CHANCE, 1 + (f / 100));
             if (roll < currentIncrement)
             {
-                finalModFloat = baseMod;
                 break;
             }
             baseMod++;
@@ -1900,8 +1783,7 @@ public class static_item extends script.base_script
         {
             baseMod = maxMod;
         }
-        int statMod = (int)baseMod;
-        return statMod;
+        return (int)baseMod;
     }
     public static String getArmorNameSuffix(obj_id item) throws InterruptedException
     {
@@ -1953,10 +1835,9 @@ public class static_item extends script.base_script
     {
         if (fltRange != 0)
         {
-            int intPrice = getIntObjVar(objObject, "junkDealer.intPrice");
             float fltDiff = (float)(intMaxValue - intMinValue);
             fltDiff = fltDiff * fltRange;
-            intPrice = intMinValue + (int)fltDiff;
+            int intPrice = intMinValue + (int)fltDiff;
             setObjVar(objObject, "junkDealer.intPrice", intPrice);
         }
         else 
@@ -1965,7 +1846,6 @@ public class static_item extends script.base_script
             intPrice = intPrice + rand(intMinValue, intMaxValue);
             setObjVar(objObject, "junkDealer.intPrice", intPrice);
         }
-        return;
     }
     public static dictionary applyWeaponItemModifers(obj_id objWeapon, String strModifier, int intMinDamage, int intMaxDamage, dictionary dctItemNames) throws InterruptedException
     {
@@ -2075,20 +1955,14 @@ public class static_item extends script.base_script
                 setName(objItem, strName);
             }
         }
-        return;
     }
     public static boolean isDynamicItem(obj_id objItem) throws InterruptedException
     {
-        if (hasObjVar(objItem, "dynamic_item"))
-        {
-            return true;
-        }
-        return false;
+        return hasObjVar(objItem, "dynamic_item");
     }
     public static boolean isUniqueStaticItem(obj_id item) throws InterruptedException
     {
-        String item_name = getStaticItemName(item);
-        dictionary dict = getMasterItemDictionary(item_name);
+        dictionary dict = getMasterItemDictionary(getStaticItemName(item));
         if (dict != null)
         {
             return dict.getInt("unique") == 1;
@@ -2112,21 +1986,15 @@ public class static_item extends script.base_script
             return false;
         }
     }
-    public static boolean canCreateUniqueStaticItem(obj_id container, String itemName) throws InterruptedException
-    {
-        if (!isPlayer(getOwner(container)))
-        {
-            return true;
-        }
-        return (!utils.playerHasStaticItemInBankOrInventory(getOwner(container), itemName));
+    public static boolean canCreateUniqueStaticItem(obj_id container, String itemName) throws InterruptedException {
+        return !isPlayer(getOwner(container)) || (!utils.playerHasStaticItemInBankOrInventory(getOwner(container), itemName));
     }
     public static boolean canEquip(obj_id player, obj_id item) throws InterruptedException
     {
         dictionary itemData = static_item.getMasterItemDictionary(item);
-        int requiredLevel = itemData.getInt("required_level");
         String requiredSkill = itemData.getString("required_skill");
         boolean canEquip = true;
-        if (!static_item.validateLevelRequired(player, requiredLevel))
+        if (!static_item.validateLevelRequired(player, itemData.getInt("required_level")))
         {
             canEquip = false;
         }
@@ -2157,7 +2025,6 @@ public class static_item extends script.base_script
         {
             setObjVar(object, ORIG_OWNER, player);
         }
-        return;
     }
     public static boolean userIsOrigOwner(obj_id object, obj_id player) throws InterruptedException
     {
@@ -2171,11 +2038,7 @@ public class static_item extends script.base_script
         {
             return false;
         }
-        if (origOwner == currentOwner)
-        {
-            return true;
-        }
-        return false;
+        return origOwner == currentOwner;
     }
     public static string_id getStaticItemStringIdName(obj_id object) throws InterruptedException
     {
@@ -2187,7 +2050,6 @@ public class static_item extends script.base_script
         {
             return null;
         }
-        String staticItemName = getStaticItemName(object);
-        return new string_id(STATIC_ITEM_NAME, staticItemName);
+        return new string_id(STATIC_ITEM_NAME, getStaticItemName(object));
     }
 }

@@ -1,18 +1,13 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.ai_lib;
-import script.library.space_utils;
-import script.library.spawning;
 import script.library.create;
+import script.library.spawning;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+
 import java.util.Vector;
 
 public class spawner_patrol extends script.base_script
@@ -51,7 +46,6 @@ public class spawner_patrol extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        int intGoodLocationSpawner = getIntObjVar(self, "intGoodLocationSpawner");
         String strSpawnType = getStringObjVar(self, "strSpawns");
         String[] strSpawns = 
         {
@@ -90,7 +84,6 @@ public class spawner_patrol extends script.base_script
             LOG("spawning", "ERROR:  patrolArray script var not defined.");
             return SCRIPT_CONTINUE;
         }
-        int spawnNum = params.getInt("spawnNum");
         int maxSpawns = getIntObjVar(self, "intSpawnCount");
         if (maxSpawns >= patrolPoints.length)
         {
@@ -100,16 +93,14 @@ public class spawner_patrol extends script.base_script
         Vector goodSpawns = new Vector();
         for (int i = 0; i < fltSizes.length; ++i)
         {
-            goodSpawns.addElement(new Integer(i));
+            goodSpawns.addElement(i);
         }
         int spawnCount = 0;
         while (spawnCount < maxSpawns)
         {
             int roll = rand(0, goodSpawns.size() - 1);
-            int rowIndex = ((Integer)goodSpawns.get(roll)).intValue();
-            float size = fltSizes[rowIndex];
+            int rowIndex = (Integer) goodSpawns.get(roll);
             String spawn = strSpawns[rowIndex];
-            size = getClosestSize(size);
             location locTest = patrolPoints[spawnCount];
             if (createMob(spawn, null, locTest, 0.0f, self, false, spawnCount))
             {
@@ -148,7 +139,7 @@ public class spawner_patrol extends script.base_script
             float[] fltSizes = dataTableGetFloatColumn(strFileName, "fltSize");
             if ((strSpawns == null) || (strSpawns.length == 0))
             {
-                setName(self, "Mangled spawner. strFileName is " + strFileName + " I couldnt find any spawns in that file.");
+                setName(self, "Mangled spawner. strFileName is " + strFileName + " I couldn't find any spawns in that file.");
             }
             int intRoll = rand(0, strSpawns.length - 1);
             if (fltSizes.length == 0)
@@ -309,30 +300,21 @@ public class spawner_patrol extends script.base_script
             dungeonController = getObjIdObjVar(self, "dungeonController");
         }
         setName(self, getStringObjVar(self, "strName"));
-        for (int i = 0; i < patrolPointString.length; i++)
-        {
-            for (int k = 0; k < objects.length; k++)
-            {
-                if (!isIdValid(objects[k]))
-                {
+        for (String aPatrolPointString : patrolPointString) {
+            for (obj_id object : objects) {
+                if (!isIdValid(object)) {
                     continue;
                 }
-                if (hasObjVar(objects[k], "pointName"))
-                {
-                    if ((getStringObjVar(objects[k], "pointName")).equals(patrolPointString[i]))
-                    {
-                        if (isInInstance)
-                        {
-                            if (getObjIdObjVar(objects[k], "dungeonController") == dungeonController)
-                            {
-                                setName(objects[k], getStringObjVar(objects[k], "pointName"));
-                                patrolPointLocation = utils.addElement(patrolPointLocation, getLocation(objects[k]));
+                if (hasObjVar(object, "pointName")) {
+                    if ((getStringObjVar(object, "pointName")).equals(aPatrolPointString)) {
+                        if (isInInstance) {
+                            if (getObjIdObjVar(object, "dungeonController") == dungeonController) {
+                                setName(object, getStringObjVar(object, "pointName"));
+                                patrolPointLocation = utils.addElement(patrolPointLocation, getLocation(object));
                             }
-                        }
-                        else 
-                        {
-                            setName(objects[k], getStringObjVar(objects[k], "pointName"));
-                            patrolPointLocation = utils.addElement(patrolPointLocation, getLocation(objects[k]));
+                        } else {
+                            setName(object, getStringObjVar(object, "pointName"));
+                            patrolPointLocation = utils.addElement(patrolPointLocation, getLocation(object));
                         }
                     }
                 }
@@ -377,18 +359,9 @@ public class spawner_patrol extends script.base_script
         messageTo(self, "doSpawnEvent", null, 2, false);
         return SCRIPT_CONTINUE;
     }
-    public boolean canSpawnByConfigSetting() throws InterruptedException
-    {
+    public boolean canSpawnByConfigSetting() throws InterruptedException {
         String disableSpawners = getConfigSetting("GameServer", "disablePatrolSpawners");
-        if (disableSpawners == null)
-        {
-            return true;
-        }
-        if (disableSpawners.equals("true") || disableSpawners.equals("1"))
-        {
-            return false;
-        }
-        return true;
+        return disableSpawners == null || !(disableSpawners.equals("true") || disableSpawners.equals("1"));
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {
@@ -399,11 +372,9 @@ public class spawner_patrol extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < spawns.length; ++i)
-            {
-                if (isIdValid(spawns[i]) && exists(spawns[i]))
-                {
-                    messageTo(spawns[i], "selfDestruct", null, 5, false);
+            for (obj_id spawn : spawns) {
+                if (isIdValid(spawn) && exists(spawn)) {
+                    messageTo(spawn, "selfDestruct", null, 5, false);
                 }
             }
         }

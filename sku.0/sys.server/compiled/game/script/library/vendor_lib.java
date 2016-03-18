@@ -1,17 +1,11 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 import java.util.Vector;
-import script.library.create;
-import script.library.player_structure;
-import script.library.static_item;
 
 public class vendor_lib extends script.base_script
 {
@@ -291,8 +285,8 @@ public class vendor_lib extends script.base_script
     }
     public static void finalizePackUp(obj_id player, obj_id vendor, obj_id packer, boolean isAbandoned) throws InterruptedException
     {
-        obj_id vcd = null;
-        obj_id datapad = null;
+        obj_id vcd;
+        obj_id datapad;
         final boolean isLoadedAndAuthoritative = player.isLoaded() && player.isAuthoritative();
         CustomerServiceLog("vendorpackup", "Player " + getPlayerName(packer) + " (" + packer + ") is attempting to pack vendor (" + vendor + ",abandoned=" + isAbandoned + ") owned by player " + getPlayerName(player) + " (" + player + ")");
         if (isLoadedAndAuthoritative)
@@ -336,7 +330,6 @@ public class vendor_lib extends script.base_script
             fixLoadWith(vendor, player, maxDepth);
         }
         CustomerServiceLog("vendorpackup", "Player " + getPlayerName(packer) + " (" + packer + ") packed vendor (" + vendor + ",abandoned=" + isAbandoned + ") owned by player " + getPlayerName(player) + " (" + player + ") into device (" + vcd + ")");
-        return;
     }
     public static boolean isVendorPackUpEnabled() throws InterruptedException
     {
@@ -383,11 +376,9 @@ public class vendor_lib extends script.base_script
         blog("vendor_lib.getAllGreeterDatatableColumnNames: prevalidation completed");
         Vector greeterColNames = new Vector();
         greeterColNames.setSize(0);
-        for (int i = 0; i < preParsedColListLength; i++)
-        {
-            if (preParsedColList[i].startsWith("greeter"))
-            {
-                greeterColNames = utils.addElement(greeterColNames, preParsedColList[i]);
+        for (String aPreParsedColList : preParsedColList) {
+            if (aPreParsedColList.startsWith("greeter")) {
+                greeterColNames = utils.addElement(greeterColNames, aPreParsedColList);
             }
         }
         if (greeterColNames.size() <= 0)
@@ -396,11 +387,8 @@ public class vendor_lib extends script.base_script
         }
         blog("vendor_lib.getAllGreeterDatatableColumnNames: greeter col name list being returned.");
         String[] _greeterColNames = new String[0];
-        if (greeterColNames != null)
-        {
-            _greeterColNames = new String[greeterColNames.size()];
-            greeterColNames.toArray(_greeterColNames);
-        }
+        _greeterColNames = new String[greeterColNames.size()];
+        greeterColNames.toArray(_greeterColNames);
         return _greeterColNames;
     }
     public static boolean buildNpcInPlayerStructure(obj_id controller, obj_id player, String npcType, boolean newGreeter) throws InterruptedException
@@ -454,7 +442,7 @@ public class vendor_lib extends script.base_script
             blog("vendor_lib.buildNpcInPlayerStructure: Unable to create a nonvendor: validateNpcPlacementInStructure said NO.");
             return false;
         }
-        location loc = null;
+        location loc;
         if (where == null)
         {
             loc = getLocation(owner);
@@ -562,11 +550,7 @@ public class vendor_lib extends script.base_script
         {
             return true;
         }
-        if (player_structure.isAdmin(structure, player))
-        {
-            return true;
-        }
-        return false;
+        return player_structure.isAdmin(structure, player);
     }
     public static boolean validateNonVendorInStructure(obj_id nonVendor) throws InterruptedException
     {
@@ -579,11 +563,7 @@ public class vendor_lib extends script.base_script
         {
             return false;
         }
-        if (!player_structure.isPlayerStructure(structure) || player_structure.isCivic(structure))
-        {
-            return false;
-        }
-        return true;
+        return !(!player_structure.isPlayerStructure(structure) || player_structure.isCivic(structure));
     }
     public static String getGreeterNonVendorCreatureType(obj_id object, String greeterOrNonVendorType) throws InterruptedException
     {
@@ -609,7 +589,7 @@ public class vendor_lib extends script.base_script
         blog("vendor_lib.getGreeterNonVendorCreatureType creatureTypes received");
         for (int i = 0; i < creatureTypes.length; i++)
         {
-            if (greeterOrNonVendorType.indexOf(creatureTypes[i]) == -1)
+            if (!greeterOrNonVendorType.contains(creatureTypes[i]))
             {
                 blog("vendor_lib.getGreeterNonVendorCreatureType greeterOrNonVendorType: " + greeterOrNonVendorType + " " + creatureTypes[i]);
                 continue;
@@ -630,11 +610,7 @@ public class vendor_lib extends script.base_script
         {
             return false;
         }
-        if (getBooleanObjVar(object, vendor_lib.SPECIAL_VENDOR_IDENTIFIER) != true)
-        {
-            return false;
-        }
-        return true;
+        return getBooleanObjVar(object, vendor_lib.SPECIAL_VENDOR_IDENTIFIER);
     }
     public static obj_id setObjectOwner(obj_id controller) throws InterruptedException
     {
@@ -686,11 +662,7 @@ public class vendor_lib extends script.base_script
         {
             return false;
         }
-        if (!player_structure.isPlayerStructure(structure))
-        {
-            return false;
-        }
-        return true;
+        return player_structure.isPlayerStructure(structure);
     }
     public static boolean isObjectInSameCellAsController(obj_id controller, obj_id object) throws InterruptedException
     {
@@ -721,11 +693,7 @@ public class vendor_lib extends script.base_script
         {
             return false;
         }
-        if (controllerLoc.cell != objLocation.cell)
-        {
-            return false;
-        }
-        return true;
+        return controllerLoc.cell == objLocation.cell;
     }
     public static boolean recreateObject(obj_id controller, obj_id player) throws InterruptedException
     {
@@ -753,7 +721,7 @@ public class vendor_lib extends script.base_script
         {
             npcType = GREETER_VAR_PREFIX;
         }
-        if (npcType == null || npcType.equals(""))
+        if (npcType.equals(""))
         {
             return false;
         }
@@ -792,7 +760,7 @@ public class vendor_lib extends script.base_script
         {
             npcType = GREETER_VAR_PREFIX;
         }
-        if (npcType == null || npcType.equals(""))
+        if (npcType.equals(""))
         {
             return false;
         }
@@ -819,11 +787,7 @@ public class vendor_lib extends script.base_script
             return false;
         }
         location here = getLocation(controller);
-        if (getContainedBy(controller) == here.cell)
-        {
-            return true;
-        }
-        return false;
+        return getContainedBy(controller) == here.cell;
     }
     public static boolean removeObjectFromController(obj_id controller, obj_id greeter) throws InterruptedException
     {

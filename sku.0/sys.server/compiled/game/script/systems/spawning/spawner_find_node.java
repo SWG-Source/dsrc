@@ -1,25 +1,7 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.buff;
-import script.library.craftinglib;
-import script.library.create;
-import script.library.datatable;
-import script.library.group;
-import script.library.locations;
-import script.library.regions;
-import script.library.skill;
-import script.library.space_utils;
-import script.library.spawning;
-import script.library.sui;
-import script.library.utils;
+import script.dictionary;
+import script.obj_id;
 
 public class spawner_find_node extends script.base_script
 {

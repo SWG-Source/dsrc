@@ -1,36 +1,9 @@
 package script.library;
 
+import script.combat_engine.combat_data;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import java.lang.Math;
-import java.util.StringTokenizer;
-import script.library.ai_lib;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.city;
-import script.library.colors;
-import script.library.combat;
-import script.library.dot;
-import script.library.factions;
-import script.library.group;
-import script.library.locations;
-import script.library.loot;
-import script.library.luck;
-import script.library.money;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.static_item;
-import script.library.sui;
-import script.library.utils;
-import script.library.vehicle;
-import script.library.xp;
-import script.library.weapons;
+import java.util.Vector;
 
 public class stealth extends script.base_script
 {
@@ -191,7 +164,6 @@ public class stealth extends script.base_script
     public static void createRangerLoot(int level, String object, obj_id container, int count) throws InterruptedException
     {
         object = toLower(object);
-        String template = "";
         int type = 1;
         int trigType = 1;
         int power = getPowerLevel(level, false);
@@ -204,65 +176,63 @@ public class stealth extends script.base_script
         switch (trigHash)
         {
             case (265639046):
-            trigType = TRIGGER_TYPE_PROXIMITY;
-            break;
+                trigType = TRIGGER_TYPE_PROXIMITY;
+                break;
             case (-1964272009):
-            trigType = TRIGGER_TYPE_TIMER;
-            break;
+                trigType = TRIGGER_TYPE_TIMER;
+                break;
             case (-1799474985):
-            trigType = TRIGGER_TYPE_REMOTE;
-            break;
+                trigType = TRIGGER_TYPE_REMOTE;
+                break;
             default:
-            trapHash = getStringCrc(object);
-            break;
+                trapHash = getStringCrc(object);
+                break;
         }
         switch (trapHash)
         {
             case (-2001914999):
-            for (int i = 0; i < count; i++)
-            {
-                type = ALL_TRAP_TYPES[rand(0, ALL_TRAP_TYPES.length - 1)];
-                trigType = ALL_TRIGGER_TYPES[rand(0, ALL_TRIGGER_TYPES.length - 1)];
-                createTrapObject(container, getPowerLevel(level, true), type, 1, trigType, getPowerLevel(level, true), rand(5, 20));
-            }
-            break;
+                for (int i = 0; i < count; i++)
+                {
+                    type = ALL_TRAP_TYPES[rand(0, ALL_TRAP_TYPES.length - 1)];
+                    trigType = ALL_TRIGGER_TYPES[rand(0, ALL_TRIGGER_TYPES.length - 1)];
+                    createTrapObject(container, getPowerLevel(level, true), type, 1, trigType, getPowerLevel(level, true), rand(5, 20));
+                }
+                break;
             case (-279247418):
-            createMotionSensorObject(container, power, count);
-            break;
+                createMotionSensorObject(container, power, count);
+                break;
             case (-1752438899):
-            createChaffFlareObject(container, power, count);
-            break;
+                createChaffFlareObject(container, power, count);
+                break;
             case (487387167):
-            createHEPObject(container, power, count);
-            break;
+                createHEPObject(container, power, count);
+                break;
             case (1253827732):
-            createBioProbeObject(container, power, count);
-            break;
+                createBioProbeObject(container, power, count);
+                break;
             case (579649147):
-            createTrackingBeaconObject(container, power, count);
-            break;
+                createTrackingBeaconObject(container, power, count);
+                break;
             case (240293015):
-            createTrapObject(container, power, TRAP_CALTROP, count, trigType, power, 10);
-            break;
+                createTrapObject(container, power, TRAP_CALTROP, count, trigType, power, 10);
+                break;
             case (1254944108):
-            createTrapObject(container, power, TRAP_FLASHBANG, count, trigType, power, 10);
-            break;
+                createTrapObject(container, power, TRAP_FLASHBANG, count, trigType, power, 10);
+                break;
             case (546611802):
-            createTrapObject(container, power, TRAP_HX2, count, trigType, power, 10);
-            break;
+                createTrapObject(container, power, TRAP_HX2, count, trigType, power, 10);
+                break;
             case (-1152836626):
-            createTrapObject(container, power, TRAP_KAMINODART, count, trigType, power, 10);
+                createTrapObject(container, power, TRAP_KAMINODART, count, trigType, power, 10);
+                break;
         }
-        return;
     }
     public static void createRangerLoot(obj_id mob, int level, String object, obj_id container) throws InterruptedException
     {
         createRangerLoot(level, object, container, -1);
-        return;
     }
     public static int getNumLootItems(int level, obj_id destContainer) throws InterruptedException
     {
-        float lvl = level;
         int numItems = 1 + (int)Math.ceil((level / 30));
         int free = getVolumeFree(destContainer);
         if (free < numItems)
@@ -374,27 +344,26 @@ public class stealth extends script.base_script
     }
     public static obj_id createTrapObject(obj_id container, int power, int trapType, int count, int triggerType, int triggerAccuracy, int triggerParam) throws InterruptedException
     {
-        String template = "";
+        String template;
         switch (trapType)
         {
             case TRAP_CALTROP:
-            template = "object/tangible/scout/trap/trap_ap_caltrop.iff";
-            break;
+                template = "object/tangible/scout/trap/trap_ap_caltrop.iff";
+                break;
             case TRAP_FLASHBANG:
-            template = "object/tangible/scout/trap/trap_ap_flashbang.iff";
-            break;
+                template = "object/tangible/scout/trap/trap_ap_flashbang.iff";
+                break;
             case TRAP_HX2:
-            template = "object/tangible/scout/trap/trap_ap_hx2mine.iff";
-            break;
+                template = "object/tangible/scout/trap/trap_ap_hx2mine.iff";
+                break;
             case TRAP_KAMINODART:
-            template = "object/tangible/scout/trap/trap_ap_kaminoandart.iff";
-            break;
+                template = "object/tangible/scout/trap/trap_ap_kaminoandart.iff";
+                break;
             default:
-            template = "object/tangible/scout/trap/trap_ap_hx2mine.iff";
-            break;
+                template = "object/tangible/scout/trap/trap_ap_hx2mine.iff";
+                break;
         }
-        obj_id trap = null;
-        trap = createObject(template, container, "");
+        obj_id trap = createObject(template, container, "");
         if (!isIdValid(trap))
         {
             return null;
@@ -407,10 +376,8 @@ public class stealth extends script.base_script
     public static boolean canPlaceMotionSensor(obj_id player, obj_id sensor) throws InterruptedException
     {
         obj_id[] stuff = getNonCreaturesInRange(getLocation(player), TRAP_MIN_DISTANCE_BETWEEN * 2);
-        for (int i = 0; i < stuff.length; i++)
-        {
-            if (hasObjVar(stuff[i], TRAP_TYPE) || hasObjVar(stuff[i], BEACON_BATTERY))
-            {
+        for (obj_id aStuff : stuff) {
+            if (hasObjVar(aStuff, TRAP_TYPE) || hasObjVar(aStuff, BEACON_BATTERY)) {
                 sendSystemMessage(player, new string_id("spam", "other_trap"));
                 return false;
             }
@@ -455,7 +422,6 @@ public class stealth extends script.base_script
         dic.put("wasFiltered", wasFiltered);
         dic.put("sensorLoc", getLocation(sensor));
         messageTo(owner, "msgMotionSensorTripped", dic, 1, false);
-        return;
     }
     public static void cleanComponentFromContainer(obj_id component, obj_id container) throws InterruptedException
     {
@@ -473,17 +439,15 @@ public class stealth extends script.base_script
             return;
         }
         int numItems = ovl.getNumItems();
-        String name = "";
+        obj_var ov;
         for (int i = 0; i < numItems; i++)
         {
-            obj_var ov = ovl.getObjVar(i);
+            ov = ovl.getObjVar(i);
             if (ov != null)
             {
-                name = "trap." + ov.getName();
-                removeObjVar(container, name);
+                removeObjVar(container, "trap." + ov.getName());
             }
         }
-        return;
     }
     public static boolean canActivateTrackingBeacon(obj_id player, obj_id beacon, boolean silent) throws InterruptedException
     {
@@ -536,7 +500,6 @@ public class stealth extends script.base_script
             messageTo(beacon, "msgTrackingBeaconUpdate", dic, BEACON_INTERVAL, true);
             messageTo(target, "msgTrackingBeaconLocationRequest", dic, 0, false);
         }
-        return;
     }
     public static void stopTrackingBeacon(obj_id beacon, obj_id player) throws InterruptedException
     {
@@ -552,7 +515,6 @@ public class stealth extends script.base_script
             removeObjVar(beacon, BEACON_TARGET);
             removeObjVar(beacon, BEACON_TARGET_NAME);
         }
-        return;
     }
     public static void updateTrackingBeaconDisplay(obj_id beacon) throws InterruptedException
     {
@@ -602,7 +564,6 @@ public class stealth extends script.base_script
         {
             stopTrackingBeacon(beacon, player);
         }
-        return;
     }
     public static void updateTrackingBeaconData(obj_id beacon, obj_id target, location targetLoc, String targetName) throws InterruptedException
     {
@@ -651,7 +612,6 @@ public class stealth extends script.base_script
     }
     public static void bioProbe(obj_id player, obj_id probe, obj_id target) throws InterruptedException
     {
-        float effectiveness = getIntObjVar(probe, DETECT_EFFECTIVENESS);
         float timeToDecay = getFloatObjVar(probe, BIO_PROBE_STORAGE_TIME);
         setObjVar(probe, BIO_PROBE_SAMPLE_TIME, getGameTime());
         messageTo(probe, "msgDecaySample", null, timeToDecay, true);
@@ -667,7 +627,6 @@ public class stealth extends script.base_script
         prose_package pp = prose.getPackage(new string_id("spam", "got_probe"));
         pp = prose.setTT(pp, target);
         sendSystemMessageProse(player, pp);
-        return;
     }
     public static void doChaffFlareEffect(obj_id player, obj_id flare) throws InterruptedException
     {
@@ -678,23 +637,19 @@ public class stealth extends script.base_script
         obj_id[] stuff = getObjectsInRange(player, flareDistance);
         boolean foundSomething = false;
         prose_package pp = prose.getPackage(new string_id("spam", "chaff_uncover"));
-        flareDistance += (detectSkill / 10);
         pp = prose.setTT(pp, player);
-        for (int i = 0; i < stuff.length; i++)
-        {
-            if (!hasObjVar(stuff[i], TRAP_TYPE) || !validateTrapTarget(stuff[i], player))
-            {
+        for (obj_id aStuff : stuff) {
+            if (!hasObjVar(aStuff, TRAP_TYPE) || !validateTrapTarget(aStuff, player)) {
                 continue;
             }
-            int hidePower = getIntObjVar(stuff[i], CAMO_SKILL);
+            int hidePower = getIntObjVar(aStuff, CAMO_SKILL);
             int chaffPower = getIntObjVar(flare, DETECT_EFFECTIVENESS);
-            if (hidePower > chaffPower)
-            {
+            if (hidePower > chaffPower) {
                 continue;
             }
-            pp = prose.setTU(pp, stuff[i]);
+            pp = prose.setTU(pp, aStuff);
             foundSomething = true;
-            unconcealDevice(player, stuff[i]);
+            unconcealDevice(player, aStuff);
         }
         if (foundSomething)
         {
@@ -705,7 +660,6 @@ public class stealth extends script.base_script
         {
             sendSystemMessage(player, new string_id("spam", "chaff_nothing"));
         }
-        return;
     }
     public static boolean canDisarmTrap(obj_id player, obj_id trap) throws InterruptedException
     {
@@ -750,8 +704,7 @@ public class stealth extends script.base_script
         {
             chanceToDetect = MAX_CHANCE_TO_DISARM;
         }
-        float roll = rand(0f, 100f);
-        if (roll < chanceToDetect)
+        if (rand(0f, 100f) < chanceToDetect)
         {
             if (hasObjVar(trap, stealth.TRAP_FREQUENCY))
             {
@@ -781,7 +734,6 @@ public class stealth extends script.base_script
             doTrapDetonateEffect(trap, getIntObjVar(trap, TRAP_TYPE), target, PERCENT_EFFECT_MOD_DISARM_FAIL);
             sendSystemMessage(player, new string_id("spam", "fail_disarm"));
         }
-        return;
     }
     public static boolean canDetectCamouflage(obj_id player) throws InterruptedException
     {
@@ -790,14 +742,13 @@ public class stealth extends script.base_script
     public static void detectCamouflage(obj_id player, boolean findMobiles, boolean findInanimate, float distance, float baseChanceToDetect) throws InterruptedException
     {
         obj_id[] stuff = getObjectsInRange(player, distance);
-        Vector detected = new Vector();
-        Vector times = new Vector();
+        Vector detected;
+        Vector times;
         int now = getGameTime();
         boolean foundSomething = false;
-        obj_id target = null;
-        prose_package pp = prose.getPackage(new string_id("spam", "revealed_by"));
-        String invis = "";
-        boolean objIsMobile = false;
+        obj_id target;
+        String invis;
+        boolean objIsMobile;
         location playerLoc = getLocation(player);
         playClientEffectLoc(getPlayerCreaturesInRange(playerLoc, 100.0f), "appearance/pt_spy_reveal_wave.prt", playerLoc, 0.0f);
         if (utils.isProfession(player, utils.SPY))
@@ -827,78 +778,57 @@ public class stealth extends script.base_script
         {
             playClientEffectLoc(player, "appearance/pt_fireworks_secondary_shockwave2.prt", getLocation(player), 0.0f);
         }
-        for (int i = 0; i < stuff.length; i++)
-        {
+        for (obj_id aStuff : stuff) {
             objIsMobile = false;
-            target = stuff[i];
-            if (!isIdValid(target))
-            {
+            target = aStuff;
+            if (!isIdValid(target)) {
                 continue;
             }
-            if (isPlayer(target) || ai_lib.isHumanoid(target) || isMob(target))
-            {
+            if (isPlayer(target) || ai_lib.isHumanoid(target) || isMob(target)) {
                 objIsMobile = true;
-                if (!pvpCanAttack(player, target))
-                {
+                if (!pvpCanAttack(player, target)) {
                     continue;
                 }
                 invis = getInvisBuff(target);
-                if (invis == null)
-                {
+                if (invis == null) {
+                    continue;
+                } else if (buff.getPriority(invis) > MAX_INVIS_BUFF_TO_DETECT) {
                     continue;
                 }
-                else if (buff.getPriority(invis) > MAX_INVIS_BUFF_TO_DETECT)
-                {
-                    continue;
-                }
-                if (invis.startsWith("invis_sp_buff_invis_notrace") || invis.startsWith("invis_sp_diversion_stealth"))
-                {
+                if (invis.startsWith("invis_sp_buff_invis_notrace") || invis.startsWith("invis_sp_diversion_stealth")) {
                     continue;
                 }
                 detected = utils.getResizeableStringBatchObjVar(target, DETECT_ATTEMPTS);
                 times = utils.getResizeableStringBatchObjVar(target, DETECT_TIMES);
-                if (detected == null)
-                {
+                if (detected == null) {
                     detected = new Vector();
                 }
-                if (times == null)
-                {
+                if (times == null) {
                     times = new Vector();
                 }
-                if (detected.size() != times.size())
-                {
+                if (detected.size() != times.size()) {
                     continue;
                 }
                 int idx = detected.indexOf(player);
-                if (idx > -1)
-                {
-                    int when = (((Integer)times.get(idx))).intValue();
-                    if (when - now < PLAYER_DETECT_SAFETY_INTERVAL)
-                    {
+                if (idx > -1) {
+                    int when = (Integer) times.get(idx);
+                    if (when - now < PLAYER_DETECT_SAFETY_INTERVAL) {
                         continue;
                     }
-                    times.setElementAt(new Integer(now), idx);
-                }
-                else 
-                {
+                    times.setElementAt(now, idx);
+                } else {
                     detected.add(player);
-                    times.add(new Integer(now));
+                    times.add(now);
                 }
                 utils.setResizeableBatchObjVar(target, DETECT_ATTEMPTS, detected);
                 utils.setResizeableBatchObjVar(target, DETECT_TIMES, times);
-            }
-            else if (!hasObjVar(target, CONCEALED_OBJECT) || !validateTrapTarget(target, player))
-            {
+            } else if (!hasObjVar(target, CONCEALED_OBJECT) || !validateTrapTarget(target, player)) {
                 continue;
             }
-            if (activeDetectHiddenTarget(target, player, baseChanceToDetect))
-            {
-                if (objIsMobile)
-                {
+            if (activeDetectHiddenTarget(target, player, baseChanceToDetect)) {
+                if (objIsMobile) {
                     checkForAndMakeVisible(target);
-                }
-                else 
-                {
+                } else {
                     unconcealDevice(player, target);
                 }
                 foundSomething = true;
@@ -914,7 +844,6 @@ public class stealth extends script.base_script
         {
             sendSystemMessage(player, new string_id("spam", "no_detect"));
         }
-        return;
     }
     public static boolean canConcealDevice(obj_id player, obj_id target) throws InterruptedException
     {
@@ -1020,10 +949,8 @@ public class stealth extends script.base_script
             }
         }
         obj_id[] stuff = getNonCreaturesInRange(getLocation(player), TRAP_MIN_DISTANCE_BETWEEN);
-        for (int i = 0; i < stuff.length; i++)
-        {
-            if (hasObjVar(stuff[i], TRAP_TYPE))
-            {
+        for (obj_id aStuff : stuff) {
+            if (hasObjVar(aStuff, TRAP_TYPE)) {
                 sendSystemMessage(player, new string_id("spam", "other_trap"));
                 return false;
             }
@@ -1032,10 +959,8 @@ public class stealth extends script.base_script
     }
     public static boolean inTrapRestrictedRegion(obj_id player) throws InterruptedException
     {
-        for (int i = 0; i < TRAP_RESTRICTED_REGIONS.length; i++)
-        {
-            if (groundquests.isInNamedRegion(player, TRAP_RESTRICTED_REGIONS[i]))
-            {
+        for (String TRAP_RESTRICTED_REGION : TRAP_RESTRICTED_REGIONS) {
+            if (groundquests.isInNamedRegion(player, TRAP_RESTRICTED_REGION)) {
                 return true;
             }
         }
@@ -1049,30 +974,31 @@ public class stealth extends script.base_script
         }
         if (hasObjVar(self, TRAP_TYPE))
         {
-            int trapTypeInt = getIntObjVar(self, TRAP_TYPE);
-            if (trapTypeInt == TRAP_CALTROP)
-            {
-                float trapRadiusFlt = TRAP_CALTROP_BLAST_RADIUS;
-                names[free] = "trap_radius";
-                attribs[free++] = "" + trapRadiusFlt + "m";
-            }
-            if (trapTypeInt == TRAP_FLASHBANG)
-            {
-                float trapRadiusFlt = TRAP_FLASHBANG_BLAST_RADIUS;
-                names[free] = "trap_radius";
-                attribs[free++] = "" + trapRadiusFlt + "m";
-            }
-            if (trapTypeInt == TRAP_HX2)
-            {
-                float trapRadiusFlt = TRAP_HX2_BLAST_RADIUS;
-                names[free] = "trap_radius";
-                attribs[free++] = "" + trapRadiusFlt + "m";
-            }
-            if (trapTypeInt == TRAP_KAMINODART)
-            {
-                float trapRadiusFlt = TRAP_KAMINODART_BLAST_RADIUS;
-                names[free] = "trap_radius";
-                attribs[free++] = "" + trapRadiusFlt + "m";
+            switch (getIntObjVar(self, TRAP_TYPE)) {
+                case TRAP_CALTROP: {
+                    float trapRadiusFlt = TRAP_CALTROP_BLAST_RADIUS;
+                    names[free] = "trap_radius";
+                    attribs[free++] = "" + trapRadiusFlt + "m";
+                    break;
+                }
+                case TRAP_FLASHBANG: {
+                    float trapRadiusFlt = TRAP_FLASHBANG_BLAST_RADIUS;
+                    names[free] = "trap_radius";
+                    attribs[free++] = "" + trapRadiusFlt + "m";
+                    break;
+                }
+                case TRAP_HX2: {
+                    float trapRadiusFlt = TRAP_HX2_BLAST_RADIUS;
+                    names[free] = "trap_radius";
+                    attribs[free++] = "" + trapRadiusFlt + "m";
+                    break;
+                }
+                case TRAP_KAMINODART: {
+                    float trapRadiusFlt = TRAP_KAMINODART_BLAST_RADIUS;
+                    names[free] = "trap_radius";
+                    attribs[free++] = "" + trapRadiusFlt + "m";
+                    break;
+                }
             }
         }
         if (hasObjVar(self, TRAP_POWER))
@@ -1121,9 +1047,8 @@ public class stealth extends script.base_script
             names[free] = "trigger_filter";
             attribs[free++] = "" + getStringObjVar(self, BIO_PROBE_TARGET_NAME);
         }
-        free = utils.addClassRequirementAttributes(player, self, names, attribs, free, "trap.");
-        free = utils.addClassRequirementAttributes(player, self, names, attribs, free, "trap.trigger.");
-        return;
+        utils.addClassRequirementAttributes(player, self, names, attribs, free, "trap.");
+        utils.addClassRequirementAttributes(player, self, names, attribs, free, "trap.trigger.");
     }
     public static boolean tryDetonateTrap(obj_id trap, obj_id target) throws InterruptedException
     {
@@ -1163,27 +1088,24 @@ public class stealth extends script.base_script
         switch (trapType)
         {
             case TRAP_HX2:
-            targets = getCreaturesInRange(getLocation(trap), TRAP_HX2_BLAST_RADIUS);
-            break;
+                targets = getCreaturesInRange(getLocation(trap), TRAP_HX2_BLAST_RADIUS);
+                break;
             case TRAP_FLASHBANG:
-            targets = getCreaturesInRange(getLocation(trap), TRAP_FLASHBANG_BLAST_RADIUS);
-            break;
+                targets = getCreaturesInRange(getLocation(trap), TRAP_FLASHBANG_BLAST_RADIUS);
+                break;
             case TRAP_CALTROP:
-            targets = getCreaturesInRange(getLocation(trap), TRAP_CALTROP_BLAST_RADIUS);
-            break;
+                targets = getCreaturesInRange(getLocation(trap), TRAP_CALTROP_BLAST_RADIUS);
+                break;
             case TRAP_KAMINODART:
-            targets = getCreaturesInRange(getLocation(trap), TRAP_KAMINODART_BLAST_RADIUS);
-            break;
+                targets = getCreaturesInRange(getLocation(trap), TRAP_KAMINODART_BLAST_RADIUS);
+                break;
         }
         Vector finalTargets = new Vector();
         obj_id filter = getBioProbeTarget(trap);
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isIdValid(filter) || targets[i] == filter)
-            {
-                if (validateTrapTarget(trap, targets[i]))
-                {
-                    finalTargets.add(targets[i]);
+        for (obj_id target : targets) {
+            if (!isIdValid(filter) || target == filter) {
+                if (validateTrapTarget(trap, target)) {
+                    finalTargets.add(target);
                 }
             }
         }
@@ -1196,29 +1118,29 @@ public class stealth extends script.base_script
             switch (trapType)
             {
                 case TRAP_HX2:
-                dictionary params = new dictionary();
-                obj_id owner = getOwner(trap);
-                if (!isIdValid(breacher))
-                {
-                    breacher = (obj_id)targets.elementAt(0);
+                    dictionary params = new dictionary();
+                    obj_id owner = getOwner(trap);
                     if (!isIdValid(breacher))
                     {
-                        break;
+                        breacher = (obj_id)targets.elementAt(0);
+                        if (!isIdValid(breacher))
+                        {
+                            break;
+                        }
                     }
-                }
-                params.put("target", breacher);
-                params.put("owner", owner);
-                messageTo(trap, "co_mine_hx2", params, 0, false);
-                break;
+                    params.put("target", breacher);
+                    params.put("owner", owner);
+                    messageTo(trap, "co_mine_hx2", params, 0, false);
+                    break;
                 case TRAP_FLASHBANG:
-                doFlashBangDetonate(trap, targets, percentMod);
-                break;
+                    doFlashBangDetonate(trap, targets, percentMod);
+                    break;
                 case TRAP_CALTROP:
-                doCaltropDetonate(trap, targets, percentMod);
-                break;
+                    doCaltropDetonate(trap, targets, percentMod);
+                    break;
                 case TRAP_KAMINODART:
-                doKaminoDartDetonate(trap, targets, percentMod);
-                break;
+                    doKaminoDartDetonate(trap, targets, percentMod);
+                    break;
             }
         }
         else 
@@ -1246,7 +1168,7 @@ public class stealth extends script.base_script
         int duration = (int)(KAMINODART_MAX_DURATION * (trapPower / 1000));
         int strength = (int)(KAMINODART_MAX_STRENGTH * (trapPower / 1000));
         obj_id owner = getOwner(trap);
-        boolean isInvis = false;
+        boolean isInvis;
         String invis = null;
         boolean attackerPresent = false;
         if (isIdValid(owner) && exists(owner))
@@ -1257,25 +1179,21 @@ public class stealth extends script.base_script
         isInvis = invis != null && invis.length() > 0;
         duration += duration * percentMod;
         strength += strength * percentMod;
-        obj_id curObj = null;
+        obj_id curObj;
         prose_package pp = prose.getPackage(new string_id("spam", "kamino_trap_hit"));
-        playClientEffectLoc(trap, "clienteffect/lair_damage_light.cef", getLocation(curObj), 0.0f);
-        for (int i = 0; i < targets.size(); i++)
-        {
-            curObj = (obj_id)targets.get(i);
+        //playClientEffectLoc(trap, "clienteffect/lair_damage_light.cef", getLocation(curObj), 0.0f);
+        for (Object target : targets) {
+            curObj = (obj_id) target;
             playClientEffectLoc(curObj, "clienteffect/lair_damage_light.cef", getLocation(curObj), 0.0f);
             dot.applyDotEffect(curObj, owner, dot.DOT_POISON, "rangerTrapKaminoDart", HEALTH, potency, strength, duration, true, null);
             pp = prose.setTT(pp, curObj);
-            if (attackerPresent)
-            {
-                if (isInvis && rand(1, 100) < 50)
-                {
+            if (attackerPresent) {
+                if (isInvis && rand(1, 100) < 50) {
                     continue;
                 }
                 startCombat(curObj, owner);
             }
         }
-        return;
     }
     public static void doCaltropDetonate(obj_id trap, Vector targets) throws InterruptedException
     {
@@ -1286,10 +1204,9 @@ public class stealth extends script.base_script
         float trapPower = getIntObjVar(trap, TRAP_POWER);
         float duration = CALTROP_MAX_DURATION * (trapPower / 1000);
         float snareAmount = CALTROP_MAX_SNARE * (trapPower / 1000);
-        obj_id curObj = null;
-        prose_package pp = prose.getPackage(new string_id("spam", "caltrop_trap_hit"));
+        obj_id curObj;
         obj_id owner = getOwner(trap);
-        boolean isInvis = false;
+        boolean isInvis;
         String invis = null;
         boolean attackerPresent = false;
         if (isIdValid(owner) && exists(owner))
@@ -1305,17 +1222,13 @@ public class stealth extends script.base_script
         {
             snareAmount = 95;
         }
-        for (int i = 0; i < targets.size(); i++)
-        {
-            curObj = (obj_id)targets.get(i);
-            if (buff.canApplyBuff(curObj, "caltropSnare"))
-            {
+        for (Object target : targets) {
+            curObj = (obj_id) target;
+            if (buff.canApplyBuff(curObj, "caltropSnare")) {
                 playClientEffectLoc(curObj, "clienteffect/lair_damage_light.cef", getLocation(curObj), 0.0f);
                 buff.applyBuff(curObj, "caltropSnare", duration, snareAmount);
-                if (attackerPresent)
-                {
-                    if (isInvis && rand(1, 100) < 50)
-                    {
+                if (attackerPresent) {
+                    if (isInvis && rand(1, 100) < 50) {
                         continue;
                     }
                     startCombat(curObj, owner);
@@ -1332,10 +1245,9 @@ public class stealth extends script.base_script
         float trapPower = getIntObjVar(trap, TRAP_POWER);
         float duration = FLASHBANG_MAX_DURATION * (trapPower / 1000);
         float amount = FLASHBANG_MAX_COMBAT_SLOW * (trapPower / 1000);
-        obj_id curObj = null;
-        prose_package pp = prose.getPackage(new string_id("spam", "flashbang_trap_hit"));
+        obj_id curObj;
         obj_id owner = getOwner(trap);
-        boolean isInvis = false;
+        boolean isInvis;
         String invis = null;
         boolean attackerPresent = false;
         if (isIdValid(owner) && exists(owner))
@@ -1348,30 +1260,21 @@ public class stealth extends script.base_script
         playClientEffectLoc(trap, "appearance/pt_flash_bomb.prt", getLocation(trap), 0.0f);
         duration += duration * percentMod;
         amount += amount * percentMod;
-        for (int i = 0; i < targets.size(); i++)
-        {
-            curObj = (obj_id)targets.get(i);
-            if (buff.canApplyBuff(curObj, "flashBang"))
-            {
-                if (isPlayer(curObj))
-                {
+        for (Object target : targets) {
+            curObj = (obj_id) target;
+            if (buff.canApplyBuff(curObj, "flashBang")) {
+                if (isPlayer(curObj)) {
                     doAnimationAction(curObj, "cover_ears_mocking");
                 }
                 buff.applyBuff(curObj, "flashBang", duration, amount);
-                if (attackerPresent)
-                {
-                    if (isInvis && rand(1, 100) < 50)
-                    {
+                if (attackerPresent) {
+                    if (isInvis && rand(1, 100) < 50) {
                         continue;
                     }
                     startCombat(curObj, owner);
                 }
             }
-            else 
-            {
-            }
         }
-        return;
     }
     public static boolean safePvPCanAttack(obj_id trap, obj_id target) throws InterruptedException
     {
@@ -1398,27 +1301,22 @@ public class stealth extends script.base_script
         {
             return false;
         }
-        if (targetIsPlayer && actorIsPlayer)
+        if (targetIsPlayer)
         {
             if (pvpAreFactionsOpposed(actorFaction, targetFaction))
             {
-                if (actorPvPType == PVPTYPE_DECLARED && targetPvPType == PVPTYPE_DECLARED)
+                if (targetPvPType == PVPTYPE_DECLARED)
                 {
                     return true;
                 }
             }
         }
-        if (actorIsPlayer && !targetIsPlayer)
+        if (!targetIsPlayer)
         {
-            if (targetFaction != 0)
-            {
-                if (actorFaction != targetFaction)
-                {
-                    return pvpAreFactionsOpposed(actorFaction, targetFaction);
-                }
-                return false;
+            if (targetFaction != 0) {
+                return actorFaction != targetFaction && pvpAreFactionsOpposed(actorFaction, targetFaction);
             }
-            else 
+            else
             {
                 return true;
             }
@@ -1473,7 +1371,6 @@ public class stealth extends script.base_script
         }
         location loc = getLocation(player);
         int triggerType = getIntObjVar(invTrap, TRIGGER_TYPE);
-        String template = getTemplateName(invTrap);
         obj_id trap = utils.cloneObject(invTrap, loc);
         int time = getGameTime();
         if (!isIdValid(trap))
@@ -1483,41 +1380,41 @@ public class stealth extends script.base_script
         switch (triggerType)
         {
             case TRIGGER_TYPE_TIMER:
-            dictionary parms = new dictionary();
-            parms.put("armed", time);
-            messageTo(trap, "msgTryDetonateTimer", parms, getIntObjVar(trap, TIMER_TIME), false);
-            setObjVar(trap, "armed", time);
-            break;
+                dictionary parms = new dictionary();
+                parms.put("armed", time);
+                messageTo(trap, "msgTryDetonateTimer", parms, getIntObjVar(trap, TIMER_TIME), false);
+                setObjVar(trap, "armed", time);
+                break;
             case TRIGGER_TYPE_REMOTE:
-            obj_id pInv = utils.getInventoryContainer(player);
-            int free = getVolumeFree(pInv);
-            if (free < 1)
-            {
-                sendSystemMessage(player, new string_id("spam", "no_room_remote_trigger"));
-                return false;
-            }
-            String remote = "object/tangible/scout/trap/trap_ap_tr_remote.iff";
-            obj_id remoteTrigger = createObject(remote, pInv, "");
-            if (!isIdValid(remoteTrigger))
-            {
-                destroyObject(trap);
-                return false;
-            }
-            String frequency = "" + rand(0, 999) + "." + rand(0, 999) + "." + rand(0, 999);
-            
-            setObjVar(remoteTrigger, stealth.TRAP_FREQUENCY, frequency);
-            setObjVar(trap, stealth.TRAP_FREQUENCY, frequency);
-            setObjVar(trap, stealth.TRAP_MY_PROXIMITY_TRIGGER, remoteTrigger);
-            setObjVar(remoteTrigger, stealth.TRAP_MY_TRAP, trap);
-            sendSystemMessage(player, new string_id("spam", "trap_keyed_remote"));
-            setObjVar(trap, "armed", time);
-            setObjVar(remoteTrigger, "armed", true);
-            break;
+                obj_id pInv = utils.getInventoryContainer(player);
+                int free = getVolumeFree(pInv);
+                if (free < 1)
+                {
+                    sendSystemMessage(player, new string_id("spam", "no_room_remote_trigger"));
+                    return false;
+                }
+                String remote = "object/tangible/scout/trap/trap_ap_tr_remote.iff";
+                obj_id remoteTrigger = createObject(remote, pInv, "");
+                if (!isIdValid(remoteTrigger))
+                {
+                    destroyObject(trap);
+                    return false;
+                }
+                String frequency = "" + rand(0, 999) + "." + rand(0, 999) + "." + rand(0, 999);
+
+                setObjVar(remoteTrigger, stealth.TRAP_FREQUENCY, frequency);
+                setObjVar(trap, stealth.TRAP_FREQUENCY, frequency);
+                setObjVar(trap, stealth.TRAP_MY_PROXIMITY_TRIGGER, remoteTrigger);
+                setObjVar(remoteTrigger, stealth.TRAP_MY_TRAP, trap);
+                sendSystemMessage(player, new string_id("spam", "trap_keyed_remote"));
+                setObjVar(trap, "armed", time);
+                setObjVar(remoteTrigger, "armed", true);
+                break;
             case TRIGGER_TYPE_PROXIMITY:
-            dictionary timeArmed = new dictionary();
-            timeArmed.put("armed", time);
-            messageTo(trap, "msgArmProximity", timeArmed, 0, false);
-            break;
+                dictionary timeArmed = new dictionary();
+                timeArmed.put("armed", time);
+                messageTo(trap, "msgArmProximity", timeArmed, 0, false);
+                break;
         }
         playClientEffectObj(trap, "appearance/pt_trap_reticule.prt", trap, "", null, "trapReticle");
         doAnimationAction(player, "point_down");
@@ -1556,11 +1453,9 @@ public class stealth extends script.base_script
             return getObjIdObjVar(trap, TRAP_MY_PROXIMITY_TRIGGER);
         }
         obj_id[] stuff = getContents(trap);
-        for (int i = 0; i < stuff.length; i++)
-        {
-            if (hasScript(stuff[i], "systems.skills.stealth.traptrigger"))
-            {
-                return stuff[i];
+        for (obj_id aStuff : stuff) {
+            if (hasScript(aStuff, "systems.skills.stealth.traptrigger")) {
+                return aStuff;
             }
         }
         return null;
@@ -1568,14 +1463,12 @@ public class stealth extends script.base_script
     public static boolean doTheftLoot(obj_id thief, obj_id mark) throws InterruptedException
     {
         obj_id thiefInventory = utils.getInventoryContainer(thief);
-        int free = getVolumeFree(thiefInventory);
-        prose_package pp = new prose_package();
-        if (free < 1)
+        if (getVolumeFree(thiefInventory) < 1)
         {
             sendSystemMessage(thief, new string_id("spam", "cant_steal_inventory_full"));
             return false;
         }
-        int stealFlags = stealFlags = STEAL_CREDITS | STEAL_LOOT;
+        int stealFlags = STEAL_CREDITS | STEAL_LOOT;
         if (utils.hasScriptVar(mark, STEAL_TYPE))
         {
             stealFlags = utils.getIntScriptVar(mark, STEAL_TYPE);
@@ -1591,29 +1484,29 @@ public class stealth extends script.base_script
         Vector types = new Vector();
         if (isFlagSet(stealFlags, STEAL_CREDITS))
         {
-            types.add(new Integer(STEAL_CREDITS));
+            types.add(STEAL_CREDITS);
         }
         if (isFlagSet(stealFlags, STEAL_LOOT))
         {
-            types.add(new Integer(STEAL_LOOT));
+            types.add(STEAL_LOOT);
         }
         if (isFlagSet(stealFlags, STEAL_TEMPLATE))
         {
-            types.add(new Integer(STEAL_TEMPLATE));
+            types.add(STEAL_TEMPLATE);
         }
         if (isFlagSet(stealFlags, STEAL_MARKED_ITEMS))
         {
-            types.add(new Integer(STEAL_MARKED_ITEMS));
+            types.add(STEAL_MARKED_ITEMS);
         }
         if (isFlagSet(stealFlags, STEAL_STEALING_TABLE))
         {
-            types.add(new Integer(STEAL_STEALING_TABLE));
+            types.add(STEAL_STEALING_TABLE);
         }
         boolean gotSomething = false;
         while (types.size() > 0 && !gotSomething)
         {
             int roll = rand(0, types.size() - 1);
-            int flag = (((Integer)types.get(roll))).intValue();
+            int flag = (Integer) types.get(roll);
             int markLevel = getLevel(mark);
             int thiefLevel = getLevel(thief);
             int stealRoll = rand(1, 100);
@@ -1622,169 +1515,162 @@ public class stealth extends script.base_script
                 switch (flag)
                 {
                     case STEAL_CREDITS:
-                    if (isPlayer(mark))
-                    {
-                        break;
-                    }
-                    int amt = (int)(getNpcCash(mark) * .2f);
-                    if (amt > 0)
-                    {
-                        dictionary d = new dictionary();
-                        d.put(money.DICT_AMOUNT, amt);
-                        boolean boolReturn = transferBankCreditsFromNamedAccount(money.ACCT_NPC_LOOT, thief, amt, "handleStealCashSuccess", "handleStealCashFail", d);
-                        utils.moneyInMetric(mark, money.ACCT_NPC_LOOT, amt);
-                        gotSomething = true;
-                    }
-                    break;
-                    case STEAL_LOOT:
-                    if (isPlayer(mark))
-                    {
-                        break;
-                    }
-                    int lootRoll = rand(1, 100);
-                    if (lootRoll >= STEAL_RARE_ITEM)
-                    {
-                        if (thiefLevel <= (markLevel + 10))
+                        if (isPlayer(mark))
                         {
-                            if (!hasCompletedCollection(thief, "spy_unarmed_01"))
-                            {
-                                long slotValueOne = getCollectionSlotValue(thief, "col_spy_unarmed_01_01");
-                                long slotValueTwo = getCollectionSlotValue(thief, "col_spy_unarmed_01_02");
-                                long slotValueThree = getCollectionSlotValue(thief, "col_spy_unarmed_01_03");
-                                long slotValueFour = getCollectionSlotValue(thief, "col_spy_unarmed_01_04");
-                                if (slotValueOne == 0)
-                                {
-                                    modifyCollectionSlotValue(thief, "col_spy_unarmed_01_01", 1);
-                                }
-                                else if (slotValueTwo == 0)
-                                {
-                                    modifyCollectionSlotValue(thief, "col_spy_unarmed_01_02", 1);
-                                }
-                                else if (slotValueThree == 0)
-                                {
-                                    modifyCollectionSlotValue(thief, "col_spy_unarmed_01_03", 1);
-                                }
-                                else if (slotValueFour == 0)
-                                {
-                                    modifyCollectionSlotValue(thief, "col_spy_unarmed_01_04", 1);
-                                }
-                            }
-                            gotSomething = loot.generateTheftLootRare(thiefInventory, mark, 1, thief);
                             break;
                         }
-                        gotSomething = loot.generateTheftLoot(thiefInventory, mark, STEAL_LOOT_CHANCE_MOD, 1);
-                        break;
-                    }
-                    if (lootRoll >= STEAL_REGULAR_ITEM && lootRoll < STEAL_RARE_ITEM)
-                    {
-                        if (thiefLevel <= (markLevel + 10))
+                        int amt = (int)(getNpcCash(mark) * .2f);
+                        if (amt > 0)
                         {
-                            boolean gotCollectionItem = false;
-                            gotCollectionItem = loot.addCollectionLoot(mark, true, thief);
-                            gotSomething = gotCollectionItem;
-                            if (!gotCollectionItem)
+                            dictionary d = new dictionary();
+                            d.put(money.DICT_AMOUNT, amt);
+                            utils.moneyInMetric(mark, money.ACCT_NPC_LOOT, amt);
+                            gotSomething = true;
+                        }
+                        break;
+                    case STEAL_LOOT:
+                        if (isPlayer(mark))
+                        {
+                            break;
+                        }
+                        int lootRoll = rand(1, 100);
+                        if (lootRoll >= STEAL_RARE_ITEM)
+                        {
+                            if (thiefLevel <= (markLevel + 10))
+                            {
+                                if (!hasCompletedCollection(thief, "spy_unarmed_01"))
+                                {
+                                    long slotValueOne = getCollectionSlotValue(thief, "col_spy_unarmed_01_01");
+                                    long slotValueTwo = getCollectionSlotValue(thief, "col_spy_unarmed_01_02");
+                                    long slotValueThree = getCollectionSlotValue(thief, "col_spy_unarmed_01_03");
+                                    long slotValueFour = getCollectionSlotValue(thief, "col_spy_unarmed_01_04");
+                                    if (slotValueOne == 0)
+                                    {
+                                        modifyCollectionSlotValue(thief, "col_spy_unarmed_01_01", 1);
+                                    }
+                                    else if (slotValueTwo == 0)
+                                    {
+                                        modifyCollectionSlotValue(thief, "col_spy_unarmed_01_02", 1);
+                                    }
+                                    else if (slotValueThree == 0)
+                                    {
+                                        modifyCollectionSlotValue(thief, "col_spy_unarmed_01_03", 1);
+                                    }
+                                    else if (slotValueFour == 0)
+                                    {
+                                        modifyCollectionSlotValue(thief, "col_spy_unarmed_01_04", 1);
+                                    }
+                                }
+                                gotSomething = loot.generateTheftLootRare(thiefInventory, mark, 1, thief);
+                                break;
+                            }
+                            gotSomething = loot.generateTheftLoot(thiefInventory, mark, STEAL_LOOT_CHANCE_MOD, 1);
+                            break;
+                        }
+                        if (lootRoll >= STEAL_REGULAR_ITEM && lootRoll < STEAL_RARE_ITEM)
+                        {
+                            if (thiefLevel <= (markLevel + 10))
+                            {
+                                boolean gotCollectionItem;
+                                gotCollectionItem = loot.addCollectionLoot(mark, true, thief);
+                                gotSomething = gotCollectionItem;
+                                if (!gotCollectionItem)
+                                {
+                                    gotSomething = loot.generateTheftLoot(thiefInventory, mark, STEAL_LOOT_CHANCE_MOD, 1);
+                                    break;
+                                }
+                                break;
+                            }
+                            else
                             {
                                 gotSomething = loot.generateTheftLoot(thiefInventory, mark, STEAL_LOOT_CHANCE_MOD, 1);
                                 break;
                             }
-                            break;
                         }
-                        else 
+                        if (lootRoll < STEAL_REGULAR_ITEM)
                         {
                             gotSomething = loot.generateTheftLoot(thiefInventory, mark, STEAL_LOOT_CHANCE_MOD, 1);
                             break;
                         }
-                    }
-                    if (lootRoll < STEAL_REGULAR_ITEM)
-                    {
-                        gotSomething = loot.generateTheftLoot(thiefInventory, mark, STEAL_LOOT_CHANCE_MOD, 1);
                         break;
-                    }
-                    break;
                     case STEAL_TEMPLATE:
-                    Vector itms = getStealableTemplates(mark);
-                    if (itms.size() < 1)
-                    {
-                        break;
-                    }
-                    String templateLoot = (String)itms.get(rand(0, itms.size() - 1));
-                    if (templateLoot == null || templateLoot.length() < 1)
-                    {
-                        break;
-                    }
-                    obj_id templateObj = null;
-                    if (templateLoot.startsWith("static:"))
-                    {
-                        java.util.StringTokenizer st = new java.util.StringTokenizer(templateLoot, ":");
-                        if (st.countTokens() == 2)
+                        Vector itms = getStealableTemplates(mark);
+                        if (itms.size() < 1)
                         {
-                            st.nextToken();
-                            String itemName = st.nextToken();
-                            templateObj = static_item.createNewItemFunction(templateLoot, thiefInventory);
+                            break;
                         }
-                    }
-                    else 
-                    {
-                        templateObj = createObjectOverloaded(templateLoot, thiefInventory);
-                    }
-                    gotSomething = templateObj != null;
-                    if (gotSomething)
-                    {
-                        utils.setScriptVar(thiefInventory, "theft_in_progress", 1);
-                        loot.notifyThiefOfItemStolen(thiefInventory, templateObj);
-                    }
-                    break;
+                        String templateLoot = (String)itms.get(rand(0, itms.size() - 1));
+                        if (templateLoot == null || templateLoot.length() < 1)
+                        {
+                            break;
+                        }
+                        obj_id templateObj = null;
+                        if (templateLoot.startsWith("static:"))
+                        {
+                            java.util.StringTokenizer st = new java.util.StringTokenizer(templateLoot, ":");
+                            if (st.countTokens() == 2)
+                            {
+                                templateObj = static_item.createNewItemFunction(templateLoot, thiefInventory);
+                            }
+                        }
+                        else
+                        {
+                            templateObj = createObjectOverloaded(templateLoot, thiefInventory);
+                        }
+                        gotSomething = templateObj != null;
+                        if (gotSomething)
+                        {
+                            utils.setScriptVar(thiefInventory, "theft_in_progress", 1);
+                            loot.notifyThiefOfItemStolen(thiefInventory, templateObj);
+                        }
+                        break;
                     case STEAL_MARKED_ITEMS:
-                    obj_id[] stuff = utils.getFilteredPlayerContents(mark);
-                    Vector eligibleItems = new Vector();
-                    for (int i = 0; i < stuff.length; i++)
-                    {
-                        if (isItemStealable(stuff[i]))
+                        obj_id[] stuff = utils.getFilteredPlayerContents(mark);
+                        Vector eligibleItems = new Vector();
+                            for (obj_id aStuff : stuff) {
+                                if (isItemStealable(aStuff)) {
+                                    eligibleItems.add(aStuff);
+                                }
+                            }
+                        if (eligibleItems.size() < 1)
                         {
-                            eligibleItems.add(stuff[i]);
+                            break;
                         }
-                    }
-                    if (eligibleItems.size() < 1)
-                    {
+                        obj_id markedObj = (obj_id)eligibleItems.get(rand(0, eligibleItems.size() - 1));
+                        gotSomething = putIn(markedObj, thiefInventory);
+                        if (gotSomething)
+                        {
+                            CustomerServiceLog("stealing", "%TU stole an item (" + markedObj + " - " + getName(markedObj) + ") from player %TT", thief, mark);
+                            utils.setScriptVar(thiefInventory, "theft_in_progress", 1);
+                            loot.notifyThiefOfItemStolen(thiefInventory, markedObj);
+                        }
                         break;
-                    }
-                    obj_id markedObj = (obj_id)eligibleItems.get(rand(0, eligibleItems.size() - 1));
-                    gotSomething = putIn(markedObj, thiefInventory);
-                    if (gotSomething)
-                    {
-                        CustomerServiceLog("stealing", "%TU stole an item (" + markedObj + " - " + getName(markedObj) + ") from player %TT", thief, mark);
-                        utils.setScriptVar(thiefInventory, "theft_in_progress", 1);
-                        loot.notifyThiefOfItemStolen(thiefInventory, markedObj);
-                    }
-                    break;
                     case STEAL_STEALING_TABLE:
-                    String tableTemplate = getStealableTemplateFromTable(mark);
-                    if (tableTemplate == null || tableTemplate.length() < 1)
-                    {
-                        break;
-                    }
-                    obj_id tableObj = null;
-                    if (tableTemplate.startsWith("static:"))
-                    {
-                        java.util.StringTokenizer st = new java.util.StringTokenizer(tableTemplate, ":");
-                        if (st.countTokens() == 2)
+                        String tableTemplate = getStealableTemplateFromTable(mark);
+                        if (tableTemplate == null || tableTemplate.length() < 1)
                         {
-                            st.nextToken();
-                            String itemName = st.nextToken();
-                            tableObj = static_item.createNewItemFunction(tableTemplate, thiefInventory);
+                            break;
                         }
-                    }
-                    else 
-                    {
-                        tableObj = createObjectOverloaded(tableTemplate, thiefInventory);
-                    }
-                    gotSomething = tableObj != null;
-                    if (gotSomething)
-                    {
-                        utils.setScriptVar(thiefInventory, "theft_in_progress", 1);
-                        loot.notifyThiefOfItemStolen(thiefInventory, tableObj);
-                    }
-                    break;
+                        obj_id tableObj = null;
+                        if (tableTemplate.startsWith("static:"))
+                        {
+                            java.util.StringTokenizer st = new java.util.StringTokenizer(tableTemplate, ":");
+                            if (st.countTokens() == 2)
+                            {
+                                tableObj = static_item.createNewItemFunction(tableTemplate, thiefInventory);
+                            }
+                        }
+                        else
+                        {
+                            tableObj = createObjectOverloaded(tableTemplate, thiefInventory);
+                        }
+                        gotSomething = tableObj != null;
+                        if (gotSomething)
+                        {
+                            utils.setScriptVar(thiefInventory, "theft_in_progress", 1);
+                            loot.notifyThiefOfItemStolen(thiefInventory, tableObj);
+                        }
+                        break;
                 }
             }
             stealFlags &= ~flag;
@@ -1802,11 +1688,7 @@ public class stealth extends script.base_script
         String type = loot.getCreatureType(name);
         String table = "datatables/loot/stealing_loot.iff";
         int row = dataTableSearchColumnForInt(getStringCrc(type), "npc_type", table);
-        if (row < 0)
-        {
-            return false;
-        }
-        return true;
+        return row >= 0;
     }
     public static String getStealableTemplateFromTable(obj_id mark) throws InterruptedException
     {
@@ -1823,7 +1705,7 @@ public class stealth extends script.base_script
         while (true)
         {
             stuff.add(dataTableGetString(table, row, "stealableObjects"));
-            weights.add(new Integer(dataTableGetInt(table, row, "weight")));
+            weights.add(dataTableGetInt(table, row, "weight"));
             row++;
             if (row >= rows || dataTableGetInt(table, row, "npc_type") != 0)
             {
@@ -1834,7 +1716,7 @@ public class stealth extends script.base_script
         int[] weightArray = new int[weights.size()];
         for (int i = 0; i < weightArray.length; i++)
         {
-            weightArray[i] = (((Integer)weights.get(i))).intValue();
+            weightArray[i] = (Integer) weights.get(i);
             total += weightArray[i];
         }
         if (total < 1)
@@ -1950,11 +1832,7 @@ public class stealth extends script.base_script
             }
         }
         showFlyTextPrivate(thief, thief, new string_id("spam", "stealin_on"), 1.5f, colors.TOMATO);
-        if (doTheftLoot(thief, mark))
-        {
-        }
-        else 
-        {
+        if (!doTheftLoot(thief, mark)) {
             sendSystemMessage(thief, new string_id("spam", "stolen_nothing"));
         }
         return true;
@@ -1975,13 +1853,10 @@ public class stealth extends script.base_script
         int sGuildId = getGuildId(player);
         if (stuff.length > 0)
         {
-            for (int i = 0; i < stuff.length; i++)
-            {
-                if (ai_lib.isHumanoid(stuff[i]))
-                {
-                    boolean isInSameGuild = (sGuildId != 0) && (getGuildId(stuff[i]) == sGuildId);
-                    if (!isInSameGuild && !group.inSameGroup(player, stuff[i]))
-                    {
+            for (obj_id aStuff : stuff) {
+                if (ai_lib.isHumanoid(aStuff)) {
+                    boolean isInSameGuild = (sGuildId != 0) && (getGuildId(aStuff) == sGuildId);
+                    if (!isInSameGuild && !group.inSameGroup(player, aStuff)) {
                         skill -= witnessPenalty;
                     }
                 }
@@ -2038,24 +1913,22 @@ public class stealth extends script.base_script
         switch (getStringCrc(buffName))
         {
             case (-879194497):
-            modName = "camouflage";
-            break;
             case (1252380095):
-            modName = "camouflage";
-            break;
+                modName = "camouflage";
+                break;
             case (815407714):
             case (-1923109470):
-            break;
+                break;
             case (-121504680):
-            modName = "cover";
-            break;
+                modName = "cover";
+                break;
             case (1206342977):
             case (-50098035):
-            modName = "stealth";
-            break;
+                modName = "stealth";
+                break;
             case (342850470):
-            modName = "";
-            break;
+                modName = "";
+                break;
         }
         int mod = 0;
         if (modName.length() > 0)
@@ -2154,6 +2027,7 @@ public class stealth extends script.base_script
             modChanceToDetectMod = modDiff / 4.0f;
             finalChanceToDetect = finalChanceToDetect + modChanceToDetectMod;
         }
+        assert invis != null;
         if (invis.startsWith("invis_forceCloak") || (invis.startsWith("invis_fs_buff_invis")))
         {
             finalChanceToDetect = (finalChanceToDetect - 10.0f);
@@ -2252,6 +2126,7 @@ public class stealth extends script.base_script
             finalChanceToDetect = finalChanceToDetect + modChanceToDetectMod;
             sendConsoleMessage(objectToReceiveDetailedOutput, "passiveDetectInfo: stealtherSkillMod < detectorSkillMod, modDiff=" + modDiff + ", modChanceToDetectMod (modDiff / 4.0f)=" + modChanceToDetectMod + ", finalChanceToDetect (finalChanceToDetect + modChanceToDetectMod)=" + finalChanceToDetect);
         }
+        assert invis != null;
         if (invis.startsWith("invis_forceCloak") || (invis.startsWith("invis_fs_buff_invis")))
         {
             finalChanceToDetect = (finalChanceToDetect - 10.0f);
@@ -2518,12 +2393,10 @@ public class stealth extends script.base_script
             return;
         }
         obj_id[] hateList = getHateList(player);
-        for (int i = 0; i < hateList.length; i++)
-        {
-            if (isIdValid(hateList[i]) && exists(hateList[i]))
-            {
-                removeHateTarget(hateList[i], player);
-                removeHateTarget(player, hateList[i]);
+        for (obj_id aHateList : hateList) {
+            if (isIdValid(aHateList) && exists(aHateList)) {
+                removeHateTarget(aHateList, player);
+                removeHateTarget(player, aHateList);
             }
         }
         clearHateList(player);
@@ -2591,8 +2464,7 @@ public class stealth extends script.base_script
         {
             return;
         }
-        obj_id beast = beast_lib.getBeastOnPlayer(player);
-        makeCreatureVisible(beast);
+        makeCreatureVisible(beast_lib.getBeastOnPlayer(player));
     }
     public static void makePassiveRevealed(obj_id target) throws InterruptedException
     {
@@ -2614,14 +2486,10 @@ public class stealth extends script.base_script
             obj_id groupObj = getGroupObject(target);
             obj_id[] groupMembers = getGroupMemberIds(groupObj);
             int numGroupMembers = groupMembers.length;
-            for (int f = 0; f < numGroupMembers; f++)
-            {
-                obj_id groupie = groupMembers[f];
-                if (isIdValid(groupie) && exists(groupie) && groupie != target)
-                {
+            for (obj_id groupie : groupMembers) {
+                if (isIdValid(groupie) && exists(groupie) && groupie != target) {
                     addPassiveReveal(target, groupie, 1);
-                    if (isIdValid(beast) && exists(beast))
-                    {
+                    if (isIdValid(beast) && exists(beast)) {
                         addPassiveReveal(beast, groupie, 1);
                     }
                 }
@@ -2639,7 +2507,6 @@ public class stealth extends script.base_script
         setState(player, STATE_COVER, true);
         setCreatureCoverVisibility(player, false);
         cleanupHate(player);
-        obj_id beast = makeBeastInvisible(player, clientEffect);
         makePassiveRevealed(player);
         if (flyText != null)
         {
@@ -2691,19 +2558,11 @@ public class stealth extends script.base_script
     }
     public static boolean checkRevealRecourse(obj_id player) throws InterruptedException
     {
-        if (buff.hasBuff(player, "sp_sneak_recourse"))
-        {
-            return true;
-        }
-        return false;
+        return buff.hasBuff(player, "sp_sneak_recourse");
     }
     public static boolean checkAttackRevealRecourse(obj_id player) throws InterruptedException
     {
-        if (buff.hasBuff(player, "sp_attack_invis_recourse"))
-        {
-            return true;
-        }
-        return false;
+        return buff.hasBuff(player, "sp_attack_invis_recourse");
     }
     public static boolean canPerformForceCloak(obj_id player) throws InterruptedException
     {
@@ -2923,7 +2782,6 @@ public class stealth extends script.base_script
         {
             decoyStealth(mobile);
         }
-        return;
     }
     public static boolean canPerformCamouflageSelf(obj_id player) throws InterruptedException
     {
@@ -2977,7 +2835,6 @@ public class stealth extends script.base_script
         {
             sendSystemMessage(player, new string_id("spam", "failedcamo"));
         }
-        return;
     }
     public static boolean canPerformCamouflageAlly(obj_id player, obj_id target) throws InterruptedException
     {
@@ -3083,13 +2940,10 @@ public class stealth extends script.base_script
             int sGuildId = getGuildId(player);
             boolean isInSameGuild = false;
             obj_id[] stuff = getCreaturesInRange(player, 20f);
-            for (int i = 0; i < stuff.length; i++)
-            {
-                if (isPlayer(stuff[i]) || ai_lib.isNpc(stuff[i]))
-                {
-                    isInSameGuild = (sGuildId != 0) && (getGuildId(stuff[i]) == sGuildId);
-                    if (!isInSameGuild && !group.inSameGroup(player, stuff[i]))
-                    {
+            for (obj_id aStuff : stuff) {
+                if (isPlayer(aStuff) || ai_lib.isNpc(aStuff)) {
+                    isInSameGuild = (sGuildId != 0) && (getGuildId(aStuff) == sGuildId);
+                    if (!isInSameGuild && !group.inSameGroup(player, aStuff)) {
                         sendSystemMessage(player, new string_id("spam", "cant_urban_stealth_people_in_area"));
                         return false;
                     }
@@ -3189,7 +3043,6 @@ public class stealth extends script.base_script
             utils.removeScriptVar(player, "supressVisible");
             sendSystemMessage(player, new string_id("spam", "stealthfail"));
         }
-        return;
     }
     public static boolean canPerformCover(obj_id player) throws InterruptedException
     {
@@ -3379,11 +3232,9 @@ public class stealth extends script.base_script
             return null;
         }
         String curBuff = "";
-        for (int i = 0; i < buffs.length; i++)
-        {
-            curBuff = buff.getBuffNameFromCrc(buffs[i]);
-            if (curBuff != null && curBuff.startsWith("invis_"))
-            {
+        for (int aBuff : buffs) {
+            curBuff = buff.getBuffNameFromCrc(aBuff);
+            if (curBuff != null && curBuff.startsWith("invis_")) {
                 return curBuff;
             }
         }
@@ -3411,14 +3262,11 @@ public class stealth extends script.base_script
         }
         obj_id[] contents = getContents(pInv);
         obj_id hep = null;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "isHEP"))
-            {
-                power = getCount(contents[i]);
-                if (power >= HEP_UPKEEP_COST)
-                {
-                    hep = contents[i];
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "isHEP")) {
+                power = getCount(content);
+                if (power >= HEP_UPKEEP_COST) {
+                    hep = content;
                     break;
                 }
             }
@@ -3443,14 +3291,11 @@ public class stealth extends script.base_script
         }
         obj_id[] contents = getContents(pInv);
         obj_id kit = null;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "camokit"))
-            {
-                String kitPlanet = getStringObjVar(contents[i], "camokit");
-                if (kitPlanet.equals(planetName))
-                {
-                    kit = contents[i];
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "camokit")) {
+                String kitPlanet = getStringObjVar(content, "camokit");
+                if (kitPlanet.equals(planetName)) {
+                    kit = content;
                     break;
                 }
             }
@@ -3484,10 +3329,8 @@ public class stealth extends script.base_script
         }
         obj_id[] stuff = getNonCreaturesInRange(loc, 50f);
         int numStructures = 0;
-        for (int i = 0; i < stuff.length; i++)
-        {
-            if (isGameObjectTypeOf(stuff[i], GOT_building) || isGameObjectTypeOf(stuff[i], GOT_installation))
-            {
+        for (obj_id aStuff : stuff) {
+            if (isGameObjectTypeOf(aStuff, GOT_building) || isGameObjectTypeOf(aStuff, GOT_installation)) {
                 numStructures++;
             }
         }
@@ -3503,20 +3346,11 @@ public class stealth extends script.base_script
     }
     public static boolean isFlagSet(int mask, int flag) throws InterruptedException
     {
-        if ((mask & flag) == flag)
-        {
-            return true;
-        }
-        return false;
+        return (mask & flag) == flag;
     }
     public static boolean isPvPTrap(obj_id trap) throws InterruptedException
     {
-        int triggerTypeInt = getIntObjVar(trap, TRIGGER_TYPE);
-        if (triggerTypeInt == TRIGGER_TYPE_PROXIMITY)
-        {
-            return true;
-        }
-        return false;
+        return getIntObjVar(trap, TRIGGER_TYPE) == TRIGGER_TYPE_PROXIMITY;
     }
     public static obj_id createDecoy(obj_id spy) throws InterruptedException
     {
@@ -3529,32 +3363,32 @@ public class stealth extends script.base_script
         switch (species)
         {
             case SPECIES_RODIAN:
-            speciesString = "rodian";
-            break;
+                speciesString = "rodian";
+                break;
             case SPECIES_TRANDOSHAN:
-            speciesString = "trandoshan";
-            break;
+                speciesString = "trandoshan";
+                break;
             case SPECIES_MON_CALAMARI:
-            speciesString = "moncal";
-            break;
+                speciesString = "moncal";
+                break;
             case SPECIES_WOOKIEE:
-            speciesString = "wookiee";
-            break;
+                speciesString = "wookiee";
+                break;
             case SPECIES_BOTHAN:
-            speciesString = "bothan";
-            break;
+                speciesString = "bothan";
+                break;
             case SPECIES_TWILEK:
-            speciesString = "twilek";
-            break;
+                speciesString = "twilek";
+                break;
             case SPECIES_ZABRAK:
-            speciesString = "zabrak";
-            break;
+                speciesString = "zabrak";
+                break;
             case SPECIES_ITHORIAN:
-            speciesString = "ithorian";
-            break;
+                speciesString = "ithorian";
+                break;
             case SPECIES_SULLUSTAN:
-            speciesString = "sullustan";
-            break;
+                speciesString = "sullustan";
+                break;
         }
         if (gender == GENDER_FEMALE)
         {
@@ -3575,13 +3409,13 @@ public class stealth extends script.base_script
             custom_var[] var_list = getAllCustomVars(spy);
             if (var_list != null && var_list.length > 0)
             {
-                for (int i = 0; i < var_list.length; i++)
-                {
-                    ranged_int_custom_var ricv = (ranged_int_custom_var)var_list[i];
-                    String var = ricv.getVarName();
+                ranged_int_custom_var ricv;
+                String var;
+                for (custom_var aVar_list : var_list) {
+                    ricv = (ranged_int_custom_var) aVar_list;
+                    var = ricv.getVarName();
                     int value = ricv.getValue();
-                    if (value != 0)
-                    {
+                    if (value != 0) {
                         setRangedIntCustomVarValue(hologram, var, value);
                     }
                 }
@@ -3591,33 +3425,29 @@ public class stealth extends script.base_script
             utils.setObjVar(hologram, "hologram_performer", 1);
             if (contents != null && contents.length > 0)
             {
-                for (int i = 0; i < contents.length; i++)
-                {
-                    if (isIdValid(contents[i]))
-                    {
-                        if (getContainerType(contents[i]) == 0)
-                        {
-                            if (!(getTemplateName(contents[i])).endsWith("player.iff"))
-                            {
-                                if (headSlotItem == contents[i] && isPlayerHelmetHidden(spy))
-                                {
+                custom_var[] object_var;
+                obj_id newObject;
+                ranged_int_custom_var ricv;
+                String var;
+
+                for (obj_id content : contents) {
+                    if (isIdValid(content)) {
+                        if (getContainerType(content) == 0) {
+                            if (!(getTemplateName(content)).endsWith("player.iff")) {
+                                if (headSlotItem == content && isPlayerHelmetHidden(spy)) {
                                     continue;
                                 }
-                                if (getGameObjectType(contents[i]) == GOT_misc_appearance_only_invisible)
-                                {
+                                if (getGameObjectType(content) == GOT_misc_appearance_only_invisible) {
                                     continue;
                                 }
-                                custom_var[] object_var = getAllCustomVars(contents[i]);
-                                obj_id newObject = createObject(getTemplateName(contents[i]), hologram, "");
-                                if (object_var != null && isIdValid(newObject))
-                                {
-                                    for (int q = 0; q < object_var.length; q++)
-                                    {
-                                        ranged_int_custom_var ricv = (ranged_int_custom_var)object_var[q];
-                                        String var = ricv.getVarName();
+                                object_var = getAllCustomVars(content);
+                                newObject = createObject(getTemplateName(content), hologram, "");
+                                if (object_var != null && isIdValid(newObject)) {
+                                    for (custom_var anObject_var : object_var) {
+                                        ricv = (ranged_int_custom_var) anObject_var;
+                                        var = ricv.getVarName();
                                         int value = ricv.getValue();
-                                        if (value != 0)
-                                        {
+                                        if (value != 0) {
                                             setRangedIntCustomVarValue(newObject, var, value);
                                         }
                                     }
@@ -3634,21 +3464,20 @@ public class stealth extends script.base_script
                 obj_id newObject = createObject(getTemplateName(backpack), hologram, "back");
                 if (object_var != null && isIdValid(newObject))
                 {
-                    for (int q = 0; q < object_var.length; q++)
-                    {
-                        ranged_int_custom_var ricv = (ranged_int_custom_var)object_var[q];
-                        String var = ricv.getVarName();
+                    ranged_int_custom_var ricv;
+                    String var;
+                    for (custom_var anObject_var : object_var) {
+                        ricv = (ranged_int_custom_var) anObject_var;
+                        var = ricv.getVarName();
                         int value = ricv.getValue();
-                        if (value != 0)
-                        {
+                        if (value != 0) {
                             setRangedIntCustomVarValue(newObject, var, value);
                         }
                     }
                 }
             }
             obj_id spyWeapon = getCurrentWeapon(spy);
-            weapon_data weaponData = weapons.getNewWeaponData(spyWeapon);
-            obj_id holoWeapon = null;
+            obj_id holoWeapon;
             if (isDefaultWeapon(spyWeapon))
             {
                 holoWeapon = getCurrentWeapon(hologram);
@@ -3681,14 +3510,13 @@ public class stealth extends script.base_script
             int[] buffCrc = buff.getAllBuffs(spy);
             if (buffCrc != null && buffCrc.length > 0)
             {
-                for (int i = 0; i < buffCrc.length; i++)
-                {
-                    String curBuff = buff.getBuffNameFromCrc(buffCrc[i]);
-                    if (curBuff != null && curBuff.startsWith("invis_"))
-                    {
+                String curBuff;
+                for (int aBuffCrc : buffCrc) {
+                    curBuff = buff.getBuffNameFromCrc(aBuffCrc);
+                    if (curBuff != null && curBuff.startsWith("invis_")) {
                         continue;
                     }
-                    buff.applyBuff(hologram, buffCrc[i], 360.0f);
+                    buff.applyBuff(hologram, aBuffCrc, 360.0f);
                 }
             }
             float dodgeChance = combat.getDefenderDodgeChance(spy);

@@ -400,11 +400,7 @@ public class sui extends script.base_script
         {
             return false;
         }
-        if (!flushSUIPage(pid))
-        {
-            return false;
-        }
-        return true;
+        return flushSUIPage(pid);
     }
     public static boolean setPageProperties(int pid, dictionary params) throws InterruptedException
     {
@@ -416,16 +412,20 @@ public class sui extends script.base_script
         setPageTitle(pid, params);
         setPageButtons(pid, params);
         java.util.Enumeration keys = params.keys();
+        String key;
+        String[] s;
+        Object val;
+        String sVal;
         while (keys.hasMoreElements())
         {
-            String key = (String)(keys.nextElement());
+            key = (String) (keys.nextElement());
             if (key.indexOf('-') > -1)
             {
-                String[] s = split(key, '-');
+                s = split(key, '-');
                 if ((s != null) && (s.length == 2))
                 {
-                    Object val = params.get(key);
-                    String sVal = null;
+                    val = params.get(key);
+                    sVal = null;
                     if (val != null)
                     {
                         if (val instanceof string_id)
@@ -435,9 +435,6 @@ public class sui extends script.base_script
                         else if (val instanceof String)
                         {
                             sVal = (String)(val);
-                        }
-                        else 
-                        {
                         }
                         if (sVal != null)
                         {
@@ -481,8 +478,7 @@ public class sui extends script.base_script
         {
             return false;
         }
-        int btns = params.getInt(BUTTONS);
-        setButtonStyle(pid, btns);
+        setButtonStyle(pid, params.getInt(BUTTONS));
         return true;
     }
     public static void setButtonStyle(int pid, int btns) throws InterruptedException
@@ -490,51 +486,51 @@ public class sui extends script.base_script
         switch (btns)
         {
             case OK_ONLY:
-            hideBtnCancel(pid);
-            hideBtnRevert(pid);
-            break;
+                hideBtnCancel(pid);
+                hideBtnRevert(pid);
+                break;
             case OK_CANCEL:
-            hideBtnRevert(pid);
-            break;
+                hideBtnRevert(pid);
+                break;
             case YES_NO:
-            hideBtnRevert(pid);
-            setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@no");
-            setSUIProperty(pid, BTN_OK, PROP_TEXT, "@yes");
-            break;
+                hideBtnRevert(pid);
+                setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@no");
+                setSUIProperty(pid, BTN_OK, PROP_TEXT, "@yes");
+                break;
             case YES_NO_CANCEL:
-            setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@no");
-            setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, BTN_OK, PROP_TEXT, "@yes");
-            break;
+                setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@no");
+                setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, BTN_OK, PROP_TEXT, "@yes");
+                break;
             case YES_NO_MAYBE:
-            setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@maybe");
-            setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@no");
-            setSUIProperty(pid, BTN_OK, PROP_TEXT, "@yes");
-            break;
+                setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@maybe");
+                setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@no");
+                setSUIProperty(pid, BTN_OK, PROP_TEXT, "@yes");
+                break;
             case YES_NO_ABSTAIN:
-            setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@abstain");
-            setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@no");
-            setSUIProperty(pid, BTN_OK, PROP_TEXT, "@yes");
-            break;
+                setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@abstain");
+                setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@no");
+                setSUIProperty(pid, BTN_OK, PROP_TEXT, "@yes");
+                break;
             case RETRY_CANCEL:
-            hideBtnRevert(pid);
-            setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, BTN_OK, PROP_TEXT, "@retry");
-            break;
+                hideBtnRevert(pid);
+                setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, BTN_OK, PROP_TEXT, "@retry");
+                break;
             case ABORT_RETRY_CANCEL:
-            setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@retry");
-            setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, BTN_OK, PROP_TEXT, "@abort");
-            break;
+                setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@retry");
+                setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, BTN_OK, PROP_TEXT, "@abort");
+                break;
             case OK_REFRESH:
-            hideBtnRevert(pid);
-            setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@refresh");
-            break;
+                hideBtnRevert(pid);
+                setSUIProperty(pid, BTN_CANCEL, PROP_TEXT, "@refresh");
+                break;
             case OK_CANCEL_REFRESH:
-            setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@refresh");
-            break;
+                setSUIProperty(pid, BTN_REVERT, PROP_TEXT, "@refresh");
+                break;
             default:
-            break;
+                break;
         }
     }
     public static void hideBtnCancel(int pid) throws InterruptedException
@@ -615,46 +611,46 @@ public class sui extends script.base_script
         switch (buttons)
         {
             case OK_CANCEL:
-            msgboxHideBtnLeft(pid);
-            setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                msgboxHideBtnLeft(pid);
+                setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case YES_NO:
-            msgboxHideBtnLeft(pid);
-            setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@no");
-            setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@yes");
-            break;
+                msgboxHideBtnLeft(pid);
+                setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@no");
+                setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@yes");
+                break;
             case YES_NO_CANCEL:
-            setSUIProperty(pid, MSGBOX_BTN_REVERT, PROP_TEXT, "@no");
-            setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@yes");
-            break;
+                setSUIProperty(pid, MSGBOX_BTN_REVERT, PROP_TEXT, "@no");
+                setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@yes");
+                break;
             case YES_NO_MAYBE:
-            setSUIProperty(pid, MSGBOX_BTN_REVERT, PROP_TEXT, "@maybe");
-            setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@no");
-            setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@yes");
-            break;
+                setSUIProperty(pid, MSGBOX_BTN_REVERT, PROP_TEXT, "@maybe");
+                setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@no");
+                setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@yes");
+                break;
             case YES_NO_ABSTAIN:
-            setSUIProperty(pid, MSGBOX_BTN_REVERT, PROP_TEXT, "@abstain");
-            setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@no");
-            setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@yes");
-            break;
+                setSUIProperty(pid, MSGBOX_BTN_REVERT, PROP_TEXT, "@abstain");
+                setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@no");
+                setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@yes");
+                break;
             case RETRY_CANCEL:
-            msgboxHideBtnLeft(pid);
-            setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@retry");
-            break;
+                msgboxHideBtnLeft(pid);
+                setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@retry");
+                break;
             case ABORT_RETRY_CANCEL:
-            setSUIProperty(pid, MSGBOX_BTN_REVERT, PROP_TEXT, "@retry");
-            setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@abort");
-            break;
+                setSUIProperty(pid, MSGBOX_BTN_REVERT, PROP_TEXT, "@retry");
+                setSUIProperty(pid, MSGBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@abort");
+                break;
             case OK_ONLY:
             default:
-            msgboxHideBtnLeft(pid);
-            msgboxHideBtnMiddle(pid);
-            setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                msgboxHideBtnLeft(pid);
+                msgboxHideBtnMiddle(pid);
+                setSUIProperty(pid, MSGBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
         }
     }
     public static void msgboxHideBtnLeft(int pid) throws InterruptedException
@@ -693,8 +689,7 @@ public class sui extends script.base_script
     }
     public static int msgbox(obj_id owner, obj_id target, prose_package prompt, int buttons, String box_title, int style, String suiHandler) throws InterruptedException
     {
-        String oob = packOutOfBandProsePackage(null, prompt);
-        return msgbox(owner, target, "\0" + oob, buttons, box_title, style, suiHandler);
+        return msgbox(owner, target, "\0" + packOutOfBandProsePackage(null, prompt), buttons, box_title, style, suiHandler);
     }
     public static int msgbox(obj_id owner, obj_id target, prose_package prompt, String suiHandler) throws InterruptedException
     {
@@ -766,10 +761,7 @@ public class sui extends script.base_script
                 prose_package pp = prose.getPackage(PROSE_OVER_MAX_ENTRIES, "", maxArraySize);
                 sendSystemMessageProse(target, pp);
                 String[] newSrc = new String[maxArraySize];
-                for (int i = 0; i < maxArraySize; i++)
-                {
-                    newSrc[i] = dsrc[i];
-                }
+                System.arraycopy(dsrc, 0, newSrc, 0, maxArraySize);
                 dsrc = newSrc;
             }
             LOG("sui", "inputbox: clearing datasource dataInput");
@@ -825,7 +817,6 @@ public class sui extends script.base_script
             return -1;
         }
         String scriptvar_pid = VAR_FILTER_BASE + "." + target + ".pid";
-        String scriptvar_handler = VAR_FILTER_BASE + "." + target + ".handler";
         if (utils.hasScriptVar(owner, scriptvar_pid))
         {
             int oldpid = utils.getIntScriptVar(owner, scriptvar_pid);
@@ -836,12 +827,7 @@ public class sui extends script.base_script
             cleanupFilteredInputbox(owner, target);
         }
         dictionary params = null;
-        if (maxLength < 1)
-        {
-            maxLength = MAX_INPUT_LENGTH;
-        }
-        else 
-        {
+        if (maxLength >= 1) {
             params = new dictionary();
             params.put(INPUTBOX_INPUT + "-MaxLength", maxLength);
         }
@@ -903,9 +889,7 @@ public class sui extends script.base_script
         {
             attachScript(owner, SCRIPT_FILTER_OWNER);
         }
-        int cnt = utils.getIntScriptVar(owner, VAR_FILTER_COUNT);
-        cnt++;
-        utils.setScriptVar(owner, VAR_FILTER_COUNT, cnt);
+        utils.setScriptVar(owner, VAR_FILTER_COUNT, utils.getIntScriptVar(owner, VAR_FILTER_COUNT) + 1);
     }
     public static void cleanupFilteredInputbox(obj_id owner, obj_id player) throws InterruptedException
     {
@@ -956,14 +940,14 @@ public class sui extends script.base_script
         switch (buttons)
         {
             case OK_CANCEL:
-            setSUIProperty(pid, INPUTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, INPUTBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                setSUIProperty(pid, INPUTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, INPUTBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case OK_ONLY:
             default:
-            msgboxHideBtnMiddle(pid);
-            setSUIProperty(pid, INPUTBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                msgboxHideBtnMiddle(pid);
+                setSUIProperty(pid, INPUTBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
         }
     }
     public static void inputboxHideBtnMiddle(int pid) throws InterruptedException
@@ -976,18 +960,18 @@ public class sui extends script.base_script
         switch (style)
         {
             case INPUT_COMBO:
-            setSUIProperty(pid, INPUTBOX_INPUT, "Enabled", "false");
-            setSUIProperty(pid, INPUTBOX_INPUT, "Visible", "false");
-            setSUIProperty(pid, INPUTBOX_COMBO, "Enabled", "true");
-            setSUIProperty(pid, INPUTBOX_COMBO, "Visible", "true");
-            break;
+                setSUIProperty(pid, INPUTBOX_INPUT, "Enabled", "false");
+                setSUIProperty(pid, INPUTBOX_INPUT, "Visible", "false");
+                setSUIProperty(pid, INPUTBOX_COMBO, "Enabled", "true");
+                setSUIProperty(pid, INPUTBOX_COMBO, "Visible", "true");
+                break;
             case INPUT_NORMAL:
             default:
-            setSUIProperty(pid, INPUTBOX_INPUT, "Enabled", "true");
-            setSUIProperty(pid, INPUTBOX_INPUT, "Visible", "true");
-            setSUIProperty(pid, INPUTBOX_COMBO, "Enabled", "false");
-            setSUIProperty(pid, INPUTBOX_COMBO, "Visible", "false");
-            break;
+                setSUIProperty(pid, INPUTBOX_INPUT, "Enabled", "true");
+                setSUIProperty(pid, INPUTBOX_INPUT, "Visible", "true");
+                setSUIProperty(pid, INPUTBOX_COMBO, "Enabled", "false");
+                setSUIProperty(pid, INPUTBOX_COMBO, "Visible", "false");
+                break;
         }
     }
     public static int inputbox(obj_id owner, obj_id target, String prompt, int buttons, String box_title, int style, String[] dsrc, String suiHandler) throws InterruptedException
@@ -1067,10 +1051,7 @@ public class sui extends script.base_script
                 prose_package pp = prose.getPackage(PROSE_OVER_MAX_ENTRIES, "", maxArraySize);
                 sendSystemMessageProse(target, pp);
                 prose_package[] newSrc = new prose_package[maxArraySize];
-                for (int i = 0; i < maxArraySize; i++)
-                {
-                    newSrc[i] = dsrc[i];
-                }
+                System.arraycopy(dsrc, 0, newSrc, 0, maxArraySize);
                 dsrc = newSrc;
             }
         }
@@ -1080,18 +1061,15 @@ public class sui extends script.base_script
             setSUIProperty(pid, LISTBOX_TITLE, PROP_TEXT, box_title);
             setSUIProperty(pid, LISTBOX_PROMPT, PROP_TEXT, prompt);
             listboxButtonSetup(pid, buttons);
-            if (dsrc != null)
-            {
-                clearSUIDataSource(pid, LISTBOX_DATASOURCE);
-                int ubound = dsrc.length;
-                for (int i = 0; i < ubound; i++)
-                {
-                    addSUIDataItem(pid, LISTBOX_DATASOURCE, "" + i);
-                    String oob = "";
-                    oob = packOutOfBandProsePackage(oob, -1, dsrc[i]);
-                    setSUIPropertyOOB(pid, LISTBOX_DATASOURCE + "." + i, PROP_TEXT, oob);
-                }
-            }
+            clearSUIDataSource(pid, LISTBOX_DATASOURCE);
+            int ubound = dsrc.length;
+            for (int i = 0; i < ubound; i++)
+			{
+				addSUIDataItem(pid, LISTBOX_DATASOURCE, "" + i);
+				String oob = "";
+				oob = packOutOfBandProsePackage(oob, -1, dsrc[i]);
+				setSUIPropertyOOB(pid, LISTBOX_DATASOURCE + "." + i, PROP_TEXT, oob);
+			}
             subscribeToSUIProperty(pid, LISTBOX_LIST, PROP_SELECTEDROW);
             subscribeToSUIProperty(pid, LISTBOX_TITLE, PROP_TEXT);
             if (show)
@@ -1150,10 +1128,7 @@ public class sui extends script.base_script
                 prose_package pp = prose.getPackage(PROSE_OVER_MAX_ENTRIES, "", maxArraySize);
                 sendSystemMessageProse(target, pp);
                 String[] newSrc = new String[maxArraySize];
-                for (int i = 0; i < maxArraySize; i++)
-                {
-                    newSrc[i] = dsrc[i];
-                }
+                System.arraycopy(dsrc, 0, newSrc, 0, maxArraySize);
                 dsrc = newSrc;
             }
         }
@@ -1163,16 +1138,13 @@ public class sui extends script.base_script
             setSUIProperty(pid, LISTBOX_TITLE, PROP_TEXT, box_title);
             setSUIProperty(pid, LISTBOX_PROMPT, PROP_TEXT, prompt);
             listboxButtonSetup(pid, buttons);
-            if (dsrc != null)
-            {
-                clearSUIDataSource(pid, LISTBOX_DATASOURCE);
-                int ubound = dsrc.length;
-                for (int i = 0; i < ubound; i++)
-                {
-                    addSUIDataItem(pid, LISTBOX_DATASOURCE, "" + i);
-                    setSUIProperty(pid, LISTBOX_DATASOURCE + "." + i, PROP_TEXT, dsrc[i]);
-                }
-            }
+            clearSUIDataSource(pid, LISTBOX_DATASOURCE);
+            int ubound = dsrc.length;
+            for (int i = 0; i < ubound; i++)
+			{
+				addSUIDataItem(pid, LISTBOX_DATASOURCE, "" + i);
+				setSUIProperty(pid, LISTBOX_DATASOURCE + "." + i, PROP_TEXT, dsrc[i]);
+			}
             subscribeToSUIProperty(pid, LISTBOX_LIST, PROP_SELECTEDROW);
             subscribeToSUIProperty(pid, LISTBOX_TITLE, PROP_TEXT);
             if (show)
@@ -1237,63 +1209,63 @@ public class sui extends script.base_script
         switch (buttons)
         {
             case OK_CANCEL:
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case YES_NO:
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@no");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@yes");
-            break;
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@no");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@yes");
+                break;
             case OK_REFRESH:
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@refresh");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@refresh");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case OK_CANCEL_REFRESH:
-            listboxUseOtherButton(pid, "@refresh");
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                listboxUseOtherButton(pid, "@refresh");
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case REFRESH_CANCEL:
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@refresh");
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            break;
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@refresh");
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                break;
             case REFRESH_ONLY:
-            listboxHideBtnMiddle(pid);
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@refresh");
-            break;
+                listboxHideBtnMiddle(pid);
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@refresh");
+                break;
             case OK_CANCEL_ALL:
-            listboxUseOtherButton(pid, "@all");
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                listboxUseOtherButton(pid, "@all");
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case MOVEUP_MOVEDOWN_DONE:
-            listboxUseOtherButton(pid, "@movedown");
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@done");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@moveup");
-            break;
+                listboxUseOtherButton(pid, "@movedown");
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@done");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@moveup");
+                break;
             case BET_MAX_BET_ONE_QUIT:
-            listboxUseOtherButton(pid, "@bet_one");
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@quit");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@bet_max");
-            break;
+                listboxUseOtherButton(pid, "@bet_one");
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@quit");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@bet_max");
+                break;
             case BET_MAX_BET_ONE_SPIN:
-            listboxUseOtherButton(pid, "@bet_one");
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@spin");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@bet_max");
-            break;
+                listboxUseOtherButton(pid, "@bet_one");
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@spin");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@bet_max");
+                break;
             case REFRESH_LEAVE_GAME:
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@leave_game");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@refresh");
-            break;
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@leave_game");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@refresh");
+                break;
             case REMOVE_CANCEL:
-            setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@remove");
-            break;
+                setSUIProperty(pid, LISTBOX_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@remove");
+                break;
             case OK_ONLY:
             default:
-            msgboxHideBtnMiddle(pid);
-            setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                msgboxHideBtnMiddle(pid);
+                setSUIProperty(pid, LISTBOX_BTN_OK, PROP_TEXT, "@ok");
+                break;
         }
     }
     public static void listboxHideBtnMiddle(int pid) throws InterruptedException
@@ -1309,7 +1281,7 @@ public class sui extends script.base_script
     }
     public static boolean getListboxOtherButtonPressed(dictionary params) throws InterruptedException
     {
-        return (Boolean.valueOf(params.getString("this." + LISTBOX_PROP_OTHER_PRESSED))).booleanValue();
+        return Boolean.valueOf(params.getString("this." + LISTBOX_PROP_OTHER_PRESSED));
     }
     public static int listbox(obj_id owner, obj_id target, String prompt, int buttons, String box_title, String[] dsrc, String suiHandler, boolean show) throws InterruptedException
     {
@@ -1566,23 +1538,22 @@ public class sui extends script.base_script
     public static int getIntButtonPressed(dictionary params) throws InterruptedException
     {
         String bp = params.getString(PROP_BUTTONPRESSED);
-        if ((bp == null) || (bp.equals("")))
-        {
-        }
-        else if (bp.equals(OK))
-        {
-            if (params.containsKey("this.otherPressed"))
-            {
-                if ((params.getString("this.otherPressed")).equals("true"))
-                {
-                    return BP_REVERT;
-                }
-            }
-            return BP_OK;
-        }
-        else if (bp.equals(REVERT))
-        {
-            return BP_REVERT;
+        if ((bp != null) && (!bp.equals(""))) {
+            if (bp.equals(OK))
+			{
+				if (params.containsKey("this.otherPressed"))
+				{
+					if ((params.getString("this.otherPressed")).equals("true"))
+					{
+						return BP_REVERT;
+					}
+				}
+				return BP_OK;
+			}
+			else if (bp.equals(REVERT))
+			{
+				return BP_REVERT;
+			}
         }
         return BP_CANCEL;
     }
@@ -1593,13 +1564,16 @@ public class sui extends script.base_script
     public static boolean setSUIObjVars(obj_id target, int pid, dictionary params) throws InterruptedException
     {
         java.util.Enumeration keys = params.keys();
+        Object key;
+        Object value;
+
         while (keys.hasMoreElements())
         {
-            Object key = keys.nextElement();
-            Object value = params.get(key);
+            key = keys.nextElement();
+            value = params.get(key);
             if (value instanceof Integer)
             {
-                int v = (((Integer)value)).intValue();
+                int v = (Integer) value;
                 setObjVar(target, "sui." + pid + "." + key, v);
             }
             else if (value instanceof int[])
@@ -1612,7 +1586,7 @@ public class sui extends script.base_script
             }
             else if (value instanceof Float)
             {
-                float v = (((Float)value)).floatValue();
+                float v = (Float) value;
                 setObjVar(target, "sui." + pid + "." + key, v);
             }
             else if (value instanceof float[])
@@ -1724,8 +1698,7 @@ public class sui extends script.base_script
     public static void setAssociateRange(obj_id player, int pid, obj_id target, String key) throws InterruptedException
     {
         float range = 16f;
-        String tbl = "datatables/sui/associate_range.iff";
-        float dta = dataTableGetFloat(tbl, key, "RANGE");
+        float dta = dataTableGetFloat("datatables/sui/associate_range.iff", key, "RANGE");
         if (dta > 0f)
         {
             range = dta;
@@ -1758,17 +1731,11 @@ public class sui extends script.base_script
     {
         setSUIProperty(pid, THIS, PROP_SOUND, sound == null ? "" : sound);
     }
-    public static boolean hasPid(obj_id player, String pidName) throws InterruptedException
-    {
-        if (!isIdValid(player) || !exists(player))
-        {
+    public static boolean hasPid(obj_id player, String pidName) throws InterruptedException {
+        if (!isIdValid(player) || !exists(player)) {
             return false;
         }
-        if (pidName == null || pidName.equals(""))
-        {
-            return false;
-        }
-        return utils.hasScriptVar(player, "pid." + pidName);
+        return !(pidName == null || pidName.equals("")) && utils.hasScriptVar(player, "pid." + pidName);
     }
     public static void setPid(obj_id player, int pid, String pidName) throws InterruptedException
     {
@@ -1963,53 +1930,53 @@ public class sui extends script.base_script
         switch (buttons)
         {
             case OK_CANCEL:
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case YES_NO:
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@no");
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@yes");
-            break;
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@no");
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@yes");
+                break;
             case OK_REFRESH:
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@refresh");
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@refresh");
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case OK_CANCEL_REFRESH:
-            TableUseOtherButton(pid, "@refresh");
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                TableUseOtherButton(pid, "@refresh");
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case REFRESH_CANCEL:
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@refresh");
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
-            break;
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@refresh");
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
+                break;
             case REFRESH_ONLY:
-            TableHideBtnMiddle(pid);
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@refresh");
-            break;
+                TableHideBtnMiddle(pid);
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@refresh");
+                break;
             case OK_CANCEL_ALL:
-            TableUseOtherButton(pid, "@all");
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                TableUseOtherButton(pid, "@all");
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
+                break;
             case MOVEUP_MOVEDOWN_DONE:
-            TableUseOtherButton(pid, "@movedown");
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@done");
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@moveup");
-            break;
+                TableUseOtherButton(pid, "@movedown");
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@done");
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@moveup");
+                break;
             case REFRESH_LEAVE_GAME:
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@leave_game");
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@refresh");
-            break;
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@leave_game");
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@refresh");
+                break;
             case REMOVE_CANCEL:
-            setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@remove");
-            break;
+                setSUIProperty(pid, TABLE_BTN_CANCEL, PROP_TEXT, "@cancel");
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@remove");
+                break;
             case OK_ONLY:
             default:
-            msgboxHideBtnMiddle(pid);
-            setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
-            break;
+                msgboxHideBtnMiddle(pid);
+                setSUIProperty(pid, TABLE_BTN_OK, PROP_TEXT, "@ok");
+                break;
         }
     }
     public static void TableHideBtnMiddle(int pid) throws InterruptedException
@@ -2044,8 +2011,7 @@ public class sui extends script.base_script
     }
     public static String getEventType(dictionary params) throws InterruptedException
     {
-        String eventType = params.getString("eventType");
-        return eventType;
+        return params.getString("eventType");
     }
     public static void cancelCountdownTimer(obj_id self, int event) throws InterruptedException
     {

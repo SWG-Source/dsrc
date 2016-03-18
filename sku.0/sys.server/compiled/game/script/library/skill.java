@@ -1,21 +1,10 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.prose;
-import script.library.utils;
-import script.library.list;
-import script.library.jedi;
-import script.library.combat;
-import script.library.pclib;
-import script.library.space_flags;
-import script.library.buff;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.Vector;
 
 public class skill extends script.base_script
 {
@@ -88,8 +77,7 @@ public class skill extends script.base_script
             messageTo(target, HANDLER_SKILL_GRANTED, d, 0, true);
             return true;
         }
-        boolean litmus = grantSkill(target, skillName);
-        return litmus;
+        return grantSkill(target, skillName);
     }
     public static boolean grantSkillToPlayer(obj_id player, String skillName) throws InterruptedException
     {
@@ -147,11 +135,11 @@ public class skill extends script.base_script
             {
                 if (space_flags.isSpaceTrack(player, space_flags.PRIVATEER_TATOOINE))
                 {
-                    soundFile = soundFile = "sound/music_themequest_acc_criminal.snd";
+                    soundFile = "sound/music_themequest_acc_criminal.snd";
                 }
                 else 
                 {
-                    soundFile = soundFile = "sound/music_themequest_acc_general.snd";
+                    soundFile = "sound/music_themequest_acc_general.snd";
                 }
             }
             else if (skillName.startsWith("pilot_rebel"))
@@ -214,23 +202,13 @@ public class skill extends script.base_script
         }
         return false;
     }
-    public static boolean hasRequiredSkillsForSkillPurchase(obj_id player, String skillName) throws InterruptedException
-    {
-        if (!isIdValid(player) || (!isPlayer(player)) || skillName == null || skillName.equals(""))
-        {
+    public static boolean hasRequiredSkillsForSkillPurchase(obj_id player, String skillName) throws InterruptedException {
+        if (!isIdValid(player) || (!isPlayer(player)) || skillName == null || skillName.equals("")) {
             return false;
         }
         String[] pSkills = getSkillListingForPlayer(player);
         String[] skillReqs = getSkillPrerequisiteSkills(skillName);
-        if (skillReqs == null)
-        {
-            return true;
-        }
-        if (pSkills == null)
-        {
-            return false;
-        }
-        return utils.isSubset(pSkills, skillReqs);
+        return skillReqs == null || pSkills != null && utils.isSubset(pSkills, skillReqs);
     }
     public static boolean hasRequiredXpForSkillPurchase(obj_id player, String skillName) throws InterruptedException
     {
@@ -245,9 +223,10 @@ public class skill extends script.base_script
         }
         boolean qualifies = true;
         java.util.Enumeration e = xpReqs.keys();
+        String xpType;
         while (e.hasMoreElements())
         {
-            String xpType = (String)(e.nextElement());
+            xpType = (String) (e.nextElement());
             int xpCost = xpReqs.getInt(xpType);
             if (getExperiencePoints(player, xpType) < xpCost)
             {
@@ -269,9 +248,10 @@ public class skill extends script.base_script
         }
         boolean qualifies = true;
         java.util.Enumeration e = xpReqs.keys();
+        String xpType;
         while (e.hasMoreElements())
         {
-            String xpType = (String)(e.nextElement());
+            xpType = (String) (e.nextElement());
             int xpCost = xpReqs.getInt(xpType);
             if (xpCost != 0)
             {
@@ -299,20 +279,14 @@ public class skill extends script.base_script
             return null;
         }
         Vector ret = new Vector(Arrays.asList(reqs));
-        for (int i = 0; i < reqs.length; i++)
-        {
-            String[] tmp = getAllRequiredSkills(reqs[i]);
-            if ((tmp == null) || (tmp.length == 0))
-            {
-            }
-            else 
-            {
-                for (int n = 0; n < tmp.length; n++)
-                {
-                    int pos = utils.getElementPositionInArray(ret, tmp[n]);
-                    if (pos == -1)
-                    {
-                        ret = utils.addElement(ret, tmp[n]);
+        String[] tmp;
+        for (String req : reqs) {
+            tmp = getAllRequiredSkills(req);
+            if ((tmp != null) && (tmp.length != 0)) {
+                for (String aTmp : tmp) {
+                    int pos = utils.getElementPositionInArray(ret, aTmp);
+                    if (pos == -1) {
+                        ret = utils.addElement(ret, aTmp);
                     }
                 }
             }
@@ -338,11 +312,12 @@ public class skill extends script.base_script
             {
                 return false;
             }
+            String skill_list;
             for (int i = 0; i < templates.length; i++)
             {
                 if ((toLower(templates[i])).equals(toLower(template)))
                 {
-                    String skill_list = dataTableGetString(DATATABLE_SKILL_TEMPLATE, i, DATATABLE_BASE_SKILLS);
+                    skill_list = dataTableGetString(DATATABLE_SKILL_TEMPLATE, i, DATATABLE_BASE_SKILLS);
                     if (skill_list.startsWith("\""))
                     {
                         skill_list = skill_list.substring(1);
@@ -353,35 +328,21 @@ public class skill extends script.base_script
                     }
                     if (!skill_list.equals(""))
                     {
-                        int recurseIntVal = dataTableGetInt(DATATABLE_SKILL_TEMPLATE, i, DATATABLE_RECURSE);
-                        boolean recurse = false;
-                        switch (recurseIntVal)
-                        {
-                            case 0:
-                            break;
-                            case 1:
-                            recurse = true;
-                            break;
-                            default:
-                            break;
-                        }
+                        boolean recurse = dataTableGetInt(DATATABLE_SKILL_TEMPLATE, i, DATATABLE_RECURSE) == 1;
                         boolean litmus = true;
                         java.util.StringTokenizer skills = new java.util.StringTokenizer(toLower(skill_list), ",");
+                        String skillName;
+                        String[] reqs;
                         while (skills.hasMoreTokens())
                         {
-                            String skillName = skills.nextToken();
+                            skillName = skills.nextToken();
                             litmus &= grantSkill(target, skillName);
                             if (recurse)
                             {
-                                String[] reqs = getAllRequiredSkills(skillName);
-                                if ((reqs == null) || (reqs.length == 0))
-                                {
-                                }
-                                else 
-                                {
-                                    for (int n = 0; n < reqs.length; n++)
-                                    {
-                                        litmus &= grantSkill(target, reqs[n]);
+                                reqs = getAllRequiredSkills(skillName);
+                                if ((reqs != null) && (reqs.length != 0)) {
+                                    for (String req : reqs) {
+                                        litmus &= grantSkill(target, req);
                                     }
                                 }
                             }
@@ -390,9 +351,10 @@ public class skill extends script.base_script
                         if ((inherits_list != null) && (!inherits_list.equals("")))
                         {
                             java.util.StringTokenizer inheritTokens = new java.util.StringTokenizer(toLower(inherits_list), ",");
+                            String inheritTemplate;
                             while (inheritTokens.hasMoreTokens())
                             {
-                                String inheritTemplate = inheritTokens.nextToken();
+                                inheritTemplate = inheritTokens.nextToken();
                                 if (!inheritTemplate.equals(""))
                                 {
                                     litmus &= assignSkillTemplate(target, inheritTemplate);
@@ -417,9 +379,8 @@ public class skill extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < skills.length; i++)
-        {
-            revokeSkill(target, skills[i]);
+        for (String skill : skills) {
+            revokeSkill(target, skill);
             CustomerServiceLog("Skill", "skill.revokeAllSkills(): (" + target + ") " + getName(target) + " is having all skills revoked!");
         }
         return true;
@@ -428,15 +389,12 @@ public class skill extends script.base_script
     {
         String[] skillList = getSkillListingForPlayer(player);
         int attempts = skillList.length;
-        if ((skillList != null) && (skillList.length != 0))
+        if ((skillList.length != 0))
         {
             while (skillList.length > 0 && attempts > 0)
             {
-                for (int i = 0; i < skillList.length; i++)
-                {
-                    String skillName = skillList[i];
-                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("social_politician_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("internal_expertise_") && !skillName.startsWith("combat_ranged_weapon_basic") && !skillName.equals("expertise"))
-                    {
+                for (String skillName : skillList) {
+                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("social_politician_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("internal_expertise_") && !skillName.startsWith("combat_ranged_weapon_basic") && !skillName.equals("expertise")) {
                         revokeSkillSilent(player, skillName);
                     }
                 }
@@ -462,96 +420,75 @@ public class skill extends script.base_script
         }
         Vector qualifiedSkills = new Vector();
         qualifiedSkills.setSize(0);
-        for (int i = 0; i < teachableSkills.length; i++)
-        {
+        dictionary d;
+        Object o;
+        String xpType;
+        Enumeration species_keys;
+        String key;
+        String trainer_type;
+        String branch;
+        String skillName;
+
+        for (String teachableSkill : teachableSkills) {
             boolean qualifies = true;
-            dictionary d = getSkillPrerequisiteExperience(teachableSkills[i]);
-            if (d == null || d.isEmpty())
-            {
-            }
-            else 
-            {
-                java.util.Enumeration keys = d.keys();
-                int n = 0;
-                while (keys.hasMoreElements())
-                {
-                    Object o = keys.nextElement();
-                    if (o instanceof String)
-                    {
-                        String xpType = (String)o;
+            d = getSkillPrerequisiteExperience(teachableSkill);
+            if (d != null && !d.isEmpty()) {
+                Enumeration keys = d.keys();
+                while (keys.hasMoreElements()) {
+                    o = keys.nextElement();
+                    if (o instanceof String) {
+                        xpType = (String) o;
                         int xpCost = d.getInt(xpType);
                         int playerXP = getExperiencePoints(target, xpType);
-                        if (playerXP >= xpCost)
-                        {
-                        }
-                        else 
-                        {
+                        if (playerXP < xpCost) {
                             qualifies = false;
                         }
-                    }
-                    else 
-                    {
+                    } else {
                         return null;
                     }
                 }
             }
-            dictionary species = getSkillPrerequisiteSpecies(teachableSkills[i]);
-            if (species != null && !d.isEmpty())
-            {
-                java.util.Enumeration species_keys = species.keys();
-                while (species_keys.hasMoreElements())
-                {
-                    Object o = species_keys.nextElement();
-                    if (o instanceof String)
-                    {
-                        String key = (String)o;
-                        if (species.getBoolean(key))
-                        {
+            dictionary species = getSkillPrerequisiteSpecies(teachableSkill);
+            assert d != null;
+            if (species != null && !d.isEmpty()) {
+                species_keys = species.keys();
+                while (species_keys.hasMoreElements()) {
+                    o = species_keys.nextElement();
+                    if (o instanceof String) {
+                        key = (String) o;
+                        if (species.getBoolean(key)) {
                             qualifies = false;
                         }
                     }
                 }
             }
-            String trainer_type = getStringObjVar(teacher, "trainer");
-            if (trainer_type != null && trainer_type.equals("trainer_fs"))
-            {
-                if (qualifies)
-                {
-                    if (fs_quests.isVillageEligible(target))
-                    {
-                        String branch = fs_quests.getBranchFromSkill(teachableSkills[i]);
-                        if (!fs_quests.hasUnlockedBranch(target, branch))
-                        {
+            trainer_type = getStringObjVar(teacher, "trainer");
+            if (trainer_type != null && trainer_type.equals("trainer_fs")) {
+                if (qualifies) {
+                    if (fs_quests.isVillageEligible(target)) {
+                        branch = fs_quests.getBranchFromSkill(teachableSkill);
+                        if (!fs_quests.hasUnlockedBranch(target, branch)) {
                             qualifies = false;
                         }
-                    }
-                    else 
-                    {
+                    } else {
                         qualifies = false;
                     }
                 }
             }
-            if (hasObjVar(target, "newbie.hasSkill") && !hasObjVar(target, "newbie.trained"))
-            {
-                String skillName = getStringObjVar(target, "newbie.hasSkill");
-                if (skillName.equals(teachableSkills[i]))
-                {
+            if (hasObjVar(target, "newbie.hasSkill") && !hasObjVar(target, "newbie.trained")) {
+                skillName = getStringObjVar(target, "newbie.hasSkill");
+                if (skillName.equals(teachableSkill)) {
                     qualifies = true;
                 }
             }
-            if (qualifies)
-            {
-                qualifiedSkills = utils.addElement(qualifiedSkills, teachableSkills[i]);
+            if (qualifies) {
+                qualifiedSkills = utils.addElement(qualifiedSkills, teachableSkill);
             }
         }
         if ((qualifiedSkills != null) && (qualifiedSkills.size() > 0))
         {
-            String[] _qualifiedSkills = new String[0];
-            if (qualifiedSkills != null)
-            {
-                _qualifiedSkills = new String[qualifiedSkills.size()];
-                qualifiedSkills.toArray(_qualifiedSkills);
-            }
+            String[] _qualifiedSkills = new String[qualifiedSkills.size()];
+            qualifiedSkills.toArray(_qualifiedSkills);
             return _qualifiedSkills;
         }
         return null;
@@ -560,7 +497,6 @@ public class skill extends script.base_script
     {
         if (!isIdValid(target) || !isIdValid(teacher))
         {
-            obj_id self = getSelf();
             return null;
         }
         if (isPlayer(teacher))
@@ -575,21 +511,15 @@ public class skill extends script.base_script
         }
         Vector delta = new Vector();
         delta.setSize(0);
-        for (int i = 0; i < teacherSkills.length; i++)
-        {
-            if (utils.getElementPositionInArray(targetSkills, teacherSkills[i]) == -1)
-            {
-                delta = utils.addElement(delta, teacherSkills[i]);
+        for (String teacherSkill : teacherSkills) {
+            if (utils.getElementPositionInArray(targetSkills, teacherSkill) == -1) {
+                delta = utils.addElement(delta, teacherSkill);
             }
         }
         if ((delta != null) && (delta.size() != 0))
         {
-            String[] _delta = new String[0];
-            if (delta != null)
-            {
-                _delta = new String[delta.size()];
-                delta.toArray(_delta);
-            }
+            String[] _delta = new String[delta.size()];
+            delta.toArray(_delta);
             return _delta;
         }
         return null;
@@ -627,21 +557,15 @@ public class skill extends script.base_script
         }
         Vector delta = new Vector();
         delta.setSize(0);
-        for (int i = 0; i < teacherSkills.length; i++)
-        {
-            if (utils.getElementPositionInArray(targetSkills, teacherSkills[i]) == -1)
-            {
-                delta = utils.addElement(delta, teacherSkills[i]);
+        for (String teacherSkill : teacherSkills) {
+            if (utils.getElementPositionInArray(targetSkills, teacherSkill) == -1) {
+                delta = utils.addElement(delta, teacherSkill);
             }
         }
         if ((delta != null) && (delta.size() != 0))
         {
-            String[] _delta = new String[0];
-            if (delta != null)
-            {
-                _delta = new String[delta.size()];
-                delta.toArray(_delta);
-            }
+            String[] _delta = new String[delta.size()];
+            delta.toArray(_delta);
             return _delta;
         }
         return null;
@@ -658,11 +582,8 @@ public class skill extends script.base_script
         {
             return -1;
         }
-        int deltaPercent = params.getInt(DICT_DELTA_PERCENT);
-        if ((retCode == CODE_PASS) && (deltaPercent >= 0))
-        {
-        }
-        return deltaPercent;
+
+        return params.getInt(DICT_DELTA_PERCENT);
     }
     public static dictionary skillModCheck(obj_id target, String skillmod, String scale) throws InterruptedException
     {
@@ -675,30 +596,29 @@ public class skill extends script.base_script
         int modmin = 1;
         int modmax = 100;
         int scaleIdx = scale.indexOf(DELIM_RANGE);
-        if (scale.equals(""))
-        {
-        }
-        else if (scaleIdx > 0)
-        {
-            java.util.StringTokenizer rng = new java.util.StringTokenizer(scale, DELIM_RANGE);
-            String smin = "";
-            String smax = "";
-            if (rng.countTokens() == 2)
-            {
-                smin = rng.nextToken();
-                smax = rng.nextToken();
-            }
-            else 
-            {
-                ret.put(DICT_CODE, CODE_ERROR);
-                return ret;
-            }
-            modmin = utils.stringToInt(smin);
-            modmax = utils.stringToInt(smax);
-        }
-        else 
-        {
-            modmax = utils.stringToInt(scale);
+        if (!scale.equals("")) {
+            if (scaleIdx > 0)
+			{
+				java.util.StringTokenizer rng = new java.util.StringTokenizer(scale, DELIM_RANGE);
+				String smin;
+				String smax;
+				if (rng.countTokens() == 2)
+				{
+					smin = rng.nextToken();
+					smax = rng.nextToken();
+				}
+				else
+				{
+					ret.put(DICT_CODE, CODE_ERROR);
+					return ret;
+				}
+				modmin = utils.stringToInt(smin);
+				modmax = utils.stringToInt(smax);
+			}
+			else
+			{
+				modmax = utils.stringToInt(scale);
+			}
         }
         if ((modmin < 0) || (modmax <= 0) || (modmin >= modmax))
         {
@@ -826,10 +746,7 @@ public class skill extends script.base_script
             {
                 int randomNumber = rand(0, numAvailable - 1);
                 strSkillsNeeded[i] = strSkills[randomNumber];
-                for (int j = randomNumber; j < numAvailable - 1; ++j)
-                {
-                    strSkills[j] = strSkills[j + 1];
-                }
+                System.arraycopy(strSkills, randomNumber + 1, strSkills, randomNumber, numAvailable - 1 - randomNumber);
                 strSkills[--numAvailable] = null;
             }
             if (strSkillsNeeded.length > 0)
@@ -854,14 +771,12 @@ public class skill extends script.base_script
     {
         if (grantSkillToPlayer(player, skillName))
         {
-            prose_package pp = prose.getPackage(PROSE_SKILL_LEARNED, new string_id(SKILL_N, skillName));
-            sendSystemMessageProse(player, pp);
+            sendSystemMessageProse(player, prose.getPackage(PROSE_SKILL_LEARNED, new string_id(SKILL_N, skillName)));
             return true;
         }
         else 
         {
-            prose_package pp = prose.getPackage(PROSE_TRAIN_FAILED, new string_id(SKILL_N, skillName));
-            sendSystemMessageProse(player, pp);
+            sendSystemMessageProse(player, prose.getPackage(PROSE_TRAIN_FAILED, new string_id(SKILL_N, skillName)));
             return false;
         }
     }
@@ -875,7 +790,6 @@ public class skill extends script.base_script
         }
         newbieTutorialHighlightUIElement(objPlayer, "/GroundHUD.MFDStatus.vsp.role.targetLevel", 5.0f);
         setPlayerStatsForLevel(objPlayer, intNewLevel);
-        return;
     }
     public static void setPlayerStatsForLevel(obj_id objPlayer, int intLevel) throws InterruptedException
     {
@@ -957,7 +871,6 @@ public class skill extends script.base_script
             }
             recalcPlayerPools(objPlayer, true);
         }
-        return;
     }
     public static int getPlayerStatForLevel(obj_id player, int intLevel, String statString) throws InterruptedException
     {
@@ -1106,7 +1019,6 @@ public class skill extends script.base_script
             ppStatGainSpam.digitInteger = actionDelta;
             sendSystemMessageProse(player, ppStatGainSpam);
         }
-        return;
     }
     public static String getProfessionName(String strTemplate) throws InterruptedException
     {
@@ -1157,12 +1069,11 @@ public class skill extends script.base_script
             setMaxAttrib(objPlayer, ACTION, intBaseAction);
             setMaxAttrib(objPlayer, HEALTH, intBaseHealth);
             int[] myBuffs = buff.getAllBuffs(objPlayer);
-            for (int i = 0; i < myBuffs.length; i++)
-            {
-                String thisBuffEffect = buff.getEffectParam(myBuffs[i], 1);
-                float thisBuffValue = buff.getEffectValue(myBuffs[i], 1);
-                if (thisBuffEffect != null && thisBuffValue < 0 && thisBuffEffect.equals("healthPercent"))
-                {
+            String thisBuffEffect;
+            for (int myBuff : myBuffs) {
+                thisBuffEffect = buff.getEffectParam(myBuff, 1);
+                float thisBuffValue = buff.getEffectValue(myBuff, 1);
+                if (thisBuffEffect != null && thisBuffValue < 0 && thisBuffEffect.equals("healthPercent")) {
                     boolHealEverything = false;
                     break;
                 }
@@ -1173,7 +1084,6 @@ public class skill extends script.base_script
                 setAttrib(objPlayer, HEALTH, getMaxAttrib(objPlayer, HEALTH));
             }
         }
-        return;
     }
     public static void grantAllPoliticianSkills(obj_id player) throws InterruptedException
     {
@@ -1199,11 +1109,9 @@ public class skill extends script.base_script
             "social_politician_master"
         };
         setObjVar(player, "clickRespec.granting", true);
-        for (int i = 0; i < skillNames.length; i++)
-        {
-            if (!hasSkill(player, skillNames[i]))
-            {
-                grantSkill(player, skillNames[i]);
+        for (String skillName : skillNames) {
+            if (!hasSkill(player, skillName)) {
+                grantSkill(player, skillName);
             }
         }
         removeObjVar(player, "clickRespec.granting");
@@ -1255,24 +1163,18 @@ public class skill extends script.base_script
             "class_munitions_phase2_novice",
             "class_engineering_phase2_novice"
         };
-        for (int i = 0; i < phaseFourSkills.length; i++)
-        {
-            if (hasSkill(player, phaseFourSkills[i]))
-            {
+        for (String phaseFourSkill : phaseFourSkills) {
+            if (hasSkill(player, phaseFourSkill)) {
                 return PHASE_FOUR;
             }
         }
-        for (int i = 0; i < phaseThreeSkills.length; i++)
-        {
-            if (hasSkill(player, phaseThreeSkills[i]))
-            {
+        for (String phaseThreeSkill : phaseThreeSkills) {
+            if (hasSkill(player, phaseThreeSkill)) {
                 return PHASE_THREE;
             }
         }
-        for (int i = 0; i < phaseTwoSkills.length; i++)
-        {
-            if (hasSkill(player, phaseTwoSkills[i]))
-            {
+        for (String phaseTwoSkill : phaseTwoSkills) {
+            if (hasSkill(player, phaseTwoSkill)) {
                 return PHASE_TWO;
             }
         }
@@ -1312,30 +1214,18 @@ public class skill extends script.base_script
                 profession = "trader_eng";
             }
         }
-        for (int i = 0; i < expertiseSkills.length; ++i)
-        {
-            int row = dataTableSearchColumnForString(expertiseSkills[i], "NAME", DATATABLE_EXPERTISE);
-            if (row < 0)
-            {
+        for (String expertiseSkill : expertiseSkills) {
+            int row = dataTableSearchColumnForString(expertiseSkill, "NAME", DATATABLE_EXPERTISE);
+            if (row < 0) {
                 continue;
             }
             String reqProf = dataTableGetString(DATATABLE_EXPERTISE, row, "REQ_PROF");
-            if (!reqProf.equals(profession))
-            {
-                if (reqProf.equals("trader") && isTrader)
-                {
-                    continue;
-                }
-                else if (reqProf.equals("all"))
-                {
-                    continue;
-                }
-                else 
-                {
+            if (!reqProf.equals(profession)) {
+                if ((!reqProf.equals("trader") || !isTrader) && !reqProf.equals("all")) {
                     sendSystemMessage(player, SID_EXPERTISE_WRONG_PROFESSION);
                     utils.fullExpertiseReset(player, false);
                     CustomerServiceLog("SuspectedCheaterChannel: ", "DualProfessionCheat: Player " + getFirstName(player) + "(" + player + ") has an expertise that is not for thier profession. All expertises have been revoked.");
-                    CustomerServiceLog("SuspectedCheaterChannel: ", "DualProfessionCheat: Player " + getFirstName(player) + "(" + player + ")'s profession is " + profession + " and the skill they have is " + expertiseSkills[i] + ".");
+                    CustomerServiceLog("SuspectedCheaterChannel: ", "DualProfessionCheat: Player " + getFirstName(player) + "(" + player + ")'s profession is " + profession + " and the skill they have is " + expertiseSkill + ".");
                     return false;
                 }
             }

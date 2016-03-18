@@ -1,12 +1,8 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
 
 public class spawn_tangible extends script.base_script
 {

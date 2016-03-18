@@ -1,19 +1,9 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.beast_lib;
-import script.library.incubator;
-import script.library.spawning;
-import script.library.static_item;
-import script.library.target_dummy;
-import script.library.utils;
+import java.util.Arrays;
+import java.util.Vector;
 
 public class tcg extends script.base_script
 {
@@ -95,20 +85,12 @@ public class tcg extends script.base_script
     };
     public static boolean isBarnRanchhand(obj_id target) throws InterruptedException
     {
-        if (hasScript(target, BARN_RANCHHAND_SCRIPT))
-        {
-            return true;
-        }
-        return false;
+        return hasScript(target, BARN_RANCHHAND_SCRIPT);
     }
     public static boolean isBarnStructure(obj_id building) throws InterruptedException
     {
         String template = getTemplateName(building);
-        if (template.equals(BARN_STRUCTURE_TEMPLATE))
-        {
-            return true;
-        }
-        return false;
+        return template.equals(BARN_STRUCTURE_TEMPLATE);
     }
     public static void barnStoreBeastPrompt(obj_id player, obj_id ranchhand) throws InterruptedException
     {
@@ -132,17 +114,15 @@ public class tcg extends script.base_script
             vectorBcdsList.setSize(0);
             Vector vectorBeastNames = new Vector();
             vectorBeastNames.setSize(0);
-            for (int i = 0; i < initialBcdsList.length; i++)
-            {
-                obj_id bcd = initialBcdsList[i];
-                String beastName = beast_lib.getBCDBeastName(bcd);
-                if (beastName != null && beastName.length() > 0)
-                {
+            String beastName;
+            for (obj_id bcd : initialBcdsList) {
+                beastName = beast_lib.getBCDBeastName(bcd);
+                if (beastName != null && beastName.length() > 0) {
                     utils.addElement(vectorBeastNames, toUpper(beastName, 0));
                     utils.addElement(vectorBcdsList, bcd);
                 }
             }
-            if (vectorBeastNames != null && vectorBcdsList != null && vectorBeastNames.size() > 0 && vectorBcdsList.size() > 0)
+            if (vectorBeastNames.size() > 0 && vectorBcdsList.size() > 0)
             {
                 obj_id[] finalBcdsList = utils.toStaticObjIdArray(vectorBcdsList);
                 String[] finalBeastNames = utils.toStaticStringArray(vectorBeastNames);
@@ -162,7 +142,6 @@ public class tcg extends script.base_script
                 barnSelectPlayerBeastSui(player, ranchhand, finalBcdsList, finalBeastNames, promptRef, promptExtra, "handleBarnBeastStorage");
             }
         }
-        return;
     }
     public static void barnSelectPlayerBeastSui(obj_id player, obj_id ranchhand, obj_id[] beastControlDevices, String[] beastNames, String promptRef, String promptExtra, String handler) throws InterruptedException
     {
@@ -200,7 +179,6 @@ public class tcg extends script.base_script
             utils.setScriptVar(player, "barnRanchHand.pid", pid);
             utils.setScriptVar(player, "barnRanchHand." + handler, sortedBeastControlDevices);
         }
-        return;
     }
     public static void barnReclaimBeastPrompt(obj_id player, obj_id barn, obj_id ranchhand) throws InterruptedException
     {
@@ -215,25 +193,20 @@ public class tcg extends script.base_script
             vectorBcdsList.setSize(0);
             Vector vectorBeastNames = new Vector();
             vectorBeastNames.setSize(0);
-            for (int i = 0; i < initialStorageList.length; i++)
-            {
-                String bcdSlot = initialStorageList[i];
-                String beastName = "";
-                if (hasObjVar(barn, "barnStorage." + bcdSlot + ".beast.beastName"))
-                {
+            String beastName;
+            for (String bcdSlot : initialStorageList) {
+                beastName = "";
+                if (hasObjVar(barn, "barnStorage." + bcdSlot + ".beast.beastName")) {
                     beastName = getStringObjVar(barn, "barnStorage." + bcdSlot + ".beast.beastName");
-                }
-                else if (hasObjVar(barn, "barnStorage." + bcdSlot + ".tempName"))
-                {
+                } else if (hasObjVar(barn, "barnStorage." + bcdSlot + ".tempName")) {
                     beastName = getStringObjVar(barn, "barnStorage." + bcdSlot + ".tempName");
                 }
-                if (beastName != null && beastName.length() > 0)
-                {
+                if (beastName != null && beastName.length() > 0) {
                     utils.addElement(vectorBeastNames, toUpper(beastName, 0));
                     utils.addElement(vectorBcdsList, bcdSlot);
                 }
             }
-            if (vectorBeastNames != null && vectorBcdsList != null && vectorBeastNames.size() > 0 && vectorBcdsList.size() > 0)
+            if (vectorBeastNames.size() > 0 && vectorBcdsList.size() > 0)
             {
                 String[] finalBcdsList = utils.toStaticStringArray(vectorBcdsList);
                 String[] finalBeastNames = utils.toStaticStringArray(vectorBeastNames);
@@ -249,7 +222,6 @@ public class tcg extends script.base_script
                 barnSelectStoredBeastSui(player, ranchhand, finalBcdsList, finalBeastNames, "barn_beast_selection_reclaim_prompt", promptExtra, "handleBarnBeastReclaim");
             }
         }
-        return;
     }
     public static void barnDisplayBeastPrompt(obj_id player, obj_id barn, obj_id ranchhand) throws InterruptedException
     {
@@ -264,28 +236,20 @@ public class tcg extends script.base_script
             vectorBcdsList.setSize(0);
             Vector vectorBeastNames = new Vector();
             vectorBeastNames.setSize(0);
-            for (int i = 0; i < initialStorageList.length; i++)
-            {
-                String bcdSlot = initialStorageList[i];
-                String beastName = "";
-                if (hasObjVar(barn, "barnStorage." + bcdSlot + ".beast.beastName"))
-                {
+            String beastName;
+            for (String bcdSlot : initialStorageList) {
+                beastName = "";
+                if (hasObjVar(barn, "barnStorage." + bcdSlot + ".beast.beastName")) {
                     beastName = getStringObjVar(barn, "barnStorage." + bcdSlot + ".beast.beastName");
-                }
-                else if (hasObjVar(barn, "barnStorage." + bcdSlot + ".tempName"))
-                {
+                } else if (hasObjVar(barn, "barnStorage." + bcdSlot + ".tempName")) {
                     beastName = getStringObjVar(barn, "barnStorage." + bcdSlot + ".tempName");
                 }
-                if (hasObjVar(barn, "barnStorage." + bcdSlot + "." + BEAST_ROAMING))
-                {
+                if (hasObjVar(barn, "barnStorage." + bcdSlot + "." + BEAST_ROAMING)) {
                     beastName = beastName + " [Displayed]";
-                }
-                else 
-                {
+                } else {
                     beastName = beastName + " [Stored]";
                 }
-                if (beastName != null && beastName.length() > 0)
-                {
+                if (beastName.length() > 0) {
                     utils.addElement(vectorBeastNames, toUpper(beastName, 0));
                     utils.addElement(vectorBcdsList, bcdSlot);
                 }
@@ -295,14 +259,13 @@ public class tcg extends script.base_script
             {
                 prompt = "barn_lite_beast_selection_display_prompt";
             }
-            if (vectorBeastNames != null && vectorBcdsList != null && vectorBeastNames.size() > 0 && vectorBcdsList.size() > 0)
+            if (vectorBeastNames.size() > 0 && vectorBcdsList.size() > 0)
             {
                 String[] finalBcdsList = utils.toStaticStringArray(vectorBcdsList);
                 String[] finalBeastNames = utils.toStaticStringArray(vectorBeastNames);
                 barnSelectStoredBeastSui(player, ranchhand, finalBcdsList, finalBeastNames, prompt, "", "handleBarnBeastDisplay");
             }
         }
-        return;
     }
     public static void barnSelectStoredBeastSui(obj_id player, obj_id ranchhand, String[] beastControlSlots, String[] beastNames, String promptRef, String promptExtra, String handler) throws InterruptedException
     {
@@ -320,12 +283,11 @@ public class tcg extends script.base_script
         String[] sortedBeastControlSlots = new String[beastControlSlots.length];
         utils.copyArray(beastNames, alphabetizedBeastNames);
         Arrays.sort(alphabetizedBeastNames);
+
         for (int j = 0; j < alphabetizedBeastNames.length; j++)
         {
-            String alphabetizedName = alphabetizedBeastNames[j];
-            int index = utils.getElementPositionInArray(beastNames, alphabetizedName);
-            String sortedBeast = beastControlSlots[index];
-            sortedBeastControlSlots[j] = sortedBeast;
+            int index = utils.getElementPositionInArray(beastNames, alphabetizedBeastNames[j]);
+            sortedBeastControlSlots[j] = beastControlSlots[index];
             beastNames[index] = "_";
         }
         String title = utils.packStringId(new string_id("tcg", "barn_beast_selection_title"));
@@ -340,7 +302,6 @@ public class tcg extends script.base_script
             utils.setScriptVar(player, "barnRanchHand.pid", pid);
             utils.setScriptVar(player, "barnRanchHand." + handler, sortedBeastControlSlots);
         }
-        return;
     }
     public static boolean transferBeastControlDeviceToBarn(obj_id selectedBeastControlDevice, obj_id player, obj_id barn) throws InterruptedException
     {
@@ -355,20 +316,14 @@ public class tcg extends script.base_script
                 {
                     setObjVar(barn, nextAvailableStorageSlot + ".tempName", beast_lib.getBeastLocalizedName(selectedBeastControlDevice));
                 }
-                for (int i = 0; i < BEAST_OBJVARS.length; i++)
-                {
-                    String beastObjvar = BEAST_OBJVARS[i];
-                    if (hasObjVar(selectedBeastControlDevice, beastObjvar))
-                    {
-                        obj_var_list beastData = getObjVarList(selectedBeastControlDevice, beastObjvar);
-                        if (beastData != null)
-                        {
+                obj_var_list beastData;
+                for (String beastObjvar : BEAST_OBJVARS) {
+                    if (hasObjVar(selectedBeastControlDevice, beastObjvar)) {
+                        beastData = getObjVarList(selectedBeastControlDevice, beastObjvar);
+                        if (beastData != null) {
                             setBCDDataObjVars(player, barn, nextAvailableStorageSlot + "." + beastObjvar + ".", beastData);
-                        }
-                        else 
-                        {
-                            if (hasObjVar(barn, nextAvailableStorageSlot))
-                            {
+                        } else {
+                            if (hasObjVar(barn, nextAvailableStorageSlot)) {
                                 removeObjVar(barn, nextAvailableStorageSlot);
                             }
                             CustomerServiceLog("playerStructure", "Player: " + player + " " + getPlayerName(player) + " could not store a beast in the barn. The BCD was not destroyed. Reason: Beast in datapad had no objvars or objvars were corrupted. Barn: " + barn);
@@ -414,18 +369,13 @@ public class tcg extends script.base_script
                 bcd = createObject(bcdTemplate, datapad, "");
                 if (isIdValid(bcd))
                 {
-                    for (int i = 0; i < BEAST_OBJVARS.length; i++)
-                    {
-                        String beastObjvar = BEAST_OBJVARS[i];
-                        if (hasObjVar(barn, "barnStorage." + selectedStorageSlot + "." + beastObjvar))
-                        {
-                            obj_var_list beastData = getObjVarList(barn, "barnStorage." + selectedStorageSlot + "." + beastObjvar);
-                            if (beastData != null)
-                            {
+                    obj_var_list beastData;
+                    for (String beastObjvar : BEAST_OBJVARS) {
+                        if (hasObjVar(barn, "barnStorage." + selectedStorageSlot + "." + beastObjvar)) {
+                            beastData = getObjVarList(barn, "barnStorage." + selectedStorageSlot + "." + beastObjvar);
+                            if (beastData != null) {
                                 setBCDDataObjVars(player, bcd, beastObjvar + ".", beastData);
-                            }
-                            else 
-                            {
+                            } else {
                                 CustomerServiceLog("playerStructure", "Player: " + player + " " + getPlayerName(player) + " did not claim beast BCD from barn. Resason: barnStorage has null or corrupted beast data for: " + selectedStorageSlot + ". Beast Obj Var: " + beastObjvar + ".");
                                 destroyObject(bcd);
                                 return obj_id.NULL_ID;
@@ -490,28 +440,23 @@ public class tcg extends script.base_script
             }
             else if (data.isStringObjVar(dataObjvarName))
             {
-                String stringData = data.getStringObjVar(dataObjvarName);
-                setObjVar(target, objvarNamePrefix + dataObjvarName, stringData);
+                setObjVar(target, objvarNamePrefix + dataObjvarName, data.getStringObjVar(dataObjvarName));
             }
             else if (data.isStringArrayObjVar(dataObjvarName))
             {
-                String[] stringArrayData = data.getStringArrayObjVar(dataObjvarName);
-                setObjVar(target, objvarNamePrefix + dataObjvarName, stringArrayData);
+                setObjVar(target, objvarNamePrefix + dataObjvarName, data.getStringArrayObjVar(dataObjvarName));
             }
             else if (data.isObjIdObjVar(dataObjvarName))
             {
-                obj_id objIdData = data.getObjIdObjVar(dataObjvarName);
-                setObjVar(target, objvarNamePrefix + dataObjvarName, objIdData);
+                setObjVar(target, objvarNamePrefix + dataObjvarName, data.getObjIdObjVar(dataObjvarName));
             }
             else if (data.isObjIdArrayObjVar(dataObjvarName))
             {
-                obj_id[] objIdArrayData = data.getObjIdArrayObjVar(dataObjvarName);
-                setObjVar(target, objvarNamePrefix + dataObjvarName, objIdArrayData);
+                setObjVar(target, objvarNamePrefix + dataObjvarName, data.getObjIdArrayObjVar(dataObjvarName));
             }
             else if (data.isBooleanObjVar(dataObjvarName))
             {
-                boolean booleanData = data.getBooleanObjVar(dataObjvarName);
-                setObjVar(target, objvarNamePrefix + dataObjvarName, booleanData);
+                setObjVar(target, objvarNamePrefix + dataObjvarName, data.getBooleanObjVar(dataObjvarName));
             }
             else 
             {
@@ -521,7 +466,6 @@ public class tcg extends script.base_script
                 }
             }
         }
-        return;
     }
     public static String getNextAvailableBarnStorageSlot(obj_id barn, obj_id player) throws InterruptedException
     {
@@ -581,9 +525,7 @@ public class tcg extends script.base_script
             String[] slots = new String[numItems];
             for (int i = 0; i < numItems; i++)
             {
-                obj_var beastDataObjvar = beastData.getObjVar(i);
-                String beastDataObjvarName = beastDataObjvar.getName();
-                slots[i] = beastDataObjvarName;
+                slots[i] = beastData.getObjVar(i).getName();
             }
             return slots;
         }
@@ -618,8 +560,7 @@ public class tcg extends script.base_script
     public static obj_id barnDisplayBeast(obj_id ranchhand, String storageSlot, obj_id barn) throws InterruptedException
     {
         location here = getLocation(ranchhand);
-        location spawnCenter = new location(-7.0f, 0.0f, -2.4f, here.area, here.cell);
-        location spawnLocation = spawning.getRandomLocationInCircle(spawnCenter, 5.0f);
+        location spawnLocation = spawning.getRandomLocationInCircle(new location(-7.0f, 0.0f, -2.4f, here.area, here.cell), 5.0f);
         return barnDisplayBeast(ranchhand, storageSlot, barn, spawnLocation);
     }
     public static obj_id barnDisplayBeast(obj_id ranchhand, String storageSlot, obj_id barn, location where) throws InterruptedException
@@ -840,7 +781,6 @@ public class tcg extends script.base_script
         {
             beast_lib.removeAttentionPenaltyDebuff(getMaster(beast));
         }
-        return;
     }
     public static boolean isBarnLiteDevice(obj_id object) throws InterruptedException
     {
@@ -879,9 +819,9 @@ public class tcg extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < staticObjects.length; i++)
-        {
-            obj_id unpackedObject = static_item.createNewItemFunction(staticObjects[i], player);
+        obj_id unpackedObject;
+        for (String staticObject : staticObjects) {
+            unpackedObject = static_item.createNewItemFunction(staticObject, player);
             CustomerServiceLog("tcg", "Packed item: " + objectPacked + " " + getName(objectPacked) + " unpacked: " + unpackedObject + " " + getName(unpackedObject) + " for player: " + player + " " + getName(player) + ".");
         }
         return true;
@@ -944,30 +884,30 @@ public class tcg extends script.base_script
         {
             if (!useBeastLibraryHue)
             {
-                if (primaryPalette != null || primaryPalette.length() > 0)
+                if (primaryPalette != null && primaryPalette.length() > 0)
                 {
                     setRoamingBeastHue(beast, primaryPalette, primaryHue);
                 }
-                if (secondaryPalette != null || secondaryPalette.length() > 0)
+                if (secondaryPalette != null && secondaryPalette.length() > 0)
                 {
                     setRoamingBeastHue(beast, secondaryPalette, secondaryHue);
                 }
-                if (thirdPalette != null || thirdPalette.length() > 0)
+                if (thirdPalette != null && thirdPalette.length() > 0)
                 {
                     setRoamingBeastHue(beast, thirdPalette, thirdHue);
                 }
             }
             else 
             {
-                if (primaryPalette != null || primaryPalette.length() > 0)
+                if (primaryPalette != null && primaryPalette.length() > 0)
                 {
                     beast_lib.setBeastHuePrimary(beast, primaryPalette, primaryHue);
                 }
-                if (secondaryPalette != null || secondaryPalette.length() > 0)
+                if (secondaryPalette != null && secondaryPalette.length() > 0)
                 {
                     beast_lib.setBeastHueSecondary(beast, secondaryPalette, secondaryHue);
                 }
-                if (thirdPalette != null || thirdPalette.length() > 0)
+                if (thirdPalette != null && thirdPalette.length() > 0)
                 {
                     beast_lib.setBeastHueThird(beast, thirdPalette, thirdHue);
                 }
@@ -1025,7 +965,6 @@ public class tcg extends script.base_script
             blog("tcg.scriptlib = showRoamingBeasts --- NEED ROAMING BEAST FOUND AT bcdSlot: " + bcdSlot);
             if (isBarnLiteDevice(barn))
             {
-                location here = getLocation(barn);
                 location spawnLoc = spawning.getRandomLocationAtDistance(getLocation(barn), 2.0f);
                 tcg.barnDisplayBeast(ranchhand, bcdSlot, barn, spawnLoc);
             }

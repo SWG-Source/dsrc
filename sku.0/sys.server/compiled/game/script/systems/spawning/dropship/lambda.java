@@ -1,17 +1,13 @@
 package script.systems.spawning.dropship;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
-import script.library.gcw;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class lambda extends script.systems.spawning.dropship.base
 {
@@ -49,9 +45,10 @@ public class lambda extends script.systems.spawning.dropship.base
                 obj_id leader = null;
                 Vector spawns = new Vector();
                 spawns.setSize(0);
+                obj_id thisSpawn;
                 for (int i = 0; i < spawnNames.length; i++)
                 {
-                    obj_id thisSpawn = create.object(spawnNames[i], here);
+                    thisSpawn = create.object(spawnNames[i], here);
                     if (isIdValid(thisSpawn) && !isIdValid(leader))
                     {
                         leader = thisSpawn;
