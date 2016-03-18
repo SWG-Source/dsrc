@@ -1,24 +1,10 @@
 package script.systems.spawning;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.skill;
-import script.library.city;
-import script.library.regions;
-import script.library.locations;
-import script.library.battlefield;
-import script.library.utils;
-import script.library.create;
-import script.library.group;
-import script.library.gcw;
-import script.library.ai_lib;
-import script.library.vehicle;
+import java.util.Objects;
+import java.util.Vector;
 
 public class spawn_base extends script.base_script
 {
@@ -69,30 +55,26 @@ public class spawn_base extends script.base_script
         {
             return null;
         }
-        String strFileName = "";
-        if (strRegion.equals("fictional"))
-        {
-            if ((strRegionName == null || strRegionName.equals("")) || (strPlanet == null || strPlanet.equals("")))
-            {
-                return null;
-            }
-            strFileName = getFictionalRegionFileName(strPlanet, strRegionName);
-        }
-        else if (strRegion.equals("overload"))
-        {
-            if (strRegionName == null || strRegionName.equals(""))
-            {
-                return null;
-            }
-            strFileName = getOverLoadRegionFileName(strRegionName);
-        }
-        else 
-        {
-            if (strPlanet == null || strPlanet.equals(""))
-            {
-                return null;
-            }
-            strFileName = "datatables/spawning/spawn_lists/" + strPlanet + "/" + strPlanet + "_" + strRegion + ".iff";
+        String strFileName;
+        switch (strRegion) {
+            case "fictional":
+                if ((strRegionName == null || strRegionName.equals("")) || (strPlanet == null || strPlanet.equals(""))) {
+                    return null;
+                }
+                strFileName = getFictionalRegionFileName(strPlanet, strRegionName);
+                break;
+            case "overload":
+                if (strRegionName == null || strRegionName.equals("")) {
+                    return null;
+                }
+                strFileName = getOverLoadRegionFileName(strRegionName);
+                break;
+            default:
+                if (strPlanet == null || strPlanet.equals("")) {
+                    return null;
+                }
+                strFileName = "datatables/spawning/spawn_lists/" + strPlanet + "/" + strPlanet + "_" + strRegion + ".iff";
+                break;
         }
         if (strFileName == null)
         {
@@ -125,10 +107,7 @@ public class spawn_base extends script.base_script
         }
         Vector validTemplateIndices = new Vector();
         validTemplateIndices.setSize(0);
-        if (validTemplateIndices == null)
-        {
-            return null;
-        }
+        String strSpecificRegion;
         for (int i = 0; i < strTemplates.length; ++i)
         {
             int intMinDifficulty = intMinDifficulties[i];
@@ -138,7 +117,7 @@ public class spawn_base extends script.base_script
                 int intGcwFaction = intGcwFactions[i];
                 int intGcwThreshold = intGcwThresholds[i];
                 int intGcwScoreType = intGcwScoreTypes[i];
-                String strSpecificRegion = strGcwSpecificRegions == null || strGcwSpecificRegions.length == 0 ? "" : strGcwSpecificRegions[i];
+                strSpecificRegion = strGcwSpecificRegions == null || strGcwSpecificRegions.length == 0 ? "" : strGcwSpecificRegions[i];
                 if (!checkGalacticCivilWarStandings(intGcwFaction, intGcwThreshold, intGcwScoreType, strSpecificRegion, currentLoc))
                 {
                     continue;
@@ -159,7 +138,7 @@ public class spawn_base extends script.base_script
             _validTemplateIndices = new int[validTemplateIndices.size()];
             for (int _i = 0; _i < validTemplateIndices.size(); ++_i)
             {
-                _validTemplateIndices[_i] = ((Integer)validTemplateIndices.get(_i)).intValue();
+                _validTemplateIndices[_i] = (Integer) validTemplateIndices.get(_i);
             }
         }
         return _validTemplateIndices;
@@ -170,16 +149,13 @@ public class spawn_base extends script.base_script
     }
     public int getPlayerSpawnDiffibculty(obj_id objPlayer) throws InterruptedException
     {
-        obj_id objGroup = getGroupObject(objPlayer);
-        if (!isIdValid(objGroup))
+        if (!isIdValid(getGroupObject(objPlayer)))
         {
-            int intPlayerLevel = getLevel(objPlayer);
-            return intPlayerLevel;
+            return getLevel(objPlayer);
         }
         else 
         {
-            int intGroupLevel = skill.getGroupLevel(objPlayer);
-            return intGroupLevel;
+            return skill.getGroupLevel(objPlayer);
         }
     }
     public obj_id createTemplate(location locSpawnLocation, dictionary params, obj_id objPlayer) throws InterruptedException
@@ -191,7 +167,6 @@ public class spawn_base extends script.base_script
         {
             return null;
         }
-        int intIndex = params.getInt("intIndex");
         int intPlayerDifficulty = params.getInt("intPlayerDifficulty");
         int intNumToSpawn = params.getInt("intNumToSpawn");
         String strTemplateToSpawn = params.getString("strTemplateToSpawn");
@@ -239,7 +214,7 @@ public class spawn_base extends script.base_script
                 if (strTemplate.indexOf("lair") > 0)
                 {
                     setObjVar(objCreatedTemplate, "numToSpawn", intNumToSpawn);
-                    if (!strTemplateToSpawn.equals("") && strTemplateToSpawn != null)
+                    if (!strTemplateToSpawn.equals(""))
                     {
                         setObjVar(objCreatedTemplate, "creatureTemplate", strTemplateToSpawn);
                     }
@@ -247,7 +222,7 @@ public class spawn_base extends script.base_script
                 if (strTemplate.indexOf("herd") > 0)
                 {
                     setObjVar(objCreatedTemplate, "numToSpawn", intNumToSpawn);
-                    if ((!strTemplateToSpawn.equals("")) && (strTemplateToSpawn != null))
+                    if ((!strTemplateToSpawn.equals("")))
                     {
                         setObjVar(objCreatedTemplate, "creatureTemplate", strTemplateToSpawn);
                     }
@@ -270,22 +245,19 @@ public class spawn_base extends script.base_script
     public dictionary chooseWeightedSpawnTemplate(int[] intDataIndex, String strRegionName, String strPlanetName, region rgnRegion) throws InterruptedException
     {
         String strFileName;
-        if (strRegionName.equals("fictional"))
-        {
-            String strRegionFullName = rgnRegion.getName();
-            strFileName = getFictionalRegionFileName(strPlanetName, strRegionFullName);
+        switch (strRegionName) {
+            case "fictional":
+                String strRegionFullName = rgnRegion.getName();
+                strFileName = getFictionalRegionFileName(strPlanetName, strRegionFullName);
+                break;
+            case "overload":
+                strFileName = getOverLoadRegionFileName(strRegionName);
+                break;
+            default:
+                strFileName = "datatables/spawning/spawn_lists/" + strPlanetName + "/" + strPlanetName + "_" + strRegionName + ".iff";
+                break;
         }
-        else if (strRegionName.equals("overload"))
-        {
-            strFileName = getOverLoadRegionFileName(strRegionName);
-        }
-        else 
-        {
-            strFileName = "datatables/spawning/spawn_lists/" + strPlanetName + "/" + strPlanetName + "_" + strRegionName + ".iff";
-        }
-        dictionary dctRegion = new dictionary();
         String[] strTemplates = dataTableGetStringColumn(strFileName, "strTemplate");
-        int[] intSpawnLimits = dataTableGetIntColumn(strFileName, "intSpawnLimit");
         int[] intMinDifficulties = dataTableGetIntColumn(strFileName, "intMinDifficulty");
         int[] intMaxDifficulties = dataTableGetIntColumn(strFileName, "intMaxDifficulty");
         int[] intWeightings = dataTableGetIntColumn(strFileName, "intWeighting");
@@ -298,9 +270,8 @@ public class spawn_base extends script.base_script
         if (intDataIndex.length != 1)
         {
             int weightingGrandTotal = 0;
-            for (int i = 0; i < intDataIndex.length; ++i)
-            {
-                weightingGrandTotal += intWeightings[intDataIndex[i]];
+            for (int anIntDataIndex : intDataIndex) {
+                weightingGrandTotal += intWeightings[anIntDataIndex];
             }
             int randomValue = rand(0, weightingGrandTotal - 1);
             int previousChance = 0;
@@ -330,9 +301,6 @@ public class spawn_base extends script.base_script
     }
     public void sendSpawnSpam(obj_id objPlayer, boolean boolLogFailures, boolean boolVerboseMode, String strSpam) throws InterruptedException
     {
-        if (boolLogFailures)
-        {
-        }
         if (boolVerboseMode && isIdValid(objPlayer))
         {
             deltadictionary dctScriptVars = objPlayer.getScriptVars();
@@ -345,30 +313,17 @@ public class spawn_base extends script.base_script
                 sendSystemMessageTestingOnly(objPlayer, strSpam);
             }
         }
-        return;
     }
     public boolean getVerboseMode(obj_id objPlayer) throws InterruptedException
     {
-        if (hasObjVar(objPlayer, "spawning.verboseMode"))
-        {
-            return true;
-        }
-        return false;
+        return hasObjVar(objPlayer, "spawning.verboseMode");
     }
     public boolean checkTemplatesInRange(obj_id objPlayer, location locHome, boolean boolCheckForTheaters, String strObjectType) throws InterruptedException
     {
-        boolean boolLogFailures = checkSpawnLogFailures();
-        boolean boolVerboseMode = getVerboseMode(objPlayer);
-        final int SPAWN_TEMPLATE_CHECK_DISTANCE = 128;
-        final int SPAWN_CHECK_TEMPLATE_LIMIT = 140;
-        final int SPAWN_THEATER_CHECK_DISTANCE = 200;
-        final int SPAWN_CHECK_THEATER_LIMIT = 1;
         return true;
     }
     public boolean canSpawn(obj_id objPlayer, location locSpawnLocation, boolean boolCheckForTheaters, String strObjectType) throws InterruptedException
     {
-        boolean boolLogFailures = checkSpawnLogFailures();
-        boolean boolVerboseMode = getVerboseMode(objPlayer);
         if (!isSpawningAllowed(locSpawnLocation))
         {
             return false;
@@ -394,7 +349,7 @@ public class spawn_base extends script.base_script
             }
         }
         location locCurrentLocation = getLocation(objPlayer);
-        if (locCurrentLocation.area == "tutorial")
+        if (Objects.equals(locCurrentLocation.area, "tutorial"))
         {
             return false;
         }
@@ -422,9 +377,9 @@ public class spawn_base extends script.base_script
         {
             boolean boolSpawnerIsOn;
             boolSpawnerIsOn = getBooleanObjVar(objMasterSpawner, "boolSpawnerIsOn");
-            if (boolSpawnerIsOn == false)
+            if (!boolSpawnerIsOn)
             {
-                return boolSpawnerIsOn;
+                return false;
             }
         }
         if (locCurrentLocation.cell != obj_id.NULL_ID)
@@ -475,7 +430,6 @@ public class spawn_base extends script.base_script
     public region getSpawnRegion(obj_id objPlayer) throws InterruptedException
     {
         location locTest = getLocation(objPlayer);
-        String strPlanet = locTest.area;
         region[] rgnRegionList = getRegionsWithSpawnableAtPoint(locTest, regions.SPAWN_TRUE);
         if (rgnRegionList == null)
         {
@@ -486,10 +440,6 @@ public class spawn_base extends script.base_script
             return null;
         }
         region rgnSpawnRegion = locations.getSmallestRegion(rgnRegionList);
-        String strTestPlanet = rgnSpawnRegion.getPlanetName();
-        if (!strTestPlanet.equals(strPlanet))
-        {
-        }
         if (rgnSpawnRegion == null)
         {
             return null;
@@ -511,20 +461,10 @@ public class spawn_base extends script.base_script
     }
     public void preLoadSpawnDataTables(obj_id objMasterSpawner) throws InterruptedException
     {
-        return;
     }
-    public boolean checkSpawnLogFailures() throws InterruptedException
-    {
+    public boolean checkSpawnLogFailures() throws InterruptedException {
         String strConfigSetting = getConfigSetting("GameServer", "fastSpawn");
-        if (strConfigSetting == null)
-        {
-            return false;
-        }
-        if (strConfigSetting.equals("true"))
-        {
-            return true;
-        }
-        return false;
+        return strConfigSetting != null && strConfigSetting.equals("true");
     }
     public boolean isSpawningAllowed(location locTest) throws InterruptedException
     {
@@ -532,10 +472,8 @@ public class spawn_base extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < INVALID_SPAWNING_AREAS.length; ++i)
-        {
-            if (locTest.area == INVALID_SPAWNING_AREAS[i])
-            {
+        for (String INVALID_SPAWNING_AREA : INVALID_SPAWNING_AREAS) {
+            if (locTest.area.equals(INVALID_SPAWNING_AREA)) {
                 return false;
             }
         }
@@ -543,10 +481,8 @@ public class spawn_base extends script.base_script
     }
     public String getFictionalRegionFileName(String strPlanet, String strFullName) throws InterruptedException
     {
-        string_id strId = utils.unpackString(strFullName);
-        String strRegionName = strId.getAsciiId();
-        String strTableName = "datatables/spawning/spawn_lists/" + strPlanet + "/" + strRegionName + ".iff";
-        return strTableName;
+        String strRegionName = utils.unpackString(strFullName).getAsciiId();
+        return "datatables/spawning/spawn_lists/" + strPlanet + "/" + strRegionName + ".iff";
     }
     public String getOverLoadRegionFileName(String strRegionName) throws InterruptedException
     {
@@ -556,8 +492,7 @@ public class spawn_base extends script.base_script
             return "";
         }
         String strFileName = strRegionName.substring(0, intIndex);
-        String strTableName = "datatables/spawning/spawn_lists/spawn_overloads/" + strFileName + ".iff";
-        return strTableName;
+        return "datatables/spawning/spawn_lists/spawn_overloads/" + strFileName + ".iff";
     }
     public void doSpawnEvent(dictionary params) throws InterruptedException
     {
@@ -570,13 +505,12 @@ public class spawn_base extends script.base_script
         {
             return;
         }
-        int intPlayerDifficulty = params.getInt("intDifficulty");
         String strRegionName = params.getString("strRegionName");
-        String strPlanet = params.getString("strPlanet");
         if (strRegionName == null || strRegionName.length() < 1)
         {
             return;
         }
+        String strPlanet = params.getString("strPlanet");
         if (strPlanet == null || strPlanet.length() < 1)
         {
             return;
@@ -599,51 +533,38 @@ public class spawn_base extends script.base_script
         {
             return;
         }
-        dictionary dctSpawnInformation = new dictionary();
-        dctSpawnInformation = chooseWeightedSpawnTemplate(validSpawnIndices, strRegionType, strPlanet, rgnSpawnRegion);
+        dictionary dctSpawnInformation = chooseWeightedSpawnTemplate(validSpawnIndices, strRegionType, strPlanet, rgnSpawnRegion);
         if (dctSpawnInformation == null)
         {
             return;
         }
-        dctSpawnInformation.put("intPlayerDifficulty", intPlayerDifficulty);
+        dctSpawnInformation.put("intPlayerDifficulty", params.getInt("intDifficulty"));
         dctSpawnInformation.put("strRegionName", strRegionName);
         dctSpawnInformation.put("strPlanet", strPlanet);
         doSpawnTemplate(objPlayer, dctSpawnInformation);
     }
     public void doSpawnTemplate(obj_id self, dictionary params) throws InterruptedException
     {
-        String strTemplate = params.getString("strTemplate");
-        int intIndex = params.getInt("intIndex");
-        int intMinDifficulty = params.getInt("intMinDifficulty");
-        int intMaxDifficulty = params.getInt("intMaxDifficulty");
-        int intSize = params.getInt("intSize");
-        int intNumToSpawn = params.getInt("intNumToSpawn");
         String strLairType = params.getString("strLairType");
-        String strBuildingType = params.getString("strBuildingType");
-        String strTemplateToSpawn = params.getString("strBuildingType");
-        String strRegionName = params.getString("strRegionName");
-        String strPlanet = params.getString("strPlanet");
-        int intPlayerDifficulty = params.getInt("intPlayerDifficulty");
         dictionary dctParams = new dictionary();
         location locSpawnLocation = getLocation(self);
         if (canSpawn(self, locSpawnLocation, true, strLairType))
         {
-            dctParams.put("intMinDifficulty", intMinDifficulty);
-            dctParams.put("intMaxDifficulty", intMaxDifficulty);
+            dctParams.put("intMinDifficulty", params.getInt("intMinDifficulty"));
+            dctParams.put("intMaxDifficulty", params.getInt("intMaxDifficulty"));
             dctParams.put("strLairType", strLairType);
-            dctParams.put("strBuildingType", strBuildingType);
-            dctParams.put("strRegionName", strRegionName);
-            dctParams.put("strPlanet", strPlanet);
-            dctParams.put("intIndex", intIndex);
-            dctParams.put("intPlayerDifficulty", intPlayerDifficulty);
-            dctParams.put("intNumToSpawn", intNumToSpawn);
-            dctParams.put("strTemplateToSpawn", strTemplateToSpawn);
-            dctParams.put("strTemplate", strTemplate);
-            float fltSize = getLocationSize((float)intSize);
+            dctParams.put("strBuildingType", params.getString("strBuildingType"));
+            dctParams.put("strRegionName", params.getString("strRegionName"));
+            dctParams.put("strPlanet", params.getString("strPlanet"));
+            dctParams.put("intIndex", params.getInt("intIndex"));
+            dctParams.put("intPlayerDifficulty", params.getInt("intPlayerDifficulty"));
+            dctParams.put("intNumToSpawn", params.getInt("intNumToSpawn"));
+            dctParams.put("strTemplateToSpawn", params.getString("strBuildingType"));
+            dctParams.put("strTemplate", params.getString("strTemplate"));
+            float fltSize = getLocationSize((float)params.getInt("intSize"));
             utils.setScriptVar(self, "dctSpawnInfo", dctParams);
             requestLocation(self, "spawnLocation", locSpawnLocation, 100.0f, fltSize, true, false);
         }
-        return;
     }
     public int OnLocationReceived(obj_id self, String strId, obj_id objObject, location locSpawnLocation, float fltRadius) throws InterruptedException
     {
@@ -713,17 +634,14 @@ public class spawn_base extends script.base_script
                 region[] allRegions = getRegionsAtPoint(loc);
                 if (allRegions != null && allRegions.length > 0)
                 {
-                    for (int iter = 0; iter < allRegions.length; ++iter)
-                    {
-                        region gcwRegion = allRegions[iter];
-                        if ((gcwRegion.getName()).startsWith("gcw"))
-                        {
+                    for (region gcwRegion : allRegions) {
+                        if ((gcwRegion.getName()).startsWith("gcw")) {
                             ImperialScore = getGcwImperialScorePercentile(toLower(gcwRegion.getName()));
                             break;
                         }
                     }
                 }
-                else 
+                else
                 {
                     return false;
                 }
@@ -739,7 +657,7 @@ public class spawn_base extends script.base_script
                 int ImperialScore = getGcwImperialScorePercentile(toLower(gcwSpecificRegion));
                 return isGalaticCivilWarWinner(gcwFaction, gcwThreshold, ImperialScore);
             }
-            else 
+            else
             {
                 return false;
             }

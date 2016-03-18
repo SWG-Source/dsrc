@@ -1,20 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.bounty_hunter;
-import script.library.buff;
-import script.library.performance;
-import script.library.pet_lib;
-import script.library.static_item;
-import script.library.trace;
-import script.library.xp;
+import java.util.Enumeration;
 
 public class respec extends script.base_script
 {
@@ -114,7 +102,6 @@ public class respec extends script.base_script
         {
             attachScript(player, "systems.respec.click_combat_respec");
         }
-        return;
     }
     public static void handleNpcRespec(obj_id player, String skillTemplateName) throws InterruptedException
     {
@@ -140,11 +127,10 @@ public class respec extends script.base_script
         String msg = "NPC_RESPEC: %TU has initiated a respec via NPC for " + cost + " credits.  Current combat level is " + getLevel(player) + "; current skill template is " + oldTemplate;
         trace.log("respec", msg, player, trace.TL_CS_LOG);
         pet_lib.destroyOfficerPets(player);
-        obj_id inv = utils.getInventoryContainer(player);
         obj_id weapon = getCurrentWeapon(player);
         if (isIdValid(weapon))
         {
-            putInOverloaded(weapon, inv);
+            putInOverloaded(weapon, utils.getInventoryContainer(player));
         }
         if (cost > 0)
         {
@@ -180,13 +166,6 @@ public class respec extends script.base_script
         {
             targetLevel = getTraderLevel(player);
         }
-        obj_id respecHandler = getObjIdObjVar(player, "npcRespec.tokenId");
-        if (!isMob(respecHandler))
-        {
-            int count = getCount(respecHandler);
-            int newCount = count - 1;
-            boolean adjustedCount = newCount > 0 ? setCount(respecHandler, newCount) : destroyObject(respecHandler);
-        }
         earnProfessionSkillsViaNpc(player, skillTemplateName, true, targetLevel);
         int numBought = 0;
         if (hasObjVar(player, "respecsBought"))
@@ -212,7 +191,6 @@ public class respec extends script.base_script
         {
             messageTo(player, "removeSmugglingBonuses", null, 1.0f, false);
         }
-        return;
     }
     public static void earnProfessionSkillsViaNpc(obj_id player, String skillTemplateName, boolean withItems, int level) throws InterruptedException
     {
@@ -220,11 +198,10 @@ public class respec extends script.base_script
         callable.storeCallables(player);
         revokeAllSkillsAndExperience(player);
         buff.removeAllBuffs(player, true, true);
-        obj_id inv = utils.getInventoryContainer(player);
         obj_id weapon = getCurrentWeapon(player);
         if (isIdValid(weapon))
         {
-            putInOverloaded(weapon, inv);
+            putInOverloaded(weapon, utils.getInventoryContainer(player));
         }
         if (level > 0)
         {
@@ -326,13 +303,11 @@ public class respec extends script.base_script
     {
         if (!hasObjVar(player, PROF_LEVEL_ARRAY))
         {
-            int[] newArray = 
-            {
+            return new int[]{
                 -1,
                 -1,
                 -1
             };
-            return newArray;
         }
         return getIntArrayObjVar(player, PROF_LEVEL_ARRAY);
     }
@@ -417,7 +392,6 @@ public class respec extends script.base_script
         {
             messageTo(player, "removeSmugglingBonuses", null, 1.0f, false);
         }
-        return;
     }
     public static int getReallocationCost(obj_id player) throws InterruptedException
     {
@@ -430,12 +404,7 @@ public class respec extends script.base_script
     }
     public static boolean hasFreeReallocation(obj_id player) throws InterruptedException
     {
-        int numFreeRemain = numFreeAllocations(player);
-        if (0 > numFreeRemain)
-        {
-            return false;
-        }
-        return true;
+        return 0 <= numFreeAllocations(player);
     }
     public static int numFreeAllocations(obj_id player) throws InterruptedException
     {
@@ -456,19 +425,20 @@ public class respec extends script.base_script
         int level = 0;
         if ((skillList != null) && (skillList.length != 0))
         {
-            for (int i = 0; i < skillList.length; i++)
-            {
-                dictionary xpReqs = getSkillPrerequisiteExperience(skillList[i]);
-                if ((xpReqs == null) || (xpReqs.isEmpty()))
-                {
+            dictionary xpReqs;
+            Enumeration e;
+            String xpType;
+
+            for (String aSkillList : skillList) {
+                xpReqs = getSkillPrerequisiteExperience(aSkillList);
+                if ((xpReqs == null) || (xpReqs.isEmpty())) {
                     continue;
                 }
-                java.util.Enumeration e = xpReqs.keys();
-                String xpType = (String)(e.nextElement());
+                e = xpReqs.keys();
+                xpType = (String) (e.nextElement());
                 int xpCost = xpReqs.getInt(xpType);
                 int idx = utils.getElementPositionInArray(xpTypes, xpType);
-                if (idx > -1)
-                {
+                if (idx > -1) {
                     totalXp += (xpCost * xpMults[idx]);
                 }
             }
@@ -476,14 +446,10 @@ public class respec extends script.base_script
         int[] levelList = dataTableGetIntColumn("datatables/player/old_player_level.iff", "xp_required");
         if ((levelList != null) && (levelList.length != 0))
         {
-            for (int i = 0; i < levelList.length; i++)
-            {
-                if (levelList[i] <= totalXp)
-                {
+            for (int xpAmountForLevel : levelList) {
+                if (xpAmountForLevel <= totalXp) {
                     level++;
-                }
-                else 
-                {
+                } else {
                     break;
                 }
             }
@@ -499,16 +465,16 @@ public class respec extends script.base_script
     {
         CustomerServiceLog("click_respec", "Player %TU :: *** Skill List ***", player);
         String[] skillList = getSkillListingForPlayer(player);
-        for (int i = 0; i < skillList.length; i++)
-        {
-            CustomerServiceLog("click_respec", "Player %TU :: " + skillList[i], player);
+        for (String aSkillList : skillList) {
+            CustomerServiceLog("click_respec", "Player %TU :: " + aSkillList, player);
         }
         CustomerServiceLog("click_respec", "Player %TU :: *** Experience List ***", player);
         dictionary xpList = getExperiencePoints(player);
         java.util.Enumeration e = xpList.keys();
+        String xpType;
         while (e.hasMoreElements())
         {
-            String xpType = (String)(e.nextElement());
+            xpType = (String) (e.nextElement());
             int xpCost = xpList.getInt(xpType);
             CustomerServiceLog("click_respec", "Player %TU :: " + xpType + " = " + xpCost, player);
         }
@@ -536,24 +502,18 @@ public class respec extends script.base_script
         if (newXpAmount > oldXpAmount)
         {
             setWorkingSkill(player, skillList[0]);
-            for (int i = 0; i < skillList.length; i++)
-            {
-                int skillCost = getSkillXpCost(player, skillList[i]);
-                if (skillCost <= newXpAmount)
-                {
+            for (String aSkillList : skillList) {
+                int skillCost = getSkillXpCost(player, aSkillList);
+                if (skillCost <= newXpAmount) {
                     newXpAmount -= skillCost;
-                    if (!hasSkill(player, skillList[i]))
-                    {
-                        grantSkill(player, skillList[i]);
-                        if (withItems)
-                        {
+                    if (!hasSkill(player, aSkillList)) {
+                        grantSkill(player, aSkillList);
+                        if (withItems) {
                             skill_template.grantRoadmapItem(player);
                         }
                     }
                     setWorkingSkill(player, skill_template.getNextWorkingSkill(player));
-                }
-                else 
-                {
+                } else {
                     break;
                 }
             }
@@ -601,8 +561,7 @@ public class respec extends script.base_script
         }
         java.util.Enumeration e = xpReqs.keys();
         String xpType = (String)(e.nextElement());
-        int xpCost = xpReqs.getInt(xpType);
-        return xpCost;
+        return xpReqs.getInt(xpType);
     }
     public static int getCurrentXpTotal(obj_id player) throws InterruptedException
     {
@@ -623,12 +582,9 @@ public class respec extends script.base_script
         {
             xp_type = "crafting";
         }
-        String workingSkill = skillList[skillList.length - 1];
-        for (int i = 0; i < skillList.length; i++)
-        {
-            if (hasSkill(player, skillList[i]))
-            {
-                totalXp += getSkillXpCost(player, skillList[i]);
+        for (String aSkillList : skillList) {
+            if (hasSkill(player, aSkillList)) {
+                totalXp += getSkillXpCost(player, aSkillList);
             }
         }
         totalXp += getExperiencePoints(player, xp_type);
@@ -733,15 +689,12 @@ public class respec extends script.base_script
         String templateSkills = dataTableGetString(skill_template.TEMPLATE_TABLE, skillTemplateName, "template");
         String[] skillList = split(templateSkills, ',');
         setWorkingSkill(player, skillList[0]);
-        for (int i = 0; i < skillList.length; i++)
-        {
-            if (workingSkill != null && skillList[i].equals(workingSkill))
-            {
+        for (String aSkillList : skillList) {
+            if (workingSkill != null && aSkillList.equals(workingSkill)) {
                 break;
             }
-            grantSkill(player, skillList[i]);
-            if (withItems)
-            {
+            grantSkill(player, aSkillList);
+            if (withItems) {
                 skill_template.grantRoadmapItem(player);
             }
             setWorkingSkill(player, skill_template.getNextWorkingSkill(player));
@@ -803,22 +756,18 @@ public class respec extends script.base_script
             "entertainer",
             "crafting"
         };
-        for (int i = 0; i < xpTypes.length; i++)
-        {
-            curXp = getExperiencePoints(player, xpTypes[i]);
-            grantExperiencePoints(player, xpTypes[i], -curXp);
+        for (String xpType : xpTypes) {
+            curXp = getExperiencePoints(player, xpType);
+            grantExperiencePoints(player, xpType, -curXp);
         }
         String[] skillList = getSkillListingForPlayer(player);
         int attempts = skillList.length;
-        if ((skillList != null) && (skillList.length != 0))
+        if ((skillList.length != 0))
         {
             while (skillList.length > 0 && attempts > 0)
             {
-                for (int i = 0; i < skillList.length; i++)
-                {
-                    String skillName = skillList[i];
-                    if (!skillName.startsWith("costume") && !skillName.startsWith("class_chronicles") && !skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("social_politician_") && !skillName.startsWith("pilot_") && !skillName.startsWith("swg_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("pvp_") && !skillName.startsWith("internal_expertise_") && !skillName.equals("expertise"))
-                    {
+                for (String skillName : skillList) {
+                    if (!skillName.startsWith("costume") && !skillName.startsWith("class_chronicles") && !skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("social_politician_") && !skillName.startsWith("pilot_") && !skillName.startsWith("swg_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("pvp_") && !skillName.startsWith("internal_expertise_") && !skillName.equals("expertise")) {
                         skill.revokeSkillSilent(player, skillName);
                     }
                 }
@@ -835,16 +784,18 @@ public class respec extends script.base_script
     public static void contentPathHandoff(obj_id self) throws InterruptedException
     {
         location origin = getLocation(self);
-        location fighting = new location(3521f, 0.0f, -4821f, origin.area);
         location crafty = new location(3309.0f, 6.0f, -4785.0f, origin.area);
         String profession = getSkillTemplate(self);
         obj_id objInv = utils.getInventoryContainer(self);
+
         String questNewbieStart = "quest/speeder_quest";
         String questNewbieStartBH = "quest/speeder_quest";
         String questCrafterEntertainer = "quest/tatooine_eisley_noncombat";
+
         int crafter = profession.indexOf("trader");
         int entertainer = profession.indexOf("entertainer");
         int bountyhunter = profession.indexOf("bounty_hunter");
+
         if (crafter > -1 || entertainer > -1)
         {
             if (!groundquests.isQuestActiveOrComplete(self, questCrafterEntertainer))
@@ -888,7 +839,7 @@ public class respec extends script.base_script
         {
             return 0.0f;
         }
-        float oldSkillPct = 0.0f;
+        float oldSkillPct;
         if (template.startsWith("trader") || template.startsWith("entertainer"))
         {
             String oldSkills = dataTableGetString(skill_template.TEMPLATE_TABLE, template, "template");
@@ -898,10 +849,8 @@ public class respec extends script.base_script
                 return 0.0f;
             }
             int oldSkillCount = 0;
-            for (int i = 0; i < oldSkillList.length; i++)
-            {
-                if (hasSkill(self, oldSkillList[i]))
-                {
+            for (String anOldSkillList : oldSkillList) {
+                if (hasSkill(self, anOldSkillList)) {
                     oldSkillCount++;
                 }
             }
@@ -1088,8 +1037,7 @@ public class respec extends script.base_script
         {
             return 0;
         }
-        int version = dataTableGetInt(EXPERTISE_VERSION_TABLE, row, "version");
-        return version;
+        return dataTableGetInt(EXPERTISE_VERSION_TABLE, row, "version");
     }
     public static boolean checkRespecDecay(obj_id player) throws InterruptedException
     {
@@ -1160,15 +1108,8 @@ public class respec extends script.base_script
         {
             return false;
         }
-        int timeTillNextDecayOnPlayer = 0;
-        if (hasObjVar(player, OBJVAR_RESPEC_DECAY_TIME))
-        {
-            timeTillNextDecayOnPlayer = getIntObjVar(player, OBJVAR_RESPEC_DECAY_TIME);
-        }
-        int timeTillNextDecay = 0;
-        int now = getCalendarTime();
-        int secondsUntil = secondsUntilNextMonthlyTime(1, 10, 0, 0);
-        timeTillNextDecay = now + secondsUntil;
+
+        int timeTillNextDecay = getCalendarTime() + secondsUntilNextMonthlyTime(1, 10, 0, 0);
         setObjVar(player, OBJVAR_RESPEC_DECAY_TIME, timeTillNextDecay);
         return true;
     }

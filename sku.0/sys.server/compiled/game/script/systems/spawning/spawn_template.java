@@ -1,12 +1,7 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
 
 public class spawn_template extends script.systems.spawning.spawn_base
 {
@@ -85,9 +80,7 @@ public class spawn_template extends script.systems.spawning.spawn_base
         int intNumberOfMobiles = getIntObjVar(objLair, "npc_lair.numberOfMobiles");
         for (int intI = 0; intI < intNumberOfMobiles; intI++)
         {
-            obj_id objCreature = getObjIdObjVar(objLair, "npc_lair.mobile." + intNumberOfMobiles);
-            int intState = getState(objCreature, STATE_COMBAT);
-            if (intState > 0)
+            if (getState(getObjIdObjVar(objLair, "npc_lair.mobile." + intNumberOfMobiles), STATE_COMBAT) > 0)
             {
                 return true;
             }

@@ -1,23 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.buff;
-import script.library.colors;
-import script.library.factions;
-import script.library.force_rank;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.sui;
-import script.library.trace;
-import script.library.utils;
-import java.lang.Math;
+import java.util.Vector;
 
 public class pvp extends script.base_script
 {
@@ -123,7 +108,7 @@ public class pvp extends script.base_script
         {
             damArray[i] = new obj_var(attackerList[i].toString(), utils.getIntScriptVar(victim, VAR_ATTACKER_LIST + "." + attackerList[i] + ".damage"));
         }
-        if (damArray == null || damArray.length == 0)
+        if (damArray.length == 0)
         {
             trace.log("pvp_rating", "pvp.scriptlib._packageCombatWinners:-> damArray is bunk. Bailing..", victim, trace.TL_WARNING);
             return null;
@@ -157,11 +142,9 @@ public class pvp extends script.base_script
     }
     public static prose_package getPvPRatedProsePackage(obj_id winner, obj_id loser, boolean winnerPackage) throws InterruptedException
     {
-        String stringId = "";
-        String stringFile = "pvp_rating";
-        String[] phrases = null;
-        obj_id actor = null;
-        obj_id target = null;
+        String[] phrases;
+        obj_id actor;
+        obj_id target;
         if (winnerPackage)
         {
             actor = winner;
@@ -206,9 +189,8 @@ public class pvp extends script.base_script
                 phrases[2] = "win3";
             }
         }
-        stringId = phrases[rand(0, phrases.length - 1)];
         prose_package pp_msg = new prose_package();
-        pp_msg.stringId = new string_id(stringFile, stringId);
+        pp_msg.stringId = new string_id("pvp_rating", phrases[rand(0, phrases.length - 1)]);
         pp_msg.actor.set(actor);
         pp_msg.target.set(utils.getRealPlayerFirstName(target));
         pp_msg.digitInteger = getCurrentPvPRating(actor);
@@ -216,10 +198,9 @@ public class pvp extends script.base_script
     }
     public static prose_package getPvPThrottleProsePackage(obj_id winner, obj_id loser, boolean winnerPackage) throws InterruptedException
     {
-        String stringId = "";
-        String stringFile = "pvp_rating";
-        obj_id actor = null;
-        obj_id target = null;
+        String stringId;
+        obj_id actor;
+        obj_id target;
         if (winnerPackage)
         {
             actor = winner;
@@ -253,7 +234,7 @@ public class pvp extends script.base_script
             }
         }
         prose_package pp_msg = new prose_package();
-        pp_msg.stringId = new string_id(stringFile, stringId);
+        pp_msg.stringId = new string_id("pvp_rating", stringId);
         pp_msg.actor.set(actor);
         pp_msg.target.set(utils.getRealPlayerFirstName(target));
         pp_msg.digitInteger = getCurrentPvPRating(actor);
@@ -261,10 +242,9 @@ public class pvp extends script.base_script
     }
     public static prose_package getPvPRatingFloorProsePackage(obj_id winner, obj_id loser, boolean winnerPackage) throws InterruptedException
     {
-        String stringId = "";
-        String stringFile = "pvp_rating";
-        obj_id actor = null;
-        obj_id target = null;
+        String stringId;
+        obj_id actor;
+        obj_id target;
         if (winnerPackage)
         {
             actor = winner;
@@ -298,7 +278,7 @@ public class pvp extends script.base_script
             }
         }
         prose_package pp_msg = new prose_package();
-        pp_msg.stringId = new string_id(stringFile, stringId);
+        pp_msg.stringId = new string_id("pvp_rating", stringId);
         pp_msg.actor.set(actor);
         pp_msg.target.set(utils.getRealPlayerFirstName(target));
         pp_msg.digitInteger = getCurrentPvPRating(actor);
@@ -309,7 +289,7 @@ public class pvp extends script.base_script
         int totalDamageTally = 0;
         if (utils.hasScriptVar(victim, VAR_TOTAL_DAMAGE_TALLY))
         {
-            totalDamageTally = (int)utils.getIntScriptVar(victim, VAR_TOTAL_DAMAGE_TALLY);
+            totalDamageTally = utils.getIntScriptVar(victim, VAR_TOTAL_DAMAGE_TALLY);
         }
         if (totalDamageTally < 0)
         {
@@ -320,7 +300,6 @@ public class pvp extends script.base_script
         {
             return;
         }
-        boolean victimDeathCountsForPoints = false;
         boolean onlyThrottledAttackers = true;
         obj_id messageWinner = null;
         int victimRatingDelta = 0;
@@ -331,78 +310,56 @@ public class pvp extends script.base_script
         dictionary darkJediPvPAction = new dictionary();
         darkJediPvPAction.put("victim", victim);
         darkJediPvPAction.put("totalDamageToVictim", totalDamageTally);
-        for (int i = 0; i < winners.length; i++)
-        {
-            obj_var winnerVar = winners[i];
+        obj_id winner;
+
+        for (obj_var winnerVar : winners) {
             int dam = winnerVar.getIntData();
-            obj_id winner = utils.stringToObjId(winnerVar.getName());
-            float percentContribution = ((float)dam / totalDamageTally);
+            winner = utils.stringToObjId(winnerVar.getName());
+            float percentContribution = ((float) dam / totalDamageTally);
             trace.log("pvp_rating", "Calculating point exchange for winner " + winnerVar.getName(), victim, trace.TL_DEBUG);
-            if ((!isIdValid(winner)) || (!winner.isLoaded()) || (winner.isBeingDestroyed()) || (winner == victim))
-            {
+            if ((!isIdValid(winner)) || (!winner.isLoaded()) || (winner.isBeingDestroyed()) || (winner == victim)) {
                 trace.log("pvp_rating", "pvp.scriptlib.adjustPvPRatings: killer is invalid, !isLoaded, or isBeingDestroyed. ignoring...", winner, trace.TL_WARNING);
-                continue;
+                return;
             }
-            else 
-            {
-                messageWinner = winner;
-                if (!hasKilledVictimRecently(winner, victim))
-                {
-                    onlyThrottledAttackers = false;
-                    if (getDistance(winner, victim) > MAX_DISTANCE)
-                    {
-                        continue;
-                    }
-                    if (!pvpCanAttack(victim, winner))
-                    {
-                        continue;
-                    }
-                    if (canAffectForceRankXPChange(victim, winner))
-                    {
-                        if (force_rank.getCouncilAffiliation(victim) == force_rank.DARK_COUNCIL && force_rank.getCouncilAffiliation(winner) == force_rank.DARK_COUNCIL)
-                        {
-                            darkJediXPRequests.put(winner, percentContribution);
-                            darkJediPvPAction.put(winner, percentContribution);
-                        }
-                        else 
-                        {
-                            int xpAdjustment = getAdjustedForceRankXPDelta(victim, winner, percentContribution, false);
-                            if (xpAdjustment != 0)
-                            {
-                                force_rank.adjustForceRankXP(winner, xpAdjustment);
-                            }
-                            victimXPDelta += getAdjustedForceRankXPDelta(victim, winner, percentContribution, true);
-                            trace.log("force_rank", "Winner " + utils.getRealPlayerFirstName(winner) + "(" + winner + ") was awarded " + xpAdjustment + " Council XP for their " + percentContribution * 100 + "% contribution to the death of %TU", victim, trace.TL_CS_LOG | trace.TL_DEBUG);
-                        }
-                    }
-                    else 
-                    {
-                        if (force_rank.getCouncilAffiliation(victim) == force_rank.DARK_COUNCIL && force_rank.getCouncilAffiliation(winner) == force_rank.DARK_COUNCIL)
-                        {
-                            darkJediPvPAction.put(winner, percentContribution);
-                        }
-                    }
-                    int winnerDelta = getAdjustedPvPRatingDelta(victim, winner, percentContribution, false);
-                    int winnerCur = getCurrentPvPRating(winner);
-                    trace.log(PVP_CS_LOG, "Winner " + utils.getRealPlayerFirstName(winner) + "(" + winner + ") was awarded " + winnerDelta + " PvP Rating Points for their " + percentContribution * 100 + "% contribution to the death of %TU", victim, trace.TL_CS_LOG | trace.TL_DEBUG);
-                    setCurrentPvPRating(winner, winnerCur + winnerDelta);
-                    victimRatingDelta += getAdjustedPvPRatingDelta(victim, winner, percentContribution, true);
-                    prose_package ppr = getPvPRatedProsePackage(winner, victim, true);
-                    sendSystemMessageProse(winner, ppr);
-                    registerPlayerKill(winner, victim);
+            messageWinner = winner;
+            if (!hasKilledVictimRecently(winner, victim)) {
+                onlyThrottledAttackers = false;
+                if (getDistance(winner, victim) > MAX_DISTANCE) {
+                    continue;
                 }
-                else 
-                {
-                    if (force_rank.getCouncilAffiliation(victim) == force_rank.DARK_COUNCIL && force_rank.getCouncilAffiliation(winner) == force_rank.DARK_COUNCIL)
-                    {
+                if (!pvpCanAttack(victim, winner)) {
+                    continue;
+                }
+                if (canAffectForceRankXPChange(victim, winner)) {
+                    if (force_rank.getCouncilAffiliation(victim) == force_rank.DARK_COUNCIL && force_rank.getCouncilAffiliation(winner) == force_rank.DARK_COUNCIL) {
+                        darkJediXPRequests.put(winner, percentContribution);
+                        darkJediPvPAction.put(winner, percentContribution);
+                    } else {
+                        int xpAdjustment = getAdjustedForceRankXPDelta(victim, winner, percentContribution, false);
+                        if (xpAdjustment != 0) {
+                            force_rank.adjustForceRankXP(winner, xpAdjustment);
+                        }
+                        victimXPDelta += getAdjustedForceRankXPDelta(victim, winner, percentContribution, true);
+                        trace.log("force_rank", "Winner " + utils.getRealPlayerFirstName(winner) + "(" + winner + ") was awarded " + xpAdjustment + " Council XP for their " + percentContribution * 100 + "% contribution to the death of %TU", victim, trace.TL_CS_LOG | trace.TL_DEBUG);
+                    }
+                } else {
+                    if (force_rank.getCouncilAffiliation(victim) == force_rank.DARK_COUNCIL && force_rank.getCouncilAffiliation(winner) == force_rank.DARK_COUNCIL) {
                         darkJediPvPAction.put(winner, percentContribution);
                     }
-                    else 
-                    {
-                        prose_package pp = getPvPThrottleProsePackage(winner, victim, true);
-                        sendSystemMessageProse(winner, pp);
-                        trace.log(PVP_CS_LOG, "PvP points not awarded to " + utils.getRealPlayerFirstName(winner) + "(" + winner + ") for participation in death of %TU - recently killed.", victim, trace.TL_CS_LOG | trace.TL_DEBUG);
-                    }
+                }
+                int winnerDelta = getAdjustedPvPRatingDelta(victim, winner, percentContribution, false);
+                trace.log(PVP_CS_LOG, "Winner " + utils.getRealPlayerFirstName(winner) + "(" + winner + ") was awarded " + winnerDelta + " PvP Rating Points for their " + percentContribution * 100 + "% contribution to the death of %TU", victim, trace.TL_CS_LOG | trace.TL_DEBUG);
+                setCurrentPvPRating(winner, getCurrentPvPRating(winner) + winnerDelta);
+                victimRatingDelta += getAdjustedPvPRatingDelta(victim, winner, percentContribution, true);
+                sendSystemMessageProse(winner, getPvPRatedProsePackage(winner, victim, true));
+                registerPlayerKill(winner, victim);
+            } else {
+                if (force_rank.getCouncilAffiliation(victim) == force_rank.DARK_COUNCIL && force_rank.getCouncilAffiliation(winner) == force_rank.DARK_COUNCIL) {
+                    darkJediPvPAction.put(winner, percentContribution);
+                } else {
+                    prose_package pp = getPvPThrottleProsePackage(winner, victim, true);
+                    sendSystemMessageProse(winner, pp);
+                    trace.log(PVP_CS_LOG, "PvP points not awarded to " + utils.getRealPlayerFirstName(winner) + "(" + winner + ") for participation in death of %TU - recently killed.", victim, trace.TL_CS_LOG | trace.TL_DEBUG);
                 }
             }
         }
@@ -415,15 +372,12 @@ public class pvp extends script.base_script
         {
             trace.log(PVP_CS_LOG, "%TU lost a total of " + victimRatingDelta + " PvP rating points to normal pvp for this death.", victim, trace.TL_CS_LOG);
             setCurrentPvPRating(victim, getCurrentPvPRating(victim) + victimRatingDelta);
-            prose_package pp = getPvPRatedProsePackage(messageWinner, victim, false);
-            sendSystemMessageProse(victim, pp);
+            sendSystemMessageProse(victim, getPvPRatedProsePackage(messageWinner, victim, false));
         }
         else if (onlyThrottledAttackers && isIdValid(messageWinner))
         {
-            prose_package pp = getPvPThrottleProsePackage(messageWinner, victim, false);
-            sendSystemMessageProse(victim, pp);
+            sendSystemMessageProse(victim, getPvPThrottleProsePackage(messageWinner, victim, false));
         }
-        return;
     }
     public static boolean canAffectForceRankXPChange(obj_id victim, obj_id winner) throws InterruptedException
     {
@@ -457,16 +411,13 @@ public class pvp extends script.base_script
     public static int getRawForceRankXPDelta(obj_id player, boolean playerWon, obj_id opponent) throws InterruptedException
     {
         int playerRank = force_rank.getForceRank(player);
-        int opponentRank = force_rank.getForceRank(opponent);
         if (playerRank < 0)
         {
             return 0;
         }
-        String columnName = "";
         String rowName = "";
         String rowPrefix = "";
         String rowSuffix = "";
-        columnName = "rank" + playerRank;
         if (isInOpposingPvPFactions(player, opponent))
         {
             rowPrefix = FRS_DT_ROW_NONJEDI_PREFIX;
@@ -475,6 +426,7 @@ public class pvp extends script.base_script
         {
             rowPrefix = FRS_DT_ROW_PADAWAN_PREFIX;
         }
+        int opponentRank = force_rank.getForceRank(opponent);
         if (opponentRank > -1)
         {
             rowPrefix = FRS_DT_RANKED_JEDI_PREFIX + opponentRank;
@@ -492,7 +444,7 @@ public class pvp extends script.base_script
             rowSuffix = FRS_DT_ROW_LOSS_SUFFIX;
         }
         rowName = rowPrefix + rowSuffix;
-        int xpDelta = dataTableGetInt(FRS_XP_DATATABLE, rowName, columnName);
+        int xpDelta = dataTableGetInt(FRS_XP_DATATABLE, rowName, "rank" + playerRank);
         if (xpDelta == -1)
         {
             return 0;
@@ -506,13 +458,9 @@ public class pvp extends script.base_script
     }
     public static int getAdjustedForceRankXPDelta(obj_id victim, obj_id killer, double percentContribution, boolean gettingVictimsDelta) throws InterruptedException
     {
-        String wonlost = "winning the battle against";
-        if (gettingVictimsDelta)
-        {
-            wonlost = "losing the battle to";
-        }
-        obj_id targetPlayer = null;
-        obj_id opponent = null;
+        String wonlost = (gettingVictimsDelta ? "losing the battle to" : "winning the battle against");
+        obj_id targetPlayer;
+        obj_id opponent;
         if (gettingVictimsDelta)
         {
             targetPlayer = victim;
@@ -531,7 +479,7 @@ public class pvp extends script.base_script
             disparity = MAX_RATING_DISPARITY;
         }
         trace.log("pvp_rating", "Target " + utils.getRealPlayerFirstName(targetPlayer) + "'s PvP rating is " + targetRat + "; Opponent " + utils.getRealPlayerFirstName(opponent) + "'s rating is " + opponentRat + " for a final disparity of " + disparity, opponent, trace.TL_DEBUG);
-        float pvpRatingXPAdjustment = ((float)disparity / (float)MAX_RATING_DISPARITY) * (float)MAX_RATING_AFFECT_ON_XP;
+        float pvpRatingXPAdjustment = ((float)disparity / (float)MAX_RATING_DISPARITY) * MAX_RATING_AFFECT_ON_XP;
         trace.log("pvp_rating", "Rating Disparity is " + disparity + ", creating an XP mod of " + (pvpRatingXPAdjustment * 100) + "% (" + pvpRatingXPAdjustment + ")", null, trace.TL_DEBUG);
         int targetDelta = getRawForceRankXPDelta(targetPlayer, !gettingVictimsDelta, opponent);
         trace.log("pvp_rating", utils.getRealPlayerFirstName(targetPlayer) + "'s raw target player XP Delta for " + wonlost + " opponent " + utils.getRealPlayerFirstName(opponent) + " is " + targetDelta, targetPlayer, trace.TL_DEBUG);
@@ -558,8 +506,8 @@ public class pvp extends script.base_script
             trace.log("pvp_rating", "pvp.scriptlib.getAdjustedPvPRatingDelta:-> percentInvolvement > 1.0 (" + percentInvolvement + "). Bailing.", loser, trace.TL_WARNING | trace.TL_DEBUG);
             return 0;
         }
-        obj_id targetPlayer = null;
-        obj_id opponent = null;
+        obj_id targetPlayer;
+        obj_id opponent;
         if (gettingVictimsDelta)
         {
             targetPlayer = loser;
@@ -570,9 +518,7 @@ public class pvp extends script.base_script
             targetPlayer = winner;
             opponent = loser;
         }
-        int targetRating = getCurrentPvPRating(targetPlayer);
-        int opponentRating = getCurrentPvPRating(opponent);
-        int targetDelta = getPvPRatingDelta(targetRating, opponentRating, (!gettingVictimsDelta));
+        int targetDelta = getPvPRatingDelta(getCurrentPvPRating(targetPlayer), getCurrentPvPRating(opponent), (!gettingVictimsDelta));
         trace.log("pvp_rating", utils.getRealPlayerFirstName(targetPlayer) + "'s raw RATING DELTA, based on a battle against " + utils.getRealPlayerFirstName(opponent) + " is " + targetDelta, targetPlayer, trace.TL_DEBUG);
         targetDelta = _massageDeltaWithRules(targetDelta, !gettingVictimsDelta);
         trace.log("pvp_rating", "After adjusting " + utils.getRealPlayerFirstName(targetPlayer) + "'s raw RATING DELTA, based on Min/Max loss/gain rules, the adjusted delta is " + targetDelta, targetPlayer, trace.TL_DEBUG);
@@ -647,26 +593,12 @@ public class pvp extends script.base_script
     }
     public static void updateDamageContributorList(obj_id target, obj_id attackr, int dam) throws InterruptedException
     {
-        obj_id realAttacker = attackr;
-        if (!isIdValid(target) || (!isIdValid(realAttacker)))
+        if (!isIdValid(target) || (!isIdValid(attackr)))
         {
             trace.log("pvp_rating.scriptlib", "updateDamageContributorList:-> Target or Attacker is invalid. Bailing.", target, trace.TL_WARNING | trace.TL_DEBUG);
             return;
         }
-        if (pet_lib.isPet(realAttacker))
-        {
-            if (!COUNT_PET_DAMAGE)
-            {
-                return;
-            }
-            if (!pet_lib.hasMaster(realAttacker))
-            {
-                return;
-            }
-            realAttacker = getMaster(attackr);
-            dam = (int)((float)dam * COUNT_PET_DAMAGE_PERCENT);
-        }
-        else if (!isPlayer(realAttacker))
+        if (pet_lib.isPet(attackr) || !isPlayer(attackr))
         {
             return;
         }
@@ -679,23 +611,21 @@ public class pvp extends script.base_script
             Vector attackerList = utils.getResizeableObjIdBatchScriptVar(target, VAR_ATTACKER_LIST);
             if (attackerList != null && attackerList.size() > 0)
             {
-                if (utils.getElementPositionInArray(attackerList, realAttacker) == -1)
+                if (utils.getElementPositionInArray(attackerList, attackr) == -1)
                 {
-                    attackerList = utils.addElement(attackerList, realAttacker);
+                    attackerList = utils.addElement(attackerList, attackr);
                     utils.setBatchScriptVar(target, VAR_ATTACKER_LIST, attackerList);
                 }
             }
             else 
             {
-                attackerList = utils.addElement(attackerList, realAttacker);
+                attackerList = utils.addElement(attackerList, attackr);
                 utils.setBatchScriptVar(target, VAR_ATTACKER_LIST, attackerList);
             }
-            String basePath = VAR_ATTACKER_LIST + "." + realAttacker;
-            String damPath = basePath + ".damage";
+            String damPath = VAR_ATTACKER_LIST + "." + attackr + ".damage";
             int totalDamage = dam + utils.getIntScriptVar(target, damPath);
             utils.setScriptVar(target, damPath, totalDamage);
         }
-        return;
     }
     public static boolean hasKilledVictimRecently(obj_id attacker, obj_id victim) throws InterruptedException
     {
@@ -744,7 +674,6 @@ public class pvp extends script.base_script
             utils.setResizeableBatchObjVar(attacker, VAR_PVP_LAST_KILLS, victimList);
         }
         setObjVar(attacker, VAR_PVP_LAST_UPDATE, getGameTime() + PVP_TRACKING_INTERVAL);
-        return;
     }
     public static boolean cleanupCreditForPvPKills(obj_id whichPlayer) throws InterruptedException
     {
@@ -752,8 +681,7 @@ public class pvp extends script.base_script
         utils.removeScriptVarTree(whichPlayer, "creditForPvPKillsTracking");
         if (hasObjVar(whichPlayer, VAR_PVP_LAST_UPDATE))
         {
-            int last_update = getIntObjVar(whichPlayer, VAR_PVP_LAST_UPDATE);
-            if (last_update < getGameTime())
+            if (getIntObjVar(whichPlayer, VAR_PVP_LAST_UPDATE) < getGameTime())
             {
                 removeObjVar(whichPlayer, VAR_PVP_LAST_KILLS);
                 removeObjVar(whichPlayer, VAR_PVP_LAST_UPDATE);
@@ -763,10 +691,8 @@ public class pvp extends script.base_script
     }
     public static void updatePvPDamageTimeStamp(obj_id player) throws InterruptedException
     {
-        int now = getGameTime();
         setupClearPvPDamageCallback(player);
-        utils.setScriptVar(player, VAR_LAST_PVP_DAMAGE_TIME, now);
-        return;
+        utils.setScriptVar(player, VAR_LAST_PVP_DAMAGE_TIME, getGameTime());
     }
     public static void setupClearPvPDamageCallback(obj_id player) throws InterruptedException
     {
@@ -776,7 +702,6 @@ public class pvp extends script.base_script
         }
         messageTo(player, "checkPvPDamageTime", null, CONTRIB_CLEAR_INTERVAL, false);
         utils.setScriptVar(player, VAR_LAST_PVP_DAMAGE_MSG_SENT, true);
-        return;
     }
     public static boolean isBountyHunter(obj_id player) throws InterruptedException
     {
@@ -788,18 +713,10 @@ public class pvp extends script.base_script
     }
     public static boolean isInOpposingPvPFactions(obj_id player1, obj_id player2) throws InterruptedException
     {
-        if (isPlayer(player1) && pvpGetType(player1) == PVPTYPE_NEUTRAL)
-        {
+        if (isPlayer(player1) && pvpGetType(player1) == PVPTYPE_NEUTRAL) {
             return false;
-        }
-        else if (isPlayer(player2) && pvpGetType(player2) == PVPTYPE_NEUTRAL)
-        {
-            return false;
-        }
-        else 
-        {
-            return (pvpAreFactionsOpposed(pvpGetAlignedFaction(player1), pvpGetAlignedFaction(player2)));
-        }
+        } else
+            return !(isPlayer(player2) && pvpGetType(player2) == PVPTYPE_NEUTRAL) && (pvpAreFactionsOpposed(pvpGetAlignedFaction(player1), pvpGetAlignedFaction(player2)));
     }
     public static boolean updatePlayerDamageTracking(obj_id player, obj_id attacker, obj_id wpn, int[] damage) throws InterruptedException
     {
@@ -812,9 +729,8 @@ public class pvp extends script.base_script
             return false;
         }
         long tmpTotal = 0;
-        for (int i = 0; i < damage.length; i++)
-        {
-            tmpTotal += damage[i];
+        for (int aDamage : damage) {
+            tmpTotal += aDamage;
         }
         if (tmpTotal > Integer.MAX_VALUE)
         {
@@ -823,8 +739,7 @@ public class pvp extends script.base_script
         int totalDamage = (int)tmpTotal;
         if (isPvpDamageSource(player, attacker))
         {
-            int currentDamage = utils.getIntScriptVar(player, SCRIPTVAR_PVP_DAMAGE);
-            long newTotal = currentDamage + totalDamage;
+            long newTotal = utils.getIntScriptVar(player, SCRIPTVAR_PVP_DAMAGE) + totalDamage;
             if (newTotal > Integer.MAX_VALUE)
             {
                 newTotal = Integer.MAX_VALUE;
@@ -834,8 +749,7 @@ public class pvp extends script.base_script
         }
         else 
         {
-            int currentDamage = utils.getIntScriptVar(player, SCRIPTVAR_PVE_DAMAGE);
-            long newTotal = currentDamage + totalDamage;
+            long newTotal = utils.getIntScriptVar(player, SCRIPTVAR_PVE_DAMAGE) + totalDamage;
             if (newTotal > Integer.MAX_VALUE)
             {
                 newTotal = Integer.MAX_VALUE;
@@ -874,9 +788,7 @@ public class pvp extends script.base_script
         {
             return;
         }
-        int now = getGameTime();
-        int stamp = utils.getIntScriptVar(player, SCRIPTVAR_PVP_STAMP);
-        int delta = now - stamp;
+        int delta = getGameTime() - utils.getIntScriptVar(player, SCRIPTVAR_PVP_STAMP);
         if (delta < BUFFER_TIME)
         {
             return;
@@ -905,9 +817,7 @@ public class pvp extends script.base_script
         {
             return false;
         }
-        int now = getGameTime();
-        int stamp = utils.getIntScriptVar(player, SCRIPTVAR_PVP_STAMP);
-        int delta = now - stamp;
+        int delta = getGameTime() - utils.getIntScriptVar(player, SCRIPTVAR_PVP_STAMP);
         if (delta >= BUFFER_TIME)
         {
             return false;
@@ -964,16 +874,13 @@ public class pvp extends script.base_script
         {
             players = utils.getResizeableObjIdBatchScriptVar(controller, BATTLEFIELD_ACTIVE_PLAYERS);
         }
-        dictionary params = new dictionary();
         if (players != null && players.size() > 0)
         {
-            for (int i = 0, j = players.size(); i < j; i++)
-            {
-                if (!isIdValid(((obj_id)players.get(i))) || !exists(((obj_id)players.get(i))))
-                {
+            for (Object player : players) {
+                if (!isIdValid(((obj_id) player)) || !exists(((obj_id) player))) {
                     continue;
                 }
-                sendSystemMessage(((obj_id)players.get(i)), announcement);
+                sendSystemMessage(((obj_id) player), announcement);
             }
         }
     }
@@ -987,20 +894,19 @@ public class pvp extends script.base_script
         }
         if (players != null && players.size() > 0)
         {
-            for (int i = 0, j = players.size(); i < j; i++)
-            {
-                if (((String)players.get(i)) == null || ((String)players.get(i)).length() < 1)
-                {
+            String[] playerInfo;
+            obj_id player;
+
+            for (Object player1 : players) {
+                if (player1 == null || ((String) player1).length() < 1) {
                     continue;
                 }
-                String[] playerInfo = split(((String)players.get(i)), '^');
-                if (playerInfo == null || playerInfo.length < 1)
-                {
+                playerInfo = split(((String) player1), '^');
+                if (playerInfo == null || playerInfo.length < 1) {
                     continue;
                 }
-                obj_id player = utils.stringToObjId(playerInfo[0]);
-                if (!isIdValid(player))
-                {
+                player = utils.stringToObjId(playerInfo[0]);
+                if (!isIdValid(player)) {
                     continue;
                 }
                 messageTo(player, message, params, 1.0f, false);
@@ -1017,20 +923,19 @@ public class pvp extends script.base_script
         }
         if (players != null && players.size() > 0)
         {
-            for (int i = 0, j = players.size(); i < j; i++)
-            {
-                if (((String)players.get(i)) == null || ((String)players.get(i)).length() < 1)
-                {
+            String[] playerInfo;
+            obj_id player;
+
+            for (Object player1 : players) {
+                if (player1 == null || ((String) player1).length() < 1) {
                     continue;
                 }
-                String[] playerInfo = split(((String)players.get(i)), '^');
-                if (playerInfo == null || playerInfo.length < 1)
-                {
+                playerInfo = split(((String) player1), '^');
+                if (playerInfo == null || playerInfo.length < 1) {
                     continue;
                 }
-                obj_id player = utils.stringToObjId(playerInfo[0]);
-                if (!isIdValid(player) || !exists(player))
-                {
+                player = utils.stringToObjId(playerInfo[0]);
+                if (!isIdValid(player) || !exists(player)) {
                     continue;
                 }
                 messageTo(player, message, params, 1.0f, false);
@@ -1052,26 +957,22 @@ public class pvp extends script.base_script
         if (activelTeam != null && activelTeam.size() > 0)
         {
             int count = 0;
-            for (int i = 0, j = activelTeam.size(); i < j; i++)
-            {
-                if (((String)activelTeam.get(i)) == null || ((String)activelTeam.get(i)).length() < 1)
-                {
+            String[] activeMember;
+            dictionary member;
+            for (Object anActivelTeam : activelTeam) {
+                if (anActivelTeam == null || ((String) anActivelTeam).length() < 1) {
                     continue;
                 }
-                String[] activeMember = split(((String)activelTeam.get(i)), '^');
-                if (activeMember.length < 9)
-                {
+                activeMember = split(((String) anActivelTeam), '^');
+                if (activeMember.length < 9) {
                     continue;
                 }
-                dictionary member = new dictionary();
+                member = new dictionary();
                 member.put("player", utils.stringToObjId(activeMember[0]));
                 member.put("name", activeMember[2]);
-                if (scriptVar.equals(BATTLEFIELD_ACTIVE_REBEL_PLAYERS))
-                {
+                if (scriptVar.equals(BATTLEFIELD_ACTIVE_REBEL_PLAYERS)) {
                     member.put("faction", factions.FACTION_FLAG_REBEL);
-                }
-                else if (scriptVar.equals(BATTLEFIELD_ACTIVE_IMPERIAL_PLAYERS))
-                {
+                } else if (scriptVar.equals(BATTLEFIELD_ACTIVE_IMPERIAL_PLAYERS)) {
                     member.put("faction", factions.FACTION_FLAG_IMPERIAL);
                 }
                 member.put("kills", utils.stringToInt(activeMember[3]));
@@ -1108,11 +1009,15 @@ public class pvp extends script.base_script
             return null;
         }
         String[][] scoreData = new String[battlefieldPlayers.size()][8];
+        String color;
+        String factionName;
+        String name;
+
         for (int i = 0, j = battlefieldPlayers.size(); i < j; i++)
         {
             int faction = ((dictionary)battlefieldPlayers.get(i)).getInt("faction");
-            String color = COLOR_IMPERIALS;
-            String factionName = "Imperial";
+            color = COLOR_IMPERIALS;
+            factionName = "Imperial";
             if (faction == factions.FACTION_FLAG_REBEL)
             {
                 color = COLOR_REBELS;
@@ -1123,7 +1028,7 @@ public class pvp extends script.base_script
                 color = "";
             }
             scoreData[i][1] = color + factionName;
-            String name = ((dictionary)battlefieldPlayers.get(i)).getString("name");
+            name = ((dictionary) battlefieldPlayers.get(i)).getString("name");
             if (name == null || name.length() < 1)
             {
                 name = "Unknown";
@@ -1279,14 +1184,11 @@ public class pvp extends script.base_script
         {
             return false;
         }
-        for (int i = 0, j = terminals.size(); i < j; i++)
-        {
-            if (!isIdValid(((obj_id)terminals.get(i))) || !exists(((obj_id)terminals.get(i))))
-            {
+        for (Object terminal1 : terminals) {
+            if (!isIdValid(((obj_id) terminal1)) || !exists(((obj_id) terminal1))) {
                 continue;
             }
-            if (((obj_id)terminals.get(i)) == terminal)
-            {
+            if (terminal1 == terminal) {
                 return true;
             }
         }
@@ -1322,14 +1224,11 @@ public class pvp extends script.base_script
             utils.setBatchScriptVar(controller, "battlefield.terminals", terminals);
             return;
         }
-        for (int i = 0, j = terminals.size(); i < j; i++)
-        {
-            if (!isIdValid(((obj_id)terminals.get(i))) || !exists(((obj_id)terminals.get(i))))
-            {
+        for (Object terminal1 : terminals) {
+            if (!isIdValid(((obj_id) terminal1)) || !exists(((obj_id) terminal1))) {
                 continue;
             }
-            if (((obj_id)terminals.get(i)) == terminal)
-            {
+            if (terminal1 == terminal) {
                 return;
             }
         }
@@ -1366,19 +1265,16 @@ public class pvp extends script.base_script
         {
             return false;
         }
-        int terminalCount = getIntObjVar(controller, "battlefield.terminalCount");
-        if (terminalCount != terminals.size())
+        if (getIntObjVar(controller, "battlefield.terminalCount") != terminals.size())
         {
             return false;
         }
-        for (int i = 0, j = terminals.size(); i < j; i++)
-        {
-            if (!isIdValid(((obj_id)terminals.get(i))) || !exists(((obj_id)terminals.get(i))))
-            {
+        for (Object terminal : terminals) {
+            if (!isIdValid(((obj_id) terminal)) || !exists(((obj_id) terminal))) {
                 continue;
             }
-            utils.removeScriptVar(((obj_id)terminals.get(i)), "battlefield.captured");
-            messageTo(((obj_id)terminals.get(i)), "receiveBattlefieldReset", null, 1.0f, false);
+            utils.removeScriptVar(((obj_id) terminal), "battlefield.captured");
+            messageTo(((obj_id) terminal), "receiveBattlefieldReset", null, 1.0f, false);
         }
         return true;
     }
@@ -1437,11 +1333,7 @@ public class pvp extends script.base_script
             return false;
         }
         obj_id runner = utils.getObjIdScriptVar(controller, "battlefield.runner");
-        if (isIdValid(runner) && exists(runner))
-        {
-            return true;
-        }
-        return false;
+        return isIdValid(runner) && exists(runner);
     }
     public static void bfActiveWarpPlayerToStart(obj_id controller, obj_id player) throws InterruptedException
     {
@@ -1450,7 +1342,7 @@ public class pvp extends script.base_script
             return;
         }
         int battlefieldState = utils.getIntScriptVar(controller, "battlefield.state");
-        location loc = null;
+        location loc;
         if (factions.isRebel(player))
         {
             loc = utils.getLocationScriptVar(controller, "battlefieldRebelSpawn");

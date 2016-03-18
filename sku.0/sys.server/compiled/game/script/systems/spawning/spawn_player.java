@@ -1,25 +1,9 @@
 package script.systems.spawning;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.buff;
-import script.library.craftinglib;
-import script.library.create;
-import script.library.datatable;
-import script.library.group;
-import script.library.locations;
-import script.library.regions;
-import script.library.skill;
-import script.library.space_utils;
-import script.library.spawning;
-import script.library.sui;
-import script.library.utils;
+import java.util.Vector;
 
 public class spawn_player extends script.systems.spawning.spawn_base
 {
@@ -103,8 +87,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
             sendSystemMessageTestingOnly(self, strTable + " is not a valid dataTable");
             return SCRIPT_CONTINUE;
         }
-        Integer ServerSpawnLimit = new Integer(0);
-        Integer intTestIndex = new Integer(0);
+        Integer intTestIndex;
         try
         {
             intTestIndex = new Integer(strNumber);
@@ -114,17 +97,16 @@ public class spawn_player extends script.systems.spawning.spawn_base
             sendSystemMessageTestingOnly(self, strNumber + " is not a valid index");
             return SCRIPT_CONTINUE;
         }
-        intIndex = intTestIndex.intValue();
+        intIndex = intTestIndex;
         dictionary dctRow = dataTableGetRow(strTable, intIndex);
         if (dctRow == null)
         {
             sendSystemMessageTestingOnly(self, "Not a valid combination of data");
+            return SCRIPT_CONTINUE;
         }
         int intMinDifficulty = dctRow.getInt("intMinDifficulty");
         int intMaxDifficulty = dctRow.getInt("intMaxDifficulty");
         int intPlayerDifficulty = rand(intMinDifficulty, intMaxDifficulty);
-        int intNumToSpawn = dctRow.getInt("intNumToSpawn");
-        String strTemplateToSpawn = dctRow.getString("strTemplateToSpawn");
         String strTemplate = dctRow.getString("strTemplate");
         String strLairType = dctRow.getString("strLairType");
         String strBuildingType = dctRow.getString("strBuildingType");
@@ -176,8 +158,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
             sendSystemMessageTestingOnly(self, strTable + " is not a valid dataTable");
             return SCRIPT_CONTINUE;
         }
-        Integer ServerSpawnLimit = new Integer(0);
-        Integer intTestIndex = new Integer(0);
+        Integer intTestIndex;
         try
         {
             intTestIndex = new Integer(strNumber);
@@ -187,8 +168,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
             sendSystemMessageTestingOnly(self, strNumber + " is not a valid index");
             return SCRIPT_CONTINUE;
         }
-        intIndex = intTestIndex.intValue();
-        Integer intTestDifficulty = new Integer(0);
+        intIndex = intTestIndex;
         try
         {
             intTestIndex = new Integer(strDifficultyInt);
@@ -198,17 +178,15 @@ public class spawn_player extends script.systems.spawning.spawn_base
             sendSystemMessageTestingOnly(self, strDifficultyInt + " is not a valid index");
             return SCRIPT_CONTINUE;
         }
-        int intLevel = intTestIndex.intValue();
+        int intLevel = intTestIndex;
         dictionary dctRow = dataTableGetRow(strTable, intIndex);
         if (dctRow == null)
         {
             sendSystemMessageTestingOnly(self, "Not a valid combination of data");
+            return SCRIPT_CONTINUE;
         }
         int intMinDifficulty = dctRow.getInt("intMinDifficulty");
         int intMaxDifficulty = dctRow.getInt("intMaxDifficulty");
-        int intPlayerDifficulty = rand(intMinDifficulty, intMaxDifficulty);
-        int intNumToSpawn = dctRow.getInt("intNumToSpawn");
-        String strTemplateToSpawn = dctRow.getString("strTemplateToSpawn");
         String strTemplate = dctRow.getString("strTemplate");
         String strLairType = dctRow.getString("strLairType");
         String strBuildingType = dctRow.getString("strBuildingType");
@@ -243,8 +221,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
     }
     public int startSpawner(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        location locCurrentLocation = getLocation(self);
-        obj_id objMasterSpawner = getPlanetByName(locCurrentLocation.area);
+        obj_id objMasterSpawner = getPlanetByName(getLocation(self).area);
         if (objMasterSpawner == null)
         {
             return SCRIPT_CONTINUE;
@@ -261,9 +238,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
         }
         else 
         {
-            boolean boolSpawnerIsOn;
-            boolSpawnerIsOn = getBooleanObjVar(objMasterSpawner, "boolSpawnerIsOn");
-            if (boolSpawnerIsOn == false)
+            if (!getBooleanObjVar(objMasterSpawner, "boolSpawnerIsOn"))
             {
                 setObjVar(objMasterSpawner, "boolSpawnerIsOn", true);
                 sendSystemMessageTestingOnly(self, "The master spawner is now on!");
@@ -294,7 +269,6 @@ public class spawn_player extends script.systems.spawning.spawn_base
             spawning.activateSpawnerHack(self);
             return SCRIPT_CONTINUE;
         }
-        dictionary dctParams = new dictionary();
         location locCurrentLocation = getLocation(self);
         if (locCurrentLocation == null)
         {
@@ -302,12 +276,6 @@ public class spawn_player extends script.systems.spawning.spawn_base
         }
         if (canSpawn(self, locCurrentLocation, false, null))
         {
-            dictionary dctSpawnParams = new dictionary();
-            int intLevel = 0;
-            intLevel = skill.getGroupLevel(self);
-            intLevel = locations.normalizeDifficultyForRegion(intLevel, locCurrentLocation);
-            dctSpawnParams.put("intDifficulty", intLevel);
-            dctSpawnParams.put("objPlayer", self);
             region rgnSpawnRegion = getSpawnRegion(self);
             if (rgnSpawnRegion == null)
             {
@@ -321,14 +289,15 @@ public class spawn_player extends script.systems.spawning.spawn_base
                 LOG("DESIGNER_FATAL", "For region " + strRegionName + " planet is " + strPlanet);
                 LOG("DESIGNER_FATAL", "But planet name for player is " + strTestPlanet);
             }
+            int intLevel = locations.normalizeDifficultyForRegion(skill.getGroupLevel(self), locCurrentLocation);
+            dictionary dctSpawnParams = new dictionary();
+            dctSpawnParams.put("intDifficulty", intLevel);
+            dctSpawnParams.put("objPlayer", self);
             if (strRegionName != null)
             {
                 dctSpawnParams.put("strRegionName", strRegionName);
             }
-            if (strPlanet != null)
-            {
-                dctSpawnParams.put("strPlanet", strPlanet);
-            }
+            dctSpawnParams.put("strPlanet", strPlanet);
             boolean boolTheatersAllowed = false;
             int intNumRules = getNumRunTimeRules();
             if (intNumRules > 0)
@@ -366,7 +335,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
         }
         if (strCommands[0].equals("dumpBuildout"))
         {
-            String strDataTable = "";
+            String strDataTable;
             if (strCommands.length > 1)
             {
                 strDataTable = "datatables/spawning/ground_spawning/buildouts/" + strCommands[1] + ".tab";
@@ -378,19 +347,11 @@ public class spawn_player extends script.systems.spawning.spawn_base
             }
             location locTest = getLocation(self);
             obj_id objCell = locTest.cell;
-            boolean boolInBuilding = true;
-            if (!isIdValid(objCell))
-            {
-                boolInBuilding = false;
-            }
+            boolean boolInBuilding = isIdValid(objCell);
             obj_id objBuilding = null;
             if (boolInBuilding)
             {
                 objBuilding = getContainedBy(objCell);
-                if (!isIdValid(objBuilding))
-                {
-                    boolean boolInbuilding = false;
-                }
             }
             String[] strHeaderTypes = 
             {
@@ -424,13 +385,12 @@ public class spawn_player extends script.systems.spawning.spawn_base
                 "strScripts",
                 "strCellName"
             };
-            boolean boolTest = datatable.createDataTable(strDataTable, strHeaders, strHeaderTypes);
-            if (!boolTest)
+            if (!datatable.createDataTable(strDataTable, strHeaders, strHeaderTypes))
             {
-                sendSystemMessageTestingOnly(self, "No dattable made");
+                sendSystemMessageTestingOnly(self, "No datatable made");
                 return SCRIPT_CONTINUE;
             }
-            obj_id[] objObjects = null;
+            obj_id[] objObjects;
             if (boolInBuilding)
             {
                 objObjects = spawning.getAllContents(objBuilding);
@@ -440,26 +400,13 @@ public class spawn_player extends script.systems.spawning.spawn_base
                 objObjects = getAllObjectsWithObjVar(getLocation(self), 15000, "intSpawnLocation");
             }
             sendSystemMessageTestingOnly(self, "dumping contents of " + objBuilding);
-            for (int intI = 0; intI < objObjects.length; intI++)
-            {
-                if (hasObjVar(objObjects[intI], "intSpawnLocation"))
-                {
-                    dictionary dctRow = new dictionary();
-                    locTest = getLocation(objObjects[intI]);
-                    String strTemplate = getTemplateName(objObjects[intI]);
-                    float fltX = locTest.x;
-                    float fltY = locTest.y;
-                    float fltZ = locTest.z;
-                    if (boolInBuilding)
-                    {
-                        String strCellName = space_utils.getCellName(objBuilding, locTest.cell);
-                        dctRow.put("strCellName", strCellName);
-                    }
-                    else 
-                    {
-                        dctRow.put("strCellName", "");
-                    }
-                    transform vctTest = getTransform_o2p(objObjects[intI]);
+            dictionary dctRow;
+            for (obj_id objObject : objObjects) {
+                if (hasObjVar(objObject, "intSpawnLocation")) {
+                    dctRow = new dictionary();
+                    locTest = getLocation(objObject);
+                    dctRow.put("strCellName",(boolInBuilding ? space_utils.getCellName(objBuilding, locTest.cell) : ""));
+                    transform vctTest = getTransform_o2p(objObject);
                     vector vctJ = vctTest.getLocalFrameJ_p();
                     vector vctK = vctTest.getLocalFrameK_p();
                     vector vctP = vctTest.getPosition_p();
@@ -472,10 +419,10 @@ public class spawn_player extends script.systems.spawning.spawn_base
                     dctRow.put("fltPX", vctP.x);
                     dctRow.put("fltPY", vctP.y);
                     dctRow.put("fltPZ", vctP.z);
-                    dctRow.put("strTemplate", strTemplate);
-                    String strObjVars = getPackedObjvars(objObjects[intI]);
+                    dctRow.put("strTemplate", getTemplateName(objObject));
+                    String strObjVars = getPackedObjvars(objObject);
                     dctRow.put("strObjVars", strObjVars);
-                    String strScripts = utils.getPackedScripts(objObjects[intI]);
+                    String strScripts = utils.getPackedScripts(objObject);
                     dctRow.put("strScripts", strScripts);
                     datatable.serverDataTableAddRow(strDataTable, dctRow);
                 }
@@ -484,9 +431,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
         }
         if (strCommands[0].equals("addSpawnLocation"))
         {
-            transform trTest = getTransform_o2p(self);
-            location locTest = getLocation(self);
-            obj_id objSpawner = createObject("object/tangible/space/content_infrastructure/generic_egg_small.iff", trTest, locTest.cell);
+            obj_id objSpawner = createObject("object/tangible/space/content_infrastructure/generic_egg_small.iff", getTransform_o2p(self), getLocation(self).cell);
             setObjVar(objSpawner, "intSpawnLocation", 1);
             setName(objSpawner, "SPAWN LOCATION!");
             sendSystemMessageTestingOnly(self, "Made spawn location");
@@ -527,7 +472,6 @@ public class spawn_player extends script.systems.spawning.spawn_base
             float fltSpawnerMinTime = utils.getFloatScriptVar(self, "fltMinSpawnTime");
             float fltSpawnerMaxTime = utils.getFloatScriptVar(self, "fltMaxSpawnTime");
             int intSpawnerBehavior = utils.getIntScriptVar(self, "intDefaultBehavior");
-            int intSpawnerGoodLoc = utils.getIntScriptVar(self, "intGoodLocationSpawner");
             String[] behaviors = 
             {
                 "wander",
@@ -993,14 +937,12 @@ public class spawn_player extends script.systems.spawning.spawn_base
             Vector objPatrolPoints = utils.getResizeableObjIdArrayScriptVar(self, "objPatrolPoints");
             if (objPatrolPoints != null)
             {
-                for (int intI = 0; intI < objPatrolPoints.size(); intI++)
-                {
-                    destroyObject(((obj_id)objPatrolPoints.get(intI)));
+                for (Object objPatrolPoint : objPatrolPoints) {
+                    destroyObject(((obj_id) objPatrolPoint));
                 }
             }
         }
         utils.removeScriptVar(self, "objPatrolPoints");
-        return;
     }
     public void writeSpawner(obj_id self) throws InterruptedException
     {
@@ -1008,8 +950,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
         String strSpawnerType = utils.getStringScriptVar(self, "strType");
         Vector patrolPoints = new Vector();
         patrolPoints.setSize(0);
-        obj_id objSpawner = null;
-        String patrolPathType = null;
+        obj_id objSpawner;
         if (strSpawnerType.equals("area") || strSpawnerType.equals("location"))
         {
             transform trTest = getTransform_o2p(self);
@@ -1076,11 +1017,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
     }
     public boolean isValidSpawnerType(String strText) throws InterruptedException
     {
-        if (strText.equals("area") || strText.equals("patrol"))
-        {
-            return true;
-        }
-        return false;
+        return strText.equals("area") || strText.equals("patrol");
     }
     public void handleMineFieldCreation() throws InterruptedException
     {
@@ -1097,7 +1034,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
         {
             packedMineStrings[i] = validMineTypes[i] + " DR[" + detonateRange[i] + "] BR[" + blastRadius[i] + "] MinD[" + minDamage[i] + "] MaxD[" + maxDamage[i] + "] DT [" + damageType[i] + "]";
         }
-        if (validMineTypes != null && validMineTypes.length > 0)
+        if (validMineTypes.length > 0)
         {
             int pid = sui.listbox(user, user, "Select Mine Type", packedMineStrings, "handleSelectMineType");
             if (pid > -1)
@@ -1209,19 +1146,17 @@ public class spawn_player extends script.systems.spawning.spawn_base
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < stations.length; ++i)
-            {
-                if (!isIdValid(stations[i]))
-                {
+            String buffName;
+            for (obj_id station : stations) {
+                if (!isIdValid(station)) {
                     continue;
                 }
-                int craftingType = getIntObjVar(stations[i], craftinglib.OBJVAR_CRAFTING_TYPE);
-                String buffName = craftinglib.getCraftingStationBuffName(craftingType);
-                if (buffName == null || buffName.equals(""))
-                {
+                int craftingType = getIntObjVar(station, craftinglib.OBJVAR_CRAFTING_TYPE);
+                buffName = craftinglib.getCraftingStationBuffName(craftingType);
+                if (buffName == null || buffName.equals("")) {
                     continue;
                 }
-                buff.applyBuff(self, stations[i], buffName);
+                buff.applyBuff(self, station, buffName);
             }
         }
         return SCRIPT_CONTINUE;

@@ -1,18 +1,12 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.ai_lib;
-import script.library.space_utils;
-import script.library.spawning;
 import script.library.create;
+import script.library.spawning;
+import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class spawner_area extends script.base_script
 {
@@ -159,9 +153,7 @@ public class spawner_area extends script.base_script
         {
             return;
         }
-        float spawnerYaw = getYaw(self);
         int intIndex = strId.indexOf(".iff");
-        float fltRespawnTime = getRespawnTime(self);
 
         if (isIdValid(objLocationObject))
         {
@@ -188,19 +180,19 @@ public class spawner_area extends script.base_script
             int intBehavior = getIntObjVar(self, "intDefaultBehavior");
             ai_lib.setDefaultCalmBehavior(objTemplate, intBehavior);
         }
+        float fltRespawnTime = getRespawnTime(self);
         spawning.incrementSpawnCount(self);
         spawning.addToSpawnDebugList(self, objTemplate);
         setObjVar(objTemplate, "objParent", self);
         setObjVar(objTemplate, "fltRespawnTime", fltRespawnTime);
         attachScript(objTemplate, "systems.spawning.spawned_tracker");
-        setYaw(objTemplate, spawnerYaw);
+        setYaw(objTemplate, getYaw(self));
 
         if (!spawning.checkSpawnCount(self))
         {
             return;
         }
         messageTo(self, "doSpawnEvent", null, fltRespawnTime, false);
-        return;
     }
     public int OnLocationReceived(obj_id self, String strId, obj_id objLocationObject, location locLocation, float fltRadius) throws InterruptedException
     {
@@ -217,8 +209,8 @@ public class spawner_area extends script.base_script
     public int spawnDestroyed(obj_id self, dictionary params) throws InterruptedException
     {
         int intCurrentSpawnCount = utils.getIntScriptVar(self, "intCurrentSpawnCount");
-        intCurrentSpawnCount = intCurrentSpawnCount - 1;
-        if (intCurrentSpawnCount > -1)
+        intCurrentSpawnCount--;
+        if (intCurrentSpawnCount >= 0)
         {
             utils.setScriptVar(self, "intCurrentSpawnCount", intCurrentSpawnCount);
         }
@@ -251,11 +243,9 @@ public class spawner_area extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < spawns.length; ++i)
-            {
-                if (isIdValid(spawns[i]) && exists(spawns[i]))
-                {
-                    messageTo(spawns[i], "selfDestruct", null, 5, false);
+            for (obj_id spawn : spawns) {
+                if (isIdValid(spawn) && exists(spawn)) {
+                    messageTo(spawn, "selfDestruct", null, 5, false);
                 }
             }
         }

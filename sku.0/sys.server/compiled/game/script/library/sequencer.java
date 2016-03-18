@@ -1,15 +1,7 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.ai.ai_combat;
+import script.dictionary;
+import script.obj_id;
 
 public class sequencer extends script.base_script
 {
@@ -66,8 +58,7 @@ public class sequencer extends script.base_script
     }
     public static boolean cleanUpSequenceObject(obj_id objObject, String strIdentifier) throws InterruptedException
     {
-        obj_id objMaster = getMasterSequenceObject(objObject);
-        return utils.removeScriptVar(objMaster, strIdentifier);
+        return utils.removeScriptVar(getMasterSequenceObject(objObject), strIdentifier);
     }
     public static obj_id getMasterSequenceObject(obj_id objObject) throws InterruptedException
     {
@@ -83,35 +74,26 @@ public class sequencer extends script.base_script
         }
         return objMaster;
     }
-    public static boolean isValidSequenceIdentifier(String strIdentifier) throws InterruptedException
-    {
+    public static boolean isValidSequenceIdentifier(String strIdentifier) throws InterruptedException {
         obj_id objMaster = getMasterSequenceObject(getSelf());
-        if (isIdValid(objMaster))
-        {
-            return utils.hasScriptVar(objMaster, strIdentifier);
-        }
-        return false;
+        return isIdValid(objMaster) && utils.hasScriptVar(objMaster, strIdentifier);
     }
     public static void walkToSequenceObject(obj_id objNPC, obj_id objSeq) throws InterruptedException
     {
-        location locWalkTo = getLocation(objSeq);
-        pathTo(objNPC, locWalkTo);
+        pathTo(objNPC, getLocation(objSeq));
     }
     public static void walkToSequenceObject(obj_id objNPC, String strObject) throws InterruptedException
     {
-        obj_id objSeq = getSequenceObject(strObject);
-        walkToSequenceObject(objNPC, objSeq);
+        walkToSequenceObject(objNPC, getSequenceObject(strObject));
     }
     public static void runToSequenceObject(obj_id objNPC, obj_id objSeq) throws InterruptedException
     {
-        location locWalkTo = getLocation(objSeq);
         setMovementRun(objNPC);
-        pathTo(objNPC, locWalkTo);
+        pathTo(objNPC, getLocation(objSeq));
     }
     public static void runToSequenceObject(obj_id objNPC, String strObject) throws InterruptedException
     {
-        obj_id objSeq = getSequenceObject(strObject);
-        runToSequenceObject(objNPC, objSeq);
+        runToSequenceObject(objNPC, getSequenceObject(strObject));
     }
     public static void doCombatAnimation(obj_id objNPC, obj_id objSeq, String strAnimation) throws InterruptedException
     {
@@ -133,18 +115,14 @@ public class sequencer extends script.base_script
             }
             doCombatResults(strAnimation, cbtAttackerResults, cbtDefenderResults);
         }
-        return;
     }
     public static void doCombatAnimation(obj_id objNPC, String strObject, String strAnimation) throws InterruptedException
     {
-        obj_id objSeq = getSequenceObject(strObject);
-        doCombatAnimation(objSeq, objNPC, strAnimation);
+        doCombatAnimation(getSequenceObject(strObject), objNPC, strAnimation);
     }
     public static void faceToSequenceObject(obj_id objNPC, String strObject) throws InterruptedException
     {
-        obj_id objSeq = getSequenceObject(strObject);
-        faceTo(objNPC, objSeq);
-        return;
+        faceTo(objNPC, getSequenceObject(strObject));
     }
     public static attacker_results makeDummyAttackerResults(obj_id objAttacker) throws InterruptedException
     {
@@ -179,16 +157,12 @@ public class sequencer extends script.base_script
     }
     public static void continueEventSequence(String strContinueTag) throws InterruptedException
     {
-        obj_id self = getSelf();
-        obj_id objMaster = getMasterSequenceObject(self);
         dictionary dctParams = new dictionary();
         dctParams.put("strContinueTag", strContinueTag);
-        messageTo(objMaster, "doEvents", dctParams, 0, false);
-        return;
+        messageTo(getMasterSequenceObject(getSelf()), "doEvents", dctParams, 0, false);
     }
     public static void stopSequence(obj_id objTarget) throws InterruptedException
     {
         messageTo(objTarget, "interruptSequence", null, 0, false);
-        return;
     }
 }

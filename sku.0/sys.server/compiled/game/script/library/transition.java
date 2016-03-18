@@ -1,21 +1,8 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.callable;
-import script.library.space_dungeon;
-import script.library.sui;
-import script.library.utils;
-import script.library.groundquests;
-import script.library.space_quest;
-import script.library.pclib;
-import script.library.pet_lib;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class transition extends script.base_script
 {
@@ -35,8 +22,7 @@ public class transition extends script.base_script
             return bad_zone_data;
         }
         String zoneLine = getStringObjVar(gate, "zoneLine");
-        string_id zoneString = new string_id(STF, zoneLine);
-        return zoneString;
+        return new string_id(STF, zoneLine);
     }
     public static void zonePlayer(obj_id gate, obj_id player) throws InterruptedException
     {
@@ -75,8 +61,7 @@ public class transition extends script.base_script
             notifyPlayerOfInvalidPermission(player, transit);
             return;
         }
-        String destination = dataTableGetString(dataTable, transit, "destination");
-        String[] parse = split(destination, ':');
+        String[] parse = split(dataTableGetString(dataTable, transit, "destination"), ':');
         callable.storeCallables(player);
         String script = dataTableGetString(dataTable, transit, "script");
         if (!script.equals("none"))
@@ -152,133 +137,89 @@ public class transition extends script.base_script
         doLogging("doPublicInstanceZone", "Requested clusterwide data for " + instance + "*");
         utils.setScriptVar(getSelf(), "playerId", player);
     }
-    public static boolean hasPermissionForZone(obj_id player, String zone, String flagType) throws InterruptedException
-    {
+    public static boolean hasPermissionForZone(obj_id player, String zone, String flagType) throws InterruptedException {
         String requiredFlag = dataTableGetString(dataTable, zone, flagType);
-        if (requiredFlag == null || requiredFlag.equals(""))
-        {
+        if (requiredFlag == null || requiredFlag.equals("")) {
             return true;
         }
         String[] parse = split(requiredFlag, ':');
-        if (parse.length == 1)
-        {
-            if (parse[0].equals("none"))
-            {
-                if (flagType.equals("initialRequiredFlag"))
-                {
-                    return hasPermissionForZone(player, zone, "finalRequiredFlag");
-                }
-                else 
-                {
-                    return true;
-                }
+        if (parse.length == 1) {
+            if (parse[0].equals("none")) {
+                return !flagType.equals("initialRequiredFlag") || hasPermissionForZone(player, zone, "finalRequiredFlag");
             }
-            if (hasObjVar(player, parse[0]))
-            {
+            if (hasObjVar(player, parse[0])) {
                 return true;
             }
-            if (utils.hasScriptVar(player, parse[0]))
-            {
+            if (utils.hasScriptVar(player, parse[0])) {
                 utils.setScriptVar(player, "tempFlag", parse[0]);
                 return true;
             }
-            if (parse[0].equals("level"))
-            {
+            if (parse[0].equals("level")) {
                 int level = getLevel(player);
-                if (level >= utils.stringToInt(parse[1]))
-                {
+                if (level >= utils.stringToInt(parse[1])) {
                     return true;
                 }
             }
         }
-        if (parse.length == 2)
-        {
-            if (parse[0].equals("won"))
-            {
-                if (groundquests.hasCompletedQuest(player, parse[1]))
-                {
+        if (parse.length == 2) {
+            if (parse[0].equals("won")) {
+                if (groundquests.hasCompletedQuest(player, parse[1])) {
                     return true;
                 }
             }
-            if (parse[0].equals("has"))
-            {
-                if (groundquests.isQuestActive(player, parse[1]))
-                {
+            if (parse[0].equals("has")) {
+                if (groundquests.isQuestActive(player, parse[1])) {
                     return true;
                 }
             }
-            if (parse[0].equals("item"))
-            {
-                if (utils.playerHasItemByTemplateInInventoryOrEquipped(player, parse[1]))
-                {
+            if (parse[0].equals("item")) {
+                if (utils.playerHasItemByTemplateInInventoryOrEquipped(player, parse[1])) {
                     return true;
                 }
-                if (utils.playerHasItemWithObjVarInInventoryOrEquipped(player, parse[1]))
-                {
+                if (utils.playerHasItemWithObjVarInInventoryOrEquipped(player, parse[1])) {
                     return true;
                 }
             }
-            if (parse[0].equals("level"))
-            {
+            if (parse[0].equals("level")) {
                 int level = getLevel(player);
-                if (level >= utils.stringToInt(parse[1]))
-                {
+                if (level >= utils.stringToInt(parse[1])) {
                     return true;
                 }
             }
         }
-        if (parse.length == 3)
-        {
-            if (parse[0].equals("won"))
-            {
-                if (space_quest.hasWonQuest(player, parse[1], parse[2]))
-                {
+        if (parse.length == 3) {
+            if (parse[0].equals("won")) {
+                if (space_quest.hasWonQuest(player, parse[1], parse[2])) {
                     return true;
                 }
             }
-            if (parse[0].equals("has"))
-            {
-                if (space_quest.hasQuest(player, parse[1], parse[2]))
-                {
+            if (parse[0].equals("has")) {
+                if (space_quest.hasQuest(player, parse[1], parse[2])) {
                     return true;
                 }
             }
-            if (parse[0].equals("task"))
-            {
-                if (groundquests.isTaskActive(player, parse[2], parse[3]))
-                {
+            if (parse[0].equals("task")) {
+                if (groundquests.isTaskActive(player, parse[2], parse[3])) {
                     return true;
                 }
             }
-            if (parse[0].equals("item"))
-            {
-                if (utils.playerHasItemByTemplateWithObjVarInInventoryOrEquipped(player, parse[1], parse[2]))
-                {
+            if (parse[0].equals("item")) {
+                if (utils.playerHasItemByTemplateWithObjVarInInventoryOrEquipped(player, parse[1], parse[2])) {
                     return true;
                 }
             }
-            if (parse[0].equals("level"))
-            {
+            if (parse[0].equals("level")) {
                 int level = getLevel(player);
-                if (level >= utils.stringToInt(parse[1]))
-                {
+                if (level >= utils.stringToInt(parse[1])) {
                     return true;
                 }
             }
         }
-        if (isGod(player))
-        {
+        if (isGod(player)) {
             sendSystemMessageTestingOnly(player, "You are passing the permissions check because you are in god mode");
             return true;
         }
-        if (flagType.equals("initialRequiredFlag"))
-        {
-            return hasPermissionForZone(player, zone, "finalRequiredFlag");
-        }
-        else 
-        {
-            return false;
-        }
+        return flagType.equals("initialRequiredFlag") && hasPermissionForZone(player, zone, "finalRequiredFlag");
     }
     public static void notifyPlayerOfInvalidPermission(obj_id player, String zone) throws InterruptedException
     {

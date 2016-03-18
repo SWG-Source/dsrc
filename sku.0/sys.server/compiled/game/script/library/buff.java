@@ -1,15 +1,11 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine;
+import script.combat_engine.buff_data;
+import script.deltadictionary;
+import script.obj_id;
 
-import script.library.utils;
-import script.library.beast_lib;
+import java.util.Vector;
 
 public class buff extends script.base_script
 {
@@ -109,27 +105,23 @@ public class buff extends script.base_script
         if (groupOne != 0 || groupTwo != 0)
         {
             int priority = bdata.priority;
-            for (int i = 0; i < buffCRCs.length; i++)
-            {
-                buff_data oldBuffData = combat_engine.getBuffData(buffCRCs[i]);
-                if (oldBuffData == null)
-                {
+            buff_data oldBuffData;
+
+            for (int buffCRC : buffCRCs) {
+                oldBuffData = combat_engine.getBuffData(buffCRC);
+                if (oldBuffData == null) {
                     continue;
                 }
-                obj_id effectOwner = getBuffOwner(target, buffCRCs[i]);
                 int oldPriority = oldBuffData.priority;
-                if (priority < oldPriority)
-                {
+                if (priority < oldPriority) {
                     int[] oldGroups = getGroups(oldBuffData);
-                    if (oldGroups == null || oldGroups.length != 3)
-                    {
+                    if (oldGroups == null || oldGroups.length != 3) {
                         continue;
                     }
                     int oldGroupOne = oldGroups[0];
                     int oldGroupTwo = oldGroups[1];
                     int oldBlockGroup = oldGroups[2];
-                    if ((groupOne != 0 && (groupOne == oldGroupOne || groupOne == oldGroupTwo)) || (groupTwo != 0 && (groupTwo == oldGroupOne || groupTwo == oldGroupTwo)) || (oldBlockGroup != 0 && (groupOne == oldBlockGroup || groupTwo == oldBlockGroup)))
-                    {
+                    if ((groupOne != 0 && (groupOne == oldGroupOne || groupOne == oldGroupTwo)) || (groupTwo != 0 && (groupTwo == oldGroupOne || groupTwo == oldGroupTwo)) || (oldBlockGroup != 0 && (groupOne == oldBlockGroup || groupTwo == oldBlockGroup))) {
                         return false;
                     }
                 }
@@ -256,29 +248,21 @@ public class buff extends script.base_script
         boolean isStackable = bdata.maxStacks > 1;
         if (discarded != null && discarded.length > 0)
         {
-            for (int i = 0; i < discarded.length; i++)
-            {
-                obj_id caster = getBuffCaster(target, discarded[i]);
-                if (nameCrc == discarded[i])
-                {
-                    float oldBuffTime = getBuffTimeRemaining(target, discarded[i]);
-                    if (!isStackable)
-                    {
-                        if (oldBuffTime <= duration)
-                        {
-                            _removeBuff(target, discarded[i]);
+            obj_id caster;
+            for (int aDiscarded : discarded) {
+                caster = getBuffCaster(target, aDiscarded);
+                if (nameCrc == aDiscarded) {
+                    float oldBuffTime = getBuffTimeRemaining(target, aDiscarded);
+                    if (!isStackable) {
+                        if (oldBuffTime <= duration) {
+                            _removeBuff(target, aDiscarded);
                         }
                     }
-                }
-                else 
-                {
-                    if (owner != caster && isStackable)
-                    {
+                } else {
+                    if (owner != caster && isStackable) {
                         continue;
-                    }
-                    else 
-                    {
-                        _removeBuff(target, discarded[i]);
+                    } else {
+                        _removeBuff(target, aDiscarded);
                     }
                 }
             }
@@ -342,10 +326,8 @@ public class buff extends script.base_script
     public static boolean removeBuffs(obj_id target, Vector names) throws InterruptedException
     {
         boolean success = true;
-        for (int i = 0; i < names.size(); i++)
-        {
-            if (!removeBuff(target, ((String)names.get(i))))
-            {
+        for (Object name : names) {
+            if (!removeBuff(target, ((String) name))) {
                 success = false;
             }
         }
@@ -354,10 +336,8 @@ public class buff extends script.base_script
     public static boolean removeBuffs(obj_id target, String[] names) throws InterruptedException
     {
         boolean success = true;
-        for (int i = 0; i < names.length; i++)
-        {
-            if (!removeBuff(target, names[i]))
-            {
+        for (String name : names) {
+            if (!removeBuff(target, name)) {
                 success = false;
             }
         }
@@ -407,33 +387,28 @@ public class buff extends script.base_script
         {
             return true;
         }
-        for (int i = 0; i < buffs.length; i++)
-        {
-            buff_data bdata = combat_engine.getBuffData(buffs[i]);
-            if (bdata == null)
-            {
+        buff_data bdata;
+        for (int buff : buffs) {
+            bdata = combat_engine.getBuffData(buff);
+            if (bdata == null) {
                 LOG("buff.scriptlib", "removeAllBuffs bdata is null");
                 continue;
             }
             int removeOnDeath = bdata.removeOnDeath;
             int removeOnRespec = bdata.removeOnRespec;
-            if (removeOnDeath == 0 && fromDeath)
-            {
+            if (removeOnDeath == 0 && fromDeath) {
                 continue;
             }
-            if (removeOnRespec == 0 && fromRespec)
-            {
+            if (removeOnRespec == 0 && fromRespec) {
                 continue;
             }
-            if (isMob(target))
-            {
+            if (isMob(target)) {
                 int removeOnCombatEnd = bdata.aiRemoveOnCombatEnd;
-                if (removeOnCombatEnd == 0 && !isDead(target) && !isIncapacitated(target))
-                {
+                if (removeOnCombatEnd == 0 && !isDead(target) && !isIncapacitated(target)) {
                     continue;
                 }
             }
-            _removeBuff(target, buffs[i]);
+            _removeBuff(target, buff);
         }
         return true;
     }
@@ -452,13 +427,10 @@ public class buff extends script.base_script
         {
             return true;
         }
-        for (int i = 0; i < buffs.length; i++)
-        {
-            buff_data bdata = combat_engine.getBuffData(buffs[i]);
-            String curBuff = bdata.buffName;
-            if (bdata.debuff == 1 && getBuffOwner(target, buffs[i]) == owner)
-            {
-                removeBuff(target, buffs[i]);
+        for (int buff : buffs) {
+            buff_data bdata = combat_engine.getBuffData(buff);
+            if (bdata.debuff == 1 && getBuffOwner(target, buff) == owner) {
+                removeBuff(target, buff);
             }
         }
         return true;
@@ -476,17 +448,16 @@ public class buff extends script.base_script
         }
         Vector matchedBuffs = new Vector();
         matchedBuffs.setSize(0);
-        for (int i = 0; i < buffs.length; i++)
-        {
+        buff_data bdata;
+        String tempEffect;
+        for (int buff : buffs) {
             int j = 1;
-            buff_data bdata = combat_engine.getBuffData(buffs[i]);
-            String tempEffect = getEffectParam(bdata, 1);
+            bdata = combat_engine.getBuffData(buff);
+            tempEffect = getEffectParam(bdata, 1);
             boolean matched = false;
-            while (!matched && j < 6 && tempEffect != null && tempEffect.length() > 0)
-            {
-                if (tempEffect.equals(effect))
-                {
-                    utils.addElement(matchedBuffs, buffs[i]);
+            while (!matched && j < 6 && tempEffect != null && tempEffect.length() > 0) {
+                if (tempEffect.equals(effect)) {
+                    utils.addElement(matchedBuffs, buff);
                     matched = true;
                 }
                 j++;
@@ -497,15 +468,11 @@ public class buff extends script.base_script
         {
             return null;
         }
-        int[] _matchedBuffs = new int[0];
-        if (matchedBuffs != null)
-        {
-            _matchedBuffs = new int[matchedBuffs.size()];
-            for (int _i = 0; _i < matchedBuffs.size(); ++_i)
-            {
-                _matchedBuffs[_i] = ((Integer)matchedBuffs.get(_i)).intValue();
-            }
-        }
+        int[] _matchedBuffs = new int[matchedBuffs.size()];
+        for (int _i = 0; _i < matchedBuffs.size(); ++_i)
+		{
+			_matchedBuffs[_i] = (Integer) matchedBuffs.get(_i);
+		}
         return _matchedBuffs;
     }
     public static int[] getAllBuffs(obj_id target) throws InterruptedException
@@ -540,10 +507,8 @@ public class buff extends script.base_script
     public static boolean hasAnyBuffInList(obj_id target, String buffList) throws InterruptedException
     {
         String[] buffs = split(buffList, ',');
-        for (int i = 0; i < buffs.length; i++)
-        {
-            if (hasBuff(target, buffs[i]))
-            {
+        for (String buff : buffs) {
+            if (hasBuff(target, buff)) {
                 return true;
             }
         }
@@ -551,10 +516,8 @@ public class buff extends script.base_script
     }
     public static boolean hasAnyBuffInList(obj_id target, String[] buffList) throws InterruptedException
     {
-        for (int i = 0; i < buffList.length; i++)
-        {
-            if (hasBuff(target, buffList[i]))
-            {
+        for (String aBuffList : buffList) {
+            if (hasBuff(target, aBuffList)) {
                 return true;
             }
         }
@@ -576,13 +539,14 @@ public class buff extends script.base_script
         }
         removeAllBuffs(target, true);
         boolean success = true;
+        obj_id owner;
         for (int i = 0; i < buffs.length; i++)
         {
             if (buffs_d[i] <= 0.0f)
             {
                 continue;
             }
-            obj_id owner = getBuffOwner(target, buffs[i]);
+            owner = getBuffOwner(target, buffs[i]);
             if (isIdValid(owner) && owner != target)
             {
                 continue;
@@ -733,18 +697,14 @@ public class buff extends script.base_script
         {
             return 0;
         }
-        for (int i = 0; i < buffs.length; i++)
-        {
-            int[] groups = getGroups(buffs[i]);
-            if (groups == null || groups.length == 0)
-            {
+        for (int buff : buffs) {
+            int[] groups = getGroups(buff);
+            if (groups == null || groups.length == 0) {
                 continue;
             }
-            for (int j = 0; j < groups.length; j++)
-            {
-                if (groups[j] == groupCrc)
-                {
-                    return buffs[i];
+            for (int group : groups) {
+                if (group == groupCrc) {
+                    return buff;
                 }
             }
         }
@@ -759,23 +719,19 @@ public class buff extends script.base_script
         }
         Vector allGroupBuffs = new Vector();
         allGroupBuffs.setSize(0);
-        for (int i = 0; i < buffs.length; i++)
-        {
-            String tempGroupName = getStringGroupTwo(buffs[i]);
-            if (tempGroupName.startsWith(groupName))
-            {
-                utils.addElement(allGroupBuffs, buffs[i]);
+        String tempGroupName;
+        for (int buff : buffs) {
+            tempGroupName = getStringGroupTwo(buff);
+            if (tempGroupName.startsWith(groupName)) {
+                utils.addElement(allGroupBuffs, buff);
             }
         }
         int[] _allGroupBuffs = new int[0];
-        if (allGroupBuffs != null)
-        {
-            _allGroupBuffs = new int[allGroupBuffs.size()];
-            for (int _i = 0; _i < allGroupBuffs.size(); ++_i)
-            {
-                _allGroupBuffs[_i] = ((Integer)allGroupBuffs.get(_i)).intValue();
-            }
-        }
+        _allGroupBuffs = new int[allGroupBuffs.size()];
+        for (int _i = 0; _i < allGroupBuffs.size(); ++_i)
+		{
+			_allGroupBuffs[_i] = (Integer) allGroupBuffs.get(_i);
+		}
         return _allGroupBuffs;
     }
     public static int getPriority(String name) throws InterruptedException
@@ -882,17 +838,18 @@ public class buff extends script.base_script
         switch (effNum)
         {
             case 1:
-            return bdata.effect1Param;
+                return bdata.effect1Param;
             case 2:
-            return bdata.effect2Param;
+                return bdata.effect2Param;
             case 3:
-            return bdata.effect3Param;
+                return bdata.effect3Param;
             case 4:
-            return bdata.effect4Param;
+                return bdata.effect4Param;
             case 5:
-            return bdata.effect5Param;
+                return bdata.effect5Param;
+            default:
+                return null;
         }
-        return null;
     }
     public static float getEffectValue(String name, int effNum) throws InterruptedException
     {
@@ -912,17 +869,18 @@ public class buff extends script.base_script
         switch (effNum)
         {
             case 1:
-            return bdata.effect1Value;
+                return bdata.effect1Value;
             case 2:
-            return bdata.effect2Value;
+                return bdata.effect2Value;
             case 3:
-            return bdata.effect3Value;
+                return bdata.effect3Value;
             case 4:
-            return bdata.effect4Value;
+                return bdata.effect4Value;
             case 5:
-            return bdata.effect5Value;
+                return bdata.effect5Value;
+            default:
+                return 0;
         }
-        return 0;
     }
     public static boolean isDebuff(String name) throws InterruptedException
     {
@@ -957,9 +915,10 @@ public class buff extends script.base_script
     }
     public static boolean isGroupBuff(int nameCrc) throws InterruptedException
     {
+        String effect;
         for (int i = 1; i <= MAX_EFFECTS; i++)
         {
-            String effect = getEffectParam(nameCrc, i);
+            effect = getEffectParam(nameCrc, i);
             if (effect != null && effect.equals("group"))
             {
                 return true;
@@ -974,7 +933,7 @@ public class buff extends script.base_script
     public static boolean isAuraBuff(int nameCrc) throws InterruptedException
     {
         String groupTwo = getStringGroupTwo(nameCrc);
-        return groupTwo.indexOf("aura") > -1;
+        return groupTwo.contains("aura");
     }
     public static boolean isOwnedBuff(String name) throws InterruptedException
     {
@@ -1038,40 +997,33 @@ public class buff extends script.base_script
         if (groupOne != 0 || groupTwo != 0)
         {
             int priority = bdata.priority;
-            for (int i = 0; i < buffs.length; i++)
-            {
-                buff_data oldBuffData = combat_engine.getBuffData(buffs[i]);
-                if (oldBuffData == null)
-                {
+            buff_data oldBuffData;
+            obj_id effectOwner;
+            for (int buff : buffs) {
+                oldBuffData = combat_engine.getBuffData(buff);
+                if (oldBuffData == null) {
                     continue;
                 }
-                obj_id effectOwner = getBuffOwner(target, buffs[i]);
-                if (isIdValid(effectOwner) && effectOwner != target)
-                {
+                effectOwner = getBuffOwner(target, buff);
+                if (isIdValid(effectOwner) && effectOwner != target) {
                     continue;
                 }
                 int oldPriority = oldBuffData.priority;
-                if (priority >= oldPriority)
-                {
+                if (priority >= oldPriority) {
                     int[] oldGroups = getGroups(oldBuffData);
-                    if (oldGroups == null || oldGroups.length != 3)
-                    {
+                    if (oldGroups == null || oldGroups.length != 3) {
                         return null;
                     }
                     int oldGroupOne = oldGroups[0];
                     int oldGroupTwo = oldGroups[1];
-                    if ((groupOne != 0 && (groupOne == oldGroupOne || groupOne == oldGroupTwo)) || (groupTwo != 0 && (groupTwo == oldGroupOne || groupTwo == oldGroupTwo)))
-                    {
-                        discarded[discardCount++] = buffs[i];
+                    if ((groupOne != 0 && (groupOne == oldGroupOne || groupOne == oldGroupTwo)) || (groupTwo != 0 && (groupTwo == oldGroupOne || groupTwo == oldGroupTwo))) {
+                        discarded[discardCount++] = buff;
                     }
                 }
             }
         }
         int[] returnArray = new int[discardCount];
-        for (int i = 0; i < discardCount; ++i)
-        {
-            returnArray[i] = discarded[i];
-        }
+        System.arraycopy(discarded, 0, returnArray, 0, discardCount);
         return returnArray;
     }
     public static obj_id getBuffOwner(obj_id target, String name) throws InterruptedException
@@ -1088,8 +1040,7 @@ public class buff extends script.base_script
         {
             return null;
         }
-        obj_id owner = utils.getObjIdScriptVar(target, "groupBuff." + nameCrc);
-        return owner;
+        return utils.getObjIdScriptVar(target, "groupBuff." + nameCrc);
     }
     public static void addGroupBuffEffect(obj_id target, obj_id owner, int[] buffList, float[] strList, float[] durList) throws InterruptedException
     {
@@ -1125,19 +1076,17 @@ public class buff extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < buffList.length; i++)
-        {
-            obj_id owner = utils.getObjIdScriptVar(target, "groupBuff." + buffList[i]);
-            if (owner != target)
-            {
-                _removeBuff(target, buffList[i]);
-                utils.removeScriptVar(target, "groupBuff." + buffList[i]);
-                if (beast_lib.isBeastMaster(target))
-                {
-                    obj_id beast = beast_lib.getBeastOnPlayer(target);
-                    if (isIdValid(beast) && !isIdNull(beast))
-                    {
-                        _removeBuff(beast, buffList[i]);
+        obj_id owner;
+        obj_id beast;
+        for (int aBuffList : buffList) {
+            owner = utils.getObjIdScriptVar(target, "groupBuff." + aBuffList);
+            if (owner != target) {
+                _removeBuff(target, aBuffList);
+                utils.removeScriptVar(target, "groupBuff." + aBuffList);
+                if (beast_lib.isBeastMaster(target)) {
+                    beast = beast_lib.getBeastOnPlayer(target);
+                    if (isIdValid(beast) && !isIdNull(beast)) {
+                        _removeBuff(beast, aBuffList);
                     }
                 }
             }
@@ -1156,12 +1105,11 @@ public class buff extends script.base_script
         }
         Vector buffList = new Vector();
         buffList.setSize(0);
-        for (int i = 0; i < buffCrcList.length; i++)
-        {
-            obj_id owner = utils.getObjIdScriptVar(target, "groupBuff." + buffCrcList[i]);
-            if (isIdValid(owner) && owner == target && isGroupBuff(buffCrcList[i]))
-            {
-                buffList = utils.addElement(buffList, buffCrcList[i]);
+        obj_id owner;
+        for (int aBuffCrcList : buffCrcList) {
+            owner = utils.getObjIdScriptVar(target, "groupBuff." + aBuffCrcList);
+            if (isIdValid(owner) && owner == target && isGroupBuff(aBuffCrcList)) {
+                buffList = utils.addElement(buffList, aBuffCrcList);
             }
         }
         int[] _buffList = new int[0];
@@ -1170,7 +1118,7 @@ public class buff extends script.base_script
             _buffList = new int[buffList.size()];
             for (int _i = 0; _i < buffList.size(); ++_i)
             {
-                _buffList[_i] = ((Integer)buffList.get(_i)).intValue();
+                _buffList[_i] = (Integer) buffList.get(_i);
             }
         }
         return _buffList;
@@ -1188,12 +1136,12 @@ public class buff extends script.base_script
         }
         Vector buffList = new Vector();
         buffList.setSize(0);
-        for (int i = 0; i < buffCrcList.length; i++)
-        {
-            obj_id owner = utils.getObjIdScriptVar(target, "groupBuff." + buffCrcList[i]);
-            if (isIdValid(owner) && owner != target && isGroupBuff(buffCrcList[i]))
-            {
-                buffList = utils.addElement(buffList, buffCrcList[i]);
+        obj_id owner;
+
+        for (int aBuffCrcList : buffCrcList) {
+            owner = utils.getObjIdScriptVar(target, "groupBuff." + aBuffCrcList);
+            if (isIdValid(owner) && owner != target && isGroupBuff(aBuffCrcList)) {
+                buffList = utils.addElement(buffList, aBuffCrcList);
             }
         }
         int[] _buffList = new int[0];
@@ -1202,7 +1150,7 @@ public class buff extends script.base_script
             _buffList = new int[buffList.size()];
             for (int _i = 0; _i < buffList.size(); ++_i)
             {
-                _buffList[_i] = ((Integer)buffList.get(_i)).intValue();
+                _buffList[_i] = (Integer) buffList.get(_i);
             }
         }
         return _buffList;
@@ -1226,7 +1174,6 @@ public class buff extends script.base_script
         {
             return null;
         }
-        float modifier = squad_leader.getLeadershipMod(player);
         float[] strengthList = new float[buffList.length];
         for (int i = 0; i < buffList.length; i++)
         {
@@ -1258,22 +1205,13 @@ public class buff extends script.base_script
         {
             return true;
         }
-        for (int i = 0; i < buffs.length; i++)
-        {
-            if (isDebuff(buffs[i]) && getState(buffs[i]) == stateType)
-            {
-                _removeBuff(target, buffs[i]);
+        for (int buff : buffs) {
+            if (isDebuff(buff) && getState(buff) == stateType) {
+                _removeBuff(target, buff);
                 removed = true;
             }
         }
-        if (removed)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return removed;
     }
     public static boolean toggleStance(obj_id player, String attemptedBuff) throws InterruptedException
     {
@@ -1288,20 +1226,19 @@ public class buff extends script.base_script
             return false;
         }
         String groupAtt = attemptedBuffData.buffGroup1;
-        for (int i = 0; i < buffs.length; i++)
-        {
-            buff_data bdata = combat_engine.getBuffData(buffs[i]);
-            if (bdata == null)
-            {
+        buff_data bdata;
+        String curBuff;
+        String groupCur;
+        for (int buff : buffs) {
+            bdata = combat_engine.getBuffData(buff);
+            if (bdata == null) {
                 continue;
             }
-            String curBuff = bdata.buffName;
-            String groupCur = bdata.buffGroup1;
-            if (groupCur.equals(groupAtt))
-            {
+            curBuff = bdata.buffName;
+            groupCur = bdata.buffGroup1;
+            if (groupCur.equals(groupAtt)) {
                 removeBuff(player, curBuff);
-                if (!curBuff.equals(attemptedBuff.toLowerCase()))
-                {
+                if (!curBuff.equals(attemptedBuff.toLowerCase())) {
                     applyBuff(player, player, attemptedBuff);
                     return false;
                 }
@@ -1388,15 +1325,11 @@ public class buff extends script.base_script
     }
     public static obj_id getBuffCaster(obj_id target, int nameCrc) throws InterruptedException
     {
-        obj_id caster = obj_id.NULL_ID;
-        caster = caster.getObjId(_getBuffCaster(target, nameCrc));
-        return caster;
+        return obj_id.getObjId(_getBuffCaster(target, nameCrc));
     }
     public static obj_id getBuffCaster(obj_id target, String nameCrc) throws InterruptedException
     {
-        obj_id caster = obj_id.NULL_ID;
-        caster = caster.getObjId(_getBuffCaster(target, getStringCrc(nameCrc.toLowerCase())));
-        return caster;
+        return obj_id.getObjId(_getBuffCaster(target, getStringCrc(nameCrc.toLowerCase())));
     }
     public static float getBuffTimeRemaining(obj_id target, int nameCrc) throws InterruptedException
     {
@@ -1415,23 +1348,19 @@ public class buff extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < allDotBuffs.length; ++i)
-        {
-            String param1 = getEffectParam(allDotBuffs[i], 1);
-            if (param1.equals(type))
-            {
-                utils.addElement(allDotBuffsOfType, allDotBuffs[i]);
+        String param1;
+        for (int allDotBuff : allDotBuffs) {
+            param1 = getEffectParam(allDotBuff, 1);
+            if (param1.equals(type)) {
+                utils.addElement(allDotBuffsOfType, allDotBuff);
             }
         }
         int[] _allDotBuffsOfType = new int[0];
-        if (allDotBuffsOfType != null)
-        {
-            _allDotBuffsOfType = new int[allDotBuffsOfType.size()];
-            for (int _i = 0; _i < allDotBuffsOfType.size(); ++_i)
-            {
-                _allDotBuffsOfType[_i] = ((Integer)allDotBuffsOfType.get(_i)).intValue();
-            }
-        }
+        _allDotBuffsOfType = new int[allDotBuffsOfType.size()];
+        for (int _i = 0; _i < allDotBuffsOfType.size(); ++_i)
+		{
+			_allDotBuffsOfType[_i] = (Integer) allDotBuffsOfType.get(_i);
+		}
         return _allDotBuffsOfType;
     }
     public static boolean performBuffDotImmunity(obj_id target, String dotType) throws InterruptedException
@@ -1443,9 +1372,8 @@ public class buff extends script.base_script
             {
                 return false;
             }
-            for (int i = 0; i < allDotBuffs.length; ++i)
-            {
-                removeBuff(target, allDotBuffs[i]);
+            for (int allDotBuff : allDotBuffs) {
+                removeBuff(target, allDotBuff);
             }
             return true;
         }
@@ -1454,20 +1382,14 @@ public class buff extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < allBuffDotsOfType.length; ++i)
-        {
-            removeBuff(target, allBuffDotsOfType[i]);
+        for (int anAllBuffDotsOfType : allBuffDotsOfType) {
+            removeBuff(target, anAllBuffDotsOfType);
         }
         return true;
     }
     public static boolean isBuffDot(String buffName) throws InterruptedException
     {
-        String effectName = buff.getEffectParam(buffName, 2);
-        if (effectName.equals("dot"))
-        {
-            return true;
-        }
-        return false;
+        return buff.getEffectParam(buffName, 2).equals("dot");
     }
     public static void reduceBuffDotStackCount(obj_id target, String dotType, int count) throws InterruptedException
     {
@@ -1476,16 +1398,12 @@ public class buff extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < allBuffsOfType.length; i++)
-        {
-            long stackCount = getBuffStackCount(target, allBuffsOfType[i]);
-            if (stackCount <= count)
-            {
-                removeBuff(target, allBuffsOfType[i]);
-            }
-            else 
-            {
-                decrementBuffStack(target, allBuffsOfType[i], count);
+        for (int anAllBuffsOfType : allBuffsOfType) {
+            long stackCount = getBuffStackCount(target, anAllBuffsOfType);
+            if (stackCount <= count) {
+                removeBuff(target, anAllBuffsOfType);
+            } else {
+                decrementBuffStack(target, anAllBuffsOfType, count);
             }
         }
     }
@@ -1496,24 +1414,17 @@ public class buff extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < allBuffsOfType.length; i++)
-        {
-            long stackCount = getBuffStackCount(target, allBuffsOfType[i]);
-            if (stackCount <= 1)
-            {
-                removeBuff(target, allBuffsOfType[i]);
-            }
-            else 
-            {
-                reduction = Math.round((float)stackCount * ((float)reduction / 100.0f));
+        for (int anAllBuffsOfType : allBuffsOfType) {
+            long stackCount = getBuffStackCount(target, anAllBuffsOfType);
+            if (stackCount <= 1) {
+                removeBuff(target, anAllBuffsOfType);
+            } else {
+                reduction = Math.round((float) stackCount * ((float) reduction / 100.0f));
                 reduction = reduction < 1 ? 1 : reduction;
-                if (stackCount <= reduction)
-                {
-                    removeBuff(target, allBuffsOfType[i]);
-                }
-                else 
-                {
-                    decrementBuffStack(target, allBuffsOfType[i], reduction);
+                if (stackCount <= reduction) {
+                    removeBuff(target, anAllBuffsOfType);
+                } else {
+                    decrementBuffStack(target, anAllBuffsOfType, reduction);
                 }
             }
         }
@@ -1527,11 +1438,9 @@ public class buff extends script.base_script
         int[] allBuffs = buff.getAllBuffs(player);
         if (allBuffs != null && allBuffs.length > 0)
         {
-            for (int i = 0; i < allBuffs.length; ++i)
-            {
-                if (buff.isAuraBuff(allBuffs[i]))
-                {
-                    buff.removeBuff(player, allBuffs[i]);
+            for (int allBuff : allBuffs) {
+                if (buff.isAuraBuff(allBuff)) {
+                    buff.removeBuff(player, allBuff);
                 }
             }
         }
@@ -1550,12 +1459,11 @@ public class buff extends script.base_script
         int[] allBuffs = getAllBuffs(player);
         if (allBuffs != null && allBuffs.length > 0)
         {
-            for (int i = 0; i < allBuffs.length; ++i)
-            {
-                String tempEffect = getEffectParam(allBuffs[i], 1);
-                if (effect.equals(tempEffect))
-                {
-                    return allBuffs[i];
+            String tempEffect;
+            for (int allBuff : allBuffs) {
+                tempEffect = getEffectParam(allBuff, 1);
+                if (effect.equals(tempEffect)) {
+                    return allBuff;
                 }
             }
         }
@@ -1574,14 +1482,12 @@ public class buff extends script.base_script
         if (isIdValid(groupId))
         {
             obj_id[] groupPlayers = getGroupMemberIds(groupId);
-            for (int i = 0; i < groupPlayers.length; i++)
-            {
-                if (isIdValid(groupPlayers[i]) && exists(groupPlayers[i]) && pvpCanHelp(caster, groupPlayers[i]) && getDistance(groupPlayers[i], caster) < 100.0f)
-                {
-                    toBuff.add(groupPlayers[i]);
-                    obj_id thisBeast = beast_lib.getBeastOnPlayer(groupPlayers[i]);
-                    if (isIdValid(thisBeast) && exists(thisBeast))
-                    {
+            obj_id thisBeast;
+            for (obj_id groupPlayer : groupPlayers) {
+                if (isIdValid(groupPlayer) && exists(groupPlayer) && pvpCanHelp(caster, groupPlayer) && getDistance(groupPlayer, caster) < 100.0f) {
+                    toBuff.add(groupPlayer);
+                    thisBeast = beast_lib.getBeastOnPlayer(groupPlayer);
+                    if (isIdValid(thisBeast) && exists(thisBeast)) {
                         toBuff.add(thisBeast);
                     }
                 }
@@ -1592,11 +1498,8 @@ public class buff extends script.base_script
             toBuff.add(caster);
         }
         obj_id[] buffList = new obj_id[0];
-        if (toBuff != null)
-        {
-            buffList = new obj_id[toBuff.size()];
-            toBuff.toArray(buffList);
-        }
+        buffList = new obj_id[toBuff.size()];
+        toBuff.toArray(buffList);
         applyBuff(buffList, caster, buffName);
     }
     public static boolean decayBuff(obj_id target, String buffName) throws InterruptedException
@@ -1638,30 +1541,24 @@ public class buff extends script.base_script
         {
             return true;
         }
-        for (int i = 0; i < buffs.length; ++i)
-        {
-            buff_data bdata = combat_engine.getBuffData(buffs[i]);
-            if (bdata == null)
-            {
+        buff_data bdata;
+        for (int buff : buffs) {
+            bdata = combat_engine.getBuffData(buff);
+            if (bdata == null) {
                 LOG("buff.scriptlib", "decayAllBuffsFromPvpDeath bdata is null");
                 continue;
             }
             int decayOnPvpDeath = bdata.decayOnPvpDeath;
             int removalOnDeath = bdata.removeOnDeath;
-            if (decayOnPvpDeath == 0 && removalOnDeath == 0)
-            {
+            if (decayOnPvpDeath == 0 && removalOnDeath == 0) {
+                continue;
+            } else if (decayOnPvpDeath == 0 && removalOnDeath == 1) {
+                _removeBuff(target, buff);
+                continue;
+            } else if (removalOnDeath == 0) {
                 continue;
             }
-            else if (decayOnPvpDeath == 0 && removalOnDeath == 1)
-            {
-                _removeBuff(target, buffs[i]);
-                continue;
-            }
-            else if (removalOnDeath == 0)
-            {
-                continue;
-            }
-            _decayBuff(target, buffs[i], percent);
+            _decayBuff(target, buff, percent);
         }
         return true;
     }

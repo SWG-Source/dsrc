@@ -1,12 +1,8 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
+import script.obj_id;
+
 import java.util.Vector;
-import script.base_script;
 
 public class slots extends script.base_script
 {
@@ -81,12 +77,10 @@ public class slots extends script.base_script
         }
         Vector ret = new Vector();
         ret.setSize(0);
-        for (int i = 0; i < slots.length; i++)
-        {
-            String name = slots[i];
-            obj_id item = getObjectInSlot(target, name);
-            if (isIdValid(item))
-            {
+        obj_id item;
+        for (String name : slots) {
+            item = getObjectInSlot(target, name);
+            if (isIdValid(item)) {
                 ret = utils.addElement(ret, name);
             }
         }
@@ -95,11 +89,8 @@ public class slots extends script.base_script
             return null;
         }
         String[] _ret = new String[0];
-        if (ret != null)
-        {
-            _ret = new String[ret.size()];
-            ret.toArray(_ret);
-        }
+        _ret = new String[ret.size()];
+        ret.toArray(_ret);
         return _ret;
     }
     public static String[] getOccupiedEqSlots(obj_id target) throws InterruptedException

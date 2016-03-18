@@ -872,7 +872,7 @@ public class utils extends script.base_script
     }
     public static Vector addElement(Vector array, boolean element) throws InterruptedException
     {
-        return addElement(array, new Boolean(element));
+        return addElement(array, Boolean.valueOf(element));
     }
     public static Vector addElement(Vector array, int element) throws InterruptedException
     {

@@ -1,14 +1,8 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.gcw;
+import script.location;
+import script.obj_id;
+import script.region;
 
 public class regions extends script.base_script
 {
@@ -170,129 +164,69 @@ public class regions extends script.base_script
     }
     public static int getDeliverMissionRegionType(String strRegionName) throws InterruptedException
     {
-        if (strRegionName.equals("anchorhead"))
-        {
-            return MISSION_TATOOINE_ANCHORHEAD;
-        }
-        else if (strRegionName.equals("bestine"))
-        {
-            return MISSION_TATOOINE_BESTINE;
-        }
-        else if (strRegionName.equals("mos_eisley"))
-        {
-            return MISSION_TATOOINE_MOS_EISLEY;
-        }
-        else if (strRegionName.equals("mos_entha"))
-        {
-            return MISSION_TATOOINE_MOS_ENTHA;
-        }
-        else if (strRegionName.equals("mos_espa"))
-        {
-            return MISSION_TATOOINE_MOS_ESPA;
-        }
-        else if (strRegionName.equals("mos_taike"))
-        {
-            return MISSION_TATOOINE_MOS_TAIKE;
-        }
-        else if (strRegionName.equals("wayfar"))
-        {
-            return MISSION_TATOOINE_WAYFAR;
-        }
-        else if (strRegionName.equals("deeja_peak"))
-        {
-            return MISSION_NABOO_DEEJA_PEAK;
-        }
-        else if (strRegionName.equals("theed"))
-        {
-            return MISSION_NABOO_THEED;
-        }
-        else if (strRegionName.equals("keren"))
-        {
-            return MISSION_NABOO_KEREN;
-        }
-        else if (strRegionName.equals("kaadara"))
-        {
-            return MISSION_NABOO_KAADARA;
-        }
-        else if (strRegionName.equals("moenia"))
-        {
-            return MISSION_NABOO_MOENIA;
-        }
-        else if (strRegionName.equals("coronet"))
-        {
-            return MISSION_CORELLIA_CORONET;
-        }
-        else if (strRegionName.equals("tyrena"))
-        {
-            return MISSION_CORELLIA_TYRENA;
-        }
-        else if (strRegionName.equals("bela_vistal"))
-        {
-            return MISSION_CORELLIA_BELA_VISTAL;
-        }
-        else if (strRegionName.equals("vreni_island"))
-        {
-            return MISSION_CORELLIA_VRENI_ISLAND;
-        }
-        else if (strRegionName.equals("kor_vella"))
-        {
-            return MISSION_CORELLIA_KOR_VELLA;
-        }
-        else if (strRegionName.equals("daoba_guerfel"))
-        {
-            return MISSION_CORELLIA_DAOBA_GUERFEL;
-        }
-        else if (strRegionName.equals("doaba_guerfel"))
-        {
-            return MISSION_CORELLIA_DAOBA_GUERFEL;
-        }
-        else if (strRegionName.equals("narmle"))
-        {
-            return MISSION_RORI_NARMLE;
-        }
-        else if (strRegionName.equals("restuss"))
-        {
-            return MISSION_RORI_RESTUSS;
-        }
-        else if (strRegionName.equals("dearic"))
-        {
-            return MISSION_TALUS_DEARIC;
-        }
-        else if (strRegionName.equals("nashal"))
-        {
-            return MISSION_TALUS_NASHAL;
-        }
-        else if (strRegionName.equals("yavin4_labor_outpost"))
-        {
-            return MISSION_YAVIN4_LABOR_OUTPOST;
-        }
-        else if (strRegionName.equals("yavin4_mining_outpost"))
-        {
-            return MISSION_YAVIN4_MINING_OUTPOST;
-        }
-        else if (strRegionName.equals("endor_neutral_outpost"))
-        {
-            return MISSION_ENDOR_NEUTRAL_OUTPOST;
-        }
-        else if (strRegionName.equals("dantooine_mining_outpost"))
-        {
-            return MISSION_DANTOOINE_MINING_OUTPOST;
-        }
-        else if (strRegionName.equals("dantooine_pirate_outpost"))
-        {
-            return MISSION_DANTOOINE_PIRATE_OUTPOST;
-        }
-        else if (strRegionName.equals("dathomir_trade_outpost"))
-        {
-            return MISSION_DATHOMIR_TRADE_OUTPOST;
-        }
-        else if (strRegionName.equals("dathomir_survey_outpost"))
-        {
-            return MISSION_DATHOMIR_SURVEY_OUTPOST;
-        }
-        else if (strRegionName.equals("lok_nyms_stronghold"))
-        {
-            return MISSION_LOK_NYMS_STRONGHOLD;
+        switch (strRegionName) {
+            case "anchorhead":
+                return MISSION_TATOOINE_ANCHORHEAD;
+            case "bestine":
+                return MISSION_TATOOINE_BESTINE;
+            case "mos_eisley":
+                return MISSION_TATOOINE_MOS_EISLEY;
+            case "mos_entha":
+                return MISSION_TATOOINE_MOS_ENTHA;
+            case "mos_espa":
+                return MISSION_TATOOINE_MOS_ESPA;
+            case "mos_taike":
+                return MISSION_TATOOINE_MOS_TAIKE;
+            case "wayfar":
+                return MISSION_TATOOINE_WAYFAR;
+            case "deeja_peak":
+                return MISSION_NABOO_DEEJA_PEAK;
+            case "theed":
+                return MISSION_NABOO_THEED;
+            case "keren":
+                return MISSION_NABOO_KEREN;
+            case "kaadara":
+                return MISSION_NABOO_KAADARA;
+            case "moenia":
+                return MISSION_NABOO_MOENIA;
+            case "coronet":
+                return MISSION_CORELLIA_CORONET;
+            case "tyrena":
+                return MISSION_CORELLIA_TYRENA;
+            case "bela_vistal":
+                return MISSION_CORELLIA_BELA_VISTAL;
+            case "vreni_island":
+                return MISSION_CORELLIA_VRENI_ISLAND;
+            case "kor_vella":
+                return MISSION_CORELLIA_KOR_VELLA;
+            case "daoba_guerfel":
+                return MISSION_CORELLIA_DAOBA_GUERFEL;
+            case "doaba_guerfel":
+                return MISSION_CORELLIA_DAOBA_GUERFEL;
+            case "narmle":
+                return MISSION_RORI_NARMLE;
+            case "restuss":
+                return MISSION_RORI_RESTUSS;
+            case "dearic":
+                return MISSION_TALUS_DEARIC;
+            case "nashal":
+                return MISSION_TALUS_NASHAL;
+            case "yavin4_labor_outpost":
+                return MISSION_YAVIN4_LABOR_OUTPOST;
+            case "yavin4_mining_outpost":
+                return MISSION_YAVIN4_MINING_OUTPOST;
+            case "endor_neutral_outpost":
+                return MISSION_ENDOR_NEUTRAL_OUTPOST;
+            case "dantooine_mining_outpost":
+                return MISSION_DANTOOINE_MINING_OUTPOST;
+            case "dantooine_pirate_outpost":
+                return MISSION_DANTOOINE_PIRATE_OUTPOST;
+            case "dathomir_trade_outpost":
+                return MISSION_DATHOMIR_TRADE_OUTPOST;
+            case "dathomir_survey_outpost":
+                return MISSION_DATHOMIR_SURVEY_OUTPOST;
+            case "lok_nyms_stronghold":
+                return MISSION_LOK_NYMS_STRONGHOLD;
         }
         return 0;
     }
@@ -369,11 +303,10 @@ public class regions extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < regions.length; i++)
-        {
-            String regionName = regions[i].getName();
-            if (isIdValid(gcw.getPvpRegionControllerIdByName(object, regionName)))
-            {
+        String regionName;
+        for (script.region region : regions) {
+            regionName = region.getName();
+            if (isIdValid(gcw.getPvpRegionControllerIdByName(object, regionName))) {
                 return true;
             }
         }

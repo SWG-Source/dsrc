@@ -1,20 +1,13 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
-import script.library.beast_lib;
-import script.library.utils;
-import script.library.colors;
-import script.library.space_dungeon;
-import script.library.stealth;
-import script.library.attrib;
-import script.library.prose;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Vector;
 
 public class trial extends script.base_script
 {
@@ -255,7 +248,7 @@ public class trial extends script.base_script
     public static final int HP_UNCLE_JOE = 818125;
     public static final int HP_JOES_ADDS = 355325;
     public static final int TIME_UPLINK_WIN = 60 * 60 * 2;
-    public static final int TIME_DECREPIT_ADD = 60 * 90 * 1;
+    public static final int TIME_DECREPIT_ADD = 60 * 90;
     public static final int TIME_DECREPIT_WIN = 60 * 60 * 3;
     public static final int TIME_BATTLEFIELD_WIN = 60 * 60 * 3;
     public static final int TIME_WORKING_ADD = 60 * 60 * 2;
@@ -303,7 +296,6 @@ public class trial extends script.base_script
             tokenTypes[i] = 0;
         }
         setObjVar(self, "item.set.tokens_held", tokenTypes);
-        return;
     }
     public static void verifyBox(obj_id self) throws InterruptedException
     {
@@ -319,13 +311,9 @@ public class trial extends script.base_script
             {
                 newTokenTypes[i] = 0;
             }
-            for (int i = 0; i < tokenTypes.length; i++)
-            {
-                newTokenTypes[i] = tokenTypes[i];
-            }
+            System.arraycopy(tokenTypes, 0, newTokenTypes, 0, tokenTypes.length);
             setObjVar(self, "item.set.tokens_held", newTokenTypes);
         }
-        return;
     }
     public static String generateNewKeyCode(obj_id dungeon) throws InterruptedException
     {
@@ -377,69 +365,59 @@ public class trial extends script.base_script
         switch (timer)
         {
             case 10:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "ten"), 1.0f, colors.GREEN);
-            dict.put("timer", 9);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "ten"), 1.0f, colors.GREEN);
+                dict.put("timer", 9);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 9:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "nine"), 1.0f, colors.GREEN);
-            dict.put("timer", 8);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "nine"), 1.0f, colors.GREEN);
+                dict.put("timer", 8);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 8:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "eight"), 1.0f, colors.GREEN);
-            dict.put("timer", 7);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "eight"), 1.0f, colors.GREEN);
+                dict.put("timer", 7);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 7:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "seven"), 1.0f, colors.GREEN);
-            dict.put("timer", 6);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "seven"), 1.0f, colors.GREEN);
+                dict.put("timer", 6);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 6:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "six"), 1.0f, colors.GREEN);
-            dict.put("timer", 5);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "six"), 1.0f, colors.GREEN);
+                dict.put("timer", 5);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 5:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "five"), 1.0f, colors.GREEN);
-            dict.put("timer", 4);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "five"), 1.0f, colors.GREEN);
+                dict.put("timer", 4);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 4:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "four"), 1.0f, colors.GREEN);
-            dict.put("timer", 3);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "four"), 1.0f, colors.GREEN);
+                dict.put("timer", 3);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 3:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "three"), 1.0f, colors.GREEN);
-            dict.put("timer", 2);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "three"), 1.0f, colors.GREEN);
+                dict.put("timer", 2);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 2:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "two"), 1.0f, colors.GREEN);
-            dict.put("timer", 1);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "two"), 1.0f, colors.GREEN);
+                dict.put("timer", 1);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
+                return;
             case 1:
-            showFlyText(terminal, new string_id(DECREPIT_STF, "one"), 1.0f, colors.GREEN);
-            dict.put("timer", 0);
-            messageTo(terminal, "showStatusFlyText", dict, 1, false);
-            return;
+                showFlyText(terminal, new string_id(DECREPIT_STF, "one"), 1.0f, colors.GREEN);
+                dict.put("timer", 0);
+                messageTo(terminal, "showStatusFlyText", dict, 1, false);
         }
     }
-    public static boolean isTrapActive(obj_id dungeon) throws InterruptedException
-    {
+    public static boolean isTrapActive(obj_id dungeon) throws InterruptedException {
         dungeon = getTop(dungeon);
-        boolean triggered = true;
-        if (utils.hasScriptVar(dungeon, TRAP_STATE))
-        {
-            return utils.getBooleanScriptVar(dungeon, TRAP_STATE);
-        }
-        else 
-        {
-            return false;
-        }
+        return utils.hasScriptVar(dungeon, TRAP_STATE) && utils.getBooleanScriptVar(dungeon, TRAP_STATE);
     }
     public static boolean isTrapPrimed(obj_id dungeon) throws InterruptedException
     {
@@ -451,10 +429,8 @@ public class trial extends script.base_script
             return false;
         }
         boolean primed = false;
-        for (int i = 0; i < sensors.length; i++)
-        {
-            if (isSensorActive(sensors[i]))
-            {
+        for (obj_id sensor : sensors) {
+            if (isSensorActive(sensor)) {
                 primed = true;
             }
         }
@@ -751,16 +727,14 @@ public class trial extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < assemblyUnits.length; i++)
-        {
-            if (isDisabled(assemblyUnits[i]))
-            {
-                clearCondition(assemblyUnits[i], CONDITION_DISABLED);
+        for (obj_id assemblyUnit : assemblyUnits) {
+            if (isDisabled(assemblyUnit)) {
+                clearCondition(assemblyUnit, CONDITION_DISABLED);
             }
-            int maxHitPoints = getMaxHitpoints(assemblyUnits[i]);
-            setHitpoints(assemblyUnits[i], maxHitPoints);
-            setInvulnerable(assemblyUnits[i], true);
-            trial.bumpSession(assemblyUnits[i]);
+            int maxHitPoints = getMaxHitpoints(assemblyUnit);
+            setHitpoints(assemblyUnit, maxHitPoints);
+            setInvulnerable(assemblyUnit, true);
+            trial.bumpSession(assemblyUnit);
         }
     }
     public static void clearMdeArea(obj_id dungeon) throws InterruptedException
@@ -781,9 +755,8 @@ public class trial extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < assemblyUnits.length; i++)
-        {
-            utils.setScriptVar(assemblyUnits[i], WORKING_ASSEMBLY_STAGE, 0);
+        for (obj_id assemblyUnit : assemblyUnits) {
+            utils.setScriptVar(assemblyUnit, WORKING_ASSEMBLY_STAGE, 0);
         }
     }
     public static boolean isActiveHand(obj_id unit) throws InterruptedException
@@ -858,7 +831,6 @@ public class trial extends script.base_script
     public static boolean isUplinkDefeated(obj_id dungeon) throws InterruptedException
     {
         dungeon = getTop(dungeon);
-        boolean result = false;
         if (utils.hasScriptVar(dungeon, UPLINK_VICTORY_STATE))
         {
             return utils.getBooleanScriptVar(dungeon, UPLINK_VICTORY_STATE);
@@ -872,7 +844,6 @@ public class trial extends script.base_script
     public static boolean isUplinkActive(obj_id dungeon) throws InterruptedException
     {
         dungeon = getTop(dungeon);
-        boolean result = false;
         if (utils.hasScriptVar(dungeon, UPLINK_ACTIVE))
         {
             return utils.getBooleanScriptVar(dungeon, UPLINK_ACTIVE);
@@ -952,61 +923,29 @@ public class trial extends script.base_script
     {
         utils.setScriptVar(npc, VOLCANO_THREE_IS_BOSS, true);
     }
-    public static boolean isVolcanoCommander(obj_id npc) throws InterruptedException
-    {
-        if (utils.hasScriptVar(npc, VOLCANO_THREE_IS_BOSS))
-        {
-            return utils.getBooleanScriptVar(npc, VOLCANO_THREE_IS_BOSS);
-        }
-        else 
-        {
-            return false;
-        }
+    public static boolean isVolcanoCommander(obj_id npc) throws InterruptedException {
+        return utils.hasScriptVar(npc, VOLCANO_THREE_IS_BOSS) && utils.getBooleanScriptVar(npc, VOLCANO_THREE_IS_BOSS);
     }
     public static void markAsVolcanoCorpse(obj_id npc) throws InterruptedException
     {
         utils.setScriptVar(npc, VOLCANO_THREE_IS_CORPSE, true);
     }
-    public static boolean isVolcanoCorpse(obj_id npc) throws InterruptedException
-    {
-        if (utils.hasScriptVar(npc, VOLCANO_THREE_IS_CORPSE))
-        {
-            return utils.getBooleanScriptVar(npc, VOLCANO_THREE_IS_CORPSE);
-        }
-        else 
-        {
-            return false;
-        }
+    public static boolean isVolcanoCorpse(obj_id npc) throws InterruptedException {
+        return utils.hasScriptVar(npc, VOLCANO_THREE_IS_CORPSE) && utils.getBooleanScriptVar(npc, VOLCANO_THREE_IS_CORPSE);
     }
     public static void markAsVolcanoBeetle(obj_id npc) throws InterruptedException
     {
         utils.setScriptVar(npc, VOLCANO_FOUR_IS_BEETLE, true);
     }
-    public static boolean isVolcanoBeetle(obj_id npc) throws InterruptedException
-    {
-        if (utils.hasScriptVar(npc, VOLCANO_FOUR_IS_BEETLE))
-        {
-            return utils.getBooleanScriptVar(npc, VOLCANO_FOUR_IS_BEETLE);
-        }
-        else 
-        {
-            return false;
-        }
+    public static boolean isVolcanoBeetle(obj_id npc) throws InterruptedException {
+        return utils.hasScriptVar(npc, VOLCANO_FOUR_IS_BEETLE) && utils.getBooleanScriptVar(npc, VOLCANO_FOUR_IS_BEETLE);
     }
     public static void markAsHkCorpse(obj_id npc) throws InterruptedException
     {
         utils.setScriptVar(npc, VOLCANO_FINAL_IS_CORPSE, true);
     }
-    public static boolean isHkCorpse(obj_id npc) throws InterruptedException
-    {
-        if (utils.hasScriptVar(npc, VOLCANO_FINAL_IS_CORPSE))
-        {
-            return utils.getBooleanScriptVar(npc, VOLCANO_FINAL_IS_CORPSE);
-        }
-        else 
-        {
-            return false;
-        }
+    public static boolean isHkCorpse(obj_id npc) throws InterruptedException {
+        return utils.hasScriptVar(npc, VOLCANO_FINAL_IS_CORPSE) && utils.getBooleanScriptVar(npc, VOLCANO_FINAL_IS_CORPSE);
     }
     public static dictionary getSessionDict(obj_id subject) throws InterruptedException
     {
@@ -1089,15 +1028,10 @@ public class trial extends script.base_script
         session += 1;
         utils.setScriptVar(subject, uniqueSession, session);
     }
-    public static boolean isCellPublic(obj_id dungeon, String cellName) throws InterruptedException
-    {
+    public static boolean isCellPublic(obj_id dungeon, String cellName) throws InterruptedException {
         dungeon = getTop(dungeon);
         obj_id cellId = getCellId(dungeon, cellName);
-        if (!isIdValid(cellId))
-        {
-            return false;
-        }
-        return permissionsIsPublic(cellId);
+        return isIdValid(cellId) && permissionsIsPublic(cellId);
     }
     public static void makeCellPublic(obj_id dungeon, String cellName) throws InterruptedException
     {
@@ -1142,16 +1076,13 @@ public class trial extends script.base_script
         }
         Vector eventPlayers = new Vector();
         eventPlayers.setSize(0);
-        for (int i = 0; i < cellIds.length; i++)
-        {
-            obj_id[] contents = getContents(cellIds[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    if (isPlayer(contents[k]))
-                    {
-                        eventPlayers = utils.addElement(eventPlayers, contents[k]);
+        obj_id[] contents;
+        for (obj_id cellId : cellIds) {
+            contents = getContents(cellId);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    if (isPlayer(content)) {
+                        eventPlayers = utils.addElement(eventPlayers, content);
                     }
                 }
             }
@@ -1160,12 +1091,8 @@ public class trial extends script.base_script
         {
             return null;
         }
-        obj_id[] convertedArray = new obj_id[0];
-        if (eventPlayers != null)
-        {
-            convertedArray = new obj_id[eventPlayers.size()];
-            eventPlayers.toArray(convertedArray);
-        }
+        obj_id[] convertedArray = new obj_id[eventPlayers.size()];
+        eventPlayers.toArray(convertedArray);
         if (convertedArray.length > 0)
         {
             return convertedArray;
@@ -1183,34 +1110,26 @@ public class trial extends script.base_script
         validTargets.setSize(0);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                if (!isIncapacitated(players[i]) && !isDead(players[i]))
-                {
-                    utils.addElement(validTargets, players[i]);
+            for (obj_id player : players) {
+                if (!isIncapacitated(player) && !isDead(player)) {
+                    utils.addElement(validTargets, player);
                 }
             }
         }
         if (pets != null && pets.length > 0)
         {
-            for (int q = 0; q < pets.length; q++)
-            {
-                if (!isIncapacitated(pets[q]) && !isDead(pets[q]))
-                {
-                    utils.addElement(validTargets, pets[q]);
+            for (obj_id pet : pets) {
+                if (!isIncapacitated(pet) && !isDead(pet)) {
+                    utils.addElement(validTargets, pet);
                 }
             }
         }
-        if (validTargets == null || validTargets.size() == 0)
+        if (validTargets.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (validTargets != null)
-        {
-            returnList = new obj_id[validTargets.size()];
-            validTargets.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[validTargets.size()];
+        validTargets.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getValidTargetsInCell(obj_id dungeon, String cell) throws InterruptedException
@@ -1220,29 +1139,23 @@ public class trial extends script.base_script
     public static obj_id[] getNonStealthedTargetsInCell(obj_id dungeon, String cell) throws InterruptedException
     {
         obj_id[] players = getPlayersInCell(dungeon, cell);
-        Vector validTargets = new Vector();
-        validTargets.setSize(0);
         if (players == null || players.length == 0)
         {
             return null;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (!isIncapacitated(players[i]) && !isDead(players[i]) && !stealth.hasInvisibleBuff(players[i]))
-            {
-                utils.addElement(validTargets, players[i]);
+        Vector validTargets = new Vector();
+        validTargets.setSize(0);
+        for (obj_id player : players) {
+            if (!isIncapacitated(player) && !isDead(player) && !stealth.hasInvisibleBuff(player)) {
+                utils.addElement(validTargets, player);
             }
         }
-        if (validTargets == null || validTargets.size() == 0)
+        if (validTargets.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (validTargets != null)
-        {
-            returnList = new obj_id[validTargets.size()];
-            validTargets.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[validTargets.size()];
+        validTargets.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getPlayersInCell(obj_id dungeon, String cell) throws InterruptedException
@@ -1258,24 +1171,18 @@ public class trial extends script.base_script
         obj_id[] contents = getContents(cellId);
         if (contents != null && contents.length > 0)
         {
-            for (int k = 0; k < contents.length; k++)
-            {
-                if (isPlayer(contents[k]))
-                {
-                    utils.addElement(players, contents[k]);
+            for (obj_id content : contents) {
+                if (isPlayer(content)) {
+                    utils.addElement(players, content);
                 }
             }
         }
-        if (players == null || players.size() == 0)
+        if (players.size() == 0)
         {
             return null;
         }
-        obj_id[] returnPlayers = new obj_id[0];
-        if (players != null)
-        {
-            returnPlayers = new obj_id[players.size()];
-            players.toArray(returnPlayers);
-        }
+        obj_id[] returnPlayers = new obj_id[players.size()];
+        players.toArray(returnPlayers);
         return returnPlayers;
     }
     public static obj_id[] getPlayersInCell(obj_id dungeon, obj_id cell) throws InterruptedException
@@ -1295,36 +1202,29 @@ public class trial extends script.base_script
         {
             searchCells[j] = getCellId(dungeon, cells[j]);
         }
-        if (searchCells == null || searchCells.length == 0)
+        if (searchCells.length == 0)
         {
             return null;
         }
         Vector players = new Vector();
         players.setSize(0);
-        for (int i = 0; i < searchCells.length; i++)
-        {
-            obj_id[] contents = getContents(searchCells[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    if (isPlayer(contents[k]))
-                    {
-                        utils.addElement(players, contents[k]);
+        obj_id[] contents;
+        for (obj_id searchCell : searchCells) {
+            contents = getContents(searchCell);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    if (isPlayer(content)) {
+                        utils.addElement(players, content);
                     }
                 }
             }
         }
-        if (players == null || players.size() == 0)
+        if (players.size() == 0)
         {
             return null;
         }
-        obj_id[] returnPlayers = new obj_id[0];
-        if (players != null)
-        {
-            returnPlayers = new obj_id[players.size()];
-            players.toArray(returnPlayers);
-        }
+        obj_id[] returnPlayers = new obj_id[players.size()];
+        players.toArray(returnPlayers);
         return returnPlayers;
     }
     public static obj_id[] getObjectsInDungeonWithScript(obj_id dungeon, String script) throws InterruptedException
@@ -1345,30 +1245,23 @@ public class trial extends script.base_script
         }
         Vector objectsWithScript = new Vector();
         objectsWithScript.setSize(0);
-        for (int i = 0; i < cells.length; i++)
-        {
-            obj_id[] contents = getContents(cells[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    if (hasScript(contents[k], script))
-                    {
-                        utils.addElement(objectsWithScript, contents[k]);
+        obj_id[] contents;
+        for (obj_id cell : cells) {
+            contents = getContents(cell);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    if (hasScript(content, script)) {
+                        utils.addElement(objectsWithScript, content);
                     }
                 }
             }
         }
-        if (objectsWithScript == null || objectsWithScript.size() == 0)
+        if (objectsWithScript.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (objectsWithScript != null)
-        {
-            returnList = new obj_id[objectsWithScript.size()];
-            objectsWithScript.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[objectsWithScript.size()];
+        objectsWithScript.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getAllObjectsInDungeon(obj_id dungeon) throws InterruptedException
@@ -1385,27 +1278,21 @@ public class trial extends script.base_script
         }
         Vector objects = new Vector();
         objects.setSize(0);
-        for (int i = 0; i < cells.length; i++)
-        {
-            obj_id[] contents = getContents(cells[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    utils.addElement(objects, contents[k]);
+        obj_id[] contents;
+        for (obj_id cell : cells) {
+            contents = getContents(cell);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    utils.addElement(objects, content);
                 }
             }
         }
-        if (objects == null || objects.size() == 0)
+        if (objects.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (objects != null)
-        {
-            returnList = new obj_id[objects.size()];
-            objects.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[objects.size()];
+        objects.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getObjectsInDungeonWithObjVar(obj_id dungeon, String objvar) throws InterruptedException
@@ -1426,30 +1313,23 @@ public class trial extends script.base_script
         }
         Vector objectsWithObjVar = new Vector();
         objectsWithObjVar.setSize(0);
-        for (int i = 0; i < cells.length; i++)
-        {
-            obj_id[] contents = getContents(cells[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    if (hasObjVar(contents[k], objvar))
-                    {
-                        utils.addElement(objectsWithObjVar, contents[k]);
+        obj_id[] contents;
+        for (obj_id cell : cells) {
+            contents = getContents(cell);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    if (hasObjVar(content, objvar)) {
+                        utils.addElement(objectsWithObjVar, content);
                     }
                 }
             }
         }
-        if (objectsWithObjVar == null || objectsWithObjVar.size() == 0)
+        if (objectsWithObjVar.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (objectsWithObjVar != null)
-        {
-            returnList = new obj_id[objectsWithObjVar.size()];
-            objectsWithObjVar.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[objectsWithObjVar.size()];
+        objectsWithObjVar.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getObjectsInCellWithObjVar(obj_id dungeon, String cellName, String objvar) throws InterruptedException
@@ -1473,24 +1353,18 @@ public class trial extends script.base_script
         obj_id[] contents = getContents(checkCell);
         if (contents != null && contents.length > 0)
         {
-            for (int k = 0; k < contents.length; k++)
-            {
-                if (hasObjVar(contents[k], objvar))
-                {
-                    utils.addElement(objectsWithObjVar, contents[k]);
+            for (obj_id content : contents) {
+                if (hasObjVar(content, objvar)) {
+                    utils.addElement(objectsWithObjVar, content);
                 }
             }
         }
-        if (objectsWithObjVar == null || objectsWithObjVar.size() == 0)
+        if (objectsWithObjVar.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (objectsWithObjVar != null)
-        {
-            returnList = new obj_id[objectsWithObjVar.size()];
-            objectsWithObjVar.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[objectsWithObjVar.size()];
+        objectsWithObjVar.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getObjectsInDungeonWithScriptVar(obj_id dungeon, String scriptVar) throws InterruptedException
@@ -1511,30 +1385,23 @@ public class trial extends script.base_script
         }
         Vector objectsWithScriptVar = new Vector();
         objectsWithScriptVar.setSize(0);
-        for (int i = 0; i < cells.length; i++)
-        {
-            obj_id[] contents = getContents(cells[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    if (utils.hasScriptVar(contents[k], scriptVar))
-                    {
-                        utils.addElement(objectsWithScriptVar, contents[k]);
+        obj_id[] contents;
+        for (obj_id cell : cells) {
+            contents = getContents(cell);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    if (utils.hasScriptVar(content, scriptVar)) {
+                        utils.addElement(objectsWithScriptVar, content);
                     }
                 }
             }
         }
-        if (objectsWithScriptVar == null || objectsWithScriptVar.size() == 0)
+        if (objectsWithScriptVar.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (objectsWithScriptVar != null)
-        {
-            returnList = new obj_id[objectsWithScriptVar.size()];
-            objectsWithScriptVar.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[objectsWithScriptVar.size()];
+        objectsWithScriptVar.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getValidTargetsInRadius(obj_id center, float range) throws InterruptedException
@@ -1545,35 +1412,27 @@ public class trial extends script.base_script
         targets.setSize(0);
         if (pets != null && pets.length != 0)
         {
-            for (int i = 0; i < pets.length; i++)
-            {
-                if (isIdValid(pets[i]) && exists(pets[i]) && (hasScript(pets[i], "ai.pet") || beast_lib.isBeast(pets[i]) && canSee(center, pets[i])))
-                {
-                    utils.addElement(targets, pets[i]);
+            for (obj_id pet : pets) {
+                if (isIdValid(pet) && exists(pet) && (hasScript(pet, "ai.pet") || beast_lib.isBeast(pet) && canSee(center, pet))) {
+                    utils.addElement(targets, pet);
                 }
             }
         }
         if (players != null && players.length != 0)
         {
-            for (int k = 0; k < players.length; k++)
-            {
-                if (isIdValid(players[k]) && exists(players[k]) && !isIncapacitated(players[k]) && canSee(center, players[k]))
-                {
-                    utils.addElement(targets, players[k]);
+            for (obj_id player : players) {
+                if (isIdValid(player) && exists(player) && !isIncapacitated(player) && canSee(center, player)) {
+                    utils.addElement(targets, player);
                 }
             }
         }
-        if (targets == null || targets.size() == 0)
+        if (targets.size() == 0)
         {
             doLogging("getValidTargetsInRadius", "There were no valid pets or players in the radial area");
             return null;
         }
-        obj_id[] validTargets = new obj_id[0];
-        if (targets != null)
-        {
-            validTargets = new obj_id[targets.size()];
-            targets.toArray(validTargets);
-        }
+        obj_id[] validTargets = new obj_id[targets.size()];
+        targets.toArray(validTargets);
         return validTargets;
     }
     public static obj_id[] getValidTargetsInRadiusIgnoreLOS(obj_id center, float range) throws InterruptedException
@@ -1584,35 +1443,27 @@ public class trial extends script.base_script
         targets.setSize(0);
         if (pets != null && pets.length != 0)
         {
-            for (int i = 0; i < pets.length; i++)
-            {
-                if (isIdValid(pets[i]) && exists(pets[i]) && (hasScript(pets[i], "ai.pet") || beast_lib.isBeast(pets[i])))
-                {
-                    utils.addElement(targets, pets[i]);
+            for (obj_id pet : pets) {
+                if (isIdValid(pet) && exists(pet) && (hasScript(pet, "ai.pet") || beast_lib.isBeast(pet))) {
+                    utils.addElement(targets, pet);
                 }
             }
         }
         if (players != null && players.length != 0)
         {
-            for (int k = 0; k < players.length; k++)
-            {
-                if (isIdValid(players[k]) && exists(players[k]) && !isIncapacitated(players[k]))
-                {
-                    utils.addElement(targets, players[k]);
+            for (obj_id player : players) {
+                if (isIdValid(player) && exists(player) && !isIncapacitated(player)) {
+                    utils.addElement(targets, player);
                 }
             }
         }
-        if (targets == null || targets.size() == 0)
+        if (targets.size() == 0)
         {
             doLogging("getValidTargetsInRadius", "There were no valid pets or players in the radial area");
             return null;
         }
-        obj_id[] validTargets = new obj_id[0];
-        if (targets != null)
-        {
-            validTargets = new obj_id[targets.size()];
-            targets.toArray(validTargets);
-        }
+        obj_id[] validTargets = new obj_id[targets.size()];
+        targets.toArray(validTargets);
         return validTargets;
     }
     public static obj_id[] getValidTargetsInCone(obj_id self, obj_id target, float range, float cone) throws InterruptedException
@@ -1623,35 +1474,27 @@ public class trial extends script.base_script
         targets.setSize(0);
         if (pets != null && pets.length != 0)
         {
-            for (int i = 0; i < pets.length; i++)
-            {
-                if (isIdValid(pets[i]) && exists(pets[i]) && hasScript(pets[i], "ai.pet"))
-                {
-                    utils.addElement(targets, pets[i]);
+            for (obj_id pet : pets) {
+                if (isIdValid(pet) && exists(pet) && hasScript(pet, "ai.pet")) {
+                    utils.addElement(targets, pet);
                 }
             }
         }
         if (players != null && players.length != 0)
         {
-            for (int k = 0; k < players.length; k++)
-            {
-                if (isIdValid(players[k]) && exists(players[k]) && !isIncapacitated(players[k]))
-                {
-                    utils.addElement(targets, players[k]);
+            for (obj_id player : players) {
+                if (isIdValid(player) && exists(player) && !isIncapacitated(player)) {
+                    utils.addElement(targets, player);
                 }
             }
         }
-        if (targets == null || targets.size() == 0)
+        if (targets.size() == 0)
         {
             doLogging("getValidTargetsInCone", "There were no valid pets or players in the cone area");
             return null;
         }
-        obj_id[] validTargets = new obj_id[0];
-        if (targets != null)
-        {
-            validTargets = new obj_id[targets.size()];
-            targets.toArray(validTargets);
-        }
+        obj_id[] validTargets = new obj_id[targets.size()];
+        targets.toArray(validTargets);
         return validTargets;
     }
     public static obj_id[] getValidPlayersInRadius(obj_id self, float range) throws InterruptedException
@@ -1661,25 +1504,19 @@ public class trial extends script.base_script
         targets.setSize(0);
         if (players != null && players.length != 0)
         {
-            for (int k = 0; k < players.length; k++)
-            {
-                if (isIdValid(players[k]) && exists(players[k]) && !isIncapacitated(players[k]) && canSee(self, players[k]))
-                {
-                    utils.addElement(targets, players[k]);
+            for (obj_id player : players) {
+                if (isIdValid(player) && exists(player) && !isIncapacitated(player) && canSee(self, player)) {
+                    utils.addElement(targets, player);
                 }
             }
         }
-        if (targets == null || targets.size() == 0)
+        if (targets.size() == 0)
         {
             doLogging("getValidPlayersInRadius", "There were no valid players in the radial area");
             return null;
         }
-        obj_id[] validTargets = new obj_id[0];
-        if (targets != null)
-        {
-            validTargets = new obj_id[targets.size()];
-            targets.toArray(validTargets);
-        }
+        obj_id[] validTargets = new obj_id[targets.size()];
+        targets.toArray(validTargets);
         return validTargets;
     }
     public static void setDungeonCleanOutTimer(obj_id dungeon_controller) throws InterruptedException
@@ -1756,18 +1593,13 @@ public class trial extends script.base_script
         if (cells != null)
         {
             obj_id[] objects = getAllObjectsInDungeon(object);
-            location ejectPoint = getLocation(object);
             if (objects != null && objects.length > 0)
             {
-                for (int i = 0; i < objects.length; i++)
-                {
-                    if (isPlayer(objects[i]))
-                    {
-                        expelFromBuilding(objects[i]);
-                    }
-                    else 
-                    {
-                        cleanupObject(objects[i]);
+                for (obj_id object1 : objects) {
+                    if (isPlayer(object1)) {
+                        expelFromBuilding(object1);
+                    } else {
+                        cleanupObject(object1);
                     }
                 }
             }
@@ -1795,9 +1627,8 @@ public class trial extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            cleanupObject(objects[i]);
+        for (obj_id object : objects) {
+            cleanupObject(object);
         }
     }
     public static void setHp(obj_id target, int ammount) throws InterruptedException
@@ -1882,21 +1713,14 @@ public class trial extends script.base_script
         }
         return object;
     }
-    public static boolean isChild(obj_id parent, obj_id child) throws InterruptedException
-    {
-        if (!isIdValid(parent) || !isIdValid(child))
-        {
+    public static boolean isChild(obj_id parent, obj_id child) throws InterruptedException {
+        if (!isIdValid(parent) || !isIdValid(child)) {
             return false;
         }
-        if (utils.hasScriptVar(child, PARENT))
-        {
+        if (utils.hasScriptVar(child, PARENT)) {
             return (utils.getObjIdScriptVar(child, PARENT) == parent);
         }
-        if (hasObjVar(child, PARENT))
-        {
-            return (getObjIdObjVar(child, PARENT) == parent);
-        }
-        return false;
+        return hasObjVar(child, PARENT) && (getObjIdObjVar(child, PARENT) == parent);
     }
     public static obj_id[] getAllChildrenInDungeon(obj_id dungeon, obj_id parent) throws InterruptedException
     {
@@ -1911,30 +1735,23 @@ public class trial extends script.base_script
         }
         Vector objects = new Vector();
         objects.setSize(0);
-        for (int i = 0; i < cells.length; i++)
-        {
-            obj_id[] contents = getContents(cells[i]);
-            if (contents != null && contents.length > 0)
-            {
-                for (int k = 0; k < contents.length; k++)
-                {
-                    if (isChild(parent, contents[k]))
-                    {
-                        utils.addElement(objects, contents[k]);
+        obj_id[] contents;
+        for (obj_id cell : cells) {
+            contents = getContents(cell);
+            if (contents != null && contents.length > 0) {
+                for (obj_id content : contents) {
+                    if (isChild(parent, content)) {
+                        utils.addElement(objects, content);
                     }
                 }
             }
         }
-        if (objects == null || objects.size() == 0)
+        if (objects.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (objects != null)
-        {
-            returnList = new obj_id[objects.size()];
-            objects.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[objects.size()];
+        objects.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getChildrenInRange(obj_id baseObject, obj_id parent, float range) throws InterruptedException
@@ -1959,23 +1776,17 @@ public class trial extends script.base_script
         }
         Vector children = new Vector();
         children.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isChild(parent, objects[i]))
-            {
-                utils.addElement(children, objects[i]);
+        for (obj_id object : objects) {
+            if (isChild(parent, object)) {
+                utils.addElement(children, object);
             }
         }
-        if (children == null || children.size() == 0)
+        if (children.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (children != null)
-        {
-            returnList = new obj_id[children.size()];
-            children.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[children.size()];
+        children.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getObjectsInRangeWithScriptVar(obj_id baseObj, String scriptVar, float range) throws InterruptedException
@@ -1984,8 +1795,7 @@ public class trial extends script.base_script
         {
             return null;
         }
-        location baseLoc = getLocation(baseObj);
-        return getObjectsInRangeWithScriptVar(baseLoc, scriptVar, range);
+        return getObjectsInRangeWithScriptVar(getLocation(baseObj), scriptVar, range);
     }
     public static obj_id[] getObjectsInRangeWithScriptVar(location baseLoc, String scriptVar, float range) throws InterruptedException
     {
@@ -2000,23 +1810,17 @@ public class trial extends script.base_script
         }
         Vector withVar = new Vector();
         withVar.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (utils.hasScriptVar(objects[i], scriptVar))
-            {
-                utils.addElement(withVar, objects[i]);
+        for (obj_id object : objects) {
+            if (utils.hasScriptVar(object, scriptVar)) {
+                utils.addElement(withVar, object);
             }
         }
-        if (withVar == null || withVar.size() == 0)
+        if (withVar.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (withVar != null)
-        {
-            returnList = new obj_id[withVar.size()];
-            withVar.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[withVar.size()];
+        withVar.toArray(returnList);
         return returnList;
     }
     public static void prepareCorpse(obj_id corpse) throws InterruptedException
@@ -2038,19 +1842,13 @@ public class trial extends script.base_script
     public static obj_id getClosest(obj_id base, obj_id[] targets) throws InterruptedException
     {
         obj_id prefered = obj_id.NULL_ID;
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isDead(targets[i]))
-            {
-                if (!isIdValid(prefered))
-                {
-                    prefered = targets[i];
-                }
-                else 
-                {
-                    if (getDistance(base, targets[i]) < getDistance(base, prefered) && canSee(base, targets[i]) && !stealth.hasInvisibleBuff(targets[i]))
-                    {
-                        prefered = targets[i];
+        for (obj_id target : targets) {
+            if (!isDead(target)) {
+                if (!isIdValid(prefered)) {
+                    prefered = target;
+                } else {
+                    if (getDistance(base, target) < getDistance(base, prefered) && canSee(base, target) && !stealth.hasInvisibleBuff(target)) {
+                        prefered = target;
                     }
                 }
             }
@@ -2061,20 +1859,14 @@ public class trial extends script.base_script
     {
         obj_id prefered = obj_id.NULL_ID;
         obj_id previous = obj_id.NULL_ID;
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isDead(targets[i]))
-            {
-                if (!isIdValid(prefered))
-                {
-                    prefered = targets[i];
-                }
-                else 
-                {
-                    if (getDistance(base, targets[i]) < getDistance(base, prefered) && canSee(base, targets[i]))
-                    {
+        for (obj_id target : targets) {
+            if (!isDead(target)) {
+                if (!isIdValid(prefered)) {
+                    prefered = target;
+                } else {
+                    if (getDistance(base, target) < getDistance(base, prefered) && canSee(base, target)) {
                         previous = prefered;
-                        prefered = targets[i];
+                        prefered = target;
                     }
                 }
             }
@@ -2084,17 +1876,12 @@ public class trial extends script.base_script
     public static obj_id getClosestObject(obj_id base, obj_id[] targets) throws InterruptedException
     {
         obj_id prefered = null;
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isIdValid(prefered))
-            {
-                prefered = targets[i];
-            }
-            else 
-            {
-                if (getDistance(base, targets[i]) < getDistance(base, prefered) && canSee(base, targets[i]))
-                {
-                    prefered = targets[i];
+        for (obj_id target : targets) {
+            if (!isIdValid(prefered)) {
+                prefered = target;
+            } else {
+                if (getDistance(base, target) < getDistance(base, prefered) && canSee(base, target)) {
+                    prefered = target;
                 }
             }
         }
@@ -2111,17 +1898,8 @@ public class trial extends script.base_script
             utils.setScriptVar(object, TEMP_OBJECT, true);
         }
     }
-    public static boolean isTempObject(obj_id object) throws InterruptedException
-    {
-        if (utils.hasScriptVar(object, TEMP_OBJECT))
-        {
-            return true;
-        }
-        if (hasObjVar(object, TEMP_OBJECT))
-        {
-            return true;
-        }
-        return false;
+    public static boolean isTempObject(obj_id object) throws InterruptedException {
+        return utils.hasScriptVar(object, TEMP_OBJECT) || hasObjVar(object, TEMP_OBJECT);
     }
     public static obj_id[] getTempObjectsInDungeon(obj_id dungeon) throws InterruptedException
     {
@@ -2132,23 +1910,17 @@ public class trial extends script.base_script
         }
         Vector tempObjects = new Vector();
         tempObjects.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isTempObject(objects[i]))
-            {
-                utils.addElement(tempObjects, objects[i]);
+        for (obj_id object : objects) {
+            if (isTempObject(object)) {
+                utils.addElement(tempObjects, object);
             }
         }
-        if (tempObjects == null || tempObjects.size() == 0)
+        if (tempObjects.size() == 0)
         {
             return null;
         }
-        obj_id[] _tempObjects = new obj_id[0];
-        if (tempObjects != null)
-        {
-            _tempObjects = new obj_id[tempObjects.size()];
-            tempObjects.toArray(_tempObjects);
-        }
+        obj_id[] _tempObjects = new obj_id[tempObjects.size()];
+        tempObjects.toArray(_tempObjects);
         return _tempObjects;
     }
     public static obj_id[] getTempObjectsInBuildoutArea(obj_id baseObject) throws InterruptedException
@@ -2160,23 +1932,17 @@ public class trial extends script.base_script
         }
         Vector tempObjects = new Vector();
         tempObjects.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (trial.isTempObject(objects[i]))
-            {
-                tempObjects.add(objects[i]);
+        for (obj_id object : objects) {
+            if (trial.isTempObject(object)) {
+                tempObjects.add(object);
             }
         }
-        if (tempObjects == null || tempObjects.size() == 0)
+        if (tempObjects.size() == 0)
         {
             return null;
         }
-        obj_id[] _tempObjects = new obj_id[0];
-        if (tempObjects != null)
-        {
-            _tempObjects = new obj_id[tempObjects.size()];
-            tempObjects.toArray(_tempObjects);
-        }
+        obj_id[] _tempObjects = new obj_id[tempObjects.size()];
+        tempObjects.toArray(_tempObjects);
         return _tempObjects;
     }
     public static String getNearestPatrolPoint(obj_id actor, String[] patrolPointList) throws InterruptedException
@@ -2190,21 +1956,18 @@ public class trial extends script.base_script
         Vector ppl = new Vector(Arrays.asList(patrolPointList));
         float distance = 2000.0f;
         int idx = 0;
-        for (int i = 0; i < points.length; i++)
-        {
-            if (getParent(actor) != getParent(points[i]))
-            {
+        String testName;
+        for (obj_id point : points) {
+            if (getParent(actor) != getParent(point)) {
                 continue;
             }
-            String testName = getStringObjVar(points[i], "sequence_controller.patrolPointName");
-            if (ppl.indexOf(testName) == -1)
-            {
+            testName = getStringObjVar(point, "sequence_controller.patrolPointName");
+            if (ppl.indexOf(testName) == -1) {
                 continue;
             }
-            if (getDistance(actor, points[i]) < distance && canSee(actor, points[i]))
-            {
+            if (getDistance(actor, point) < distance && canSee(actor, point)) {
                 idx = ppl.lastIndexOf(testName);
-                distance = getDistance(actor, points[i]);
+                distance = getDistance(actor, point);
             }
         }
         return idx;
@@ -2213,61 +1976,45 @@ public class trial extends script.base_script
     {
         Vector locList = new Vector();
         locList.setSize(0);
-        for (int i = 0; i < patrolPointList.length; i++)
-        {
-            obj_id[] points = getAllObjectsWithObjVar(getLocation(actor), 2000.0f, "sequence_controller.patrolPointName");
-            for (int k = 0; k < points.length; k++)
-            {
-                if ((getStringObjVar(points[k], "sequence_controller.patrolPointName")).equals(patrolPointList[i]) && trial.getParent(points[k]) == trial.getParent(actor))
-                {
-                    utils.addElement(locList, getLocation(points[k]));
+        obj_id[] points;
+        for (String aPatrolPointList : patrolPointList) {
+            points = getAllObjectsWithObjVar(getLocation(actor), 2000.0f, "sequence_controller.patrolPointName");
+            for (obj_id point : points) {
+                if ((getStringObjVar(point, "sequence_controller.patrolPointName")).equals(aPatrolPointList) && trial.getParent(point) == trial.getParent(actor)) {
+                    utils.addElement(locList, getLocation(point));
                 }
             }
         }
-        if (locList == null || locList.size() == 0)
+        if (locList.size() == 0)
         {
             return null;
         }
-        location[] returnList = new location[0];
-        if (locList != null)
-        {
-            returnList = new location[locList.size()];
-            locList.toArray(returnList);
-        }
-        location[] _locList = new location[0];
-        if (locList != null)
-        {
-            _locList = new location[locList.size()];
-            locList.toArray(_locList);
-        }
+        location[] returnList = new location[locList.size()];
+        locList.toArray(returnList);
+        location[] _locList = new location[locList.size()];
+        locList.toArray(_locList);
         return _locList;
     }
     public static obj_id[] getObjectsInListWithObjVar(obj_id[] list, String objvar) throws InterruptedException
     {
         Vector targetObjects = new Vector();
         targetObjects.setSize(0);
-        for (int i = 0; i < list.length; i++)
-        {
-            if (isIdValid(list[i]) && exists(list[i]) && hasObjVar(list[i], objvar))
-            {
-                utils.addElement(targetObjects, list[i]);
+        for (obj_id aList : list) {
+            if (isIdValid(aList) && exists(aList) && hasObjVar(aList, objvar)) {
+                utils.addElement(targetObjects, aList);
             }
         }
-        if (targetObjects == null || targetObjects.size() == 0)
+        if (targetObjects.size() == 0)
         {
             return null;
         }
-        obj_id[] returnList = new obj_id[0];
-        if (targetObjects != null)
-        {
-            returnList = new obj_id[targetObjects.size()];
-            targetObjects.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[targetObjects.size()];
+        targetObjects.toArray(returnList);
         return returnList;
     }
     public static location[] shuffleByIndex(String type, location[] ppl, int idx) throws InterruptedException
     {
-        location[] retarded = (location[])ppl.clone();
+        location[] retarded = ppl.clone();
         Vector oldPpl = new Vector(Arrays.asList(retarded));
         Vector newPpl = new Vector();
         newPpl.setSize(0);
@@ -2280,48 +2027,32 @@ public class trial extends script.base_script
             }
             for (int q = 0; q < idx; q++)
             {
-                newPpl.addElement(((location)(((location)oldPpl.get(q)))));
+                newPpl.addElement(oldPpl.get(q));
             }
         }
         if (type.equals("patrolOnce"))
         {
-            for (int i = idx; i < ppl.length; i++)
-            {
-                newPpl.add(ppl[i]);
-            }
+            newPpl.addAll(Arrays.asList(ppl).subList(idx, ppl.length));
         }
         if (type.equals("patrolFlip"))
         {
-            for (int i = idx; i < ppl.length; i++)
-            {
-                newPpl.add(ppl[i]);
-            }
+            newPpl.addAll(Arrays.asList(ppl).subList(idx, ppl.length));
             for (int q = ppl.length - 2; q > -1; q--)
             {
                 newPpl.add(ppl[q]);
             }
-            for (int r = 0; r < idx; r++)
-            {
-                newPpl.add(ppl[r]);
-            }
+            newPpl.addAll(Arrays.asList(ppl).subList(0, idx));
         }
         if (type.equals("patrolFlipOnce"))
         {
-            for (int i = idx; i < ppl.length; i++)
-            {
-                newPpl.add(ppl[i]);
-            }
+            newPpl.addAll(Arrays.asList(ppl).subList(idx, ppl.length));
         }
         if (type.equals("patrolRandom") || type.equals("patrolRandomOnce"))
         {
             newPpl = new Vector(Arrays.asList(ppl));
         }
-        location[] _newPpl = new location[0];
-        if (newPpl != null)
-        {
-            _newPpl = new location[newPpl.size()];
-            newPpl.toArray(_newPpl);
-        }
+        location[] _newPpl = new location[newPpl.size()];
+        newPpl.toArray(_newPpl);
         return _newPpl;
     }
     public static obj_id[] getSpawnedChildren(obj_id object) throws InterruptedException
@@ -2334,21 +2065,16 @@ public class trial extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < keyList.size(); i++)
-        {
-            Vector thisList = spawnList.getResizeableObjIdArray(((String)keyList.get(i)));
-            if (thisList == null || thisList.size() == 0)
-            {
+        Vector thisList;
+        for (Object aKeyList : keyList) {
+            thisList = spawnList.getResizeableObjIdArray(aKeyList);
+            if (thisList == null || thisList.size() == 0) {
                 continue;
             }
             allChildren.addAll(thisList);
         }
-        obj_id[] returnList = new obj_id[0];
-        if (allChildren != null)
-        {
-            returnList = new obj_id[allChildren.size()];
-            allChildren.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[allChildren.size()];
+        allChildren.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getObjectsInInstanceBySpawnId(obj_id baseObject, String spawn_id) throws InterruptedException
@@ -2372,25 +2098,18 @@ public class trial extends script.base_script
         dictionary spawnList = utils.getDictionaryScriptVar(trial.getParent(baseObject), PROT_CHILD_ARRAY);
         Vector allSpawn = new Vector();
         allSpawn.setSize(0);
-        for (int i = 0; i < idList.length; i++)
-        {
-            if (!spawnList.containsKey(idList[i]))
-            {
+        for (String anIdList : idList) {
+            if (!spawnList.containsKey(anIdList)) {
                 continue;
             }
-            Vector thisList = spawnList.getResizeableObjIdArray(idList[i]);
-            if (thisList == null || thisList.size() == 0)
-            {
+            Vector thisList = spawnList.getResizeableObjIdArray(anIdList);
+            if (thisList == null || thisList.size() == 0) {
                 continue;
             }
             allSpawn.addAll(thisList);
         }
-        obj_id[] returnList = new obj_id[0];
-        if (allSpawn != null)
-        {
-            returnList = new obj_id[allSpawn.size()];
-            allSpawn.toArray(returnList);
-        }
+        obj_id[] returnList = new obj_id[allSpawn.size()];
+        allSpawn.toArray(returnList);
         return returnList;
     }
     public static obj_id[] getObjectsInInstanceByObjVar(obj_id baseObject, String obj_var) throws InterruptedException
@@ -2406,24 +2125,17 @@ public class trial extends script.base_script
         }
         Vector allSpawns = new Vector();
         allSpawns.setSize(0);
-        for (int i = 0; i < idList.length; i++)
-        {
-            obj_id[] thisVector = getObjectsInInstanceByObjVar(baseObject, idList[i]);
-            for (int q = 0; q < thisVector.length; q++)
-            {
-                allSpawns.add(thisVector[q]);
-            }
+        obj_id[] thisVector;
+        for (String anIdList : idList) {
+            thisVector = getObjectsInInstanceByObjVar(baseObject, anIdList);
+            Collections.addAll(allSpawns, thisVector);
         }
-        if (allSpawns == null || allSpawns.size() == 0)
+        if (allSpawns.size() == 0)
         {
             return null;
         }
-        obj_id[] _allSpawns = new obj_id[0];
-        if (allSpawns != null)
-        {
-            _allSpawns = new obj_id[allSpawns.size()];
-            allSpawns.toArray(_allSpawns);
-        }
+        obj_id[] _allSpawns = new obj_id[allSpawns.size()];
+        allSpawns.toArray(_allSpawns);
         return _allSpawns;
     }
     public static void sendSequenceTrigger(String sequence_trigger) throws InterruptedException
@@ -2438,14 +2150,9 @@ public class trial extends script.base_script
         dict.put("triggerName", sequence_trigger);
         messageTo(instance_id, "triggerFired", dict, 1.0f, false);
     }
-    public static boolean registerObjectWithSequencer(obj_id object) throws InterruptedException
-    {
+    public static boolean registerObjectWithSequencer(obj_id object) throws InterruptedException {
         obj_id instance_id = instance.getAreaInstanceController(object);
-        if (!isIdValid(instance_id))
-        {
-            return false;
-        }
-        return registerObjectWithSequencer(instance_id, object);
+        return isIdValid(instance_id) && registerObjectWithSequencer(instance_id, object);
     }
     public static boolean registerObjectWithSequencer(obj_id sequencer, obj_id object) throws InterruptedException
     {
@@ -2454,14 +2161,9 @@ public class trial extends script.base_script
         messageTo(sequencer, "registerObjectWithSequencer", dict, 0.0f, false);
         return true;
     }
-    public static boolean unregisterObjectWithSequencer(obj_id object) throws InterruptedException
-    {
+    public static boolean unregisterObjectWithSequencer(obj_id object) throws InterruptedException {
         obj_id instance_id = instance.getAreaInstanceController(object);
-        if (!isIdValid(instance_id))
-        {
-            return false;
-        }
-        return unregisterObjectWithSequencer(instance_id, object);
+        return isIdValid(instance_id) && unregisterObjectWithSequencer(instance_id, object);
     }
     public static boolean unregisterObjectWithSequencer(obj_id sequencer, obj_id object) throws InterruptedException
     {
@@ -2541,8 +2243,7 @@ public class trial extends script.base_script
     public static obj_id createSchedulerNPC(obj_id parent, obj_id patrolPoint, String npcName) throws InterruptedException
     {
         location loc = getLocation(parent);
-        obj_id npc = createSchedulerNPC(parent, patrolPoint, npcName, loc);
-        return npc;
+        return createSchedulerNPC(parent, patrolPoint, npcName, loc);
     }
     public static obj_id createSchedulerNPC(obj_id parent, obj_id patrolPoint, String npcName, location loc) throws InterruptedException
     {
@@ -2619,7 +2320,7 @@ public class trial extends script.base_script
         {
             participantScriptVar = "gcw.imperial.participants";
         }
-        if (participantScriptVar == null || participantScriptVar.length() < 1)
+        if (participantScriptVar.length() < 1)
         {
             CustomerServiceLog("gcw_city_invasion", "trial.addNonInstanceFactionParticipant: Player: " + who + " did not have the faction affiliation needed to be added to a participant list.");
             return false;
@@ -2670,7 +2371,7 @@ public class trial extends script.base_script
         {
             participantScriptVar = "gcw.imperial.participants";
         }
-        if (participantScriptVar == null || participantScriptVar.length() < 1)
+        if (participantScriptVar.length() < 1)
         {
             return false;
         }
@@ -2685,7 +2386,7 @@ public class trial extends script.base_script
             }
         }
         utils.removeElement(sideParticipants, who);
-        if (sideParticipants.size() == 0)
+        if (sideParticipants == null || sideParticipants.size() == 0)
         {
             utils.removeScriptVar(parent, participantScriptVar);
             CustomerServiceLog("gcw_city_invasion", "trial.removeNonInstanceFactionParticipant: Player: " + who + " has been REMOVED as a valid participant of the GCW city invasion for city object: " + parent);
@@ -2729,7 +2430,7 @@ public class trial extends script.base_script
         {
             participantScriptVar = "gcw.imperial.participants";
         }
-        if (participantScriptVar == null || participantScriptVar.length() < 1)
+        if (participantScriptVar.length() < 1)
         {
             return false;
         }
@@ -2738,18 +2439,15 @@ public class trial extends script.base_script
         if (utils.hasScriptVar(parent, participantScriptVar))
         {
             sideParticipants = utils.getResizeableObjIdArrayScriptVar(parent, participantScriptVar);
-            if (sideParticipants != null && !utils.isElementInArray(sideParticipants, who))
+            if (sideParticipants == null || !utils.isElementInArray(sideParticipants, who))
             {
                 return false;
             }
-            for (int i = 0; i < sideParticipants.size(); i++)
-            {
-                if (!isValidId(((obj_id)sideParticipants.get(i))))
-                {
+            for (Object sideParticipant : sideParticipants) {
+                if (!isValidId(((obj_id) sideParticipant))) {
                     continue;
                 }
-                if (((obj_id)sideParticipants.get(i)) != who)
-                {
+                if (sideParticipant != who) {
                     continue;
                 }
                 return true;
@@ -2778,7 +2476,7 @@ public class trial extends script.base_script
         {
             participantScriptVar = "gcw.imperial.participants";
         }
-        if (participantScriptVar == null || participantScriptVar.length() <= 0)
+        if (participantScriptVar.length() <= 0)
         {
             CustomerServiceLog("gcw_city_invasion", "trial.getNonInstanceFactionParticipants: Participant list not found. Returning NULL.");
             return null;
@@ -2818,76 +2516,55 @@ public class trial extends script.base_script
         }
         int tokensOwed = price;
         boolean foundTokenHolderBox = false;
-        for (int i = 0; i < inventoryContents.length; i++)
-        {
-            if (!isIdValid(inventoryContents[i]) || !exists(inventoryContents[i]))
-            {
+        String itemName;
+        for (obj_id inventoryContent : inventoryContents) {
+            if (!isIdValid(inventoryContent) || !exists(inventoryContent)) {
                 continue;
             }
-            String itemName = getStaticItemName(inventoryContents[i]);
-            if (itemName != null && !itemName.equals(""))
-            {
-                if (itemName.equals(tokenName))
-                {
-                    if (getCount(inventoryContents[i]) > 1)
-                    {
-                        if (getCount(inventoryContents[i]) > tokensOwed)
-                        {
-                            setCount(inventoryContents[i], (getCount(inventoryContents[i]) - tokensOwed));
+            itemName = getStaticItemName(inventoryContent);
+            if (itemName != null && !itemName.equals("")) {
+                if (itemName.equals(tokenName)) {
+                    if (getCount(inventoryContent) > 1) {
+                        if (getCount(inventoryContent) > tokensOwed) {
+                            setCount(inventoryContent, (getCount(inventoryContent) - tokensOwed));
                             tokensOwed = 0;
+                        } else {
+                            tokensOwed = tokensOwed - getCount(inventoryContent);
+                            destroyObject(inventoryContent);
                         }
-                        else 
-                        {
-                            tokensOwed = tokensOwed - getCount(inventoryContents[i]);
-                            destroyObject(inventoryContents[i]);
-                        }
-                    }
-                    else 
-                    {
-                        destroyObject(inventoryContents[i]);
+                    } else {
+                        destroyObject(inventoryContent);
                         tokensOwed--;
                     }
                 }
-                if (!foundTokenHolderBox && itemName.equals("item_heroic_token_box_01_01"))
-                {
+                if (!foundTokenHolderBox && itemName.equals("item_heroic_token_box_01_01")) {
                     foundTokenHolderBox = true;
                     int vTokens = 0;
-                    if (hasObjVar(inventoryContents[i], "item.set.tokens_held"))
-                    {
-                        int[] virtualTokens = getIntArrayObjVar(inventoryContents[i], "item.set.tokens_held");
+                    if (hasObjVar(inventoryContent, "item.set.tokens_held")) {
+                        int[] virtualTokens = getIntArrayObjVar(inventoryContent, "item.set.tokens_held");
                         int t = -1;
-                        for (int k = 0; k < HEROIC_TOKENS.length; k++)
-                        {
-                            if (HEROIC_TOKENS[k].equals(tokenName))
-                            {
+                        for (int k = 0; k < HEROIC_TOKENS.length; k++) {
+                            if (HEROIC_TOKENS[k].equals(tokenName)) {
                                 t = k;
                                 vTokens = virtualTokens[t];
                             }
                         }
-                        if (t > -1)
-                        {
-                            if (vTokens > tokensOwed)
-                            {
+                        if (t > -1) {
+                            if (vTokens > tokensOwed) {
                                 vTokens = vTokens - tokensOwed;
                                 virtualTokens[t] = vTokens;
                                 tokensOwed = 0;
-                            }
-                            else 
-                            {
+                            } else {
                                 tokensOwed = tokensOwed - vTokens;
                                 virtualTokens[t] = 0;
                             }
-                            setObjVar(inventoryContents[i], "item.set.tokens_held", virtualTokens);
+                            setObjVar(inventoryContent, "item.set.tokens_held", virtualTokens);
                         }
                     }
                 }
             }
         }
-        if (tokensOwed == 0)
-        {
-            return true;
-        }
-        return false;
+        return tokensOwed == 0;
     }
     public static int getSpaceDutyTokenPrice(int level) throws InterruptedException
     {
@@ -2908,38 +2585,28 @@ public class trial extends script.base_script
             return 0;
         }
         boolean foundTokenHolderBox = false;
-        for (int i = 0; i < inventoryContents.length; i++)
-        {
-            if (!isIdValid(inventoryContents[i]) || !exists(inventoryContents[i]))
-            {
+        String itemName;
+        for (obj_id inventoryContent : inventoryContents) {
+            if (!isIdValid(inventoryContent) || !exists(inventoryContent)) {
                 continue;
             }
-            String itemName = getStaticItemName(inventoryContents[i]);
-            if (itemName != null && !itemName.equals(""))
-            {
-                if (itemName.equals(token))
-                {
-                    if (getCount(inventoryContents[i]) > 1)
-                    {
-                        tokenCount = tokenCount + getCount(inventoryContents[i]);
-                    }
-                    else 
-                    {
+            itemName = getStaticItemName(inventoryContent);
+            if (itemName != null && !itemName.equals("")) {
+                if (itemName.equals(token)) {
+                    if (getCount(inventoryContent) > 1) {
+                        tokenCount = tokenCount + getCount(inventoryContent);
+                    } else {
                         tokenCount++;
                     }
                 }
-                if (!foundTokenHolderBox && itemName.equals("item_heroic_token_box_01_01"))
-                {
+                if (!foundTokenHolderBox && itemName.equals("item_heroic_token_box_01_01")) {
                     foundTokenHolderBox = true;
-                    trial.verifyBox(inventoryContents[i]);
+                    trial.verifyBox(inventoryContent);
                     int t = 0;
-                    if (hasObjVar(inventoryContents[i], "item.set.tokens_held"))
-                    {
-                        int[] virtualTokenArray = getIntArrayObjVar(inventoryContents[i], "item.set.tokens_held");
-                        for (int k = 0; k < trial.HEROIC_TOKENS.length; k++)
-                        {
-                            if (trial.HEROIC_TOKENS[k].equals(token))
-                            {
+                    if (hasObjVar(inventoryContent, "item.set.tokens_held")) {
+                        int[] virtualTokenArray = getIntArrayObjVar(inventoryContent, "item.set.tokens_held");
+                        for (int k = 0; k < trial.HEROIC_TOKENS.length; k++) {
+                            if (trial.HEROIC_TOKENS[k].equals(token)) {
                                 t = k;
                             }
                         }

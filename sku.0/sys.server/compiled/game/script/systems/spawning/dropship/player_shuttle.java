@@ -1,15 +1,8 @@
 package script.systems.spawning.dropship;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.ai_lib;
+import script.dictionary;
+import script.location;
+import script.obj_id;
 
 public class player_shuttle extends script.systems.spawning.dropship.base
 {
@@ -40,9 +33,8 @@ public class player_shuttle extends script.systems.spawning.dropship.base
             location locList[] = params.getLocationArray("explosionLocaitonList");
             if (locList != null && locList.length > 0)
             {
-                for (int i = 0; i < locList.length; i++)
-                {
-                    playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", locList[i], 0);
+                for (location aLocList : locList) {
+                    playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", aLocList, 0);
                 }
             }
             messageTo(self, "destroySelf", null, 0, false);

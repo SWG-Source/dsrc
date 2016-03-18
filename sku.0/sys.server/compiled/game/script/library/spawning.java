@@ -1,15 +1,10 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
 
-import script.library.utils;
-import script.library.space_utils;
+import java.util.Vector;
 
 public class spawning extends script.base_script
 {
@@ -24,7 +19,6 @@ public class spawning extends script.base_script
             return;
         }
         messageTo(objSpawners[rand(0, objSpawners.length - 1)], "doSpawnEvent", null, 0, false);
-        return;
     }
     public static location getRandomLocationInCircle(location locTest, float fltSize) throws InterruptedException
     {
@@ -55,11 +49,7 @@ public class spawning extends script.base_script
     {
         int intSpawnCount = getIntObjVar(self, "intSpawnCount");
         int intCurrentSpawnCount = utils.getIntScriptVar(self, "intCurrentSpawnCount");
-        if (intCurrentSpawnCount >= intSpawnCount)
-        {
-            return false;
-        }
-        return true;
+        return intCurrentSpawnCount < intSpawnCount;
     }
     public static void incrementSpawnCount(obj_id self) throws InterruptedException
     {
@@ -70,7 +60,6 @@ public class spawning extends script.base_script
         {
             utils.setScriptVar(self, "intCurrentSpawnCount", intCurrentSpawnCount);
         }
-        return;
     }
     public static void addToSpawnDebugList(obj_id self, obj_id spawned) throws InterruptedException
     {
@@ -98,9 +87,8 @@ public class spawning extends script.base_script
         obj_id[] objContents = getContents(objParent);
         if ((objContents != null) && (objContents.length > 0))
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                getObjectsWithObjVar(objContents[intI], strObjVarName, objArray);
+            for (obj_id objContent : objContents) {
+                getObjectsWithObjVar(objContent, strObjVarName, objArray);
             }
         }
         return objArray;
@@ -110,14 +98,12 @@ public class spawning extends script.base_script
         Vector objContents = new Vector();
         objContents.setSize(0);
         obj_id[] objCells = getContents(objObject);
-        for (int intI = 0; intI < objCells.length; intI++)
-        {
-            obj_id[] objTestContents = getContents(objCells[intI]);
-            if ((objTestContents != null) && (objTestContents.length > 0))
-            {
-                for (int intJ = 0; intJ < objTestContents.length; intJ++)
-                {
-                    objContents = utils.addElement(objContents, objTestContents[intJ]);
+        obj_id[] objTestContents;
+        for (obj_id objCell : objCells) {
+            objTestContents = getContents(objCell);
+            if ((objTestContents != null) && (objTestContents.length > 0)) {
+                for (obj_id objTestContent : objTestContents) {
+                    objContents = utils.addElement(objContents, objTestContent);
                 }
             }
         }
@@ -147,19 +133,17 @@ public class spawning extends script.base_script
         Vector spawnedList = utils.getResizeableObjIdArrayScriptVar(spawner, "myCreations");
         for (int i = 0; i < spawnedList.size(); i++)
         {
-            if (((obj_id)spawnedList.get(i)) == deadGuy)
+            if (spawnedList.get(i) == deadGuy)
             {
-                spawnedList.remove(((obj_id)spawnedList.get(i)));
+                spawnedList.remove(spawnedList.get(i));
                 continue;
             }
-            if (((obj_id)spawnedList.get(i)) == null)
+            if (spawnedList.get(i) == null)
             {
-                spawnedList.remove(((obj_id)spawnedList.get(i)));
-                continue;
+                spawnedList.remove(spawnedList.get(i));
             }
         }
         utils.setScriptVar(spawner, "myCreations", spawnedList);
-        return;
     }
     public static obj_id createSpawnInLegacyCell(obj_id dungeon, location creatureLocation, String creatureName) throws InterruptedException
     {
@@ -207,14 +191,24 @@ public class spawning extends script.base_script
         {
             return false;
         }
+        dictionary objToSpawn;
+        String object;
+        String spawnRoom;
+        obj_id room;
+        obj_id objectCreated;
+        String script;
+        String[] scripts;
+        String objVars;
+        String objName;
+
         for (int i = 0; i < numberOfObjectsToSpawn; i++)
         {
-            dictionary objToSpawn = dataTableGetRow(table, i);
+            objToSpawn = dataTableGetRow(table, i);
             if (objToSpawn == null)
             {
                 continue;
             }
-            String object = objToSpawn.getString("object");
+            object = objToSpawn.getString("object");
             if (object == null || object.length() <= 0)
             {
                 continue;
@@ -223,46 +217,44 @@ public class spawning extends script.base_script
             float yCoord = objToSpawn.getFloat("loc_y");
             float zCoord = objToSpawn.getFloat("loc_z");
             float yaw = objToSpawn.getFloat("yaw");
-            String spawnRoom = objToSpawn.getString("room");
+            spawnRoom = objToSpawn.getString("room");
             if (spawnRoom == null || spawnRoom.length() <= 0)
             {
                 continue;
             }
-            obj_id room = getCellId(dungeon, spawnRoom);
+            room = getCellId(dungeon, spawnRoom);
             if (!isValidId(room))
             {
                 continue;
             }
-            location objectLocation = new location(xCoord, yCoord, zCoord, planet, room);
-            obj_id objectCreated = createObject(object, objectLocation);
+            objectCreated = createObject(object, new location(xCoord, yCoord, zCoord, planet, room));
             if (!isValidId(objectCreated))
             {
                 continue;
             }
             setYaw(objectCreated, yaw);
-            String script = objToSpawn.getString("script");
+            script = objToSpawn.getString("script");
             if (script != null && script.length() > 0)
             {
-                String[] scripts = split(script, ',');
-                for (int j = 0; j < scripts.length; j++)
-                {
-                    if (!hasScript(objectCreated, scripts[j]))
-                    {
-                        attachScript(objectCreated, scripts[j]);
+                scripts = split(script, ',');
+                for (String script1 : scripts) {
+                    if (!hasScript(objectCreated, script1)) {
+                        attachScript(objectCreated, script1);
                     }
                 }
             }
-            String objVars = objToSpawn.getString("objvar");
+            objVars = objToSpawn.getString("objvar");
             if (objVars != null && objVars.length() > 0)
             {
                 utils.setObjVarsListUsingSemiColon(objectCreated, objVars);
             }
-            String objName = objToSpawn.getString("name");
+            objName = objToSpawn.getString("name");
             if (objName != null && objName.length() > 0)
             {
                 setName(objectCreated, objName);
             }
         }
+
         return true;
     }
 }

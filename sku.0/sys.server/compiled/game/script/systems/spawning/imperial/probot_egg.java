@@ -1,17 +1,11 @@
 package script.systems.spawning.imperial;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.attrib;
-import script.library.utils;
 import script.library.create;
 import script.library.pet_lib;
+import script.library.utils;
+import script.obj_id;
 
 public class probot_egg extends script.base_script
 {
@@ -75,22 +69,12 @@ public class probot_egg extends script.base_script
             messageTo(self, "handleSpawnProbot", params, 1f, false);
             return SCRIPT_CONTINUE;
         }
-        int x = 0;
-        if (x <= 6)
-        {
-            obj_id probot = create.object("imperial_probot_drone", getLocation(self));
-            if (isIdValid(probot))
-            {
-                attachScript(probot, "ai.override_behavior.scout");
-                messageTo(probot, "handleTargetAssignment", params, 1f, false);
-            }
-        }
-        else if (x <= 9)
-        {
-        }
-        else 
-        {
-        }
+        obj_id probot = create.object("imperial_probot_drone", getLocation(self));
+        if (isIdValid(probot))
+		{
+			attachScript(probot, "ai.override_behavior.scout");
+			messageTo(probot, "handleTargetAssignment", params, 1f, false);
+		}
         destroyObject(self);
         return SCRIPT_CONTINUE;
     }

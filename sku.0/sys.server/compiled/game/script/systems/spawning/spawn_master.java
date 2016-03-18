@@ -1,17 +1,6 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.regions;
-import java.util.Set;
-import java.util.Iterator;
-import java.lang.Integer;
+import script.obj_id;
 
 public class spawn_master extends script.systems.spawning.spawn_base
 {
@@ -20,7 +9,6 @@ public class spawn_master extends script.systems.spawning.spawn_base
     }
     public int OnUniverseComplete(obj_id self) throws InterruptedException
     {
-        String strPlanet = getNameForPlanetObject(self);
         if (!hasObjVar(self, "boolSpawnerIsOn"))
         {
             setObjVar(self, "boolSpawnerIsOn", true);
@@ -57,7 +45,6 @@ public class spawn_master extends script.systems.spawning.spawn_base
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        String strPlanet = getNameForPlanetObject(self);
         if (!hasObjVar(self, "boolSpawnerIsOn"))
         {
             setObjVar(self, "boolSpawnerIsOn", true);

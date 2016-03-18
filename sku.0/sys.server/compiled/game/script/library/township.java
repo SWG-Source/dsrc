@@ -1,14 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.space_skill;
+import java.util.Vector;
 
 public class township extends script.base_script
 {
@@ -48,11 +42,7 @@ public class township extends script.base_script
             LOG("force_sensitive", "township.isTownshipEligible -- player is invalid.");
             return false;
         }
-        if (getLevel(player) >= MIN_LEVEL || space_skill.isMasterPilot(player))
-        {
-            return true;
-        }
-        return false;
+        return getLevel(player) >= MIN_LEVEL || space_skill.isMasterPilot(player);
     }
     public static boolean giveTravelListFromAurilia(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -90,20 +80,17 @@ public class township extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < subGroups.length; ++i)
-        {
-            boolean foundAlready = false;
-            for (int j = 0; j < resizeGroups.size(); ++j)
-            {
-                if (subGroups[i].equals(((String)resizeGroups.get(j))))
-                {
+        boolean foundAlready;
+        for (String subGroup : subGroups) {
+            foundAlready = false;
+            for (Object resizeGroup : resizeGroups) {
+                if (subGroup.equals(resizeGroup)) {
                     foundAlready = true;
                 }
             }
-            if (!foundAlready)
-            {
-                utils.addElement(localizedGroups, "@nexus:" + subGroups[i]);
-                utils.addElement(resizeGroups, subGroups[i]);
+            if (!foundAlready) {
+                utils.addElement(localizedGroups, "@nexus:" + subGroup);
+                utils.addElement(resizeGroups, subGroup);
             }
         }
         utils.setScriptVar(player, GROUPS_SCRIPT_VAR, resizeGroups);
@@ -135,8 +122,6 @@ public class township extends script.base_script
         String[] locations = dataTableGetStringColumn(DATATABLE_TOWNSHIP, DATATABLE_COLUMN_LOCATIONS);
         Vector resizeLocations = new Vector();
         resizeLocations.setSize(0);
-        Vector resizeGroups = new Vector();
-        resizeGroups.setSize(0);
         Vector localizedLocations = new Vector();
         localizedLocations.setSize(0);
         if (subGroups == null || locations == null)
@@ -180,23 +165,18 @@ public class township extends script.base_script
         {
             return 0;
         }
-        int totalCount = 0;
         obj_id crystal = utils.getStaticItemInInventory(player, MIDLITHE_CRYSTAL);
         if (!isIdValid(crystal))
         {
             return 0;
         }
-        totalCount = getCount(crystal);
-        return totalCount;
+        return getCount(crystal);
     }
     public static void clearAllNovaOrionQuestStatus(obj_id player) throws InterruptedException
     {
         String[] questsToReset = dataTableGetStringColumnNoDefaults(NOVA_ORION_RESET_DATATABLE, "quest_name");
-        for (int i = 0; i < questsToReset.length; i++)
-        {
-            String groundQuestName = questsToReset[i];
-            if (groundquests.isQuestActiveOrComplete(player, groundQuestName))
-            {
+        for (String groundQuestName : questsToReset) {
+            if (groundquests.isQuestActiveOrComplete(player, groundQuestName)) {
                 groundquests.clearQuest(player, groundQuestName);
             }
         }
@@ -205,9 +185,7 @@ public class township extends script.base_script
             removeObjVar(player, OBJVAR_NOVA_ORION_FACTION);
         }
         String[] slotsToReset = dataTableGetStringColumnNoDefaults(NOVA_ORION_RESET_DATATABLE, "rank_slot_name");
-        for (int p = 0; p < slotsToReset.length; p++)
-        {
-            String slotRankName = slotsToReset[p];
+        for (String slotRankName : slotsToReset) {
             long slotValue = getCollectionSlotValue(player, slotRankName);
             modifyCollectionSlotValue(player, slotRankName, (-1 * slotValue));
         }
@@ -219,18 +197,21 @@ public class township extends script.base_script
         if (questList != null)
         {
             int spaceQuests = questList.getNumItems();
+            String questType;
+            obj_var_list typeList;
+            obj_var quest;
+            String spaceQuestName;
+            String questSeries;
             for (int sq = 0; sq < spaceQuests; ++sq)
             {
-                obj_var spaceFields = questList.getObjVar(sq);
-                String questType = spaceFields.getName();
-                obj_var_list typeList = questList.getObjVarList(questType);
+                questType = questList.getObjVar(sq).getName();
+                typeList = questList.getObjVarList(questType);
                 int questCount = typeList.getNumItems();
                 for (int j = 0; j < questCount; j++)
                 {
-                    obj_var quest = typeList.getObjVar(j);
-                    String spaceQuestName = quest.getName();
-                    String spaceTable = "/datatables/spacequest/" + questType + "/" + spaceQuestName + ".iff";
-                    String questSeries = dataTableGetString(spaceTable, 0, "questSeries");
+                    quest = typeList.getObjVar(j);
+                    spaceQuestName = quest.getName();
+                    questSeries = dataTableGetString("/datatables/spacequest/" + questType + "/" + spaceQuestName + ".iff", 0, "questSeries");
                     if (questSeries != null && questSeries.length() > 0)
                     {
                         if (questSeries.equals("nova_orion"))
@@ -241,7 +222,6 @@ public class township extends script.base_script
                 }
             }
         }
-        return;
     }
     public static string_id getNovaOrionRumor(obj_id player) throws InterruptedException
     {

@@ -1,20 +1,12 @@
 package script.systems.spawning;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_utils;
-import script.library.planetary_map;
+import script.dictionary;
 import script.library.create;
-import script.library.objvar_mangle;
 import script.library.utils;
-import java.lang.Math;
-import script.library.hue;
+import script.location;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class mob_spawner extends script.base_script
 {
@@ -28,10 +20,8 @@ public class mob_spawner extends script.base_script
     }
     public int OnPreloadComplete(obj_id self) throws InterruptedException
     {
-        String strTest = "" + self;
-        location locTest = getLocation(self);
-        String strPlanet = locTest.area;
-        dictionary dctSpawnInfo = dataTableGetRow("datatables/spawning/ground_spawning/static/" + strPlanet + ".iff", strTest);
+        String strPlanet = getLocation(self).area;
+        dictionary dctSpawnInfo = dataTableGetRow("datatables/spawning/ground_spawning/static/" + strPlanet + ".iff", "" + self);
         if (dctSpawnInfo == null)
         {
             obj_id objTest = createObject("object/tangible/gravestone/gravestone01.iff", getLocation(self));
@@ -39,21 +29,17 @@ public class mob_spawner extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String strType = dctSpawnInfo.getString("strType");
-        String strMob = dctSpawnInfo.getString("strMob");
         String strName = dctSpawnInfo.getString("strName");
         float fltMinSpawnTime = dctSpawnInfo.getFloat("fltMinSpawnTime");
         float fltMaxSpawnTime = dctSpawnInfo.getFloat("fltMaxSpawnTime");
         Vector strScripts = new Vector();
         strScripts.setSize(0);
-        String strMobToSpawn = "";
         if (!strType.equals(""))
         {
-            String strFileName = "datatables/spawning/ground_spawning/types/" + strType + ".iff";
-            String[] strSpawnList = dataTableGetStringColumnNoDefaults(strFileName, "strItem");
+            String[] strSpawnList = dataTableGetStringColumnNoDefaults("datatables/spawning/ground_spawning/types/" + strType + ".iff", "strItem");
             if ((strSpawnList == null) || (strSpawnList.length == 0))
             {
-                obj_id objTest = createObject("object/tangible/gravestone/gravestone01.iff", getLocation(self));
-                setName(objTest, "for object " + self + " bad entry of " + strType + " and planet " + strPlanet);
+                setName(createObject("object/tangible/gravestone/gravestone01.iff", getLocation(self)), "for object " + self + " bad entry of " + strType + " and planet " + strPlanet);
                 return SCRIPT_CONTINUE;
             }
             utils.setScriptVar(self, "strSpawnList", strSpawnList);
@@ -61,12 +47,13 @@ public class mob_spawner extends script.base_script
         else 
         {
             String[] strSpawnList = new String[1];
-            strSpawnList[0] = strMob;
+            strSpawnList[0] = dctSpawnInfo.getString("strMob");
             utils.setScriptVar(self, "strSpawnList", strSpawnList);
         }
+        String strScript;
         for (int intI = 1; intI < 5; intI++)
         {
-            String strScript = dctSpawnInfo.getString("strScript" + intI);
+            strScript = dctSpawnInfo.getString("strScript" + intI);
             if (!strScript.equals(""))
             {
                 strScripts = utils.addElement(strScripts, strScript);
@@ -124,13 +111,10 @@ public class mob_spawner extends script.base_script
         }
         if ((strScripts != null) && (strScripts.length > 0))
         {
-            for (int intI = 0; intI < strScripts.length; intI++)
-            {
-                if (!strScripts[intI].equals(""))
-                {
-                    if (!hasScript(objNPC, strScripts[intI]))
-                    {
-                        attachScript(objNPC, strScripts[intI]);
+            for (String strScript : strScripts) {
+                if (!strScript.equals("")) {
+                    if (!hasScript(objNPC, strScript)) {
+                        attachScript(objNPC, strScript);
                     }
                 }
             }
@@ -138,7 +122,6 @@ public class mob_spawner extends script.base_script
         attachScript(objNPC, "systems.spawning.mob_spawn_tracker");
         utils.setScriptVar(objNPC, "objParent", self);
         utils.setScriptVar(objNPC, "fltRespawnTime", rand(fltMinSpawnTime, fltMaxSpawnTime));
-        return;
     }
     public int respawnMob(obj_id self, dictionary params) throws InterruptedException
     {

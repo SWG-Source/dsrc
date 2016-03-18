@@ -1,19 +1,11 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
-import script.library.city;
-import script.library.instance;
-import script.library.performance;
-import script.library.sui;
-import script.library.utils;
-import java.lang.Math;
+import java.util.Vector;
 
 public class travel extends script.base_script
 {
@@ -108,7 +100,6 @@ public class travel extends script.base_script
             {
                 s_yaw = s_yaw + 360.0f;
             }
-            int rotation = (int)(s_yaw + 1) / 90;
             float[] transform = transformDeltaWorldYaw(structure, arrival_x, arrival_z);
             arrival_x = transform[0];
             arrival_z = transform[1];
@@ -148,7 +139,6 @@ public class travel extends script.base_script
             {
                 s_yaw = s_yaw + 360.0f;
             }
-            int rotation = (int)(s_yaw + 1) / 90;
             Vector object_list = new Vector();
             object_list.setSize(0);
             for (int i = idx + 1; i < num_items; i++)
@@ -194,36 +184,29 @@ public class travel extends script.base_script
                     obj_loc = new location(x, y, z, planet, cell_id);
                     object = createObjectInCell(obj_template, structure, cell, obj_loc);
                 }
-                if (obj_loc == null)
+                if (heading != 0.0f)
+				{
+
+				}
+
                 {
-                    LOG("LOG_CHANNEL", "Unable to create " + obj_template);
-                }
-                else 
-                {
-                    if (heading != 0.0f)
-                    {
-                        
-                    }
-                    
-                    {
-                        setYaw(object, heading);
-                        object_list = utils.addElement(object_list, object);
-                    }
-                    if (is_terminal == 1)
-                    {
-                        setObjVar(object, VAR_STARPORT, structure);
-                    }
-                    if (is_transport == 1)
-                    {
-                        setObjVar(object, VAR_STARPORT, structure);
-                        attachScript(object, SCRIPT_SHUTTLE);
-                    }
-                    if (is_pilot == 1)
-                    {
-                        setObjVar(object, VAR_STARPORT, structure);
-                        attachScript(object, SCRIPT_SHUTTLE_PILOT);
-                    }
-                }
+					setYaw(object, heading);
+					object_list = utils.addElement(object_list, object);
+				}
+                if (is_terminal == 1)
+				{
+					setObjVar(object, VAR_STARPORT, structure);
+				}
+                if (is_transport == 1)
+				{
+					setObjVar(object, VAR_STARPORT, structure);
+					attachScript(object, SCRIPT_SHUTTLE);
+				}
+                if (is_pilot == 1)
+				{
+					setObjVar(object, VAR_STARPORT, structure);
+					attachScript(object, SCRIPT_SHUTTLE_PILOT);
+				}
                 if (object_list.size() > 0)
                 {
                     setObjVar(structure, VAR_BASE_OBJECT, object_list);
@@ -442,19 +425,10 @@ public class travel extends script.base_script
         {
             return false;
         }
-        if (hasObjVar(object, VAR_DEPARTURE_PLANET))
-        {
+        if (hasObjVar(object, VAR_DEPARTURE_PLANET)) {
             String ticket_planet = getTicketDeparturePlanet(object);
             String ticket_point = getTicketDeparturePoint(object);
-            if (!ticket_planet.equals(depart_planet))
-            {
-                return false;
-            }
-            if (!ticket_point.equals(depart_point))
-            {
-                return false;
-            }
-            return true;
+            return ticket_planet.equals(depart_planet) && ticket_point.equals(depart_point);
         }
         else 
         {
@@ -467,14 +441,7 @@ public class travel extends script.base_script
         {
             return false;
         }
-        if (hasObjVar(structure, VAR_IS_SHUTTLEPORT))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return hasObjVar(structure, VAR_IS_SHUTTLEPORT);
     }
     public static boolean isTravelShuttle(obj_id object) throws InterruptedException
     {
@@ -482,14 +449,7 @@ public class travel extends script.base_script
         {
             return false;
         }
-        if (hasScript(object, SCRIPT_SHUTTLE))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return hasScript(object, SCRIPT_SHUTTLE);
     }
     public static boolean isTravelShuttlePilot(obj_id object) throws InterruptedException
     {
@@ -497,14 +457,7 @@ public class travel extends script.base_script
         {
             return false;
         }
-        if (hasScript(object, SCRIPT_SHUTTLE_PILOT))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return hasScript(object, SCRIPT_SHUTTLE_PILOT);
     }
     public static boolean isShuttleAvailable(obj_id starport) throws InterruptedException
     {
@@ -513,14 +466,7 @@ public class travel extends script.base_script
             return false;
         }
         int available = getIntObjVar(starport, VAR_SHUTTLE_AVAILABLE);
-        if (available == 1)
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return available == 1;
     }
     public static boolean qualifiesForGcwTravelPerks(obj_id player) throws InterruptedException
     {
@@ -637,24 +583,21 @@ public class travel extends script.base_script
             if ((planetTravelPoints != null) && (planetTravelPoints.length > 0))
             {
                 int numStarport = 0;
-                for (int i = 0; i < planetTravelPoints.length; ++i)
-                {
-                    if (getPlanetTravelPointInterplanetary(planet, planetTravelPoints[i]))
-                    {
+                String gcwContestedRegion;
+
+                for (String planetTravelPoint : planetTravelPoints) {
+                    if (getPlanetTravelPointInterplanetary(planet, planetTravelPoint)) {
                         ++numStarport;
                         int score = 50;
-                        String gcwContestedRegion = getPlanetTravelPointGcwContestedRegion(planet, planetTravelPoints[i]);
-                        if ((gcwContestedRegion != null) && (gcwContestedRegion.length() > 0))
-                        {
+                        gcwContestedRegion = getPlanetTravelPointGcwContestedRegion(planet, planetTravelPoint);
+                        if ((gcwContestedRegion != null) && (gcwContestedRegion.length() > 0)) {
                             score = getGcwImperialScorePercentile(gcwContestedRegion);
-                            if ((370444368) == faction)
-                            {
+                            if ((370444368) == faction) {
                                 score = 100 - score;
                             }
                         }
-                        if (score > highestScore)
-                        {
-                            availableStarport = planetTravelPoints[i];
+                        if (score > highestScore) {
+                            availableStarport = planetTravelPoint;
                             highestScore = score;
                         }
                     }
@@ -676,11 +619,9 @@ public class travel extends script.base_script
         }
         location loc = getLocation(player);
         obj_id[] items = getObjectsInRange(loc, MAXIMUM_SHUTTLE_DISTANCE);
-        for (int i = 0; i < items.length; i++)
-        {
-            if (isTravelShuttle(items[i]))
-            {
-                return items[i];
+        for (obj_id item : items) {
+            if (isTravelShuttle(item)) {
+                return item;
             }
         }
         return null;
@@ -702,14 +643,7 @@ public class travel extends script.base_script
         {
             return false;
         }
-        if (distance > MAXIMUM_SHUTTLE_DISTANCE)
-        {
-            return false;
-        }
-        else 
-        {
-            return true;
-        }
+        return distance <= MAXIMUM_SHUTTLE_DISTANCE;
     }
     public static boolean isValidRoute(String planet1, String point1, String planet2, String point2) throws InterruptedException
     {
@@ -761,11 +695,9 @@ public class travel extends script.base_script
         obj_id shuttle = obj_id.NULL_ID;
         if (starport_objects != null)
         {
-            for (int i = 0; i < starport_objects.length; i++)
-            {
-                if (travel.isTravelShuttle(starport_objects[i]))
-                {
-                    shuttle = starport_objects[i];
+            for (obj_id starport_object : starport_objects) {
+                if (travel.isTravelShuttle(starport_object)) {
+                    shuttle = starport_object;
                     break;
                 }
             }
@@ -831,15 +763,8 @@ public class travel extends script.base_script
             return false;
         }
         boolean interplanetary;
-        if (isShuttlePort(structure))
-        {
-            interplanetary = false;
-        }
-        else 
-        {
-            interplanetary = true;
-        }
-        boolean setup = false;
+        interplanetary = !isShuttlePort(structure);
+        boolean setup;
         if (civic)
         {
             setup = city.addStarport(structure, arrival_loc, travel_cost, interplanetary);
@@ -921,11 +846,9 @@ public class travel extends script.base_script
         obj_id[] base_objects = getBaseObjects(structure);
         if (base_objects != null)
         {
-            for (int i = 0; i < base_objects.length; i++)
-            {
-                if (isIdValid(base_objects[i]))
-                {
-                    destroyObject(base_objects[i]);
+            for (obj_id base_object : base_objects) {
+                if (isIdValid(base_object)) {
+                    destroyObject(base_object);
                 }
             }
         }
@@ -952,7 +875,7 @@ public class travel extends script.base_script
                 return false;
             }
         }
-        if (planet2.equals("kashyyyk_main"))
+        else if (planet2.equals("kashyyyk_main"))
         {
             if (!features.hasEpisode3Expansion(player))
             {
@@ -960,7 +883,7 @@ public class travel extends script.base_script
                 return false;
             }
         }
-        if (planet1.equals(planet2))
+        else if (planet1.equals(planet2))
         {
             if (point1.equals(point2))
             {
@@ -1018,8 +941,6 @@ public class travel extends script.base_script
             hasTravelVoucher = true;
         }
         int total_money = getTotalMoney(player);
-        int cash = getCashBalance(player);
-        int bank = getBankBalance(player);
         if (total_money < total_cost)
         {
             hasEnoughMoney = false;
@@ -1207,11 +1128,6 @@ public class travel extends script.base_script
         if (roundtrip)
         {
             obj_id return_ticket = createObjectOverloaded(BASE_TRAVEL_TICKET, inv);
-            if (ticket == null)
-            {
-                LOG("LOG_CHANNEL", "player_travel::OnPurchaseTicket -- Unable to create return ticket.");
-                return null;
-            }
             setObjVar(return_ticket, VAR_DEPARTURE_PLANET, planet2);
             setObjVar(return_ticket, VAR_DEPARTURE_POINT, point2);
             setObjVar(return_ticket, VAR_ARRIVAL_PLANET, planet1);
@@ -1255,7 +1171,7 @@ public class travel extends script.base_script
                     return false;
                 }
             }
-            if (planet.equals("kashyyyk_main"))
+            else if (planet.equals("kashyyyk_main"))
             {
                 if (!features.hasEpisode3Expansion(player))
                 {
@@ -1306,26 +1222,24 @@ public class travel extends script.base_script
         switch (rotation)
         {
             case 0:
-            break;
+                break;
             case 1:
-            X = z;
-            Z = -x;
-            break;
+                X = z;
+                Z = -x;
+                break;
             case 2:
-            Z = -z;
-            X = -x;
-            break;
+                Z = -z;
+                X = -x;
+                break;
             case 3:
-            X = -z;
-            Z = x;
-            break;
+                X = -z;
+                Z = x;
+                break;
         }
-        float[] delta_world = 
-        {
+        return new float[]{
             X,
             Z
         };
-        return delta_world;
     }
     public static float[] transformDeltaWorldYaw(obj_id object, float x, float z) throws InterruptedException
     {
@@ -1337,12 +1251,10 @@ public class travel extends script.base_script
         float yaw_radians = (float)Math.toRadians(yaw);
         float X = (x * (float)Math.cos(yaw_radians)) + (z * (float)Math.sin(yaw_radians));
         float Z = (z * (float)Math.cos(yaw_radians)) - (x * (float)Math.sin(yaw_radians));
-        float[] delta_world = 
-        {
+        return new float[]{
             X,
             Z
         };
-        return delta_world;
     }
     public static boolean testBoardShuttle(obj_id player, obj_id shuttle) throws InterruptedException
     {
@@ -1357,14 +1269,13 @@ public class travel extends script.base_script
         dsrc.setSize(0);
         obj_id inventory = getObjectInSlot(player, "inventory");
         obj_id[] inv_contents = utils.getContents(inventory, false);
-        for (int i = 0; i < inv_contents.length; i++)
-        {
-            if (isTravelTicketValid(inv_contents[i], planet, depart_point))
-            {
-                String ticket_planet = getTicketArrivalPlanet(inv_contents[i]);
-                String ticket_point = getTicketArrivalPoint(inv_contents[i]);
+        String ticket_planet;
+
+        for (obj_id inv_content : inv_contents) {
+            if (isTravelTicketValid(inv_content, planet, depart_point)) {
+                ticket_planet = getTicketArrivalPlanet(inv_content);
                 ticket_planet = (ticket_planet.substring(0, 1)).toUpperCase() + (ticket_planet.substring(1)).toLowerCase();
-                dsrc = utils.addElement(dsrc, ticket_planet + " -- " + ticket_point);
+                dsrc = utils.addElement(dsrc, ticket_planet + " -- " + getTicketArrivalPoint(inv_content));
             }
         }
         if (dsrc.size() < 1)
@@ -1394,11 +1305,9 @@ public class travel extends script.base_script
         }
         Vector ret = new Vector();
         ret.setSize(0);
-        for (int i = 0; i < allPts.length; i++)
-        {
-            if (getPlanetTravelPointInterplanetary(planet, allPts[i]) == isStarport)
-            {
-                ret = utils.addElement(ret, allPts[i]);
+        for (String allPt : allPts) {
+            if (getPlanetTravelPointInterplanetary(planet, allPt) == isStarport) {
+                ret = utils.addElement(ret, allPt);
             }
         }
         return ret;
@@ -1449,11 +1358,7 @@ public class travel extends script.base_script
             sendSystemMessage(player, new string_id("beast", "beast_cant_travel"));
             return false;
         }
-        if (movePlayerToDestination(player, planet2, point2))
-        {
-            return true;
-        }
-        return false;
+        return movePlayerToDestination(player, planet2, point2);
     }
     public static boolean isTravelBlocked(obj_id player, boolean isLaunch) throws InterruptedException
     {

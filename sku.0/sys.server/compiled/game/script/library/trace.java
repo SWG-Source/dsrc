@@ -1,15 +1,6 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import java.lang.reflect.*;
-import java.lang.Thread.*;
+import script.obj_id;
 
 public class trace extends script.base_script
 {
@@ -31,11 +22,7 @@ public class trace extends script.base_script
     }
     public static boolean isFlagSet(int mask, int flag) throws InterruptedException
     {
-        if ((mask & flag) == flag)
-        {
-            return true;
-        }
-        return false;
+        return (mask & flag) == flag;
     }
     public static void log(String channelOrLogFile, String message, obj_id logAbout, int traceLevelMask) throws InterruptedException
     {
@@ -65,24 +52,15 @@ public class trace extends script.base_script
                 LOG(channelOrLogFile, "[" + logAbout + "]:" + message);
             }
         }
-        return;
     }
     public static boolean isDebugDefined() throws InterruptedException
     {
         String flag = getConfigSetting("GameServer", "scriptDebugTrace");
-        if (flag == null || flag.length() < 1)
-        {
-            return false;
-        }
-        return true;
+        return !(flag == null || flag.length() < 1);
     }
     public static boolean pipeDebugToCsLog() throws InterruptedException
     {
         String flag = getConfigSetting("GameServer", "pipeScriptDebugToCsLog");
-        if (flag == null || flag.length() < 1)
-        {
-            return false;
-        }
-        return true;
+        return !(flag == null || flag.length() < 1);
     }
 }

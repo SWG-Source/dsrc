@@ -1,15 +1,8 @@
 package script.systems.spawning.dropship;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.utils;
+import script.dictionary;
+import script.location;
+import script.obj_id;
 
 public class emperorsday_lambda extends script.systems.spawning.dropship.base
 {
@@ -39,9 +32,8 @@ public class emperorsday_lambda extends script.systems.spawning.dropship.base
         blog("emperorsday_lambda.changePosture: Init");
         setPosture(self, POSTURE_UPRIGHT);
         location ownLocation = getLocation(self);
-        location behind = ownLocation;
-        behind.z = ownLocation.z - 20.0f;
-        faceTo(self, behind);
+        ownLocation.z = ownLocation.z - 20.0f;
+        faceTo(self, ownLocation);
         messageTo(self, "selfCleanUp", null, 60f, false);
         return SCRIPT_CONTINUE;
     }
@@ -52,8 +44,7 @@ public class emperorsday_lambda extends script.systems.spawning.dropship.base
         if (isValidId(exitPoint))
         {
             blog("emperorsday_lambda.changePosture: Facing to exit location");
-            location exitLocation = getLocation(exitPoint);
-            faceTo(self, exitLocation);
+            faceTo(self, getLocation(exitPoint));
             messageTo(self, "moveToExitPoint", null, 2, false);
             return SCRIPT_CONTINUE;
         }
@@ -71,8 +62,7 @@ public class emperorsday_lambda extends script.systems.spawning.dropship.base
         }
         setMovementPercent(self, 16);
         blog("emperorsday_lambda.moveToExitPoint exit point valid");
-        location loc = getLocation(exitPoint);
-        pathTo(self, loc);
+        pathTo(self, getLocation(exitPoint));
         messageTo(self, "correctTakeOffThenCleanUp", null, 10, false);
         return SCRIPT_CONTINUE;
     }

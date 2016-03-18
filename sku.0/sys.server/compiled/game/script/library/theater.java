@@ -1,16 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.utils;
-import script.library.player_structure;
-import script.library.regions;
+import java.util.Vector;
 
 public class theater extends script.base_script
 {
@@ -54,20 +46,15 @@ public class theater extends script.base_script
         region[] regionList = getRegionsAtPoint(loc);
         if (regionList != null)
         {
-            for (int i = 0; i < regionList.length; ++i)
-            {
-                if (regionList[i] != null)
-                {
-                    if (regionList[i].getPvPType() == regions.PVP_REGION_TYPE_BATTLEFIELD_PVP)
-                    {
+            for (region aRegionList : regionList) {
+                if (aRegionList != null) {
+                    if (aRegionList.getPvPType() == regions.PVP_REGION_TYPE_BATTLEFIELD_PVP) {
                         return false;
                     }
-                    if (regionList[i].getPvPType() == regions.PVP_REGION_TYPE_BATTLEFIELD_PVE)
-                    {
+                    if (aRegionList.getPvPType() == regions.PVP_REGION_TYPE_BATTLEFIELD_PVE) {
                         return false;
                     }
-                    if (regionList[i].getGeographicalType() == regions.GEO_CITY)
-                    {
+                    if (aRegionList.getGeographicalType() == regions.GEO_CITY) {
                         return false;
                     }
                 }
@@ -90,25 +77,17 @@ public class theater extends script.base_script
         switch (spawnMethod)
         {
             case SPAWN_RADIAL:
-            break;
+                break;
             case SPAWN_DATATABLE_OFFSET:
-            children = spawnDatatableOffset(target);
-            break;
+                children = spawnDatatableOffset(target);
+                break;
             default:
-            return false;
+                return false;
         }
         dictionary d = new dictionary();
-        if ((children == null) || (children.length == 0))
-        {
-        }
-        else 
-        {
+        if ((children != null) && (children.length != 0)) {
             obj_id[] buildings = utils.getBuildingsInObjIdList(children);
-            if ((buildings == null) || (buildings.length == 0))
-            {
-            }
-            else 
-            {
+            if ((buildings != null) && (buildings.length != 0)) {
                 d.put(DICT_CHILDREN, buildings);
             }
         }
@@ -175,81 +154,65 @@ public class theater extends script.base_script
             default:
             break;
         }
-        int numCols = dataTableGetNumColumns(tbl);
+        obj_var ov;
+        String name;
+        String[] entries;
+        String tpf;
+        location spawnLoc;
+        location goodLoc;
+        obj_id child;
+
         for (int i = 0; i < numListItems; i++)
         {
-            obj_var ov = spawnList.getObjVar(i);
-            String name = ov.getName();
+            ov = spawnList.getObjVar(i);
+            name = ov.getName();
             int amt = ov.getIntData();
             if (dataTableHasColumn(tbl, name))
             {
-                String[] entries = dataTableGetStringColumn(tbl, name);
-                if ((entries == null) || (entries.length == 0))
-                {
-                }
-                else 
-                {
+                entries = dataTableGetStringColumn(tbl, name);
+                if ((entries != null) && (entries.length != 0)) {
                     for (int n = 0; n < amt; n++)
                     {
                         int roll = rand(0, entries.length - 1);
-                        String tpf = entries[roll];
-                        int cnt = 0;
+                        tpf = entries[roll];
                         while (tpf.equals(""))
                         {
                             roll = rand(0, entries.length - 1);
                             tpf = entries[roll];
                         }
-                        location spawnLoc = utils.getRandomLocationInRing(myLoc, ringMin, ringMax);
-                        if (spawnLoc == null)
-                        {
-                        }
-                        else 
-                        {
-                            location goodLoc = locations.getGoodLocationAroundLocation(spawnLoc, iArea, iArea, sArea, sArea);
-                            if (goodLoc == null)
-                            {
-                            }
-                            else 
-                            {
+                        spawnLoc = utils.getRandomLocationInRing(myLoc, ringMin, ringMax);
+                        if (spawnLoc != null) {
+                            goodLoc = locations.getGoodLocationAroundLocation(spawnLoc, iArea, iArea, sArea, sArea);
+                            if (goodLoc != null) {
                                 spawnLoc = (location)goodLoc.clone();
                             }
                             if (spawnLoc.cell == obj_id.NULL_ID)
                             {
                                 spawnLoc.y = getHeightAtLocation(spawnLoc.x, spawnLoc.z);
                             }
-                            if (spawnLoc != null)
-                            {
-                                float fltNewSize = getDistance(myLoc, spawnLoc);
-                                if (fltNewSize > fltSize)
-                                {
-                                    fltSize = fltNewSize;
-                                }
-                                obj_id child = createObject(tpf, spawnLoc);
-                                if ((child == null) || (child == obj_id.NULL_ID))
-                                {
-                                }
-                                else 
-                                {
-                                    setYaw(child, rand(-180, 180));
-                                    children = utils.addElement(children, child);
-                                    if (!faction.equals(""))
-                                    {
-                                        factions.setFaction(child, faction);
-                                    }
-                                    switch (persistFlag)
-                                    {
-                                        case PERSIST_ALL:
-                                        break;
-                                    }
-                                    setObjVar(child, VAR_PARENT, target);
-                                }
-                            }
+                            float fltNewSize = getDistance(myLoc, spawnLoc);
+                            if (fltNewSize > fltSize)
+							{
+								fltSize = fltNewSize;
+							}
+                            child = createObject(tpf, spawnLoc);
+                            if ((child != null) && (child != obj_id.NULL_ID)) {
+								setYaw(child, rand(-180, 180));
+								children = utils.addElement(children, child);
+								if (!faction.equals(""))
+								{
+									factions.setFaction(child, faction);
+								}
+								switch (persistFlag)
+								{
+									case PERSIST_ALL:
+									break;
+								}
+								setObjVar(child, VAR_PARENT, target);
+							}
                         }
                     }
                 }
-            }
-            else 
-            {
             }
         }
         setObjVar(target, "poi.fltSize", fltSize + 20);
@@ -261,18 +224,13 @@ public class theater extends script.base_script
         {
             setObjVar(target, VAR_CHILDREN, children);
         }
-        obj_id[] _children = new obj_id[0];
-        if (children != null)
-        {
-            _children = new obj_id[children.size()];
-            children.toArray(_children);
-        }
+        obj_id[] _children = new obj_id[children.size()];
+        children.toArray(_children);
         return _children;
     }
     public static obj_id[] spawnDatatableOffset(obj_id target) throws InterruptedException
     {
         float fltSize = 0;
-        location[] locWaypoints = new location[0];
         if ((target == null) || (target == obj_id.NULL_ID))
         {
             return null;
@@ -286,7 +244,7 @@ public class theater extends script.base_script
         {
             return null;
         }
-        String faction = "";
+        String faction;
         if (hasObjVar(target, factions.FACTION))
         {
             faction = getStringObjVar(target, factions.FACTION);
@@ -321,46 +279,41 @@ public class theater extends script.base_script
         Vector objWaypoints = new Vector();
         objWaypoints.setSize(0);
         float[] fltX = dataTableGetFloatColumn(tbl, X);
-        float[] fltY = dataTableGetFloatColumn(tbl, Y);
         float[] fltZ = dataTableGetFloatColumn(tbl, Z);
         float[] fltYaw = dataTableGetFloatColumn(tbl, YAW);
         String[] strTemplates = dataTableGetStringColumn(tbl, TEMPLATE);
         int numRows = strTemplates.length;
+        String tpf;
+        location here;
+        obj_id child;
         for (int i = 0; i < numRows; i++)
         {
-            String tpf = strTemplates[i];
+            tpf = strTemplates[i];
             float dx = fltX[i];
-            float dy = fltY[i];
             float dz = fltZ[i];
             float yaw = fltYaw[i];
-            location here = (location)myLoc.clone();
+            here = (location) myLoc.clone();
             here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
             float fltNewSize = getDistance(myLoc, here);
             if (fltNewSize > fltSize)
             {
                 fltSize = fltNewSize;
             }
-            obj_id child = createObject(tpf, here);
-            if (!isIdValid(child))
-            {
-            }
-            else 
-            {
-                if (tpf.equals("object/tangible/poi/theater/poi_mob_spawner.iff"))
-                {
-                    objMobSpawners = utils.addElement(objMobSpawners, child);
-                }
-                else if (tpf.equals("object/tangible/poi/theater/poi_objective_spawner.iff"))
-                {
-                    objObjectiveSpawners = utils.addElement(objObjectiveSpawners, child);
-                }
-                else if (tpf.equals("object/path_waypoint/path_waypoint.iff"))
-                {
-                    objWaypoints = utils.addElement(objWaypoints, child);
-                }
-                else if (tpf.equals("object/tangible/poi/theater/poi_mob_spawner_large.iff"))
-                {
-                    objLargeMobSpawners = utils.addElement(objLargeMobSpawners, child);
+            child = createObject(tpf, here);
+            if (isIdValid(child)) {
+                switch (tpf) {
+                    case "object/tangible/poi/theater/poi_mob_spawner.iff":
+                        objMobSpawners = utils.addElement(objMobSpawners, child);
+                        break;
+                    case "object/tangible/poi/theater/poi_objective_spawner.iff":
+                        objObjectiveSpawners = utils.addElement(objObjectiveSpawners, child);
+                        break;
+                    case "object/path_waypoint/path_waypoint.iff":
+                        objWaypoints = utils.addElement(objWaypoints, child);
+                        break;
+                    case "object/tangible/poi/theater/poi_mob_spawner_large.iff":
+                        objLargeMobSpawners = utils.addElement(objLargeMobSpawners, child);
+                        break;
                 }
                 setYaw(child, yaw + tYaw);
                 children = utils.addElement(children, child);
@@ -389,9 +342,6 @@ public class theater extends script.base_script
         {
             setObjVar(target, "theater.objLargeMobSpawners", objLargeMobSpawners);
         }
-        if (objWaypoints != null && objWaypoints.size() > 0)
-        {
-        }
         if ((children == null) || (children.size() == 0))
         {
             return null;
@@ -400,17 +350,12 @@ public class theater extends script.base_script
         {
             setObjVar(target, VAR_CHILDREN, children);
         }
-        obj_id[] _children = new obj_id[0];
-        if (children != null)
-        {
-            _children = new obj_id[children.size()];
-            children.toArray(_children);
-        }
+        obj_id[] _children = new obj_id[children.size()];
+        children.toArray(_children);
         return _children;
     }
     public static void spawnDatatableOffsetQueued(obj_id target, int intIndex) throws InterruptedException
     {
-        boolean boolFinished = false;
         if ((target == null) || (target == obj_id.NULL_ID))
         {
             return;
@@ -424,7 +369,7 @@ public class theater extends script.base_script
         {
             return;
         }
-        String faction = "";
+        String faction;
         if (hasObjVar(target, factions.FACTION))
         {
             faction = getStringObjVar(target, factions.FACTION);
@@ -453,94 +398,82 @@ public class theater extends script.base_script
             Vector children = new Vector();
             children.setSize(0);
             float[] fltX = dataTableGetFloatColumn(tbl, X);
-            float[] fltY = dataTableGetFloatColumn(tbl, Y);
             float[] fltZ = dataTableGetFloatColumn(tbl, Z);
             float[] fltYaw = dataTableGetFloatColumn(tbl, YAW);
             String[] strTemplates = dataTableGetStringColumn(tbl, TEMPLATE);
             int numRows = strTemplates.length;
+            obj_id child;
+            String tpf;
+            location here;
+
             for (int i = 0; i < numRows; i++)
             {
-                obj_id child = null;
-                String tpf = strTemplates[i];
-                if (tpf.equals("object/tangible/poi/theater/poi_mob_spawner.iff"))
-                {
-                    float dx = fltX[i];
-                    float dy = fltY[i];
-                    float dz = fltZ[i];
-                    float yaw = fltYaw[i];
-                    location here = (location)myLoc.clone();
-                    here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
-                    child = createObject(tpf, here);
-                    if (isIdValid(child))
-                    {
-                        objMobSpawners = utils.addElement(objMobSpawners, child);
-                        children = utils.addElement(children, child);
-                    }
-                }
-                else if (tpf.equals("object/tangible/poi/theater/poi_objective_spawner.iff"))
-                {
-                    float dx = fltX[i];
-                    float dy = fltY[i];
-                    float dz = fltZ[i];
-                    float yaw = fltYaw[i];
-                    location here = (location)myLoc.clone();
-                    here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
-                    child = createObject(tpf, here);
-                    if (isIdValid(child))
-                    {
-                        objObjectiveSpawners = utils.addElement(objObjectiveSpawners, child);
-                        children = utils.addElement(children, child);
-                    }
-                }
-                else if (tpf.equals("object/path_waypoint/path_waypoint.iff"))
-                {
-                    float dx = fltX[i];
-                    float dy = fltY[i];
-                    float dz = fltZ[i];
-                    float yaw = fltYaw[i];
-                    location here = (location)myLoc.clone();
-                    here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
-                    child = createObject(tpf, here);
-                    if (isIdValid(child))
-                    {
-                        objWaypoints = utils.addElement(objWaypoints, child);
-                        children = utils.addElement(children, child);
-                    }
-                }
-                else if (tpf.equals("object/tangible/poi/theater/poi_mob_spawner_large.iff"))
-                {
-                    float dx = fltX[i];
-                    float dy = fltY[i];
-                    float dz = fltZ[i];
-                    float yaw = fltYaw[i];
-                    location here = (location)myLoc.clone();
-                    here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
-                    child = createObject(tpf, here);
-                    if (isIdValid(child))
-                    {
-                        objLargeMobSpawners = utils.addElement(objLargeMobSpawners, child);
-                        children = utils.addElement(children, child);
-                    }
-                }
-                else 
-                {
-                    int intStringIndex = tpf.indexOf("corral");
-                    if (intStringIndex > -1)
-                    {
+                tpf = strTemplates[i];
+                switch (tpf) {
+                    case "object/tangible/poi/theater/poi_mob_spawner.iff": {
                         float dx = fltX[i];
-                        float dy = fltY[i];
                         float dz = fltZ[i];
-                        float yaw = fltYaw[i];
-                        location here = (location)myLoc.clone();
+                        here = (location) myLoc.clone();
                         here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
                         child = createObject(tpf, here);
-                        if (isIdValid(child))
-                        {
-                            setYaw(child, yaw + tYaw);
-                            setObjVar(child, VAR_PARENT, target);
+                        if (isIdValid(child)) {
+                            objMobSpawners = utils.addElement(objMobSpawners, child);
                             children = utils.addElement(children, child);
                         }
+                        break;
                     }
+                    case "object/tangible/poi/theater/poi_objective_spawner.iff": {
+                        float dx = fltX[i];
+                        float dz = fltZ[i];
+                        here = (location) myLoc.clone();
+                        here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
+                        child = createObject(tpf, here);
+                        if (isIdValid(child)) {
+                            objObjectiveSpawners = utils.addElement(objObjectiveSpawners, child);
+                            children = utils.addElement(children, child);
+                        }
+                        break;
+                    }
+                    case "object/path_waypoint/path_waypoint.iff": {
+                        float dx = fltX[i];
+                        float dz = fltZ[i];
+                        here = (location) myLoc.clone();
+                        here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
+                        child = createObject(tpf, here);
+                        if (isIdValid(child)) {
+                            objWaypoints = utils.addElement(objWaypoints, child);
+                            children = utils.addElement(children, child);
+                        }
+                        break;
+                    }
+                    case "object/tangible/poi/theater/poi_mob_spawner_large.iff": {
+                        float dx = fltX[i];
+                        float dz = fltZ[i];
+                        here = (location) myLoc.clone();
+                        here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
+                        child = createObject(tpf, here);
+                        if (isIdValid(child)) {
+                            objLargeMobSpawners = utils.addElement(objLargeMobSpawners, child);
+                            children = utils.addElement(children, child);
+                        }
+                        break;
+                    }
+                    default:
+                        int intStringIndex = tpf.indexOf("corral");
+                        if (intStringIndex > -1) {
+                            float dx = fltX[i];
+                            float dz = fltZ[i];
+                            float yaw = fltYaw[i];
+                            here = (location) myLoc.clone();
+                            here = player_structure.transformDeltaWorldCoord(here, dx, dz, tYaw);
+                            child = createObject(tpf, here);
+                            if (isIdValid(child)) {
+                                setYaw(child, yaw + tYaw);
+                                setObjVar(child, VAR_PARENT, target);
+                                children = utils.addElement(children, child);
+                            }
+                        }
+                        break;
                 }
             }
             if (objMobSpawners.size() > 0)
@@ -612,11 +545,7 @@ public class theater extends script.base_script
                     here.z += (dx * fltS) + (dz * fltC);
                     obj_id child = createObject(tpf, here);
                     debugSpeakMsg(target, "a child " + child);
-                    if ((child == null) || (child == obj_id.NULL_ID))
-                    {
-                    }
-                    else 
-                    {
+                    if ((child != null) && (child != obj_id.NULL_ID)) {
                         setYaw(child, yaw + tYaw);
                         children = utils.addElement(children, child);
                         if (!faction.equals(""))
@@ -646,29 +575,18 @@ public class theater extends script.base_script
     }
     public static boolean shouldSpawn(String tpf) throws InterruptedException
     {
-        if (tpf.equals("object/tangible/poi/theater/poi_mob_spawner.iff"))
-        {
-            return false;
-        }
-        else if (tpf.equals("object/tangible/poi/theater/poi_objective_spawner.iff"))
-        {
-            return false;
-        }
-        else if (tpf.equals("object/path_waypoint/path_waypoint.iff"))
-        {
-            return false;
-        }
-        else if (tpf.equals("object/tangible/poi/theater/poi_mob_spawner_large.iff"))
-        {
-            return false;
-        }
-        else 
-        {
-            int intStringIndex = tpf.indexOf("corral");
-            if (intStringIndex > -1)
-            {
+        switch (tpf) {
+            case "object/tangible/poi/theater/poi_mob_spawner.iff":
+            case "object/tangible/poi/theater/poi_objective_spawner.iff":
+            case "object/path_waypoint/path_waypoint.iff":
+            case "object/tangible/poi/theater/poi_mob_spawner_large.iff":
                 return false;
-            }
+            default:
+                int intStringIndex = tpf.indexOf("corral");
+                if (intStringIndex > -1) {
+                    return false;
+                }
+                break;
         }
         return true;
     }
@@ -676,14 +594,10 @@ public class theater extends script.base_script
     {
         location locTest = getLocation(target);
         region rgnPathRegion = getRegion(target.toString(), locTest.area);
-        if (rgnPathRegion == null)
-        {
-        }
-        else 
-        {
+        if (rgnPathRegion != null) {
             deleteRegion(rgnPathRegion);
         }
-        if ((target == null) || (target == obj_id.NULL_ID))
+        if ((target == obj_id.NULL_ID))
         {
             return false;
         }
@@ -696,14 +610,8 @@ public class theater extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < children.length; i++)
-        {
-            obj_id child = children[i];
-            if ((child == null) || (child == obj_id.NULL_ID))
-            {
-            }
-            else 
-            {
+        for (obj_id child : children) {
+            if ((child != null) && (child != obj_id.NULL_ID)) {
                 destroyObject(child);
             }
         }

@@ -1,16 +1,10 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.location;
+import script.obj_id;
+import script.region;
 
-import script.library.utils;
-import script.library.factions;
-import script.library.battlefield;
+import java.util.Vector;
 
 public class turret extends script.base_script
 {
@@ -53,17 +47,8 @@ public class turret extends script.base_script
         }
         removeObjVar(turret, VAR_IS_ACTIVE);
     }
-    public static boolean isActive(obj_id turret) throws InterruptedException
-    {
-        if (!isIdValid(turret))
-        {
-            return false;
-        }
-        if (hasObjVar(turret, VAR_IS_ACTIVE))
-        {
-            return true;
-        }
-        return false;
+    public static boolean isActive(obj_id turret) throws InterruptedException {
+        return isIdValid(turret) && hasObjVar(turret, VAR_IS_ACTIVE);
     }
     public static void engageTarget(obj_id turret, obj_id target) throws InterruptedException
     {
@@ -99,70 +84,44 @@ public class turret extends script.base_script
         {
             return true;
         }
-        if (utils.hasScriptVar(turret, SCRIPTVAR_ENGAGED))
-        {
-            return true;
-        }
-        return false;
+        return utils.hasScriptVar(turret, SCRIPTVAR_ENGAGED);
     }
-    public static boolean createWeapon(obj_id turret) throws InterruptedException
-    {
-        if (!isIdValid(turret))
-        {
+    public static boolean createWeapon(obj_id turret) throws InterruptedException {
+        if (!isIdValid(turret)) {
             return false;
         }
-        if (hasObjVar(turret, "objWeapon"))
-        {
+        if (hasObjVar(turret, "objWeapon")) {
             return false;
         }
         String strWeaponTemplate;
-        if (hasObjVar(turret, "strWeaponTemplate"))
-        {
+        if (hasObjVar(turret, "strWeaponTemplate")) {
             strWeaponTemplate = getStringObjVar(turret, "strWeaponTemplate");
-        }
-        else 
-        {
+        } else {
             strWeaponTemplate = "object/weapon/ranged/turret/turret_block_large.iff";
         }
         obj_id objWeapon = createObject(strWeaponTemplate, turret, "");
-        if (!isIdValid(objWeapon))
-        {
-            return false;
-        }
-        return setObjVar(turret, "objWeapon", objWeapon);
+        return isIdValid(objWeapon) && setObjVar(turret, "objWeapon", objWeapon);
     }
-    public static boolean isValidTargetGeneric(obj_id turret, obj_id target) throws InterruptedException
-    {
-        if (!isIdValid(turret) || !isIdValid(target))
-        {
+    public static boolean isValidTargetGeneric(obj_id turret, obj_id target) throws InterruptedException {
+        if (!isIdValid(turret) || !isIdValid(target)) {
             return false;
         }
-        if (target == turret)
-        {
+        if (target == turret) {
             return false;
         }
         location there = getLocation(target);
         location here = getLocation(turret);
-        if (!isIdValid(here.cell))
-        {
-            if (there == null || isIdValid(there.cell))
-            {
+        if (!isIdValid(here.cell)) {
+            if (there == null || isIdValid(there.cell)) {
                 return false;
             }
-        }
-        else 
-        {
-            if (there.cell != here.cell)
-            {
+        } else {
+            if (there.cell != here.cell) {
                 return false;
             }
         }
         float dist = getDistance(getLocation(turret), getLocation(target));
-        if (dist > TURRET_RANGE + 1)
-        {
-            return false;
-        }
-        return canGenericTurretAttackTarget(target);
+        return dist <= TURRET_RANGE + 1 && canGenericTurretAttackTarget(target);
     }
     public static boolean isGenericTurret(obj_id turret) throws InterruptedException
     {
@@ -184,11 +143,7 @@ public class turret extends script.base_script
             return false;
         }
         String objvar = getStringObjVar(self, OBJVAR_CAN_ATTACK);
-        if (hasObjVar(target, objvar) || objvar.equals("all") || (objvar.equals("allPlayers") && isPlayer(target)))
-        {
-            return true;
-        }
-        return false;
+        return hasObjVar(target, objvar) || objvar.equals("all") || (objvar.equals("allPlayers") && isPlayer(target));
     }
     public static boolean isValidTarget(obj_id turret, obj_id target) throws InterruptedException
     {
@@ -219,11 +174,7 @@ public class turret extends script.base_script
         region btlField = battlefield.getBattlefield(turret);
         if (btlField != null)
         {
-            if (pvpIsEnemy(turret, target))
-            {
-                return true;
-            }
-            return false;
+            return pvpIsEnemy(turret, target);
         }
         float dist = getDistance(getLocation(turret), getLocation(target));
         if (dist > TURRET_RANGE + 1)
@@ -298,11 +249,9 @@ public class turret extends script.base_script
             return;
         }
         Vector targets = utils.getResizeableObjIdBatchScriptVar(turret, SCRIPTVAR_TARGETS);
-        for (int i = 0; i < target.length; i++)
-        {
-            if (isValidTarget(turret, target[i]) && !utils.isElementInArray(targets, target))
-            {
-                targets = utils.addElement(targets, target[i]);
+        for (obj_id aTarget : target) {
+            if (isValidTarget(turret, aTarget) && !utils.isElementInArray(targets, target)) {
+                targets = utils.addElement(targets, aTarget);
             }
         }
         if ((targets != null) && (targets.size() > 0))

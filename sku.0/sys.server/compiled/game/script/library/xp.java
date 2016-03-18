@@ -1,25 +1,9 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import java.lang.Math;
-import java.util.*;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.collection;
-import script.library.combat;
-import script.library.gcw;
-import script.library.group;
-import script.library.performance;
-import script.library.pet_lib;
-import script.library.space_flags;
-import script.library.utils;
+import java.util.Iterator;
+import java.util.Vector;
 
 public class xp extends script.base_script
 {
@@ -184,7 +168,7 @@ public class xp extends script.base_script
         {
             return 0;
         }
-        if (xp_type.indexOf(" ") > -1)
+        if (xp_type.contains(" "))
         {
             return 0;
         }
@@ -229,7 +213,7 @@ public class xp extends script.base_script
         {
             return false;
         }
-        if (xp_type.indexOf(" ") > -1)
+        if (xp_type.contains(" "))
         {
             return false;
         }
@@ -371,16 +355,13 @@ public class xp extends script.base_script
         String[] xpMods = dataTableGetStringColumn(TBL_SPECIES_XP, species);
         if (xpMods != null && xpMods.length > 0)
         {
-            for (int i = 0; i < xpMods.length; i++)
-            {
-                if (xpMods[i].startsWith(xp_type))
-                {
-                    String[] s = split(xpMods[i], ':');
-                    if ((s != null) && (s.length == 2))
-                    {
+            String[] s;
+            for (String xpMod : xpMods) {
+                if (xpMod.startsWith(xp_type)) {
+                    s = split(xpMod, ':');
+                    if ((s != null) && (s.length == 2)) {
                         int val = utils.stringToInt(s[1]);
-                        if (val != -1)
-                        {
+                        if (val != -1) {
                             return (100f + val) / 100f;
                         }
                     }
@@ -397,10 +378,8 @@ public class xp extends script.base_script
             String[] xpList = utils.getStringArrayScriptVar(target, "buff.xpBonus.types");
             if (xpList != null && xpList.length > 0)
             {
-                for (int i = 0; i < xpList.length; i++)
-                {
-                    if (xpList[i].equals(xp_type))
-                    {
+                for (String aXpList : xpList) {
+                    if (aXpList.equals(xp_type)) {
                         mod += utils.getFloatScriptVar(target, "buff.xpBonus.value");
                     }
                 }
@@ -411,10 +390,8 @@ public class xp extends script.base_script
             String[] xpList = utils.getStringArrayScriptVar(target, "buff.xpBonusGeneral.types");
             if (xpList != null && xpList.length > 0)
             {
-                for (int i = 0; i < xpList.length; i++)
-                {
-                    if (xpList[i].equals(xp_type))
-                    {
+                for (String aXpList : xpList) {
+                    if (aXpList.equals(xp_type)) {
                         mod += utils.getFloatScriptVar(target, "buff.xpBonusGeneral.value");
                     }
                 }
@@ -432,7 +409,6 @@ public class xp extends script.base_script
         resultData.put("player", player);
         resultData.put("amt", amt);
         grant(player, SQUADLEADER, amt, false, "grantSquadLeaderXpResult", resultData, player);
-        return;
     }
     public static void grantSquadLeaderXpResult(obj_id player, int granted, int amt) throws InterruptedException
     {
@@ -492,14 +468,11 @@ public class xp extends script.base_script
             return 1;
         }
         int count = 0;
-        for (int i = 0; i < members.length; i++)
-        {
-            if (members[i].isLoaded() && isPlayer(members[i]))
-            {
+        for (obj_id member : members) {
+            if (member.isLoaded() && isPlayer(member)) {
                 count++;
             }
-            if (count >= MAX_GROUP_BONUS_COUNT)
-            {
+            if (count >= MAX_GROUP_BONUS_COUNT) {
                 break;
             }
         }
@@ -529,7 +502,7 @@ public class xp extends script.base_script
             float maxLevelDiff = 10f;
             if (level > 20)
             {
-                maxLevelDiff += (int)((level - 20) / 6);
+                maxLevelDiff += (level - 20) / 6;
             }
             xp += (int)(xp * (levelDiff / maxLevelDiff));
             if (xp < 1)
@@ -549,101 +522,81 @@ public class xp extends script.base_script
     }
     public static String getWeaponXpType(int weapon_type) throws InterruptedException
     {
-        String xp_type = "unknown_xp";
+        String xp_type;
         switch (weapon_type)
         {
             case WEAPON_TYPE_RIFLE:
-            xp_type = COMBAT_RANGEDSPECIALIZE_RIFLE;
-            break;
+                xp_type = COMBAT_RANGEDSPECIALIZE_RIFLE;
+                break;
             case WEAPON_TYPE_LIGHT_RIFLE:
-            xp_type = COMBAT_RANGEDSPECIALIZE_CARBINE;
-            break;
+                xp_type = COMBAT_RANGEDSPECIALIZE_CARBINE;
+                break;
             case WEAPON_TYPE_PISTOL:
-            xp_type = COMBAT_RANGEDSPECIALIZE_PISTOL;
-            break;
+                xp_type = COMBAT_RANGEDSPECIALIZE_PISTOL;
+                break;
             case WEAPON_TYPE_HEAVY:
             case WEAPON_TYPE_GROUND_TARGETTING:
             case WEAPON_TYPE_DIRECTIONAL:
-            xp_type = COMBAT_RANGEDSPECIALIZE_RIFLE;
-            break;
+                xp_type = COMBAT_RANGEDSPECIALIZE_RIFLE;
+                break;
             case WEAPON_TYPE_1HAND_MELEE:
-            xp_type = COMBAT_MELEESPECIALIZE_ONEHAND;
-            break;
+                xp_type = COMBAT_MELEESPECIALIZE_ONEHAND;
+                break;
             case WEAPON_TYPE_2HAND_MELEE:
-            xp_type = COMBAT_MELEESPECIALIZE_TWOHAND;
-            break;
+                xp_type = COMBAT_MELEESPECIALIZE_TWOHAND;
+                break;
             case WEAPON_TYPE_UNARMED:
-            xp_type = COMBAT_MELEESPECIALIZE_UNARMED;
-            break;
+                xp_type = COMBAT_MELEESPECIALIZE_UNARMED;
+                break;
             case WEAPON_TYPE_POLEARM:
-            xp_type = COMBAT_MELEESPECIALIZE_POLEARM;
-            break;
+                xp_type = COMBAT_MELEESPECIALIZE_POLEARM;
+                break;
             case WEAPON_TYPE_THROWN:
-            xp_type = COMBAT_GRENADE;
-            break;
+                xp_type = COMBAT_GRENADE;
+                break;
             case WEAPON_TYPE_WT_1HAND_LIGHTSABER:
-            xp_type = COMBAT_MELEESPECIALIZE_ONEHAND;
-            break;
+                xp_type = COMBAT_MELEESPECIALIZE_ONEHAND;
+                break;
             case WEAPON_TYPE_WT_2HAND_LIGHTSABER:
-            xp_type = COMBAT_MELEESPECIALIZE_TWOHAND;
-            break;
+                xp_type = COMBAT_MELEESPECIALIZE_TWOHAND;
+                break;
             case WEAPON_TYPE_WT_POLEARM_LIGHTSABER:
-            xp_type = COMBAT_MELEESPECIALIZE_POLEARM;
-            break;
+                xp_type = COMBAT_MELEESPECIALIZE_POLEARM;
+                break;
             case combat.WEAPON_TYPE_FORCE_POWER:
-            xp_type = COMBAT_MELEESPECIALIZE_UNARMED;
-            break;
+                xp_type = COMBAT_MELEESPECIALIZE_UNARMED;
+                break;
             default:
-            xp_type = UNKNOWN;
-            break;
+                xp_type = UNKNOWN;
+                break;
         }
         return xp_type;
     }
     public static String getWeaponStringFromXPType(String strXPType) throws InterruptedException
     {
-        if (strXPType.equals(COMBAT_RANGEDSPECIALIZE_RIFLE))
-        {
-            return "rifle";
-        }
-        else if (strXPType.equals(COMBAT_RANGEDSPECIALIZE_CARBINE))
-        {
-            return "carbine";
-        }
-        else if (strXPType.equals(COMBAT_RANGEDSPECIALIZE_PISTOL))
-        {
-            return "pistol";
-        }
-        else if (strXPType.equals(COMBAT_RANGEDSPECIALIZE_HEAVY))
-        {
-            return "heavy";
-        }
-        else if (strXPType.equals(COMBAT_MELEESPECIALIZE_ONEHAND))
-        {
-            return "onehandmelee";
-        }
-        else if (strXPType.equals(COMBAT_MELEESPECIALIZE_TWOHAND))
-        {
-            return "twohandmelee";
-        }
-        else if (strXPType.equals(COMBAT_MELEESPECIALIZE_UNARMED))
-        {
-            return "unarmed";
-        }
-        else if (strXPType.equals(COMBAT_MELEESPECIALIZE_POLEARM))
-        {
-            return "polearm";
-        }
-        else if (strXPType.equals(COMBAT_JEDI_ONEHANDLIGHTSABER))
-        {
-            return "onehandmelee";
-        }
-        else if (strXPType.equals(COMBAT_JEDI_TWOHANDLIGHTSABER))
-        {
-            return "twohandmelee";
-        }
-        else if (strXPType.equals(COMBAT_JEDI_POLEARMLIGHTSABER))
-        {
-            return "polearm";
+        switch (strXPType) {
+            case COMBAT_RANGEDSPECIALIZE_RIFLE:
+                return "rifle";
+            case COMBAT_RANGEDSPECIALIZE_CARBINE:
+                return "carbine";
+            case COMBAT_RANGEDSPECIALIZE_PISTOL:
+                return "pistol";
+            case COMBAT_RANGEDSPECIALIZE_HEAVY:
+                return "heavy";
+            case COMBAT_MELEESPECIALIZE_ONEHAND:
+                return "onehandmelee";
+            case COMBAT_MELEESPECIALIZE_TWOHAND:
+                return "twohandmelee";
+            case COMBAT_MELEESPECIALIZE_UNARMED:
+                return "unarmed";
+            case COMBAT_MELEESPECIALIZE_POLEARM:
+                return "polearm";
+            case COMBAT_JEDI_ONEHANDLIGHTSABER:
+                return "onehandmelee";
+            case COMBAT_JEDI_TWOHANDLIGHTSABER:
+                return "twohandmelee";
+            case COMBAT_JEDI_POLEARMLIGHTSABER:
+                return "polearm";
         }
         return "";
     }
@@ -653,8 +606,7 @@ public class xp extends script.base_script
     }
     public static boolean cleanupCreditForKills() throws InterruptedException
     {
-        obj_id self = getSelf();
-        utils.removeScriptVarTree(self, VAR_CREDIT_FOR_KILLS);
+        utils.removeScriptVarTree(getSelf(), VAR_CREDIT_FOR_KILLS);
         return true;
     }
     public static void updateCombatXpList(obj_id target, obj_id attacker, obj_id wpn, int dam) throws InterruptedException
@@ -805,7 +757,7 @@ public class xp extends script.base_script
         {
             damArray[i] = new obj_var(attackerList[i].toString(), utils.getIntScriptVar(target, VAR_ATTACKER_LIST + "." + attackerList[i] + ".damage"));
         }
-        if (damArray == null || damArray.length == 0)
+        if (damArray.length == 0)
         {
             return;
         }
@@ -821,17 +773,14 @@ public class xp extends script.base_script
         }
         dictionary groupDamage = new dictionary();
         int topDamage = Integer.MIN_VALUE;
-        int gDam = 0;
-        for (int i = 0; i < killers.length; i++)
-        {
-            obj_var attackerDamageVar = killers[i];
-            obj_id attacker = utils.stringToObjId(attackerDamageVar.getName());
-            if (isIdValid(attacker))
-            {
+        int gDam;
+        obj_id attacker;
+        for (obj_var attackerDamageVar : killers) {
+            attacker = utils.stringToObjId(attackerDamageVar.getName());
+            if (isIdValid(attacker)) {
                 int attackerDamage = attackerDamageVar.getIntData();
                 gDam = updateGroupDamageDictionary(groupDamage, attacker, attackerDamage, target);
-                if (gDam > topDamage)
-                {
+                if (gDam > topDamage) {
                     topDamage = gDam;
                 }
             }
@@ -839,13 +788,15 @@ public class xp extends script.base_script
         Vector primaryKillers = new Vector();
         primaryKillers.setSize(0);
         java.util.Enumeration keys = groupDamage.keys();
+        String key;
+        obj_id tmpId;
         while (keys.hasMoreElements())
         {
-            String key = (String)(keys.nextElement());
+            key = (String) (keys.nextElement());
             int val = groupDamage.getInt(key);
             if (val >= topDamage)
             {
-                obj_id tmpId = utils.stringToObjId(key);
+                tmpId = utils.stringToObjId(key);
                 if (isIdValid(tmpId))
                 {
                     primaryKillers = utils.addElement(primaryKillers, tmpId);
@@ -872,14 +823,10 @@ public class xp extends script.base_script
         }
         if (group.isGroupObject(winner))
         {
-            for (int i = 0; i < killers.length; i++)
-            {
-                obj_var attackerDamageVar = killers[i];
-                obj_id attacker = utils.stringToObjId(attackerDamageVar.getName());
-                if (isIdValid(attacker))
-                {
-                    if (getGroupObject(attacker) == winner)
-                    {
+            for (obj_var attackerDamageVar : killers) {
+                attacker = utils.stringToObjId(attackerDamageVar.getName());
+                if (isIdValid(attacker)) {
+                    if (getGroupObject(attacker) == winner) {
                         incrementKillMeter(attacker, 1);
                     }
                 }
@@ -890,12 +837,8 @@ public class xp extends script.base_script
         grantQuestKillCredit(winner, target);
         if (!hasObjVar(target, "combat.zeroXP"))
         {
-            obj_id[] killerList = new obj_id[0];
-            if (primaryKillers != null)
-            {
-                killerList = new obj_id[primaryKillers.size()];
-                primaryKillers.toArray(killerList);
-            }
+            obj_id[] killerList = new obj_id[primaryKillers.size()];
+            primaryKillers.toArray(killerList);
             killers = grantCombatXp(target, killers);
             obj_id[] playerList = getPlayersFromKillerList(killerList);
             pet_lib.addToHarvestDroidArray(target, playerList);
@@ -915,44 +858,30 @@ public class xp extends script.base_script
     {
         Vector players = new Vector();
         players.setSize(0);
-        for (int i = 0; i < killerList.length; i++)
-        {
-            if (group.isGroupObject(killerList[i]))
-            {
-                obj_id[] groupMembers = utils.getGroupMemberIds(killerList[i]);
-                for (int k = 0; k < groupMembers.length; k++)
-                {
-                    if (isIdValid(groupMembers[k]) && exists(groupMembers[k]))
-                    {
-                        if (pet_lib.isPet(groupMembers[k]))
-                        {
-                            utils.addElement(players, getMaster(groupMembers[k]));
-                        }
-                        else 
-                        {
-                            utils.addElement(players, groupMembers[k]);
+        obj_id[] groupMembers;
+        for (obj_id aKillerList : killerList) {
+            if (group.isGroupObject(aKillerList)) {
+                groupMembers = utils.getGroupMemberIds(aKillerList);
+                for (obj_id groupMember : groupMembers) {
+                    if (isIdValid(groupMember) && exists(groupMember)) {
+                        if (pet_lib.isPet(groupMember)) {
+                            utils.addElement(players, getMaster(groupMember));
+                        } else {
+                            utils.addElement(players, groupMember);
                         }
                     }
                 }
-            }
-            else 
-            {
-                if (pet_lib.isPet(killerList[i]))
-                {
-                    utils.addElement(players, getMaster(killerList[i]));
-                }
-                else 
-                {
-                    utils.addElement(players, killerList[i]);
+            } else {
+                if (pet_lib.isPet(aKillerList)) {
+                    utils.addElement(players, getMaster(aKillerList));
+                } else {
+                    utils.addElement(players, aKillerList);
                 }
             }
         }
-        if (players != null)
-        {
-            killerList = new obj_id[players.size()];
-            players.toArray(killerList);
+        killerList = new obj_id[players.size()];
+        players.toArray(killerList);
 
-        }
         return killerList;
     }
     public static void grantQuestKillCredit(obj_id winner, obj_id target) throws InterruptedException
@@ -987,30 +916,23 @@ public class xp extends script.base_script
         {
             params.put("spawnedBy", getObjIdObjVar(target, "quest_spawner.spawned_by"));
         }
-        for (int i = 0; i < killList.length; i++)
-        {
-            if (!hasObjVar(target, "soloCollection"))
-            {
-                if (!exists(killList[i]) || !isIdValid(killList[i]))
-                {
+        obj_id collectionOwner;
+        for (obj_id aKillList : killList) {
+            if (!hasObjVar(target, "soloCollection")) {
+                if (!exists(aKillList) || !isIdValid(aKillList)) {
                     continue;
                 }
-                float distance = getDistance(target, killList[i]);
-                if (distance < 128.0f && distance >= 0.0f)
-                {
-                    messageTo(killList[i], "receiveCreditForKill", params, 0.0f, false);
+                float distance = getDistance(target, aKillList);
+                if (distance < 128.0f && distance >= 0.0f) {
+                    messageTo(aKillList, "receiveCreditForKill", params, 0.0f, false);
                 }
-            }
-            else 
-            {
-                obj_id collectionOwner = getObjIdObjVar(target, "soloCollection");
-                if (!exists(collectionOwner) || !isIdValid(collectionOwner))
-                {
+            } else {
+                collectionOwner = getObjIdObjVar(target, "soloCollection");
+                if (!exists(collectionOwner) || !isIdValid(collectionOwner)) {
                     continue;
                 }
                 float distance = getDistance(target, collectionOwner);
-                if (distance < 128.0f && distance >= 0.0f)
-                {
+                if (distance < 128.0f && distance >= 0.0f) {
                     messageTo(collectionOwner, "receiveCreditForKill", params, 0.0f, false);
                 }
             }
@@ -1079,11 +1001,18 @@ public class xp extends script.base_script
         {
             allKillers[i] = utils.stringToObjId(killers[i].getName());
         }
+        obj_var killerVar;
+        obj_id killer;
+        obj_id master;
+        obj_id gcw_gain_object;
+        obj_id beast;
+        dictionary params;
+        obj_id beastBCD;
         for (int i = 0; i < killers.length; i++)
         {
-            obj_var killerVar = killers[i];
-            obj_id killer = allKillers[i];
-            obj_id master = obj_id.NULL_ID;
+            killerVar = killers[i];
+            killer = allKillers[i];
+            master = obj_id.NULL_ID;
             if (beast_lib.isBeast(killer) && !ai_lib.aiIsDead(killer))
             {
                 master = getMaster(killer);
@@ -1102,7 +1031,7 @@ public class xp extends script.base_script
                     }
                 }
             }
-            obj_id gcw_gain_object = null;
+            gcw_gain_object = null;
             if (isIdValid(master))
             {
                 if (!utils.isObjIdInArray(allKillers, master))
@@ -1126,15 +1055,15 @@ public class xp extends script.base_script
                 xpTotal = applyGroupXpModifier(killer, xpTotal);
                 if (isPlayer(killer) && beast_lib.isBeastMaster(killer))
                 {
-                    obj_id beast = beast_lib.getBeastOnPlayer(killer);
+                    beast = beast_lib.getBeastOnPlayer(killer);
                     if (beast_lib.isValidBeast(beast) && getDistance(killer, beast) < MAX_DISTANCE && xpTotal > 1)
                     {
                         if (utils.isObjIdInArray(killList, killer) || utils.isObjIdInArray(killList, beast))
                         {
                             beast_lib.grantBeastExperience(beast);
-                            dictionary params = new dictionary();
+                            params = new dictionary();
                             params.put("targetId", target);
-                            obj_id beastBCD = beast_lib.getBeastBCD(beast);
+                            beastBCD = beast_lib.getBeastBCD(beast);
                             messageTo(beastBCD, "beastKilledSomething", params, 1, false);
                         }
                     }
@@ -1150,9 +1079,9 @@ public class xp extends script.base_script
                         else 
                         {
                             beast_lib.grantBeastExperience(killer);
-                            dictionary params = new dictionary();
+                            params = new dictionary();
                             params.put("targetId", target);
-                            obj_id beastBCD = beast_lib.getBeastBCD(killer);
+                            beastBCD = beast_lib.getBeastBCD(killer);
                             messageTo(beastBCD, "beastKilledSomething", params, 1, false);
                         }
                     }
@@ -1194,12 +1123,8 @@ public class xp extends script.base_script
         {
             return null;
         }
-        obj_var[] _ret = new obj_var[0];
-        if (ret != null)
-        {
-            _ret = new obj_var[ret.size()];
-            ret.toArray(_ret);
-        }
+        obj_var[] _ret = new obj_var[ret.size()];
+        ret.toArray(_ret);
         return _ret;
     }
     public static void grantCombatXpPerAttackType(obj_id player, obj_id target, int totalXp) throws InterruptedException
@@ -1227,7 +1152,6 @@ public class xp extends script.base_script
             webster.put("target", target);
             messageTo(player, "handlePlayerCombatKill", webster, 1, false);
         }
-        dictionary d = new dictionary();
         String damPath = basePath + ".damage";
         int tally = utils.getIntScriptVar(target, damPath);
         tally -= utils.getIntScriptVar(target, xpListBasePath + "." + PERMISSIONS_ONLY);
@@ -1240,62 +1164,44 @@ public class xp extends script.base_script
         int jediXp = 0;
         int generalXp = 0;
         int totalXpGranted = 0;
-        for (int i = 0; i < xpTypes.length; i++)
-        {
-            int val = utils.getIntScriptVar(target, xpListBasePath + "." + xpTypes[i]);
-            float xpPercent = ((float)(val) / (float)(tally));
+        for (String xpType : xpTypes) {
+            int val = utils.getIntScriptVar(target, xpListBasePath + "." + xpType);
+            float xpPercent = ((float) (val) / (float) (tally));
             int intNewTotal = totalXp;
-            if (xpTypes[i].equals(RAW_COMBAT))
-            {
-                intNewTotal = (int)(intNewTotal * xpPercent);
+            if (xpType.equals(RAW_COMBAT)) {
+                intNewTotal = (int) (intNewTotal * xpPercent);
                 bonusCombatXp += intNewTotal;
-            }
-            else if (xpTypes[i].equals(PARTIAL_COMBAT))
-            {
-                intNewTotal = (int)(intNewTotal * xpPercent);
-                intNewTotal = (int)(intNewTotal * COMBAT_GENERAL_EXCHANGE_RATE);
+            } else if (xpType.equals(PARTIAL_COMBAT)) {
+                intNewTotal = (int) (intNewTotal * xpPercent);
+                intNewTotal = (int) (intNewTotal * COMBAT_GENERAL_EXCHANGE_RATE);
                 bonusCombatXp += intNewTotal;
-            }
-            else if (xpTypes[i].equals(COMBAT_GENERAL))
-            {
-                int amt = (int)(intNewTotal * xpPercent);
-                if (amt < 1)
-                {
+            } else if (xpType.equals(COMBAT_GENERAL)) {
+                int amt = (int) (intNewTotal * xpPercent);
+                if (amt < 1) {
                     amt = 1;
                 }
                 generalXp += amt;
-            }
-            else if (isCombatXpType(xpTypes[i]))
-            {
-                int amt = (int)(intNewTotal * xpPercent);
-                if (amt < 1)
-                {
+            } else if (isCombatXpType(xpType)) {
+                int amt = (int) (intNewTotal * xpPercent);
+                if (amt < 1) {
                     amt = 1;
                 }
-                if (xpTypes[i].equals(COMBAT_JEDI_ONEHANDLIGHTSABER) || xpTypes[i].equals(COMBAT_JEDI_TWOHANDLIGHTSABER) || xpTypes[i].equals(COMBAT_JEDI_POLEARMLIGHTSABER) || xpTypes[i].equals(COMBAT_JEDI_FORCE_POWER) || xpTypes[i].equals(JEDI_GENERAL))
-                {
-                    if (isJedi(player))
-                    {
+                if (xpType.equals(COMBAT_JEDI_ONEHANDLIGHTSABER) || xpType.equals(COMBAT_JEDI_TWOHANDLIGHTSABER) || xpType.equals(COMBAT_JEDI_POLEARMLIGHTSABER) || xpType.equals(COMBAT_JEDI_FORCE_POWER) || xpType.equals(JEDI_GENERAL)) {
+                    if (isJedi(player)) {
                         jediXp += amt;
                     }
-                }
-                else 
-                {
+                } else {
                     raw += amt;
-                    if (!xpTypes[i].equals(COMBAT_THROWN))
-                    {
-                        totalXpGranted += grantCombatStyleXp(player, xpTypes[i], amt);
+                    if (!xpType.equals(COMBAT_THROWN)) {
+                        totalXpGranted += grantCombatStyleXp(player, xpType, amt);
                     }
                 }
-            }
-            else if (!xpTypes[i].equals(UNKNOWN) && !xpTypes[i].equals(PERMISSIONS_ONLY) && !xpTypes[i].equals(PET_DAMAGE))
-            {
-                int amt = (int)(intNewTotal * xpPercent);
-                if (amt < 1)
-                {
+            } else if (!xpType.equals(UNKNOWN) && !xpType.equals(PERMISSIONS_ONLY) && !xpType.equals(PET_DAMAGE)) {
+                int amt = (int) (intNewTotal * xpPercent);
+                if (amt < 1) {
                     amt = 1;
                 }
-                totalXpGranted += grantCombatStyleXp(player, xpTypes[i], amt);
+                totalXpGranted += grantCombatStyleXp(player, xpType, amt);
             }
         }
         if (isJedi(player))
@@ -1499,8 +1405,6 @@ public class xp extends script.base_script
         {
             return;
         }
-        prose_package pp = null;
-        pp = prose.getPackage(SID_FLYTEXT_XP, amount);
         float groupModPct = 1.0f;
         if (utils.hasScriptVar(player, "combat.xp.groupBonus"))
         {
@@ -1509,16 +1413,13 @@ public class xp extends script.base_script
         }
         float flyScale = getCombatXpFlyScale(groupModPct);
         color flyColor = getCombatXpFlyColor(groupModPct);
-        showFlyTextPrivate(target, player, pp, flyScale, flyColor);
+        showFlyTextPrivate(target, player, prose.getPackage(SID_FLYTEXT_XP, amount), flyScale, flyColor);
     }
     public static float getGroupXpModifierPercentageOfMax(float groupMod) throws InterruptedException
     {
-        float groupModPct = 0;
+        float groupModPct;
         final float maxGroupMod = GROUP_XP_BONUS * MAX_GROUP_BONUS_COUNT;
-        if (maxGroupMod > 0)
-        {
-            groupModPct = (groupMod - 1) / maxGroupMod;
-        }
+        groupModPct = (groupMod - 1) / maxGroupMod;
         if (groupModPct > 1)
         {
             groupModPct = 1;
@@ -1530,8 +1431,7 @@ public class xp extends script.base_script
         final float minScale = 1.5f;
         final float maxScale = 2.5f;
         final float scaleRange = maxScale - minScale;
-        float scale = minScale + (scaleRange * groupModPct);
-        return scale;
+        return minScale + (scaleRange * groupModPct);
     }
     public static color getCombatXpFlyColor(float groupModPct) throws InterruptedException
     {
@@ -1559,197 +1459,68 @@ public class xp extends script.base_script
     }
     public static boolean isCombatXpType(String xpType) throws InterruptedException
     {
-        if (xpType.equals(COMBAT_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_RANGEDSPECIALIZE_RIFLE))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_RANGEDSPECIALIZE_CARBINE))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_RANGEDSPECIALIZE_PISTOL))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_RANGEDSPECIALIZE_HEAVY))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_MELEESPECIALIZE_ONEHAND))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_MELEESPECIALIZE_TWOHAND))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_MELEESPECIALIZE_UNARMED))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_MELEESPECIALIZE_POLEARM))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_THROWN))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_GRENADE))
-        {
-            return true;
-        }
-        if (xpType.equals(JEDI_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_JEDI_ONEHANDLIGHTSABER))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_JEDI_TWOHANDLIGHTSABER))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_JEDI_POLEARMLIGHTSABER))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBAT_JEDI_FORCE_POWER))
-        {
-            return true;
-        }
-        if (xpType.equals(MEDICAL))
-        {
-            return true;
-        }
-        if (xpType.equals(COMBATMEDIC))
-        {
-            return true;
-        }
-        if (xpType.equals(CREATUREHANDLER))
-        {
-            return true;
-        }
-        if (xpType.equals(QUEST_COMBAT))
-        {
-            return true;
-        }
-        if (xpType.equals(QUEST_GENERAL))
-        {
-            return true;
+        switch (xpType) {
+            case COMBAT_GENERAL:
+            case COMBAT_RANGEDSPECIALIZE_RIFLE:
+            case COMBAT_RANGEDSPECIALIZE_CARBINE:
+            case COMBAT_RANGEDSPECIALIZE_PISTOL:
+            case COMBAT_RANGEDSPECIALIZE_HEAVY:
+            case COMBAT_MELEESPECIALIZE_ONEHAND:
+            case COMBAT_MELEESPECIALIZE_TWOHAND:
+            case COMBAT_MELEESPECIALIZE_UNARMED:
+            case COMBAT_MELEESPECIALIZE_POLEARM:
+            case COMBAT_THROWN:
+            case COMBAT_GRENADE:
+            case JEDI_GENERAL:
+            case COMBAT_JEDI_ONEHANDLIGHTSABER:
+            case COMBAT_JEDI_TWOHANDLIGHTSABER:
+            case COMBAT_JEDI_POLEARMLIGHTSABER:
+            case COMBAT_JEDI_FORCE_POWER:
+            case MEDICAL:
+            case COMBATMEDIC:
+            case CREATUREHANDLER:
+            case QUEST_COMBAT:
+            case QUEST_GENERAL:
+                return true;
         }
         return false;
     }
     public static boolean isSocialXpType(String xpType) throws InterruptedException
     {
-        if (xpType.equals(MUSIC))
-        {
-            return true;
-        }
-        if (xpType.equals(DANCE))
-        {
-            return true;
-        }
-        if (xpType.equals(JUGGLING))
-        {
-            return true;
-        }
-        if (xpType.equals(ENTERTAINER))
-        {
-            return true;
-        }
-        if (xpType.equals(IMAGEDESIGNER))
-        {
-            return true;
-        }
-        if (xpType.equals(QUEST_SOCIAL))
-        {
-            return true;
-        }
-        if (xpType.equals(QUEST_COMBAT))
-        {
-            return true;
-        }
-        if (xpType.equals(QUEST_GENERAL))
-        {
-            return true;
+        switch (xpType) {
+            case MUSIC:
+            case DANCE:
+            case JUGGLING:
+            case ENTERTAINER:
+            case IMAGEDESIGNER:
+            case QUEST_SOCIAL:
+            case QUEST_COMBAT:
+            case QUEST_GENERAL:
+                return true;
         }
         return false;
     }
     public static boolean isCraftingXpType(String xpType) throws InterruptedException
     {
-        if (xpType.equals(HARVEST_INORGANIC))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_FOOD_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_MEDICINE_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_CLOTHING_ARMOR))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_CLOTHING_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_WEAPONS_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_WEAPONS_MELEE))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_WEAPONS_RANGED))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_WEAPONS_MUNITION))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_STRUCTURE_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_DROID_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals(CRAFTING_SHIPWRIGHT))
-        {
-            return true;
-        }
-        if (xpType.equals(MERCHANT))
-        {
-            return true;
-        }
-        if (xpType.equals(QUEST_CRAFTING))
-        {
-            return true;
-        }
-        if (xpType.equals(QUEST_GENERAL))
-        {
-            return true;
-        }
-        if (xpType.equals("crafting"))
-        {
-            return true;
+        switch (xpType) {
+            case HARVEST_INORGANIC:
+            case CRAFTING_GENERAL:
+            case CRAFTING_FOOD_GENERAL:
+            case CRAFTING_MEDICINE_GENERAL:
+            case CRAFTING_CLOTHING_ARMOR:
+            case CRAFTING_CLOTHING_GENERAL:
+            case CRAFTING_WEAPONS_GENERAL:
+            case CRAFTING_WEAPONS_MELEE:
+            case CRAFTING_WEAPONS_RANGED:
+            case CRAFTING_WEAPONS_MUNITION:
+            case CRAFTING_STRUCTURE_GENERAL:
+            case CRAFTING_DROID_GENERAL:
+            case CRAFTING_SHIPWRIGHT:
+            case MERCHANT:
+            case QUEST_CRAFTING:
+            case QUEST_GENERAL:
+            case "crafting":
+                return true;
         }
         return false;
     }
@@ -1764,13 +1535,9 @@ public class xp extends script.base_script
             {
                 return null;
             }
-            for (int i = 0; i < colXpType.length; i++)
-            {
-                String type = colXpType[i];
-                if (type != null && !type.equals("") && !type.equals("unobtainable") && !type.equals("jedi"))
-                {
-                    if (utils.getElementPositionInArray(xpTypes, type) == -1)
-                    {
+            for (String type : colXpType) {
+                if (type != null && !type.equals("") && !type.equals("unobtainable") && !type.equals("jedi")) {
+                    if (utils.getElementPositionInArray(xpTypes, type) == -1) {
                         xpTypes = utils.addElement(xpTypes, type);
                     }
                 }
@@ -1797,37 +1564,32 @@ public class xp extends script.base_script
             LOG("missions", "null missions");
             return;
         }
-        for (int intI = 0; intI < objMissions.length; intI++)
-        {
-            String strMissionType = getMissionType(objMissions[intI]);
+        String strMissionType;
+        String strCreatureToKill;
+        string_id strName;
+        for (obj_id objMission : objMissions) {
+            strMissionType = getMissionType(objMission);
             LOG("missions", "type is " + strMissionType);
-            if (strMissionType.equals("hunting"))
-            {
-                String strCreatureToKill = getStringObjVar(objMissions[intI], "strCreatureToKill");
+            if (strMissionType.equals("hunting")) {
+                strCreatureToKill = getStringObjVar(objMission, "strCreatureToKill");
                 final String strCreatureType = getCreatureName(objCreature);
                 LOG("missions", "creature to kill is " + strCreatureToKill);
                 LOG("missions", "creature type is " + strCreatureType);
-                if (strCreatureType.equals(strCreatureToKill))
-                {
-                    int intQuantityToKill = getIntObjVar(objMissions[intI], "intQuantityToKill");
+                if (strCreatureType.equals(strCreatureToKill)) {
+                    int intQuantityToKill = getIntObjVar(objMission, "intQuantityToKill");
                     intQuantityToKill = intQuantityToKill - 1;
-                    if (intQuantityToKill <= 0)
-                    {
-                        messageTo(objMissions[intI], "huntingSuccess", null, 0, true);
-                    }
-                    else 
-                    {
+                    if (intQuantityToKill <= 0) {
+                        messageTo(objMission, "huntingSuccess", null, 0, true);
+                    } else {
                         LOG("missions", "Quanitty Ledft is " + intQuantityToKill);
-                        setObjVar(objMissions[intI], "intQuantityToKill", intQuantityToKill);
-                        string_id strName = new string_id("mob/creature_names", strCreatureType);
-                        prose_package ppKillsLeft = prose.getPackage(new string_id("mission/mission_generic", "hunting_kills_remaining"), strName, intQuantityToKill);
-                        sendSystemMessageProse(objPlayer, ppKillsLeft);
+                        setObjVar(objMission, "intQuantityToKill", intQuantityToKill);
+                        strName = new string_id("mob/creature_names", strCreatureType);
+                        sendSystemMessageProse(objPlayer, prose.getPackage(new string_id("mission/mission_generic", "hunting_kills_remaining"), strName, intQuantityToKill));
                         return;
                     }
                 }
             }
         }
-        return;
     }
     public static obj_id[] getTopIndividualAttacker(obj_var[] killers) throws InterruptedException
     {
@@ -1852,9 +1614,10 @@ public class xp extends script.base_script
             if (alphaValue > omegaValue)
             {
                 tempArray = utils.addElement(tempArray, alphaObjId);
+                obj_var next;
                 for (int a = 1; a < killers.length; a++)
                 {
-                    obj_var next = killers[a];
+                    next = killers[a];
                     int nextValue = next.getIntData();
                     if (nextValue == alphaValue)
                     {
@@ -1869,9 +1632,10 @@ public class xp extends script.base_script
             else if (alphaValue < omegaValue)
             {
                 tempArray = utils.addElement(tempArray, omegaObjId);
+                obj_var next;
                 for (int om = (killers.length - 2); om >= 0; om--)
                 {
-                    obj_var next = killers[om];
+                    next = killers[om];
                     int nextValue = next.getIntData();
                     if (nextValue == omegaValue)
                     {
@@ -1884,8 +1648,7 @@ public class xp extends script.base_script
                 }
             }
         }
-        obj_id[] topAttacker = utils.toStaticObjIdArray(tempArray);
-        return topAttacker;
+        return utils.toStaticObjIdArray(tempArray);
     }
     public static boolean displayForceSensitiveXP(obj_id player, String type) throws InterruptedException
     {
@@ -1931,7 +1694,7 @@ public class xp extends script.base_script
             utils.setScriptVar(player, "force_sensitive.xp_convert_type", type);
             for (int i = 0; i < valid_xp_types.size(); i++)
             {
-                dsrc[i] = "@exp_n:" + ((String)valid_xp_types.get(i));
+                dsrc[i] = "@exp_n:" + valid_xp_types.get(i);
             }
             if (!hasScript(player, "quest.force_sensitive.fs_xp_convert"))
             {
@@ -2013,7 +1776,7 @@ public class xp extends script.base_script
     public static int grantXpByTemplate(obj_id player, int amount) throws InterruptedException
     {
         String template = getSkillTemplate(player);
-        String xpType = xp.QUEST_COMBAT;
+        String xpType;
         if (!isIdValid(player) || template == null)
         {
             return 0;
@@ -2040,7 +1803,7 @@ public class xp extends script.base_script
     public static int grantUnmodifiedXpByTemplate(obj_id player, int amount) throws InterruptedException
     {
         String template = getSkillTemplate(player);
-        String xpType = xp.QUEST_COMBAT;
+        String xpType;
         if (!isIdValid(player) || template == null)
         {
             return 0;
@@ -2163,7 +1926,7 @@ public class xp extends script.base_script
     }
     public static int grantCollectionXP(obj_id player, String collectionName) throws InterruptedException
     {
-        float xpToGrant = 0;
+        float xpToGrant;
         int playerLevel = getLevel(player);
         if (playerLevel == 90)
         {
@@ -2198,9 +1961,9 @@ public class xp extends script.base_script
         {
             return 0;
         }
-        float xpToGrant = 0.0f;
-        int xpForCurrentLevel = -1;
-        int xpForNextLevel = -1;
+        float xpToGrant;
+        int xpForCurrentLevel;
+        int xpForNextLevel;
         if (space_flags.hasCompletedTierFour(player))
         {
             String tierFourSkill = profPrefix + space_flags.SKILL_NAMES[space_flags.TIER4_INDEXSTART];
@@ -2253,7 +2016,7 @@ public class xp extends script.base_script
     }
     public static float repeatCollectionXpModifier(obj_id player, long repeatSlotValue) throws InterruptedException
     {
-        float repeatMultiplier = 0.0f;
+        float repeatMultiplier;
         float adjustedRepeatSlotValue = (float)repeatSlotValue / 10.0f;
         repeatMultiplier = 1.0f - adjustedRepeatSlotValue;
         if (repeatMultiplier < 0.1f)

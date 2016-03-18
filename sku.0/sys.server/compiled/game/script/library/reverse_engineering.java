@@ -56,11 +56,10 @@ public class reverse_engineering extends script.base_script
         if (isIdValid(player))
         {
             String[] possiblePowerUps = POWERUP_SLOTS;
-            for (int i = 0; i < possiblePowerUps.length; i++)
-            {
-                obj_id thingInPlayersSlot = getObjectInSlot(player, possiblePowerUps[i]);
-                if (isPoweredUpItem(thingInPlayersSlot))
-                {
+            obj_id thingInPlayersSlot;
+            for (String possiblePowerUp : possiblePowerUps) {
+                thingInPlayersSlot = getObjectInSlot(player, possiblePowerUp);
+                if (isPoweredUpItem(thingInPlayersSlot)) {
                     applyPowerupItemEquipped(player, thingInPlayersSlot);
                 }
             }
@@ -91,7 +90,6 @@ public class reverse_engineering extends script.base_script
         {
             sendSystemMessage(player, new string_id("spam", "powerup_must_equip_item"));
         }
-        return;
     }
     public static void applyPowerupItemEquipped(obj_id player, obj_id itemWithPowerUp) throws InterruptedException
     {
@@ -115,10 +113,9 @@ public class reverse_engineering extends script.base_script
         {
             finalPower = 1;
         }
-        addSkillModModifier(player, slotName + "_powerup", mod, (int)finalPower, -1, false, false);
+        addSkillModModifier(player, slotName + "_powerup", mod, finalPower, -1, false, false);
         applyBuffIcon(player, itemWithPowerUp);
         recalcPoolsIfNeeded(player, mod);
-        return;
     }
     public static boolean isPoweredUpItem(obj_id item) throws InterruptedException
     {
@@ -127,9 +124,10 @@ public class reverse_engineering extends script.base_script
     public static int getPowerupType(obj_id item) throws InterruptedException
     {
         int powerupType = -1;
+        String staticName;
         for (int i = 0; i < POWERUP_ITEMS.length; i++)
         {
-            String staticName = getStaticItemName(item);
+            staticName = getStaticItemName(item);
             if (staticName.equals(POWERUP_ITEMS[i]))
             {
                 powerupType = i;
@@ -139,11 +137,8 @@ public class reverse_engineering extends script.base_script
     }
     public static float getDieTime(float lifeSpan, obj_id tempObject) throws InterruptedException
     {
-        float timeStamp = getFloatObjVar(tempObject, ENGINEERING_TIMESTAMP);
-        float deathStamp = timeStamp + reverse_engineering.EXPIRATION_TIME;
-        float rightNow = getGameTime();
-        float dieTime = deathStamp - rightNow;
-        return dieTime;
+        float deathStamp = getFloatObjVar(tempObject, ENGINEERING_TIMESTAMP) + reverse_engineering.EXPIRATION_TIME;
+        return deathStamp - getGameTime();
     }
     public static String getMyEquippedSlot(obj_id itemWithPowerUp) throws InterruptedException
     {
@@ -152,12 +147,11 @@ public class reverse_engineering extends script.base_script
         if (isIdValid(containingMe))
         {
             String[] possibleSlots = POWERUP_SLOTS;
-            for (int i = 0; i < possibleSlots.length; i++)
-            {
-                obj_id thingInPlayersSlot = getObjectInSlot(containingMe, possibleSlots[i]);
-                if (thingInPlayersSlot == itemWithPowerUp)
-                {
-                    return possibleSlots[i];
+            obj_id thingInPlayersSlot;
+            for (String possibleSlot : possibleSlots) {
+                thingInPlayersSlot = getObjectInSlot(containingMe, possibleSlot);
+                if (thingInPlayersSlot == itemWithPowerUp) {
+                    return possibleSlot;
                 }
             }
         }
@@ -166,40 +160,34 @@ public class reverse_engineering extends script.base_script
     public static String getMyBuffIconInt(obj_id powerUp) throws InterruptedException
     {
         int powerupType = getPowerupType(powerUp);
-        String buffName = "";
+        String buffName;
         switch (powerupType)
         {
             case 0:
-            buffName = POWERUP_CHEST;
-            break;
+                buffName = POWERUP_CHEST;
+                break;
             case 1:
-            buffName = POWERUP_SHIRT;
-            break;
+                buffName = POWERUP_SHIRT;
+                break;
             case 2:
-            buffName = POWERUP_WEAPON;
-            break;
+                buffName = POWERUP_WEAPON;
+                break;
             default:
-            return null;
+                return null;
         }
         return buffName;
     }
     public static String getMyBuffIconString(obj_id itemWithPowerUp) throws InterruptedException
     {
-        String buffName = "";
-        String slotName = getMyEquippedSlot(itemWithPowerUp);
-        if (slotName.equals("chest2"))
-        {
-            buffName = POWERUP_CHEST;
+        switch(getMyEquippedSlot(itemWithPowerUp)){
+            case "chest2":
+                return POWERUP_CHEST;
+            case "chest1":
+                return POWERUP_SHIRT;
+            case "hold_r":
+            default:
+                return POWERUP_WEAPON;
         }
-        if (slotName.equals("chest1"))
-        {
-            buffName = POWERUP_SHIRT;
-        }
-        if (slotName.equals("hold_r"))
-        {
-            buffName = POWERUP_WEAPON;
-        }
-        return buffName;
     }
     public static void applyBuffIcon(obj_id player, obj_id itemWithPowerUp) throws InterruptedException
     {
@@ -207,8 +195,8 @@ public class reverse_engineering extends script.base_script
     }
     public static void applyBuffIcon(obj_id player, obj_id powerUp, obj_id itemWithPowerUp) throws InterruptedException
     {
-        String buffName = "";
-        float expiration = 0f;
+        String buffName;
+        float expiration;
         if (!isIdValid(powerUp))
         {
             buffName = getMyBuffIconString(itemWithPowerUp);
@@ -226,7 +214,6 @@ public class reverse_engineering extends script.base_script
         {
             buff.applyBuff(player, buffName, expiration);
         }
-        return;
     }
     public static void removeBuffIcon(obj_id player, obj_id itemWithPowerUp) throws InterruptedException
     {
@@ -235,7 +222,6 @@ public class reverse_engineering extends script.base_script
         {
             buff.removeBuff(player, buffName);
         }
-        return;
     }
     public static void recalcPoolsIfNeeded(obj_id player, String mod) throws InterruptedException
     {
@@ -246,7 +232,6 @@ public class reverse_engineering extends script.base_script
         combat.cacheCombatData(player);
         trial.bumpSession(player, "displayDefensiveMods");
         messageTo(player, "setDisplayOnlyDefensiveMods", trial.getSessionDict(player, "displayDefensiveMods"), 5, false);
-        return;
     }
     public static void addModsAndScript(obj_id player, obj_id powerUp, obj_id itemToPowerUp) throws InterruptedException
     {
@@ -254,17 +239,14 @@ public class reverse_engineering extends script.base_script
     }
     public static void addModsAndScript(obj_id player, obj_id powerUp, obj_id itemToPowerUp, float remainingTime) throws InterruptedException
     {
-        String mod = getStringObjVar(powerUp, ENGINEERING_MODIFIER);
-        int ratio = getIntObjVar(powerUp, ENGINEERING_RATIO);
-        int power = getIntObjVar(powerUp, ENGINEERING_POWER);
         float timeStamp = getGameTime();
         if (remainingTime > 0f)
         {
             timeStamp = remainingTime;
         }
-        setObjVar(itemToPowerUp, ENGINEERING_MODIFIER, mod);
-        setObjVar(itemToPowerUp, ENGINEERING_RATIO, ratio);
-        setObjVar(itemToPowerUp, ENGINEERING_POWER, power);
+        setObjVar(itemToPowerUp, ENGINEERING_MODIFIER, getStringObjVar(powerUp, ENGINEERING_MODIFIER));
+        setObjVar(itemToPowerUp, ENGINEERING_RATIO, getIntObjVar(powerUp, ENGINEERING_RATIO));
+        setObjVar(itemToPowerUp, ENGINEERING_POWER, getIntObjVar(powerUp, ENGINEERING_POWER));
         setObjVar(itemToPowerUp, ENGINEERING_TIMESTAMP, timeStamp);
         if (!isPoweredUpItem(itemToPowerUp))
         {
@@ -287,15 +269,11 @@ public class reverse_engineering extends script.base_script
         }
         trial.bumpSession(itemWithPowerUp, "displayDefensiveMods");
         messageTo(itemWithPowerUp, "setDisplayOnlyDefensiveMods", trial.getSessionDict(itemWithPowerUp, "displayDefensiveMods"), 5, false);
-        return;
     }
     public static void removePlayerPowerUpMods(obj_id player, obj_id itemWithPowerUp) throws InterruptedException
     {
-        String slotName = getMyEquippedSlot(itemWithPowerUp);
-        String mod = getStringObjVar(itemWithPowerUp, ENGINEERING_MODIFIER);
-        removeAttribOrSkillModModifier(player, slotName + "_powerup");
-        recalcPoolsIfNeeded(player, mod);
-        return;
+        removeAttribOrSkillModModifier(player, getMyEquippedSlot(itemWithPowerUp) + "_powerup");
+        recalcPoolsIfNeeded(player, getStringObjVar(itemWithPowerUp, ENGINEERING_MODIFIER));
     }
     public static void powerUpAttached(obj_id player, obj_id itemWithPowerUp) throws InterruptedException
     {
@@ -311,25 +289,18 @@ public class reverse_engineering extends script.base_script
         {
             return;
         }
-        int power = getIntObjVar(itemWithPowerUp, ENGINEERING_POWER);
         String mod = getStringObjVar(itemWithPowerUp, ENGINEERING_MODIFIER);
-        int ratio = getIntObjVar(itemWithPowerUp, ENGINEERING_RATIO);
-        int finalPower = power / ratio;
+        int finalPower = getIntObjVar(itemWithPowerUp, ENGINEERING_POWER) / getIntObjVar(itemWithPowerUp, ENGINEERING_RATIO);
         if (finalPower < 1)
         {
             finalPower = 1;
         }
-        addSkillModModifier(player, slotName + "_powerup", mod, (int)finalPower, -1, false, false);
+        addSkillModModifier(player, slotName + "_powerup", mod, finalPower, -1, false, false);
         recalcPoolsIfNeeded(player, mod);
-        return;
     }
     public static boolean canMakePowerUp(String mod) throws InterruptedException
     {
-        if (dataTableGetInt(SPECIAL_MOD_TABLE, mod, "no_pup") > 0)
-        {
-            return false;
-        }
-        return true;
+        return dataTableGetInt(SPECIAL_MOD_TABLE, mod, "no_pup") <= 0;
     }
     public static boolean canStaticItemBeReversedEngineered(obj_id item) throws InterruptedException
     {

@@ -1,18 +1,12 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import java.util.Random;
-import java.util.Vector;
+import script.dictionary;
+import script.obj_id;
 import script.transform;
 import script.vector;
+
+import java.util.Random;
+import java.util.Vector;
 
 public class ship_ai extends script.base_script
 {
@@ -97,12 +91,16 @@ public class ship_ai extends script.base_script
     {
         final int points = 20;
         transform path[] = new transform[points];
+        float radian;
+        float x;
+        float y;
+        float z;
         for (int i = 0; i < points; ++i)
         {
-            final float radian = (float)Math.PI * 2.0f * ((float)i / (float)points);
-            final float x = position_w.x + (float)Math.sin(radian) * radius;
-            final float y = position_w.y;
-            final float z = position_w.z + (float)Math.cos(radian) * radius;
+            radian = (float)Math.PI * 2.0f * ((float)i / (float)points);
+            x = position_w.x + (float)Math.sin(radian) * radius;
+            y = position_w.y;
+            z = position_w.z + (float)Math.cos(radian) * radius;
             path[i] = transform.identity.setPosition_p(x, y, z);
         }
         return path;
@@ -111,10 +109,12 @@ public class ship_ai extends script.base_script
     {
         final int points = 20;
         transform path[] = new transform[points];
+        vector direction;
+        vector position;
         for (int i = 0; i < points; ++i)
         {
-            final vector direction = vector.randomUnit();
-            vector position = (transform_w.getPosition_p()).add(direction.multiply(minDist + (float)Math.random() * (maxDist - minDist)));
+            direction = vector.randomUnit();
+            position = (transform_w.getPosition_p()).add(direction.multiply(minDist + (float)Math.random() * (maxDist - minDist)));
             path[i] = transform.identity.setPosition_p(position);
         }
         return path;
@@ -134,9 +134,8 @@ public class ship_ai extends script.base_script
     public static void squadClearPatrolPath(int squadId) throws InterruptedException
     {
         obj_id[] unitList = squadGetUnitList(squadId);
-        for (int i = 0; i < unitList.length; ++i)
-        {
-            _spaceUnitClearPatrolPath(unitList[i]);
+        for (obj_id anUnitList : unitList) {
+            _spaceUnitClearPatrolPath(anUnitList);
         }
     }
     public static void unitFollow(obj_id unit, obj_id followedUnit, vector direction_o, float distance) throws InterruptedException
@@ -158,9 +157,8 @@ public class ship_ai extends script.base_script
     public static void squadSetAttackOrders(int squadId, int attackOrders) throws InterruptedException
     {
         obj_id[] unitList = squadGetUnitList(squadId);
-        for (int i = 0; i < unitList.length; ++i)
-        {
-            unitSetAttackOrders(unitList[i], attackOrders);
+        for (obj_id anUnitList : unitList) {
+            unitSetAttackOrders(anUnitList, attackOrders);
         }
     }
     public static void unitSetLeashDistance(obj_id unit, float distance) throws InterruptedException
@@ -170,9 +168,8 @@ public class ship_ai extends script.base_script
     public static void squadSetLeashDistance(int squadId, float distance) throws InterruptedException
     {
         obj_id[] unitList = squadGetUnitList(squadId);
-        for (int i = 0; i < unitList.length; ++i)
-        {
-            unitSetLeashDistance(unitList[i], distance);
+        for (obj_id anUnitList : unitList) {
+            unitSetLeashDistance(anUnitList, distance);
         }
     }
     public static void unitSetPilotType(obj_id unit, String pilotType) throws InterruptedException
@@ -240,22 +237,15 @@ public class ship_ai extends script.base_script
     public static void unitRemoveFromAllAttackTargetLists(obj_id unit) throws InterruptedException
     {
         obj_id[] whoIsTargetingMeList = unitGetWhoIsTargetingMe(unit);
-        for (int index = 0; index < whoIsTargetingMeList.length; ++index)
-        {
-            if (exists(whoIsTargetingMeList[index]) && (whoIsTargetingMeList[index].isLoaded()))
-            {
-                if (!space_utils.isPlayerControlledShip(whoIsTargetingMeList[index]))
-                {
-                    unitRemoveAttackTarget(whoIsTargetingMeList[index], unit);
+        for (obj_id aWhoIsTargetingMeList : whoIsTargetingMeList) {
+            if (exists(aWhoIsTargetingMeList) && (aWhoIsTargetingMeList.isLoaded())) {
+                if (!space_utils.isPlayerControlledShip(aWhoIsTargetingMeList)) {
+                    unitRemoveAttackTarget(aWhoIsTargetingMeList, unit);
+                } else {
+                    LOG("space", aWhoIsTargetingMeList + " was passed into getWhoistargetingme but it's a PLAYER");
                 }
-                else 
-                {
-                    LOG("space", whoIsTargetingMeList[index] + " was passed into getWhoistargetingme but it's a PLAYER");
-                }
-            }
-            else 
-            {
-                LOG("space", whoIsTargetingMeList[index] + " was passed into unitGetWhoIsTargetingMe but doesn't exist on the server");
+            } else {
+                LOG("space", aWhoIsTargetingMeList + " was passed into unitGetWhoIsTargetingMe but doesn't exist on the server");
             }
         }
     }
@@ -270,28 +260,24 @@ public class ship_ai extends script.base_script
     public static void squadSetPrimaryTarget(int squadId, obj_id targetUnit) throws InterruptedException
     {
         obj_id[] unitList = squadGetUnitList(squadId);
-        for (int i = 0; i < unitList.length; ++i)
-        {
-            unitAddDamageTaken(unitList[i], targetUnit, 100000.0f);
+        for (obj_id anUnitList : unitList) {
+            unitAddDamageTaken(anUnitList, targetUnit, 100000.0f);
         }
     }
     public static void squadAddTarget(int squadId, obj_id targetUnit) throws InterruptedException
     {
         obj_id[] unitList = squadGetUnitList(squadId);
-        for (int i = 0; i < unitList.length; ++i)
-        {
-            unitAddDamageTaken(unitList[i], targetUnit, 100.0f);
+        for (obj_id anUnitList : unitList) {
+            unitAddDamageTaken(anUnitList, targetUnit, 100.0f);
         }
     }
     public static void squadSetPrimaryTarget(int squadId, int targetSquadId) throws InterruptedException
     {
         obj_id[] unitList = squadGetUnitList(squadId);
         obj_id[] targetUnitList = squadGetUnitList(targetSquadId);
-        for (int i = 0; i < unitList.length; ++i)
-        {
-            for (int j = 0; j < targetUnitList.length; ++j)
-            {
-                unitAddDamageTaken(unitList[i], targetUnitList[j], (float)Math.random() * 100000.0f + 100000.0f);
+        for (obj_id anUnitList : unitList) {
+            for (obj_id aTargetUnitList : targetUnitList) {
+                unitAddDamageTaken(anUnitList, aTargetUnitList, (float) Math.random() * 100000.0f + 100000.0f);
             }
         }
     }
@@ -299,11 +285,9 @@ public class ship_ai extends script.base_script
     {
         obj_id[] unitList = squadGetUnitList(squadId);
         obj_id[] targetUnitList = squadGetUnitList(targetSquadId);
-        for (int i = 0; i < unitList.length; ++i)
-        {
-            for (int j = 0; j < targetUnitList.length; ++j)
-            {
-                unitAddDamageTaken(unitList[i], targetUnitList[j], (float)Math.random() * 100.0f + 100.0f);
+        for (obj_id anUnitList : unitList) {
+            for (obj_id aTargetUnitList : targetUnitList) {
+                unitAddDamageTaken(anUnitList, aTargetUnitList, (float) Math.random() * 100.0f + 100.0f);
             }
         }
     }
@@ -346,45 +330,30 @@ public class ship_ai extends script.base_script
     {
         Random random = new Random();
         final int value = Math.abs(random.nextInt()) % 6;
-        int formation = FORMATION_INVALID;
+        int formation;
         switch (value)
         {
             case 0:
-            
-            {
                 formation = FORMATION_CLAW;
-            }
-            break;
+                break;
             case 1:
-            
-            {
                 formation = FORMATION_WALL;
-            }
-            break;
+                break;
             case 2:
-            
-            {
                 formation = FORMATION_SPHERE;
-            }
-            break;
+                break;
             case 3:
-            
-            {
                 formation = FORMATION_DELTA;
-            }
-            break;
+                break;
             case 4:
-            
-            {
                 formation = FORMATION_BROAD;
-            }
-            break;
+                break;
             case 5:
-            
-            {
                 formation = FORMATION_X;
-            }
-            break;
+                break;
+            default:
+                formation = FORMATION_INVALID;
+                break;
         }
         _spaceSquadSetFormation(squadId, formation);
     }
@@ -472,29 +441,12 @@ public class ship_ai extends script.base_script
     {
         return _spaceSquadIsSquadIdValid(squadId);
     }
-    public static boolean isShipDead(obj_id ship) throws InterruptedException
-    {
-        if (!isIdValid(ship))
-        {
-            return true;
-        }
-        if (!ship.isLoaded())
-        {
-            return true;
-        }
-        return (hasObjVar(ship, "ship.isDead"));
+    public static boolean isShipDead(obj_id ship) throws InterruptedException {
+        return !isIdValid(ship) || !ship.isLoaded() || (hasObjVar(ship, "ship.isDead"));
     }
-    public static boolean isPlayerShip(obj_id ship) throws InterruptedException
-    {
+    public static boolean isPlayerShip(obj_id ship) throws InterruptedException {
         obj_id pilot = getPilotId(ship);
-        if (isIdValid(pilot))
-        {
-            return (isPlayer(pilot));
-        }
-        else 
-        {
-            return false;
-        }
+        return isIdValid(pilot) && (isPlayer(pilot));
     }
     public static boolean isShipAggro(obj_id ship) throws InterruptedException
     {
@@ -525,17 +477,14 @@ public class ship_ai extends script.base_script
         {
             return false;
         }
-        String shipName = getStringObjVar(ship, "ship.shipName");
-        String enemyFactionList = dataTableGetString("datatables/space_mobile/space_mobile.iff", shipName, "enemyFactions");
+        String enemyFactionList = dataTableGetString("datatables/space_mobile/space_mobile.iff", getStringObjVar(ship, "ship.shipName"), "enemyFactions");
         if (enemyFactionList == null)
         {
             return false;
         }
         String[] enemiesList = split(enemyFactionList, ',');
-        for (int i = 0; i < enemiesList.length; i++)
-        {
-            if (enemiesList[i].equals(targetFaction))
-            {
+        for (String anEnemiesList : enemiesList) {
+            if (anEnemiesList.equals(targetFaction)) {
                 return true;
             }
         }
@@ -561,17 +510,14 @@ public class ship_ai extends script.base_script
         {
             return false;
         }
-        String shipName = getStringObjVar(ship, "ship.shipName");
-        String allyFactionList = dataTableGetString("datatables/space_mobile/space_mobile.iff", shipName, "alliedFactions");
+        String allyFactionList = dataTableGetString("datatables/space_mobile/space_mobile.iff", getStringObjVar(ship, "ship.shipName"), "alliedFactions");
         if (allyFactionList == null)
         {
             return false;
         }
         String[] allyList = split(allyFactionList, ',');
-        for (int i = 0; i < allyList.length; i++)
-        {
-            if (allyList[i].equals(targetFaction))
-            {
+        for (String anAllyList : allyList) {
+            if (anAllyList.equals(targetFaction)) {
                 return true;
             }
         }
@@ -611,13 +557,11 @@ public class ship_ai extends script.base_script
         obj_id[] groupMembers = getGroupMemberIds(group);
         Vector groupShips = new Vector();
         groupShips.add(primaryTarget);
-        for (int i = 0; i < groupMembers.length; i++)
-        {
-            if (groupMembers[i].isLoaded())
-            {
-                obj_id ship = getPilotedShip(groupMembers[i]);
-                if (isIdValid(ship) && ship != primaryTarget && getDistance(ship, primaryTarget) < 120.0f)
-                {
+        obj_id ship;
+        for (obj_id groupMember : groupMembers) {
+            if (groupMember.isLoaded()) {
+                ship = getPilotedShip(groupMember);
+                if (isIdValid(ship) && ship != primaryTarget && getDistance(ship, primaryTarget) < 120.0f) {
                     groupShips.add(ship);
                 }
             }
@@ -631,42 +575,24 @@ public class ship_ai extends script.base_script
         String result;
         switch (behavior)
         {
-            default:
-            
-            {
-                result = "invalid";
-            }
-            break;
             case BEHAVIOR_IDLE:
-            
-            {
                 result = "BEHAVIOR_IDLE";
-            }
-            break;
+                break;
             case BEHAVIOR_MOVETO:
-            
-            {
                 result = "BEHAVIOR_MOVETO";
-            }
-            break;
+                break;
             case BEHAVIOR_PATROL:
-            
-            {
                 result = "BEHAVIOR_PATROL";
-            }
-            break;
+                break;
             case BEHAVIOR_FOLLOW:
-            
-            {
                 result = "BEHAVIOR_FOLLOW";
-            }
-            break;
+                break;
             case BEHAVIOR_TRACK:
-            
-            {
                 result = "BEHAVIOR_TRACK";
-            }
-            break;
+                break;
+            default:
+                result = "invalid";
+                break;
         }
         return result;
     }
@@ -675,30 +601,18 @@ public class ship_ai extends script.base_script
         String result;
         switch (attackOrders)
         {
-            default:
-            
-            {
-                result = "invalid";
-            }
-            break;
             case ATTACK_ORDERS_HOLD_FIRE:
-            
-            {
                 result = "ATTACK_ORDERS_HOLD_FIRE";
-            }
-            break;
+                break;
             case ATTACK_ORDERS_RETURN_FIRE:
-            
-            {
                 result = "ATTACK_ORDERS_DEFEND";
-            }
-            break;
+                break;
             case ATTACK_ORDERS_ATTACK_FREELY:
-            
-            {
                 result = "ATTACK_ORDERS_ATTACK_FREELY";
-            }
-            break;
+                break;
+            default:
+                result = "invalid";
+                break;
         }
         return result;
     }
@@ -708,9 +622,8 @@ public class ship_ai extends script.base_script
     }
     public static void spaceAttack(obj_id ship, obj_id[] targets) throws InterruptedException
     {
-        for (int i = 0; i < targets.length; i++)
-        {
-            unitAddDamageTaken(ship, targets[i], 100000.0f);
+        for (obj_id target : targets) {
+            unitAddDamageTaken(ship, target, 100000.0f);
         }
     }
     public static obj_id spaceGetPrimaryTarget(obj_id ship) throws InterruptedException

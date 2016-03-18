@@ -1,17 +1,11 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
-import script.library.sui;
-import script.library.utils;
-import script.library.jedi;
-import script.library.powerup;
+import java.util.Vector;
 
 public class slicing extends script.base_script
 {
@@ -122,9 +116,10 @@ public class slicing extends script.base_script
         int rows = dataTableGetNumRows(table);
         Vector categories = new Vector();
         categories.setSize(0);
+        String is_this_cat;
         for (int i = 0; i < rows; i++)
         {
-            String is_this_cat = dataTableGetString(table, i, "SLICE_CAT");
+            is_this_cat = dataTableGetString(table, i, "SLICE_CAT");
             if (is_this_cat == null || is_this_cat.equals(""))
             {
                 continue;
@@ -169,9 +164,14 @@ public class slicing extends script.base_script
         int cats = 0;
         int type = 0;
         utils.setScriptVar(player, "slicing.cat", idx);
+        String is_this_cat;
+        String slice;
+        String stat;
+        String color_prefix;
+        String status_suffix;
         for (int i = 0; i < rows; i++)
         {
-            String is_this_cat = dataTableGetString(table, i, "SLICE_CAT");
+            is_this_cat = dataTableGetString(table, i, "SLICE_CAT");
             if (!is_this_cat.equals(""))
             {
                 cats++;
@@ -179,15 +179,15 @@ public class slicing extends script.base_script
             }
             if (cats == idx)
             {
-                String slice = dataTableGetString(table, i, "SLICE");
-                String stat = dataTableGetString(table, i, "STAT");
+                slice = dataTableGetString(table, i, "SLICE");
+                stat = dataTableGetString(table, i, "STAT");
                 int req = dataTableGetInt(table, i, "SKILL_REQ");
                 int rank = dataTableGetInt(table, i, "RANK");
                 int cur_rank = getIntObjVar(item, "slice.rank." + stat);
                 if (skillMod >= req)
                 {
-                    String color_prefix = "";
-                    String status_suffix = "";
+                    color_prefix = "";
+                    status_suffix = "";
                     if (rank > cur_rank + 1)
                     {
                         color_prefix = "\\#888888";
@@ -208,7 +208,6 @@ public class slicing extends script.base_script
     }
     public static void handleSlicingSelect(obj_id player, int idx) throws InterruptedException
     {
-        int cat = utils.getIntScriptVar(player, "slicing.cat");
         int row = utils.getIntScriptVar(player, "slicing." + idx);
         obj_id item = utils.getObjIdScriptVar(player, "slicing.slice_item");
         String query = utils.getStringScriptVar(player, "slicing.type");
@@ -262,7 +261,6 @@ public class slicing extends script.base_script
             apply_status = new string_id("slicing/slicing", "cant_apply_cost");
             utils.setScriptVar(player, "slicing.apply_status", 5);
         }
-        String component_line = null;
         String component = effect.getString("COMPONENT");
         String component_path = "object/tangible/smuggler/" + component + ".iff";
         string_id component_sid = new string_id("smuggler/items", component);
@@ -271,11 +269,8 @@ public class slicing extends script.base_script
             obj_id pInv = utils.getInventoryContainer(player);
             obj_id[] contents = utils.getContents(pInv, true);
             int found = 0;
-            for (int i = 0; i < contents.length; i++)
-            {
-                String tn = getTemplateName(contents[i]);
-                if (tn.equals(component_path))
-                {
+            for (obj_id content : contents) {
+                if (getTemplateName(content).equals(component_path)) {
                     found = 1;
                     break;
                 }
@@ -357,13 +352,10 @@ public class slicing extends script.base_script
             obj_id pInv = utils.getInventoryContainer(player);
             obj_id[] contents = utils.getContents(pInv, true);
             int found = 0;
-            for (int i = 0; i < contents.length; i++)
-            {
-                String tn = getTemplateName(contents[i]);
-                if (tn.equals(component_path))
-                {
+            for (obj_id content : contents) {
+                if (getTemplateName(content).equals(component_path)) {
                     found = 1;
-                    consumeComponent(contents[i]);
+                    consumeComponent(content);
                     break;
                 }
             }

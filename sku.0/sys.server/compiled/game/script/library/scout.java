@@ -1,19 +1,6 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.pet_lib;
-import script.library.combat;
-import script.ai.ai_combat;
-import script.library.skill;
 
 public class scout extends script.base_script
 {
@@ -95,7 +82,7 @@ public class scout extends script.base_script
                 return false;
             }
         }
-        int maskMod = 0;
+        int maskMod;
         if (concealed)
         {
             maskMod = concealBonus;
@@ -195,8 +182,6 @@ public class scout extends script.base_script
         else 
         {
             breakScentMask(player, false);
-            float dist = utils.getDistance2D(getLocation(player), getLocation(npc));
-            dieRoll = rand(1, 100);
             return false;
         }
         return true;
@@ -311,14 +296,11 @@ public class scout extends script.base_script
         }
         obj_id[] contents = getContents(pInv);
         obj_id kit = null;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "camokit"))
-            {
-                String kitPlanet = getStringObjVar(contents[i], "camokit");
-                if (kitPlanet.equals(planetName))
-                {
-                    kit = contents[i];
+
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "camokit")) {
+                if (getStringObjVar(content, "camokit").equals(planetName)) {
+                    kit = content;
                     break;
                 }
             }
