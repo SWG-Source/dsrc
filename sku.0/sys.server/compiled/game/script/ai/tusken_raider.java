@@ -93,7 +93,9 @@ public class tusken_raider extends script.base_script
                 {
                     return SCRIPT_CONTINUE;
                 }
-                addTriggerVolumeEventSource(SOCIAL_VOLUME, breacher);
+                if(hasTriggerVolume(self, SOCIAL_VOLUME)) {
+                    addTriggerVolumeEventSource(SOCIAL_VOLUME, breacher);
+                }
             }
             else 
             {
