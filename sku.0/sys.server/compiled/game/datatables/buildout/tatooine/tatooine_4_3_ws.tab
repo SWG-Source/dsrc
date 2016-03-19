@@ -139,12 +139,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1027939	1027931	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1027940	1027931	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1027941	1027931	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
-1028167	0	object/building/tatooine/housing_tatt_style01_large.iff	0	944.493	12	424.633	0.937647	0	0.34759	0		$|
+1028167	0	object/building/tatooine/bestine_museum.iff	0	944.493	12	424.633	0.937647	0	0.34759	0	planet_map.map_loc	$|
 1028168	1028167	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1028169	1028167	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1028170	1028167	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1028171	1028167	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1028172	1028167	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-5	1028172	object/tangible/npc/tatooine_spawn/lilas_dinhint.iff	5	22.6	0.19	-0.15	1	0	0	0		$|
 1028173	1028167	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1028174	1028167	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1028175	1028167	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -1395,3 +1396,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3355708	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	740	12	480	0.28402	0	0.95882	0		$|
 3355707	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	755	12	528	0.95882	0	0.28402	0		$|
 4006232	0	object/tangible/spawning/spawn_egg.iff	0	677.89	12	456.17	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
+-1	0	object/tangible/poi/tatooine/bestine/bestine_marketplace_spawner_object.iff	12	1000	0	400	1	0	0	0		$|
+-2	0	object/tangible/poi/tatooine/bestine/bestine_city_raid_spawner_object.iff	12	1000	0	401	1	0	0	0		$|
+-3	0	object/tangible/creature_spawner/tusken_master_spawner.iff	0	1000	12	402	1	0	0	0		$|
+-4	0	object/tangible/poi/tatooine/bestine/bestine_museum_event_master_object.iff	0	953.5	14	435.1	1	0	0	0		bestine.objMuseumBuilding|0|1028167|$|

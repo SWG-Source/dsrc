@@ -1,17 +1,9 @@
 package script.city.bestine;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
 import script.library.ai_lib;
+import script.library.create;
 import script.library.utils;
-import script.library.planetary_map;
 
 public class museum_event_spawner extends script.base_script
 {
@@ -21,13 +13,7 @@ public class museum_event_spawner extends script.base_script
     public static final String SCRIPT_NAME = "city.bestine.museum_event_spawner";
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        deltadictionary dctScriptVars = self.getScriptVars();
-        dctScriptVars.put("numMuseumChecks", 1);
-        messageTo(self, "checkForMuseumBuilding", null, 60, false);
-        return SCRIPT_CONTINUE;
-    }
-    public int OnAttach(obj_id self) throws InterruptedException
-    {
+        LOG("museum","Museum event NPC spawner initializing with objid of " + self + ".");
         deltadictionary dctScriptVars = self.getScriptVars();
         dctScriptVars.put("numMuseumChecks", 1);
         messageTo(self, "checkForMuseumBuilding", null, 60, false);
@@ -35,22 +21,24 @@ public class museum_event_spawner extends script.base_script
     }
     public int checkForMuseumBuilding(obj_id self, dictionary params) throws InterruptedException
     {
+        LOG("museum","Starting to look for Bestine's museum.");
         location here = getLocation(self);
         deltadictionary dctScriptVars = self.getScriptVars();
         int numMuseumChecks = dctScriptVars.getInt("numMuseumChecks");
+
         map_location[] allRegisteredMuseums = getPlanetaryMapLocations("museum", "");
         if (allRegisteredMuseums != null && allRegisteredMuseums.length != 0)
         {
             obj_id objMuseumBuilding = null;
             for (int m = 0; m < allRegisteredMuseums.length; m++)
             {
+                LOG("museum","Found " + allRegisteredMuseums.length + " registered museums.");
                 map_location registeredMuseum = allRegisteredMuseums[m];
                 String museumNameCodeString = registeredMuseum.getLocationName();
-                string_id museumNameStringId = utils.unpackString(museumNameCodeString);
-                String museumName = getString(museumNameStringId);
-                if (museumName != null && museumName.equals("Bestine"))
+                if (museumNameCodeString != null && museumNameCodeString.equals("Bestine"))
                 {
                     objMuseumBuilding = registeredMuseum.getLocationId();
+                    LOG("museum","Found Bestine's museum - has objid of " + objMuseumBuilding);
                 }
             }
             if (!isIdValid(objMuseumBuilding))
@@ -70,6 +58,7 @@ public class museum_event_spawner extends script.base_script
             }
             else 
             {
+                LOG("museum","Adding Bestine's museum obj id to the script vars and getting ready to spawn npc's.");
                 dctScriptVars.put("objMuseumBuilding", objMuseumBuilding);
                 spawnNpc(self);
             }
@@ -92,15 +81,18 @@ public class museum_event_spawner extends script.base_script
     }
     public void spawnNpc(obj_id self) throws InterruptedException
     {
+        LOG("museum","Starting to spawn NPC.");
         String spawn = getStringObjVar(self, "spawns");
         obj_id npc = create.staticObject(spawn, getLocation(self));
         setInvulnerable(npc, true);
         setCreatureStatic(npc, true);
         ai_lib.setDefaultCalmBehavior(npc, ai_lib.BEHAVIOR_SENTINEL);
+
         deltadictionary dctScriptVars = self.getScriptVars();
         obj_id objMuseumBuilding = dctScriptVars.getObjId("objMuseumBuilding");
         setObjVar(npc, "bestine.objMuseumBuilding", objMuseumBuilding);
         attachScript(npc, "city.bestine.museum_event_npc");
+
         if (spawn.equals("lilas_dinhint"))
         {
             attachScript(npc, "city.bestine.politician_event_npc");
@@ -130,6 +122,5 @@ public class museum_event_spawner extends script.base_script
         {
             attachScript(npc, "conversation.bestine_artist06");
         }
-        return;
     }
 }
