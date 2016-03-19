@@ -1,14 +1,10 @@
 package script.city.bestine;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.utils;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class museum_event_master extends script.base_script
 {
@@ -16,11 +12,13 @@ public class museum_event_master extends script.base_script
     {
     }
     public static final String DATATABLE_NAME = "datatables/city/bestine/bestine_museum_event.iff";
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         messageTo(self, "beginBestineMuseumEvent", null, 1, false);
         return SCRIPT_CONTINUE;
     }
+
     public int getMuseumEventDuration() throws InterruptedException
     {
         String durationConfigSetting = getConfigSetting("BestineEvents", "MuseumEventDuration");
@@ -51,16 +49,21 @@ public class museum_event_master extends script.base_script
         setObjVar(self, "bestine.votesForEntry01", 0);
         setObjVar(self, "bestine.votesForEntry02", 0);
         setObjVar(self, "bestine.votesForEntry03", 0);
+
         pickArtistsForEvent(self);
+
         if (!hasObjVar(self, "bestine.museumEventEntry01") || !hasObjVar(self, "bestine.museumEventEntry02") || !hasObjVar(self, "bestine.museumEventEntry03"))
         {
             removeObjVar(self, "bestine.previousArtworkIndexes");
             pickArtistsForEvent(self);
         }
+
         obj_id museumBuildingObjId = getObjIdObjVar(self, "bestine.objMuseumBuilding");
         messageTo(museumBuildingObjId, "handleMuseumEventStateChange", null, 1, false);
+
         int museumEventDuration = getMuseumEventDuration();
         messageTo(self, "endBestineMuseumEvent", null, museumEventDuration, true);
+
         return SCRIPT_CONTINUE;
     }
     public int endBestineMuseumEvent(obj_id self, dictionary params) throws InterruptedException
@@ -92,33 +95,37 @@ public class museum_event_master extends script.base_script
         }
         obj_id museumBuildingObjId = getObjIdObjVar(self, "bestine.objMuseumBuilding");
         messageTo(museumBuildingObjId, "handleMuseumEventStateChange", null, 1, false);
+
         int museumEventDuration = getMuseumEventDuration();
         int timeNextEventStarts = getGameTime() + museumEventDuration;
         setObjVar(self, "bestine.timeNextEventStarts", timeNextEventStarts);
         messageTo(self, "beginBestineMuseumEvent", null, museumEventDuration, true);
+
         return SCRIPT_CONTINUE;
     }
     public void pickArtistsForEvent(obj_id self) throws InterruptedException
     {
         String[] strArtists = dataTableGetStringColumnNoDefaults(DATATABLE_NAME, "artistNpc");
-        int numArtists = strArtists.length;
         Vector vectArtists = new Vector();
-        for (int k = 0; k < (numArtists); k++)
-        {
-            String temp = strArtists[k];
+        for (String temp : strArtists) {
             vectArtists = utils.addElement(vectArtists, temp);
         }
+
         Vector previousArtworkIndexes = new Vector();
+
         if (hasObjVar(self, "bestine.previousArtworkIndexes"))
         {
             previousArtworkIndexes = utils.getResizeableIntBatchObjVar(self, "bestine.previousArtworkIndexes");
         }
+
         int entryChosen = 0;
+        String artistName;
+
         while ((entryChosen < 3) && (vectArtists.size() > 0))
         {
             int vectorSize = vectArtists.size();
             int vectRow = rand(0, (vectorSize - 1));
-            String artistName = ((String)vectArtists.get(vectRow));
+            artistName = ((String) vectArtists.get(vectRow));
             int artistRow = utils.getElementPositionInArray(strArtists, artistName);
             int numArtworksByArtist = dataTableGetInt(DATATABLE_NAME, artistRow, "numWorksOfArt");
             int artworkNum = 1;
@@ -130,7 +137,7 @@ public class museum_event_master extends script.base_script
                 {
                     foundArtworkEntry = true;
                 }
-                else if ((utils.getElementPositionInArray(previousArtworkIndexes, new Integer(artistIndex))) == -1)
+                else if ((utils.getElementPositionInArray(previousArtworkIndexes, artistIndex)) == -1)
                 {
                     foundArtworkEntry = true;
                 }

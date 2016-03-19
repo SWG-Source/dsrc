@@ -19,21 +19,25 @@ public class museum_event_npc extends script.base_script
     {
     }
     public static final String FACE_TO_VOLUME_NAME = "faceToTriggerVolume";
+
     public static final String VARNAME_MUSEUM_STATUS = "strMuseumEventStatus";
     public static final String VARNAME_MUSEUM_WINNER = "strMuseumEventWinner";
     public static final String VARNAME_MUSEUM_NUM = "intMuseumEventNum";
     public static final String VARNAME_MUSEUM_WINNER_ARTWORK_INDEX = "intMuseumWinnerArtworkIndex";
     public static final String OBJVAR_MUSEUM_BUILDING = "bestine.objMuseumBuilding";
     public static final String DATATABLE_NAME = "datatables/city/bestine/bestine_museum_event.iff";
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         createTriggerVolume(FACE_TO_VOLUME_NAME, 8.0f, true);
+
         String creatureName = ai_lib.getCreatureName(self);
         if (creatureName.equals("lilas_dinhint"))
         {
             messageTo(self, "handleCuratorSetup", null, 9, false);
             return SCRIPT_CONTINUE;
         }
+
         messageTo(self, "handleMuseumEventNpcSetup", null, 10, false);
         return SCRIPT_CONTINUE;
     }
@@ -303,8 +307,10 @@ public class museum_event_npc extends script.base_script
         setObjVar(self, museumEventStatusObjvar, museumEventNum);
         setObjVar(self, "bestine.museumEventWinner", museumEventWinner);
         setObjVar(self, "bestine.museumEventWinnerArtworkIndex", museumEventWinnerArtworkIndex);
+
         msgData.put(VARNAME_MUSEUM_WINNER, museumEventWinner);
         msgData.put(VARNAME_MUSEUM_WINNER_ARTWORK_INDEX, museumEventWinnerArtworkIndex);
+
         obj_id museumBuilding = getObjIdObjVar(self, OBJVAR_MUSEUM_BUILDING);
         messageTo(museumBuilding, "handleSetMuseumEventWinner", msgData, 10, false);
         return SCRIPT_CONTINUE;
@@ -316,6 +322,7 @@ public class museum_event_npc extends script.base_script
             dictionary msgData = new dictionary();
             msgData.put("objRequester", self);
             obj_id museumBuilding = getObjIdObjVar(self, OBJVAR_MUSEUM_BUILDING);
+
             listenToMessage(museumBuilding, "handleMuseumEventStatusResponse");
             messageTo(museumBuilding, "handleMuseumEventStatusRequest", msgData, 10, false);
         }
@@ -409,6 +416,5 @@ public class museum_event_npc extends script.base_script
         {
             removeObjVar(self, "bestine.museumEventWinnerArtworkIndex");
         }
-        return;
     }
 }

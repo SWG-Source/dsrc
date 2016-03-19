@@ -2295,3 +2295,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3355709	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1486	5	1333	0.72211	0	-0.691778	0		$|
 3355710	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1486	5	1349	0.72211	0	-0.691778	0		$|
 4006269	0	object/tangible/spawning/spawn_egg.iff	0	1433.75	5	1502.95	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
+-17	0	object/tangible/spawning/static_npc/bestine_artist01.iff	0	1264.6	5	1488.8	1	0	0	0		$|
+-18	0	object/tangible/spawning/static_npc/bestine_artist04.iff	0	1426.7	5	1168.8	1	0	0	0		$|

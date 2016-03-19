@@ -107,3 +107,4 @@ object/building/naboo/rori_restuss_starport.iff		starport
 object/building/naboo/rori_restuss_shuttleport.iff		shuttleport	
 object/building/dathomir/dathomir_quarantine_zone_starport.iff		starport	
 object/building/dathomir/dathomir_quarantine_zone_cantina.iff		cantina	
+object/building/tatooine/bestine_museum.iff	@map_loc_n:bestine	museum
