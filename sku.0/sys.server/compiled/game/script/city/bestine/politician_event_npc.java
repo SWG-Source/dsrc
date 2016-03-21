@@ -101,8 +101,7 @@ public class politician_event_npc extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        String creatureName = ai_lib.getCreatureName(self);
-        if (!creatureName.equals("tour_aryon"))
+        if (!ai_lib.getCreatureName(self).equals("tour_aryon"))
         {
             return SCRIPT_CONTINUE;
         }
@@ -230,10 +229,10 @@ public class politician_event_npc extends script.base_script
     public int checkForCapitolBuilding(obj_id self, dictionary params) throws InterruptedException
     {
         map_location tatooineCapitol = planetary_map.findClosestLocation(self, "capitol", "");
-        obj_id tatooinCapitolObjId = tatooineCapitol.getLocationId();
+        obj_id tatooineCapitolObjId = tatooineCapitol.getLocationId();
         deltadictionary dctScriptVars = self.getScriptVars();
         int numCapitolChecks = dctScriptVars.getInt("numCapitolChecks");
-        if (!isIdValid(tatooinCapitolObjId))
+        if (!isIdValid(tatooineCapitolObjId))
         {
             if (numCapitolChecks < 4)
             {
@@ -250,7 +249,7 @@ public class politician_event_npc extends script.base_script
         }
         else 
         {
-            setObjVar(self, OBJVAR_TATOOINE_CAPITOL, tatooinCapitolObjId);
+            setObjVar(self, OBJVAR_TATOOINE_CAPITOL, tatooineCapitolObjId);
             messageTo(self, "handlePoliticianEventNpcSetup", null, 1, false);
         }
         return SCRIPT_CONTINUE;
@@ -278,6 +277,5 @@ public class politician_event_npc extends script.base_script
         {
             removeObjVar(self, "bestine.electionWinner");
         }
-        return;
     }
 }

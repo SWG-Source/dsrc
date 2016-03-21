@@ -1,17 +1,11 @@
 package script.city.bestine;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.factions;
+import script.deltadictionary;
+import script.dictionary;
 import script.library.create;
-import script.library.hq;
 import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class city_raid_spawner extends script.base_script
 {
@@ -70,7 +64,7 @@ public class city_raid_spawner extends script.base_script
             if (hasObjVar(self, "bestine.electionWinner"))
             {
                 String electionWinner = getStringObjVar(self, "bestine.electionWinner");
-                if (electionWinner.equals("Victor") || electionWinner.equals("victor"))
+                if (electionWinner.equalsIgnoreCase("Victor"))
                 {
                     intMinRecycleTime = dctInfo.getInt("intMinDefenseRecycleTime");
                     dctScriptVars.put("intMinRecycleTime", intMinRecycleTime);
@@ -109,16 +103,13 @@ public class city_raid_spawner extends script.base_script
         location locSelf = getLocation(self);
         String strPlanet = locSelf.area;
         location locSpawnLocation = new location(coordX, coordY, coordZ, strPlanet, null);
-        if (locSpawnLocation != null)
-        {
-            int intSpawnChoice = rand(0, (strSpawns.length - 1));
-            obj_id objMob = create.object(strSpawns[intSpawnChoice], locSpawnLocation);
-            if (isIdValid(objMob))
-            {
-                attachScript(objMob, "city.bestine.city_raid_mob");
-                setObjVar(objMob, "objRaidSpawner", self);
-            }
-        }
+        int intSpawnChoice = rand(0, (strSpawns.length - 1));
+        obj_id objMob = create.object(strSpawns[intSpawnChoice], locSpawnLocation);
+        if (isIdValid(objMob))
+		{
+			attachScript(objMob, "city.bestine.city_raid_mob");
+			setObjVar(objMob, "objRaidSpawner", self);
+		}
         intIndex = intIndex + 1;
         dctScriptVars.put("intIndex", intIndex);
         if (intIndex < intWaveSize)
@@ -146,16 +137,13 @@ public class city_raid_spawner extends script.base_script
         location locSelf = getLocation(self);
         String strPlanet = locSelf.area;
         location locSpawnLocation = new location(coordX, coordY, coordZ, strPlanet, null);
-        if (locSpawnLocation != null)
-        {
-            int intSpawnChoice = rand(0, (strSpawns.length - 1));
-            obj_id objMob = create.object(strSpawns[intSpawnChoice], locSpawnLocation);
-            if (isIdValid(objMob))
-            {
-                attachScript(objMob, "city.bestine.city_raid_mob");
-                setObjVar(objMob, "objRaidSpawner", self);
-            }
-        }
+        int intSpawnChoice = rand(0, (strSpawns.length - 1));
+        obj_id objMob = create.object(strSpawns[intSpawnChoice], locSpawnLocation);
+        if (isIdValid(objMob))
+		{
+			attachScript(objMob, "city.bestine.city_raid_mob");
+			setObjVar(objMob, "objRaidSpawner", self);
+		}
         intIndex = intIndex + 1;
         dctScriptVars.put("intIndex", intIndex);
         int intWaveSize = dctScriptVars.getInt("intWaveSize");

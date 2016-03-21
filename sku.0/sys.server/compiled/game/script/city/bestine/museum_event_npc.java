@@ -1,17 +1,8 @@
 package script.city.bestine;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
-import script.library.chat;
 import script.library.planetary_map;
-import script.library.utils;
 
 public class museum_event_npc extends script.base_script
 {
@@ -60,8 +51,7 @@ public class museum_event_npc extends script.base_script
     }
     public int handleCuratorSetup(obj_id self, dictionary params) throws InterruptedException
     {
-        String creatureName = ai_lib.getCreatureName(self);
-        if (!creatureName.equals("lilas_dinhint"))
+        if (!ai_lib.getCreatureName(self).equals("lilas_dinhint"))
         {
             return SCRIPT_CONTINUE;
         }
@@ -194,66 +184,62 @@ public class museum_event_npc extends script.base_script
             }
             else if (votesForEntry01 == votesForEntry02 && votesForEntry02 == votesForEntry03)
             {
-                int chance = rand(1, 3);
-                switch (chance)
+                switch (rand(1, 3))
                 {
                     case 1:
-                    museumEventWinner = entry01;
-                    museumEventWinnerArtworkIndex = index01;
-                    break;
+                        museumEventWinner = entry01;
+                        museumEventWinnerArtworkIndex = index01;
+                        break;
                     case 2:
-                    museumEventWinner = entry02;
-                    museumEventWinnerArtworkIndex = index02;
-                    break;
+                        museumEventWinner = entry02;
+                        museumEventWinnerArtworkIndex = index02;
+                        break;
                     case 3:
-                    museumEventWinner = entry03;
-                    museumEventWinnerArtworkIndex = index03;
-                    break;
+                        museumEventWinner = entry03;
+                        museumEventWinnerArtworkIndex = index03;
+                        break;
                 }
             }
-            else if (votesForEntry01 == votesForEntry02 && votesForEntry02 != votesForEntry03)
+            else if (votesForEntry01 == votesForEntry02)
             {
-                int chance = rand(1, 2);
-                switch (chance)
+                switch (rand(1, 2))
                 {
                     case 1:
-                    museumEventWinner = entry01;
-                    museumEventWinnerArtworkIndex = index01;
-                    break;
+                        museumEventWinner = entry01;
+                        museumEventWinnerArtworkIndex = index01;
+                        break;
                     case 2:
-                    museumEventWinner = entry02;
-                    museumEventWinnerArtworkIndex = index02;
-                    break;
+                        museumEventWinner = entry02;
+                        museumEventWinnerArtworkIndex = index02;
+                        break;
                 }
             }
-            else if (votesForEntry01 == votesForEntry03 && votesForEntry03 != votesForEntry02)
+            else if (votesForEntry01 == votesForEntry03)
             {
-                int chance = rand(1, 2);
-                switch (chance)
+                switch (rand(1, 2))
                 {
                     case 1:
-                    museumEventWinner = entry01;
-                    museumEventWinnerArtworkIndex = index01;
-                    break;
+                        museumEventWinner = entry01;
+                        museumEventWinnerArtworkIndex = index01;
+                        break;
                     case 2:
-                    museumEventWinner = entry03;
-                    museumEventWinnerArtworkIndex = index03;
-                    break;
+                        museumEventWinner = entry03;
+                        museumEventWinnerArtworkIndex = index03;
+                        break;
                 }
             }
-            else if (votesForEntry02 == votesForEntry03 && votesForEntry03 != votesForEntry01)
+            else if (votesForEntry02 == votesForEntry03)
             {
-                int chance = rand(1, 2);
-                switch (chance)
+                switch (rand(1, 2))
                 {
                     case 1:
-                    museumEventWinner = entry02;
-                    museumEventWinnerArtworkIndex = index02;
-                    break;
+                        museumEventWinner = entry02;
+                        museumEventWinnerArtworkIndex = index02;
+                        break;
                     case 2:
-                    museumEventWinner = entry03;
-                    museumEventWinnerArtworkIndex = index03;
-                    break;
+                        museumEventWinner = entry03;
+                        museumEventWinnerArtworkIndex = index03;
+                        break;
                 }
             }
             else 
@@ -303,16 +289,14 @@ public class museum_event_npc extends script.base_script
         {
             messageTo(self, "handleCuratorSetup", null, 10, false);
         }
-        String museumEventStatusObjvar = "bestine." + museumEventStatus;
-        setObjVar(self, museumEventStatusObjvar, museumEventNum);
+        setObjVar(self, "bestine." + museumEventStatus, museumEventNum);
         setObjVar(self, "bestine.museumEventWinner", museumEventWinner);
         setObjVar(self, "bestine.museumEventWinnerArtworkIndex", museumEventWinnerArtworkIndex);
 
         msgData.put(VARNAME_MUSEUM_WINNER, museumEventWinner);
         msgData.put(VARNAME_MUSEUM_WINNER_ARTWORK_INDEX, museumEventWinnerArtworkIndex);
 
-        obj_id museumBuilding = getObjIdObjVar(self, OBJVAR_MUSEUM_BUILDING);
-        messageTo(museumBuilding, "handleSetMuseumEventWinner", msgData, 10, false);
+        messageTo(getObjIdObjVar(self, OBJVAR_MUSEUM_BUILDING), "handleSetMuseumEventWinner", msgData, 10, false);
         return SCRIPT_CONTINUE;
     }
     public int handleMuseumEventNpcSetup(obj_id self, dictionary params) throws InterruptedException
@@ -372,8 +356,7 @@ public class museum_event_npc extends script.base_script
     {
         clearMuseumEventObjvars(self);
         String museumEventStatus = params.getString(VARNAME_MUSEUM_STATUS);
-        String museumEventStatusObjvar = "bestine." + museumEventStatus;
-        setObjVar(self, museumEventStatusObjvar, params.getInt(VARNAME_MUSEUM_NUM));
+        setObjVar(self, "bestine." + museumEventStatus, params.getInt(VARNAME_MUSEUM_NUM));
         setObjVar(self, "bestine.museumEventWinner", params.getString(VARNAME_MUSEUM_WINNER));
         if (museumEventStatus.equals("museumEventStarted"))
         {

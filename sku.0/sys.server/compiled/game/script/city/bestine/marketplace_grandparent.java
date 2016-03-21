@@ -1,12 +1,8 @@
 package script.city.bestine;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
 
 public class marketplace_grandparent extends script.base_script
 {
@@ -31,7 +27,10 @@ public class marketplace_grandparent extends script.base_script
             location locTest = getLocation(self);
             locTest.x = locTest.x + 1;
             obj_id objMarketplaceSpawner = createObject(MASTER_OBJECT, locTest);
+            persistObject(objMarketplaceSpawner);
+
             setObjVar(self, "objMarketplaceSpawner", objMarketplaceSpawner);
+
             String strDataTable = "datatables/city/bestine_marketplace.iff";
             setObjVar(objMarketplaceSpawner, "strDataTable", strDataTable);
         }

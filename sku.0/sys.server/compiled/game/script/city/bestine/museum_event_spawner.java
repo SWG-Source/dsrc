@@ -22,23 +22,23 @@ public class museum_event_spawner extends script.base_script
     public int checkForMuseumBuilding(obj_id self, dictionary params) throws InterruptedException
     {
         LOG("museum","Starting to look for Bestine's museum.");
-        location here = getLocation(self);
         deltadictionary dctScriptVars = self.getScriptVars();
         int numMuseumChecks = dctScriptVars.getInt("numMuseumChecks");
 
         map_location[] allRegisteredMuseums = getPlanetaryMapLocations("museum", "");
+        location here = getLocation(self);
         if (allRegisteredMuseums != null && allRegisteredMuseums.length != 0)
         {
             obj_id objMuseumBuilding = null;
-            for (int m = 0; m < allRegisteredMuseums.length; m++)
-            {
-                LOG("museum","Found " + allRegisteredMuseums.length + " registered museums.");
-                map_location registeredMuseum = allRegisteredMuseums[m];
-                String museumNameCodeString = registeredMuseum.getLocationName();
-                if (museumNameCodeString != null && museumNameCodeString.equals("Bestine"))
-                {
+            map_location registeredMuseum;
+            String museumName;
+            for (map_location allRegisteredMuseum : allRegisteredMuseums) {
+                LOG("museum", "Found " + allRegisteredMuseums.length + " registered museums.");
+                registeredMuseum = allRegisteredMuseum;
+                museumName = getString(utils.unpackString(registeredMuseum.getLocationName()));
+                if (museumName != null && museumName.equals("Bestine")) {
                     objMuseumBuilding = registeredMuseum.getLocationId();
-                    LOG("museum","Found Bestine's museum - has objid of " + objMuseumBuilding);
+                    LOG("museum", "Found Bestine's museum - has objid of " + objMuseumBuilding);
                 }
             }
             if (!isIdValid(objMuseumBuilding))

@@ -1,13 +1,6 @@
 package script.base;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.create;
 import script.library.space_create;
 import script.library.space_quest;
@@ -74,11 +67,9 @@ public class remote_object_creator extends script.base.remote_object
             if (params.containsKey(ATTACH_SCRIPTS))
             {
                 String[] scripts = split(params.getString(ATTACH_SCRIPTS), ':');
-                for (int i = 0; i < scripts.length; ++i)
-                {
-                    if (!hasScript(created, scripts[i]))
-                    {
-                        attachScript(created, scripts[i]);
+                for (String script : scripts) {
+                    if (!hasScript(created, script)) {
+                        attachScript(created, script);
                     }
                 }
             }

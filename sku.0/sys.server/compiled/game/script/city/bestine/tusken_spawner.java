@@ -1,19 +1,8 @@
 package script.city.bestine;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.xp;
-import script.library.group;
-import script.library.weapons;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
 
 public class tusken_spawner extends script.base_script
 {
@@ -51,14 +40,11 @@ public class tusken_spawner extends script.base_script
             }
             else 
             {
-                obj_id looter = null;
-                for (int i = 0; i < permitted.length; i++)
-                {
-                    looter = permitted[i];
-                    if (looter != null)
-                    {
-                        if (hasObjVar(looter, "bestine.tuskenquest"))
-                        {
+                obj_id looter;
+                for (obj_id aPermitted : permitted) {
+                    looter = aPermitted;
+                    if (looter != null) {
+                        if (hasObjVar(looter, "bestine.tuskenquest")) {
                             createTheirLoot(self);
                             return SCRIPT_CONTINUE;
                         }
@@ -75,10 +61,9 @@ public class tusken_spawner extends script.base_script
         {
             return;
         }
-        String creatureName = ai_lib.getCreatureName(self);
-        if (creatureName.equals("tusken_executioner"))
+        if (ai_lib.getCreatureName(self).equals("tusken_executioner"))
         {
-            obj_id item = createObject(HEAD, corpseInventory, "");
+            createObject(HEAD, corpseInventory, "");
             checkForLoot(self);
         }
         else 
@@ -96,18 +81,15 @@ public class tusken_spawner extends script.base_script
         int chance = rand(0, 7000);
         if ((chance >= 0) && (chance <= 70))
         {
-            obj_id item = createObject(CARVED, corpseInventory, "");
-            return;
+            createObject(CARVED, corpseInventory, "");
         }
-        if ((chance >= 71) && (chance <= 300))
+        else if ((chance >= 71) && (chance <= 300))
         {
-            obj_id item = createObject(SMOOTH, corpseInventory, "");
-            return;
+            createObject(SMOOTH, corpseInventory, "");
         }
-        if ((chance >= 301) && (chance <= 500))
+        else if ((chance >= 301) && (chance <= 500))
         {
-            obj_id item = weapons.createWeapon(BATON, corpseInventory, rand(0.75f, 1.0f));
-            return;
+            weapons.createWeapon(BATON, corpseInventory, rand(0.75f, 1.0f));
         }
     }
 }
