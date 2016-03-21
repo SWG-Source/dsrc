@@ -1,15 +1,7 @@
 package script.city.bestine;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.utils;
-import script.library.sui;
 
 public class terminal_items extends script.base_script
 {
@@ -76,7 +68,7 @@ public class terminal_items extends script.base_script
         {
             if (canSearch(self, player))
             {
-                int menuOption = mi.addRootMenu(menu_info_types.ITEM_USE, new string_id(CONVO, "download"));
+                mi.addRootMenu(menu_info_types.ITEM_USE, new string_id(CONVO, "download"));
             }
         }
         return SCRIPT_CONTINUE;
@@ -124,9 +116,7 @@ public class terminal_items extends script.base_script
         boolean result = false;
         if (hasObjVar(self, "disk"))
         {
-            String objectTemplate = getStringObjVar(self, "disk");
-            dictionary row = dataTableGetRow(DATATABLE_NAME, objectTemplate);
-            String gatingObjVar = row.getString("gatingObjVar");
+            String gatingObjVar = dataTableGetRow(DATATABLE_NAME, getStringObjVar(self, "disk")).getString("gatingObjVar");
             if (hasObjVar(player, gatingObjVar))
             {
                 result = true;

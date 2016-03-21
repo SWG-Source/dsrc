@@ -1,7 +1,6 @@
 package script.city.bestine;
 
 import script.*;
-import script.library.create;
 import script.library.utils;
 
 import java.util.Vector;
@@ -61,6 +60,7 @@ public class museum_event_grandparent extends script.base_script
             location locTest = getLocation(self);
             locTest.x = locTest.x + 1;
             obj_id objMuseumEventMaster = createObject(MASTER_OBJECT_TEMPLATE, locTest);
+            persistObject(objMuseumEventMaster);
 
             dctScriptVars.put("objMasterObjectId", objMuseumEventMaster);
             dctScriptVars.put(VARNAME_MUSEUM_STATUS, "museumEventStarted");

@@ -69,25 +69,37 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 683522	0	object/tangible/crafting/station/public_food_station.iff	0	918.003	12	524.696	0.941076	0	0.338196	0		$|
 683528	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	746.647	12	396.404	-0.693114	0	0.720829	0		$|
 683529	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	747.647	12	396.442	-0.693114	0	0.720829	0		$|
-926472	0	object/building/tatooine/capitol_tatooine.iff	0	888.05	12	505.266	0.432613	0	0.90158	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/bestine_capitol_spawns.iff|$|
+926472	0	object/building/tatooine/capitol_tatooine.iff	0	888.05	12	505.266	0.432613	0	0.90158	0	planet_map.map_loc:city.bestine.politician_event_grandparent:city.bestine.marketplace_grandparent:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/bestine_capitol_spawns.iff|$|
 926473	926472	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 926474	926472	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 546457763	926474	object/tangible/collection/col_force_shui_painting_02.iff	2	-0.126236	4.13341	24.0755	-0.000790609	0.119712	0.992808	-9.53311e-05		$|
+-47	926474	object/tangible/spawning/static_npc/bestine_capitol01.iff	2	-2.8	3.2	19.5	1	0	0	0		$|
 926475	926472	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+-16	926475	object/tangible/npc/tatooine_spawn/prefect_talmont.iff	3	-1.9	3	-10	1	0	0	0		$|
+-50	926475	object/tangible/spawning/static_npc/bestine_capitol04.iff	3	-0.9	7.9	-31.5	1	0	0	0		$|
 926476	926472	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 926477	926472	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 926478	926472	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+-49	926478	object/tangible/spawning/static_npc/bestine_capitol03.iff	6	-20.8	3.2	-37.2	1	0	0	0		$|
 926479	926472	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+-9	926479	object/tangible/npc/tatooine_spawn/tour_aryon.iff	7	-37.3	1.3	0.7	1	0	0	0		$|
 926480	926472	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+-7	926480	object/tangible/spawning/static_npc/victor_visalis.iff	8	-26.5	3.2	20.3	1	0	0	0		$|
+-8	926480	object/tangible/spawning/static_npc/keanna_likyna.iff	8	-18.9	3.2	20.6	1	0	0	0		$|
 4892082	926480	object/tangible/collection/rare_pistol_kyd21.iff	8	-22.005	4.03342	26.0503	0.0111052	-0.70319	0.710826	0.0112306		$|
 5565564	926480	object/tangible/terminal/terminal_bestine_quests_02.iff	8	-19.6625	3.22324	13.5289	1	0	0	0		$|
 5565565	926480	object/tangible/furniture/modern/searchable_desk_01.iff	8	-21.6551	3.22324	25.5563	1	0	0	0		$|
 926481	926472	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+-48	926481	object/tangible/spawning/static_npc/bestine_capitol02.iff	9	20.7	3.2	25	1	0	0	0		$|
 5165613	926481	object/tangible/terminal/terminal_mission_imperial.iff	9	13.6185	3.22324	21.9119	0.707107	0	0.707107	0		$|
 5165615	926481	object/tangible/terminal/terminal_mission_imperial.iff	9	28.3305	3.22324	21.7497	0.707107	0	-0.707106	0		$|
 926482	926472	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+-15	926482	object/tangible/npc/tatooine_spawn/wilhalm_skrim.iff	10	28.8936	1.29568	-5.97518	1	0	0	0		$|
 926483	926472	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+-10	926483	object/tangible/spawning/static_npc/indigo_siyan.iff	11	24.6	3.2	-30.7	1	0	0	0		$|
+-11	926483	object/tangible/spawning/static_npc/sean_trenwell.iff	11	19.5	3.2	-36.0	1	0	0	0		$|
 5565562	926483	object/tangible/furniture/modern/searchable_desk_02.iff	11	19.5487	3.22346	-23.8199	-0.703845	0	0.710353	0		$|
+5565563	926483	object/tangible/terminal/terminal_bestine_quests_01.iff	11	28.246	3.19161	-28.4803	0.707388	0	-0.706826	0		$|
 3795757	926480	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	3	-21.47	3.223	27.3	0	0	1	0	space.content_tools.npc_spawner	$|
 1026824	0	object/building/tatooine/starport_tatooine.iff	0	671.846	12	519.774	0.646043	0	0.763301	0	structure.municipal.starport:theme_park.dungeon.generic_spawner	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Bestine Starport|travel.shuttle_available|0|1|travel.version|0|3|spawn_table|4|datatables/spawning/building_spawns/bestine_starport.iff|$|
 1026825	1026824	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
@@ -325,6 +337,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028576	1028574	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1028577	1028574	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1028578	1028574	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+-6	1028578	object/tangible/spawning/static_npc/sean_questn_university.iff	4	3.6	1.1	-4.6	1	0	0	0		$|
 1028579	1028574	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1028580	1028574	object/cell/cell.iff	6	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 4887974	1028580	object/tangible/collection/rare_melee_hk_lance.iff	6	-8.01937	4.08892	2.10738	-0.479248	-0.480904	0.516908	0.521401		$|
@@ -1049,6 +1062,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1528395	0	object/building/tatooine/housing_tatt_style01_med.iff	0	972.689	12	467.531	0.422132	0	0.906534	0		$|
 1528396	1528395	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1528397	1528395	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+-17	1528397	object/tangible/spawning/static_npc/sean_questp_house.iff	2	3.0	0.4	-0.2	1	0	0	0		$|
 1528398	1528395	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1528399	1528395	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1528400	1528395	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
@@ -1399,4 +1413,36 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1	0	object/tangible/poi/tatooine/bestine/bestine_marketplace_spawner_object.iff	12	1000	0	400	1	0	0	0		$|
 -2	0	object/tangible/poi/tatooine/bestine/bestine_city_raid_spawner_object.iff	12	1000	0	401	1	0	0	0		$|
 -3	0	object/tangible/creature_spawner/tusken_master_spawner.iff	0	1000	12	402	1	0	0	0		$|
--4	0	object/tangible/poi/tatooine/bestine/bestine_museum_event_master_object.iff	0	953.5	14	435.1	1	0	0	0		bestine.objMuseumBuilding|0|1028167|$|
+-4	0	object/tangible/poi/tatooine/bestine/bestine_city_raid_grandparent_object.iff	0	1065	12	353	1	0	0	0		$|
+-12	0	object/tangible/spawning/static_npc/victor_questp_slums.iff	0	691	26	225	1	0	0	0		$|
+-13	0	object/tangible/spawning/static_npc/victor_questp_hospital.iff	0	754	12	596	1	0	0	0		$|
+-14	0	object/tangible/spawning/static_npc/sean_questp_market.iff	0	944	12	391	1	0	0	0		$|
+-18	0	object/tangible/spawning/static_npc/hutt_informant_quest.iff	0	928.1	12	456.2	1	0	0	0		$|
+-19	0	object/tangible/spawning/static_npc/sean_contact_quest.iff	0	600	10	331	1	0	0	0		$|
+-20	0	object/tangible/spawning/static_npc/seans_historian.iff	0	1290	10	189	1	0	0	0		$|
+-21	0	object/tangible/spawning/static_npc/bestine_rumor01.iff	0	837	12	458	1	0	0	0		$|
+-22	0	object/tangible/spawning/static_npc/bestine_rumor02.iff	0	757	12	460	1	0	0	0		$|
+-23	0	object/tangible/spawning/static_npc/bestine_rumor03.iff	0	860	12	471	1	0	0	0		$|
+-24	0	object/tangible/spawning/static_npc/bestine_rumor04.iff	0	1037	12	400	1	0	0	0		$|
+-25	0	object/tangible/spawning/static_npc/bestine_rumor05.iff	0	1042	12	382	1	0	0	0		$|
+-26	0	object/tangible/spawning/static_npc/bestine_rumor06.iff	0	1000	12	437	1	0	0	0		$|
+-27	0	object/tangible/spawning/static_npc/bestine_rumor07.iff	0	974	12	440	1	0	0	0		$|
+-28	0	object/tangible/spawning/static_npc/bestine_rumor08.iff	0	980	12	428	1	0	0	0		$|
+-29	0	object/tangible/spawning/static_npc/bestine_rumor09.iff	0	975	12	419	1	0	0	0		$|
+-30	0	object/tangible/spawning/static_npc/bestine_rumor10.iff	0	968	12	400	1	0	0	0		$|
+-31	0	object/tangible/spawning/static_npc/bestine_rumor11.iff	0	948	12	457	1	0	0	0		$|
+-32	0	object/tangible/spawning/static_npc/bestine_rumor12.iff	0	900	12	440	1	0	0	0		$|
+-33	0	object/tangible/spawning/static_npc/bestine_rumor01.iff	0	885	12	426	1	0	0	0		$|
+-34	0	object/tangible/spawning/static_npc/bestine_rumor02.iff	0	885	12	453	1	0	0	0		$|
+-35	0	object/tangible/spawning/static_npc/bestine_rumor03.iff	0	871	12	462	1	0	0	0		$|
+-36	0	object/tangible/spawning/static_npc/bestine_rumor04.iff	0	755	12	480	1	0	0	0		$|
+-37	0	object/tangible/spawning/static_npc/bestine_rumor05.iff	0	698	12	400	1	0	0	0		$|
+-38	0	object/tangible/spawning/static_npc/bestine_rumor06.iff	0	652	12	318	1	0	0	0		$|
+-39	0	object/tangible/spawning/static_npc/bestine_rumor07.iff	0	619	12	328	1	0	0	0		$|
+-40	0	object/tangible/spawning/static_npc/bestine_rumor08.iff	0	845	12	557	1	0	0	0		$|
+-41	0	object/tangible/spawning/static_npc/bestine_rumor09.iff	0	826	12	549	1	0	0	0		$|
+-42	0	object/tangible/spawning/static_npc/bestine_rumor10.iff	0	852	12	543	1	0	0	0		$|
+-43	0	object/tangible/spawning/static_npc/bestine_rumor11.iff	0	767	12	536	1	0	0	0		$|
+-44	0	object/tangible/spawning/static_npc/bestine_rumor12.iff	0	783	12	537	1	0	0	0		$|
+-45	0	object/tangible/spawning/static_npc/bestine_rumor01.iff	0	792	12	529	1	0	0	0		$|
+-46	0	object/tangible/spawning/static_npc/bestine_rumor02.iff	0	798	12	551	1	0	0	0		$|

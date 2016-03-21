@@ -1,14 +1,8 @@
 package script.base;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.utils;
+import script.obj_id;
 
 public class remote_object_requester extends script.base.remote_object
 {
@@ -93,8 +87,7 @@ public class remote_object_requester extends script.base.remote_object
     public int remoteCreate() throws InterruptedException
     {
         obj_id self = getSelf();
-        int requestId = getClusterWideData(REMOTE_OBJECT_MANAGER, "*", false, self);
-        return requestId;
+        return getClusterWideData(REMOTE_OBJECT_MANAGER, "*", false, self);
     }
     public String getSceneNameVarName(int requestId) throws InterruptedException
     {
@@ -170,7 +163,6 @@ public class remote_object_requester extends script.base.remote_object
     public obj_id getRemoteObjectCreator(obj_id self, int requestId, String[] elementNameList, dictionary[] dictionaryList) throws InterruptedException
     {
         int randomIndex = rand(0, dictionaryList.length);
-        obj_id remoteObjectCreator = dictionaryList[randomIndex].getObjId(CREATOR);
-        return remoteObjectCreator;
+        return dictionaryList[randomIndex].getObjId(CREATOR);
     }
 }

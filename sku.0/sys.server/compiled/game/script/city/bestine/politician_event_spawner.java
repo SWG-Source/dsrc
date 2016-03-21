@@ -1,17 +1,9 @@
 package script.city.bestine;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
 import script.library.ai_lib;
+import script.library.create;
 import script.library.utils;
-import script.library.planetary_map;
 
 public class politician_event_spawner extends script.base_script
 {
@@ -19,13 +11,6 @@ public class politician_event_spawner extends script.base_script
     {
     }
     public int OnInitialize(obj_id self) throws InterruptedException
-    {
-        deltadictionary dctScriptVars = self.getScriptVars();
-        dctScriptVars.put("numCapitolChecks", 1);
-        messageTo(self, "checkForCapitolBuilding", null, 60, false);
-        return SCRIPT_CONTINUE;
-    }
-    public int OnAttach(obj_id self) throws InterruptedException
     {
         deltadictionary dctScriptVars = self.getScriptVars();
         dctScriptVars.put("numCapitolChecks", 1);
@@ -40,19 +25,15 @@ public class politician_event_spawner extends script.base_script
         map_location[] allRegisteredCapitols = getPlanetaryMapLocations("capitol", "");
         if (allRegisteredCapitols != null && allRegisteredCapitols.length != 0)
         {
-            obj_id tatooinCapitolObjId = null;
-            for (int m = 0; m < allRegisteredCapitols.length; m++)
-            {
-                map_location tatooinCapitol = allRegisteredCapitols[m];
-                String capitolNameCodeString = tatooinCapitol.getLocationName();
-                string_id capitolNameStringId = utils.unpackString(capitolNameCodeString);
-                String capitolName = getString(capitolNameStringId);
-                if (capitolName != null && capitolName.equals("Bestine"))
-                {
-                    tatooinCapitolObjId = tatooinCapitol.getLocationId();
+            obj_id tatooineCapitolObjId = null;
+            String capitolName;
+            for (map_location tatooineCapitol : allRegisteredCapitols) {
+                capitolName = getString(utils.unpackString(tatooineCapitol.getLocationName()));
+                if (capitolName != null && capitolName.equals("Bestine")) {
+                    tatooineCapitolObjId = tatooineCapitol.getLocationId();
                 }
             }
-            if (!isIdValid(tatooinCapitolObjId))
+            if (!isIdValid(tatooineCapitolObjId))
             {
                 if (numCapitolChecks <= 30)
                 {
@@ -69,7 +50,7 @@ public class politician_event_spawner extends script.base_script
             }
             else 
             {
-                dctScriptVars.put("tatooinCapitolObjId", tatooinCapitolObjId);
+                dctScriptVars.put("tatooineCapitolObjId", tatooineCapitolObjId);
                 spawnNpc(self);
             }
         }
@@ -102,8 +83,8 @@ public class politician_event_spawner extends script.base_script
         setCreatureStatic(npc, true);
         ai_lib.setDefaultCalmBehavior(npc, ai_lib.BEHAVIOR_SENTINEL);
         deltadictionary dctScriptVars = self.getScriptVars();
-        obj_id tatooinCapitolObjId = dctScriptVars.getObjId("tatooinCapitolObjId");
-        setObjVar(npc, "bestine.tatooineCapitolObjId", tatooinCapitolObjId);
+        obj_id tatooineCapitolObjId = dctScriptVars.getObjId("tatooineCapitolObjId");
+        setObjVar(npc, "bestine.tatooineCapitolObjId", tatooineCapitolObjId);
         attachScript(npc, "city.bestine.politician_event_npc");
         if (hasObjVar(self, "quest_script"))
         {
@@ -126,6 +107,5 @@ public class politician_event_spawner extends script.base_script
                 }
             }
         }
-        return;
     }
 }

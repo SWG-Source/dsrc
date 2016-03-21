@@ -6,7 +6,7 @@ object/building/tatooine/bank_tatooine.iff		bank
 object/building/naboo/bank_naboo.iff		bank			
 object/building/corellia/bank_corellia.iff		bank			
 object/building/tatooine/cantina_tatooine.iff		cantina			1
-object/building/tatooine/capitol_tatooine.iff		capitol			
+object/building/tatooine/capitol_tatooine.iff	@loc_n:bestine	capitol
 object/building/tatooine/guild_combat_tatooine_style_01.iff		guild	guild_combat		
 object/building/tatooine/guild_commerce_tatooine_style_01.iff		guild	guild_commerce		
 object/building/tatooine/guild_theater_tatooine_style_01.iff		guild	guild_theater		1
@@ -107,4 +107,4 @@ object/building/naboo/rori_restuss_starport.iff		starport
 object/building/naboo/rori_restuss_shuttleport.iff		shuttleport	
 object/building/dathomir/dathomir_quarantine_zone_starport.iff		starport	
 object/building/dathomir/dathomir_quarantine_zone_cantina.iff		cantina	
-object/building/tatooine/bestine_museum.iff	@map_loc_n:bestine	museum
+object/building/tatooine/bestine_museum.iff	@loc_n:bestine	museum
