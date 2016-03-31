@@ -1,15 +1,7 @@
 package script.city;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.create;
+import script.dictionary;
+import script.obj_id;
 
 public class interior_2_convo extends script.city.interior_convo_base
 {
@@ -18,19 +10,15 @@ public class interior_2_convo extends script.city.interior_convo_base
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        spawnGuyOne(self);
-        spawnGuyTwo(self);
+        spawnGuy(self, "guy1");
+        spawnGuy(self, "guy2");
         messageTo(self, "checkForScripts", null, 5, false);
         messageTo(self, "handleChatting", null, 10, false);
         return SCRIPT_CONTINUE;
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        spawnGuyOne(self);
-        spawnGuyTwo(self);
-        messageTo(self, "checkForScripts", null, 5, false);
-        messageTo(self, "handleChatting", null, 10, false);
-        return SCRIPT_CONTINUE;
+        return OnInitialize(self);
     }
     public int handleChatting(obj_id self, dictionary params) throws InterruptedException
     {
@@ -44,24 +32,6 @@ public class interior_2_convo extends script.city.interior_convo_base
         faceTo(guy2, guy1);
         setAnimationMood(guy1, "conversation");
         setAnimationMood(guy2, "conversation");
-        return SCRIPT_CONTINUE;
-    }
-    public int handleGuyOneKilled(obj_id self, dictionary params) throws InterruptedException
-    {
-        spawnGuyOne(self);
-        return SCRIPT_CONTINUE;
-    }
-    public int handleGuyTwoKilled(obj_id self, dictionary params) throws InterruptedException
-    {
-        spawnGuyTwo(self);
-        return SCRIPT_CONTINUE;
-    }
-    public int checkForScripts(obj_id self, dictionary params) throws InterruptedException
-    {
-        if (hasScript(self, "theme_park.poi.launch"))
-        {
-            detachScript(self, "theme_park.poi.launch");
-        }
         return SCRIPT_CONTINUE;
     }
 }
