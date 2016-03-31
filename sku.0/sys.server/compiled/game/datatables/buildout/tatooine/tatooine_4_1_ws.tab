@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1514964	0	object/building/tatooine/poi_darklighter_estate.iff	0	1349.55	8	1440.07	1	0	0	0		$|
+1514964	0	object/building/tatooine/poi_darklighter_estate.iff	0	1349.55	8	1440.07	1	0	0	0	theme_park.tatooine.darklighter_spawner.masterspawner	$|
 1514965	1514964	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1514966	1514964	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1514967	1514964	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
