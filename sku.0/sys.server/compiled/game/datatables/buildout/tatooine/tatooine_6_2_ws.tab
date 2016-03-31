@@ -2276,14 +2276,14 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1095635	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1756.85	180	1658.59	1	0	0	0		$|
 1095636	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1818.18	180	1615.12	1	0	0	0		$|
 1095637	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1835.15	180	1614	1	0	0	0		$|
--1	0	object/tangible/poi/spawnegg/jawa_spawnegg.iff	0	1422	4	1616	-0.700285	0	0.713864	0		pop|0|1|$|
+-1	0	object/tangible/poi/spawnegg/jawa_spawnegg.iff	0	1422	5	1616	-0.700285	0	0.713864	0		pop|0|1|$|
 -2	0	object/path_waypoint/path_waypoint_jawa1.iff	0	1478	5	1643	1	0	0	0		$|
 -3	0	object/path_waypoint/path_waypoint_jawa2.iff	0	1441	5	1565	1	0	0	0		$|
 -4	0	object/path_waypoint/path_waypoint_jawa3.iff	0	1465	5	1583	1	0	0	0		$|
 -5	0	object/path_waypoint/path_waypoint_jawa4.iff	0	1422	5	1596	1	0	0	0		$|
 -6	0	object/path_waypoint/path_waypoint_jawa5.iff	0	1409	5	1651	1	0	0	0		$|
 -7	0	object/path_waypoint/path_waypoint_jawa6.iff	0	1401	5	1635	1	0	0	0		$|
--8	0	object/tangible/poi/spawnegg/jawa_spawnegg.iff	0	1610	4	1359	-0.700285	0	0.713864	0		pop|0|3|$|
+-8	0	object/tangible/poi/spawnegg/jawa_spawnegg.iff	0	1610	5	1359	-0.700285	0	0.713864	0		pop|0|3|$|
 -9	0	object/path_waypoint/path_waypoint_jawa1.iff	0	1609	5	1344	1	0	0	0		$|
 -10	0	object/path_waypoint/path_waypoint_jawa2.iff	0	1605	5	1312	1	0	0	0		$|
 -11	0	object/path_waypoint/path_waypoint_jawa3.iff	0	1574	5	1379	1	0	0	0		$|

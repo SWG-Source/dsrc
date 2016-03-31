@@ -1,0 +1,11 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+object/tangible/npc/epic_quest/huff_darklighter_spawner.iff		lobby	1	1	3.8	180				1800
+object/tangible/poi/tatooine/poi_city_convo.iff		lobby	0	0.5	-8.2	0				300
+object/tangible/poi/tatooine/poi_city_convo.iff		lobby	6.4	0.5	-7.4	0				300
+object/tangible/poi/tatooine/poi_city_convo.iff		livingroom1	-16.5	0.2	7.2	0				300
+object/tangible/poi/tatooine/poi_city_convo.iff		kitchen	-22.9	1	-8.9	0				300
+commoner		world	-688.7	8	-6724	-163	npc.celebrity.celebrity_spawner			300	"int:ai.defaultCalmBehavior=1"
+commoner		world	-672.0	8	-6728.8	-144	npc.celebrity.celebrity_spawner			300	"int:ai.defaultCalmBehavior=1"
+commoner		world	-706.9	8	-6724.2	154	npc.celebrity.celebrity_spawner			300	"int:ai.defaultCalmBehavior=1"
+commoner		world	-722.9	8	-6728.2	138	npc.celebrity.celebrity_spawner			300	"int:ai.defaultCalmBehavior=1"

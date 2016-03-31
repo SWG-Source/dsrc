@@ -19,6 +19,7 @@ public class huff_guard extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        setInvulnerable(self, true);
         setName(self, "Huff Darklighter's Guard");
         ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(self, "npc.static_quest.quest_convo");
