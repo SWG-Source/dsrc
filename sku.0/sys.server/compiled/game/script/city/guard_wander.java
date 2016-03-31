@@ -1,30 +1,27 @@
 package script.city;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.utils;
+import script.location;
+import script.obj_id;
 
-public class guard_wander extends script.base_script
+public class guard_wander extends script.city.base.base_wander
 {
+    public static final String[] patrolPoints =
+            {
+                    "patrol1",
+                    "patrol2",
+                    "patrol3",
+                    "patrol4",
+                    "patrol5",
+                    "patrol6"
+            };
     public guard_wander()
     {
+        super.patrolPoints = patrolPoints;
     }
-    public static final String[] patrolPoints = 
-    {
-        "patrol1",
-        "patrol2",
-        "patrol3",
-        "patrol4",
-        "patrol5",
-        "patrol6"
-    };
+
     public static final int PATH_VERIFICATION_TIME = 30;
     public static final int PATH_FAILURES_MAXIMUM = 5;
     public int OnAttach(obj_id self) throws InterruptedException
@@ -32,25 +29,20 @@ public class guard_wander extends script.base_script
         LOGC(aiLoggingEnabled(self), "debug_ai", "guard_wander.OnAttach enter");
         utils.setScriptVar(self, "path.timeCompleted", getGameTime());
         utils.setScriptVar(self, "path.pathFailures", 0);
-        ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_SENTINEL);
-        messageTo(self, "pathRandom", null, 1, false);
         removeObjVar(self, "combat.intCombatXP");
-        return SCRIPT_CONTINUE;
+        return super.OnAttach(self);
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         LOGC(aiLoggingEnabled(self), "debug_ai", "guard_wander.OnInitialize enter name: " + getName(self));
         utils.setScriptVar(self, "path.timeCompleted", getGameTime());
         utils.setScriptVar(self, "path.pathFailures", 0);
-        messageTo(self, "pathRandom", null, 1, false);
-        return SCRIPT_CONTINUE;
+        return super.OnInitialize(self);
     }
     public int OnLoiterMoving(obj_id self) throws InterruptedException
     {
         LOGC(aiLoggingEnabled(self), "debug_ai", "guard_wander.OnLoiterMoving enter name: " + getName(self));
-        stop(self);
-        messageTo(self, "pathRandom", null, 2, false);
-        return SCRIPT_OVERRIDE;
+        return super.OnLoiterMoving(self);
     }
     public int pathRandom(obj_id self, dictionary params) throws InterruptedException
     {
