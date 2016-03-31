@@ -1,20 +1,10 @@
 package script.city.imperial_crackdown;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.ai.ai_combat;
-import script.library.skill;
-import script.library.factions;
-import script.library.chat;
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.jedi;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class imperial_trouble extends script.base_script
 {
@@ -24,11 +14,7 @@ public class imperial_trouble extends script.base_script
     public static String CONVO = "npc_reaction/imperial_crackdown_cantina";
     public int startMoving(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id bldg = getTopMostContainer(self);
-        obj_id cantina = getCellId(bldg, "cantina");
-        location here = getLocation(self);
-        String planet = here.area;
-        location fight = new location(22.37f, -0.89f, 0.98f, planet, cantina);
+        location fight = new location(22.37f, -0.89f, 0.98f, getLocation(self).area, getCellId(getTopMostContainer(self), "cantina"));
         ai_lib.aiPathTo(self, fight);
         addLocationTarget("harass", fight, 1);
         return SCRIPT_CONTINUE;
@@ -41,22 +27,18 @@ public class imperial_trouble extends script.base_script
     {
         if (name.equals("harass"))
         {
-            string_id scum = new string_id(CONVO, "rebel_scum_" + getFactionName(self));
-            chat.chat(self, scum);
+            chat.chat(self, new string_id(CONVO, "rebel_scum_" + getFactionName(self)));
             messageTo(self, "startTrouble", null, 7, false);
         }
         if (name.equals("trouble"))
         {
-            string_id move = new string_id(CONVO, "sudden_moves_" + getFactionName(self));
-            chat.chat(self, move);
-            obj_id troublemaker = getObjIdObjVar(self, "harrassing");
-            faceTo(self, troublemaker);
+            chat.chat(self, new string_id(CONVO, "sudden_moves_" + getFactionName(self)));
+            faceTo(self, getObjIdObjVar(self, "harrassing"));
             messageTo(self, "continueTrouble", null, 7, false);
         }
         if (name.equals("done"))
         {
-            string_id back = new string_id(CONVO, "back_home");
-            chat.chat(self, back);
+            chat.chat(self, new string_id(CONVO, "back_home"));
             messageTo(self, "leaveCantina", null, 7, false);
         }
         return SCRIPT_CONTINUE;
@@ -67,15 +49,12 @@ public class imperial_trouble extends script.base_script
         {
             if (!hasObjVar(self, "calledforbackup"))
             {
-                string_id help = new string_id(CONVO, "back_up");
-                chat.chat(self, help);
-                obj_id bldg = getTopMostContainer(self);
+                chat.chat(self, new string_id(CONVO, "back_up"));
                 dictionary fighters = new dictionary();
-                location locale = getLocation(self);
                 fighters.put("attacker", attackers[0]);
-                fighters.put("locale", locale);
+                fighters.put("locale", getLocation(self));
                 fighters.put("me", self);
-                messageTo(bldg, "sendBackup", fighters, 2, false);
+                messageTo(getTopMostContainer(self), "sendBackup", fighters, 2, false);
                 setObjVar(self, "calledforbackup", 1);
             }
         }
@@ -88,41 +67,28 @@ public class imperial_trouble extends script.base_script
         int numPlayers = players.length;
         if (numPlayers < 1)
         {
-            string_id none = new string_id(CONVO, "no_one_here_" + getFactionName(self));
-            chat.chat(self, none);
+            chat.chat(self, new string_id(CONVO, "no_one_here_" + getFactionName(self)));
             messageTo(self, "finishTrouble", null, 5, false);
             return SCRIPT_CONTINUE;
         }
         else if (numPlayers == 1)
         {
-            obj_id harassable = players[0];
-            String name = getFirstName(harassable);
-            string_id only = new string_id(CONVO, "only_one_here_" + getFactionName(self));
-            chat.chat(self, only);
-            setObjVar(self, "harassing", harassable);
+            chat.chat(self, new string_id(CONVO, "only_one_here_" + getFactionName(self)));
+            setObjVar(self, "harassing", players[0]);
             messageTo(self, "harassPlayer", null, 12, false);
         }
         else 
         {
-            for (int i = 0; i < numPlayers; i++)
-            {
-                obj_id thisPlayer = players[i];
-                if (factions.isCovert(thisPlayer))
-                {
-                    String playerFaction = factions.getFaction(thisPlayer);
-                    String harassFaction;
-                    if (getFactionName(self) == "imperial")
-                    {
+            String harassFaction;
+            for (obj_id thisPlayer : players) {
+                if (factions.isCovert(thisPlayer)) {
+                    if (getFactionName(self).equals("imperial")) {
                         harassFaction = "Rebel";
-                    }
-                    else 
-                    {
+                    } else {
                         harassFaction = "Imperial";
                     }
-                    if (playerFaction.equals(harassFaction))
-                    {
-                        string_id diss = new string_id(CONVO, "harass_guy_" + getFactionName(self));
-                        chat.chat(self, diss);
+                    if (factions.getFaction(thisPlayer).equals(harassFaction)) {
+                        chat.chat(self, new string_id(CONVO, "harass_guy_" + getFactionName(self)));
                         setObjVar(self, "harassing", thisPlayer);
                         messageTo(self, "harassPlayer", null, 10, false);
                     }
@@ -131,8 +97,7 @@ public class imperial_trouble extends script.base_script
         }
         if (!hasObjVar(self, "harassing"))
         {
-            string_id diss = new string_id(CONVO, "harass_guy_" + getFactionName(self));
-            chat.chat(self, diss);
+            chat.chat(self, new string_id(CONVO, "harass_guy_" + getFactionName(self)));
             setObjVar(self, "harassing", players[0]);
             messageTo(self, "harassPlayer", null, 10, false);
         }
@@ -146,17 +111,14 @@ public class imperial_trouble extends script.base_script
         }
         obj_id playerToHarass = getObjIdObjVar(self, "harassing");
         faceTo(self, playerToHarass);
-        string_id look = new string_id(CONVO, "looking_at_" + getFactionName(self));
-        chat.chat(self, look);
-        location trouble = getLocation(playerToHarass);
-        setObjVar(self, "trouble", trouble);
+        chat.chat(self, new string_id(CONVO, "looking_at_" + getFactionName(self)));
+        setObjVar(self, "trouble", getLocation(playerToHarass));
         messageTo(self, "moveOver", null, 3, false);
         return SCRIPT_CONTINUE;
     }
     public int moveOver(obj_id self, dictionary params) throws InterruptedException
     {
-        string_id plan = new string_id(CONVO, "checking_out_" + getFactionName(self));
-        chat.chat(self, plan);
+        chat.chat(self, new string_id(CONVO, "checking_out_" + getFactionName(self)));
         location trouble = getLocationObjVar(self, "trouble");
         trouble.x = trouble.x + 1;
         ai_lib.aiPathTo(self, trouble);
@@ -175,32 +137,17 @@ public class imperial_trouble extends script.base_script
             messageTo(self, "finishTrouble", null, 15, false);
             return SCRIPT_CONTINUE;
         }
-        obj_id troublemaker = getObjIdObjVar(self, "harassing");
-        string_id something = getSomethingToSay(self);
-        faceTo(self, troublemaker);
-        chat.chat(self, something);
+        faceTo(self, getObjIdObjVar(self, "harassing"));
+        chat.chat(self, getSomethingToSay(self));
         messageTo(self, "continueTrouble", null, 18, false);
         utils.setScriptVar(self, "talked", talked + 1);
         return SCRIPT_CONTINUE;
     }
     public string_id getSomethingToSay(obj_id self) throws InterruptedException
     {
-        int lastSaid = utils.getIntScriptVar(self, "lastSaid");
         int which = rand(1, 15);
-        if (which == lastSaid)
-        {
-            if (which == 15)
-            {
-                which = 14;
-            }
-            else 
-            {
-                which = which + 1;
-            }
-        }
-        string_id something = new string_id(CONVO, "harass_" + which + "_" + getFactionName(self));
         utils.setScriptVar(self, "lastSaid", which);
-        return something;
+        return new string_id(CONVO, "harass_" + which + "_" + getFactionName(self));
     }
     public int finishTrouble(obj_id self, dictionary params) throws InterruptedException
     {
@@ -217,13 +164,9 @@ public class imperial_trouble extends script.base_script
                 }
             }
         }
-        string_id hide = new string_id(CONVO, "rebel_cowards_" + getFactionName(self));
-        chat.chat(self, hide);
-        obj_id top = getTopMostContainer(self);
-        obj_id foyer = getCellId(top, "foyer1");
-        location here = getLocation(self);
-        String planet = here.area;
-        location impLoc = new location(47.02f, .1f, -2.93f, planet, foyer);
+        chat.chat(self, new string_id(CONVO, "rebel_cowards_" + getFactionName(self)));
+        obj_id foyer = getCellId(getTopMostContainer(self), "foyer1");
+        location impLoc = new location(47.02f, .1f, -2.93f, getLocation(self).area, foyer);
         ai_lib.aiPathTo(self, impLoc);
         addLocationTarget("done", impLoc, 1);
         messageTo(self, "handleBadLeaving", null, 60, false);
@@ -236,8 +179,7 @@ public class imperial_trouble extends script.base_script
             messageTo(self, "leaveCantina", null, 60, false);
             return SCRIPT_CONTINUE;
         }
-        obj_id cantina = getObjIdObjVar(self, "crackdown.cantina");
-        messageTo(cantina, "resetCrackDown", null, 2, false);
+        messageTo(getObjIdObjVar(self, "crackdown.cantina"), "resetCrackDown", null, 2, false);
         destroyObject(self);
         return SCRIPT_CONTINUE;
     }
@@ -266,50 +208,31 @@ public class imperial_trouble extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < numPlayers; i++)
-        {
-            if (isIdValid(players[i]))
-            {
-                obj_id thisPlayer = players[i];
-                if (factions.isCovert(thisPlayer))
-                {
-                    String playerFaction = factions.getFaction(thisPlayer);
-                    String harassFaction;
-                    if (getFactionName(self) == "imperial")
-                    {
+        String harassFaction;
+        for (obj_id player : players) {
+            if (isIdValid(player)) {
+                if (factions.isCovert(player)) {
+                    if (getFactionName(self).equals("imperial")) {
                         harassFaction = "Rebel";
-                    }
-                    else 
-                    {
+                    } else {
                         harassFaction = "Imperial";
                     }
-                    if (playerFaction.equals(harassFaction))
-                    {
-                        if (checkForPercentage(thisPlayer) == false)
-                        {
-                            int playerLevel = getLevel(thisPlayer);
-                            if (playerLevel > 10)
-                            {
-                                string_id diss = new string_id(CONVO, "attacking_" + getFactionName(self));
-                                chat.chat(self, diss);
-                                if (!isJedi(thisPlayer) && factions.isOnLeave(thisPlayer))
-                                {
-                                    pvpMakeCovert(thisPlayer);
+                    if (factions.getFaction(player).equals(harassFaction)) {
+                        if (!checkForPercentage(player)) {
+                            if (getLevel(player) > 10) {
+                                chat.chat(self, new string_id(CONVO, "attacking_" + getFactionName(self)));
+                                if (!isJedi(player) && factions.isOnLeave(player)) {
+                                    pvpMakeCovert(player);
+                                } else if (isJedi(player)) {
+                                    jedi.doJediTEF(player);
                                 }
-                                else if (isJedi(thisPlayer))
-                                {
-                                    jedi.doJediTEF(thisPlayer);
-                                }
-                                startCombat(self, thisPlayer);
-                                string_id help = new string_id(CONVO, "back_up");
-                                chat.chat(self, help);
-                                obj_id bldg = getTopMostContainer(self);
+                                startCombat(self, player);
+                                chat.chat(self, new string_id(CONVO, "back_up"));
                                 dictionary fighters = new dictionary();
-                                location locale = getLocation(self);
-                                fighters.put("attacker", thisPlayer);
-                                fighters.put("locale", locale);
+                                fighters.put("attacker", player);
+                                fighters.put("locale", getLocation(self));
                                 fighters.put("me", self);
-                                messageTo(bldg, "sendBackup", fighters, 2, false);
+                                messageTo(getTopMostContainer(self), "sendBackup", fighters, 2, false);
                                 setObjVar(self, "calledforbackup", 1);
                                 return true;
                             }
@@ -326,19 +249,15 @@ public class imperial_trouble extends script.base_script
         obj_id[] members = getGroupMemberIds(player);
         if (members == null)
         {
-            boolean smuggler = ai_lib.checkForSmuggler(player);
-            return smuggler;
+            return ai_lib.checkForSmuggler(player);
         }
         int numInGroup = members.length;
         if (numInGroup == 0)
         {
             return false;
         }
-        for (int i = 0; i < numInGroup; i++)
-        {
-            obj_id thisMember = members[i];
-            if (ai_lib.checkForSmuggler(thisMember) == false)
-            {
+        for (obj_id thisMember : members) {
+            if (!ai_lib.checkForSmuggler(thisMember)) {
                 yesNo = false;
             }
         }

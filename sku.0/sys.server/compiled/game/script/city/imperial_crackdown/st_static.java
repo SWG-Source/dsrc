@@ -1,18 +1,7 @@
 package script.city.imperial_crackdown;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.factions;
-import script.library.prose;
-import script.library.utils;
+import script.library.*;
 
 public class st_static extends script.base_script
 {
@@ -62,9 +51,6 @@ public class st_static extends script.base_script
                                 return SCRIPT_CONTINUE;
                             }
                         }
-                        else 
-                        {
-                        }
                         return SCRIPT_CONTINUE;
                     }
                     if (playerFaction.equals(factions.FACTION_REBEL))
@@ -72,9 +58,8 @@ public class st_static extends script.base_script
                         lotto = rand(1, 100);
                         if (lotto <= 5)
                         {
-                            String playerName = getName(player);
                             utils.setScriptVar(self, "event", true);
-                            params.put("playerName", playerName);
+                            params.put("playerName", getName(player));
                             messageTo(self, "rebelBreach", params, 10, false);
                             return SCRIPT_CONTINUE;
                         }
@@ -112,13 +97,11 @@ public class st_static extends script.base_script
     }
     public int OnFollowTargetLost(obj_id self, obj_id oldTarget) throws InterruptedException
     {
-        String selfName = getName(self);
-        prose_package pp = prose.getPackage(FOLLOW_LOST, selfName);
         location homeLoc = getHomeLocation(self);
         removeObjVar(self, "ai.persistantFollowing");
         if (!ai_lib.isInCombat(self))
         {
-            chat.publicChat(self, null, null, null, pp);
+            chat.publicChat(self, null, null, null, prose.getPackage(FOLLOW_LOST, getName(self)));
             addLocationTarget("home", homeLoc, 1.5f);
             setMovementWalk(self);
             pathTo(self, homeLoc);
@@ -127,13 +110,11 @@ public class st_static extends script.base_script
     }
     public int OnFollowPathNotFound(obj_id self, obj_id target) throws InterruptedException
     {
-        String selfName = getName(self);
-        prose_package pp = prose.getPackage(FOLLOW_LOST, selfName);
         location homeLoc = getHomeLocation(self);
         removeObjVar(self, "ai.persistantFollowing");
         if (!ai_lib.isInCombat(self))
         {
-            chat.publicChat(self, null, null, null, pp);
+            chat.publicChat(self, null, null, null, prose.getPackage(FOLLOW_LOST, getName(self)));
             addLocationTarget("home", homeLoc, 1.5f);
             setMovementWalk(self);
             pathTo(self, homeLoc);
@@ -178,22 +159,18 @@ public class st_static extends script.base_script
     }
     public int rebelBreach(obj_id self, dictionary params) throws InterruptedException
     {
-        String playerName = params.getString("playerName");
-        prose_package pp = prose.getPackage(REBEL_BREACH, playerName);
         if (!ai_lib.isInCombat(self))
         {
-            chat.publicChat(self, null, chat.CHAT_COMMAND, null, pp);
+            chat.publicChat(self, null, chat.CHAT_COMMAND, null, prose.getPackage(REBEL_BREACH, params.getString("playerName")));
         }
         utils.removeScriptVar(self, "event");
         return SCRIPT_CONTINUE;
     }
     public int playerFollow(obj_id self, dictionary params) throws InterruptedException
     {
-        String selfName = getName(self);
-        prose_package pp = prose.getPackage(FOLLOW_START, selfName);
         if (!ai_lib.isInCombat(self))
         {
-            chat.publicChat(self, null, null, null, pp);
+            chat.publicChat(self, null, null, null, prose.getPackage(FOLLOW_START, getName(self)));
             obj_id player = params.getObjId("player");
             if (isIdValid(player))
             {
@@ -207,13 +184,11 @@ public class st_static extends script.base_script
     }
     public int stopPersuit(obj_id self, dictionary params) throws InterruptedException
     {
-        String selfName = getName(self);
-        prose_package pp = prose.getPackage(FOLLOW_GIVEUP, selfName);
         location homeLoc = getHomeLocation(self);
         removeObjVar(self, "ai.persistantFollowing");
         if (!ai_lib.isInCombat(self))
         {
-            chat.publicChat(self, null, null, null, pp);
+            chat.publicChat(self, null, null, null, prose.getPackage(FOLLOW_GIVEUP, getName(self)));
             setMovementWalk(self);
             addLocationTarget("home", homeLoc, 1.5f);
             pathTo(self, homeLoc);
@@ -222,8 +197,7 @@ public class st_static extends script.base_script
     }
     public int amIStuck(obj_id self, dictionary params) throws InterruptedException
     {
-        location oldLocation = params.getLocation("oldLocation");
-        if (oldLocation.equals(getLocation(self)))
+        if (params.getLocation("oldLocation").equals(getLocation(self)))
         {
             destroyObject(self);
         }
@@ -231,13 +205,10 @@ public class st_static extends script.base_script
     }
     public int playerBark(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id player = params.getObjId("player");
-        int randStr = rand(1, 3);
-        string_id barkString = new string_id(STRING_FILE, "bark_s" + randStr);
         if (!ai_lib.isInCombat(self))
         {
-            faceTo(self, player);
-            chat.chat(self, barkString);
+            faceTo(self, params.getObjId("player"));
+            chat.chat(self, new string_id(STRING_FILE, "bark_s" + rand(1, 3)));
         }
         return SCRIPT_CONTINUE;
     }
@@ -248,23 +219,15 @@ public class st_static extends script.base_script
         utils.removeScriptVar(self, "event");
         if (isIdValid(player))
         {
-            for (int i = 0; i < nearby.length; i++)
-            {
-                if (nearby[i] == player)
-                {
-                    int randStr = rand(1, 2);
-                    string_id warnString = new string_id(STRING_FILE, "loiter_s" + randStr);
-                    if (!ai_lib.isInCombat(self))
-                    {
+            for (obj_id aNearby : nearby) {
+                if (aNearby == player) {
+                    if (!ai_lib.isInCombat(self)) {
                         faceTo(self, player);
-                        chat.chat(self, warnString);
+                        chat.chat(self, new string_id(STRING_FILE, "loiter_s" + rand(1, 2)));
                         int randAnim = rand(0, 2);
-                        if (randAnim == 0)
-                        {
+                        if (randAnim == 0) {
                             doAnimationAction(self, "point_left");
-                        }
-                        else if (randAnim == 1)
-                        {
+                        } else if (randAnim == 1) {
                             doAnimationAction(self, "wave_on_directing");
                         }
                         return SCRIPT_CONTINUE;
@@ -279,24 +242,20 @@ public class st_static extends script.base_script
         obj_id player = params.getObjId("player");
         int rank = params.getInt("rank");
         String faction = factions.getFaction(player);
-        int lastSaluted = utils.getIntScriptVar(player, "saluted");
-        if ((getGameTime() - lastSaluted) < 3600)
+        if ((getGameTime() - utils.getIntScriptVar(player, "saluted")) < 3600)
         {
             utils.removeScriptVar(self, "event");
             return SCRIPT_CONTINUE;
         }
-        else 
-        {
-            utils.setScriptVar(player, "saluted", getGameTime());
-        }
+        utils.setScriptVar(player, "saluted", getGameTime());
         faceTo(self, player);
         doAnimationAction(self, "salute2");
         String playerName = getName(player);
-        prose_package pp = new prose_package();
+        prose_package pp;
         java.util.StringTokenizer st = new java.util.StringTokenizer(playerName, " ");
         if (st.countTokens() == 2)
         {
-            String firstName = st.nextToken();
+            st.nextToken();
             String lastName = st.nextToken();
             pp = prose.getPackage(SALUTE_NAME, factions.getRankNameStringId(rank, faction), lastName);
         }

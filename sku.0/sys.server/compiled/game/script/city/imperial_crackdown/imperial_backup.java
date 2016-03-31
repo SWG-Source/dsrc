@@ -1,15 +1,9 @@
 package script.city.imperial_crackdown;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.ai.ai_combat;
+import script.dictionary;
 import script.library.ai_lib;
+import script.location;
+import script.obj_id;
 
 public class imperial_backup extends script.base_script
 {
@@ -27,8 +21,7 @@ public class imperial_backup extends script.base_script
     {
         if (name.equals("fight"))
         {
-            obj_id attacker = getObjIdObjVar(self, "whoToFight");
-            startCombat(self, attacker);
+            startCombat(self, getObjIdObjVar(self, "whoToFight"));
         }
         if (name.equals("done"))
         {
@@ -46,11 +39,7 @@ public class imperial_backup extends script.base_script
     }
     public int cleanUp(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id top = getTopMostContainer(self);
-        obj_id foyer = getCellId(top, "foyer1");
-        location here = getLocation(self);
-        String planet = here.area;
-        location impLoc = new location(47.02f, .1f, -2.93f, planet, foyer);
+        location impLoc = new location(47.02f, .1f, -2.93f, getLocation(self).area, getCellId(getTopMostContainer(self), "foyer1"));
         ai_lib.aiPathTo(self, impLoc);
         addLocationTarget("done", impLoc, 1);
         messageTo(self, "handleBadLeaving", null, 60, false);
