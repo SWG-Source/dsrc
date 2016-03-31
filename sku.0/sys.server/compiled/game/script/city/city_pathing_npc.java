@@ -1,14 +1,8 @@
 package script.city;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.utils;
+import script.obj_id;
 
 public class city_pathing_npc extends script.base_script
 {
@@ -54,22 +48,22 @@ public class city_pathing_npc extends script.base_script
         switch (lastAction)
         {
             case NEXT_ACTION_NONE:
-            pathTo(npc, getHomeLocation(npc));
-            obj_id homeStop = utils.getObjIdScriptVar(npc, "pathing.homeStop");
-            utils.setScriptVar(npc, "pathing.currentStop", homeStop);
-            return;
-            case NEXT_ACTION_FACETO:
-            if (hasObjVar(currentStop, "faceto"))
-            {
-                doFacingAction(npc, currentStop);
+                pathTo(npc, getHomeLocation(npc));
+                obj_id homeStop = utils.getObjIdScriptVar(npc, "pathing.homeStop");
+                utils.setScriptVar(npc, "pathing.currentStop", homeStop);
                 return;
-            }
+            case NEXT_ACTION_FACETO:
+                if (hasObjVar(currentStop, "faceto"))
+                {
+                    doFacingAction(npc, currentStop);
+                    return;
+                }
             case NEXT_ACTION_DOANIM:
-            executeAnimation(npc, currentStop);
-            return;
+                executeAnimation(npc, currentStop);
+                return;
             case NEXT_ACTION_PATHTONEXT:
-            pathToNext(npc, currentStop);
-            return;
+                pathToNext(npc, currentStop);
+                return;
         }
         lastAction++;
         if (lastAction > LAST_POSSIBLE_ACTION)
@@ -86,8 +80,7 @@ public class city_pathing_npc extends script.base_script
     }
     public void doFacingAction(obj_id npc, obj_id currentStop) throws InterruptedException
     {
-        int intThingToFace = getIntObjVar(currentStop, "faceto");
-        obj_id objThingToFace = utils.stringToObjId("" + intThingToFace);
+        obj_id objThingToFace = utils.stringToObjId("" + getIntObjVar(currentStop, "faceto"));
         if (isIdValid(objThingToFace))
         {
             faceTo(npc, objThingToFace);
@@ -116,8 +109,7 @@ public class city_pathing_npc extends script.base_script
     {
         if (hasObjVar(currentStop, "destination"))
         {
-            int destination = getIntObjVar(currentStop, "destination");
-            obj_id dest = utils.stringToObjId("" + destination);
+            obj_id dest = utils.stringToObjId("" + getIntObjVar(currentStop, "destination"));
             utils.setScriptVar(npc, "pathing.currentStop", dest);
             pathTo(npc, getLocation(dest));
         }
@@ -128,16 +120,12 @@ public class city_pathing_npc extends script.base_script
     }
     public void checkForFeetGluedToFloor(obj_id self) throws InterruptedException
     {
-        location here = getLocation(self);
-        setObjVar(self, "mightBeStuck", here);
+        setObjVar(self, "mightBeStuck", getLocation(self));
         messageTo(self, "amIStuck", null, 300, false);
-        return;
     }
     public int amIStuck(obj_id self, dictionary params) throws InterruptedException
     {
-        location now = getLocation(self);
-        location here = getLocationObjVar(self, "mightBeStuck");
-        if (now.equals(here))
+        if (getLocation(self).equals(getLocationObjVar(self, "mightBeStuck")))
         {
             destroyObject(self);
         }

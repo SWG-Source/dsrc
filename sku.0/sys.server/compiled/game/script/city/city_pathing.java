@@ -1,15 +1,9 @@
 package script.city;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.create;
+import script.library.utils;
+import script.obj_id;
 
 public class city_pathing extends script.base_script
 {
@@ -23,9 +17,7 @@ public class city_pathing extends script.base_script
     }
     public int handleNpcRespawn(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id messageFrom = params.getObjId("object");
-        obj_id lastSpawned = getObjIdObjVar(self, "pathing.lastSpawned");
-        if (messageFrom != lastSpawned)
+        if (params.getObjId("object") != getObjIdObjVar(self, "pathing.lastSpawned"))
         {
             return SCRIPT_CONTINUE;
         }

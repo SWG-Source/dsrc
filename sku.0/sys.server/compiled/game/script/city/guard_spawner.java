@@ -1,18 +1,11 @@
 package script.city;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
-import script.library.ai_lib;
-import script.library.create;
-import script.library.utils;
-import script.library.locations;
-import script.library.gcw;
+import java.util.Vector;
 
 public class guard_spawner extends script.base_script
 {
@@ -318,6 +311,7 @@ public class guard_spawner extends script.base_script
                     }
                 }
             }
+
             float imp_r = gcw.getImperialPercentileByRegion(self);
             float reb_r = gcw.getRebelPercentileByRegion(self);
             if (imp_r >= reb_r)

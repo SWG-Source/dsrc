@@ -1,18 +1,13 @@
 package script.city;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
+import script.dictionary;
 import script.library.create;
+import script.obj_id;
 
 public class city_convo extends script.base_script
 {
+    private final float[][] offsets = new float[][]{{1.1f, 0},{1.1f, 1.1f},{0f,1.1f},{0f,0f}};
+
     public city_convo()
     {
     }
@@ -51,82 +46,53 @@ public class city_convo extends script.base_script
         setAnimationMood(guy4, "conversation");
         return SCRIPT_CONTINUE;
     }
-    public int handleGuyOneKilled(obj_id self, dictionary params) throws InterruptedException
+    public int handleGuyKilled(obj_id self, dictionary params) throws InterruptedException
     {
-        spawnGuyOne(self);
+        spawnGuy(self, getStringObjVar(self, "name"));
         return SCRIPT_CONTINUE;
     }
-    public int handleGuyTwoKilled(obj_id self, dictionary params) throws InterruptedException
+    public void spawnGuy(obj_id baseObject, String name) throws InterruptedException
     {
-        spawnGuyTwo(self);
-        return SCRIPT_CONTINUE;
-    }
-    public int handleGuyThreeKilled(obj_id self, dictionary params) throws InterruptedException
-    {
-        spawnGuyThree(self);
-        return SCRIPT_CONTINUE;
-    }
-    public int handleGuyFourKilled(obj_id self, dictionary params) throws InterruptedException
-    {
-        spawnGuyFour(self);
-        return SCRIPT_CONTINUE;
-    }
-    public void spawnGuyOne(obj_id baseObject) throws InterruptedException
-    {
-        obj_id guy1 = create.themeParkObject(getRandomGuy(), 1.3f, 0, "handleGuyOneKilled", 0);
-        setObjVar(baseObject, "guy1", guy1);
-        setCreatureStatic(guy1, true);
-    }
-    public void spawnGuyTwo(obj_id baseObject) throws InterruptedException
-    {
-        obj_id guy2 = create.themeParkObject(getRandomGuy(), 1.3f, 1.3f, "handleGuyTwoKilled", 0);
-        setObjVar(baseObject, "guy2", guy2);
-        setCreatureStatic(guy2, true);
-    }
-    public void spawnGuyThree(obj_id baseObject) throws InterruptedException
-    {
-        obj_id guy3 = create.themeParkObject(getRandomGuy(), 0, 1.3f, "handleGuyThreeKilled", 0);
-        setObjVar(baseObject, "guy3", guy3);
-        setCreatureStatic(guy3, true);
-    }
-    public void spawnGuyFour(obj_id baseObject) throws InterruptedException
-    {
-        obj_id guy4 = create.themeParkObject(getRandomGuy(), 0, 0, "handleGuyFourKilled", 0);
-        setObjVar(baseObject, "guy4", guy4);
-        setCreatureStatic(guy4, true);
+        obj_id guy = null;
+        switch(name){
+            case "guy1":
+                guy = create.themeParkObject(getRandomGuy(), offsets[0][0], offsets[0][1], "handleGuyKilled", 0);
+                break;
+            case "guy2":
+                guy = create.themeParkObject(getRandomGuy(), offsets[1][0], offsets[1][1], "handleGuyKilled", 0);
+                break;
+            case "guy3":
+                guy = create.themeParkObject(getRandomGuy(), offsets[2][0], offsets[2][1], "handleGuyKilled", 0);
+                break;
+            case "guy4":
+                guy = create.themeParkObject(getRandomGuy(), offsets[3][0], offsets[3][1], "handleGuyKilled", 0);
+                break;
+        }
+        if(guy != null) {
+            setObjVar(baseObject, name, guy);
+            setCreatureStatic(guy, true);
+        }
     }
     public String getRandomGuy() throws InterruptedException
     {
-        location here = getLocation(getSelf());
-        String planet = here.area;
-        String[] npcList = dataTableGetStringColumnNoDefaults(npcTable, planet);
-        int npcNum = rand(0, npcList.length - 1);
-        String npc = npcList[npcNum];
-        return npc;
+        String[] npcList = dataTableGetStringColumnNoDefaults(npcTable, getLocation(getSelf()).area);
+        return npcList[rand(0, npcList.length - 1)];
     }
     public void beginSpawning(obj_id self) throws InterruptedException
     {
-        int num = rand(1, 10);
-        if (num < 5)
-        {
-            spawnGuyOne(self);
-            spawnGuyTwo(self);
-            return;
-        }
-        if (num < 8)
-        {
-            spawnGuyOne(self);
-            spawnGuyTwo(self);
-            spawnGuyThree(self);
-            return;
-        }
-        else 
-        {
-            spawnGuyOne(self);
-            spawnGuyTwo(self);
-            spawnGuyThree(self);
-            spawnGuyFour(self);
-            return;
+        if(!getBooleanObjVar(self, "spawned") || !getBooleanObjVar(self, "spawnInProgress")) {
+            setObjVar(self, "spawnInProgress", true);
+            int num = rand(1, 10);
+            spawnGuy(self, "guy1");
+            spawnGuy(self, "guy2");
+            if (num >= 5) {
+                spawnGuy(self, "guy3");
+            }
+            if (num >= 8) {
+                spawnGuy(self, "guy4");
+            }
+            setObjVar(self, "spawnInProgress", false);
+            setObjVar(self, "spawned", true);
         }
     }
     public int checkForScripts(obj_id self, dictionary params) throws InterruptedException

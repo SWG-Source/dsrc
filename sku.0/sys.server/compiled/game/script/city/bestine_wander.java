@@ -1,12 +1,7 @@
 package script.city;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
 
 public class bestine_wander extends script.base_script
 {
@@ -40,45 +35,44 @@ public class bestine_wander extends script.base_script
     public String pickDestination() throws InterruptedException
     {
         String waypoint = "exit";
-        int whichWay = rand(1, 12);
-        switch (whichWay)
+        switch (rand(1, 12))
         {
             case 1:
-            waypoint = "square";
-            break;
+                waypoint = "square";
+                break;
             case 2:
-            waypoint = "cafe1";
-            break;
+                waypoint = "cafe1";
+                break;
             case 3:
-            waypoint = "cafe2";
-            break;
+                waypoint = "cafe2";
+                break;
             case 4:
-            waypoint = "cafe3";
-            break;
+                waypoint = "cafe3";
+                break;
             case 5:
-            waypoint = "cafe4";
-            break;
+                waypoint = "cafe4";
+                break;
             case 6:
-            waypoint = "hotel";
-            break;
+                waypoint = "hotel";
+                break;
             case 7:
-            waypoint = "capitol";
-            break;
+                waypoint = "capitol";
+                break;
             case 8:
-            waypoint = "mission1";
-            break;
+                waypoint = "mission1";
+                break;
             case 9:
-            waypoint = "mission2";
-            break;
+                waypoint = "mission2";
+                break;
             case 10:
-            waypoint = "installation";
-            break;
+                waypoint = "installation";
+                break;
             case 11:
-            waypoint = "exit";
-            break;
+                waypoint = "exit";
+                break;
             case 12:
-            waypoint = "gate1";
-            break;
+                waypoint = "gate1";
+                break;
         }
         return waypoint;
     }

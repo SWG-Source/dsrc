@@ -1,16 +1,9 @@
 package script.city;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.create;
 import script.library.utils;
-import script.library.locations;
+import script.obj_id;
 
 public class droid_spawner extends script.base_script
 {
@@ -41,12 +34,9 @@ public class droid_spawner extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
-        int stringCheck = text.indexOf("max");
-        String population = text.substring(text.indexOf(" ") + 1, text.length());
-        int maxPop = utils.stringToInt(population);
-        if (stringCheck > -1)
+        if (text.contains("max"))
         {
-            setObjVar(self, "pop", maxPop);
+            setObjVar(self, "pop", utils.stringToInt(text.substring(text.indexOf(" ") + 1, text.length())));
         }
         if (text.equals("killall"))
         {
@@ -74,8 +64,6 @@ public class droid_spawner extends script.base_script
     }
     public int startSpawning(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id spawner = getSelf();
-        int maxPop = getIntObjVar(self, "pop");
         if (!hasObjVar(self, "current"))
         {
             setObjVar(self, "current", 1);
@@ -83,14 +71,9 @@ public class droid_spawner extends script.base_script
         }
         else 
         {
-            int currentPop = getIntObjVar(self, "current");
-            if (currentPop <= maxPop)
+            if (getIntObjVar(self, "current") <= getIntObjVar(self, "pop"))
             {
                 doSpawn(self);
-            }
-            else 
-            {
-                return SCRIPT_OVERRIDE;
             }
         }
         return SCRIPT_CONTINUE;
@@ -98,24 +81,22 @@ public class droid_spawner extends script.base_script
     public void doSpawn(obj_id self) throws InterruptedException
     {
         int currentPop = getIntObjVar(self, "current");
-        int maxPop = getIntObjVar(self, "pop");
-        location me = getLocation(self);
         String spawn = npcToSpawn();
-        obj_id npc = create.object(spawn, me);
+        obj_id npc = create.object(spawn, getLocation(self));
+
         attachScript(npc, "city.droid_wander");
         setInvulnerable(npc, true);
+
         setObjVar(self, "spawn." + currentPop, npc);
         setObjVar(npc, "spawnNum", "spawn." + currentPop);
-        currentPop = currentPop + 1;
-        setObjVar(self, "current", currentPop);
+        setObjVar(self, "current", ++currentPop);
+
         messageTo(self, "startSpawning", null, 10, true);
-        return;
     }
     public void killAll(obj_id self) throws InterruptedException
     {
         int increment = 1;
-        int totalBodies = getIntObjVar(self, "pop");
-        while (increment <= totalBodies)
+        while (increment <= getIntObjVar(self, "pop"))
         {
             obj_id npcToKill = getObjIdObjVar(self, "spawn." + increment);
             if (npcToKill != null)
@@ -123,36 +104,34 @@ public class droid_spawner extends script.base_script
                 destroyObject(npcToKill);
                 removeObjVar(self, "spawn." + increment);
             }
-            increment = increment + 1;
+            increment++;
         }
         removeObjVar(self, "current");
         removeObjVar(self, "spawn");
-        return;
     }
     public String npcToSpawn() throws InterruptedException
     {
-        int choice = rand(1, 6);
         String spawn = "commoner";
-        switch (choice)
+        switch (rand(1, 6))
         {
             case 1:
-            spawn = "cll8_binary_load_lifter";
-            break;
+                spawn = "cll8_binary_load_lifter";
+                break;
             case 2:
-            spawn = "eg6_power_droid";
-            break;
+                spawn = "eg6_power_droid";
+                break;
             case 3:
-            spawn = "r2";
-            break;
+                spawn = "r2";
+                break;
             case 4:
-            spawn = "r3";
-            break;
+                spawn = "r3";
+                break;
             case 5:
-            spawn = "r4";
-            break;
+                spawn = "r4";
+                break;
             case 6:
-            spawn = "r5";
-            break;
+                spawn = "r5";
+                break;
         }
         return spawn;
     }
