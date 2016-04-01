@@ -1,18 +1,7 @@
 package script.creature;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.hue;
-import script.library.sui;
-import script.library.utils;
-import script.library.player_structure;
+import script.library.*;
 
 public class serving_droid extends script.base_script
 {
@@ -52,8 +41,7 @@ public class serving_droid extends script.base_script
     public static final String CLOSE = localize(new string_id("sui", "close"));
     public int OnDestroy(obj_id self) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
@@ -62,61 +50,54 @@ public class serving_droid extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id house = getObjIdObjVar(droid, "house");
+        obj_id house = getObjIdObjVar(self, "house");
         if (isValidId(house) && exists(house))
         {
             removeObjVar(house, "serving_droid.droid");
-            if (hasScript(house, "structure.serving_droid_control"))
-            {
-                detachScript(house, "structure.serving_droid_control");
-            }
+            detachScript(house, "structure.serving_droid_control");
         }
         removeObjVar(terminal, TERMINAL_DROID_ID);
         return SCRIPT_CONTINUE;
     }
     public int OnMovePathComplete(obj_id self) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        utils.removeScriptVar(droid, DROID_MOVING);
+        utils.removeScriptVar(self, DROID_MOVING);
         return SCRIPT_CONTINUE;
     }
     public int OnMoveMoving(obj_id self) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        utils.setScriptVar(droid, DROID_MOVING, true);
+        utils.setScriptVar(self, DROID_MOVING, true);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        messageTo(droid, "initializeDroidVariables", null, 1, false);
+        messageTo(self, "initializeDroidVariables", null, 1, false);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isIdValid(droid))
+        if (!isIdValid(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal) || !exists(terminal))
         {
-            destroyObject(droid);
+            destroyObject(self);
         }
-        if (utils.isNestedWithinAPlayer(droid))
+        if (utils.isNestedWithinAPlayer(self))
         {
             messageTo(terminal, "destroyDroid", null, 1, false);
             return SCRIPT_CONTINUE;
@@ -136,17 +117,16 @@ public class serving_droid extends script.base_script
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
         }
-        if (utils.isNestedWithinAPlayer(droid))
+        if (utils.isNestedWithinAPlayer(self))
         {
             messageTo(terminal, "destroyDroid", null, 1, false);
             return SCRIPT_CONTINUE;
@@ -156,129 +136,120 @@ public class serving_droid extends script.base_script
             sendSystemMessage(player, ASTROMECH_NOT_OWNER);
             return SCRIPT_CONTINUE;
         }
-        sendDirtyObjectMenuNotification(droid);
+        sendDirtyObjectMenuNotification(self);
         if (item == menu_info_types.SERVER_MENU1)
         {
-            createHelpDialog(droid, player);
+            createHelpDialog(self, player);
         }
-        if (item == menu_info_types.SERVER_MENU3)
+        else if (item == menu_info_types.SERVER_MENU3)
         {
-            sui.colorize(droid, player, droid, hue.INDEX_1, "handlePrimaryColorize");
+            sui.colorize(self, player, self, hue.INDEX_1, "handlePrimaryColorize");
         }
-        if (item == menu_info_types.SERVER_MENU4)
+        else if (item == menu_info_types.SERVER_MENU4)
         {
-            sui.colorize(droid, player, droid, hue.INDEX_2, "handleSecondaryColorize");
+            sui.colorize(self, player, self, hue.INDEX_2, "handleSecondaryColorize");
         }
-        if (item == menu_info_types.SERVER_MENU5)
+        else if (item == menu_info_types.SERVER_MENU6)
         {
+            doSetPatrolPoint(self, player);
         }
-        if (item == menu_info_types.SERVER_MENU6)
+        else if (item == menu_info_types.SERVER_MENU7)
         {
-            doSetPatrolPoint(droid, player);
+            doClearPatrolPoints(self, player);
         }
-        if (item == menu_info_types.SERVER_MENU7)
+        else if (item == menu_info_types.SERVER_MENU8)
         {
-            doClearPatrolPoints(droid, player);
+            setPatrolOnce(self, player, terminal);
         }
-        if (item == menu_info_types.SERVER_MENU8)
+        else if (item == menu_info_types.SERVER_MENU9)
         {
-            setPatrolOnce(droid, player, terminal);
+            setPatrolLoop(self, player, terminal);
         }
-        if (item == menu_info_types.SERVER_MENU9)
+        else if (item == menu_info_types.SERVER_MENU10)
         {
-            setPatrolLoop(droid, player, terminal);
+            removeLastPatrolPoint(self, player);
         }
-        if (item == menu_info_types.SERVER_MENU10)
+        else if (item == menu_info_types.ITEM_ACTIVATE)
         {
-            removeLastPatrolPoint(droid, player);
-        }
-        if (item == menu_info_types.ITEM_ACTIVATE)
-        {
-            if (utils.hasScriptVar(droid, DROID_MOVING) && !utils.hasScriptVar(droid, DROID_SETTING_PATROL))
+            if (utils.hasScriptVar(self, DROID_MOVING) && !utils.hasScriptVar(self, DROID_SETTING_PATROL))
             {
-                stop(droid);
-                utils.removeScriptVar(droid, DROID_MOVING);
+                stop(self);
+                utils.removeScriptVar(self, DROID_MOVING);
             }
             else 
             {
-                doPatrol(droid, player);
+                doPatrol(self, player);
             }
         }
         return SCRIPT_CONTINUE;
     }
     public int handlePrimaryColorize(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
         }
         int idx = sui.getColorPickerIndex(params);
         int bp = sui.getIntButtonPressed(params);
-        obj_id player = sui.getPlayerId(params);
         if (bp == sui.BP_CANCEL)
         {
             return SCRIPT_CONTINUE;
         }
         if (idx > -1)
         {
-            colorPrimary(droid, terminal, idx);
+            colorPrimary(self, terminal, idx);
         }
         return SCRIPT_CONTINUE;
     }
     public int handleSecondaryColorize(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
         }
         int idx = sui.getColorPickerIndex(params);
         int bp = sui.getIntButtonPressed(params);
-        obj_id player = sui.getPlayerId(params);
         if (bp == sui.BP_CANCEL)
         {
             return SCRIPT_CONTINUE;
         }
         if (idx > -1)
         {
-            colorSecondary(droid, terminal, idx);
+            colorSecondary(self, terminal, idx);
         }
         return SCRIPT_CONTINUE;
     }
     public int getUserOidSetFirstPoint(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id player = getObjIdObjVar(droid, "user");
+        obj_id player = getObjIdObjVar(self, "user");
         if (!isValidId(player))
         {
             return SCRIPT_CONTINUE;
         }
-        doSetPatrolPoint(droid, player);
+        doSetPatrolPoint(self, player);
         return SCRIPT_CONTINUE;
     }
     public int pathDirectlyToStart(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
@@ -286,19 +257,18 @@ public class serving_droid extends script.base_script
         location[] patrolLoc = getLocationArrayObjVar(terminal, OBJVAR_DROID_PATROL_POINTS);
         if (patrolLoc != null)
         {
-            stop(droid);
-            pathTo(droid, patrolLoc[0]);
+            stop(self);
+            pathTo(self, patrolLoc[0]);
         }
         return SCRIPT_CONTINUE;
     }
     public int fromLastPointGoBackToStart(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
@@ -312,44 +282,39 @@ public class serving_droid extends script.base_script
             {
                 temp[i] = patrolLoc[(patrolLength - 1) - i];
             }
-            patrolOnce(droid, temp);
+            patrolOnce(self, temp);
         }
         return SCRIPT_CONTINUE;
     }
     public int handleActivateDroid(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id player = getObjIdObjVar(droid, "user");
-        doPatrol(droid);
+        doPatrol(self);
         return SCRIPT_CONTINUE;
     }
     public int handleDeactivateDroid(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id player = getObjIdObjVar(droid, "user");
-        stop(droid);
-        if (utils.hasScriptVar(droid, DROID_MOVING))
+        stop(self);
+        if (utils.hasScriptVar(self, DROID_MOVING))
         {
-            utils.removeScriptVar(droid, DROID_MOVING);
+            utils.removeScriptVar(self, DROID_MOVING);
         }
         return SCRIPT_CONTINUE;
     }
     public int reColorDroid(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
@@ -365,32 +330,31 @@ public class serving_droid extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        hue.setColor(droid, "/private/index_color_1", primary);
-        hue.setColor(droid, "/private/index_color_2", secondary);
+        hue.setColor(self, "/private/index_color_1", primary);
+        hue.setColor(self, "/private/index_color_2", secondary);
         return SCRIPT_CONTINUE;
     }
     public int initializeDroidVariables(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
         obj_id house = getTopMostContainer(self);
-        if (!isIdValid(droid))
+        if (!isIdValid(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(house) || !player_structure.isBuilding(house) || utils.isNestedWithinAPlayer(droid))
+        if (!isIdValid(house) || !player_structure.isBuilding(house) || utils.isNestedWithinAPlayer(self))
         {
             messageTo(terminal, "destroyDroid", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        setObjVar(droid, "house", house);
+        setObjVar(self, "house", house);
         if (!hasObjVar(terminal, OBJVAR_DROID_PATROL_POINTS))
         {
-            messageTo(droid, "getUserOidSetFirstPoint", null, 1, false);
+            messageTo(self, "getUserOidSetFirstPoint", null, 1, false);
         }
         if (!hasScript(house, "structure.serving_droid_control"))
         {
@@ -398,11 +362,11 @@ public class serving_droid extends script.base_script
         }
         if (!hasObjVar(house, "serving_droid.droid"))
         {
-            setObjVar(house, "serving_droid.droid", droid);
+            setObjVar(house, "serving_droid.droid", self);
         }
         if (hasObjVar(terminal, "color.primary"))
         {
-            messageTo(droid, "reColorDroid", null, 0, false);
+            messageTo(self, "reColorDroid", null, 0, false);
         }
         listenToMessage(house, "handleActivateDroid");
         listenToMessage(house, "handleDeactivateDroid");
@@ -410,36 +374,31 @@ public class serving_droid extends script.base_script
     }
     public int handleDialogInput(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
-            if (utils.hasScriptVar(droid, SCRIPTVAR_DROID_HELP_MENU))
+            if (utils.hasScriptVar(self, SCRIPTVAR_DROID_HELP_MENU))
             {
-                utils.removeScriptVar(droid, SCRIPTVAR_DROID_HELP_MENU);
+                utils.removeScriptVar(self, SCRIPTVAR_DROID_HELP_MENU);
             }
             return SCRIPT_CONTINUE;
         }
         obj_id player = sui.getPlayerId(params);
         if (!isValidId(player))
         {
-            if (utils.hasScriptVar(droid, SCRIPTVAR_DROID_HELP_MENU))
+            if (utils.hasScriptVar(self, SCRIPTVAR_DROID_HELP_MENU))
             {
-                utils.removeScriptVar(droid, SCRIPTVAR_DROID_HELP_MENU);
+                utils.removeScriptVar(self, SCRIPTVAR_DROID_HELP_MENU);
             }
             return SCRIPT_CONTINUE;
         }
-        int bp = sui.getIntButtonPressed(params);
-        switch (bp)
+        switch (sui.getIntButtonPressed(params))
         {
             case sui.BP_OK:
-            doPatrol(droid, player);
-            return SCRIPT_CONTINUE;
+                doPatrol(self, player);
+                break;
             case sui.BP_CANCEL:
-            if (utils.hasScriptVar(droid, SCRIPTVAR_DROID_HELP_MENU))
-            {
-                utils.removeScriptVar(droid, SCRIPTVAR_DROID_HELP_MENU);
-            }
-            return SCRIPT_CONTINUE;
+                utils.removeScriptVar(self, SCRIPTVAR_DROID_HELP_MENU);
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -548,15 +507,6 @@ public class serving_droid extends script.base_script
         {
             patrolLoc = new location[1];
         }
-        else if (patrolLoc.length < MAX_WAYPOINTS)
-        {
-            location[] temp = new location[patrolLoc.length + 1];
-            for (int i = 0; i < patrolLoc.length; ++i)
-            {
-                temp[i] = patrolLoc[i];
-            }
-            patrolLoc = temp;
-        }
         else 
         {
             sendSystemMessage(player, ASTROMECH_MAX_WAYPOINTS);
@@ -618,12 +568,6 @@ public class serving_droid extends script.base_script
             }
             else if (patrolLoc.length > 0)
             {
-                location[] temp = new location[patrolLoc.length - 1];
-                for (int i = 0; i < patrolLoc.length - 1; ++i)
-                {
-                    temp[i] = patrolLoc[i];
-                }
-                patrolLoc = temp;
                 setObjVar(terminal, OBJVAR_DROID_PATROL_POINTS, patrolLoc);
                 sendSystemMessage(player, SYS_PATROL_ADDED);
                 sendConsoleMessage(player, "Patrol points left: " + (MAX_WAYPOINTS - patrolLoc.length));
@@ -632,7 +576,6 @@ public class serving_droid extends script.base_script
             if (isValidId(playerLoc.cell))
             {
                 pathTo(droid, playerLoc);
-                return;
             }
         }
     }
@@ -708,12 +651,11 @@ public class serving_droid extends script.base_script
     }
     public int OnPack(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id droid = self;
-        if (!isValidId(droid))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(droid, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;

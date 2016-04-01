@@ -1,14 +1,9 @@
 package script.creature;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.bio_engineer;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
 
 public class dna_harvest extends script.base_script
 {
@@ -19,7 +14,7 @@ public class dna_harvest extends script.base_script
     {
         if (getSkillStatMod(player, "dna_harvesting") > 0)
         {
-            int subHarvestDNA = mi.addRootMenu(menu_info_types.SERVER_HARVEST_CORPSE, bio_engineer.SID_HARVEST_DNA);
+            mi.addRootMenu(menu_info_types.SERVER_HARVEST_CORPSE, bio_engineer.SID_HARVEST_DNA);
         }
         return SCRIPT_CONTINUE;
     }

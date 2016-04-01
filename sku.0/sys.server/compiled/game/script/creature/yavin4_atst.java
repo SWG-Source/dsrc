@@ -1,14 +1,9 @@
 package script.creature;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
+import script.location;
+import script.obj_id;
 
 public class yavin4_atst extends script.base_script
 {
@@ -17,14 +12,12 @@ public class yavin4_atst extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        int timeOut = rand(5, 15);
-        messageTo(self, "startPatrol", null, timeOut, false);
+        messageTo(self, "startPatrol", null, rand(5, 15), false);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        int timeOut = rand(5, 10);
-        messageTo(self, "startPatrol", null, timeOut, false);
+        messageTo(self, "startPatrol", null, rand(5, 10), false);
         return SCRIPT_CONTINUE;
     }
     public int startPatrol(obj_id self, dictionary params) throws InterruptedException
@@ -39,12 +32,10 @@ public class yavin4_atst extends script.base_script
         if (name.equals("marker"))
         {
             messageTo(self, "nextSpot", null, 10, false);
-            return SCRIPT_CONTINUE;
         }
-        if (name.equals("marker2"))
+        else if (name.equals("marker2"))
         {
             messageTo(self, "startPatrol", null, 10, false);
-            return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
     }

@@ -1,17 +1,10 @@
 package script.creature;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
+import script.library.player_structure;
 import script.library.sui;
 import script.library.utils;
-import script.library.player_structure;
 
 public class mini_vehicle extends script.base_script
 {
@@ -45,8 +38,7 @@ public class mini_vehicle extends script.base_script
     public static final string_id MINI_VEHICLE_WAYPOINTS_NOT_CLEAR = new string_id(MENU_FILE, "mini_vehicle_waypoints_not_cleared");
     public int OnDestroy(obj_id self) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
@@ -55,61 +47,54 @@ public class mini_vehicle extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id house = getObjIdObjVar(vehicle, "house");
+        obj_id house = getObjIdObjVar(self, "house");
         if (isValidId(house) && exists(house))
         {
             removeObjVar(house, "mini_vehicle.vehicle");
-            if (hasScript(house, "structure.mini_vehicle_control"))
-            {
-                detachScript(house, "structure.mini_vehicle_control");
-            }
+            detachScript(house, "structure.mini_vehicle_control");
         }
         removeObjVar(terminal, TERMINAL_VEHICLE_ID);
         return SCRIPT_CONTINUE;
     }
     public int OnMovePathComplete(obj_id self) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        utils.removeScriptVar(vehicle, VEHICLE_MOVING);
+        utils.removeScriptVar(self, VEHICLE_MOVING);
         return SCRIPT_CONTINUE;
     }
     public int OnMoveMoving(obj_id self) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        utils.setScriptVar(vehicle, VEHICLE_MOVING, true);
+        utils.setScriptVar(self, VEHICLE_MOVING, true);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        messageTo(vehicle, "initializeVehicleVariables", null, 1, false);
+        messageTo(self, "initializeVehicleVariables", null, 1, false);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isIdValid(vehicle))
+        if (!isIdValid(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(vehicle, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal) || !exists(terminal))
         {
-            destroyObject(vehicle);
+            destroyObject(self);
         }
-        if (utils.isNestedWithinAPlayer(vehicle))
+        if (utils.isNestedWithinAPlayer(self))
         {
             messageTo(terminal, "destroyVehicle", null, 1, false);
             return SCRIPT_CONTINUE;
@@ -126,17 +111,16 @@ public class mini_vehicle extends script.base_script
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(vehicle, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
         }
-        if (utils.isNestedWithinAPlayer(vehicle))
+        if (utils.isNestedWithinAPlayer(self))
         {
             messageTo(terminal, "destroyVehicle", null, 1, false);
             return SCRIPT_CONTINUE;
@@ -146,71 +130,66 @@ public class mini_vehicle extends script.base_script
             sendSystemMessage(player, MINI_VEHICLE_NOT_OWNER);
             return SCRIPT_CONTINUE;
         }
-        sendDirtyObjectMenuNotification(vehicle);
+        sendDirtyObjectMenuNotification(self);
         if (item == menu_info_types.SERVER_MENU1)
         {
-            createHelpDialog(vehicle, player);
+            createHelpDialog(self, player);
         }
-        if (item == menu_info_types.SERVER_MENU2)
+        else if (item == menu_info_types.SERVER_MENU3)
         {
+            doSetPatrolPoint(self, player);
         }
-        if (item == menu_info_types.SERVER_MENU3)
+        else if (item == menu_info_types.SERVER_MENU4)
         {
-            doSetPatrolPoint(vehicle, player);
+            doClearPatrolPoints(self, player);
         }
-        if (item == menu_info_types.SERVER_MENU4)
+        else if (item == menu_info_types.SERVER_MENU5)
         {
-            doClearPatrolPoints(vehicle, player);
+            removeLastPatrolPoint(self, player);
         }
-        if (item == menu_info_types.SERVER_MENU5)
+        else if (item == menu_info_types.SERVER_MENU6)
         {
-            removeLastPatrolPoint(vehicle, player);
+            setPatrolOnce(self, player, terminal);
         }
-        if (item == menu_info_types.SERVER_MENU6)
+        else if (item == menu_info_types.SERVER_MENU7)
         {
-            setPatrolOnce(vehicle, player, terminal);
+            setPatrolLoop(self, player, terminal);
         }
-        if (item == menu_info_types.SERVER_MENU7)
+        else if (item == menu_info_types.ITEM_ACTIVATE)
         {
-            setPatrolLoop(vehicle, player, terminal);
-        }
-        if (item == menu_info_types.ITEM_ACTIVATE)
-        {
-            if (utils.hasScriptVar(vehicle, VEHICLE_MOVING) && !utils.hasScriptVar(vehicle, VEHICLE_SETTING_PATROL))
+            if (utils.hasScriptVar(self, VEHICLE_MOVING) && !utils.hasScriptVar(self, VEHICLE_SETTING_PATROL))
             {
-                stop(vehicle);
-                utils.removeScriptVar(vehicle, VEHICLE_MOVING);
+                stop(self);
+                utils.removeScriptVar(self, VEHICLE_MOVING);
             }
             else 
             {
-                doPatrol(vehicle, player);
+                doPatrol(self, player);
             }
         }
         return SCRIPT_CONTINUE;
     }
     public int getUserOidSetFirstPoint(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id player = getObjIdObjVar(vehicle, "user");
+        obj_id player = getObjIdObjVar(self, "user");
         if (!isValidId(player))
         {
             return SCRIPT_CONTINUE;
         }
-        doSetPatrolPoint(vehicle, player);
+        doSetPatrolPoint(self, player);
         return SCRIPT_CONTINUE;
     }
     public int pathDirectlyToStart(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(vehicle, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
@@ -218,19 +197,18 @@ public class mini_vehicle extends script.base_script
         location[] patrolLoc = getLocationArrayObjVar(terminal, OBJVAR_VEHICLE_PATROL_POINTS);
         if (patrolLoc != null)
         {
-            stop(vehicle);
-            pathTo(vehicle, patrolLoc[0]);
+            stop(self);
+            pathTo(self, patrolLoc[0]);
         }
         return SCRIPT_CONTINUE;
     }
     public int fromLastPointGoBackToStart(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(vehicle, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
@@ -244,58 +222,53 @@ public class mini_vehicle extends script.base_script
             {
                 temp[i] = patrolLoc[(patrolLength - 1) - i];
             }
-            patrolOnce(vehicle, temp);
+            patrolOnce(self, temp);
         }
         return SCRIPT_CONTINUE;
     }
     public int handleActivateVehicle(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id player = getObjIdObjVar(vehicle, "user");
-        doPatrol(vehicle);
+        doPatrol(self);
         return SCRIPT_CONTINUE;
     }
     public int handleDeactivateVehicle(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id player = getObjIdObjVar(vehicle, "user");
-        stop(vehicle);
-        if (utils.hasScriptVar(vehicle, VEHICLE_MOVING))
+        stop(self);
+        if (utils.hasScriptVar(self, VEHICLE_MOVING))
         {
-            utils.removeScriptVar(vehicle, VEHICLE_MOVING);
+            utils.removeScriptVar(self, VEHICLE_MOVING);
         }
         return SCRIPT_CONTINUE;
     }
     public int initializeVehicleVariables(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id vehicle = self;
         obj_id house = getTopMostContainer(self);
-        if (!isIdValid(vehicle))
+        if (!isIdValid(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(vehicle, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(house) || !player_structure.isBuilding(house) || utils.isNestedWithinAPlayer(vehicle))
+        if (!isIdValid(house) || !player_structure.isBuilding(house) || utils.isNestedWithinAPlayer(self))
         {
             messageTo(terminal, "destroyVehicle", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        setObjVar(vehicle, "house", house);
+        setObjVar(self, "house", house);
         if (!hasObjVar(terminal, OBJVAR_VEHICLE_PATROL_POINTS))
         {
-            messageTo(vehicle, "getUserOidSetFirstPoint", null, 1, false);
+            messageTo(self, "getUserOidSetFirstPoint", null, 1, false);
         }
         if (!hasScript(house, "structure.mini_vehicle_control"))
         {
@@ -303,7 +276,7 @@ public class mini_vehicle extends script.base_script
         }
         if (!hasObjVar(house, "mini_vehicle.vehicle"))
         {
-            setObjVar(house, "mini_vehicle.vehicle", vehicle);
+            setObjVar(house, "mini_vehicle.vehicle", self);
         }
         listenToMessage(house, "handleActivateVehicle");
         listenToMessage(house, "handleDeactivateVehicle");
@@ -311,36 +284,25 @@ public class mini_vehicle extends script.base_script
     }
     public int handleDialogInput(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
-            if (utils.hasScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU))
-            {
-                utils.removeScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU);
-            }
+            utils.removeScriptVar(self, SCRIPTVAR_VEHICLE_HELP_MENU);
             return SCRIPT_CONTINUE;
         }
         obj_id player = sui.getPlayerId(params);
         if (!isValidId(player))
         {
-            if (utils.hasScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU))
-            {
-                utils.removeScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU);
-            }
+            utils.removeScriptVar(self, SCRIPTVAR_VEHICLE_HELP_MENU);
             return SCRIPT_CONTINUE;
         }
-        int bp = sui.getIntButtonPressed(params);
-        switch (bp)
+        switch (sui.getIntButtonPressed(params))
         {
             case sui.BP_OK:
-            doPatrol(vehicle, player);
-            return SCRIPT_CONTINUE;
+                doPatrol(self, player);
+                break;
             case sui.BP_CANCEL:
-            if (utils.hasScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU))
-            {
-                utils.removeScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU);
-            }
-            return SCRIPT_CONTINUE;
+                utils.removeScriptVar(self, SCRIPTVAR_VEHICLE_HELP_MENU);
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -378,14 +340,8 @@ public class mini_vehicle extends script.base_script
         {
             return false;
         }
-        if (utils.hasScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU))
-        {
-            utils.removeScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU);
-        }
-        if (utils.hasScriptVar(vehicle, VEHICLE_SETTING_PATROL))
-        {
-            utils.removeScriptVar(vehicle, VEHICLE_SETTING_PATROL);
-        }
+        utils.removeScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU);
+        utils.removeScriptVar(vehicle, VEHICLE_SETTING_PATROL);
         obj_id terminal = getObjIdObjVar(vehicle, "terminal");
         if (!isValidId(terminal))
         {
@@ -419,19 +375,13 @@ public class mini_vehicle extends script.base_script
         {
             return;
         }
-        if (utils.hasScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU))
-        {
-            utils.removeScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU);
-        }
+        utils.removeScriptVar(vehicle, SCRIPTVAR_VEHICLE_HELP_MENU);
         obj_id terminal = getObjIdObjVar(vehicle, "terminal");
         if (!isValidId(terminal))
         {
             return;
         }
-        if (!utils.hasScriptVar(vehicle, VEHICLE_SETTING_PATROL))
-        {
-            utils.setScriptVar(vehicle, VEHICLE_SETTING_PATROL, true);
-        }
+        utils.setScriptVar(vehicle, VEHICLE_SETTING_PATROL, true);
         location[] patrolLoc = getLocationArrayObjVar(terminal, OBJVAR_VEHICLE_PATROL_POINTS);
         if (patrolLoc == null)
         {
@@ -440,10 +390,7 @@ public class mini_vehicle extends script.base_script
         else if (patrolLoc.length < MAX_WAYPOINTS)
         {
             location[] temp = new location[patrolLoc.length + 1];
-            for (int i = 0; i < patrolLoc.length; ++i)
-            {
-                temp[i] = patrolLoc[i];
-            }
+            System.arraycopy(patrolLoc, 0, temp, 0, patrolLoc.length);
             patrolLoc = temp;
         }
         else 
@@ -508,10 +455,7 @@ public class mini_vehicle extends script.base_script
             else if (patrolLoc.length > 0)
             {
                 location[] temp = new location[patrolLoc.length - 1];
-                for (int i = 0; i < patrolLoc.length - 1; ++i)
-                {
-                    temp[i] = patrolLoc[i];
-                }
+                System.arraycopy(patrolLoc, 0, temp, 0, patrolLoc.length - 1);
                 patrolLoc = temp;
                 setObjVar(terminal, OBJVAR_VEHICLE_PATROL_POINTS, patrolLoc);
                 sendSystemMessage(player, SYS_PATROL_ADDED);
@@ -521,7 +465,6 @@ public class mini_vehicle extends script.base_script
             if (isValidId(playerLoc.cell))
             {
                 pathTo(vehicle, playerLoc);
-                return;
             }
         }
     }
@@ -594,12 +537,11 @@ public class mini_vehicle extends script.base_script
     }
     public int OnPack(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id vehicle = self;
-        if (!isValidId(vehicle))
+        if (!isValidId(self))
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id terminal = getObjIdObjVar(vehicle, "terminal");
+        obj_id terminal = getObjIdObjVar(self, "terminal");
         if (!isValidId(terminal))
         {
             return SCRIPT_CONTINUE;
