@@ -1,16 +1,7 @@
 package script.creature;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.utils;
-import script.library.dot;
-import script.library.buff;
 
 public class sarlacc extends script.base_script
 {
@@ -52,28 +43,18 @@ public class sarlacc extends script.base_script
                 obj_id[] contents = getTriggerVolumeContents(self, "sarlaccBreach");
                 if (contents != null)
                 {
-                    for (int i = 0; i < contents.length; i++)
-                    {
-                        if (isPlayer(contents[i]))
-                        {
-                            sendSystemMessage(contents[i], SID_SARLACC_ERUPT);
+                    for (obj_id content : contents) {
+                        if (isPlayer(content)) {
+                            sendSystemMessage(content, SID_SARLACC_ERUPT);
                         }
                     }
                 }
             }
             utils.setScriptVar(self, "bile.eject", 1);
             messageTo(self, "resetBileEject", null, 10.f, false);
-            int diseaseResist = getEnhancedSkillStatisticModifierUncapped(whoTriggeredMe, "resistance_disease");
-            if (diseaseResist < 24)
+            if (getEnhancedSkillStatisticModifierUncapped(whoTriggeredMe, "resistance_disease") < 24)
             {
-                if (buff.applyBuff(whoTriggeredMe, "sarlaccSnare", 300))
-                {
-                    
-                }
-                
-                {
-                    sendSystemMessage(whoTriggeredMe, SID_SARLACC_DOT);
-                }
+                sendSystemMessage(whoTriggeredMe, SID_SARLACC_DOT);
             }
         }
         else if (volumeName.equals("sarlaccPreBreach"))
@@ -100,29 +81,17 @@ public class sarlacc extends script.base_script
             obj_id[] contents = getTriggerVolumeContents(self, "sarlaccBreach");
             if (contents != null)
             {
-                for (int i = 0; i < contents.length; i++)
-                {
-                    if (isPlayer(contents[i]))
-                    {
+                for (obj_id content : contents) {
+                    if (isPlayer(content)) {
                         playerHint = 1;
-                        if (bile == 0)
-                        {
+                        if (bile == 0) {
                             bile = 1;
-                            playClientEffectLoc(contents[i], "clienteffect/cr_sarlacc_erupt.cef", getLocation(self), 3f);
+                            playClientEffectLoc(content, "clienteffect/cr_sarlacc_erupt.cef", getLocation(self), 3f);
                         }
-                        int diseaseResist = getEnhancedSkillStatisticModifierUncapped(contents[i], "resistance_disease");
-                        if (diseaseResist < 24)
-                        {
-                            if (buff.applyBuff(contents[i], "sarlaccSnare", 300))
-                            {
-                                
-                            }
-                            
-                            {
-                                sendSystemMessage(contents[i], SID_SARLACC_DOT);
-                            }
+                        if (getEnhancedSkillStatisticModifierUncapped(content, "resistance_disease") < 24) {
+                            sendSystemMessage(content, SID_SARLACC_DOT);
                         }
-                        sendSystemMessage(contents[i], SID_SARLACC_ERUPT);
+                        sendSystemMessage(content, SID_SARLACC_ERUPT);
                     }
                 }
             }
@@ -149,10 +118,8 @@ public class sarlacc extends script.base_script
             obj_id[] items = getInventoryAndEquipment(player);
             if (items != null)
             {
-                for (int i = 0; i < items.length; i++)
-                {
-                    if ((getTemplateName(items[i])).compareTo(BILE_OBJECT) == 0)
-                    {
+                for (obj_id item1 : items) {
+                    if ((getTemplateName(item1)).compareTo(BILE_OBJECT) == 0) {
                         sendSystemMessage(player, SID_BILE_ALREADY);
                         return SCRIPT_CONTINUE;
                     }

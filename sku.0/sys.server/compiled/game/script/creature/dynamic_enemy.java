@@ -1,18 +1,11 @@
 package script.creature;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.chat;
-import script.library.create;
 import script.library.groundquests;
-import script.library.prose;
-import script.ai.ai_combat;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class dynamic_enemy extends script.base_script
 {
@@ -72,15 +65,13 @@ public class dynamic_enemy extends script.base_script
         }
         faceTo(self, player);
         messageTo(self, "barkDefeat", null, 1, false);
-        location body = getLocation(player);
-        pathTo(self, body);
+        pathTo(self, getLocation(player));
         messageTo(self, "runAwayThenCleanUp", null, 4, false);
         return SCRIPT_CONTINUE;
     }
     public int runAwayThenCleanUp(obj_id self, dictionary params) throws InterruptedException
     {
-        location l = groundquests.getRandom2DLocationAroundPlayer(self, 20, 50);
-        pathTo(self, l);
+        pathTo(self, groundquests.getRandom2DLocationAroundPlayer(self, 20, 50));
         messageTo(self, "clientEffect", null, 6, true);
         return SCRIPT_CONTINUE;
     }
@@ -96,44 +87,38 @@ public class dynamic_enemy extends script.base_script
     }
     public int barkAttack(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id mob = self;
         if (params == null)
         {
             return SCRIPT_CONTINUE;
         }
-        else if (!hasObjVar(mob, "phrase_string_file"))
+        else if (!hasObjVar(self, "phrase_string_file"))
         {
             return SCRIPT_OVERRIDE;
         }
-        String stringFile = getStringObjVar(mob, "phrase_string_file");
-        String attackString = getStringObjVar(mob, "attack_phrase");
+        String attackString = getStringObjVar(self, "attack_phrase");
         if ((attackString == null) || (attackString.equals("")))
         {
             return SCRIPT_OVERRIDE;
         }
-        string_id attack_phrase = new string_id(stringFile, attackString);
-        chat.chat(mob, chat.CHAT_SHOUT, chat.MOOD_ANGRY, attack_phrase);
+        chat.chat(self, chat.CHAT_SHOUT, chat.MOOD_ANGRY, new string_id(getStringObjVar(self, "phrase_string_file"), attackString));
         return SCRIPT_CONTINUE;
     }
     public int barkDefeat(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id mob = self;
         if (params == null)
         {
             return SCRIPT_CONTINUE;
         }
-        else if (!hasObjVar(mob, "phrase_string_file"))
+        else if (!hasObjVar(self, "phrase_string_file"))
         {
             return SCRIPT_OVERRIDE;
         }
-        String stringFile = getStringObjVar(mob, "phrase_string_file");
-        String defeatString = getStringObjVar(mob, "defeat_phrase");
+        String defeatString = getStringObjVar(self, "defeat_phrase");
         if ((defeatString == null) || (defeatString.equals("")))
         {
             return SCRIPT_OVERRIDE;
         }
-        string_id defeat_phrase = new string_id(stringFile, defeatString);
-        chat.chat(mob, chat.CHAT_SHOUT, chat.MOOD_ANGRY, defeat_phrase);
+        chat.chat(self, chat.CHAT_SHOUT, chat.MOOD_ANGRY, new string_id(getStringObjVar(self, "phrase_string_file"), defeatString));
         return SCRIPT_CONTINUE;
     }
 }

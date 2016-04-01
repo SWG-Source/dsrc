@@ -1,22 +1,10 @@
 package script.creature;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
 import script.library.anims;
 import script.library.chat;
-import script.library.create;
-import script.library.group;
 import script.library.groundquests;
 import script.library.prose;
-import script.library.utils;
-import script.ai.ai_combat;
 
 public class foraging_enemy extends script.base_script
 {
@@ -67,15 +55,13 @@ public class foraging_enemy extends script.base_script
         }
         faceTo(self, player);
         messageTo(self, "barkDefeat", null, 1, false);
-        location body = getLocation(player);
-        pathTo(self, body);
+        pathTo(self, getLocation(player));
         messageTo(self, "runAwayThenCleanUpGuard", null, 4, false);
         return SCRIPT_CONTINUE;
     }
     public int runAwayThenCleanUpGuard(obj_id self, dictionary params) throws InterruptedException
     {
-        location l = groundquests.getRandom2DLocationAroundPlayer(self, 20, 50);
-        pathTo(self, l);
+        pathTo(self, groundquests.getRandom2DLocationAroundPlayer(self, 20, 50));
         messageTo(self, "cleanUpGuard", null, 12, true);
         return SCRIPT_CONTINUE;
     }
@@ -89,23 +75,12 @@ public class foraging_enemy extends script.base_script
         startCombat(self, player);
         return SCRIPT_CONTINUE;
     }
-    public boolean isThief(obj_id mob) throws InterruptedException
-    {
-        if (!isValidId(mob))
-        {
+    public boolean isThief(obj_id mob) throws InterruptedException {
+        if (!isValidId(mob)) {
             return false;
         }
         String mobName = getStringObjVar(mob, "creature_type");
-        if ((mobName == null) || (mobName.equals("")))
-        {
-            return false;
-        }
-        int index = mobName.indexOf("forage_");
-        if (index == 0)
-        {
-            return true;
-        }
-        return false;
+        return !((mobName == null) || (mobName.equals(""))) && mobName.indexOf("forage_") == 0;
     }
     public boolean removeFirstSlotFound(obj_id player) throws InterruptedException
     {
@@ -118,15 +93,13 @@ public class foraging_enemy extends script.base_script
             return false;
         }
         String[] slotsInCollection = getAllCollectionSlotsInCollection(FORAGING_COLLECTION);
-        for (int i = 0; i < slotsInCollection.length; i++)
-        {
-            long collectionSlotValue = getCollectionSlotValue(player, slotsInCollection[i]);
-            if (collectionSlotValue > 0)
-            {
-                modifyCollectionSlotValue(player, slotsInCollection[i], (collectionSlotValue * -1));
+        for (String aSlotsInCollection : slotsInCollection) {
+            long collectionSlotValue = getCollectionSlotValue(player, aSlotsInCollection);
+            if (collectionSlotValue > 0) {
+                modifyCollectionSlotValue(player, aSlotsInCollection, (collectionSlotValue * -1));
                 prose_package pp = new prose_package();
                 prose.setStringId(pp, SID_STEAL_SLOT);
-                prose.setTT(pp, new string_id("collection_n", slotsInCollection[i]));
+                prose.setTT(pp, new string_id("collection_n", aSlotsInCollection));
                 sendSystemMessageProse(player, pp);
                 break;
             }
@@ -135,23 +108,21 @@ public class foraging_enemy extends script.base_script
     }
     public int barkAttack(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id guard = self;
         if (params == null)
         {
             return SCRIPT_CONTINUE;
         }
-        boolean isThief = isThief(guard);
+        boolean isThief = isThief(self);
         if (!isThief)
         {
             return SCRIPT_CONTINUE;
         }
-        String mob = getStringObjVar(guard, "creature_type");
+        String mob = getStringObjVar(self, "creature_type");
         if ((mob == null) || (mob.equals("")))
         {
             return SCRIPT_OVERRIDE;
         }
-        int row = dataTableSearchColumnForString(mob, "enemy", FORAGING_ENEMY_TABLE);
-        String type = dataTableGetString(FORAGING_ENEMY_TABLE, row, "bark_attack");
+        String type = dataTableGetString(FORAGING_ENEMY_TABLE, dataTableSearchColumnForString(mob, "enemy", FORAGING_ENEMY_TABLE), "bark_attack");
         if ((type == null) || (type.equals("")))
         {
             return SCRIPT_OVERRIDE;
@@ -161,23 +132,20 @@ public class foraging_enemy extends script.base_script
     }
     public int barkDefeat(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id guard = self;
         if (params == null)
         {
             return SCRIPT_CONTINUE;
         }
-        boolean isThief = isThief(guard);
-        if (!isThief)
+        if (!isThief(self))
         {
             return SCRIPT_CONTINUE;
         }
-        String mob = getStringObjVar(guard, "creature_type");
+        String mob = getStringObjVar(self, "creature_type");
         if ((mob == null) || (mob.equals("")))
         {
             return SCRIPT_OVERRIDE;
         }
-        int row = dataTableSearchColumnForString(mob, "enemy", FORAGING_ENEMY_TABLE);
-        String type = dataTableGetString(FORAGING_ENEMY_TABLE, row, "bark_defeat");
+        String type = dataTableGetString(FORAGING_ENEMY_TABLE, dataTableSearchColumnForString(mob, "enemy", FORAGING_ENEMY_TABLE), "bark_defeat");
         if ((type == null) || (type.equals("")))
         {
             return SCRIPT_OVERRIDE;
@@ -188,7 +156,6 @@ public class foraging_enemy extends script.base_script
     }
     public int removeASlot(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id guard = self;
         if (params == null)
         {
             return SCRIPT_CONTINUE;
