@@ -58,7 +58,7 @@ public class droid_setup extends script.base_script
     public char getLetter() throws InterruptedException
     {
         String abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        return abc.charAt(rand(0, abc.length() - 1));
+        return abc.charAt(rand(0, 25));
     }
     public void setDroidHue(obj_id self) throws InterruptedException
     {
