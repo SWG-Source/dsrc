@@ -457,8 +457,100 @@ public class dictionary implements Serializable
 			Thread.dumpStack();
 			return null;
 		}
-		
-		return put(key, value.toArray());
+		Object realValue = null;
+		if (test instanceof Integer)
+		{
+			int[] newValue = new int[value.size()];
+			for ( int i = 0; i < newValue.length; ++i )
+				newValue[i] = ((Integer)value.get(i)).intValue();
+			realValue = newValue;
+		}
+		else if (test instanceof Long)
+		{
+			long[] newValue = new long[value.size()];
+			for ( int i = 0; i < newValue.length; ++i )
+				newValue[i] = ((Long)value.get(i)).longValue();
+			realValue = newValue;
+		}
+		else if (test instanceof Float)
+		{
+			float[] newValue = new float[value.size()];
+			for ( int i = 0; i < newValue.length; ++i )
+				newValue[i] = ((Float)value.get(i)).floatValue();
+			realValue = newValue;
+		}
+		else if (test instanceof Double)
+		{
+			double[] newValue = new double[value.size()];
+			for ( int i = 0; i < newValue.length; ++i )
+				newValue[i] = ((Double)value.get(i)).doubleValue();
+			realValue = newValue;
+		}
+		else if (test instanceof Boolean)
+		{
+			boolean[] newValue = new boolean[value.size()];
+			for ( int i = 0; i < newValue.length; ++i )
+				newValue[i] = ((Boolean)value.get(i)).booleanValue();
+			realValue = newValue;
+		}
+		else if (test instanceof Character)
+		{
+			char[] newValue = new char[value.size()];
+			for ( int i = 0; i < newValue.length; ++i )
+				newValue[i] = ((Character)value.get(i)).charValue();
+			realValue = newValue;
+		}
+		else if (test instanceof Byte)
+		{
+			byte[] newValue = new byte[value.size()];
+			for ( int i = 0; i < newValue.length; ++i )
+				newValue[i] = ((Byte)value.get(i)).byteValue();
+			realValue = newValue;
+		}
+		else if (test instanceof String)
+		{
+			String[] newValue = new String[value.size()];
+			newValue = (String[])value.toArray(newValue);
+			realValue = newValue;
+		}
+		else if (test instanceof location)
+		{
+			location[] newValue = new location[value.size()];
+			newValue = (location[])value.toArray(newValue);
+			realValue = newValue;
+		}
+		else if (test instanceof string_id)
+		{
+			string_id[] newValue = new string_id[value.size()];
+			newValue = (string_id[])value.toArray(newValue);
+			realValue = newValue;
+		}
+		else if (test instanceof obj_id)
+		{
+			obj_id[] newValue = new obj_id[value.size()];
+			newValue = (obj_id[])value.toArray(newValue);
+			realValue = newValue;
+		}
+		else if (test instanceof transform)
+		{
+			transform[] newValue = new transform[value.size()];
+			newValue = (transform[])value.toArray(newValue);
+			realValue = newValue;
+		}
+		else if (test instanceof vector)
+		{
+			vector[] newValue = new vector[value.size()];
+			newValue = (vector[])value.toArray(newValue);
+			realValue = newValue;
+		}
+		else
+		{
+			System.err.println("ERROR calling dictionary.put(Object, Vector): resizeable array value " +
+				"has unhandled vector data type " + test.getClass());
+			Thread.dumpStack();
+			return null;
+		}
+		return put(key, realValue);
 	}	// put(Object, Vector)
 
 	/**
