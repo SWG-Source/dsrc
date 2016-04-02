@@ -141,7 +141,7 @@ public class script_class_loader extends ClassLoader
 			String pathedName = name.replace('.', java.io.File.separatorChar);
 			String fullname = script_entry.getScriptPath() + pathedName + ".class";
 			File file = new File(fullname);
-			if (file.isFile()) {
+			if (file != null && file.isFile()) {
 				result = true;
 			}
 
