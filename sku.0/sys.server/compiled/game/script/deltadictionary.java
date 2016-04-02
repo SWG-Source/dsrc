@@ -69,6 +69,13 @@ public final class deltadictionary
 				return null;
 			}
 
+			if (v.get(0) == null)
+			{
+				System.err.println("WARNING: deltadictionary.put passed vector with null data");
+				Thread.dumpStack();
+				return null;
+			}
+
 			value = v.toArray();
 		}
 		return currentValue.put(key, value);
