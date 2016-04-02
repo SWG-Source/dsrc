@@ -68,8 +68,104 @@ public final class deltadictionary
 				Thread.dumpStack();
 				return null;
 			}
-
-			value = v.toArray();
+			Object test = v.get(0);
+			if (test == null)
+			{
+				System.err.println("WARNING: deltadictionary.put passed vector with null data");
+				Thread.dumpStack();
+				return null;
+			}
+			if (test instanceof Integer)
+			{
+				int[] newValue = new int[v.size()];
+				for ( int i = 0; i < newValue.length; ++i )
+					newValue[i] = ((Integer)v.get(i)).intValue();
+				value = newValue;
+			}
+			else if (test instanceof Long)
+			{
+				long[] newValue = new long[v.size()];
+				for ( int i = 0; i < newValue.length; ++i )
+					newValue[i] = ((Long)v.get(i)).longValue();
+				value = newValue;
+			}
+			else if (test instanceof Float)
+			{
+				float[] newValue = new float[v.size()];
+				for ( int i = 0; i < newValue.length; ++i )
+					newValue[i] = ((Float)v.get(i)).floatValue();
+				value = newValue;
+			}
+			else if (test instanceof Double)
+			{
+				double[] newValue = new double[v.size()];
+				for ( int i = 0; i < newValue.length; ++i )
+					newValue[i] = ((Double)v.get(i)).doubleValue();
+				value = newValue;
+			}
+			else if (test instanceof Boolean)
+			{
+				boolean[] newValue = new boolean[v.size()];
+				for ( int i = 0; i < newValue.length; ++i )
+					newValue[i] = ((Boolean)v.get(i)).booleanValue();
+				value = newValue;
+			}
+			else if (test instanceof Character)
+			{
+				char[] newValue = new char[v.size()];
+				for ( int i = 0; i < newValue.length; ++i )
+					newValue[i] = ((Character)v.get(i)).charValue();
+				value = newValue;
+			}
+			else if (test instanceof Byte)
+			{
+				byte[] newValue = new byte[v.size()];
+				for ( int i = 0; i < newValue.length; ++i )
+					newValue[i] = ((Byte)v.get(i)).byteValue();
+				value = newValue;
+			}
+			else if (test instanceof String)
+			{
+				String[] newValue = new String[v.size()];
+				newValue = (String[])v.toArray(newValue);
+				value = newValue;
+			}
+			else if (test instanceof location)
+			{
+				location[] newValue = new location[v.size()];
+				newValue = (location[])v.toArray(newValue);
+				value = newValue;
+			}
+			else if (test instanceof string_id)
+			{
+				string_id[] newValue = new string_id[v.size()];
+				newValue = (string_id[])v.toArray(newValue);
+				value = newValue;
+			}
+			else if (test instanceof obj_id)
+			{
+				obj_id[] newValue = new obj_id[v.size()];
+				newValue = (obj_id[])v.toArray(newValue);
+				value = newValue;
+			}
+			else if (test instanceof transform)
+			{
+				transform[] newValue = new transform[v.size()];
+				newValue = (transform[])v.toArray(newValue);
+				value = newValue;
+			}
+			else if (test instanceof vector)
+			{
+				vector[] newValue = new vector[v.size()];
+				newValue = (vector[])v.toArray(newValue);
+				value = newValue;
+			}
+			else
+			{
+				System.err.println("WARNING: deltadictionary.put passed unhandled vector data type " + test.getClass());
+				Thread.dumpStack();
+				return null;
+			}
 		}
 		return currentValue.put(key, value);
 	}	// put(Object, Object)
@@ -176,7 +272,6 @@ public final class deltadictionary
 	/**
 	 * Gets a value from the dictionary.
 	 */
-	//DA todo: this one and others like it may be a little stinky
 	public Vector getResizeableIntArray(Object key)
 	{
 		Object value = currentValue.get(key);
