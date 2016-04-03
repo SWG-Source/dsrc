@@ -1,73 +1,35 @@
 package script.creature_spawner;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 public class tatooine_easy extends script.creature_spawner.base_newbie_creature_spawner
 {
+    public static final boolean SPAWNER_DISABLED = false;
+    public int maxPop = 8;
+    public boolean newbie = true;
+
     public tatooine_easy()
     {
     }
-    public int OnInitialize(obj_id self) throws InterruptedException
-    {
-        spawnCreatures(self);
-        return SCRIPT_CONTINUE;
-    }
-    public int creatureDied(obj_id self, dictionary params) throws InterruptedException
-    {
-        doDeathRespawn(self);
-        return SCRIPT_CONTINUE;
-    }
     public String pickCreature() throws InterruptedException
     {
-        String creature = "minor_worrt";
-        int choice = rand(1, 14);
-        switch (choice)
+        switch (rand(1, 8))
         {
             case 1:
+                return "minor_worrt";
             case 2:
+                return "kreetle";
             case 3:
-            creature = "minor_worrt";
-            break;
+                return "rill";
             case 4:
+                return "lesser_desert_womprat";
             case 5:
+                return "worrt";
             case 6:
-            creature = "kreetle";
-            break;
+                return "rockmite";
             case 7:
+                return "mound_mite";
             case 8:
-            creature = "rill";
-            break;
-            case 9:
-            case 10:
-            creature = "lesser_desert_womprat";
-            break;
-            case 11:
-            creature = "worrt";
-            break;
-            case 12:
-            creature = "rockmite";
-            break;
-            case 13:
-            creature = "mound_mite";
-            break;
-            case 14:
-            creature = "womprat";
-            break;
-            default:
-            creature = "minor_worrt";
-            break;
+                return "womprat";
         }
-        return creature;
-    }
-    public int getMaxPop() throws InterruptedException
-    {
-        int maxPop = 8;
-        return maxPop;
+        return "minor_worrt";
     }
 }

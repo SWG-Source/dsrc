@@ -1,16 +1,8 @@
 package script.creature_spawner;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.locations;
+import script.dictionary;
 import script.library.create;
-import script.library.ai_lib;
+import script.obj_id;
 
 public class droid_vendor_spawner extends script.base_script
 {
@@ -28,9 +20,7 @@ public class droid_vendor_spawner extends script.base_script
     }
     public void spawnVendor(obj_id self) throws InterruptedException
     {
-        String creatureToSpawn = "farmer";
-        location goodLoc = getLocation(self);
-        obj_id spawned = create.object(creatureToSpawn, goodLoc);
+        obj_id spawned = create.object("farmer", getLocation(self));
         create.addDestroyMessage(spawned, "creatureDied", 10.0f, self);
         attachScript(spawned, "beta.droid_vendor");
         setObjVar(self, "myVendor", spawned);

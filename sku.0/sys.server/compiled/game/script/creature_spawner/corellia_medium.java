@@ -1,59 +1,26 @@
 package script.creature_spawner;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 public class corellia_medium extends script.creature_spawner.base_newbie_creature_spawner
 {
     public corellia_medium()
     {
     }
     public static final boolean SPAWNER_DISABLED = true;
-    public int OnInitialize(obj_id self) throws InterruptedException
-    {
-        if (!SPAWNER_DISABLED)
-        {
-            spawnCreatures(self);
-        }
-        return SCRIPT_CONTINUE;
-    }
-    public int creatureDied(obj_id self, dictionary params) throws InterruptedException
-    {
-        doDeathRespawn(self);
-        return SCRIPT_CONTINUE;
-    }
+    public int maxPop = 4;
+
     public String pickCreature() throws InterruptedException
     {
-        String creature = "corellian_butterfly";
-        int choice = rand(1, 4);
-        switch (choice)
+        switch (rand(1,4))
         {
             case 1:
-            creature = "corellian_butterfly";
-            break;
+                return "corellian_butterfly";
             case 2:
-            creature = "corellian_butterfly_worker";
-            break;
+                return "corellian_butterfly_worker";
             case 3:
-            creature = "vynock";
-            break;
+                return "vynock";
             case 4:
-            creature = "scavenger_rat";
-            break;
-            default:
-            creature = "vynock";
-            break;
+                return "scavenger_rat";
         }
-        return creature;
-    }
-    public int getMaxPop() throws InterruptedException
-    {
-        int maxPop = 4;
-        return maxPop;
+        return "vynock";
     }
 }
