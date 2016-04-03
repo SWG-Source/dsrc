@@ -1,12 +1,9 @@
 package script.data_item;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.menu_info;
+import script.menu_info_data;
+import script.menu_info_types;
+import script.obj_id;
 
 public class base extends script.base_script
 {
@@ -16,11 +13,7 @@ public class base extends script.base_script
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         menu_info_data mid = mi.getMenuItemByType(menu_info_types.EXAMINE);
-        if (mid == null)
-        {
-        }
-        else 
-        {
+        if (mid != null) {
             mid.setServerNotify(true);
         }
         return SCRIPT_CONTINUE;
