@@ -1,20 +1,9 @@
 package script.cybernetic;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.cybernetic;
-import script.library.utils;
-import script.library.buff;
-import script.library.sui;
-import script.library.money;
-import script.library.features;
-import script.library.ai_lib;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
 public class cybernetic_player extends script.systems.combat.combat_base
 {
@@ -232,7 +221,7 @@ public class cybernetic_player extends script.systems.combat.combat_base
             return SCRIPT_CONTINUE;
         }
         String itemTemplate = getTemplateName(item);
-        if ((itemTemplate.indexOf("crafted") > -1) && hasScript(item, "item.armor.biolink_item_non_faction"))
+        if ((itemTemplate.contains("crafted")) && hasScript(item, "item.armor.biolink_item_non_faction"))
         {
             CustomerServiceLog("cyborg", "Crafted Cybernetic Fix -Player(" + self + ") Cybernetic(" + item + ") had the bio-link script removed because it is not needed.");
             detachScript(item, "item.armor.biolink_item_non_faction");
@@ -306,7 +295,7 @@ public class cybernetic_player extends script.systems.combat.combat_base
             {
                 playClientEffectObj(self, "clienteffect/cyborg_itm_installed.cef", self, "");
                 CustomerServiceLog("cyborg", "Cybernetic Item(" + item + ") was successfully installed on Player(" + self + ")");
-                if ((getTemplateName(item)).indexOf("crafted") > -1)
+                if ((getTemplateName(item)).contains("crafted"))
                 {
                     CustomerServiceLog("cyborg", "Cybernetic Item(" + item + ") was installed on Player(" + self + ") and Bio-Linked - as designed.");
                     setBioLink(item, self);
