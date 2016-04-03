@@ -1,15 +1,7 @@
 package script.cybernetic;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.cybernetic;
-import script.library.utils;
+import script.dictionary;
+import script.obj_id;
 
 public class cybernetic_anakin_arm_fix extends script.base_script
 {
@@ -18,31 +10,22 @@ public class cybernetic_anakin_arm_fix extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        obj_id cybernetic = getSelf();
-        messageTo(cybernetic, "delayedCyberneticForearmFix", null, 4.0f, false);
+        messageTo(self, "delayedCyberneticForearmFix", null, 4.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        obj_id cybernetic = getSelf();
-        messageTo(cybernetic, "delayedCyberneticForearmFix", null, 4.0f, false);
+        messageTo(self, "delayedCyberneticForearmFix", null, 4.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int delayedCyberneticForearmFix(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id cybernetic = getSelf();
-        if (!hasObjVar(cybernetic, "cybernetic_reward_fixed"))
+        if (!hasObjVar(self, "cybernetic_reward_fixed"))
         {
-            clearBioLink(cybernetic);
-            if (hasScript(cybernetic, "item.armor.biolink_item_non_faction"))
-            {
-                detachScript(cybernetic, "item.armor.biolink_item_non_faction");
-            }
-            if (hasObjVar(cybernetic, "biolink.id"))
-            {
-                removeObjVar(cybernetic, "biolink.id");
-            }
-            setObjVar(cybernetic, "cybernetic_reward_fixed", 1);
+            clearBioLink(self);
+            detachScript(self, "item.armor.biolink_item_non_faction");
+            removeObjVar(self, "biolink.id");
+            setObjVar(self, "cybernetic_reward_fixed", 1);
         }
         return SCRIPT_CONTINUE;
     }

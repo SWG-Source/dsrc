@@ -1,19 +1,9 @@
 package script.cybernetic;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.features;
-import script.library.cybernetic;
-import script.library.utils;
-import script.library.hue;
-import script.library.armor;
-import script.library.proc;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
 public class cybernetic_item extends script.base_script
 {
@@ -66,7 +56,7 @@ public class cybernetic_item extends script.base_script
         else 
         {
             String templateName = getTemplateName(self);
-            if (templateName.indexOf("s01") == -1)
+            if (!templateName.contains("s01"))
             {
                 if (!features.hasEpisode3Expansion(destContainer))
                 {
@@ -220,7 +210,7 @@ public class cybernetic_item extends script.base_script
         if (specialCommand != null && !specialCommand.equals(""))
         {
             names[free] = utils.packStringId(new string_id("ep3/cybernetic", "special_command"));
-            attribs[free++] = utils.packStringId(new string_id("ep3/cybernetic", specialCommand));
+            attribs[free] = utils.packStringId(new string_id("ep3/cybernetic", specialCommand));
         }
         return SCRIPT_CONTINUE;
     }
