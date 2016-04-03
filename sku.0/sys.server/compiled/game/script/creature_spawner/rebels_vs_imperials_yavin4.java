@@ -1,405 +1,216 @@
 package script.creature_spawner;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.ai.ai_combat;
+import script.dictionary;
 import script.library.ai_lib;
+import script.library.create;
+import script.location;
+import script.obj_id;
 
 public class rebels_vs_imperials_yavin4 extends script.base_script
 {
+    public float[][] imperialStartPoints = {
+            {4042, 0, -6278},
+            {4021, 0, -6278},
+            {4031, 0, -6274},
+            {4003, 0, -6261},
+            {4042, 0, -6262},
+            {4056, 0, -6246},
+            {4004, 0, -6242},
+            {4019, 0, -6263},
+            {4021, 0, -6260},
+            {4022, 0, -6261},
+            {4005, 0, -6263},
+            {4021, 0, -6256}
+    };
+    public float[][] rebelStartPoints = {
+            {4017, 34, -6284},
+            {4039, 34, -6835},
+            {4028, 34, -6334}
+    };
+    public float[][] conflictPoints = {
+            {4017, 34, -6300},
+            {4044, 34, -6300},
+            {4030, 34, -6300}
+    };
+    public String[] rebelTypes = {
+            "rebel_corporal",
+            "rebel_sergeant",
+            "rebel_general",
+            "rebel_major_general",
+            "rebel_commando"
+    };
+    public String[] imperialTypes = {
+            "scout_trooper",
+            "stormtrooper",
+            "stormtrooper_squad_leader",
+            "stormtrooper_sniper",
+            "stormtrooper_medic",
+            "imperial_colonel"
+    };
+
     public rebels_vs_imperials_yavin4()
     {
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        if (!hasObjVar(self, "imperialPoints"))
-        {
-            
-        }
-        
-        {
-            setObjVar(self, "imperialPoints", 0);
-            setObjVar(self, "rebelPoints", 0);
-        }
+        setObjVar(self, "imperialPoints", 0);
+        setObjVar(self, "rebelPoints", 0);
         messageTo(self, "startOver", null, 0, true);
         return SCRIPT_CONTINUE;
     }
+    private obj_id spawnImperial(location loc, String type, obj_id self) throws InterruptedException{
+        obj_id npc = spawnNpc(loc, type, "imperialDied", self);
+        ai_lib.setDefaultCalmBehavior(npc, ai_lib.BEHAVIOR_SENTINEL);
+        return npc;
+    }
+    private obj_id spawnNpc(location loc, String type, String message, obj_id self) throws InterruptedException{
+        obj_id npc = create.object(type, loc);
+        create.addDestroyMessage(npc, message, 10, self);
+        return npc;
+    }
+    private obj_id[] spawnRebelGroup(location loc, String[] types, String message, obj_id self) throws InterruptedException{
+        obj_id[] members = new obj_id[types.length];
+        for(int i=0; i < types.length; i++){
+            members[i] = spawnNpc(loc, types[i], message, self);
+            setMovementRun(members[i]);
+            if(i % 2 == 0){
+                loc.z -= 2;
+            }
+            else{
+                loc.x += 5;
+            }
+        }
+        return members;
+    }
+    private void moveGroup(location loc, obj_id[] members, String offset) throws InterruptedException{
+        for (obj_id member : members){
+            ai_lib.aiPathTo(member, loc);
+            if(offset.equals("x")) {
+                loc.x++;
+            }
+            else{
+                loc.z++;
+            }
+        }
+    }
     public int startOver(obj_id self, dictionary params) throws InterruptedException
     {
-        location r1 = new location(4017, 34, -6284, "yavin4", null);
-        obj_id rebel1 = create.object("rebel_corporal", r1);
-        create.addDestroyMessage(rebel1, "rebelDied", 10, self);
-        setMovementRun(rebel1);
-        r1.z = r1.z - 2;
-        obj_id rebel2 = create.object("rebel_first_lieutenant", r1);
-        create.addDestroyMessage(rebel2, "rebelDied", 10, self);
-        setMovementRun(rebel2);
-        r1.x = r1.x + 5;
-        obj_id rebel3 = create.object("rebel_sergeant", r1);
-        create.addDestroyMessage(rebel3, "rebelDied", 10, self);
-        setMovementRun(rebel3);
-        r1.z = r1.z - 2;
-        obj_id rebel4 = create.object("rebel_commando", r1);
-        create.addDestroyMessage(rebel4, "rebelDied", 10, self);
-        setMovementRun(rebel4);
-        location r2 = new location(4039, 34, -6385, "yavin4", null);
-        obj_id rebel5 = create.object("rebel_commando", r2);
-        create.addDestroyMessage(rebel5, "rebelDied", 10, self);
-        setMovementRun(rebel5);
-        r2.z = r2.z - 2;
-        obj_id rebel6 = create.object("rebel_trooper", r2);
-        create.addDestroyMessage(rebel6, "rebelDied", 10, self);
-        setMovementRun(rebel6);
-        r2.x = r2.x + 5;
-        obj_id rebel7 = create.object("rebel_major_general", r2);
-        create.addDestroyMessage(rebel7, "rebelDied", 10, self);
-        setMovementRun(rebel7);
-        r2.z = r2.z - 2;
-        obj_id rebel8 = create.object("rebel_general", r2);
-        create.addDestroyMessage(rebel8, "rebelDied", 10, self);
-        setMovementRun(rebel8);
-        location r3 = new location(4028, 34, -6334, "yavin4", null);
-        obj_id rebel9 = create.object("rebel_commando", r3);
-        create.addDestroyMessage(rebel9, "rebelDied", 10, self);
-        setMovementRun(rebel5);
-        r3.z = r3.z - 2;
-        obj_id rebel10 = create.object("rebel_trooper", r3);
-        create.addDestroyMessage(rebel10, "rebelDied", 10, self);
-        setMovementRun(rebel6);
-        r3.x = r3.x + 5;
-        obj_id rebel11 = create.object("rebel_major_general", r3);
-        create.addDestroyMessage(rebel11, "rebelDied", 10, self);
-        setMovementRun(rebel7);
-        r3.z = r3.z - 2;
-        obj_id rebel12 = create.object("rebel_general", r3);
-        create.addDestroyMessage(rebel12, "rebelDied", 10, self);
-        setMovementRun(rebel8);
-        location overHere = new location(4017, 37, -6300, "yavin4", null);
-        ai_lib.aiPathTo(rebel1, overHere);
-        overHere.x = overHere.x + 1;
-        ai_lib.aiPathTo(rebel2, overHere);
-        overHere.x = overHere.x + 1;
-        ai_lib.aiPathTo(rebel3, overHere);
-        overHere.x = overHere.x + 1;
-        ai_lib.aiPathTo(rebel4, overHere);
-        location overThere = new location(4044, 34, -6300, "yavin4", null);
-        ai_lib.aiPathTo(rebel5, overThere);
-        overThere.z = overThere.z + 1;
-        ai_lib.aiPathTo(rebel6, overThere);
-        overThere.z = overThere.z + 1;
-        ai_lib.aiPathTo(rebel7, overThere);
-        overThere.z = overThere.z + 1;
-        ai_lib.aiPathTo(rebel8, overThere);
-        location elseWhere = new location(4030, 34, -6300, "yavin4", null);
-        ai_lib.aiPathTo(rebel5, elseWhere);
-        elseWhere.x = elseWhere.x + 1;
-        ai_lib.aiPathTo(rebel6, elseWhere);
-        elseWhere.x = elseWhere.x + 1;
-        ai_lib.aiPathTo(rebel7, elseWhere);
-        elseWhere.x = elseWhere.x + 1;
-        ai_lib.aiPathTo(rebel8, elseWhere);
-        location imp1 = new location(4042, 0, -6278, "yavin4", null);
-        obj_id stormtrooper1 = create.object("stormtrooper_squad_leader", imp1);
-        create.addDestroyMessage(stormtrooper1, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper1, ai_lib.BEHAVIOR_SENTINEL);
-        location imp2 = new location(4021, 0, -6278, "yavin4", null);
-        obj_id stormtrooper2 = create.object("stormtrooper", imp2);
-        create.addDestroyMessage(stormtrooper2, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper2, ai_lib.BEHAVIOR_SENTINEL);
-        location imp3 = new location(4031, 0, -6274, "yavin4", null);
-        obj_id stormtrooper3 = create.object("at_st", imp3);
-        create.addDestroyMessage(stormtrooper3, "atstDied", 10, self);
-        attachScript(stormtrooper3, "creature.yavin4_atst");
-        location imp4 = new location(4003, 0, -6261, "yavin4", null);
-        obj_id stormtrooper4 = create.object("stormtrooper", imp4);
-        create.addDestroyMessage(stormtrooper4, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper4, ai_lib.BEHAVIOR_SENTINEL);
-        location imp5 = new location(4042, 0, -6262, "yavin4", null);
-        obj_id stormtrooper5 = create.object("stormtrooper", imp5);
-        create.addDestroyMessage(stormtrooper5, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper5, ai_lib.BEHAVIOR_SENTINEL);
-        location imp6 = new location(4056, 0, -6246, "yavin4", null);
-        obj_id stormtrooper6 = create.object("stormtrooper", imp6);
-        create.addDestroyMessage(stormtrooper6, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper6, ai_lib.BEHAVIOR_SENTINEL);
-        location imp7 = new location(4004, 0, -6242, "yavin4", null);
-        obj_id stormtrooper7 = create.object("stormtrooper", imp7);
-        create.addDestroyMessage(stormtrooper7, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper7, ai_lib.BEHAVIOR_SENTINEL);
-        location imp8 = new location(4019, 0, -6263, "yavin4", null);
-        obj_id stormtrooper8 = create.object("imperial_colonel", imp8);
-        create.addDestroyMessage(stormtrooper8, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper8, ai_lib.BEHAVIOR_SENTINEL);
-        location imp9 = new location(4021, 0, -6260, "yavin4", null);
-        obj_id stormtrooper9 = create.object("stormtrooper_medic", imp9);
-        create.addDestroyMessage(stormtrooper9, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper9, ai_lib.BEHAVIOR_SENTINEL);
-        location imp10 = new location(4022, 0, -6261, "yavin4", null);
-        obj_id stormtrooper10 = create.object("stormtrooper_sniper", imp10);
-        create.addDestroyMessage(stormtrooper10, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper10, ai_lib.BEHAVIOR_SENTINEL);
-        location imp11 = new location(4005, 0, -6263, "yavin4", null);
-        obj_id stormtrooper11 = create.object("scout_trooper", imp11);
-        create.addDestroyMessage(stormtrooper11, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper11, ai_lib.BEHAVIOR_SENTINEL);
-        location imp12 = new location(4021, 0, -6256, "yavin4", null);
-        obj_id stormtrooper12 = create.object("scout_trooper", imp12);
-        create.addDestroyMessage(stormtrooper12, "imperialDied", 10, self);
-        ai_lib.setDefaultCalmBehavior(stormtrooper12, ai_lib.BEHAVIOR_SENTINEL);
+        String[] rebel1 = {"rebel_corporal", "rebel_first_lieutenant", "rebel_sergeant", "rebel_commando"};
+        String[] rebel2 = {"rebel_commando", "rebel_trooper", "rebel_major_general", "rebel_general"};
+
+        // spawn the rebel troops - 3 sets, 2 of the sets use the same types.
+        obj_id[] group = spawnRebelGroup(getRebelStart(0), rebel1, "rebelDied", self);
+        moveGroup(getConflictPoint(0), group, "x");
+
+        group = spawnRebelGroup(getRebelStart(1), rebel2, "rebelDied", self);
+        moveGroup(getConflictPoint(1), group, "z");
+
+        group = spawnRebelGroup(getRebelStart(2), rebel2, "rebelDied", self);
+        moveGroup(getConflictPoint(2), group, "x");
+
+        // spawn the imperial troops - all are spread out so each troop has its own
+        // starting location to be spawned at, but will be grouped together to head
+        // to the conflict point.
+        obj_id stormtrooper1 = spawnImperial(getImperialLocation(0), "stormtrooper_squad_leader", self);
+        obj_id stormtrooper2 = spawnImperial(getImperialLocation(1), "stormtrooper", self);
+        obj_id stormtrooper4 = spawnImperial(getImperialLocation(3), "stormtrooper", self);
+        obj_id stormtrooper5 = spawnImperial(getImperialLocation(4), "stormtrooper", self);
+        obj_id stormtrooper6 = spawnImperial(getImperialLocation(5), "stormtrooper", self);
+        obj_id stormtrooper7 = spawnImperial(getImperialLocation(6), "stormtrooper", self);
+        obj_id stormtrooper8 = spawnImperial(getImperialLocation(7), "imperial_colonel", self);
+        obj_id stormtrooper9 = spawnImperial(getImperialLocation(8), "stormtrooper_medic", self);
+        obj_id stormtrooper10 = spawnImperial(getImperialLocation(9), "stormtrooper_sniper", self);
+        obj_id stormtrooper11 = spawnImperial(getImperialLocation(10), "scout_trooper", self);
+        obj_id stormtrooper12 = spawnImperial(getImperialLocation(11), "scout_trooper", self);
+
+        // spawn an at_st at the site.
+        spawnATST(self, null);
+
         setObjVar(self, "rebels", 8);
         setObjVar(self, "imperials", 7);
         setObjVar(self, "atst", 1);
-        location rallyPointVader = new location(4017, 37, -6300, "yavin4", null);
-        ai_lib.aiPathTo(stormtrooper1, rallyPointVader);
-        rallyPointVader.x = rallyPointVader.x + 1;
-        ai_lib.aiPathTo(stormtrooper2, rallyPointVader);
-        rallyPointVader.x = rallyPointVader.x + 1;
-        ai_lib.aiPathTo(stormtrooper4, rallyPointVader);
-        location rallyPointMara = new location(4044, 34, -6300, "yavin4", null);
-        ai_lib.aiPathTo(stormtrooper5, rallyPointMara);
-        rallyPointMara.z = rallyPointMara.z + 1;
-        ai_lib.aiPathTo(stormtrooper6, rallyPointMara);
-        rallyPointMara.z = rallyPointMara.z + 1;
-        ai_lib.aiPathTo(stormtrooper7, rallyPointMara);
-        rallyPointMara.z = rallyPointMara.z + 1;
-        ai_lib.aiPathTo(stormtrooper8, rallyPointMara);
-        location rallyPointEmperor = new location(4030, 34, -6300, "yavin4", null);
-        ai_lib.aiPathTo(stormtrooper9, rallyPointEmperor);
-        rallyPointEmperor.x = rallyPointEmperor.x + 1;
-        ai_lib.aiPathTo(stormtrooper10, rallyPointEmperor);
-        rallyPointEmperor.x = rallyPointEmperor.x + 1;
-        ai_lib.aiPathTo(stormtrooper11, rallyPointEmperor);
-        rallyPointEmperor.x = rallyPointEmperor.x + 1;
-        ai_lib.aiPathTo(stormtrooper12, rallyPointEmperor);
+
+        // send imperial troops to conflict points based on where each is supposed to go.
+        moveGroup(getConflictPoint(0), new obj_id[] {stormtrooper1, stormtrooper2, stormtrooper4}, "x");
+        moveGroup(getConflictPoint(1), new obj_id[] {stormtrooper5, stormtrooper6, stormtrooper7, stormtrooper8}, "z");
+        moveGroup(getConflictPoint(3), new obj_id[] {stormtrooper9, stormtrooper10, stormtrooper11, stormtrooper12}, "x");
+
         return SCRIPT_CONTINUE;
     }
     public int imperialDied(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id dead = params.getObjId("object");
-        int imperials = getIntObjVar(self, "imperials");
-        String newImp = "";
-        if (imperials < 12)
+        if (getIntObjVar(self, "imperials") < 12)
         {
             location imp = getImperialLocation();
-            imp.x = imp.x + rand(-3, 3);
-            imp.z = imp.z + rand(-3, 3);
-            newImp = getImperial();
-            obj_id stormtrooper12 = create.object(newImp, imp);
-            create.addDestroyMessage(stormtrooper12, "imperialDied", 10, self);
-            ai_lib.aiPathTo(stormtrooper12, getRebelDestination());
+            imp.x += rand(-3, 3);
+            imp.z += rand(-3, 3);
+            ai_lib.aiPathTo(spawnImperial(imp, getImperial(), self), getConflictPoint());
         }
-        int rebelPoints = getIntObjVar(self, "rebelPoints");
-        rebelPoints = rebelPoints + 1;
-        setObjVar(self, "rebelPoints", rebelPoints);
+        setObjVar(self, "rebelPoints", getIntObjVar(self, "rebelPoints") + 1);
+        destroyObject(params.getObjId("object"));
         return SCRIPT_CONTINUE;
     }
     public int rebelDied(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id dead = params.getObjId("object");
-        String newReb = "";
-        int rebels = getIntObjVar(self, "rebels");
-        if (rebels < 12)
+        if (getIntObjVar(self, "rebels") < 12)
         {
-            newReb = getRebel();
-            obj_id rebel1 = create.object(newReb, getRebelStart());
-            create.addDestroyMessage(rebel1, "rebelDied", 10, self);
-            setMovementRun(rebel1);
-            ai_lib.aiPathTo(rebel1, getRebelDestination());
+            obj_id rebel = spawnNpc(getRebelStart(), getRebel(), "rebelDied", self);
+            setMovementRun(rebel);
+            ai_lib.aiPathTo(rebel, getConflictPoint());
         }
-        int impPoints = getIntObjVar(self, "imperialPoints");
-        impPoints = impPoints + 1;
-        setObjVar(self, "imperialPoints", impPoints);
-        destroyObject(dead);
+        setObjVar(self, "imperialPoints", getIntObjVar(self, "imperialPoints") + 1);
+        destroyObject(params.getObjId("object"));
         return SCRIPT_CONTINUE;
     }
     public int atstDied(obj_id self, dictionary params) throws InterruptedException
     {
+        setObjVar(self, "rebelPoints", getIntObjVar(self, "rebelPoints") + 1);
         messageTo(self, "spawnATST", null, 8, true);
         return SCRIPT_CONTINUE;
     }
     public int spawnATST(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id dead = params.getObjId("object");
-        location imp3 = new location(4031, 0, -6274, "yavin4", null);
-        obj_id stormtrooper3 = create.object("at_st", imp3);
-        create.addDestroyMessage(stormtrooper3, "atstDied", 10, self);
-        attachScript(stormtrooper3, "creature.yavin4_atst");
-        int rebelPoints = getIntObjVar(self, "rebelPoints");
-        rebelPoints = rebelPoints + 1;
-        setObjVar(self, "rebelPoints", rebelPoints);
-        destroyObject(dead);
+        obj_id at_st = create.object("at_st", getImperialLocation(2));
+        create.addDestroyMessage(at_st, "atstDied", 10, self);
+        attachScript(at_st, "creature.yavin4_atst");
+
+        if(params != null) destroyObject(params.getObjId("object"));
         return SCRIPT_CONTINUE;
     }
     public String getRebel() throws InterruptedException
     {
-        int randomRebel = rand(1, 8);
-        String rebel = "rebel_trooper";
-        switch (randomRebel)
-        {
-            case 1:
-            rebel = "rebel_corporal";
-            break;
-            case 2:
-            rebel = "rebel_sergeant";
-            break;
-            case 3:
-            rebel = "rebel_general";
-            break;
-            case 4:
-            rebel = "rebel_corporal";
-            break;
-            case 5:
-            rebel = "rebel_sergeant";
-            break;
-            case 6:
-            rebel = "rebel_major_general";
-            break;
-            case 7:
-            rebel = "rebel_commando";
-            break;
-            case 8:
-            rebel = "rebel_commando";
-            break;
-        }
-        return rebel;
+        return rebelTypes[rand(0, rebelTypes.length - 1)];
     }
-    public location getRebelStart() throws InterruptedException
-    {
-        location r1 = new location(4017, 34, -6284, "yavin4", null);
-        location r2 = new location(4039, 34, -6385, "yavin4", null);
-        location r3 = new location(4028, 34, -6334, "yavin4", null);
-        int randomLoc = rand(1, 3);
-        location rebel = getLocation(getSelf());
-        switch (randomLoc)
-        {
-            case 1:
-            rebel = r1;
-            break;
-            case 2:
-            rebel = r2;
-            break;
-            case 3:
-            rebel = r3;
-            break;
-        }
-        return rebel;
+    public location getRebelStart() throws InterruptedException{
+        return getRebelStart(null);
     }
-    public location getRebelDestination() throws InterruptedException
-    {
-        location overHere = new location(4017, 37, -6300, "yavin4", null);
-        location overThere = new location(4044, 34, -6300, "yavin4", null);
-        location elseWhere = new location(4030, 34, -6300, "yavin4", null);
-        int randomLoc = rand(1, 3);
-        location rebel = getLocation(getSelf());
-        switch (randomLoc)
-        {
-            case 1:
-            rebel = overHere;
-            break;
-            case 2:
-            rebel = overThere;
-            break;
-            case 3:
-            rebel = elseWhere;
-            break;
+    public location getRebelStart(Integer loc) throws InterruptedException{
+        if(loc == null) {
+            loc = rand(0, rebelStartPoints.length - 1);
         }
-        return rebel;
+        return new location(rebelStartPoints[loc][0], rebelStartPoints[loc][1], rebelStartPoints[loc][2], "yavin4", null);
     }
-    public location getImperialLocation() throws InterruptedException
+    public location getConflictPoint() throws InterruptedException{
+        return getConflictPoint(null);
+    }
+    public location getConflictPoint(Integer loc) throws InterruptedException
     {
-        location imp1 = new location(4042, 0, -6278, "yavin4", null);
-        location imp2 = new location(4021, 0, -6278, "yavin4", null);
-        location imp3 = new location(4031, 0, -6274, "yavin4", null);
-        location imp4 = new location(4003, 0, -6261, "yavin4", null);
-        location imp5 = new location(4042, 0, -6262, "yavin4", null);
-        location imp6 = new location(4056, 0, -6246, "yavin4", null);
-        location imp7 = new location(4004, 0, -6242, "yavin4", null);
-        location imp8 = new location(4019, 0, -6263, "yavin4", null);
-        location imp9 = new location(4021, 0, -6260, "yavin4", null);
-        location imp10 = new location(4022, 0, -6261, "yavin4", null);
-        location imp11 = new location(4005, 0, -6263, "yavin4", null);
-        location imp12 = new location(4021, 0, -6256, "yavin4", null);
-        int randomLoc = rand(1, 12);
-        location imp = getLocation(getSelf());
-        switch (randomLoc)
-        {
-            case 1:
-            imp = imp1;
-            break;
-            case 2:
-            imp = imp2;
-            break;
-            case 3:
-            imp = imp3;
-            break;
-            case 4:
-            imp = imp4;
-            break;
-            case 5:
-            imp = imp5;
-            break;
-            case 6:
-            imp = imp6;
-            break;
-            case 7:
-            imp = imp7;
-            break;
-            case 8:
-            imp = imp8;
-            break;
-            case 9:
-            imp = imp9;
-            break;
-            case 10:
-            imp = imp10;
-            break;
-            case 11:
-            imp = imp11;
-            break;
-            case 12:
-            imp = imp12;
-            break;
+        if(loc == null) {
+            loc = rand(0, conflictPoints.length - 1);
         }
-        return imp;
+        return new location(conflictPoints[loc][0], conflictPoints[loc][1], conflictPoints[loc][2], "yavin4", null);
+    }
+    public location getImperialLocation() throws InterruptedException{
+        return getImperialLocation(null);
+    }
+    public location getImperialLocation(Integer loc) throws InterruptedException{
+        if(loc == null) {
+            loc = rand(0, imperialStartPoints.length - 1);
+        }
+        return new location(imperialStartPoints[loc][0], imperialStartPoints[loc][1], imperialStartPoints[loc][2], "yavin4", null);
     }
     public String getImperial() throws InterruptedException
     {
-        int randomimperial = rand(1, 8);
-        String imperial = "imperial_trooper";
-        switch (randomimperial)
-        {
-            case 1:
-            imperial = "scout_trooper";
-            break;
-            case 2:
-            imperial = "stormtrooper";
-            break;
-            case 3:
-            imperial = "stormtrooper_squad_leader";
-            break;
-            case 4:
-            imperial = "stormtrooper_sniper";
-            break;
-            case 5:
-            imperial = "stormtrooper_medic";
-            break;
-            case 6:
-            imperial = "imperial_colonel";
-            break;
-            case 7:
-            imperial = "stormtrooper";
-            break;
-            case 8:
-            imperial = "stormtrooper";
-            break;
-        }
-        return imperial;
+        return imperialTypes[rand(1, imperialTypes.length - 1)];
     }
 }
