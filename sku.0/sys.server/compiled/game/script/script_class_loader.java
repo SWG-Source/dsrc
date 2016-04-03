@@ -54,13 +54,9 @@ public class script_class_loader extends ClassLoader
 			try
 			{
 				myObject = myClass.newInstance();
-				if (myObject != null)
+				if (myObject == null)
 				{
-//					System.out.println("Created new script_class_loader for class " + name + " (" + myClass.getName() + ")");
-				}
-				else
-				{
-					System.out.println("WARNING: Java Error creating object for class " + name);
+					System.err.println("WARNING: Java Error creating object for class " + name);
 				}
 			}
 			catch ( InstantiationException err )
@@ -87,8 +83,6 @@ public class script_class_loader extends ClassLoader
 		Object test = loaderCache.get(name);
 		if (test != null)
 			return (script_class_loader)test;
-
-//		System.out.println("script_class_loader getClassLoader creating new loader for class " + name);
 
 		if (name.indexOf("script.") != 0)
 		{
@@ -147,11 +141,10 @@ public class script_class_loader extends ClassLoader
 			String pathedName = name.replace('.', java.io.File.separatorChar);
 			String fullname = script_entry.getScriptPath() + pathedName + ".class";
 			File file = new File(fullname);
-			if (file != null)
-			{
-				if (file.exists())
-					result = true;
+			if (file != null && file.isFile()) {
+				result = true;
 			}
+
 		}
 		return result;
 	}	// unloadClass()
@@ -209,8 +202,6 @@ public class script_class_loader extends ClassLoader
 	 */
     protected Class loadClass(String name, boolean resolve) throws ClassNotFoundException
     {
-//		System.out.println("script_class_loader loadClass " + name);
-
 		// filter out classes that will be loaded by the default loader
 		int nameLength = name.length();
 		if ((nameLength > 5 && name.substring(0, 5).compareTo("java.") == 0) ||
@@ -218,14 +209,9 @@ public class script_class_loader extends ClassLoader
 			(nameLength > 10 && name.substring(0, 10).compareTo("intuitive.") == 0) ||
 			defaultLoad.contains(name))
 		{
-//			System.out.println("****script_class_loader calling default loader**** class = " + name);
 			Class cls = super.loadClass(name, resolve);
 			if (myClass == null)
 				myClass = cls;
-			if (name.equals("java.lang.Throwable"))
-			{
-
-			}
 			return cls;
 		}
 
@@ -262,13 +248,12 @@ public class script_class_loader extends ClassLoader
 	 */
 	protected Class findClass(String name) throws ClassNotFoundException
 	{
-//		System.out.println("script_class_loader findClass " + name);
 		if (myClass == null)
 		{
 			try
 			{
 				byte data[] = loadClassData(name);
-			    myClass = defineClass(name, data, 0, data.length);
+				myClass = defineClass(name, data, 0, data.length);
 
 				// we need to keep track of all the superclasses of this class, in case one of them is reloaded
 				for (Class superClass = myClass.getSuperclass(); superClass != null; superClass = superClass.getSuperclass())
@@ -295,14 +280,13 @@ public class script_class_loader extends ClassLoader
 	 */
 	private byte[] loadClassData(String name) throws ClassNotFoundException
 	{
-//		System.out.println("script_class_loader loadClassData enter: " + name);
-
 		byte[] data = null;
 
 		// if the script name has '.' in it, convert them to '\'
 		String pathedName = name.replace('.', java.io.File.separatorChar);
 		String fullname = script_entry.getScriptPath() + pathedName + ".class";
-		System.out.println("script_class_loader loadClassData " + fullname);
+		System.out.println("loadClassData " + fullname);
+
 		try
 		{
 			RandomAccessFile file = new RandomAccessFile(fullname, "r");
