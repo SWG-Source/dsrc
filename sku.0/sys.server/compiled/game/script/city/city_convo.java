@@ -19,23 +19,16 @@ public class city_convo extends script.base_script
         messageTo(self, "checkForScripts", null, 10, false);
         return SCRIPT_CONTINUE;
     }
-    public int OnAttach(obj_id self) throws InterruptedException
-    {
-        beginSpawning(self);
-        messageTo(self, "handleChatting", null, 10, false);
-        messageTo(self, "checkForScripts", null, 10, false);
-        return SCRIPT_CONTINUE;
-    }
     public int handleChatting(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id guy1 = getObjIdObjVar(self, "guy1");
         obj_id guy2 = getObjIdObjVar(self, "guy2");
-        obj_id guy3 = getObjIdObjVar(self, "guy3");
-        obj_id guy4 = getObjIdObjVar(self, "guy4");
         if (!exists(guy1) || !exists(guy2))
         {
             return SCRIPT_CONTINUE;
         }
+        obj_id guy3 = getObjIdObjVar(self, "guy3");
+        obj_id guy4 = getObjIdObjVar(self, "guy4");
         faceTo(guy1, guy2);
         faceTo(guy2, guy1);
         faceTo(guy3, guy1);
@@ -97,10 +90,7 @@ public class city_convo extends script.base_script
     }
     public int checkForScripts(obj_id self, dictionary params) throws InterruptedException
     {
-        if (hasScript(self, "theme_park.poi.launch"))
-        {
-            detachScript(self, "theme_park.poi.launch");
-        }
+        detachScript(self, "theme_park.poi.launch");
         return SCRIPT_CONTINUE;
     }
 }
