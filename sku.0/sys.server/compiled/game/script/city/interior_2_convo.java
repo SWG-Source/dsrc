@@ -16,10 +16,6 @@ public class interior_2_convo extends script.city.interior_convo_base
         messageTo(self, "handleChatting", null, 10, false);
         return SCRIPT_CONTINUE;
     }
-    public int OnAttach(obj_id self) throws InterruptedException
-    {
-        return OnInitialize(self);
-    }
     public int handleChatting(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id guy1 = getObjIdObjVar(self, "guy1");
