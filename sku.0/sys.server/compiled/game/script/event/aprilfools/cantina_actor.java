@@ -1,16 +1,12 @@
 package script.event.aprilfools;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.chat;
+import script.dictionary;
 import script.library.ai_lib;
+import script.library.chat;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class cantina_actor extends script.base_script
 {
@@ -42,14 +38,12 @@ public class cantina_actor extends script.base_script
     }
     public int sayYourLine(obj_id self, dictionary params) throws InterruptedException
     {
-        String myLineStr = params.getString("myLine");
         String myMood = params.getString("myMood");
-        string_id myLine = new string_id("aprilfools", myLineStr);
         if (myMood.equals("") || myMood.equals("null"))
         {
             myMood = "none";
         }
-        chat.chat(self, chat.CHAT_SAY, myMood, myLine);
+        chat.chat(self, chat.CHAT_SAY, myMood, new string_id("aprilfools", params.getString("myLine")));
         return SCRIPT_CONTINUE;
     }
     public int becomeVulnerable(obj_id self, dictionary params) throws InterruptedException
@@ -64,22 +58,16 @@ public class cantina_actor extends script.base_script
     }
     public int moveToRandomLocation(obj_id self, dictionary params) throws InterruptedException
     {
-        int numEntries = dataTableGetNumRows(RAND_LOCATION);
-        int randomEntry = rand(0, numEntries - 1);
-        location there = getLocation(self);
-        float xDestination = dataTableGetFloat(RAND_LOCATION, randomEntry, "X");
-        float zDestination = dataTableGetFloat(RAND_LOCATION, randomEntry, "Z");
+        int randomEntry = rand(0, dataTableGetNumRows(RAND_LOCATION) - 1);
         String cellDestinationStr = dataTableGetString(RAND_LOCATION, randomEntry, "CELL");
-        float variableX = rand(-2.0f, 2.0f);
-        float variableZ = rand(-2.0f, 2.0f);
-        there.x = xDestination + variableX;
-        there.z = zDestination + variableZ;
-        obj_id building = getTopMostContainer(self);
-        obj_id cellDestination = getCellId(building, cellDestinationStr);
+        obj_id cellDestination = getCellId(getTopMostContainer(self), cellDestinationStr);
         if (cellDestinationStr.equals("") || cellDestinationStr.equals("null") || !isIdValid(cellDestination))
         {
             return SCRIPT_CONTINUE;
         }
+        location there = getLocation(self);
+        there.x = dataTableGetFloat(RAND_LOCATION, randomEntry, "X") + rand(-2.0f, 2.0f);
+        there.z = dataTableGetFloat(RAND_LOCATION, randomEntry, "Z") + rand(-2.0f, 2.0f);
         there.cell = cellDestination;
         ai_lib.aiPathTo(self, there);
         setMovementRun(self);
@@ -87,52 +75,51 @@ public class cantina_actor extends script.base_script
     }
     public int moveToMainActorPosition(obj_id self, dictionary params) throws InterruptedException
     {
-        int position = params.getInt("position");
         String actorRole = getStringObjVar(self, "aprilfools.actor_role");
-        String myColumnForX = "";
-        String myColumnForZ = "";
-        if (actorRole.equals("ewok1"))
-        {
-            myColumnForX = "EWOK_1X";
-            myColumnForZ = "EWOK_1Z";
-        }
-        if (actorRole.equals("foil1"))
-        {
-            myColumnForX = "FOIL_1X";
-            myColumnForZ = "FOIL_1Z";
-        }
-        if (actorRole.equals("ewok2"))
-        {
-            myColumnForX = "EWOK_2X";
-            myColumnForZ = "EWOK_2Z";
-        }
-        if (actorRole.equals("ewok3"))
-        {
-            myColumnForX = "EWOK_3X";
-            myColumnForZ = "EWOK_3Z";
-        }
-        if (actorRole.equals("ewok4"))
-        {
-            myColumnForX = "EWOK_4X";
-            myColumnForZ = "EWOK_4Z";
-        }
-        if (myColumnForX.equals("") || myColumnForX.equals("null") || myColumnForZ.equals("") || myColumnForZ.equals("null"))
-        {
-            return SCRIPT_CONTINUE;
-        }
+        int position = params.getInt("position");
         if (position < 0 || position > 5)
         {
+            // says position can only be between 0 and 5 (see else condition).
             return SCRIPT_CONTINUE;
         }
-        if (position > 0 && (actorRole.equals("ewok2") || actorRole.equals("ewok3") || actorRole.equals("ewok4")))
+        else if (actorRole.equals("ewok2") || actorRole.equals("ewok3") || actorRole.equals("ewok4"))
+        {
+            // This is odd, but says we only want to deal with ewok1 or foil1.
+            return SCRIPT_CONTINUE;
+        }
+        String myColumnForX = "";
+        String myColumnForZ = "";
+        switch (actorRole) {
+            case "ewok1":
+                myColumnForX = "EWOK_1X";
+                myColumnForZ = "EWOK_1Z";
+                break;
+            case "foil1":
+                myColumnForX = "FOIL_1X";
+                myColumnForZ = "FOIL_1Z";
+                break;
+            // Bug?: I don't think we can even reach the following cases based on the conditional above.
+            case "ewok2":
+                myColumnForX = "EWOK_2X";
+                myColumnForZ = "EWOK_2Z";
+                break;
+            case "ewok3":
+                myColumnForX = "EWOK_3X";
+                myColumnForZ = "EWOK_3Z";
+                break;
+            case "ewok4":
+                myColumnForX = "EWOK_4X";
+                myColumnForZ = "EWOK_4Z";
+                break;
+        }
+        if (myColumnForX.equals("") || myColumnForZ.equals(""))
         {
             return SCRIPT_CONTINUE;
         }
         location there = getLocation(self);
         there.x = dataTableGetFloat(POSITIONS, position, myColumnForX);
         there.z = dataTableGetFloat(POSITIONS, position, myColumnForZ);
-        obj_id building = getTopMostContainer(self);
-        obj_id cantinaCell = getCellId(building, "cantina");
+        obj_id cantinaCell = getCellId(getTopMostContainer(self), "cantina");
         if (!isIdValid(cantinaCell))
         {
             return SCRIPT_CONTINUE;
@@ -152,8 +139,7 @@ public class cantina_actor extends script.base_script
         setInvulnerable(self, false);
         setObjVar(self, "aprilfools.run_away", 1);
         location there = getLocation(self);
-        obj_id building = getTopMostContainer(self);
-        obj_id destinationCell = getCellId(building, "foyer1");
+        obj_id destinationCell = getCellId(getTopMostContainer(self), "foyer1");
         if (!isIdValid(destinationCell))
         {
             return SCRIPT_CONTINUE;
@@ -171,10 +157,7 @@ public class cantina_actor extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        int runAway = getIntObjVar(self, "aprilfools.run_away");
-        obj_id building = getTopMostContainer(self);
-        obj_id destinationCell = getCellId(building, "foyer1");
-        if (destContainer == destinationCell && runAway == 1)
+        if (destContainer == getCellId(getTopMostContainer(self), "foyer1") && getIntObjVar(self, "aprilfools.run_away") == 1)
         {
             destroyObject(self);
         }
@@ -196,7 +179,6 @@ public class cantina_actor extends script.base_script
         }
         if (chance > 150)
         {
-            int roll = rand(1, 100);
             int tableLength = dataTableGetNumRows(DATATABLE);
             if (tableLength < 1)
             {
@@ -204,12 +186,9 @@ public class cantina_actor extends script.base_script
             }
             for (int i = 0; i < tableLength; i++)
             {
-                int minRoll = dataTableGetInt(DATATABLE, i, "MIN_ROLL");
-                if (minRoll > roll)
+                if (dataTableGetInt(DATATABLE, i, "MIN_ROLL") > rand(1, 100))
                 {
-                    String loot = dataTableGetString(DATATABLE, i, "LOOT");
-                    obj_id inventory = utils.getInventoryContainer(self);
-                    obj_id reward = createObject(loot, inventory, "");
+                    createObject(dataTableGetString(DATATABLE, i, "LOOT"), utils.getInventoryContainer(self), "");
                     return SCRIPT_CONTINUE;
                 }
             }
