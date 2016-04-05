@@ -1,21 +1,10 @@
 package script.event.emp_day;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.chat;
-import script.library.create;
-import script.library.factions;
-import script.library.groundquests;
-import script.library.holiday;
-import script.library.prose;
-import script.library.stealth;
-import script.library.utils;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class rescue_faction_npc_trigger_volume extends script.base_script
 {
@@ -131,8 +120,7 @@ public class rescue_faction_npc_trigger_volume extends script.base_script
             pathTo(mob, playerLoc);
         }
         blog("saying something");
-        prose_package pp = prose.getPackage(new string_id("event/empire_day", "rescue_me_breacher"), whoTriggeredMe);
-        chat.publicChat(mob, whoTriggeredMe, null, null, pp);
+        chat.publicChat(mob, whoTriggeredMe, null, null, prose.getPackage(new string_id("event/empire_day", "rescue_me_breacher"), whoTriggeredMe));
         return SCRIPT_CONTINUE;
     }
     public int OnTriggerVolumeExited(obj_id self, String volumeName, obj_id whoTriggeredMe) throws InterruptedException

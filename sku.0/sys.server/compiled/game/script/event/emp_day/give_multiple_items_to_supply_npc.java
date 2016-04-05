@@ -1,19 +1,8 @@
 package script.event.emp_day;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.factions;
-import script.library.groundquests;
-import script.library.holiday;
-import script.library.static_item;
-import script.library.utils;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
 public class give_multiple_items_to_supply_npc extends script.base_script
 {
@@ -90,25 +79,15 @@ public class give_multiple_items_to_supply_npc extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int questCrc = groundquests.getQuestIdFromString(questName);
-        int taskId = groundquests.getTaskId(questCrc, questName);
-        questCompleteTask(questCrc, taskId, giver);
+        questCompleteTask(questCrc, groundquests.getTaskId(questCrc, questName), giver);
         if (!incrementCollection(self, giver, faction))
         {
             blog("give_multiple_items_to_supply_npc.OnGiveItem: collection incr failed.");
         }
         return SCRIPT_OVERRIDE;
     }
-    public boolean isOpposingFaction(obj_id player, int npcFaction) throws InterruptedException
-    {
-        if (npcFaction == holiday.IMPERIAL_PLAYER && factions.isRebel(player))
-        {
-            return true;
-        }
-        if (npcFaction == holiday.REBEL_PLAYER && factions.isImperial(player))
-        {
-            return true;
-        }
-        return false;
+    public boolean isOpposingFaction(obj_id player, int npcFaction) throws InterruptedException {
+        return (npcFaction == holiday.IMPERIAL_PLAYER && factions.isRebel(player)) || (npcFaction == holiday.REBEL_PLAYER && factions.isImperial(player));
     }
     public boolean isCrateItem(obj_id player, String itemName, int faction) throws InterruptedException
     {

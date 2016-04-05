@@ -1,16 +1,11 @@
 package script.event.emp_day;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
+import script.library.create;
 import script.library.firework;
 import script.library.utils;
-import script.library.create;
+import script.obj_id;
+import script.string_id;
 
 public class firework_show extends script.base_script
 {
@@ -56,9 +51,8 @@ public class firework_show extends script.base_script
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, 256.0f);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                sendSystemMessage(objPlayers[i], new string_id("event/empire_day", "fireworks_broadcast"));
+            for (obj_id objPlayer : objPlayers) {
+                sendSystemMessage(objPlayer, new string_id("event/empire_day", "fireworks_broadcast"));
             }
         }
         messageTo(self, "startHugeFireworkDisplay", null, 10, false);
@@ -75,12 +69,7 @@ public class firework_show extends script.base_script
     }
     public int launchRandomFirework(obj_id self, dictionary params) throws InterruptedException
     {
-        location here = getLocation(self);
-        location there = utils.getRandomLocationInRing(here, 0, 64);
-        int tableLength = dataTableGetNumRows(firework.TBL_FX);
-        int roll = rand(1, tableLength);
-        String template = dataTableGetString(firework.TBL_FX, roll, "template");
-        obj_id effect = create.object(template, there);
+        obj_id effect = create.object(dataTableGetString(firework.TBL_FX, rand(1, dataTableGetNumRows(firework.TBL_FX)), "template"), utils.getRandomLocationInRing(getLocation(self), 0, 64));
         if (isIdValid(effect))
         {
             attachScript(effect, firework.SCRIPT_FIREWORK_CLEANUP);

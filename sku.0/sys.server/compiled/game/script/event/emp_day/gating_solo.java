@@ -1,15 +1,9 @@
 package script.event.emp_day;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.groundquests;
 import script.library.factions;
+import script.library.groundquests;
+import script.obj_id;
+import script.string_id;
 
 public class gating_solo extends script.base_script
 {
@@ -23,11 +17,10 @@ public class gating_solo extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int questId = questGetQuestId("quest/emp_day_rebel");
-        int task7 = groundquests.getTaskId(questId, "toSolo");
-        int task8 = groundquests.getTaskId(questId, "empDayComplete");
-        int factionHashCode = factions.pvpGetAlignedFaction(item);
-        String whichFaction = factions.getFactionNameByHashCode(factionHashCode);
-        if (questIsTaskActive(questId, task8, item) || questIsTaskActive(questId, task7, item) || questIsQuestComplete(questId, item))
+        String whichFaction = factions.getFactionNameByHashCode(factions.pvpGetAlignedFaction(item));
+        if (questIsTaskActive(questId, groundquests.getTaskId(questId, "empDayComplete"), item) ||
+            questIsTaskActive(questId, groundquests.getTaskId(questId, "toSolo"), item) ||
+            questIsQuestComplete(questId, item))
         {
             return SCRIPT_CONTINUE;
         }
