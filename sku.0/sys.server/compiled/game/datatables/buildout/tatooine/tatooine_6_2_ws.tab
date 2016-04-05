@@ -40,7 +40,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1033375	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	1320.15	5	1629.48	0.858528	0	-0.512767	0		$|
 1033376	0	object/static/structure/tatooine/wall_damaged_tatooine_large_style_01.iff	0	1392.17	3.02175	1643.47	0.786918	0	0.617057	0		$|
 1033377	0	object/static/structure/tatooine/wall_damaged_tatooine_large_style_01.iff	0	1400.04	3.02175	1645.89	-0.620985	0	0.783823	0		$|
-1082874	0	object/building/tatooine/cantina_tatooine.iff	0	1384.35	5	1325.87	0.945266	0	0.326302	0	theme_park.tatooine.mos_eisley.masterspawner	intSpawnBartender|0|0|$|
+1082874	0	object/building/tatooine/cantina_tatooine.iff	0	1384.35	5	1325.87	0.945266	0	0.326302	0	theme_park.tatooine.mos_eisley.masterspawner:event.bh_event.cantina_controller	intSpawnBartender|0|0|$|
 1082875	1082874	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1082876	1082874	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1082877	1082874	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|

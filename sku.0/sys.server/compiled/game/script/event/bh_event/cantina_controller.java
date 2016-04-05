@@ -1,17 +1,11 @@
 package script.event.bh_event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.ai_lib;
+import script.dictionary;
 import script.library.create;
-import script.library.chat;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class cantina_controller extends script.base_script
 {
@@ -29,13 +23,12 @@ public class cantina_controller extends script.base_script
     {
         if (!utils.hasScriptVar(self, "bhcelebs.bosskEventInitialized"))
         {
-            float rightNow = getGameTime();
             if (!hasObjVar(self, "bhcelebs.next_invasion_time"))
             {
                 float minInvasionTime = TWENTY_FOUR_HOURS;
                 float timeChunkSize = 900.0f;
                 int numTimeChunk = 192;
-                float nextInvasionTime = (rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime + rightNow;
+                float nextInvasionTime = (rand(1, numTimeChunk) * timeChunkSize) + minInvasionTime + getGameTime();
                 setObjVar(self, "bhcelebs.next_invasion_time", nextInvasionTime);
             }
             setObjVar(self, "bhcelebs.invasion_active", 0);
@@ -46,13 +39,13 @@ public class cantina_controller extends script.base_script
     }
     public int invasionTimerPing(obj_id self, dictionary params) throws InterruptedException
     {
-        float rightNow = getGameTime();
-        float nextInvasionTime = getFloatObjVar(self, "bhcelebs.next_invasion_time");
         int invasionActive = getIntObjVar(self, "bhcelebs.invasion_active");
         if (invasionActive == 1)
         {
             return SCRIPT_CONTINUE;
         }
+        float rightNow = getGameTime();
+        float nextInvasionTime = getFloatObjVar(self, "bhcelebs.next_invasion_time");
         if (rightNow > nextInvasionTime && invasionActive == 0)
         {
             messageTo(self, "startBosskEvent", null, 1, false);
@@ -71,9 +64,8 @@ public class cantina_controller extends script.base_script
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, 64.0f);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                sendSystemMessage(objPlayers[i], new string_id(STF_FILE, messageId));
+            for (obj_id objPlayer : objPlayers) {
+                sendSystemMessage(objPlayer, new string_id(STF_FILE, messageId));
             }
         }
     }
@@ -92,11 +84,7 @@ public class cantina_controller extends script.base_script
         {
             utils.removeScriptVar(self, "bhcelebs.beingDestroyed");
         }
-        location cantinaLoc = getLocation(self);
-        obj_id foyerCell = getCellId(self, "foyer1");
-        String planet = cantinaLoc.area;
-        location bosskStart = new location(43.8f, .1f, 0.5f, planet, foyerCell);
-        obj_id bossk = create.object("bossk", bosskStart);
+        obj_id bossk = create.object("bossk", new location(43.8f, .1f, 0.5f, getLocation(self).area, getCellId(self, "foyer1")));
         if (isIdValid(bossk))
         {
             setInvulnerable(bossk, true);
