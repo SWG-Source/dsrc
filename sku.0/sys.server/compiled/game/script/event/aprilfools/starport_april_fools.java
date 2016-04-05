@@ -25,10 +25,6 @@ public class starport_april_fools extends script.base_script
         messageTo(self, "heartbeat", null, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
-    public int OnAttach(obj_id self) throws InterruptedException
-    {
-        return OnInitialize(self);
-    }
     public int heartbeat(obj_id self, dictionary params) throws InterruptedException
     {
         String foolsDayRunning = getConfigSetting("GameServer", "foolsDay");
