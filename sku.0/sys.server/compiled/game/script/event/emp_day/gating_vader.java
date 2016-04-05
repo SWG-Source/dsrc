@@ -1,17 +1,12 @@
 package script.event.emp_day;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.groundquests;
-import script.library.factions;
-import script.library.locations;
+import script.dictionary;
 import script.library.create;
+import script.library.factions;
+import script.library.groundquests;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class gating_vader extends script.base_script
 {
@@ -31,10 +26,12 @@ public class gating_vader extends script.base_script
         outsideLoc.z += 15;
         for (int i = 0; i < 10; i++)
         {
-            obj_id outsideST = create.object(spawn, outsideLoc);
+            create.object(spawn, outsideLoc);
         }
-        obj_id atst1 = create.object("at_st", outsideLoc);
-        obj_id atst2 = create.object("at_st", outsideLoc);
+        // create AT-STs
+        create.object("at_st", outsideLoc);
+        create.object("at_st", outsideLoc);
+
         obj_id room1Cell = getCellId(self, "room1");
         obj_id room2Cell = getCellId(self, "room2");
         obj_id room3Cell = getCellId(self, "room3");

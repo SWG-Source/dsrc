@@ -1,20 +1,12 @@
 package script.event.emp_day;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.chat;
-import script.library.create;
 import script.library.groundquests;
-import script.library.holiday;
 import script.library.prose;
-import script.library.stealth;
-import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class goodbye_path_destroy extends script.base_script
 {
@@ -77,8 +69,7 @@ public class goodbye_path_destroy extends script.base_script
             setObjVar(self, "saidGoodbye", true);
             return SCRIPT_CONTINUE;
         }
-        prose_package pp = prose.getPackage(new string_id("event/empire_day", "see_you_topside"), rescuer);
-        chat.publicChat(self, rescuer, null, null, pp);
+        chat.publicChat(self, rescuer, null, null, prose.getPackage(new string_id("event/empire_day", "see_you_topside"), rescuer));
         setObjVar(self, "saidGoodbye", true);
         return SCRIPT_CONTINUE;
     }
@@ -102,15 +93,14 @@ public class goodbye_path_destroy extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id point = obj_id.NULL_ID;
-        for (int i = 0; i < exitPoints.length; i++)
-        {
-            String var = getStringObjVar(exitPoints[i], "disguise_exit");
-            if (var == null || !var.equals(mobDisguise))
-            {
+        String var;
+        for (obj_id exitPoint : exitPoints) {
+            var = getStringObjVar(exitPoint, "disguise_exit");
+            if (var == null || !var.equals(mobDisguise)) {
                 blog("GOODBYE pathToExit - var: " + var + " mobDisguise: " + mobDisguise);
                 continue;
             }
-            point = exitPoints[i];
+            point = exitPoint;
         }
         if (!isValidId(point) || !exists(point))
         {

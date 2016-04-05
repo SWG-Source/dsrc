@@ -1,24 +1,7 @@
 package script.event.emp_day;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.buff;
-import script.library.collection;
-import script.library.create;
-import script.library.factions;
-import script.library.groundquests;
-import script.library.holiday;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.sui;
-import script.library.trial;
-import script.library.utils;
+import script.library.*;
 
 public class crash_site_requisition extends script.base_script
 {
@@ -101,11 +84,10 @@ public class crash_site_requisition extends script.base_script
     }
     public int handleObjectSwapTimer(obj_id self, dictionary params) throws InterruptedException
     {
-        if (params == null || params.equals(""))
+        if (params == null)
         {
             return SCRIPT_CONTINUE;
         }
-        int pid = params.getInt("id");
         obj_id player = params.getObjId("player");
         if (!isIdValid(player) || !exists(player))
         {
@@ -138,8 +120,8 @@ public class crash_site_requisition extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        int test_pid = getIntObjVar(player, sui.COUNTDOWNTIMER_SUI_VAR);
-        if (pid != test_pid)
+        int pid = params.getInt("id");
+        if (pid != getIntObjVar(player, sui.COUNTDOWNTIMER_SUI_VAR))
         {
             return SCRIPT_CONTINUE;
         }
@@ -160,7 +142,7 @@ public class crash_site_requisition extends script.base_script
             {
                 parentBuffName = holiday.BUFF_IMP_EMPIREDAY_RECRUITMENT_SF;
             }
-            if (parentBuffName == null || parentBuffName.equals(""))
+            if (parentBuffName.equals(""))
             {
                 return SCRIPT_CONTINUE;
             }
