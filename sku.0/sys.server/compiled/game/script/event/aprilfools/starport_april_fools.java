@@ -1,16 +1,14 @@
 package script.event.aprilfools;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
 import script.library.utils;
+import script.location;
+import script.obj_id;
+
+import java.util.Calendar;
+import java.util.Vector;
 
 public class starport_april_fools extends script.base_script
 {
@@ -29,9 +27,7 @@ public class starport_april_fools extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        setObjVar(self, LAST_SPAWN, 0);
-        messageTo(self, "heartbeat", null, 60.0f, false);
-        return SCRIPT_CONTINUE;
+        return OnInitialize(self);
     }
     public int heartbeat(obj_id self, dictionary params) throws InterruptedException
     {
@@ -41,9 +37,10 @@ public class starport_april_fools extends script.base_script
             messageTo(self, "heartbeat", null, 60.0f, false);
             return SCRIPT_CONTINUE;
         }
+        Calendar cal = Calendar.getInstance();
         int currentTime = getCalendarTime();
-        int midnightOnAprilFoolsDay = getCalendarTime(2010, 4, 1, 0, 0, 0);
-        int midnightOnDayAfterAprilFools = getCalendarTime(2010, 4, 2, 0, 0, 0);
+        int midnightOnAprilFoolsDay = getCalendarTime(cal.get(Calendar.YEAR), 4, 1, 0, 0, 0);
+        int midnightOnDayAfterAprilFools = getCalendarTime(cal.get(Calendar.YEAR), 4, 2, 0, 0, 0);
         String forceAprilFools = getConfigSetting("GameServer", "forceFoolsDay");
         if (forceAprilFools == null || forceAprilFools.length() <= 0)
         {
@@ -73,21 +70,22 @@ public class starport_april_fools extends script.base_script
         {
             spawnTime = configTime * 60;
         }
-        int lastSpawnTime = getIntObjVar(self, LAST_SPAWN);
-        if (currentTime - lastSpawnTime < spawnTime)
+        if (currentTime - getIntObjVar(self, LAST_SPAWN) < spawnTime)
         {
             messageTo(self, "heartbeat", null, 60.0f, false);
             return SCRIPT_CONTINUE;
         }
-        String planetName = getCurrentSceneName();
         Vector creatureList = new Vector();
         creatureList.setSize(0);
         int numRows = dataTableGetNumRows(spawnDatatable);
+        obj_id[] currentCreatures;
+        location currentLoc;
+        obj_id newCreature;
+        String templateName;
+
         for (int i = 0; i < numRows; ++i)
         {
-            String dtPlanetName = dataTableGetString(spawnDatatable, i, 0);
-            String dtCityName = dataTableGetString(spawnDatatable, i, 1);
-            if (planetName.equals(dtPlanetName) == false || cityName.equals(dtCityName) == false)
+            if (!getCurrentSceneName().equals(dataTableGetString(spawnDatatable, i, 0)) || !cityName.equals(dataTableGetString(spawnDatatable, i, 1)))
             {
                 continue;
             }
@@ -95,15 +93,13 @@ public class starport_april_fools extends script.base_script
             int totalCreatures = 0;
             if (hasObjVar(self, CREATURE_LIST))
             {
-                obj_id[] currentCreatures = getObjIdArrayObjVar(self, CREATURE_LIST);
+                currentCreatures = getObjIdArrayObjVar(self, CREATURE_LIST);
                 if (currentCreatures != null && currentCreatures.length > 0)
                 {
-                    for (int j = 0; j < currentCreatures.length; ++j)
-                    {
-                        if (isIdValid(currentCreatures[j]) && exists(currentCreatures[j]) && !isDead(currentCreatures[j]))
-                        {
+                    for (obj_id currentCreature : currentCreatures) {
+                        if (isIdValid(currentCreature) && exists(currentCreature) && !isDead(currentCreature)) {
                             ++totalCreatures;
-                            utils.addElement(creatureList, currentCreatures[j]);
+                            utils.addElement(creatureList, currentCreature);
                         }
                     }
                 }
@@ -114,18 +110,18 @@ public class starport_april_fools extends script.base_script
                 messageTo(self, "heartbeat", null, 60.0f, false);
                 return SCRIPT_CONTINUE;
             }
-            String templateName = dataTableGetString(spawnDatatable, i, 2);
             float cx = dataTableGetFloat(spawnDatatable, i, 3);
             float cy = dataTableGetFloat(spawnDatatable, i, 4);
             float cz = dataTableGetFloat(spawnDatatable, i, 5);
-            location currentLoc = getLocation(self);
+            templateName = dataTableGetString(spawnDatatable, i, 2);
+            currentLoc = getLocation(self);
             currentLoc.x = cx;
             currentLoc.y = cy;
             currentLoc.z = cz;
             for (int j = totalCreatures; j < maxCreatures; ++j)
             {
                 currentLoc.x += (10 * j);
-                obj_id newCreature = create.object(templateName, currentLoc);
+                newCreature = create.object(templateName, currentLoc);
                 utils.addElement(creatureList, newCreature);
             }
             setObjVar(self, CREATURE_LIST, creatureList);
@@ -141,18 +137,14 @@ public class starport_april_fools extends script.base_script
             obj_id[] currentCreatures = getObjIdArrayObjVar(self, CREATURE_LIST);
             if (currentCreatures != null && currentCreatures.length > 0)
             {
-                for (int j = 0; j < currentCreatures.length; ++j)
-                {
-                    if (isIdValid(currentCreatures[j]) && exists(currentCreatures[j]) && !isDead(currentCreatures[j]))
-                    {
-                        if (ai_lib.isInCombat(currentCreatures[j]))
-                        {
-                            if (!utils.hasScriptVar(self, "destroyDelay"))
-                            {
+                for (obj_id currentCreature : currentCreatures) {
+                    if (isIdValid(currentCreature) && exists(currentCreature) && !isDead(currentCreature)) {
+                        if (ai_lib.isInCombat(currentCreature)) {
+                            if (!utils.hasScriptVar(self, "destroyDelay")) {
                                 utils.setScriptVar(self, "destroyDelay", 1);
                                 return SCRIPT_CONTINUE;
                             }
-                            destroyObject(currentCreatures[j]);
+                            destroyObject(currentCreature);
                         }
                     }
                 }
