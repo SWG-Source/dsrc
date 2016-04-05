@@ -1,17 +1,10 @@
 package script.event.auto_invasion;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.utils;
-import script.ai.ai_combat;
-import script.library.healing;
+import script.obj_id;
+import script.string_id;
 
 public class invader extends script.base_script
 {
@@ -26,9 +19,7 @@ public class invader extends script.base_script
         if (hasObjVar(self, "auto_invasion.teh_uber"))
         {
             setScale(self, 5.0f);
-            string_id bossNameSID = new string_id("auto_invasion", "ewok_boss_name");
-            String bossName = utils.packStringId(bossNameSID);
-            setName(self, bossName);
+            setName(self, utils.packStringId(new string_id("auto_invasion", "ewok_boss_name")));
             int bossBuffLevel = getIntObjVar(self, "auto_invasion.boss_buff_level");
             int buffAmount = bossBuffLevel * bossBuffLevel * 10000;
             addAttribModifier(self, "medical_enhance_health", HEALTH, buffAmount, 10000, 0.0f, 10.0f, true, false, true);
@@ -40,9 +31,7 @@ public class invader extends script.base_script
     {
         obj_id target = getObjIdObjVar(self, "auto_invasion.target");
         float destinationOffset = getFloatObjVar(target, "auto_invasion.dest_offset");
-        location locationDestination = getLocation(target);
-        location adjustedLoc = utils.getRandomLocationInRing(locationDestination, destinationOffset, destinationOffset + 10);
-        ai_lib.aiPathTo(self, adjustedLoc);
+        ai_lib.aiPathTo(self, utils.getRandomLocationInRing(getLocation(target), destinationOffset, destinationOffset + 10));
         setMovementRun(self);
         return SCRIPT_CONTINUE;
     }
@@ -82,12 +71,9 @@ public class invader extends script.base_script
             }
             for (int i = 0; i < tableLength; i++)
             {
-                int minRoll = dataTableGetInt(DATATABLE, i, "MIN_ROLL");
-                if (minRoll > roll)
+                if (dataTableGetInt(DATATABLE, i, "MIN_ROLL") > roll)
                 {
-                    String loot = dataTableGetString(DATATABLE, i, "LOOT");
-                    obj_id inventory = utils.getInventoryContainer(self);
-                    obj_id reward = createObject(loot, inventory, "");
+                    createObject(dataTableGetString(DATATABLE, i, "LOOT"), utils.getInventoryContainer(self), "");
                     return SCRIPT_CONTINUE;
                 }
             }

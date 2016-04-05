@@ -1,20 +1,8 @@
 package script.event.auto_invasion;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.create;
+import script.dictionary;
 import script.library.locations;
-import script.library.skill;
-import script.library.chat;
-import script.library.badge;
-import java.util.StringTokenizer;
+import script.obj_id;
 
 public class auto_invasion extends script.base_script
 {
@@ -26,9 +14,7 @@ public class auto_invasion extends script.base_script
     public static final float THIRTY_SIX_HOURS = 60 * 60 * 36;
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        location here = getLocation(self);
-        String myRegion = locations.getGuardSpawnerRegionName(here);
-        if (myRegion.equals("@tatooine_region_names:mos_eisley"))
+        if (locations.getGuardSpawnerRegionName(getLocation(self)).equals("@tatooine_region_names:mos_eisley"))
         {
             removeObjVar(self, "event");
             removeObjVar(self, "auto_invasion");
