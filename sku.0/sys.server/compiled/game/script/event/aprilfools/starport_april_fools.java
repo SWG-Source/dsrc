@@ -37,9 +37,10 @@ public class starport_april_fools extends script.base_script
         int currentTime = getCalendarTime();
         int midnightOnAprilFoolsDay = getCalendarTime(cal.get(Calendar.YEAR), 4, 1, 0, 0, 0);
         int midnightOnDayAfterAprilFools = getCalendarTime(cal.get(Calendar.YEAR), 4, 2, 0, 0, 0);
-        String forceAprilFools = getConfigSetting("GameServer", "forceFoolsDay");
+        String forceAprilFools = getConfigSetting("EventTeam", "forceFoolsDay");
         if (forceAprilFools == null || forceAprilFools.length() <= 0)
         {
+            LOG("AprilFools", "Fools day is being forced into the April Fools real 24 hour period because the [EventTeam] forceFoolsDay setting is null or not set.");
             if (currentTime < midnightOnAprilFoolsDay || currentTime > midnightOnDayAfterAprilFools)
             {
                 messageTo(self, "cleanupCreatures", null, 0.0f, false);
