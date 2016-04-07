@@ -1,23 +1,7 @@
 package script.event.emperorsday;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.anims;
-import script.library.chat;
-import script.library.colors;
-import script.library.factions;
-import script.library.holiday;
-import script.library.pclib;
-import script.library.prose;
-import script.library.stealth;
-import script.library.utils;
+import script.library.*;
 
 public class imperial_npc extends script.base_script
 {
@@ -99,10 +83,8 @@ public class imperial_npc extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             boolean playerReward = false;
-            for (int i = 0; i < listOfWinners.length; i++)
-            {
-                if (player != listOfWinners[i])
-                {
+            for (obj_id winner : listOfWinners) {
+                if (player != winner) {
                     continue;
                 }
                 playerReward = true;
@@ -152,21 +134,20 @@ public class imperial_npc extends script.base_script
             {
                 switch (holiday.getEmoteBeligerence(emotein))
                 {
-                    case 2:
-                    break;
                     case 1:
-                    doAnimationAction(self, "shake_head_no");
-                    utils.removeScriptVar(emoteSayer, "emperorsDayBadge");
-                    factions.addFactionStanding(emoteSayer, factions.FACTION_IMPERIAL, -250);
-                    prose_package pp = prose.getPackage(holiday.DARTH_BADGE_2);
-                    prose.setTT(pp, emoteSayer);
-                    chat.chat(self, emoteSayer, pp);
-                    forceChokePlayer(self, emoteSayer);
-                    break;
+                        doAnimationAction(self, "shake_head_no");
+                        utils.removeScriptVar(emoteSayer, "emperorsDayBadge");
+                        factions.addFactionStanding(emoteSayer, factions.FACTION_IMPERIAL, -250);
+                        prose_package pp = prose.getPackage(holiday.DARTH_BADGE_2);
+                        prose.setTT(pp, emoteSayer);
+                        chat.chat(self, emoteSayer, pp);
+                        forceChokePlayer(self, emoteSayer);
+                        break;
                     case 0:
-                    break;
+                    case 2:
+                        break;
                     default:
-                    break;
+                        break;
                 }
             }
         }
