@@ -1,25 +1,9 @@
 package script.event.emperorsday;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.collection;
-import script.library.create;
-import script.library.factions;
-import script.library.firework;
-import script.library.holiday;
-import script.library.performance;
-import script.library.prose;
-import script.library.static_item;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class yoda_fountain extends script.base_script
 {
@@ -58,23 +42,17 @@ public class yoda_fountain extends script.base_script
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "yoda_fountain.OnInitialize: Fountain is initializing.");
-        if (!utils.hasScriptVar(self, "musicObject"))
-        {
-            location soundLoc = getLocation(self);
-            obj_id soundObject = createObject(MUSIC_HAN_LEIA, soundLoc);
-            utils.setScriptVar(self, "musicObject", soundObject);
-        }
-        else if (utils.hasScriptVar(self, "musicObject"))
+
+        if (utils.hasScriptVar(self, "musicObject"))
         {
             obj_id oldSoundObject = utils.getObjIdScriptVar(self, "musicObject");
             if ((isIdValid(oldSoundObject)) && exists(oldSoundObject))
             {
                 destroyObject(oldSoundObject);
             }
-            location soundLoc = getLocation(self);
-            obj_id soundObject = createObject(MUSIC_HAN_LEIA, soundLoc);
-            utils.setScriptVar(self, "musicObject", soundObject);
         }
+        utils.setScriptVar(self, "musicObject", createObject(MUSIC_HAN_LEIA, getLocation(self)));
+
         CustomerServiceLog("holidayEvent", "yoda_fountain.OnInitialize: Preparing Parade.");
         messageTo(self, "prepareParade", null, 30.0f, false);
         return SCRIPT_CONTINUE;
@@ -107,11 +85,9 @@ public class yoda_fountain extends script.base_script
             idx++;
         }
         String statusString = holiday.getEmpireDayEligibility(player, holiday.REBEL_PLAYER);
-        if (statusString != null || !statusString.equals(""))
-        {
+        if (statusString != null && !statusString.equals("")) {
             names[idx] = "remembrance_day_player_status";
             attribs[idx] = statusString;
-            idx++;
         }
         return SCRIPT_CONTINUE;
     }
@@ -172,11 +148,9 @@ public class yoda_fountain extends script.base_script
         if (utils.hasScriptVar(self, "leia"))
         {
             Vector npc = utils.getResizeableObjIdArrayScriptVar(self, "leia");
-            for (int i = 0; i < npc.size(); i++)
-            {
-                if (isIdValid(((obj_id)npc.get(i))) && exists(((obj_id)npc.get(i))))
-                {
-                    destroyObject(((obj_id)npc.get(i)));
+            for (Object aNpc : npc) {
+                if (isIdValid(((obj_id) aNpc)) && exists(((obj_id) aNpc))) {
+                    destroyObject(((obj_id) aNpc));
                 }
             }
             utils.removeScriptVar(self, "leia");
@@ -184,11 +158,9 @@ public class yoda_fountain extends script.base_script
         if (utils.hasScriptVar(self, "solo"))
         {
             Vector npc = utils.getResizeableObjIdArrayScriptVar(self, "solo");
-            for (int i = 0; i < npc.size(); i++)
-            {
-                if (isIdValid(((obj_id)npc.get(i))) && exists(((obj_id)npc.get(i))))
-                {
-                    destroyObject(((obj_id)npc.get(i)));
+            for (Object aNpc : npc) {
+                if (isIdValid(((obj_id) aNpc)) && exists(((obj_id) aNpc))) {
+                    destroyObject(((obj_id) aNpc));
                 }
             }
             utils.removeScriptVar(self, "solo");
@@ -196,11 +168,9 @@ public class yoda_fountain extends script.base_script
         if (utils.hasScriptVar(self, "chewbacca"))
         {
             Vector npc = utils.getResizeableObjIdArrayScriptVar(self, "chewbacca");
-            for (int i = 0; i < npc.size(); i++)
-            {
-                if (isIdValid(((obj_id)npc.get(i))) && exists(((obj_id)npc.get(i))))
-                {
-                    destroyObject(((obj_id)npc.get(i)));
+            for (Object aNpc : npc) {
+                if (isIdValid(((obj_id) aNpc)) && exists(((obj_id) aNpc))) {
+                    destroyObject(((obj_id) aNpc));
                 }
             }
             utils.removeScriptVar(self, "chewbacca");
@@ -290,16 +260,13 @@ public class yoda_fountain extends script.base_script
             }
             location loc = getLocation(self);
             obj_id[] objects = getObjectsInRange(loc, holiday.OBJECT_NEAR_CHECK_RANGE_100M);
-            for (int i = 0; i < objects.length; i++)
-            {
-                if (isIdValid(objects[i]))
-                {
-                    if (hasObjVar(objects[i], "soldier"))
-                    {
-                        int soldierNumber = getIntObjVar(objects[i], "soldier");
-                        obj_id pathPoint = holiday.getEmpireDayWaypointObjectObjId(self, "pathsoldier" + soldierNumber, holiday.OBJECT_NEAR_CHECK_RANGE_100M);
-                        location pathLoc = getLocation(pathPoint);
-                        pathTo(objects[i], pathLoc);
+            obj_id pathPoint;
+            for (obj_id object : objects) {
+                if (isIdValid(object)) {
+                    if (hasObjVar(object, "soldier")) {
+                        int soldierNumber = getIntObjVar(object, "soldier");
+                        pathPoint = holiday.getEmpireDayWaypointObjectObjId(self, "pathsoldier" + soldierNumber, holiday.OBJECT_NEAR_CHECK_RANGE_100M);
+                        pathTo(object, getLocation(pathPoint));
                     }
                 }
             }
@@ -323,9 +290,7 @@ public class yoda_fountain extends script.base_script
         if (!utils.hasScriptVar(self, "musicObject"))
         {
             CustomerServiceLog("holidayEvent", "yoda_fountain.parade: Creating new music object.");
-            location soundLoc = getLocation(self);
-            obj_id soundObject = createObject(MUSIC_BATTLE_HEROES, soundLoc);
-            utils.setScriptVar(self, "musicObject", soundObject);
+            utils.setScriptVar(self, "musicObject", createObject(MUSIC_BATTLE_HEROES, getLocation(self)));
         }
         else if (utils.hasScriptVar(self, "musicObject"))
         {
@@ -335,9 +300,7 @@ public class yoda_fountain extends script.base_script
             {
                 destroyObject(oldSoundObject);
             }
-            location soundLoc = getLocation(self);
-            obj_id soundObject = createObject(MUSIC_BATTLE_HEROES, soundLoc);
-            utils.setScriptVar(self, "musicObject", soundObject);
+            utils.setScriptVar(self, "musicObject", createObject(MUSIC_BATTLE_HEROES, getLocation(self)));
         }
         CustomerServiceLog("holidayEvent", "yoda_fountain.parade: Getting Falcon waypoint data in preparation for shuttle landing.");
         obj_id spawnPoint = holiday.getEmpireDayWaypointObjectObjId(self, "shuttleLanding", holiday.OBJECT_NEAR_CHECK_RANGE_100M);
@@ -508,15 +471,12 @@ public class yoda_fountain extends script.base_script
         if (utils.hasScriptVar(self, "soldier"))
         {
             Vector npc = utils.getResizeableObjIdArrayScriptVar(self, "soldier");
-            for (int i = 0; i < npc.size(); i++)
-            {
-                if (isIdValid(((obj_id)npc.get(i))) && exists(((obj_id)npc.get(i))))
-                {
-                    if (isValidId(getObjectInSlot(((obj_id)npc.get(i)), "hold_r")))
-                    {
+            for (Object aNpc : npc) {
+                if (isIdValid(((obj_id) aNpc)) && exists(((obj_id) aNpc))) {
+                    if (isValidId(getObjectInSlot(((obj_id) aNpc), "hold_r"))) {
                         continue;
                     }
-                    doAnimationAction(((obj_id)npc.get(i)), "salute1");
+                    doAnimationAction(((obj_id) aNpc), "salute1");
                 }
             }
         }
@@ -617,18 +577,15 @@ public class yoda_fountain extends script.base_script
         }
         Vector rebelPlayers = new Vector();
         rebelPlayers.setSize(0);
-        for (int z = 0; z < playersInRange.length; z++)
-        {
-            if (!isIdValid(playersInRange[z]) || !exists(playersInRange[z]))
-            {
+        for (obj_id aPlayersInRange : playersInRange) {
+            if (!isIdValid(aPlayersInRange) || !exists(aPlayersInRange)) {
                 continue;
             }
-            if (holiday.isEmpireDayPlayerEligible(playersInRange[z], holiday.REBEL_PLAYER))
-            {
-                utils.addElement(rebelPlayers, playersInRange[z]);
+            if (holiday.isEmpireDayPlayerEligible(aPlayersInRange, holiday.REBEL_PLAYER)) {
+                utils.addElement(rebelPlayers, aPlayersInRange);
             }
         }
-        if (rebelPlayers == null || rebelPlayers.size() <= 0)
+        if (rebelPlayers.size() <= 0)
         {
             CustomerServiceLog("holidayEvent", "yoda_fountain.leia6: There were players in the area but none that were eligible. Leia is leaving.");
             chat.chat(leia, LEIA_6_ALT);
@@ -685,7 +642,7 @@ public class yoda_fountain extends script.base_script
                 utils.setScriptVar(listOfWinners[i], "emperorsDayBadge", 1);
                 setObjVar(leia, "readyForBadge.winner_" + (i + 1), listOfWinners[i]);
             }
-            if (winnerList == null || winnerList.equals(""))
+            if (winnerList.equals(""))
             {
                 CustomerServiceLog("holidayEvent", "yoda_fountain.leia6: The player names to be called somehow got corrupted. Sending Leia to falcon.");
                 chat.chat(leia, LEIA_6_ALT);
@@ -738,11 +695,9 @@ public class yoda_fountain extends script.base_script
         if (utils.hasScriptVar(self, "soldier"))
         {
             Vector npc = utils.getResizeableObjIdArrayScriptVar(self, "soldier");
-            for (int i = 0; i < npc.size(); i++)
-            {
-                if (isIdValid(((obj_id)npc.get(i))) && exists(((obj_id)npc.get(i))))
-                {
-                    doAnimationAction(((obj_id)npc.get(i)), "celebrate");
+            for (Object aNpc : npc) {
+                if (isIdValid(((obj_id) aNpc)) && exists(((obj_id) aNpc))) {
+                    doAnimationAction(((obj_id) aNpc), "celebrate");
                 }
             }
         }
@@ -751,7 +706,7 @@ public class yoda_fountain extends script.base_script
     public int vendor3(obj_id self, dictionary params) throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "yoda_fountain.vendor3: messageHandler Initialized.");
-        if (params == null || params.equals(""))
+        if (params == null)
         {
             CustomerServiceLog("holidayEvent", "yoda_fountain.vendor3: There were no params passed to the vendor3 message handler.");
             return SCRIPT_CONTINUE;
@@ -799,7 +754,7 @@ public class yoda_fountain extends script.base_script
     public int waitingHalf(obj_id self, dictionary params) throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "yoda_fountain.waitingHalf: messageHandler Initialized.");
-        if (params == null || params.equals(""))
+        if (params == null)
         {
             CustomerServiceLog("holidayEvent", "yoda_fountain.waitingHalf: There were no params passed to the vendor3 message handler.");
             return SCRIPT_CONTINUE;
@@ -866,12 +821,12 @@ public class yoda_fountain extends script.base_script
         String waitingOnList = "";
         if (miaList.size() == 1)
         {
-            CustomerServiceLog("holidayEvent", "yoda_fountain.waitingHalf: The list length for MIA players is only one player: " + ((obj_id)miaList.get(0)));
+            CustomerServiceLog("holidayEvent", "yoda_fountain.waitingHalf: The list length for MIA players is only one player: " + miaList.get(0));
             waitingOnList = getFirstName(((obj_id)miaList.get(0)));
         }
         else 
         {
-            CustomerServiceLog("holidayEvent", "yoda_fountain.waitingHalf: The list length for MIA players is: " + ((obj_id)miaList.get(0)));
+            CustomerServiceLog("holidayEvent", "yoda_fountain.waitingHalf: The list length for MIA players is: " + miaList.get(0));
             for (int i = 0; i < miaList.size(); i++)
             {
                 if (i == 0)
@@ -915,7 +870,7 @@ public class yoda_fountain extends script.base_script
     public int waitingDone(obj_id self, dictionary params) throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "yoda_fountain.waitingDone: messageHandler Initialized.");
-        if (params == null || params.equals(""))
+        if (params == null)
         {
             CustomerServiceLog("holidayEvent", "yoda_fountain.waitingDone: There were no params passed to the vendor3 message handler.");
             return SCRIPT_CONTINUE;
@@ -984,7 +939,7 @@ public class yoda_fountain extends script.base_script
             String waitingOnList = "";
             if (lastestMiaList.size() == 1)
             {
-                CustomerServiceLog("holidayEvent", "emperor_statue.waitingDone: The list length for MIA players is only one player: " + ((obj_id)lastestMiaList.get(0)));
+                CustomerServiceLog("holidayEvent", "emperor_statue.waitingDone: The list length for MIA players is only one player: " + lastestMiaList.get(0));
                 waitingOnList = getFirstName(((obj_id)lastestMiaList.get(0)));
             }
             else 
@@ -1025,11 +980,9 @@ public class yoda_fountain extends script.base_script
             }
             prose.setTO(pp, waitingOnList);
             chat.chat(leia, oldMiaList[0], pp);
-            for (int i = 0; i < oldMiaList.length; i++)
-            {
-                if (isIdValid(oldMiaList[i]) && exists(oldMiaList[i]))
-                {
-                    utils.removeScriptVar(oldMiaList[i], "emperorsDayBadge");
+            for (obj_id miaItem : oldMiaList) {
+                if (isIdValid(miaItem) && exists(miaItem)) {
+                    utils.removeScriptVar(miaItem, "emperorsDayBadge");
                 }
             }
         }
@@ -1065,7 +1018,7 @@ public class yoda_fountain extends script.base_script
                 utils.addElement(nonFactionalTemplates, dataTableGetString(firework.TBL_FX, i, "template"));
             }
         }
-        if (nonFactionalTemplates == null || nonFactionalTemplates.size() <= 0)
+        if (nonFactionalTemplates.size() <= 0)
         {
             return SCRIPT_CONTINUE;
         }
@@ -1097,15 +1050,12 @@ public class yoda_fountain extends script.base_script
         if (utils.hasScriptVar(self, "soldier"))
         {
             Vector npc = utils.getResizeableObjIdArrayScriptVar(self, "soldier");
-            for (int i = 0; i < npc.size(); i++)
-            {
-                if (isIdValid(((obj_id)npc.get(i))) && exists(((obj_id)npc.get(i))))
-                {
-                    if (isValidId(getObjectInSlot(((obj_id)npc.get(i)), "hold_r")))
-                    {
+            for (Object aNpc : npc) {
+                if (isIdValid(((obj_id) aNpc)) && exists(((obj_id) aNpc))) {
+                    if (isValidId(getObjectInSlot(((obj_id) aNpc), "hold_r"))) {
                         continue;
                     }
-                    doAnimationAction(((obj_id)npc.get(i)), "salute1");
+                    doAnimationAction(((obj_id) aNpc), "salute1");
                 }
             }
         }
@@ -1192,16 +1142,13 @@ public class yoda_fountain extends script.base_script
         }
         location loc = getLocation(self);
         obj_id[] objects = getObjectsInRange(loc, holiday.OBJECT_NEAR_CHECK_RANGE_100M);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isIdValid(objects[i]))
-            {
-                if (hasObjVar(objects[i], "soldier"))
-                {
-                    int soldierNumber = getIntObjVar(objects[i], "soldier");
-                    obj_id pathPoint = holiday.getEmpireDayWaypointObjectObjId(self, "spawnsoldier" + soldierNumber, holiday.OBJECT_NEAR_CHECK_RANGE_100M);
-                    location pathLoc = getLocation(pathPoint);
-                    pathTo(objects[i], pathLoc);
+        obj_id pathPoint;
+        for (obj_id object : objects) {
+            if (isIdValid(object)) {
+                if (hasObjVar(object, "soldier")) {
+                    int soldierNumber = getIntObjVar(object, "soldier");
+                    pathPoint = holiday.getEmpireDayWaypointObjectObjId(self, "spawnsoldier" + soldierNumber, holiday.OBJECT_NEAR_CHECK_RANGE_100M);
+                    pathTo(object, getLocation(pathPoint));
                 }
             }
         }
@@ -1247,37 +1194,37 @@ public class yoda_fountain extends script.base_script
         switch (num)
         {
             case 1:
-            break;
+                break;
             case 2:
-            playRebelFlyBy02(self, right);
-            break;
+                playRebelFlyBy(self, right, 2);
+                break;
             case 3:
-            playRebelFlyBy03(self, left);
-            break;
+                playRebelFlyBy(self, left, 3);
+                break;
             case 4:
-            playRebelFlyBy04(self, right);
-            break;
+                playRebelFlyBy(self, right, 4);
+                break;
             case 5:
-            playRebelFlyBy01(self, right);
-            break;
+                playRebelFlyBy(self, right, 1);
+                break;
             case 6:
-            playRebelFlyBy02(self, left);
-            break;
+                playRebelFlyBy(self, left, 2);
+                break;
             case 7:
-            playRebelFlyBy03(self, right);
-            break;
+                playRebelFlyBy(self, right, 3);
+                break;
             case 8:
-            playRebelFlyBy04(self, left);
-            break;
+                playRebelFlyBy(self, left, 4);
+                break;
             default:
-            playRebelFlyBy01(self, left);
-            break;
+                playRebelFlyBy(self, left, 1);
+                break;
         }
         return SCRIPT_CONTINUE;
     }
-    public boolean playRebelFlyBy01(obj_id self, obj_id playOnObject) throws InterruptedException
+    public boolean playRebelFlyBy(obj_id self, obj_id playOnObject, int sequence) throws InterruptedException
     {
-        CustomerServiceLog("holidayEvent", "yoda_fountain.playTieFighterGroup:  Function initialized.");
+        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy:  Function initialized.");
         if (!isValidId(self) || !exists(self))
         {
             return false;
@@ -1286,58 +1233,23 @@ public class yoda_fountain extends script.base_script
         {
             return false;
         }
-        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy01: playing.");
+        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy" + sequence + ": playing.");
         location here = getLocation(playOnObject);
-        playClientEffectLoc(getPlayerCreaturesInRange(here, 200.0f), holiday.REBEL_FLYBY_PARTICLE_01, here, 1.0f);
+        playClientEffectLoc(getPlayerCreaturesInRange(here, 200.0f), getFlyBy(sequence), here, 1.0f);
         return true;
     }
-    public boolean playRebelFlyBy02(obj_id self, obj_id playOnObject) throws InterruptedException
-    {
-        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy02:  Function initialized.");
-        if (!isValidId(self) || !exists(self))
-        {
-            return false;
+    private String getFlyBy(int sequence){
+        switch(sequence){
+            case 1:
+                return holiday.REBEL_FLYBY_PARTICLE_01;
+            case 2:
+                return holiday.REBEL_FLYBY_PARTICLE_02;
+            case 3:
+                return holiday.REBEL_FLYBY_PARTICLE_03;
+            case 4:
+                return holiday.REBEL_FLYBY_PARTICLE_04;
         }
-        if (!isValidId(playOnObject) || !exists(playOnObject))
-        {
-            return false;
-        }
-        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy02: playing.");
-        location here = getLocation(playOnObject);
-        playClientEffectLoc(getPlayerCreaturesInRange(here, 200.0f), holiday.REBEL_FLYBY_PARTICLE_02, here, 1.0f);
-        return true;
-    }
-    public boolean playRebelFlyBy03(obj_id self, obj_id playOnObject) throws InterruptedException
-    {
-        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy03:  Function initialized.");
-        if (!isValidId(self) || !exists(self))
-        {
-            return false;
-        }
-        if (!isValidId(playOnObject) || !exists(playOnObject))
-        {
-            return false;
-        }
-        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy03: playing.");
-        location here = getLocation(playOnObject);
-        playClientEffectLoc(getPlayerCreaturesInRange(here, 200.0f), holiday.REBEL_FLYBY_PARTICLE_03, here, 1.0f);
-        return true;
-    }
-    public boolean playRebelFlyBy04(obj_id self, obj_id playOnObject) throws InterruptedException
-    {
-        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy04:  Function initialized.");
-        if (!isValidId(self) || !exists(self))
-        {
-            return false;
-        }
-        if (!isValidId(playOnObject) || !exists(playOnObject))
-        {
-            return false;
-        }
-        CustomerServiceLog("holidayEvent", "yoda_fountain.playRebelFlyBy04: playing.");
-        location here = getLocation(playOnObject);
-        playClientEffectLoc(getPlayerCreaturesInRange(here, 200.0f), holiday.REBEL_FLYBY_PARTICLE_04, here, 1.0f);
-        return true;
+        return holiday.REBEL_FLYBY_PARTICLE_01;
     }
     public boolean createFalconDropship(obj_id fountain, location loc) throws InterruptedException
     {
