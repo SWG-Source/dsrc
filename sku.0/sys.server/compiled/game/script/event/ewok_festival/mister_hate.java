@@ -1,20 +1,10 @@
 package script.event.ewok_festival;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.chat;
-import script.library.groundquests;
-import script.library.prose;
-import script.library.trial;
-import script.library.utils;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class mister_hate extends script.base_script
 {
@@ -76,7 +66,7 @@ public class mister_hate extends script.base_script
                 return;
             }
             String theLove = toLower(text);
-            if (theLove.equals("love") || theLove.indexOf("i love you") > -1)
+            if (theLove.equals("love") || theLove.contains("i love you"))
             {
                 int maxHealth = getUnmodifiedMaxAttrib(self, HEALTH);
                 setAttrib(self, HEALTH, maxHealth);
@@ -94,11 +84,7 @@ public class mister_hate extends script.base_script
                 doAnimationAction(self, "taken_aback");
                 messageTo(self, "makeNpcStopCombat", null, 1, false);
             }
-            else 
-            {
-            }
         }
-        return;
     }
     public int makeNpcStopCombat(obj_id self, dictionary params) throws InterruptedException
     {
@@ -112,8 +98,7 @@ public class mister_hate extends script.base_script
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id wpn, int[] damage) throws InterruptedException
     {
-        int maxHealth = getUnmodifiedMaxAttrib(self, HEALTH);
-        setAttrib(self, HEALTH, maxHealth);
+        setAttrib(self, HEALTH, getUnmodifiedMaxAttrib(self, HEALTH));
         return SCRIPT_CONTINUE;
     }
     public int handleDestroySelf(obj_id self, dictionary params) throws InterruptedException
@@ -123,9 +108,8 @@ public class mister_hate extends script.base_script
         obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                npcEndConversation(players[i]);
+            for (obj_id player : players) {
+                npcEndConversation(player);
             }
         }
         obj_id parent = trial.getParent(self);

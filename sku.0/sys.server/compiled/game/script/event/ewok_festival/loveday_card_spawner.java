@@ -1,13 +1,6 @@
 package script.event.ewok_festival;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.groundquests;
 import script.library.static_item;
 import script.library.utils;
@@ -34,7 +27,7 @@ public class loveday_card_spawner extends script.base_script
     {
         if (canManipulate(player, self, false, false, 15, true))
         {
-            int menuOption = mi.addRootMenu(menu_info_types.ITEM_USE, new string_id("spam", "loveday_cards_take"));
+            mi.addRootMenu(menu_info_types.ITEM_USE, new string_id("spam", "loveday_cards_take"));
         }
         return SCRIPT_CONTINUE;
     }
@@ -52,9 +45,7 @@ public class loveday_card_spawner extends script.base_script
                 String cardType = getStringObjVar(self, "lovedayCardType");
                 if (cardType != null && cardType.length() > 0)
                 {
-                    obj_id inv = utils.getInventoryContainer(player);
-                    obj_id lovedayCard = static_item.createNewItemFunction(cardType, inv);
-                    groundquests.sendPlacedInInventorySystemMessage(player, lovedayCard);
+                    groundquests.sendPlacedInInventorySystemMessage(player, static_item.createNewItemFunction(cardType, utils.getInventoryContainer(player)));
                     destroyObject(self);
                 }
             }

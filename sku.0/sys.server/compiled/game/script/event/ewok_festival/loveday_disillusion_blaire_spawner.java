@@ -1,17 +1,11 @@
 package script.event.ewok_festival;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
-import script.library.holiday;
 import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class loveday_disillusion_blaire_spawner extends script.base_script
 {
@@ -71,9 +65,8 @@ public class loveday_disillusion_blaire_spawner extends script.base_script
         obj_id[] players = getAllPlayers(getLocation(getTopMostContainer(self)), 35.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessage(players[i], message, "");
+            for (obj_id player : players) {
+                sendSystemMessage(player, message, "");
             }
         }
     }

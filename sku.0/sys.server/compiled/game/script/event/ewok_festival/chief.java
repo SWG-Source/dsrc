@@ -1,16 +1,10 @@
 package script.event.ewok_festival;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.groundquests;
-import script.library.static_item;
 import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class chief extends script.base_script
 {
@@ -27,8 +21,7 @@ public class chief extends script.base_script
     }
     public int handleChiefInitialize(obj_id self, dictionary params) throws InterruptedException
     {
-        location here = getLocation(self);
-        if (!here.area.equals("naboo"))
+        if (!getLocation(self).area.equals("naboo"))
         {
             setName(self, "an Ewok chieftain");
         }
@@ -36,15 +29,13 @@ public class chief extends script.base_script
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
-        float distance = utils.getDistance2D(self, speaker);
-        if (distance > 10f)
+        if (utils.getDistance2D(self, speaker) > 10f)
         {
             return SCRIPT_CONTINUE;
         }
         if ((toLower(text)).equals("allayloo ta nuv"))
         {
-            obj_id speakerTarget = getIntendedTarget(speaker);
-            if (speakerTarget == self)
+            if (getIntendedTarget(speaker) == self)
             {
                 if (groundquests.hasCompletedQuest(speaker, OBJ_BOUQUET_QUEST))
                 {

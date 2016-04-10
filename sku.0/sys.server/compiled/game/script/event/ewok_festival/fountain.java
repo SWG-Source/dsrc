@@ -1,15 +1,11 @@
 package script.event.ewok_festival;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.static_item;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class fountain extends script.base_script
 {
@@ -51,11 +47,10 @@ public class fountain extends script.base_script
         {
             return false;
         }
-        obj_id inv = utils.getInventoryContainer(player);
         obj_id berryOne = utils.getStaticItemInInventory(player, OBJ_BERRY_ONE);
         if (isIdValid(berryOne))
         {
-            obj_id berryTwo = static_item.createNewItemFunction(OBJ_BERRY_TWO, inv);
+            static_item.createNewItemFunction(OBJ_BERRY_TWO, utils.getInventoryContainer(player));
             doAnimationAction(player, "manipulate_medium");
             sendSystemMessage(player, BERRY_GRANTED);
             destroyObject(berryOne);
