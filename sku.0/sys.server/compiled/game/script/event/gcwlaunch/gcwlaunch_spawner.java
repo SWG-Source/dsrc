@@ -1,15 +1,9 @@
 package script.event.gcwlaunch;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.create;
 import script.library.locations;
+import script.location;
+import script.obj_id;
 
 public class gcwlaunch_spawner extends script.base_script
 {
@@ -41,40 +35,30 @@ public class gcwlaunch_spawner extends script.base_script
     {
         if (!hasObjVar(self, "event.gcwlaunch.spawner"))
         {
-            location here = getLocation(self);
-            String myPlanet = getCurrentSceneName();
-            int locStart = 999;
-            String myRegion = locations.getGuardSpawnerRegionName(here);
-            if (myRegion.equals("@tatooine_region_names:anchorhead"))
-            {
-                locStart = 0;
+            int locStart;
+            switch (locations.getGuardSpawnerRegionName(getLocation(self))) {
+                case "@tatooine_region_names:anchorhead":
+                    locStart = 0;
+                    break;
+                case "@corellia_region_names:coronet":
+                    locStart = 3;
+                    break;
+                case "@naboo_region_names:moenia":
+                    locStart = 6;
+                    break;
+                case "@tatooine_region_names:bestine":
+                    locStart = 9;
+                    break;
+                case "@corellia_region_names:bela_vistal":
+                    locStart = 12;
+                    break;
+                case "@naboo_region_names:theed":
+                    locStart = 15;
+                    break;
+                default:
+                    return SCRIPT_CONTINUE;
             }
-            if (myRegion.equals("@corellia_region_names:coronet"))
-            {
-                locStart = 3;
-            }
-            if (myRegion.equals("@naboo_region_names:moenia"))
-            {
-                locStart = 6;
-            }
-            if (myRegion.equals("@tatooine_region_names:bestine"))
-            {
-                locStart = 9;
-            }
-            if (myRegion.equals("@corellia_region_names:bela_vistal"))
-            {
-                locStart = 12;
-            }
-            if (myRegion.equals("@naboo_region_names:theed"))
-            {
-                locStart = 15;
-            }
-            if (locStart > 15)
-            {
-                return SCRIPT_CONTINUE;
-            }
-            location spawnerLocation = new location(LOCS[locStart], LOCS[locStart + 1], LOCS[locStart + 2], myPlanet);
-            obj_id spawner = create.object("object/tangible/poi/base/poi_base.iff", spawnerLocation);
+            obj_id spawner = create.object("object/tangible/poi/base/poi_base.iff", new location(LOCS[locStart], LOCS[locStart + 1], LOCS[locStart + 2], getCurrentSceneName()));
             setObjVar(self, "event.gcwlaunch.spawner", spawner);
             attachScript(spawner, "event.gcwlaunch.gcwlaunch");
         }
