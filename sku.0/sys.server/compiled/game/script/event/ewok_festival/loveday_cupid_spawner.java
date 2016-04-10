@@ -1,17 +1,14 @@
 package script.event.ewok_festival;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
 import script.library.holiday;
 import script.library.utils;
+import script.location;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class loveday_cupid_spawner extends script.base_script
 {
@@ -36,10 +33,8 @@ public class loveday_cupid_spawner extends script.base_script
     }
     public void registerCupidSpawner(obj_id self) throws InterruptedException
     {
-        String lovedayLoc = getStringObjVar(self, holiday.LOVEDAY_CUPID_SPAWNER_CITY_VAR);
-        String spawnerId = holiday.LOVEDAY_CUPID_ELEMENT_NAME + lovedayLoc;
+        String spawnerId = holiday.LOVEDAY_CUPID_ELEMENT_NAME + getStringObjVar(self, holiday.LOVEDAY_CUPID_SPAWNER_CITY_VAR);
         getClusterWideData(holiday.LOVEDAY_CUPID_MANAGER_NAME, spawnerId, true, self);
-        return;
     }
     public int OnClusterWideDataResponse(obj_id self, String manage_name, String name, int request_id, String[] element_name_list, dictionary[] data, int lock_key) throws InterruptedException
     {
@@ -49,8 +44,7 @@ public class loveday_cupid_spawner extends script.base_script
             {
                 if (hasObjVar(self, holiday.LOVEDAY_CUPID_SPAWNER_CITY_VAR))
                 {
-                    String lovedayLoc = getStringObjVar(self, holiday.LOVEDAY_CUPID_SPAWNER_CITY_VAR);
-                    String spawnerId = holiday.LOVEDAY_CUPID_ELEMENT_NAME + lovedayLoc;
+                    String spawnerId = holiday.LOVEDAY_CUPID_ELEMENT_NAME + getStringObjVar(self, holiday.LOVEDAY_CUPID_SPAWNER_CITY_VAR);
                     dictionary webster = new dictionary();
                     webster.put(spawnerId, self);
                     replaceClusterWideData(manage_name, spawnerId, webster, true, lock_key);
@@ -117,11 +111,10 @@ public class loveday_cupid_spawner extends script.base_script
             Vector theSpawned = utils.getResizeableObjIdArrayScriptVar(self, "cupidSpawned");
             if (theSpawned != null && theSpawned.size() > 0)
             {
-                for (int i = 0; i < theSpawned.size(); i++)
-                {
-                    obj_id spawnedNpc = ((obj_id)theSpawned.get(i));
-                    if (isIdValid(spawnedNpc) && exists(spawnedNpc))
-                    {
+                obj_id spawnedNpc;
+                for (Object spawnedItem : theSpawned) {
+                    spawnedNpc = ((obj_id) spawnedItem);
+                    if (isIdValid(spawnedNpc) && exists(spawnedNpc)) {
                         messageTo(spawnedNpc, "prepareForDespawn", null, 1, false);
                     }
                 }

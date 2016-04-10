@@ -1,17 +1,14 @@
 package script.event.ewok_festival;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
 import script.library.holiday;
 import script.library.utils;
+import script.location;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class loveday_romance_target_spawner extends script.base_script
 {
@@ -32,12 +29,9 @@ public class loveday_romance_target_spawner extends script.base_script
     {
         if (!utils.hasScriptVar(self, "spawnedRomanceTargetNpcs"))
         {
-            location here = getLocation(self);
-            String planet = here.area;
-            String maleDatatable = "datatables/spawning/holiday/love_day_romance_target_male_" + planet + ".iff";
-            spawnRomanceTargets(maleDatatable, self, planet, "loveday_romance_target_male");
-            String femaleDatatable = "datatables/spawning/holiday/love_day_romance_target_female_" + planet + ".iff";
-            spawnRomanceTargets(femaleDatatable, self, planet, "loveday_romance_target_female");
+            String planet = getLocation(self).area;
+            spawnRomanceTargets("datatables/spawning/holiday/love_day_romance_target_male_" + planet + ".iff", self, planet, "loveday_romance_target_male");
+            spawnRomanceTargets("datatables/spawning/holiday/love_day_romance_target_female_" + planet + ".iff", self, planet, "loveday_romance_target_female");
             utils.setScriptVar(self, "spawnedRomanceTargetNpcs", true);
         }
         return SCRIPT_CONTINUE;
@@ -47,48 +41,46 @@ public class loveday_romance_target_spawner extends script.base_script
         obj_id[] players = getAllPlayers(getLocation(getTopMostContainer(self)), 35.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessage(players[i], message, "");
+            for (obj_id player : players) {
+                sendSystemMessage(player, message, "");
             }
         }
     }
     public void spawnRomanceTargets(String datatable, obj_id self, String planet, String spawnName) throws InterruptedException
     {
-        int numSets = holiday.getNumRomanticTraitsSets();
         Vector traitSets = new Vector();
         traitSets.setSize(0);
-        for (int j = 0; j < numSets; j++)
+        for (int j = 0; j < holiday.getNumRomanticTraitsSets(); j++)
         {
             utils.addElement(traitSets, j);
             utils.addElement(traitSets, j);
         }
         int numRows = dataTableGetNumRows(datatable);
+        dictionary cupidData;
+        obj_id target;
         for (int i = 0; i < numRows; i++)
         {
-            if (traitSets == null || traitSets.size() < 1)
+            if (traitSets.size() < 1)
             {
                 break;
             }
-            dictionary cupidData = dataTableGetRow(datatable, i);
+            cupidData = dataTableGetRow(datatable, i);
             float x = cupidData.getFloat("loc_x");
             float y = cupidData.getFloat("loc_y");
             float z = cupidData.getFloat("loc_z");
             float yaw = cupidData.getFloat("yaw");
-            location spawnLoc = new location(x, y, z, planet, null);
-            obj_id target = create.object(spawnName, spawnLoc);
+            target = create.object(spawnName, new location(x, y, z, planet, null));
             if (isIdValid(target))
             {
                 ai_lib.setDefaultCalmBehavior(target, ai_lib.BEHAVIOR_SENTINEL);
                 setYaw(target, yaw);
                 int traitSetIndex = rand(0, traitSets.size() - 1);
-                int traitSet = ((Integer)traitSets.get(traitSetIndex)).intValue();
+                int traitSet = (Integer) traitSets.get(traitSetIndex);
                 holiday.setRomanticTraits(target, traitSet);
                 utils.removeElementAt(traitSets, traitSetIndex);
                 utils.setScriptVar(self, spawnName + "_" + i, target);
             }
         }
-        return;
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {

@@ -1,15 +1,11 @@
 package script.event.ewok_festival;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.prose;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class loveday_reward_crossbow extends script.base_script
 {
@@ -76,9 +72,7 @@ public class loveday_reward_crossbow extends script.base_script
             }
             else 
             {
-                int timeDiff = buffTime - getGameTime();
-                prose_package pp = prose.getPackage(new string_id("base_player", "not_yet"), timeDiff);
-                sendSystemMessageProse(player, pp);
+                sendSystemMessageProse(player, prose.getPackage(new string_id("base_player", "not_yet"), buffTime - getGameTime()));
                 return SCRIPT_CONTINUE;
             }
         }
@@ -86,8 +80,7 @@ public class loveday_reward_crossbow extends script.base_script
         {
             if (utils.isEquipped(self))
             {
-                obj_id inventory = getObjectInSlot(player, "inventory");
-                putInOverloaded(self, inventory);
+                putInOverloaded(self, getObjectInSlot(player, "inventory"));
             }
             else 
             {
@@ -108,31 +101,26 @@ public class loveday_reward_crossbow extends script.base_script
         {
             obj_id[] thoseWhoHateMe = getHateList(player);
             int playerLevel = getLevel(player);
-            if (thoseWhoHateMe.length != 0 && thoseWhoHateMe != null)
+            if (thoseWhoHateMe.length != 0)
             {
-                for (int i = 0; i < thoseWhoHateMe.length; i++)
-                {
-                    obj_id hater = thoseWhoHateMe[i];
-                    if (hater == target)
-                    {
-                        int haterLevel = getLevel(thoseWhoHateMe[i]);
-                        int levelSpread = playerLevel - haterLevel;
-                        float hateReduction = 0.90f;
-                        int difficultyClass = getIntObjVar(thoseWhoHateMe[i], "difficultyClass");
-                        if (difficultyClass > 1)
-                        {
+                float hateReduction;
+                float hate;
+                float difficultyClass;
+
+                for (obj_id hater : thoseWhoHateMe) {
+                    if (hater == target) {
+                        hateReduction = 0.90f;
+                        difficultyClass = getIntObjVar(hater, "difficultyClass");
+                        if (difficultyClass > 1) {
                             hateReduction = 0.92f;
                         }
-                        if (levelSpread < -24)
-                        {
+                        if (playerLevel - getLevel(hater) < -24) {
                             hateReduction = 0.96f;
                         }
-                        float hate = getHate(thoseWhoHateMe[i], player);
-                        float oldHate = hate;
+                        hate = getHate(hater, player);
                         hate *= hateReduction;
-                        setHate(thoseWhoHateMe[i], player, hate);
-                        if (clientEffect.length() > 0)
-                        {
+                        setHate(hater, player, hate);
+                        if (clientEffect.length() > 0) {
                             playClientEffectObj(player, clientEffect, target, "head");
                         }
                         return true;

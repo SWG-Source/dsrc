@@ -1,15 +1,10 @@
 package script.event.ewok_festival;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.static_item;
+import script.library.utils;
+import script.*;
+
+import java.util.Vector;
 
 public class loveday_card_bundler extends script.base_script
 {
@@ -68,22 +63,19 @@ public class loveday_card_bundler extends script.base_script
             }
             Vector cardsOwned = new Vector();
             cardsOwned.setSize(0);
-            for (int i = 0; i < LOVEDAY_CARDS_COMPLETE_SET.length; i++)
-            {
-                obj_id lovedaycard = utils.getStaticItemInInventory(player, LOVEDAY_CARDS_COMPLETE_SET[i]);
-                if (isIdValid(lovedaycard))
-                {
-                    utils.addElement(cardsOwned, lovedaycard);
+            obj_id loveDayCard;
+            for (String cardInSet : LOVEDAY_CARDS_COMPLETE_SET) {
+                loveDayCard = utils.getStaticItemInInventory(player, cardInSet);
+                if (isIdValid(loveDayCard)) {
+                    utils.addElement(cardsOwned, loveDayCard);
                 }
             }
-            if (cardsOwned != null && cardsOwned.size() == LOVEDAY_CARDS_COMPLETE_SET.length)
+            if (cardsOwned.size() == LOVEDAY_CARDS_COMPLETE_SET.length)
             {
-                for (int j = 0; j < cardsOwned.size(); j++)
-                {
-                    decrementCount(((obj_id)cardsOwned.get(j)));
+                for (Object aCardsOwned : cardsOwned) {
+                    decrementCount(((obj_id) aCardsOwned));
                 }
-                obj_id inv = utils.getInventoryContainer(player);
-                obj_id cardBundle = static_item.createNewItemFunction(LOVEDAY_CARDS_STACK, inv);
+                static_item.createNewItemFunction(LOVEDAY_CARDS_STACK, utils.getInventoryContainer(player));
                 sendSystemMessage(player, new string_id("spam", "loveday_cards_set_bundled"));
             }
             else 
