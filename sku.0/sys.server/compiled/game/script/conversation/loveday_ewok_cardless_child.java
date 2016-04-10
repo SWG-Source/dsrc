@@ -1,18 +1,10 @@
 package script.conversation;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
 import script.library.chat;
-import script.library.conversation;
 import script.library.groundquests;
 import script.library.utils;
+import script.*;
 
 public class loveday_ewok_cardless_child extends script.base_script
 {
@@ -70,12 +62,17 @@ public class loveday_ewok_cardless_child extends script.base_script
         }
         return;
     }
-    public void loveday_ewok_cardless_child_action_sendCompletionSignal(obj_id player, obj_id npc) throws InterruptedException
+    public boolean loveday_ewok_cardless_child_action_sendCompletionSignal(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id lovedayCardBundle = utils.getStaticItemInInventory(player, "item_event_loveday_card_stack");
         if (isIdValid(lovedayCardBundle))
         {
-            destroyObject(lovedayCardBundle);
+            if(!destroyObject(lovedayCardBundle)){
+                return false;
+            }
+        }
+        else{
+            return false;
         }
         groundquests.sendSignal(player, "loveday_ewok_bundle_of_cards_complete");
         if (!hasCompletedCollectionSlot(player, "loveday_2010_card_gathering"))
@@ -86,6 +83,7 @@ public class loveday_ewok_cardless_child extends script.base_script
         int secondsUntil = secondsUntilNextDailyTime(4, 0, 0);
         int then = now + secondsUntil;
         setObjVar(player, "loveday.eligibleBundleOfCards", then);
+        return true;
     }
     public int loveday_ewok_cardless_child_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
@@ -93,7 +91,12 @@ public class loveday_ewok_cardless_child extends script.base_script
         {
             if (loveday_ewok_cardless_child_condition__defaultCondition(player, npc))
             {
-                loveday_ewok_cardless_child_action_sendCompletionSignal(player, npc);
+                if(!loveday_ewok_cardless_child_action_sendCompletionSignal(player, npc)){
+                    // fixes exploit where card deck can be "hidden" and user still gets credit.
+                    chat.chat(npc, player, "Please put the cards in your inventory so I can get them.", 0);
+                    npcEndConversation(player);
+                    return SCRIPT_CONTINUE;
+                }
                 string_id message = new string_id(c_stringFile, "s_22");
                 utils.removeScriptVar(player, "conversation.loveday_ewok_cardless_child.branchId");
                 npcEndConversationWithMessage(player, message);
