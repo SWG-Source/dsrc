@@ -8,7 +8,6 @@ package script;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.ObjectStreamException;
 import java.io.Serializable;
 
 public class string_id implements Comparable, Serializable
@@ -170,35 +169,22 @@ public class string_id implements Comparable, Serializable
 	 *
 	 * @returns true if the objects have the same data, false if not
 	 */
-	public boolean equals(Object o)
-	{
-		try
+	public boolean equals(String o){
+		return m_asciiId.equals(o);
+	}
+	public boolean equals(string_id o){
+		if ( m_table.equals(o.m_table))
 		{
-			if ( o instanceof string_id )
+			if (m_asciiId != null && m_asciiId.length() != 0)
 			{
-				string_id id = (string_id)o;
-				if ( m_table.equals(id.m_table))
-				{
-					if (m_asciiId != null && m_asciiId.length() != 0)
-					{
-						if (m_asciiId.equals(id.m_asciiId))
-							return true;
-					} else if (m_indexId == id.m_indexId )
-						return true;
-				}
+				if (m_asciiId.equals(o.m_asciiId)) return true;
 			}
-			else if (o instanceof String)
-			{
-				String s = (String)o;
-				if (m_asciiId.equals(s))
-					return true;
-			}
-		}
-		catch (ClassCastException err)
-		{
+			else if (m_indexId == o.m_indexId )
+				return true;
 		}
 		return false;
-	}	// equals
+	}
+	// equals
 
 	/**
 	 * \defgroup serialize Serialize support functions
