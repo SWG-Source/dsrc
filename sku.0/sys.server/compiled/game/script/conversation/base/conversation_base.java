@@ -99,4 +99,30 @@ public class conversation_base extends script.base_script
 		return SCRIPT_CONTINUE;
 
 	}
+	protected int craft_response_prose(String[] responseStrings, int branchId, obj_id player, obj_id self, String name) throws InterruptedException{
+		string_id message = new string_id(c_stringFile, responseStrings[0]);
+		string_id responses[] = new string_id[responseStrings.length];
+		for(int i = 1; i < responseStrings.length; i++){
+			responses[i] = new string_id(c_stringFile, responseStrings[i]);
+		}
+		if(responses.length > 1){
+			utils.setScriptVar(player, conversation + ".branchId", branchId);
+			prose_package pp = new prose_package();
+			pp.stringId = message;
+			pp.actor.set(player);
+			pp.target.set(self);
+			pp.other.set(name);
+			npcStartConversation(player, self, scriptName, null, pp, responses);
+		}
+		else
+		{
+			prose_package pp = new prose_package();
+			pp.stringId = message;
+			pp.actor.set(player);
+			pp.target.set(self);
+			pp.other.set(name);
+			chat.chat(self, player, null, null, pp);
+		}
+		return SCRIPT_CONTINUE;
+	}
 }
