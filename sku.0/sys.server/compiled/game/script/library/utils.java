@@ -1692,7 +1692,13 @@ public class utils extends script.base_script
     }
     public static int countOfStackedItemsInArray(obj_id[] items) throws InterruptedException
     {
-        return items.length;
+        int totalCount = 0;
+
+        for (obj_id item : items) {
+            testAbortScript();
+            totalCount += getCount(item);
+        }
+        return totalCount;
     }
     public static obj_id getItemPlayerHasByTemplate(obj_id objPlayer, String strTemplate) throws InterruptedException
     {

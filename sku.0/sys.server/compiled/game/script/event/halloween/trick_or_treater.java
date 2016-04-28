@@ -1,25 +1,11 @@
 package script.event.halloween;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.deltadictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.region;
 
-import script.library.create;
-import script.library.utils;
-import script.library.player_structure;
-import script.library.sui;
-import script.library.static_item;
-import script.library.buff;
-import script.library.chat;
-import script.library.ai_lib;
-import script.library.beast_lib;
-import script.library.factions;
-import script.library.vehicle;
-import script.library.event_perk;
 import java.util.Enumeration;
 
 public class trick_or_treater extends script.base_script
@@ -29,31 +15,22 @@ public class trick_or_treater extends script.base_script
     }
     public int OnLogin(obj_id self) throws InterruptedException
     {
-        if (costumeBuffExists(self) == false)
+        if (!costumeBuffExists(self))
         {
             detachScript(self, "event.halloween.trick_or_treater");
         }
         if (buff.hasBuff(self, "event_halloween_coin_limit"))
         {
-            if (event_perk.newDayOrNot(self) == true)
+            if (event_perk.newDayOrNot(self))
             {
                 buff.removeBuff(self, "event_halloween_coin_limit");
             }
         }
-        if (event_perk.newDayOrNot(self) == true)
+        if (event_perk.newDayOrNot(self))
         {
-            if (hasObjVar(self, event_perk.COUNTER))
-            {
-                removeObjVar(self, event_perk.COUNTER);
-            }
-            if (hasObjVar(self, event_perk.COUNTER_RESTARTTIME))
-            {
-                removeObjVar(self, event_perk.COUNTER_RESTARTTIME);
-            }
-            if (hasObjVar(self, event_perk.COUNTER_TIMESTAMP))
-            {
-                removeObjVar(self, event_perk.COUNTER_TIMESTAMP);
-            }
+            removeObjVar(self, event_perk.COUNTER);
+            removeObjVar(self, event_perk.COUNTER_RESTARTTIME);
+            removeObjVar(self, event_perk.COUNTER_TIMESTAMP);
         }
         return SCRIPT_CONTINUE;
     }
@@ -61,31 +38,22 @@ public class trick_or_treater extends script.base_script
     {
         if (buff.hasBuff(self, "event_halloween_coin_limit"))
         {
-            if (event_perk.newDayOrNot(self) == true)
+            if (event_perk.newDayOrNot(self))
             {
                 buff.removeBuff(self, "event_halloween_coin_limit");
             }
         }
-        if (event_perk.newDayOrNot(self) == true)
+        if (event_perk.newDayOrNot(self))
         {
-            if (hasObjVar(self, event_perk.COUNTER))
-            {
-                removeObjVar(self, event_perk.COUNTER);
-            }
-            if (hasObjVar(self, event_perk.COUNTER_RESTARTTIME))
-            {
-                removeObjVar(self, event_perk.COUNTER_RESTARTTIME);
-            }
-            if (hasObjVar(self, event_perk.COUNTER_TIMESTAMP))
-            {
-                removeObjVar(self, event_perk.COUNTER_TIMESTAMP);
-            }
+            removeObjVar(self, event_perk.COUNTER);
+            removeObjVar(self, event_perk.COUNTER_RESTARTTIME);
+            removeObjVar(self, event_perk.COUNTER_TIMESTAMP);
         }
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        if (costumeBuffExists(self) == false)
+        if (!costumeBuffExists(self))
         {
             detachScript(self, "event.halloween.trick_or_treater");
         }
@@ -110,12 +78,12 @@ public class trick_or_treater extends script.base_script
                     }
                 }
             }
-            if (costumeBuffExists(self) == false)
+            if (!costumeBuffExists(self))
             {
                 detachScript(self, "event.halloween.trick_or_treater");
                 return SCRIPT_CONTINUE;
             }
-            if ((toLower(text)).indexOf("trick or treat") > -1)
+            if ((toLower(text)).contains("trick or treat"))
             {
                 location speakerLocation = getLocation(speaker);
                 if (isInCity(speakerLocation))
@@ -158,12 +126,12 @@ public class trick_or_treater extends script.base_script
                         sendSystemMessage(self, event_perk.ZOZ);
                         return SCRIPT_CONTINUE;
                     }
-                    if (hasObjVar(target, "celebrity"))
+                    else if (hasObjVar(target, "celebrity"))
                     {
                         sendSystemMessage(self, event_perk.STATIC_NPC);
                         return SCRIPT_CONTINUE;
                     }
-                    if (event_perk.timeStampCheck(self) == false)
+                    else if (!event_perk.timeStampCheck(self))
                     {
                         return SCRIPT_CONTINUE;
                     }
@@ -237,47 +205,25 @@ public class trick_or_treater extends script.base_script
         region[] regionsHere = getRegionsAtPoint(here);
         if (regionsHere != null && regionsHere.length > 0)
         {
-            for (int i = 0; i < regionsHere.length; i++)
-            {
-                region testRegion = regionsHere[i];
-                String regionName = testRegion.getName();
-                if (regionName.endsWith("mos_eisley"))
-                {
+            String regionName;
+            for (region testRegion : regionsHere) {
+                regionName = testRegion.getName();
+                if (regionName.endsWith("mos_eisley")) {
                     return true;
                 }
-                if (regionName.endsWith("moenia"))
-                {
+                if (regionName.endsWith("moenia")) {
                     return true;
                 }
             }
         }
         return false;
     }
-    public boolean costumeBuffExists(obj_id player) throws InterruptedException
+    private boolean costumeBuffExists(obj_id player) throws InterruptedException
     {
-        if (buff.hasBuff(player, "event_halloween_costume_jawa"))
-        {
-            return true;
-        }
-        if (buff.hasBuff(player, "event_halloween_costume_droid"))
-        {
-            return true;
-        }
-        if (buff.hasBuff(player, "event_halloween_costume_kowakian"))
-        {
-            return true;
-        }
-        if (buff.hasBuff(player, "event_halloween_costume_hutt_female"))
-        {
-            return true;
-        }
-        if (buff.hasBuff(player, "event_halloween_costume_toydarian"))
-        {
-            return true;
-        }
-        else 
-        {
-            return false;
-        }
+        return buff.hasBuff(player, "event_halloween_costume_jawa") ||
+                buff.hasBuff(player, "event_halloween_costume_droid") ||
+                buff.hasBuff(player, "event_halloween_costume_kowakian") ||
+                buff.hasBuff(player, "event_halloween_costume_hutt_female") ||
+                buff.hasBuff(player, "event_halloween_costume_toydarian");
     }
 }
