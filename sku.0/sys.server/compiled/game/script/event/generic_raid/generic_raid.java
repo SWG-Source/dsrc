@@ -1,21 +1,12 @@
 package script.event.generic_raid;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
+import script.library.badge;
 import script.library.create;
 import script.library.locations;
-import script.library.skill;
-import script.library.chat;
-import script.library.badge;
-import java.util.StringTokenizer;
-import script.library.gcw;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class generic_raid extends script.base_script
 {
@@ -30,19 +21,17 @@ public class generic_raid extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        location here = getLocation(self);
-        String myCity = locations.getGuardSpawnerRegionName(here);
-        int numEntries = dataTableGetNumRows(DATATABLE);
+        String myCity = locations.getGuardSpawnerRegionName(getLocation(self));
         if (myCity == null || myCity.equals(""))
         {
             return SCRIPT_CONTINUE;
         }
         if (!hasObjVar(self, "auto_invasion.reference_number"))
         {
+            int numEntries = dataTableGetNumRows(DATATABLE);
             for (int i = 0; i < numEntries; i++)
             {
-                String thisCity = dataTableGetString(DATATABLE, i, "CITY");
-                if (thisCity.equals(myCity))
+                if (dataTableGetString(DATATABLE, i, "CITY").equals(myCity))
                 {
                     setObjVar(self, "auto_invasion.reference_number", i);
                 }
@@ -69,17 +58,15 @@ public class generic_raid extends script.base_script
     }
     public int invasionTimerPing(obj_id self, dictionary params) throws InterruptedException
     {
-        float rightNow = getGameTime();
-        float nextInvasionTime = getFloatObjVar(self, "auto_invasion.next_invasion_time");
         int invasionActive = getIntObjVar(self, "auto_invasion.invasion_active");
         if (invasionActive == 1)
         {
             return SCRIPT_CONTINUE;
         }
-        if (rightNow > nextInvasionTime && invasionActive == 0)
+        float nextInvasionTime = getFloatObjVar(self, "auto_invasion.next_invasion_time");
+        if (getGameTime() > nextInvasionTime && invasionActive == 0)
         {
-            int roll = rand(0, 100);
-            if (roll < 50)
+            if (rand(0, 100) < 50)
             {
                 messageTo(self, "startCheerleaderEvent", null, 1, false);
             }
@@ -117,9 +104,9 @@ public class generic_raid extends script.base_script
         int destTableLength = dataTableGetNumRows(destTable);
         setObjVar(self, "auto_invasion.loc_table_length", locTableLength);
         setObjVar(self, "auto_invasion.dest_table_length", destTableLength);
+        location loc = getLocation(self);
         for (int i = 0; i < locTableLength; i++)
         {
-            location loc = getLocation(self);
             loc.x = dataTableGetFloat(locTable, i, "SPAWN_X");
             loc.y = dataTableGetFloat(locTable, i, "SPAWN_Y");
             loc.z = dataTableGetFloat(locTable, i, "SPAWN_Z");
@@ -127,12 +114,11 @@ public class generic_raid extends script.base_script
         }
         for (int i = 0; i < destTableLength; i++)
         {
-            location dest = getLocation(self);
-            dest.x = dataTableGetFloat(destTable, i, "DEST_X");
-            dest.y = dataTableGetFloat(destTable, i, "DEST_Y");
-            dest.z = dataTableGetFloat(destTable, i, "DEST_Z");
+            loc.x = dataTableGetFloat(destTable, i, "DEST_X");
+            loc.y = dataTableGetFloat(destTable, i, "DEST_Y");
+            loc.z = dataTableGetFloat(destTable, i, "DEST_Z");
             setObjVar(self, "auto_invasion.dest_off_" + i, dataTableGetFloat(destTable, i, "DEST_OFF"));
-            setObjVar(self, "auto_invasion.spawn_dest_" + i, dest);
+            setObjVar(self, "auto_invasion.spawn_dest_" + i, loc);
         }
         int maxWaves = dataTableGetInt(invasionTable, 0, "NUMWAVES");
         int spawnDelay = dataTableGetInt(invasionTable, 0, "SPAWNDELAY");
@@ -149,22 +135,23 @@ public class generic_raid extends script.base_script
     }
     public int launchWave(obj_id self, dictionary params) throws InterruptedException
     {
-        String invasionTable = getStringObjVar(self, "auto_invasion.invasion_table");
         int currentWave = getIntObjVar(self, "auto_invasion.current_wave");
         int maxWaves = getIntObjVar(self, "auto_invasion.max_waves");
-        int numberDead = 0;
-        String startMessage = dataTableGetString(invasionTable, 0, "SYSMESSTART");
-        String endMessage = dataTableGetString(invasionTable, 0, "SYSMESEND");
         if (currentWave == maxWaves)
         {
+            String invasionTable = getStringObjVar(self, "auto_invasion.invasion_table");
+            String endMessage = dataTableGetString(invasionTable, 0, "SYSMESEND");
             announceStatusToPlayers(self, endMessage);
             messageTo(self, "endInvasion", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        if (currentWave == 0)
+        else if (currentWave == 0)
         {
+            String invasionTable = getStringObjVar(self, "auto_invasion.invasion_table");
+            String startMessage = dataTableGetString(invasionTable, 0, "SYSMESSTART");
             announceStatusToPlayers(self, startMessage);
         }
+        int numberDead = 0;
         currentWave++;
         setObjVar(self, "auto_invasion.current_wave", currentWave);
         setObjVar(self, "auto_invasion.spawn_number", 1);
@@ -181,17 +168,16 @@ public class generic_raid extends script.base_script
             messageTo(self, "endInvasion", null, 1, false);
             return SCRIPT_CONTINUE;
         }
+        if (getIntObjVar(self, "auto_invasion.done_spawning") == 1)
+        {
+            return SCRIPT_CONTINUE;
+        }
         int currentWave = getIntObjVar(self, "auto_invasion.current_wave");
         int spawnNum = getIntObjVar(self, "auto_invasion.spawn_number");
         int spawnDelay = dataTableGetInt(invasionTable, 0, "SPAWNDELAY");
         int maxWaveTimeMinutes = dataTableGetInt(invasionTable, 0, "MAXWAVETIME");
         int maxWaveTime = maxWaveTimeMinutes * 60;
-        int doneSpawning = getIntObjVar(self, "auto_invasion.done_spawning");
         String script = dataTableGetString(invasionTable, 0, "SCRIPT");
-        if (doneSpawning == 1)
-        {
-            return SCRIPT_CONTINUE;
-        }
         int locTableLength = getIntObjVar(self, "auto_invasion.loc_table_length") - 1;
         int locIndex = rand(0, locTableLength);
         location spawnLoc = getLocationObjVar(self, "auto_invasion.spawn_loc_" + locIndex);
@@ -233,15 +219,11 @@ public class generic_raid extends script.base_script
             setObjVar(self, "auto_invasion.done_spawning", 1);
             return SCRIPT_CONTINUE;
         }
-        else 
-        {
-            messageTo(self, "startSpawning", null, spawnDelay, false);
-        }
+        messageTo(self, "startSpawning", null, spawnDelay, false);
         return SCRIPT_CONTINUE;
     }
     public int invaderDied(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id deadGuy = params.getObjId("deadGuy");
         int myNumber = params.getInt("myNumber");
         removeObjVar(self, "auto_invasion.spawn" + myNumber);
         int spawnNum = getIntObjVar(self, "auto_invasion.spawn_number");
@@ -275,9 +257,10 @@ public class generic_raid extends script.base_script
         int invasionActive = getIntObjVar(self, "auto_invasion.invasion_active");
         if (lastWave == currentWave)
         {
+            obj_id spawn;
             for (int i = 1; i <= spawnNum; i++)
             {
-                obj_id spawn = getObjIdObjVar(self, "auto_invasion.spawn" + i);
+                spawn = getObjIdObjVar(self, "auto_invasion.spawn" + i);
                 if (isIdValid(spawn))
                 {
                     messageTo(spawn, "goDie", null, 1, false);
@@ -294,10 +277,10 @@ public class generic_raid extends script.base_script
     public int endInvasion(obj_id self, dictionary params) throws InterruptedException
     {
         setObjVar(self, "auto_invasion.invasion_active", 0);
-        int spawnNum = getIntObjVar(self, "auto_invasion.spawn_num");
+        obj_id spawn;
         for (int i = 1; i <= 20; i++)
         {
-            obj_id spawn = getObjIdObjVar(self, "auto_invasion.spawn" + i);
+            spawn = getObjIdObjVar(self, "auto_invasion.spawn" + i);
             if (isIdValid(spawn))
             {
                 messageTo(spawn, "goDie", null, 1, false);
@@ -311,9 +294,8 @@ public class generic_raid extends script.base_script
             obj_id[] objPlayers = getPlayerCreaturesInRange(self, 255);
             if (objPlayers != null && objPlayers.length > 0)
             {
-                for (int i = 0; i < objPlayers.length; i++)
-                {
-                    badge.grantBadge(objPlayers[i], badgeName);
+                for (obj_id objPlayer : objPlayers) {
+                    badge.grantBadge(objPlayer, badgeName);
                 }
             }
         }
@@ -337,14 +319,13 @@ public class generic_raid extends script.base_script
         messageTo(self, "invasionTimerPing", null, 2700, false);
         return SCRIPT_CONTINUE;
     }
-    public void announceStatusToPlayers(obj_id self, String messageId) throws InterruptedException
+    private void announceStatusToPlayers(obj_id self, String messageId) throws InterruptedException
     {
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, 256.0f);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                sendSystemMessage(objPlayers[i], new string_id("auto_invasion", messageId));
+            for (obj_id objPlayer : objPlayers) {
+                sendSystemMessage(objPlayer, new string_id("auto_invasion", messageId));
             }
         }
     }

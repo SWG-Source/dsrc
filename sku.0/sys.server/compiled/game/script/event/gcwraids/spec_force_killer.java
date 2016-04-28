@@ -1,18 +1,10 @@
 package script.event.gcwraids;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.groundquests;
-import script.library.factions;
-import script.library.prose;
-import script.library.badge;
-import script.library.pvp;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class spec_force_killer extends script.base_script
 {
@@ -57,7 +49,14 @@ public class spec_force_killer extends script.base_script
         int killImp10 = questGetQuestId("quest/event_gcwcheerleader_sfimp10");
         int killImp20 = questGetQuestId("quest/event_gcwcheerleader_sfimp20");
         int killImp50 = questGetQuestId("quest/event_gcwcheerleader_sfimp50");
-        if (!questIsQuestActive(killReb5, self) && !questIsQuestActive(killReb10, self) && !questIsQuestActive(killReb20, self) && !questIsQuestActive(killReb50, self) && !questIsQuestActive(killImp5, self) && !questIsQuestActive(killImp10, self) && !questIsQuestActive(killImp20, self) && !questIsQuestActive(killImp50, self))
+        if (!questIsQuestActive(killReb5, self) &&
+                !questIsQuestActive(killReb10, self) &&
+                !questIsQuestActive(killReb20, self) &&
+                !questIsQuestActive(killReb50, self) &&
+                !questIsQuestActive(killImp5, self) &&
+                !questIsQuestActive(killImp10, self) &&
+                !questIsQuestActive(killImp20, self) &&
+                !questIsQuestActive(killImp50, self))
         {
             detachScript(self, "event.gcwraids.spec_force_killer");
         }
@@ -65,25 +64,25 @@ public class spec_force_killer extends script.base_script
     }
     public int handleKillerDeathBlow(obj_id self, dictionary params) throws InterruptedException
     {
-        int killReb50 = questGetQuestId("quest/event_gcwcheerleader_sfreb50");
-        int killImp50 = questGetQuestId("quest/event_gcwcheerleader_sfimp50");
         obj_id victim = params.getObjId("victim");
-        String victimFaction = factions.getFaction(victim);
-        String killerFaction = factions.getFaction(self);
         if (pvp.hasKilledVictimRecently(self, victim))
         {
             return SCRIPT_CONTINUE;
         }
+        String victimFaction = factions.getFaction(victim);
         if (victimFaction == null)
         {
             return SCRIPT_CONTINUE;
         }
+        String killerFaction = factions.getFaction(self);
         if (victimFaction.equals(killerFaction))
         {
             return SCRIPT_CONTINUE;
         }
         int killsRequired = getIntObjVar(self, "event.event_gcwcheerleader.kills_required");
         killsRequired--;
+        int killReb50 = questGetQuestId("quest/event_gcwcheerleader_sfreb50");
+        int killImp50 = questGetQuestId("quest/event_gcwcheerleader_sfimp50");
         if (killsRequired == 0)
         {
             if (questIsQuestActive(killReb50, self))
