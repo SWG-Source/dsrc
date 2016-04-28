@@ -1,29 +1,20 @@
 package script.event.halloween;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
 import script.library.utils;
+import script.*;
 
 public class song_book extends script.base_script
 {
     public song_book()
     {
     }
-    public static final String HALLOWEEN = new String("event/halloween");
+    private static final String HALLOWEEN = "event/halloween";
     public static final string_id SID_USE = new string_id(HALLOWEEN, "learn_song");
-    public static final string_id CANT_USE = new string_id(HALLOWEEN, "not_entertainer");
-    public static final string_id LEARNED_SONG = new string_id(HALLOWEEN, "learned_song");
-    public static final string_id CANT_USE_LOW_LEVEL = new string_id(HALLOWEEN, "not_entertainer_enough");
+    private static final string_id CANT_USE = new string_id(HALLOWEEN, "not_entertainer");
+    private static final string_id LEARNED_SONG = new string_id(HALLOWEEN, "learned_song");
+    private static final string_id CANT_USE_LOW_LEVEL = new string_id(HALLOWEEN, "not_entertainer_enough");
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
-        menu_info_data data = mi.getMenuItemByType(menu_info_types.SERVER_MENU1);
         if (utils.isNestedWithin(self, player))
         {
             if (utils.isProfession(player, utils.ENTERTAINER))
