@@ -1,79 +1,65 @@
 package script.event.lifeday;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.sui;
-import script.library.groundquests;
-import script.library.create;
-import script.library.trial;
-import script.library.buff;
-import script.library.factions;
-import script.library.stealth;
-import script.library.static_item;
+import script.library.*;
 
 public class lifeday_objective extends script.base_script
 {
     public lifeday_objective()
     {
     }
-    public static final String LIFEDAY = "event/life_day";
-    public static final string_id SID_ALREADY_DRESSED = new string_id(LIFEDAY, "already_dressed");
-    public static final string_id SID_ALREADY_STOMPED = new string_id(LIFEDAY, "already_stomped");
-    public static final string_id SID_WRONG_FACTION = new string_id(LIFEDAY, "wrong_faction");
-    public static final string_id SID_LOCKED_OUT = new string_id(LIFEDAY, "locked_out");
-    public static final string_id SID_IMPERIAL_START = new string_id(LIFEDAY, "imperial_start");
-    public static final string_id SID_REBEL_START = new string_id(LIFEDAY, "rebel_start");
-    public static final string_id SID_IMPERIAL_COMPETITIVE_START = new string_id(LIFEDAY, "imperial_competitive_start");
-    public static final string_id SID_REBEL_COMPETITIVE_START = new string_id(LIFEDAY, "rebel_competitive_start");
-    public static final string_id SID_NEUTRAL_IMP_COMP_START = new string_id(LIFEDAY, "neutral_imperial_comp_start");
-    public static final string_id SID_NEUTRAL_REB_COMP_START = new string_id(LIFEDAY, "neutral_rebel_comp_start");
-    public static final string_id SID_NEUTRAL_IMP_CAS_START = new string_id(LIFEDAY, "neutral_imperial_cas_start");
-    public static final string_id SID_NEUTRAL_REB_CAS_START = new string_id(LIFEDAY, "neutral_rebel_cas_start");
-    public static final string_id SID_MNU_DRESS = new string_id(LIFEDAY, "dress_menu_header");
-    public static final string_id SID_MNU_STOMP = new string_id(LIFEDAY, "stomp_menu_header");
-    public static final string_id SID_ZIP_DRESSING = new string_id(LIFEDAY, "dress_zip_bar_text");
-    public static final string_id SID_ZIP_STOMPING = new string_id(LIFEDAY, "stomp_zip_bar_text");
-    public static final string_id SID_TOKENS_REBEL = new string_id(LIFEDAY, "tokens_rebel");
-    public static final string_id SID_TOKENS_REBEL_HIGH = new string_id(LIFEDAY, "tokens_rebel_high");
-    public static final string_id SID_TOKENS_IMPERIAL = new string_id(LIFEDAY, "tokens_imperial");
-    public static final string_id SID_TOKENS_IMPERIAL_HIGH = new string_id(LIFEDAY, "tokens_imperial_high");
-    public static final string_id SID_PICK_PATH = new string_id(LIFEDAY, "pick_path");
-    public static final string_id SID_REACHED_LIMIT = new string_id(LIFEDAY, "reached_limit");
-    public static final string_id SID_MOUNTED = new string_id(LIFEDAY, "mounted");
-    public static final String LOCKED_OUT = "lifeday.locked_out";
-    public static final String LIFEDAY_TIMESTAMP = "lifeday.time_stamp";
-    public static final String NEUTRAL_IMPERIAL = "lifeday.neutral_imperial";
-    public static final String NEUTRAL_REBEL = "lifeday.neutral_rebel";
-    public static final String TOKEN_COUNTER = "lifeday.token_counter";
-    public static final String IMPERIAL_COMPETITIVE_BUFF = "event_lifeday_imperial_competitive";
-    public static final String REBEL_COMPETITIVE_BUFF = "event_lifeday_rebel_competitive";
-    public static final String IMPERIAL_COUNTER_BUFF = "event_lifeday_imperial_present_counter";
-    public static final String REBEL_COUNTER_BUFF = "event_lifeday_rebel_tree_counter";
-    public static final String PICKED_CASUAL_BUFF_REBEL = "event_lifeday_casual_rebel_lock_in";
-    public static final String PICKED_CASUAL_BUFF_IMPERIAL = "event_lifeday_casual_imperial_lock_in";
-    public static final String PICKED_COMPETITIVE_BUFF_REBEL = "event_lifeday_competitive_rebel_lock_in";
-    public static final String PICKED_COMPETITIVE_BUFF_IMPERIAL = "event_lifeday_competitive_imperial_lock_in";
-    public static final String TREE = "object/tangible/holiday/life_day/life_day_tree.iff";
-    public static final String TREE_DRESSED = "object/tangible/holiday/life_day/life_day_tree_dressed.iff";
-    public static final String PRESENTS = "object/tangible/holiday/life_day/life_day_present.iff";
-    public static final String PRESENTS_STOMPED = "object/tangible/holiday/life_day/life_day_present_stomped.iff";
-    public static final String REBEL_TOKEN = "item_event_lifeday_rebel_token";
-    public static final String IMPERIAL_TOKEN = "item_event_lifeday_imperial_token";
-    public static final float MIN_DESTROY_TIME = 60;
-    public static final float MAX_DESTROY_TIME = 180;
-    public static final int COUNTDOWN_TIMER = 3;
-    public static final int NON_DECLARED_TOKENS = 5;
-    public static final int DECLARED_TOKENS = 15;
-    public static final int REBEL = 1;
-    public static final int IMPERIAL = 2;
-    public static final int DAILY_COUNTER_LIMIT = 9;
+    private static final String LIFEDAY = "event/life_day";
+    private static final string_id SID_ALREADY_DRESSED = new string_id(LIFEDAY, "already_dressed");
+    private static final string_id SID_ALREADY_STOMPED = new string_id(LIFEDAY, "already_stomped");
+    private static final string_id SID_WRONG_FACTION = new string_id(LIFEDAY, "wrong_faction");
+    private static final string_id SID_LOCKED_OUT = new string_id(LIFEDAY, "locked_out");
+    private static final string_id SID_IMPERIAL_START = new string_id(LIFEDAY, "imperial_start");
+    private static final string_id SID_REBEL_START = new string_id(LIFEDAY, "rebel_start");
+    private static final string_id SID_IMPERIAL_COMPETITIVE_START = new string_id(LIFEDAY, "imperial_competitive_start");
+    private static final string_id SID_REBEL_COMPETITIVE_START = new string_id(LIFEDAY, "rebel_competitive_start");
+    private static final string_id SID_NEUTRAL_IMP_COMP_START = new string_id(LIFEDAY, "neutral_imperial_comp_start");
+    private static final string_id SID_NEUTRAL_REB_COMP_START = new string_id(LIFEDAY, "neutral_rebel_comp_start");
+    private static final string_id SID_NEUTRAL_IMP_CAS_START = new string_id(LIFEDAY, "neutral_imperial_cas_start");
+    private static final string_id SID_NEUTRAL_REB_CAS_START = new string_id(LIFEDAY, "neutral_rebel_cas_start");
+    private static final string_id SID_MNU_DRESS = new string_id(LIFEDAY, "dress_menu_header");
+    private static final string_id SID_MNU_STOMP = new string_id(LIFEDAY, "stomp_menu_header");
+    private static final string_id SID_ZIP_DRESSING = new string_id(LIFEDAY, "dress_zip_bar_text");
+    private static final string_id SID_ZIP_STOMPING = new string_id(LIFEDAY, "stomp_zip_bar_text");
+    private static final string_id SID_TOKENS_REBEL = new string_id(LIFEDAY, "tokens_rebel");
+    private static final string_id SID_TOKENS_REBEL_HIGH = new string_id(LIFEDAY, "tokens_rebel_high");
+    private static final string_id SID_TOKENS_IMPERIAL = new string_id(LIFEDAY, "tokens_imperial");
+    private static final string_id SID_TOKENS_IMPERIAL_HIGH = new string_id(LIFEDAY, "tokens_imperial_high");
+    private static final string_id SID_PICK_PATH = new string_id(LIFEDAY, "pick_path");
+    private static final string_id SID_REACHED_LIMIT = new string_id(LIFEDAY, "reached_limit");
+    private static final string_id SID_MOUNTED = new string_id(LIFEDAY, "mounted");
+    private static final String LOCKED_OUT = "lifeday.locked_out";
+    private static final String LIFEDAY_TIMESTAMP = "lifeday.time_stamp";
+    private static final String NEUTRAL_IMPERIAL = "lifeday.neutral_imperial";
+    private static final String NEUTRAL_REBEL = "lifeday.neutral_rebel";
+    private static final String TOKEN_COUNTER = "lifeday.token_counter";
+    private static final String IMPERIAL_COMPETITIVE_BUFF = "event_lifeday_imperial_competitive";
+    private static final String REBEL_COMPETITIVE_BUFF = "event_lifeday_rebel_competitive";
+    private static final String IMPERIAL_COUNTER_BUFF = "event_lifeday_imperial_present_counter";
+    private static final String REBEL_COUNTER_BUFF = "event_lifeday_rebel_tree_counter";
+    private static final String PICKED_CASUAL_BUFF_REBEL = "event_lifeday_casual_rebel_lock_in";
+    private static final String PICKED_CASUAL_BUFF_IMPERIAL = "event_lifeday_casual_imperial_lock_in";
+    private static final String PICKED_COMPETITIVE_BUFF_REBEL = "event_lifeday_competitive_rebel_lock_in";
+    private static final String PICKED_COMPETITIVE_BUFF_IMPERIAL = "event_lifeday_competitive_imperial_lock_in";
+    private static final String TREE = "object/tangible/holiday/life_day/life_day_tree.iff";
+    private static final String TREE_DRESSED = "object/tangible/holiday/life_day/life_day_tree_dressed.iff";
+    private static final String PRESENTS = "object/tangible/holiday/life_day/life_day_present.iff";
+    private static final String PRESENTS_STOMPED = "object/tangible/holiday/life_day/life_day_present_stomped.iff";
+    private static final String REBEL_TOKEN = "item_event_lifeday_rebel_token";
+    private static final String IMPERIAL_TOKEN = "item_event_lifeday_imperial_token";
+    private static final float MIN_DESTROY_TIME = 60;
+    private static final float MAX_DESTROY_TIME = 180;
+    private static final int COUNTDOWN_TIMER = 3;
+    private static final int NON_DECLARED_TOKENS = 5;
+    private static final int DECLARED_TOKENS = 15;
+    private static final int REBEL = 1;
+    private static final int IMPERIAL = 2;
+    private static final int DAILY_COUNTER_LIMIT = 9;
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         String objectTemplate = getTemplateName(self);
@@ -137,56 +123,22 @@ public class lifeday_objective extends script.base_script
         if (text.equals("resetMe"))
         {
             sendSystemMessageTestingOnly(speaker, "Resetting all life day obj vars and buffs");
-            if (hasObjVar(speaker, "lifeday.locked_out"))
-            {
-                removeObjVar(speaker, "lifeday.locked_out");
-            }
-            if (hasObjVar(speaker, "lifeday.time_stamp"))
-            {
-                removeObjVar(speaker, "lifeday.time_stamp");
-            }
-            if (hasObjVar(speaker, "lifeday.neutral_imperial"))
-            {
-                removeObjVar(speaker, "lifeday.neutral_imperial");
-            }
-            if (hasObjVar(speaker, "lifeday.neutral_rebel"))
-            {
-                removeObjVar(speaker, "lifeday.neutral_rebel");
-            }
-            if (hasObjVar(speaker, "lifeday.token_counter"))
-            {
-                removeObjVar(speaker, "lifeday.token_counter");
-            }
-            if (buff.hasBuff(speaker, "event_lifeday_imperial_competitive"))
-            {
-                buff.removeBuff(speaker, "event_lifeday_imperial_competitive");
-            }
-            if (buff.hasBuff(speaker, "event_lifeday_rebel_competitive"))
-            {
-                buff.removeBuff(speaker, "event_lifeday_rebel_competitive");
-            }
-            if (buff.hasBuff(speaker, "event_lifeday_imperial_present_counter"))
-            {
-                buff.removeBuff(speaker, "event_lifeday_imperial_present_counter");
-            }
-            if (buff.hasBuff(speaker, "event_lifeday_rebel_tree_counter"))
-            {
-                buff.removeBuff(speaker, "event_lifeday_rebel_tree_counter");
-            }
-            if (buff.hasBuff(speaker, "event_lifeday_casual_buff"))
-            {
-                buff.removeBuff(speaker, "event_lifeday_casual_buff");
-            }
-            if (buff.hasBuff(speaker, "event_lifeday_competetive_buff"))
-            {
-                buff.removeBuff(speaker, "event_lifeday_competetive_buff");
-            }
+            removeObjVar(speaker, "lifeday.locked_out");
+            removeObjVar(speaker, "lifeday.time_stamp");
+            removeObjVar(speaker, "lifeday.neutral_imperial");
+            removeObjVar(speaker, "lifeday.neutral_rebel");
+            removeObjVar(speaker, "lifeday.token_counter");
+            buff.removeBuff(speaker, "event_lifeday_imperial_competitive");
+            buff.removeBuff(speaker, "event_lifeday_rebel_competitive");
+            buff.removeBuff(speaker, "event_lifeday_imperial_present_counter");
+            buff.removeBuff(speaker, "event_lifeday_rebel_tree_counter");
+            buff.removeBuff(speaker, "event_lifeday_casual_buff");
+            buff.removeBuff(speaker, "event_lifeday_competetive_buff");
         }
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
-        menu_info_data data = mi.getMenuItemByType(menu_info_types.ITEM_USE);
         String objectTemplate = getTemplateName(self);
         if (!isDead(player) && !isIncapacitated(player))
         {
@@ -205,7 +157,6 @@ public class lifeday_objective extends script.base_script
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
-        String objectTemplate = getTemplateName(self);
         if (item == menu_info_types.ITEM_USE)
         {
             if (!canInteract(player, self))
@@ -214,6 +165,7 @@ public class lifeday_objective extends script.base_script
             }
             else if (!isDead(player) && !isIncapacitated(player))
             {
+                String objectTemplate = getTemplateName(self);
                 if (objectTemplate.equals(TREE))
                 {
                     String handler = "handleDressingCountdownTimer";
@@ -223,7 +175,7 @@ public class lifeday_objective extends script.base_script
                     flags |= sui.CD_EVENT_INCAPACITATE;
                     flags |= sui.CD_EVENT_DAMAGED;
                     stealth.testInvisNonCombatAction(player, self);
-                    int countdownSui = sui.smartCountdownTimerSUI(self, player, "quest_countdown_timer", SID_ZIP_DRESSING, startTime, COUNTDOWN_TIMER, handler, range, flags);
+                    sui.smartCountdownTimerSUI(self, player, "quest_countdown_timer", SID_ZIP_DRESSING, startTime, COUNTDOWN_TIMER, handler, range, flags);
                     doAnimationAction(player, "manipulate_high");
                 }
                 if (objectTemplate.equals(PRESENTS))
@@ -235,14 +187,14 @@ public class lifeday_objective extends script.base_script
                     flags |= sui.CD_EVENT_INCAPACITATE;
                     flags |= sui.CD_EVENT_DAMAGED;
                     stealth.testInvisNonCombatAction(player, self);
-                    int countdownSui = sui.smartCountdownTimerSUI(self, player, "quest_countdown_timer", SID_ZIP_STOMPING, startTime, COUNTDOWN_TIMER, handler, range, flags);
+                    sui.smartCountdownTimerSUI(self, player, "quest_countdown_timer", SID_ZIP_STOMPING, startTime, COUNTDOWN_TIMER, handler, range, flags);
                     doAnimationAction(player, "stamp_feet");
                 }
             }
         }
         return SCRIPT_CONTINUE;
     }
-    public void treeDressed(obj_id self, obj_id player) throws InterruptedException
+    private void treeDressed(obj_id self, obj_id player) throws InterruptedException
     {
         if (!factions.isDeclared(player))
         {
@@ -257,20 +209,17 @@ public class lifeday_objective extends script.base_script
         }
         if (hasObjVar(self, "objParent"))
         {
-            obj_id objParent = getObjIdObjVar(self, "objParent");
             if (utils.hasScriptVar(self, "deathTracker"))
             {
                 if (hasObjVar(self, "fltRespawnTime"))
                 {
                     location loc = utils.getLocationScriptVar(self, "deathTracker");
                     obj_id dressedTree = createObject(TREE_DRESSED, loc);
-                    float respawnTime = getFloatObjVar(self, "fltRespawnTime");
-                    float yaw = getYaw(self);
                     setObjVar(self, "dontCountDeath", 1);
-                    setObjVar(dressedTree, "objParent", objParent);
-                    setObjVar(dressedTree, "fltRespawnTime", respawnTime);
+                    setObjVar(dressedTree, "objParent", getObjIdObjVar(self, "objParent"));
+                    setObjVar(dressedTree, "fltRespawnTime", getFloatObjVar(self, "fltRespawnTime"));
                     utils.setScriptVar(dressedTree, "deathTracker", loc);
-                    setYaw(dressedTree, yaw);
+                    setYaw(dressedTree, getYaw(self));
                     attachScript(dressedTree, "event.lifeday.lifeday_objective");
                     attachScript(dressedTree, "systems.spawning.spawned_tracker");
                     trial.cleanupObject(self);
@@ -289,9 +238,8 @@ public class lifeday_objective extends script.base_script
         {
             LOG("Lifeday: ", "Something went wrong, object " + self + "doesn't have the right objvars and script vars on it as it should if it had been spawned correctly. Recommend destroying object.");
         }
-        return;
     }
-    public void presentsStomped(obj_id self, obj_id player) throws InterruptedException
+    private void presentsStomped(obj_id self, obj_id player) throws InterruptedException
     {
         if (!factions.isDeclared(player))
         {
@@ -306,18 +254,15 @@ public class lifeday_objective extends script.base_script
         }
         if (hasObjVar(self, "objParent"))
         {
-            obj_id objParent = getObjIdObjVar(self, "objParent");
             if (utils.hasScriptVar(self, "deathTracker"))
             {
                 location loc = utils.getLocationScriptVar(self, "deathTracker");
                 obj_id stompedPresents = createObject(PRESENTS_STOMPED, loc);
-                float respawnTime = getFloatObjVar(self, "fltRespawnTime");
-                float yaw = getYaw(self);
                 setObjVar(self, "dontCountDeath", 1);
-                setObjVar(stompedPresents, "objParent", objParent);
-                setObjVar(stompedPresents, "fltRespawnTime", respawnTime);
+                setObjVar(stompedPresents, "objParent", getObjIdObjVar(self, "objParent"));
+                setObjVar(stompedPresents, "fltRespawnTime", getFloatObjVar(self, "fltRespawnTime"));
                 utils.setScriptVar(stompedPresents, "deathTracker", loc);
-                setYaw(stompedPresents, yaw);
+                setYaw(stompedPresents, getYaw(self));
                 attachScript(stompedPresents, "event.lifeday.lifeday_objective");
                 attachScript(stompedPresents, "systems.spawning.spawned_tracker");
                 trial.cleanupObject(self);
@@ -331,15 +276,13 @@ public class lifeday_objective extends script.base_script
         {
             LOG("Lifeday: ", "Something went wrong, object " + self + "doesn't have the right objvars and script vars on it as it should if it had been spawned correctly. Recommend destroying object.");
         }
-        return;
     }
-    public void giveTreat(obj_id player, int quantity, int faction) throws InterruptedException
+    private void giveTreat(obj_id player, int quantity, int faction) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        obj_id rebelTokens = utils.getStaticItemInInventory(player, REBEL_TOKEN);
-        obj_id imperialTokens = utils.getStaticItemInInventory(player, IMPERIAL_TOKEN);
         if (faction == REBEL)
         {
+            obj_id rebelTokens = utils.getStaticItemInInventory(player, REBEL_TOKEN);
             if (isIdValid(rebelTokens))
             {
                 int currentTokens = getCount(rebelTokens);
@@ -347,7 +290,7 @@ public class lifeday_objective extends script.base_script
             }
             else 
             {
-                obj_id tokens = static_item.createNewItemFunction(REBEL_TOKEN, pInv, quantity);
+                static_item.createNewItemFunction(REBEL_TOKEN, pInv, quantity);
             }
             doAnimationAction(player, "cheer");
             if (quantity > NON_DECLARED_TOKENS)
@@ -359,8 +302,9 @@ public class lifeday_objective extends script.base_script
                 sendSystemMessage(player, SID_TOKENS_REBEL);
             }
         }
-        if (faction == IMPERIAL)
+        else if (faction == IMPERIAL)
         {
+            obj_id imperialTokens = utils.getStaticItemInInventory(player, IMPERIAL_TOKEN);
             if (isIdValid(imperialTokens))
             {
                 int currentTokens = getCount(imperialTokens);
@@ -368,7 +312,7 @@ public class lifeday_objective extends script.base_script
             }
             else 
             {
-                obj_id tokens = static_item.createNewItemFunction(IMPERIAL_TOKEN, pInv, quantity);
+                static_item.createNewItemFunction(IMPERIAL_TOKEN, pInv, quantity);
             }
             doAnimationAction(player, "cheer");
             if (quantity > NON_DECLARED_TOKENS)
@@ -397,14 +341,13 @@ public class lifeday_objective extends script.base_script
         {
             setObjVar(player, TOKEN_COUNTER, quantity);
         }
-        return;
     }
-    public void applyCorrectBuff(obj_id self, obj_id player) throws InterruptedException
+    private void applyCorrectBuff(obj_id self, obj_id player) throws InterruptedException
     {
-        String objectTemplate = getTemplateName(self);
         int lifeDayBuff = buff.getBuffOnTargetFromGroup(player, "lifeday_tracker");
         if (lifeDayBuff == 0)
         {
+            String objectTemplate = getTemplateName(self);
             if (factions.isImperial(player))
             {
                 if (objectTemplate.equals(PRESENTS))
@@ -423,7 +366,7 @@ public class lifeday_objective extends script.base_script
                     }
                 }
             }
-            if (factions.isRebel(player))
+            else if (factions.isRebel(player))
             {
                 if (objectTemplate.equals(TREE))
                 {
@@ -476,30 +419,21 @@ public class lifeday_objective extends script.base_script
             }
         }
     }
-    public boolean newDay(obj_id player) throws InterruptedException
+    private boolean newDay(obj_id player) throws InterruptedException
     {
         if (hasObjVar(player, LIFEDAY_TIMESTAMP))
         {
             int now = getCalendarTime();
             int then = getIntObjVar(player, LIFEDAY_TIMESTAMP);
-            if (now > then)
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
+            return now > then;
         }
         return true;
     }
-    public boolean canInteract(obj_id player, obj_id self) throws InterruptedException
+    private boolean canInteract(obj_id player, obj_id self) throws InterruptedException
     {
         int now = getCalendarTime();
         int secondsUntil = secondsUntilNextDailyTime(10, 0, 0);
         int then = now + secondsUntil;
-        int lifeDayBuffImperial = buff.getBuffOnTargetFromGroup(player, "lifeday_imperial");
-        int lifeDayBuffRebel = buff.getBuffOnTargetFromGroup(player, "lifeday_rebel");
         obj_id mount = getMountId(player);
         if (isIdValid(mount))
         {
@@ -537,11 +471,13 @@ public class lifeday_objective extends script.base_script
             sendSystemMessage(player, SID_WRONG_FACTION);
             return false;
         }
+        int lifeDayBuffImperial = buff.getBuffOnTargetFromGroup(player, "lifeday_imperial");
         if (objectTemplate.equals(TREE) && (lifeDayBuffImperial != 0))
         {
             sendSystemMessage(player, SID_WRONG_FACTION);
             return false;
         }
+        int lifeDayBuffRebel = buff.getBuffOnTargetFromGroup(player, "lifeday_rebel");
         if (objectTemplate.equals(PRESENTS) && (lifeDayBuffRebel != 0))
         {
             sendSystemMessage(player, SID_WRONG_FACTION);
@@ -554,38 +490,14 @@ public class lifeday_objective extends script.base_script
         if (newDay(player))
         {
             setObjVar(player, LIFEDAY_TIMESTAMP, then);
-            if (hasObjVar(player, LOCKED_OUT))
-            {
-                removeObjVar(player, LOCKED_OUT);
-            }
-            if (hasObjVar(player, TOKEN_COUNTER))
-            {
-                removeObjVar(player, TOKEN_COUNTER);
-            }
-            if (hasObjVar(player, NEUTRAL_IMPERIAL))
-            {
-                removeObjVar(player, NEUTRAL_IMPERIAL);
-            }
-            if (hasObjVar(player, NEUTRAL_REBEL))
-            {
-                removeObjVar(player, NEUTRAL_REBEL);
-            }
-            if (buff.hasBuff(player, IMPERIAL_COMPETITIVE_BUFF))
-            {
-                buff.removeBuff(player, IMPERIAL_COMPETITIVE_BUFF);
-            }
-            if (buff.hasBuff(player, REBEL_COMPETITIVE_BUFF))
-            {
-                buff.removeBuff(player, REBEL_COMPETITIVE_BUFF);
-            }
-            if (buff.hasBuff(player, IMPERIAL_COUNTER_BUFF))
-            {
-                buff.removeBuff(player, IMPERIAL_COUNTER_BUFF);
-            }
-            if (buff.hasBuff(player, REBEL_COUNTER_BUFF))
-            {
-                buff.removeBuff(player, REBEL_COUNTER_BUFF);
-            }
+            removeObjVar(player, LOCKED_OUT);
+            removeObjVar(player, TOKEN_COUNTER);
+            removeObjVar(player, NEUTRAL_IMPERIAL);
+            removeObjVar(player, NEUTRAL_REBEL);
+            buff.removeBuff(player, IMPERIAL_COMPETITIVE_BUFF);
+            buff.removeBuff(player, REBEL_COMPETITIVE_BUFF);
+            buff.removeBuff(player, IMPERIAL_COUNTER_BUFF);
+            buff.removeBuff(player, REBEL_COUNTER_BUFF);
             return false;
         }
         if (hasObjVar(player, LOCKED_OUT))
@@ -603,7 +515,6 @@ public class lifeday_objective extends script.base_script
     }
     public int handleDressingCountdownTimer(obj_id self, dictionary params) throws InterruptedException
     {
-        int pid = params.getInt("id");
         obj_id player = params.getObjId("player");
         if (!isIdValid(player))
         {
@@ -637,6 +548,7 @@ public class lifeday_objective extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int test_pid = getIntObjVar(player, sui.COUNTDOWNTIMER_SUI_VAR);
+        int pid = params.getInt("id");
         if (pid != test_pid)
         {
             return SCRIPT_CONTINUE;
@@ -650,8 +562,7 @@ public class lifeday_objective extends script.base_script
         }
         else if (buff.hasBuff(player, REBEL_COUNTER_BUFF))
         {
-            long counter = buff.getBuffStackCount(player, REBEL_COUNTER_BUFF);
-            if (counter >= DAILY_COUNTER_LIMIT)
+            if (buff.getBuffStackCount(player, REBEL_COUNTER_BUFF) >= DAILY_COUNTER_LIMIT)
             {
                 buff.removeBuff(player, REBEL_COUNTER_BUFF);
                 setObjVar(player, LOCKED_OUT, 1);
@@ -667,7 +578,6 @@ public class lifeday_objective extends script.base_script
     }
     public int handleStompingCountdownTimer(obj_id self, dictionary params) throws InterruptedException
     {
-        int pid = params.getInt("id");
         obj_id player = params.getObjId("player");
         if (!isIdValid(player))
         {
@@ -700,6 +610,7 @@ public class lifeday_objective extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+        int pid = params.getInt("id");
         int test_pid = getIntObjVar(player, sui.COUNTDOWNTIMER_SUI_VAR);
         if (pid != test_pid)
         {
@@ -714,8 +625,7 @@ public class lifeday_objective extends script.base_script
         }
         else if (buff.hasBuff(player, IMPERIAL_COUNTER_BUFF))
         {
-            long counter = buff.getBuffStackCount(player, IMPERIAL_COUNTER_BUFF);
-            if (counter >= DAILY_COUNTER_LIMIT)
+            if (buff.getBuffStackCount(player, IMPERIAL_COUNTER_BUFF) >= DAILY_COUNTER_LIMIT)
             {
                 buff.removeBuff(player, IMPERIAL_COUNTER_BUFF);
                 setObjVar(player, LOCKED_OUT, 1);

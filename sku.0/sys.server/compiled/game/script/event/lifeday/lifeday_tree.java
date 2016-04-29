@@ -1,30 +1,27 @@
 package script.event.lifeday;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.static_item;
 import script.library.badge;
+import script.library.static_item;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class lifeday_tree extends script.base_script
 {
     public lifeday_tree()
     {
     }
-    public static final string_id TREE_USE = new string_id("spam", "tree_use");
-    public static final string_id NOT_OLD_ENOUGH = new string_id("spam", "not_old_enough");
-    public static final string_id GIFT_GRANTED = new string_id("spam", "gift_granted");
-    public static final String GIFT_SELF = "item_lifeday_gift_self_01_04";
-    public static final String GIFT_OTHER = "item_lifeday_gift_other_01_04";
-    public static final String LIFEDAY_BADGE = "lifeday_badge_09";
-    public static final string_id TREE_BADGE = new string_id("spam", "tree_badge");
-    public String currentYearObjVar() throws InterruptedException
+    private static final string_id TREE_USE = new string_id("spam", "tree_use");
+    private static final string_id NOT_OLD_ENOUGH = new string_id("spam", "not_old_enough");
+    private static final string_id GIFT_GRANTED = new string_id("spam", "gift_granted");
+    private static final String GIFT_SELF = "item_lifeday_gift_self_01_04";
+    private static final String GIFT_OTHER = "item_lifeday_gift_other_01_04";
+    private static final String LIFEDAY_BADGE = "lifeday_badge_09";
+    private static final string_id TREE_BADGE = new string_id("spam", "tree_badge");
+
+    private String currentYearObjVar() throws InterruptedException
     {
         return utils.XMAS_RECEIVED_IX_01;
     }
@@ -71,14 +68,14 @@ public class lifeday_tree extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public boolean grantGift(obj_id player) throws InterruptedException
+    private boolean grantGift(obj_id player) throws InterruptedException
     {
         if (!isIdValid(player))
         {
             return false;
         }
         obj_id inv = utils.getInventoryContainer(player);
-        obj_id giftSelf = static_item.createNewItemFunction(GIFT_SELF, inv);
+        static_item.createNewItemFunction(GIFT_SELF, inv);
         obj_id giftOther = static_item.createNewItemFunction(GIFT_OTHER, inv);
         setObjVar(giftOther, utils.LIFEDAY_OWNER, player);
         utils.sendMail(utils.GIFT_GRANTED_SUB, utils.GIFT_GRANTED, player, "System");

@@ -1,15 +1,9 @@
 package script.event.lifeday;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.static_item;
+import script.library.utils;
+
 import java.util.HashSet;
 
 public class lifeday_gift extends script.base_script
@@ -17,12 +11,12 @@ public class lifeday_gift extends script.base_script
     public lifeday_gift()
     {
     }
-    public static final string_id CRATE_USED = new string_id("spam", "opened_crate");
-    public static final string_id GIVE_AWAY = new string_id("spam", "give_away");
-    public static final string_id OUTSIDE = new string_id("spam", "must_be_outside");
-    public static final string_id MOUNTED = new string_id("spam", "mounted");
-    public static final string_id UNABLE = new string_id("spam", "no_data");
-    public static final String LIFEDAY_TABLE = "datatables/event/lifeday/lifeday_gift.iff";
+    private static final string_id CRATE_USED = new string_id("spam", "opened_crate");
+    private static final string_id GIVE_AWAY = new string_id("spam", "give_away");
+    private static final string_id OUTSIDE = new string_id("spam", "must_be_outside");
+    private static final string_id MOUNTED = new string_id("spam", "mounted");
+    private static final string_id UNABLE = new string_id("spam", "no_data");
+    private static final String LIFEDAY_TABLE = "datatables/event/lifeday/lifeday_gift.iff";
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         if (canManipulate(player, self, true, true, 5, true))
@@ -50,29 +44,26 @@ public class lifeday_gift extends script.base_script
         }
         if (item == menu_info_types.ITEM_USE)
         {
-            String[] itemNames = new String[1];
-            dictionary giftData = new dictionary();
             String year = getStringObjVar(self, "year");
             if (year == null || year.equals(""))
             {
                 return SCRIPT_CONTINUE;
             }
-            giftData = dataTableGetRow(LIFEDAY_TABLE, year);
+            dictionary giftData = dataTableGetRow(LIFEDAY_TABLE, year);
             if (giftData == null)
             {
                 sendSystemMessage(player, UNABLE);
                 return SCRIPT_CONTINUE;
             }
+            String[] itemNames = new String[1];
             if (hasObjVar(self, utils.LIFEDAY_OWNER))
             {
                 obj_id owner = getObjIdObjVar(self, utils.LIFEDAY_OWNER);
                 if (owner != player)
                 {
-                    String giftsOtherUnparsed = giftData.getString("gift_other");
-                    String[] giftsOther = split(giftsOtherUnparsed, ',');
+                    String[] giftsOther = split(giftData.getString("gift_other"), ',');
                     itemNames[0] = giftsOther[rand(0, giftsOther.length - 1)];
-                    int grantAllGiftsOther = giftData.getInt("grant_all_other");
-                    if (grantAllGiftsOther != 0)
+                    if (giftData.getInt("grant_all_other") != 0)
                     {
                         itemNames = giftsOther;
                     }
@@ -111,8 +102,7 @@ public class lifeday_gift extends script.base_script
     }
     public boolean grantReward(obj_id player, String[] itemNames, dictionary giftData) throws InterruptedException
     {
-        obj_id mount = getMountId(player);
-        if (isIdValid(mount))
+        if (isIdValid(getMountId(player)))
         {
             sendSystemMessage(player, MOUNTED);
             return false;
@@ -132,9 +122,8 @@ public class lifeday_gift extends script.base_script
             if (isIdValid(pInv) && (itemNames != null && itemNames.length > 0))
             {
                 HashSet theSet = new HashSet();
-                for (int i = 0; i < itemNames.length; i++)
-                {
-                    theSet.add(static_item.createNewItemFunction(itemNames[i], pInv));
+                for (String itemName : itemNames) {
+                    theSet.add(static_item.createNewItemFunction(itemName, pInv));
                 }
                 obj_id[] gift = new obj_id[theSet.size()];
                 theSet.toArray(gift);

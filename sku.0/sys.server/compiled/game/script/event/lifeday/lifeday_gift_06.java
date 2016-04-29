@@ -1,15 +1,9 @@
 package script.event.lifeday;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.static_item;
+import script.library.utils;
+import script.*;
+
 import java.util.HashSet;
 
 public class lifeday_gift_06 extends script.base_script
@@ -17,15 +11,15 @@ public class lifeday_gift_06 extends script.base_script
     public lifeday_gift_06()
     {
     }
-    public static final string_id CRATE_USED = new string_id("spam", "opened_crate");
-    public static final string_id GIVE_AWAY = new string_id("spam", "give_away");
-    public static final string_id OUTSIDE = new string_id("spam", "must_be_outside");
-    public static final String[] GIFTS_SELF = 
+    private static final string_id CRATE_USED = new string_id("spam", "opened_crate");
+    private static final string_id GIVE_AWAY = new string_id("spam", "give_away");
+    private static final string_id OUTSIDE = new string_id("spam", "must_be_outside");
+    private static final String[] GIFTS_SELF =
     {
         "item_lifeday_wreath_01_01",
         "item_lifeday_mini_tree_01_01"
     };
-    public static final String[] GIFTS_RANDOM = 
+    private static final String[] GIFTS_RANDOM =
     {
         "item_lifeday_bunting_01_01",
         "item_lifeday_incense_burner_01_01",
@@ -94,10 +88,7 @@ public class lifeday_gift_06 extends script.base_script
             else 
             {
                 String[] items = new String[(GIFTS_SELF.length + 1)];
-                for (int i = 0; i < GIFTS_SELF.length; i++)
-                {
-                    items[i] = GIFTS_SELF[i];
-                }
+                System.arraycopy(GIFTS_SELF, 0, items, 0, GIFTS_SELF.length);
                 items[GIFTS_SELF.length] = GIFTS_RANDOM[rand(0, GIFTS_RANDOM.length - 1)];
                 if (grantReward(player, items))
                 {
@@ -122,9 +113,8 @@ public class lifeday_gift_06 extends script.base_script
             if (isIdValid(pInv) && (items != null && items.length > 0))
             {
                 HashSet theSet = new HashSet();
-                for (int i = 0; i < items.length; i++)
-                {
-                    theSet.add(static_item.createNewItemFunction(items[i], pInv));
+                for (String item : items) {
+                    theSet.add(static_item.createNewItemFunction(item, pInv));
                 }
                 obj_id[] gift = new obj_id[theSet.size()];
                 theSet.toArray(gift);
