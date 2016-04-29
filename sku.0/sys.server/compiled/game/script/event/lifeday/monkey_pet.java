@@ -1,103 +1,82 @@
 package script.event.lifeday;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.utils;
-import script.library.player_structure;
-import script.library.locations;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.buff;
-import script.library.ai_lib;
+import script.library.*;
 
 public class monkey_pet extends script.base_script
 {
     public monkey_pet()
     {
     }
-    public static final String LIFEDAY = new String("event/life_day");
-    public static final String MONKEY_RED = new String("lifeday_monkey_lizard");
-    public static final String MONKEY_GREEN = new String("lifeday_monkey_lizard_green");
-    public static final String LAUGH = new String("sound/voc_kowakian_laugh.snd");
-    public static final String ANIMATION_1 = new String("wave2");
-    public static final String ANIMATION_2 = new String("laugh_cackle");
-    public static final String ANIMATION_3 = new String("pound_fist_palm");
-    public static final String ANIMATION_4 = new String("bow2");
-    public static final String ANIMATION_5 = new String("wave1");
-    public static final string_id SID_TURN_ON = new string_id(LIFEDAY, "free_monkey");
-    public static final string_id SID_TURN_OFF = new string_id(LIFEDAY, "cage_monkey");
+    private static final String LIFEDAY = "event/life_day";
+    private static final String MONKEY_RED = "lifeday_monkey_lizard";
+    private static final String MONKEY_GREEN = "lifeday_monkey_lizard_green";
+    private static final String LAUGH = "sound/voc_kowakian_laugh.snd";
+    private static final String ANIMATION_1 = "wave2";
+    private static final String ANIMATION_2 = "laugh_cackle";
+    private static final String ANIMATION_3 = "pound_fist_palm";
+    private static final String ANIMATION_4 = "bow2";
+    private static final String ANIMATION_5 = "wave1";
+    private static final string_id SID_TURN_ON = new string_id(LIFEDAY, "free_monkey");
+    private static final string_id SID_TURN_OFF = new string_id(LIFEDAY, "cage_monkey");
+
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        if (inHouse(self))
+        if (inHouse(self) && hasObjVar(self, "petCalled"))
         {
             location spawnLoc = getLocation(self);
             spawnLoc.x += 1;
-            if (hasObjVar(self, "petCalled"))
+            if (hasObjVar(self, "petId"))
             {
-                if (hasObjVar(self, "petId"))
-                {
-                    obj_id oldPet = getObjIdObjVar(self, "petId");
-                    if (!exists(oldPet))
-                    {
-                        obj_id monkey = create.object(whichMonkey(), spawnLoc);
-                        ai_lib.setDefaultCalmBehavior(monkey, ai_lib.BEHAVIOR_WANDER);
-                        setObjVar(self, "petId", monkey);
-                        setObjVar(monkey, "momId", self);
-                    }
-                }
-                else 
+                if (!exists(getObjIdObjVar(self, "petId")))
                 {
                     obj_id monkey = create.object(whichMonkey(), spawnLoc);
+                    ai_lib.setDefaultCalmBehavior(monkey, ai_lib.BEHAVIOR_WANDER);
                     setObjVar(self, "petId", monkey);
                     setObjVar(monkey, "momId", self);
                 }
-                createTriggerVolume("laughAura", 5, true);
             }
-            else 
+            else
             {
-                removeTriggerVolume("laughAura");
+                obj_id monkey = create.object(whichMonkey(), spawnLoc);
+                setObjVar(self, "petId", monkey);
+                setObjVar(monkey, "momId", self);
             }
+            createTriggerVolume("laughAura", 5, true);
+        }
+        else
+        {
+            removeTriggerVolume("laughAura");
         }
         return SCRIPT_CONTINUE;
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        if (inHouse(self))
+        if (inHouse(self) && hasObjVar(self, "petCalled"))
         {
             location spawnLoc = getLocation(self);
             spawnLoc.x += 1;
-            if (hasObjVar(self, "petCalled"))
+            if (hasObjVar(self, "petId"))
             {
-                if (hasObjVar(self, "petId"))
-                {
-                    obj_id oldPet = getObjIdObjVar(self, "petId");
-                    if (!exists(oldPet))
-                    {
-                        obj_id monkey = create.object(whichMonkey(), spawnLoc);
-                        ai_lib.setDefaultCalmBehavior(monkey, ai_lib.BEHAVIOR_LOITER);
-                        setObjVar(self, "petId", monkey);
-                        setObjVar(monkey, "momId", self);
-                    }
-                }
-                else 
+                if (!exists(getObjIdObjVar(self, "petId")))
                 {
                     obj_id monkey = create.object(whichMonkey(), spawnLoc);
+                    ai_lib.setDefaultCalmBehavior(monkey, ai_lib.BEHAVIOR_LOITER);
                     setObjVar(self, "petId", monkey);
                     setObjVar(monkey, "momId", self);
                 }
-                createTriggerVolume("laughAura", 5, true);
             }
-            else 
+            else
             {
-                removeTriggerVolume("laughAura");
+                obj_id monkey = create.object(whichMonkey(), spawnLoc);
+                setObjVar(self, "petId", monkey);
+                setObjVar(monkey, "momId", self);
             }
+            createTriggerVolume("laughAura", 5, true);
+        }
+        else
+        {
+            removeTriggerVolume("laughAura");
         }
         return SCRIPT_CONTINUE;
     }
@@ -120,28 +99,19 @@ public class monkey_pet extends script.base_script
     }
     public int OnTriggerVolumeEntered(obj_id self, String volumeName, obj_id breacher) throws InterruptedException
     {
-        if (!buff.hasBuff(breacher, "event_lifeday_no_laugh"))
-        {
-            if (volumeName.equals("laughAura"))
-            {
-                if (hasObjVar(self, "petId"))
-                {
-                    obj_id monkey = getObjIdObjVar(self, "petId");
-                    if (exists(monkey))
-                    {
-                        int idx = rand(0, 4);
-                        dictionary params = new dictionary();
-                        params.put("breacher", breacher);
-                        params.put("monkey", monkey);
-                        params.put("idx", idx);
-                        messageTo(self, "animationOne", params, 3, false);
-                        messageTo(self, "animationTwo", params, 6, false);
-                        messageTo(self, "getMoving", params, 9, false);
-                        faceTo(monkey, breacher);
-                        suspendMovement(monkey);
-                        buff.applyBuff(breacher, "event_lifeday_no_laugh");
-                    }
-                }
+        if (!buff.hasBuff(breacher, "event_lifeday_no_laugh") && volumeName.equals("laughAura") && hasObjVar(self, "petId")) {
+            obj_id monkey = getObjIdObjVar(self, "petId");
+            if (exists(monkey)) {
+                dictionary params = new dictionary();
+                params.put("breacher", breacher);
+                params.put("monkey", monkey);
+                params.put("idx", rand(0, 4));
+                messageTo(self, "animationOne", params, 3, false);
+                messageTo(self, "animationTwo", params, 6, false);
+                messageTo(self, "getMoving", params, 9, false);
+                faceTo(monkey, breacher);
+                suspendMovement(monkey);
+                buff.applyBuff(breacher, "event_lifeday_no_laugh");
             }
         }
         return SCRIPT_CONTINUE;
@@ -150,15 +120,14 @@ public class monkey_pet extends script.base_script
     {
         if (inHouse(self))
         {
-            menu_info_data data = mi.getMenuItemByType(menu_info_types.ITEM_USE);
             mi.addRootMenu(menu_info_types.ITEM_USE, new string_id("", ""));
             if (hasObjVar(self, "petCalled"))
             {
-                int monkeyCalled = mi.addRootMenu(menu_info_types.ITEM_USE, SID_TURN_OFF);
+                mi.addRootMenu(menu_info_types.ITEM_USE, SID_TURN_OFF);
             }
             else 
             {
-                int monkeyCalled = mi.addRootMenu(menu_info_types.ITEM_USE, SID_TURN_ON);
+                mi.addRootMenu(menu_info_types.ITEM_USE, SID_TURN_ON);
             }
         }
         return SCRIPT_CONTINUE;
@@ -196,19 +165,15 @@ public class monkey_pet extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public String whichMonkey() throws InterruptedException
+    private String whichMonkey() throws InterruptedException
     {
-        int monkeyColor = rand(1, 2);
-        if (monkeyColor > 1)
+        if (rand(1, 2) == 2)
         {
             return MONKEY_GREEN;
         }
-        else 
-        {
-            return MONKEY_RED;
-        }
+        return MONKEY_RED;
     }
-    public boolean inHouse(obj_id device) throws InterruptedException
+    private boolean inHouse(obj_id device) throws InterruptedException
     {
         obj_id selfContainer = getContainedBy(device);
         obj_id ship = space_transition.getContainingShip(selfContainer);
@@ -217,11 +182,7 @@ public class monkey_pet extends script.base_script
         {
             templateName = getTemplateName(ship);
         }
-        if ((utils.isInHouseCellSpace(device) || space_utils.isPobType(templateName)) && !utils.isNestedWithinAPlayer(device))
-        {
-            return true;
-        }
-        return false;
+        return (utils.isInHouseCellSpace(device) || space_utils.isPobType(templateName)) && !utils.isNestedWithinAPlayer(device);
     }
     public int animationOne(obj_id self, dictionary params) throws InterruptedException
     {
@@ -232,20 +193,20 @@ public class monkey_pet extends script.base_script
         switch (idx)
         {
             case 0:
-            doAnimationAction(monkey, ANIMATION_1);
-            break;
+                doAnimationAction(monkey, ANIMATION_1);
+                break;
             case 1:
-            doAnimationAction(monkey, ANIMATION_2);
-            break;
+                doAnimationAction(monkey, ANIMATION_2);
+                break;
             case 2:
-            doAnimationAction(monkey, ANIMATION_3);
-            break;
+                doAnimationAction(monkey, ANIMATION_3);
+                break;
             case 3:
-            doAnimationAction(monkey, ANIMATION_4);
-            break;
+                doAnimationAction(monkey, ANIMATION_4);
+                break;
             case 4:
-            doAnimationAction(monkey, ANIMATION_5);
-            break;
+                doAnimationAction(monkey, ANIMATION_5);
+                break;
             default:
         }
         return SCRIPT_CONTINUE;
@@ -253,33 +214,31 @@ public class monkey_pet extends script.base_script
     public int animationTwo(obj_id self, dictionary params) throws InterruptedException
     {
         int idx = params.getInt("idx");
-        obj_id breacher = params.getObjId("breacher");
         obj_id monkey = params.getObjId("monkey");
         switch (idx)
         {
             case 0:
-            doAnimationAction(monkey, ANIMATION_1);
-            break;
+                doAnimationAction(monkey, ANIMATION_1);
+                break;
             case 1:
-            doAnimationAction(monkey, ANIMATION_2);
-            break;
+                doAnimationAction(monkey, ANIMATION_2);
+                break;
             case 2:
-            doAnimationAction(monkey, ANIMATION_3);
-            break;
+                doAnimationAction(monkey, ANIMATION_3);
+                break;
             case 3:
-            doAnimationAction(monkey, ANIMATION_4);
-            break;
+                doAnimationAction(monkey, ANIMATION_4);
+                break;
             case 4:
-            doAnimationAction(monkey, ANIMATION_5);
-            break;
+                doAnimationAction(monkey, ANIMATION_5);
+                break;
             default:
         }
         return SCRIPT_CONTINUE;
     }
     public int getMoving(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id monkey = params.getObjId("monkey");
-        resumeMovement(monkey);
+        resumeMovement(params.getObjId("monkey"));
         return SCRIPT_CONTINUE;
     }
     public int OnDestroy(obj_id self) throws InterruptedException
