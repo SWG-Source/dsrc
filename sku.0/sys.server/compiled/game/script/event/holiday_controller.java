@@ -1,15 +1,9 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.holiday;
+import script.library.utils;
+import script.obj_id;
 
 public class holiday_controller extends script.base_script
 {
@@ -88,13 +82,11 @@ public class holiday_controller extends script.base_script
         {
             names[idx] = "holiday_event";
             attribs[idx] = "Empire Day Event Running = True";
-            idx++;
         }
         else 
         {
             names[idx] = "holiday_event";
             attribs[idx] = "Empire Day Event Running = False";
-            idx++;
         }
         return SCRIPT_CONTINUE;
     }
@@ -104,101 +96,70 @@ public class holiday_controller extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        String halloweenString = getCurrentUniverseWideEvents();
-        int halloween = halloweenString.indexOf("halloween");
+
+        String universeWideEvents = getCurrentUniverseWideEvents();
+        int halloween = universeWideEvents.indexOf("halloween");
         String halloweenRunning = getConfigSetting("GameServer", "halloween");
-        if (text.equals("halloweenStart"))
-        {
-            startHolidayEvent(speaker, "halloween", halloweenRunning, halloween);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("halloweenStop"))
-        {
-            stopHolidayEvent(speaker, "halloween", halloweenRunning, halloween);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("halloweenStartForReals"))
-        {
-            startHolidayEventForReals(speaker, "halloween", halloweenRunning);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("halloweenStopForReals"))
-        {
-            stopHolidayEventForReals(speaker, "halloween");
-            return SCRIPT_OVERRIDE;
-        }
-        String lifedayString = getCurrentUniverseWideEvents();
-        int lifeday = lifedayString.indexOf("lifeday");
+        int lifeday = universeWideEvents.indexOf("lifeday");
         String lifedayRunning = getConfigSetting("GameServer", "lifeday");
-        if (text.equals("lifedayStart"))
-        {
-            startHolidayEvent(speaker, "lifeday", lifedayRunning, lifeday);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("lifedayStop"))
-        {
-            stopHolidayEvent(speaker, "lifeday", lifedayRunning, lifeday);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("lifedayStartForReals"))
-        {
-            startHolidayEventForReals(speaker, "lifeday", lifedayRunning);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("lifedayStopForReals"))
-        {
-            stopHolidayEventForReals(speaker, "lifeday");
-            return SCRIPT_OVERRIDE;
-        }
-        String lovedayString = getCurrentUniverseWideEvents();
-        int loveday = lifedayString.indexOf("loveday");
+        int loveday = universeWideEvents.indexOf("loveday");
         String lovedayRunning = getConfigSetting("GameServer", "loveday");
-        if (text.equals("lovedayStart"))
-        {
-            startHolidayEvent(speaker, "loveday", lovedayRunning, loveday);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("lovedayStop"))
-        {
-            stopHolidayEvent(speaker, "loveday", lovedayRunning, loveday);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("lovedayStartForReals"))
-        {
-            startHolidayEventForReals(speaker, "loveday", lovedayRunning);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("lovedayStopForReals"))
-        {
-            stopHolidayEventForReals(speaker, "loveday");
-            return SCRIPT_OVERRIDE;
-        }
-        String empiredayString = getCurrentUniverseWideEvents();
-        int empireday = empiredayString.indexOf("empireday_ceremony");
+        int empireday = universeWideEvents.indexOf("empireday_ceremony");
         String empiredayRunning = getConfigSetting("GameServer", "empireday_ceremony");
-        if (text.equals("empiredayStart"))
-        {
-            startHolidayEvent(speaker, "empireday_ceremony", empiredayRunning, empireday);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("empiredayStop"))
-        {
-            stopHolidayEvent(speaker, "empireday_ceremony", empiredayRunning, empireday);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("empiredayStartForReals"))
-        {
-            startHolidayEventForReals(speaker, "empireday_ceremony", empiredayRunning);
-            return SCRIPT_OVERRIDE;
-        }
-        if (text.equals("empiredayStopForReals"))
-        {
-            stopHolidayEventForReals(speaker, "empireday_ceremony");
-            return SCRIPT_OVERRIDE;
+
+        switch (text) {
+            case "halloweenStart":
+                startHolidayEvent(speaker, "halloween", halloweenRunning, halloween);
+                return SCRIPT_OVERRIDE;
+            case "halloweenStop":
+                stopHolidayEvent(speaker, "halloween", halloweenRunning, halloween);
+                return SCRIPT_OVERRIDE;
+            case "halloweenStartForReals":
+                startHolidayEventForReals(speaker, "halloween", halloweenRunning);
+                return SCRIPT_OVERRIDE;
+            case "halloweenStopForReals":
+                stopHolidayEventForReals(speaker, "halloween");
+                return SCRIPT_OVERRIDE;
+            case "lifedayStart":
+                startHolidayEvent(speaker, "lifeday", lifedayRunning, lifeday);
+                return SCRIPT_OVERRIDE;
+            case "lifedayStop":
+                stopHolidayEvent(speaker, "lifeday", lifedayRunning, lifeday);
+                return SCRIPT_OVERRIDE;
+            case "lifedayStartForReals":
+                startHolidayEventForReals(speaker, "lifeday", lifedayRunning);
+                return SCRIPT_OVERRIDE;
+            case "lifedayStopForReals":
+                stopHolidayEventForReals(speaker, "lifeday");
+                return SCRIPT_OVERRIDE;
+            case "lovedayStart":
+                startHolidayEvent(speaker, "loveday", lovedayRunning, loveday);
+                return SCRIPT_OVERRIDE;
+            case "lovedayStop":
+                stopHolidayEvent(speaker, "loveday", lovedayRunning, loveday);
+                return SCRIPT_OVERRIDE;
+            case "lovedayStartForReals":
+                startHolidayEventForReals(speaker, "loveday", lovedayRunning);
+                return SCRIPT_OVERRIDE;
+            case "lovedayStopForReals":
+                stopHolidayEventForReals(speaker, "loveday");
+                return SCRIPT_OVERRIDE;
+            case "empiredayStart":
+                startHolidayEvent(speaker, "empireday_ceremony", empiredayRunning, empireday);
+                return SCRIPT_OVERRIDE;
+            case "empiredayStop":
+                stopHolidayEvent(speaker, "empireday_ceremony", empiredayRunning, empireday);
+                return SCRIPT_OVERRIDE;
+            case "empiredayStartForReals":
+                startHolidayEventForReals(speaker, "empireday_ceremony", empiredayRunning);
+                return SCRIPT_OVERRIDE;
+            case "empiredayStopForReals":
+                stopHolidayEventForReals(speaker, "empireday_ceremony");
+                return SCRIPT_OVERRIDE;
         }
         return SCRIPT_CONTINUE;
     }
-    public void startHolidayEvent(obj_id speaker, String holidayName, String holidayRunning, int holidayStatus) throws InterruptedException
+    private void startHolidayEvent(obj_id speaker, String holidayName, String holidayRunning, int holidayStatus) throws InterruptedException
     {
         if (holidayRunning == null)
         {
@@ -216,11 +177,9 @@ public class holiday_controller extends script.base_script
                 sendSystemMessageTestingOnly(speaker, holidayName + " started.");
                 startUniverseWideEvent(holidayName);
             }
-            return;
         }
-        return;
     }
-    public void startHolidayEventForReals(obj_id speaker, String holidayName, String holidayRunning) throws InterruptedException
+    private void startHolidayEventForReals(obj_id speaker, String holidayName, String holidayRunning) throws InterruptedException
     {
         if (holidayRunning == null)
         {
@@ -231,37 +190,19 @@ public class holiday_controller extends script.base_script
         {
             sendSystemMessageTestingOnly(speaker, holidayName + " started.");
             startUniverseWideEvent(holidayName);
-            return;
         }
-        return;
     }
-    public void stopHolidayEvent(obj_id speaker, String holidayName, String holidayRunning, int holidayStatus) throws InterruptedException
+    private void stopHolidayEvent(obj_id speaker, String holidayName, String holidayRunning, int holidayStatus) throws InterruptedException
     {
         if (holidayRunning.equals("true") || holidayRunning.equals("1"))
         {
             sendSystemMessageTestingOnly(speaker, "Server config is marked as " + holidayName + " running. If you are sure that it should not be running anyway, say " + holidayName + "StopForReals");
-            return;
         }
-        if (holidayRunning == null)
-        {
-            if (holidayStatus < 0)
-            {
-                sendSystemMessageTestingOnly(speaker, "Server says that " + holidayName + " is already stopped. If you are sure that it's not, say " + holidayName + "StartForReal");
-            }
-            if (holidayStatus > -1)
-            {
-                sendSystemMessageTestingOnly(speaker, holidayName + " stopped.");
-                stopUniverseWideEvent(holidayName);
-            }
-            return;
-        }
-        return;
     }
-    public void stopHolidayEventForReals(obj_id speaker, String holidayName) throws InterruptedException
+    private void stopHolidayEventForReals(obj_id speaker, String holidayName) throws InterruptedException
     {
         sendSystemMessageTestingOnly(speaker, holidayName + " stopped.");
         stopUniverseWideEvent(holidayName);
-        return;
     }
     public int halloweenServerStart(obj_id self, dictionary params) throws InterruptedException
     {

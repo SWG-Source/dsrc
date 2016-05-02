@@ -1,15 +1,9 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.badge;
+import script.library.utils;
+import script.obj_id;
+
 import java.util.StringTokenizer;
 
 public class area_badge extends script.base_script
@@ -17,7 +11,7 @@ public class area_badge extends script.base_script
     public area_badge()
     {
     }
-    public static final String[] HELP_TEXT = 
+    private static final String[] HELP_TEXT =
     {
         "------------------------------------",
         "USAGE: \"areabadge <RANGE> <BADGENUMBER>\"",
@@ -39,8 +33,7 @@ public class area_badge extends script.base_script
         }
         if (isGod(self))
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 5)
+            if (getGodLevel(self) < 5)
             {
                 detachScript(self, "event.area_badge");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
@@ -57,10 +50,9 @@ public class area_badge extends script.base_script
             detachScript(self, "event.area_badge");
             sendSystemMessage(self, "You must be in God Mode to use this script.", null);
         }
-        if (isGod(self))
+        else
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 5)
+            if (getGodLevel(self) < 5)
             {
                 detachScript(self, "event.area_badge");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
@@ -77,15 +69,14 @@ public class area_badge extends script.base_script
         }
         if (isGod(self))
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 5)
+            if (getGodLevel(self) < 5)
             {
                 detachScript(self, "event.area_badge");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (!isGod(self))
+        else
         {
             detachScript(self, "event.area_badge");
             sendSystemMessage(self, "You must be in God Mode to use this script.", null);
@@ -101,9 +92,8 @@ public class area_badge extends script.base_script
                 String command = st.nextToken();
                 String badgeRangeStr = st.nextToken();
                 String badgeNumberStr = st.nextToken();
-                int badgeRangeInt = utils.stringToInt(badgeRangeStr);
                 badgeNumber = utils.stringToInt(badgeNumberStr);
-                badgeRange = (float)badgeRangeInt;
+                badgeRange = (float) utils.stringToInt(badgeRangeStr);
                 if (badgeRange > 256 || badgeRange < 1)
                 {
                     sendSystemMessage(self, "Error: Specify a range between 1 and 256.", null);
@@ -123,13 +113,10 @@ public class area_badge extends script.base_script
                 obj_id[] objPlayers = getPlayerCreaturesInRange(self, badgeRange);
                 if (objPlayers != null && objPlayers.length > 0)
                 {
-                    for (int i = 0; i < objPlayers.length; i++)
-                    {
-                        if (objPlayers[i] != self)
-                        {
-                            badge.grantBadge(objPlayers[i], badgeName);
-                            String playerName = getName(objPlayers[i]);
-                            sendSystemMessage(self, "Granting badge " + badgeNumber + " to player " + playerName, null);
+                    for (obj_id objPlayer : objPlayers) {
+                        if (objPlayer != self) {
+                            badge.grantBadge(objPlayer, badgeName);
+                            sendSystemMessage(self, "Granting badge " + badgeNumber + " to player " + getName(objPlayer), null);
                         }
                     }
                 }
@@ -138,15 +125,12 @@ public class area_badge extends script.base_script
         if ((toLower(strText)).equals("detach"))
         {
             detachScript(self, "event.area_badge");
-            return SCRIPT_CONTINUE;
         }
-        if ((toLower(strText)).equals("help"))
+        else if ((toLower(strText)).equals("help"))
         {
-            for (int i = 0; i < HELP_TEXT.length; i++)
-            {
-                sendSystemMessage(self, HELP_TEXT[i], null);
+            for (String helpText : HELP_TEXT) {
+                sendSystemMessage(self, helpText, null);
             }
-            return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
     }

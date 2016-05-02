@@ -1,18 +1,12 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.utils;
-import java.lang.Math;
+import script.dictionary;
 import script.library.ai_lib;
+import script.library.create;
 import script.library.sui;
+import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class honor_guard extends script.base_script
 {
@@ -80,11 +74,10 @@ public class honor_guard extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int showUI(obj_id self, obj_id player) throws InterruptedException
+    private int showUI(obj_id self, obj_id player) throws InterruptedException
     {
         int current = getIntObjVar(self, "event.honor_guard.setupStep");
-        int pid = sui.inputbox(self, self, PROMPT_TEXT[current], TITLE[current], "handleUIdata", 255, false, "");
-        return pid;
+        return sui.inputbox(self, self, PROMPT_TEXT[current], TITLE[current], "handleUIdata", 255, false, "");
     }
     public int handleUIdata(obj_id self, dictionary params) throws InterruptedException
     {
@@ -97,133 +90,113 @@ public class honor_guard extends script.base_script
             return SCRIPT_CONTINUE;
         }
         setObjVar(self, "event.honor_guard.lastData", text);
-        int current = getIntObjVar(self, "event.honor_guard.setupStep");
         messageTo(self, "storeLastDataObjVar", null, 0, false);
         return SCRIPT_CONTINUE;
     }
     public int storeLastDataObjVar(obj_id self, dictionary params) throws InterruptedException
     {
-        int single = getIntObjVar(self, "event.honor_guard.single");
-        int setupStep = getIntObjVar(self, "event.honor_guard.setupStep");
         String lastDataStr = getStringObjVar(self, "event.honor_guard.lastData");
-        if (lastDataStr.equals("setup"))
-        {
-            setObjVar(self, "event.honor_guard.setupStep", 1);
-            setObjVar(self, "event.honor_guard.single", 0);
-            messageTo(self, "continueCollectingData", null, 1, false);
-            return SCRIPT_CONTINUE;
-        }
-        if (lastDataStr.equals("spawn"))
-        {
-            messageTo(self, "spawnHonorGuard", null, 0, false);
-            messageTo(self, "continueCollectingData", null, 1, false);
-            return SCRIPT_CONTINUE;
-        }
-        if (lastDataStr.equals("data"))
-        {
-            String template = getStringObjVar(self, "event.honor_guard.template");
-            int numPerLine = getIntObjVar(self, "event.honor_guard.numPerLine");
-            int numRows = getIntObjVar(self, "event.honor_guard.numRows");
-            float offset = getFloatObjVar(self, "event.honor_guard.offset");
-            sendSystemMessage(self, "Current Template: " + template + ". Number per line: " + numPerLine + " . Number of Rows: " + numRows + " . Spacing: " + offset, null);
-            messageTo(self, "continueCollectingData", null, 1, false);
-            return SCRIPT_CONTINUE;
-        }
-        if (lastDataStr.equals("quit"))
-        {
-            removeObjVar(self, "event.honor_guard");
-            detachScript(self, "event.honor_guard");
-            sendSystemMessage(self, "Many thank you for your playing.", null);
-            return SCRIPT_CONTINUE;
-        }
-        if (lastDataStr.equals("singleSetup"))
-        {
-            setObjVar(self, "event.honor_guard.single", 1);
-            setObjVar(self, "event.honor_guard.setupStep", 1);
-            setObjVar(self, "event.honor_guard.numPerLine", 1);
-            setObjVar(self, "event.honor_guard.numRows", 1);
-            setObjVar(self, "event.honor_guard.offset", 1.0f);
-            messageTo(self, "continueCollectingData", null, 1, false);
-            return SCRIPT_CONTINUE;
-        }
-        if (setupStep == 0)
-        {
-            sendSystemMessage(self, "Type \"quit\" to terminate the script, \"setup\" to start over, \"data\" to see current data or \"spawn\" to spawn the NPCs.", null);
-            messageTo(self, "continueCollectingData", null, 1, false);
-            return SCRIPT_CONTINUE;
-        }
-        if (setupStep == 1)
-        {
-            setObjVar(self, "event.honor_guard.template", lastDataStr);
-            if (single == 0)
-            {
-                setObjVar(self, "event.honor_guard.setupStep", 2);
-            }
-            else 
-            {
-                setObjVar(self, "event.honor_guard.setupStep", 5);
-            }
-            sendSystemMessage(self, "Template set as: " + lastDataStr, null);
-        }
-        if (setupStep == 2)
-        {
-            int lastDataInt = utils.stringToInt(lastDataStr);
-            if (lastDataInt <= 0)
-            {
-                sendSystemMessage(self, "You must enter a whole number greater then 0.", null);
+        switch (lastDataStr) {
+            case "setup":
+                setObjVar(self, "event.honor_guard.setupStep", 1);
+                setObjVar(self, "event.honor_guard.single", 0);
                 messageTo(self, "continueCollectingData", null, 1, false);
                 return SCRIPT_CONTINUE;
-            }
-            setObjVar(self, "event.honor_guard.setupStep", 3);
-            setObjVar(self, "event.honor_guard.numPerLine", lastDataInt);
-            sendSystemMessage(self, "Number of spawns per line set to: " + lastDataInt, null);
-        }
-        if (setupStep == 3)
-        {
-            int lastDataInt = utils.stringToInt(lastDataStr);
-            if (lastDataInt <= 0)
-            {
-                sendSystemMessage(self, "You must enter a whole number greater then 0.", null);
+            case "spawn":
+                messageTo(self, "spawnHonorGuard", null, 0, false);
                 messageTo(self, "continueCollectingData", null, 1, false);
                 return SCRIPT_CONTINUE;
-            }
-            setObjVar(self, "event.honor_guard.setupStep", 4);
-            setObjVar(self, "event.honor_guard.numRows", lastDataInt);
-            sendSystemMessage(self, "Number of rows set to: " + lastDataInt, null);
-        }
-        if (setupStep == 4)
-        {
-            float lastDataFloat = utils.stringToFloat(lastDataStr);
-            if (lastDataFloat <= 0)
-            {
-                sendSystemMessage(self, "You must enter a value greater then 0.", null);
+            case "data":
+                String template = getStringObjVar(self, "event.honor_guard.template");
+                int numPerLine = getIntObjVar(self, "event.honor_guard.numPerLine");
+                int numRows = getIntObjVar(self, "event.honor_guard.numRows");
+                float offset = getFloatObjVar(self, "event.honor_guard.offset");
+                sendSystemMessage(self, "Current Template: " + template + ". Number per line: " + numPerLine + " . Number of Rows: " + numRows + " . Spacing: " + offset, null);
                 messageTo(self, "continueCollectingData", null, 1, false);
                 return SCRIPT_CONTINUE;
-            }
-            setObjVar(self, "event.honor_guard.setupStep", 5);
-            setObjVar(self, "event.honor_guard.offset", lastDataFloat);
-            sendSystemMessage(self, "Spacing between NPCs set to: " + lastDataFloat, null);
-        }
-        if (setupStep == 5)
-        {
-            float lastDataFloat = utils.stringToFloat(lastDataStr);
-            if (lastDataFloat <= 0 || lastDataFloat > 864001)
-            {
-                sendSystemMessage(self, "You must enter a value more then 0 and at most 864000 (10 days).", null);
+            case "quit":
+                removeObjVar(self, "event.honor_guard");
+                detachScript(self, "event.honor_guard");
+                sendSystemMessage(self, "Many thank you for your playing.", null);
+                return SCRIPT_CONTINUE;
+            case "singleSetup":
+                setObjVar(self, "event.honor_guard.single", 1);
+                setObjVar(self, "event.honor_guard.setupStep", 1);
+                setObjVar(self, "event.honor_guard.numPerLine", 1);
+                setObjVar(self, "event.honor_guard.numRows", 1);
+                setObjVar(self, "event.honor_guard.offset", 1.0f);
                 messageTo(self, "continueCollectingData", null, 1, false);
                 return SCRIPT_CONTINUE;
-            }
-            setObjVar(self, "event.honor_guard.setupStep", 0);
-            setObjVar(self, "event.honor_guard.expirationTime", lastDataFloat);
-            sendSystemMessage(self, "Expiration time set to: " + lastDataFloat + " seconds.", null);
         }
-        if (setupStep == 6)
-        {
-            if (lastDataStr.equals("ok"))
-            {
-                setObjVar(self, "event.honor_guard.overRide", 1);
+        int setupStep = getIntObjVar(self, "event.honor_guard.setupStep");
+        switch (setupStep) {
+            case 0:
+                sendSystemMessage(self, "Type \"quit\" to terminate the script, \"setup\" to start over, \"data\" to see current data or \"spawn\" to spawn the NPCs.", null);
+                messageTo(self, "continueCollectingData", null, 1, false);
+                return SCRIPT_CONTINUE;
+            case 1:
+                setObjVar(self, "event.honor_guard.template", lastDataStr);
+                if (getIntObjVar(self, "event.honor_guard.single") == 0) {
+                    setObjVar(self, "event.honor_guard.setupStep", 2);
+                } else {
+                    setObjVar(self, "event.honor_guard.setupStep", 5);
+                }
+                sendSystemMessage(self, "Template set as: " + lastDataStr, null);
+                break;
+            case 2: {
+                int lastDataInt = utils.stringToInt(lastDataStr);
+                if (lastDataInt <= 0) {
+                    sendSystemMessage(self, "You must enter a whole number greater then 0.", null);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                }
+                setObjVar(self, "event.honor_guard.setupStep", 3);
+                setObjVar(self, "event.honor_guard.numPerLine", lastDataInt);
+                sendSystemMessage(self, "Number of spawns per line set to: " + lastDataInt, null);
+                break;
+            }
+            case 3: {
+                int lastDataInt = utils.stringToInt(lastDataStr);
+                if (lastDataInt <= 0) {
+                    sendSystemMessage(self, "You must enter a whole number greater then 0.", null);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                }
                 setObjVar(self, "event.honor_guard.setupStep", 4);
+                setObjVar(self, "event.honor_guard.numRows", lastDataInt);
+                sendSystemMessage(self, "Number of rows set to: " + lastDataInt, null);
+                break;
             }
+            case 4: {
+                float lastDataFloat = utils.stringToFloat(lastDataStr);
+                if (lastDataFloat <= 0) {
+                    sendSystemMessage(self, "You must enter a value greater then 0.", null);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                }
+                setObjVar(self, "event.honor_guard.setupStep", 5);
+                setObjVar(self, "event.honor_guard.offset", lastDataFloat);
+                sendSystemMessage(self, "Spacing between NPCs set to: " + lastDataFloat, null);
+                break;
+            }
+            case 5: {
+                float lastDataFloat = utils.stringToFloat(lastDataStr);
+                if (lastDataFloat <= 0 || lastDataFloat > 864001) {
+                    sendSystemMessage(self, "You must enter a value more then 0 and at most 864000 (10 days).", null);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                }
+                setObjVar(self, "event.honor_guard.setupStep", 0);
+                setObjVar(self, "event.honor_guard.expirationTime", lastDataFloat);
+                sendSystemMessage(self, "Expiration time set to: " + lastDataFloat + " seconds.", null);
+                break;
+            }
+            case 6:
+                if (lastDataStr.equals("ok")) {
+                    setObjVar(self, "event.honor_guard.overRide", 1);
+                    setObjVar(self, "event.honor_guard.setupStep", 4);
+                }
+                break;
         }
         int numPerLine = getIntObjVar(self, "event.honor_guard.numPerLine");
         int numRows = getIntObjVar(self, "event.honor_guard.numRows");
@@ -259,6 +232,7 @@ public class honor_guard extends script.base_script
         float yLoc = here.y;
         float zLoc = here.z;
         obj_id room = here.cell;
+        obj_id honorGuard;
         for (int i = 0; i < numPerLine; i++)
         {
             double xRowOffsetDbl = Math.sin(Math.toRadians(heading + 90)) * (i * offset);
@@ -276,7 +250,7 @@ public class honor_guard extends script.base_script
                 spawnPoint.y = yLoc;
                 spawnPoint.z = zSpawn;
                 spawnPoint.cell = room;
-                obj_id honorGuard = create.object(template, spawnPoint);
+                honorGuard = create.object(template, spawnPoint);
                 persistObject(honorGuard);
                 attachScript(honorGuard, "event.invasion.key_object");
                 setObjVar(honorGuard, "event.invasion.keyObject.expirationTime", expirationTime);
