@@ -1,31 +1,18 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
-import script.library.create;
-import script.library.pclib;
-import script.library.dot;
-import script.library.combat;
-import script.library.utils;
 import java.util.StringTokenizer;
-import script.library.buff;
-import script.library.badge;
-import script.library.healing;
-import script.library.pet_lib;
-import script.library.weapons;
 
 public class event_tool extends script.base_script
 {
     public event_tool()
     {
     }
-    public static final String[] BADBUFFS = 
+    private static final String[] BADBUFFS =
     {
         "movement",
         "delay_attack",
@@ -41,197 +28,159 @@ public class event_tool extends script.base_script
         StringTokenizer st = new java.util.StringTokenizer(text);
         int tokens = st.countTokens();
         String command = null;
-        if (st.hasMoreTokens())
-        {
+        if (st.hasMoreTokens()) {
             command = st.nextToken();
-        }
-        if (command.equals("grantCommunityBadge"))
-        {
-            dictionary dict = new dictionary();
-            dict.put("communityRep", self);
-            String[] allCommunityBadges = getAllCollectionSlotsInCollection("col_badge_accolades");
-            if (st.hasMoreTokens())
-            {
+            if (command.equals("grantCommunityBadge")) {
+                dictionary dict = new dictionary();
+                dict.put("communityRep", self);
+                String[] allCommunityBadges = getAllCollectionSlotsInCollection("col_badge_accolades");
+                if (st.hasMoreTokens()) {
+                    String playerName = "";
+                    String badgeName = "";
+                    if (st.hasMoreTokens()) {
+                        playerName = st.nextToken();
+                    }
+                    if (st.hasMoreTokens()) {
+                        badgeName = st.nextToken();
+                    }
+                    if (playerName == null || playerName.length() <= 0) {
+                        sendSystemMessage(self, "You must supply a player name.", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    if (badgeName == null || badgeName.length() <= 0) {
+                        sendSystemMessage(self, "You must supply a badge name.", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    String[] info = getCollectionSlotInfo(badgeName);
+                    if ((info == null) || (info.length != COLLECTION_INFO_ARRAY_SIZE) || (info[COLLECTION_INFO_INDEX_BOOK] == null) || (!info[COLLECTION_INFO_INDEX_BOOK].equals(badge.BADGE_BOOK))) {
+                        sendSystemMessage(self, "This is an invalid badge name.", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    String collectionName = info[COLLECTION_INFO_INDEX_COLLECTION];
+                    if (collectionName == null || collectionName.length() <= 0) {
+                        sendSystemMessage(self, "Somehow this badge is missing a collection. Contact Development", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    if (!collectionName.equals("col_badge_accolades")) {
+                        sendSystemMessage(self, "This badge is not a community badge.", "");
+                        sendSystemMessage(self, "Valid Community Badges are:", "");
+                        for (String allCommunityBadge : allCommunityBadges) {
+                            sendSystemMessage(self, allCommunityBadge, "");
+                        }
+                        return SCRIPT_CONTINUE;
+                    }
+                    obj_id player = getPlayerIdFromFirstName(playerName);
+                    if (!isIdValid(player)) {
+                        sendSystemMessage(self, "The name you supplied could not be found. Please check spelling.", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    dict.put("badgeName", badgeName);
+                    messageTo(player, "handlerCommunityBadgeGrant", dict, 0, true);
+                    CustomerServiceLog("EventPerk", "[EventTool] 'grantCommunityBadge' used by " + getPlayerName(self) + ":" + self + ". Awarding badge " + badgeName + " to " + getPlayerName(player) + ":" + player + " .", null);
+                    sendSystemMessage(self, "Message sent to grant badge. Please wait for response. If you dont get one, the player is not online.", "");
+                    return SCRIPT_CONTINUE;
+                } else {
+                    sendSystemMessage(self, "You need to specify a player name and what badge you want to grant.", "");
+                    sendSystemMessage(self, "Correct syntax is grantCommunityBadge <playerName> <badgeName>.", "");
+                    sendSystemMessage(self, "Valid Community Badges are:", "");
+                    for (String allCommunityBadge : allCommunityBadges) {
+                        sendSystemMessage(self, allCommunityBadge, "");
+                    }
+                }
+                return SCRIPT_CONTINUE;
+            }
+            if (command.equals("grantAllCommunityBadges")) {
+                dictionary dict = new dictionary();
+                dict.put("communityRep", self);
                 String playerName = "";
-                String badgeName = "";
-                if (st.hasMoreTokens())
-                {
+                if (st.hasMoreTokens()) {
                     playerName = st.nextToken();
+                } else {
+                    sendSystemMessage(self, "You need to specify a player name.", "");
+                    sendSystemMessage(self, "Correct syntax is grantAllCommunityBadges <playerName>.", "");
+                    return SCRIPT_CONTINUE;
                 }
-                if (st.hasMoreTokens())
-                {
-                    badgeName = st.nextToken();
-                }
-                if (playerName == null || playerName.length() <= 0)
-                {
+                if (playerName == null || playerName.length() <= 0) {
                     sendSystemMessage(self, "You must supply a player name.", "");
                     return SCRIPT_CONTINUE;
                 }
-                if (badgeName == null || badgeName.length() <= 0)
-                {
-                    sendSystemMessage(self, "You must supply a badge name.", "");
-                    return SCRIPT_CONTINUE;
-                }
-                String[] info = getCollectionSlotInfo(badgeName);
-                if ((info == null) || (info.length != COLLECTION_INFO_ARRAY_SIZE) || (info[COLLECTION_INFO_INDEX_BOOK] == null) || (!info[COLLECTION_INFO_INDEX_BOOK].equals(badge.BADGE_BOOK)))
-                {
-                    sendSystemMessage(self, "This is an invalid badge name.", "");
-                    return SCRIPT_CONTINUE;
-                }
-                String collectionName = info[COLLECTION_INFO_INDEX_COLLECTION];
-                if (collectionName == null || collectionName.length() <= 0)
-                {
-                    sendSystemMessage(self, "Somehow this badge is missing a collection. Contact Development", "");
-                    return SCRIPT_CONTINUE;
-                }
-                if (!collectionName.equals("col_badge_accolades"))
-                {
-                    sendSystemMessage(self, "This badge is not a community badge.", "");
-                    sendSystemMessage(self, "Valid Community Badges are:", "");
-                    for (int i = 0; i < allCommunityBadges.length; ++i)
-                    {
-                        sendSystemMessage(self, allCommunityBadges[i], "");
-                    }
-                    return SCRIPT_CONTINUE;
-                }
                 obj_id player = getPlayerIdFromFirstName(playerName);
-                if (!isIdValid(player))
-                {
+                if (!isIdValid(player)) {
                     sendSystemMessage(self, "The name you supplied could not be found. Please check spelling.", "");
                     return SCRIPT_CONTINUE;
                 }
-                dict.put("badgeName", badgeName);
-                messageTo(player, "handlerCommunityBadgeGrant", dict, 0, true);
-                CustomerServiceLog("EventPerk", "[EventTool] 'grantCommunityBadge' used by " + getPlayerName(self) + ":" + self + ". Awarding badge " + badgeName + " to " + getPlayerName(player) + ":" + player + " .", null);
-                sendSystemMessage(self, "Message sent to grant badge. Please wait for response. If you dont get one, the player is not online.", "");
+                String[] allCommunityBadges = getAllCollectionSlotsInCollection("col_badge_accolades");
+                for (String allCommunityBadge : allCommunityBadges) {
+                    dict.put("badgeName", allCommunityBadge);
+                    messageTo(player, "handlerCommunityBadgeGrant", dict, 0, true);
+                }
+                CustomerServiceLog("EventPerk", "[EventTool] 'grantAllCommunityBadges' used by " + getPlayerName(self) + ":" + self + ". Awarding all community badges to " + getPlayerName(player) + ":" + player + " .", null);
+                sendSystemMessage(self, "Messages sent to grant badges. Please wait for responses. If you dont get any, the player is not online.", "");
                 return SCRIPT_CONTINUE;
             }
-            else 
-            {
-                sendSystemMessage(self, "You need to specify a player name and what badge you want to grant.", "");
-                sendSystemMessage(self, "Correct syntax is grantCommunityBadge <playerName> <badgeName>.", "");
-                sendSystemMessage(self, "Valid Community Badges are:", "");
-                for (int i = 0; i < allCommunityBadges.length; ++i)
-                {
-                    sendSystemMessage(self, allCommunityBadges[i], "");
-                }
-            }
-            return SCRIPT_CONTINUE;
-        }
-        if (command.equals("grantAllCommunityBadges"))
-        {
-            dictionary dict = new dictionary();
-            dict.put("communityRep", self);
-            String playerName = "";
-            if (st.hasMoreTokens())
-            {
-                playerName = st.nextToken();
-            }
-            else 
-            {
-                sendSystemMessage(self, "You need to specify a player name.", "");
-                sendSystemMessage(self, "Correct syntax is grantAllCommunityBadges <playerName>.", "");
-                return SCRIPT_CONTINUE;
-            }
-            if (playerName == null || playerName.length() <= 0)
-            {
-                sendSystemMessage(self, "You must supply a player name.", "");
-                return SCRIPT_CONTINUE;
-            }
-            obj_id player = getPlayerIdFromFirstName(playerName);
-            if (!isIdValid(player))
-            {
-                sendSystemMessage(self, "The name you supplied could not be found. Please check spelling.", "");
-                return SCRIPT_CONTINUE;
-            }
-            String[] allCommunityBadges = getAllCollectionSlotsInCollection("col_badge_accolades");
-            for (int i = 0; i < allCommunityBadges.length; ++i)
-            {
-                dict.put("badgeName", allCommunityBadges[i]);
-                messageTo(player, "handlerCommunityBadgeGrant", dict, 0, true);
-            }
-            CustomerServiceLog("EventPerk", "[EventTool] 'grantAllCommunityBadges' used by " + getPlayerName(self) + ":" + self + ". Awarding all community badges to " + getPlayerName(player) + ":" + player + " .", null);
-            sendSystemMessage(self, "Messages sent to grant badges. Please wait for responses. If you dont get any, the player is not online.", "");
-            return SCRIPT_CONTINUE;
-        }
-        if (command.equals("grantCommunityBadgeArea"))
-        {
-            dictionary dict = new dictionary();
-            dict.put("communityRep", self);
-            if (st.hasMoreTokens())
-            {
-                String badgeName = "";
-                int range = 0;
-                if (st.hasMoreTokens())
-                {
-                    badgeName = st.nextToken();
-                }
-                if (st.hasMoreTokens())
-                {
-                    range = utils.stringToInt(st.nextToken());
-                }
-                if (badgeName == null || badgeName.length() <= 0)
-                {
-                    sendSystemMessage(self, "You must supply a badge name.", "");
-                    return SCRIPT_CONTINUE;
-                }
-                if (range <= 0 || range > 156)
-                {
-                    sendSystemMessage(self, "You supplied an invalid range.", "");
-                    sendSystemMessage(self, "Valid range is 1 to 156.", "");
-                    return SCRIPT_CONTINUE;
-                }
-                String[] info = getCollectionSlotInfo(badgeName);
-                if ((info == null) || (info.length != COLLECTION_INFO_ARRAY_SIZE) || (info[COLLECTION_INFO_INDEX_BOOK] == null) || (!info[COLLECTION_INFO_INDEX_BOOK].equals(badge.BADGE_BOOK)))
-                {
-                    sendSystemMessage(self, "This is an invalid badge name.", "");
-                    return SCRIPT_CONTINUE;
-                }
-                String collectionName = info[COLLECTION_INFO_INDEX_COLLECTION];
-                if (collectionName == null || collectionName.length() <= 0)
-                {
-                    sendSystemMessage(self, "Somehow this badge is missing a collection. Contact Development", "");
-                    return SCRIPT_CONTINUE;
-                }
-                if (!collectionName.equals("col_badge_accolades"))
-                {
-                    sendSystemMessage(self, "This badge is not a community badge.", "");
-                    sendSystemMessage(self, "Valid Community Badges are:", "");
-                    String[] allCommunityBadges = getAllCollectionSlotsInCollection("col_badge_accolades");
-                    for (int i = 0; i < allCommunityBadges.length; ++i)
-                    {
-                        sendSystemMessage(self, allCommunityBadges[i], "");
+            if (command.equals("grantCommunityBadgeArea")) {
+                dictionary dict = new dictionary();
+                dict.put("communityRep", self);
+                if (st.hasMoreTokens()) {
+                    String badgeName = "";
+                    int range = 0;
+                    if (st.hasMoreTokens()) {
+                        badgeName = st.nextToken();
                     }
-                    return SCRIPT_CONTINUE;
-                }
-                int badgeCount = 0;
-                obj_id[] objPlayers = getPlayerCreaturesInRange(self, range);
-                if (objPlayers != null && objPlayers.length > 0)
-                {
-                    for (int i = 0; i < objPlayers.length; i++)
-                    {
-                        if (objPlayers[i] != self)
-                        {
-                            dict.put("badgeName", badgeName);
-                            messageTo(objPlayers[i], "handlerCommunityBadgeGrant", dict, 0, true);
-                            sendSystemMessage(self, "Message sent to grant badge. Please wait for response. If you dont get one, the player is not online.", "");
-                            badgeCount++;
+                    if (st.hasMoreTokens()) {
+                        range = utils.stringToInt(st.nextToken());
+                    }
+                    if (badgeName == null || badgeName.length() <= 0) {
+                        sendSystemMessage(self, "You must supply a badge name.", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    if (range <= 0 || range > 156) {
+                        sendSystemMessage(self, "You supplied an invalid range.", "");
+                        sendSystemMessage(self, "Valid range is 1 to 156.", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    String[] info = getCollectionSlotInfo(badgeName);
+                    if ((info == null) || (info.length != COLLECTION_INFO_ARRAY_SIZE) || (info[COLLECTION_INFO_INDEX_BOOK] == null) || (!info[COLLECTION_INFO_INDEX_BOOK].equals(badge.BADGE_BOOK))) {
+                        sendSystemMessage(self, "This is an invalid badge name.", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    String collectionName = info[COLLECTION_INFO_INDEX_COLLECTION];
+                    if (collectionName == null || collectionName.length() <= 0) {
+                        sendSystemMessage(self, "Somehow this badge is missing a collection. Contact Development", "");
+                        return SCRIPT_CONTINUE;
+                    }
+                    if (!collectionName.equals("col_badge_accolades")) {
+                        sendSystemMessage(self, "This badge is not a community badge.", "");
+                        sendSystemMessage(self, "Valid Community Badges are:", "");
+                        String[] allCommunityBadges = getAllCollectionSlotsInCollection("col_badge_accolades");
+                        for (String allCommunityBadge : allCommunityBadges) {
+                            sendSystemMessage(self, allCommunityBadge, "");
+                        }
+                        return SCRIPT_CONTINUE;
+                    }
+                    int badgeCount = 0;
+                    obj_id[] objPlayers = getPlayerCreaturesInRange(self, range);
+                    if (objPlayers != null && objPlayers.length > 0) {
+                        for (obj_id objPlayer : objPlayers) {
+                            if (objPlayer != self) {
+                                dict.put("badgeName", badgeName);
+                                messageTo(objPlayer, "handlerCommunityBadgeGrant", dict, 0, true);
+                                sendSystemMessage(self, "Message sent to grant badge. Please wait for response. If you dont get one, the player is not online.", "");
+                                badgeCount++;
+                            }
                         }
                     }
-                }
-                sendSystemMessage(self, "A total of " + badgeCount + " badges were awarded.", null);
-                CustomerServiceLog("EventPerk", "[EventTool] 'grantCommunityBadgeArea' used by " + getPlayerName(self) + ":" + self + ". Awarding badge " + badgeName + " to " + badgeCount + " people.", null);
-            }
-            else 
-            {
-                sendSystemMessage(self, "You need to specify a badge name and range of area you want to give the badge.", "");
-                sendSystemMessage(self, "Correct syntax is grantCommunityBadge <badgeName> <range>.", "");
-                sendSystemMessage(self, "Valid Range is 1 to 156.", "");
-                sendSystemMessage(self, "Valid Community Badges are:", "");
-                String[] allCommunityBadges = getAllCollectionSlotsInCollection("col_badge_accolades");
-                for (int i = 0; i < allCommunityBadges.length; ++i)
-                {
-                    sendSystemMessage(self, allCommunityBadges[i], "");
+                    sendSystemMessage(self, "A total of " + badgeCount + " badges were awarded.", null);
+                    CustomerServiceLog("EventPerk", "[EventTool] 'grantCommunityBadgeArea' used by " + getPlayerName(self) + ":" + self + ". Awarding badge " + badgeName + " to " + badgeCount + " people.", null);
+                } else {
+                    sendSystemMessage(self, "You need to specify a badge name and range of area you want to give the badge.", "");
+                    sendSystemMessage(self, "Correct syntax is grantCommunityBadge <badgeName> <range>.", "");
+                    sendSystemMessage(self, "Valid Range is 1 to 156.", "");
+                    sendSystemMessage(self, "Valid Community Badges are:", "");
+                    String[] allCommunityBadges = getAllCollectionSlotsInCollection("col_badge_accolades");
+                    for (String allCommunityBadge : allCommunityBadges) {
+                        sendSystemMessage(self, allCommunityBadge, "");
+                    }
                 }
             }
         }
@@ -243,9 +192,8 @@ public class event_tool extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id player = params.getObjId("player");
         String badgeName = params.getString("badgeName");
-        sendSystemMessage(self, getPlayerName(player) + " has received the badge " + badgeName + " that you sent them.", "");
+        sendSystemMessage(self, getPlayerName(params.getObjId("player")) + " has received the badge " + badgeName + " that you sent them.", "");
         return SCRIPT_CONTINUE;
     }
     public int eventVaderChoke(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -261,9 +209,7 @@ public class event_tool extends script.base_script
         dictionary eDict = new dictionary();
         eDict.put("myTarget", myTarget);
         messageTo(self, "killTargetPlayer", eDict, 6, false);
-        String selfName = getName(self);
-        String targetName = getName(myTarget);
-        CustomerServiceLog("EventPerk", "[EventTool] /eventVaderChoke used by [" + selfName + ":" + self + "] on [" + targetName + ":" + myTarget, null);
+        CustomerServiceLog("EventPerk", "[EventTool] /eventVaderChoke used by [" + getName(self) + ":" + self + "] on [" + getName(myTarget) + ":" + myTarget, null);
         return SCRIPT_CONTINUE;
     }
     public int eventClearStates(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -274,16 +220,14 @@ public class event_tool extends script.base_script
             buff.removeAllBuffs(self);
             return SCRIPT_CONTINUE;
         }
-        int[] everyBuff = buff.getAllBuffs(self);
-        for (int i = 0; i < everyBuff.length; i++)
-        {
-            String buffParam = buff.getEffectParam(everyBuff[i], 1);
-            for (int j = 0; j < BADBUFFS.length; j++)
-            {
-                if (buffParam.equals(BADBUFFS[j]))
-                {
-                    buff.removeBuff(self, everyBuff[i]);
-                    sendSystemMessage(self, everyBuff[i] + " is EEeevil so it was removed.", null);
+        int[] allBuffs = buff.getAllBuffs(self);
+        String buffParam;
+        for (int thisBuff : allBuffs) {
+            buffParam = buff.getEffectParam(thisBuff, 1);
+            for (String badBuff : BADBUFFS) {
+                if (buffParam.equals(badBuff)) {
+                    buff.removeBuff(self, thisBuff);
+                    sendSystemMessage(self, thisBuff + " is EEeevil so it was removed.", null);
                 }
             }
         }
@@ -429,21 +373,16 @@ public class event_tool extends script.base_script
             obj_id[] thingsInRange = getPlayerCreaturesInRange(self, range);
             if (thingsInRange != null && thingsInRange.length > 0)
             {
-                for (int i = 0; i < thingsInRange.length; i++)
-                {
-                    if (thingsInRange[i] != self)
-                    {
-                        if (numArgs == 2)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName);
+                for (obj_id aThingsInRange : thingsInRange) {
+                    if (aThingsInRange != self) {
+                        if (numArgs == 2) {
+                            buff.applyBuff(aThingsInRange, buffName);
                         }
-                        if (numArgs == 3)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName, duration);
+                        else if (numArgs == 3) {
+                            buff.applyBuff(aThingsInRange, buffName, duration);
                         }
-                        if (numArgs == 4)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName, duration, value);
+                        else if (numArgs == 4) {
+                            buff.applyBuff(aThingsInRange, buffName, duration, value);
                         }
                     }
                 }
@@ -454,21 +393,16 @@ public class event_tool extends script.base_script
             obj_id[] thingsInRange = getNPCsInRange(self, range);
             if (thingsInRange != null && thingsInRange.length > 0)
             {
-                for (int i = 0; i < thingsInRange.length; i++)
-                {
-                    if (thingsInRange[i] != self)
-                    {
-                        if (numArgs == 2)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName);
+                for (obj_id aThingsInRange : thingsInRange) {
+                    if (aThingsInRange != self) {
+                        if (numArgs == 2) {
+                            buff.applyBuff(aThingsInRange, buffName);
                         }
-                        if (numArgs == 3)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName, duration);
+                        if (numArgs == 3) {
+                            buff.applyBuff(aThingsInRange, buffName, duration);
                         }
-                        if (numArgs == 4)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName, duration, value);
+                        if (numArgs == 4) {
+                            buff.applyBuff(aThingsInRange, buffName, duration, value);
                         }
                     }
                 }
@@ -479,21 +413,16 @@ public class event_tool extends script.base_script
             obj_id[] thingsInRange = getCreaturesInRange(self, range);
             if (thingsInRange != null && thingsInRange.length > 0)
             {
-                for (int i = 0; i < thingsInRange.length; i++)
-                {
-                    if (thingsInRange[i] != self)
-                    {
-                        if (numArgs == 2)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName);
+                for (obj_id aThingsInRange : thingsInRange) {
+                    if (aThingsInRange != self) {
+                        if (numArgs == 2) {
+                            buff.applyBuff(aThingsInRange, buffName);
                         }
-                        if (numArgs == 3)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName, duration);
+                        if (numArgs == 3) {
+                            buff.applyBuff(aThingsInRange, buffName, duration);
                         }
-                        if (numArgs == 4)
-                        {
-                            buff.applyBuff(thingsInRange[i], buffName, duration, value);
+                        if (numArgs == 4) {
+                            buff.applyBuff(aThingsInRange, buffName, duration, value);
                         }
                     }
                 }
@@ -528,13 +457,10 @@ public class event_tool extends script.base_script
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, range);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                if (objPlayers[i] != self)
-                {
-                    pvpSetPersonalEnemyFlag(self, objPlayers[i]);
-                    String playerName = getName(objPlayers[i]);
-                    sendSystemMessage(self, playerName + " can now attack you!", null);
+            for (obj_id objPlayer : objPlayers) {
+                if (objPlayer != self) {
+                    pvpSetPersonalEnemyFlag(self, objPlayer);
+                    sendSystemMessage(self, getName(objPlayer) + " can now attack you!", null);
                 }
             }
         }
@@ -604,20 +530,16 @@ public class event_tool extends script.base_script
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, range);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                if (objPlayers[i] != self)
-                {
-                    badge.grantBadge(objPlayers[i], badgeName);
-                    String playerName = getName(objPlayers[i]);
-                    sendSystemMessage(self, "Granting badge " + badgeNumber + " to player " + playerName, null);
+            for (obj_id objPlayer : objPlayers) {
+                if (objPlayer != self) {
+                    badge.grantBadge(objPlayer, badgeName);
+                    sendSystemMessage(self, "Granting badge " + badgeNumber + " to player " + getName(objPlayer), null);
                     badgeCount++;
                 }
             }
         }
         sendSystemMessage(self, "A total of " + badgeCount + " badges were awarded.", null);
-        String selfName = getName(self);
-        CustomerServiceLog("EventPerk", "[EventTool] /grantBadgeArea used by " + selfName + ":" + self + ". Awarding badge #" + badgeNumber + " to " + badgeCount + " people.", null);
+        CustomerServiceLog("EventPerk", "[EventTool] /grantBadgeArea used by " + getName(self) + ":" + self + ". Awarding badge #" + badgeNumber + " to " + badgeCount + " people.", null);
         return SCRIPT_CONTINUE;
     }
     public int maxForcePower(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -629,8 +551,7 @@ public class event_tool extends script.base_script
             return SCRIPT_CONTINUE;
         }
         setForcePower(self, maxForce);
-        String selfName = getName(self);
-        CustomerServiceLog("EventPerk", "[EventTool] /maxForcePower used by " + selfName + ":" + self, null);
+        CustomerServiceLog("EventPerk", "[EventTool] /maxForcePower used by " + getName(self) + ":" + self, null);
         return SCRIPT_CONTINUE;
     }
     public int eventDamage(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -656,9 +577,7 @@ public class event_tool extends script.base_script
         String damageStr = st.nextToken();
         int damage = utils.stringToInt(damageStr) * -1;
         healing.healDamage(self, myTarget, HEALTH, damage);
-        String targetName = getName(myTarget);
-        String selfName = getName(self);
-        CustomerServiceLog("EventPerk", "[EventTool] /eventDamage used by " + selfName + ":" + self + " on target " + targetName + ":" + myTarget + " for " + damage + " damage.", null);
+        CustomerServiceLog("EventPerk", "[EventTool] /eventDamage used by " + getName(self) + ":" + self + " on target " + getName(myTarget) + ":" + myTarget + " for " + damage + " damage.", null);
         return SCRIPT_CONTINUE;
     }
     public int eventMoveToMe(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -680,10 +599,7 @@ public class event_tool extends script.base_script
         utils.setScriptVar(self, "eventTool.lastMoveLocation", here);
         utils.setScriptVar(self, "eventTool.lastMovedObject", myTarget);
         sendSystemMessage(self, "Moved object " + myTarget + " to your location. ", null);
-        location there = getLocation(self);
-        String selfName = getName(self);
-        String targetName = getName(myTarget);
-        CustomerServiceLog("EventPerk", "[EventTool] /eventMoveToMe used by " + selfName + ":" + self + " on target " + targetName + ":" + target + " from location " + here + " to location " + there, null);
+        CustomerServiceLog("EventPerk", "[EventTool] /eventMoveToMe used by " + getName(self) + ":" + self + " on target " + getName(myTarget) + ":" + target + " from location " + here + " to location " + getLocation(self), null);
         return SCRIPT_CONTINUE;
     }
     public int eventUndoMoveToMe(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -711,9 +627,7 @@ public class event_tool extends script.base_script
         utils.setScriptVar(self, "eventTool.lastMoveLocation", currentTargetLocation);
         utils.setScriptVar(self, "eventTool.lastMovedObject", lastTarget);
         sendSystemMessage(self, "Moved object " + lastTarget + " to " + lastLocation + ".", null);
-        String selfName = getName(self);
-        String targetName = getName(lastTarget);
-        CustomerServiceLog("EventPerk", "[EventTool] /eventUndoMoveToMe used by " + selfName + ":" + self + " on target " + targetName + ":" + lastTarget + " from location " + currentTargetLocation + " to location " + lastLocation, null);
+        CustomerServiceLog("EventPerk", "[EventTool] /eventUndoMoveToMe used by " + getName(self) + ":" + self + " on target " + getName(lastTarget) + ":" + lastTarget + " from location " + currentTargetLocation + " to location " + lastLocation, null);
         return SCRIPT_CONTINUE;
     }
     public int eventWeapon(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -741,10 +655,8 @@ public class event_tool extends script.base_script
         }
         setName(eventWeapon, "***INTERNAL USE ONLY WEAPON");
         attachScript(eventWeapon, "event.no_rent");
-        float creationTime = getGameTime();
-        setObjVar(eventWeapon, "event.creationTime", creationTime);
-        String selfName = getName(self);
-        CustomerServiceLog("EventPerk", "[EventTool] /eventWeapon used by " + selfName + ":" + self + " to create " + weaponTemplate + " at " + powerMult + "% of maximum strength.", null);
+        setObjVar(eventWeapon, "event.creationTime", getGameTime());
+        CustomerServiceLog("EventPerk", "[EventTool] /eventWeapon used by " + getName(self) + ":" + self + " to create " + weaponTemplate + " at " + powerMult + "% of maximum strength.", null);
         return SCRIPT_CONTINUE;
     }
     public int eventStorePet(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -756,9 +668,7 @@ public class event_tool extends script.base_script
             return SCRIPT_CONTINUE;
         }
         pet_lib.storePet(myTarget);
-        String targetName = getName(myTarget);
-        String selfName = getName(self);
-        CustomerServiceLog("EventPerk", "[EventTool] /eventStorePet used by " + selfName + ":" + self + " to store pet " + targetName + ":" + target, null);
+        CustomerServiceLog("EventPerk", "[EventTool] /eventStorePet used by " + getName(self) + ":" + self + " to store pet " + getName(myTarget) + ":" + target, null);
         return SCRIPT_CONTINUE;
     }
     public int killTargetPlayer(obj_id self, dictionary params) throws InterruptedException

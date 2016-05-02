@@ -1,23 +1,14 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.utils;
-import script.library.healing;
-import java.util.StringTokenizer;
+import script.obj_id;
 
 public class boss_buff extends script.base_script
 {
     public boss_buff()
     {
     }
-    public static final String[] HELP_TEXT = 
+    private static final String[] HELP_TEXT =
     {
         "=========================================",
         "USAGE:",
@@ -44,10 +35,9 @@ public class boss_buff extends script.base_script
             sendSystemMessage(self, "You must be in God Mode for this script to take hold.", null);
             return SCRIPT_CONTINUE;
         }
-        if (isGod(self))
+        else
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 15)
+            if (getGodLevel(self) < 15)
             {
                 detachScript(self, "event.boss_buff");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
@@ -64,14 +54,12 @@ public class boss_buff extends script.base_script
             detachScript(self, "event.boss_buff");
             sendSystemMessage(self, "You must be in God Mode to use this script.", null);
         }
-        if (isGod(self))
+        else
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 15)
+            if (getGodLevel(self) < 15)
             {
                 detachScript(self, "event.boss_buff");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
-                return SCRIPT_CONTINUE;
             }
         }
         return SCRIPT_CONTINUE;
@@ -84,15 +72,14 @@ public class boss_buff extends script.base_script
         }
         if (isGod(self))
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 15)
+            if (getGodLevel(self) < 15)
             {
                 detachScript(self, "event.boss_buff");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (!isGod(self))
+        else
         {
             detachScript(self, "event.boss_buff");
             sendSystemMessage(self, "You must be in God Mode to use this script.", null);
@@ -105,7 +92,7 @@ public class boss_buff extends script.base_script
             {
                 target = self;
             }
-            if ((toLower(strText)).startsWith("target"))
+            else if ((toLower(strText)).startsWith("target"))
             {
                 target = getLookAtTarget(self);
                 if (!isIdValid(target) || target == null)
@@ -113,89 +100,50 @@ public class boss_buff extends script.base_script
                     target = self;
                 }
             }
-            int buffLevel = 1;
-            int buffTime = 10;
-            int secondBuffLevel = 1;
-            StringTokenizer st = new StringTokenizer(strText);
-            if (st.countTokens() < 2 || st.countTokens() > 4)
-            {
-                return SCRIPT_CONTINUE;
-            }
-            if (st.countTokens() == 2)
-            {
-                String command = st.nextToken();
-                String buffLevelStr = st.nextToken();
-                buffLevel = utils.stringToInt(buffLevelStr);
-                secondBuffLevel = buffLevel / 2;
-                buffTime = 10000;
-            }
-            if (st.countTokens() == 3)
-            {
-                String command = st.nextToken();
-                String buffLevelStr = st.nextToken();
-                String secondBuffLevelStr = st.nextToken();
-                buffLevel = utils.stringToInt(buffLevelStr);
-                buffTime = 10000;
-                if ((toLower(secondBuffLevelStr)).equals("low"))
-                {
-                    secondBuffLevel = buffLevel / 10;
-                    if (secondBuffLevel > 10000)
+            int buffTime = 10000;
+            String secondBuffLevelStr;
+            String args[] = strText.split(" ");
+            int buffLevel = utils.stringToInt(args[1]);
+            int secondBuffLevel = buffLevel / 2;
+            secondBuffLevelStr = args[2];
+            switch(args.length){
+                case 4:
+                    buffTime = utils.stringToInt(args[3]);
+                    // don't break.
+                case 3:
+                    if ((toLower(secondBuffLevelStr)).equals("low"))
                     {
-                        secondBuffLevel = 10000;
+                        secondBuffLevel = buffLevel / 10;
+                        if (secondBuffLevel > 10000)
+                        {
+                            secondBuffLevel = 10000;
+                        }
                     }
-                }
-                if ((toLower(secondBuffLevelStr)).equals("default"))
-                {
-                    secondBuffLevel = buffLevel / 2;
-                }
-                if (!(toLower(secondBuffLevelStr)).equals("low") && !(toLower(secondBuffLevelStr)).equals("default"))
-                {
-                    secondBuffLevel = utils.stringToInt(secondBuffLevelStr);
-                }
-            }
-            if (st.countTokens() == 4)
-            {
-                String command = st.nextToken();
-                String buffLevelStr = st.nextToken();
-                String secondBuffLevelStr = st.nextToken();
-                String buffTimeStr = st.nextToken();
-                buffLevel = utils.stringToInt(buffLevelStr);
-                buffTime = utils.stringToInt(buffTimeStr);
-                if ((toLower(secondBuffLevelStr)).equals("low"))
-                {
-                    secondBuffLevel = buffLevel / 10;
-                    if (secondBuffLevel > 10000)
+                    else if (!(toLower(secondBuffLevelStr)).equals("default"))
                     {
-                        secondBuffLevel = 10000;
+                        secondBuffLevel = utils.stringToInt(secondBuffLevelStr);
                     }
-                }
-                if ((toLower(secondBuffLevelStr)).equals("default"))
-                {
-                    secondBuffLevel = buffLevel / 2;
-                }
-                if (!(toLower(secondBuffLevelStr)).equals("low") && !(toLower(secondBuffLevelStr)).equals("default"))
-                {
-                    secondBuffLevel = utils.stringToInt(secondBuffLevelStr);
-                }
+                    // don't break.
+                case 2:
+                    addAttribModifier(target, "medical_enhance_health", HEALTH, buffLevel, buffTime, 0.0f, 10.0f, true, false, true);
+                    addAttribModifier(target, "medical_enhance_action", ACTION, buffLevel, buffTime, 0.0f, 10.0f, true, false, true);
+                    addAttribModifier(target, "medical_enhance_constitution", CONSTITUTION, secondBuffLevel, buffTime, 0.0f, 10.0f, true, false, true);
+                    addAttribModifier(target, "medical_enhance_stamina", STAMINA, secondBuffLevel, buffTime, 0.0f, 10.0f, true, false, true);
+                    sendSystemMessage(self, "Primary stats: " + buffLevel + " -- Secondary stats: " + secondBuffLevel + " -- Duration: " + buffTime, null);
+                    // don't break.
+                default:
+                    return SCRIPT_CONTINUE;
             }
-            addAttribModifier(target, "medical_enhance_health", HEALTH, buffLevel, buffTime, 0.0f, 10.0f, true, false, true);
-            addAttribModifier(target, "medical_enhance_action", ACTION, buffLevel, buffTime, 0.0f, 10.0f, true, false, true);
-            addAttribModifier(target, "medical_enhance_constitution", CONSTITUTION, secondBuffLevel, buffTime, 0.0f, 10.0f, true, false, true);
-            addAttribModifier(target, "medical_enhance_stamina", STAMINA, secondBuffLevel, buffTime, 0.0f, 10.0f, true, false, true);
-            sendSystemMessage(self, "Primary stats: " + buffLevel + " -- Secondary stats: " + secondBuffLevel + " -- Duration: " + buffTime, null);
         }
-        if ((toLower(strText)).equals("detach"))
+        else if ((toLower(strText)).equals("detach"))
         {
             detachScript(self, "event.boss_buff");
-            return SCRIPT_CONTINUE;
         }
-        if ((toLower(strText)).equals("help"))
+        else if ((toLower(strText)).equals("help"))
         {
-            for (int i = 0; i < HELP_TEXT.length; i++)
-            {
-                sendSystemMessage(self, HELP_TEXT[i], null);
+            for (String helpText : HELP_TEXT) {
+                sendSystemMessage(self, helpText, null);
             }
-            return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
     }

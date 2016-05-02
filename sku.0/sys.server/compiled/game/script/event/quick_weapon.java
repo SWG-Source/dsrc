@@ -1,15 +1,8 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
 import script.library.utils;
+import script.obj_id;
+
 import java.util.StringTokenizer;
 
 public class quick_weapon extends script.base_script
@@ -17,8 +10,8 @@ public class quick_weapon extends script.base_script
     public quick_weapon()
     {
     }
-    public static final String WEAPON_LIST = "datatables/event/weapons.iff";
-    public static final String[] HELP_TEXT = 
+    private static final String WEAPON_LIST = "datatables/event/weapons.iff";
+    private static final String[] HELP_TEXT =
     {
         "=========================================",
         "USAGE: weapon [Weapon Index Number] [MIN Damage] [MAX Damage] [SPEED]",
@@ -26,7 +19,7 @@ public class quick_weapon extends script.base_script
         "Say \"detach\" to detach this script immediately.",
         "========================================="
     };
-    public static final String[] CATEGORIES = 
+    private static final String[] CATEGORIES =
     {
         "2H Sword 0-15",
         "Polearm 28-44",
@@ -49,10 +42,9 @@ public class quick_weapon extends script.base_script
             sendSystemMessage(self, "You must be in God Mode for this script to take hold.", null);
             return SCRIPT_CONTINUE;
         }
-        if (isGod(self))
+        else
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 15)
+            if (getGodLevel(self) < 15)
             {
                 detachScript(self, "event.quick_weapon");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
@@ -69,10 +61,9 @@ public class quick_weapon extends script.base_script
             detachScript(self, "event.quick_weapon");
             sendSystemMessage(self, "You must be in God Mode to use this script.", null);
         }
-        if (isGod(self))
+        else
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 15)
+            if (getGodLevel(self) < 15)
             {
                 detachScript(self, "event.quick_weapon");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
@@ -89,15 +80,14 @@ public class quick_weapon extends script.base_script
         }
         if (isGod(self))
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 15)
+            if (getGodLevel(self) < 15)
             {
                 detachScript(self, "event.quick_weapon");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
                 return SCRIPT_CONTINUE;
             }
         }
-        if (!isGod(self))
+        else
         {
             detachScript(self, "event.quick_weapon");
             sendSystemMessage(self, "You must be in God Mode to use this script.", null);
@@ -105,10 +95,10 @@ public class quick_weapon extends script.base_script
         }
         if ((toLower(strText)).startsWith("weapon"))
         {
-            int minDamage = 1;
-            int maxDamage = 10;
-            float weaponSpeed = 7.0f;
-            int weaponNum = 0;
+            int minDamage;
+            int maxDamage;
+            float weaponSpeed;
+            int weaponNum;
             String weaponType[] = dataTableGetStringColumn(WEAPON_LIST, 0);
             StringTokenizer st = new StringTokenizer(strText);
             if (st.countTokens() == 5)
@@ -148,24 +138,22 @@ public class quick_weapon extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if ((toLower(strText)).equals("detach"))
+        else if ((toLower(strText)).equals("detach"))
         {
             detachScript(self, "event.quick_weapon");
             return SCRIPT_CONTINUE;
         }
-        if ((toLower(strText)).equals("help"))
+        else if ((toLower(strText)).equals("help"))
         {
-            for (int i = 0; i < HELP_TEXT.length; i++)
-            {
-                sendSystemMessage(self, HELP_TEXT[i], null);
+            for (String helpText : HELP_TEXT) {
+                sendSystemMessage(self, helpText, null);
             }
             return SCRIPT_CONTINUE;
         }
-        if ((toLower(strText)).equals("categories"))
+        else if ((toLower(strText)).equals("categories"))
         {
-            for (int i = 0; i < CATEGORIES.length; i++)
-            {
-                sendSystemMessage(self, CATEGORIES[i], null);
+            for (String category : CATEGORIES) {
+                sendSystemMessage(self, category, null);
             }
             return SCRIPT_CONTINUE;
         }

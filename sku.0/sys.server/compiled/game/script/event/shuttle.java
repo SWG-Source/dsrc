@@ -1,23 +1,18 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.create;
 import script.library.sui;
 import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class shuttle extends script.base_script
 {
     public shuttle()
     {
     }
-    public static final String[] PROMPT_TEXT = 
+    private static final String[] PROMPT_TEXT =
     {
         "Enter \"setup\" to setup data, \"data\" to view current data, \"quit\" to end. After setup type \"f\" to have the shuttle do an automatic fly-by. Type \"m\" to spawn and manually control the shuttle then use \"land\" to make it land, \"leave\" to make it take off.",
         "Which of the following shuttles will spawn? Type \"lambda\", \"shuttle\", \"transport\" or \"theed transport\".",
@@ -37,14 +32,14 @@ public class shuttle extends script.base_script
         "Number of NPCs",
         "UI Recovery Phrase"
     };
-    public static final String[] SHUTTLE_TEMPLATE = 
+    private static final String[] SHUTTLE_TEMPLATE =
     {
         "object/creature/npc/theme_park/lambda_shuttle.iff",
         "object/creature/npc/theme_park/player_shuttle.iff",
         "object/creature/npc/theme_park/player_transport.iff",
         "object/creature/npc/theme_park/player_transport_theed_hangar.iff"
     };
-    public static final String[] SHUTTLE_NAME = 
+    private static final String[] SHUTTLE_NAME =
     {
         "Lambda Shuttle",
         "Shuttle",
@@ -88,20 +83,18 @@ public class shuttle extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int showUI(obj_id self, obj_id player) throws InterruptedException
+    private int showUI(obj_id self, obj_id player) throws InterruptedException
     {
         int current = getIntObjVar(self, "event.shuttle.setupStep");
-        int pid = sui.inputbox(self, self, PROMPT_TEXT[current], TITLE[current], "handleUIdata", 255, false, "");
-        return pid;
+        return sui.inputbox(self, self, PROMPT_TEXT[current], TITLE[current], "handleUIdata", 255, false, "");
     }
     public int handleUIdata(obj_id self, dictionary params) throws InterruptedException
     {
-        String magicWord = getStringObjVar(self, "event.shuttle.magicWord");
-        int current = getIntObjVar(self, "event.shuttle.setupStep");
         int bp = sui.getIntButtonPressed(params);
-        String text = sui.getInputBoxText(params);
         if (bp == sui.BP_CANCEL)
         {
+            String magicWord = getStringObjVar(self, "event.shuttle.magicWord");
+            int current = getIntObjVar(self, "event.shuttle.setupStep");
             if (current == 0)
             {
                 sendSystemMessage(self, "Your UI window was closed. To recover the window later for use say \"" + magicWord + "\". Please make note of this word.", null);
@@ -113,6 +106,7 @@ public class shuttle extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
+        String text = sui.getInputBoxText(params);
         if (text == null || text.equals(""))
         {
             sendSystemMessage(self, "You entered a null or invalid value, please try again.", null);
@@ -124,8 +118,6 @@ public class shuttle extends script.base_script
     }
     public int storeLastDataObjVar(obj_id self, dictionary params) throws InterruptedException
     {
-        int setupCompleted = getIntObjVar(self, "event.shuttle.setupCompleted");
-        int setupStep = getIntObjVar(self, "event.shuttle.setupStep");
         String lastDataStr = getStringObjVar(self, "event.shuttle.lastData");
         if (lastDataStr.equals("setup"))
         {
@@ -134,46 +126,41 @@ public class shuttle extends script.base_script
             messageTo(self, "continueCollectingData", null, 1, false);
             return SCRIPT_CONTINUE;
         }
+        int setupCompleted = getIntObjVar(self, "event.shuttle.setupCompleted");
         if (setupCompleted == 1)
         {
-            if (lastDataStr.equals("m"))
-            {
-                messageTo(self, "spawnShuttle", null, 0, false);
-                messageTo(self, "continueCollectingData", null, 1, false);
-                return SCRIPT_CONTINUE;
-            }
-            if (lastDataStr.equals("f"))
-            {
-                messageTo(self, "spawnShuttle", null, 0, false);
-                messageTo(self, "doFlyBy", null, 5, false);
-                messageTo(self, "continueCollectingData", null, 1, false);
-                return SCRIPT_CONTINUE;
-            }
-            if (lastDataStr.equals("land"))
-            {
-                obj_id shuttle = getObjIdObjVar(self, "event.shuttle.shuttle");
-                if (!isIdValid(shuttle))
-                {
-                    sendSystemMessage(self, "WARNING: Did not find a valid shuttle to message so nothing happened.", null);
+            switch (lastDataStr) {
+                case "m":
+                    messageTo(self, "spawnShuttle", null, 0, false);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                case "f":
+                    messageTo(self, "spawnShuttle", null, 0, false);
+                    messageTo(self, "doFlyBy", null, 5, false);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                case "land": {
+                    obj_id shuttle = getObjIdObjVar(self, "event.shuttle.shuttle");
+                    if (!isIdValid(shuttle)) {
+                        sendSystemMessage(self, "WARNING: Did not find a valid shuttle to message so nothing happened.", null);
+                        messageTo(self, "continueCollectingData", null, 1, false);
+                        return SCRIPT_CONTINUE;
+                    }
+                    messageTo(shuttle, "landShuttle", null, 1, false);
                     messageTo(self, "continueCollectingData", null, 1, false);
                     return SCRIPT_CONTINUE;
                 }
-                messageTo(shuttle, "landShuttle", null, 1, false);
-                messageTo(self, "continueCollectingData", null, 1, false);
-                return SCRIPT_CONTINUE;
-            }
-            if (lastDataStr.equals("leave"))
-            {
-                obj_id shuttle = getObjIdObjVar(self, "event.shuttle.shuttle");
-                if (!isIdValid(shuttle))
-                {
-                    sendSystemMessage(self, "WARNING: Did not find a valid shuttle to message so nothing happened.", null);
+                case "leave": {
+                    obj_id shuttle = getObjIdObjVar(self, "event.shuttle.shuttle");
+                    if (!isIdValid(shuttle)) {
+                        sendSystemMessage(self, "WARNING: Did not find a valid shuttle to message so nothing happened.", null);
+                        messageTo(self, "continueCollectingData", null, 1, false);
+                        return SCRIPT_CONTINUE;
+                    }
+                    messageTo(shuttle, "takeOff", null, 1, false);
                     messageTo(self, "continueCollectingData", null, 1, false);
                     return SCRIPT_CONTINUE;
                 }
-                messageTo(shuttle, "takeOff", null, 1, false);
-                messageTo(self, "continueCollectingData", null, 1, false);
-                return SCRIPT_CONTINUE;
             }
         }
         if (lastDataStr.equals("data"))
@@ -181,63 +168,57 @@ public class shuttle extends script.base_script
             String template = getStringObjVar(self, "event.shuttle.template");
             int shuttleType = getIntObjVar(self, "event.shuttle.shuttleType");
             int numSpawns = getIntObjVar(self, "event.shuttle.numSpawns");
-            float offset = getFloatObjVar(self, "event.shuttle.offset");
             sendSystemMessage(self, "Shuttle: " + SHUTTLE_NAME[shuttleType] + ". Number of Spawns: " + numSpawns + " . Spawn Template: " + template + ".", null);
             messageTo(self, "continueCollectingData", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        if (lastDataStr.equals("quit"))
+        else if (lastDataStr.equals("quit"))
         {
             removeObjVar(self, "event.shuttle");
             detachScript(self, "event.shuttle");
             sendSystemMessage(self, "Many thank you for your playing.", null);
             return SCRIPT_CONTINUE;
         }
+        int setupStep = getIntObjVar(self, "event.shuttle.setupStep");
         if (setupStep == 0)
         {
             sendSystemMessage(self, "Enter \"setup\" to setup data, \"data\" to view current data, \"quit\" to end. After setup type \"f\" to have the shuttle do an automatic fly-by. Type \"m\" to spawn and manually control the shuttle then use \"land\" to make it land, \"leave\" to make it take off.", null);
             messageTo(self, "continueCollectingData", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        if (setupStep == 1)
+        else if (setupStep == 1)
         {
-            if (lastDataStr.equals("lambda"))
-            {
-                setObjVar(self, "event.shuttle.shuttleType", 0);
-                setObjVar(self, "event.shuttle.setupStep", 2);
-                sendSystemMessage(self, TITLE[setupStep] + ": " + lastDataStr, null);
-                messageTo(self, "continueCollectingData", null, 1, false);
-                return SCRIPT_CONTINUE;
-            }
-            if (lastDataStr.equals("shuttle"))
-            {
-                setObjVar(self, "event.shuttle.shuttleType", 1);
-                setObjVar(self, "event.shuttle.setupStep", 2);
-                sendSystemMessage(self, TITLE[setupStep] + ": " + lastDataStr, null);
-                messageTo(self, "continueCollectingData", null, 1, false);
-                return SCRIPT_CONTINUE;
-            }
-            if (lastDataStr.equals("transport"))
-            {
-                setObjVar(self, "event.shuttle.shuttleType", 2);
-                setObjVar(self, "event.shuttle.setupStep", 2);
-                sendSystemMessage(self, TITLE[setupStep] + ": " + lastDataStr, null);
-                messageTo(self, "continueCollectingData", null, 1, false);
-                return SCRIPT_CONTINUE;
-            }
-            if (lastDataStr.equals("theed transport"))
-            {
-                setObjVar(self, "event.shuttle.shuttleType", 3);
-                setObjVar(self, "event.shuttle.setupStep", 2);
-                sendSystemMessage(self, TITLE[setupStep] + ": " + lastDataStr, null);
-                messageTo(self, "continueCollectingData", null, 1, false);
-                return SCRIPT_CONTINUE;
+            switch (lastDataStr) {
+                case "lambda":
+                    setObjVar(self, "event.shuttle.shuttleType", 0);
+                    setObjVar(self, "event.shuttle.setupStep", 2);
+                    sendSystemMessage(self, TITLE[setupStep] + ": " + lastDataStr, null);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                case "shuttle":
+                    setObjVar(self, "event.shuttle.shuttleType", 1);
+                    setObjVar(self, "event.shuttle.setupStep", 2);
+                    sendSystemMessage(self, TITLE[setupStep] + ": " + lastDataStr, null);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                case "transport":
+                    setObjVar(self, "event.shuttle.shuttleType", 2);
+                    setObjVar(self, "event.shuttle.setupStep", 2);
+                    sendSystemMessage(self, TITLE[setupStep] + ": " + lastDataStr, null);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
+                case "theed transport":
+                    setObjVar(self, "event.shuttle.shuttleType", 3);
+                    setObjVar(self, "event.shuttle.setupStep", 2);
+                    sendSystemMessage(self, TITLE[setupStep] + ": " + lastDataStr, null);
+                    messageTo(self, "continueCollectingData", null, 1, false);
+                    return SCRIPT_CONTINUE;
             }
             sendSystemMessage(self, "You must type \"lambda\", \"shuttle\", \"transport\" or \"theed transport\". Try again.", null);
             messageTo(self, "continueCollectingData", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        if (setupStep == 2)
+        else if (setupStep == 2)
         {
             if (lastDataStr.equals("here"))
             {
@@ -254,7 +235,7 @@ public class shuttle extends script.base_script
             messageTo(self, "continueCollectingData", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        if (setupStep == 3)
+        else if (setupStep == 3)
         {
             if (lastDataStr.equals("yes"))
             {
@@ -275,7 +256,7 @@ public class shuttle extends script.base_script
             messageTo(self, "continueCollectingData", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        if (setupStep == 4)
+        else if (setupStep == 4)
         {
             setObjVar(self, "event.shuttle.template", lastDataStr);
             setObjVar(self, "event.shuttle.setupStep", 5);
@@ -283,7 +264,7 @@ public class shuttle extends script.base_script
             messageTo(self, "continueCollectingData", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        if (setupStep == 5)
+        else if (setupStep == 5)
         {
             int lastDataInt = utils.stringToInt(lastDataStr);
             if (lastDataInt >= 0 && lastDataInt <= 10)
@@ -298,7 +279,7 @@ public class shuttle extends script.base_script
             messageTo(self, "continueCollectingData", null, 1, false);
             return SCRIPT_CONTINUE;
         }
-        if (setupStep == 6)
+        else if (setupStep == 6)
         {
             setObjVar(self, "event.shuttle.magicWord", lastDataStr);
             setObjVar(self, "event.shuttle.setupStep", 0);
@@ -318,7 +299,6 @@ public class shuttle extends script.base_script
     {
         int numSpawns = getIntObjVar(self, "event.shuttle.numSpawns");
         location spawnPoint = getLocationObjVar(self, "event.shuttle.spawnPoint");
-        float heading = getFloatObjVar(self, "event.shuttle.heading");
         int shuttleType = getIntObjVar(self, "event.shuttle.shuttleType");
         obj_id shuttle = create.object(SHUTTLE_TEMPLATE[shuttleType], spawnPoint);
         if (numSpawns > 0)
@@ -330,6 +310,7 @@ public class shuttle extends script.base_script
         setObjVar(shuttle, "event.shuttle.owner", self);
         setObjVar(shuttle, "event.shuttle.numSpawns", numSpawns);
         setObjVar(shuttle, "event.shuttle.shuttleType", shuttleType);
+        float heading = getFloatObjVar(self, "event.shuttle.heading");
         if (shuttleType < 3)
         {
             setYaw(shuttle, heading + 180);
@@ -355,8 +336,7 @@ public class shuttle extends script.base_script
     }
     public int doFlyBy(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id shuttle = getObjIdObjVar(self, "event.shuttle.shuttle");
-        messageTo(shuttle, "performFlyBy", null, 0, false);
+        messageTo(getObjIdObjVar(self, "event.shuttle.shuttle"), "performFlyBy", null, 0, false);
         return SCRIPT_CONTINUE;
     }
     public int getRidOfOwner(obj_id self, dictionary params) throws InterruptedException

@@ -1,22 +1,15 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.holiday;
-import script.library.utils;
+import script.obj_id;
 
 public class planet_event_handler extends script.base_script
 {
     public planet_event_handler()
     {
     }
-    public static final String EVENT_TIMESTAMP = "lifeday.time_stamp";
+    private static final String EVENT_TIMESTAMP = "lifeday.time_stamp";
     public int OnAttach(obj_id self) throws InterruptedException
     {
         CustomerServiceLog("holidayEvent", "planet_event_handler.OnAttach: trigger initialized.");
@@ -26,7 +19,7 @@ public class planet_event_handler extends script.base_script
             CustomerServiceLog("holidayEvent", "planet_event_handler.OnAttach: Life Day oconfig found.");
             checkLifeDayData(self);
         }
-        else if (hasObjVar(self, "lifeday"))
+        else
         {
             removeObjVar(self, "lifeday");
         }
@@ -45,7 +38,7 @@ public class planet_event_handler extends script.base_script
             CustomerServiceLog("holidayEvent", "planet_event_handler.OnInitialize: Life Day oconfig found.");
             checkLifeDayData(self);
         }
-        else if (hasObjVar(self, "lifeday"))
+        else
         {
             removeObjVar(self, "lifeday");
         }
@@ -55,7 +48,7 @@ public class planet_event_handler extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public void checkLifeDayData(obj_id self) throws InterruptedException
+    private void checkLifeDayData(obj_id self) throws InterruptedException
     {
         if (!hasObjVar(self, EVENT_TIMESTAMP))
         {
@@ -80,24 +73,17 @@ public class planet_event_handler extends script.base_script
             createDailyAlarmClock(self, "lifeDayDailyAlarm", null, 10, 0, 0);
         }
     }
-    public boolean newDay(obj_id self) throws InterruptedException
+    private boolean newDay(obj_id self) throws InterruptedException
     {
         if (hasObjVar(self, EVENT_TIMESTAMP))
         {
             int now = getCalendarTime();
             int then = getIntObjVar(self, EVENT_TIMESTAMP);
-            if (now > then)
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
+            return now > then;
         }
         return true;
     }
-    public void newTimeStamp(obj_id self) throws InterruptedException
+    private void newTimeStamp(obj_id self) throws InterruptedException
     {
         int now = getCalendarTime();
         int secondsUntil = secondsUntilNextDailyTime(10, 0, 0);
@@ -185,7 +171,7 @@ public class planet_event_handler extends script.base_script
         {
             checkLifeDayData(self);
         }
-        else if (hasObjVar(self, "lifeday"))
+        else
         {
             removeObjVar(self, "lifeday");
         }
@@ -227,7 +213,7 @@ public class planet_event_handler extends script.base_script
         messageTo(player, "scoreBoardCheck", newParams, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
-    public boolean setupInitialEventScores(obj_id planet, String scoreObjVar, int modifier, boolean faction) throws InterruptedException
+    private boolean setupInitialEventScores(obj_id planet, String scoreObjVar, int modifier, boolean faction) throws InterruptedException
     {
         if (!isValidId(planet) || !exists(planet))
         {
@@ -241,12 +227,13 @@ public class planet_event_handler extends script.base_script
         {
             return false;
         }
+        String name;
         if (!faction)
         {
             for (int i = 1, score = modifier; i <= holiday.MAX_NUMBER_OF_PLANET_HIGH_SCORES; i++)
             {
                 int randomPosition = rand(0, holiday.DEFAULT_HIGH_SCORE_LIST.length - 1);
-                String name = holiday.DEFAULT_HIGH_SCORE_LIST[randomPosition];
+                name = holiday.DEFAULT_HIGH_SCORE_LIST[randomPosition];
                 setObjVar(planet, scoreObjVar + ".slot_" + i + holiday.PLANET_VAR_PLAYER_NAME, name);
                 setObjVar(planet, scoreObjVar + ".slot_" + i + holiday.PLANET_VAR_PLAYER_SCORE, score);
                 score--;
@@ -257,7 +244,7 @@ public class planet_event_handler extends script.base_script
             for (int i = 1, score = modifier; i <= holiday.MAX_NUMBER_OF_PLANET_HIGH_SCORES; i++)
             {
                 int randomPosition = rand(0, holiday.DEFAULT_HIGH_SCORE_LIST.length - 1);
-                String name = holiday.DEFAULT_HIGH_SCORE_LIST[randomPosition];
+                name = holiday.DEFAULT_HIGH_SCORE_LIST[randomPosition];
                 setObjVar(planet, scoreObjVar + ".slot_" + i + holiday.PLANET_VAR_PLAYER_FACTION_REB + holiday.PLANET_VAR_PLAYER_NAME, name);
                 setObjVar(planet, scoreObjVar + ".slot_" + i + holiday.PLANET_VAR_PLAYER_FACTION_REB + holiday.PLANET_VAR_PLAYER_SCORE, score);
                 score--;
@@ -265,7 +252,7 @@ public class planet_event_handler extends script.base_script
             for (int i = 1, score = modifier; i <= holiday.MAX_NUMBER_OF_PLANET_HIGH_SCORES; i++)
             {
                 int randomPosition = rand(0, holiday.DEFAULT_HIGH_SCORE_LIST.length - 1);
-                String name = holiday.DEFAULT_HIGH_SCORE_LIST[randomPosition];
+                name = holiday.DEFAULT_HIGH_SCORE_LIST[randomPosition];
                 setObjVar(planet, scoreObjVar + ".slot_" + i + holiday.PLANET_VAR_PLAYER_FACTION_IMP + holiday.PLANET_VAR_PLAYER_NAME, name);
                 setObjVar(planet, scoreObjVar + ".slot_" + i + holiday.PLANET_VAR_PLAYER_FACTION_IMP + holiday.PLANET_VAR_PLAYER_SCORE, score);
                 score--;
@@ -273,7 +260,7 @@ public class planet_event_handler extends script.base_script
         }
         return true;
     }
-    public boolean checkForHolidayEventConfigs(obj_id planet) throws InterruptedException
+    private boolean checkForHolidayEventConfigs(obj_id planet) throws InterruptedException
     {
         if (!isValidId(planet) || !exists(planet))
         {

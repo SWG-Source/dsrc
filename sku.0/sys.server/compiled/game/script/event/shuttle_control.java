@@ -1,22 +1,16 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.create;
+import script.obj_id;
 
 public class shuttle_control extends script.base_script
 {
     public shuttle_control()
     {
     }
-    public static final float DECAY_TIME = 60 * 60 * 8;
-    public static final float[] LANDING_TIME = 
+    private static final float DECAY_TIME = 60 * 60 * 8;
+    private static final float[] LANDING_TIME =
     {
         17,
         22,
@@ -49,8 +43,7 @@ public class shuttle_control extends script.base_script
             setPosture(self, POSTURE_PRONE);
         }
         messageTo(self, "dropOffNpcs", null, LANDING_TIME[shuttleType], false);
-        obj_id owner = getObjIdObjVar(self, "event.shuttle.owner");
-        sendSystemMessage(owner, "SHUTTLE: I am landing.", null);
+        sendSystemMessage(getObjIdObjVar(self, "event.shuttle.owner"), "SHUTTLE: I am landing.", null);
         return SCRIPT_CONTINUE;
     }
     public int takeOff(obj_id self, dictionary params) throws InterruptedException
@@ -67,8 +60,7 @@ public class shuttle_control extends script.base_script
             setPosture(self, POSTURE_UPRIGHT);
         }
         messageTo(self, "cleanUp", null, 20, false);
-        obj_id owner = getObjIdObjVar(self, "event.shuttle.owner");
-        sendSystemMessage(owner, "SHUTTLE: I am taking off.", null);
+        sendSystemMessage(getObjIdObjVar(self, "event.shuttle.owner"), "SHUTTLE: I am taking off.", null);
         return SCRIPT_CONTINUE;
     }
     public int performFlyBy(obj_id self, dictionary params) throws InterruptedException
@@ -86,8 +78,7 @@ public class shuttle_control extends script.base_script
             String template = getStringObjVar(self, "event.shuttle.template");
             for (int i = 0; i < numSpawns; i++)
             {
-                location here = getLocation(self);
-                obj_id spawn = create.object(template, here);
+                create.object(template, getLocation(self));
             }
         }
         return SCRIPT_CONTINUE;
@@ -109,6 +100,5 @@ public class shuttle_control extends script.base_script
         {
             destroyObject(self);
         }
-        return;
     }
 }

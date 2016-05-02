@@ -1,21 +1,14 @@
 package script.event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.utils;
+import script.obj_id;
 
 public class area_tefme extends script.base_script
 {
     public area_tefme()
     {
     }
-    public static final String[] HELP_TEXT = 
+    private static final String[] HELP_TEXT =
     {
         "=========================================",
         "KEY WORDS (These are case sensitive): setStartPhrase, setEndPhrase, setAreaRange, setSingleMode, setAreaMode, showStats, detach.",
@@ -25,7 +18,7 @@ public class area_tefme extends script.base_script
         "setSingleMode: Puts you in single target mode, meaning only your look-at target will get a TEF against you.",
         "setAreaMode: Puts you in area wide mode.",
         "showStats: Check what mode you are in and current variables.",
-        "detach: Detachs this script and clears objvars.",
+        "detach: Detaches this script and clears objvars.",
         "========================================="
     };
     public int OnAttach(obj_id self) throws InterruptedException
@@ -42,10 +35,9 @@ public class area_tefme extends script.base_script
             removeObjVar(self, "event.tefme");
             return SCRIPT_CONTINUE;
         }
-        if (isGod(self))
+        else
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 15)
+            if (getGodLevel(self) < 15)
             {
                 detachScript(self, "event.area_tefme");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
@@ -71,8 +63,7 @@ public class area_tefme extends script.base_script
         }
         if (isGod(self))
         {
-            int godLevel = getGodLevel(self);
-            if (godLevel < 15)
+            if (getGodLevel(self) < 15)
             {
                 detachScript(self, "event.area_tefme");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
@@ -80,7 +71,7 @@ public class area_tefme extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (!isGod(self))
+        else
         {
             detachScript(self, "event.area_tefme");
             sendSystemMessage(self, "You must be in God Mode to use this script.", null);
@@ -99,13 +90,10 @@ public class area_tefme extends script.base_script
                 obj_id[] objPlayers = getPlayerCreaturesInRange(self, range);
                 if (objPlayers != null && objPlayers.length > 0)
                 {
-                    for (int i = 0; i < objPlayers.length; i++)
-                    {
-                        if (objPlayers[i] != self)
-                        {
-                            pvpSetPersonalEnemyFlag(self, objPlayers[i]);
-                            String playerName = getName(objPlayers[i]);
-                            sendSystemMessage(self, playerName + " can now attack you!", null);
+                    for (obj_id objPlayer : objPlayers) {
+                        if (objPlayer != self) {
+                            pvpSetPersonalEnemyFlag(self, objPlayer);
+                            sendSystemMessage(self, getName(objPlayer) + " can now attack you!", null);
                         }
                     }
                 }
@@ -116,7 +104,7 @@ public class area_tefme extends script.base_script
                 sendSystemMessage(self, "Clearing your TEFs. Note that you may still be able to attack some players for a period of time.", null);
             }
         }
-        if (mode == 1 && currentState == 0)
+        else if (mode == 1 && currentState == 0)
         {
             if (strText.equalsIgnoreCase(startPhrase))
             {
@@ -124,8 +112,7 @@ public class area_tefme extends script.base_script
                 if (isIdValid(target) && target != self)
                 {
                     pvpSetPersonalEnemyFlag(self, target);
-                    String playerName = getName(target);
-                    sendSystemMessage(self, playerName + " can now attack you!", null);
+                    sendSystemMessage(self, getName(target) + " can now attack you!", null);
                 }
             }
             if (strText.equalsIgnoreCase(endPhrase))
@@ -134,7 +121,7 @@ public class area_tefme extends script.base_script
                 sendSystemMessage(self, "Clearing your TEFs. Note that you may still be able to attack some players for a period of time.", null);
             }
         }
-        if (currentState == 1)
+        else if (currentState == 1)
         {
             if (strText.equalsIgnoreCase(endPhrase))
             {
@@ -146,7 +133,7 @@ public class area_tefme extends script.base_script
             sendSystemMessage(self, "You will TEF yourself when you say the following phrase: " + strText, null);
             return SCRIPT_CONTINUE;
         }
-        if (currentState == 2)
+        else if (currentState == 2)
         {
             if (strText.equalsIgnoreCase(startPhrase))
             {
@@ -158,10 +145,9 @@ public class area_tefme extends script.base_script
             sendSystemMessage(self, "You will attempt to lose your TEFs when you say the following phrase: " + strText, null);
             return SCRIPT_CONTINUE;
         }
-        if (currentState == 3)
+        else if (currentState == 3)
         {
-            String rangeStr = strText;
-            range = utils.stringToInt(rangeStr);
+            range = utils.stringToInt(strText);
             if (range < 1 || range > 256)
             {
                 sendSystemMessage(self, "Range must be between 1 and 255. Please note that these are numbers. Try again.", null);
@@ -172,7 +158,7 @@ public class area_tefme extends script.base_script
             sendSystemMessage(self, "Your TEF range is set to " + strText + "m.", null);
             return SCRIPT_CONTINUE;
         }
-        if (currentState > 3)
+        else if (currentState > 3)
         {
             setObjVar(self, "event.tefme.currentState", 0);
             sendSystemMessage(self, "Somehow currentState was above 3. Resetting it to 0.", null);
@@ -188,33 +174,28 @@ public class area_tefme extends script.base_script
         {
             setObjVar(self, "event.tefme.currentState", 1);
             sendSystemMessage(self, "The next phrase you say will be set as the trigger to TEF yourself.", null);
-            return SCRIPT_CONTINUE;
         }
-        if (strText.equals("setEndPhrase"))
+        else if (strText.equals("setEndPhrase"))
         {
             setObjVar(self, "event.tefme.currentState", 2);
             sendSystemMessage(self, "The next phrase you say will be set as the trigger to attempt to remove your TEFs.", null);
-            return SCRIPT_CONTINUE;
         }
-        if (strText.equals("setAreaRange"))
+        else if (strText.equals("setAreaRange"))
         {
             setObjVar(self, "event.tefme.currentState", 3);
             sendSystemMessage(self, "Speak the range you wish to use for the AOE TEF.", null);
-            return SCRIPT_CONTINUE;
         }
-        if (strText.equals("setSingleMode"))
+        else if (strText.equals("setSingleMode"))
         {
             setObjVar(self, "event.tefme.mode", 1);
             sendSystemMessage(self, "Single TEF Mode active. Your look-at target will recieve a TEF for you when you speak the startPhrase.", null);
-            return SCRIPT_CONTINUE;
         }
-        if (strText.equals("setAreaMode"))
+        else if (strText.equals("setAreaMode"))
         {
             setObjVar(self, "event.tefme.mode", 0);
             sendSystemMessage(self, "Area Mode active. Everyone within " + range + "m will get a TEF against you when you speak the startPhrase.", null);
-            return SCRIPT_CONTINUE;
         }
-        if (strText.equals("showStats"))
+        else if (strText.equals("showStats"))
         {
             String currentModeStr = "Area Mode";
             if (mode == 0)
@@ -229,21 +210,17 @@ public class area_tefme extends script.base_script
             sendSystemMessage(self, "Your start phrase is: " + startPhrase, null);
             sendSystemMessage(self, "Your end phrase is: " + endPhrase, null);
             sendSystemMessage(self, "Your current AOE range is set to " + range + "m", null);
-            return SCRIPT_CONTINUE;
         }
-        if ((toLower(strText)).equals("detach"))
+        else if ((toLower(strText)).equals("detach"))
         {
             detachScript(self, "event.area_tefme");
             removeObjVar(self, "event.tefme");
-            return SCRIPT_CONTINUE;
         }
-        if ((toLower(strText)).equals("help"))
+        else if ((toLower(strText)).equals("help"))
         {
-            for (int i = 0; i < HELP_TEXT.length; i++)
-            {
-                sendSystemMessage(self, HELP_TEXT[i], null);
+            for (String helpText : HELP_TEXT) {
+                sendSystemMessage(self, helpText, null);
             }
-            return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
     }
