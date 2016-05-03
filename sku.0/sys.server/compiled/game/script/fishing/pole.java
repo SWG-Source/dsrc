@@ -1,17 +1,11 @@
 package script.fishing;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
 import script.library.minigame;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class pole extends script.base_script
 {
@@ -22,10 +16,10 @@ public class pole extends script.base_script
     public static final string_id MNU_TACKLE = new string_id(minigame.STF_FISH, "mnu_open_tackle");
     public static final string_id MNU_BAIT = new string_id(minigame.STF_FISH, "mnu_set_bait");
     public static final string_id MNU_CLEAR_BAIT = new string_id(minigame.STF_FISH, "mnu_clear_bait");
-    public static final string_id MNU_START_FISHING = new string_id(minigame.STF_FISH, "mnu_start_fishing");
-    public static final string_id MNU_STOP_FISHING = new string_id(minigame.STF_FISH, "mnu_stop_fishing");
-    public static final string_id SID_NO_FISH_IN_SPACE = new string_id("space/space_interaction", "no_fish_in_space");
-    public static final String STF_FISH = "fishing";
+    private static final string_id MNU_START_FISHING = new string_id(minigame.STF_FISH, "mnu_start_fishing");
+    private static final string_id MNU_STOP_FISHING = new string_id(minigame.STF_FISH, "mnu_stop_fishing");
+    private static final string_id SID_NO_FISH_IN_SPACE = new string_id("space/space_interaction", "no_fish_in_space");
+    private static final String STF_FISH = "fishing";
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         String planetName = getCurrentSceneName();
@@ -47,12 +41,12 @@ public class pole extends script.base_script
             {
                 if (held == self)
                 {
-                    int mnuCast = mi.addRootMenu(menu_info_types.SERVER_MENU2, MNU_START_FISHING);
+                    mi.addRootMenu(menu_info_types.SERVER_MENU2, MNU_START_FISHING);
                 }
             }
             else 
             {
-                int mnuStopFishing = mi.addRootMenu(menu_info_types.SERVER_MENU3, MNU_STOP_FISHING);
+                mi.addRootMenu(menu_info_types.SERVER_MENU3, MNU_STOP_FISHING);
             }
         }
         return SCRIPT_CONTINUE;
@@ -86,8 +80,7 @@ public class pole extends script.base_script
     }
     public int OnAboutToReceiveItem(obj_id self, obj_id srcContainer, obj_id transferer, obj_id item) throws InterruptedException
     {
-        int got = getGameObjectType(item);
-        if (isPlayer(transferer) && got != GOT_misc_fishing_bait)
+        if (isPlayer(transferer) && getGameObjectType(item) != GOT_misc_fishing_bait)
         {
             sendSystemMessage(self, new string_id(STF_FISH, "bait_only"));
             return SCRIPT_OVERRIDE;
