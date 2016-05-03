@@ -1,16 +1,8 @@
 package script.faction_perk.base;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.faction_perk;
-import script.library.factions;
-import script.library.utils;
+import script.menu_info_types;
+import script.obj_id;
 
 public class factional_deed extends script.item.structure_deed.player_structure_deed
 {

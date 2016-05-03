@@ -1,15 +1,8 @@
 package script.faction_perk.hq;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.pclib;
+import script.dictionary;
 import script.library.money;
+import script.obj_id;
 
 public class terminal_insurance_override extends script.base_script
 {
@@ -22,14 +15,13 @@ public class terminal_insurance_override extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        int retVal = money.getReturnCode(params);
         obj_id player = params.getObjId(money.DICT_PLAYER_ID);
         if (!isIdValid(player))
         {
             return SCRIPT_CONTINUE;
         }
         int total = params.getInt(money.DICT_TOTAL);
-        if (retVal == money.RET_SUCCESS)
+        if (money.getReturnCode(params) == money.RET_SUCCESS)
         {
             obj_id structure = getTopMostContainer(self);
             if (isIdValid(structure))

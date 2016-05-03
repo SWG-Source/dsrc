@@ -1,18 +1,11 @@
 package script.faction_perk.hq;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
-import script.library.gcw;
-import script.library.hq;
-import script.library.utils;
-import script.library.factions;
-import script.library.player_structure;
+import java.util.Vector;
 
 public class loader extends script.base_script
 {
@@ -101,7 +94,6 @@ public class loader extends script.base_script
         {
             gcw.grantBaseDestructionPoints(self);
             player_structure.destroyStructure(self, false, true);
-            String hqName = getName(self);
             if (isIdValid(player))
             {
                 CustomerServiceLog("faction_hq", "Faction HQ (" + self + "), destroyed by normal terminal overload. Player initiating the destruction is %TU", player, null);
@@ -113,7 +105,7 @@ public class loader extends script.base_script
             return SCRIPT_CONTINUE;
         }
         Vector locs = new Vector();
-        if (locs == null || locs.size() == 0)
+        if (locs.size() == 0)
         {
             String myFac = factions.getFaction(self);
             int lvl = getHqLevel(self);
@@ -123,7 +115,6 @@ public class loader extends script.base_script
             }
             gcw.grantBaseDestructionPoints(self);
             player_structure.destroyStructure(self, false, true);
-            String hqName = getName(self);
             if (isIdValid(player))
             {
                 CustomerServiceLog("faction_hq", "Faction HQ (" + self + "), destroyed by normal terminal overload. Player initiating the destruction is %TU", player, null);
@@ -134,9 +125,8 @@ public class loader extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        location there = ((location)locs.get(0));
         locs.removeElementAt(0);
-        if (locs == null || locs.size() == 0)
+        if (locs.size() == 0)
         {
             params.remove("locs");
         }
@@ -161,15 +151,14 @@ public class loader extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int getHqLevel(obj_id self) throws InterruptedException
+    private int getHqLevel(obj_id self) throws InterruptedException
     {
         String template = getTemplateName(self);
         int idx = template.indexOf("_s0");
         if (idx > -1)
         {
             String sLvl = template.substring(idx + 3, idx + 4);
-            int lvl = utils.stringToInt(sLvl);
-            return lvl;
+            return utils.stringToInt(sLvl);
         }
         return -1;
     }
@@ -178,32 +167,28 @@ public class loader extends script.base_script
         hq.cleanUpHackAlarms(self);
         String myFac = factions.getFaction(self);
         int intFac = myFac.equals("Rebel") ? gcw.FACTION_REBEL : gcw.FACTION_IMPERIAL;
-        int lvl = getHqLevel(self);
         gcw.modifyPlanetaryBaseCount(self, intFac, -1);
         gcw.decrementGCWScore(self);
         hq.refundBaseUnit(self);
         return SCRIPT_CONTINUE;
     }
-    public void setCWData(obj_id self) throws InterruptedException
+    private void setCWData(obj_id self) throws InterruptedException
     {
         getClusterWideData("gcw_player_base", "base_cwdata_manager", true, self);
     }
     public int OnClusterWideDataResponse(obj_id self, String manage_name, String dungeon_name, int request_id, String[] element_name_list, dictionary[] dungeon_data, int lock_key) throws InterruptedException
     {
-        String name = "base_cwdata_manager" + "-" + self;
-        String scene = getCurrentSceneName();
         location loc = getLocation(self);
-        String myFac = factions.getFaction(self);
-        int intFac = myFac.equals("Rebel") ? gcw.FACTION_REBEL : gcw.FACTION_IMPERIAL;
+        int intFac = factions.getFaction(self).equals("Rebel") ? gcw.FACTION_REBEL : gcw.FACTION_IMPERIAL;
         dictionary dungeon_info = new dictionary();
         dungeon_info.put("dungeon_id", self);
         dungeon_info.put("faction", intFac);
         dungeon_info.put("ownerId", getOwner(self));
-        dungeon_info.put("scene", scene);
+        dungeon_info.put("scene", getCurrentSceneName());
         dungeon_info.put("position_x", loc.x);
         dungeon_info.put("position_y", loc.y);
         dungeon_info.put("position_z", loc.z);
-        replaceClusterWideData(manage_name, name, dungeon_info, true, lock_key);
+        replaceClusterWideData(manage_name, "base_cwdata_manager" + "-" + self, dungeon_info, true, lock_key);
         releaseClusterWideDataLock(manage_name, lock_key);
         return SCRIPT_CONTINUE;
     }

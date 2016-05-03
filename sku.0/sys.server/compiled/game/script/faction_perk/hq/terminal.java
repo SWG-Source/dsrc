@@ -1,56 +1,44 @@
 package script.faction_perk.hq;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
 import java.util.Calendar;
-import script.library.hq;
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.money;
-import script.library.factions;
-import script.library.player_structure;
-import script.library.stealth;
+import java.util.Vector;
 
 public class terminal extends script.terminal.base.base_terminal
 {
     public terminal()
     {
     }
-    public static final string_id MNU_DONATE = new string_id("hq", "mnu_donate");
-    public static final string_id MNU_DONATE_MONEY = new string_id("hq", "mnu_donate_money");
+    private static final string_id MNU_DONATE = new string_id("hq", "mnu_donate");
+    private static final string_id MNU_DONATE_MONEY = new string_id("hq", "mnu_donate_money");
     public static final string_id MNU_DONATE_RESOURCE = new string_id("hq", "mnu_donate_resource");
-    public static final string_id MNU_DONATE_DEED = new string_id("hq", "mnu_donate_deed");
-    public static final string_id UNDER_ATTACK = new string_id("hq", "under_attack");
-    public static final string_id MNU_OVERLOAD = new string_id("hq", "mnu_overload");
-    public static final string_id MNU_OVERLOAD_GOD = new string_id("hq", "mnu_overload_god_intentional_code_string");
-    public static final string_id MNU_SHUTDOWN = new string_id("hq", "mnu_shutdown");
-    public static final string_id MNU_DEFENSE_STATUS = new string_id("hq", "mnu_defense_status");
-    public static final string_id MNU_RESET_VULNERABILITY = new string_id("hq", "mnu_reset_vulnerability");
-    public static final String[] ACCEPTED_DEED_TYPES = 
+    private static final string_id MNU_DONATE_DEED = new string_id("hq", "mnu_donate_deed");
+    private static final string_id UNDER_ATTACK = new string_id("hq", "under_attack");
+    private static final string_id MNU_OVERLOAD = new string_id("hq", "mnu_overload");
+    private static final string_id MNU_OVERLOAD_GOD = new string_id("hq", "mnu_overload_god_intentional_code_string");
+    private static final string_id MNU_SHUTDOWN = new string_id("hq", "mnu_shutdown");
+    private static final string_id MNU_DEFENSE_STATUS = new string_id("hq", "mnu_defense_status");
+    private static final string_id MNU_RESET_VULNERABILITY = new string_id("hq", "mnu_reset_vulnerability");
+    private static final String[] ACCEPTED_DEED_TYPES =
     {
         "turret",
         "mine"
     };
-    public static final String SCRIPTVAR_COUNTDOWN = "countdownInProgress";
-    public static final string_id SID_TERMINAL_MANAGEMENT = new string_id("player_structure", "management");
-    public static final string_id SID_TERMINAL_MANAGEMENT_STATUS = new string_id("player_structure", "management_status");
-    public static final string_id SID_TERMINAL_MANAGEMENT_PAY = new string_id("player_structure", "management_pay");
-    public static final string_id SID_TERMINAL_MANAGEMENT_DESTROY = new string_id("player_structure", "permission_destroy");
-    public static final string_id SID_VULNERABILITY_RESET = new string_id("hq", "vulnerability_reset");
+    private static final String SCRIPTVAR_COUNTDOWN = "countdownInProgress";
+    private static final string_id SID_TERMINAL_MANAGEMENT = new string_id("player_structure", "management");
+    private static final string_id SID_TERMINAL_MANAGEMENT_STATUS = new string_id("player_structure", "management_status");
+    private static final string_id SID_TERMINAL_MANAGEMENT_PAY = new string_id("player_structure", "management_pay");
+    private static final string_id SID_TERMINAL_MANAGEMENT_DESTROY = new string_id("player_structure", "permission_destroy");
+    private static final string_id SID_VULNERABILITY_RESET = new string_id("hq", "vulnerability_reset");
     public static final string_id SID_VULNERABILITY_RESET_BLACKOUT_PERIOD = new string_id("hq", "vulnerability_reset_blackout_period");
-    public static final string_id SID_VULNERABILITY_RESET_WRONG_CELL = new string_id("hq", "vulnerability_reset_wrong_cell");
-    public static final string_id SID_VULNERABILITY_RESET_NO_LONGER_IN_STRUCTURE = new string_id("hq", "vulnerability_reset_no_longer_in_structure");
-    public static final string_id SID_VULNERABILITY_RESET_REQUEST_RECEIVED = new string_id("hq", "vulnerability_reset_request_received");
-    public static final string_id SID_VULNERABILITY_RESET_NOT_ALIVE = new string_id("hq", "vulnerability_reset_not_alive");
-    public static final String STRING_FILE_LOC = "faction/faction_hq/faction_hq_response";
-    public static final string_id SID_NO_STEALTH = new string_id("hq", "no_stealth");
+    private static final string_id SID_VULNERABILITY_RESET_WRONG_CELL = new string_id("hq", "vulnerability_reset_wrong_cell");
+    private static final string_id SID_VULNERABILITY_RESET_NO_LONGER_IN_STRUCTURE = new string_id("hq", "vulnerability_reset_no_longer_in_structure");
+    private static final string_id SID_VULNERABILITY_RESET_REQUEST_RECEIVED = new string_id("hq", "vulnerability_reset_request_received");
+    private static final string_id SID_VULNERABILITY_RESET_NOT_ALIVE = new string_id("hq", "vulnerability_reset_not_alive");
+    private static final String STRING_FILE_LOC = "faction/faction_hq/faction_hq_response";
+    private static final string_id SID_NO_STEALTH = new string_id("hq", "no_stealth");
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         if (hasScript(self, hq.SCRIPT_TERMINAL_DISABLE))
@@ -102,7 +90,7 @@ public class terminal extends script.terminal.base.base_terminal
                     sendSystemMessageProse(player, ppDisableOther);
                     return super.OnObjectMenuRequest(self, player, mi);
                 }
-                int mnuCountdown = mi.addRootMenu(menu_info_types.ITEM_USE, MNU_OVERLOAD);
+                mi.addRootMenu(menu_info_types.ITEM_USE, MNU_OVERLOAD);
             }
             return super.OnObjectMenuRequest(self, player, mi);
         }
@@ -133,7 +121,7 @@ public class terminal extends script.terminal.base.base_terminal
         if (!player_structure.isFactionPerkBase(buildingTemplate))
         {
             mnuDonate = mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_DONATE);
-            int mnuDonateMoney = mi.addSubMenu(mnuDonate, menu_info_types.SERVER_MENU2, MNU_DONATE_MONEY);
+            mi.addSubMenu(mnuDonate, menu_info_types.SERVER_MENU2, MNU_DONATE_MONEY);
         }
         if (hasObjVar(structure, hq.VAR_OBJECTIVE_TRACKING) || isGod(player))
         {
@@ -141,13 +129,13 @@ public class terminal extends script.terminal.base.base_terminal
             {
                 mnuDonate = mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_DONATE);
             }
-            int mnuDonateDeed = mi.addSubMenu(mnuDonate, menu_info_types.SERVER_MENU4, MNU_DONATE_DEED);
+            mi.addSubMenu(mnuDonate, menu_info_types.SERVER_MENU4, MNU_DONATE_DEED);
         }
         if (utils.hasScriptVar(self, SCRIPTVAR_COUNTDOWN) && pvpGetType(player) != PVPTYPE_NEUTRAL)
         {
             if (hasObjVar(structure, "isPvpBase"))
             {
-                int mnuShutdown = mi.addRootMenu(menu_info_types.SERVER_MENU9, MNU_SHUTDOWN);
+                mi.addRootMenu(menu_info_types.SERVER_MENU9, MNU_SHUTDOWN);
             }
         }
         return super.OnObjectMenuRequest(self, player, mi);
@@ -359,7 +347,7 @@ public class terminal extends script.terminal.base.base_terminal
         }
         return SCRIPT_CONTINUE;
     }
-    public void shutdownFacility(obj_id self) throws InterruptedException
+    private void shutdownFacility(obj_id self) throws InterruptedException
     {
         attachScript(self, hq.SCRIPT_TERMINAL_DISABLE);
         obj_id structure = player_structure.getStructure(self);
@@ -371,7 +359,7 @@ public class terminal extends script.terminal.base.base_terminal
         hq.activateHackAlarms(structure, false);
         messageTo(self, "handleFacilityReboot", null, 30f, false);
     }
-    public void startCountdown(obj_id self, obj_id player) throws InterruptedException
+    private void startCountdown(obj_id self, obj_id player) throws InterruptedException
     {
         int meleemod = getSkillStatMod(player, "group_melee_defense");
         int rangemod = getSkillStatMod(player, "group_range_defense");
@@ -389,9 +377,8 @@ public class terminal extends script.terminal.base.base_terminal
         obj_id[] players = player_structure.getPlayersInBuilding(getTopMostContainer(self));
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageProse(players[i], prose.getPackage(new string_id(STRING_FILE_LOC, "terminal_response40"), minutes));
+            for (obj_id player1 : players) {
+                sendSystemMessageProse(player1, prose.getPackage(new string_id(STRING_FILE_LOC, "terminal_response40"), minutes));
             }
         }
         int stamp = getGameTime() + Math.round(delay);
@@ -401,7 +388,7 @@ public class terminal extends script.terminal.base.base_terminal
         d.put("cnt", minutes);
         messageTo(self, "handleCountdown", d, 10f, false);
     }
-    public void abortCountdown(obj_id self) throws InterruptedException
+    private void abortCountdown(obj_id self) throws InterruptedException
     {
         obj_id structure = getTopMostContainer(self);
         hq.activateDestructAlarms(structure, false);
@@ -409,9 +396,8 @@ public class terminal extends script.terminal.base.base_terminal
         obj_id[] players = player_structure.getPlayersInBuilding(structure);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessage(players[i], new string_id(STRING_FILE_LOC, "terminal_response07"));
+            for (obj_id player : players) {
+                sendSystemMessage(player, new string_id(STRING_FILE_LOC, "terminal_response07"));
             }
         }
     }
@@ -426,9 +412,8 @@ public class terminal extends script.terminal.base.base_terminal
         obj_id[] players = player_structure.getPlayersInBuilding(getTopMostContainer(self));
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessage(players[i], new string_id(STRING_FILE_LOC, "terminal_response08"));
+            for (obj_id player : players) {
+                sendSystemMessage(player, new string_id(STRING_FILE_LOC, "terminal_response08"));
             }
         }
         return SCRIPT_CONTINUE;
@@ -473,21 +458,18 @@ public class terminal extends script.terminal.base.base_terminal
             return SCRIPT_CONTINUE;
         }
         prose_package msg = prose.getPackage(new string_id(STRING_FILE_LOC, "terminal_response39"), minutes);
-        if (minutes < 1)
-        {
-            msg = prose.getPackage(new string_id(STRING_FILE_LOC, "terminal_response39"), timeLeft);
-        }
-        else if (minutes < cnt)
-        {
-            obj_id[] players = player_structure.getPlayersInBuilding(structure);
-            if (players != null && players.length > 0)
-            {
-                for (int i = 0; i < players.length; i++)
-                {
-                    sendSystemMessageProse(players[i], msg);
-                }
-            }
-            params.put("cnt", minutes);
+        if (minutes >= 1) {
+            if (minutes < cnt)
+			{
+				obj_id[] players = player_structure.getPlayersInBuilding(structure);
+				if (players != null && players.length > 0)
+				{
+                    for (obj_id player1 : players) {
+                        sendSystemMessageProse(player1, msg);
+                    }
+				}
+				params.put("cnt", minutes);
+			}
         }
         hq.activateDestructAlarms(structure, true);
         messageTo(self, "handleCountdown", params, 10f, false);
@@ -571,7 +553,7 @@ public class terminal extends script.terminal.base.base_terminal
         {
             return SCRIPT_CONTINUE;
         }
-        if (deedType.equals("mine"))
+        if (deedType != null && deedType.equals("mine"))
         {
             int numMines = hq.getTotalMines(structure);
             if (numMines >= hq.getMaxMines(structure))
@@ -943,14 +925,9 @@ public class terminal extends script.terminal.base.base_terminal
         }
         Vector entries = new Vector();
         entries.setSize(0);
-        for (int i = 0; i < crates.length; i++)
-        {
-            obj_id crate = crates[i];
-            if (isIdValid(crate))
-            {
-                int inCrate = getResourceContainerQuantity(crate);
-                String name = getString(getNameStringId(crate));
-                entries = utils.addElement(entries, name + " [" + inCrate + "]");
+        for (obj_id crate : crates) {
+            if (isIdValid(crate)) {
+                entries = utils.addElement(entries, getString(getNameStringId(crate)) + " [" + getResourceContainerQuantity(crate) + "]");
             }
         }
         String title = utils.packStringId(new string_id(STRING_FILE_LOC, "terminal_response20"));
@@ -962,7 +939,7 @@ public class terminal extends script.terminal.base.base_terminal
             utils.setBatchScriptVar(terminal, scriptvar_opt, crates);
         }
     }
-    public void showDeedDonationUI(obj_id terminal, obj_id player) throws InterruptedException
+    private void showDeedDonationUI(obj_id terminal, obj_id player) throws InterruptedException
     {
         if (!isIdValid(terminal) || !isIdValid(player))
         {
@@ -1022,7 +999,7 @@ public class terminal extends script.terminal.base.base_terminal
             utils.setBatchScriptVar(terminal, scriptvar_opt, opt);
         }
     }
-    public void showDefenseStatusUI(obj_id terminal, obj_id player) throws InterruptedException
+    private void showDefenseStatusUI(obj_id terminal, obj_id player) throws InterruptedException
     {
         if (!isIdValid(terminal) || !isIdValid(player))
         {
@@ -1057,32 +1034,31 @@ public class terminal extends script.terminal.base.base_terminal
             return;
         }
         int numTypes = ovl.getNumItems();
+        obj_var ov;
+        String ovName;
+        obj_id[] data;
+        String sName;
         for (int i = 0; i < numTypes; i++)
         {
-            obj_var ov = ovl.getObjVar(i);
-            String ovName = ov.getName();
+            ov = ovl.getObjVar(i);
+            ovName = ov.getName();
             entries = utils.addElement(entries, toUpper(ovName));
             opt = utils.addElement(opt, obj_id.NULL_ID);
-            obj_id[] data = ov.getObjIdArrayData();
+            data = ov.getObjIdArrayData();
             if (data != null && data.length > 0)
             {
                 int validCount = 0;
-                for (int n = 0; n < data.length; n++)
-                {
-                    if (isIdValid(data[n]))
-                    {
-                        String sName = utils.getStringName(data[n]);
-                        int max_hp = getMaxHitpoints(data[n]);
-                        int cur_hp = getHitpoints(data[n]);
-                        if (hasScript(data[n], "faction_perk.minefield.advanced_minefield"))
-                        {
+                for (obj_id aData : data) {
+                    if (isIdValid(aData)) {
+                        sName = utils.getStringName(aData);
+                        int max_hp = getMaxHitpoints(aData);
+                        int cur_hp = getHitpoints(aData);
+                        if (hasScript(aData, "faction_perk.minefield.advanced_minefield")) {
                             entries = utils.addElement(entries, "- " + hq.getTotalMines(structure) + "/" + hq.getMaxMines(structure) + " mines");
-                        }
-                        else 
-                        {
+                        } else {
                             entries = utils.addElement(entries, "- " + sName + " [" + cur_hp + "/" + max_hp + "]");
                         }
-                        opt = utils.addElement(opt, data[n]);
+                        opt = utils.addElement(opt, aData);
                         validCount++;
                     }
                 }
@@ -1102,7 +1078,7 @@ public class terminal extends script.terminal.base.base_terminal
             utils.setBatchScriptVar(terminal, scriptvar_opt, opt);
         }
     }
-    public void facilityShutdownDelay(obj_id terminal, obj_id player) throws InterruptedException
+    private void facilityShutdownDelay(obj_id terminal, obj_id player) throws InterruptedException
     {
         if (!isIdValid(terminal) || !isIdValid(player))
         {
@@ -1122,12 +1098,11 @@ public class terminal extends script.terminal.base.base_terminal
         sendSystemMessage(player, SID_VULNERABILITY_RESET_REQUEST_RECEIVED);
         dictionary params = new dictionary();
         params.put("player", player);
-        if (!currentCell.equals("null"))
+        if (currentCell != null && !currentCell.equals("null"))
         {
             params.put("cellName", currentCell);
         }
         messageTo(terminal, "handleShutdownCountdownComplete", params, 60f, false);
-        return;
     }
     public int handleShutdownCountdownComplete(obj_id self, dictionary params) throws InterruptedException
     {
@@ -1150,7 +1125,7 @@ public class terminal extends script.terminal.base.base_terminal
         if (hasObjVar(structure, hq.VAR_TERMINAL_DISABLE))
         {
             boolean structureState = getBooleanObjVar(structure, hq.VAR_TERMINAL_DISABLE);
-            if (structureState == true)
+            if (structureState)
             {
                 return SCRIPT_CONTINUE;
             }
@@ -1161,7 +1136,7 @@ public class terminal extends script.terminal.base.base_terminal
         {
             currentCell = getCellName(locTest.cell);
         }
-        if ((!isIdValid(locTest.cell)) || (!currentCell.equals(triggeringCell)))
+        if ((!isIdValid(locTest.cell)) || (currentCell != null && !currentCell.equals(triggeringCell)))
         {
             sendSystemMessage(player, SID_VULNERABILITY_RESET_WRONG_CELL);
             return SCRIPT_CONTINUE;
@@ -1173,7 +1148,7 @@ public class terminal extends script.terminal.base.base_terminal
         }
         String title = utils.packStringId(new string_id(STRING_FILE_LOC, "terminal_response27"));
         String prompt = utils.packStringId(new string_id(STRING_FILE_LOC, "terminal_response28"));
-        int pid = sui.msgbox(self, player, title, sui.YES_NO, prompt, "handleShutdownConfirm");
+        sui.msgbox(self, player, title, sui.YES_NO, prompt, "handleShutdownConfirm");
         return SCRIPT_CONTINUE;
     }
     public int handleShutdownConfirm(obj_id self, dictionary params) throws InterruptedException
@@ -1197,7 +1172,7 @@ public class terminal extends script.terminal.base.base_terminal
         if (hasObjVar(structure, hq.VAR_TERMINAL_DISABLE))
         {
             boolean structureState = getBooleanObjVar(structure, hq.VAR_TERMINAL_DISABLE);
-            if (structureState == true)
+            if (structureState)
             {
                 return SCRIPT_CONTINUE;
             }

@@ -1,29 +1,17 @@
 package script.faction_perk.hq;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.player_structure;
-import script.library.xp;
-import script.library.money;
-import script.library.sui;
-import script.library.utils;
-import script.library.city;
-import script.library.prose;
 import script.library.factions;
+import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class overt_hq_covert_excluder extends script.base_script
 {
     public overt_hq_covert_excluder()
     {
     }
-    public static final string_id SID_YOURE_NEUTRAL_EXCLUDED = new string_id("faction/faction_hq/faction_hq_response", "youre_neutral_excluded");
-    public static final string_id SID_YOURE_COVERT_EXCLUDED = new string_id("faction/faction_hq/faction_hq_response", "youre_covert_excluded");
+    private static final string_id SID_YOURE_NEUTRAL_EXCLUDED = new string_id("faction/faction_hq/faction_hq_response", "youre_neutral_excluded");
+    private static final string_id SID_YOURE_COVERT_EXCLUDED = new string_id("faction/faction_hq/faction_hq_response", "youre_covert_excluded");
     public int OnAboutToReceiveItem(obj_id self, obj_id srcContainer, obj_id transferer, obj_id item) throws InterruptedException
     {
         LOG("LOG_CHANNEL", "permanent_structure::OnAboutToReceiveItem --" + transferer + " - " + item);
@@ -57,22 +45,12 @@ public class overt_hq_covert_excluder extends script.base_script
         utils.removeScriptVar(item, factions.IN_ADHOC_PVP_AREA);
         return SCRIPT_CONTINUE;
     }
-    public boolean isCovert(obj_id target) throws InterruptedException
+    private boolean isCovert(obj_id target) throws InterruptedException
     {
-        int pvpType = pvpGetType(target);
-        if (pvpType == PVPTYPE_COVERT)
-        {
-            return true;
-        }
-        return false;
+        return pvpGetType(target) == PVPTYPE_COVERT;
     }
-    public boolean isNeutral(obj_id target) throws InterruptedException
+    private boolean isNeutral(obj_id target) throws InterruptedException
     {
-        int pvpType = pvpGetType(target);
-        if (pvpType == PVPTYPE_NEUTRAL)
-        {
-            return true;
-        }
-        return false;
+        return pvpGetType(target) == PVPTYPE_NEUTRAL;
     }
 }
