@@ -1,23 +1,15 @@
 package script.fishing;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.minigame;
-import script.library.resource;
+import script.library.utils;
+import script.*;
 
 public class fish extends script.base_script
 {
     public fish()
     {
     }
-    public static final string_id SID_FILET = new string_id(minigame.STF_FISH, "mnu_filet");
+    private static final string_id SID_FILET = new string_id(minigame.STF_FISH, "mnu_filet");
     public static final string_id SID_TROPHY = new string_id(minigame.STF_FISH, "mnu_trophy");
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
@@ -31,7 +23,7 @@ public class fish extends script.base_script
             obj_id[] contents = getContents(self);
             if (contents != null && contents.length > 0)
             {
-                int mnuFilet = mi.addRootMenu(menu_info_types.SERVER_MENU1, SID_FILET);
+                mi.addRootMenu(menu_info_types.SERVER_MENU1, SID_FILET);
             }
         }
         return SCRIPT_CONTINUE;
@@ -43,12 +35,9 @@ public class fish extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (utils.isNestedWithin(self, inv))
+        if (utils.isNestedWithin(self, inv) && item == menu_info_types.SERVER_MENU1)
         {
-            if (item == menu_info_types.SERVER_MENU1)
-            {
-                minigame.filetFish(player, self);
-            }
+            minigame.filetFish(player, self);
         }
         return SCRIPT_CONTINUE;
     }
@@ -120,10 +109,8 @@ public class fish extends script.base_script
             }
             if (hasObjVar(self, minigame.VAR_FISH_TIME_STAMP))
             {
-                int timeCaught = getIntObjVar(self, minigame.VAR_FISH_TIME_STAMP);
-                String stTimeCaught = getCalendarTimeStringLocal(timeCaught);
                 names[line] = "fish_time_caught";
-                attribs[line] = stTimeCaught;
+                attribs[line] = getCalendarTimeStringLocal(getIntObjVar(self, minigame.VAR_FISH_TIME_STAMP));
                 line++;
                 if (line > names.length)
                 {
@@ -132,9 +119,8 @@ public class fish extends script.base_script
             }
             if (hasObjVar(self, minigame.VAR_FISH_CATCHER))
             {
-                String playerName = getStringObjVar(self, minigame.VAR_FISH_CATCHER);
                 names[line] = "caught_by";
-                attribs[line] = playerName;
+                attribs[line] = getStringObjVar(self, minigame.VAR_FISH_CATCHER);
                 line++;
                 if (line > names.length)
                 {
