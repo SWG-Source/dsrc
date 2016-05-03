@@ -1,14 +1,8 @@
 package script.faction_perk.hq;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.hq;
+import script.obj_id;
 
 public class theater_manager extends script.base_script
 {

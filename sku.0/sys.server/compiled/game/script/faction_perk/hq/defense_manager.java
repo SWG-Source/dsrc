@@ -1,27 +1,16 @@
 package script.faction_perk.hq;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.hq;
-import script.library.utils;
-import script.library.factions;
-import script.library.player_structure;
-import script.library.create;
-import script.library.ai_lib;
-import script.library.advanced_turret;
+import java.util.Vector;
 
 public class defense_manager extends script.base_script
 {
     public defense_manager()
     {
     }
-    public static final float RESOURCE_REPAIR_RATIO = .5f;
+    private static final float RESOURCE_REPAIR_RATIO = .5f;
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if (!isInvulnerable(self))
@@ -75,49 +64,42 @@ public class defense_manager extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int numType = ovl.getNumItems();
+        obj_var ov;
+        obj_id[] defenses;
         for (int i = 0; i < numType; i++)
         {
             if (reserve < 1f)
             {
                 break;
             }
-            obj_var ov = ovl.getObjVar(i);
-            obj_id[] defenses = ov.getObjIdArrayData();
+            ov = ovl.getObjVar(i);
+            defenses = ov.getObjIdArrayData();
             if (defenses != null && defenses.length > 0)
             {
-                for (int x = 0; x < defenses.length; x++)
-                {
+                for (obj_id defense : defenses) {
                     int curres = getIntObjVar(self, hq.VAR_HQ_RESOURCE_CNT);
-                    obj_id thing = defenses[x];
-                    if (isIdValid(thing))
-                    {
-                        int hp = getHitpoints(thing);
-                        int max = getMaxHitpoints(thing);
-                        if (hp < 1)
-                        {
-                            destroyObject(thing);
-                        }
-                        else if (hp < max)
-                        {
+                    if (isIdValid(defense)) {
+                        int hp = getHitpoints(defense);
+                        int max = getMaxHitpoints(defense);
+                        if (hp < 1) {
+                            destroyObject(defense);
+                        } else if (hp < max) {
                             int diff = max - hp;
                             float cost = diff * RESOURCE_REPAIR_RATIO;
-                            if (cost > curres)
-                            {
-                                diff = (int)(curres / RESOURCE_REPAIR_RATIO);
+                            if (cost > curres) {
+                                diff = (int) (curres / RESOURCE_REPAIR_RATIO);
                                 cost = curres;
                             }
                             curres -= cost;
-                            setHitpoints(thing, hp + diff);
-                            int used = (int)cost;
+                            setHitpoints(defense, hp + diff);
+                            int used = (int) cost;
                             int total = curres - used;
-                            if (total < 0)
-                            {
+                            if (total < 0) {
                                 removeObjVar(self, hq.VAR_HQ_RESOURCE_CNT);
                                 break;
                             }
                             setObjVar(self, hq.VAR_HQ_RESOURCE_CNT, total);
-                            if (curres < 1f)
-                            {
+                            if (curres < 1f) {
                                 break;
                             }
                         }
@@ -139,7 +121,7 @@ public class defense_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (defenseType.equals("mine"))
+        else if (defenseType.equals("mine"))
         {
             int mineType = params.getInt("mineType");
             addMine(self, mineType);
@@ -150,7 +132,7 @@ public class defense_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (!hasObjVar(self, hq.VAR_DEFENSE_BASE))
+        else if (!hasObjVar(self, hq.VAR_DEFENSE_BASE))
         {
             return SCRIPT_CONTINUE;
         }
@@ -164,7 +146,7 @@ public class defense_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (isIdValid(data[pos]))
+        else if (isIdValid(data[pos]))
         {
             return SCRIPT_CONTINUE;
         }
@@ -201,11 +183,11 @@ public class defense_manager extends script.base_script
         }
         location here = getLocation(self);
         float yaw = getYaw(self);
-        location there = player_structure.transformDeltaWorldCoord(here, dx, dz, yaw);
+        location there = player_structure.transformDeltaWorldCoord(here, dx, dz, getYaw(self));
         there.y = here.y;
         int myFac = pvpGetAlignedFaction(self);
         String myFacName = factions.getFaction(self);
-        obj_id defense = obj_id.NULL_ID;
+        obj_id defense;
         if (defenseType.equals("turret"))
         {
             int turretType = advanced_turret.TYPE_BLOCK;
@@ -215,27 +197,27 @@ public class defense_manager extends script.base_script
             int turretHitpoints = 200000;
             float turretRange = 64f;
             float turretSpeed = 2f;
-            if (template.indexOf("tower") > -1)
+            if (template.contains("tower"))
             {
                 turretType = advanced_turret.TYPE_TOWER;
                 turretMinDam = 5000;
                 turretMaxDam = 7000;
                 turretSpeed = 3f;
             }
-            else if (template.indexOf("dish") > -1)
+            else if (template.contains("dish"))
             {
                 turretType = advanced_turret.TYPE_DISH;
                 turretMinDam = 1750;
                 turretMaxDam = 2250;
                 turretSpeed = 1f;
             }
-            if (template.indexOf("lg") > -1)
+            else if (template.contains("lg"))
             {
                 turretSize = advanced_turret.SIZE_LARGE;
                 turretHitpoints = 600000;
                 turretRange = 96f;
             }
-            else if (template.indexOf("med") > -1)
+            else if (template.contains("med"))
             {
                 turretSize = advanced_turret.SIZE_MEDIUM;
                 turretHitpoints = 400000;
@@ -290,7 +272,7 @@ public class defense_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (!hasObjVar(self, hq.VAR_DEFENSE_BASE))
+        else if (!hasObjVar(self, hq.VAR_DEFENSE_BASE))
         {
             return SCRIPT_CONTINUE;
         }
@@ -300,16 +282,17 @@ public class defense_manager extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int numTypes = ovl.getNumItems();
+        obj_var ov;
+        obj_id[] data;
         for (int i = 0; i < numTypes; i++)
         {
-            obj_var ov = ovl.getObjVar(i);
-            String ovName = ov.getName();
-            obj_id[] data = ov.getObjIdArrayData();
+            ov = ovl.getObjVar(i);
+            data = ov.getObjIdArrayData();
             int idx = utils.getElementPositionInArray(data, sender);
             if (idx > -1)
             {
                 data[idx] = obj_id.NULL_ID;
-                setObjVar(self, hq.VAR_DEFENSE_BASE + "." + ovName, data);
+                setObjVar(self, hq.VAR_DEFENSE_BASE + "." + ov.getName(), data);
                 break;
             }
         }
@@ -320,7 +303,7 @@ public class defense_manager extends script.base_script
             detachScript(self, "faction_perk.hq.base_block");
         }
         int pos = utils.getFirstValidIdIndex(numTur);
-        if (pos < 0 || pos > numTur.length - 1)
+        if (pos < 0 || (numTur != null && pos > numTur.length - 1))
         {
             detachScript(self, "faction_perk.hq.base_block");
         }
@@ -341,30 +324,23 @@ public class defense_manager extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             int[] new_mines = new int[hq.MAX_MINE_TYPES];
-            for (int i = 0; i < mines.length; i++)
-            {
-                new_mines[i] = mines[i];
-            }
+            // this may bomb... depends on how big "mines" ends up being... if mines.length is bigger than hq.MAX_MINE_TYPES
+            // then it will bomb.  Correct the issue by making arraycopy only go to hq.MAX_MINE_TYPES instead of mines.length
+            System.arraycopy(mines, 0, new_mines, 0, mines.length);
             setObjVar(self, "mines", new_mines);
             return SCRIPT_CONTINUE;
         }
         if (hasObjVar(self, hq.VAR_DEFENSE_BASE + ".minefield"))
         {
             obj_id[] old_minefields = getObjIdArrayObjVar(self, hq.VAR_DEFENSE_BASE + ".minefield");
-            if (old_minefields != null && old_minefields.length > 0)
-            {
-                for (int i = 0; i < old_minefields.length; i++)
-                {
-                    if (isIdValid(old_minefields[i]))
-                    {
-                        destroyObject(old_minefields[i]);
-                    }
+            for (obj_id old_minefield : old_minefields) {
+                if (isIdValid(old_minefield)) {
+                    destroyObject(old_minefield);
                 }
             }
         }
         messageTo(self, "handleCreateMinefield", null, 5f, false);
-        int[] mines = new int[hq.MAX_MINE_TYPES];
-        setObjVar(self, "mines", mines);
+        setObjVar(self, "mines", new int[hq.MAX_MINE_TYPES]);
         return SCRIPT_CONTINUE;
     }
     public int handleTurretControl(obj_id self, dictionary params) throws InterruptedException
@@ -380,30 +356,14 @@ public class defense_manager extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int numTypes = ovl.getNumItems();
+        obj_id[] data;
         for (int i = 0; i < numTypes; i++)
         {
-            obj_var ov = ovl.getObjVar(i);
-            String ovName = ov.getName();
-            obj_id[] data = ov.getObjIdArrayData();
+            data = ovl.getObjVar(i).getObjIdArrayData();
             int pos = utils.getElementPositionInArray(data, turret);
-            if (pos > -1)
+            if (pos > -1 && pos < 4)
             {
-                if (pos == 0)
-                {
-                    setObjVar(self, "turret1", turret);
-                }
-                else if (pos == 1)
-                {
-                    setObjVar(self, "turret2", turret);
-                }
-                else if (pos == 2)
-                {
-                    setObjVar(self, "turret3", turret);
-                }
-                else if (pos == 3)
-                {
-                    setObjVar(self, "turret4", turret);
-                }
+                setObjVar(self, "turret" + (pos + 1), turret);
             }
         }
         return SCRIPT_CONTINUE;
@@ -425,43 +385,26 @@ public class defense_manager extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int numTypes = ovl.getNumItems();
+        obj_id[] data;
         for (int i = 0; i < numTypes; i++)
         {
-            obj_var ov = ovl.getObjVar(i);
-            String ovName = ov.getName();
-            obj_id[] data = ov.getObjIdArrayData();
+            data = ovl.getObjVar(i).getObjIdArrayData();
             int pos = utils.getElementPositionInArray(data, turret);
-            if (pos > -1)
+            if (pos > -1 && pos < 4)
             {
-                if (pos == 0)
-                {
-                    setObjVar(self, "turret1", turret);
-                }
-                else if (pos == 1)
-                {
-                    setObjVar(self, "turret2", turret);
-                }
-                else if (pos == 2)
-                {
-                    setObjVar(self, "turret3", turret);
-                }
-                else if (pos == 3)
-                {
-                    setObjVar(self, "turret4", turret);
-                }
+                setObjVar(self, "turret" + (pos + 1), turret);
             }
         }
         return SCRIPT_CONTINUE;
     }
     public int handleSpawnSecurityRover(obj_id self, dictionary params) throws InterruptedException
     {
-        location[] locs = params.getLocationArray("locs");
         String guardType = params.getString("guard");
         location start = params.getLocation("start");
         obj_id guard = create.object(guardType, start);
         if (isIdValid(guard))
         {
-            ai_lib.setPatrolPath(guard, locs);
+            ai_lib.setPatrolPath(guard, params.getLocationArray("locs"));
             if (utils.hasScriptVar(self, "hq.spawn.security"))
             {
                 Vector securityTeam = utils.getResizeableObjIdArrayScriptVar(self, "hq.spawn.security");
@@ -478,7 +421,7 @@ public class defense_manager extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public boolean addMine(obj_id self, int mineType) throws InterruptedException
+    private boolean addMine(obj_id self, int mineType) throws InterruptedException
     {
         if (mineType == -1)
         {

@@ -1,52 +1,41 @@
 package script.faction_perk.hq;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.hq;
-import script.library.xp;
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.ai_lib;
-import script.library.stealth;
+import java.util.Vector;
 
 public class objective_terminal_override extends script.faction_perk.hq.objective_object
 {
     public objective_terminal_override()
     {
     }
-    public static final string_id MNU_DNA = new string_id("hq", "mnu_dna");
-    public static final string_id NO_TAMPER = new string_id("faction/faction_hq/faction_hq_response", "no_tamper");
-    public static final string_id FAIL_SAFE_ALREADY_OVERRIDDEN = new string_id("faction/faction_hq/faction_hq_response", "fail_safe_already_overridden");
-    public static final string_id OTHER_OBJECTIVES = new string_id("faction/faction_hq/faction_hq_response", "other_objectives");
-    public static final string_id ONLY_A_BIO_ENGINEER = new string_id("faction/faction_hq/faction_hq_response", "only_a_bio_engineer");
-    public static final string_id NEW_DNA_SAMPLE = new string_id("faction/faction_hq/faction_hq_response", "new_dna_sample");
-    public static final string_id NO_SEQUENCE_IN_COMBAT = new string_id("faction/faction_hq/faction_hq_response", "no_sequence_in_combat");
-    public static final string_id NOT_SAME_ROOM = new string_id("faction/faction_hq/faction_hq_response", "not_same_room");
-    public static final string_id OVERRIDE_TOO_FAR = new string_id("faction/faction_hq/faction_hq_response", "override_too_far");
-    public static final string_id STOP_SEQUENCING_OVERRIDDEN = new string_id("faction/faction_hq/faction_hq_response", "stop_sequencing_overridden");
-    public static final string_id SEQUENCING_COMPLETE_OVERRIDE = new string_id("faction/faction_hq/faction_hq_response", "sequencing_complete_override");
-    public static final string_id DNA_MATCHED = new string_id("faction/faction_hq/faction_hq_response", "dna_matched");
-    public static final string_id DNA_MATCHED_PLURAL = new string_id("faction/faction_hq/faction_hq_response", "dna_matched_plural");
-    public static final string_id SUI_SEQUENCE_TITLE = new string_id("faction/faction_hq/faction_hq_response", "sui_sequence_title");
-    public static final string_id SUI_SEQUENCE_TEXT = new string_id("faction/faction_hq/faction_hq_response", "sui_sequence_text");
-    public static final string_id SID_NO_STEALTH = new string_id("hq", "no_stealth");
-    public static final int NUM_SEQUENCE = 23;
-    public static final String VAR_DNA = "hq.objective.dna";
-    public static final String[] NUCLEOTIDES = 
+    private static final string_id MNU_DNA = new string_id("hq", "mnu_dna");
+    private static final string_id NO_TAMPER = new string_id("faction/faction_hq/faction_hq_response", "no_tamper");
+    private static final string_id FAIL_SAFE_ALREADY_OVERRIDDEN = new string_id("faction/faction_hq/faction_hq_response", "fail_safe_already_overridden");
+    private static final string_id OTHER_OBJECTIVES = new string_id("faction/faction_hq/faction_hq_response", "other_objectives");
+    private static final string_id ONLY_A_BIO_ENGINEER = new string_id("faction/faction_hq/faction_hq_response", "only_a_bio_engineer");
+    private static final string_id NEW_DNA_SAMPLE = new string_id("faction/faction_hq/faction_hq_response", "new_dna_sample");
+    private static final string_id NO_SEQUENCE_IN_COMBAT = new string_id("faction/faction_hq/faction_hq_response", "no_sequence_in_combat");
+    private static final string_id NOT_SAME_ROOM = new string_id("faction/faction_hq/faction_hq_response", "not_same_room");
+    private static final string_id OVERRIDE_TOO_FAR = new string_id("faction/faction_hq/faction_hq_response", "override_too_far");
+    private static final string_id STOP_SEQUENCING_OVERRIDDEN = new string_id("faction/faction_hq/faction_hq_response", "stop_sequencing_overridden");
+    private static final string_id SEQUENCING_COMPLETE_OVERRIDE = new string_id("faction/faction_hq/faction_hq_response", "sequencing_complete_override");
+    private static final string_id DNA_MATCHED = new string_id("faction/faction_hq/faction_hq_response", "dna_matched");
+    private static final string_id DNA_MATCHED_PLURAL = new string_id("faction/faction_hq/faction_hq_response", "dna_matched_plural");
+    private static final string_id SUI_SEQUENCE_TITLE = new string_id("faction/faction_hq/faction_hq_response", "sui_sequence_title");
+    private static final string_id SUI_SEQUENCE_TEXT = new string_id("faction/faction_hq/faction_hq_response", "sui_sequence_text");
+    private static final string_id SID_NO_STEALTH = new string_id("hq", "no_stealth");
+    private static final int NUM_SEQUENCE = 23;
+    private static final String VAR_DNA = "hq.objective.dna";
+    private static final String[] NUCLEOTIDES =
     {
         "A",
         "G",
         "C",
         "T"
     };
-    public static final String[] PAIRS = 
+    private static final String[] PAIRS =
     {
         "AT",
         "TA",
@@ -70,7 +59,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
             sendSystemMessage(player, SID_NO_STEALTH);
             return SCRIPT_CONTINUE;
         }
-        int mnu = mi.addRootMenu(menu_info_types.ITEM_USE, MNU_DNA);
+        mi.addRootMenu(menu_info_types.ITEM_USE, MNU_DNA);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
@@ -127,18 +116,17 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
         }
         return SCRIPT_CONTINUE;
     }
-    public String[] constructDNAStrand(obj_id self) throws InterruptedException
+    private String[] constructDNAStrand(obj_id self) throws InterruptedException
     {
         String[] dna = new String[NUM_SEQUENCE];
         for (int i = 0; i < dna.length; i++)
         {
-            String nucleotide = NUCLEOTIDES[rand(0, NUCLEOTIDES.length - 1)];
-            dna[i] = nucleotide;
+            dna[i] = NUCLEOTIDES[rand(0, NUCLEOTIDES.length - 1)];
         }
         setObjVar(self, VAR_DNA, dna);
         return dna;
     }
-    public void startDNASequencing(obj_id self, obj_id player) throws InterruptedException
+    private void startDNASequencing(obj_id self, obj_id player) throws InterruptedException
     {
         String scriptvar = "dna." + player;
         String scriptvar_pid = scriptvar + ".pid";
@@ -163,7 +151,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
         d.put("player", player);
         messageTo(self, "handleSequenceDelay", d, 3f, false);
     }
-    public void doSequencing(obj_id self, obj_id player) throws InterruptedException
+    private void doSequencing(obj_id self, obj_id player) throws InterruptedException
     {
         if (ai_lib.isInCombat(player))
         {
@@ -210,11 +198,9 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
             else 
             {
                 numLocks++;
-                for (int n = 0; n < PAIRS.length; n++)
-                {
-                    if (PAIRS[n].startsWith(dna[i]))
-                    {
-                        entries = utils.addElement(entries, "\\#00FF00" + PAIRS[n] + " \\#.");
+                for (String PAIR : PAIRS) {
+                    if (PAIR.startsWith(dna[i])) {
+                        entries = utils.addElement(entries, "\\#00FF00" + PAIR + " \\#.");
                         dnaString = dnaString + "\\#00FF00" + dna[i] + "\\#.";
                         break;
                     }
@@ -318,10 +304,8 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
         }
         sendSystemMessageProse(player, pp);
         int totalLocks = 0;
-        for (int i = 0; i < locks.length; i++)
-        {
-            if (locks[i] != 0)
-            {
+        for (int lock : locks) {
+            if (lock != 0) {
                 totalLocks++;
             }
         }

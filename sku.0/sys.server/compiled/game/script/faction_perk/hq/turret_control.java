@@ -1,44 +1,31 @@
 package script.faction_perk.hq;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.hq;
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.money;
-import script.library.factions;
-import script.library.player_structure;
-import script.library.turret;
-import script.library.ai_lib;
+import java.util.Vector;
 
 public class turret_control extends script.terminal.base.base_terminal
 {
     public turret_control()
     {
     }
-    public static final String BTN_ATTACK = "@" + "hq" + ":btn_attack";
-    public static final string_id MNU_TURRET_CONTROL = new string_id("hq", "mnu_turret_control");
-    public static final string_id ATTACK_TARGETS = new string_id("hq", "attack_targets");
-    public static final string_id ADMIN_ONLY = new string_id("hq", "admin_only");
-    public static final string_id CONTROL_TITLE = new string_id("hq", "control_title");
-    public static final string_id TURRET_CONTROL = new string_id("hq", "turret_control");
-    public static final string_id CURRENT_TARGET = new string_id("hq", "current_target");
-    public static final string_id TARGET_HEALTH = new string_id("hq", "target_health");
-    public static final string_id NONE_ACTIVE = new string_id("hq", "none_active");
-    public static final string_id NO_TARGETS = new string_id("hq", "no_targets");
-    public static final string_id INVALID_TARGET = new string_id("hq", "invalid_target");
-    public static final string_id DECLARED_ONLY = new string_id("hq", "declared_only");
-    public static final string_id NO_LINE_OF_SITE = new string_id("hq", "no_line_of_site");
-    public static final string_id IN_USE = new string_id("hq", "in_use");
-    public static final string_id ALREADY_ATTACKING = new string_id("hq", "already_attacking");
-    public static final String CONTROL_TURRET = "controlling.turret";
+    private static final String BTN_ATTACK = "@" + "hq" + ":btn_attack";
+    private static final string_id MNU_TURRET_CONTROL = new string_id("hq", "mnu_turret_control");
+    private static final string_id ATTACK_TARGETS = new string_id("hq", "attack_targets");
+    private static final string_id ADMIN_ONLY = new string_id("hq", "admin_only");
+    private static final string_id CONTROL_TITLE = new string_id("hq", "control_title");
+    private static final string_id TURRET_CONTROL = new string_id("hq", "turret_control");
+    private static final string_id CURRENT_TARGET = new string_id("hq", "current_target");
+    private static final string_id TARGET_HEALTH = new string_id("hq", "target_health");
+    private static final string_id NONE_ACTIVE = new string_id("hq", "none_active");
+    private static final string_id NO_TARGETS = new string_id("hq", "no_targets");
+    private static final string_id INVALID_TARGET = new string_id("hq", "invalid_target");
+    private static final string_id DECLARED_ONLY = new string_id("hq", "declared_only");
+    private static final string_id NO_LINE_OF_SITE = new string_id("hq", "no_line_of_site");
+    private static final string_id IN_USE = new string_id("hq", "in_use");
+    private static final string_id ALREADY_ATTACKING = new string_id("hq", "already_attacking");
+    private static final String CONTROL_TURRET = "controlling.turret";
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         createTriggerVolume("turret_control_range", 5, true);
@@ -85,30 +72,14 @@ public class turret_control extends script.terminal.base.base_terminal
             return SCRIPT_CONTINUE;
         }
         int numTypes = ovl.getNumItems();
+        obj_id[] data;
         for (int i = 0; i < numTypes; i++)
         {
-            obj_var ov = ovl.getObjVar(i);
-            String ovName = ov.getName();
-            obj_id[] data = ov.getObjIdArrayData();
+            data = ovl.getObjVar(i).getObjIdArrayData();
             int pos = utils.getElementPositionInArray(data, self);
-            if (pos > -1)
+            if (pos > -1 && pos < 4)
             {
-                if (pos == 0)
-                {
-                    setObjVar(self, "control1", 1);
-                }
-                else if (pos == 1)
-                {
-                    setObjVar(self, "control2", 1);
-                }
-                else if (pos == 2)
-                {
-                    setObjVar(self, "control3", 1);
-                }
-                else if (pos == 3)
-                {
-                    setObjVar(self, "control4", 1);
-                }
+                setObjVar(self, "control" + (pos + 1), 1);
             }
         }
         return SCRIPT_CONTINUE;
@@ -157,16 +128,12 @@ public class turret_control extends script.terminal.base.base_terminal
                 return super.OnObjectMenuRequest(self, player, mi);
             }
         }
-        int mnuControl = mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_TURRET_CONTROL);
+        mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_TURRET_CONTROL);
         return super.OnObjectMenuRequest(self, player, mi);
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
-        if (!isIdValid(player))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (isDead(player) || isIncapacitated(player))
+        if (!isIdValid(player) || isDead(player) || isIncapacitated(player))
         {
             return SCRIPT_CONTINUE;
         }
@@ -269,7 +236,6 @@ public class turret_control extends script.terminal.base.base_terminal
             utils.removeScriptVar(self, "sui.in_use");
             return SCRIPT_CONTINUE;
         }
-        obj_id structure = player_structure.getStructure(player);
         obj_id cturret = getObjIdObjVar(self, CONTROL_TURRET);
         if (!isIdValid(cturret))
         {
@@ -347,7 +313,7 @@ public class turret_control extends script.terminal.base.base_terminal
         }
         return SCRIPT_CONTINUE;
     }
-    public void showTurretControl(obj_id terminal, obj_id player) throws InterruptedException
+    private void showTurretControl(obj_id terminal, obj_id player) throws InterruptedException
     {
         if (!isIdValid(terminal) || !isIdValid(player))
         {
@@ -371,8 +337,6 @@ public class turret_control extends script.terminal.base.base_terminal
         }
         Vector entries = new Vector();
         entries.setSize(0);
-        Vector opt = new Vector();
-        opt.setSize(0);
         obj_id cturret = getObjIdObjVar(terminal, CONTROL_TURRET);
         if (cturret == null)
         {
@@ -391,19 +355,17 @@ public class turret_control extends script.terminal.base.base_terminal
         String cTarName = getEncodedName(ctarget);
         String turNam = getEncodedName(cturret);
         Vector targets = utils.getResizeableObjIdBatchScriptVar(cturret, turret.SCRIPTVAR_TARGETS);
-        int numTar = targets.size();
         int cur_hp = 0;
-        for (int i = 0; i < numTar; i++)
-        {
-            obj_id target = ((obj_id)targets.get(i));
-            String tarName = getEncodedName(target);
+        obj_id target;
+        String tarName;
+        for (Object target1 : targets) {
+            target = ((obj_id) target1);
+            tarName = getEncodedName(target);
             cur_hp = getAttrib(target, 0);
             entries = utils.addElement(entries, tarName + "     - " + " " + localize(TARGET_HEALTH) + " [" + cur_hp + "]");
         }
         String title = utils.packStringId(CONTROL_TITLE);
-        String prompt = utils.packStringId(TURRET_CONTROL) + " " + turNam + " [" + tur_hp + "/" + max_hp + "]";
-        prompt += "\n\n";
-        prompt += utils.packStringId(CURRENT_TARGET) + " " + cTarName + " " + utils.packStringId(TARGET_HEALTH) + " " + " [" + cur_hp + "]";
+        String prompt = utils.packStringId(TURRET_CONTROL) + " " + turNam + " [" + tur_hp + "/" + max_hp + "]\n\n" + utils.packStringId(CURRENT_TARGET) + " " + cTarName + " " + utils.packStringId(TARGET_HEALTH) + " " + " [" + cur_hp + "]";
         int pid = sui.listbox(terminal, player, prompt, sui.OK_CANCEL_REFRESH, title, entries, "handleTargetSelection");
         if (pid > -1)
         {

@@ -1,15 +1,9 @@
 package script.faction_perk.hq;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.gcw;
+import script.library.utils;
+import script.obj_id;
 
 public class planetary_base_register extends script.base_script
 {
@@ -36,16 +30,15 @@ public class planetary_base_register extends script.base_script
         queryPlanetaryBaseData(self);
         return SCRIPT_CONTINUE;
     }
-    public void setControlData(obj_id self) throws InterruptedException
+    private void setControlData(obj_id self) throws InterruptedException
     {
-        obj_id planet = getPlanetByName(getLocation(self).area);
-        utils.setScriptVar(planet, gcw.GCW_BASE_MANAGER, self);
+        utils.setScriptVar(getPlanetByName(getLocation(self).area), gcw.GCW_BASE_MANAGER, self);
     }
-    public int OnClusterWideDataResponse(obj_id self, String manage_name, String dungeon_name, int request_id, String[] element_name_list, dictionary[] dungeon_data, int lock_key) throws InterruptedException
+    public int OnClusterWideDataResponse(obj_id self, String manage_name, String dungeon_name, int request_id, String[] element_name_list, dictionary[] dungeon_datas, int lock_key) throws InterruptedException
     {
         if (dungeon_name.startsWith("base_cwdata"))
         {
-            if (dungeon_data == null || dungeon_data.length == 0)
+            if (dungeon_datas == null || dungeon_datas.length == 0)
             {
                 releaseClusterWideDataLock(manage_name, lock_key);
                 addToBaseCount(self, 0, 0);
@@ -53,14 +46,11 @@ public class planetary_base_register extends script.base_script
             }
             int imperial = 0;
             int rebel = 0;
-            for (int i = 0; i < dungeon_data.length; i++)
-            {
-                if (dungeon_data[i].getInt("faction") == gcw.FACTION_REBEL && (dungeon_data[i].getString("scene")).equals(getLocation(self).area))
-                {
+            for (dictionary dataItem : dungeon_datas) {
+                if (dataItem.getInt("faction") == gcw.FACTION_REBEL && (dataItem.getString("scene")).equals(getLocation(self).area)) {
                     rebel++;
                 }
-                if (dungeon_data[i].getInt("faction") == gcw.FACTION_IMPERIAL && (dungeon_data[i].getString("scene")).equals(getLocation(self).area))
-                {
+                if (dataItem.getInt("faction") == gcw.FACTION_IMPERIAL && (dataItem.getString("scene")).equals(getLocation(self).area)) {
                     imperial++;
                 }
             }
@@ -68,11 +58,11 @@ public class planetary_base_register extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public void queryPlanetaryBaseData(obj_id self) throws InterruptedException
+    private void queryPlanetaryBaseData(obj_id self) throws InterruptedException
     {
         getClusterWideData("gcw_player_base", "base_cwdata_manager*", true, self);
     }
-    public void addToBaseCount(obj_id self, int rebel, int imperial) throws InterruptedException
+    private void addToBaseCount(obj_id self, int rebel, int imperial) throws InterruptedException
     {
         obj_id planet = getPlanetByName(getLocation(self).area);
         int curReb = gcw.getRebelBaseCount(planet);

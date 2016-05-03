@@ -1,42 +1,28 @@
 package script.faction_perk.hq;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.hq;
-import script.library.xp;
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.ai_lib;
-import script.library.slicing;
-import script.library.stealth;
+import script.library.*;
 
 public class objective_terminal_security extends script.faction_perk.hq.objective_object
 {
     public objective_terminal_security()
     {
     }
-    public static final string_id SID_SLICE = new string_id("slicing/slicing", "slice");
-    public static final string_id SID_FAIL_SLICE = new string_id("slicing/slicing", "hq_security_fail");
-    public static final string_id SID_SUCCESS_SLICE = new string_id("slicing/slicing", "hq_security_success");
+    private static final string_id SID_SLICE = new string_id("slicing/slicing", "slice");
+    private static final string_id SID_FAIL_SLICE = new string_id("slicing/slicing", "hq_security_fail");
+    private static final string_id SID_SUCCESS_SLICE = new string_id("slicing/slicing", "hq_security_success");
     public static final string_id SID_NOT_AGAIN = new string_id("slicing/slicing", "not_again");
-    public static final string_id NO_TAMPER = new string_id("faction/faction_hq/faction_hq_response", "no_tamper");
-    public static final string_id ALREADY_SLICED = new string_id("faction/faction_hq/faction_hq_response", "already_sliced");
-    public static final string_id OTHER_OBJECTIVES = new string_id("faction/faction_hq/faction_hq_response", "other_objectives");
-    public static final string_id ONLY_A_SMUGGLER = new string_id("faction/faction_hq/faction_hq_response", "only_a_smuggler");
-    public static final string_id ALREADY_REPAIRING_SLICE = new string_id("faction/faction_hq/faction_hq_response", "already_repairing_slice");
-    public static final string_id BEGIN_REPAIRING_SLICE = new string_id("faction/faction_hq/faction_hq_response", "begin_repairing_slice");
-    public static final string_id NO_REPAIR_CURRENT_STATE = new string_id("faction/faction_hq/faction_hq_response", "no_repair_current_state");
-    public static final string_id NO_REPAIR_DISTANCE = new string_id("faction/faction_hq/faction_hq_response", "no_repair_distance");
-    public static final string_id TERM_REPAIRED = new string_id("faction/faction_hq/faction_hq_response", "term_repaired");
-    public static final string_id TERM_REPAIR_CONT = new string_id("faction/faction_hq/faction_hq_response", "term_repair_cont");
-    public static final string_id SID_NO_STEALTH = new string_id("hq", "no_stealth");
+    private static final string_id NO_TAMPER = new string_id("faction/faction_hq/faction_hq_response", "no_tamper");
+    private static final string_id ALREADY_SLICED = new string_id("faction/faction_hq/faction_hq_response", "already_sliced");
+    private static final string_id OTHER_OBJECTIVES = new string_id("faction/faction_hq/faction_hq_response", "other_objectives");
+    private static final string_id ONLY_A_SMUGGLER = new string_id("faction/faction_hq/faction_hq_response", "only_a_smuggler");
+    private static final string_id ALREADY_REPAIRING_SLICE = new string_id("faction/faction_hq/faction_hq_response", "already_repairing_slice");
+    private static final string_id BEGIN_REPAIRING_SLICE = new string_id("faction/faction_hq/faction_hq_response", "begin_repairing_slice");
+    private static final string_id NO_REPAIR_CURRENT_STATE = new string_id("faction/faction_hq/faction_hq_response", "no_repair_current_state");
+    private static final string_id NO_REPAIR_DISTANCE = new string_id("faction/faction_hq/faction_hq_response", "no_repair_distance");
+    private static final string_id TERM_REPAIRED = new string_id("faction/faction_hq/faction_hq_response", "term_repaired");
+    private static final string_id TERM_REPAIR_CONT = new string_id("faction/faction_hq/faction_hq_response", "term_repair_cont");
+    private static final string_id SID_NO_STEALTH = new string_id("hq", "no_stealth");
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         int intState = getState(player, STATE_FEIGN_DEATH);
@@ -49,7 +35,7 @@ public class objective_terminal_security extends script.faction_perk.hq.objectiv
             sendSystemMessage(player, SID_NO_STEALTH);
             return SCRIPT_CONTINUE;
         }
-        int mnu = mi.addRootMenu(menu_info_types.ITEM_USE, SID_SLICE);
+        mi.addRootMenu(menu_info_types.ITEM_USE, SID_SLICE);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
@@ -138,9 +124,8 @@ public class objective_terminal_security extends script.faction_perk.hq.objectiv
         {
             return SCRIPT_CONTINUE;
         }
-        int success = params.getInt("success");
         obj_id player = params.getObjId("player");
-        if (success == 1)
+        if (params.getInt("success") == 1)
         {
             sendSystemMessage(player, SID_SUCCESS_SLICE);
             obj_id structure = getTopMostContainer(self);

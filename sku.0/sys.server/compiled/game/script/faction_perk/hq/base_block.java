@@ -1,16 +1,10 @@
 package script.faction_perk.hq;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.factions;
+import script.dictionary;
 import script.library.pclib;
 import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class base_block extends script.base_script
 {
@@ -31,12 +25,12 @@ public class base_block extends script.base_script
     }
     public int ejectPlayer(obj_id self, dictionary params) throws InterruptedException
     {
-        location loc = params.getLocation("loc");
         obj_id player = params.getObjId("player");
         if (!isIdValid(player))
         {
             return SCRIPT_CONTINUE;
         }
+        location loc = params.getLocation("loc");
         if (loc == null)
         {
             return SCRIPT_CONTINUE;
