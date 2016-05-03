@@ -1,33 +1,20 @@
 package script.grouping;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.xp;
-import script.library.group;
-import script.library.utils;
-import script.library.prose;
-import script.library.money;
-import script.library.sui;
-import script.library.combat;
+import script.library.*;
 
 public class group_member extends script.base_script
 {
     public group_member()
     {
     }
-    public static final string_id SID_GROUP_CREDIT_SPLIT_FAILED = new string_id("group", "credit_split_failed");
-    public static final string_id SID_LOOT_FREE_FOR_ALL = new string_id("group", "loot_free_for_all");
-    public static final string_id SID_LOOT_MASTER_LOOTER = new string_id("group", "loot_master_looter");
-    public static final string_id SID_LOOT_LOTTERY = new string_id("group", "loot_lottery");
-    public static final string_id SID_LOOT_RANDOM = new string_id("group", "loot_random");
+    private static final string_id SID_GROUP_CREDIT_SPLIT_FAILED = new string_id("group", "credit_split_failed");
+    private static final string_id SID_LOOT_FREE_FOR_ALL = new string_id("group", "loot_free_for_all");
+    private static final string_id SID_LOOT_MASTER_LOOTER = new string_id("group", "loot_master_looter");
+    private static final string_id SID_LOOT_LOTTERY = new string_id("group", "loot_lottery");
+    private static final string_id SID_LOOT_RANDOM = new string_id("group", "loot_random");
     public static final String SCRIPT_ME = group.SCRIPT_GROUP_MEMBER;
-    public static final string_id[] LOOT_OPTIONS = 
+    private static final string_id[] LOOT_OPTIONS =
     {
         SID_LOOT_FREE_FOR_ALL,
         SID_LOOT_MASTER_LOOTER,
@@ -310,7 +297,6 @@ public class group_member extends script.base_script
             obj_id missionObject = params.getObjId("missionId");
             if (isIdValid(missionObject))
             {
-                location missionStartLocation = getMissionStartLocation(missionObject);
                 obj_id groupObject = getGroupObject(self);
                 if (groupObject != null)
                 {
@@ -359,50 +345,38 @@ public class group_member extends script.base_script
     {
         if (!group.isGrouped(self))
         {
-            string_id leaderOnly = new string_id(group.GROUP_STF, "group_only");
-            sendSystemMessage(self, leaderOnly);
+            sendSystemMessage(self, new string_id(group.GROUP_STF, "group_only"));
             return SCRIPT_CONTINUE;
         }
         obj_id leader = group.getLeader(self);
         if (leader == null)
         {
-            string_id leaderNull = new string_id(group.GROUP_STF, "notFound");
-            sendSystemMessage(self, leaderNull);
+            sendSystemMessage(self, new string_id(group.GROUP_STF, "notFound"));
             return SCRIPT_CONTINUE;
         }
-        obj_id team = group.getGroupObject(leader);
-        int lootType = getGroupLootRule(team);
         if (leader != self)
         {
-            if (lootType == 0)
-            {
-                string_id leaderOnly = new string_id(group.GROUP_STF, "leader_only_free4all");
-                sendSystemMessage(self, leaderOnly);
-                return SCRIPT_CONTINUE;
+            String leader_only;
+            switch(getGroupLootRule(group.getGroupObject(leader))){
+                case 0:
+                    leader_only = "leader_only_free4all";
+                    break;
+                case 1:
+                    leader_only = "leader_only_master";
+                    break;
+                case 2:
+                    leader_only = "leader_only_lottery";
+                    break;
+                default:
+                    leader_only = "leader_only";
+                    break;
             }
-            else if (lootType == 1)
-            {
-                string_id leaderOnly = new string_id(group.GROUP_STF, "leader_only_master");
-                sendSystemMessage(self, leaderOnly);
-                return SCRIPT_CONTINUE;
-            }
-            else if (lootType == 2)
-            {
-                string_id leaderOnly = new string_id(group.GROUP_STF, "leader_only_lottery");
-                sendSystemMessage(self, leaderOnly);
-                return SCRIPT_CONTINUE;
-            }
-            else 
-            {
-                string_id leaderOnly = new string_id(group.GROUP_STF, "leader_only");
-                sendSystemMessage(self, leaderOnly);
-                return SCRIPT_CONTINUE;
-            }
+            sendSystemMessage(self, new string_id(group.GROUP_STF, leader_only));
         }
         groupLootSui(self);
         return SCRIPT_CONTINUE;
     }
-    public int groupLootSui(obj_id self) throws InterruptedException
+    private int groupLootSui(obj_id self) throws InterruptedException
     {
         int pid = createSUIPage(sui.SUI_LISTBOX, self, self, "handleLootOptionSelected");
         string_id sid_title = new string_id(group.GROUP_STF, "set_loot_type_title");
@@ -464,30 +438,28 @@ public class group_member extends script.base_script
         switch (idx)
         {
             case 0:
-            setGroupLootRule(groupObject, group.FREE_FOR_ALL);
-            newTypeString = "free4all";
-            break;
+                setGroupLootRule(groupObject, group.FREE_FOR_ALL);
+                newTypeString = "free4all";
+                break;
             case 1:
-            setGroupLootRule(groupObject, group.MASTER_LOOTER);
-            newTypeString = "master";
-            break;
+                setGroupLootRule(groupObject, group.MASTER_LOOTER);
+                newTypeString = "master";
+                break;
             case 2:
-            setGroupLootRule(groupObject, group.LOTTERY);
-            newTypeString = "lotto";
-            break;
+                setGroupLootRule(groupObject, group.LOTTERY);
+                newTypeString = "lotto";
+                break;
             case 3:
-            setGroupLootRule(groupObject, group.RANDOM);
-            newTypeString = "random";
-            break;
+                setGroupLootRule(groupObject, group.RANDOM);
+                newTypeString = "random";
+                break;
         }
         dictionary param = new dictionary();
         param.put("selection", "selected_" + newTypeString);
         string_id message = new string_id(group.GROUP_STF, "selected_" + newTypeString);
-        for (int intI = 0; intI < objMembersWhoExist.length; intI++)
-        {
-            if (objMembersWhoExist[intI] != player)
-            {
-                messageTo(objMembersWhoExist[intI], "groupLootChangedSui", param, 1, true);
+        for (obj_id objMember : objMembersWhoExist) {
+            if (objMember != player) {
+                messageTo(objMember, "groupLootChangedSui", param, 1, true);
             }
         }
         sendSystemMessage(self, message);
@@ -535,16 +507,16 @@ public class group_member extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id player = params.getObjId("player");
-        String widgetName = params.getString("eventWidgetName");
-        int bp = sui.getIntButtonPressed(params);
         if (!isIdValid(player))
         {
             return SCRIPT_OVERRIDE;
         }
+        String widgetName = params.getString("eventWidgetName");
         if (widgetName == null)
         {
             return SCRIPT_CONTINUE;
         }
+        int bp = sui.getIntButtonPressed(params);
         if (bp == sui.BP_CANCEL)
         {
             return SCRIPT_CONTINUE;
