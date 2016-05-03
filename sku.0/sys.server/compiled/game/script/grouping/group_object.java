@@ -1,16 +1,11 @@
 package script.grouping;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.deltadictionary;
+import script.dictionary;
+import script.location;
+import script.obj_id;
 
-import java.util.Hashtable;
-import java.util.Set;
-import java.util.Iterator;
+import java.util.*;
 
 public class group_object extends script.base_script
 {
@@ -28,9 +23,8 @@ public class group_object extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < members.length; i++)
-        {
-            messageTo(members[i], "volleyTargetDone", params, 0, false);
+        for (obj_id member : members) {
+            messageTo(member, "volleyTargetDone", params, 0, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -66,9 +60,9 @@ public class group_object extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public location calculateNearestGroupMission(obj_id self) throws InterruptedException
+    private location calculateNearestGroupMission(obj_id self) throws InterruptedException
     {
-        location result = new location();
+        location result;
         deltadictionary scriptVars = self.getScriptVars();
         if (scriptVars != null)
         {
@@ -116,16 +110,16 @@ public class group_object extends script.base_script
                 }
                 if (preferredIndex > -1)
                 {
-                    Integer p = new Integer(preferredIndex);
-                    if (bestLocations.containsKey(new Integer(preferredIndex)))
+                    Integer p = preferredIndex;
+                    if (bestLocations.containsKey(preferredIndex))
                     {
-                        int votes = (((Integer)bestLocations.get(p))).intValue();
+                        int votes = (Integer) bestLocations.get(p);
                         votes = votes + 1;
-                        bestLocations.put(p, new Integer(votes));
+                        bestLocations.put(p, votes);
                     }
                     else 
                     {
-                        Integer votes = new Integer(1);
+                        Integer votes = 1;
                         bestLocations.put(p, votes);
                     }
                 }
@@ -133,20 +127,21 @@ public class group_object extends script.base_script
             Set keySet = bestLocations.keySet();
             Iterator votesIterator = keySet.iterator();
             int mostVotes = 0;
+            Integer locationIndex;
             while (votesIterator.hasNext())
             {
-                Integer locationIndex = (Integer)(votesIterator.next());
-                int votes = (((Integer)bestLocations.get(locationIndex))).intValue();
+                locationIndex = (Integer)(votesIterator.next());
+                int votes = (Integer) bestLocations.get(locationIndex);
                 if (votes > mostVotes)
                 {
-                    nearestGroupMission = (location)missionLocations[locationIndex.intValue()].clone();
+                    nearestGroupMission = (location)missionLocations[locationIndex].clone();
                     mostVotes = votes;
                 }
             }
             result = (location)nearestGroupMission.clone();
             scriptVars.put("nearestGroupMission", nearestGroupMission);
         }
-        else 
+        else
         {
             result = null;
         }
@@ -180,10 +175,7 @@ public class group_object extends script.base_script
                             {
                                 missionLocations = new Vector();
                             }
-                            for (int i = 0; i < missionLocation.length; ++i)
-                            {
-                                missionLocations.add(missionLocation[i]);
-                            }
+                            Collections.addAll(missionLocations, missionLocation);
                             scriptVars.put("missionLocations", missionLocations);
                             location nearestGroupMission = scriptVars.getLocation("nearestGroupMission");
                             if (nearestGroupMission == null)
@@ -202,7 +194,7 @@ public class group_object extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public void tellMembersAboutNearestGroupMission(obj_id self, location nearestGroupMission) throws InterruptedException
+    private void tellMembersAboutNearestGroupMission(obj_id self, location nearestGroupMission) throws InterruptedException
     {
         if (nearestGroupMission != null)
         {
@@ -210,21 +202,19 @@ public class group_object extends script.base_script
             if (scriptVars != null)
             {
                 obj_id[] members = getGroupMemberIds(self);
-                int memberIndex = 0;
                 dictionary msgData = new dictionary();
                 msgData.put("waypointLocation", nearestGroupMission);
                 int sequence = scriptVars.getInt("updateSequence");
                 sequence++;
                 scriptVars.put("updateSequence", sequence);
                 msgData.put("updateSequence", sequence);
-                for (memberIndex = 0; memberIndex < members.length; ++memberIndex)
-                {
-                    messageTo(members[memberIndex], "updateGroupWaypoint", msgData, 0, false);
+                for (obj_id member : members) {
+                    messageTo(member, "updateGroupWaypoint", msgData, 0, false);
                 }
             }
         }
     }
-    public void selectNearestGroupMission(obj_id self) throws InterruptedException
+    private void selectNearestGroupMission(obj_id self) throws InterruptedException
     {
         deltadictionary scriptVars = self.getScriptVars();
         if (scriptVars != null)
