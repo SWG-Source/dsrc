@@ -1,26 +1,16 @@
 package script.gambling.base;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.money;
-import script.library.colors;
-import script.library.gambling;
+import java.util.Vector;
 
 public class wheel extends script.gambling.base.default_interface
 {
     public wheel()
     {
     }
-    public static final int TIMER_BETTING = 120;
+    private static final int TIMER_BETTING = 120;
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         removeObjVar(self, gambling.VAR_TABLE_PLAYERS);
@@ -46,11 +36,9 @@ public class wheel extends script.gambling.base.default_interface
         if (players != null && players.length > 0)
         {
             prose_package ppJoinOther = prose.getPackage(gambling.PROSE_PLAYER_JOIN_OTHER, player);
-            for (int i = 0; i < players.length; i++)
-            {
-                if (players[i] != player)
-                {
-                    sendSystemMessageProse(players[i], ppJoinOther);
+            for (obj_id player1 : players) {
+                if (player1 != player) {
+                    sendSystemMessageProse(player1, ppJoinOther);
                 }
             }
         }
@@ -108,9 +96,8 @@ public class wheel extends script.gambling.base.default_interface
             if (players != null && players.length > 0)
             {
                 prose_package ppLeftOther = prose.getPackage(gambling.PROSE_PLAYER_LEAVE_OTHER, player);
-                for (int i = 0; i < players.length; i++)
-                {
-                    sendSystemMessageProse(players[i], ppLeftOther);
+                for (obj_id player1 : players) {
+                    sendSystemMessageProse(player1, ppLeftOther);
                 }
             }
         }
@@ -192,9 +179,8 @@ public class wheel extends script.gambling.base.default_interface
         if (diff > 0)
         {
             prose_package ppTimeLeft = prose.getPackage(gambling.PROSE_STARTING_IN, diff);
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageProse(players[i], ppTimeLeft);
+            for (obj_id player : players) {
+                sendSystemMessageProse(player, ppTimeLeft);
             }
         }
         if (diff > 30)
@@ -224,8 +210,7 @@ public class wheel extends script.gambling.base.default_interface
         }
         int payout = params.getInt("payout");
         CustomerServiceLog("gambling", getGameTime() + ": (" + player + ") " + getName(player) + " receives wheel payout for " + payout + " from (" + self + ") " + utils.getStringName(self));
-        prose_package ppPayout = prose.getPackage(gambling.PROSE_PAYOUT, payout);
-        sendSystemMessageProse(player, ppPayout);
+        sendSystemMessageProse(player, prose.getPackage(gambling.PROSE_PAYOUT, payout));
         showFlyText(player, gambling.FLY_WINNER, 1f, colors.RED);
         return SCRIPT_CONTINUE;
     }
@@ -246,8 +231,7 @@ public class wheel extends script.gambling.base.default_interface
             return;
         }
         String title = "@gambling/game_n:" + gameType;
-        String prompt = "The following is a summary of your current bets...\n\n";
-        prompt += "Use /bet <amount> <1-36,0,00,red,black,odd,even,high,low> to wager.\n";
+        String prompt = "The following is a summary of your current bets...\n\nUse /bet <amount> <1-36,0,00,red,black,odd,even,high,low> to wager.\n";
         prompt += "Example:  '/bet 5 black' to wager 5 credits on black\n\n";
         prompt += "Cash : " + getCashBalance(player) + "\n";
         prompt += "Bank : " + getBankBalance(player) + "\n";
@@ -268,12 +252,15 @@ public class wheel extends script.gambling.base.default_interface
             if (ovl != null)
             {
                 int numItems = ovl.getNumItems();
+                obj_var ov;
+                String name;
+                String entry;
                 for (int i = 0; i < numItems; i++)
                 {
-                    obj_var ov = ovl.getObjVar(i);
-                    String name = ov.getName();
+                    ov = ovl.getObjVar(i);
+                    name = ov.getName();
                     int val = ov.getIntData();
-                    String entry = name + ":";
+                    entry = name + ":";
                     for (int x = name.length(); x < 8; x++)
                     {
                         entry += " ";
@@ -305,10 +292,9 @@ public class wheel extends script.gambling.base.default_interface
         setObjVar(self, gambling.VAR_GAME_PLAYERS_IDS, players);
         int stampTime = getGameTime() + TIMER_BETTING;
         utils.setScriptVar(self, gambling.VAR_TABLE_BET_ACCEPT, stampTime);
-        for (int i = 0; i < players.length; i++)
-        {
-            sendSystemMessage(players[i], gambling.SID_PLACE_BETS);
-            showBetUi(self, players[i]);
+        for (obj_id player : players) {
+            sendSystemMessage(player, gambling.SID_PLACE_BETS);
+            showBetUi(self, player);
         }
         dictionary d = new dictionary();
         d.put("stamp", stampTime);
@@ -319,7 +305,7 @@ public class wheel extends script.gambling.base.default_interface
         utils.removeScriptVar(self, gambling.VAR_TABLE_BET_ACCEPT);
         removeObjVar(self, gambling.VAR_GAME_BASE);
     }
-    public void spinWheel(obj_id self) throws InterruptedException
+    private void spinWheel(obj_id self) throws InterruptedException
     {
         if (!isIdValid(self))
         {
@@ -331,9 +317,8 @@ public class wheel extends script.gambling.base.default_interface
             return;
         }
         utils.removeScriptVar(self, gambling.VAR_TABLE_BET_ACCEPT);
-        for (int i = 0; i < players.length; i++)
-        {
-            sendSystemMessage(players[i], new string_id(gambling.STF_INTERFACE, "wheel_spin"));
+        for (obj_id player : players) {
+            sendSystemMessage(player, new string_id(gambling.STF_INTERFACE, "wheel_spin"));
         }
         dictionary d = new dictionary();
         d.put("cnt", 3);

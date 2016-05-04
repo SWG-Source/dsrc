@@ -1,41 +1,34 @@
 package script.gambling.base;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.money;
 import script.library.gambling;
+import script.library.prose;
+import script.library.utils;
 
 public class default_interface extends script.terminal.base.base_terminal
 {
     public default_interface()
     {
     }
-    public static final float BET_RANGE = 15f;
-    public static final string_id MNU_JOIN = new string_id(gambling.STF_INTERFACE, "mnu_join");
-    public static final string_id MNU_LEAVE = new string_id(gambling.STF_INTERFACE, "mnu_leave");
-    public static final string_id STOP_GAMBLING = new string_id(gambling.STF_INTERFACE, "stop_gambling");
+    private static final float BET_RANGE = 15f;
+    private static final string_id MNU_JOIN = new string_id(gambling.STF_INTERFACE, "mnu_join");
+    private static final string_id MNU_LEAVE = new string_id(gambling.STF_INTERFACE, "mnu_leave");
+    private static final string_id STOP_GAMBLING = new string_id(gambling.STF_INTERFACE, "stop_gambling");
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         if (!hasObjVar(self, gambling.VAR_GAMBLE_BASE))
         {
+            System.out.println("gambling: no obj var found.");
             return SCRIPT_CONTINUE;
         }
+        System.out.println("gambling: obj var was found.");
         int max = getIntObjVar(self, gambling.VAR_TABLE_PLAYER_LIMIT_MAX);
         obj_id[] players = getObjIdArrayObjVar(self, gambling.VAR_TABLE_PLAYERS);
         if (players == null || players.length == 0)
         {
-            if (utils.hasScriptVar(player, "isGambling"))
+            if (utils.hasScriptVar(player, gambling.SCRIPTVAR_GAMBLING))
             {
-                int mnuLeave = mi.addRootMenu(menu_info_types.SERVER_MENU2, MNU_LEAVE);
+                mi.addRootMenu(menu_info_types.SERVER_MENU2, MNU_LEAVE);
                 return SCRIPT_CONTINUE;
             }
         }
@@ -43,22 +36,21 @@ public class default_interface extends script.terminal.base.base_terminal
         {
             if (utils.getElementPositionInArray(players, player) > -1)
             {
-                int mnuLeave = mi.addRootMenu(menu_info_types.SERVER_MENU2, MNU_LEAVE);
+                mi.addRootMenu(menu_info_types.SERVER_MENU2, MNU_LEAVE);
                 return SCRIPT_CONTINUE;
             }
             if (max > 0)
             {
                 if (players.length >= max)
                 {
-                    prose_package ppFull = prose.getPackage(gambling.PROSE_STATION_FULL, self);
-                    sendSystemMessageProse(player, ppFull);
+                    sendSystemMessageProse(player, prose.getPackage(gambling.PROSE_STATION_FULL, self));
                     return SCRIPT_CONTINUE;
                 }
             }
         }
         if (!utils.hasScriptVar(player, gambling.SCRIPTVAR_GAMBLING))
         {
-            int mnuJoin = mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_JOIN);
+            mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_JOIN);
         }
         return SCRIPT_CONTINUE;
     }
@@ -81,8 +73,7 @@ public class default_interface extends script.terminal.base.base_terminal
         }
         if (item == menu_info_types.SERVER_MENU1)
         {
-            int totalMoney = getTotalMoney(player);
-            if (totalMoney < 1)
+            if (getTotalMoney(player) < 1)
             {
                 sendSystemMessage(player, gambling.SID_PLAYER_BROKE);
                 return SCRIPT_CONTINUE;
