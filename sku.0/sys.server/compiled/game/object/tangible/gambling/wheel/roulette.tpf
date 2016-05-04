@@ -5,5 +5,6 @@
 
 sharedTemplate = "object/tangible/gambling/wheel/shared_roulette.iff"
 scripts = ["gambling.wheel.roulette"]
+objvars = +["gambling.table.bet.ante" = 0, "gambling.table.bet.max" = 10000, "gambling.table.bet.min" = 1, "gambling.table.playerLimit.max" = 10, "gambling.table.playerLimit.min" = 1, "gambling.table.type" = "roulette"]
 
 moveFlags = [ MF_player ]

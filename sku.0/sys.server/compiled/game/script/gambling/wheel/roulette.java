@@ -1,26 +1,18 @@
 package script.gambling.wheel;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.utils;
-import script.library.money;
-import script.library.prose;
-import script.library.gambling;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class roulette extends script.gambling.base.wheel
 {
     public roulette()
     {
     }
-    public static final String GAME_TYPE = "roulette";
-    public static final int[] RED_NUMBERS = 
+    private static final String GAME_TYPE = "roulette";
+    private static final int[] RED_NUMBERS =
     {
         1,
         3,
@@ -138,43 +130,38 @@ public class roulette extends script.gambling.base.wheel
             switch (cnt)
             {
                 case 2:
-                for (int i = 0; i < players.length; i++)
-                {
-                    sendSystemMessage(players[i], new string_id(gambling.STF_INTERFACE, "wheel_begin_slow"));
-                }
-                break;
+                    for (obj_id player : players) {
+                        sendSystemMessage(player, new string_id(gambling.STF_INTERFACE, "wheel_begin_slow"));
+                    }
+                    break;
                 case 1:
-                int result = getResult();
-                String sResult = getResultString(result);
-                prose_package pp = prose.getPackage(new string_id(gambling.STF_INTERFACE, "prose_wheel_slow"), sResult, getResultColor(result));
-                for (int i = 0; i < players.length; i++)
-                {
-                    sendSystemMessageProse(players[i], pp);
-                }
-                params.put("result", result);
-                delay = 10f;
-                break;
+                    int result = getResult();
+                    String sResult = getResultString(result);
+                    prose_package pp = prose.getPackage(new string_id(gambling.STF_INTERFACE, "prose_wheel_slow"), sResult, getResultColor(result));
+                    for (obj_id player : players) {
+                        sendSystemMessageProse(player, pp);
+                    }
+                    params.put("result", result);
+                    delay = 10f;
+                    break;
                 default:
-                for (int i = 0; i < players.length; i++)
-                {
-                    sendSystemMessage(players[i], new string_id(gambling.STF_INTERFACE, "wheel_spinning"));
-                }
-                break;
+                    for (obj_id player : players) {
+                        sendSystemMessage(player, new string_id(gambling.STF_INTERFACE, "wheel_spinning"));
+                    }
+                    break;
             }
             messageTo(self, "handleWheelSpinning", params, delay, false);
         }
         else 
         {
-            prose_package pp = null;
             int result = getResult();
             String newResult = getResultString(result);
             params.put("result", result);
-            pp = prose.getPackage(new string_id(gambling.STF_INTERFACE, "prose_result_change"), newResult, getResultColor(result));
+            prose_package pp = prose.getPackage(new string_id(gambling.STF_INTERFACE, "prose_result_change"), newResult, getResultColor(result));
             if (pp != null)
             {
-                for (int i = 0; i < players.length; i++)
-                {
-                    sendSystemMessageProse(players[i], pp);
+                for (obj_id player : players) {
+                    sendSystemMessageProse(player, pp);
                 }
             }
             messageTo(self, "handleParseResults", params, 1f, false);
@@ -197,87 +184,72 @@ public class roulette extends script.gambling.base.wheel
         String resultColor = getResultColor(result);
         CustomerServiceLog("gambling", getGameTime() + ": (" + self + ") " + utils.getStringName(self) + " processing results...");
         CustomerServiceLog("gambling", getGameTime() + ": (" + self + ") " + utils.getStringName(self) + " results: raw=" + result + " sResult=" + sResult + " color=" + resultColor);
-        for (int i = 0; i < players.length; i++)
-        {
+        int gameTime = getGameTime();
+        String ovpath;
+        dictionary d;
+        for (obj_id player : players) {
             int total = 0;
-            CustomerServiceLog("gambling", getGameTime() + ": player = " + players[i] + " : " + getName(players[i]));
-            int playerIdx = gambling.getGamePlayerIndex(self, players[i]);
-            if (playerIdx > -1)
-            {
-                String ovpath = gambling.VAR_GAME_PLAYERS + "." + playerIdx + ".bet." + sResult;
-                if (hasObjVar(self, ovpath))
-                {
+            CustomerServiceLog("gambling", gameTime + ": player = " + player + " : " + getName(player));
+            int playerIdx = gambling.getGamePlayerIndex(self, player);
+            if (playerIdx > -1) {
+                ovpath = gambling.VAR_GAME_PLAYERS + "." + playerIdx + ".bet." + sResult;
+                if (hasObjVar(self, ovpath)) {
                     int spotBet = getIntObjVar(self, ovpath);
                     int spotPayout = (spotBet * 36) + spotBet;
                     total += spotPayout;
-                    CustomerServiceLog("gambling", getGameTime() + ": (" + players[i] + ") has spot bet -> payout = " + spotPayout);
+                    CustomerServiceLog("gambling", gameTime + ": (" + player + ") has spot bet -> payout = " + spotPayout);
                 }
-                if (result > 0)
-                {
+                if (result > 0) {
                     ovpath = gambling.VAR_GAME_PLAYERS + "." + playerIdx + ".bet." + resultColor;
-                    if (hasObjVar(self, ovpath))
-                    {
+                    if (hasObjVar(self, ovpath)) {
                         int colorBet = getIntObjVar(self, ovpath);
                         int colorPayout = 2 * colorBet;
                         total += colorPayout;
-                        CustomerServiceLog("gambling", getGameTime() + ": (" + players[i] + ") has color bet -> payout = " + colorPayout);
+                        CustomerServiceLog("gambling", gameTime + ": (" + player + ") has color bet -> payout = " + colorPayout);
                     }
                 }
-                if (result > 0)
-                {
-                    if (result % 2 == 0)
-                    {
+                if (result > 0) {
+                    if (result % 2 == 0) {
                         ovpath = gambling.VAR_GAME_PLAYERS + "." + playerIdx + ".bet.even";
-                    }
-                    else 
-                    {
+                    } else {
                         ovpath = gambling.VAR_GAME_PLAYERS + "." + playerIdx + ".bet.odd";
                     }
-                    if (hasObjVar(self, ovpath))
-                    {
+                    if (hasObjVar(self, ovpath)) {
                         int evenOddBet = getIntObjVar(self, ovpath);
                         int evenOddPayout = 2 * evenOddBet;
                         total += evenOddPayout;
-                        CustomerServiceLog("gambling", getGameTime() + ": (" + players[i] + ") has even/odd bet -> payout = " + evenOddPayout);
+                        CustomerServiceLog("gambling", gameTime + ": (" + player + ") has even/odd bet -> payout = " + evenOddPayout);
                     }
                 }
-                if (result > 0)
-                {
-                    if (result > 18)
-                    {
+                if (result > 0) {
+                    if (result > 18) {
                         ovpath = gambling.VAR_GAME_PLAYERS + "." + playerIdx + ".bet.high";
-                    }
-                    else 
-                    {
+                    } else {
                         ovpath = gambling.VAR_GAME_PLAYERS + "." + playerIdx + ".bet.low";
                     }
-                    if (hasObjVar(self, ovpath))
-                    {
+                    if (hasObjVar(self, ovpath)) {
                         int hiLoBet = getIntObjVar(self, ovpath);
                         int hiLoPayout = 2 * hiLoBet;
                         total += hiLoPayout;
-                        CustomerServiceLog("gambling", getGameTime() + ": (" + players[i] + ") has hi/low bet -> payout = " + hiLoPayout);
+                        CustomerServiceLog("gambling", gameTime + ": (" + player + ") has hi/low bet -> payout = " + hiLoPayout);
                     }
                 }
             }
-            CustomerServiceLog("gambling", getGameTime() + ": (" + players[i] + ") total payout = " + total);
-            if (total > 0)
-            {
-                dictionary d = new dictionary();
-                d.put("player", players[i]);
+            CustomerServiceLog("gambling", getGameTime() + ": (" + player + ") total payout = " + total);
+            if (total > 0) {
+                d = new dictionary();
+                d.put("player", player);
                 d.put("payout", total);
-                transferBankCreditsFromNamedAccount(money.ACCT_ROULETTE, players[i], total, "handleGamblingPayout", "noHandler", d);
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(players[i], "Sorry, you did not win this round. Please try again.");
+                transferBankCreditsFromNamedAccount(money.ACCT_ROULETTE, player, total, "handleGamblingPayout", "noHandler", d);
+            } else {
+                sendSystemMessageTestingOnly(player, "Sorry, you did not win this round. Please try again.");
             }
         }
         cleanupWheelGame(self);
         messageTo(self, "handleDelayedRestart", null, 10f, false);
         return SCRIPT_CONTINUE;
     }
-    public boolean isValidBet(obj_id self, String arg) throws InterruptedException
+    private boolean isValidBet(obj_id self, String arg) throws InterruptedException
     {
         if (!isIdValid(self) || arg == null || arg.equals(""))
         {
@@ -292,17 +264,13 @@ public class roulette extends script.gambling.base.wheel
             return true;
         }
         int tmp = utils.stringToInt(arg);
-        if (tmp >= 0 && tmp <= 36)
-        {
-            return true;
-        }
-        return false;
+        return tmp >= 0 && tmp <= 36;
     }
     public int getResult() throws InterruptedException
     {
         return rand(-1, 36);
     }
-    public String getResultString(int roll) throws InterruptedException
+    private String getResultString(int roll) throws InterruptedException
     {
         if (roll == -1)
         {
@@ -317,7 +285,7 @@ public class roulette extends script.gambling.base.wheel
     {
         return getResultString(getResult());
     }
-    public String getResultColor(int result) throws InterruptedException
+    private String getResultColor(int result) throws InterruptedException
     {
         if (result == 0 || result == -1)
         {
@@ -329,7 +297,7 @@ public class roulette extends script.gambling.base.wheel
         }
         return "black";
     }
-    public void cleanupWheelGame(obj_id self) throws InterruptedException
+    private void cleanupWheelGame(obj_id self) throws InterruptedException
     {
         int bank = getBankBalance(self);
         if (bank > 0)
@@ -339,19 +307,17 @@ public class roulette extends script.gambling.base.wheel
         obj_id[] players = getObjIdArrayObjVar(self, gambling.VAR_GAME_PLAYERS_IDS);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                int idx = gambling.getGamePlayerIndex(self, players[i]);
-                String ovpath = gambling.VAR_GAME_PLAYERS + "." + players[i] + ".pid";
-                if (utils.hasScriptVar(self, ovpath))
-                {
+            String ovpath;
+            for (obj_id player : players) {
+                int idx = gambling.getGamePlayerIndex(self, player);
+                ovpath = gambling.VAR_GAME_PLAYERS + "." + player + ".pid";
+                if (utils.hasScriptVar(self, ovpath)) {
                     int oldpid = utils.getIntScriptVar(self, ovpath);
-                    sui.closeSUI(players[i], oldpid);
+                    sui.closeSUI(player, oldpid);
                 }
                 ovpath = gambling.VAR_GAME_PLAYERS + "." + idx + ".bet";
-                if (!hasObjVar(self, ovpath))
-                {
-                    gambling.removeTablePlayer(self, players[i], "");
+                if (!hasObjVar(self, ovpath)) {
+                    gambling.removeTablePlayer(self, player, "");
                 }
             }
         }

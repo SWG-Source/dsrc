@@ -1,19 +1,10 @@
 package script.gambling.base;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
 
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.money;
-import script.library.colors;
-import script.library.gambling;
+import java.util.Vector;
 
 public class slot extends script.gambling.base.default_interface
 {
@@ -192,28 +183,28 @@ public class slot extends script.gambling.base.default_interface
         switch (bp)
         {
             case sui.BP_OK:
-            if (max > 0)
-            {
-                money.requestPayment(player, self, max - balance, "handleBetPlaced", null);
-            }
-            else 
-            {
-                money.requestPayment(player, self, getTotalMoney(player), "handleBetPlaced", null);
-            }
-            break;
+                if (max > 0)
+                {
+                    money.requestPayment(player, self, max - balance, "handleBetPlaced", null);
+                }
+                else
+                {
+                    money.requestPayment(player, self, getTotalMoney(player), "handleBetPlaced", null);
+                }
+                break;
             case sui.BP_CANCEL:
-            if (balance == 0)
-            {
-                gambling.removeTablePlayer(self, player, "");
-            }
-            else 
-            {
-                spinReels(self, player, balance);
-            }
-            break;
+                if (balance == 0)
+                {
+                    gambling.removeTablePlayer(self, player, "");
+                }
+                else
+                {
+                    spinReels(self, player, balance);
+                }
+                break;
             case sui.BP_REVERT:
-            money.requestPayment(player, self, 1, "handleBetPlaced", null);
-            break;
+                money.requestPayment(player, self, 1, "handleBetPlaced", null);
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -243,18 +234,18 @@ public class slot extends script.gambling.base.default_interface
             switch (rand(0, 1))
             {
                 case 0:
-                results[idx] = 0;
-                break;
+                    results[idx] = 0;
+                    break;
                 case 1:
-                Vector reelOdds = utils.getResizeableIntBatchScriptVar(self, gambling.VAR_REEL_ODDS);
-                if (reelOdds == null || reelOdds.size() == 0)
-                {
-                    reelOdds = gambling.calculateReelOdds(self);
-                    utils.setBatchScriptVar(self, gambling.VAR_REEL_ODDS, reelOdds);
-                }
-                int tmpIdx = rand(0, reelOdds.size() - 1);
-                results[idx] = (((Integer)(reelOdds.elementAt(tmpIdx)))).intValue();
-                break;
+                    Vector reelOdds = utils.getResizeableIntBatchScriptVar(self, gambling.VAR_REEL_ODDS);
+                    if (reelOdds == null || reelOdds.size() == 0)
+                    {
+                        reelOdds = gambling.calculateReelOdds(self);
+                        utils.setBatchScriptVar(self, gambling.VAR_REEL_ODDS, reelOdds);
+                    }
+                    int tmpIdx = rand(0, reelOdds.size() - 1);
+                    results[idx] = (Integer) (reelOdds.elementAt(tmpIdx));
+                    break;
             }
         }
         else 
@@ -269,7 +260,7 @@ public class slot extends script.gambling.base.default_interface
                 if (idx == 0)
                 {
                     int tmpIdx = rand(0, reelOdds.size() - 1);
-                    results[0] = (((Integer)(reelOdds.elementAt(tmpIdx)))).intValue();
+                    results[0] = (Integer) (reelOdds.elementAt(tmpIdx));
                 }
                 else 
                 {
@@ -284,15 +275,11 @@ public class slot extends script.gambling.base.default_interface
         msg += "-- ";
         for (int i = 0; i < idx; i++)
         {
-            msg += "|";
-            msg += " " + results[i] + " ";
-            msg += "| ";
+            msg += "| " + results[i] + " | ";
         }
         for (int i = idx; i < results.length; i++)
         {
-            msg += "|";
-            msg += getString(gambling.SID_ROLLING);
-            msg += "| ";
+            msg += "| " + getString(gambling.SID_ROLLING) + " | ";
         }
         msg += "--";
         sendSystemMessageTestingOnly(player, msg);
@@ -364,8 +351,7 @@ public class slot extends script.gambling.base.default_interface
             return SCRIPT_CONTINUE;
         }
         int payout = params.getInt("payout");
-        prose_package ppPayout = prose.getPackage(gambling.PROSE_PAYOUT, payout);
-        sendSystemMessageProse(player, ppPayout);
+        sendSystemMessageProse(player, prose.getPackage(gambling.PROSE_PAYOUT, payout));
         CustomerServiceLog("gambling", getGameTime() + ": (" + player + ") " + getName(player) + " receives " + payout + "cr payout from (" + self + ") " + utils.getStringName(self));
         showFlyText(self, gambling.FLY_WINNER, 2f, colors.RED);
         messageTo(self, "handleDelayedRestart", params, 3f, false);
@@ -389,7 +375,7 @@ public class slot extends script.gambling.base.default_interface
         }
         return SCRIPT_CONTINUE;
     }
-    public void startSlotGame(obj_id self, obj_id player) throws InterruptedException
+    private void startSlotGame(obj_id self, obj_id player) throws InterruptedException
     {
         if (!isIdValid(self) || !isIdValid(player))
         {
@@ -403,7 +389,7 @@ public class slot extends script.gambling.base.default_interface
         }
         showSlotUi(self, player);
     }
-    public void showSlotUi(obj_id self, obj_id player) throws InterruptedException
+    private void showSlotUi(obj_id self, obj_id player) throws InterruptedException
     {
         if (!isIdValid(self) || !isIdValid(player))
         {
@@ -459,7 +445,7 @@ public class slot extends script.gambling.base.default_interface
         d.put("stamp", now);
         messageTo(self, "handleBetTimer", d, 60f, false);
     }
-    public void spinReels(obj_id self, obj_id player, int amt) throws InterruptedException
+    private void spinReels(obj_id self, obj_id player, int amt) throws InterruptedException
     {
         if (!isIdValid(self) || !isIdValid(player) || amt < 1)
         {
@@ -487,7 +473,7 @@ public class slot extends script.gambling.base.default_interface
         sendSystemMessageTestingOnly(player, "You activate the machine and the reels start spinning...");
         messageTo(self, "handleReelsSpinning", d, 5f, false);
     }
-    public void showPayoutSchedule(obj_id self, obj_id player) throws InterruptedException
+    private void showPayoutSchedule(obj_id self, obj_id player) throws InterruptedException
     {
         String gameType = getStringObjVar(self, gambling.VAR_TABLE_TYPE);
         if (gameType == null || gameType.equals(""))
@@ -524,11 +510,7 @@ public class slot extends script.gambling.base.default_interface
         {
             return;
         }
-        String title = "Payout Schedule";
-        String prompt = "The following is the payout schedule for this slot machine.\n\n";
-        prompt += "Legend:\n";
-        prompt += "XXX: denotes any 3 of the same number\n";
-        prompt += "*X|Y|Z: denotes any combination of the 3 numbers\n";
-        sui.listbox(self, player, prompt, sui.OK_ONLY, title, entries, "noHandler");
+        String prompt = "The following is the payout schedule for this slot machine.\n\nLegend:\nXXX: denotes any 3 of the same number\n*X|Y|Z: denotes any combination of the 3 numbers\n";
+        sui.listbox(self, player, prompt, sui.OK_ONLY, "Payout Schedule", entries, "noHandler");
     }
 }
