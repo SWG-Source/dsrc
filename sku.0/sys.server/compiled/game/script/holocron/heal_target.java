@@ -1,16 +1,11 @@
 package script.holocron;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.holocron.newbie_handoff;
-import script.library.factions;
+import script.dictionary;
 import script.library.ai_lib;
+import script.library.factions;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
 
 public class heal_target extends script.base_script
 {
@@ -39,9 +34,8 @@ public class heal_target extends script.base_script
         if (item == menu_info_types.SERVER_HEAL_STATE)
         {
             destroyObject(getObjIdObjVar(player, "newbie_handoff.mission.heal.med_id"));
-            String missionType = getStringObjVar(self, "newbie_handoff.mission.type");
             dictionary params = new dictionary();
-            params.put("type", missionType);
+            params.put("type", getStringObjVar(self, "newbie_handoff.mission.type"));
             LOG("newbie_handoff_heal", "Target NPC has been healed.");
             messageTo(player, "missionHealComplete", params, 1, true);
         }
