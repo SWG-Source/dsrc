@@ -133,7 +133,7 @@ public class rebels_vs_imperials_yavin4 extends script.base_script
         // send imperial troops to conflict points based on where each is supposed to go.
         moveGroup(getConflictPoint(0), new obj_id[] {stormtrooper1, stormtrooper2, stormtrooper4}, "x");
         moveGroup(getConflictPoint(1), new obj_id[] {stormtrooper5, stormtrooper6, stormtrooper7, stormtrooper8}, "z");
-        moveGroup(getConflictPoint(3), new obj_id[] {stormtrooper9, stormtrooper10, stormtrooper11, stormtrooper12}, "x");
+        moveGroup(getConflictPoint(2), new obj_id[] {stormtrooper9, stormtrooper10, stormtrooper11, stormtrooper12}, "x");
 
         return SCRIPT_CONTINUE;
     }
