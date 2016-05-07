@@ -187,6 +187,7 @@ expertise_fs_path_force_choke_1	5	3	7	1			force_sensitive
 expertise_fs_path_force_clarity_1	5	4	1	1			force_sensitive
 expertise_fs_path_improved_saber_reflect_1	5	4	2	1			force_sensitive
 expertise_fs_path_improved_saber_reflect_2	5	4	2	2			force_sensitive
+expertise_fs_path_improved_saber_reflect_3	5	4	2	3			force_sensitive
 expertise_fs_path_hermetic_touch_1	5	4	3	1			force_sensitive
 expertise_fs_path_expansive_trickery_1	5	4	4	1			force_sensitive
 expertise_fs_path_expansive_trickery_2	5	4	4	2			force_sensitive
