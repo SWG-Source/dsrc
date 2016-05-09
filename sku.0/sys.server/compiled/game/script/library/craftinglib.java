@@ -1,22 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.HashSet;
-import script.library.city;
-import script.library.luck;
-import script.library.performance;
-import script.library.reverse_engineering;
-import script.library.skill;
-import script.library.utils;
+import java.util.Vector;
 
 public class craftinglib extends script.base_script
 {
@@ -1756,33 +1742,29 @@ public class craftinglib extends script.base_script
             return false;
         }
         draft_schematic.slot[] slots = schematic.getSlots();
-        draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
-        draft_schematic.attribute[] experimentalAttribs = schematic.getExperimentalAttribs();
         int ratio = 0;
         int powerMod = 0;
         obj_id powerBitId = obj_id.NULL_ID;
-        for (int i = 0; i < slots.length; ++i)
-        {
-            if (!isIdValid(slots[i].ingredients[0].ingredient) || !exists(slots[i].ingredients[0].ingredient))
-            {
+        String reStatMod;
+        obj_id ingredient;
+        for (draft_schematic.slot slot : slots) {
+            ingredient = slot.ingredients[0].ingredient;
+            if (!isIdValid(ingredient) || !exists(ingredient)) {
                 continue;
             }
-            if (hasObjVar(slots[i].ingredients[0].ingredient, "reverse_engineering.reverse_engineering_modifier"))
-            {
-                CustomerServiceLog("new_weapon_crafting", "ingredient " + slots[i].ingredients[0].ingredient + " has the objvar reverse_engineering.reverse_engineering_modifier");
-                String reStatMod = getStringObjVar(slots[i].ingredients[0].ingredient, "reverse_engineering.reverse_engineering_modifier");
-                ratio = getIntObjVar(slots[i].ingredients[0].ingredient, "reverse_engineering.reverse_engineering_ratio");
-                if (!reverse_engineering.canMakePowerUp(reStatMod))
-                {
+            if (hasObjVar(ingredient, "reverse_engineering.reverse_engineering_modifier")) {
+                CustomerServiceLog("new_weapon_crafting", "ingredient " + ingredient + " has the objvar reverse_engineering.reverse_engineering_modifier");
+                reStatMod = getStringObjVar(ingredient, "reverse_engineering.reverse_engineering_modifier");
+                ratio = getIntObjVar(ingredient, "reverse_engineering.reverse_engineering_ratio");
+                if (!reverse_engineering.canMakePowerUp(reStatMod)) {
                     CustomerServiceLog("new_weapon_crafting", "Player " + getFirstName(player) + "(" + player + ") has tried to use an invalid RE modifier. We are killing the crafting process.");
                     sui.msgbox(player, new string_id("spam", "bad_re_modifier"));
                     return false;
                 }
             }
-            if (hasObjVar(slots[i].ingredients[0].ingredient, "reverse_engineering.reverse_engineering_power"))
-            {
-                powerBitId = slots[i].ingredients[0].ingredient;
-                powerMod = getIntObjVar(slots[i].ingredients[0].ingredient, "reverse_engineering.reverse_engineering_power");
+            if (hasObjVar(ingredient, "reverse_engineering.reverse_engineering_power")) {
+                powerBitId = ingredient;
+                powerMod = getIntObjVar(ingredient, "reverse_engineering.reverse_engineering_power");
             }
         }
         float modifiedPower = 0.0f;

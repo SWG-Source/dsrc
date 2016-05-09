@@ -27,6 +27,8 @@ public class draft_schematic
 		public obj_id       source;             // who supplied the ingredient
 		public int          xpType;             // type of xp to grant the source
 		public int          xpAmount;           // amount of xp to grant
+
+		public simple_ingredient() {}
 	}	// simple_ingredient
 
 	public static class slot

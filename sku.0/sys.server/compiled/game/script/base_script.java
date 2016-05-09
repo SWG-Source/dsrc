@@ -1,13 +1,5 @@
 package script;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -123,13 +115,13 @@ public class base_script extends script.base_class
                 String oldname = "\"" + k.toString();
                 String name = oldname.replace('.', '+');
                 debugServerConsoleMsg(self, "scriptvar name: " + name);
-                sortedValues.put(name, scriptvars.getObject(k));
+                sortedValues.put(name, scriptvars.getObject(k).toString());
             }
             Iterator keysSet = (sortedValues.keySet()).iterator();
             while (keysSet.hasNext() && i < names.length)
             {
                 names[i] = (String)keysSet.next();
-                attribs[i] = (String)sortedValues.get((String)names[i]);
+                attribs[i] = (String)sortedValues.get(names[i]);
                 ++i;
             }
         }

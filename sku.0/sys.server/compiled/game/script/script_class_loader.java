@@ -348,8 +348,10 @@ public class script_class_loader extends ClassLoader
 		defaultLoad.add("script.deltadictionary");
 		defaultLoad.add("script.dictionary");
 		defaultLoad.add("script.draft_schematic");
+		defaultLoad.add("script.draft_schematic$simple_ingredient");
 		defaultLoad.add("script.draft_schematic$slot");
 		defaultLoad.add("script.draft_schematic$attribute");
+		defaultLoad.add("script.draft_schematic$custom");
 		defaultLoad.add("script.location");
 		defaultLoad.add("script.map_location");
 		defaultLoad.add("script.menu_info");
