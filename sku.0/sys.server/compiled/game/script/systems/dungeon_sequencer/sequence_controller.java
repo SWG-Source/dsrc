@@ -813,7 +813,7 @@ public class sequence_controller extends script.base_script
             data = typeDataSplit[1];
             nameValueSplit = split(data, '=');
             name = nameValueSplit[0];
-            if(nameValueSplit.length > 0) {
+            if(nameValueSplit.length > 1) {
                 value = nameValueSplit[1];
             }
             else{
