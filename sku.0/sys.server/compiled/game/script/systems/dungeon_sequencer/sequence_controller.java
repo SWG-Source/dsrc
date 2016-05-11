@@ -1,23 +1,12 @@
 package script.systems.dungeon_sequencer;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
-import script.library.buff;
-import script.library.chat;
-import script.library.combat;
-import script.library.create;
-import script.library.factions;
-import script.library.instance;
-import script.library.movement;
-import script.library.restuss_event;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class sequence_controller extends script.base_script
 {
@@ -807,37 +796,38 @@ public class sequence_controller extends script.base_script
         {
             return;
         }
-        String[] parse = split(objvarString, ',');
-        if (parse == null || parse.length == 0)
+        String[] parsedObjVars = split(objvarString, ',');
+        if (parsedObjVars == null || parsedObjVars.length == 0)
         {
             return;
         }
-        for (int i = 0; i < parse.length; i++)
-        {
-            String[] typeDataSplit = split(parse[i], ':');
-            String type = typeDataSplit[0];
-            String data = typeDataSplit[1];
-            String[] nameValueSplit = split(data, '=');
-            String name = nameValueSplit[0];
-            String value = nameValueSplit[1];
-            if (type.equals("int"))
-            {
+        String[] typeDataSplit;
+        String type;
+        String data;
+        String[] nameValueSplit;
+        String name;
+        String value;
+        for (String parsedObjVar : parsedObjVars) {
+            typeDataSplit = split(parsedObjVar, ':');
+            type = typeDataSplit[0];
+            data = typeDataSplit[1];
+            nameValueSplit = split(data, '=');
+            name = nameValueSplit[0];
+            if(nameValueSplit.length > 0) {
+                value = nameValueSplit[1];
+            }
+            else{
+                value = "";
+            }
+            if (type.equals("int")) {
                 setObjVar(newObject, name, utils.stringToInt(value));
-            }
-            if (type.equals("float"))
-            {
+            } else if (type.equals("float")) {
                 setObjVar(newObject, name, utils.stringToFloat(value));
-            }
-            if (type.equals("string"))
-            {
+            } else if (type.equals("string")) {
                 setObjVar(newObject, name, value);
-            }
-            if (type.equals("boolean") && (value.equals("true") || value.equals("1")))
-            {
+            } else if (type.equals("boolean") && (value.equals("true") || value.equals("1"))) {
                 setObjVar(newObject, name, true);
-            }
-            if (type.equals("boolean") && (value.equals("false") || value.equals("0")))
-            {
+            } else if (type.equals("boolean") && (value.equals("false") || value.equals("0"))) {
                 setObjVar(newObject, name, false);
             }
         }
