@@ -817,6 +817,10 @@ public class sequence_controller extends script.base_script
                 value = nameValueSplit[1];
             }
             else{
+                System.out.println("ISD: Found issue where no objvar value was set.");
+                System.out.println("ISD: ObjVar: " + name);
+                System.out.println("ISD: Original objvarString: " + objvarString);
+                System.out.println("ISD: newObject obj_id value: " + newObject.toString());
                 value = "";
             }
             if (type.equals("int")) {
