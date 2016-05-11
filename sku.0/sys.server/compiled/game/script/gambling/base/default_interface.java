@@ -18,10 +18,8 @@ public class default_interface extends script.terminal.base.base_terminal
     {
         if (!hasObjVar(self, gambling.VAR_GAMBLE_BASE))
         {
-            System.out.println("gambling: no obj var found.");
             return SCRIPT_CONTINUE;
         }
-        System.out.println("gambling: obj var was found.");
         int max = getIntObjVar(self, gambling.VAR_TABLE_PLAYER_LIMIT_MAX);
         obj_id[] players = getObjIdArrayObjVar(self, gambling.VAR_TABLE_PLAYERS);
         if (players == null || players.length == 0)
