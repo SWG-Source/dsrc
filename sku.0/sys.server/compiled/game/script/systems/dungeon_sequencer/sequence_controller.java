@@ -813,16 +813,8 @@ public class sequence_controller extends script.base_script
             data = typeDataSplit[1];
             nameValueSplit = split(data, '=');
             name = nameValueSplit[0];
-            if(nameValueSplit.length > 1) {
-                value = nameValueSplit[1];
-            }
-            else{
-                System.out.println("ISD: Found issue where no objvar value was set.");
-                System.out.println("ISD: ObjVar: " + name);
-                System.out.println("ISD: Original objvarString: " + objvarString);
-                System.out.println("ISD: newObject obj_id value: " + newObject.toString());
-                value = "";
-            }
+            value = nameValueSplit[1];
+            
             if (type.equals("int")) {
                 setObjVar(newObject, name, utils.stringToInt(value));
             } else if (type.equals("float")) {

@@ -332,11 +332,11 @@ heroic_sd_blacksun_engineer	cryer2	spawn_engineering	reactorctrl	27.79	140.58	43
 heroic_sd_blacksun_engineer		replace_cryer_2	reactorctrl	27.79	140.58	436.8711	180						
 deleteSpawn:cryer2:none		replace_cryer_2											
 delayAction:eng2r1:20		eng2warn											
-heroic_sd_blacksun_boarder		eng2r1	cooling	15.49	140.58	444.36			"int:run=1,string:patrol_path:eng2rein"				"eng2rein:patrolFlip:ratpat8,ratpat7,ratpat6,ratpat5,ratpat4"
+heroic_sd_blacksun_boarder		eng2r1	cooling	15.49	140.58	444.36			"int:run=1,string:patrol_path=eng2rein"				"eng2rein:patrolFlip:ratpat8,ratpat7,ratpat6,ratpat5,ratpat4"
 delayAction:eng2r2:25		eng2r1											
-heroic_sd_blacksun_boarder		eng2r2	cooling	15.49	140.58	444.36			"int:run=1,string:patrol_path:eng2rein"				
+heroic_sd_blacksun_boarder		eng2r2	cooling	15.49	140.58	444.36			"int:run=1,string:patrol_path=eng2rein"
 delayAction:eng2r3:25		eng2r2											
-heroic_sd_blacksun_boarder		eng2r3	cooling	15.49	140.58	444.36			"int:run=1,string:patrol_path:eng2rein"				
+heroic_sd_blacksun_boarder		eng2r3	cooling	15.49	140.58	444.36			"int:run=1,string:patrol_path=eng2rein"
 heroic_sd_blacksun_engineer		spawn_engineering	reactorctrl	29.5	141.08	433.31	180						
 heroic_sd_blacksun_engineer		spawn_engineering	cooling	18.89	140.58	448.57	-90						
 heroic_sd_blacksun_engineer	cryer3	spawn_engineering	reactorchamber	21.066	140.585	479.18	68			"OnEnterCombat:triggerId:eng3warn,OnEnterCombat:playEmote:say:sd_bs_engineer_reinforcement_call,OnExitCombat:triggerId:delete_cryer_3"			
