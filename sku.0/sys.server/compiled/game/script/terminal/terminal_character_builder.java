@@ -95,7 +95,7 @@ public class terminal_character_builder extends script.base_script
         "Misc Items/Medicines",
         "Jedi Options",
         "Best Resource",
-        "Flag for All Heroic Instances"
+        "Flag for All Heroic Instances",
         "Draft Schematics"
     };
     public static final String[] RESOURCE_TYPES = 
