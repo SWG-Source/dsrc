@@ -354,6 +354,9 @@ public class player_structure extends script.base_script
         int maintenance_mod = getSkillStatMod(owner, "structure_maintenance_mod");
         int factory_mod = getSkillStatMod(owner, "factory_efficiency");
         String deed_template = getTemplateName(deed);
+        if(deed_template == null){
+            deed_template = "";
+        }
         dictionary deed_info = new dictionary();
         deed_info.put("template", deed_template);
         deed_info.put("build_time", build_time);
