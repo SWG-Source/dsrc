@@ -866,16 +866,6 @@ public class npc_lair extends script.theme_park.poi.base
             mobile = poiCreateObject(name, x, y, level);
             stopFloating(mobile);
         }
-        boolean tamable = (utils.dataTableGetFloat(CREATURE_TABLE, name, "canTame") > 0.0f);
-        boolean npcLair = hasObjVar(getSelf(), "npc_lair.isNotCreatureLair");
-        if (hasObjVar(getSelf(), "npc_lair.isCreatureLair"))
-        {
-            npcLair = false;
-        }
-        if (hasObjVar(objBase, "objMission"))
-        {
-            tamable = false;
-        }
         if (isIdValid(mobile))
         {
             if ((!randomLoc) && (!boolMobSpawners))
@@ -904,12 +894,7 @@ public class npc_lair extends script.theme_park.poi.base
             }
             if (!ai_lib.isMonster(mobile))
             {
-                tamable = false;
-            }
-            if (!ai_lib.isMonster(mobile))
-            {
                 setObjVar(getSelf(), "npc_lair.isNotCreatureLair", true);
-                npcLair = true;
             }
             return mobile;
         }
