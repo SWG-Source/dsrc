@@ -28,7 +28,7 @@ public class starport_april_fools extends script.base_script
     public int heartbeat(obj_id self, dictionary params) throws InterruptedException
     {
         String foolsDayRunning = getConfigSetting("GameServer", "foolsDay");
-        if(foolsDayRunning.equals("false") || foolsDayRunning.equals("0")){
+        if(foolsDayRunning == null || foolsDayRunning.equals("false") || foolsDayRunning.equals("0")){
             return SCRIPT_CONTINUE;
         }
         if (foolsDayRunning.length() <= 0)
