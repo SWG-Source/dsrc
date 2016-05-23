@@ -1,19 +1,10 @@
 package script.systems.npc_lair;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.utils;
-import script.library.ai_lib;
-import script.ai.ai_combat;
-import script.library.factions;
-import script.library.xp;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class npc_lair extends script.theme_park.poi.base
 {
@@ -802,7 +793,7 @@ public class npc_lair extends script.theme_park.poi.base
     }
     public int handleRespawnCreature(obj_id self, dictionary params) throws InterruptedException
     {
-        if (poiIsCompleted(self))
+        if (poiIsCompleted(self) || self == null || self == obj_id.NULL_ID || !isIdValid(self))
         {
             return SCRIPT_CONTINUE;
         }
