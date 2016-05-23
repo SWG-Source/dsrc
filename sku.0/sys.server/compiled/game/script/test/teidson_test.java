@@ -578,19 +578,6 @@ public class teidson_test extends script.base_script
             utils.warpPlayer(self, loc);
             return SCRIPT_CONTINUE;
         }
-        if (strCommands[0].equals("teidsonfix"))
-        {
-            int num_rows = dataTableGetNumRows("datatables/space_loot/ship_refire_fix/" + getClusterName() + "_ships.iff");
-            LOG("shipcontents", "Rows: " + num_rows);
-            for (int i = 0; i < num_rows; i++)
-            {
-                dictionary row = dataTableGetRow("datatables/space_loot/ship_refire_fix/" + getClusterName() + "_ships.iff", i);
-                if (row != null)
-                {
-                    LOG("shipcontents", "Data: " + row.getString("id") + " / " + row.getInt("count"));
-                }
-            }
-        }
         if (strCommands[0].equals("shipinfo"))
         {
             obj_id[] scds = callable.getDatapadCallablesByType(self, callable.CALLABLE_TYPE_SHIP);

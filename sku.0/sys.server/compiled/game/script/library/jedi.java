@@ -1284,54 +1284,6 @@ public class jedi extends script.base_script
     }
     public static void jediSaberPearlRestore(obj_id player) throws InterruptedException
     {
-        String serverName = toLower(getConfigSetting("CentralServer", "clusterName"));
-        String restoreTable = "datatables/jedi/saber_pearl_fix/" + serverName + ".iff";
-        int row = dataTableSearchColumnForString(player.toString(), 0, restoreTable);
-        if (row > -1 && !hasObjVar(player, "jedi.restoredPearls"))
-        {
-            CustomerServiceLog("jedi_saber", "%TU - saber pearl restoration: Restoring lost pearls.", player);
-            int count = dataTableGetNumColumns(restoreTable) - 1;
-            int[] pearls = new int[count];
-            int numPearls = 0;
-            for (int i = 0; i < count; i++)
-            {
-                pearls[i] = dataTableGetInt(restoreTable, row, i + 1);
-                if (pearls[i] <= 0)
-                {
-                    break;
-                }
-                numPearls++;
-            }
-            CustomerServiceLog("jedi_saber", "%TU - saber pearl restoration: " + numPearls + " pearls to be restored.", player);
-            obj_id inventory = utils.getInventoryContainer(player);
-            int invSpace = getVolumeFree(inventory);
-            if (invSpace < numPearls)
-            {
-                CustomerServiceLog("jedi_saber", "%TU - saber pearl restoration: Unable to restore pearls due to insufficient inventory space.", player);
-                sendSystemMessage(player, SID_UNABLE_TO_RETURN_PEARLS_INVENTORY);
-                prose_package ppInvAvail = prose.getPackage(SID_MAKE_SURE_INVENTORY_SPACE_AVAILABLE);
-                prose.setDI(ppInvAvail, numPearls);
-                sendSystemMessageProse(player, ppInvAvail);
-                sendSystemMessage(player, SID_WILL_ATTEMPT_NEXT_TIME);
-                return;
-            }
-            for (int i = 0; i < numPearls; i++)
-            {
-                obj_id pearl = createObject(TEMPLATE_KRAYT_DRAGON_PEARL, inventory, "");
-                if (pearl == null)
-                {
-                    CustomerServiceLog("jedi_saber", "%TU - saber pearl restoration: ERROR: Level " + pearls[i] + " Pearl unable to be created.", player);
-                }
-                else 
-                {
-                    CustomerServiceLog("jedi_saber", "%TU - saber pearl restoration: Pearl Level set to " + pearls[i] + " for Pearl " + pearl + ".", player);
-                    setObjVar(pearl, jedi.VAR_CRYSTAL_STATS + "." + jedi.VAR_LEVEL, pearls[i]);
-                }
-            }
-            CustomerServiceLog("jedi_saber", "%TU - saber pearl restoration:, completed restoring all pearls.", player);
-            setObjVar(player, "jedi.restoredPearls", 1);
-            sendSystemMessage(player, SID_ALL_PEARLS_RESTORED);
-        }
     }
     public static int getMaxJediDeaths(obj_id objPlayer) throws InterruptedException
     {
