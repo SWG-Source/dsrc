@@ -1,17 +1,11 @@
 package script.systems.npc_lair;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.utils;
-import script.library.poi;
+import script.dictionary;
 import script.library.factions;
+import script.library.poi;
+import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class lair_destruct extends script.base_script
 {
@@ -47,12 +41,10 @@ public class lair_destruct extends script.base_script
         obj_id[] enemies = getWhoIsTargetingMe(self);
         if (enemies != null && enemies.length > 1)
         {
-            for (int i = 0; i < enemies.length; i++)
-            {
-                if (isPlayer(enemies[i]))
-                {
-                    setTarget(enemies[i], null);
-                    setCombatTarget(enemies[i], null);
+            for (obj_id enemy : enemies) {
+                if (isPlayer(enemy)) {
+                    setTarget(enemy, null);
+                    setCombatTarget(enemy, null);
                 }
             }
         }
@@ -77,11 +69,7 @@ public class lair_destruct extends script.base_script
             }
         }
         obj_id[] attackers = getWhoIsTargetingMe(self);
-        if (attackers == null || attackers.length == 0)
-        {
-        }
-        else 
-        {
+        if (attackers != null && attackers.length != 0) {
             obj_id poiBaseObject = getObjIdObjVar(self, "poi.baseObject");
             if (isIdValid(poiBaseObject))
             {
@@ -94,13 +82,11 @@ public class lair_destruct extends script.base_script
             {
                 if (curHP < fire)
                 {
-                    location death = getLocation(self);
                     setObjVar(self, "playingEffect", 1);
                     messageTo(self, "effectManager", null, 15, true);
                 }
                 else 
                 {
-                    location death = getLocation(self);
                     setObjVar(self, "playingEffect", 1);
                     messageTo(self, "effectManager", null, 15, true);
                 }
@@ -198,7 +184,9 @@ public class lair_destruct extends script.base_script
     }
     public int effectManager(obj_id self, dictionary params) throws InterruptedException
     {
-        removeObjVar(self, "playingEffect");
+        if(isIdValid(self) && hasObjVar(self, "playingEffect")) {
+            removeObjVar(self, "playingEffect");
+        }
         return SCRIPT_CONTINUE;
     }
     public void callForHealing(obj_id lair, int curHP, int maxHP) throws InterruptedException
