@@ -1,16 +1,8 @@
 package script.space.crafting;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.space_crafting;
-import script.library.space_utils;
 import script.library.utils;
+import script.obj_id;
 
 public class component_loot extends script.base_script
 {
@@ -30,9 +22,12 @@ public class component_loot extends script.base_script
     }
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
+        if(self == null || self == obj_id.NULL_ID || !isIdValid(self)){
+            return SCRIPT_CONTINUE;
+        }
         int flags = getIntObjVar(self, "ship_comp.flags");
         boolean isBitSet = (flags & ship_component_flags.SCF_reverse_engineered) != 0;
-        if (isBitSet == true)
+        if (isBitSet)
         {
             int idx = utils.getValidAttributeIndex(names);
             if (idx == -1)
