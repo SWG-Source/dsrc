@@ -1,19 +1,7 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.utils;
-import script.library.space_dungeon;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.static_item;
-import script.library.groundquests;
 import java.util.HashSet;
 
 public class npe extends script.base_script
@@ -126,6 +114,9 @@ public class npe extends script.base_script
                         return false;
                     }
                     location new_loc = utils.getLocationScriptVar(player, SCRIPT_VAR_ORD_SPACE_DESTINATION);
+                    if(new_loc == null){
+                        return false;
+                    }
                     new_loc.area = SCENE_SPACE_ORD_MANTELL;
                     location ground_loc = getWorldLocation(player);
                     obj_id[] members = new obj_id[0];
