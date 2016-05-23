@@ -297,34 +297,7 @@ public class space_crafting extends script.base_script
     }
     public static void recalculateFireRateFromSlot(obj_id player, obj_id self, int slot) throws InterruptedException
     {
-        int intCrc = getShipComponentCrc(self, slot);
-        if (intCrc == 0)
-        {
-            return;
-        }
-        String descName = getShipComponentDescriptorCrcName(intCrc);
-        if (descName.equals("") || descName.length() <= 0)
-        {
-            return;
-        }
-        String template = dataTableGetString(SHIP_COMPONENT_TABLE, descName, "object_template");
-        if (template.equals("") || template.length() <= 0)
-        {
-            return;
-        }
-        int charges = getIntObjVar(self, "ship_refire_fix");
-        float weaponFireRate = getShipWeaponRefireRate(self, slot);
-        int reverseEngineeringLevel = dataTableGetInt(SHIP_WEAPON_TABLE, template, "reverseEngineeringLevel");
-        float newWeaponFireRate = filterFireRateForShip(weaponFireRate, reverseEngineeringLevel);
-        float lootDropFireRateAverage = dataTableGetFloat(SHIP_WEAPON_TABLE, template, "fltRefireRate");
-        if (charges > 0 && newWeaponFireRate != weaponFireRate)
-        {
-            CustomerServiceLog("space_loot", "Weapon fire rate fix in ship. |player: " + player + "|ship: " + self + "|weapon name: " + descName + "|weaponFireRate: " + weaponFireRate + "|newWeaponFireRate: " + newWeaponFireRate + "|reverseEngineeringLevel: " + reverseEngineeringLevel);
-            setShipWeaponRefireRate(self, slot, newWeaponFireRate);
-            charges--;
-            setObjVar(self, "ship_refire_fix", charges);
-            return;
-        }
+	return;
     }
     public static obj_id initializeSpaceShipComponent(obj_id objComponent) throws InterruptedException
     {

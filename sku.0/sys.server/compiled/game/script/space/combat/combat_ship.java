@@ -325,22 +325,6 @@ public class combat_ship extends script.base_script
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         obj_id player = utils.getContainingPlayer(self);
-        if (!hasObjVar(self, "ship_refire_fix"))
-        {
-            String ship_refire_table = "datatables/space_loot/ship_refire_fix/" + getClusterName() + "_ships.iff";
-            String id = "" + self;
-            LOG("shipcontents", "ship: " + id + " versioning weapons with " + ship_refire_table);
-            dictionary refireDict = utils.dataTableGetRow(ship_refire_table, id);
-            if (refireDict == null)
-            {
-                LOG("shipcontents", "Ship for refire fix not found for " + self + ".");
-            }
-            else 
-            {
-                setObjVar(self, "ship_refire_fix", refireDict.getInt("count"));
-                LOG("shipcontents", "Ship for refire fix found for " + self + " with " + refireDict.getInt("count") + " charges.");
-            }
-        }
         setCondition(self, CONDITION_ON);
         String strChassisType = getShipChassisType(self);
         int[] intSlots = space_crafting.getShipInstalledSlots(self);
