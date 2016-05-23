@@ -1,21 +1,7 @@
 package script.space.quest_logic;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_create;
-import script.library.space_quest;
-import script.library.space_utils;
-import script.library.space_crafting;
-import script.library.space_transition;
-import script.library.utils;
-import script.library.ship_ai;
-import script.library.prose;
+import script.library.*;
 
 public class recovery extends script.base_script
 {
@@ -494,6 +480,9 @@ public class recovery extends script.base_script
     }
     public int updateTargetWaypoint(obj_id self, dictionary params) throws InterruptedException
     {
+        if(self == null || self == obj_id.NULL_ID || !isIdValid(self)){
+            return SCRIPT_CONTINUE;
+        }
         obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
         obj_id ship = getObjIdObjVar(self, "target");
         obj_id waypoint = getObjIdObjVar(self, "waypoint");
@@ -520,11 +509,12 @@ public class recovery extends script.base_script
     }
     public void clearMissionWaypoint(obj_id self) throws InterruptedException
     {
-        obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
-        obj_id waypoint = getObjIdObjVar(self, "waypoint");
-        if (isIdValid(waypoint))
-        {
-            destroyWaypointInDatapad(waypoint, player);
+        if(isIdValid(self)) {
+            obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
+            obj_id waypoint = getObjIdObjVar(self, "waypoint");
+            if (isIdValid(waypoint) && isIdValid(player)) {
+                destroyWaypointInDatapad(waypoint, player);
+            }
         }
     }
     public void questCompleted(obj_id self) throws InterruptedException
