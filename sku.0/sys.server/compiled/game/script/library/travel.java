@@ -676,7 +676,7 @@ public class travel extends script.base_script
     }
     public static obj_id getStarportFromTerminal(obj_id terminal) throws InterruptedException
     {
-        if (terminal == null || terminal == obj_id.NULL_ID)
+        if (terminal == null || terminal == obj_id.NULL_ID || !isIdValid(terminal))
         {
             return null;
         }
