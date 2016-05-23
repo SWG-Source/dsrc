@@ -1,26 +1,7 @@
 package script.systems.vehicle_system;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.callable;
-import script.ai.ai_combat;
-import script.library.pet_lib;
-import script.library.healing;
-import script.library.utils;
-import script.library.battlefield;
-import script.library.attrib;
-import script.library.hue;
-import script.library.vehicle;
-import script.library.city;
-import script.library.trial;
-import script.library.buff;
+import script.library.*;
 
 public class vehicle_base extends script.base_script
 {
@@ -114,7 +95,7 @@ public class vehicle_base extends script.base_script
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
-        if (isDead(self) || ai_lib.aiIsDead(player))
+        if (isDead(self) || ai_lib.aiIsDead(player) || self == null || self == obj_id.NULL_ID || !isIdValid(self))
         {
             return SCRIPT_CONTINUE;
         }
