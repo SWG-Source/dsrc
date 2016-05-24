@@ -1,17 +1,13 @@
 package script.ai;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.deltadictionary;
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.beast_lib;
-import script.library.colors;
 import script.library.factions;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class ai_combat_assist extends script.base_script
 {
@@ -70,8 +66,6 @@ public class ai_combat_assist extends script.base_script
         String type = getStringObjVar(self, "creature_type");
         dictionary aiData = dataTableGetRow("datatables/mob/creatures.iff", type);
         float assistRange = aiData.getFloat("assist");
-        String socialGroup = aiData.getString("socialGroup");
-        String pvpFaction = aiData.getString("pvpFaction");
         if (assistRange == 0.0f)
         {
             return false;
@@ -83,53 +77,45 @@ public class ai_combat_assist extends script.base_script
         }
         Vector callToList = new Vector();
         callToList.setSize(0);
-        for (int i = 0; i < creatures.length; i++)
-        {
-            if (creatures[i] == self)
-            {
+        for (obj_id creature : creatures) {
+            if (creature.equals(self) || creature.equals(target)) {
                 continue;
             }
-            if (!isIdValid(creatures[i]) || !exists(creatures[i]))
-            {
+            if (!isIdValid(creature) || !exists(creature)) {
                 continue;
             }
-            if (isInvulnerable(creatures[i]))
-            {
+            if (isInvulnerable(creature)) {
                 continue;
             }
-            if (isPlayer(target) && factions.ignorePlayer(target, creatures[i]))
-            {
+            if (isPlayer(target) && factions.ignorePlayer(target, creature)) {
                 continue;
             }
-            if (isDead(creatures[i]))
-            {
+            if (isDead(creature)) {
                 continue;
             }
-            if (isIdValid(getMaster(creatures[i])))
-            {
+            if (isIdValid(getMaster(creature))) {
                 continue;
             }
-            if (!canSee(self, creatures[i]))
-            {
+            if (!canSee(self, creature)) {
                 continue;
             }
-            if (!factions.shareSocialGroup(self, creatures[i]) && !factions.areCreaturesAllied(self, creatures[i]))
-            {
+            if (!factions.shareSocialGroup(self, creature) && !factions.areCreaturesAllied(self, creature)) {
                 continue;
             }
-            if (Math.abs(getLocation(self).y - getLocation(creatures[i]).y) > 6.0f)
-            {
+            if (Math.abs(getLocation(self).y - getLocation(creature).y) > 6.0f) {
                 continue;
             }
-            callToList.add(creatures[i]);
+            if(creature.equals(target)){
+                continue;
+            }
+            callToList.add(creature);
         }
-        if (callToList == null || callToList.size() == 0)
+        if (callToList.size() == 0)
         {
             return false;
         }
-        for (int q = 0; q < callToList.size(); q++)
-        {
-            startAssistedCombat(((obj_id)callToList.get(q)), target);
+        for (Object creature : callToList) {
+            startAssistedCombat((obj_id) creature, target);
         }
         return true;
     }
