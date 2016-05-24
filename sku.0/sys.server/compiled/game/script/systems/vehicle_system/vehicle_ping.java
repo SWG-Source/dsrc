@@ -1,17 +1,11 @@
 package script.systems.vehicle_system;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.callable;
 import script.library.pet_lib;
 import script.library.utils;
 import script.library.vehicle;
+import script.obj_id;
 
 public class vehicle_ping extends script.base_script
 {
@@ -128,7 +122,18 @@ public class vehicle_ping extends script.base_script
         final int mostRecentAckMessageNumber = getIntObjVar(self, VCDPING_LAST_ACK_MESSAGE_NUMBER);
         if (ackMessageNumber > mostRecentAckMessageNumber)
         {
-            setObjVar(self, VCDPING_LAST_ACK_MESSAGE_NUMBER, ackMessageNumber);
+            try {
+                setObjVar(self, VCDPING_LAST_ACK_MESSAGE_NUMBER, ackMessageNumber);
+            }
+            catch(Exception e){
+                System.out.println("Unable to update VCDPing Acknowledgement.");
+                System.out.println("Self is " + (isIdValid(self) ? "" : "not") + " valid.");
+                System.out.println("Self = " + self.toString());
+                System.out.println("Self's Name: " + getName(self));
+                System.out.println("Self's Template: " + getTemplateName(self));
+                System.out.println("Self's Owner: " + getOwner(self));
+                System.out.println("Self's Location: " + getLocation(self).toString());
+            }
             if (debug)
             {
                 LOG("vcdping-debug", "vehicle_ping.handlePositiveAcknowledgementFromVcd(): processed newer positive VCD ack number=[" + ackMessageNumber + "]");
