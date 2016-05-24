@@ -1,25 +1,7 @@
 package script.systems.crafting;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.craftinglib;
-import script.library.groundquests;
-import script.library.jedi_trials;
-import script.library.pet_lib;
-import script.library.loot;
-import script.library.prose;
-import script.library.scheduled_drop;
-import script.library.session;
-import script.library.temp_schematic;
-import script.library.utils;
+import script.library.*;
 
 public class base_tool extends script.base_script
 {
@@ -343,38 +325,44 @@ public class base_tool extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (hasObjVar(self, "quality"))
-        {
-            names[idx] = "quality";
-            float attrib = getFloatObjVar(self, "quality");
-            attribs[idx] = " " + attrib;
-            idx++;
-            if (idx >= names.length)
-            {
-                return SCRIPT_CONTINUE;
+        try {
+            if (hasObjVar(self, "quality")) {
+                names[idx] = "quality";
+                float attrib = getFloatObjVar(self, "quality");
+                attribs[idx] = " " + attrib;
+                idx++;
+                if (idx >= names.length) {
+                    return SCRIPT_CONTINUE;
+                }
+            }
+            int critAssembly = getIntObjVar(self, craftinglib.OBJVAR_FORCE_CRITICAL_ASSEMBLY);
+            if (critAssembly > 0) {
+                names[idx] = "@crafting:crit_assembly";
+                attribs[idx] = "" + critAssembly;
+                idx++;
+                if (idx >= names.length) {
+                    return SCRIPT_CONTINUE;
+                }
+            }
+            int critExperiment = getIntObjVar(self, craftinglib.OBJVAR_FORCE_CRITICAL_EXPERIMENT);
+            if (critExperiment > 0) {
+                names[idx] = "@crafting:crit_experiment";
+                attribs[idx] = "" + critExperiment;
+                idx++;
+                if (idx >= names.length) {
+                    return SCRIPT_CONTINUE;
+                }
             }
         }
-        int critAssembly = getIntObjVar(self, craftinglib.OBJVAR_FORCE_CRITICAL_ASSEMBLY);
-        if (critAssembly > 0)
-        {
-            names[idx] = "@crafting:crit_assembly";
-            attribs[idx] = "" + critAssembly;
-            idx++;
-            if (idx >= names.length)
-            {
-                return SCRIPT_CONTINUE;
+        catch(Exception e){
+            System.out.println("Found problem while trying to get attributes.");
+            if(isIdValid(self)){
+                for(attribute attrib : getAttribs(self)){
+                    System.out.println("Found: " + attrib.toString());
+                }
             }
-        }
-        int critExperiment = getIntObjVar(self, craftinglib.OBJVAR_FORCE_CRITICAL_EXPERIMENT);
-        if (critExperiment > 0)
-        {
-            names[idx] = "@crafting:crit_experiment";
-            attribs[idx] = "" + critExperiment;
-            idx++;
-            if (idx >= names.length)
-            {
-                return SCRIPT_CONTINUE;
-            }
+            System.out.println("Stack Trace:");
+            e.printStackTrace();
         }
         return SCRIPT_CONTINUE;
     }
