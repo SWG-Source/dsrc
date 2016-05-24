@@ -1,19 +1,9 @@
 package script.theme_park.script_spawner.spawner_methods;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.combat;
-import script.library.utils;
-import script.library.create;
-import script.library.gcw;
-import script.library.locations;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
 public class gcw_spawner extends script.base_script
 {
@@ -170,7 +160,15 @@ public class gcw_spawner extends script.base_script
         {
             return obj_id.NULL_ID;
         }
-        obj_id room = getCellId(building, spawnRoom);
+        obj_id room = null;
+        try {
+            room = getCellId(building, spawnRoom);
+        }
+        catch (Exception e){
+            System.out.println("Unable to get cell id of room (" + spawnRoom + ") in building " + building.toString() + " while looking in datatable \"" + datatable + "\".");
+            System.out.println("Script is currently attached to OBJID " + self.toString());
+            e.printStackTrace();
+        }
         if (!isIdValid(room) && !spawnRoom.equals("world"))
         {
             CustomerServiceLog("bad_spawner_data", "spawner " + self + ", datatable " + datatable + ", row " + x + ", mob " + spawn + ", room " + spawnRoom + " doesn't exist");
