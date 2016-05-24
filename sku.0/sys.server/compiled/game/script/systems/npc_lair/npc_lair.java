@@ -288,7 +288,6 @@ public class npc_lair extends script.theme_park.poi.base
         }
         int[] numSpawned = new int[creatureList.length];
         int mobileNumber = 0;
-        int intI = 0;
         PROFILER_STOP("npc_lair.spawnNpcLairMobiles.setup");
         int creatureListLength = creatureList.length;
         if (creatureListLength != spawnLimit.length || creatureListLength != numSpawned.length)
@@ -360,10 +359,10 @@ public class npc_lair extends script.theme_park.poi.base
         {
             PROFILER_START("npc_lair.spawnNpcLairMobiles.makeMobs.badDifficulty");
             int intJ = 0;
+            obj_id mobile;
             while (intJ < 3)
             {
                 int intRoll = rand(0, creatureList.length - 1);
-                obj_id mobile = null;
                 mobile = spawnMobile(creatureList[intRoll], target, lairLevel);
                 if (isIdValid(mobile))
                 {
@@ -384,7 +383,7 @@ public class npc_lair extends script.theme_park.poi.base
         {
             lairLevel = 5;
         }
-        if (lairLevel > 90)
+        else if (lairLevel > 90)
         {
             lairLevel = 90;
         }
@@ -405,9 +404,21 @@ public class npc_lair extends script.theme_park.poi.base
         setObjVar(poiBaseObject, "npc_lair.lairDifficulty", lairLevel);
         if (isIdValid(target))
         {
-            setObjVar(target, "intCombatDifficulty", lairLevel);
-            setMaxHitpoints(target, hpValue);
-            setHitpoints(target, hpValue);
+            try {
+                setObjVar(target, "intCombatDifficulty", lairLevel);
+                setMaxHitpoints(target, hpValue);
+                setHitpoints(target, hpValue);
+            }
+            catch(Exception e){
+                System.out.println("Couldn't set obj vars on target with obj_id " + target.toString());
+                System.out.println("Target does " + (isIdValid(target) ? "" : "not") + " have a valid obj id.");
+                System.out.println("Target is " + (isPlayer(target) ? "" : "not") + " a player.");
+                System.out.println("Target is " + (isIncapacitated(target) ? "" : "not") + " incapacitated.");
+                System.out.println("Target is " + (isInvulnerable(target) ? "" : "not") + " invulnerable.");
+                System.out.println("Target is " + (isGod(target) ? "" : "not") + " in god mode.");
+                System.out.println("Targets template is " + getTemplateName(target));
+                System.out.println("Targets name is " + getPlayerName(target));
+            }
         }
         else 
         {
