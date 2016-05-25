@@ -545,7 +545,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3695395	0	object/tangible/furniture/tatooine/frn_tato_tbl_cafe_table_style_01.iff	0	750.45	86	1243.68	0.935897	0	-0.352274	0		$|
 3695396	0	object/static/item/item_con_ration_kit_m.iff	0	752.238	87.4632	1241.32	0.973666	0	-0.227978	0		$|
 3695397	0	object/static/item/item_con_ration_kit_lg.iff	0	751.967	87.4632	1241.47	-0.689498	0	0.724287	0		$|
-3695398	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	751.966	86.7632	1241.44	0.768054	0	-0.640385	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
+3695398	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	751.966	86.7632	1241.44	0.768054	0	-0.640385	0		$|
 3695399	0	object/static/item/item_ammo_rocket.iff	0	750.681	86.7589	1244.07	0.935897	0	-0.352274	0		$|
 3695400	0	object/static/item/item_ammo_rocket.iff	0	750.633	86.7589	1244.24	0.771246	0	-0.636537	0		$|
 3695401	0	object/static/item/item_rocket_launcher.iff	0	750.621	86.77	1243.63	0.603112	0.359546	0.362223	0.613006		$|
