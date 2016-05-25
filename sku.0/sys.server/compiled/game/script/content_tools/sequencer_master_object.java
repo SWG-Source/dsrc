@@ -1,18 +1,9 @@
 package script.content_tools;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sequencer;
-import script.library.chat;
-import script.library.utils;
-import script.library.space_utils;
-import script.library.npe;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
 public class sequencer_master_object extends script.base_script
 {
@@ -194,6 +185,9 @@ public class sequencer_master_object extends script.base_script
     public int processEvents(dictionary dctEventToRun, int intIndex) throws InterruptedException
     {
         obj_id self = getSelf();
+        if(!isIdValid(self) || !exists(self) || self == null || self == obj_id.NULL_ID){
+            return SCRIPT_CONTINUE;
+        }
         String strActor = dctEventToRun.getString("strActor");
         String strAction = toLower(dctEventToRun.getString("strAction"));
         String strTarget = dctEventToRun.getString("strTarget");
