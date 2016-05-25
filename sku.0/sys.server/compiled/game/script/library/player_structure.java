@@ -380,7 +380,14 @@ public class player_structure extends script.base_script
         setObjVar(structure, VAR_TEMP_PLACEMENT_HEIGHT, placementHeight);
         setDeedTemplate(structure, deed_template);
         setObjVar(structure, VAR_DEED_BUILDTIME, build_time);
-        String scene = getDeedScene(deed);
+        String scene;
+        try {
+            scene = getDeedScene(deed);
+        }
+        catch(Exception e){
+            System.out.println("Couldnt get deed scene from deed: " + deed.toString());
+            System.out.println("Deed owner: " + getOwner(deed) + " owners name: " + getName(getOwner(deed)));
+        }
         setObjVar(structure, VAR_DEED_SCENE, scene);
         String cityName = getStringObjVar(deed, "cityName");
         if (cityName != null && !cityName.equals(""))
