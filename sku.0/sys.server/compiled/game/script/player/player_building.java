@@ -1,38 +1,9 @@
 package script.player;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import java.lang.Math;
-import script.library.ai_lib;
-import script.library.callable;
-import script.library.city;
-import script.library.colors_hex;
-import script.library.create;
-import script.library.dressup;
-import script.library.hq;
-import script.library.incubator;
-import script.library.money;
-import script.library.pclib;
-import script.library.performance;
-import script.library.player_structure;
-import script.library.prose;
-import script.library.resource;
-import script.library.session;
-import script.library.skill;
-import script.library.static_item;
-import script.library.sui;
-import script.library.tcg;
-import script.library.trial;
-import script.library.turnstile;
-import script.library.utils;
-import script.library.vendor_lib;
-import script.library.xp;
+import java.util.Vector;
 
 public class player_building extends script.base_script
 {
@@ -147,17 +118,13 @@ public class player_building extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id owner = utils.getContainingPlayer(deed);
-        if (player == owner)
-        {
-        }
-        else 
-        {
+        if (player != owner) {
             sendSystemMessage(player, new string_id(STF, "no_possession"));
             if (isIdValid(owner))
             {
                 CustomerServiceLog("playerStructure", "%TU tried to place a building, but no longer possesses the deed (" + deed + ")! %TT currently has the deed.", player, owner);
             }
-            else 
+            else
             {
                 CustomerServiceLog("playerStructure", "%TU tried to place a building, but no longer possesses the deed (" + deed + ")!", player);
             }
@@ -194,7 +161,7 @@ public class player_building extends script.base_script
             sendSystemMessage(player, new string_id(STF, "no_room"));
             return SCRIPT_CONTINUE;
         }
-        if (player_structure.isCivicTemplate(template) && (template.indexOf("cityhall") == -1))
+        if (player_structure.isCivicTemplate(template) && (!template.contains("cityhall")))
         {
             if (!canPlaceCivic(player, deed, position, template))
             {

@@ -261,7 +261,7 @@ public class craftinglib extends script.base_script
         {
             stationId = getSelf();
         }
-        if (hasObjVar(stationId, OBJVAR_CRAFTING_STATION_BONUS) == true)
+        if (isIdValid(stationId) && exists(stationId) && hasObjVar(stationId, OBJVAR_CRAFTING_STATION_BONUS))
         {
             craftingStationMod = getFloatObjVar(stationId, OBJVAR_CRAFTING_STATION_BONUS) / 10;
         }
