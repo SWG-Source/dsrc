@@ -27,9 +27,11 @@ public class crafting_weapon_component_attribute extends script.base_script
     }
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
-        if (isIdValid(self) && exists(self) && hasObjVar(self, "forceComponent") && !isJedi(player) && !isGod(player))
-        {
-            return SCRIPT_OVERRIDE;
+        if(!isIdValid(self) || !exists(self) || self == null || self == obj_id.NULL_ID){
+            return SCRIPT_CONTINUE;
+        }
+        if (isIdValid(self) && exists(self) && hasObjVar(self, "forceComponent") && !isJedi(player) && !isGod(player)){
+            return SCRIPT_CONTINUE;
         }
         int idx = utils.getValidAttributeIndex(names);
         if (idx == -1)
