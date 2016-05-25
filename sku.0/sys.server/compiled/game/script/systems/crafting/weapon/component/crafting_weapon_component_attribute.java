@@ -1,16 +1,11 @@
 package script.systems.crafting.weapon.component;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.craftinglib;
-import script.library.weapons;
 import script.library.utils;
+import script.library.weapons;
+import script.obj_id;
+import script.string_id;
 
 public class crafting_weapon_component_attribute extends script.base_script
 {
@@ -32,7 +27,7 @@ public class crafting_weapon_component_attribute extends script.base_script
     }
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
-        if (hasObjVar(self, "forceComponent") && (!isJedi(player) && !isGod(player)))
+        if (isIdValid(self) && exists(self) && hasObjVar(self, "forceComponent") && !isJedi(player) && !isGod(player))
         {
             return SCRIPT_OVERRIDE;
         }
