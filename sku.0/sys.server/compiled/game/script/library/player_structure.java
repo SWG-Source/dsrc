@@ -277,7 +277,7 @@ public class player_structure extends script.base_script
     }
     public static obj_id createTemporaryStructure(obj_id deed, obj_id owner, location loc, int rot, float placementHeight) throws InterruptedException
     {
-        if (!isIdValid(deed))
+        if (!isIdValid(deed) || !exists(deed) || deed == null || deed == obj_id.NULL_ID)
         {
             return null;
         }
