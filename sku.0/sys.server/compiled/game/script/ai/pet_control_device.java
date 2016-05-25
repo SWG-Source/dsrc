@@ -1,35 +1,9 @@
 package script.ai;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.battlefield;
-import script.library.beast_lib;
-import script.library.bio_engineer;
-import script.library.buff;
-import script.library.callable;
-import script.library.consumable;
-import script.library.create;
-import script.library.factions;
-import script.library.healing;
-import script.library.hue;
-import script.library.incubator;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.space_crafting;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.stealth;
-import script.library.sui;
-import script.library.target_dummy;
-import script.library.utils;
-import script.library.vehicle;
+import java.util.Vector;
 
 public class pet_control_device extends script.base_script
 {
@@ -565,6 +539,10 @@ public class pet_control_device extends script.base_script
         {
             sendSystemMessage(player, SHAPECHANGE);
             return SCRIPT_CONTINUE;
+        }
+        if (pet_lib.isMounted(player))
+        {
+            dismountCreature(player);
         }
         mountCreature(player, pet);
         pet_lib.setMountedMovementRate(player, pet);
