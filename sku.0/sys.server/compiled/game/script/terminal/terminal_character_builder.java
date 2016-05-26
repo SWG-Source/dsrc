@@ -1518,6 +1518,20 @@ public class terminal_character_builder extends script.base_script
     {
         "Blix's Ultra Crafting Suit"
     };
+	public static final String[] buffComponentKeys = 
+    {
+        "kinetic",
+        "energy",
+        "action_cost_reduction",
+        "dodge"
+    };
+    public static final int[] buffComponentValues = 
+    {
+        15,
+        15,
+        1,
+        2
+    };
     public boolean checkConfigSetting(String configString) throws InterruptedException
     {
         String enabled = toLower(getConfigSetting("CharacterBuilder", configString));
@@ -6447,6 +6461,14 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Spec-Ops Pack Issued.");
             break;
 			case 1:
+			obj_id bufferId = player;
+			float currentBuffTime = performance.inspireGetMaxDuration(player);
+			buff.applyBuff(player, "buildabuff_inspiration", 3600);
+			utils.setScriptVar(player, "performance.buildabuff.buffComponentKeys", buffComponentKeys);
+			utils.setScriptVar(player, "performance.buildabuff.buffComponentValues", buffComponentValues);
+			utils.setScriptVar(player, "performance.buildabuff.bufferId", bufferId);
+			
+			
 			buff.applyBuff((player), "me_buff_health_2", 7200);
 			buff.applyBuff((player), "me_buff_action_3", 7200);
 			buff.applyBuff((player), "me_buff_strength_3", 7200);
