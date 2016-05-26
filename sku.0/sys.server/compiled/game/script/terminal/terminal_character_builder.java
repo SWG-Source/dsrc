@@ -2522,14 +2522,7 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 2:
-            if (!isGod(player))
-            {
-                refreshMenu(player, prompt, title, BEAST_OPTIONS_FOR_PLAYERS, "handleBeastSelect", false);
-            }
-            else 
-            {
-                refreshMenu(player, prompt, title, BEAST_OPTIONS, "handleBeastSelect", false);
-            }
+            refreshMenu(player, prompt, title, BEAST_OPTIONS, "handleBeastSelect", false);
             break;
             case 3:
             obj_id beast = beast_lib.getBeastOnPlayer(player);
