@@ -42,6 +42,7 @@ import script.library.stealth;
 import script.library.sui;
 import script.library.utils;
 import script.library.weapons;
+import script.library.performance;
 
 public class terminal_character_builder extends script.base_script
 {
@@ -81,6 +82,7 @@ public class terminal_character_builder extends script.base_script
     public static final string_id PROSE_GRANT_SKILL_FAIL = new string_id("skill_teacher", "skill_terminal_grant_fail");
     public static final String[] CHARACTER_BUILDER_OPTIONS = 
     {
+		"StellaTesting",
         "Weapons",
         "Armor Sets",
         "Roadmap Skill Builder",
@@ -870,6 +872,10 @@ public class terminal_character_builder extends script.base_script
         "Master Crafted DC-15 Schematic",
         "Vet 30k Resource Deed"
     };
+	public static final String[] STELLA_OPTIONS = 
+    {
+        "Spec-Ops Pack",
+    };
     public static final String[] MEDICINE_OPTIONS = 
     {
         "High Charge Stimpack-A",
@@ -1583,7 +1589,19 @@ public class terminal_character_builder extends script.base_script
         }
         switch (idx)
         {
-            case 0:
+			case 0:
+            if (isGod(player) || checkConfigSetting("StellaEnabled"))
+            {
+                handleStellaOption(player);
+            }
+            else 
+            {
+                sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
+			
+            case 1:
             if (isGod(player) || checkConfigSetting("weaponsEnabled"))
             {
                 handleWeaponOption(player);
@@ -1594,7 +1612,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 1:
+            case 2:
             if (isGod(player) || checkConfigSetting("armorEnabled"))
             {
                 handleArmorOption(player);
@@ -1605,7 +1623,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 2:
+            case 3:
             if (isGod(player) || checkConfigSetting("skillsEnabled"))
             {
                 handleRoadmapSkills(player);
@@ -1616,7 +1634,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 3:
+            case 4:
             if (isGod(player) || checkConfigSetting("resourcesEnabled"))
             {
                 handleResourceOption(player);
@@ -1627,7 +1645,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 4:
+            case 5:
             if (isGod(player) || checkConfigSetting("creditsEnabled"))
             {
                 handleCreditOption(player);
@@ -1638,7 +1656,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 5:
+            case 6:
             if (isGod(player) || checkConfigSetting("factionEnabled"))
             {
                 handleFactionOption(player);
@@ -1649,10 +1667,10 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 6:
+            case 7:
             handleVehicleOption(player);
             break;
-            case 7:
+            case 8:
             if (isGod(player) || checkConfigSetting("shipsEnabled"))
             {
                 handleShipMenuSelect(player);
@@ -1663,7 +1681,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 8:
+            case 9:
             if (isGod(player) || checkConfigSetting("craftingEnabled"))
             {
                 handleCraftingOption(player);
@@ -1674,7 +1692,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 9:
+            case 10:
             if (isGod(player) || checkConfigSetting("deedsEnabled"))
             {
                 handleDeedOption(player);
@@ -1685,7 +1703,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 10:
+            case 11:
             if (isGod(player) || checkConfigSetting("pahallEnabled"))
             {
                 handlePAOption(player);
@@ -1696,7 +1714,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 11:
+            case 12:
             if (isGod(player) || checkConfigSetting("miscitemEnabled"))
             {
                 handleMiscOption(player);
@@ -1707,7 +1725,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 12:
+            case 13:
             if (isGod(player) || checkConfigSetting("jediEnabled"))
             {
                 handleJediOption(player);
@@ -1718,8 +1736,8 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 13:
-            if (isGod(player))
+            case 14:
+            if (isGod(player) || checkConfigSetting("BestResourceEnabled"))
             {
                 handleBestResourceOption(player);
             }
@@ -1729,8 +1747,8 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 14:
-            if (isGod(player))
+            case 15:
+            if (isGod(player) || checkConfigSetting("HeroicFlagEnabled"))
             {
                 flagAllHeroicInstances(player);
             }
@@ -1740,8 +1758,8 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 15:
-            if (isGod(player))
+            case 16:
+            if (isGod(player) || checkConfigSetting("DraftSchematicsEnabled"))
             {
                 handleDraftSchematicsOption(player);
             }
@@ -6370,6 +6388,80 @@ public class terminal_character_builder extends script.base_script
             }
         }
         refreshMenu(player, "Select the desired armor option", "Character Builder Terminal", HEROIC_JEWELRY_LIST, "handleHeroicJewelrySelect", false);
+        return SCRIPT_CONTINUE;
+    }
+	public void handleStellaOption(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired thingie", "Character Builder Terminal", STELLA_OPTIONS, "handleStellaOptions", false);
+    }
+	public int handleStellaOptions(obj_id self, dictionary params) throws InterruptedException
+    {
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+        obj_id pInv = utils.getInventoryContainer(player);
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+            handleMiscOption(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (idx == -1 || idx > STELLA_OPTIONS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (!isIdValid(player))
+        {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+        if (!isIdValid(pInv))
+        {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+        if (getVolumeFree(pInv) <= 0)
+        {
+            sendSystemMessageTestingOnly(player, "Your Inventory is Full, please make room and try again.");
+            cleanScriptVars(player);
+			return SCRIPT_OVERRIDE;
+		}
+       
+       switch (idx)
+        {
+            case 0:
+            createObject("object/tangible/wearables/backpack/backpack_s06.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Spec-Ops Pack Issued.");
+            break;
+			case 1:
+			buff.applyBuff((player), "me_buff_health_2", 7200);
+			buff.applyBuff((player), "me_buff_action_3", 7200);
+			buff.applyBuff((player), "me_buff_strength_3", 7200);
+			buff.applyBuff((player), "me_buff_agility_3", 7200);
+			buff.applyBuff((player), "me_buff_precision_3", 7200);        
+			buff.applyBuff((player), "me_buff_melee_gb_1", 7200); 		
+			buff.applyBuff((player), "me_buff_ranged_gb_1", 7200);
+			buff.applyBuff((player), "of_buff_def_9", 7200);
+			buff.applyBuff((player), "of_tactical_drop_6", 7200);
+			buff.applyBuff((player), "of_buff_def_9", 7200);
+			break;
+			default:
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+        refreshMenu(player, "Select the desired option", "Character Builder Terminal", MISC_OPTIONS, "handleMiscSelect", false);
         return SCRIPT_CONTINUE;
     }
     public void handleMiscOption(obj_id player) throws InterruptedException
