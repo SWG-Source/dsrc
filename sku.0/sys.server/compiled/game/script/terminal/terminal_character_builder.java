@@ -875,6 +875,7 @@ public class terminal_character_builder extends script.base_script
 	public static final String[] STELLA_OPTIONS = 
     {
         "Spec-Ops Pack",
+		"Buff me",
     };
     public static final String[] MEDICINE_OPTIONS = 
     {
