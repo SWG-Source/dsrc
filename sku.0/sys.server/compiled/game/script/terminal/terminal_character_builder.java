@@ -2747,7 +2747,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        String[] beasts = (!isGod(player) ? BEAST_OPTIONS_FOR_PLAYERS : BEAST_OPTIONS);
+        String[] beasts = BEAST_OPTIONS;
         if (idx == -1 || idx > beasts.length)
         {
             cleanScriptVars(player);
