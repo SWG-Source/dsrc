@@ -871,7 +871,11 @@ public class terminal_character_builder extends script.base_script
         "Seeker Droid",
         "Master Crafted EE3 Schematic",
         "Master Crafted DC-15 Schematic",
-        "Vet 30k Resource Deed"
+        "Vet 30k Resource Deed",
+		"Biological Focus Crystal",
+		"Synapse Focus Crystal",
+		"Mustafarian Injector",
+		"Naboo Signaling Unit",
     };
 	public static final String[] STELLA_OPTIONS = 
     {
@@ -6657,6 +6661,22 @@ public class terminal_character_builder extends script.base_script
             case 10:
             createObject("object/tangible/veteran_reward/resource.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Resource Kit Issued");
+			break;
+			case 11:
+            createObject("object/tangible/item/quest/force_sensitive/fs_crystal_health.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Biological Focus Crystal Issued");
+			break;
+			case 12:
+			createObject("object/tangible/item/quest/force_sensitive/fs_crystal_force.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Synapse Focus Crystal Issued");
+			break;
+			case 13:
+			createObject("object/tangible/loot/mustafar/old_republic_tech_02.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Mustafarian Injector Issued");
+			break;
+			case 14:
+			createObject("object/tangible/tcg/series5/consumable_signal_unit.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Naboo Signaling Unit Issued");
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
