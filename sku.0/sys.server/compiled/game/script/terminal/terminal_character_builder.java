@@ -6663,19 +6663,19 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Resource Kit Issued");
 			break;
 			case 11:
-            createObject("object/tangible/item/quest/force_sensitive/fs_crystal_health.iff", pInv, "");
+			static_item.createNewItemFunction("item_force_crystal_04_01", pInv);
             sendSystemMessageTestingOnly(player, "Biological Focus Crystal Issued");
 			break;
 			case 12:
-			createObject("object/tangible/item/quest/force_sensitive/fs_crystal_force.iff", pInv, "");
+			static_item.createNewItemFunction("item_force_crystal_04_02", pInv);
             sendSystemMessageTestingOnly(player, "Synapse Focus Crystal Issued");
 			break;
 			case 13:
-			createObject("object/tangible/loot/mustafar/old_republic_tech_02.iff", pInv, "");
-            sendSystemMessageTestingOnly(player, "Mustafarian Injector Issued");
+			static_item.createNewItemFunction("item_tow_proc_generic_03_01", pInv);
+			sendSystemMessageTestingOnly(player, "Mustafarian Injector Issued");
 			break;
 			case 14:
-			createObject("object/tangible/tcg/series5/consumable_signal_unit.iff", pInv, "");
+			static_item.createNewItemFunction("item_tcg_loot_reward_series5_signal_unit", pInv);
             sendSystemMessageTestingOnly(player, "Naboo Signaling Unit Issued");
             default:
             cleanScriptVars(player);
