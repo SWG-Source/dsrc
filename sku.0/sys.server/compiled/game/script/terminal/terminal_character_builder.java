@@ -881,6 +881,7 @@ public class terminal_character_builder extends script.base_script
     {
         "Spec-Ops Pack",
 		"Buff me",
+		"Healing Stims"
     };
     public static final String[] MEDICINE_OPTIONS = 
     {
@@ -2522,14 +2523,7 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 2:
-            if (!isGod(player))
-            {
-                refreshMenu(player, prompt, title, BEAST_OPTIONS_FOR_PLAYERS, "handleBeastSelect", false);
-            }
-            else 
-            {
-                refreshMenu(player, prompt, title, BEAST_OPTIONS, "handleBeastSelect", false);
-            }
+            refreshMenu(player, prompt, title, BEAST_OPTIONS, "handleBeastSelect", false);
             break;
             case 3:
             obj_id beast = beast_lib.getBeastOnPlayer(player);
@@ -2754,7 +2748,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        String[] beasts = (!isGod(player) ? BEAST_OPTIONS_FOR_PLAYERS : BEAST_OPTIONS);
+        String[] beasts = BEAST_OPTIONS;
         if (idx == -1 || idx > beasts.length)
         {
             cleanScriptVars(player);
@@ -6489,6 +6483,10 @@ public class terminal_character_builder extends script.base_script
 			buff.applyBuff((player), "vr_familiar_defense_8", 14400);
 			buff.applyBuff((player), "drink_flameout", 14400);
 			break;
+			case 2:
+			// createObject("object/tangible/medicine/instant_stimpack/stimpack_generic_e.iff", pInv, "");
+			static_item.createNewItemFunction("item_off_temp_stimpack_02_06", pInv);
+			break;
 			default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -8151,15 +8149,8 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Color Crystals Issued!");
             break;
             case 1:
-            if (isGod(player))
-            {
                 static_item.createNewItemFunction("item_tow_lava_crystal_06_01", pInv);
                 sendSystemMessageTestingOnly(player, "Lava Crystal Issued!");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Lava Crystal!");
-            }
             break;
             case 2:
             for (int i = 0; i < 4; i++)
@@ -8169,18 +8160,11 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Power Crystals Issued!");
             break;
             case 3:
-            if (isGod(player))
-            {
                 for (int i = 0; i < 4; i++)
                 {
                     static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
                 }
                 sendSystemMessageTestingOnly(player, "Ancient Krayt Pearls Issued!");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Ancient Krayt Pearls Issued!");
-            }
             break;
             default:
             cleanScriptVars(player);
@@ -9206,7 +9190,7 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             cleanScriptVars(player);
@@ -9245,7 +9229,7 @@ public class terminal_character_builder extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             return SCRIPT_OVERRIDE;
@@ -9279,7 +9263,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             cleanScriptVars(player);
