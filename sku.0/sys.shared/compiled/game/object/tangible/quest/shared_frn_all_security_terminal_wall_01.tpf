@@ -6,11 +6,8 @@
 
 @class object_template 5
 
-
 objectName = "frn_n"  "frn_payroll_terminal"
 
 detailedDescription = "frn_d"  "frn_payroll_terminal"
-
-appearanceFilename = "appearance/frn_all_data_terminal_wall_s1.apt"
 
 portalLayoutFilename = ""
