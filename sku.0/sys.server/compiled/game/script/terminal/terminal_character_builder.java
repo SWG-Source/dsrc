@@ -961,6 +961,8 @@ public class terminal_character_builder extends script.base_script
         "(80)Dark Jedi Knight Robe",
         "(80)Jedi Master Cloak Brown",
         "(80)Jedi Master Cloak Black",
+		"(80)Elder Jedi Arbiter Robe",
+		"(80)Elder Jedi Oppressor Robe",
         "Reset Jedi Statue Slots for Master Jedi Cloaks Collection"
     };
     public static final String ARMOR_SET_PREFIX = "object/tangible/wearables/armor/";
@@ -8483,7 +8485,21 @@ public class terminal_character_builder extends script.base_script
                 sendSystemMessageTestingOnly(player, "Jedi Master Cloak Issued!");
             }
             break;
-            case 9:
+			case 9:
+            
+            {
+                static_item.createNewItemFunction("item_jedi_robe_light_04_04", pInv);
+                sendSystemMessageTestingOnly(player, "Elder Jedi Arbiter Robe Issued!");
+            }
+            break;
+			case 10:
+            
+            {
+                static_item.createNewItemFunction("item_jedi_robe_dark_04_04", pInv);
+                sendSystemMessageTestingOnly(player, "Elder Jedi Oppressor Robe Issued!");
+            }
+            break;
+            case 11:
             
             {
                 if (hasCompletedCollectionSlot(player, "jedi_robe_01_07"))
