@@ -6402,7 +6402,7 @@ public class terminal_character_builder extends script.base_script
         int idx = sui.getListboxSelectedRow(params);
         if (btn == sui.BP_REVERT)
         {
-            handleMiscOption(player);
+			refreshMenu(player, "Select the desired character option", "Character Builder Terminal", CHARACTER_BUILDER_OPTIONS, "handleOptionSelect", true);
             return SCRIPT_CONTINUE;
         }
         if (btn == sui.BP_CANCEL)
@@ -6475,7 +6475,7 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
         }
-        refreshMenu(player, "Select the desired option", "Character Builder Terminal", MISC_OPTIONS, "handleMiscSelect", false);
+        refreshMenu(player, "Select the desired option", "Character Builder Terminal", STELLA_OPTIONS, "handleStellaOptions", false);
         return SCRIPT_CONTINUE;
     }
     public void handleMiscOption(obj_id player) throws InterruptedException
