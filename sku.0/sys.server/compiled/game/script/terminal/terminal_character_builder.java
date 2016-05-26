@@ -9245,7 +9245,7 @@ public class terminal_character_builder extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             return SCRIPT_OVERRIDE;
@@ -9279,7 +9279,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             cleanScriptVars(player);
