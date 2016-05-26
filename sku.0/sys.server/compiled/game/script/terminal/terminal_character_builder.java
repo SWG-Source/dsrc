@@ -42,6 +42,7 @@ import script.library.stealth;
 import script.library.sui;
 import script.library.utils;
 import script.library.weapons;
+import script.library.performance;
 
 public class terminal_character_builder extends script.base_script
 {
@@ -81,6 +82,7 @@ public class terminal_character_builder extends script.base_script
     public static final string_id PROSE_GRANT_SKILL_FAIL = new string_id("skill_teacher", "skill_terminal_grant_fail");
     public static final String[] CHARACTER_BUILDER_OPTIONS = 
     {
+		"StellaTesting",
         "Weapons",
         "Armor Sets",
         "Roadmap Skill Builder",
@@ -524,7 +526,8 @@ public class terminal_character_builder extends script.base_script
         "Fusion Reactor",
         "Corellia City Pack",
         "Naboo City Pack",
-        "Tatooine City Pack"
+        "Tatooine City Pack",
+		"TCG Houses"
     };
     public static final String[] CRAFTING_OPTIONS = 
     {
@@ -868,7 +871,17 @@ public class terminal_character_builder extends script.base_script
         "Seeker Droid",
         "Master Crafted EE3 Schematic",
         "Master Crafted DC-15 Schematic",
-        "Vet 30k Resource Deed"
+        "Vet 30k Resource Deed",
+		"Biological Focus Crystal",
+		"Synapse Focus Crystal",
+		"Mustafarian Injector",
+		"Naboo Signaling Unit",
+    };
+	public static final String[] STELLA_OPTIONS = 
+    {
+        "Spec-Ops Pack",
+		"Buff me",
+		"Healing Stims"
     };
     public static final String[] MEDICINE_OPTIONS = 
     {
@@ -954,6 +967,8 @@ public class terminal_character_builder extends script.base_script
         "(80)Dark Jedi Knight Robe",
         "(80)Jedi Master Cloak Brown",
         "(80)Jedi Master Cloak Black",
+		"(80)Elder Jedi Arbiter Robe",
+		"(80)Elder Jedi Oppressor Robe",
         "Reset Jedi Statue Slots for Master Jedi Cloaks Collection"
     };
     public static final String ARMOR_SET_PREFIX = "object/tangible/wearables/armor/";
@@ -1511,6 +1526,20 @@ public class terminal_character_builder extends script.base_script
     {
         "Blix's Ultra Crafting Suit"
     };
+	public static final String[] buffComponentKeys = 
+    {
+        "kinetic",
+        "energy",
+        "action_cost_reduction",
+        "dodge"
+    };
+    public static final int[] buffComponentValues = 
+    {
+        15,
+        15,
+        1,
+        2
+    };
     public boolean checkConfigSetting(String configString) throws InterruptedException
     {
         String enabled = toLower(getConfigSetting("CharacterBuilder", configString));
@@ -1583,7 +1612,19 @@ public class terminal_character_builder extends script.base_script
         }
         switch (idx)
         {
-            case 0:
+			case 0:
+            if (isGod(player) || checkConfigSetting("StellaEnabled"))
+            {
+                handleStellaOption(player);
+            }
+            else 
+            {
+                sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
+			
+            case 1:
             if (isGod(player) || checkConfigSetting("weaponsEnabled"))
             {
                 handleWeaponOption(player);
@@ -1594,7 +1635,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 1:
+            case 2:
             if (isGod(player) || checkConfigSetting("armorEnabled"))
             {
                 handleArmorOption(player);
@@ -1605,7 +1646,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 2:
+            case 3:
             if (isGod(player) || checkConfigSetting("skillsEnabled"))
             {
                 handleRoadmapSkills(player);
@@ -1616,7 +1657,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 3:
+            case 4:
             if (isGod(player) || checkConfigSetting("resourcesEnabled"))
             {
                 handleResourceOption(player);
@@ -1627,7 +1668,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 4:
+            case 5:
             if (isGod(player) || checkConfigSetting("creditsEnabled"))
             {
                 handleCreditOption(player);
@@ -1638,7 +1679,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 5:
+            case 6:
             if (isGod(player) || checkConfigSetting("factionEnabled"))
             {
                 handleFactionOption(player);
@@ -1649,10 +1690,10 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 6:
+            case 7:
             handleVehicleOption(player);
             break;
-            case 7:
+            case 8:
             if (isGod(player) || checkConfigSetting("shipsEnabled"))
             {
                 handleShipMenuSelect(player);
@@ -1663,7 +1704,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 8:
+            case 9:
             if (isGod(player) || checkConfigSetting("craftingEnabled"))
             {
                 handleCraftingOption(player);
@@ -1674,7 +1715,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 9:
+            case 10:
             if (isGod(player) || checkConfigSetting("deedsEnabled"))
             {
                 handleDeedOption(player);
@@ -1685,7 +1726,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 10:
+            case 11:
             if (isGod(player) || checkConfigSetting("pahallEnabled"))
             {
                 handlePAOption(player);
@@ -1696,7 +1737,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 11:
+            case 12:
             if (isGod(player) || checkConfigSetting("miscitemEnabled"))
             {
                 handleMiscOption(player);
@@ -1707,7 +1748,7 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 12:
+            case 13:
             if (isGod(player) || checkConfigSetting("jediEnabled"))
             {
                 handleJediOption(player);
@@ -1718,8 +1759,8 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 13:
-            if (isGod(player))
+            case 14:
+            if (isGod(player) || checkConfigSetting("BestResourceEnabled"))
             {
                 handleBestResourceOption(player);
             }
@@ -1729,8 +1770,8 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 14:
-            if (isGod(player))
+            case 15:
+            if (isGod(player) || checkConfigSetting("HeroicFlagEnabled"))
             {
                 flagAllHeroicInstances(player);
             }
@@ -1740,8 +1781,8 @@ public class terminal_character_builder extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             break;
-            case 15:
-            if (isGod(player))
+            case 16:
+            if (isGod(player) || checkConfigSetting("DraftSchematicsEnabled"))
             {
                 handleDraftSchematicsOption(player);
             }
@@ -2482,14 +2523,7 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 2:
-            if (!isGod(player))
-            {
-                refreshMenu(player, prompt, title, BEAST_OPTIONS_FOR_PLAYERS, "handleBeastSelect", false);
-            }
-            else 
-            {
-                refreshMenu(player, prompt, title, BEAST_OPTIONS, "handleBeastSelect", false);
-            }
+            refreshMenu(player, prompt, title, BEAST_OPTIONS, "handleBeastSelect", false);
             break;
             case 3:
             obj_id beast = beast_lib.getBeastOnPlayer(player);
@@ -2606,41 +2640,20 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "XP38 Landspeeder Deed Issued.");
             break;
             case 6:
-            if (isGod(player))
-            {
-                createObject("object/tangible/deed/vehicle_deed/barc_speeder_deed.iff", pInv, "");
-                sendSystemMessageTestingOnly(player, "Barc Speeder Deed Issued.");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the BARC Speeder!");
-            }
+            createObject("object/tangible/deed/vehicle_deed/barc_speeder_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Barc Speeder Deed Issued.");
             break;
             case 7:
-            if (isGod(player))
-            {
-                createObject("object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff", pInv, "");
-                sendSystemMessageTestingOnly(player, "AV21 Deed Issued.");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the AV21 Speeder!");
-            }
+            createObject("object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "AV21 Deed Issued.");
             break;
             case 8:
             createObject("object/tangible/deed/vehicle_deed/landspeeder_x31_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "X31 Deed Issued.");
             break;
             case 9:
-            if (isGod(player))
-            {
-                createObject("object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff", pInv, "");
-                sendSystemMessageTestingOnly(player, "Flash Speeder Deed Issued.");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Flash Speeder!");
-            }
+            createObject("object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Flash Speeder Deed Issued.");
             break;
             default:
             cleanScriptVars(player);
@@ -2735,7 +2748,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        String[] beasts = (!isGod(player) ? BEAST_OPTIONS_FOR_PLAYERS : BEAST_OPTIONS);
+        String[] beasts = BEAST_OPTIONS;
         if (idx == -1 || idx > beasts.length)
         {
             cleanScriptVars(player);
@@ -4146,6 +4159,19 @@ public class terminal_character_builder extends script.base_script
             createObject("object/tangible/deed/city_deed/garden_tatooine_med_01_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/garden_tatooine_sml_01_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Tatooine City Pack Created");
+            break;
+            case 18:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series1_diner", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series3_sith_meditation_room_deed", pInv);	
+			static_item.createNewItemFunction("item_tcg_loot_reward_series3_jedi_meditation_room_deed", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series4_relaxation_pool_deed_02_01", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_hangar", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_atat", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_emperor_spire", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_rebel_spire", pInv);			
+			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_commando_bunker", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_vip_bunker", pInv);
+            sendSystemMessageTestingOnly(player, "TCG House Pack Created");
             break;
             default:
             cleanScriptVars(player);
@@ -6372,6 +6398,102 @@ public class terminal_character_builder extends script.base_script
         refreshMenu(player, "Select the desired armor option", "Character Builder Terminal", HEROIC_JEWELRY_LIST, "handleHeroicJewelrySelect", false);
         return SCRIPT_CONTINUE;
     }
+	public void handleStellaOption(obj_id player) throws InterruptedException
+    {
+        refreshMenu(player, "Select the desired thingie", "Character Builder Terminal", STELLA_OPTIONS, "handleStellaOptions", false);
+    }
+	public int handleStellaOptions(obj_id self, dictionary params) throws InterruptedException
+    {
+        if ((params == null) || (params.isEmpty()))
+        {
+            return SCRIPT_CONTINUE;
+        }
+        obj_id player = sui.getPlayerId(params);
+        obj_id pInv = utils.getInventoryContainer(player);
+        int btn = sui.getIntButtonPressed(params);
+        int idx = sui.getListboxSelectedRow(params);
+        if (btn == sui.BP_REVERT)
+        {
+			refreshMenu(player, "Select the desired character option", "Character Builder Terminal", CHARACTER_BUILDER_OPTIONS, "handleOptionSelect", true);
+            return SCRIPT_CONTINUE;
+        }
+        if (btn == sui.BP_CANCEL)
+        {
+            cleanScriptVars(player);
+            closeOldWindow(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (idx == -1 || idx > STELLA_OPTIONS.length)
+        {
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+        if (!isIdValid(player))
+        {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+        if (!isIdValid(pInv))
+        {
+            sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
+            cleanScriptVars(player);
+            return SCRIPT_OVERRIDE;
+        }
+        if (getVolumeFree(pInv) <= 0)
+        {
+            sendSystemMessageTestingOnly(player, "Your Inventory is Full, please make room and try again.");
+            cleanScriptVars(player);
+			return SCRIPT_OVERRIDE;
+		}
+       
+       switch (idx)
+        {
+            case 0:
+            createObject("object/tangible/wearables/backpack/backpack_s06.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Spec-Ops Pack Issued.");
+            break;
+			case 1:
+			obj_id bufferId = player;
+			float currentBuffTime = performance.inspireGetMaxDuration(player);
+			buff.applyBuff(player, "buildabuff_inspiration", 14400);
+			utils.setScriptVar(player, "performance.buildabuff.buffComponentKeys", buffComponentKeys);
+			utils.setScriptVar(player, "performance.buildabuff.buffComponentValues", buffComponentValues);
+			utils.setScriptVar(player, "performance.buildabuff.bufferId", bufferId);
+			
+			
+			buff.applyBuff((player), "me_buff_health_2", 14400);
+			buff.applyBuff((player), "me_buff_action_3", 14400);
+			buff.applyBuff((player), "me_buff_strength_3", 14400);
+			buff.applyBuff((player), "me_buff_agility_3", 14400);
+			buff.applyBuff((player), "me_buff_precision_3", 14400);        
+			buff.applyBuff((player), "me_buff_melee_gb_1", 14400); 		
+			buff.applyBuff((player), "me_buff_ranged_gb_1", 14400);
+			buff.applyBuff((player), "of_buff_def_9", 14400);
+			buff.applyBuff((player), "of_tactical_drop_6", 14400);
+			buff.applyBuff((player), "of_focus_fire_6", 14400);
+			buff.applyBuff((player), "aurilian_crystal_large", 14400);
+			buff.applyBuff((player), "sm_smuggled", 14400);
+			buff.applyBuff((player), "forceCrystalHealth", 14400);
+			buff.applyBuff((player), "forceCrystalForce", 14400);
+			buff.applyBuff((player), "muon_gold", 14400);
+			buff.applyBuff((player), "sm_smuggled", 14400);
+			buff.applyBuff((player), "event_ewok_drink", 14400);
+			buff.applyBuff((player), "event_ewok_berry", 14400);
+			buff.applyBuff((player), "vr_familiar_defense_8", 14400);
+			buff.applyBuff((player), "drink_flameout", 14400);
+			break;
+			case 2:
+			// createObject("object/tangible/medicine/instant_stimpack/stimpack_generic_e.iff", pInv, "");
+			static_item.createNewItemFunction("item_off_temp_stimpack_02_06", pInv);
+			break;
+			default:
+            cleanScriptVars(player);
+            return SCRIPT_CONTINUE;
+        }
+        refreshMenu(player, "Select the desired option", "Character Builder Terminal", STELLA_OPTIONS, "handleStellaOptions", false);
+        return SCRIPT_CONTINUE;
+    }
     public void handleMiscOption(obj_id player) throws InterruptedException
     {
         refreshMenu(player, "Select the desired item option", "Character Builder Terminal", MISCITEM_OPTIONS, "handleMiscOptions", false);
@@ -6537,6 +6659,22 @@ public class terminal_character_builder extends script.base_script
             case 10:
             createObject("object/tangible/veteran_reward/resource.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Resource Kit Issued");
+			break;
+			case 11:
+			static_item.createNewItemFunction("item_force_crystal_04_01", pInv);
+            sendSystemMessageTestingOnly(player, "Biological Focus Crystal Issued");
+			break;
+			case 12:
+			static_item.createNewItemFunction("item_force_crystal_04_02", pInv);
+            sendSystemMessageTestingOnly(player, "Synapse Focus Crystal Issued");
+			break;
+			case 13:
+			static_item.createNewItemFunction("item_tow_proc_generic_03_01", pInv);
+			sendSystemMessageTestingOnly(player, "Mustafarian Injector Issued");
+			break;
+			case 14:
+			static_item.createNewItemFunction("item_tcg_loot_reward_series5_signal_unit", pInv);
+            sendSystemMessageTestingOnly(player, "Naboo Signaling Unit Issued");
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -8011,15 +8149,8 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Color Crystals Issued!");
             break;
             case 1:
-            if (isGod(player))
-            {
                 static_item.createNewItemFunction("item_tow_lava_crystal_06_01", pInv);
                 sendSystemMessageTestingOnly(player, "Lava Crystal Issued!");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Lava Crystal!");
-            }
             break;
             case 2:
             for (int i = 0; i < 4; i++)
@@ -8029,18 +8160,11 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Power Crystals Issued!");
             break;
             case 3:
-            if (isGod(player))
-            {
                 for (int i = 0; i < 4; i++)
                 {
                     static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
                 }
                 sendSystemMessageTestingOnly(player, "Ancient Krayt Pearls Issued!");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Ancient Krayt Pearls Issued!");
-            }
             break;
             default:
             cleanScriptVars(player);
@@ -8379,7 +8503,21 @@ public class terminal_character_builder extends script.base_script
                 sendSystemMessageTestingOnly(player, "Jedi Master Cloak Issued!");
             }
             break;
-            case 9:
+			case 9:
+            
+            {
+                static_item.createNewItemFunction("item_jedi_robe_light_04_04", pInv);
+                sendSystemMessageTestingOnly(player, "Elder Jedi Arbiter Robe Issued!");
+            }
+            break;
+			case 10:
+            
+            {
+                static_item.createNewItemFunction("item_jedi_robe_dark_04_04", pInv);
+                sendSystemMessageTestingOnly(player, "Elder Jedi Oppressor Robe Issued!");
+            }
+            break;
+            case 11:
             
             {
                 if (hasCompletedCollectionSlot(player, "jedi_robe_01_07"))
@@ -9052,7 +9190,7 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             cleanScriptVars(player);
@@ -9091,7 +9229,7 @@ public class terminal_character_builder extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             return SCRIPT_OVERRIDE;
@@ -9125,7 +9263,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             cleanScriptVars(player);
