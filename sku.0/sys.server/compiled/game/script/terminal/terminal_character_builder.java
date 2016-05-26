@@ -526,7 +526,8 @@ public class terminal_character_builder extends script.base_script
         "Fusion Reactor",
         "Corellia City Pack",
         "Naboo City Pack",
-        "Tatooine City Pack"
+        "Tatooine City Pack",
+		"TCG Houses"
     };
     public static final String[] CRAFTING_OPTIONS = 
     {
@@ -4160,6 +4161,19 @@ public class terminal_character_builder extends script.base_script
             createObject("object/tangible/deed/city_deed/garden_tatooine_med_01_deed.iff", pInv, "");
             createObject("object/tangible/deed/city_deed/garden_tatooine_sml_01_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Tatooine City Pack Created");
+            break;
+            case 18:
+            createObject("object/tangible/tcg/series1/structure_deed_diner.iff", pInv, "");
+            createObject("object/tangible/tcg/series3/structure_deed_sith_meditation_room_deed.iff", pInv, "");
+            createObject("object/tangible/tcg/series3/structure_deed_jedi_meditation_room_deed.iff", pInv, "");
+            createObject("object/tangible/tcg/series4/structure_deed_relaxation_pool.iff", pInv, "");
+            createObject("object/tangible/tcg/series5/structure_deed_player_house_hangar.iff", pInv, "");
+            createObject("object/tangible/tcg/series5/structure_deed_player_house_atat.iff", pInv, "");
+            createObject("object/tangible/tcg/series6/structure_deed_emperors_spire.iff", pInv, "");
+			createObject("object/tangible/tcg/series6/structure_deed_rebel_spire.iff", pInv, "");
+			createObject("object/tangible/tcg/series7/structure_deed_commando_bunker.iff", pInv, "");
+			createObject("object/tangible/tcg/series7/structure_deed_vip_bunker.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "TCG House Pack Created");
             break;
             default:
             cleanScriptVars(player);
