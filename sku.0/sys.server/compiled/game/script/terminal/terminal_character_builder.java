@@ -881,6 +881,7 @@ public class terminal_character_builder extends script.base_script
     {
         "Spec-Ops Pack",
 		"Buff me",
+		"Healing Stims"
     };
     public static final String[] MEDICINE_OPTIONS = 
     {
@@ -6481,6 +6482,10 @@ public class terminal_character_builder extends script.base_script
 			buff.applyBuff((player), "event_ewok_berry", 14400);
 			buff.applyBuff((player), "vr_familiar_defense_8", 14400);
 			buff.applyBuff((player), "drink_flameout", 14400);
+			break;
+			case 2:
+			// createObject("object/tangible/medicine/instant_stimpack/stimpack_generic_e.iff", pInv, "");
+			static_item.createNewItemFunction("item_off_temp_stimpack_02_06", pInv);
 			break;
 			default:
             cleanScriptVars(player);
