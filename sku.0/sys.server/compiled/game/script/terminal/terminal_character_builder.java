@@ -8144,15 +8144,8 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Color Crystals Issued!");
             break;
             case 1:
-            if (isGod(player))
-            {
                 static_item.createNewItemFunction("item_tow_lava_crystal_06_01", pInv);
                 sendSystemMessageTestingOnly(player, "Lava Crystal Issued!");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Lava Crystal!");
-            }
             break;
             case 2:
             for (int i = 0; i < 4; i++)
@@ -8162,18 +8155,11 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Power Crystals Issued!");
             break;
             case 3:
-            if (isGod(player))
-            {
                 for (int i = 0; i < 4; i++)
                 {
                     static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
                 }
                 sendSystemMessageTestingOnly(player, "Ancient Krayt Pearls Issued!");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Ancient Krayt Pearls Issued!");
-            }
             break;
             default:
             cleanScriptVars(player);
