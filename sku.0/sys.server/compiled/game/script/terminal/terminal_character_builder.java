@@ -2639,41 +2639,20 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "XP38 Landspeeder Deed Issued.");
             break;
             case 6:
-            if (isGod(player))
-            {
-                createObject("object/tangible/deed/vehicle_deed/barc_speeder_deed.iff", pInv, "");
-                sendSystemMessageTestingOnly(player, "Barc Speeder Deed Issued.");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the BARC Speeder!");
-            }
+            createObject("object/tangible/deed/vehicle_deed/barc_speeder_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Barc Speeder Deed Issued.");
             break;
             case 7:
-            if (isGod(player))
-            {
-                createObject("object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff", pInv, "");
-                sendSystemMessageTestingOnly(player, "AV21 Deed Issued.");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the AV21 Speeder!");
-            }
+            createObject("object/tangible/deed/vehicle_deed/landspeeder_av21_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "AV21 Deed Issued.");
             break;
             case 8:
             createObject("object/tangible/deed/vehicle_deed/landspeeder_x31_deed.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "X31 Deed Issued.");
             break;
             case 9:
-            if (isGod(player))
-            {
-                createObject("object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff", pInv, "");
-                sendSystemMessageTestingOnly(player, "Flash Speeder Deed Issued.");
-            }
-            else 
-            {
-                sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Flash Speeder!");
-            }
+            createObject("object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff", pInv, "");
+            sendSystemMessageTestingOnly(player, "Flash Speeder Deed Issued.");
             break;
             default:
             cleanScriptVars(player);
@@ -6463,22 +6442,32 @@ public class terminal_character_builder extends script.base_script
 			case 1:
 			obj_id bufferId = player;
 			float currentBuffTime = performance.inspireGetMaxDuration(player);
-			buff.applyBuff(player, "buildabuff_inspiration", 3600);
+			buff.applyBuff(player, "buildabuff_inspiration", 14400);
 			utils.setScriptVar(player, "performance.buildabuff.buffComponentKeys", buffComponentKeys);
 			utils.setScriptVar(player, "performance.buildabuff.buffComponentValues", buffComponentValues);
 			utils.setScriptVar(player, "performance.buildabuff.bufferId", bufferId);
 			
 			
-			buff.applyBuff((player), "me_buff_health_2", 7200);
-			buff.applyBuff((player), "me_buff_action_3", 7200);
-			buff.applyBuff((player), "me_buff_strength_3", 7200);
-			buff.applyBuff((player), "me_buff_agility_3", 7200);
-			buff.applyBuff((player), "me_buff_precision_3", 7200);        
-			buff.applyBuff((player), "me_buff_melee_gb_1", 7200); 		
-			buff.applyBuff((player), "me_buff_ranged_gb_1", 7200);
-			buff.applyBuff((player), "of_buff_def_9", 7200);
-			buff.applyBuff((player), "of_tactical_drop_6", 7200);
-			buff.applyBuff((player), "of_buff_def_9", 7200);
+			buff.applyBuff((player), "me_buff_health_2", 14400);
+			buff.applyBuff((player), "me_buff_action_3", 14400);
+			buff.applyBuff((player), "me_buff_strength_3", 14400);
+			buff.applyBuff((player), "me_buff_agility_3", 14400);
+			buff.applyBuff((player), "me_buff_precision_3", 14400);        
+			buff.applyBuff((player), "me_buff_melee_gb_1", 14400); 		
+			buff.applyBuff((player), "me_buff_ranged_gb_1", 14400);
+			buff.applyBuff((player), "of_buff_def_9", 14400);
+			buff.applyBuff((player), "of_tactical_drop_6", 14400);
+			buff.applyBuff((player), "of_focus_fire_6", 14400);
+			buff.applyBuff((player), "aurilian_crystal_large", 14400);
+			buff.applyBuff((player), "sm_smuggled", 14400);
+			buff.applyBuff((player), "forceCrystalHealth", 14400);
+			buff.applyBuff((player), "forceCrystalForce", 14400);
+			buff.applyBuff((player), "muon_gold", 14400);
+			buff.applyBuff((player), "sm_smuggled", 14400);
+			buff.applyBuff((player), "event_ewok_drink", 14400);
+			buff.applyBuff((player), "event_ewok_berry", 14400);
+			buff.applyBuff((player), "vr_familiar_defense_8", 14400);
+			buff.applyBuff((player), "drink_flameout", 14400);
 			break;
 			default:
             cleanScriptVars(player);
