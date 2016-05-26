@@ -9206,7 +9206,7 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
         }
-        if (!isIdValid(player) || !isGod(player))
+        if (!isIdValid(player))
         {
             sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction.");
             cleanScriptVars(player);
