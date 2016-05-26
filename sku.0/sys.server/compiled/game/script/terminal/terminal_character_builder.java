@@ -4167,16 +4167,16 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Tatooine City Pack Created");
             break;
             case 18:
-            createObject("object/tangible/tcg/series1/structure_deed_diner.iff", pInv, "");
-            createObject("object/tangible/tcg/series3/structure_deed_sith_meditation_room_deed.iff", pInv, "");
-            createObject("object/tangible/tcg/series3/structure_deed_jedi_meditation_room_deed.iff", pInv, "");
-            createObject("object/tangible/tcg/series4/structure_deed_relaxation_pool.iff", pInv, "");
-            createObject("object/tangible/tcg/series5/structure_deed_player_house_hangar.iff", pInv, "");
-            createObject("object/tangible/tcg/series5/structure_deed_player_house_atat.iff", pInv, "");
-            createObject("object/tangible/tcg/series6/structure_deed_emperors_spire.iff", pInv, "");
-			createObject("object/tangible/tcg/series6/structure_deed_rebel_spire.iff", pInv, "");
-			createObject("object/tangible/tcg/series7/structure_deed_commando_bunker.iff", pInv, "");
-			createObject("object/tangible/tcg/series7/structure_deed_vip_bunker.iff", pInv, "");
+			static_item.createNewItemFunction("item_tcg_loot_reward_series1_diner", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series3_sith_meditation_room_deed", pInv);	
+			static_item.createNewItemFunction("item_tcg_loot_reward_series3_jedi_meditation_room_deed", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series4_relaxation_pool_deed_02_01", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_hangar", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_atat", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_emperor_spire", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_rebel_spire", pInv);			
+			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_commando_bunker", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_vip_bunker", pInv);
             sendSystemMessageTestingOnly(player, "TCG House Pack Created");
             break;
             default:
