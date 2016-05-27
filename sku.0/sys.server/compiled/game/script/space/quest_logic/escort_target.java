@@ -1,19 +1,7 @@
 package script.space.quest_logic;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_quest;
-import script.library.space_utils;
-import script.library.space_transition;
-import script.library.utils;
-import script.library.prose;
-import script.library.group;
+import script.library.*;
 
 public class escort_target extends script.base_script
 {
@@ -75,6 +63,9 @@ public class escort_target extends script.base_script
         }
         obj_id player = params.getObjId("player");
         obj_id quest = getObjIdObjVar(self, "quest");
+        if(!isIdValid(quest) || !exists(quest) || quest == null || quest == obj_id.NULL_ID){
+            return SCRIPT_CONTINUE;
+        }
         String questName = getStringObjVar(quest, space_quest.QUEST_NAME);
         String questType = getStringObjVar(quest, space_quest.QUEST_TYPE);
         if (!exists(player))
@@ -93,12 +84,10 @@ public class escort_target extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    float dist = getDistance(space_transition.getContainingShip(members[i]), self);
+                for (obj_id member : members) {
+                    float dist = getDistance(space_transition.getContainingShip(member), self);
                     closeenough = Math.abs(dist) <= space_quest.ESCORT_ROAM_TOLERANCE;
-                    if (closeenough)
-                    {
+                    if (closeenough) {
                         break;
                     }
                 }
