@@ -1,26 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.badge;
-import script.library.buff;
-import script.library.callable;
-import script.library.factions;
-import script.library.groundquests;
-import script.library.scheduled_drop;
-import script.library.ship_ai;
-import script.library.smuggler;
-import script.library.space_crafting;
-import script.library.space_flags;
-import script.library.space_utils;
-import script.library.utils;
-import script.library.xp;
+import java.util.Vector;
 
 public class space_combat extends script.base_script
 {
@@ -4704,11 +4686,13 @@ public class space_combat extends script.base_script
         {
             return false;
         }
-        obj_id objItem = space_utils.createObjectTrackItemCount(lootItem, objContainer);
-        if (isIdValid(objItem))
-        {
-            sendItemNotification(objAttacker, objItem);
-            return true;
+        if(getVolumeFree(objContainer) > 0) {
+            obj_id objItem = space_utils.createObjectTrackItemCount(lootItem, objContainer);
+            if (isIdValid(objItem))
+            {
+                sendItemNotification(objAttacker, objItem);
+                return true;
+            }
         }
         string_id strSpam = new string_id("space/space_loot", "no_more_loot");
         if (space_utils.isShipWithInterior(objAttacker))
