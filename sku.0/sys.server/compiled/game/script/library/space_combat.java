@@ -3699,7 +3699,13 @@ public class space_combat extends script.base_script
         {
             location locDefender = getLocation(objDefender);
             location locAttacker = isIdValid(objAttacker) ? getLocation(objAttacker) : locDefender;
-            vector up_w = new vector(locAttacker.x - locDefender.x, locAttacker.y - locDefender.y, locAttacker.z - locDefender.z);
+            vector up_w;
+            if(locDefender == null || locAttacker == null){
+                up_w = new vector(0,0,0);
+            }
+            else {
+                up_w = new vector(locAttacker.x - locDefender.x, locAttacker.y - locDefender.y, locAttacker.z - locDefender.z);
+            }
             float integrity = fltChassisHitPoints / fltMaximumChassisHitPoints;
             float previousIntegrity = (fltChassisHitPoints + fltDamage) / fltMaximumChassisHitPoints;
             if (Math.abs(integrity - previousIntegrity) > 0.01f)
