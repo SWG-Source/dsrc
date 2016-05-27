@@ -1,19 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.collection;
-import script.library.group;
-import script.library.npe;
-import script.library.prose;
-import script.library.static_item;
-import script.library.utils;
+import java.util.Vector;
 
 public class corpse extends script.base_script
 {
@@ -1045,8 +1034,11 @@ public class corpse extends script.base_script
     }
     public static boolean hasLootPermissions(obj_id corpse, obj_id player) throws InterruptedException
     {
+        if(!isIdValid(corpse) || !exists(corpse) || corpse == null || corpse == obj_id.NULL_ID){
+            return false;
+        }
         obj_id killCredit = getObjIdObjVar(corpse, xp.VAR_TOP_GROUP);
-        if (exists(corpse) && hasObjVar(corpse, "storytellerid"))
+        if (hasObjVar(corpse, "storytellerid"))
         {
             obj_id playerstorytellerId = utils.getObjIdScriptVar(player, "storytellerid");
             obj_id corpsestorytellerId = getObjIdObjVar(corpse, "storytellerid");
@@ -1061,6 +1053,11 @@ public class corpse extends script.base_script
             }
             return false;
         }
+        if (isGod(player))
+        {
+            sendSystemMessageTestingOnly(player, "GOD MODE: Granting access to loot container that you do not have permission for.");
+            return true;
+        }
         if (player == killCredit)
         {
             return true;
@@ -1068,18 +1065,11 @@ public class corpse extends script.base_script
         if (group.isGroupObject(killCredit))
         {
             obj_id[] killList = getGroupMemberIds(killCredit);
-            for (int i = 0; i < killList.length; i++)
-            {
-                if (player == killList[i])
-                {
+            for (obj_id listItem : killList) {
+                if (player == listItem) {
                     return true;
                 }
             }
-        }
-        if (isGod(player))
-        {
-            sendSystemMessageTestingOnly(player, "GOD MODE: Granting access to loot container that you do not have permission for.");
-            return true;
         }
         return false;
     }
