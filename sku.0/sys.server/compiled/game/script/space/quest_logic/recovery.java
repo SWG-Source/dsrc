@@ -774,7 +774,8 @@ public class recovery extends script.base_script
             space_quest._addMissionCriticalShip(player, self, newship);
             setObjVar(newship, "objMissionOwner", player);
             ship_ai.unitAddExclusiveAggro(newship, player);
-            ship_ai.unitSetAutoAggroImmuneTime(player, 3.0f);
+            ship_ai.unitSetAutoAggroImmuneTime(newship, 3.0f);
+            //ship_ai.unitSetAutoAggroImmuneTime(player, 3.0f);
             setObjVar(newship, "wave", wavenum);
             j++;
             if (j >= shipList.length)
