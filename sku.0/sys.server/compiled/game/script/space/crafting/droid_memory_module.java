@@ -1,19 +1,10 @@
 package script.space.crafting;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.space_crafting;
-import script.library.space_utils;
 import script.library.space_combat;
-import script.library.utils;
 import script.library.space_pilot_command;
+import script.library.sui;
+import script.library.utils;
 
 public class droid_memory_module extends script.base_script
 {
@@ -86,6 +77,9 @@ public class droid_memory_module extends script.base_script
     }
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
+        if(!isIdValid(self) || !exists(self) || self == null || self == obj_id.NULL_ID){
+            return SCRIPT_CONTINUE;
+        }
         int idx = utils.getValidAttributeIndex(names);
         if (idx == -1)
         {
