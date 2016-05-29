@@ -332,8 +332,8 @@ public class jedi_saber_component extends script.base_script
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
         if(self == null || self.equals(obj_id.NULL_ID) || !isIdValid(self) || !exists(self)){
-            debugConsoleMsg(self, "Script Exception: invalid object found (jedi_saber_component).");
-            debugConsoleMsg(self, "Template: " + getTemplateName(self));
+            debugServerConsoleMsg(self, "Script Exception: invalid object found (jedi_saber_component).");
+            debugServerConsoleMsg(self, "Template: " + getTemplateName(self));
             return SCRIPT_CONTINUE;
         }
         int idx = utils.getValidAttributeIndex(names);
