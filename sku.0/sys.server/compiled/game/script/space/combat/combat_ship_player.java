@@ -1,31 +1,10 @@
 package script.space.combat;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.group;
-import script.library.space_battlefield;
-import script.library.space_crafting;
-import script.library.space_utils;
-import script.library.space_create;
-import script.library.load_test;
-import script.library.prose;
-import script.library.ship_ai;
-import script.library.space_combat;
-import script.library.space_transition;
-import script.library.utils;
-import script.library.money;
-import script.library.space_pilot_command;
-import java.lang.Math;
-import script.library.features;
-import script.library.factions;
-import script.library.space_flags;
 import java.util.Iterator;
+import java.util.Vector;
 
 public class combat_ship_player extends script.base_script
 {
@@ -2978,6 +2957,10 @@ public class combat_ship_player extends script.base_script
     public int OnCommitDroidProgramCommands(obj_id self, obj_id objControlDevice, String[] strCommands, obj_id[] objChipsToAdd, obj_id[] objChipsToRemove) throws InterruptedException
     {
         obj_id objDatapad = utils.getDatapad(objControlDevice);
+        if(getVolumeFree(objDatapad) <= 0 || !isIdValid(objDatapad) || !exists(objDatapad) || objDatapad == null || objDatapad.equals(obj_id.NULL_ID)){
+            debugSpeakMsg(self, "The control device datapad was full or not found - not creating droid command.");
+            return SCRIPT_CONTINUE;
+        }
         if (objChipsToRemove != null)
         {
             for (int intI = 0; intI < objChipsToRemove.length; intI++)
