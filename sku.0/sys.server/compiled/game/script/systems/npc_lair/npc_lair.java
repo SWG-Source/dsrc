@@ -763,8 +763,7 @@ public class npc_lair extends script.theme_park.poi.base
     {
         int numRespawned = getIntObjVar(self, "npc_lair.numRespawned");
         numRespawned++;
-        int population = getIntObjVar(self, "npc_lair.numberOfMobiles");
-        int maxPopulation = population;
+        int maxPopulation = getIntObjVar(self, "npc_lair.numberOfMobiles");
         if (hasObjVar(self, "npc_lair.isCreatureLair"))
         {
             maxPopulation *= 3;
@@ -778,7 +777,7 @@ public class npc_lair extends script.theme_park.poi.base
             else 
             {
                 obj_id objTarget = getObjIdObjVar(self, "npc_lair.target");
-                if (isIdValid(objTarget))
+                if (isIdValid(objTarget) && exists(objTarget))
                 {
                     setObjVar(objTarget, "fltDamageModifier", 5.0f);
                 }
