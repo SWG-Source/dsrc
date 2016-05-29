@@ -1,20 +1,7 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.script_entry;
-import script.library.space_content;
-import script.library.prose;
-import script.library.space_combat;
-import script.library.space_transition;
-import java.lang.Math;
-import java.util.Arrays;
 import java.util.Vector;
 
 public class space_utils extends script.base_script
@@ -378,6 +365,9 @@ public class space_utils extends script.base_script
     }
     public static void tauntPlayer(obj_id objPlayer, obj_id objSender, string_id strSpam) throws InterruptedException
     {
+        if(!isIdValid(objPlayer) || !isIdValid(objSender)){
+            return;
+        }
         prose_package proseTest = prose.getPackage(strSpam);
         String strAppearance = "";
         if (hasObjVar(objSender, "convo.appearance"))
