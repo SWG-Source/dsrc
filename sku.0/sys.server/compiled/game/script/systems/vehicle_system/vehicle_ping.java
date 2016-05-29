@@ -122,18 +122,18 @@ public class vehicle_ping extends script.base_script
         final int mostRecentAckMessageNumber = getIntObjVar(self, VCDPING_LAST_ACK_MESSAGE_NUMBER);
         if (ackMessageNumber > mostRecentAckMessageNumber)
         {
-            try {
-                setObjVar(self, VCDPING_LAST_ACK_MESSAGE_NUMBER, ackMessageNumber);
+            if(self == null || self.equals(obj_id.NULL_ID) || !isIdValid(self) || !exists(self)){
+                debugConsoleMsg(self, "Script Exception: invalid object found (vehicle_ping).");
+                debugConsoleMsg(self, "Unable to update VCDPing Acknowledgement.");
+                debugConsoleMsg(self, "Self is " + (isIdValid(self) ? "" : "not") + " valid.");
+                debugConsoleMsg(self, "Self = " + self);
+                debugConsoleMsg(self, "Self's Name: " + getName(self));
+                debugConsoleMsg(self, "Self's Template: " + getTemplateName(self));
+                debugConsoleMsg(self, "Self's Owner: " + getOwner(self));
+                debugConsoleMsg(self, "Self's Location: " + getLocation(self).toString());
+                return SCRIPT_CONTINUE;
             }
-            catch(Exception e){
-                System.out.println("Unable to update VCDPing Acknowledgement.");
-                System.out.println("Self is " + (isIdValid(self) ? "" : "not") + " valid.");
-                System.out.println("Self = " + self.toString());
-                System.out.println("Self's Name: " + getName(self));
-                System.out.println("Self's Template: " + getTemplateName(self));
-                System.out.println("Self's Owner: " + getOwner(self));
-                System.out.println("Self's Location: " + getLocation(self).toString());
-            }
+            setObjVar(self, VCDPING_LAST_ACK_MESSAGE_NUMBER, ackMessageNumber);
             if (debug)
             {
                 LOG("vcdping-debug", "vehicle_ping.handlePositiveAcknowledgementFromVcd(): processed newer positive VCD ack number=[" + ackMessageNumber + "]");
