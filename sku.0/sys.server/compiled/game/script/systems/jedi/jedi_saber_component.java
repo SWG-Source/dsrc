@@ -1,20 +1,7 @@
 package script.systems.jedi;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.jedi;
-import script.library.jedi_trials;
-import script.library.colors_hex;
-import script.library.sui;
-import script.library.utils;
-import script.library.static_item;
+import script.library.*;
 
 public class jedi_saber_component extends script.base_script
 {
@@ -344,6 +331,10 @@ public class jedi_saber_component extends script.base_script
     }
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
+        if(self == null || self.equals(obj_id.NULL_ID) || !isIdValid(self) || !exists(self)){
+            debugConsoleMsg(self, "Script Exception: invalid object found (jedi_saber_component).");
+            return SCRIPT_CONTINUE;
+        }
         int idx = utils.getValidAttributeIndex(names);
         if (idx == -1)
         {
