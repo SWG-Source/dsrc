@@ -1333,6 +1333,8 @@ public class player_structure extends script.base_script
             debugServerConsoleMsg(deed, "Deed does " + (exists(deed) ? "" : "not") + " exist.");
             debugServerConsoleMsg(deed, "Deed is " + (isIdValid(deed) ? "" : "not") + " valid.");
             debugServerConsoleMsg(deed, "Deed owner: " + getOwner(deed) + " owners name: " + getName(getOwner(deed)));
+            debugServerConsoleMsg(deed, "Self Check: " + getSelf());
+            debugServerConsoleMsg(deed, "Self Name: " + getName(getSelf()));
             return null;
         }
         if (!hasObjVar(deed, VAR_DEED_SCENE))
