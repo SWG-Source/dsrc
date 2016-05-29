@@ -1,57 +1,11 @@
 package script.systems.combat;
 
 import script.*;
-import script.base_class.*;
 import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.beast_lib;
-import script.library.combat_consts;
-import script.library.healing;
-import script.library.groundquests;
-import script.library.sequencer;
-import script.library.weapons;
-import script.library.combat;
-import script.library.vehicle;
-import script.library.prose;
-import script.library.jedi;
-import script.library.pet_lib;
-import script.library.dot;
-import script.library.colors;
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.group;
-import script.library.powerup;
-import script.library.chat;
-import script.library.xp;
-import script.library.loot;
-import script.library.metrics;
-import script.library.heavyweapons;
-import script.library.grenade;
-import script.library.buff;
-import script.library.armor;
-import script.library.scout;
-import script.library.squad_leader;
-import script.library.factions;
-import script.ai.ai_combat;
-import script.library.cybernetic;
-import script.library.stealth;
-import script.library.pclib;
-import script.library.locations;
-import script.library.city;
-import script.library.create;
-import script.library.luck;
-import script.library.proc;
-import script.library.smuggler;
-import script.library.session;
-import script.library.storyteller;
-import script.library.sui;
-import script.library.movement;
-import script.library.target_dummy;
+import java.util.Arrays;
+import java.util.Vector;
 
 public class combat_base extends script.base_script
 {
@@ -512,7 +466,7 @@ public class combat_base extends script.base_script
             where = (location)actionData.targetLoc.clone();
         }
         obj_id egg = combat.makeTrackerEgg(attacker, where, actionData);
-        if (!isIdValid(egg))
+        if (!isIdValid(egg) || !exists(egg))
         {
             return;
         }
