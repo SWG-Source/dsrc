@@ -1,17 +1,10 @@
 package script.space.command;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_utils;
+import script.dictionary;
 import script.library.ship_ai;
 import script.library.space_combat;
-import script.library.utils;
+import script.library.space_utils;
+import script.obj_id;
 
 public class player_cmd_tie_bomber extends script.base_script
 {
@@ -44,18 +37,17 @@ public class player_cmd_tie_bomber extends script.base_script
     {
         debugServerConsoleMsg(null, "ONsPACEuNITmOVEtOcOMPLETE - tie bomber script");
         int squadId = ship_ai.unitGetSquadId(self);
-        obj_id[] squaddyList = null;
+        obj_id[] squadUnits;
         if (ship_ai.isSquadIdValid(squadId))
         {
-            squaddyList = ship_ai.squadGetUnitList(squadId);
+            squadUnits = ship_ai.squadGetUnitList(squadId);
         }
-        else 
+        else
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < squaddyList.length; i++)
-        {
-            space_combat.destroyObjectHyperspace(squaddyList[i]);
+        for (obj_id squadUnit : squadUnits) {
+            space_combat.destroyObjectHyperspace(squadUnit);
         }
         return SCRIPT_CONTINUE;
     }
