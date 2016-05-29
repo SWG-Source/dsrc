@@ -1,15 +1,8 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.gcw;
+import script.obj_id;
 
 public class gcw_data_updater extends script.base_script
 {
@@ -28,6 +21,13 @@ public class gcw_data_updater extends script.base_script
     }
     public int updateGCWInfo(obj_id self, dictionary params) throws InterruptedException
     {
+        if(!isIdValid(self) || !exists(self)){
+            debugServerConsoleMsg(self, "Exception: Apparently, I'm not a valid thing for the GCW Data Updater.  (gcw_data_updater)");
+            debugServerConsoleMsg(self, "What I am: " + getTemplateName(self));
+            debugServerConsoleMsg(self, "I'm located at " + getLocation(self));
+            debugServerConsoleMsg(self, "My Scene is " + getLocation(self).area);
+            return SCRIPT_CONTINUE;
+        }
         int imperial = gcw.getImperialPercentileByRegion(self);
         int rebel = gcw.getRebelPercentileByRegion(self);
         int oldImperial = getIntObjVar(self, "Imperial.controlScore");
