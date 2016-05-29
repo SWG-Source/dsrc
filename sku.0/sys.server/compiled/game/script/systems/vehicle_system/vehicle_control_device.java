@@ -1,32 +1,9 @@
 package script.systems.vehicle_system;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.beast_lib;
-import script.library.callable;
-import script.library.hue;
-import script.library.utils;
-import script.library.sui;
-import script.library.pet_lib;
-import script.library.create;
-import script.library.chat;
-import script.library.ai_lib;
-import script.library.battlefield;
-import script.library.factions;
-import script.library.consumable;
-import script.library.healing;
-import script.library.attrib;
-import script.library.vehicle;
-import script.library.pclib;
-import script.library.prose;
-import script.library.buff;
-import script.library.target_dummy;
+import java.util.Vector;
 
 public class vehicle_control_device extends script.base_script
 {
@@ -362,6 +339,13 @@ public class vehicle_control_device extends script.base_script
     }
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
+        if(!isIdValid(self) || !exists(self) || self == null || self.equals(obj_id.NULL_ID)){
+            debugServerConsoleMsg(self, "Exception: Unable to get 'self' (" + self + ") when getting attributes. (vehicle_control_device)");
+            debugServerConsoleMsg(self, "My Owner: " + getOwner(self));
+            debugServerConsoleMsg(self, "My Location: " + getLocation(self));
+            debugServerConsoleMsg(self, "My Scene: " + getLocation(self).area);
+            return SCRIPT_CONTINUE;
+        }
         int idx = utils.getValidAttributeIndex(names);
         if (idx == -1)
         {
