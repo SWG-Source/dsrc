@@ -1,17 +1,11 @@
 package script.item.dice;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.debug;
-import script.library.xp;
+import script.dictionary;
 import script.library.craftinglib;
+import script.library.debug;
+import script.library.utils;
+import script.library.xp;
+import script.obj_id;
 
 public class six_sided_dice_set extends script.item.dice.base.base_dice
 {
@@ -57,6 +51,13 @@ public class six_sided_dice_set extends script.item.dice.base.base_dice
     }
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
+        if(!isIdValid(self) || !exists(self)){
+            debugServerConsoleMsg(self, "Exception: unable to get self for six sided dice. (six_sided_dice_set)");
+            debugServerConsoleMsg(self, "My Owner: " + getOwner(self));
+            debugServerConsoleMsg(self, "My Location: " + getLocation(self));
+            debugServerConsoleMsg(self, "My Scene: " + getLocation(self).area);
+            return SCRIPT_CONTINUE;
+        }
         int idx = utils.getValidAttributeIndex(names);
         if (idx == -1)
         {
