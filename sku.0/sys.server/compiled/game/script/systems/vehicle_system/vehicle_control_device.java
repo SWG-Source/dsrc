@@ -344,6 +344,7 @@ public class vehicle_control_device extends script.base_script
             debugServerConsoleMsg(self, "My Owner: " + getOwner(self));
             debugServerConsoleMsg(self, "My Location: " + getLocation(self));
             debugServerConsoleMsg(self, "My Scene: " + getLocation(self).area);
+            debugServerConsoleMsg(self, "My Template: " + getTemplateName(self));
             return SCRIPT_CONTINUE;
         }
         int idx = utils.getValidAttributeIndex(names);
