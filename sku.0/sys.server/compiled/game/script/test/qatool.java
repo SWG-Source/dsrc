@@ -1,47 +1,13 @@
 package script.test;
 
+import script.combat_engine.weapon_data;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.StringTokenizer;
 import java.util.Vector;
-import java.lang.*;
-import script.library.ai_lib;
-import script.library.anims;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.cloninglib;
-import script.library.create;
-import script.library.combat;
-import script.library.corpse;
-import script.library.dump;
-import script.library.factions;
-import script.library.gm;
-import script.library.groundquests;
-import script.library.loot;
-import script.library.minigame;
-import script.library.pclib;
-import script.library.qa;
-import script.library.respec;
-import script.library.scheduled_drop;
-import script.library.skill;
-import script.library.skill_template;
-import script.library.space_combat;
-import script.library.space_create;
-import script.library.space_quest;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.spawning;
-import script.library.static_item;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
 
 public class qatool extends script.base_script
 {
@@ -872,7 +838,7 @@ public class qatool extends script.base_script
     {
         if (isGod(self))
         {
-            if (getGodLevel(self) < 10)
+            if (getGodLevel(self) < 50)
             {
                 detachScript(self, "test.qatool");
                 sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
