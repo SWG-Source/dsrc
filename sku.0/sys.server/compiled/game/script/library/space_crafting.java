@@ -1,21 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.utils;
-import java.lang.Math;
-import script.library.space_utils;
-import script.library.sui;
-import script.library.badge;
-import script.library.groundquests;
-import script.library.space_quest;
-import script.library.space_combat;
+import java.util.Vector;
 
 public class space_crafting extends script.base_script
 {
@@ -2377,7 +2364,6 @@ public class space_crafting extends script.base_script
         flags &= ~(base_class.ship_component_flags.SCF_disabled);
         flags &= ~(base_class.ship_component_flags.SCF_demolished);
         setObjVar(objComponent, "ship_comp.flags", flags);
-        return;
     }
     public static obj_id createChassisFromDeed(obj_id player, obj_id deed, float hp, float currentHp, float mass, String type) throws InterruptedException
     {
@@ -2385,6 +2371,15 @@ public class space_crafting extends script.base_script
         if (isIdValid(player))
         {
             obj_id datapad = utils.getDatapad(player);
+            if(!isIdValid(datapad) || !exists(datapad) || getVolumeFree(datapad) <= 0){
+                debugServerConsoleMsg(player, "Unable to get datapad to create chassis OR datapad is full.");
+                debugServerConsoleMsg(player, "Player was " + getName(player));
+                debugServerConsoleMsg(player, "Players location is " + getLocation(player).toString());
+                debugServerConsoleMsg(player, "Players area is " + getLocation(player).area);
+                debugServerConsoleMsg(player, "Datapad is: " + datapad.toString());
+                debugServerConsoleMsg(player, "Datapad free space is " + getVolumeFree(datapad));
+                return null;
+            }
             obj_id pcd = createObject("object/intangible/ship/" + type + "_pcd.iff", datapad, "");
             if (!isIdValid(pcd))
             {
