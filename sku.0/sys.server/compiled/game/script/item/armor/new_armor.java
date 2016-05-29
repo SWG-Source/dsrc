@@ -1,19 +1,13 @@
 package script.item.armor;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.armor;
-import script.library.craftinglib;
-import script.library.metrics;
-import script.library.utils;
 import script.library.prose;
 import script.library.static_item;
+import script.library.utils;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class new_armor extends script.base_script
 {
@@ -58,16 +52,6 @@ public class new_armor extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         int ourType = getGameObjectType(self);
-
-        debugServerConsoleMsg(self, "---- Checking to see if I should remove the script. ----");
-        debugServerConsoleMsg(self, "--- Found type: " + ourType);
-        debugServerConsoleMsg(self, "--- GOT_armor: " + GOT_armor);
-        debugServerConsoleMsg(self, "--- GOT_component_armor: " + GOT_component_armor);
-        debugServerConsoleMsg(self, "--- GOT_component_new_armor: " + GOT_component_new_armor);
-        debugServerConsoleMsg(self, "--- GOT_cybernetic: " + GOT_cybernetic);
-        debugServerConsoleMsg(self, "--- GOT_cybernetic_arm: " + GOT_cybernetic_arm);
-        debugServerConsoleMsg(self, "--- GOT_cybernetic_legs: " + GOT_cybernetic_legs);
-        debugServerConsoleMsg(self,"--- GOT_cybernetic_torso: " + GOT_cybernetic_torso);
 
         if (!isGameObjectTypeOf(ourType, GOT_armor) && !isGameObjectTypeOf(ourType, GOT_component_armor) 
 		&& !isGameObjectTypeOf(ourType, GOT_component_new_armor) && !isGameObjectTypeOf(ourType, GOT_cybernetic) 
