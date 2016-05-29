@@ -1,17 +1,11 @@
 package script.systems.combat;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.combat;
-import script.library.colors;
 import script.library.attrib;
+import script.library.colors;
+import script.library.utils;
+
+import java.util.Vector;
 
 public class combat_mine extends script.base_script
 {
@@ -169,6 +163,9 @@ public class combat_mine extends script.base_script
     }
     public int OnTriggerVolumeEntered(obj_id self, String volumeName, obj_id breacher) throws InterruptedException
     {
+        if(!isIdValid(self) || !exists(self)){
+            return SCRIPT_CONTINUE;
+        }
         if (isDeactivated())
         {
             return SCRIPT_CONTINUE;
