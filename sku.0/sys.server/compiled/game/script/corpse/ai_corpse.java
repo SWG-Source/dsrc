@@ -1,24 +1,7 @@
 package script.corpse;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.pet_lib;
-import script.library.beast_lib;
-import script.library.utils;
-import script.library.corpse;
-import script.library.permissions;
-import script.library.money;
-import script.library.prose;
-import script.library.group;
-import script.library.ai_lib;
-import script.library.loot;
-import script.library.smuggler;
+import script.library.*;
 
 public class ai_corpse extends script.base_script
 {
@@ -45,6 +28,10 @@ public class ai_corpse extends script.base_script
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
+        if(!isIdValid(self) || !exists(self)){
+            debugServerConsoleMsg(self, "Exception: Unable to get the objid for the corpse! (ai_corpse)");
+            return SCRIPT_CONTINUE;
+        }
         if (beast_lib.isBeast(self))
         {
             return SCRIPT_CONTINUE;
