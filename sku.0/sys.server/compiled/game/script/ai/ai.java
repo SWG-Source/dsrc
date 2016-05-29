@@ -1015,11 +1015,9 @@ public class ai extends script.base_script
             obj_id killCredit = getObjIdObjVar(self, xp.VAR_TOP_GROUP);
             if (group.isGroupObject(killCredit))
             {
-                obj_id[] killList = getGroupMemberIds(killCredit);
-                for (int k = 0; k < killList.length; k++)
-                {
-                    if (!loot.hasToggledChroniclesLootOff(killList[k]))
-                    {
+                obj_id[] groupMembers = getGroupMemberIds(killCredit);
+                for (obj_id groupMember : groupMembers) {
+                    if (isPlayer(groupMember) && !loot.hasToggledChroniclesLootOff(groupMember)) {
                         hasChanceToDropChroniclesLoot = true;
                     }
                 }
