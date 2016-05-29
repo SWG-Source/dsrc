@@ -123,14 +123,14 @@ public class vehicle_ping extends script.base_script
         if (ackMessageNumber > mostRecentAckMessageNumber)
         {
             if(self == null || self.equals(obj_id.NULL_ID) || !isIdValid(self) || !exists(self)){
-                debugConsoleMsg(self, "Script Exception: invalid object found (vehicle_ping).");
-                debugConsoleMsg(self, "Unable to update VCDPing Acknowledgement.");
-                debugConsoleMsg(self, "Self is " + (isIdValid(self) ? "" : "not") + " valid.");
-                debugConsoleMsg(self, "Self = " + self);
-                debugConsoleMsg(self, "Self's Name: " + getName(self));
-                debugConsoleMsg(self, "Self's Template: " + getTemplateName(self));
-                debugConsoleMsg(self, "Self's Owner: " + getOwner(self));
-                debugConsoleMsg(self, "Self's Location: " + getLocation(self).toString());
+                debugServerConsoleMsg(self, "Script Exception: invalid object found (vehicle_ping).");
+                debugServerConsoleMsg(self, "Unable to update VCDPing Acknowledgement.");
+                debugServerConsoleMsg(self, "Self is " + (isIdValid(self) ? "" : "not") + " valid.");
+                debugServerConsoleMsg(self, "Self = " + self);
+                debugServerConsoleMsg(self, "Self's Name: " + getName(self));
+                debugServerConsoleMsg(self, "Self's Template: " + getTemplateName(self));
+                debugServerConsoleMsg(self, "Self's Owner: " + getOwner(self));
+                debugServerConsoleMsg(self, "Self's Location: " + getLocation(self).toString());
                 return SCRIPT_CONTINUE;
             }
             setObjVar(self, VCDPING_LAST_ACK_MESSAGE_NUMBER, ackMessageNumber);
