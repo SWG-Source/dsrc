@@ -1939,7 +1939,7 @@ public class combat_ship_player extends script.base_script
         string_id sid = new string_id("space/space_interaction", "bomber_down");
         prose_package pp = new prose_package();
         pp.stringId = sid;
-        dogfightTauntPlayer(bomberSquaddyList[0], self, pp);
+        if(isIdValid(bomberSquaddyList[0]) && isIdValid(self)) dogfightTauntPlayer(bomberSquaddyList[0], self, pp);
         return SCRIPT_CONTINUE;
     }
     public int bomberStrikeEscortUnitDestroyed(obj_id self, dictionary params) throws InterruptedException
