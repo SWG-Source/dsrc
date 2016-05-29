@@ -1,21 +1,7 @@
 package script.npc.pet_deed;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.beast_lib;
-import script.library.callable;
-import script.library.craftinglib;
-import script.library.pet_lib;
-import script.library.bio_engineer;
-import script.library.utils;
-import script.library.create;
-import script.library.hue;
+import script.library.*;
 
 public class droid_deed extends script.base_script
 {
@@ -850,6 +836,14 @@ public class droid_deed extends script.base_script
             obj_id pet = create.object(creatureName, getLocation(player));
             if (!isIdValid(pet))
             {
+                debugServerConsoleMsg(pet, "Script Exception: invalid object found (droid_deed).");
+                debugServerConsoleMsg(pet, "Unable to call droid pet.");
+                debugServerConsoleMsg(pet, "Pet = " + pet.toString());
+                debugServerConsoleMsg(pet, "Pet's Name: " + getName(pet));
+                debugServerConsoleMsg(pet, "Pet's Template: " + getTemplateName(pet));
+                debugServerConsoleMsg(pet, "");
+                debugServerConsoleMsg(pet, "Pet's Owner: " + getName(player));
+                debugServerConsoleMsg(pet, "Player's Location: " + getLocation(player).toString());
                 return petControlDevice;
             }
             pet_lib.setCraftedPetStatsByGrowth(petControlDevice, pet, 10);
