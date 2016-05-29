@@ -1,24 +1,9 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.callable;
-import script.library.player_structure;
-import script.library.utils;
 import java.util.Iterator;
-import script.library.pclib;
-import script.library.space_dungeon_data;
-import script.library.pet_lib;
-import script.library.cloninglib;
-import script.library.trial;
-import script.library.gm;
-import script.library.locations;
+import java.util.Vector;
 
 public class space_dungeon extends script.base_script
 {
@@ -1880,10 +1865,8 @@ public class space_dungeon extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (!validateInstanceTimerForPlayer(players[i], dungeonName))
-            {
+        for (obj_id player : players) {
+            if (isPlayer(player) && !validateInstanceTimerForPlayer(player, dungeonName)) {
                 return false;
             }
         }
