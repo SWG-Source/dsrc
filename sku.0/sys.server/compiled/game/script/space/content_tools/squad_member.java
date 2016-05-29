@@ -1,17 +1,10 @@
 package script.space.content_tools;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.ship_ai;
 import script.library.space_utils;
-import script.library.space_create;
+import script.library.utils;
+import script.obj_id;
 
 public class squad_member extends script.base_script
 {
@@ -37,10 +30,8 @@ public class squad_member extends script.base_script
         int intMembers = 0;
         int intSquadId = ship_ai.unitGetSquadId(self);
         obj_id[] objMembers = ship_ai.squadGetUnitList(intSquadId);
-        for (int intI = 0; intI < objMembers.length; intI++)
-        {
-            if (isIdValid(objMembers[intI]))
-            {
+        for (obj_id objMember : objMembers) {
+            if (isIdValid(objMember)) {
                 intMembers = intMembers + 1;
             }
         }
@@ -52,18 +43,17 @@ public class squad_member extends script.base_script
         float fltThresholdPercentage = utils.getFloatScriptVar(self, "fltDestroyPercentage");
         if (fltRemainingPercentage <= fltThresholdPercentage)
         {
-            for (int intI = 0; intI < objMembers.length; intI++)
-            {
-                if (isIdValid(objMembers[intI]) && (objMembers[intI] != self))
-                {
-                    setObjVar(objMembers[intI], "noNotify", 1);
+            for (obj_id objMember : objMembers) {
+                if (isIdValid(objMember) && (objMember != self)) {
+                    setObjVar(objMember, "noNotify", 1);
                 }
             }
             if (!hasObjVar(self, "noNotify"))
             {
                 obj_id objParent = getObjIdObjVar(self, "objParent");
                 dictionary dctParams = new dictionary();
-                space_utils.notifyObject(objParent, "childDestroyed", dctParams);
+                if(isIdValid(objParent) && exists(objParent))
+                    space_utils.notifyObject(objParent, "childDestroyed", dctParams);
                 setObjVar(self, "noNotify", 1);
             }
         }
