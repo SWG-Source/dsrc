@@ -1,19 +1,13 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.ai_lib;
+import script.dictionary;
+import script.library.gcw;
 import script.library.locations;
 import script.library.trial;
 import script.library.utils;
-import script.library.gcw;
+import script.location;
+import script.obj_id;
+import script.transform;
 
 public class flip_banner_onpole extends script.systems.gcw.flip_banner
 {
@@ -68,7 +62,7 @@ public class flip_banner_onpole extends script.systems.gcw.flip_banner
             }
             spawnBanner(self, "imperial");
         }
-        else if ((reb_r > imp_r))
+        else if ((reb_r >= imp_r))
         {
             utils.setScriptVar(self, "faction", 2);
             obj_id banner = utils.getObjIdScriptVar(self, "banner");
