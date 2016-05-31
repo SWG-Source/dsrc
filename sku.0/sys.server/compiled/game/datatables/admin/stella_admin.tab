@@ -1,0 +1,7 @@
+AdminAccounts	AdminLevel	AdminSkill	AdminComment	AdminComment2	AdminIpBlocks	AdminIpComment
+s	i{0}	s	c	c	s	c
+demo	40	admin		all account names must be lower case		Stella-Demo-Account
+swgnoobs	50	admin				SWGNoobs MainAdminAccount
+darth	50	admin				Darthargus Main AdminAccount
+sririerac	40	admin				
+cekis	50	admin				Cekis AdminAccount
