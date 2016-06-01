@@ -71,7 +71,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3075428	3075426	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3075429	3075426	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 3075430	3075426	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
-602454217	3075430	object/tangible/collection/col_ent_fan_04.iff	1	21.00476	1.67947	-20.93229	-0.6057337	0	0.6029738	0.3611788		$|
+602454217	3075430	object/tangible/collection/col_ent_fan_04.iff	4	21.0048	1.67947	-20.9323	-0.605734	0.361179	0.602974	0.372906		$|
 3075431	3075426	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 3075432	3075426	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 3075433	3075426	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
@@ -103,7 +103,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3075617	3075609	object/cell/cell.iff	8	0	0	0	1	1.121039E-44	0	0		$|
 3075618	3075609	object/cell/cell.iff	9	0	0	0	1	1.261169E-44	0	0		$|
 3075619	3075609	object/cell/cell.iff	10	0	0	0	1	1.401298E-44	0	0		$|
-4606564	3075619	object/tangible/collection/rare_melee_blade_betrayer.iff	1	6.752213	2.381897	-14.82969	-0.7069573	0	0.02665087	0.02267649		$|
+4606564	3075619	object/tangible/collection/rare_melee_blade_betrayer.iff	10	6.75221	2.3819	-14.8297	-0.706957	0.0226765	0.0266509	0.70639		$|
 3075620	3075609	object/cell/cell.iff	11	0	0	0	1	1.541428E-44	0	0		$|
 3075621	3075609	object/cell/cell.iff	12	0	0	0	1	1.681558E-44	0	0		$|
 3075622	3075609	object/cell/cell.iff	13	0	0	0	1	1.821688E-44	0	0		$|
@@ -248,7 +248,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4395396	4395395	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4395397	4395395	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4395398	4395395	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
-4614207	4395398	object/tangible/collection/rare_pistol_modified_de10.iff	1	23.85392	1.53484	-6.657298	0.6327776	0	-0.3239842	-0.306915		$|
+4614207	4395398	object/tangible/collection/rare_pistol_modified_de10.iff	3	23.8539	1.53484	-6.6573	0.632778	-0.306915	-0.323984	0.632796		$|
 4395399	4395395	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 4395400	4395395	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 4395401	4395395	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|

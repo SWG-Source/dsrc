@@ -8,11 +8,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365754	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	635.325	315	387.55	1	0	0	0		$|
 2365761	0	object/building/corellia/guild_combat_corellia_style_01.iff	0	727.663	315	360.325	-0.707107	0	0.707107	0		$|
 2365762	2365761	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
-4607006	2365762	object/tangible/collection/rare_melee_tulrus_sword.iff	1	0.303237	5.969707	10.03612	-0.5026473	0	0.5001973	-0.4972649		$|
+4607006	2365762	object/tangible/collection/rare_melee_tulrus_sword.iff	1	0.303237	5.96971	10.0361	-0.502647	-0.497265	0.500197	-0.499877		$|
 2365763	2365761	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2365764	2365761	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 2365765	2365761	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
-1112730	2365765	object/tangible/collection/plant_06.iff	1	6.801495	1.133057	0.02276124	1	0	0	0		$|
+1112730	2365765	object/tangible/collection/plant_06.iff	4	6.801495	1.133057	0.02276124	1	0	0	0		$|
 2365766	2365761	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 2365767	2365761	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 2365768	2365761	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
@@ -428,9 +428,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3375363	3375352	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 3375364	3375352	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 3375365	3375352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
-4612695	3375365	object/tangible/collection/rare_heavy_corellian_destroyer.iff	1	-23.76932	-0.2453802	8.59674	0.08610218	0	0.7018451	0.0983379		$|
+4612695	3375365	object/tangible/collection/rare_heavy_corellian_destroyer.iff	13	-23.7693	-0.24538	8.59674	0.0861022	0.0983379	0.701845	0.700235		$|
 3375366	3375352	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
--1	3375366	object/tangible/collection/hanging_light_02_02.iff	1	-33.77066	4.292605	-22.9507	1	0	0	0		$|
+525454241	3375366	object/tangible/collection/hanging_light_02_02.iff	14	-33.7707	4.2926	-22.9507	1	0	0	0		$|
 3375367	3375352	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
 3375372	0	object/building/corellia/hospital_corellia_s02.iff	0	569.248	330	202.187	1	0	0	0		$|
 3375373	3375372	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|

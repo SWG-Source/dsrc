@@ -318,7 +318,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7615521	0	object/static/structure/general/streetlamp_large_style_02.iff	0	839.803	4	1786.73	1	0	0	0		$|
 8465531	0	object/building/corellia/salon_corellia.iff	0	987.564	5.13163	1823.84	-0.354799	0	0.934943	0		$|
 8465532	8465531	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
-4612042	8465532	object/tangible/collection/rare_pistol_perfectly_calibrated.iff	1	-10.16347	1.2607	-4.315888	0.2474911	0	0.6524003	0.6729511		$|
+4612042	8465532	object/tangible/collection/rare_pistol_perfectly_calibrated.iff	1	-10.1635	1.2607	-4.31589	0.247491	0.672951	0.6524	0.245477		$|
 8675792	0	object/static/structure/corellia/corl_imprv_flagpole_s01.iff	0	628.274	50.0887	2042.8	1	0	0	0		$|
 9665503	0	object/tangible/furniture/all/frn_bench_generic.iff	0	608.996	23.4	2009.05	1	0	0	0		$|
 9665504	0	object/tangible/furniture/all/frn_bench_generic.iff	0	606.007	23.4	2009.06	1	0	0	0		$|
