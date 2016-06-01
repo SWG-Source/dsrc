@@ -8,7 +8,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1331937	1331932	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1331938	1331932	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1331939	1331932	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
-1110113	1331939	object/tangible/collection/scout_trooper_left_bracer.iff	1	-5.56154	-14.22352	-0.2914276	0.7485605	0	0.491173	0.1519375		$|
+1110113	1331939	object/tangible/collection/scout_trooper_left_bracer.iff	7	-5.56154	-14.2235	-0.291428	0.74856	0.151937	0.491173	-0.418714		$|
 1331940	1331932	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1331941	1331932	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1331942	1331932	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
@@ -72,7 +72,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2955399	2955393	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 2955400	2955393	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 2955401	2955393	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
-4612682	2955401	object/tangible/collection/rare_carbine_specops_bola.iff	1	-2.785562	3.663961	-7.044662	0.7109123	0	-0.7032804	0		$|
+4612682	2955401	object/tangible/collection/rare_carbine_specops_bola.iff	8	-2.785562	3.663961	-7.044662	0.7109123	0	-0.7032804	0		$|
 2955402	2955393	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 2955408	0	object/building/corellia/guild_commerce_corellia_style_01.iff	0	670.927	78	1133.6	0.961056	0	-0.276355	0		$|
 2955409	2955408	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
@@ -182,7 +182,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3005667	3005666	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 3005668	3005666	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3005669	3005666	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
-4607384	3005669	object/tangible/collection/rare_melee_xandank_lance.iff	1	-0.07898277	2.015273	17.88626	0.7073907	0	0	0		$|
+4607384	3005669	object/tangible/collection/rare_melee_xandank_lance.iff	3	-0.0789828	2.01527	17.8863	0.707391	0	0	0.706823		$|
 3005670	3005666	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1491047	3005670	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	7.6	1.0	5.0	0.70711	0	-0.70711	0		$|
 1491048	3005670	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	7.6	1.0	6.9	0.70711	0	-0.70711	0		$|
@@ -708,7 +708,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6035626	6035619	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 6036059	6035626	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-6.640127182	-64.05342102	-231.7680359	1	0	0	0		intRandomYaw|0|1|$|
 6036060	6035626	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-19.6671505	-62.5076828	-260.0289307	1	0	0	0		intRandomYaw|0|1|$|
-4607461	6035626	object/tangible/collection/rare_rifle_fallann_hyper_rifle.iff	7	5.468354	-62.52239	-231.3239	-0.6731262	0	-0.2165663	0.7065765		$|
+4607461	6035626	object/tangible/collection/rare_rifle_fallann_hyper_rifle.iff	7	5.46835	-62.5224	-231.324	-0.673126	0.706577	-0.216566	0.0273771		$|
 8075614	6035626	object/tangible/container/loot/placable_loot_crate.iff	7	-18.95936	-62.23055	-263.2796	0.9984879	0	0.05497213	0		$|
 6035627	6035619	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 6036061	6035627	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-58.13253784	-70.44744873	-176.9069214	1	0	0	0		intRandomYaw|0|1|$|
