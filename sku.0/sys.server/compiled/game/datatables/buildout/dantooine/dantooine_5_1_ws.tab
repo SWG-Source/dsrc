@@ -64,7 +64,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6205495	0	object/building/corellia/ply_corl_house_m_s01_fp1.iff	0	1589	4	1832	3.20E-08	0	1	0	planet_map.map_loc	portalLayoutCrc|0|1374805460|planetMap.category|4|tavern|healing.canhealwound|0|1|healing.canhealshock|0|1|safeLogout|0|1|$|
 6205496	6205495	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 6205497	6205495	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
--1	6205497	object/tangible/collection/col_force_shui_table_04.iff	1	-4.643187	0.6250686	1.38653	0.9171209	0	0.3986091	0		$|
+490439887	6205497	object/tangible/collection/col_force_shui_table_04.iff	2	-4.64319	0.625069	1.38653	0.917121	0	0.398609	0		$|
 6205498	6205495	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
 6205499	6205495	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 7515467	0	object/tangible/crafting/station/food_station.iff	0	1591.75	4	1823.02	3.20E-08	0	1	0		$|
@@ -120,7 +120,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8565434	8565430	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 8565435	8565430	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
 8565436	8565430	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-4706005	8565436	object/tangible/collection/rare_melee_valarian_knuckler.iff	1	-4.155926	0.985956	-5.207168	0.7109174	0	0	-0.70328		$|
+4706005	8565436	object/tangible/collection/rare_melee_valarian_knuckler.iff	6	-4.155926	0.985956	-5.207168	0.7109174	0	0	-0.70328		$|
 8565437	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1652	2	1844	1	0	0	0		$|
 8565438	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1652	2	1744	1	0	0	0		$|
 8565439	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	1524	2	1744	1	0	0	0		$|
