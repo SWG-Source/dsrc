@@ -627,3 +627,4 @@ rh?a+l?[phf].*[ck]+o+[sz]+t+[aeiou]+r	name_declined_developer
 ^kushoho$	name_declined_reserved
 ^kusho$	name_declined_reserved
 ^koku.?bakuryocho$	name_declined_reserved
+^cekis$	name_declined_reserved
