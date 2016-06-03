@@ -14,6 +14,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855728	1855720	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1855729	1855720	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 2005798	1855729	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	1.567645431	-20.73322296	6.950331688	1	0	0	0		intRandomYaw|0|1|$|
+4305432	1855729	object/tangible/dungeon/corellian_corvette/corvette_search_neutral_destroy_02.iff	9	-1.76016	-20.7332	9.8322	0.707107	0	0.707106	0		$|
+4305433	1855729	object/tangible/dungeon/corellian_corvette/corvette_search_rebel_destroy_02.iff	9	-1.35899	-20.7332	11.8033	-0.548357	0	0.836244	0		$|
 1855730	1855720	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 2005822	1855730	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	-1.321726561	-20.75	31.21769333	1	0	0	0		intRandomYaw|0|1|$|
 2005823	1855730	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	4.002573967	-20.75	30.28899002	1	0	0	0		intRandomYaw|0|1|$|

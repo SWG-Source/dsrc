@@ -5,8 +5,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1696444	1696443	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1696445	1696443	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1696446	1696443	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+625317	1696446	object/tangible/container/loot/placable_loot_crate_trashpile.iff	3	6.84427	0.7	-6.54045	1	0	0	0		$|
 2705450	1696446	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	4.68914938	0.699999988	-5.778259277	1	0	0	0		intRandomYaw|0|1|$|
 1696447	1696443	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+3815388	1696447	object/tangible/dungeon/corellian_corvette/corvette_search_neutral_destroy_01.iff	4	-6.93932	0.7	1.90404	1	0	0	0		$|
+8825382	1696447	object/tangible/container/loot/placable_loot_crate.iff	4	-7.08484	0.7	-0.114647	0.707107	0	0.707107	0		$|
 2705504	1696447	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	-5.021146774	0.699999988	1.125393987	1	0	0	0		intRandomYaw|0|1|$|
 2705505	1696447	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	-4.065349102	0.699999988	-3.321469069	1	0	0	0		intRandomYaw|0|1|$|
 1696448	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	887.815	94.0037	1119.27	-3.20013e-008	0	1	0		$|
