@@ -1411,3 +1411,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4085429	0	object/static/item/item_armor_bone_chestplate.iff	0	1892.3	12	724.25	-0.000000032	0	1	0		$|
 4085430	0	object/static/item/item_armor_chitin_chestplate.iff	0	1893.31	12	724.25	-0.000000032	0	1	0		$|
 4085431	0	object/static/item/item_armor_composite_chestplate.iff	0	1894.16	12	724.255	-0.000000032	0	1	0		$|
+-1	0	object/tangible/spawning/static_npc/racing_coordinator_keren.iff	0	1395.8	13	638.2	1	0	0	0		$|
