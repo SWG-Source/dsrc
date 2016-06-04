@@ -30,6 +30,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2215404	1855738	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	8.603824615	0.184066996	4.28538084	1	0	0	0		intRandomYaw|0|1|$|
 2215405	1855738	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	0.157243997	0.184066996	-1.349746943	1	0	0	0		intRandomYaw|0|1|$|
 2215406	1855738	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	-8.588871002	0.184066996	-4.97004509	1	0	0	0		intRandomYaw|0|1|$|
+4608172	1855738	object/tangible/quest/corellia_coronet_rogue_corsec_base_computer_fake.iff	2	1.18175	0.184067	11.9937	0.707107	0	-0.707106	0		$|
+4608183	1855738	object/tangible/quest/corellia_coronet_rogue_corsec_base_computer.iff	2	-0.81898	0.184067	11.9912	0.707108	0	-0.707106	0		$|
 1855739	1855736	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1855740	0	object/building/general/mun_all_hospital_s02.iff	0	1158.95	5	1577.07	0.886811	0	0.462132	0		$|
 1855741	1855740	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
