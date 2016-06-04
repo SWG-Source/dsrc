@@ -1129,7 +1129,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8105500	8105493	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 8105501	8105493	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 8105502	8105493	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
-9766882	8105502	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-323.42	27.11	-4484.76	1	0	0	0		intRandomYaw|0|1|$|
+9766882	8105502	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-6.8	-0.9	22.4	1	0	0	0		intRandomYaw|0|1|$|
 8105503	8105493	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 8105504	8105493	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 1487877	8105504	object/tangible/terminal/terminal_mission_rebel.iff	11	-28.83578	-0.894985	-2.352153	1	0	0	0		$|
