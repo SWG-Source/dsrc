@@ -893,6 +893,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1279922	1279918	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1095693	1279922	object/tangible/collection/shock_trooper_left_bracer.iff	4	3.88669	0.138093	-0.48642	0.781719	0.285115	0.384283	-0.399939		$|
 1279923	1279918	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-48	0	object/tangible/npc/tatooine_spawn/pfilbee_jhorn.iff	5	5.1	0.1	-3.7	1	0	0	0		$|
 1279924	1279918	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1279925	0	object/building/military/military_outpost_guard_tower_1.iff	0	922.491	98	202.145	0.00579658	0	0.999983	0		$|
 1279939	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	890.421	97.9377	201.164	-0.703847	0	0.710351	0		$|
