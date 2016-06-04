@@ -512,3 +512,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 189707	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	275	90	1998	0.43051	0	-0.90258	0		$|
 4006309	0	object/tangible/spawning/spawn_egg.iff	0	977.7	75	1575.76	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
 -1	0	object/tangible/spawning/static_npc/bestine_artist06.iff	0	904.6	75	1624.5	1	0	0	0		$|
+-2	0	object/tangible/spawning/static_npc/tato_zicx_jowir.iff	0	894.7	75	1644.6	1	0	0	0		$|
+-3	0	object/tangible/spawning/static_npc/tato_zicx_palu.iff	0	1096	75	1610	1	0	0	0		$|
