@@ -17,6 +17,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4305432	1855729	object/tangible/dungeon/corellian_corvette/corvette_search_neutral_destroy_02.iff	9	-1.76016	-20.7332	9.8322	0.707107	0	0.707106	0		$|
 4305433	1855729	object/tangible/dungeon/corellian_corvette/corvette_search_rebel_destroy_02.iff	9	-1.35899	-20.7332	11.8033	-0.548357	0	0.836244	0		$|
 1855730	1855720	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+4608176	1855730	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	1.5	-20.8	23.8	1	0	0	0		intRandomYaw|0|1|$|
 2005822	1855730	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	-1.321726561	-20.75	31.21769333	1	0	0	0		intRandomYaw|0|1|$|
 2005823	1855730	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	4.002573967	-20.75	30.28899002	1	0	0	0		intRandomYaw|0|1|$|
 2005824	1855730	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	2.298336029	-20.75	18.57264137	1	0	0	0		intRandomYaw|0|1|$|
@@ -25,6 +26,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855736	0	object/building/general/mun_all_hospital_s02.iff	0	1098.72	5	1619.31	0.300293	0	0.953847	0		$|
 1855737	1855736	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1855738	1855736	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+4608169	1855738	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	1.9	0.2	5.0	1	0	0	0		intRandomYaw|0|1|$|
 2215404	1855738	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	8.603824615	0.184066996	4.28538084	1	0	0	0		intRandomYaw|0|1|$|
 2215405	1855738	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	0.157243997	0.184066996	-1.349746943	1	0	0	0		intRandomYaw|0|1|$|
 2215406	1855738	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	-8.588871002	0.184066996	-4.97004509	1	0	0	0		intRandomYaw|0|1|$|
