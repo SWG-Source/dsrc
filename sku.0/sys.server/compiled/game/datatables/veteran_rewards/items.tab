@@ -113,13 +113,13 @@ cts_infinity_painting	veteran_new:cts_infinity_painting	object/tangible/furnitur
 cts_infinity_greeter	veteran_new:cts_infinity_greeter	object/tangible/furniture/house_cleanup/cts_infinity_box.iff	0	0		1
 cts_test_painting	veteran_new:cts_infinity_painting	object/tangible/furniture/house_cleanup/cts_infinity_painting.iff	0	0		1
 cts_test_greeter	veteran_new:cts_infinity_greeter	object/tangible/furniture/house_cleanup/cts_infinity_box.iff	0	0		1
-tcg_blk_dress	veteran_new:tcg_black_corset_dress	item_tcg_loot_reward_series1_black_corset_dress	0	0		0
+tcg_blk_dress	veteran_new:tcg_black_corset_dress	item_tcg_loot_reward_series1_black_corset_dress	0	0		1
 tcg_naboo_jacket	veteran_new:tcg_naboo_jacket	item_tcg_loot_reward_series1_naboo_jacket	0	0		1
 tcg_dooku_bust	veteran_new:tcg_dooku_bust	item_tcg_loot_reward_series1_dooku_bust	0	0		1
 tcg_display_case_01	veteran_new:tcg_display_case_01	item_tcg_loot_reward_series1_display_case_01	0	0		0
 tcg_gorax_ear	veteran_new:tcg_gorax_ear	item_tcg_loot_reward_series1_gorax_ear	0	0		1
 tcg_bas_relief	veteran_new:tcg_bas_relief	item_tcg_loot_reward_series1_bas_relief	0	0		0
-tcg_glow_blueeyes	veteran_new:tcg_glowing_blue_eyes	item_tcg_loot_reward_series1_glowing_red_eyes	0	0		1
+tcg_glow_blueeyes	veteran_new:tcg_glowing_blue_eyes	item_tcg_loot_reward_series1_glowing_blue_eyes	0	0		1
 tcg_glow_redeyes	veteran_new:tcg_glowing_red_eyes	item_tcg_loot_reward_series1_glowing_red_eyes	0	0		1
 tcg_vendor_gungan	veteran_new:tcg_vendor_gungan	item_tcg_loot_reward_series1_vendor_gungan	0	0		0
 tcg_houseclean_kit	veteran_new:tcg_housecleaning_kit	item_tcg_loot_reward_series1_housecleaning_kit	0	0		1
