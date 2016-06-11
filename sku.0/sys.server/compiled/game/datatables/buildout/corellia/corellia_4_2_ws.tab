@@ -83,6 +83,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855469	1855460	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1855470	1855460	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 1855471	1855460	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+1211533	1855471	object/tangible/quest/corellia_coronet_meatlump_act1_shipment.iff	11	16.5376	3.35159	-25.4146	0.707107	0	0.707106	0		$|
 1855473	0	object/building/corellia/association_hall_civilian_corellia.iff	0	1772.42	28	1424.24	1	0	0	0		$|
 1855474	1855473	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1855475	1855473	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
