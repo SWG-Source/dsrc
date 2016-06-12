@@ -671,6 +671,11 @@ public class pclib extends script.base_script
         {
             playDeathBlowAnimation(victim, killer);
         }
+        if ( getPosture(victim) != POSTURE_DEAD ) {
+            if (!setPosture(victim, POSTURE_DEAD)) {
+                debugSpeakMsg(victim, "coupDeGrace: unable to set my posture to dead!");
+            }
+        }
         boolean dueling = pvpIsDueling(victim, pvpKiller);
         if (killer != victim)
         {
