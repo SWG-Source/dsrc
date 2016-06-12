@@ -326,9 +326,6 @@ public class player_structure extends script.base_script
             return null;
         }
         String deed_template = getTemplateName(deed);
-        if(deed_template == null){
-            deed_template = "";
-        }
         String scene = getDeedScene(deed);
         String cityName = getStringObjVar(deed, "cityName");
         if (!destroyObject(deed))
