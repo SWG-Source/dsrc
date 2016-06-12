@@ -325,6 +325,12 @@ public class player_structure extends script.base_script
         {
             return null;
         }
+        String deed_template = getTemplateName(deed);
+        if(deed_template == null){
+            deed_template = "";
+        }
+        String scene = getDeedScene(deed);
+        String cityName = getStringObjVar(deed, "cityName");
         if (!destroyObject(deed))
         {
             return null;
@@ -353,10 +359,6 @@ public class player_structure extends script.base_script
         addStructure(structure, template, localize(getNameStringId(structure)), loc, owner, owner_name, true, true);
         int maintenance_mod = getSkillStatMod(owner, "structure_maintenance_mod");
         int factory_mod = getSkillStatMod(owner, "factory_efficiency");
-        String deed_template = getTemplateName(deed);
-        if(deed_template == null){
-            deed_template = "";
-        }
         dictionary deed_info = new dictionary();
         deed_info.put("template", deed_template);
         deed_info.put("build_time", build_time);
@@ -380,9 +382,7 @@ public class player_structure extends script.base_script
         setObjVar(structure, VAR_TEMP_PLACEMENT_HEIGHT, placementHeight);
         setDeedTemplate(structure, deed_template);
         setObjVar(structure, VAR_DEED_BUILDTIME, build_time);
-        String scene = getDeedScene(deed);
         setObjVar(structure, VAR_DEED_SCENE, scene);
-        String cityName = getStringObjVar(deed, "cityName");
         if (cityName != null && !cityName.equals(""))
         {
             setObjVar(structure, "cityName", cityName);
@@ -1328,15 +1328,6 @@ public class player_structure extends script.base_script
     }
     public static String getDeedScene(obj_id deed) throws InterruptedException
     {
-        if(deed == null || !isIdValid(deed) || !exists(deed) || deed.equals(obj_id.NULL_ID)) {
-            debugServerConsoleMsg(deed, "Couldnt get deed scene from deed: " + deed);
-            debugServerConsoleMsg(deed, "Deed does " + (exists(deed) ? "" : "not") + " exist.");
-            debugServerConsoleMsg(deed, "Deed is " + (isIdValid(deed) ? "" : "not") + " valid.");
-            debugServerConsoleMsg(deed, "Deed owner: " + getOwner(deed) + " owners name: " + getName(getOwner(deed)));
-            debugServerConsoleMsg(deed, "Self Check: " + getSelf());
-            debugServerConsoleMsg(deed, "Self Name: " + getName(getSelf()));
-            return null;
-        }
         if (!hasObjVar(deed, VAR_DEED_SCENE))
         {
             return null;
