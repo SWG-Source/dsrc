@@ -1,6 +1,6 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-1418871	0	object/building/naboo/emperors_retreat.iff	0	372.63	291.909	154.746	0.761612	0	0.648034	0		$|
+1418871	0	object/building/naboo/emperors_retreat.iff	0	372.63	291.909	154.746	0.761612	0	0.648034	0		travel.point_name|4|The Emperor's Retreat|$|
 1418872	1418871	object/cell/cell.iff	1	0	0	0	1	1.401298E-45	0	0		$|
 1418873	1418871	object/cell/cell.iff	2	0	0	0	1	2.802597E-45	0	0		$|
 1418874	1418871	object/cell/cell.iff	3	0	0	0	1	4.203895E-45	0	0		$|

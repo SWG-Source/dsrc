@@ -498,7 +498,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8515668	0	object/static/installation/mockup_mining_liquid_harvester_style_1.iff	0	1410.35	46	1447.35	0.707107	0	0.707106	0		$|
 8515669	0	object/static/structure/general/tankfarm_s01.iff	0	1399.18	46	1453.92	3.20E-08	0	1	0		$|
 8515670	0	object/static/structure/general/tankfarm_s01.iff	0	1398.92	46	1437.19	1	0	0	0		$|
-8855664	0	object/building/military/military_base_shed_rebel_style_01.iff	0	1401.18	46	1463.23	1	0	0	0		portalLayoutCrc|0|1376564094|$|
+8855664	0	object/building/military/military_base_shed_rebel_style_01.iff	0	1401.18	46	1463.23	1	0	0	0		portalLayoutCrc|0|1376564094|travel.point_name|4|Abandoned Rebel Base|$|
 8855665	8855664	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 8855666	8855664	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 8855667	8855664	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
