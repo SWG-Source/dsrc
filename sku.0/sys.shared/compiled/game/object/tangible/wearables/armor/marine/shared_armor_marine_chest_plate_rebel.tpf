@@ -10,3 +10,5 @@ objectName = "wearables_name" "armor_marine_chest_plate"
 detailedDescription = "wearables_detail" "armor_marine_chest_plate"
 appearanceFilename = "appearance/armor_marine_chest_plate_rebel_m.sat"
 
+gameObjectType = GOT_armor_leg
+

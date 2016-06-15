@@ -10,3 +10,5 @@ objectName = "static_item_n" "armor_gcw_rebel_marine_leggings"
 detailedDescription = "static_item_d" "armor_gcw_rebel_marine_leggings"
 appearanceFilename = "appearance/armor_marine_leggings_gcw_f.sat"
 
+gameObjectType = GOT_armor_leg
+
