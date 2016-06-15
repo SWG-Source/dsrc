@@ -10,3 +10,5 @@ objectName = "wearables_name" "armor_zam_wesell_chest_plate_quest"
 detailedDescription = "wearables_detail" "armor_zam_wesell_chest_plate_quest"
 appearanceFilename = "appearance/armor_zam_wesell_chest_plate_m.sat"
 
+gameObjectType = GOT_armor_body
+
