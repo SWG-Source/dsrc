@@ -10,3 +10,5 @@ objectName = "static_item_n" "armor_gcw_rebel_marine_chest_plate"
 detailedDescription = "static_item_d" "armor_gcw_rebel_marine_chest_plate"
 appearanceFilename = "appearance/armor_marine_chest_plate_rebel_gcw_f.sat"
 
+gameObjectType = GOT_armor_body
+
