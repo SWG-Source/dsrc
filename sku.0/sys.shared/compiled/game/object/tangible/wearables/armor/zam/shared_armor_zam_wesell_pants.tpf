@@ -10,3 +10,5 @@ objectName = "wearables_name" "armor_zam_wesell_pants"
 detailedDescription = "wearables_detail" "armor_zam_wesell_pants"
 appearanceFilename = "appearance/armor_zam_wesell_pants_f.sat"
 
+gameObjectType = GOT_armor_leg
+
