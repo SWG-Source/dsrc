@@ -10,3 +10,5 @@ objectName = "wearables_name" "armor_ubese_jacket"
 detailedDescription = "wearables_detail" "armor_ubese_jacket"
 appearanceFilename = "appearance/armor_ubese_jacket_m.sat"
 
+gameObjectType = GOT_armor_body
+
