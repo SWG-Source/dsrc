@@ -903,7 +903,8 @@ public class terminal_character_builder extends script.base_script
         "Color Crystals",
         "Lava Crystal",
         "Power Crystals",
-        "Ancient Krayt Pearls"
+        "Ancient Krayt Pearls",
+        "Sunriders Destiny"
     };
     public static final String[] SABER_OPTIONS = 
     {
@@ -8137,6 +8138,10 @@ public class terminal_character_builder extends script.base_script
                     static_item.createNewItemFunction("item_krayt_pearl_04_20", pInv);
                 }
                 sendSystemMessageTestingOnly(player, "Ancient Krayt Pearls Issued!");
+            break;
+            case 4:
+                 static_item.createNewItemFunction("item_color_crystal_02_29", pInv);
+                 sendSystemMessageTestingOnly(player, "Sunriders Destiny Issued!");
             break;
             default:
             cleanScriptVars(player);
