@@ -9,3 +9,5 @@ armor = "abstract/armor_statistics/armor/zam_wesell/base/statistics_armor_zam_ch
 
 sharedTemplate = "object/tangible/wearables/armor/zam/shared_armor_zam_wesell_chest_plate.iff"
 
+scripts = +["item.armor.new_armor"]
+
