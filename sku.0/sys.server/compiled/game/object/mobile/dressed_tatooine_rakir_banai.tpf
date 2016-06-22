@@ -8,5 +8,5 @@ nameGeneratorType = "human"
 
 @class object_template 0
 
-sharedTemplate = "object/mobile/shared_dressed_tatooine_rakir_banai.iff"
+sharedTemplate = "object/mobile/tatooine_npc/shared_rakir_banai.iff"
 
