@@ -6418,14 +6418,7 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Spec-Ops Pack Issued.");
             break;
 			case 1:
-			obj_id bufferId = player;
-			float currentBuffTime = performance.inspireGetMaxDuration(player);
-			buff.applyBuff(player, "buildabuff_inspiration", 14400);
-			utils.setScriptVar(player, "performance.buildabuff.buffComponentKeys", buffComponentKeys);
-			utils.setScriptVar(player, "performance.buildabuff.buffComponentValues", buffComponentValues);
-			utils.setScriptVar(player, "performance.buildabuff.bufferId", bufferId);
-			
-			
+		
 			buff.applyBuff((player), "me_buff_health_2", 14400);
 			buff.applyBuff((player), "me_buff_action_3", 14400);
 			buff.applyBuff((player), "me_buff_strength_3", 14400);
