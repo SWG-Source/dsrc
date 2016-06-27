@@ -68,7 +68,6 @@ public class retreatspawner extends script.base_script
         spawnShuttlePilot2(self);
         spawnVelso(self);
         spawnRecordKeeper(self);
-        spawnAllard(self);
         return;
     }
     public void spawnKaja(obj_id self) throws InterruptedException
@@ -362,17 +361,6 @@ public class retreatspawner extends script.base_script
         setAnimationMood(pilot2, "npc_use_terminal_high");
         setObjVar(self, "RetreatInhabitants.pilot2", pilot2);
         setObjVar(pilot2, "Retreat", self);
-        return;
-    }
-    public void spawnAllard(obj_id self) throws InterruptedException
-    {
-        location allardLocation = new location(2414.8f, 0.0f, -3949.2f, "naboo", obj_id.NULL_ID);
-        obj_id allard = create.staticObject("imperial_officer_questgiver", allardLocation);
-        int allard_yaw = 12;
-        setYaw(allard, allard_yaw);
-        setObjVar(self, "RetreatInhabitants.allard", allard);
-        setObjVar(allard, "Retreat", self);
-        attachScript(allard, "conversation.c_rebdefector_allard");
         return;
     }
     public int spawnTheGuards(obj_id self, dictionary params) throws InterruptedException
