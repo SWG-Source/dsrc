@@ -16,3 +16,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9525378	0	object/static/structure/naboo/gungan_statue_s03.iff	0	1943.35	-187.643	477.949	-0.0157957	0	0.999875	0		$|
 9525381	0	object/static/structure/naboo/gungan_statue_s02.iff	0	1932.38	-187.707	469.812	0.768054	0	0.640386	0		$|
 47282	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1946.679077	-187.7405701	474.380859	1	0	0	0		$|
+3737680	0	object/tangible/ground_spawning/mob_spawner.iff	0	434	-209	822	1	0	0	0		$|
+3737681	0	object/tangible/ground_spawning/mob_spawner.iff	0	434	-209	822	1	0	0	0		$|
+3737682	0	object/tangible/ground_spawning/mob_spawner.iff	0	434	-209	822	1	0	0	0		$|
