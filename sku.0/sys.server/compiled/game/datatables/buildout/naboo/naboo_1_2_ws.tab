@@ -15,3 +15,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9525558	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1881.72	4.82503	1054.65	1	0	0	0		$|
 9525562	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1883.01	4.64979	1059.79	1	0	0	0		$|
 9795424	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1881.419922	5.215501785	1055.143066	1	0	0	0		$|
+3737698	0	object/tangible/ground_spawning/mob_spawner.iff	0	870	11	1995	1	0	0	0		$|
+3737699	0	object/tangible/ground_spawning/mob_spawner.iff	0	870	11	1995	1	0	0	0		$|
+3737700	0	object/tangible/ground_spawning/mob_spawner.iff	0	870	11	1995	1	0	0	0		$|
