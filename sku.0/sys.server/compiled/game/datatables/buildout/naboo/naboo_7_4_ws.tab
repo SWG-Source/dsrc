@@ -683,3 +683,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1717279	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	1001.76	350	601.809	0.696134	0	0.717911	0		$|
 4295407	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1622.633789	289.9527283	507.690674	1	0	0	0		$|
 -1	0	object/tangible/poi/tatooine/explore_naboo_deeja_falls.iff	0	1061	388	402	1	0	0	0		$|
+6995491	0	object/tangible/ground_spawning/mob_spawner.iff	0	1212	326	463	1	0	0	0		$|
+6995492	0	object/tangible/ground_spawning/mob_spawner.iff	0	1043	350	570	0	0	1	0		$|
