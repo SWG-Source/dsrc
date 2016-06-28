@@ -63,3 +63,7 @@ mtp_hideout_instance	7284	-650	7584	-350
 mtp_hideout_instance	7284	-1190	7584	-890
 mtp_hideout_instance	7284	-1730	7584	-1430
 mtp_hideout_instance	7284	-2270	7584	-1970
+dungeon1_5_5_ws	0	0	2048	2048
+dungeon1_5_6_ws	0	2048	2048	4096
+dungeon1_6_5_ws	2048	0	4096	2048
+dungeon1_6_6_ws	2048	2048	4096	4096
