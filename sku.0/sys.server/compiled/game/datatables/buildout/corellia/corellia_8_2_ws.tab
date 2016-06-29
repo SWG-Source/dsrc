@@ -614,6 +614,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365954	0	object/building/corellia/filler_slum_24x16_s02.iff	0	538.694	315	569.485	-0.00730028	0	0.999973	0		$|
 2395555	0	object/static/corellia/rock_bowl_agrilat_single.iff	0	643.971	313.067	575.412	1	0	0	0		$|
 2395558	0	object/building/corellia/filler_slum_24x16_s01.iff	0	632.31	315	665.297	-0.486168	0	0.873865	0		$|
--1	0	object/tangible/poi/tatooine/explore_cor_bela_vistal_fountain.iff	0	620	314	535	1	0	0	0		$|
--2	0	object/tangible/npc/corvette_dungeon/corvette_pashna_rebel_assassin.iff	0	628	315	447	1	0	0	0		$|
--3	0	object/tangible/planet_map_location/city.iff	0	480.307	330	222.708	1	0	0	0		$|
+-50	0	object/tangible/poi/tatooine/explore_cor_bela_vistal_fountain.iff	0	620	314	535	1	0	0	0		$|
+-51	0	object/tangible/npc/corvette_dungeon/corvette_pashna_rebel_assassin.iff	0	628	315	447	1	0	0	0		$|
+-52	0	object/tangible/planet_map_location/city.iff	0	480.307	330	222.708	1	0	0	0		$|
+1284176	0	object/tangible/ground_spawning/mob_spawner.iff	0	691	315	359	1	0	0	0		$|
+1284177	0	object/tangible/ground_spawning/mob_spawner.iff	0	562	315	586	1	0	0	0		$|
