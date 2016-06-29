@@ -1214,4 +1214,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9526237	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1071	21	1754	1	0	0	0		$|
 3375640	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1091	21	1810	0.40674	0	0.91355	0		$|
 -1	0	object/tangible/npc/corvette_dungeon/corvette_adar_rebel_rescue.iff	0	697	21	1422	1	0	0	0		$|
-3355372	0	object/tangible/ground_spawning/mob_spawner.iff	0	625	21	1465	1	0	0	0		$|
+3355372	0	object/tangible/ground_spawning/mob_spawner.iff	0	625	21	1464.5	1	0	0	0		$|
