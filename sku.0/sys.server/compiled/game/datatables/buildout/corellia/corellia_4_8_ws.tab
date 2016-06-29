@@ -13,3 +13,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9825486	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	344.831	367.288	739.577	0.781969	-0.148467	0.584821	-0.156414		$|
 9825487	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	346.055	361.129	728.833	0.999687	0	0	0.0249973		$|
 9825488	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	342.789	360.909	734.476	0.951149	-0.0485384	-0.227728	0.20273		$|
+6835496	0	object/tangible/ground_spawning/mob_spawner.iff	0	355	370	728	1	0	0	0		$|
+6835497	0	object/tangible/ground_spawning/mob_spawner.iff	0	355	370	728	1	0	0	0		$|
+6835498	0	object/tangible/ground_spawning/mob_spawner.iff	0	355	370	728	1	0	0	0		$|
