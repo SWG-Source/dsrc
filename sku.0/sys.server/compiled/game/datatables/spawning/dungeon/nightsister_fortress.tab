@@ -12,9 +12,7 @@ nightsister_ranger		r12	-12.85	7.22	-12.47	theme_park.dungeon.generic_death	173	
 nightsister_sentinal		r10	7.57	7.22	-34.77	theme_park.dungeon.generic_death	23		900						
 nightsister_spell_weaver		r9	-6.5	7.22	-16.8	theme_park.dungeon.generic_death	148		900						
 nightsister_stalker		r11	10.56	7.22	-8.42	theme_park.dungeon.generic_death	124		900						
-nightsister_elder		world	-3975.351318	131.5000916	-157.9970856	theme_park.dungeon.generic_death	179		10000	int:ai.defaultCalmBehavior=1					
-nightsister_initiate		world	-4081.126465	132.9358521	-207.0426788	theme_park.dungeon.generic_death	30		7200	int:ai.defaultCalmBehavior=1					
-nightsister_protector		world	-3999	119	-65	npc.static_quest.quest_convo	-110			string:quest_table=herald_dathomir_singing_vs_nightsister					
-herald_dathomir_leandra	Spell Weaver Leandra	world	-4085	133.7	-210	npc.static_quest.quest_convo	-150			string:quest_table=herald_dathomir_nsister_cave_leandra					
+nightsister_protector		world	-3999	119	-65	npc.static_quest.quest_convo	-110			string:quest_table=herald_dathomir_singing_vs_nightsister
+herald_dathomir_leandra	Spell Weaver Leandra	world	-4085	133.7	-210	npc.static_quest.quest_convo	-150			string:quest_table=herald_dathomir_nsister_cave_leandra
 nightsister_rancor_tamer		world	-4156	121	-83	npc.static_quest.quest_convo	160			string:quest_table=herald_dathomir_mutant_rancor_cave					
 baritha	Baritha	world	-3976	131.5	-172	npc.static_quest.quest_convo	-160			string:quest_table=baritha					
