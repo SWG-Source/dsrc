@@ -64,3 +64,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 186398	0	object/static/corellia/rock_crystal_geyser_agrilat_small.iff	0	286.601	18.3059	1923.53	0.886995	0	0.461779	0		$|
 186399	0	object/static/corellia/rock_crystal_mound_agrilat_medium.iff	0	220.983	16.6048	2022.25	1	0	0	0		$|
 -1	0	object/tangible/poi/tatooine/explore_corellia_agrilat_swamp.iff	0	1389	32	1708	1	0	0	0		$|
+6835503	0	object/tangible/ground_spawning/mob_spawner.iff	0	753	393	455	1	0	0	0		$|
+6835504	0	object/tangible/ground_spawning/mob_spawner.iff	0	753	393	455	1	0	0	0		$|
+6835505	0	object/tangible/ground_spawning/mob_spawner.iff	0	753	393	455	1	0	0	0		$|
