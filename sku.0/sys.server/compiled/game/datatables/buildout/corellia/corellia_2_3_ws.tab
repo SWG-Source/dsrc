@@ -94,6 +94,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3095712	1935687	object/tangible/terminal/terminal_space.iff	4	9.88435	0.639423	62.0259	0.999996	0	0.002694	0		$|
 4855816	1935687	object/tangible/terminal/terminal_newsnet.iff	4	6.63155	0.639421	50.3394	1	0	0	0		$|
 4855817	1935687	object/tangible/terminal/terminal_newsnet.iff	4	-8.36258	0.639421	49.8173	1	0	0	0		$|
+6835512	1935687	object/tangible/ground_spawning/mob_spawner.iff	4	15.4	0.6	56.6	1	0	0	0		$|
 1935688	1935683	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1935689	1935683	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1935690	1935683	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
