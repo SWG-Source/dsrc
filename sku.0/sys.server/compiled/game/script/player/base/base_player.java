@@ -5862,42 +5862,36 @@ public class base_player extends script.base_script
     }
     public int OnCityChanged(obj_id self, int oldCityId, int newCityId) throws InterruptedException
     {
-        if ((oldCityId != 0) && cityExists(oldCityId))
-        {
-            String city_name = cityGetName(oldCityId);
-            prose_package pp = prose.getPackage(SID_LEAVE_CITY, city_name);
-            sendSystemMessageProse(self, pp);
-            
+        if ((oldCityId != 0) && cityExists(oldCityId)) {
+            sendSystemMessageProse(self, prose.getPackage(SID_LEAVE_CITY, cityGetName(oldCityId)));
+            return SCRIPT_CONTINUE;
+        }
+
+        String cityName = cityGetName(newCityId);
 	    int city_rank = city.getCityRank(newCityId);
-            string_id rank_name = new string_id("city/city", "rank" + city_rank);
-            city_name = cityGetName(newCityId);
-            String spec = city.cityGetSpecString(newCityId);
-            pp = new prose_package();
-            pp.stringId = SID_ENTER_CITY;
-            pp.target.set(city_name);
-            String specpart = localize(rank_name);
-            if (spec != null && !spec.equals("null"))
-            {
-                specpart = specpart + ", " + localize(new string_id("city/city", spec));
-            }
-            int factionId = cityGetFaction(newCityId);
-            if ((-615855020) == factionId)
-            {
-                specpart = specpart + ", Imperial aligned";
-            }
-            else if ((370444368) == factionId)
-            {
-                specpart = specpart + ", Rebel aligned";
-            }
-            pp.other.set(specpart);
-            sendSystemMessageProse(self, pp);
-            obj_id cityHallId = cityGetCityHall(newCityId);
-            String cityName = cityGetName(newCityId);
-            if(cityHallId != null && cityName != null && hasObjVar(cityHallId, "city_visitor_message"))
-	    {
+        string_id rank_name = new string_id("city/city", "rank" + city_rank);
+        String spec = city.cityGetSpecString(newCityId);
+        prose_package pp = new prose_package();
+        pp.stringId = SID_ENTER_CITY;
+        pp.target.set(cityName);
+
+        String specpart = localize(rank_name);
+        if (spec != null && !spec.equals("null")) {
+            specpart = specpart + ", " + localize(new string_id("city/city", spec));
+        }
+        int factionId = cityGetFaction(newCityId);
+        if ((-615855020) == factionId) {
+            specpart = specpart + ", Imperial aligned";
+        } else if ((370444368) == factionId) {
+            specpart = specpart + ", Rebel aligned";
+        }
+        pp.other.set(specpart);
+        sendSystemMessageProse(self, pp);
+
+        obj_id cityHallId = cityGetCityHall(newCityId);
+        if(cityHallId != null && cityName != null && hasObjVar(cityHallId, "city_visitor_message")) {
                 String cityVisitorMessage = getStringObjVar(cityHallId, "city_visitor_message");
                 sendConsoleMessage(self, "City(" + cityName + ") Message: " + cityVisitorMessage + "\\#DFDFDF");
-            }
         }
         return SCRIPT_CONTINUE;
     }
