@@ -767,8 +767,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2625353	2625352	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2625354	2625352	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 2625355	2625352	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1284152	2625355	object/tangible/ground_spawning/mob_spawner.iff	3	5.2	-0.9	-7.2	1	0	0	0		$|
 514454336	2625355	object/tangible/collection/hanging_light_02_10.iff	3	-15.49157	3.523299	0.5998853	1	0	0	0		$|
 2625356	2625352	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4725555	2625356	object/tangible/ground_spawning/mob_spawner.iff	4	18.2	-0.9	-19.2	1	0	0	0		$|
 2625357	2625352	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 2625358	2625352	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 2625359	2625352	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
@@ -1211,3 +1213,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9526237	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1071	21	1754	1	0	0	0		$|
 3375640	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1091	21	1810	0.40674	0	0.91355	0		$|
 -1	0	object/tangible/npc/corvette_dungeon/corvette_adar_rebel_rescue.iff	0	697	21	1422	1	0	0	0		$|
+3355372	0	object/tangible/ground_spawning/mob_spawner.iff	0	625	21	1465	1	0	0	0		$|
