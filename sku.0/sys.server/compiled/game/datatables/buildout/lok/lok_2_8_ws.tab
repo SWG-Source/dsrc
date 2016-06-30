@@ -62,3 +62,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9685990	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1643.78	75.5007	1259.64	1	0	0	0		$|
 2975357	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	152.183594	76.71961975	247.01709	1	0	0	0		$|
 2975377	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1661.629883	81.15625763	1260.326172	1	0	0	0		$|
+5755422	0	object/tangible/ground_spawning/mob_spawner.iff	0	132	57	281	1	0	0	0		$|
+5755423	0	object/tangible/ground_spawning/mob_spawner.iff	0	132	57	281	1	0	0	0		$|
+5755424	0	object/tangible/ground_spawning/mob_spawner.iff	0	132	57	281	1	0	0	0		$|
