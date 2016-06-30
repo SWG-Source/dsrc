@@ -7,7 +7,6 @@ herald_tatooine_viconya	Vi`conya T`ili	world	-1101	10	-3549	-90	conversation.her
 coa2_imperial_coordinator		world	-1131	12	-3659	-50				1	"int:ai.defaultCalmBehavior=1"
 death_watch_herald_imperial		world	-1160	12	-3525	-115	conversation.death_watch_imperial_herald			1	"int:ai.defaultCalmBehavior=1"
 kormund_thrylle		world	-1043	10	-3530	175	npc.static_quest.quest_convo			1	"string:quest_table=kormund_thrylle,int:ai.defaultCalmBehavior=1"
-commoner_human_male		world	-1252	12	-3617	-90	conversation.lf_safetyquestgiver			1	"int:ai.defaultCalmBehavior=1"
 imperial_recruiter		world	-1275	12	-3594	-80				1	"int:ai.defaultCalmBehavior=1"
 imperial_recruiter		world	-1138	98	-3897	-1				1	"int:ai.defaultCalmBehavior=1"
 imperial_recruiter		world	-1307	12	-3662	-130				1	"int:ai.defaultCalmBehavior=1"
