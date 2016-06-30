@@ -9,3 +9,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9715672	0	object/tangible/furniture/all/frn_all_tree_potted_s2.iff	0	1061.09	75.8355	1736.31	-0.00782203	-0.526921	0.849864	0.00484971		$|
 9715680	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	1062.68	76.0527	1729.01	0.926808	0.0716803	0.286695	0.231723		$|
 9715684	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1058.47	73.1232	1732.37	1	0	0	0		$|
+3355964	0	object/tangible/ground_spawning/mob_spawner.iff	0	1063	75	1745	1	0	0	0		$|
+3355965	0	object/tangible/ground_spawning/mob_spawner.iff	0	1063	75	1745	1	0	0	0		$|
+3355966	0	object/tangible/ground_spawning/mob_spawner.iff	0	1063	75	1745	1	0	0	0		$|
