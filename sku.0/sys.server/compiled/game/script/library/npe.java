@@ -71,10 +71,8 @@ public class npe extends script.base_script
         location world_loc;
         String cell;
         location cell_loc;
-        LOG("npe", "Transfer perform engaged for %TU to " + station);
         switch (station) {
             case DUNGEON_SPACE_STATION + "*":
-                LOG("npe", "Transferring %TU to npe_space_station");
                 int instance_index = getBestStationInstanceIndex(player, stations);
                 if (instance_index == -1 || instance_index >= stations.length) {
                     return false;
@@ -150,7 +148,6 @@ public class npe extends script.base_script
                 }
             default:
                 LIVE_LOG("npe", "Player is trying to perform a cluster wide transition, but is going to an unsupported station " + station + " should be " + DUNGEON_SPACE_STATION + "*, " + DUNGEON_ORD_SPACE_STATION + "*");
-                LOG("npe", "%TU cannot be sent to " + station);
                 return false;
         }
     }
