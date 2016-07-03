@@ -44,12 +44,15 @@ public class ord_mantell_terminal extends script.base_script
                 space_crafting.repairDamage(player, shipId[0], 1.0f);
             }
             if (checkGod(player))
-            {
                 return SCRIPT_CONTINUE;
-            }
+
             location ordLoc = new location(200, 150, 600);
-            npe.movePlayerFromSharedStationToOrdMantellSpace(player, ordLoc);
-            groundquests.sendSignal(player, "accessedSpace");
+            if (npe.movePlayerFromSharedStationToOrdMantellSpace(player, ordLoc)) {
+                // Only update quests if the player has successfully moved into OM space
+                groundquests.sendSignal(player, "accessedSpace");
+            } else {
+                LOG("npe", "Could not move to OM space!");
+            }
         }
         return SCRIPT_CONTINUE;
     }
