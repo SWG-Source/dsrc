@@ -438,7 +438,7 @@ public class npe extends script.base_script
         attachScript(player, SCRIPT_PUBLIC_TRAVEL);
         utils.setScriptVar(player, SCRIPT_VAR_ORD_SPACE_DESTINATION, new_loc);
         getClusterWideData(DUNGEON_PUBLIC_MANAGER_NAME, DUNGEON_ORD_SPACE_STATION + "*", false, player);
-        return true;
+        return transferPlayerToOrdMantellSpace(player, new_loc);
     }
     public static boolean movePlayerFromOrdMantellSpaceToSharedStation(obj_id player) throws InterruptedException
     {
@@ -461,7 +461,8 @@ public class npe extends script.base_script
         attachScript(player, SCRIPT_PUBLIC_TRAVEL);
         utils.setScriptVar(player, SCRIPT_VAR_FROM_ORD_SPACE, 1);
         getClusterWideData(DUNGEON_PUBLIC_MANAGER_NAME, DUNGEON_SPACE_STATION + "*", false, player);
-        return true;
+
+        return movePlayerFromOrdMantellSpaceToSharedStation(player);
     }
     public static boolean movePlayerFromOrdMantellSpaceToOrdMantellDungeon(obj_id player) throws InterruptedException
     {
@@ -472,10 +473,15 @@ public class npe extends script.base_script
     }
     public static boolean movePlayerFromOrdMantellDungeonToOrdMantellSpace(obj_id player, location new_loc) throws InterruptedException
     {
+        return transferPlayerToOrdMantellSpace(player, new_loc);
+    }
+
+    private static boolean transferPlayerToOrdMantellSpace(obj_id player, location new_loc) throws InterruptedException
+    {
         String scene = getStringObjVar(player, VAR_ORD_SCENE_NAME);
         if (scene == null || scene.equals("") || !scene.equals("space_ord_mantell"))
         {
-            LOG("npe", "movePlayerFromOrdMantellDungeonToOrdMantellSpace: empty scene id found: " + player);
+            LOG("npe", "transferPlayerToOrdMantellSpace: empty scene id found: " + player);
             scene = "space_ord_mantell";
         }
         if (isAreaTooFullForTravel(scene, 0, 0))
@@ -483,7 +489,7 @@ public class npe extends script.base_script
             scene = getOpenOrdMantellSpaceZone();
             if (scene == null || scene.equals(""))
             {
-                LIVE_LOG("npe", "movePlayerFromOrdMantellDungeonToOrdMantellSpace: player " + player + " can't be moved to ord mantell, all scenes are full");
+                LIVE_LOG("npe", "transferPlayerToOrdMantellSpace: player " + player + " can't be moved to ord mantell, all scenes are full");
                 return false;
             }
         }
