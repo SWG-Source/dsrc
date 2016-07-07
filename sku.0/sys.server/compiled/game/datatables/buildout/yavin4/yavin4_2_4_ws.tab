@@ -29,3 +29,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8905374	0	object/static/structure/general/skeleton_human_head.iff	0	1947.55	88.5609	967.216	0.649416	0.205567	0.723195	-0.113974		$|
 3125386	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	637.821777	11.7752676	795.079346	1	0	0	0		$|
 3495378	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1316.491211	12.94521141	618.258545	1	0	0	0		$|
+3666224	0	object/tangible/ground_spawning/mob_spawner.iff	0	554	0	1384	1	0	0	0		$|
+3666225	0	object/tangible/ground_spawning/mob_spawner.iff	0	554	0	1384	1	0	0	0		$|
+3666226	0	object/tangible/ground_spawning/mob_spawner.iff	0	554	0	1384	1	0	0	0		$|
