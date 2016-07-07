@@ -1584,7 +1584,8 @@ public class base_class
     private static native void _debugSpeakMsg(long object, String msg);
     public static void debugSpeakMsg(obj_id object, String msg)
     {
-        _debugSpeakMsg(getLongWithNull(object), msg);
+        if (isGod(object))
+            _debugSpeakMsg(getLongWithNull(object), msg);
     }
 
     /**

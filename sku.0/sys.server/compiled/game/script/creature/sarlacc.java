@@ -1,6 +1,7 @@
 package script.creature;
 
 import script.*;
+import script.library.buff;
 import script.library.utils;
 
 public class sarlacc extends script.base_script
@@ -55,6 +56,7 @@ public class sarlacc extends script.base_script
             if (getEnhancedSkillStatisticModifierUncapped(whoTriggeredMe, "resistance_disease") < 24)
             {
                 sendSystemMessage(whoTriggeredMe, SID_SARLACC_DOT);
+                buff.applyBuff(whoTriggeredMe, "sarlaccSnare");
             }
         }
         else if (volumeName.equals("sarlaccPreBreach"))
@@ -90,6 +92,7 @@ public class sarlacc extends script.base_script
                         }
                         if (getEnhancedSkillStatisticModifierUncapped(content, "resistance_disease") < 24) {
                             sendSystemMessage(content, SID_SARLACC_DOT);
+                            buff.applyBuff(content, "sarlaccSnare");
                         }
                         sendSystemMessage(content, SID_SARLACC_ERUPT);
                     }
