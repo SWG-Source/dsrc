@@ -144,6 +144,20 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1488879	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	1967.39	10.6012	399.424	-0.314566	0	0.949235	0		$|
 1488912	0	object/static/structure/naboo/garden_gazebo_lg_s01.iff	0	1919.83	12	628.79	1	0	0	0		$|
 1495993	0	object/building/naboo/trandoshan_slave_naboo_house.iff	0	2018.26	12.0258	312.285	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/naboo_keren_trandoshan_slaver_house.iff|$|
+1495994	1495993	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1495995	1495993	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1495996	1495993	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1495997	1495993	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1495998	1495993	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1495999	1495993	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1496000	1495993	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1496001	1495993	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1496002	1495993	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1496003	1495993	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+1496004	1495993	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+1496005	1495993	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+1496006	1495993	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+1496007	1495993	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1650355	0	object/static/structure/naboo/gate_narrow_s01.iff	0	1964.12	11.8916	470.463	-0.000797	0	1	0		$|
 1650356	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	1959.62	10.2761	470.469	-0.000797	0	1	0		$|
 1650357	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	1968.62	10.2761	470.454	-0.000797	0	1	0		$|
