@@ -129,7 +129,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 1153564	1153557	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1153565	1153557	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1153566	1153557	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
-1153580	0	object/building/tatooine/hospital_tatooine_style01.iff	0	1321.3499755859	7	1243.25	0.0192024	0	0.9998160005	0		$|
+1153580	0	object/building/tatooine/hospital_tatooine_style01.iff	0	1321.3499755859	7	1243.25	0.0192024	0	0.9998160005	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/ep3/ep3_mos_entha_medical_center.iff|$|
 1153581	1153580	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1153582	1153580	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1153583	1153580	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
