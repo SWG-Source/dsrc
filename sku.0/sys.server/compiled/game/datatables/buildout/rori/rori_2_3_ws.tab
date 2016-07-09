@@ -225,7 +225,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4635422	4635418	object/cell/cell.iff	4	0	0	0	1	5.605194E-45	0	0		$|
 4635423	4635418	object/cell/cell.iff	5	0	0	0	1	7.006492E-45	0	0		$|
 4635424	4635418	object/cell/cell.iff	6	0	0	0	1	8.407791E-45	0	0		$|
-2746448	4635424	object/tangible/ground_spawning/mob_spawner.iff	6	-18.4	0.3	-9.9	1	0	0	0		$|
 7328121	4635424	object/tangible/collection/plant_16.iff	1	-17.73813	0.26	11.48049	1	0	0	0		$|
 4635425	4635418	object/cell/cell.iff	7	0	0	0	1	9.809089E-45	0	0		$|
 4635426	4635418	object/cell/cell.iff	8	0	0	0	1	1.121039E-44	0	0		$|
@@ -337,7 +336,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1165532	4635593	object/tangible/gambling/wheel/roulette.iff	4	9.456625	1.066149	-16.12253	0.9999973	0	-0.002301926	0		$|
 1165533	4635593	object/tangible/gambling/slot/standard.iff	4	8.407198	1.255892	-22.11873	0.9999973	0	-0.002301926	0		$|
 4635594	4635589	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
-3566195	4635594	object/tangible/ground_spawning/mob_spawner.iff	5	21.6	1.3	10.6	1	0	0	0		$|
 604440840	4635594	object/tangible/collection/col_ent_instrument_05.iff	5	24.8929	2.08411	-18.2829	-0.637275	0.347241	0.233438	0.647156		$|
 4635595	4635589	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1165523	4635595	object/tangible/gambling/wheel/roulette.iff	6	-16.00736	1.000796	0.01247017	0.9999973	0	-0.002301923	0		$|
