@@ -693,7 +693,21 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1677786	0	object/building/naboo/filler_building_naboo_theed_style_10.iff	0	311.353	6	256.364	-0.468594	0	0.883413	0		$|
 1677793	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	130.573	6	187.741	0.714421	0	0.699716	0		$|
 1677796	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	201.936	6.0023	254.209	0.223882	0	0.974616	0		$|
-1697358	0	object/building/naboo/hospital_naboo_style01.iff	0	1126.24	6	66.4424	0.938444	0	0.345432	0		$|
+1697358	0	object/building/naboo/hospital_naboo_style01.iff	0	1126.24	6	66.4424	0.938444	0	0.345432	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/ep3/ep3_theed_medical_center.iff|$|
+1697359	1697358	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1697360	1697358	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+1697361	1697358	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+1697362	1697358	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+1697363	1697358	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+1697364	1697358	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+1697365	1697358	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+1697366	1697358	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+1697367	1697358	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+1697368	1697358	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+1697369	1697358	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+1697370	1697358	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+1697371	1697358	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+1697372	1697358	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 1697385	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_01.iff	0	1000.88	6	144.395	0.419322	0	0.907837	0		$|
 1697387	0	object/building/naboo/thm_nboo_block_bldg_32x16_style_02.iff	0	1183.41	6	33.6392	0.907837	0	-0.419322	0		$|
 1697390	0	object/building/naboo/thm_nboo_block_bldg_64x32_s02.iff	0	971.771	6	99.0464	0.907837	0	-0.419322	0		$|
