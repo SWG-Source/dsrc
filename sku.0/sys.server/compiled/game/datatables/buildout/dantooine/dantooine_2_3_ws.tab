@@ -8,7 +8,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1365879	1365875	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
 1365880	1365875	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
 1365881	1365875	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
-1365889	0	object/building/military/military_base_shed_imperial_style_bank_s01.iff	0	1883	3	1688	0.707107	0	0.707106	0		portalLayoutCrc|0|-242217168|$|
+1365889	0	object/building/military/military_base_shed_imperial_style_bank_s01.iff	0	1883	3	1688	0.707107	0	0.707106	0	theme_park.dantooine.imperial_outpost.masterspawner	portalLayoutCrc|0|-242217168|$|
 1365890	1365889	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
 1365891	1365889	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
 1365892	1365889	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
