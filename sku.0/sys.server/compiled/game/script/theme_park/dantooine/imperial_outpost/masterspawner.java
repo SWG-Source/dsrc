@@ -142,6 +142,7 @@ public class masterspawner extends script.base_script
 		spawnGuardPatrol(self, "largeSquadOne", new location(-4272.7f, 3.0f, -2395.1f), 5, getPatrolPoints(largeSquadOnePoints), "trooper", false);
 		spawnGuardPatrol(self, "largeSquadTwo", new location(-4176.7f, 3.0f, -2395.1f), 5, getPatrolPoints(largeSquadTwoPoints), "trooper", false);
 		spawnSG567();
+		spawnLX466();
 		//spawnSocialGroups(self);
 
 		patrolPoints = getPatrolPoints(droidPatrolCoords);
@@ -150,7 +151,15 @@ public class masterspawner extends script.base_script
 	}
 	private void spawnSG567() throws InterruptedException{
 		obj_id sgSpawn = spawn("sg_567", -4216.4f, 3.0f, -2435.8f, 160.0f, null, "npc_imperial");
+		setObjVar(sgSpawn, "quest_table", "sg_567");
 		setName(sgSpawn, "SG-567");
+		attachScript(sgSpawn, "npc.static_quest.quest_convo");
+	}
+	private void spawnLX466() throws InterruptedException{
+		obj_id lxSpawn = spawn("lx_466", -4182.0f, 3.0f, -2386.0f, -45.0f, null, "npc_imperial");
+		setObjVar(lxSpawn, "quest_table", "lx_466");
+		setName(lxSpawn, "LX-466");
+		attachScript(lxSpawn, "npc.static_quest.quest_convo");
 	}
 	private void spawnRecruiters() throws InterruptedException{
 		// These are the coordinates and yaw values at which the recruiters
