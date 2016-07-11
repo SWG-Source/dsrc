@@ -181,12 +181,12 @@ public class masterspawner extends script.base_script
 		// of datatable as I couldn't figure out how to make them unattackable
 		// in the datatable.  Lame, I know.
 		float[][] coords = {{-4260.1f, 3.0f, -2425.0f, rand(1f,180f)},
-							{-4225.7f, 3.0f, -2424.2f, rand(1f,180f)},
-							{-4181.3f, 3.0f, -2422.7f, rand(1f,180f)},
-							{-4271.8f, 3.0f, -2390.8f, rand(1f,180f)},
-							{-4236.2f, 3.0f, -2379.6f, rand(1f,180f)},
-							{-4245.2f, 3.0f, -2371.8f, rand(1f,180f)},
-							{-4222.4f, 3.0f, -2365.2f, rand(1f,180f)}
+				{-4225.7f, 3.0f, -2424.2f, rand(1f,180f)},
+				{-4181.3f, 3.0f, -2422.7f, rand(1f,180f)},
+				{-4271.8f, 3.0f, -2390.8f, rand(1f,180f)},
+				{-4236.2f, 3.0f, -2379.6f, rand(1f,180f)},
+				{-4245.2f, 3.0f, -2371.8f, rand(1f,180f)},
+				{-4222.4f, 3.0f, -2365.2f, rand(1f,180f)}
 		};
 
 		for (float[] coord : coords) {
@@ -197,19 +197,17 @@ public class masterspawner extends script.base_script
 		// spawn("object/tangible/poi/tatooine/poi_city_convo.iff", 0f, 0.5f, -8.2f, 0, getCellId(self, "lobby"), "npc_imperial");
 	}
 	public int spawnDroidPatrol(obj_id self, dictionary params) throws InterruptedException{
-		obj_id droidSpawn;
-		String[] droid;
 		// Sets the number of droids that will spawn on the outpost grounds.
 		int maxDroids = 4;
-
 		int currentDroids = getIntObjVar(self, "current.droids");
+
 		if(currentDroids < maxDroids){
 			int spawnPoint = 1;
 			// get a random droid from our list of droids.
-			droid = droidTypes[rand(0, droidTypes.length - 1)];
+			String [] droid = droidTypes[rand(0, droidTypes.length - 1)];
 
 			// spawn the droid and assign the obj_id to the droidSpawn var.
-			droidSpawn = spawn(droid[0], patrolPoints[spawnPoint].x, patrolPoints[spawnPoint].y, patrolPoints[spawnPoint].z, 0, null, "");
+			obj_id droidSpawn = spawn(droid[0], patrolPoints[spawnPoint].x, patrolPoints[spawnPoint].y, patrolPoints[spawnPoint].z, 0, null, "");
 
 			// handle AI features - make the droid movable, set their speed and set their path.
 			setCreatureStatic(droidSpawn, false);
@@ -217,6 +215,7 @@ public class masterspawner extends script.base_script
 			ai_lib.setPatrolPath(droidSpawn, patrolPoints);
 			setObjVar(self, "current.droids", currentDroids + 1);
 		}
+
 		messageTo(self, "spawnDroidPatrol", params, 10, false);
 		return SCRIPT_CONTINUE;
 	}
@@ -239,11 +238,14 @@ public class masterspawner extends script.base_script
 	private void spawnGuardPatrolMember(obj_id self, String patrolName) throws InterruptedException{
 		location start = getLocationObjVar(self, patrolName + ".startLocation");
 		obj_id guardSpawn = spawn(npcToSpawn(getStringObjVar(self, patrolName + ".types")), start.x, start.y, start.z, 0f, null, null);
+
 		if(getBooleanObjVar(self, patrolName + ".flipPaths"))
 			ai_lib.setPatrolFlipPath(guardSpawn, getLocationArrayObjVar(self, patrolName + ".points"));
 		else
 			ai_lib.setPatrolPath(guardSpawn, getLocationArrayObjVar(self, patrolName + ".points"));
+
 		int currentPop = getIntObjVar(self, patrolName + ".current.guards") + 1;
+
 		if (currentPop == 1)
 		{
 			setObjVar(self, patrolName + ".leader", guardSpawn);
@@ -254,17 +256,15 @@ public class masterspawner extends script.base_script
 			ai_lib.followInFormation(guardSpawn, leader, ai_lib.FORMATION_COLUMN, currentPop - 1);
 			setMovementPercent(guardSpawn, 1.2f);
 		}
+
 		setCreatureStatic(guardSpawn, false);
 		setObjVar(self, patrolName + ".current.guards", currentPop);
-		dictionary params = new dictionary();
-		params.put("name", patrolName);
-		params.put("size", getObjVar(self, patrolName + ".totalMembers"));
-		params.put("type", getObjVar(self, patrolName + ".types"));
 	}
 	public int spawnMoreGuards(obj_id self, dictionary params) throws InterruptedException{
 		String patrolName = params.getString("name");
 		int maxGuardsToSpawn = params.getInt("size");
 		String currentPopulation = patrolName + ".current.guards";
+
 		if (!hasObjVar(self, currentPopulation))
 		{
 			setObjVar(self, currentPopulation, 0);
@@ -277,6 +277,7 @@ public class masterspawner extends script.base_script
 				spawnGuardPatrolMember(self, patrolName);
 			}
 		}
+
 		messageTo(self, "spawnMoreGuards", params, 10, false);
 		return SCRIPT_CONTINUE;
 	}
@@ -294,29 +295,37 @@ public class masterspawner extends script.base_script
 		// get NPC type:
 		int roll = rand(0,100);
 		String [][] npcTypes = patrolNpcTypes;
+
 		if(npcType != null && npcType.equals("officer")){
 			npcTypes = officerPatrolTypes;
 		}
+
 		for(String[] npcConfig : npcTypes){
 			if(roll >= Integer.parseInt(npcConfig[1]) && roll <= Integer.parseInt(npcConfig[2]))
 				return npcConfig[0];
 		}
+
 		return patrolNpcTypes[0][0];
 	}
 	public obj_id spawn(String obj, float x, float y, float z, float yaw, obj_id cell, String mood) throws InterruptedException{
 		obj_id spawnedObject;
+
 		if(obj.contains(".iff")){
 			spawnedObject = createObject(obj, new location(x, y, z, "dantooine", cell));
 		}
 		else{
 			spawnedObject = create.object(obj, new location(x, y, z, "dantooine", cell));
 		}
+
 		setCreatureStatic(spawnedObject, true);
 		setInvulnerable(spawnedObject, true);
+
 		if(yaw > 0){
 			setYaw(spawnedObject, yaw);
 		}
+
 		ai_lib.setDefaultCalmMood(spawnedObject, mood);
+
 		return spawnedObject;
 	}
 }
