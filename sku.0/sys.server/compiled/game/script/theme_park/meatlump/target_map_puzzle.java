@@ -1,20 +1,7 @@
 package script.theme_park.meatlump;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.buff;
-import script.library.collection;
-import script.library.consumable;
-import script.library.sui;
-import script.library.stealth;
-import script.library.utils;
-import java.lang.System;
+import script.library.*;
 
 public class target_map_puzzle extends script.base_script
 {
@@ -222,58 +209,58 @@ public class target_map_puzzle extends script.base_script
             'Z'
         },
         
-        {
-            'a',
-            '!',
+    {
+            '¤',
+            'þ',
             '#',
-            '@',
-            '$',
+            'ð',
+            'ê',
             'f',
             '&',
             '*',
-            '%',
+            'î',
             'j',
             '_',
-            '^',
+            '¶',
             '-',
             'n',
-            '&',
-            '#',
-            'x',
-            'F',
-            's',
-            '^',
-            'z',
-            '<',
-            '`',
-            '~',
-            '+',
-            'z',
-            '=',
-            'V',
-            '#',
-            'C',
-            'X',
-            'f',
-            '&',
-            '*',
-            'F',
-            'j',
-            '_',
-            'E',
-            '-',
-            'n',
-            'O',
-            'S',
+            'Ø',
+            '¿',
             '/',
-            'T',
+            '®',
             's',
             '^',
-            'A',
+            'ü',
             '<',
             '`',
             '~',
-            'R',
+            '¥',
+            'z',
+            '¤',
+            'þ',
+            '#',
+            'ð',
+            'ê',
+            'f',
+            '&',
+            '*',
+            'î',
+            'j',
+            '_',
+            '¶',
+            '-',
+            'n',
+            'Ø',
+            '¿',
+            '/',
+            '®',
+            's',
+            '^',
+            'ü',
+            '<',
+            '`',
+            '~',
+            '¥',
             'z'
         }
     };
@@ -338,7 +325,7 @@ public class target_map_puzzle extends script.base_script
         {
             '4',
             '8',
-            '~',
+            '©',
             'd',
             '3',
             'f',
@@ -351,12 +338,12 @@ public class target_map_puzzle extends script.base_script
             'm',
             'n',
             '0',
-            '_',
-            'N',
-            '?',
+            'Þ',
+            'ð',
+            '®',
             '5',
             '+',
-            'U',
+            'ü',
             '<',
             'w',
             '~',
@@ -364,7 +351,7 @@ public class target_map_puzzle extends script.base_script
             '2',
             '4',
             '8',
-            'X',
+            '©',
             'd',
             '3',
             'f',
@@ -373,20 +360,20 @@ public class target_map_puzzle extends script.base_script
             '1',
             'j',
             '_',
-            '$',
+            '|',
             'm',
             'n',
             '0',
-            'v',
-            'A',
-            'G',
+            'Þ',
+            'ð',
+            '®',
             '5',
             '+',
-            'I',
+            'ü',
             '<',
             'w',
             '~',
-            'R',
+            '/',
             '2'
         }
     };
