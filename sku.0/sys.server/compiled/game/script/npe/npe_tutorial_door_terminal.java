@@ -1,19 +1,9 @@
 package script.npe;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
+import script.dictionary;
 import script.library.utils;
-import script.library.npe;
-import script.library.groundquests;
-import script.library.sequencer;
-import script.library.static_item;
+import script.location;
+import script.obj_id;
 
 public class npe_tutorial_door_terminal extends script.base_script
 {
@@ -22,6 +12,8 @@ public class npe_tutorial_door_terminal extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        // prevent door terminal from being searched for eggs (ya, exploit).
+        self.setScriptVar("lair.searched",1);
         obj_id building = getTopMostContainer(self);
         utils.setScriptVar(building, "objTerminal", self);
         setInvulnerable(self, true);
@@ -29,6 +21,8 @@ public class npe_tutorial_door_terminal extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
+        // prevent door terminal from being searched for eggs (ya, exploit).
+        self.setScriptVar("lair.searched",1);
         obj_id building = getTopMostContainer(self);
         utils.setScriptVar(building, "objTerminal", self);
         setInvulnerable(self, true);
