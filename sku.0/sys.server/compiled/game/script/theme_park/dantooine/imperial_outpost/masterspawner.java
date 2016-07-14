@@ -150,13 +150,13 @@ public class masterspawner extends script.base_script
 		messageTo(self, "spawnDroidPatrol", null, 10, false);
 	}
 	private void spawnSG567() throws InterruptedException{
-		obj_id sgSpawn = spawn("sg_567", -4216.4f, 3.0f, -2435.8f, 160.0f, null, "npc_imperial");
+		obj_id sgSpawn = spawn("sg_567", -4216.4f, 3.0f, -2435.8f, 160.0f, null, "npc_imperial", true);
 		setObjVar(sgSpawn, "quest_table", "sg_567");
 		setName(sgSpawn, "SG-567");
 		attachScript(sgSpawn, "npc.static_quest.quest_convo");
 	}
 	private void spawnLX466() throws InterruptedException{
-		obj_id lxSpawn = spawn("lx_466", -4182.0f, 3.0f, -2386.0f, -45.0f, null, "npc_imperial");
+		obj_id lxSpawn = spawn("lx_466", -4182.0f, 3.0f, -2386.0f, -45.0f, null, "npc_imperial", true);
 		setObjVar(lxSpawn, "quest_table", "lx_466");
 		setName(lxSpawn, "LX-466");
 		attachScript(lxSpawn, "npc.static_quest.quest_convo");
@@ -171,7 +171,7 @@ public class masterspawner extends script.base_script
 		};
 
 		for (float[] coord : coords) {
-			spawn("imperial_recruiter", coord[0], coord[1], coord[2], coord[3], null, "npc_imperial");
+			spawn("imperial_recruiter", coord[0], coord[1], coord[2], coord[3], null, "npc_imperial", true);
 		}
 	}
 	private void spawnCommoners() throws InterruptedException
@@ -190,7 +190,7 @@ public class masterspawner extends script.base_script
 		};
 
 		for (float[] coord : coords) {
-			spawn("commoner", coord[0], coord[1], coord[2], coord[3], null, "npc_imperial");
+			spawn("commoner", coord[0], coord[1], coord[2], coord[3], null, "npc_imperial", true);
 		}
 	}
 	public void spawnSocialGroups(obj_id self) throws InterruptedException{
@@ -207,7 +207,7 @@ public class masterspawner extends script.base_script
 			String [] droid = droidTypes[rand(0, droidTypes.length - 1)];
 
 			// spawn the droid and assign the obj_id to the droidSpawn var.
-			obj_id droidSpawn = spawn(droid[0], patrolPoints[spawnPoint].x, patrolPoints[spawnPoint].y, patrolPoints[spawnPoint].z, 0, null, "");
+			obj_id droidSpawn = spawn(droid[0], patrolPoints[spawnPoint].x, patrolPoints[spawnPoint].y, patrolPoints[spawnPoint].z, 0, null, "", true);
 
 			// handle AI features - make the droid movable, set their speed and set their path.
 			setCreatureStatic(droidSpawn, false);
@@ -237,7 +237,7 @@ public class masterspawner extends script.base_script
 	}
 	private void spawnGuardPatrolMember(obj_id self, String patrolName) throws InterruptedException{
 		location start = getLocationObjVar(self, patrolName + ".startLocation");
-		obj_id guardSpawn = spawn(npcToSpawn(getStringObjVar(self, patrolName + ".types")), start.x, start.y, start.z, 0f, null, null);
+		obj_id guardSpawn = spawn(npcToSpawn(getStringObjVar(self, patrolName + ".types")), start.x, start.y, start.z, 0f, null, null, false);
 
 		if(getBooleanObjVar(self, patrolName + ".flipPaths"))
 			ai_lib.setPatrolFlipPath(guardSpawn, getLocationArrayObjVar(self, patrolName + ".points"));
@@ -307,7 +307,7 @@ public class masterspawner extends script.base_script
 
 		return patrolNpcTypes[0][0];
 	}
-	public obj_id spawn(String obj, float x, float y, float z, float yaw, obj_id cell, String mood) throws InterruptedException{
+	public obj_id spawn(String obj, float x, float y, float z, float yaw, obj_id cell, String mood, boolean invuln) throws InterruptedException{
 		obj_id spawnedObject;
 
 		if(obj.contains(".iff")){
@@ -316,9 +316,9 @@ public class masterspawner extends script.base_script
 		else{
 			spawnedObject = create.object(obj, new location(x, y, z, "dantooine", cell));
 		}
-
 		setCreatureStatic(spawnedObject, true);
-		setInvulnerable(spawnedObject, true);
+		setInvulnerable(spawnedObject, invuln);
+		setLevel(spawnedObject, rand(65,69));
 
 		if(yaw > 0){
 			setYaw(spawnedObject, yaw);
