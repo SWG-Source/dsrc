@@ -90,8 +90,7 @@ public class script_entry
 	private static void checkEnableProfiling()
 	{
 		String result = base_class.getConfigSetting("GameServer", "javaEngineProfiling");
-		boolean ret = result != null && (result.equals("on") || result.equals("1") || result.equals("true"));
-		System.err.println("Profiling: " + ret);
+		boolean ret = (result != null && (result.equals("on") || result.equals("1") || result.equals("true")));
 		ENABLE_PROFILING = ret;
 		profileSettingInitialized = true;
 	}
