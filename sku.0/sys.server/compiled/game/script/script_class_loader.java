@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.TreeSet;
 
+
 public class script_class_loader extends ClassLoader
 {
 	// keep a dummy method object around to identify methods that are missing from scripts
@@ -36,7 +37,6 @@ public class script_class_loader extends ClassLoader
 	 */
     private script_class_loader(String name)  throws ClassNotFoundException
 	{
-//		System.out.println("Creating new class loader for class " + name);
 
 		// initialize basic data
 		myClassName = name;
@@ -106,7 +106,13 @@ public class script_class_loader extends ClassLoader
 	 */
 	public static boolean unloadClass(String name)
 	{
-		System.out.println("script_class_loader unloadClass " + name);
+
+		String flag = base_class.getConfigSetting("GameServer", "scriptListLoadUnload");
+		
+		if (!(flag == null || flag.length() < 1)) 
+		{
+			System.out.println("script_class_loader unloadClass " + name);
+		}
 
 		boolean result = false;
 		if (loaderCache.containsKey(name))
@@ -285,7 +291,13 @@ public class script_class_loader extends ClassLoader
 		// if the script name has '.' in it, convert them to '\'
 		String pathedName = name.replace('.', java.io.File.separatorChar);
 		String fullname = script_entry.getScriptPath() + pathedName + ".class";
-		System.out.println("loadClassData " + fullname);
+	
+                String flag = base_class.getConfigSetting("GameServer", "scriptListLoadUnload");
+
+                if (!(flag == null || flag.length() < 1))
+		{
+			System.out.println("loadClassData " + fullname);
+		}
 
 		try
 		{
