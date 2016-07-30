@@ -40,7 +40,7 @@ public class beast extends script.base_script
     public static final int PING_INTERVAL = 120;
     public static final int PING_INTERVAL_RETRY = 30;
     public static final float MAX_DISTANCE_FROM_MASTER = 128.0f;
-    public static final boolean BEAST_DEBUG = true;
+    public static final boolean BEAST_DEBUG = false;
     public static final string_id PCOLOR = new string_id("sui", "set_primary_color");
     public void blog(String text) throws InterruptedException
     {

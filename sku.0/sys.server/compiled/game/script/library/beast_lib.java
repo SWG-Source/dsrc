@@ -182,7 +182,7 @@ public class beast_lib extends script.base_script
     public static final int BEASTS_STORED_MAXIMUM = 10;
     public static final int BEAST_LEVEL_MAX_DIFFERENCE = 10;
     public static final int STEROID_BUFF_LEVEL_CAP = 74;
-    public static final boolean BEAST_DEBUG = true;
+    public static final boolean BEAST_DEBUG = false;
     public static final string_id SID_BEAST_TOO_HIGH_LEVEL = new string_id("beast", "cant_call_level");
     public static final string_id SID_MAXIMUM_BEASTS = new string_id("beast", "cant_call_maximum");
     public static final string_id SID_STORED = new string_id("beast", "stored");
