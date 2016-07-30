@@ -63,18 +63,19 @@ public class spawner_patrol extends script.base_script
             if ((strSpawns == null) || (strSpawns.length == 0))
             {
                 LOG("spawning", "NO SPAWNS IN FILE " + strFileName);
-                setName(self, "Mangled spawner. strFileName is " + strFileName + " I couldnt find any spawns in that file.");
+                setName(self, "Mangled spawner: strFileName is " + strFileName + " I couldnt find any spawns in that file.");
+                return SCRIPT_CONTINUE;
             }
             if (fltSizes.length == 0)
             {
                 LOG("spawning", "BAD NUMBER OF SIZES !@!@@ IN FILE " + strFileName);
-                setName(self, "BAD NUMBER OF SIZES !@!@@ IN FILE " + strFileName);
+                setName(self, "Mangled spawner: BAD NUMBER OF SIZES !@!@@ IN FILE " + strFileName);
                 return SCRIPT_CONTINUE;
             }
             if (fltSizes.length != strSpawns.length)
             {
                 LOG("spawning", "Missing either spawns or sizes in " + strFileName);
-                setName(self, "Missing either spawns or sizes in " + strFileName);
+                setName(self, "Mangled spawner: Missing either spawns or sizes in " + strFileName);
                 return SCRIPT_CONTINUE;
             }
         }
@@ -82,12 +83,14 @@ public class spawner_patrol extends script.base_script
         if (patrolPoints == null)
         {
             LOG("spawning", "ERROR:  patrolArray script var not defined.");
+            setName(self, "Mangled spawner: no patrol points could be identified via patrolArray.");
             return SCRIPT_CONTINUE;
         }
         int maxSpawns = getIntObjVar(self, "intSpawnCount");
         if (maxSpawns >= patrolPoints.length)
         {
             LOG("spawning", "ERROR:  Attempting to spawn more creatures than patrol points.");
+            setName(self, "Mangled spawner: there are more creatures than patrol points.");
             return SCRIPT_CONTINUE;
         }
         Vector goodSpawns = new Vector();
@@ -113,7 +116,7 @@ public class spawner_patrol extends script.base_script
                 if (goodSpawns.size() == 0)
                 {
                     LOG("spawning", "All entries in table " + strFileName + " are bad!!!");
-                    setName(self, "No valid spawners!");
+                    setName(self, "Mangled spawner: No valid spawners!");
                     return SCRIPT_CONTINUE;
                 }
             }
@@ -128,36 +131,43 @@ public class spawner_patrol extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int intGoodLocationSpawner = getIntObjVar(self, "intGoodLocationSpawner");
-        float fltRadius = getFloatObjVar(self, "fltRadius");
-        String strSpawnType = getStringObjVar(self, "strSpawns");
-        float fltSize = 8.0f;
-        String strSpawn = strSpawnType;
-        String strFileName = "datatables/spawning/ground_spawning/types/" + strSpawnType + ".iff";
+        float fltSize;
+        String strSpawn = getStringObjVar(self, "strSpawns");
+        if (strSpawn == null || strSpawn.length() < 1)
+        {
+            setName(self, "Mangled spawner: strSpawn is null or empty.");
+            return SCRIPT_CONTINUE;
+        }
+        String strFileName = "datatables/spawning/ground_spawning/types/" + strSpawn + ".iff";
         if (dataTableOpen(strFileName))
         {
             String[] strSpawns = dataTableGetStringColumnNoDefaults(strFileName, "strItem");
             float[] fltSizes = dataTableGetFloatColumn(strFileName, "fltSize");
             if ((strSpawns == null) || (strSpawns.length == 0))
             {
-                setName(self, "Mangled spawner. strFileName is " + strFileName + " I couldn't find any spawns in that file.");
+                setName(self, "Mangled spawner: strFileName is " + strFileName + " I couldn't find any spawns in that file.");
+                return SCRIPT_CONTINUE;
+            }
+            else if (fltSizes.length == 0)
+            {
+                setName(self, "Mangled spawner: BAD NUMBER OF SIZES !@!@@ IN FILE " + strFileName);
+                return SCRIPT_CONTINUE;
+            }
+            else if (fltSizes.length != strSpawns.length)
+            {
+                setName(self, "Mangled spawner: Missing either spawns or sizes in " + strFileName);
+                return SCRIPT_CONTINUE;
             }
             int intRoll = rand(0, strSpawns.length - 1);
-            if (fltSizes.length == 0)
-            {
-                setName(self, "BAD NUMBER OF SIZES !@!@@ IN FILE " + strFileName);
-            }
-            if (fltSizes.length != strSpawns.length)
-            {
-                setName(self, "Missing either spawns or sizes in " + strFileName);
-            }
             fltSize = fltSizes[intRoll];
             strSpawn = strSpawns[intRoll];
         }
-        if (strSpawn == null || strSpawn.length() < 1)
+        else
         {
-            setName(self, "Mangled spawner. strSpawn is " + strSpawn + ".");
+            setName(self, "Mangled spawner: strSpawn is " + strSpawn + " and datatable could not be opened.");
             return SCRIPT_CONTINUE;
         }
+        float fltRadius = getFloatObjVar(self, "fltRadius");
         location locTest = spawning.getRandomLocationInCircle(getLocation(self), fltRadius);
         fltSize = getClosestSize(fltSize);
         if (intGoodLocationSpawner > 0)

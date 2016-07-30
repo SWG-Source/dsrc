@@ -46,6 +46,22 @@ public class masterspawner extends script.base_script
 			{-4173.8f, 3.0f, -2407.9f},
 			{-4160.9f, 3.0f, -2407.9f}
 	};
+	private float[][] smallSquadThreePoints = {
+			{-4287.9f, 3.0f, -2407.9f},
+			{-4277.5f, 3.0f, -2407.9f},
+			{-4272.7f, 3.0f, -2395.9f},
+			{-4232.2f, 3.0f, -2395.9f},
+			{-4204.6f, 3.0f, -2387.4f},
+			{-4204.6f, 3.0f, -2349.8f}
+	};
+	private float[][] smallSquadFourPoints = {
+			{-4160.9f, 3.0f, -2407.9f},
+			{-4173.8f, 3.0f, -2407.9f},
+			{-4176.7f, 3.0f, -2396.0f},
+			{-4216.5f, 3.0f, -2396.0f},
+			{-4253.7f, 3.0f, -2379.9f},
+			{-4253.7f, 3.0f, -2349.8f}
+	};
 	private float[][] largeSquadOnePoints = {
 			{-4272.7f, 3.0f, -2395.1f},
 			{-4272.7f, 3.0f, -2407.1f},
@@ -76,7 +92,6 @@ public class masterspawner extends script.base_script
 			{-4272.7f, 3.0f, -2407.1f},
 			{-4272.7f, 3.0f, -2395.1f}
 	};
-	private location[] patrolPoints;
 
 	// These are the different types of droids that can spawn.
 	// The secondary value is the speed at which the droid travels
@@ -88,32 +103,6 @@ public class masterspawner extends script.base_script
 			{"r3","1.0"},
 			{"r4","1.1"},
 			{"r5","1.2"}
-	};
-	// These are the different types of NPC's that can be spawned
-	// into a patrol.  The second value is a lower bound for the
-	// random number, the third value is an upper bound for the
-	// random number.
-	private String[][] patrolNpcTypes = {
-			{"stormtrooper", "0", "50"},
-			{"stormtrooper_squad_leader", "51", "75"},
-			{"stormtrooper_captain", "76", "85"},
-			{"stormtrooper_major", "86", "90"},
-			{"stormtrooper_medic", "91", "100"}
-	};
-	private String[][] officerPatrolTypes = {
-			{"stormtrooper", "0", "25"},
-			{"imperial_private", "26", "50"},
-			{"imperial_sergeant", "51", "60"},
-			{"imperial_staff_sergeant", "61", "68"},
-			{"imperial_staff_corporal", "69", "75"},
-			{"imperial_first_lieutenant", "76", "81"},
-			{"imperial_second_lieutenant", "82", "86"},
-			{"imperial_major", "87", "90"},
-			{"imperial_colonel", "91", "93"},
-			{"imperial_brigadier_general", "94", "96"},
-			{"imperial_major_general", "97", "98"},
-			{"imperial_lieutenant_general", "99", "100"},
-			{"imperial_general", "101", "101"}
 	};
 
 	public masterspawner()
@@ -134,18 +123,16 @@ public class masterspawner extends script.base_script
 	{
 		spawnCommoners();
 		spawnRecruiters();
-		spawnGuardPatrol(self, "officers", new location(-4272.7f, 3.0f, -2397.1f), 3, getPatrolPoints(officerPatrolPoints), "officer", false);
-		spawnGuardPatrol(self, "squadOne", new location(-4272.7f, 3.0f, -2397.1f), 3, getPatrolPoints(smallSquadOnePoints), "trooper", true);
-		spawnGuardPatrol(self, "squadTwo", new location(-4272.7f, 3.0f, -2397.1f), 3, getPatrolPoints(smallSquadTwoPoints), "trooper", true);
-		spawnGuardPatrol(self, "squadThree", new location(-4277.5f, 3.0f, -2407.9f), 3, getPatrolPoints(smallSquadOnePoints), "trooper", true);
-		spawnGuardPatrol(self, "squadFour", new location(-4176.7f, 3.0f, -2405.1f), 3, getPatrolPoints(smallSquadTwoPoints), "trooper", true);
-		spawnGuardPatrol(self, "largeSquadOne", new location(-4272.7f, 3.0f, -2395.1f), 5, getPatrolPoints(largeSquadOnePoints), "trooper", false);
-		spawnGuardPatrol(self, "largeSquadTwo", new location(-4176.7f, 3.0f, -2395.1f), 5, getPatrolPoints(largeSquadTwoPoints), "trooper", false);
+		spawnGuardPatrol(self, "officers", new location(-4272.7f, 3.0f, -2397.1f), 3, getPatrolPoints(officerPatrolPoints), "plain", false);
+		spawnGuardPatrol(self, "squadOne", new location(-4272.7f, 3.0f, -2397.1f), 3, getPatrolPoints(smallSquadOnePoints), "armored", true);
+		spawnGuardPatrol(self, "squadTwo", new location(-4272.7f, 3.0f, -2397.1f), 3, getPatrolPoints(smallSquadTwoPoints), "armored", true);
+		spawnGuardPatrol(self, "squadThree", new location(-4277.5f, 3.0f, -2407.9f), 3, getPatrolPoints(smallSquadThreePoints), "armored", true);
+		spawnGuardPatrol(self, "squadFour", new location(-4176.7f, 3.0f, -2405.1f), 3, getPatrolPoints(smallSquadFourPoints), "armored", true);
+		spawnGuardPatrol(self, "largeSquadOne", new location(-4272.7f, 3.0f, -2395.1f), 5, getPatrolPoints(largeSquadOnePoints), "armored", false);
+		spawnGuardPatrol(self, "largeSquadTwo", new location(-4176.7f, 3.0f, -2395.1f), 5, getPatrolPoints(largeSquadTwoPoints), "armored", false);
 		spawnSG567();
 		spawnLX466();
 		//spawnSocialGroups(self);
-
-		patrolPoints = getPatrolPoints(droidPatrolCoords);
 
 		messageTo(self, "spawnDroidPatrol", null, 10, false);
 	}
@@ -200,6 +187,7 @@ public class masterspawner extends script.base_script
 		// Sets the number of droids that will spawn on the outpost grounds.
 		int maxDroids = 4;
 		int currentDroids = getIntObjVar(self, "current.droids");
+		location[] points = getPatrolPoints(droidPatrolCoords);
 
 		if(currentDroids < maxDroids){
 			int spawnPoint = 1;
@@ -207,12 +195,12 @@ public class masterspawner extends script.base_script
 			String [] droid = droidTypes[rand(0, droidTypes.length - 1)];
 
 			// spawn the droid and assign the obj_id to the droidSpawn var.
-			obj_id droidSpawn = spawn(droid[0], patrolPoints[spawnPoint].x, patrolPoints[spawnPoint].y, patrolPoints[spawnPoint].z, 0, null, "", true);
+			obj_id droidSpawn = spawn(droid[0], points[spawnPoint].x, points[spawnPoint].y, points[spawnPoint].z, 0, null, "", true);
 
 			// handle AI features - make the droid movable, set their speed and set their path.
 			setCreatureStatic(droidSpawn, false);
 			setMovementPercent(droidSpawn, Float.parseFloat(droid[1]));
-			ai_lib.setPatrolPath(droidSpawn, patrolPoints);
+			ai_lib.setPatrolPath(droidSpawn, points);
 			setObjVar(self, "current.droids", currentDroids + 1);
 		}
 
@@ -222,66 +210,23 @@ public class masterspawner extends script.base_script
 	private void spawnGuardPatrol(obj_id self, String patrolName, location spawnLocation, int totalMembers, location [] patrolPoints, String npcType, boolean flip) throws InterruptedException{
 		String pName = "patrols." + patrolName;
 		setObjVar(self, pName + ".startLocation", spawnLocation);
-		setObjVar(self, pName + ".totalMembers", totalMembers);
-		setObjVar(self, pName + ".points", patrolPoints);
-		setObjVar(self, pName + ".flipPaths", flip);
-		setObjVar(self, pName + ".types", npcType);
 
-		spawnGuardPatrolMember(self, pName);
+		//spawnGuardPatrolMember(self, pName);
+		obj_id patrolSpawnEgg = createObject("object/tangible/poi/spawnegg/patrol_spawnegg.iff", spawnLocation);
 
-		dictionary params = new dictionary();
-		params.put("name", pName);
-		params.put("size", totalMembers);
-		params.put("type", npcType);
-		messageTo(self, "spawnMoreGuards", params, 10, false);
+		setObjVar(patrolSpawnEgg, "name", patrolName);
+		setObjVar(patrolSpawnEgg, "size", totalMembers);
+		setObjVar(patrolSpawnEgg, "patrolPoints", patrolPoints);
+		setObjVar(patrolSpawnEgg, "flipPaths", flip);
+		setObjVar(patrolSpawnEgg, "faction", "imperial");
+		setObjVar(patrolSpawnEgg, "invulnerable", false);
+		setObjVar(patrolSpawnEgg, "respawnTime", 5.0f);
+		setObjVar(patrolSpawnEgg, "patrolLevel", 66);
+		setObjVar(patrolSpawnEgg, "squadClass", npcType);
+
+		messageTo(patrolSpawnEgg, "beginSpawn", null, 10, false);
 	}
-	private void spawnGuardPatrolMember(obj_id self, String patrolName) throws InterruptedException{
-		location start = getLocationObjVar(self, patrolName + ".startLocation");
-		obj_id guardSpawn = spawn(npcToSpawn(getStringObjVar(self, patrolName + ".types")), start.x, start.y, start.z, 0f, null, null, false);
-
-		if(getBooleanObjVar(self, patrolName + ".flipPaths"))
-			ai_lib.setPatrolFlipPath(guardSpawn, getLocationArrayObjVar(self, patrolName + ".points"));
-		else
-			ai_lib.setPatrolPath(guardSpawn, getLocationArrayObjVar(self, patrolName + ".points"));
-
-		int currentPop = getIntObjVar(self, patrolName + ".current.guards") + 1;
-
-		if (currentPop == 1)
-		{
-			setObjVar(self, patrolName + ".leader", guardSpawn);
-		}
-		else
-		{
-			obj_id leader = getObjIdObjVar(self, patrolName + ".leader");
-			ai_lib.followInFormation(guardSpawn, leader, ai_lib.FORMATION_COLUMN, currentPop - 1);
-			setMovementPercent(guardSpawn, 1.2f);
-		}
-
-		setCreatureStatic(guardSpawn, false);
-		setObjVar(self, patrolName + ".current.guards", currentPop);
-	}
-	public int spawnMoreGuards(obj_id self, dictionary params) throws InterruptedException{
-		String patrolName = params.getString("name");
-		int maxGuardsToSpawn = params.getInt("size");
-		String currentPopulation = patrolName + ".current.guards";
-
-		if (!hasObjVar(self, currentPopulation))
-		{
-			setObjVar(self, currentPopulation, 0);
-			spawnGuardPatrolMember(self, patrolName);
-		}
-		else
-		{
-			if (getIntObjVar(self, currentPopulation) < maxGuardsToSpawn)
-			{
-				spawnGuardPatrolMember(self, patrolName);
-			}
-		}
-
-		messageTo(self, "spawnMoreGuards", params, 10, false);
-		return SCRIPT_CONTINUE;
-	}
-	private location[] getPatrolPoints(float[][] patrolCoords){
+	public location[] getPatrolPoints(float[][] patrolCoords){
 		location[] patrolPoints = new location[patrolCoords.length];
 		// take the patrol coordinates and turn them into location objects such that we can
 		// pass the location objects to the AI and have it traverse those locations.
@@ -290,22 +235,6 @@ public class masterspawner extends script.base_script
 		}
 
 		return patrolPoints;
-	}
-	public String npcToSpawn(String npcType){
-		// get NPC type:
-		int roll = rand(0,100);
-		String [][] npcTypes = patrolNpcTypes;
-
-		if(npcType != null && npcType.equals("officer")){
-			npcTypes = officerPatrolTypes;
-		}
-
-		for(String[] npcConfig : npcTypes){
-			if(roll >= Integer.parseInt(npcConfig[1]) && roll <= Integer.parseInt(npcConfig[2]))
-				return npcConfig[0];
-		}
-
-		return patrolNpcTypes[0][0];
 	}
 	public obj_id spawn(String obj, float x, float y, float z, float yaw, obj_id cell, String mood, boolean invuln) throws InterruptedException{
 		obj_id spawnedObject;
@@ -316,6 +245,9 @@ public class masterspawner extends script.base_script
 		else{
 			spawnedObject = create.object(obj, new location(x, y, z, "dantooine", cell));
 		}
+
+		setObjVar(spawnedObject, "spawner", getSelf());
+		attachScript(spawnedObject, "theme_park.patrol_member");
 		setCreatureStatic(spawnedObject, true);
 		setInvulnerable(spawnedObject, invuln);
 		setLevel(spawnedObject, rand(65,69));
