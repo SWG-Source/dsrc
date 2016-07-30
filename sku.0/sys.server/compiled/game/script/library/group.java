@@ -508,7 +508,6 @@ public class group extends script.base_script
                 }
             }
         }
-        int debug = amt - totalDividends;
         prose_package ppSplit = prose.getPackage(PROSE_SPLIT_COINS_SELF, null, Integer.toString(amt), null, null, Integer.toString(amt - totalDividends), null, null, null, null, 0, 0.0f);
         sendSystemMessageProse(actor, ppSplit);
     }
