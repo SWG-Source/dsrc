@@ -524,7 +524,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 89	88	object/cell/cell.iff	1	0	0	0	1	0	0	0	city.imperial_crackdown.door_check	$|
 90	88	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 91	88	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
-6995489	91	object/tangible/ground_spawning/mob_spawner.iff	3	5.28267	-0.894992	-5.62239	1	0	0	0	systems.spawning.mob_spawner	$|
 92	88	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 93	88	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 94	88	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
