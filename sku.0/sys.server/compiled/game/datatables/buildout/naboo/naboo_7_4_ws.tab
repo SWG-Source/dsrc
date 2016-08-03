@@ -685,5 +685,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1	0	object/tangible/poi/tatooine/explore_naboo_deeja_falls.iff	0	1061	388	402	1	0	0	0		$|
 6995491	0	object/tangible/ground_spawning/mob_spawner.iff	0	1212	326	463	1	0	0	0		$|
 6995492	0	object/tangible/ground_spawning/mob_spawner.iff	0	1043	350	570	0	0	1	0		$|
--2	0	object/tangible/npc/junk_dealer_spawner.iff	0	1043	346.5	538	0	0.615661475	0	-0.788010754		$|
--3	0	object/tangible/npc/naboo_spawn/damalia_korde.iff	0	1047	346.5	522	1	0	0	0		$|
+-2	0	object/tangible/npc/junk_dealer_spawner.iff	0	1039	346.5	534	0	0.615661475	0	-0.788010754		$|
+-3	0	object/tangible/npc/naboo_spawn/damalia_korde.iff	0	1043	346.5	518	1	0	0	0		$|

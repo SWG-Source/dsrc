@@ -1228,4 +1228,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 164641	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1911	28	1425	0	0	-1	0		$|
 3375636	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1870	28	1454	0	0	1	0		$|
 -1	0	object/tangible/spawning/static_npc/herald_corellia_02_karin.iff	0	1864	28	1684	0	0	1	0		$|
--2	0	object/tangible/npc/corellia_spawn/kirkin_liawoon.iff	0	1875	28	1650	0	0.707106781	0	0.707106781		$|
+-2	0	object/tangible/npc/corellia_spawn/kirkin_liawoon.iff	0	1871	28	1646	0	0.707106781	0	0.707106781		$|
