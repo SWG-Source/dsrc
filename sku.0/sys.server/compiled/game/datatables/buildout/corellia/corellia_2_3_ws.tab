@@ -1214,3 +1214,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3375640	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1091	21	1810	0.40674	0	0.91355	0		$|
 -1	0	object/tangible/npc/corvette_dungeon/corvette_adar_rebel_rescue.iff	0	697	21	1422	1	0	0	0		$|
 3355372	0	object/tangible/ground_spawning/mob_spawner.iff	0	625	21	1464.5	1	0	0	0		$|
+-2	0	object/tangible/npc/corellia_spawn/noren_krast.iff	0	945	21	1612	0	0.390731128	0	-0.920504853		$|
+164642	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1100	21	1808	0	0.461748613	0	-0.887010833		$|
