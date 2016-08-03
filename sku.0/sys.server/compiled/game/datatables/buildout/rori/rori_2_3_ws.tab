@@ -806,3 +806,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -4	0	object/tangible/npc/rori_spawn/zeelius_kraymunder.iff	0	827	80	1831	1	0	0	0		$|
 -5	0	object/tangible/spawning/static_npc/herald_rori_imperial_military_base.iff	0	870	80	1862	0	0.707106781	0	0.707106781		$|
 -6	0	object/tangible/npc/storyline_npc/imperial_coordinator_spawner.iff	0	887	80	1842	0	0.707106781	0	0.707106781		$|
+-7	0	object/tangible/spawning/static_npc/junk_dealer/junk_dender.iff	0	887	80	1883	1	0	0	0		$|
