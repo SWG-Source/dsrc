@@ -285,5 +285,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1	0	object/tangible/poi/tatooine/explore_naboo_amidalas_beach.iff	0	316	-157	1955	1	0	0	0		$|
 -2	0	object/tangible/planet_map_location/city.iff	0	669.578	-150	2026.16	1	0	0	0		$|
 -3	0	object/tangible/npc/naboo_spawn/brass_marshoo.iff	0	515	-156	2045	1	0	0	0		$|
--4	0	object/tangible/npc/naboo_spawn/rovim_minnoni.iff	0	594	-150	1996	0	0.923879533	0	0.382683432		$|
+-4	0	object/tangible/npc/naboo_spawn/rovim_minnoni.iff	0	594	-150	1996	0.923879533	0	0.382683432	0		$|
 -5	0	object/tangible/npc/naboo_spawn/lareen_dantara.iff	0	649	-150	2043	1	0	0	0		$|
