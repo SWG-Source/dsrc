@@ -210,4 +210,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8605410	0	object/tangible/terminal/terminal_mission.iff	0	1567.8	4	1800.52	0.956802	0	-0.29074	0		$|
 228009178	0	object/tangible/planet_map_location/city.iff	0	1588	4	1793	1	0	0	0		$|
 1296917	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1569	4	1774	1	0	0	0	space.content_tools.npc_spawner	$|
--1	0	object/tangible/spawning/static_npc/junk_dealer/junk_quich.iff	0	1582	4	1821	1	0	0	0		$|
+-1	0	object/tangible/spawning/static_npc/junk_dealer/junk_quich.iff	0	1578	4	1817	1	0	0	0		$|

@@ -619,4 +619,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -52	0	object/tangible/planet_map_location/city.iff	0	480.307	330	222.708	1	0	0	0		$|
 1284176	0	object/tangible/ground_spawning/mob_spawner.iff	0	691	315	359	1	0	0	0		$|
 1284177	0	object/tangible/ground_spawning/mob_spawner.iff	0	562	315	586	1	0	0	0		$|
--53	0	object/tangible/npc/corellia_spawn/grondorn_muse.iff	0	697	315	379	0	0.707106781	0	0.707106781		$|
+-53	0	object/tangible/npc/corellia_spawn/grondorn_muse.iff	0	693	315	375	0	0.707106781	0	0.707106781		$|
