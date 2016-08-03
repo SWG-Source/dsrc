@@ -245,3 +245,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4006162	0	object/tangible/spawning/spawn_egg.iff	0	59.5	52	771.77	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
 -1	0	object/tangible/npc/tatooine_spawn/vardias_tyne.iff	0	104	44	762	1	0	0	0		$|
 -2	0	object/tangible/npc/tatooine_spawn/aaph_koden.iff	0	128	52	748	0.707106781	0	0.707106781	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	1223	5	1347	0.956304756	0	-0.292371705	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|30.000000|fltMinSpawnTime|2|15.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|junk_dealer|strSpawnerType|4|area|strSpawns|4|junk_dealer|$|
