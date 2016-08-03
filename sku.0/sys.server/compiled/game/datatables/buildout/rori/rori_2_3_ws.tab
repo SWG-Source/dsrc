@@ -804,3 +804,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -2	0	object/tangible/spawning/static_npc/racing_coordinator_narmle.iff	0	1169	79	1869	1	0	0	0		$|
 -3	0	object/tangible/spawning/static_npc/rori_goru_rainstealer.iff	0	713	80	1854	1	0	0	0		$|
 -4	0	object/tangible/npc/rori_spawn/zeelius_kraymunder.iff	0	831	80	1835	1	0	0	0		$|
+-5	0	object/tangible/spawning/static_npc/herald_rori_imperial_military_base.iff	0	874	80	1866	0	0.707106781	0	0.707106781		$|
