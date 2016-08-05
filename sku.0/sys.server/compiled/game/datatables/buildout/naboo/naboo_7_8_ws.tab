@@ -913,5 +913,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5036497	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1116	-192	541	0.76604	0	-0.64279	0		$|
 -1	0	object/tangible/npc/naboo_spawn/mullud_bombo.iff	0	950	-192	643	1	0	0	0		$|
 -2	0	object/tangible/npc/naboo_spawn/huff_zinga.iff	0	1059	-192	492	1	0	0	0		$|
-91575	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	1109	-192	536	0.63607822	0	-0.771624583	0		$|
-91576	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	1110	-192	536	0.63607822	0	-0.771624583	0		$|
+91575	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1109	-192	536	0.63607822	0	-0.771624583	0		$|
+91576	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1110	-192	536	0.63607822	0	-0.771624583	0		$|
