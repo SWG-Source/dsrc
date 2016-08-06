@@ -1,22 +1,7 @@
 package script.space.quest_logic;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_create;
-import script.library.space_quest;
-import script.library.space_utils;
-import script.library.space_crafting;
-import script.library.space_transition;
-import script.library.utils;
-import script.library.ship_ai;
-import script.library.prose;
-import script.library.money;
+import script.library.*;
 
 public class recovery_duty extends script.space.quest_logic.recovery
 {
@@ -45,6 +30,10 @@ public class recovery_duty extends script.space.quest_logic.recovery
         space_quest.cleanArray(self, "targetShipTypes", targetShips);
         setObjVar(self, "reward", questInfo.getInt("reward"));
         setObjVar(self, "killReward", questInfo.getInt("killReward"));
+        String[] escortPath = dataTableGetStringColumn(qTable, "escortPath");
+        space_quest.cleanArray(self, "escortPath", escortPath);
+        String[] recoveryPath = dataTableGetStringColumn(qTable, "recoveryPath");
+        space_quest.cleanArray(self, "recoveryPath", recoveryPath);
         return SCRIPT_CONTINUE;
     }
     public int initializedQuestPlayer(obj_id self, dictionary params) throws InterruptedException
@@ -132,10 +121,7 @@ public class recovery_duty extends script.space.quest_logic.recovery
         if (rand() < 0.25)
         {
             String[] sortedPoints = new String[escortPoints.length];
-            for (int j = preSortPoints.length - 1; j >= 0; j--)
-            {
-                sortedPoints[j] = preSortPoints[j];
-            }
+            System.arraycopy(preSortPoints, 0, sortedPoints, 0, preSortPoints.length - 1 + 1);
             setObjVar(self, path, sortedPoints);
         }
         else 
