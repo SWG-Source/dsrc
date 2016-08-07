@@ -18,6 +18,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1154120	0	object/building/tatooine/housing_tatt_style01_med.iff	0	1732.99	11.6173	343.211	0.700562	0	0.713591	0	planet_map.map_loc	planetMap.category|4|cantina|$|
 1154121	1154120	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1154122	1154120	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+-1	1154122	object/tangible/npc/tatooine_spawn/stella.iff	2	-3.4	0.4	-7.9	0.92387	0	-0.38268	0		$|
 1106522	1154122	object/tangible/gambling/slot/standard.iff	2	9.16549	0.408271	-10.4758	1	0	0	0		$|
 1106523	1154122	object/tangible/gambling/slot/standard.iff	2	7.06044	0.408271	-10.4629	1	0	0	0		$|
 1106524	1154122	object/tangible/gambling/slot/standard.iff	2	4.89996	0.408271	-10.553	1	0	0	0		$|
@@ -31,6 +32,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1154124	1154120	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1154125	1154120	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1154126	1154120	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+-10	1154126	object/tangible/poi/tatooine/poi_city_convo.iff	6	-3	-4	-6.1	1	0	0	0		$|
 1154127	1154120	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1154128	1154120	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1154129	1154120	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
@@ -212,3 +214,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8885785	0	object/static/particle/particle_newbie_refrigerator_steam.iff	0	1918.82	9.95291	438.76	-0.25785	0	0.966185	0		$|
 8885786	0	object/soundobject/soundobject_hovering.iff	0	1920.82	8.73838	439.062	1	0	0	0		$|
 4006308	0	object/tangible/spawning/spawn_egg.iff	0	1745.97	11.62	341.19	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
+-2	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1714.6	6.9	322.9	0.60181	0	0.79863	0		$|
+-3	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1773	18.2	324.9	0.70710	0	0.70710	0		$|
+-4	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1773	18.2	317.6	0.70710	0	0.70710	0		$|
+-5	0	object/tangible/npc/tatooine_spawn/bren_kingal.iff	0	1722.4	8.3	297.8	0.99452	0	0.10452	0		$|
+-6	0	object/tangible/ground_spawning/area_spawner.iff	0	1853.3	23	315.1	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|4.000000|fltMinSpawnTime|2|2.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|junk_dealer|strSpawnerType|4|area|strSpawns|4|tatooine/junk_dealer|$|
+-7	0	object/tangible/npc/tatooine_spawn/gramm_rile.iff	0	1837	23	303.9	1	0	0	0		$|
+-8	0	object/tangible/spawning/static_npc/junk_dealer/junk_nathan.iff	0	1771.3	16.7	293.8	0.70710	0	0.70710	0		$|
+-9	0	object/tangible/npc/tatooine_spawn/lorne_prestar.iff	0	1781.3	20	318.6	0.55919	0	0.82903	0		$|
