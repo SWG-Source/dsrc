@@ -37,6 +37,8 @@ public class patrol_controller extends script.base_script {
         return SCRIPT_CONTINUE;
     }
     public int beginSpawn(obj_id self, dictionary params) throws InterruptedException{
+        formationSlots = new obj_id[getIntObjVar(self, "size")];
+        setObjVar(self, "formationSlots", formationSlots);
         messageTo(self, "spawnGuardPatrol", null, 2, false);
         return SCRIPT_CONTINUE;
     }
@@ -48,8 +50,6 @@ public class patrol_controller extends script.base_script {
         if(hasObjVar(self, "patrolLevel")) patrolLevel = getIntObjVar(self, "patrolLevel");
         if(hasObjVar(self, "patrolLevelTolerance")) patrolLevelTolerance = getIntObjVar(self, "patrolLevelTolerance");
         if(hasObjVar(self, "faction")) faction = getStringObjVar(self, "faction");
-        formationSlots = new obj_id[getIntObjVar(self, "size")];
-        setObjVar(self, "formationSlots", formationSlots);
         float respawnTime = getFloatObjVar(self, "respawnTime");
         squadClass = getStringObjVar(self, "squadClass");
 
@@ -57,28 +57,29 @@ public class patrol_controller extends script.base_script {
 
         formationSlots = getObjIdArrayObjVar(getSelf(), "formationSlots");
         for (int i = currentSize; i < maxSize; i++) {
-            spawnPatrolMember(self, getOpenFormationPosition(maxSize), i, spawnStart);
+            spawnPatrolMember(self, i, spawnStart);
         }
         setObjVar(self, "formationSlots", formationSlots);
         messageTo(self, "spawnGuardPatrol", null, respawnTime, false);
         return SCRIPT_CONTINUE;
     }
     private int getOpenFormationPosition(int maxSize){
-        for(int i = 0; i < formationSlots.length; i++){
+        for(int i = 1; i < formationSlots.length; i++){
             if(formationSlots[i] == null || formationSlots[i] == obj_id.NULL_ID){
                 return i;
             }
         }
         return maxSize - 1;
     }
-    private void spawnPatrolMember(obj_id self, int position, int currentSize, location spawnStart) throws InterruptedException{
+    private void spawnPatrolMember(obj_id self, int currentSize, location spawnStart) throws InterruptedException{
         obj_id patrolMember;
         String memberTemplate = npcToSpawn(self);
         if(memberTemplate == null){
             setName(self, "BROKEN SPAWNER: Can't get squad member template!");
             return;
         }
-        if(currentSize == 0 || needsLeader()){
+        int position = 0;
+        if(needsLeader(self)){
             String npc = getLeaderTemplate(self);
             if(npc == null){
                 setName(self, "BROKEN SPAWNER: Can't get squad leader template!");
@@ -86,6 +87,8 @@ public class patrol_controller extends script.base_script {
             }
             patrolMember = spawn(npc, spawnStart.x, spawnStart.y, spawnStart.z, 0f, null, null);
             setObjVar(patrolMember, "isLeader", true);
+            setObjVar(self, "leader", patrolMember);
+            tellSquadAboutNewLeader();
 
             dictionary params = new dictionary();
             params.put("patrolPoints", getLocationArrayObjVar(self, "patrolPoints"));
@@ -96,19 +99,22 @@ public class patrol_controller extends script.base_script {
         else{
             // spawn member
             patrolMember = spawn(memberTemplate, spawnStart.x, spawnStart.y, spawnStart.z, 0f, null, null);
-            ai_lib.followInFormation(patrolMember, formationSlots[0], ai_lib.FORMATION_COLUMN, position);
+            position = getOpenFormationPosition(getIntObjVar(self, "size"));
+            ai_lib.followInFormation(patrolMember, getObjIdObjVar(self, "leader"), ai_lib.FORMATION_COLUMN, position);
             setMovementPercent(patrolMember, 1.2f);
             setObjVar(patrolMember, "isLeader", false);
         }
 
         formationSlots[position] = patrolMember;
 
+        setObjVar(self, "formationSlots", formationSlots);
+
         setLevel(patrolMember, rand(patrolLevel, patrolLevel + patrolLevelTolerance));
 
         setObjVar(self, "currentSize", currentSize + 1);
     }
-    private boolean needsLeader() throws InterruptedException {
-        obj_id leader = formationSlots[0];
+    private boolean needsLeader(obj_id self) throws InterruptedException {
+        obj_id leader = getObjIdObjVar(self, "leader");
 
         return leader == null || leader == obj_id.NULL_ID || isDead(leader) || isIncapacitated(leader) || !isIdValid(leader) || !exists(leader);
     }
@@ -120,25 +126,21 @@ public class patrol_controller extends script.base_script {
         obj_id deadMember = params.getObjId("self");
         formationSlots = getObjIdArrayObjVar(self, "formationSlots");
 
-        // check if this patrol member was a leader or not.  Spawn new leader if so.
         if(params.getBoolean("isLeader")){
             setObjVar(self, "leader", obj_id.NULL_ID);
-            spawnPatrolMember(self, 0, 0, getLocationArrayObjVar(self, "patrolPoints")[0]);
-            tellSquadAboutNewLeader();
         }
-        else{
-            for(int i=0; i < formationSlots.length; i++){
-                if(formationSlots[i] == deadMember){
-                    formationSlots[i] = obj_id.NULL_ID;
-                    break;
-                }
+
+        for(int i=0; i < formationSlots.length; i++){
+            if(formationSlots[i] == deadMember){
+                formationSlots[i] = obj_id.NULL_ID;
+                break;
             }
-            setObjVar(self, "formationSlots", formationSlots);
         }
+        setObjVar(self, "formationSlots", formationSlots);
     }
     private void tellSquadAboutNewLeader() throws InterruptedException{
         for(int i = 1; i < formationSlots.length; i++){
-            ai_lib.followInFormation(formationSlots[i], formationSlots[0], ai_lib.FORMATION_COLUMN, i);
+            ai_lib.followInFormation(formationSlots[i], getObjIdObjVar(getSelf(), "leader"), ai_lib.FORMATION_COLUMN, i);
             setMovementPercent(formationSlots[i], 1.2f);
         }
     }
