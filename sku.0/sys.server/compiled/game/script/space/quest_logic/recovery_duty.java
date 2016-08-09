@@ -34,6 +34,13 @@ public class recovery_duty extends script.space.quest_logic.recovery
         space_quest.cleanArray(self, "escortPath", escortPath);
         String[] recoveryPath = dataTableGetStringColumn(qTable, "recoveryPath");
         space_quest.cleanArray(self, "recoveryPath", recoveryPath);
+        // check to see if user is already in space.  If so, kick off the mission.
+        if ((getCurrentSceneName()).startsWith(getStringObjVar(self, space_quest.QUEST_ZONE)))
+        {
+            dictionary outparams = new dictionary();
+            outparams.put("player", player);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+        }
         return SCRIPT_CONTINUE;
     }
     public int initializedQuestPlayer(obj_id self, dictionary params) throws InterruptedException
