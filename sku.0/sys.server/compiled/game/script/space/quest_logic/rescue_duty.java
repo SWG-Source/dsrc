@@ -1,22 +1,7 @@
 package script.space.quest_logic;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_create;
-import script.library.space_quest;
-import script.library.space_utils;
-import script.library.space_crafting;
-import script.library.space_transition;
-import script.library.utils;
-import script.library.ship_ai;
-import script.library.prose;
-import script.library.money;
+import script.library.*;
 
 public class rescue_duty extends script.space.quest_logic.rescue
 {
@@ -45,6 +30,15 @@ public class rescue_duty extends script.space.quest_logic.rescue
         space_quest.cleanArray(self, "targetShipTypes", targetShips);
         setObjVar(self, "reward", questInfo.getInt("reward"));
         setObjVar(self, "killReward", questInfo.getInt("killReward"));
+        String[] recoveryPath = dataTableGetStringColumn(qTable, "recoveryPath");
+        space_quest.cleanArray(self, "recoveryPath", recoveryPath);
+        String questZone = getStringObjVar(self, space_quest.QUEST_ZONE);
+        if ((getCurrentSceneName()).startsWith(questZone))
+        {
+            dictionary outparams = new dictionary();
+            outparams.put("player", player);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+        }
         return SCRIPT_CONTINUE;
     }
     public int initializedQuestPlayer(obj_id self, dictionary params) throws InterruptedException
