@@ -3,7 +3,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1065358	0	object/static/structure/general/streetlamp_large_style_02.iff	0	587.026	23.4	2.72656	-0.685869	0	0.727725	0		$|
 1065359	0	object/static/structure/general/streetlamp_large_style_02.iff	0	586.739	23.4	47.2046	-0.693111	0	0.720831	0		$|
 1065361	0	object/static/structure/general/streetlamp_small_style_01.iff	0	592.699	14.74	103.408	1	0	0	0		$|
-2775506	0	object/building/corellia/shuttleport_corellia.iff	0	592.053	15.8901	104.033	0.707109	0	-0.707105	0		$|
+2775506	0	object/building/corellia/shuttleport_corellia.iff	0	592.053	15.8901	104.033	0.707109	0	-0.707105	0	planet_map.map_loc:structure.municipal.starport	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Vreni Island Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
 3005484	0	object/building/corellia/filler_slum_16x16_s01.iff	0	438.872	14.6	4.02197	-3.20013e-008	0	1	0		$|
 3005582	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	478	14.6	13	1	0	0	0		$|
 3005583	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	462	14.6	13	1	0	0	0		$|
