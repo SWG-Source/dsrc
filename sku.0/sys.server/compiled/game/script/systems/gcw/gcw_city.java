@@ -1,21 +1,12 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.gcw_score;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
-import script.library.ai_lib;
-import script.library.colors_hex;
-import script.library.factions;
-import script.library.gcw;
-import script.library.planetary_map;
-import script.library.player_structure;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class gcw_city extends script.base_script
 {
@@ -53,14 +44,12 @@ public class gcw_city extends script.base_script
     }
     public void qaInstaclear(obj_id[] kits) throws InterruptedException
     {
-        for (int i = 0, j = kits.length; i < j; i++)
-        {
-            if (!isIdValid(kits[i]) || !exists(kits[i]))
-            {
+        for (obj_id kit : kits) {
+            if (!isIdValid(kit) || !exists(kit)) {
                 continue;
             }
-            setObjVar(kits[i], "gcw.constructionQuestsCompleted", 0);
-            messageTo(kits[i], "handleUpdateName", null, 1.0f, false);
+            setObjVar(kit, "gcw.constructionQuestsCompleted", 0);
+            messageTo(kit, "handleUpdateName", null, 1.0f, false);
         }
     }
     public int OnHearSpeech(obj_id self, obj_id objSpeaker, String strText) throws InterruptedException
@@ -70,189 +59,178 @@ public class gcw_city extends script.base_script
             return SCRIPT_CONTINUE;
         }
         dictionary params = trial.getSessionDict(self);
-        if (strText.equals("gcwcleanup") || strText.equals("gcwend"))
-        {
-            CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwcleanup command. session: " + params.getInt(trial.MESSAGE_SESSION));
-            obj_id planet = getPlanetByName("tatooine");
-            if (!isValidId(planet))
-            {
-                debugSpeakMsg(self, "GCW Controller: Failed to find planet Tatooine.");
-                return SCRIPT_CONTINUE;
-            }
-            String city = gcw.getCityFromTable(self);
-            if (city == null || city.length() <= 0)
-            {
-                debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
-                return SCRIPT_CONTINUE;
-            }
-            utils.setScriptVar(planet, "gcw.calendar_time." + city, getCalendarTime() - gcw.GCW_CONSTRUCTION_END_TIMER - gcw.GCW_COMBAT_END_TIMER);
-            messageTo(self, "cleanupInvasion", params, 1.0f, false);
-            sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: Cleaning up invasion.");
-        }
-        else if (strText.equals("gcwdefensewin"))
-        {
-            if (!utils.hasScriptVar(self, "gcw.constructionEnded") && !utils.hasScriptVar(self, "gcw.invasionRunning"))
-            {
-                debugSpeakMsg(self, "Must be used when in construction or combat phase.");
-                return SCRIPT_CONTINUE;
-            }
-            CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwcleanup command. session: " + params.getInt(trial.MESSAGE_SESSION));
-            obj_id planet = getPlanetByName("tatooine");
-            if (!isValidId(planet))
-            {
-                debugSpeakMsg(self, "GCW Controller: Failed to find planet Tatooine.");
-                return SCRIPT_CONTINUE;
-            }
-            String city = gcw.getCityFromTable(self);
-            if (city == null || city.length() <= 0)
-            {
-                debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
-                return SCRIPT_CONTINUE;
-            }
-            obj_id defendingGeneral = utils.getObjIdScriptVar(self, "defendingGeneral");
-            if (!isValidId(defendingGeneral) || !exists(defendingGeneral))
-            {
-                return SCRIPT_CONTINUE;
-            }
-            Vector loserDefenseParticipants = new Vector();
-            loserDefenseParticipants.setSize(0);
-            Vector winnerOffenseParticipants = new Vector();
-            winnerOffenseParticipants.setSize(0);
-            int loserFactionFlag = factions.FACTION_FLAG_UNKNOWN;
-            int winnerFactionFlag = factions.FACTION_FLAG_UNKNOWN;
-            if (factions.isImperialorImperialHelper(defendingGeneral))
-            {
-                loserDefenseParticipants = trial.getNonInstanceFactionParticipants(self, factions.FACTION_FLAG_REBEL);
-                loserFactionFlag = factions.FACTION_FLAG_REBEL;
-                winnerOffenseParticipants = trial.getNonInstanceFactionParticipants(self, factions.FACTION_FLAG_IMPERIAL);
-                winnerFactionFlag = factions.FACTION_FLAG_IMPERIAL;
-            }
-            else if (factions.isRebelorRebelHelper(defendingGeneral))
-            {
-                loserDefenseParticipants = trial.getNonInstanceFactionParticipants(self, factions.FACTION_FLAG_IMPERIAL);
-                loserFactionFlag = factions.FACTION_FLAG_IMPERIAL;
-                winnerOffenseParticipants = trial.getNonInstanceFactionParticipants(self, factions.FACTION_FLAG_REBEL);
-                winnerFactionFlag = factions.FACTION_FLAG_REBEL;
-            }
-            if (loserDefenseParticipants != null && loserDefenseParticipants.size() > 0)
-            {
-                gcw.awardGcwInvasionParticipants(loserDefenseParticipants, loserFactionFlag, gcw.GCW_TOKENS_LOSER_PARTICIPANTS, gcw.GCW_POINTS_LOSER_PARTICIPANTS, null);
-            }
-            if (winnerOffenseParticipants != null && winnerOffenseParticipants.size() > 0)
-            {
-                String iconicMob = "";
-                String music = "";
-                String kudosText = "";
-                if (winnerFactionFlag == factions.FACTION_FLAG_IMPERIAL)
-                {
-                    iconicMob = "object/mobile/darth_vader.iff";
-                    music = "sound/music_darth_vader_theme.snd";
-                    kudosText = "gcw_announcement_city_end_safe_imperial_" + planet + "_" + city;
+        switch (strText) {
+            case "gcwcleanup":
+            case "gcwend": {
+                CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwcleanup command. session: " + params.getInt(trial.MESSAGE_SESSION));
+                obj_id planet = getPlanetByName("tatooine");
+                if (!isValidId(planet)) {
+                    debugSpeakMsg(self, "GCW Controller: Failed to find planet Tatooine.");
+                    return SCRIPT_CONTINUE;
                 }
-                else 
-                {
-                    iconicMob = "object/mobile/rebel_emperorsday_leia.iff";
-                    music = "sound/music_leia_theme.snd";
-                    kudosText = "gcw_announcement_city_end_safe_rebel_" + planet + "_" + city;
+                String city = gcw.getCityFromTable(self);
+                if (city == null || city.length() <= 0) {
+                    debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
+                    return SCRIPT_CONTINUE;
                 }
-                dictionary iconicParams = new dictionary();
-                iconicParams.put("string_file", "gcw");
-                if ((iconicMob != null && iconicMob.length() > 0) && (music != null && music.length() > 0) && (kudosText != null && kudosText.length() > 0))
-                {
-                    iconicParams.put("iconicMob", iconicMob);
-                    iconicParams.put("music", music);
-                    iconicParams.put("kudosText", kudosText);
+                utils.setScriptVar(planet, "gcw.calendar_time." + city, getCalendarTime() - gcw.GCW_CONSTRUCTION_END_TIMER - gcw.GCW_COMBAT_END_TIMER);
+                messageTo(self, "cleanupInvasion", params, 1.0f, false);
+                sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: Cleaning up invasion.");
+                break;
+            }
+            case "gcwdefensewin": {
+                if (!utils.hasScriptVar(self, "gcw.constructionEnded") && !utils.hasScriptVar(self, "gcw.invasionRunning")) {
+                    debugSpeakMsg(self, "Must be used when in construction or combat phase.");
+                    return SCRIPT_CONTINUE;
                 }
-                gcw.awardGcwInvasionParticipants(winnerOffenseParticipants, winnerFactionFlag, gcw.GCW_TOKENS_WINNER_PARTICIPANTS, gcw.GCW_POINTS_WINNER_PARTICIPANTS, iconicParams);
+                CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwcleanup command. session: " + params.getInt(trial.MESSAGE_SESSION));
+                obj_id planet = getPlanetByName("tatooine");
+                if (!isValidId(planet)) {
+                    debugSpeakMsg(self, "GCW Controller: Failed to find planet Tatooine.");
+                    return SCRIPT_CONTINUE;
+                }
+                String city = gcw.getCityFromTable(self);
+                if (city == null || city.length() <= 0) {
+                    debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
+                    return SCRIPT_CONTINUE;
+                }
+                obj_id defendingGeneral = utils.getObjIdScriptVar(self, "defendingGeneral");
+                if (!isValidId(defendingGeneral) || !exists(defendingGeneral)) {
+                    return SCRIPT_CONTINUE;
+                }
+
+                Vector loserDefenseParticipants = new Vector();
+                loserDefenseParticipants.setSize(0);
+                Vector winnerOffenseParticipants = new Vector();
+                winnerOffenseParticipants.setSize(0);
+
+                int loserFactionFlag = factions.FACTION_FLAG_UNKNOWN;
+                int winnerFactionFlag = factions.FACTION_FLAG_UNKNOWN;
+
+                if (factions.isImperialorImperialHelper(defendingGeneral)) {
+                    loserDefenseParticipants = trial.getNonInstanceFactionParticipants(self, factions.FACTION_FLAG_REBEL);
+                    loserFactionFlag = factions.FACTION_FLAG_REBEL;
+                    winnerOffenseParticipants = trial.getNonInstanceFactionParticipants(self, factions.FACTION_FLAG_IMPERIAL);
+                    winnerFactionFlag = factions.FACTION_FLAG_IMPERIAL;
+                } else if (factions.isRebelorRebelHelper(defendingGeneral)) {
+                    loserDefenseParticipants = trial.getNonInstanceFactionParticipants(self, factions.FACTION_FLAG_IMPERIAL);
+                    loserFactionFlag = factions.FACTION_FLAG_IMPERIAL;
+                    winnerOffenseParticipants = trial.getNonInstanceFactionParticipants(self, factions.FACTION_FLAG_REBEL);
+                    winnerFactionFlag = factions.FACTION_FLAG_REBEL;
+                }
+
+                if (loserDefenseParticipants != null && loserDefenseParticipants.size() > 0) {
+                    gcw.awardGcwInvasionParticipants(loserDefenseParticipants, loserFactionFlag, gcw.GCW_TOKENS_LOSER_PARTICIPANTS, gcw.GCW_POINTS_LOSER_PARTICIPANTS, null);
+                }
+
+                if (winnerOffenseParticipants != null && winnerOffenseParticipants.size() > 0) {
+                    String iconicMob;
+                    String music;
+                    String kudosText;
+                    if (winnerFactionFlag == factions.FACTION_FLAG_IMPERIAL) {
+                        iconicMob = "object/mobile/darth_vader.iff";
+                        music = "sound/music_darth_vader_theme.snd";
+                        kudosText = "gcw_announcement_city_end_safe_imperial_" + planet + "_" + city;
+                    } else {
+                        iconicMob = "object/mobile/rebel_emperorsday_leia.iff";
+                        music = "sound/music_leia_theme.snd";
+                        kudosText = "gcw_announcement_city_end_safe_rebel_" + planet + "_" + city;
+                    }
+                    dictionary iconicParams = new dictionary();
+                    iconicParams.put("string_file", "gcw");
+                    if (iconicMob.length() > 0 && music.length() > 0 && kudosText.length() > 0) {
+                        iconicParams.put("iconicMob", iconicMob);
+                        iconicParams.put("music", music);
+                        iconicParams.put("kudosText", kudosText);
+                    }
+                    gcw.awardGcwInvasionParticipants(winnerOffenseParticipants, winnerFactionFlag, gcw.GCW_TOKENS_WINNER_PARTICIPANTS, gcw.GCW_POINTS_WINNER_PARTICIPANTS, iconicParams);
+                }
+                utils.setScriptVar(planet, "gcw.calendar_time." + city, getCalendarTime() - gcw.GCW_CONSTRUCTION_END_TIMER - gcw.GCW_COMBAT_END_TIMER);
+                messageTo(self, "cleanupInvasion", params, 1.0f, false);
+                sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: Defense has won the invasion -- No announcements will be sent.");
+                break;
             }
-            utils.setScriptVar(planet, "gcw.calendar_time." + city, getCalendarTime() - gcw.GCW_CONSTRUCTION_END_TIMER - gcw.GCW_COMBAT_END_TIMER);
-            messageTo(self, "cleanupInvasion", params, 1.0f, false);
-            sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: Defense has won the invasion -- No announcements will be sent.");
-        }
-        else if (strText.equals("gcwbegin") || strText.equals("gcwstart"))
-        {
-            CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwbegin command. session: " + params.getInt(trial.MESSAGE_SESSION));
-            obj_id planet = getPlanetByName("tatooine");
-            if (!isValidId(planet))
-            {
-                debugSpeakMsg(self, "GCW Controller: Failed to find planet Tatooine.");
-                return SCRIPT_CONTINUE;
+            case "gcwbegin":
+            case "gcwstart": {
+                CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwbegin command. session: " + params.getInt(trial.MESSAGE_SESSION));
+                obj_id planet = getPlanetByName("tatooine");
+                if (!isValidId(planet)) {
+                    debugSpeakMsg(self, "GCW Controller: Failed to find planet Tatooine.");
+                    return SCRIPT_CONTINUE;
+                }
+                String city = gcw.getCityFromTable(self);
+                if (city == null || city.length() <= 0) {
+                    debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
+                    return SCRIPT_CONTINUE;
+                }
+                String cityConfig = getConfigSetting("GameServer", "gcwcity" + city);
+                if (cityConfig == null || cityConfig.length() <= 0) {
+                    sendSystemMessageTestingOnly(objSpeaker, "The city configuration (gcwcity" + city + ") is turned off.  OVERRIDING");
+                    utils.setScriptVar(self, "gcw.configOverride", 1);
+                }
+                utils.setScriptVar(planet, "gcw.time." + city, getGameTime());
+                utils.setScriptVar(planet, "gcw.object." + city, self);
+                utils.setScriptVar(planet, "gcw.calendar_time." + city, getCalendarTime());
+                messageTo(self, "beginInvasion", null, 1.0f, false);
+                sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: Starting construction.");
+                break;
             }
-            String city = gcw.getCityFromTable(self);
-            if (city == null || city.length() <= 0)
-            {
-                debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
-                return SCRIPT_CONTINUE;
+            case "gcwendbuild":
+            case "gcwstartinvasion": {
+                CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwendbuild command. session: " + params.getInt(trial.MESSAGE_SESSION));
+                obj_id planet = getPlanetByName("tatooine");
+                if (!isValidId(planet)) {
+                    debugSpeakMsg(self, "GCW Controller: Failed to find planet Tatooine.");
+                    return SCRIPT_CONTINUE;
+                }
+                String city = gcw.getCityFromTable(self);
+                if (city == null || city.length() <= 0) {
+                    debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
+                    return SCRIPT_CONTINUE;
+                }
+                utils.setScriptVar(planet, "gcw.calendar_time." + city, getCalendarTime() - gcw.GCW_CONSTRUCTION_END_TIMER);
+                messageTo(self, "endConstruction", params, 1.0f, false);
+                sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: Starting invasion.");
+                break;
             }
-            String cityConfig = getConfigSetting("GameServer", "gcwcity" + city);
-            if (cityConfig == null || cityConfig.length() <= 0)
-            {
-                sendSystemMessageTestingOnly(objSpeaker, "The city configuration (gcwcity" + city + ") is turned off.  OVERRIDING");
-                utils.setScriptVar(self, "gcw.configOverride", 1);
+            case "gcwkits":
+                obj_id[] npcs = trial.getObjectsInInstanceBySpawnId(self, "defense_kit");
+                sendSystemMessageTestingOnly(self, "count: " + npcs.length);
+                break;
+            case "gcwquickbuild": {
+                CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwquickbuild command. session: " + params.getInt(trial.MESSAGE_SESSION));
+                obj_id[] kits = trial.getObjectsInInstanceBySpawnId(self, "defense_kit");
+                qaInstabuild(kits);
+                int kitsLength = kits.length / 2;
+                kits = trial.getObjectsInInstanceBySpawnId(self, "defense_patrol");
+                qaInstabuild(kits);
+                kitsLength += kits.length / 2;
+                kits = trial.getObjectsInInstanceBySpawnId(self, "offense_patrol");
+                qaInstabuild(kits);
+                kitsLength += kits.length / 2;
+                kits = trial.getObjectsInInstanceBySpawnId(self, "vehicle_patrol");
+                qaInstabuild(kits);
+                kitsLength += kits.length / 2;
+                sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: " + kitsLength + " Construction kits modified.");
+                break;
             }
-            utils.setScriptVar(planet, "gcw.time." + city, getGameTime());
-            utils.setScriptVar(planet, "gcw.object." + city, self);
-            utils.setScriptVar(planet, "gcw.calendar_time." + city, getCalendarTime());
-            messageTo(self, "beginInvasion", null, 1.0f, false);
-            sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: Starting construction.");
-        }
-        else if (strText.equals("gcwendbuild") || strText.equals("gcwstartinvasion"))
-        {
-            CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwendbuild command. session: " + params.getInt(trial.MESSAGE_SESSION));
-            obj_id planet = getPlanetByName("tatooine");
-            if (!isValidId(planet))
-            {
-                debugSpeakMsg(self, "GCW Controller: Failed to find planet Tatooine.");
-                return SCRIPT_CONTINUE;
+            case "gcwquickbuildclear": {
+                CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwquickbuildclear command. session: " + params.getInt(trial.MESSAGE_SESSION));
+                obj_id[] kits = trial.getObjectsInInstanceBySpawnId(self, "defense_kit");
+                qaInstaclear(kits);
+                int kitsLength = kits.length / 2;
+                kits = trial.getObjectsInInstanceBySpawnId(self, "defense_patrol");
+                qaInstaclear(kits);
+                kitsLength += kits.length / 2;
+                kits = trial.getObjectsInInstanceBySpawnId(self, "offense_patrol");
+                qaInstaclear(kits);
+                kitsLength += kits.length / 2;
+                kits = trial.getObjectsInInstanceBySpawnId(self, "vehicle_patrol");
+                qaInstaclear(kits);
+                kitsLength += kits.length / 2;
+                sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: " + kitsLength + " Construction kits modified to zero quests completed.");
+                break;
             }
-            String city = gcw.getCityFromTable(self);
-            if (city == null || city.length() <= 0)
-            {
-                debugSpeakMsg(self, "GCW Controller: Failed to find city name.");
-                return SCRIPT_CONTINUE;
-            }
-            utils.setScriptVar(planet, "gcw.calendar_time." + city, getCalendarTime() - gcw.GCW_CONSTRUCTION_END_TIMER);
-            messageTo(self, "endConstruction", params, 1.0f, false);
-            sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: Starting invasion.");
-        }
-        else if (strText.equals("gcwkits"))
-        {
-            obj_id[] npcs = trial.getObjectsInInstanceBySpawnId(self, "defense_kit");
-            sendSystemMessageTestingOnly(self, "count: " + npcs.length);
-        }
-        else if (strText.equals("gcwquickbuild"))
-        {
-            CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwquickbuild command. session: " + params.getInt(trial.MESSAGE_SESSION));
-            obj_id[] kits = trial.getObjectsInInstanceBySpawnId(self, "defense_kit");
-            qaInstabuild(kits);
-            int kitsLength = kits.length / 2;
-            kits = trial.getObjectsInInstanceBySpawnId(self, "defense_patrol");
-            qaInstabuild(kits);
-            kitsLength += kits.length / 2;
-            kits = trial.getObjectsInInstanceBySpawnId(self, "offense_patrol");
-            qaInstabuild(kits);
-            kitsLength += kits.length / 2;
-            kits = trial.getObjectsInInstanceBySpawnId(self, "vehicle_patrol");
-            qaInstabuild(kits);
-            kitsLength += kits.length / 2;
-            sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: " + kitsLength + " Construction kits modified.");
-        }
-        else if (strText.equals("gcwquickbuildclear"))
-        {
-            CustomerServiceLog("gcw_city_invasion", "gcw_city.OnHearSpeech: God Player: " + objSpeaker + " has used the gcwquickbuildclear command. session: " + params.getInt(trial.MESSAGE_SESSION));
-            obj_id[] kits = trial.getObjectsInInstanceBySpawnId(self, "defense_kit");
-            qaInstaclear(kits);
-            int kitsLength = kits.length / 2;
-            kits = trial.getObjectsInInstanceBySpawnId(self, "defense_patrol");
-            qaInstaclear(kits);
-            kitsLength += kits.length / 2;
-            kits = trial.getObjectsInInstanceBySpawnId(self, "offense_patrol");
-            qaInstaclear(kits);
-            kitsLength += kits.length / 2;
-            kits = trial.getObjectsInInstanceBySpawnId(self, "vehicle_patrol");
-            qaInstaclear(kits);
-            kitsLength += kits.length / 2;
-            sendSystemMessageTestingOnly(objSpeaker, "GCW Controller: " + kitsLength + " Construction kits modified to zero quests completed.");
         }
         return SCRIPT_CONTINUE;
     }
@@ -355,23 +333,22 @@ public class gcw_city extends script.base_script
         {
             return;
         }
-        if (cityName.equals(gcw.CITY_DEARIC))
-        {
-            utils.setScriptVar(self, "announcementOrigin", DEARIC_ANNOUNCEMENT_ORIGIN);
-            utils.setScriptVar(self, "announcementRadius", DEARIC_ANNOUNCEMENT_RADIUS);
-            utils.setScriptVar(self, "cityObject", CITY_OBJECT_DEARIC);
-        }
-        else if (cityName.equals(gcw.CITY_BESTINE))
-        {
-            utils.setScriptVar(self, "announcementOrigin", BESTINE_ANNOUNCEMENT_ORIGIN);
-            utils.setScriptVar(self, "announcementRadius", BESTINE_ANNOUNCEMENT_RADIUS);
-            utils.setScriptVar(self, "cityObject", CITY_OBJECT_BESTINE);
-        }
-        else if (cityName.equals(gcw.CITY_KEREN))
-        {
-            utils.setScriptVar(self, "announcementOrigin", KEREN_ANNOUNCEMENT_ORIGIN);
-            utils.setScriptVar(self, "announcementRadius", KEREN_ANNOUNCEMENT_RADIUS);
-            utils.setScriptVar(self, "cityObject", CITY_OBJECT_KEREN);
+        switch (cityName) {
+            case gcw.CITY_DEARIC:
+                utils.setScriptVar(self, "announcementOrigin", DEARIC_ANNOUNCEMENT_ORIGIN);
+                utils.setScriptVar(self, "announcementRadius", DEARIC_ANNOUNCEMENT_RADIUS);
+                utils.setScriptVar(self, "cityObject", CITY_OBJECT_DEARIC);
+                break;
+            case gcw.CITY_BESTINE:
+                utils.setScriptVar(self, "announcementOrigin", BESTINE_ANNOUNCEMENT_ORIGIN);
+                utils.setScriptVar(self, "announcementRadius", BESTINE_ANNOUNCEMENT_RADIUS);
+                utils.setScriptVar(self, "cityObject", CITY_OBJECT_BESTINE);
+                break;
+            case gcw.CITY_KEREN:
+                utils.setScriptVar(self, "announcementOrigin", KEREN_ANNOUNCEMENT_ORIGIN);
+                utils.setScriptVar(self, "announcementRadius", KEREN_ANNOUNCEMENT_RADIUS);
+                utils.setScriptVar(self, "cityObject", CITY_OBJECT_KEREN);
+                break;
         }
     }
     public int beginInvasionNotifyFactions(obj_id self, dictionary params) throws InterruptedException
@@ -885,9 +862,9 @@ public class gcw_city extends script.base_script
         }
         if (winnerOffenseParticipants != null && winnerOffenseParticipants.size() > 0)
         {
-            String iconicMob = "";
-            String music = "";
-            String kudosText = "";
+            String iconicMob;
+            String music;
+            String kudosText;
             if (winnerFactionFlag == factions.FACTION_FLAG_IMPERIAL)
             {
                 iconicMob = "object/mobile/darth_vader.iff";
@@ -902,7 +879,7 @@ public class gcw_city extends script.base_script
             }
             dictionary iconicParams = new dictionary();
             iconicParams.put("string_file", "gcw");
-            if ((iconicMob != null && iconicMob.length() > 0) && (music != null && music.length() > 0) && (kudosText != null && kudosText.length() > 0))
+            if (iconicMob.length() > 0 && music.length() > 0 && kudosText.length() > 0)
             {
                 iconicParams.put("iconicMob", iconicMob);
                 iconicParams.put("music", music);
@@ -996,9 +973,9 @@ public class gcw_city extends script.base_script
         }
         if (winnerOffenseParticipants != null && winnerOffenseParticipants.size() > 0)
         {
-            String iconicMob = "";
-            String music = "";
-            String kudosText = "";
+            String iconicMob;
+            String music;
+            String kudosText;
             if (winnerFactionFlag == factions.FACTION_FLAG_IMPERIAL)
             {
                 iconicMob = "object/mobile/darth_vader.iff";
@@ -1013,7 +990,7 @@ public class gcw_city extends script.base_script
             }
             dictionary iconicParams = new dictionary();
             iconicParams.put("string_file", "gcw");
-            if ((iconicMob != null && iconicMob.length() > 0) && (music != null && music.length() > 0) && (kudosText != null && kudosText.length() > 0))
+            if (iconicMob.length() > 0 && music.length() > 0 && kudosText.length() > 0)
             {
                 iconicParams.put("iconicMob", iconicMob);
                 iconicParams.put("music", music);
@@ -1123,15 +1100,15 @@ public class gcw_city extends script.base_script
             removePlanetaryMapLocation(cityObject);
             return SCRIPT_CONTINUE;
         }
-        String color = "";
-        String defenders = "";
-        String invaders = "";
+        String color;
+        String defenders;
+        String invaders;
         String stringName = "";
         int faction = utils.getIntScriptVar(self, "currentOccupyFaction");
         LOG("gcw_map_data", "updateGcwMapData faction: " + faction);
         if (faction != factions.FACTION_FLAG_REBEL && faction != factions.FACTION_FLAG_IMPERIAL)
         {
-            LOG("gcw_map_data", "(cityConfig == null || cityConfig.length() <= 0)");
+            LOG("gcw_map_data", "(faction != factions.FACTION_FLAG_REBEL && faction != factions.FACTION_FLAG_IMPERIAL)");
             return SCRIPT_CONTINUE;
         }
         if (faction == factions.FACTION_FLAG_REBEL)
@@ -1141,7 +1118,7 @@ public class gcw_city extends script.base_script
             defenders = "Rebel";
             invaders = "Imperial";
         }
-        else if (faction == factions.FACTION_FLAG_IMPERIAL)
+        else// faction == factions.FACTION_FLAG_IMPERIAL
         {
             LOG("gcw_map_data", "updateGcwMapData faction is IMP");
             color = COLOR_IMPERIALS;
