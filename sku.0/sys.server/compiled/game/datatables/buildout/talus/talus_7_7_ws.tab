@@ -264,9 +264,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4265604	0	object/building/corellia/filler_slum_16x16_s01.iff	0	403.089	2	1041.35	0.987291	0	-0.158926	0		$|
 4265606	0	object/building/corellia/filler_slum_16x32_s02.iff	0	450.517	2	1008.97	-0.577284	0	0.816544	0		$|
 4265610	0	object/building/corellia/filler_slum_16x16_s01.iff	0	428.968	2	1088.77	0.816544	0	0.577284	0		$|
-4265612	0	object/building/corellia/cloning_corellia.iff	0	455.322	2	1052.32	-0.581035	0	0.813878	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/building_spawns/talus_nashal_cloning_facility.iff|$|
+4265612	0	object/building/corellia/cloning_corellia.iff	0	455.322	2	1052.32	-0.581035	0	0.813878	0		$|
 4265613	4265612	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 4265614	4265612	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+-1	4265614	object/tangible/npc/talus_spawn/durgur_pyne.iff	2	2.7	-0.05	5.3	0.7933533403	0	0.608761429	0		$|
 4265615	4265612	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 4265616	4265612	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 4265617	4265612	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
