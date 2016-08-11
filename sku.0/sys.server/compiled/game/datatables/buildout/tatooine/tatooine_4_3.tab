@@ -561,4 +561,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1	0	object/building/kashyyyk/thm_kash_rodian_bannerpole_s01.iff	0	0	195	0	1	0	0	0		$|
 -734008155	0	object/tangible/ground_spawning/area_spawner.iff	0	898.604	98	192.217	-0.550922	0	0.834557	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|3.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|imp_title_grant|strSpawnerType|4|area|strSpawns|4|imp_title_grant|$|
 -1222028289	0	object/tangible/space/content_infrastructure/generic_egg_small.iff	0	831.041	12	469.54	1	0	0	0	systems.dungeon_sequencer.sequence_controller:systems.gcw.gcw_city	worldLoc|0|1|instance.data_table|4|datatables/gcw/gcw_city_bestine.iff|$|
--19844659	0	object/tangible/planet_map_location/city.iff	0	671.846	12	519.774	0.938444	0	0.345432	0		$|
+9835358	0	object/tangible/planet_map_location/city.iff	0	671.846	12	519.774	0.938444	0	0.345432	0		$|
