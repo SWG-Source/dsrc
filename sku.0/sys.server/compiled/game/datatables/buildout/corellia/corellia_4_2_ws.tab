@@ -169,6 +169,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1094960	1855550	object/tangible/gambling/slot/standard.iff	5	-12.01161	1.000883	4.197353	0.7032807	0	0.7109124	0		$|
 1094961	1855550	object/tangible/gambling/slot/standard.iff	6	-12.21349	1.00073	4.220461	0.7109085	0	-0.703285	0		$|
 1855551	1855544	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+-5	1855551	object/tangible/npc/corellia_spawn/grobber.iff	7	-15.2	1	-8.4	1	0	0	0		$|
 1855552	1855544	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1855553	1855544	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1855554	1855544	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
