@@ -22,6 +22,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3055772	3055763	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 3075352	0	object/building/corellia/guild_combat_corellia_style_01.iff	0	1152.15	300	1149.64	-0.58323	0	0.812307	0		$|
 3075353	3075352	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+-2	3075353	object/tangible/npc/corellia_spawn/corran_horn.iff	1	-2.5	2.5	12.4	0.8480480962	0	0.5299192642	0		$|
 3075354	3075352	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3075355	3075352	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 3075356	3075352	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
