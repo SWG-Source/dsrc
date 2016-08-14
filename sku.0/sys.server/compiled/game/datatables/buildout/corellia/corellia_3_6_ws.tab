@@ -98,6 +98,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3005393	0	object/building/corellia/garage_corellia.iff	0	911.748	30.998	770.833	-0.422133	0	0.906534	0		$|
 3005396	0	object/building/corellia/cantina_corellia.iff	0	615.828	78	1039.22	0.84104	0	0.540972	0		$|
 3005397	3005396	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+-5	3005397	object/tangible/npc/corellia_spawn/lasha_bindari.iff	1	43.1	0.1	-1.5	0.4617486132	0	-0.8870108332	0		$|
 3005398	3005396	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 3005399	3005396	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 3005400	3005396	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
