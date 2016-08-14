@@ -203,7 +203,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1095027	3005672	object/tangible/gambling/slot/standard.iff	6	-12.33998	1.0006	4.319234	0.707382	0	-0.706832	0		$|
 3005673	3005666	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 3005674	3005666	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
--2	3005674	object/tangible/npc/correlia_spawn/chertyl_ruluwoor.iff	8	-8.9	1.6	-11.1	0.7071067812	0	0.7071067812	0		$|
+-2	3005674	object/tangible/npc/corellia_spawn/chertyl_ruluwoor.iff	8	-8.9	1.6	-11.1	0.7071067812	0	0.7071067812	0		$|
 3005675	3005666	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 3005676	3005666	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 3055708	0	object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	663.076	83	976.201	0.870293	0	0.492535	0		$|
