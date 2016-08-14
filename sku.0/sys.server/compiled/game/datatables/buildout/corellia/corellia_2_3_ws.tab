@@ -95,6 +95,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1094972	1935528	object/tangible/gambling/slot/standard.iff	6	-12.2513	1.00079	4.29595	0.717904	0	-0.696142	0		$|
 1935529	1935522	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1935530	1935522	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+-4	1935530	object/tangible/npc/corellia_spawn/didina_lippinoss.iff	8	-7.9	1.6	-11.2	1	0	0	0		$|
 1935531	1935522	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1935532	1935522	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 1935666	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	1065.99	21	1811.93	0.92388	0	-0.382683	0		$|
