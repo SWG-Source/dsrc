@@ -12,11 +12,6 @@ public class patrol_controller extends script.base_script {
     public String faction = "neutral";
     public String strFileName = "datatables/spawning/patrol_spawner.iff";
 
-    // type is the type of the squad.
-    // "plain" type indicates unarmored npcs () of the given faction (irrelevant for neutral)
-    // "armored" type indicates armored npcs (troopers) only of the given faction.
-    // "mixed" type indicates a mixture of officers and troopers
-
     private String squadClass = "armored";
 
     private int patrolLevel = 25;
