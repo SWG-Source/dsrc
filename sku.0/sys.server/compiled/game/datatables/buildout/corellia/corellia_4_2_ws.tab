@@ -98,6 +98,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855483	1855473	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 4608437	1855483	object/tangible/collection/rare_melee_kashyyyk_blade_stick.iff	10	-1.56429	2.48303	-14.5934	0.9832418	-0.12972	0.01449411	-0.12727		$|
 1509607	1855483	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	10	0	1.75	-14	0.844588	0	-0.535416	0		$|
+-7	1855483	object/tangible/npc/corellia_spawn/thracken_sal_solo.iff	10	5.5	1.2	-1.7	1	0	0	0		$|
 1855484	1855473	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 3375685	1855484	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	11	1.4	1.7	-21.2	1	0	0	0		$|
 1855485	1855473	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
