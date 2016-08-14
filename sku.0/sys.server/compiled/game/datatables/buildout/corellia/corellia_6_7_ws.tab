@@ -75,6 +75,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 602454217	3075430	object/tangible/collection/col_ent_fan_04.iff	4	21.0048	1.67947	-20.9323	-0.605734	0.361179	0.602974	0.372906		$|
 3075431	3075426	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 3075432	3075426	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+-4	3075432	object/tangible/npc/corellia_spawn/jadam_questrel.iff	6	9.8	-0.9	-14	0.9238795325	0	0.3826834324	0		$|
 3075433	3075426	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 -3	3075433	object/tangible/npc/corellia_spawn/ghent.iff	7	5.7	-0.9	20.6	0.9238795325	0	0.3826834324	0		$|
 3075434	3075426	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
