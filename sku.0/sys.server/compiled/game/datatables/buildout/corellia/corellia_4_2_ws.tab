@@ -174,6 +174,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855552	1855544	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1855553	1855544	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1855554	1855544	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+-8	1855554	object/tangible/npc/corellia_spawn/zekka_thyne.iff	10	-23	1.6	-15	0.7071067812	0	0.7071067812	0		$|
 1855555	0	object/building/corellia/shuttleport_corellia.iff	0	2022.33	28	1754.22	0.70711	0	-0.707104	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Coronet Shuttleport A|travel.shuttle_available|0|1|travel.version|0|3|$|
 1855572	0	object/building/corellia/shuttleport_corellia.iff	0	1718.23	28	1522.77	-0.707106	0	0.707107	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Coronet Shuttleport B|travel.shuttle_available|0|1|travel.version|0|3|$|
 1855573	0	object/building/corellia/filler_block_corellia_64x32_s01.iff	0	1671.08	28	1738.88	0.382687	0	0.923878	0		$|
