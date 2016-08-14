@@ -67,6 +67,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365921	0	object/building/corellia/association_hall_civilian_corellia.iff	0	563.188	314.724	524.64	1	0	0	0		$|
 2365922	2365921	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2365923	2365921	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+-54	2365923	object/tangible/npc/corellia_spawn/ging_darjeek.iff	2	0	2.3	10.5	0	0	1	0		$|
 2365924	2365921	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 2365925	2365921	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 2365926	2365921	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
