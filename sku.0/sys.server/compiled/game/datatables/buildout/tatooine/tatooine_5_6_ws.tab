@@ -1338,6 +1338,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 1233977	1233971	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1233978	1233971	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1233979	1233971	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+-3	1233979	object/tangible/npc/tatooine_npc/capt_loftus.iff	8	-5.7	1.6	-14.1	0.7071067812	0	0.7071067812	0		$|
 1233980	1233971	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1233981	1233971	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 1233986	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	1570.1999511719	7	1339.1098632813	-0.6931110024	0	0.7208300233	0		$|
