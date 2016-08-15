@@ -1432,3 +1432,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1	0	object/tangible/spawning/static_npc/racing_coordinator_keren.iff	0	1395.8	13	638.2	1	0	0	0		$|
 -2	0	object/tangible/npc/junk_dealer_spawner.iff	0	1372	13	656	0.216439614	0	0.976296007	0		$|
 -6	0	object/tangible/npc/naboo_spawn/brennis_doore.iff	0	1740	12	609	0.4226182617	0	-0.906307787	0		$|
+-8	0	object/tangible/npc/naboo_spawn/vana_sage.iff	0	1275	13	697	0.7071067812	0	0.7071067812	0		$|
