@@ -59,7 +59,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 7925450	7925448	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 7925451	7925448	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 7925452	7925448	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
--1	7925452	object/tangible/npc/yavin4_spawn/jazeen_thurmm.iff	4	7.7	0.6	-5.7	0.7071067812	0	-0.7071067812	0		$|
+-1	7925452	object/tangible/npc/yavin_spawn/jazeen_thurmm.iff	4	7.7	0.6	-5.7	0.7071067812	0	-0.7071067812	0		$|
 7925453	0	object/building/military/outpost_cloning_facility_s02.iff	0	1695	35	744	1	0	0	0		$|
 7925454	7925453	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 7925455	7925453	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
