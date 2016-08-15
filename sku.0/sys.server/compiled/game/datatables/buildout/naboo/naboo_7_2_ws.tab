@@ -95,6 +95,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1143444	1717471	object/tangible/gambling/slot/standard.iff	6	-12.2864	1.00069	4.29297	0.710906	0	-0.703287	0		$|
 1717472	1717465	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1717473	1717465	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+-3	1717473	object/tangible/npc/naboo_spawn/radanthus_mandelatara.iff	8	-4.3	1.6	-11.2	1	0	0	0		$|
 1717474	1717465	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1717475	1717465	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 1717499	0	object/building/naboo/parking_garage_naboo_style_1.iff	0	550.823	3.75	1372.64	0.796084	0	0.605187	0		$|
