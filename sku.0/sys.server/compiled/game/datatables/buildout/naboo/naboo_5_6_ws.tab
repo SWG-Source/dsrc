@@ -544,6 +544,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1685071	0	object/building/naboo/housing_naboo_style_1.iff	0	1603.75	25	455.2	-0.471328	0	0.881958	0		$|
 1685072	1685071	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1685073	1685071	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+-4	1685073	object/tangible/npc/naboo_spawn/athok_dinvar.iff	2	-0.9	1.1	-4.5	0.956304756	0	0.2923717047	0		$|
 1685074	1685071	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1685075	1685071	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1685076	1685071	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
