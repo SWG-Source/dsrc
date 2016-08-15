@@ -350,6 +350,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4635597	4635589	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 4635598	4635589	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 4635599	4635589	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+-12	4635599	object/tangible/npc/rori_spawn/sindra_lintikoor.iff	10	-23.7	1.6	-12.7	1	0	0	0		$|
 4695516	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	827.278	80.1368	1869.84	0.382683	0	0.92388	0		$|
 4695517	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	837.428	80.155	1880.05	0.92388	0	-0.382683	0		$|
 4695518	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	886	78.63	1817	1	0	0	0		$|
