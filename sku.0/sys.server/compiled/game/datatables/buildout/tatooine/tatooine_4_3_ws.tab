@@ -854,6 +854,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1278987	1278979	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1278988	1278979	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1278989	1278979	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+-51	1278989	object/tangible/npc/tatooine_npc/farious_gletch.iff	10	1	-0.4	-5.6	0	0	1	0		$|
 1278990	0	object/static/structure/tatooine/beam_tatooine_overhead_style_02.iff	0	700.304	26	199.273	0.988012	0	-0.15438	0		$|
 1278991	0	object/building/tatooine/housing_tatt_style01_small.iff	0	688.895	26	199.357	0.81388	0	0.581033	0		$|
 1278992	1278991	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
