@@ -688,3 +688,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -2	0	object/tangible/npc/junk_dealer_spawner.iff	0	1039	346.5	534	0.615661475	0	-0.788010754	0		$|
 -3	0	object/tangible/npc/naboo_spawn/damalia_korde.iff	0	1043	346.5	518	1	0	0	0		$|
 -4	0	object/tangible/npc/naboo_spawn/arven_wendik.iff	0	614	330	616	1	0	0	0		$|
+-5	0	object/tangible/npc/naboo_spawn/kima_nazith.iff	0	876	360	465	0.4694715628	0	0.8829475929	0		$|
