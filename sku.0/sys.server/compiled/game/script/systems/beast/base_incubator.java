@@ -1,22 +1,7 @@
 package script.systems.beast;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import java.lang.Math;
-import script.library.beast_lib;
-import script.library.incubator;
-import script.library.npe;
-import script.library.player_structure;
-import script.library.prose;
-import script.library.resource;
-import script.library.sui;
-import script.library.utils;
+import script.library.*;
 
 public class base_incubator extends script.base_script
 {
@@ -1339,12 +1324,24 @@ public class base_incubator extends script.base_script
             sendSystemMessage(playerId, SID_CHEATER_BAD_ID);
             return SCRIPT_CONTINUE;
         }
-        if (terminalId != self)
-        {
+        if (terminalId != self) {
             sendSystemMessage(playerId, SID_CHEATER_BAD_ID);
             return SCRIPT_CONTINUE;
         }
         dictionary dict = new dictionary();
+        incubator.blog("INCUBATOR", "Player " + getFirstName(playerId) + " (" + playerId + ") creating new beast on terminal " + terminalId + " with the following PRE FIX stats: ");
+        incubator.blog("INCUBATOR", "--- InitialPointsSurvival: " + initialPointsSurvival);
+        incubator.blog("INCUBATOR", "--- initialPointsBeastialResilience: " + initialPointsBeastialResilience);
+        incubator.blog("INCUBATOR", "--- initialPointsCunning: " + initialPointsCunning);
+        incubator.blog("INCUBATOR", "--- initialPointsIntelligence: " + initialPointsIntelligence);
+        incubator.blog("INCUBATOR", "--- initialPointsAggression: " + initialPointsAggression);
+        incubator.blog("INCUBATOR", "--- initialPointsHuntersInstinct: " + initialPointsHuntersInstinct);
+        incubator.blog("INCUBATOR", "--- totalPointsSurvival: " + totalPointsSurvival);
+        incubator.blog("INCUBATOR", "--- totalPointsBeastialResilience: " + totalPointsBeastialResilience);
+        incubator.blog("INCUBATOR", "--- totalPointsCunning: " + totalPointsCunning);
+        incubator.blog("INCUBATOR", "--- totalPointsIntelligence: " + totalPointsIntelligence);
+        incubator.blog("INCUBATOR", "--- totalPointsAggression: " + totalPointsAggression);
+        incubator.blog("INCUBATOR", "--- totalPointsHuntersInstinct: " + totalPointsHuntersInstinct);
         dict.put("player", playerId);
         dict.put("station", terminalId);
         dict.put("slot1Id", slot1Id);
