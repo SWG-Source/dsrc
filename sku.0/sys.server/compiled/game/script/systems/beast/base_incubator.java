@@ -25,6 +25,7 @@ public class base_incubator extends script.base_script
     public static final string_id SID_TERMINAL_OPEN = new string_id("beast", "incubator_open");
     public static final string_id SID_CHEATER_TRANSFER = new string_id("incubator", "cheater_transfer");
     public static final string_id SID_CHEATER_BAD_ID = new string_id("incubator", "cheater_bad_id");
+    public static final string_id SID_CHEATER_INVALID_STATS = new string_id("bio_engineer", "pet_sui_fix_error");
     public static final string_id SID_SESSION_TOO_SOON = new string_id("incubator", "not_enough_time_since_last_session");
     public static final string_id SID_NO_REMOVE_DNA = new string_id("incubator", "station_no_remove_dna");
     public static final string_id SID_PLACE_DNA = new string_id("incubator", "place_dna");
@@ -1362,6 +1363,7 @@ public class base_incubator extends script.base_script
             CustomerServiceLog("SuspectedCheaterChannel", "totalPointsIntelligence: " + totalPointsIntelligence);
             CustomerServiceLog("SuspectedCheaterChannel", "totalPointsAggression: " + totalPointsAggression);
             CustomerServiceLog("SuspectedCheaterChannel", "totalPointsHuntersInstinct: " + totalPointsHuntersInstinct);
+            sendSystemMessage(playerId, SID_CHEATER_INVALID_STATS);
             return SCRIPT_CONTINUE;
         }
         dict.put("player", playerId);
