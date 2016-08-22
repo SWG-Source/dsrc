@@ -1284,28 +1284,28 @@ public class base_incubator extends script.base_script
         if (isIdValid(slot1Id) && !utils.isNestedWithin(slot1Id, playerId) && exists(slot1Id))
         {
             obj_id newOwner = getContainedBy(slot1Id);
-            CustomerServiceLog("SuspectedCheaterChannel: ", "Player (" + playerId + ") has moved Enzyme (" + slot1Id + ") from their inventory to container (" + newOwner + "). While trying to use it simultaneously in an incubator. Possible cheater.");
+            CustomerServiceLog("SuspectedCheaterChannel", "Player (" + playerId + ") has moved Enzyme (" + slot1Id + ") from their inventory to container (" + newOwner + "). While trying to use it simultaneously in an incubator. Possible cheater.");
             sendSystemMessageProse(playerId, pp);
             return SCRIPT_CONTINUE;
         }
         if (isIdValid(slot2Id) && !utils.isNestedWithin(slot2Id, playerId) && exists(slot2Id))
         {
             obj_id newOwner = getContainedBy(slot2Id);
-            CustomerServiceLog("SuspectedCheaterChannel: ", "Player (" + playerId + ") has moved Enzyme (" + slot2Id + ") from their inventory to container (" + newOwner + "). While trying to use it simultaneously in an incubator. Possible cheater.");
+            CustomerServiceLog("SuspectedCheaterChannel", "Player (" + playerId + ") has moved Enzyme (" + slot2Id + ") from their inventory to container (" + newOwner + "). While trying to use it simultaneously in an incubator. Possible cheater.");
             sendSystemMessageProse(playerId, pp);
             return SCRIPT_CONTINUE;
         }
         if (isIdValid(slot3Id) && !utils.isNestedWithin(slot3Id, playerId) && exists(slot3Id))
         {
             obj_id newOwner = getContainedBy(slot3Id);
-            CustomerServiceLog("SuspectedCheaterChannel: ", "Player (" + playerId + ") has moved Enzyme (" + slot3Id + ") from their inventory to container (" + newOwner + "). While trying to use it simultaneously in an incubator. Possible cheater.");
+            CustomerServiceLog("SuspectedCheaterChannel", "Player (" + playerId + ") has moved Enzyme (" + slot3Id + ") from their inventory to container (" + newOwner + "). While trying to use it simultaneously in an incubator. Possible cheater.");
             sendSystemMessageProse(playerId, pp);
             return SCRIPT_CONTINUE;
         }
         if (isIdValid(slot4Id) && !utils.isNestedWithin(slot4Id, playerId) && exists(slot4Id))
         {
             obj_id newOwner = getContainedBy(slot4Id);
-            CustomerServiceLog("SuspectedCheaterChannel: ", "Player (" + playerId + ") has moved Enzyme (" + slot4Id + ") from their inventory to container (" + newOwner + "). While trying to use it simultaneously in an incubator. Possible cheater.");
+            CustomerServiceLog("SuspectedCheaterChannel", "Player (" + playerId + ") has moved Enzyme (" + slot4Id + ") from their inventory to container (" + newOwner + "). While trying to use it simultaneously in an incubator. Possible cheater.");
             sendSystemMessageProse(playerId, pp);
             return SCRIPT_CONTINUE;
         }
@@ -1342,6 +1342,28 @@ public class base_incubator extends script.base_script
         incubator.blog("INCUBATOR", "--- totalPointsIntelligence: " + totalPointsIntelligence);
         incubator.blog("INCUBATOR", "--- totalPointsAggression: " + totalPointsAggression);
         incubator.blog("INCUBATOR", "--- totalPointsHuntersInstinct: " + totalPointsHuntersInstinct);
+        if (initialPointsAggression > 10 || initialPointsAggression < 0 ||
+                initialPointsBeastialResilience > 10 || initialPointsBeastialResilience < 0 ||
+                initialPointsCunning > 10 || initialPointsCunning < 0 ||
+                initialPointsHuntersInstinct > 10 || initialPointsHuntersInstinct < 0 ||
+                initialPointsIntelligence > 10 || initialPointsIntelligence < 0 ||
+                initialPointsSurvival > 10 || initialPointsSurvival < 0)
+        {
+            CustomerServiceLog("SuspectedCheaterChannel", "Player (" + playerId + ") has modified stats to incredible values - possibly buffer overruns. Possible cheater.");
+            CustomerServiceLog("SuspectedCheaterChannel", "InitialPointsSurvival: " + initialPointsSurvival);
+            CustomerServiceLog("SuspectedCheaterChannel", "initialPointsBeastialResilience: " + initialPointsBeastialResilience);
+            CustomerServiceLog("SuspectedCheaterChannel", "initialPointsCunning: " + initialPointsCunning);
+            CustomerServiceLog("SuspectedCheaterChannel", "initialPointsIntelligence: " + initialPointsIntelligence);
+            CustomerServiceLog("SuspectedCheaterChannel", "initialPointsAggression: " + initialPointsAggression);
+            CustomerServiceLog("SuspectedCheaterChannel", "initialPointsHuntersInstinct: " + initialPointsHuntersInstinct);
+            CustomerServiceLog("SuspectedCheaterChannel", "totalPointsSurvival: " + totalPointsSurvival);
+            CustomerServiceLog("SuspectedCheaterChannel", "totalPointsBeastialResilience: " + totalPointsBeastialResilience);
+            CustomerServiceLog("SuspectedCheaterChannel", "totalPointsCunning: " + totalPointsCunning);
+            CustomerServiceLog("SuspectedCheaterChannel", "totalPointsIntelligence: " + totalPointsIntelligence);
+            CustomerServiceLog("SuspectedCheaterChannel", "totalPointsAggression: " + totalPointsAggression);
+            CustomerServiceLog("SuspectedCheaterChannel", "totalPointsHuntersInstinct: " + totalPointsHuntersInstinct);
+            return SCRIPT_CONTINUE;
+        }
         dict.put("player", playerId);
         dict.put("station", terminalId);
         dict.put("slot1Id", slot1Id);
