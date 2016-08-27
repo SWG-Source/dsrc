@@ -1193,3 +1193,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5226282	0	object/tangible/ground_spawning/mob_spawner.iff	0	1470	22	1437	1	0	0	0		$|
 -2	0	object/tangible/spawning/static_npc/herald_rori_creature_village.iff	0	378.00	6	1343.96	1	0	0	0		$|
 -3	0	object/tangible/spawning/static_npc/herald_talus_berserk_khmurra.iff	0	323.86	6	998.23	0.7071067812	0	-0.7071067812	0		$|
+-4	0	object/tangible/spawning/static_npc/herald_talus_binyare_pirate_base.iff	0	154.40	6	1163.19	0.7071067812	0	-0.7071067812	0		$|
