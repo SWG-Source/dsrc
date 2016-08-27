@@ -687,3 +687,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2075658	0	object/tangible/ground_spawning/mob_spawner.iff	0	557	3	1732	1	0	0	0		$|
 -1	0	object/tangible/npc/naboo_spawn/ebenn_q3_baobab.iff	0	773	3	1269	1	0	0	0		$|
 -2	0	object/tangible/npc/naboo_spawn/dilvin_lormurojo.iff	0	797	3	1146	0	0	1	0		$|
+-4	0	object/tangible/spawning/static_npc/herald_naboo_02_ronin.iff	0	714.43	6	1166.35	1	0	0	0		$|
