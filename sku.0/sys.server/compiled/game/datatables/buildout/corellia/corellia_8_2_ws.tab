@@ -67,7 +67,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365921	0	object/building/corellia/association_hall_civilian_corellia.iff	0	563.188	314.724	524.64	1	0	0	0		$|
 2365922	2365921	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2365923	2365921	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
--54	2365923	object/tangible/npc/corellia_spawn/ging_darjeek.iff	2	0	2.3	10.5	0	0	1	0		$|
 2365924	2365921	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 2365925	2365921	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 2365926	2365921	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
@@ -448,6 +447,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3375363	3375352	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 3375364	3375352	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 3375365	3375352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+-54	3375365	object/tangible/npc/corellia_spawn/ging_darjeek.iff	13	-24.9	-0.5	7.6	1	0	0	0		$|
 4612695	3375365	object/tangible/collection/rare_heavy_corellian_destroyer.iff	13	-23.7693	-0.24538	8.59674	0.0861022	0.0983379	0.701845	0.700235		$|
 3375366	3375352	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
 525454241	3375366	object/tangible/collection/hanging_light_02_02.iff	14	-33.7707	4.2926	-22.9507	1	0	0	0		$|
