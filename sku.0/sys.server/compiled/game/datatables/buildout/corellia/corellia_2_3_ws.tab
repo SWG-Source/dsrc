@@ -1241,4 +1241,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 164643	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1095	21	1804	0.887010833	0	0.461748613	0		$|
 164644	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1093	21	1807	0.887010833	0	0.461748613	0		$|
 -8	0	object/tangible/spawning/static_npc/herald_corellia_01_lock.iff	0	725.74	20	1303.64	1	0	0	0		$|
--9	0	object/tangible/spawning/static_npc/herald_corellia_imperial_stronghold.iff	0	951.1	21	1550.45	0.8191520443	0	-0.5735764364	0		$|
+-9	0	object/tangible/spawning/static_npc/herald_corellia_imperial_strongold.iff	0	951.1	21	1550.45	0.8191520443	0	-0.5735764364	0		$|
