@@ -212,4 +212,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1296917	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1569	4	1774	1	0	0	0	space.content_tools.npc_spawner	$|
 -1	0	object/tangible/spawning/static_npc/junk_dealer/junk_quich.iff	0	1578	4	1817	1	0	0	0		$|
 -2	0	object/tangible/spawning/static_npc/herald_dantooine_force_crystal_hunters_cave.iff	0	1544.58	4	1776.78	1	0	0	0		$|
--3	0	object/tangible/spawning/static_npc/herald_dantooine_force_janta_stronghold.iff	0	1404.73	3	401.17	1	0	0	0		$|
+-3	0	object/tangible/spawning/static_npc/herald_dantooine_force_mokk_stronghold.iff	0	1603.42	4	1757.46	1	0	0	0		$|
