@@ -1434,3 +1434,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -6	0	object/tangible/npc/naboo_spawn/brennis_doore.iff	0	1740	12	609	0.4226182617	0	-0.906307787	0		$|
 -8	0	object/tangible/npc/naboo_spawn/vana_sage.iff	0	1275	13	697	0.7071067812	0	0.7071067812	0		$|
 -9	0	object/tangible/spawning/static_npc/herald_naboo_servant_pirate_rescue_demitri.iff	0	1673.87	12	534.69	1	0	0	0		$|
+-10	0	object/tangible/spawning/static_npc/herald_naboo_veermok_cave.iff	0	1574.29	24	774.56	1	0	0	0		$|
