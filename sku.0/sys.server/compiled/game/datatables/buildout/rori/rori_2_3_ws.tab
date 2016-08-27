@@ -812,3 +812,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -7	0	object/tangible/spawning/static_npc/junk_dealer/junk_dender.iff	0	887	80	1883	1	0	0	0		$|
 -10	0	object/tangible/npc/rori_spawn/oxil_sarban.iff	0	1144	80	1835	0.7071067812	0	-0.7071067812	0		$|
 -11	0	object/tangible/npc/rori_spawn/sidoras_bey.iff	0	897	80	1710	0.7071067812	0	-0.7071067812	0		$|
+-13	0	object/tangible/spawning/static_npc/herald_rori_cobral_hideout.iff	0	933.3	80	1826.36	1	0	0	0		$|
