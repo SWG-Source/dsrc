@@ -163,3 +163,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8466084	9925367	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	1	-3.7	0.625	-6.8	1	0	0	0	space.content_tools.npc_spawner	$|
 6535826	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	563.75	8.69266	74.72	1	0	0	0		$|
 6535827	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	575.25	9.92094	102.1	1	0	0	0		$|
+-1	0	object/tangible/spawning/static_npc/herald_endor_jinda_spiritualists.iff	0	1164.71	24	643.75	0	0	1	0		$|
