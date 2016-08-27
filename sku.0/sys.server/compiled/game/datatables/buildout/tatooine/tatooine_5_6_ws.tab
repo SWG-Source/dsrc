@@ -2041,3 +2041,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 4006289	0	object/tangible/spawning/spawn_egg.iff	0	1541.44	7	1078.77	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
 -1	0	object/tangible/spawning/static_npc/bestine_artist02.iff	0	1521.9	7	1211.7	1	0	0	0		$|
 -4	0	object/tangible/npc/tatooine_spawn/ikka_gesul.iff	0	1498	7	961	1	0	0	0		$|
+-5	0	object/tangible/spawning/static_npc/herald_tatooine_beetle_cave.iff	0	1187.85	7	948.69	0	0	1	0		$|
