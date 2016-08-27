@@ -1451,3 +1451,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -46	0	object/tangible/spawning/static_npc/bestine_rumor02.iff	0	798	12	551	1	0	0	0		$|
 -47	0	object/tangible/npc/corvette_dungeon/corvette_sabol_imperial_assassin.iff	0	757	12	557	1	0	0	0		$|
 4725624	0	object/tangible/ground_spawning/mob_spawner.iff	0	794	12	479	1	0	0	0		$|
+-53	0	object/tangible/spawning/static_npc/herald_tatooine_rebel_military_base.iff	0	740.57	12	433.59	1	0	0	0		$|
+-54	0	object/tangible/spawning/static_npc/herald_tatooine_tusken_bunker.iff	0	748.32	12	588.84	1	0	0	0		$|
