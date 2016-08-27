@@ -6,7 +6,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 516454223	63	object/tangible/collection/hanging_light_02_03.iff	2	34.7048	4.09473	1.71322	0.988507	-0.00241446	-0.0450366	-0.144292		$|
 64	61	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 -3	64	object/tangible/npc/naboo_spawn/leb_slesher.iff	3	3.3	-0.9	5.7	0.04361938737	0	-0.9990482216	0		$|
--7	64	object/tangible/spawning/static_npc/herald_naboo_pirate_pirate_rescue_ketter.iff	3	11.9	-0.9	0.8	0.6427876097	0	0.7660444431		$|
+-7	64	object/tangible/spawning/static_npc/herald_naboo_pirate_pirate_rescue_ketter.iff	3	11.9	-0.9	0.8	0.6427876097	0	0.7660444431	0		$|
 65	61	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 66	61	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 67	61	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|

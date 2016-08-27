@@ -688,4 +688,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1	0	object/tangible/npc/naboo_spawn/ebenn_q3_baobab.iff	0	773	3	1269	1	0	0	0		$|
 -2	0	object/tangible/npc/naboo_spawn/dilvin_lormurojo.iff	0	797	3	1146	0	0	1	0		$|
 -4	0	object/tangible/spawning/static_npc/herald_naboo_02_ronin.iff	0	714.43	6	1166.35	1	0	0	0		$|
--5	0	object/tangible/spawning/static_npc/herald_naboo_narglatch_cave.iff	0667.08	3	1244.23	1	0	0	0		$|
+-5	0	object/tangible/spawning/static_npc/herald_naboo_narglatch_cave.iff	0	667.08	3	1244.23	1	0	0	0		$|
