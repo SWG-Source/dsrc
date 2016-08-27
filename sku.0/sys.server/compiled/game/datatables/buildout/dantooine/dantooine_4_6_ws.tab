@@ -247,3 +247,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1	0	object/tangible/npc/dantooine_spawn/kelvus_naria.iff	0	1430	3	491	1	0	0	0		$|
 -2	0	object/tangible/spawning/static_npc/static_quests_record_keeper_dantooine.iff	0	1443.9	3	490.2	0.5	0	0.866025404	0		$|
 -4	0	object/tangible/spawning/static_npc/herald_dantooine_janta_stronghold.iff	0	1404.73	3	401.17	1	0	0	0		$|
+-5	0	object/tangible/spawning/static_npc/herald_dantooine_kunga_stronghold.iff	0	1459.23	3	451.09	1	0	0	0		$|
