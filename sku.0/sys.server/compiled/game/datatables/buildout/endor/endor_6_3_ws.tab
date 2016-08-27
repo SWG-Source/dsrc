@@ -164,3 +164,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6535826	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	563.75	8.69266	74.72	1	0	0	0		$|
 6535827	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	575.25	9.92094	102.1	1	0	0	0		$|
 -1	0	object/tangible/spawning/static_npc/herald_endor_jinda_spiritualists.iff	0	1164.71	24	643.75	0	0	1	0		$|
+-2	0	object/tangible/spawning/static_npc/herald_endor_korga_cave.iff	0	1198.28	24	603.89	0.7071067812	0	-0.7071067812	0		$|
