@@ -735,3 +735,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 91573	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1288	6	62	1	0	0	0		$|
 5036501	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1313	6	44	0.34202	0	-0.93969	0		$|
 -2	0	object/tangible/spawning/static_npc/herald_naboo_noble_pirate_rescue_hanna.iff	0	664	6	302	1	0	0	0		$|
+-3	0	object/tangible/spawning/static_npc/herald_naboo_01_vaikanna.iff	0	659.66	10	328.48	0	0	1	0		$|
