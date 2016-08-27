@@ -65,3 +65,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8156018	0	object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff	0	1032.73	28.1355	743.567	-0.31209	-0.372023	0.87313	-0.0429345		$|
 1106885	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	676.72168	30	210.39209	1	0	0	0		$|
 -1	0	object/tangible/poi/tatooine/explore_bens_hut.iff	0	1652	35	1826	1	0	0	0		$|
+-2	0	object/tangible/spawning/static_npc/tusken_village_quest_npc.iff	0	666.38	30	214.19	0.7071067812	0	-0.7071067812	0		$|
