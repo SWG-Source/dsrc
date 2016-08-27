@@ -159,6 +159,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1094987	1935822	object/tangible/gambling/wheel/roulette.iff	4	9.393116	1.125951	-16.20437	0.9999973	0	-0.002301926	0		$|
 1094988	1935822	object/tangible/gambling/slot/standard.iff	5	8.343674	1.315694	-22.20082	0.9999973	0	-0.002301926	0		$|
 1935823	1935818	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-7	1935823	object/tangible/spawning/static_npc/herald_biogenic_03.iff	5	20.9	1.3	10	0	0	1	0		$|
 1935824	1935818	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1094978	1935824	object/tangible/gambling/wheel/roulette.iff	1	-15.9026	1.000814	-0.107075	0.9999973	0	-0.002301935	0		$|
 1094979	1935824	object/tangible/gambling/wheel/roulette.iff	2	-15.90909	1.000829	4.262501	0.9999973	0	-0.002301935	0		$|
