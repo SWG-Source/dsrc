@@ -9,6 +9,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1713373	1713368	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 4638506	1713373	object/tangible/collection/rare_pistol_precise_dl44.iff	5	2.87161	0.539659	-1.91374	-0.696116	-0.106114	0.102895	0.702548		$|
 1713374	1713368	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+-2	1713374	object/tangible/spawning/static_npc/herald_biogenic_01.iff	6	-3.3	0.1	-3.7	0.7071067812	0	-0.7071067812	0		$|
 7795548	0	object/building/military/outpost_starport.iff	0	1760.42	35	782.542	-3.27029e-007	0	1	0	structure.municipal.starport	travel.air_time|0|60|travel.cost|0|150|travel.ground_time|0|300|travel.point_name|4|Mining Outpost|travel.shuttle_available|0|1|travel.version|0|3|$|
 7795549	7795548	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 2655376	7795549	object/tangible/terminal/terminal_space.iff	1	-7.41167	0.146595	-19.2146	1	0	0	0		$|
