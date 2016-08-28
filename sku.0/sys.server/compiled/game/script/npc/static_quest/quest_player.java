@@ -1,17 +1,11 @@
 package script.npc.static_quest;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.locations;
-import script.library.quests;
+import script.dictionary;
 import script.library.create;
-import script.ai.ai_combat;
+import script.library.quests;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class quest_player extends script.base_script
 {
@@ -21,7 +15,6 @@ public class quest_player extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         String datatable = getStringObjVar(self, "quest_table");
-        String gatingString = dataTableGetString(datatable, 1, "overall_objvar");
         String questID = dataTableGetString(datatable, 1, "temp_objvar");
         int questNum = getIntObjVar(self, questID + ".questNum");
         String CONVO = dataTableGetString(datatable, questNum, "convo");
@@ -61,8 +54,6 @@ public class quest_player extends script.base_script
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException
     {
         String datatable = getStringObjVar(self, "quest_table");
-        String gatingString = dataTableGetString(datatable, 1, "overall_objvar");
-        int gating = getIntObjVar(self, gatingString);
         String questID = dataTableGetString(datatable, 1, "temp_objvar");
         int questNum = getIntObjVar(self, questID + ".questNum");
         String type = dataTableGetString(datatable, questNum, "quest_type");
@@ -114,7 +105,9 @@ public class quest_player extends script.base_script
             {
                 setName(npc, npcName);
             }
-            spawnExtras(self, spawn, questID);
+            for(int i = 1; i <= 4; i++) {
+                spawnExtraNpc(self, questNum, spawn, datatable, i);
+            }
         }
         if (name.equals("home"))
         {
@@ -150,8 +143,6 @@ public class quest_player extends script.base_script
             entry = "return_waypoint_description_" + questNum;
         }
         setObjVar(self, "GotFinishMessage", 1);
-        String gatingString = dataTableGetString(datatable, 1, "overall_objvar");
-        int gating = getIntObjVar(self, gatingString);
         obj_id waypoint = getObjIdObjVar(self, questID + ".waypoint");
         if (waypoint != null)
         {
@@ -191,142 +182,34 @@ public class quest_player extends script.base_script
     {
         String datatable = getStringObjVar(self, "quest_table");
         String questID = dataTableGetString(datatable, 1, "temp_objvar");
-        int questNum = getIntObjVar(self, questID + ".questNum");
-        String file = dataTableGetString(datatable, 1, "convo");
-        String gatingString = dataTableGetString(datatable, 1, "overall_objvar");
-        int gating = getIntObjVar(self, gatingString);
         obj_id waypoint = getObjIdObjVar(self, questID + ".waypoint");
         if (waypoint != null)
         {
             destroyWaypointInDatapad(waypoint, self);
         }
-        string_id goMsg = new string_id("theme_park/messages", "go_message");
-        String going = getString(goMsg);
+        String going = getString(new string_id("theme_park/messages", "go_message"));
         sendSystemMessage(self, going, null);
         messageTo(self, "removeQuestInfo", null, 2, true);
         return SCRIPT_CONTINUE;
     }
-    public void spawnExtras(obj_id self, location spawn, String questID) throws InterruptedException
-    {
-        String datatable = getStringObjVar(self, "quest_table");
-        int questNum = getIntObjVar(self, "questNum");
-        location here = getLocationObjVar(self, questID + ".questLoc");
-        String spawn1 = dataTableGetString(datatable, questNum, "extra_npc");
-        if (spawn1 == null)
+    private void spawnExtraNpc(obj_id self, int questNum, location spawnLoc, String datatable, int index) throws InterruptedException{
+        String spawn = dataTableGetString(datatable, questNum, "extra_npc" + index);
+        location npcSpawn = (location) spawnLoc.clone();
+        int ranges[] = {3, -3, 10, -10};
+        if (spawn != null && !spawn.equals(""))
         {
-            spawn1 = "none";
-        }
-        String spawn2 = dataTableGetString(datatable, questNum, "extra_npc2");
-        if (spawn2 == null)
-        {
-            spawn2 = "none";
-        }
-        String spawn3 = dataTableGetString(datatable, questNum, "extra_npc3");
-        if (spawn3 == null)
-        {
-            spawn3 = "none";
-        }
-        String spawn4 = dataTableGetString(datatable, questNum, "extra_npc4");
-        if (spawn4 == null)
-        {
-            spawn4 = "none";
-        }
-        if (here == null)
-        {
-            here = getLocation(self);
-        }
-        if (spawn1.equals(""))
-        {
-            spawn1 = "none";
-        }
-        if (spawn2.equals(""))
-        {
-            spawn2 = "none";
-        }
-        if (spawn3.equals(""))
-        {
-            spawn3 = "none";
-        }
-        if (spawn4.equals(""))
-        {
-            spawn4 = "none";
-        }
-        if (!spawn1.equals("none"))
-        {
-            here.x = here.x + rand(3, 10);
-            here.z = here.z + rand(3, 10);
-            obj_id extra = create.object(spawn1, here);
+            npcSpawn.x = npcSpawn.x + rand(ranges[rand(0,1)], ranges[rand(2,3)]);
+            npcSpawn.z = npcSpawn.z + rand(ranges[rand(0,1)], ranges[rand(2,3)]);
+            obj_id extra = create.object(spawn, npcSpawn);
             if (extra != null)
             {
-                String disposition = dataTableGetString(datatable, questNum, "extra_npc_disposition");
-                if (disposition == null)
+                String disposition = dataTableGetString(datatable, questNum, "extra_npc" + index + "_disposition");
+                if (disposition.equals("aggro") || disposition.equals("aggressive"))
                 {
-                    disposition = "none";
-                }
-                if (disposition.equals("aggro"))
-                {
-                    dictionary enemies = new dictionary();
-                    enemies.put("npc", extra);
-                    enemies.put("player", self);
-                    messageTo(self, "makeEnemyAttack", enemies, 3, true);
+                    startCombat(extra, self);
                 }
             }
         }
-        if (!spawn2.equals("none"))
-        {
-            here.x = here.x + rand(3, 10);
-            here.z = here.z + rand(3, 10);
-            obj_id extra2 = create.object(spawn2, here);
-            if (extra2 != null)
-            {
-                String disposition2 = dataTableGetString(datatable, questNum, "extra_npc2_disposition");
-                if (disposition2 == null)
-                {
-                    disposition2 = "none";
-                }
-                if (disposition2.equals("aggro"))
-                {
-                    startCombat(extra2, self);
-                }
-            }
-        }
-        if (!spawn3.equals("none"))
-        {
-            here.x = here.x + rand(3, 10);
-            here.z = here.z + rand(3, 10);
-            obj_id extra3 = create.object(spawn3, here);
-            if (extra3 != null)
-            {
-                String disposition3 = dataTableGetString(datatable, questNum, "extra_npc3_disposition");
-                if (disposition3 == null)
-                {
-                    disposition3 = "none";
-                }
-                if (disposition3.equals("aggro"))
-                {
-                    startCombat(extra3, self);
-                }
-            }
-        }
-        if (!spawn4.equals("none"))
-        {
-            here.x = here.x + rand(3, 10);
-            here.z = here.z + rand(3, 10);
-            obj_id extra4 = create.object(spawn4, here);
-            if (extra4 != null)
-            {
-                String disposition4 = dataTableGetString(datatable, questNum, "extra_npc4_disposition");
-                if (disposition4 == null)
-                {
-                    disposition4 = "none";
-                }
-                if (disposition4.equals("aggro"))
-                {
-                    startCombat(extra4, self);
-                }
-            }
-        }
-        return;
     }
     public int removeQuestInfo(obj_id self, dictionary params) throws InterruptedException
     {
@@ -341,7 +224,6 @@ public class quest_player extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
-        String gatingString = dataTableGetString(datatable, 1, "overall_objvar");
         String selfScript = dataTableGetString(datatable, questNum, "player_script");
         String type = dataTableGetString(datatable, questNum, "quest_type");
         obj_id waypoint = getObjIdObjVar(self, questID + ".waypoint");
@@ -359,13 +241,10 @@ public class quest_player extends script.base_script
         }
         else 
         {
-            if (type != null)
+            if (type.equals("rescue") || type.equals("arrest") || type.equals("escort"))
             {
-                if (type.equals("rescue") || type.equals("arrest") || type.equals("escort"))
-                {
-                    obj_id vip = getObjIdObjVar(self, questID + ".vip");
-                    messageTo(vip, "stopFollowing", null, 0, true);
-                }
+                obj_id vip = getObjIdObjVar(self, questID + ".vip");
+                messageTo(vip, "stopFollowing", null, 0, true);
             }
             removeObjVar(self, questID);
             removeObjVar(self, "questID");
@@ -395,7 +274,6 @@ public class quest_player extends script.base_script
         int idx = 0;
         while (idx >= 0)
         {
-            String currentName = names[idx];
             if (names[idx] == null)
             {
                 names[idx] = "quest_details";
