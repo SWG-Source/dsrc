@@ -285,8 +285,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1661381	1661379	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1661382	1661379	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1661383	1661379	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
--5	1661383	object/tangible/npc/naboo_spawn/bardo_klinj.iff	4	-6.6	1.1	-8.6	0.8870108332	0	-0.4617486132	0		$|
 1661384	1661379	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-5	1661384	object/tangible/npc/naboo_spawn/bardo_klinj.iff	4	-6.6	6.1	-8.6	0.8870108332	0	-0.4617486132	0		$|
 1661385	1661379	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1661386	1661379	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1661390	0	object/static/structure/naboo/nboo_imprv_lattice_wall_long_s01.iff	0	1807.51	12	744.358	-0.0856909	0	0.996322	0		$|
