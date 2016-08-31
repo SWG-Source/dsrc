@@ -9,10 +9,9 @@
 maxHitPoints = 10000
 @class object_template 4
 
-
 sharedTemplate = "object/tangible/destructible/shared_destructable_crate_04.iff"
 
-
+objvars = +["isStaticObject" = 1]
 
 invulnerable = false
 

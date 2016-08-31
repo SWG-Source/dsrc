@@ -1,20 +1,10 @@
 package script.npc.static_quest;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.quests;
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.utils;
-import script.ai.ai_combat;
-import script.library.money;
-import script.library.create;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class quest_npc extends script.base_script
 {
@@ -36,7 +26,6 @@ public class quest_npc extends script.base_script
         String questID = dataTableGetString(datatable, questNum, "temp_objvar");
         String type = dataTableGetString(datatable, questNum, "quest_type");
         String convoType = dataTableGetString(datatable, questNum, "quest_npc_convo");
-        convoType = "terse";
         faceTo(self, speaker);
         if (ai_lib.isInCombat(self) || ai_lib.isInCombat(speaker))
         {
@@ -320,11 +309,9 @@ public class quest_npc extends script.base_script
         int questNum = getIntObjVar(self, "questNum");
         String type = dataTableGetString(datatable, questNum, "quest_type");
         String CONVO = dataTableGetString(datatable, questNum, "convo");
-        String convoStyle = dataTableGetString(datatable, questNum, "quest_giver_convo");
         String response1 = "player_more_1_" + questNum;
         String response2 = "player_more_2_" + questNum;
         String response3 = "player_more_3_" + questNum;
-        String playerScript = dataTableGetString(datatable, questNum, "player_script");
         if ((response.getAsciiId()).equals(response1))
         {
             String npcAnswer1 = "npc_more_1_" + questNum;
@@ -352,6 +339,18 @@ public class quest_npc extends script.base_script
                 setObjVar(self, "SentFinishMsg", 1);
             }
             npcRemoveConversationResponse(player, new string_id(CONVO, response3));
+            return SCRIPT_CONTINUE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int OnObjectDisabled(obj_id self, obj_id killer) throws InterruptedException
+    {
+        String type = dataTableGetString(getStringObjVar(self, "quest_table"), getIntObjVar(self, "questNum"), "quest_type");
+        if (getBooleanObjVar(self, "isStaticObject") && type.equals("destroy"))
+        {
+            obj_id player = getObjIdObjVar(self, "player");
+            messageTo(player, "finishStaticQuest", null, 0, true);
+            setObjVar(self, "SentFinishMsg", 1);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -419,18 +418,34 @@ public class quest_npc extends script.base_script
     }
     public int setupSelf(obj_id self, dictionary params) throws InterruptedException
     {
-        setWantSawAttackTriggers(self, false);
         String datatable = getStringObjVar(self, "quest_table");
         if (datatable == null)
         {
             setObjVar(self, "NO SCRIPT", 1);
             return SCRIPT_OVERRIDE;
         }
+
+        boolean isStaticObject = getBooleanObjVar(self, "isStaticObject");
         int questNum = getIntObjVar(self, "questNum");
         String type = dataTableGetString(datatable, questNum, "quest_type");
         ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_SENTINEL);
-        if (type.equals("info") || type.equals("rescue") || type.equals("smuggle") || type.equals("deliver") || type.equals("arrest") || type.equals("escort") || type.equals("retrieve"))
+
+        if(isStaticObject && type.equals("destroy")){
+            setObjVar(self, "pvpCanAttack", 1);
+            setMaxHitpoints(self, 30000);
+            attachScript(self, "systems.npc_lair.lair_destruct");
+            detachScript(self, "systems.gcw.gcw_vehicle_patrol");
+            setInvulnerable(self, false);
+        }
+        else if (!isStaticObject && type.equals("info")
+                || type.equals("rescue")
+                || type.equals("smuggle")
+                || type.equals("deliver")
+                || type.equals("arrest")
+                || type.equals("escort")
+                || type.equals("retrieve"))
         {
+            setWantSawAttackTriggers(self, false);
             attachScript(self, "npc.converse.npc_converse_menu");
             setCondition(self, CONDITION_INTERESTING);
             setInvulnerable(self, true);
@@ -441,13 +456,16 @@ public class quest_npc extends script.base_script
     public int saySomething(obj_id self, dictionary params) throws InterruptedException
     {
         String datatable = getStringObjVar(self, "quest_table");
-        obj_id player = getObjIdObjVar(self, "player");
         int questNum = getIntObjVar(self, "questNum");
         String type = dataTableGetString(datatable, questNum, "quest_type");
+        if(getBooleanObjVar(self, "isStaticObject")){
+            return SCRIPT_CONTINUE;
+        }
         String CONVO = dataTableGetString(datatable, questNum, "convo");
         String something = "npc_breech_" + questNum;
         string_id message = new string_id(CONVO, something);
         String check = getString(message);
+        obj_id player = getObjIdObjVar(self, "player");
         if (check != null)
         {
             if (!check.equals(""))
