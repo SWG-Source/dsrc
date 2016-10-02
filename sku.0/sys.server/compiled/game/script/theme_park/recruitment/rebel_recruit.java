@@ -25,10 +25,9 @@ public class rebel_recruit extends script.theme_park.recruitment.base.base_recru
     {
         if (!hasObjVar(self, "dressed"))
         {
-            
-        }
-        
-        {
+
+	}
+	{
             obj_id suit = createObject("object/tangible/wearables/bodysuit/bodysuit_bwing.iff", self, "");
             obj_id boots = createObject("object/tangible/wearables/boots/boots_s03.iff", self, "");
             hue.setColor(suit, 1, colors.ORANGE);
@@ -36,14 +35,11 @@ public class rebel_recruit extends script.theme_park.recruitment.base.base_recru
             hue.randomizeObject(self);
             pvpSetAlignedFaction(self, (370444368));
             pvpMakeDeclared(self);
-            String hair_table = "datatables/npc_customization/human_male_hair.iff";
+            String hair_table = "datatables/tangible/wearable/hair/hair_human_male.iff";
             int numHair = dataTableGetNumRows(hair_table);
-            int hairCol = dataTableGetNumColumns(hair_table);
-            hairCol = hairCol - 1;
             numHair = numHair - 1;
-            hairCol = rand(1, hairCol);
             numHair = rand(1, numHair);
-            String hair = dataTableGetString(hair_table, numHair, hairCol);
+            String hair = dataTableGetString(hair_table, numHair, 1);
             obj_id hairStyle = createObject(hair, self, "");
             hue.hueObject(hairStyle);
             setObjVar(self, "dressed", 1);
