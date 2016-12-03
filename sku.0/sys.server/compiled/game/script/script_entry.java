@@ -590,15 +590,22 @@ public class script_entry
 		if (object == null || object.getValue() == 0 || !object.isAuthoritative() || !object.isLoaded())
 		{
 			boolean doubleCheck = false;
-			
+		
+			String warning = "";	
 			if (printDebugInfo) {
-				String warning = "WARNING: Java script_entry.runScripts ERROR calling script function " + method + ": invalid self: ";
+				warning = "WARNING: Java script_entry.runScripts ERROR calling script function " + method + ": invalid self: ";
 			}
 
-			if (object == null)
-				System.err.println(warning + "no object id");
-			else if (object.getValue() == 0)
-				System.err.println(warning + "obj_id 0");
+			if (object == null) {
+				if (printDebugInfo) {
+					System.err.println(warning + "no object id");
+				}
+			}
+			else if (object.getValue() == 0) {
+				if (printDebugInfo) {
+					System.err.println(warning + "obj_id 0");
+				}
+			}
 			else if (!object.isAuthoritative())
 			{
 				if (printDebugInfo) {
