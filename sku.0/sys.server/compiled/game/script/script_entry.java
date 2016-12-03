@@ -590,19 +590,26 @@ public class script_entry
 		if (object == null || object.getValue() == 0 || !object.isAuthoritative() || !object.isLoaded())
 		{
 			boolean doubleCheck = false;
-			String warning = "WARNING: Java script_entry.runScripts ERROR calling script function " + method + ": invalid self: ";
+			
+			if (printDebugInfo) {
+				String warning = "WARNING: Java script_entry.runScripts ERROR calling script function " + method + ": invalid self: ";
+			}
+
 			if (object == null)
 				System.err.println(warning + "no object id");
 			else if (object.getValue() == 0)
 				System.err.println(warning + "obj_id 0");
 			else if (!object.isAuthoritative())
 			{
-				System.err.println(warning + object + " not authoritative");
+				if (printDebugInfo) {
+					System.err.println(warning + object + " not authoritative");
+				}
+
 				// We've seen errors where Java thinks an object is non-authoritative but C thinks the object
 				// is authoritative. _internalIsAuthoritative() will double-check for us and set the obj_id
 				// flag if needed
 				doubleCheck = base_class._internalIsAuthoritative(object);
-				if (doubleCheck)
+				if (printDebugInfo && doubleCheck)
 				{
 					System.err.println("WARNING: object " + object + " is flagged as non-authoritative "+
 						"in Java but is authoritative in C");
