@@ -141,16 +141,16 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465570	8575702	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	31	-94.5079	-20	-27.138	-3.20013e-08	0	1	0	theme_park.warren.evidence_terminal	warren.evidence|0|1|$|
 8575703	8575671	object/cell/cell.iff	32	0	0	0	0	0	0	0		$|
 8465686	8575703	object/tangible/poi/spawnegg/interior_spawnegg.iff	32	-78.4666748	-20	-1.011010051	1	0	0	0		intRandomYaw|0|1|$|
-8465571	8575703	object/tangible/container/loot/placable_loot_crate.iff	0	-70.7294	-20	-0.962916	0.707107	0	-0.707106	0		$|
-8465572	8575703	object/tangible/container/loot/placable_loot_crate.iff	0	-86.2819	-20	-2.48117	0.707107	0	0.707106	0		$|
+8465571	8575703	object/tangible/container/loot/placable_loot_crate.iff	32	-70.7294	-20	-0.962916	0.707107	0	-0.707106	0		$|
+8465572	8575703	object/tangible/container/loot/placable_loot_crate.iff	32	-86.2819	-20	-2.48117	0.707107	0	0.707106	0		$|
 8575704	8575671	object/cell/cell.iff	33	0	0	0	0	0	0	0		$|
 8575705	8575671	object/cell/cell.iff	34	0	0	0	0	0	0	0		$|
 8575706	8575671	object/cell/cell.iff	35	0	0	0	0	0	0	0		$|
-8465568	8575706	object/tangible/terminal/terminal_elevator.iff	0	-62.5154	-28	-124.979	1	0	0	0		$|
-8465575	8575706	object/tangible/terminal/terminal_elevator.iff	0	-62.4887	-52	-124.97	1	0	0	0		$|
+8465568	8575706	object/tangible/terminal/terminal_elevator.iff	35	-62.5154	-28	-124.979	1	0	0	0		$|
+8465575	8575706	object/tangible/terminal/terminal_elevator.iff	35	-62.4887	-52	-124.97	1	0	0	0		$|
 8575707	8575671	object/cell/cell.iff	36	0	0	0	0	0	0	0		$|
-8465573	8575707	object/tangible/terminal/terminal_elevator.iff	0	-54.5161	-28	-2.99424	-0.707107	0	0.707107	0		$|
-8465574	8575707	object/tangible/terminal/terminal_elevator.iff	0	-54.5235	-52	-2.98147	0.707107	0	-0.707106	0		$|
+8465573	8575707	object/tangible/terminal/terminal_elevator.iff	36	-54.5161	-28	-2.99424	-0.707107	0	0.707107	0		$|
+8465574	8575707	object/tangible/terminal/terminal_elevator.iff	36	-54.5235	-52	-2.98147	0.707107	0	-0.707106	0		$|
 8575708	8575671	object/cell/cell.iff	37	0	0	0	0	0	0	0		$|
 8575709	8575671	object/cell/cell.iff	38	0	0	0	0	0	0	0		$|
 8465662	8575709	object/tangible/poi/spawnegg/interior_spawnegg.iff	38	-63.21613312	-52	-70.77112579	1	0	0	0		intRandomYaw|0|1|$|
