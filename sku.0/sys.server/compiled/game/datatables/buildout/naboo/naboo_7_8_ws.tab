@@ -157,6 +157,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1741456	1741453	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1741457	1741453	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1741458	1741453	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-10	1741458	object/tangible/npc/storyline_npc/coa3_tactical_imperial_spawner.iff	5	9.7	1.1	0.1	1	0	0	0		$|
 1741459	1741453	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1741460	1741453	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1741461	1741453	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -221,6 +222,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1741507	1741502	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1741508	1741502	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1741509	1741502	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+-9	1741509	object/tangible/npc/storyline_npc/coa3_information_imperial_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 1741510	1741502	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1741511	1741502	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1741512	0	object/building/naboo/cloning_facility_naboo.iff	0	1235.81	-192	407.563	0.996157	0	-0.0875865	0		$|
@@ -920,3 +922,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 91576	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1110	-192	536	0.63607822	0	-0.771624583	0		$|
 -5	0	object/tangible/spawning/static_npc/herald_biogenic_02.iff	0	998.69	-192	610.11	0	0	1	0		$|
 -6	0	object/tangible/spawning/static_npc/herald_naboo_imperial_weapon_research_facility.iff	0	1036.48	-192	590.76	0.6018150232	0	0.79863551	0		$|
+-8	0	object/tangible/npc/storyline_npc/imperial_coordinator_spawner.iff	0	1048	-192	530	0.707106781	0	0.707106781	0		$|

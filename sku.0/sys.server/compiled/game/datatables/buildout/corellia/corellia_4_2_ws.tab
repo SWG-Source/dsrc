@@ -121,6 +121,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855502	1855499	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1855503	1855499	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1855504	1855499	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-13	1855504	object/tangible/npc/storyline_npc/coa3_tactical_rebel_spawner.iff	5	9.7	1.1	0.1	1	0	0	0		$|
 1855505	1855499	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1855506	1855499	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1855507	1855499	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -133,6 +134,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1855514	1855509	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1855515	1855509	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1855516	1855509	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+-12	1855516	object/tangible/npc/storyline_npc/coa3_information_rebel_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 1855517	1855509	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1855518	1855509	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1855529	0	object/building/corellia/hospital_corellia.iff	0	1958	28	1704	-0.00000167	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/ep3/ep3_coronet_medical_center.iff|$|

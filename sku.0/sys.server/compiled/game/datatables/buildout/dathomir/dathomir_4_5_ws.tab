@@ -19,3 +19,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725628	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.46	124.965	853.716	-0.544461	0.41458	0.57257	-0.451495		$|
 9725629	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.51	122.63	853.426	-0.504165	0.461693	0.535306	-0.496089		$|
 1143372	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1047.68	116.318	862.406	1	0	0	0		$|
+-1	0	object/tangible/npc/storyline_npc/rebel_commander_spawner.iff	0	1999	142	86	1	0	0	0		$|
+-2	0	object/tangible/npc/rebel_recruiter_spawner.iff	0	1995.84	142	88.46	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	2000	142	86	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|3.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|3|intSpawnSystem|0|1|registerWithController|0|1|strName|4|rebel_trooper|strSpawnerType|4|area|strSpawns|4|rebel_trooper|$|

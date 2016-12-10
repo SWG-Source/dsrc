@@ -318,6 +318,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028547	1028544	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1028548	1028544	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1028549	1028544	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-56	1028549	object/tangible/npc/storyline_npc/coa3_tactical_imperial_spawner.iff	5	9.7	1.1	0.1	1	0	0	0		$|
 1028550	1028544	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1028551	1028544	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1028552	1028544	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -330,6 +331,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028559	1028554	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1028560	1028554	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1028561	1028554	object/cell/cell.iff	7	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
+-55	1028561	object/tangible/npc/storyline_npc/coa3_information_imperial_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 1028562	1028554	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1028563	1028554	object/cell/cell.iff	9	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1028574	0	object/building/tatooine/guild_university_tatooine_style_01.iff	0	793.718	12	581.644	0.431176	0	0.902268	0		$|
