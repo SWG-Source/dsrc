@@ -11,6 +11,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1256008	1256003	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1256009	1256003	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1256010	1256003	object/cell/cell.iff	7	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
+-2	1256010	object/tangible/npc/storyline_npc/coa3_information_rebel_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 1256011	1256003	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1256012	1256003	object/cell/cell.iff	9	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1256245	0	object/building/tatooine/parking_garage_tatooine_style_1.iff	0	1239.54	4.99894	1923.5	0.992198	0	-0.124674	0		$|

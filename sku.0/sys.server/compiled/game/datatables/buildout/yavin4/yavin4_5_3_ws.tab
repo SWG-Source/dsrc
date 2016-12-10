@@ -33,3 +33,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8995404	0	object/tangible/gravestone/gravestone03.iff	0	340.307	174.095	1060.32	1	0	0	0		$|
 8995457	0	object/static/structure/general/debris_deathstar_tractorbeam.iff	0	316.377	183.735	952.912	0.924495	-0.0855107	0.345722	-0.135916		$|
 3495401	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	322.4275513	184.5551758	953.82373	1	0	0	0		$|
+-1	0	object/tangible/npc/storyline_npc/imperial_commander_spawner.iff	0	1587	50	562	1	0	0	0		$|
+-2	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1597.48	50	554.99	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	1596	50	563	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|3.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|3|intSpawnSystem|0|1|registerWithController|0|1|strName|4|imperial_trooper|strSpawnerType|4|area|strSpawns|4|imperial_trooper|$|

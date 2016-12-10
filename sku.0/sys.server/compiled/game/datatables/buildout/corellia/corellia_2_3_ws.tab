@@ -24,6 +24,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1935439	1935436	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1935440	1935436	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1935441	1935436	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-12	1935441	object/tangible/npc/storyline_npc/coa3_tactical_rebel_spawner.iff	5	9.7	1.1	0.1	1	0	0	0		$|
 1935442	1935436	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1935443	1935436	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1935444	1935436	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -36,6 +37,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1935451	1935446	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1935452	1935446	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1935453	1935446	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+-11	1935453	object/tangible/npc/storyline_npc/coa3_information_rebel_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 1935454	1935446	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1935455	1935446	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1935456	0	object/building/corellia/guild_university_corellia_style_01.iff	0	622.716	21	1416.9	0.70711	0	0.707104	0		$|
@@ -1242,3 +1244,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 164644	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1093	21	1807	0.887010833	0	0.461748613	0		$|
 -8	0	object/tangible/spawning/static_npc/herald_corellia_01_lock.iff	0	725.74	20	1303.64	1	0	0	0		$|
 -9	0	object/tangible/spawning/static_npc/herald_corellia_imperial_strongold.iff	0	951.1	21	1550.45	0.8191520443	0	-0.5735764364	0		$|
+-10	0	object/tangible/npc/storyline_npc/rebel_coordinator_spawner.iff	0	926	21	1494	1	0	0	0		$|

@@ -298,3 +298,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2115479	0	object/building/corellia/filler_slum_24x16_s01.iff	0	129.45	28	1659.28	0.932183	0	-0.361986	0		$|
 2115481	0	object/building/corellia/filler_slum_24x16_s01.iff	0	123.979	28	1605.28	0.707108	0	0.707105	0		$|
 -1	0	object/tangible/npc/gadget_specialist_spawner.iff	0	19.8	28.0	1369.4	1	0	0	0		$|
+-2	0	object/tangible/npc/storyline_npc/rebel_coordinator_spawner.iff	0	94	28	1625	1	0	0	0		$|

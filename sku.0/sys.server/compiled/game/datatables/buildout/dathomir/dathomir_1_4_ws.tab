@@ -26,3 +26,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9725575	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1574.5	327.449	1265.23	1	0	0	0		$|
 1105890	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1574.046387	325.7238159	1270.280701	1	0	0	0		$|
 1105901	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1631.787598	264.6102905	1305.908691	1	0	0	0		$|
+-1	0	object/tangible/npc/storyline_npc/imperial_commander_spawner.iff	0	1889	123	1518	1	0	0	0		$|
+-2	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1890.56	123	1520.81	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	1889	123	1519	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|3.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|3|intSpawnSystem|0|1|registerWithController|0|1|strName|4|imperial_trooper|strSpawnerType|4|area|strSpawns|4|imperial_trooper|$|
