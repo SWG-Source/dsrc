@@ -43,8 +43,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1082874	0	object/building/tatooine/cantina_tatooine.iff	0	1384.35	5	1325.87	0.945266	0	0.326302	0	theme_park.tatooine.mos_eisley.masterspawner:event.bh_event.cantina_controller	intSpawnBartender|0|0|$|
 1082875	1082874	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1082876	1082874	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+7106354	1082876	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	31.3	0.1	0.6	1	0	0	0		intRandomYaw|0|1|$|
 1082877	1082874	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1082878	1082874	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4936257	1082878	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	19.5	-0.9	-19.8	1	0	0	0		intRandomYaw|0|1|$|
 1082879	1082874	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 509457808	1082879	object/tangible/collection/hanging_light_02_01.iff	5	17.8356	2.7849	19.0699	1	0	0	0		$|
 1082880	1082874	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
@@ -319,6 +321,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1188045	0	object/building/tatooine/housing_tatt_style01_med.iff	0	1179.5	5	1298.22	0.945525	0	0.32555	0		$|
 1188046	1188045	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1188047	1188045	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+2976495	1188047	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	7.6	0.4	-2.8	1	0	0	0		intRandomYaw|0|1|$|
 1188048	1188045	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1188049	1188045	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1188050	1188045	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
