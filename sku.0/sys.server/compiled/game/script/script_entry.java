@@ -5,15 +5,9 @@
 
 package script;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Stack;
-import java.util.Vector;
 import java.lang.reflect.InvocationTargetException;
-import script.base_class;
+import java.lang.reflect.Method;
+import java.util.*;
 
 public class script_entry
 {
@@ -576,7 +570,7 @@ public class script_entry
 			return base_class.SCRIPT_OVERRIDE;
 		}
 
-		obj_id object = null;
+		obj_id object;
 		try
 		{
 			object = (obj_id)params[0];
@@ -587,43 +581,34 @@ public class script_entry
 			return base_class.SCRIPT_OVERRIDE;
 		}
 
-		if (object == null || object.getValue() == 0 || !object.isAuthoritative() || !object.isLoaded())
+		if (object.getValue() == 0 || !object.isAuthoritative() || !object.isLoaded())
 		{
 			boolean doubleCheck = false;
 		
-			String warning = "";	
-			if (printDebugInfo) {
-				warning = "WARNING: Java script_entry.runScripts ERROR calling script function " + method + ": invalid self: ";
-			}
+			String warning = "WARNING: Java script_entry.runScripts ERROR calling script function " + method + ": invalid self:";
 
-			if (object == null) {
-				if (printDebugInfo) {
-					System.err.println(warning + "no object id");
-				}
+			if (object.getValue() == 0) {
+				warning += "\n- obj_id is 0.";
 			}
-			else if (object.getValue() == 0) {
-				if (printDebugInfo) {
-					System.err.println(warning + "obj_id 0");
-				}
-			}
-			else if (!object.isAuthoritative())
-			{
-				if (printDebugInfo) {
-					System.err.println(warning + object + " not authoritative");
-				}
+			if (!object.isAuthoritative()) {
+				warning += "\n- object is not authoritative";
 
 				// We've seen errors where Java thinks an object is non-authoritative but C thinks the object
 				// is authoritative. _internalIsAuthoritative() will double-check for us and set the obj_id
 				// flag if needed
 				doubleCheck = base_class._internalIsAuthoritative(object);
-				if (printDebugInfo && doubleCheck)
-				{
-					System.err.println("WARNING: object " + object + " is flagged as non-authoritative "+
-						"in Java but is authoritative in C");
-				}
+
+				warning += (
+						doubleCheck
+						? " (" + object + " is flagged as non-authoritative in Java but is authoritative in C.)"
+						: "."
+				);
 			}
-			else if (!object.isLoaded())
-				System.err.println(warning + object + " not loaded");
+			if (!object.isLoaded())
+				warning += "\n- " + object + " is not loaded.";
+
+			if(printDebugInfo) System.err.println(warning);
+
 			if (!doubleCheck)
 				return base_class.SCRIPT_OVERRIDE;
 		}
@@ -635,24 +620,24 @@ public class script_entry
 			if(object.getLockCount() > 1)
 			{
 				String[] scripts = object.getScripts();
-				for (int i = 0; i < scripts.length; ++i)
-				{
-					result = runScript(scripts[i], method, params);
-					if (result != base_class.SCRIPT_CONTINUE)
-						break;
+				if(scripts != null) {
+					for (String script : scripts) {
+						result = runScript(script, method, params);
+						if (result != base_class.SCRIPT_CONTINUE)
+							break;
+					}
 				}
 			}
 			else
 			{
 				ArrayList scripts = object.getScriptArrayList();
-				for (int i = 0; i < scripts.size(); ++i)
-				{
-	//				String script = (String)scripts.get(i);
-	//				System.out.println("IN JAVA: script_entry.runScripts executing method " + method + " on script " + (String)scripts.get(i));
-	//				scriptNameBuffer.setLength("script.".length());
-	//				scriptNameBuffer.append(script);
-	//				result = runScript(scriptNameBuffer.toString(), method, params);
-					result = runScript((String)scripts.get(i), method, params);
+				for (Object script : scripts) {
+					//				String script = (String)scripts.get(i);
+					//				System.out.println("IN JAVA: script_entry.runScripts executing method " + method + " on script " + (String)scripts.get(i));
+					//				scriptNameBuffer.setLength("script.".length());
+					//				scriptNameBuffer.append(script);
+					//				result = runScript(scriptNameBuffer.toString(), method, params);
+					result = runScript((String) script, method, params);
 					if (result != base_class.SCRIPT_CONTINUE)
 						break;
 				}
