@@ -328,7 +328,7 @@ public class script_class_loader extends ClassLoader
 		// initialize the NO_METHOD object
 		try
 		{
-			NO_METHOD = NO_OBJECT.getClass().getMethod("hashCode", null);
+			NO_METHOD = NO_OBJECT.getClass().getMethod("hashCode", (Class<?>[]) null);
 		}
 		catch( NoSuchMethodException err )
 		{
