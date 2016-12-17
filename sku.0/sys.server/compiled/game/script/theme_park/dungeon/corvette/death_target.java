@@ -33,9 +33,24 @@ public class death_target extends script.base_script
                 {
                     return SCRIPT_CONTINUE;
                 }
+                boolean prizeAwarded = false;
                 for (int i = 0; i < numPlayers; i++)
                 {
-                    messageTo(((obj_id)players.get(i)), "youWin", null, 1, false);
+                    obj_id player = (obj_id) players.get(i);
+                    messageTo(player, "youWin", null, 1, false);
+                    if(!prizeAwarded) {
+                        int prize = rand(0, 7);
+                        if (prize == 4) {
+                            obj_id inv = utils.getInventoryContainer(player);
+                            obj_id itv = createObject("object/tangible/veteran_reward/instant_travel_terminal.iff", inv, "");
+                            if (isIdValid(itv)) {
+                                CustomerServiceLog("Loot", "User: (" + player + ") " + getName(player) + " has won the factional Instant Travel Vehicle.");
+                                sendSystemMessage(player, "Congratulations! You've looted the factional Instant Travel Vehicle!");
+                                playMusic(player, "sound/music_mission_complete.snd");
+                                prizeAwarded = true;
+                            }
+                        }
+                    }
                 }
             }
         }
