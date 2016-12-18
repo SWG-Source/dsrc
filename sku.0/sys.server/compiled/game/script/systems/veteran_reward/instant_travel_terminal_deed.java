@@ -23,7 +23,10 @@ public class instant_travel_terminal_deed extends script.base_script
     {
         if (item == menu_info_types.ITEM_USE)
         {
-            if (hasObjVar(self, "privateerShip"))
+            if(getLevel(player) < 50){
+                sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level 50.", null);
+            }
+            else if (hasObjVar(self, "privateerShip"))
             {
                 grantCommand(player, "callforprivateerpickup");
             }
