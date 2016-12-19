@@ -33,9 +33,11 @@ public class event_three_boss extends script.base_script
             messageTo(parent, "eventMobDied", dict, 0, false);
         }
         obj_id corpseInventory = utils.getInventoryContainer(self);
-        int x = rand(1, 100);
-        if (x <= 12){  // 12% chance at dropping bonus loot Lava Transport Skiff
-            static_item.createNewItemFunction("item_tow_schematic_vehicle_02_02", corpseInventory);
+        if (isIdValid(corpseInventory)) {
+            int x = rand(1, 100);
+            if (x <= 12){  // 12% chance at dropping bonus loot Lava Transport Skiff
+                static_item.createNewItemFunction("item_tow_schematic_vehicle_02_02", corpseInventory);
+            }
         }
         return SCRIPT_CONTINUE;
     }
