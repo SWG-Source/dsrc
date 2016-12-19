@@ -689,3 +689,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -3	0	object/tangible/npc/naboo_spawn/damalia_korde.iff	0	1043	346.5	518	1	0	0	0		$|
 -4	0	object/tangible/npc/naboo_spawn/arven_wendik.iff	0	614	330	616	1	0	0	0		$|
 -5	0	object/tangible/npc/naboo_spawn/kima_nazith.iff	0	876	360	465	0.4694715628	0	0.8829475929	0		$|
+-6	0	object/tangible/planet_map_location/city.iff	0	1051	346	531	1	0	0	0		$|
