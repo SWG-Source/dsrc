@@ -48,9 +48,11 @@ public class grievous_death extends script.base_script
             return;
         }
         int x = rand(1, 100);
-        if (x < 15)
-        {
+        if (x < 15){  // 14% chance at dropping bonus loot (at least a Bane's Heart crystal)
             static_item.createNewItemFunction("item_color_crystal_02_16", corpseInventory);
+            if(x < 5){  // 5% chance to drop the wheel bike
+                static_item.createNewItemFunction("item_deed_grievous_wheel_bike", corpseInventory);
+            }
         }
         String myLoot1 = "object/tangible/ship/crafted/chassis/grievous_starfighter_reward_deed.iff";
         String myLoot2 = "object/tangible/wearables/cybernetic/s02/cybernetic_s02_arm_r.iff";
