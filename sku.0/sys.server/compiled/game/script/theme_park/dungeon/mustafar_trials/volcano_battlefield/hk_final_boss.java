@@ -8,14 +8,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.ai_lib;
-import script.library.utils;
-import script.library.create;
-import script.library.buff;
-import script.library.dot;
-import script.library.combat;
-import script.library.prose;
-import script.library.trial;
+import script.library.*;
 
 public class hk_final_boss extends script.base_script
 {
@@ -51,6 +44,13 @@ public class hk_final_boss extends script.base_script
         if (isIdValid(parent))
         {
             messageTo(parent, "eventMobDied", dict, 0, false);
+        }
+        obj_id corpseInventory = utils.getInventoryContainer(self);
+        if (isIdValid(corpseInventory)) {
+            int x = rand(1, 100);
+            if (x <= 15) {  // 15% chance at dropping bonus loot Mustafar Bunker
+                createObject("object/building/player/player_mustafar_house_lg.iff", corpseInventory, "");
+            }
         }
         return SCRIPT_CONTINUE;
     }
