@@ -740,3 +740,5 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -3	0	object/tangible/spawning/static_npc/herald_naboo_01_vaikanna.iff	0	659.66	10	328.48	0	0	1	0		$|
 -4	0	object/tangible/spawning/static_npc/herald_naboo_mauler_encampment.iff	0	606.03	6	269.09	0.7071067812	0	-0.7071067812	0		$|
 -5	0	object/tangible/npc/storyline_npc/imperial_coordinator_spawner.iff	0	713	6	72	1	0	0	0		$|
+-8	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1216	6	134	1	0	0	0		$|
+-9	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1208	6	134	1	0	0	0		$|
