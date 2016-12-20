@@ -17,6 +17,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 119	108	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
 871829	119	object/tangible/terminal/terminal_mission_rebel.iff	11	-29.0849	-0.894984	1.0454	0.707107	0	0.707106	0		$|
 871833	119	object/tangible/terminal/terminal_mission_rebel.iff	11	-29.0512	-0.894985	2.79176	0.707107	0	0.707106	0		$|
+-6	119	object/tangible/npc/rebel_recruiter_spawner.iff	11	-28.5	-0.9	-1.3	0.707107	0	0.707106	0		$|
 120	108	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 121	108	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
 122	108	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
