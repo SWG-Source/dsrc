@@ -44,7 +44,7 @@ public class reward_pet_deed extends script.base_script
     public obj_id generatePet(obj_id deed, obj_id player, String controlTemplate, String creatureType, String datapadItemName, boolean noTrade, boolean noStuff) throws InterruptedException{
         obj_id datapad = utils.getPlayerDatapad(player);
         obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-        setObjVar(petControlDevice, "pet.creatureName", creatureName);
+        setObjVar(petControlDevice, "pet.creatureName", creatureType);
         attachScript(petControlDevice, "ai.pet_control_device");
         setName(petControlDevice, datapadItemName);
         int petType = pet_lib.PET_TYPE_MOUNT;
