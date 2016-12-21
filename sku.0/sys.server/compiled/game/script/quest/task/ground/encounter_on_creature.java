@@ -65,7 +65,7 @@ public class encounter_on_creature extends script.base_script
                 startDistanceToPlayer = .1f;
             }
             float distanceTraveled = startLocation.distance(currentLocation);
-            if ((distanceTraveled == 0) || (distanceToPlayer / startDistanceToPlayer > 0.9))
+            if (((distanceTraveled == 0) || (distanceToPlayer / startDistanceToPlayer) > 0.9) && combatDistance > distanceToPlayer)
             {
                 int questCrc = getIntObjVar(self, objvarOnCreatureQuestCrc);
                 int taskId = getIntObjVar(self, objvarOnCreatureTaskId);
