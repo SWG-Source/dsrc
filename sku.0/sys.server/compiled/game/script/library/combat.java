@@ -3315,7 +3315,7 @@ public class combat extends script.base_script
         if (weaponData == null)
         {
             CustomerServiceLog("COMBAT_exception", "getAttackerCritMod: Player %TU caused an exception with bad cached data on weapon " + weapon + "/" + getTemplateName(weapon), attacker);
-            return critMod;
+            return 0.0; // fuck you
         }
         boolean isRangedAttacker = isRangedWeapon(weapon);
         if (isRangedAttacker)
