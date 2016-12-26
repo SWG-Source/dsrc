@@ -48,12 +48,6 @@ public class cmd extends script.base_script
     }
     public int cmdGetPlayerId(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 10)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /getPlayerId <player FIRST name>");
@@ -66,22 +60,14 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "getPlayerId: player '" + name + "' has object id: " + playerId);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "getPlayerId: The system was unable to find a player named '" + name + "'");
         }
-        
-	   }
-	   return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdAiIgnore(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
-    {   
-	  if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
+    {
         obj_id ship = getPilotedShip(self);
         if (hasObjVar(self, "gm"))
         {
@@ -93,7 +79,7 @@ public class cmd extends script.base_script
             }
             sendSystemMessageTestingOnly(self, "aiIgnore[OFF]: AI will now aggro you as normal and fight back.");
         }
-        else 
+        else
         {
             setObjVar(self, "gm", 1);
             if (isIdValid(ship))
@@ -104,17 +90,10 @@ public class cmd extends script.base_script
             }
             sendSystemMessageTestingOnly(self, "aiIgnore[ON]: AI will no longer aggro you or fight back.");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdForceCommand(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 10)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target) || params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /forceCommand -target <command> <params> (with lookat target)");
@@ -124,7 +103,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /forceCommand -target <command> <params> (with lookat target)");
             return SCRIPT_CONTINUE;
@@ -143,17 +122,10 @@ public class cmd extends script.base_script
         }
         cmdParams.trim();
         sendSystemMessageTestingOnly(self, "/forceCommand: attempting to queue command: '" + cmd + " " + cmdParams + "' for (" + target + ")" + getName(target));
-       }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdMoney(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (!isGod(self) && getGodLevel(self) < 10)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         dictionary d = gm.parseTarget(params, target, "CREDITS");
         if (d == null)
         {
@@ -162,7 +134,7 @@ public class cmd extends script.base_script
         else if (d.isEmpty())
         {
         }
-        else 
+        else
         {
             params = d.getString("params");
             obj_id oid = d.getObjId("oid");
@@ -170,7 +142,7 @@ public class cmd extends script.base_script
             {
                 target = oid;
             }
-            else 
+            else
             {
                 target = self;
             }
@@ -202,7 +174,7 @@ public class cmd extends script.base_script
                 {
                     sendSystemMessageTestingOnly(self, "[CREDITS] Processing CASH update: (" + target + ")" + utils.getStringName(target) + " amt = " + sAmt);
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "[CREDITS] System rejected the CASH update: (" + target + ")" + utils.getStringName(target) + " amt = " + sAmt);
                 }
@@ -214,7 +186,7 @@ public class cmd extends script.base_script
                 {
                     sendSystemMessageTestingOnly(self, "[CREDITS] Processing BANK update: (" + target + ")" + utils.getStringName(target) + " amt = " + sAmt);
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "[CREDITS] System rejected the BANK update: (" + target + ")" + utils.getStringName(target) + " amt = " + sAmt);
                 }
@@ -222,7 +194,6 @@ public class cmd extends script.base_script
             }
         }
         showMoneySyntax(self);
-	   }
         return SCRIPT_CONTINUE;
     }
     public void showMoneySyntax(obj_id self) throws InterruptedException
@@ -232,64 +203,37 @@ public class cmd extends script.base_script
     }
     public int cmdBroadcast(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if(!isGod(self) && getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         queueCommand(self, (-351572629), target, params, COMMAND_PRIORITY_DEFAULT);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdBroadcastPlanet(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if(!isGod(self) && getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (params != null && !params.equalsIgnoreCase(""))
         {
             sendSystemMessagePlanetTestingOnly(params);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /broadcastPlanet <message>");
             return SCRIPT_CONTINUE;
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdBroadcastGalaxy(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if(!isGod(self) && getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (params != null && !params.equalsIgnoreCase(""))
         {
             sendSystemMessageGalaxyTestingOnly(params);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /broadcastGalaxy <message>");
             return SCRIPT_CONTINUE;
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdBroadcastArea(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 10)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         final float MAX_RANGE = 256.0f;
         final String KEYWORD_RANGE = "-range:";
         float range = 0f;
@@ -312,7 +256,7 @@ public class cmd extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /broadcastArea -range:<radius> <message>");
             sendSystemMessageTestingOnly(self, "[Example] /broadcastArea -range:100 Hello world!");
@@ -336,7 +280,6 @@ public class cmd extends script.base_script
                 sendSystemMessageTestingOnly(players[i], message);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public dictionary parseRange(String params) throws InterruptedException
@@ -363,7 +306,7 @@ public class cmd extends script.base_script
                 String sRange = arg.substring(KEYWORD_RANGE.length());
                 retRange = utils.stringToFloat(sRange);
             }
-            else 
+            else
             {
                 retString += arg + " ";
             }
@@ -377,12 +320,6 @@ public class cmd extends script.base_script
     }
     public int cmdKill(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isMob(target))
         {
             sendSystemMessageTestingOnly(self, "/kill: you must have a valid creature target to use this command");
@@ -392,7 +329,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /kill -target");
             return SCRIPT_CONTINUE;
@@ -401,24 +338,17 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "/kill: you must use /killPlayer to kill a player!");
         }
-        else 
+        else
         {
             if (!isIncapacitated(target))
             {
                 setPosture(target, POSTURE_INCAPACITATED);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdKillPlayer(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target) || isDead(target))
         {
             sendSystemMessageTestingOnly(self, "/killPlayer: you must have a valid, alive player target to use this command");
@@ -428,24 +358,17 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /killPlayer -target");
             return SCRIPT_CONTINUE;
         }
         setPosture(target, POSTURE_INCAPACITATED);
         pclib.coupDeGrace(target, target, true, true);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdFreezePlayer(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {	
         if (params.indexOf(gm.KEYWORD_ID) > -1)
         {
             dictionary ret = gm.parseObjId(params);
@@ -459,21 +382,14 @@ public class cmd extends script.base_script
         {
             setState(target, STATE_FROZEN, true);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /freezePlayer [-target]|[-id:<oid>]");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdUnfreezePlayer(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (params.indexOf(gm.KEYWORD_ID) > -1)
         {
             dictionary ret = gm.parseObjId(params);
@@ -487,11 +403,10 @@ public class cmd extends script.base_script
         {
             setState(target, STATE_FROZEN, false);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /unfreezePlayer [-target]|[-id:<oid>]");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdShowFactionInformation(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -504,7 +419,7 @@ public class cmd extends script.base_script
             {
                 target = tmpTarget;
             }
-            else 
+            else
             {
                 target = self;
             }
@@ -530,12 +445,6 @@ public class cmd extends script.base_script
     }
     public int cmdSetFaction(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -544,7 +453,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             if (params.indexOf(gm.KEYWORD_ID) > -1)
             {
@@ -554,14 +463,14 @@ public class cmd extends script.base_script
                 {
                     target = tmpTarget;
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "/setFaction: Unable to parse a valid object id!");
                     return SCRIPT_CONTINUE;
                 }
                 params = d.getString("params");
             }
-            else 
+            else
             {
                 target = self;
             }
@@ -608,7 +517,7 @@ public class cmd extends script.base_script
             {
                 clearFlags = clearFlags;
             }
-            else 
+            else
             {
                 if (arg.equalsIgnoreCase("imperial"))
                 {
@@ -618,7 +527,7 @@ public class cmd extends script.base_script
                 {
                     faction = "Rebel";
                 }
-                else 
+                else
                 {
                     faction = arg;
                 }
@@ -638,14 +547,14 @@ public class cmd extends script.base_script
                         sendSystemMessageTestingOnly(self, "/setFaction: you must use '-adhoc' to set AIs to non-standard factions");
                         return SCRIPT_CONTINUE;
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "/setFaction: attempting to update " + utils.getStringName(target) + "'s faction!");
                         factions.setFaction(target, faction);
                         return SCRIPT_CONTINUE;
                     }
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "/setFaction: you may not set players to adhoc factions!");
                     return SCRIPT_CONTINUE;
@@ -662,7 +571,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "/setFaction: assigning neutral status...");
             pvpMakeNeutral(target);
         }
-        else 
+        else
         {
             if (faction != null && !faction.equalsIgnoreCase("") && facNum != factions.AD_HOC_FACTION)
             {
@@ -671,7 +580,7 @@ public class cmd extends script.base_script
                 {
                     pvpSetAlignedFaction(target, factionHashCode);
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "/setFaction: unable to update " + utils.getStringName(target) + "'s faction to '" + faction + "'!");
                     return SCRIPT_CONTINUE;
@@ -685,7 +594,7 @@ public class cmd extends script.base_script
             {
                 pvpMakeOnLeave(target);
             }
-            else 
+            else
             {
                 pvpMakeCovert(target);
             }
@@ -695,17 +604,10 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "/setFaction: displaying " + utils.getStringName(target) + "'s updated faction information!");
             queueCommand(self, (-532090019), target, "", COMMAND_PRIORITY_DEFAULT);
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdSetFactionStanding(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -714,7 +616,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -769,14 +671,14 @@ public class cmd extends script.base_script
                 sendSystemMessageTestingOnly(self, "/setFactionStanding: you may not set standing to non-standard factions");
                 return SCRIPT_CONTINUE;
             }
-            else 
+            else
             {
                 if (mod != 0)
                 {
                     sendSystemMessageTestingOnly(self, "/setFactionStanding: modifying '" + faction + "' by " + amt);
                     factions.addFactionStanding(target, faction, amt);
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "/setFactionStanding: setting '" + faction + "' to " + amt);
                     factions.setFactionStanding(target, faction, amt);
@@ -785,7 +687,6 @@ public class cmd extends script.base_script
         }
         sendSystemMessageTestingOnly(self, "/setFactionStanding: displaying " + utils.getStringName(target) + "'s updated faction information!");
         queueCommand(self, (-532090019), target, "", COMMAND_PRIORITY_DEFAULT);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGetRank(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -801,12 +702,6 @@ public class cmd extends script.base_script
     }
     public int cmdSetRank(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (utils.hasScriptVar(self, "setRank.pid"))
         {
             int oldpid = utils.getIntScriptVar(self, "setRank.pid");
@@ -821,7 +716,7 @@ public class cmd extends script.base_script
         else if (d.isEmpty())
         {
         }
-        else 
+        else
         {
             params = d.getString("params");
             obj_id oid = d.getObjId("oid");
@@ -829,7 +724,7 @@ public class cmd extends script.base_script
             {
                 target = oid;
             }
-            else 
+            else
             {
                 target = self;
             }
@@ -871,21 +766,14 @@ public class cmd extends script.base_script
             int urank = pvpGetCurrentGcwRank(target);
             sendSystemMessageTestingOnly(self, "(" + target + ") " + getName(target) + "'s rank updated to (" + urank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(urank, faction))));
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "The system was unable to update (" + target + ") " + getName(target) + "'s rank updated to (" + newrank + ") " + getString(new string_id("faction_recruiter", factions.getRankName(newrank, faction))));
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGrantSkill(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -894,7 +782,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -907,17 +795,10 @@ public class cmd extends script.base_script
         prompt += "Please choose an option:";
         int pid = sui.listbox(self, self, prompt, sui.OK_CANCEL, "GM GRANT SKILL", gm.ROADMAP_SKILL_OPTIONS, "handleGmGrantSkillOptions", true, false);
         utils.setScriptVar(self, "gmGrantSkill.target", target);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdRevokeSkill(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -926,7 +807,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -955,8 +836,7 @@ public class cmd extends script.base_script
         revokeSkill(target, params);
         sendSystemMessageTestingOnly(self, "You revoke " + params + " from (" + target + ") " + utils.getStringName(target));
         CustomerServiceLog("Skill", "CSR: (" + self + ") " + getName(self) + " has revoked skill '" + params + "' from (" + target + ") " + utils.getStringName(target));
-       }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public void listSkills(obj_id self, String[] skills) throws InterruptedException
     {
@@ -1053,12 +933,6 @@ public class cmd extends script.base_script
     }
     public int cmdSetSpeed(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -1067,7 +941,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -1111,17 +985,10 @@ public class cmd extends script.base_script
         }
         float newSpeed = getMovementPercent(target);
         sendSystemMessageTestingOnly(self, "(" + target + ") " + utils.getStringName(target) + "'s new speed multiplier = " + newSpeed);
-	   }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdSetName(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -1130,7 +997,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -1140,17 +1007,10 @@ public class cmd extends script.base_script
             return SCRIPT_CONTINUE;
         }
         setName(target, params);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdSetFirstName(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -1159,7 +1019,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -1191,28 +1051,21 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "/setFirstName: name NOT updated...");
         }
-        else 
+        else
         {
             if (setName(target, newname))
             {
                 sendSystemMessageTestingOnly(self, "/setFirstName: " + name + " will now be known as " + newname);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "/setFirstName: system disallowed name change...");
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdSetLastName(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -1221,7 +1074,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -1247,28 +1100,21 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "/setLastName: name NOT updated...");
         }
-        else 
+        else
         {
             if (setName(target, newname))
             {
                 sendSystemMessageTestingOnly(self, "/setLastName: " + name + " will now be known as " + newname);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "/setLastName: system disallowed name change...");
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGrantBadge(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 10)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -1277,7 +1123,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -1297,7 +1143,7 @@ public class cmd extends script.base_script
         {
             badgeName = params;
         }
-        else 
+        else
         {
             badgeName = getCollectionSlotName(idx);
         }
@@ -1310,21 +1156,14 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "/grantBadge: you grant badge " + badgeName + " to (" + target + ")" + utils.getStringName(target));
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "/grantBadge: you are UNABLE to grant badge " + badgeName + " to (" + target + ")" + utils.getStringName(target));
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdRevokeBadge(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -1333,7 +1172,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -1363,11 +1202,10 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "/revokeBadge: you revoke badge #" + idx + " from (" + target + ")" + utils.getStringName(target));
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "/revokeBadge: you are UNABLE to revoke badge #" + idx + " from (" + target + ")" + utils.getStringName(target));
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdShowExperience(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -1401,12 +1239,6 @@ public class cmd extends script.base_script
     }
     public int cmdSetExperience(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -1415,7 +1247,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -1483,7 +1315,7 @@ public class cmd extends script.base_script
                     amt = -amt;
                 }
             }
-            else 
+            else
             {
                 amt = utils.stringToInt(sAmt);
                 if (amt == -1)
@@ -1500,7 +1332,6 @@ public class cmd extends script.base_script
                 xp.grantUnmodifiedExperience(target, xp_type, amt, "cmdSetExperienceResult", resultData);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public void showSetExperienceSyntax(obj_id self) throws InterruptedException
@@ -1510,84 +1341,56 @@ public class cmd extends script.base_script
     }
     public int cmdFindObject(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         obj_id objToFind = utils.stringToObjId(params);
         if (!isIdValid(objToFind))
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /findObject objid");
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "Searching for object: " + objToFind);
             gm.attachHandlerScript(self);
             findObjectAnywhere(objToFind, self);
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdFindObjectByTemplate(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         if (st.countTokens() != 1)
         {
             sendSystemMessageTestingOnly(self, "Format: findObjectByTemplate <template name>, like \"findObjectByTemplate object/mobile/meatlump_brother_lempi.iff\"");
         }
-        else 
+        else
         {
             String templateName = st.nextToken();
             sendConsoleMessage(self, "Searching for object by template name: " + templateName);
             gm.attachHandlerScript(self);
             findObjectAnywhereByTemplate(templateName, self);
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdFindPlayer(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         if (st.countTokens() != 1)
         {
             sendSystemMessageTestingOnly(self, "Format: findPlayer <player name|*>, where * will find all players");
         }
-        else 
+        else
         {
             String partialName = st.nextToken();
             sendConsoleMessage(self, "Searching for players with name containing: " + partialName);
             gm.attachHandlerScript(self);
             findPlayerAnywhereByPartialName(partialName, self);
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdFindWarden(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         sendConsoleMessage(self, "Searching for wardens");
         gm.attachHandlerScript(self);
         findWardenAnywhere(self);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdFindCreature(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -1597,7 +1400,7 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "Format: findCreature <creature name>, like \"findCreature gnort\"");
         }
-        else 
+        else
         {
             String creatureName = st.nextToken();
             sendConsoleMessage(self, "Searching for creature: " + creatureName);
@@ -1608,12 +1411,6 @@ public class cmd extends script.base_script
     }
     public int cmdWipeItems(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = self;
@@ -1622,7 +1419,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             target = self;
         }
@@ -1636,17 +1433,10 @@ public class cmd extends script.base_script
             utils.setScriptVar(self, gm.SCRIPTVAR_WIPEITEMS_TARGET, target);
             gm.attachHandlerScript(self);
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdAdjustLotCount(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             target = getLookAtTarget(self);
@@ -1666,7 +1456,7 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "Format: adjustLotCount <amount>");
         }
-        else 
+        else
         {
             String amount_str = st.nextToken();
             int amount = utils.stringToInt(amount_str);
@@ -1674,24 +1464,17 @@ public class cmd extends script.base_script
             int lots = getAccountNumLots(getPlayerObject(target));
             sendSystemMessageTestingOnly(self, "Lot count adjusted on " + target + " by " + amount + ". New lot count is " + lots);
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdEditBankAccount(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         LOG("LOG_CHANNEL", "cmdEditBankAccount");
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         if (st.countTokens() != 2)
         {
             sendSystemMessageTestingOnly(self, "Format: editMoney <player name> <amount>");
         }
-        else 
+        else
         {
             String name = st.nextToken();
             String amount_str = st.nextToken();
@@ -1700,7 +1483,7 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "Format: editMoney <player name> <amount>");
             }
-            else 
+            else
             {
                 LOG("LOG_CHANNEL", "handleEditBankAccount");
                 String firstName = name.toLowerCase();
@@ -1718,12 +1501,12 @@ public class cmd extends script.base_script
                         sendSystemMessageTestingOnly(self, "Requesting credit transfer of " + amount + " to " + firstName + " (" + playerId + ")");
                         CustomerServiceLog("money", getFirstName(self) + " (" + self + ") requested a transfer of " + amount + " credits to " + firstName + "(" + playerId + ")");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Transfer failed.");
                     }
                 }
-                else 
+                else
                 {
                     amount = amount * -1;
                     if (money.bankTo(playerId, money.ACCT_CUSTOMER_SERVICE, amount))
@@ -1734,17 +1517,10 @@ public class cmd extends script.base_script
                 }
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdSetHue(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         boolean parseTarget = false;
         if (!isIdValid(target))
         {
@@ -1754,19 +1530,19 @@ public class cmd extends script.base_script
                 target = ret.getObjId("oid");
                 params = ret.getString("params");
             }
-            else 
+            else
             {
                 showSetHueSyntax(self);
                 return SCRIPT_CONTINUE;
             }
         }
-        else 
+        else
         {
             if (params.indexOf(gm.KEYWORD_TARGET) > -1)
             {
                 params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
             }
-            else 
+            else
             {
                 showSetHueSyntax(self);
                 return SCRIPT_CONTINUE;
@@ -1813,7 +1589,7 @@ public class cmd extends script.base_script
             {
                 showVarIdxUI = false;
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "/setHue: (" + target + ")" + utils.getStringName(target) + " does not have var index #" + varIdx);
             }
@@ -1846,7 +1622,7 @@ public class cmd extends script.base_script
             {
                 showPalIdxUI = false;
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "/setHue: (" + target + ")" + utils.getStringName(target) + " pal range is " + min + " to " + max);
             }
@@ -1861,7 +1637,6 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "/setHue: attempting to hue " + target + "'s " + varIdxPath + " to " + palIdx);
             ri.setValue(palIdx);
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public void showSetHueSyntax(obj_id self) throws InterruptedException
@@ -1871,18 +1646,12 @@ public class cmd extends script.base_script
     }
     public int cmdGoto(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         dictionary d = new dictionary();
         if (params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /goto <target>");
         }
-        else 
+        else
         {
             StringTokenizer st = new StringTokenizer(params);
             String oid = st.nextToken();
@@ -1902,7 +1671,6 @@ public class cmd extends script.base_script
                 locateObject(obj, "onObjectLocateResponseForCmdGoto", d);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int onObjectLocateResponseForCmdGoto(obj_id self, dictionary params) throws InterruptedException
@@ -1916,12 +1684,6 @@ public class cmd extends script.base_script
     }
     public int cmdSetPlayerState(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target) || params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /setPlayerState -target (with lookat target)");
@@ -1931,24 +1693,17 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /setPlayerState -target (with lookat target)");
             return SCRIPT_CONTINUE;
         }
         gm.attachHandlerScript(self);
         gm.showSetPlayerStateUI(target);
-       }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdUnCityBan(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             if (params.indexOf(gm.KEYWORD_ID) > -1)
@@ -1957,12 +1712,12 @@ public class cmd extends script.base_script
                 target = ret.getObjId("oid");
                 params = ret.getString("params");
             }
-            else 
+            else
             {
                 target = self;
             }
         }
-        else 
+        else
         {
             if (params.indexOf(gm.KEYWORD_TARGET) > -1)
             {
@@ -1974,7 +1729,7 @@ public class cmd extends script.base_script
                 target = ret.getObjId("oid");
                 params = ret.getString("params");
             }
-            else 
+            else
             {
                 target = self;
             }
@@ -2002,22 +1757,14 @@ public class cmd extends script.base_script
             CustomerServiceLog("player_city", "CSR: %TU has unbanned %TT from " + cityGetName(cityID) + "(" + cityID + "/" + cityGetCityHall(cityID) + ")", self, target);
             return SCRIPT_CONTINUE;
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Error] /unCityBan: You were not able to unban " + getFirstName(target) + " from " + cityGetName(cityID));
             return SCRIPT_CONTINUE;
         }
-	   }
-	  return SCRIPT_CONTINUE;
     }
     public int cmdInvulnerable(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-       if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {		
         obj_id ship = getPilotedShip(self);
         if (hasObjVar(self, "invulnerable"))
         {
@@ -2029,7 +1776,7 @@ public class cmd extends script.base_script
             }
             sendSystemMessageTestingOnly(self, "Invulnerability[OFF]: You are no longer invulnerable.");
         }
-        else 
+        else
         {
             setObjVar(self, "invulnerable", 1);
             setInvulnerable(self, true);
@@ -2039,17 +1786,10 @@ public class cmd extends script.base_script
             }
             sendSystemMessageTestingOnly(self, "Invulnerability[ON]: You are now invulnerable.");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdSetTef(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target))
         {
             sendSystemMessageTestingOnly(self, "[Error] /setTEF: You must target a declared member of a PVP faction to use this command");
@@ -2059,7 +1799,7 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /setTEF -target");
             return SCRIPT_CONTINUE;
@@ -2088,17 +1828,10 @@ public class cmd extends script.base_script
         }
         pvpSetPersonalEnemyFlag(self, target);
         sendSystemMessageTestingOnly(self, "A temporary enemy flag has been set against your current target (OID: " + target + ")");
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdInitializeComponent(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         LOG("LOG_CHANNEL", "cmdInitializeComponent -- " + params);
         if (!isIdValid(target))
         {
@@ -2183,7 +1916,7 @@ public class cmd extends script.base_script
             {
                 prefix = new string_id("obj_n", "legendary_prefix");
             }
-            else 
+            else
             {
                 prefix = new string_id("obj_n", "exceptional_prefix");
             }
@@ -2192,17 +1925,10 @@ public class cmd extends script.base_script
         }
         CustomerServiceLog("loot", "CSR: %TU has created %TT at level " + level + " and at rarity bonus " + bonus, self, target);
         sendSystemMessageTestingOnly(self, "Component initialization complete.");
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGmWeapon(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         trace.log("Weapons", "gm.cmdGmWeapon -->> " + params, self, trace.TL_WARNING);
         if (params == null || params.length() < 1)
         {
@@ -2282,7 +2008,7 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "Error creating weapon with supplied ID (" + schematicId + ").");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Weapon " + schematicId + " created.");
             }
@@ -2321,7 +2047,7 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "Successfully created " + numUses + " use draft schematic for item " + schematicId + " for skill " + requiredSkill + ".");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Error creating limited use draft schematic for " + schematicId + ".");
             }
@@ -2335,21 +2061,14 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "	limUseSchematic <weapon_id> <numUses> <optional: skillRequired> -- Creates a limited use draft schematic.");
             return SCRIPT_CONTINUE;
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "format: /cmdGmWeapon <command> (params)   OR   /cmdGmWeapon ? for help");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGMFsVillage(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         trace.log(fs_dyn_village.LOG_CHAN, "gm.cmdGMFsVillage -->> " + params, self, trace.TL_WARNING);
         if (params == null || params.length() < 1)
         {
@@ -2448,7 +2167,7 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "Waypoint datapad created.");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Datapad creation failed.  Overloaded inventory, maybe?.");
             }
@@ -2461,7 +2180,7 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "Frequency datapad created.");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Datapad creation failed.  Overloaded inventory, maybe?.");
             }
@@ -2497,7 +2216,7 @@ public class cmd extends script.base_script
                     setObjVar(remote, fs_counterstrike.OBJVAR_CAMP_NAME, key);
                     utils.putInPlayerInventory(self, remote);
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "Remote creation failed.  Overloaded inventory, maybe?.");
                 }
@@ -2529,17 +2248,17 @@ public class cmd extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "All FS quest data cleared from " + target);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Data clear failed.");
                     }
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, usage);
                 }
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, usage);
             }
@@ -2642,33 +2361,33 @@ public class cmd extends script.base_script
             switch (typeCrc)
             {
                 case (317755815):
-                template = (938424352);
-                attribs.add("crafting_components.res_conductivity");
-                attribs.add("crafting_components.res_decay_resist");
-                attribs.add("crafting_components.res_quality");
-                attribs.add("crafting_components.res_shock_resistance");
-                break;
+                    template = (938424352);
+                    attribs.add("crafting_components.res_conductivity");
+                    attribs.add("crafting_components.res_decay_resist");
+                    attribs.add("crafting_components.res_quality");
+                    attribs.add("crafting_components.res_shock_resistance");
+                    break;
                 case (-1421690251):
-                template = (131111149);
-                attribs.add("crafting_components.res_potential_energy");
-                attribs.add("crafting_components.res_quality");
-                break;
+                    template = (131111149);
+                    attribs.add("crafting_components.res_potential_energy");
+                    attribs.add("crafting_components.res_quality");
+                    break;
                 case (-1146082608):
-                template = (-1867424837);
-                attribs.add("crafting_components.res_malleability");
-                attribs.add("crafting_components.res_quality");
-                break;
+                    template = (-1867424837);
+                    attribs.add("crafting_components.res_malleability");
+                    attribs.add("crafting_components.res_quality");
+                    break;
                 case (460212386):
-                template = (742613618);
-                attribs.add("crafting_components.res_potential_energy");
-                break;
+                    template = (742613618);
+                    attribs.add("crafting_components.res_potential_energy");
+                    break;
                 case (-847505801):
                 default:
-                template = (530364865);
-                attribs.add("crafting_components.res_malleability");
-                attribs.add("crafting_components.res_quality");
-                attribs.add("crafting_components.res_toughness");
-                break;
+                    template = (530364865);
+                    attribs.add("crafting_components.res_malleability");
+                    attribs.add("crafting_components.res_quality");
+                    attribs.add("crafting_components.res_toughness");
+                    break;
             }
             obj_id inventory = utils.getInventoryContainer(self);
             obj_id resource = createObject(template, inventory, "");
@@ -2679,7 +2398,7 @@ public class cmd extends script.base_script
                     setObjVar(resource, (String)(attribs.get(i)), rand(500, 1000));
                 }
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Error creating resource template crc " + template);
             }
@@ -2707,21 +2426,14 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "    unlockbranch -- unlocks a branch on the specified player.");
             return SCRIPT_CONTINUE;
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "Format: /gmFsVillage <command> (params)    /gmFsVillage ? for help");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGMForceRank(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         LOG("force_rank", "gm.cmdGMForceRank -- " + params);
         if (params == null || params.length() < 1)
         {
@@ -2758,7 +2470,7 @@ public class cmd extends script.base_script
                     LOG("force_rank", "Min XP for rank " + (curRank + 1) + " is " + (force_rank.getForceRankMinXp(curRank + 1)) + ".");
                     newXP = (int)Math.floor(force_rank.getForceRankMinXp(curRank + 1) * 1.5f);
                 }
-                else 
+                else
                 {
                     LOG("force_rank", "Min XP for rank " + (curRank + 2) + " is " + (force_rank.getForceRankMinXp(curRank + 2)) + ".");
                     newXP = (int)Math.floor(force_rank.getForceRankMinXp(curRank + 2) * 1.5f);
@@ -2766,7 +2478,7 @@ public class cmd extends script.base_script
                 force_rank.adjustForceRankXP(target, newXP - curXP);
                 sendSystemMessageTestingOnly(self, "Promotion initiated.  This may take a minute or so.");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Promotion failed.");
             }
@@ -2781,7 +2493,7 @@ public class cmd extends script.base_script
                     sendSystemMessageTestingOnly(self, "You must have a target or specify a player name.");
                     return SCRIPT_CONTINUE;
                 }
-                else 
+                else
                 {
                     String player_name = st.nextToken();
                     if (player_name == null || player_name.length() < 1)
@@ -2806,13 +2518,13 @@ public class cmd extends script.base_script
                         sendSystemMessageTestingOnly(self, "You cannot demote a player that is not of at least Rank 1.");
                         return SCRIPT_CONTINUE;
                     }
-                    else 
+                    else
                     {
                         if (force_rank.demoteForceRank(enclave, player_name, player_rank - 1))
                         {
                             sendSystemMessageTestingOnly(self, "Demotion initiated.  This may take a minute or so.");
                         }
-                        else 
+                        else
                         {
                             sendSystemMessageTestingOnly(self, "Demotion failed.");
                         }
@@ -2839,7 +2551,7 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "Demotion initiated.  This may take a minute or so.");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Demotion failed.");
             }
@@ -2853,7 +2565,7 @@ public class cmd extends script.base_script
                 sendSystemMessageTestingOnly(self, "Format: /gmForceRank pulseMaint <council>    1 for DARK, 2 for LIGHT");
                 return SCRIPT_CONTINUE;
             }
-            else 
+            else
             {
                 council = utils.stringToInt(st.nextToken());
                 if (council != 1 && council != 2)
@@ -2873,7 +2585,7 @@ public class cmd extends script.base_script
                 sendSystemMessageTestingOnly(self, "Format: /gmForceRank add <council>    1 for DARK, 2 for LIGHT");
                 return SCRIPT_CONTINUE;
             }
-            else 
+            else
             {
                 council = utils.stringToInt(st.nextToken());
                 if (council != 1 && council != 2)
@@ -2901,7 +2613,7 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "Add to FRS complete.");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Add to FRS failed.");
             }
@@ -2928,7 +2640,7 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "Removal complete.");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Removal failed.");
             }
@@ -3051,7 +2763,7 @@ public class cmd extends script.base_script
                 scores[rankIdx] = score;
                 setObjVar(target, arena.VAR_RANK_CHALLENGE_SCORES, scores);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Format: /gmForceRank setChallengeScore <rank 2-11> <score>");
                 return SCRIPT_CONTINUE;
@@ -3072,11 +2784,10 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "	setChallengeScore -- sets the challenge score for a given rank. (God level 10)");
             return SCRIPT_CONTINUE;
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "format: /gmForceRank <command>    /gmForceRank ? for help");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int msgGotIntResponse(obj_id self, dictionary params) throws InterruptedException
@@ -3101,7 +2812,7 @@ public class cmd extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "Failed to find integer '" + key + "' cluster wide data.  Value might not have been registered yet.");
         }
@@ -3208,7 +2919,7 @@ public class cmd extends script.base_script
             {
                 loc = campLocs[i];
             }
-            else 
+            else
             {
                 loc = null;
             }
@@ -3220,7 +2931,7 @@ public class cmd extends script.base_script
             {
                 id = campIds[i];
             }
-            else 
+            else
             {
                 id = null;
             }
@@ -3230,12 +2941,6 @@ public class cmd extends script.base_script
     }
     public int msgActivatePhase(obj_id self, dictionary params) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!utils.hasScriptVar(self, "gm.cmd.fs_village.wantPhase"))
         {
             return SCRIPT_CONTINUE;
@@ -3265,8 +2970,7 @@ public class cmd extends script.base_script
         fs_dyn_village.setNextPhaseAuth(target, phase);
         fs_dyn_village.pushAndInitPhase(target);
         sendSystemMessageGalaxyOob("If you are currently on a Force Sensititivy training quest, you should log out now and log back in at this time.  The village phase has been changed and you will not be able to complete your current quest at this time.");
-       }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int msgGotIdResponse(obj_id self, dictionary params) throws InterruptedException
     {
@@ -3290,7 +2994,7 @@ public class cmd extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "Failed to find obj id '" + key + "' cluster wide data.  Id might not have been registered yet.");
         }
@@ -3310,7 +3014,7 @@ public class cmd extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "Successfully registered " + id + " under key " + key);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "FAILED to register " + id + " under key " + key);
         }
@@ -3406,12 +3110,6 @@ public class cmd extends script.base_script
     }
     public int cmdHasVeteranReward(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!("true").equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
         {
             return SCRIPT_CONTINUE;
@@ -3430,27 +3128,20 @@ public class cmd extends script.base_script
                 {
                     sendSystemMessage(self, veteran_deprecated.SID_HAS_MILESTONE);
                 }
-                else 
+                else
                 {
                     sendSystemMessage(self, veteran_deprecated.SID_HAS_NOT_MILESTONE);
                 }
             }
-            else 
+            else
             {
                 sendSystemMessage(self, veteran_deprecated.SID_MILESTONE_OUT_OF_RANGE);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdSetVeteranReward(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!("true").equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
         {
             return SCRIPT_CONTINUE;
@@ -3469,22 +3160,15 @@ public class cmd extends script.base_script
                 veteran_deprecated.setVeteranMilestone(target, milestone);
                 sendSystemMessage(self, veteran_deprecated.SID_OK);
             }
-            else 
+            else
             {
                 sendSystemMessage(self, veteran_deprecated.SID_MILESTONE_OUT_OF_RANGE);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdClearVeteranReward(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!("true").equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
         {
             return SCRIPT_CONTINUE;
@@ -3503,22 +3187,15 @@ public class cmd extends script.base_script
                 veteran_deprecated.clearVeteranMilestone(target, milestone);
                 sendSystemMessage(self, veteran_deprecated.SID_OK);
             }
-            else 
+            else
             {
                 sendSystemMessage(self, veteran_deprecated.SID_MILESTONE_OUT_OF_RANGE);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdOverrideActiveMonths(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!("true").equalsIgnoreCase(getConfigSetting("GameServer", "enableVeteranRewards")))
         {
             return SCRIPT_CONTINUE;
@@ -3537,7 +3214,7 @@ public class cmd extends script.base_script
                 removeObjVar(self, veteran_deprecated.OBJVAR_TIME_ACTIVE);
                 sendSystemMessage(self, veteran_deprecated.SID_ACTIVE_MONTHS_CLEARED);
             }
-            else 
+            else
             {
                 int days = months * veteran_deprecated.DAYS_PER_MONTH;
                 setObjVar(self, veteran_deprecated.OBJVAR_FAKE_VETERAN_TOTAL_TIME, days);
@@ -3548,7 +3225,6 @@ public class cmd extends script.base_script
                 sendSystemMessage(self, veteran_deprecated.SID_OK);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int parseMilestone(String params) throws InterruptedException
@@ -3558,25 +3234,19 @@ public class cmd extends script.base_script
         switch (st.countTokens())
         {
             case 1:
-            milestone = st.nextToken();
-            break;
+                milestone = st.nextToken();
+                break;
             case 2:
-            st.nextToken();
-            milestone = st.nextToken();
-            break;
+                st.nextToken();
+                milestone = st.nextToken();
+                break;
             default:
-            return -1;
+                return -1;
         }
         return (Integer.valueOf(milestone)).intValue();
     }
     public int cmdResetJedi(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target) || params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /resetJedi -target (with lookat target)");
@@ -3586,28 +3256,21 @@ public class cmd extends script.base_script
         {
             params = gm.removeKeyword(params, gm.KEYWORD_TARGET);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /resetJedi -target (with lookat target)");
             return SCRIPT_CONTINUE;
         }
         gm.cmdResetJedi(target);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdDeactivateQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target) || params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[syntax] /deactivateQuest <questName>");
         }
-        else 
+        else
         {
             LOG("newquests", "deactivating quest " + params + " for " + target);
             int id = quests.getQuestId(params);
@@ -3616,27 +3279,20 @@ public class cmd extends script.base_script
                 quests.deactivate(params, target);
                 sendSystemMessageTestingOnly(self, "deactivated quest " + params);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "failed to find quest " + params);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdActivateQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target) || params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[syntax] /activateQuest <questName>");
         }
-        else 
+        else
         {
             LOG("newquests", "activating quest " + params + " for " + target);
             int id = quests.getQuestId(params);
@@ -3645,27 +3301,20 @@ public class cmd extends script.base_script
                 quests.activate(params, target, null);
                 sendSystemMessageTestingOnly(self, "activated quest " + params);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "failed to find quest " + params);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdListActiveQuests(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target))
         {
             sendSystemMessageTestingOnly(self, "[syntax] /listActiveQuests");
         }
-        else 
+        else
         {
             String datatable = "datatables/player/quests.iff";
             int rows = dataTableGetNumRows(datatable);
@@ -3685,7 +3334,7 @@ public class cmd extends script.base_script
                         {
                             msg += questName;
                         }
-                        else 
+                        else
                         {
                             msg += "unknown";
                         }
@@ -3694,7 +3343,7 @@ public class cmd extends script.base_script
                         {
                             msg += questSummary;
                         }
-                        else 
+                        else
                         {
                             msg += "missing summary string";
                         }
@@ -3706,28 +3355,21 @@ public class cmd extends script.base_script
                     sendSystemMessageTestingOnly(self, "no active quests");
                 }
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "no active quests");
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdClearCompletedQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         LOG("newquests", "received /clearCompletedQuest");
         if (!isIdValid(target) || !isPlayer(target) || params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[syntax] /clearCompletedQuest <questName>");
         }
-        else 
+        else
         {
             LOG("newquests", "clearing quest " + params + " for " + target);
             int id = quests.getQuestId(params);
@@ -3737,28 +3379,21 @@ public class cmd extends script.base_script
                 sendSystemMessageTestingOnly(self, "cleared quest " + params);
                 LOG("newquests", "cleared quest " + params + " for player " + target);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "failed to find quest " + params);
                 LOG("newquests", "failed to clear quest " + params + " for player " + target);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdCompleteQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target) || params == null || params.equalsIgnoreCase(""))
         {
             sendSystemMessageTestingOnly(self, "[syntax] /deactivateQuest <questName>");
         }
-        else 
+        else
         {
             LOG("newquests", "deactivating quest " + params + " for " + target);
             int id = quests.getQuestId(params);
@@ -3767,27 +3402,20 @@ public class cmd extends script.base_script
                 quests.complete(params, target, true);
                 sendSystemMessageTestingOnly(self, "completed quest " + params);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "failed to find quest " + params);
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdListCompletedQuests(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isIdValid(target) || !isPlayer(target))
         {
             sendSystemMessageTestingOnly(self, "[syntax] /listActiveQuests");
         }
-        else 
+        else
         {
             String datatable = "datatables/player/quests.iff";
             int rows = dataTableGetNumRows(datatable);
@@ -3807,7 +3435,7 @@ public class cmd extends script.base_script
                         {
                             msg += questName;
                         }
-                        else 
+                        else
                         {
                             msg += "unknown";
                         }
@@ -3816,7 +3444,7 @@ public class cmd extends script.base_script
                         {
                             msg += questSummary;
                         }
-                        else 
+                        else
                         {
                             msg += "missing summary string";
                         }
@@ -3828,53 +3456,46 @@ public class cmd extends script.base_script
                     sendSystemMessageTestingOnly(self, "no complete quests");
                 }
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "no complete quests");
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGrantPadawanTrialsEligibility(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
-        String[] fs_skills = 
-        {
-            "force_title_jedi_novice",
-            "force_sensitive_combat_prowess_novice",
-            "force_sensitive_combat_prowess_melee_accuracy_01",
-            "force_sensitive_combat_prowess_melee_accuracy_02",
-            "force_sensitive_combat_prowess_melee_accuracy_03",
-            "force_sensitive_combat_prowess_melee_accuracy_04",
-            "force_sensitive_combat_prowess_melee_speed_01",
-            "force_sensitive_combat_prowess_melee_speed_02",
-            "force_sensitive_combat_prowess_melee_speed_03",
-            "force_sensitive_combat_prowess_melee_speed_04",
-            "force_sensitive_enhanced_reflexes_novice",
-            "force_sensitive_enhanced_reflexes_ranged_defense_01",
-            "force_sensitive_enhanced_reflexes_ranged_defense_02",
-            "force_sensitive_enhanced_reflexes_ranged_defense_03",
-            "force_sensitive_enhanced_reflexes_ranged_defense_04",
-            "force_sensitive_enhanced_reflexes_melee_defense_01",
-            "force_sensitive_enhanced_reflexes_melee_defense_02",
-            "force_sensitive_enhanced_reflexes_melee_defense_03",
-            "force_sensitive_enhanced_reflexes_melee_defense_04",
-            "force_sensitive_heightened_senses_novice",
-            "force_sensitive_heightened_senses_surveying_01",
-            "force_sensitive_heightened_senses_surveying_02",
-            "force_sensitive_heightened_senses_surveying_03",
-            "force_sensitive_heightened_senses_surveying_04",
-            "force_sensitive_heightened_senses_luck_01",
-            "force_sensitive_heightened_senses_luck_02",
-            "force_sensitive_heightened_senses_luck_03",
-            "force_sensitive_heightened_senses_luck_04"
-        };
+        String[] fs_skills =
+                {
+                        "force_title_jedi_novice",
+                        "force_sensitive_combat_prowess_novice",
+                        "force_sensitive_combat_prowess_melee_accuracy_01",
+                        "force_sensitive_combat_prowess_melee_accuracy_02",
+                        "force_sensitive_combat_prowess_melee_accuracy_03",
+                        "force_sensitive_combat_prowess_melee_accuracy_04",
+                        "force_sensitive_combat_prowess_melee_speed_01",
+                        "force_sensitive_combat_prowess_melee_speed_02",
+                        "force_sensitive_combat_prowess_melee_speed_03",
+                        "force_sensitive_combat_prowess_melee_speed_04",
+                        "force_sensitive_enhanced_reflexes_novice",
+                        "force_sensitive_enhanced_reflexes_ranged_defense_01",
+                        "force_sensitive_enhanced_reflexes_ranged_defense_02",
+                        "force_sensitive_enhanced_reflexes_ranged_defense_03",
+                        "force_sensitive_enhanced_reflexes_ranged_defense_04",
+                        "force_sensitive_enhanced_reflexes_melee_defense_01",
+                        "force_sensitive_enhanced_reflexes_melee_defense_02",
+                        "force_sensitive_enhanced_reflexes_melee_defense_03",
+                        "force_sensitive_enhanced_reflexes_melee_defense_04",
+                        "force_sensitive_heightened_senses_novice",
+                        "force_sensitive_heightened_senses_surveying_01",
+                        "force_sensitive_heightened_senses_surveying_02",
+                        "force_sensitive_heightened_senses_surveying_03",
+                        "force_sensitive_heightened_senses_surveying_04",
+                        "force_sensitive_heightened_senses_luck_01",
+                        "force_sensitive_heightened_senses_luck_02",
+                        "force_sensitive_heightened_senses_luck_03",
+                        "force_sensitive_heightened_senses_luck_04"
+                };
         fs_quests.makeVillageEligible(self);
         setJediState(self, JEDI_STATE_FORCE_SENSITIVE);
         for (int i = 0; i < fs_skills.length; i++)
@@ -3892,7 +3513,6 @@ public class cmd extends script.base_script
         }
         String str_msg = "You have been granted eligibility for the Jedi Padawan trials." + " This included being given the required skills and flags that mark eligibility.";
         sendSystemMessage(self, str_msg, "");
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGetGameTime(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -3902,12 +3522,6 @@ public class cmd extends script.base_script
     }
     public int gmJediState(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (params == null || params.length() < 1)
         {
             sendSystemMessageTestingOnly(self, "format: /gmJediState <command>    /gmJediState ? for help");
@@ -3932,20 +3546,20 @@ public class cmd extends script.base_script
             switch (jedi_state)
             {
                 case JEDI_STATE_FORCE_SENSITIVE:
-                sendSystemMessageTestingOnly(self, getFirstName(target) + " is Force-sensitive.");
-                break;
+                    sendSystemMessageTestingOnly(self, getFirstName(target) + " is Force-sensitive.");
+                    break;
                 case JEDI_STATE_JEDI:
-                sendSystemMessageTestingOnly(self, getFirstName(target) + " is a Jedi.");
-                break;
+                    sendSystemMessageTestingOnly(self, getFirstName(target) + " is a Jedi.");
+                    break;
                 case JEDI_STATE_FORCE_RANKED_LIGHT:
-                sendSystemMessageTestingOnly(self, getFirstName(target) + " is a Light Jedi Knight.");
-                break;
+                    sendSystemMessageTestingOnly(self, getFirstName(target) + " is a Light Jedi Knight.");
+                    break;
                 case JEDI_STATE_FORCE_RANKED_DARK:
-                sendSystemMessageTestingOnly(self, getFirstName(target) + " is a Dark Jedi Knight.");
-                break;
+                    sendSystemMessageTestingOnly(self, getFirstName(target) + " is a Dark Jedi Knight.");
+                    break;
                 default:
-                sendSystemMessageTestingOnly(self, getFirstName(target) + " is not a Jedi.");
-                break;
+                    sendSystemMessageTestingOnly(self, getFirstName(target) + " is not a Jedi.");
+                    break;
             }
             sendSystemMessageTestingOnly(self, "(isJedi returns " + isJedi(target) + ")");
             return SCRIPT_CONTINUE;
@@ -3979,17 +3593,10 @@ public class cmd extends script.base_script
             return SCRIPT_CONTINUE;
         }
         sendSystemMessageTestingOnly(self, "format: /gmJediState <command>    /gmJediState ? for help");
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdSetGroupXPBonus(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isGod(self))
         {
             return SCRIPT_CONTINUE;
@@ -4027,17 +3634,10 @@ public class cmd extends script.base_script
             }
         }
         sendSystemMessageTestingOnly(self, "Test group XP bonus set to " + bonus);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdCreateStaticItem(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (params == null || params.length() < 1)
         {
             sendSystemMessageTestingOnly(self, "format: /CreateStaticItem <NAME> <COUNT>");
@@ -4069,7 +3669,7 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "Error creating static item with supplied NAME (" + itemName + ").");
             CustomerServiceLog("loot", "CSR: (" + getFirstName(self) + ")(" + self + ") tried to create  a static item but the Item Name was bad (" + itemName + ")");
         }
-        else 
+        else
         {
             obj_id inventory = utils.getInventoryContainer(self);
             boolean canAutoStack = false;
@@ -4093,7 +3693,7 @@ public class cmd extends script.base_script
                     staticItemId = static_item.createNewItemFunction(itemName, inventory, tempCount);
                 }
             }
-            else 
+            else
             {
                 staticItemId = static_item.createNewItemFunction(itemName, inventory);
             }
@@ -4104,29 +3704,22 @@ public class cmd extends script.base_script
                     sendSystemMessageTestingOnly(self, "Static Item " + itemName + " (x" + count + ") created in your inventory.");
                     CustomerServiceLog("loot", "CSR: (" + getFirstName(self) + ")(" + self + ") has created (" + itemName + " [x" + count + "])");
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "Static Item " + itemName + " created in your inventory.");
                     CustomerServiceLog("loot", "CSR: (" + getFirstName(self) + ")(" + self + ") has created (" + itemName + ")");
                 }
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Error creating static item with supplied NAME (" + itemName + ").");
                 CustomerServiceLog("loot", "CSR: (" + getFirstName(self) + ")(" + self + ") tried to create  a static item but the Item Name was bad (" + itemName + ")");
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdDumpTargetInformation(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         sendSystemMessageTestingOnly(self, "targetis " + params);
         if (!isIdValid(target))
         {
@@ -4165,17 +3758,10 @@ public class cmd extends script.base_script
         {
             sendConsoleMessage(self, strTest);
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdDumpObjectInformation(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         obj_id oid = obj_id.NULL_ID;
         String filename = null;
@@ -4203,52 +3789,31 @@ public class cmd extends script.base_script
                     saveTextOnClient(self, filename, dumpString);
                 }
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "/dumpObjectInformation: oid " + oid + " does not exist on this server");
             }
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /dumpObjectInformation <oid> [filename]");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdNpeGotoMedicalBay(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         sendSystemMessageTestingOnly(self, "Sending you to a medical bay instance");
         sendPlayerToTutorial(self);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdNpeGotoMilleniumFalcon(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         sendSystemMessageTestingOnly(self, "Sending you to a millenium falcon instance");
         npe.movePlayerFromHangarToFalcon(self);
-       }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdNpeGotoTansariiStation(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         int instanceId = 0;
         if (st.hasMoreTokens())
@@ -4256,23 +3821,16 @@ public class cmd extends script.base_script
             instanceId = utils.stringToInt(st.nextToken());
             sendSystemMessageTestingOnly(self, "Sending you to Tansarii station instance number " + instanceId);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "Sending you to Tansarii station instance number 0. Pass in the index to a specific instance if you are looking for a specific one.");
         }
         utils.setScriptVar(self, npe.SCRIPT_VAR_INSTANCE_OVERRIDE, instanceId);
         npe.movePlayerFromFalconToSharedStation(self);
-	   }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdNpeGotoStationGamma(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         java.util.StringTokenizer st = new java.util.StringTokenizer(params);
         int instanceId = 0;
         if (st.hasMoreTokens())
@@ -4280,36 +3838,22 @@ public class cmd extends script.base_script
             instanceId = utils.stringToInt(st.nextToken());
             sendSystemMessageTestingOnly(self, "Sending you to station Gamma instance number " + instanceId);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "Sending you to station Gamma instance number 0. Pass in the index to a specific instance if you are looking for a specific one.");
         }
         utils.setScriptVar(self, npe.SCRIPT_VAR_INSTANCE_OVERRIDE, instanceId);
         npe.movePlayerFromOrdMantellSpaceToOrdMantellDungeon(self);
-       }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdStartRestussStageTwo(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         attachScript(self, "systems.cw_data.cluster_wide_response_manager");
         getClusterWideData("event", "restuss_event", true, self);
-       }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdCompleteRestussStageOne(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         obj_id[] objects = getAllObjectsWithObjVar(getLocation(self), 200.0f, "element");
         if (objects == null || objects.length == 0)
         {
@@ -4363,17 +3907,10 @@ public class cmd extends script.base_script
                 continue;
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGmShowQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         StringTokenizer st = new java.util.StringTokenizer(params);
         String playerOid = "";
         String logFile = "";
@@ -4413,26 +3950,19 @@ public class cmd extends script.base_script
                     }
                 }
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Please check the OID and try again");
             }
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /gmshowquest <player OID>");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGmClearQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         StringTokenizer st = new java.util.StringTokenizer(params);
         String playerOid = "";
         String questVar = "";
@@ -4452,26 +3982,19 @@ public class cmd extends script.base_script
                 gm.forceClearQuest(targetOid, questVar);
                 CustomerServiceLog("gmQuest", "CSR: (" + self + ") " + getName(self) + " has cleared (or attempted to clear) quest (" + questVar + ") from (" + targetOid + ") " + utils.getStringName(targetOid));
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Please check the OID and try again");
             }
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /gmclearquest <player OID> <quest/code_string>");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdGmRegrantQuest(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         StringTokenizer st = new java.util.StringTokenizer(params);
         String playerOid = "";
         String questVar = "";
@@ -4491,26 +4014,19 @@ public class cmd extends script.base_script
                 gm.forceRegrantQuest(targetOid, questVar);
                 CustomerServiceLog("gmQuest", "CSR: (" + self + ") " + getName(self) + " has cleared and granted (or attempted to clear and grant) quest (" + questVar + ") from (" + targetOid + ") " + utils.getStringName(targetOid));
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "Please check the OID and try again");
             }
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(self, "[Syntax] /gmregrantquest <player OID> <quest/code_string>");
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdSetInstanceAuthorized(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isGod(self))
         {
             return SCRIPT_CONTINUE;
@@ -4523,17 +4039,10 @@ public class cmd extends script.base_script
         }
         utils.setScriptVar(self, gm.INSTANCE_AUTH, 1);
         sendSystemMessageTestingOnly(self, "You are now overriding private instance authorization checks");
-       }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdCombatDataRecord(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isGod(self))
         {
             return SCRIPT_CONTINUE;
@@ -4543,7 +4052,7 @@ public class cmd extends script.base_script
         {
             message += "Already recording combat data.";
         }
-        else 
+        else
         {
             utils.setScriptVar(self, "testing_recordCombatData", true);
             message += "Now recording yourcombat data. \n";
@@ -4552,17 +4061,10 @@ public class cmd extends script.base_script
             message += "Use /combatDataStop to stop recording combat data.";
         }
         sendSystemMessage(self, message, "");
-	   }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdCombatDataClear(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isGod(self))
         {
             return SCRIPT_CONTINUE;
@@ -4573,37 +4075,23 @@ public class cmd extends script.base_script
             sendSystemMessage(self, new string_id("target_dummy", "combat_data_all_clearing"));
             sendSystemMessage(self, new string_id("target_dummy", "combat_data_all_cleared"));
         }
-        else 
+        else
         {
             sendSystemMessage(self, new string_id("target_dummy", "placement_no_combat_data"));
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdCombatDataReport(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isGod(self))
         {
             return SCRIPT_CONTINUE;
         }
         target_dummy.reportCombatData(self, self);
-	   }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdCombatDataStop(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         if (!isGod(self))
         {
             return SCRIPT_CONTINUE;
@@ -4613,21 +4101,14 @@ public class cmd extends script.base_script
             utils.removeScriptVar(self, "testing_recordCombatData");
             sendSystemMessage(self, "No longer recording combat data.", "");
         }
-        else 
+        else
         {
             sendSystemMessage(self, "Not currently recording combat data.", "");
         }
-	   }
-		return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE;
     }
     public int cmdCsDumpTarget(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
         StringTokenizer st = new java.util.StringTokenizer(params);
         String strObjectOid = "";
         if (st.hasMoreTokens())
@@ -4641,12 +4122,12 @@ public class cmd extends script.base_script
             {
                 sendSystemMessageTestingOnly(self, "The OID you specified is invalid.");
             }
-            else 
+            else
             {
                 createDumpFile(self, objectOid);
             }
         }
-        else 
+        else
         {
             obj_id lookAtTarget = dump.findDumpTarget(self);
             if (!isIdValid(lookAtTarget))
@@ -4657,12 +4138,11 @@ public class cmd extends script.base_script
             {
                 createDumpFile(self, lookAtTarget);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(self, "you must have a valid target to use this command.");
             }
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public void createDumpFile(obj_id self, obj_id targetObject) throws InterruptedException
@@ -4690,11 +4170,11 @@ public class cmd extends script.base_script
     }
     public int cmdSetGalaxyMessage(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (getGodLevel(self) < 40)
+        if (getGodLevel(self) < 10)
         {
             sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
         }
-        else 
+        else
         {
             String commandParams = params;
             if (commandParams != null && !commandParams.equals(""))
@@ -4715,7 +4195,7 @@ public class cmd extends script.base_script
                         sendConsoleMessage(self, strMessage);
                         CustomerServiceLog("setGalaxyMessage", "CSR: (" + self + ") " + getName(self) + " has retrieved the object ID for the Galaxy-wide message.");
                     }
-                    else 
+                    else
                     {
                         if (commandParams.indexOf("set") == 0 && commandParams.length() > 4)
                         {
@@ -4728,12 +4208,12 @@ public class cmd extends script.base_script
                         }
                     }
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "The tool failed to find the proper planet object. Notify the tool team.");
                 }
             }
-            else 
+            else
             {
                 sendConsoleMessage(self, "To set the Galaxy-wide message use the /setLoginMessage command followed by one of the followind commands:");
                 sendConsoleMessage(self, "\t1. set <your string here> - sets the login message to a string you specify.");
@@ -4746,11 +4226,11 @@ public class cmd extends script.base_script
     }
     public int cmdSetWardenGalaxyMessage(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (getGodLevel(self) < 40)
+        if (getGodLevel(self) < 10)
         {
             sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
         }
-        else 
+        else
         {
             String commandParams = params;
             if (commandParams != null && !commandParams.equals(""))
@@ -4771,7 +4251,7 @@ public class cmd extends script.base_script
                         sendConsoleMessage(self, strMessage);
                         CustomerServiceLog("setGalaxyMessage", "CSR: (" + self + ") " + getName(self) + " has retrieved the object ID for the warden Galaxy-wide message.");
                     }
-                    else 
+                    else
                     {
                         if (commandParams.indexOf("set") == 0 && commandParams.length() > 4)
                         {
@@ -4784,12 +4264,12 @@ public class cmd extends script.base_script
                         }
                     }
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(self, "The tool failed to find the proper planet object. Notify the tool team.");
                 }
             }
-            else 
+            else
             {
                 sendConsoleMessage(self, "To set the warden Galaxy-wide message use the /setWardenLoginMessage command followed by one of the followind commands:");
                 sendConsoleMessage(self, "\t1. set <your string here> - sets the warden login message to a string you specify.");
