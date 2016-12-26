@@ -39,6 +39,13 @@ public class mjensen_test extends script.base_script
     public mjensen_test()
     {
     }
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.mjensen_test");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnSpeaking(obj_id self, String text) throws InterruptedException
     {
         java.util.StringTokenizer tok = new java.util.StringTokenizer(text);

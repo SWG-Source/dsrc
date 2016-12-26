@@ -19,6 +19,13 @@ public class msivertson_test extends script.base_script
     public msivertson_test()
     {
     }
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.msivertson_test");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public void maxStats(obj_id objPlayer) throws InterruptedException
     {
         addAttribModifier(objPlayer, HEALTH, 2000, 0, 0, MOD_POOL);

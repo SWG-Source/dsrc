@@ -51,6 +51,13 @@ public class mitigation extends script.base_script
         "DAMAGE_ENVIRONMENTAL_ACID",
         "DAMAGE_ENVIRONMENTAL_ELECTRICAL"
     };
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 10) {
+            detachScript(self, "test.mitigation");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnSpeaking(obj_id self, String text) throws InterruptedException
     {
         if (isGod(self))

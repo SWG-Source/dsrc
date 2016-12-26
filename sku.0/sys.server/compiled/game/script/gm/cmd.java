@@ -126,6 +126,7 @@ public class cmd extends script.base_script
     }
     public int cmdMoney(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        if(!isGod(self)) return SCRIPT_CONTINUE;
         dictionary d = gm.parseTarget(params, target, "CREDITS");
         if (d == null)
         {
@@ -203,11 +204,13 @@ public class cmd extends script.base_script
     }
     public int cmdBroadcast(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        if(!isGod(self)) return SCRIPT_CONTINUE;
         queueCommand(self, (-351572629), target, params, COMMAND_PRIORITY_DEFAULT);
         return SCRIPT_CONTINUE;
     }
     public int cmdBroadcastPlanet(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        if(!isGod(self)) return SCRIPT_CONTINUE;
         if (params != null && !params.equalsIgnoreCase(""))
         {
             sendSystemMessagePlanetTestingOnly(params);
@@ -221,6 +224,7 @@ public class cmd extends script.base_script
     }
     public int cmdBroadcastGalaxy(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
+        if(!isGod(self)) return SCRIPT_CONTINUE;
         if (params != null && !params.equalsIgnoreCase(""))
         {
             sendSystemMessageGalaxyTestingOnly(params);

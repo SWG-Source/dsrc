@@ -59,6 +59,9 @@ public class char_transfer extends script.base.remote_object_requester
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        if (!isGod(self) || getGodLevel(self) < 10 || !isPlayer(self)) {
+            detachScript(self, "test.char_transfer");
+        }
         debugConsoleMsg(self, "char_transfer attached!");
         return SCRIPT_CONTINUE;
     }
