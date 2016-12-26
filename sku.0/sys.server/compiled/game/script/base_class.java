@@ -22318,10 +22318,10 @@ public class base_class
         _updateVendorStatus(getLongWithNull(vendor), status);
     }
 
-    private static native void _sendScriptVarsToProxies(long obj, byte[] deltaBuffer);
-    public static void sendScriptVarsToProxies(obj_id obj, byte[] deltaBuffer)
+    private static native boolean _sendScriptVarsToProxies(long obj, byte[] deltaBuffer);
+    public static boolean sendScriptVarsToProxies(obj_id obj, byte[] deltaBuffer)
     {
-        _sendScriptVarsToProxies(getLongWithNull(obj), deltaBuffer);
+        return _sendScriptVarsToProxies(getLongWithNull(obj), deltaBuffer);
     }
 
     /** Get the scriptVars deltadictionary from an obj_id
