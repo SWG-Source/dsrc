@@ -13,6 +13,12 @@ public class buy_box extends script.base_script
     public buy_box()
     {
     }
+    public int OnAttach(obj_id self) throws InterruptedException {
+        if (!isGod(self) || getGodLevel(self) < 10 || !isPlayer(self)) {
+            detachScript(self, "test.buy_box");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
         LOG("tony_test", "player " + player + " item " + item);

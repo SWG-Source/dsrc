@@ -39,7 +39,10 @@ public class mfarone_test extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        if (hasObjVar(self, "idiot_testing"))
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.mfarone_test");
+        }
+        else if (hasObjVar(self, "idiot_testing"))
         {
             sendSystemMessage(self, "mfarone_test script attached.", "");
         }

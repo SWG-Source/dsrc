@@ -148,12 +148,7 @@ public class cmd extends script.base_script
     }
     public int cmdMoney(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 10)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
+        if(!isGod(self)) return SCRIPT_CONTINUE;
         dictionary d = gm.parseTarget(params, target, "CREDITS");
         if (d == null)
         {
@@ -222,7 +217,6 @@ public class cmd extends script.base_script
             }
         }
         showMoneySyntax(self);
-	   }
         return SCRIPT_CONTINUE;
     }
     public void showMoneySyntax(obj_id self) throws InterruptedException
@@ -232,24 +226,13 @@ public class cmd extends script.base_script
     }
     public int cmdBroadcast(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
+        if(!isGod(self)) return SCRIPT_CONTINUE;
         queueCommand(self, (-351572629), target, params, COMMAND_PRIORITY_DEFAULT);
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdBroadcastPlanet(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
+        if(!isGod(self)) return SCRIPT_CONTINUE;
         if (params != null && !params.equalsIgnoreCase(""))
         {
             sendSystemMessagePlanetTestingOnly(params);
@@ -259,17 +242,11 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Syntax] /broadcastPlanet <message>");
             return SCRIPT_CONTINUE;
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdBroadcastGalaxy(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-	   if (getGodLevel(self) < 40)
-       {
-            sendSystemMessage(self, "You do not have the appropriate access level to use this command.", null);
-       }
-       else 
-       {
+        if(!isGod(self)) return SCRIPT_CONTINUE;
         if (params != null && !params.equalsIgnoreCase(""))
         {
             sendSystemMessageGalaxyTestingOnly(params);
@@ -279,7 +256,6 @@ public class cmd extends script.base_script
             sendSystemMessageTestingOnly(self, "[Syntax] /broadcastGalaxy <message>");
             return SCRIPT_CONTINUE;
         }
-	   }
         return SCRIPT_CONTINUE;
     }
     public int cmdBroadcastArea(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException

@@ -34,6 +34,13 @@ public class mbogue_test extends script.base_script
     public static final String s_usageSpaceUnitSetTargetOrders = "Usage: spaceUnitSetTargetOrders <unitObjId> <int>";
     public static final String s_usageSpaceUnitSetSquad = "Usage: spaceUnitSetSquad <unitObjId> <int>";
     public static final String s_usageSpaceSquadAddPatrolPath = "Usage: spaceSquadAddPatrolPath <int>";
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.mbogue_test");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnSpeaking(obj_id self, String text) throws InterruptedException
     {
         if (isGod(self))

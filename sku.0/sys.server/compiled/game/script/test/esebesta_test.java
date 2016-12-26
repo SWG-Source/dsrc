@@ -444,6 +444,9 @@ public class esebesta_test extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.esebesta_test");
+        }
         return SCRIPT_CONTINUE;
     }
     public int OnFormCreateObject(obj_id self, String templateName, float xLoc, float yLoc, float zLoc, obj_id cell, String[] keys, String[] values) throws InterruptedException

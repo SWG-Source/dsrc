@@ -306,7 +306,12 @@ public class swyckoff_test extends script.base.remote_object_requester
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        debugConsoleMsg(self, "attached swyckoff_test");
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.swyckoff_test");
+        }
+        else {
+            debugConsoleMsg(self, "attached swyckoff_test");
+        }
         return SCRIPT_CONTINUE;
     }
     public int startPerform(obj_id self, dictionary params) throws InterruptedException

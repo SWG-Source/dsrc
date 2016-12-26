@@ -18,8 +18,13 @@ public class test_sui extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        debugSpeakMsg(self, "test_sui: attached!");
-        debugServerConsoleMsg(self, "test_sui: attached!");
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.test_sui");
+        }
+        else{
+            debugSpeakMsg(self, "test_sui: attached!");
+            debugServerConsoleMsg(self, "test_sui: attached!");
+        }
         return SCRIPT_CONTINUE;
     }
     public int OnDetach(obj_id self) throws InterruptedException
