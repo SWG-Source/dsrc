@@ -836,14 +836,6 @@ public class droid_deed extends script.base_script
             obj_id pet = create.object(creatureName, getLocation(player));
             if (!isIdValid(pet))
             {
-                debugServerConsoleMsg(pet, "Script Exception: invalid object found (droid_deed).");
-                debugServerConsoleMsg(pet, "Unable to call droid pet.");
-                debugServerConsoleMsg(pet, "Pet = " + pet.toString());
-                debugServerConsoleMsg(pet, "Pet's Name: " + getName(pet));
-                debugServerConsoleMsg(pet, "Pet's Template: " + getTemplateName(pet));
-                debugServerConsoleMsg(pet, "");
-                debugServerConsoleMsg(pet, "Pet's Owner: " + getName(player));
-                debugServerConsoleMsg(pet, "Player's Location: " + getLocation(player).toString());
                 return petControlDevice;
             }
             pet_lib.setCraftedPetStatsByGrowth(petControlDevice, pet, 10);
