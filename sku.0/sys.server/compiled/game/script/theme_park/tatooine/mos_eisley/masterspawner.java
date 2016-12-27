@@ -36,7 +36,6 @@ public class masterspawner extends script.base_script
         spawnFoyer(self);
         spawnChadraFans(self);
         spawnCheatedGambler(self);
-        spawnEntAlcove(self);
         spawnJunkDealer(self);
     }
     public void spawnHanandChewie(obj_id self) throws InterruptedException
@@ -85,13 +84,11 @@ public class masterspawner extends script.base_script
         obj_id f3 = create.object("commoner", new location(29.54f, 1.0f, -6.18f, "tatooine", room));
         obj_id f4 = create.object("commoner", new location(35.96f, 1.0f, 0.74f, "tatooine", room));
         obj_id f5 = create.object("commoner", new location(35.72f, 1.0f, 3.19f, "tatooine", room));
-        obj_id f6 = create.object("newbie_tutorial_entertainer", new location(31.6f, 0.1f, 0.3f, "tatooine", room));
         setYaw(f1, 47);
         setYaw(f2, -12);
         setYaw(f3, 171);
         setYaw(f4, 1);
         setYaw(f5, 158);
-        setYaw(f6, -90);
         setCreatureStatic(f1, true);
         setInvulnerable(f1, true);
         setCreatureStatic(f2, true);
@@ -102,15 +99,11 @@ public class masterspawner extends script.base_script
         setInvulnerable(f4, true);
         setCreatureStatic(f5, true);
         setInvulnerable(f5, true);
-        setCreatureStatic(f6, true);
-        setInvulnerable(f6, true);
         ai_lib.setDefaultCalmMood(f1, "npc_sitting_chair");
         ai_lib.setDefaultCalmMood(f2, "npc_sitting_chair");
         ai_lib.setDefaultCalmMood(f3, "npc_sitting_chair");
         ai_lib.setDefaultCalmMood(f4, "npc_sitting_chair");
         ai_lib.setDefaultCalmMood(f5, "npc_sitting_chair");
-        ai_lib.setDefaultCalmMood(f6, "npc_imperial");
-        attachScript(f6, "conversation.c_newbie_entertainer");
     }
     public void spawnClosePatrons(obj_id self) throws InterruptedException
     {
@@ -395,15 +388,6 @@ public class masterspawner extends script.base_script
         obj_id gambler = create.object("ep3_cheated_gambler", new location(-6.5f, -.9f, -20.7f, "tatooine", getCellId(self, "stage")));
         setYaw(gambler, 60);
         ai_lib.setDefaultCalmMood(gambler, "npc_sad");
-    }
-    public void spawnEntAlcove(obj_id self) throws InterruptedException
-    {
-        obj_id ent = create.object("prof_quest_entertainer", new location(19.5f, -.9f, -19.8f, "tatooine", getCellId(self, "alcove1")));
-        setYaw(ent, -1);
-        setCreatureStatic(ent, true);
-        setInvulnerable(ent, true);
-        ai_lib.setDefaultCalmMood(ent, "npc_imperial");
-        attachScript(ent, "conversation.c_prof_ent_questgiver");
     }
     public void spawnJunkDealer(obj_id self) throws InterruptedException
     {
