@@ -1716,6 +1716,11 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         String strDescription;
         if (boolNPC)
         {
+            /*
+            // Cekis:  mission_npc_hunting_neutral_medium
+            // this is breaking non-player city mission terminals where the description is not
+            // showing properly.  This commenting out MAY break Player city mission terminals
+            // but it is not known - need to revisit later.
             if (isObjectPersisted(objCreator))
             {
                 strDescription = "m" + intStringId + "o";
@@ -1724,6 +1729,10 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             {
                 strDescription = "m" + intStringId + "d" + flagChar;
             }
+            */
+            // so, instead, just set the default description to be the one we KNOW is missing from non-player city terminals.
+            strDescription = "m" + intStringId + "d" + flagChar;
+
             String strTest = getMissionType(objMissionData);
             if (strTest.equals("survey"))
             {
