@@ -2305,7 +2305,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4006269	0	object/tangible/spawning/spawn_egg.iff	0	1433.75	5	1502.95	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
 -17	0	object/tangible/spawning/static_npc/bestine_artist01.iff	0	1264.6	5	1488.8	1	0	0	0		$|
 -18	0	object/tangible/spawning/static_npc/bestine_artist04.iff	0	1426.7	5	1168.8	1	0	0	0		$|
--19	0	object/tangible/terminal/terminal_character_builder.iff	0	1474.772	4	1344.1626	1	0	0	0		$|
 -20	0	object/tangible/npc/tatooine_spawn/lt_harburik.iff	0	1437	4.9	1404.2	1	0	0	0		$|
 -21	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1443.4	5.0	1409.6	0.90631	0	-0.42262	0		$|
 -22	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1443	5.0	1411.2	1	0	0	0		$|
