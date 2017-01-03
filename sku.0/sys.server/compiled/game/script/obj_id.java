@@ -599,7 +599,9 @@ public final class obj_id implements Comparable, Serializable
 						boolean res = base_class.sendScriptVarsToProxies(pdo, deltaBuffer);
 
 						if (res == false) {
-							pdo.scriptVars.clearDelta();
+							System.err.println("WARNING: Java packAllScriptVars - sendScriptVarsToProxies returned false!");
+							// if we ever hit this condition, testing with the below should be dont e
+							//pdo.scriptVars.clearDelta();
 						}
 
 					}
