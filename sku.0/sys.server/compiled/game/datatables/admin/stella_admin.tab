@@ -1,5 +1,5 @@
 AdminAccounts	AdminLevel	AdminSkill	AdminComment	AdminComment2	AdminIpBlocks	AdminIpComment	AdminSuid	OldAdminSuid
-s	i{0}	s	c	c	s	c	I{0}	I{0}
+s	i{0}	s	c	c	s	c	i{0}	i{0}
 demo	40	admin		all account names must be lower case		Stella-Demo-Account	1	-695782159
 swgnoobs	50	admin				SWGNoobs MainAdminAccount	6	1856394569
 darth	50	admin				Darthargus Main AdminAccount	4	39468200
