@@ -1418,7 +1418,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4006232	0	object/tangible/spawning/spawn_egg.iff	0	677.89	12	456.17	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
 -1	0	object/tangible/poi/tatooine/bestine/bestine_marketplace_spawner_object.iff	12	1000	0	400	1	0	0	0		$|
 -2	0	object/tangible/poi/tatooine/bestine/bestine_city_raid_spawner_object.iff	12	1000	0	401	1	0	0	0		$|
--3	0	object/tangible/creature_spawner/tusken_master_spawner.iff	0	1000	12	402	1	0	0	0		$|
 -4	0	object/tangible/poi/tatooine/bestine/bestine_city_raid_grandparent_object.iff	0	1065	12	353	1	0	0	0		$|
 -12	0	object/tangible/spawning/static_npc/victor_questp_slums.iff	0	691	26	225	1	0	0	0		$|
 -13	0	object/tangible/spawning/static_npc/victor_questp_hospital.iff	0	754	12	596	1	0	0	0		$|
