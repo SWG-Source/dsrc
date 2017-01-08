@@ -14,6 +14,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1189178	1189173	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 -1	1189178	object/tangible/poi/tatooine/explore_tusken_pool.iff	5	5.17	8.1	-29.3	1	0	0	0		$|
 7875792	1189178	object/tangible/container/loot/placable_loot_crate.iff	5	-0.358753	8.52015	-35.1524	0.791414	0.0685275	0.606487	-0.0337772		$|
+-2	1189178	object/tangible/creature_spawner/tusken_master_spawner.iff	5	3.7	8.3	-37.3	1	0	0	0		$|
 7875698	1189178	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	-0.896174073	8.612736702	-42.70040512	1	0	0	0		intRandomYaw|0|1|$|
 1189179	1189173	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 7875699	1189179	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	-20.54205132	12.75430965	-44.50117493	1	0	0	0		intRandomYaw|0|1|$|
