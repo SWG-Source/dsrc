@@ -201,6 +201,7 @@ public class loot extends script.base_script
                 }
                 obj_id lootItem = createObject(goldenTicket, utils.getInventoryContainer(player), "");
                 setName(lootItem, "A Golden Ticket");
+                setObjVar(lootItem, "noTrade", 1);
                 if(isValidId(lootItem)){
                     setObjVar(player, "lottery.looted", 1);
                     if(ai_lib.isHumanoid(corpse)){

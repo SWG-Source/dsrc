@@ -6443,6 +6443,7 @@ public class terminal_character_builder extends script.base_script
         {
             case 0:
                 Vector qualifiers = getResizeableIntArrayObjVar(self, "lottery.qualifiers");
+                int playerStationId = getPlayerStationId(player);
 
                 int maxTickets = 1000;
                 try {
@@ -6459,7 +6460,10 @@ public class terminal_character_builder extends script.base_script
                 }
                 dictionary tickets = new dictionary();
                 if(!hasObjVar(player, "lottery.broker")){
-                    if(qualifiers != null && qualifiers.contains(getPlayerStationId(player))) break;
+                    if(qualifiers != null && utils.getElementPositionInArray(qualifiers, playerStationId) > -1){
+                        sendSystemMessage(player, "You've already qualified.  Only one entry per account is allowed.", null);
+                        break;
+                    }
                     // Start the lottery.
                     setObjVar(player, "lottery.broker", self);
                     setObjVar(player, "lottery.availableTickets", availableTickets);
@@ -6467,7 +6471,10 @@ public class terminal_character_builder extends script.base_script
                     tickets.put("availableTickets", availableTickets);
                 }
                 else if(hasObjVar(player, "lottery.looted") && !hasObjVar(player, "lottery.position")) {
-                    if(qualifiers != null && qualifiers.contains(getPlayerStationId(player))) break;
+                    if(qualifiers != null && utils.getElementPositionInArray(qualifiers, playerStationId) > -1){
+                        sendSystemMessage(player, "You've already qualified.  Only one entry per account is allowed.", null);
+                        break;
+                    }
                     // turn in the ticket
                     String template = "object/tangible/travel/travel_ticket/dungeon_ticket.iff";
                     obj_id inv = utils.getInventoryContainer(player);
@@ -6479,7 +6486,9 @@ public class terminal_character_builder extends script.base_script
                         }
                     }
                     // destroy the ticket if the player has it in their inventory.
-                    if (isValidId(goldenTicket)) destroyObject(goldenTicket);
+                    if (isValidId(goldenTicket)){
+                        destroyObject(goldenTicket);
+                    }
                     int position = (maxTickets - availableTickets) + 1;
                     if (position <= maxTickets) {
                         // congrats you have earned a spot
@@ -6496,7 +6505,7 @@ public class terminal_character_builder extends script.base_script
                             LOG("live-lottery","Player " + getFirstName(player) + " (" + player + ") with station id (" + getPlayerStationId(player) + ") has secured position #" + position + " in the live lottery.");
                         }
                         if(qualifiers == null) qualifiers = new Vector();
-                        qualifiers.add(getPlayerStationId(player));
+                        qualifiers = utils.addElement(qualifiers, playerStationId);
                         sendSystemMessage(player, "Congratulations!  You have secured a position!  Your position is #" + position + " in line.", null);
                         setObjVar(self, "lottery.qualifiers", qualifiers);
                         setObjVar(player, "lottery.position", position);
