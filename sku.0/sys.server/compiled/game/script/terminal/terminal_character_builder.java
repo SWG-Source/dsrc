@@ -1504,7 +1504,7 @@ public class terminal_character_builder extends script.base_script
         1,
         2
     };
-    public int OnInitialize(obj_id self) throws InterruptedException{
+    public int OnAttach(obj_id self) throws InterruptedException{
         String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
         Vector<String> opts = new Vector<String>(Arrays.asList(stella_options));
         if(goldenTicketActive != null && goldenTicketActive.equals("true")){
@@ -6442,8 +6442,8 @@ public class terminal_character_builder extends script.base_script
        switch (idx)
         {
             case 0:
-                Vector qualifiers = getResizeableIntArrayObjVar(self, "lottery.qualifiers");
-                int playerStationId = getPlayerStationId(player);
+                Vector qualifiers = getResizeableObjIdArrayObjVar(self, "lottery.qualifiers");
+                obj_id playerStationId = utils.stringToObjId("" + getPlayerStationId(player));
 
                 int maxTickets = 1000;
                 try {
@@ -6502,7 +6502,7 @@ public class terminal_character_builder extends script.base_script
                         }
                         else{
                             sendSystemMessageGalaxyTestingOnly("Congratulations to " + getName(player) + "!  They have just secured position #" + position + " in the live lottery!");
-                            LOG("live-lottery","Player " + getFirstName(player) + " (" + player + ") with station id (" + getPlayerStationId(player) + ") has secured position #" + position + " in the live lottery.");
+                            LOG("live-lottery","Player " + getFirstName(player) + " (" + player + ") with station id (" + playerStationId + ") has secured position #" + position + " in the live lottery.");
                         }
                         if(qualifiers == null) qualifiers = new Vector();
                         qualifiers = utils.addElement(qualifiers, playerStationId);
