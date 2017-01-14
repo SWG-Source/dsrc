@@ -181,8 +181,9 @@ public class loot extends script.base_script
                 && getIntObjVar(player, "lottery.availableTickets") > 0) {
             obj_id broker = getObjIdObjVar(player, "lottery.broker");
             if(!isValidId(broker)) return false;
-            Vector qualifiers = getResizeableIntArrayObjVar(broker, "lottery.qualifiers");
-            if(qualifiers != null && qualifiers.contains(getPlayerStationId(player))) return false;
+            Vector qualifiers = getResizeableObjIdArrayObjVar(broker, "lottery.qualifiers");
+            obj_id playerStationId = utils.stringToObjId(new String("" + getPlayerStationId(player)));
+            if(qualifiers != null && utils.getElementPositionInArray(qualifiers, playerStationId) > -1) return false;
             int rng = rand(1,100);
             sendSystemMessage(player, "Rolled a " + rng, null);
             int dropChance = 2;
