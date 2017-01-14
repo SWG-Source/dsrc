@@ -492,6 +492,7 @@ public class base_player extends script.base_script
         return SCRIPT_CONTINUE;
     }
     public void grantLevelSpecificRewards(obj_id player, int newCombatLevel) throws InterruptedException{
+        if(hasObjVar(player, "level.reward." + newCombatLevel)) return;
         obj_id inv = utils.getInventoryContainer(player);
         switch(newCombatLevel){
             case 20:
@@ -508,6 +509,7 @@ public class base_player extends script.base_script
         String playerName = getName(player);
         obj_id reward = createObjectInInventoryAllowOverload(template, player);
         if(isIdValid(reward)){
+            setObjVar(player, "level.reward." + level, true);
             sendSystemMessage(player, "A " + name + " has been placed in your inventory.", null);
             CustomerServiceLog("LevelItemRewards", "Player " + playerName + " (" + player + ") has been awarded the " + name + " for reaching Level " + level + ".");
         }
@@ -12641,6 +12643,19 @@ public class base_player extends script.base_script
             }
             smuggler.flagJunkSaleSui(self, junkDealer);
         }
+        return SCRIPT_CONTINUE;
+    }
+    public int setupLotteryListener(obj_id self, dictionary params) throws InterruptedException{
+        listenToMessage(getObjIdObjVar(self, "lottery.broker"), "updateLotteryStatus");
+        return SCRIPT_CONTINUE;
+    }
+    public int removeLotteryListener(obj_id self, dictionary params) throws InterruptedException{
+        stopListeningToMessage(getObjIdObjVar(self, "lottery.broker"), "updateLotteryStatus");
+        return SCRIPT_CONTINUE;
+    }
+    public int updateLotteryStatus(obj_id self, dictionary params) throws InterruptedException
+    {
+        setObjVar(self, "lottery.availableTickets", params.getInt("available"));
         return SCRIPT_CONTINUE;
     }
     public boolean blog(String txt) throws InterruptedException

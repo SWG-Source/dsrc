@@ -174,6 +174,48 @@ public class loot extends script.base_script
         }
         return hasLoot;
     }
+    public static boolean addGoldenTicket(obj_id player, obj_id corpse) throws InterruptedException{
+        String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
+        if(goldenTicketActive != null && goldenTicketActive.equals("true")
+                && !hasObjVar(player, "lottery.looted")
+                && getIntObjVar(player, "lottery.availableTickets") > 0) {
+            obj_id broker = getObjIdObjVar(player, "lottery.broker");
+            if(!isValidId(broker)) return false;
+            Vector qualifiers = getResizeableIntArrayObjVar(broker, "lottery.qualifiers");
+            if(qualifiers != null && qualifiers.contains(getPlayerStationId(player))) return false;
+            int rng = rand(1,100);
+            sendSystemMessage(player, "Rolled a " + rng, null);
+            int dropChance = 2;
+            try {
+                dropChance = Integer.parseInt(getConfigSetting("EventTeam", "goldenTicketDropChance"));
+            }
+            catch(Exception e){}
+
+            if(rng <= dropChance) {
+                String goldenTicket = "object/tangible/travel/travel_ticket/dungeon_ticket.iff";
+                obj_id[] items = utils.getAllItemsInBankAndInventory(player);
+                for (obj_id item : items){
+                    if (getTemplateName(item).equals(goldenTicket)){
+                        return false;
+                    }
+                }
+                obj_id lootItem = createObject(goldenTicket, utils.getInventoryContainer(player), "");
+                setName(lootItem, "A Golden Ticket");
+                if(isValidId(lootItem)){
+                    setObjVar(player, "lottery.looted", 1);
+                    if(ai_lib.isHumanoid(corpse)){
+                        chat.chat(corpse, "...you... you've won, Charlie...");
+                    }
+                    play2dNonLoopingSound(player, "sound/utinni.snd");
+                    sendSystemMessage(player, "A particularly shiny Golden Ticket has been placed in your inventory!", null);
+                    LOG("live-lottery","Player " + getFirstName(player) + " (" + player + ") has looted a lottery ticket.");
+                    obj_id inv = utils.getInventoryContainer(corpse);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public static int getCashForLevel(String mobType, int level) throws InterruptedException
     {
         if (mobType == null || mobType.equals("") || level < 1)
