@@ -839,12 +839,12 @@ public class terminal_character_builder extends script.base_script
 		"Mustafarian Injector",
 		"Naboo Signaling Unit",
     };
-	public static final String[] STELLA_OPTIONS = 
+	public static String[] stella_options =
     {
         "Spec-Ops Pack",
 		"Buff me",
 		"Healing Stims",
-            "Toggle Chronicles Loot"
+        "Toggle Chronicles Loot"
     };
     public static final String[] MEDICINE_OPTIONS = 
     {
@@ -1504,6 +1504,17 @@ public class terminal_character_builder extends script.base_script
         1,
         2
     };
+    public int OnInitialize(obj_id self) throws InterruptedException{
+        String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
+        Vector<String> opts = new Vector<String>(Arrays.asList(stella_options));
+        if(goldenTicketActive != null && goldenTicketActive.equals("true")){
+            Vector qualifiers = new Vector();
+            opts.add(0,"Lottery Status");
+            setObjVar(self, "lottery.qualifiers", qualifiers);
+        }
+        stella_options = opts.toArray(new String[opts.size()]);
+        return SCRIPT_CONTINUE;
+    }
     public boolean checkConfigSetting(String configString) throws InterruptedException
     {
         String enabled = toLower(getConfigSetting("CharacterBuilder", configString));
@@ -6362,9 +6373,24 @@ public class terminal_character_builder extends script.base_script
         refreshMenu(player, "Select the desired armor option", "Character Builder Terminal", HEROIC_JEWELRY_LIST, "handleHeroicJewelrySelect", false);
         return SCRIPT_CONTINUE;
     }
+    public void manageStellaOptions(obj_id player) throws InterruptedException{
+        obj_id self = getSelf();
+
+        String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
+        if(goldenTicketActive != null && goldenTicketActive.equals("true")) {
+            if (!hasObjVar(player, "lottery.broker") && !hasObjVar(self, "lottery.over")) {
+                stella_options[0] = "Start Lottery";
+            } else if (hasObjVar(player, "lottery.looted") && !hasObjVar(player, "lottery.position") && !hasObjVar(self, "lottery.over")) {
+                stella_options[0] = "Turn In Ticket";
+            } else {
+                stella_options[0] = "Lottery Status";
+            }
+        }
+    }
 	public void handleStellaOption(obj_id player) throws InterruptedException
     {
-        refreshMenu(player, "Select the desired thingie", "Character Builder Terminal", STELLA_OPTIONS, "handleStellaOptions", false);
+        manageStellaOptions(player);
+        refreshMenu(player, "Select the desired thingie", "Character Builder Terminal", stella_options, "handleStellaOptions", false);
     }
 	public int handleStellaOptions(obj_id self, dictionary params) throws InterruptedException
     {
@@ -6387,7 +6413,7 @@ public class terminal_character_builder extends script.base_script
             closeOldWindow(player);
             return SCRIPT_CONTINUE;
         }
-        if (idx == -1 || idx > STELLA_OPTIONS.length)
+        if (idx == -1 || idx > stella_options.length)
         {
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -6410,14 +6436,90 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
 			return SCRIPT_OVERRIDE;
 		}
+        String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
+        if(goldenTicketActive == null || !goldenTicketActive.equals("true")) idx++;
        
        switch (idx)
         {
             case 0:
+                Vector qualifiers = getResizeableIntArrayObjVar(self, "lottery.qualifiers");
+
+                int maxTickets = 1000;
+                try {
+                    maxTickets = Integer.parseInt(getConfigSetting("EventTeam", "goldenTicketsAvailable"));
+                }
+                catch(Exception e){}
+
+                int availableTickets = maxTickets;
+                if(hasObjVar(self, "lottery.availableTickets")){
+                    availableTickets = getIntObjVar(self, "lottery.availableTickets");
+                }
+                else{
+                    setObjVar(self, "lottery.availableTickets", maxTickets);
+                }
+                dictionary tickets = new dictionary();
+                if(!hasObjVar(player, "lottery.broker")){
+                    if(qualifiers != null && qualifiers.contains(getPlayerStationId(player))) break;
+                    // Start the lottery.
+                    setObjVar(player, "lottery.broker", self);
+                    setObjVar(player, "lottery.availableTickets", availableTickets);
+                    messageTo(player, "setupLotteryListener", params, 1.0f, true);
+                    tickets.put("availableTickets", availableTickets);
+                }
+                else if(hasObjVar(player, "lottery.looted") && !hasObjVar(player, "lottery.position")) {
+                    if(qualifiers != null && qualifiers.contains(getPlayerStationId(player))) break;
+                    // turn in the ticket
+                    String template = "object/tangible/travel/travel_ticket/dungeon_ticket.iff";
+                    obj_id inv = utils.getInventoryContainer(player);
+                    obj_id[] items = utils.getAllItemsInContainerByTemplate(inv, template, true);
+                    obj_id goldenTicket = null;
+                    for (obj_id item : items){
+                        if (getTemplateName(item).equals(template)) {
+                            goldenTicket = item;
+                        }
+                    }
+                    // destroy the ticket if the player has it in their inventory.
+                    if (isValidId(goldenTicket)) destroyObject(goldenTicket);
+                    int position = (maxTickets - availableTickets) + 1;
+                    if (position <= maxTickets) {
+                        // congrats you have earned a spot
+                        availableTickets--;
+                        setObjVar(self, "lottery.availableTickets", availableTickets);
+                        if(availableTickets <= 0 && !hasObjVar(self, "lottery.over")){
+                            setObjVar(self, "lottery.over", 1);
+                            sendSystemMessageGalaxyTestingOnly("Congratulations to " + getName(player) + "!  They have just secured the final position in the live lottery!");
+                            sendSystemMessageGalaxyTestingOnly("All tickets have been claimed for the live release!  Thank you for playing!");
+                            LOG("live-lottery","Player " + getFirstName(player) + " (" + player + ") has secured the final position in the live lottery.");
+                        }
+                        else{
+                            sendSystemMessageGalaxyTestingOnly("Congratulations to " + getName(player) + "!  They have just secured position #" + position + " in the live lottery!");
+                            LOG("live-lottery","Player " + getFirstName(player) + " (" + player + ") with station id (" + getPlayerStationId(player) + ") has secured position #" + position + " in the live lottery.");
+                        }
+                        if(qualifiers == null) qualifiers = new Vector();
+                        qualifiers.add(getPlayerStationId(player));
+                        sendSystemMessage(player, "Congratulations!  You have secured a position!  Your position is #" + position + " in line.", null);
+                        setObjVar(self, "lottery.qualifiers", qualifiers);
+                        setObjVar(player, "lottery.position", position);
+                        tickets.put("available", availableTickets);
+                        broadcastMessage("updateLotteryStatus", tickets);
+                        messageTo(player, "removeLotteryListener", null, 1f, false);
+                    } else {
+                        sendSystemMessage(player, "We're sorry, but there are no more slots available.  Thank you for participating!", null);
+                    }
+                }
+                else{
+                    // checking status
+                    sendSystemMessage(player, "There are currently " + (availableTickets > 0 ? availableTickets : "NO") + " available tickets left.", null);
+                    if(hasObjVar(player, "lottery.position")){
+                        sendSystemMessage(player, "You secured position #" + getIntObjVar(player, "lottery.position") + " in the lottery.", null);
+                    }
+                }
+                break;
+            case 1:
             createObject("object/tangible/wearables/backpack/backpack_s06.iff", pInv, "");
             sendSystemMessageTestingOnly(player, "Spec-Ops Pack Issued.");
             break;
-			case 1:
+			case 2:
 		
 			buff.applyBuff((player), "me_buff_health_2", 14400);
 			buff.applyBuff((player), "me_buff_action_3", 14400);
@@ -6440,11 +6542,11 @@ public class terminal_character_builder extends script.base_script
 			buff.applyBuff((player), "vr_familiar_defense_8", 14400);
 			buff.applyBuff((player), "drink_flameout", 14400);
 			break;
-			case 2:
+			case 3:
 			// createObject("object/tangible/medicine/instant_stimpack/stimpack_generic_e.iff", pInv, "");
 			static_item.createNewItemFunction("item_off_temp_stimpack_02_06", pInv);
 			break;
-            case 3:
+            case 4:
                 if(hasObjVar(player, "chroniclesLoot_toggledOff")){
                     removeObjVar(player, "chroniclesLoot_toggledOff");
                     sendSystemMessageTestingOnly(player, "Chronicles Loot is now ON.");
@@ -6457,7 +6559,8 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
         }
-        refreshMenu(player, "Select the desired option", "Character Builder Terminal", STELLA_OPTIONS, "handleStellaOptions", false);
+        manageStellaOptions(player);
+        refreshMenu(player, "Select the desired option", "Character Builder Terminal", stella_options, "handleStellaOptions", false);
         return SCRIPT_CONTINUE;
     }
     public void handleMiscOption(obj_id player) throws InterruptedException
