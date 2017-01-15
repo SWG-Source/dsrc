@@ -6511,7 +6511,7 @@ public class terminal_character_builder extends script.base_script
                         }
                         if(qualifiers == null) qualifiers = new Vector();
                         qualifiers = utils.addElement(qualifiers, playerStationId);
-                        play2dNonLoopingMusic(player, "music/mus_lando_theme.mp3");
+                        play2dNonLoopingSound(player, "sound/music_lando_theme.snd");
                         sendSystemMessage(player, "Congratulations!  You have secured a position!  Your position is #" + position + " in line.", null);
                         setObjVar(self, "lottery.qualifiers", qualifiers);
                         setObjVar(player, "lottery.position", position);
