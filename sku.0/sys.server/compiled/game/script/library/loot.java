@@ -184,14 +184,13 @@ public class loot extends script.base_script
             Vector qualifiers = getResizeableObjIdArrayObjVar(broker, "lottery.qualifiers");
             obj_id playerStationId = utils.stringToObjId(new String("" + getPlayerStationId(player)));
             if(qualifiers != null && utils.getElementPositionInArray(qualifiers, playerStationId) > -1) return false;
-            int rng = rand(1,100);
-            int dropChance = 2;
+            double dropChance = 2;
             try {
-                dropChance = Integer.parseInt(getConfigSetting("EventTeam", "goldenTicketDropChance"));
+                dropChance = Double.parseDouble(getConfigSetting("EventTeam", "goldenTicketDropChance"));
             }
             catch(Exception e){}
-
-            if(rng <= dropChance) {
+            double rng = Math.random() * 100;
+            if(dropChance > 0 && rng <= dropChance) {
                 String goldenTicket = "object/tangible/travel/travel_ticket/dungeon_ticket.iff";
                 obj_id[] items = utils.getAllItemsInBankAndInventory(player);
                 for (obj_id item : items){
