@@ -185,7 +185,6 @@ public class loot extends script.base_script
             obj_id playerStationId = utils.stringToObjId(new String("" + getPlayerStationId(player)));
             if(qualifiers != null && utils.getElementPositionInArray(qualifiers, playerStationId) > -1) return false;
             int rng = rand(1,100);
-            sendSystemMessage(player, "Rolled a " + rng, null);
             int dropChance = 2;
             try {
                 dropChance = Integer.parseInt(getConfigSetting("EventTeam", "goldenTicketDropChance"));

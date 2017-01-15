@@ -6378,9 +6378,12 @@ public class terminal_character_builder extends script.base_script
 
         String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
         if(goldenTicketActive != null && goldenTicketActive.equals("true")) {
-            if (!hasObjVar(player, "lottery.broker") && !hasObjVar(self, "lottery.over")) {
+            Vector qualifiers = getResizeableObjIdArrayObjVar(self, "lottery.qualifiers");
+            obj_id playerStationId = utils.stringToObjId("" + getPlayerStationId(player));
+            boolean playerQualified = (utils.getElementPositionInArray(qualifiers, playerStationId) > -1);
+            if (!hasObjVar(player, "lottery.broker") && !hasObjVar(self, "lottery.over") && !playerQualified) {
                 stella_options[0] = "Start Lottery";
-            } else if (hasObjVar(player, "lottery.looted") && !hasObjVar(player, "lottery.position") && !hasObjVar(self, "lottery.over")) {
+            } else if (hasObjVar(player, "lottery.looted") && !hasObjVar(player, "lottery.position") && !hasObjVar(self, "lottery.over") && !playerQualified) {
                 stella_options[0] = "Turn In Ticket";
             } else {
                 stella_options[0] = "Lottery Status";
@@ -6444,6 +6447,7 @@ public class terminal_character_builder extends script.base_script
             case 0:
                 Vector qualifiers = getResizeableObjIdArrayObjVar(self, "lottery.qualifiers");
                 obj_id playerStationId = utils.stringToObjId("" + getPlayerStationId(player));
+                boolean playerQualified = (utils.getElementPositionInArray(qualifiers, playerStationId) > -1);
 
                 int maxTickets = 1000;
                 try {
@@ -6460,7 +6464,7 @@ public class terminal_character_builder extends script.base_script
                 }
                 dictionary tickets = new dictionary();
                 if(!hasObjVar(player, "lottery.broker")){
-                    if(qualifiers != null && utils.getElementPositionInArray(qualifiers, playerStationId) > -1){
+                    if(playerQualified){
                         sendSystemMessage(player, "You've already qualified.  Only one entry per account is allowed.", null);
                         break;
                     }
@@ -6469,9 +6473,10 @@ public class terminal_character_builder extends script.base_script
                     setObjVar(player, "lottery.availableTickets", availableTickets);
                     messageTo(player, "setupLotteryListener", params, 1.0f, true);
                     tickets.put("availableTickets", availableTickets);
+                    sendSystemMessage(player, "You have successfully submitted your entry to the hunt for the Golden Ticket... Happy Hunting!", null);
                 }
                 else if(hasObjVar(player, "lottery.looted") && !hasObjVar(player, "lottery.position")) {
-                    if(qualifiers != null && utils.getElementPositionInArray(qualifiers, playerStationId) > -1){
+                    if(playerQualified){
                         sendSystemMessage(player, "You've already qualified.  Only one entry per account is allowed.", null);
                         break;
                     }
