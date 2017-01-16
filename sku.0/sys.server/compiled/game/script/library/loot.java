@@ -175,10 +175,7 @@ public class loot extends script.base_script
         return hasLoot;
     }
     public static boolean addGoldenTicket(obj_id player, obj_id corpse) throws InterruptedException{
-        String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
-        if(goldenTicketActive != null && goldenTicketActive.equals("true")
-                && !hasObjVar(player, "lottery.looted")
-                && getIntObjVar(player, "lottery.availableTickets") > 0) {
+        if(!hasObjVar(player, "lottery.looted") && getIntObjVar(player, "lottery.availableTickets") > 0) {
             obj_id broker = getObjIdObjVar(player, "lottery.broker");
             if(!isValidId(broker)) return false;
             Vector qualifiers = getResizeableObjIdArrayObjVar(broker, "lottery.qualifiers");

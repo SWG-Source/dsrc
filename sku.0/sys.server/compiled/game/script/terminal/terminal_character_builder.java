@@ -1504,17 +1504,6 @@ public class terminal_character_builder extends script.base_script
         1,
         2
     };
-    public int OnAttach(obj_id self) throws InterruptedException{
-        String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
-        Vector<String> opts = new Vector<String>(Arrays.asList(stella_options));
-        if(goldenTicketActive != null && goldenTicketActive.equals("true")){
-            Vector qualifiers = new Vector();
-            opts.add(0,"Lottery Status");
-            setObjVar(self, "lottery.qualifiers", qualifiers);
-        }
-        stella_options = opts.toArray(new String[opts.size()]);
-        return SCRIPT_CONTINUE;
-    }
     public boolean checkConfigSetting(String configString) throws InterruptedException
     {
         String enabled = toLower(getConfigSetting("CharacterBuilder", configString));
@@ -6378,6 +6367,13 @@ public class terminal_character_builder extends script.base_script
 
         String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
         if(goldenTicketActive != null && goldenTicketActive.equals("true")) {
+            stella_options = new String[] {
+                            "Start Lottery",
+                            "Spec-Ops Pack",
+                            "Buff me",
+                            "Healing Stims",
+                            "Toggle Chronicles Loot"
+            };
             Vector qualifiers = getResizeableObjIdArrayObjVar(self, "lottery.qualifiers");
             obj_id playerStationId = utils.stringToObjId("" + getPlayerStationId(player));
             boolean playerQualified = (utils.getElementPositionInArray(qualifiers, playerStationId) > -1);
@@ -6388,6 +6384,14 @@ public class terminal_character_builder extends script.base_script
             } else {
                 stella_options[0] = "Lottery Status";
             }
+        }
+        else{
+            stella_options = new String[] {
+                    "Spec-Ops Pack",
+                    "Buff me",
+                    "Healing Stims",
+                    "Toggle Chronicles Loot"
+            };
         }
     }
 	public void handleStellaOption(obj_id player) throws InterruptedException
