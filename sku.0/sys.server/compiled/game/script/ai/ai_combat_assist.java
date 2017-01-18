@@ -58,7 +58,7 @@ public class ai_combat_assist extends script.base_script
         {
             return false;
         }
-        obj_id target = getTarget(self);
+        obj_id target = getHateTarget(self);
         if (!isIdValid(target) || !exists(target))
         {
             return false;
