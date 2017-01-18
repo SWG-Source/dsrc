@@ -3662,7 +3662,7 @@ public class pet_lib extends script.base_script
                     setWeaponAttackSpeed(rangedWeapon, wpnSpeed);
                     setWeaponMaxDamage(rangedWeapon, maxDamage);
                     setWeaponMinDamage(rangedWeapon, minDamage);
-                    weapons.setWeaponData(creatureWeapon);
+                    weapons.setWeaponData(rangedWeapon);
                 }
             }
         }
