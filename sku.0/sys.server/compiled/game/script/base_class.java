@@ -3731,7 +3731,8 @@ public class base_class
             dictionary dict = new dictionary();
             dict.put("from",      from);
             dict.put("subject",   subject);
-            dict.put("message",   localizedMessageText);
+            if(localizedMessageText != null)
+                dict.put("message",   localizedMessageText);
             if (outOfBand != null)
                 dict.put("outofband", outOfBand);
             messageTo(to, "handleChatPersistentMessage", dict, 0, true);
