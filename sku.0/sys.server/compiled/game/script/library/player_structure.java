@@ -2638,10 +2638,14 @@ public class player_structure extends script.base_script
         }
         if (!hasObjVar(structure, "player_structure.sign.id"))
         {
-            LOG("sissynoid", "Structure(" + structure + ") does not have a House Sign ObjVar");
+            LOG("playerStructure", "Structure(" + structure + ") at location [" + getLocation(structure).toString() + "] does not have a House Sign ObjVar");
             return;
         }
         obj_id signId = getObjIdObjVar(structure, "player_structure.sign.id");
+        if(!isValidId(signId)){
+            LOG("playerStructure", "Structure (" + structure + ") at location [" + getLocation(structure).toString() + "] has an invalid value for player_structure.sign.id.");
+            return;
+        }
         String signText = getName(signId);
         int indexOfAbandonedText = signText.indexOf(player_structure.CITY_ABANDONED_TEXT);
         if (indexOfAbandonedText > -1)
