@@ -601,13 +601,14 @@ public class harass extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int interests = utils.getIntScriptVar(self, gcw.SCRIPTVAR_SCAN_INTEREST);
-        if (isEnemyJedi(self, target) && rand(1, 5) == 1)
+        int playerLevel = getLevel(target);
+        if (playerLevel >= 75 && isEnemyJedi(self, target) && rand(1, 5) == 1)
         {
             sendSystemMessage(target, new string_id(STF, "discovered_" + getFactionName(self)));
             chat.publicChat(self, target, new string_id(STF, "discovered_jedi_" + getFactionName(self)));
             attackFactionViolator(self, target, true);
         }
-        else if (utils.checkBit(interests, gcw.INTEREST_FACTION) && isInEnemyFaction(self, target) && rand(1, 2) == 1)
+        else if (playerLevel >= 25 && utils.checkBit(interests, gcw.INTEREST_FACTION) && isInEnemyFaction(self, target) && rand(1, 2) == 1)
         {
             sendSystemMessage(target, new string_id(STF, "discovered_" + getFactionName(self)));
             chat.publicChat(self, target, new string_id(STF, "discovered_chat_" + getFactionName(self)));
