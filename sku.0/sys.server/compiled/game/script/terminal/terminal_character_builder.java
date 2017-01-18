@@ -2321,13 +2321,9 @@ public class terminal_character_builder extends script.base_script
         String planet = "current";
         String[] resourceList = getResourceChildClasses(RESOURCE_BASE_TYPES[idx]);
         int goodResources = 0;
-        for (int i = 0; i < resourceList.length; ++i)
+        for (String resource : resourceList)
         {
-            if (!hasResourceType(resourceList[i]))
-            {
-                resourceList[i] = null;
-            }
-            else 
+            if (hasResourceType(resource))
             {
                 ++goodResources;
             }
