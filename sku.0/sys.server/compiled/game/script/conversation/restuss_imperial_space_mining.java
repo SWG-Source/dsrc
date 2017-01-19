@@ -139,7 +139,7 @@ public class restuss_imperial_space_mining extends script.base_script
     public void restuss_imperial_space_mining_action_giveSpaceMine1(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id mobj = space_quest._getQuest(player, "space_mining_destroy", "restuss_imperial_mining_1");
-        space_quest.setSilentQuestAborted(player, mobj);
+        if (mobj != null) space_quest.setSilentQuestAborted(player, mobj);
         groundquests.clearQuest(player, "restuss_imperial_space_mining_1");
         groundquests.grantQuest(player, "restuss_imperial_space_mining_1");
     }
@@ -202,7 +202,7 @@ public class restuss_imperial_space_mining extends script.base_script
     public void restuss_imperial_space_mining_action_giveSpaceMine2(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id mobj = space_quest._getQuest(player, "space_mining_destroy", "restuss_imperial_mining_2");
-        space_quest.setSilentQuestAborted(player, mobj);
+        if (mobj != null) space_quest.setSilentQuestAborted(player, mobj);
         groundquests.clearQuest(player, "restuss_imperial_space_mining_2");
         groundquests.grantQuest(player, "restuss_imperial_space_mining_2");
     }
