@@ -107,7 +107,7 @@ public class restuss_rebel_space_destroy extends script.base_script
     public void restuss_rebel_space_destroy_action_givekill1(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id mobj = space_quest._getQuest(player, "destroy", "restuss_rebel_destroy_1");
-        space_quest.setSilentQuestAborted(player, mobj);
+        if (mobj != null) space_quest.setSilentQuestAborted(player, mobj);
         groundquests.clearQuest(player, "restuss_rebel_space_destroy_1");
         groundquests.grantQuest(player, "restuss_rebel_space_destroy_1");
     }
@@ -137,7 +137,7 @@ public class restuss_rebel_space_destroy extends script.base_script
     public void restuss_rebel_space_destroy_action_givekill2(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id mobj = space_quest._getQuest(player, "destroy", "restuss_rebel_destroy_2");
-        space_quest.setSilentQuestAborted(player, mobj);
+        if (mobj != null) space_quest.setSilentQuestAborted(player, mobj);
         groundquests.clearQuest(player, "restuss_rebel_space_destroy_2");
         groundquests.grantQuest(player, "restuss_rebel_space_destroy_2");
     }
