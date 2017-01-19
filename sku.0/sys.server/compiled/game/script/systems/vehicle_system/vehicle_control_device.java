@@ -340,11 +340,9 @@ public class vehicle_control_device extends script.base_script
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
     {
         if(!isIdValid(self) || !exists(self) || self == null || self.equals(obj_id.NULL_ID)){
-            debugServerConsoleMsg(self, "Exception: Unable to get 'self' (" + self + ") when getting attributes. (vehicle_control_device)");
-            debugServerConsoleMsg(self, "My Owner: " + getOwner(self));
-            debugServerConsoleMsg(self, "My Location: " + getLocation(self));
-            debugServerConsoleMsg(self, "My Scene: " + getLocation(self).area);
-            debugServerConsoleMsg(self, "My Template: " + getTemplateName(self));
+            CustomerServiceLog("vehicle-bug", "Unable to get vehicle (" + self + ") or vehicle's location (" + getLocation(self)
+                    + ").  Player (" + getPlayerFullName(player) + ":" + player + "), vehicle template (" + getTemplateName(self)
+                    + "),  Player's location (" + getLocation(player) + ").");
             return SCRIPT_CONTINUE;
         }
         int idx = utils.getValidAttributeIndex(names);
