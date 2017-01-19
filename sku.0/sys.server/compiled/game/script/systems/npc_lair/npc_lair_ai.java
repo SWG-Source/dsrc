@@ -735,6 +735,9 @@ public class npc_lair_ai extends script.theme_park.poi.base
     }
     public int handleRequestToConverse(obj_id self, dictionary params) throws InterruptedException
     {
+        if(!isValidId(self) || isIncapacitated(self) || isDead(self) || !exists(self)){
+            return SCRIPT_CONTINUE;
+        }
         obj_id partner = params.getObjId("converseWith");
         if (!isIdValid(partner) || !exists(partner))
         {
@@ -744,6 +747,9 @@ public class npc_lair_ai extends script.theme_park.poi.base
         utils.setScriptVar(self, "npc_lair.pathingToConverse", true);
         location destLoc = new location(getLocation(partner));
         location myLoc = getLocation(self);
+        if(myLoc == null || !isValidLocation(myLoc, 1f)){
+            return SCRIPT_CONTINUE;
+        }
         if (myLoc.x < destLoc.x)
         {
             destLoc.x -= 1;
