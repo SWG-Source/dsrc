@@ -909,7 +909,9 @@ public class xp extends script.base_script
         params.put("creatureName", creatureName);
         params.put("location", getLocation(target));
         params.put("socialGroup", ai_lib.getSocialGroup(target));
-        params.put("col_faction", dataTableGetString(CREATURES_TABLE, creatureName, "col_faction"));
+        // only put a value in col_faction if one is found in the datatable.
+        if(dataTableGetString(CREATURES_TABLE, creatureName, "col_faction") != null)
+            params.put("col_faction", dataTableGetString(CREATURES_TABLE, creatureName, "col_faction"));
         params.put("difficultyClass", dataTableGetInt(CREATURES_TABLE, creatureName, "difficultyClass"));
         params.put("target", target);
         if (hasObjVar(target, "quest_spawner.spawned_by"))
