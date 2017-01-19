@@ -9516,6 +9516,12 @@ public class combat_actions extends script.systems.combat.combat_base
         intCount = intCount - 1;
         String strTemplate = getSharedObjectTemplateName(objGrenade);
         dictionary dctGrenadeCommand = dataTableGetRow("datatables/timer/template_command_mapping.iff", strTemplate);
+        if(dctGrenadeCommand == null){
+            LOG("grenade", "Can't find entry for template (" + strTemplate + ") in datatable datatables/timer/template_command_mapping.iff."
+                    + "Thrown by (" + self + ":" + getTemplateName(self) + ") who " + (isPlayer(target) ? "IS" : "IS NOT") + " a player, thrown at ("
+                    + target + ":" + getTemplateName(target) + ") who " + (isPlayer(target) ? "IS" : "IS NOT") + " a player.");
+            return SCRIPT_OVERRIDE;
+        }
         String strCommand = dctGrenadeCommand.getString("COMMAND");
         if (!combatStandardAction(strCommand, self, target, objGrenade, "", null, false))
         {
