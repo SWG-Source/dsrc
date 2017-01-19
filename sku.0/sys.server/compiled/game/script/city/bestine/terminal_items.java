@@ -63,13 +63,12 @@ public class terminal_items extends script.base_script
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         String template = getStringObjVar(self, "disk");
-        int stringCheck = template.indexOf("history");
-        if (stringCheck < 0)
+        if(template != null && template.indexOf("history") >= 0){
+            return SCRIPT_CONTINUE;
+        }
+        if (canSearch(self, player))
         {
-            if (canSearch(self, player))
-            {
-                mi.addRootMenu(menu_info_types.ITEM_USE, new string_id(CONVO, "download"));
-            }
+            mi.addRootMenu(menu_info_types.ITEM_USE, new string_id(CONVO, "download"));
         }
         return SCRIPT_CONTINUE;
     }
