@@ -21,39 +21,29 @@ public class terminal_items extends script.base_script
         if (volumeName.equals(GET_QUEST_ITEM_VOLUME_NAME))
         {
             String template = getStringObjVar(self, "disk");
-            if ((template != null) && (!template.equals("")))
+            if ((template != null) && (!template.equals("")) && template.indexOf("history") > -1 && isPlayer(breacher) && canSearch(self, breacher))
             {
-                int stringCheck = template.indexOf("history");
-                if (stringCheck > -1)
+                if (hasObjVar(breacher, "bestine.searched"))
                 {
-                    if (isPlayer(breacher))
+                    sendSystemMessage(breacher, new string_id(CONVO, "history_disk_found_already"));
+                    return SCRIPT_CONTINUE;
+                }
+                obj_id playerInv = utils.getInventoryContainer(breacher);
+                if (isIdValid(playerInv))
+                {
+                    int free_space = getVolumeFree(playerInv);
+                    if (free_space > 0)
                     {
-                        if (canSearch(self, breacher))
+                        obj_id objectReceived = createObject(template, playerInv, "");
+                        if (isIdValid(objectReceived))
                         {
-                            if (hasObjVar(breacher, "bestine.searched"))
-                            {
-                                sendSystemMessage(breacher, new string_id(CONVO, "history_disk_found_already"));
-                                return SCRIPT_CONTINUE;
-                            }
-                            obj_id playerInv = utils.getInventoryContainer(breacher);
-                            if (isIdValid(playerInv))
-                            {
-                                int free_space = getVolumeFree(playerInv);
-                                if (free_space > 0)
-                                {
-                                    obj_id objectReceived = createObject(template, playerInv, "");
-                                    if (isIdValid(objectReceived))
-                                    {
-                                        sendSystemMessage(breacher, new string_id(CONVO, "history_disk_found"));
-                                        setObjVar(breacher, "bestine.searched", 1);
-                                    }
-                                }
-                                else 
-                                {
-                                    sendSystemMessage(breacher, new string_id(CONVO, "inv_full"));
-                                }
-                            }
+                            sendSystemMessage(breacher, new string_id(CONVO, "history_disk_found"));
+                            setObjVar(breacher, "bestine.searched", 1);
                         }
+                    }
+                    else
+                    {
+                        sendSystemMessage(breacher, new string_id(CONVO, "inv_full"));
                     }
                 }
             }
