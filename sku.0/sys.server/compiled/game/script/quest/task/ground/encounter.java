@@ -76,16 +76,17 @@ public class encounter extends script.quest.task.ground.base_task
                 l = getGoodLocation(objBuilding, strCell);
             }
             obj_id creature = create.createCreature(creatureType, l, true);
-            setObjVar(creature, objvarOnCreatureOwner, self);
-            setObjVar(creature, objvarOnCreatureQuestCrc, questCrc);
-            setObjVar(creature, objvarOnCreatureTaskId, taskId);
-            attachScript(creature, scriptNameEncounterOnCreature);
-            if (!hasCondition(creature, CONDITION_CONVERSABLE))
-            {
-                groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskActivated", "Spawned " + creature + " at [" + l.x + ", " + l.y + ", " + l.z + "] to attack " + self);
-                startCombat(creature, self);
+            if(isValidId(creature)) {
+                setObjVar(creature, objvarOnCreatureOwner, self);
+                setObjVar(creature, objvarOnCreatureQuestCrc, questCrc);
+                setObjVar(creature, objvarOnCreatureTaskId, taskId);
+                attachScript(creature, scriptNameEncounterOnCreature);
+                if (!hasCondition(creature, CONDITION_CONVERSABLE)) {
+                    groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskActivated", "Spawned " + creature + " at [" + l.x + ", " + l.y + ", " + l.z + "] to attack " + self);
+                    startCombat(creature, self);
+                }
+                utils.addElement(spawnList, creature);
             }
-            utils.addElement(spawnList, creature);
         }
         setObjVar(self, baseObjVar + dot + objvarSpawnList, spawnList);
         return super.OnTaskActivated(self, questCrc, taskId);
