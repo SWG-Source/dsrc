@@ -307,12 +307,16 @@ public class new_armor extends script.base_script
     public int checkArmorData(obj_id self, dictionary params) throws InterruptedException
     {
         String template = getTemplateName(self);
+        if(template == null){
+            LOG("DESIGNER_FATAL","Unable to check armor data for item (" + self + ") because it doesn't have a template!")
+            return SCRIPT_CONTINUE;
+        }
         String name = null;
         if (template.endsWith("armor_ubese_helmet_quest.iff"))
         {
             name = "object/tangible/wearables/armor/ubese/armor_ubese_helmet_quest.iff";
         }
-        if (template.endsWith("armor_stormtrooper_helmet_quest.iff"))
+        else if (template.endsWith("armor_stormtrooper_helmet_quest.iff"))
         {
             name = "object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_helmet_quest.iff";
         }
