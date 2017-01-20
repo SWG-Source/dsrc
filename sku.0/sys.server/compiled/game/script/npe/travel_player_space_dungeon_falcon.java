@@ -100,6 +100,11 @@ public class travel_player_space_dungeon_falcon extends script.base_script
         for (int i = 0; i < dungeon_data.length; i++)
         {
             dictionary dungeon = dungeon_data[i];
+            if (dungeon == null)
+            {
+                LOG("space_dungeon", "travel_player_space_dungeon_falcon.OnClusterWideDataResponse -- bad data found for dungeon entry " + i + " (dungeon instance (" + element_name_list[i] + ") has no dungeon_data). Ignoring.");
+                continue;
+            }
             obj_id dungeon_id = dungeon.getObjId("dungeon_id");
             int session_id = dungeon.getInt("session_id");
             float[] dungeon_position = 
