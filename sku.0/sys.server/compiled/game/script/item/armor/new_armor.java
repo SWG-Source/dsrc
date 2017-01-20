@@ -308,7 +308,7 @@ public class new_armor extends script.base_script
     {
         String template = getTemplateName(self);
         if(template == null){
-            LOG("DESIGNER_FATAL","Unable to check armor data for item (" + self + ") because it doesn't have a template!")
+            LOG("DESIGNER_FATAL","Unable to check armor data for item (" + self + ") because it doesn't have a template!");
             return SCRIPT_CONTINUE;
         }
         String name = null;
