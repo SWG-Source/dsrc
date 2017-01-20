@@ -1747,11 +1747,11 @@ public class combat extends script.base_script
             addHate(attacker, defender, 0.0f);
             
             {
-                final obj_id[] hateList = getHateList(attacker);
+                obj_id[] hateList = getHateList(attacker);
                 for (int i = 0; i < hateList.length; ++i)
                 {
-                    final obj_id hateTarget = hateList[i];
-                    if (!isPlayer(hateTarget))
+                    obj_id hateTarget = hateList[i];
+                    if (!isPlayer(hateTarget) && isTangible(hateTarget))
                     {
                         if (getHateTarget(hateTarget) == attacker)
                         {
