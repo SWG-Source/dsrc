@@ -42,8 +42,21 @@ public class encounter_on_creature extends script.base_script
     public int messageEncounterTaskCheckCreatureDistance(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id player = getObjIdObjVar(self, objvarOnCreatureOwner);
+        int numTries = 0;
+        if (utils.hasScriptVar(self, scriptVarNumAttempts))
+        {
+            numTries = utils.getIntScriptVar(self, scriptVarNumAttempts);
+        }
         location currentLocation = getLocation(self);
         location playerLocation = getLocation(player);
+        if(currentLocation == null && playerLocation == null){
+            utils.setScriptVar(self, scriptVarNumAttempts, ++numTries);
+            if (numTries < 4)
+            {
+                messageTo(self, "messageEncounterTaskCheckCreatureDistance", null, 15, false);
+            }
+            return SCRIPT_CONTINUE;
+        }
         float distanceToPlayer = currentLocation.distance(playerLocation);
         boolean isDead = ai_lib.isAiDead(self);
         if (isDead)
@@ -51,11 +64,6 @@ public class encounter_on_creature extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean isConversing = hasCondition(self, CONDITION_CONVERSABLE);
-        int numTries = 0;
-        if (utils.hasScriptVar(self, scriptVarNumAttempts))
-        {
-            numTries = utils.getIntScriptVar(self, scriptVarNumAttempts);
-        }
         if ((distanceToPlayer > combatDistance) || distanceToPlayer == -1)
         {
             location startLocation = getLocationObjVar(self, objvarOnCreatureStartLocation);
@@ -86,10 +94,9 @@ public class encounter_on_creature extends script.base_script
         setObjVar(self, objvarOnCreatureStartDistanceToPlayer, distanceToPlayer);
         numTries++;
         utils.setScriptVar(self, scriptVarNumAttempts, numTries);
-        dictionary paramsOut = new dictionary();
         if (numTries < 4)
         {
-            messageTo(self, "messageEncounterTaskCheckCreatureDistance", paramsOut, 15, false);
+            messageTo(self, "messageEncounterTaskCheckCreatureDistance", null, 15, false);
         }
         return SCRIPT_CONTINUE;
     }
