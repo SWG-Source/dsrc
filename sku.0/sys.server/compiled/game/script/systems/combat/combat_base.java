@@ -254,8 +254,18 @@ public class combat_base extends script.base_script
                     atkRslt.weapon = weaponData.id;
                     atkRslt.actionName = getStringCrc(toLower(actionName));
                     atkRslt.useLocation = true;
-                    atkRslt.targetLocation = new vector(targetLoc.x, targetLoc.y, targetLoc.z);
-                    atkRslt.targetCell = targetLoc.cell;
+                    if(isValidLocation(targetLoc,1f)) {
+                        atkRslt.targetLocation = new vector(targetLoc.x, targetLoc.y, targetLoc.z);
+                        atkRslt.targetCell = targetLoc.cell;
+                    }
+                    else {
+                        location tl = getLocation(target);
+                        if(!isValidLocation(tl, 1f)){
+                            LOG("heroics","IG-88 could not identify the target's (" + target + ":" + getPlayerFullName(target) + ") location (" + targetLoc.toString() + ") to attack it.");
+                        }
+                        atkRslt.targetLocation = new vector(tl.x, tl.y, tl.z);
+                        atkRslt.targetCell = tl.cell;
+                    }
                     atkRslt.endPosture = (combat.isMeleeWeapon(weaponData.id) || combat.isLightsaberWeapon(weaponData.id)) ? POSTURE_UPRIGHT : getPosture(self);
                     String anim = actionData.animDefault;
                     stealth.testInvisCombatAction(self, target, actionData);
