@@ -9,6 +9,7 @@ import java.util.Vector;
 import script.base_script;
 
 import script.library.ai_lib;
+import script.library.pet_lib;
 import script.library.buff;
 import script.library.chat;
 import script.library.prose;
@@ -40,6 +41,9 @@ public class smuggler_medic extends script.base_script
     }
     public int castOnMaster(obj_id self, dictionary params) throws InterruptedException
     {
+        if(!pet_lib.hasMaster(self)){
+            return SCRIPT_CONTINUE;
+        }
         obj_id master = getMaster(self);
         if (isIdValid(master))
         {
