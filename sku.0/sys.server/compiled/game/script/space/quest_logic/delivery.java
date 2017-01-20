@@ -264,10 +264,15 @@ public class delivery extends script.base_script
                 }
             }
             String destNav = getStringObjVar(self, "pickupPoint");
-            java.util.StringTokenizer st = new java.util.StringTokenizer(destNav, ":");
-            String scene = st.nextToken();
-            destNav = st.nextToken();
-            destNav = questName + ":" + destNav;
+            try {
+                java.util.StringTokenizer st = new java.util.StringTokenizer(destNav, ":");
+                String scene = st.nextToken();
+                destNav = st.nextToken();
+                destNav = questName + ":" + destNav;
+            }
+            catch(Exception e){
+                LOG("space_quest","Bad quest logic:  Quest (space/quest/" + questType + "/" + questName + ") contains invalid pickup point while trying to parse string (" + getStringObjVar(self, "pickupPoint") + ").");
+            }
             if (destNav.equals(name))
             {
                 string_id foundLocation = new string_id("spacequest/" + questType + "/" + questName, "arrived_at_pickup");
