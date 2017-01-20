@@ -482,6 +482,7 @@ public class spawn_base extends script.base_script
     public String getFictionalRegionFileName(String strPlanet, String strFullName) throws InterruptedException
     {
         String strRegionName = utils.unpackString(strFullName).getAsciiId();
+        LOG("spawning", "Unable to get spawns for planet (" + strPlanet + ") in region with name (" + strFullName + ").");
         return "datatables/spawning/spawn_lists/" + strPlanet + "/" + strRegionName + ".iff";
     }
     public String getOverLoadRegionFileName(String strRegionName) throws InterruptedException
