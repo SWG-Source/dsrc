@@ -410,14 +410,15 @@ public class npc_lair extends script.theme_park.poi.base
                 setHitpoints(target, hpValue);
             }
             catch(Exception e){
-                System.out.println("Couldn't set obj vars on target with obj_id " + target.toString());
-                System.out.println("Target does " + (isIdValid(target) ? "" : "not") + " have a valid obj id.");
-                System.out.println("Target is " + (isPlayer(target) ? "" : "not") + " a player.");
-                System.out.println("Target is " + (isIncapacitated(target) ? "" : "not") + " incapacitated.");
-                System.out.println("Target is " + (isInvulnerable(target) ? "" : "not") + " invulnerable.");
-                System.out.println("Target is " + (isGod(target) ? "" : "not") + " in god mode.");
-                System.out.println("Targets template is " + getTemplateName(target));
-                System.out.println("Targets name is " + getPlayerName(target));
+                LOG("npc_lair","Couldn't set obj vars on target with obj_id " + target.toString()
+                        + "\nTarget does " + (isIdValid(target) ? "" : "not") + " have a valid obj id."
+                        + "\nTarget is " + (isPlayer(target) ? "" : "not") + " a player."
+                        + "\nTarget is " + (isIncapacitated(target) ? "" : "not") + " incapacitated."
+                        + "\nTarget is " + (isInvulnerable(target) ? "" : "not") + " invulnerable."
+                        + "\nTarget is " + (isGod(target) ? "" : "not") + " in god mode."
+                        + "\nTargets template is " + getTemplateName(target)
+                        + "\nTargets name is " + getPlayerName(target) + "."
+                );
             }
         }
         else 
@@ -672,6 +673,9 @@ public class npc_lair extends script.theme_park.poi.base
         int maxHP = getMaxHitpoints(lair);
         int curHP = getHitpoints(lair);
         int numSpawned = getIntObjVar(self, "npc_lair.numberOfMobiles");
+        if(numSpawned == 0) {
+            return SCRIPT_CONTINUE;
+        }
         int costPerMobile = maxHP / (numSpawned * 5);
         if (costPerMobile > curHP)
         {
