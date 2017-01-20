@@ -885,8 +885,12 @@ public class combat_base extends script.base_script
             {
                 if (weaponData.weaponType == WEAPON_TYPE_DIRECTIONAL)
                 {
-                    location where = (location)actionData.targetLoc.clone();
-                    defenders = pvpGetTargetsInCone(self, self, where, length, width);
+                    if(actionData != null && isValidLocation(actionData.targetLoc, 1f)) {
+                        defenders = pvpGetTargetsInCone(self, self, actionData.targetLoc, length, width);
+                    }
+                    else{
+                        defenders = pvpGetTargetsInCone(self, self, target, length, width);
+                    }
                 }
                 else 
                 {
