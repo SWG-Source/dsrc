@@ -2520,8 +2520,10 @@ public class player_structure extends script.base_script
         city.addStructureToCity(house);
         trace.log("housepackup", "%TU unpacked their house (" + house + ") from structure control device ( " + scd + ") to new location " + loc.toString(), owner, trace.TL_CS_LOG);
         obj_id[] houseContents = trial.getAllObjectsInDungeon(house);
-        for (obj_id houseContent : houseContents) {
-            messageTo(houseContent, "OnUnpack", null, 1.0f, false);
+        if(houseContents != null) {
+            for (obj_id houseContent : houseContents) {
+                messageTo(houseContent, "OnUnpack", null, 1.0f, false);
+            }
         }
         return true;
     }
