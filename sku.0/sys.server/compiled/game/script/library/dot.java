@@ -2184,7 +2184,7 @@ public class dot extends script.base_script
         {
             return false;
         }
-        if (isIdValid(attacker) && isMob(attacker))
+        if (isIdValid(attacker) && isMob(attacker) && !target.equals(attacker))
         {
             addHate(target, attacker, 0.0f);
             addHate(attacker, target, 0.0f);
