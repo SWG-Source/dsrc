@@ -1551,37 +1551,36 @@ public class craftinglib extends script.base_script
     public static String getCraftingSubskill(String[] craftingSkills) throws InterruptedException
     {
         String strSkill = "artisan";
-        String[] skillFragment = 
-        {
-            "crafting_artisan",
-            "crafting_armorsmith",
-            "crafting_architect",
-            "crafting_chef",
-            "crafting_droid",
-            "crafting_shipwright",
-            "crafting_tailor",
-            "crafting_weaponsmith",
-            "crafting_cybernetic"
-        };
-        String[] skillList = 
-        {
-            "artisan",
-            "armorsmith",
-            "architect",
-            "chef",
-            "droid",
-            "shipwright",
-            "tailor",
-            "weaponsmith",
-            "cybernetic"
-        };
-        for (int i = 0; i < craftingSkills.length; i++)
-        {
-            for (int j = 0; j < skillFragment.length; j++)
-            {
-                if (craftingSkills[i].startsWith(skillFragment[j]))
-                {
-                    return skillList[j];
+        if(craftingSkills != null) {
+            String[] skillFragment =
+                    {
+                            "crafting_artisan",
+                            "crafting_armorsmith",
+                            "crafting_architect",
+                            "crafting_chef",
+                            "crafting_droid",
+                            "crafting_shipwright",
+                            "crafting_tailor",
+                            "crafting_weaponsmith",
+                            "crafting_cybernetic"
+                    };
+            String[] skillList =
+                    {
+                            "artisan",
+                            "armorsmith",
+                            "architect",
+                            "chef",
+                            "droid",
+                            "shipwright",
+                            "tailor",
+                            "weaponsmith",
+                            "cybernetic"
+                    };
+            for (int i = 0; i < craftingSkills.length; i++) {
+                for (int j = 0; j < skillFragment.length; j++) {
+                    if (craftingSkills[i].startsWith(skillFragment[j])) {
+                        return skillList[j];
+                    }
                 }
             }
         }
