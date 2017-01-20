@@ -235,7 +235,8 @@ public class tusken_raider extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id listener = utils.getObjIdScriptVar(self, "ai.pathingToSocialize");
-        endSocializing(self, listener);
+        if(listener != null)
+            endSocializing(self, listener);
         return SCRIPT_CONTINUE;
     }
     public int OnMovePathNotFound(obj_id self) throws InterruptedException
