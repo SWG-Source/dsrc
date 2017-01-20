@@ -31,7 +31,10 @@ public class crafting_gcw_tools extends script.base_script
         int fatigue = 1;
         String skillTemplate = getSkillTemplate(player);
         String profession = skill.getProfessionName(skillTemplate);
-        if (!profession.equals("trader"))
+        if(profession == null){
+            LOG("gcw-crafting","Unable to get player's (" + player + ":" + getPlayerFullName(player) + ") profession!  Skill template is " + skillTemplate + ".");
+        }
+        else if (!profession.equals("trader"))
         {
             fatigue = 5;
         }
