@@ -890,7 +890,7 @@ public class smuggler extends script.base_script
             return;
         }
         String strLootTable = getStringObjVar(target, "loot.lootTable");
-        if (!strLootTable.startsWith("npc") && (!strLootTable.startsWith("droid")))
+        if (strLootTable == null || (!strLootTable.startsWith("npc") && (!strLootTable.startsWith("droid"))))
         {
             sendSystemMessage(player, new string_id("smuggler/messages", "contraband_not_possible"));
             return;
