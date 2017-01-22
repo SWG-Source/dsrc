@@ -1739,7 +1739,7 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             }
             */
             // so, instead, just set the default description to be the one we KNOW is missing from non-player city terminals.
-            strDescription = "m" + intStringId + "d" + flagChar;
+            strDescription = "m" + intStringId + "o" + flagChar;
 
             String strTest = getMissionType(objMissionData);
             if (strTest.equals("survey"))
