@@ -1694,16 +1694,19 @@ public class space_crafting extends script.base_script
     }
     public static float getDamagePercentage(obj_id objShip, int intSlot) throws InterruptedException
     {
-        float fltMaximumHitpoints = getShipComponentArmorHitpointsMaximum(objShip, intSlot);
-        fltMaximumHitpoints = fltMaximumHitpoints + getShipComponentHitpointsMaximum(objShip, intSlot);
-        float fltCurrentHitpoints = getShipComponentArmorHitpointsCurrent(objShip, intSlot);
-        fltCurrentHitpoints = fltCurrentHitpoints + getShipComponentHitpointsCurrent(objShip, intSlot);
-        if (fltCurrentHitpoints == 0)
+        float fltMaximumHitpoints = getShipComponentArmorHitpointsMaximum(objShip, intSlot) + getShipComponentHitpointsMaximum(objShip, intSlot);
+        float fltCurrentHitpoints = getShipComponentArmorHitpointsCurrent(objShip, intSlot) + getShipComponentHitpointsCurrent(objShip, intSlot);
+        // protect against less than zero.
+        if (fltCurrentHitpoints <= 0 || fltMaximumHitpoints <= 0)
         {
-            return 0;
+            return 0f;
         }
-        float fltPercent = fltCurrentHitpoints / fltMaximumHitpoints;
-        return fltPercent;
+        // protect against more than one.
+        if(fltCurrentHitpoints > fltMaximumHitpoints)
+        {
+            return 1f;
+        }
+        return fltCurrentHitpoints / fltMaximumHitpoints;
     }
     public static int getExtendedComponentType(String strSlot) throws InterruptedException
     {
