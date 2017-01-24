@@ -2649,6 +2649,10 @@ public class player_structure extends script.base_script
             return;
         }
         String signText = getName(signId);
+        if(signText == null){
+            LOG("playerStructure", "WARNING: Structure (" + structure + ") at location [" + getLocation(structure).toString() + "] has a sign (" + signId + "), but the sign name could not be retrieved.");
+            return;
+        }
         int indexOfAbandonedText = signText.indexOf(player_structure.CITY_ABANDONED_TEXT);
         if (indexOfAbandonedText > -1)
         {
