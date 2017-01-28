@@ -1,16 +1,11 @@
 package script.planet;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
+
 import java.util.Vector;
-import script.base_script;
 
 import script.library.cloninglib;
 import script.library.gcw;
-import script.library.regions;
 import script.library.scheduled_drop;
 import script.library.utils;
 
@@ -189,6 +184,10 @@ public class planet_base extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String city = params.getString("city");
+        if(!gcw.gcwIsInvasionCityOn(city))
+        {
+            return SCRIPT_CONTINUE;
+        }
         obj_id sequencer = params.getObjId("sequencer");
         int messageGameTime = params.getInt("gameTime" + city);
         int lastTrackTime = utils.getIntScriptVar(self, "gcw.lastTrackTime." + city);
@@ -208,6 +207,8 @@ public class planet_base extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+
+        // if there is no calendar_time it is assumed it has not run since server restart.
         int scheduleTime = utils.getIntScriptVar(self, "gcw.calendar_time." + city);
         int calendarTime = getCalendarTime();
         int timeToInvasion = gcw.gcwGetNextInvasionTime(city);
@@ -215,26 +216,36 @@ public class planet_base extends script.base_script
         {
             timeToInvasion = 1;
         }
+
+        // set calendar_time to essentially show that we've evaluated if an evasion has been run or not.
         utils.setScriptVar(self, "gcw.calendar_time." + city, calendarTime);
+
+        // this is the case if we haven't run an invasion yet at all.
         if (scheduleTime <= 0)
         {
+            // timeToInvasion should never be in the past.  Reset and try again - possibly skipping this cycle.
             if (timeToInvasion < 0)
             {
                 LOG("gcwlog", "gcwInvasionTracker city: " + city + " has an invalid time.  Retrying the calculation.");
                 utils.removeScriptVar(self, "gcw.calendar_time." + city);
                 messageTo(self, "gcwInvasionTracker", params, 5.0f, false);
             }
+            // the invasion is scheduled to start at some point... check this calc again when it is scheduled to start.
             else 
             {
                 LOG("gcwlog", "gcwInvasionTracker city: " + city + " has not been run today.  timeToInvasion: " + timeToInvasion);
-                messageTo(self, "gcwInvasionTracker", params, timeToInvasion, false);
+                messageTo(self, "gcwInvasionTracker", params, timeToInvasion, false); // check again when invasion is expected to start.
             }
             return SCRIPT_CONTINUE;
         }
-        if (timeToInvasion > 0)
+        if (timeToInvasion >= 0 && gcw.gcwHasInvasionInCycle(city, gcw.gcwCalculateInvasionCycle()))
         {
-            LOG("gcwlog", "gcwInvasionTracker city: " + city + " is starting now.  Next invasion after this one: " + timeToInvasion);
+            LOG("gcwlog", "gcwInvasionTracker city: " + city + " is starting now.  Next invasion after this one: " + timeToInvasion / 60 + " minutes from now.");
             gcwInvasionMessage(self, sequencer, city);
+            messageTo(self, "gcwInvasionTracker", params, timeToInvasion, false);
+        }
+        else if(timeToInvasion >= 0){
+            LOG("gcwlog","gcwInvasionTracker city: " + city + " is not ready to start.  Next invasion is scheduled to start in " + timeToInvasion / 60 + " minutes.");
             messageTo(self, "gcwInvasionTracker", params, timeToInvasion, false);
         }
         else 

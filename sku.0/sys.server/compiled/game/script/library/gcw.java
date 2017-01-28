@@ -1,25 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.ai.ai_combat;
-import script.library.buff;
-import script.library.colors_hex;
-import script.library.factions;
-import script.library.faction_perk;
-import script.library.loot;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.regions;
-import script.library.space_flags;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class gcw extends script.base_script
 {
@@ -260,6 +243,7 @@ public class gcw extends script.base_script
     public static final int GCW_TOKENS_LOSER_PARTICIPANTS = 10;
     public static final int GCW_POINTS_CONSTRUCTION_PHASE = 100;
     public static final int GCW_TOKENS_CONSTRUCTION_PHASE = 20;
+    public static final String[] INVASION_CITIES = {"dearic", "keren", "bestine"};
     public static final String DEARIC_CITY_TABLE = "datatables/gcw/gcw_city_dearic.iff";
     public static final String KEREN_CITY_TABLE = "datatables/gcw/gcw_city_keren.iff";
     public static final String BESTINE_CITY_TABLE = "datatables/gcw/gcw_city_bestine.iff";
@@ -2811,9 +2795,9 @@ public class gcw extends script.base_script
         {
             time = 6;
         }
-        if (time < 2)
+        if (time < 1)
         {
-            time = 2;
+            time = 1;
         }
         return time;
     }
@@ -2834,97 +2818,207 @@ public class gcw extends script.base_script
             return false;
         }
         String cityConfig = getConfigSetting("GameServer", "gcwcity" + city);
-        if (cityConfig == null || cityConfig.length() <= 0)
+        if (cityConfig == null || (!cityConfig.equals("1") && !cityConfig.toLowerCase().equals("true")))
         {
             CustomerServiceLog("gcw_city_invasion", "gcw.gcwIsInvasionCityOn: GCW City: " + city + " is not configured to run a city invasion. Function returning False.");
             return false;
         }
         return true;
     }
-    public static int gcwGetCityInterval(String cityName, int cycle) throws InterruptedException
+    public static int gcwGetNextInvasionHour(String cityName) throws InterruptedException
     {
-        if (cycle < 0 || cycle > 2)
+        int activeCityCount = gcwGetActiveCityCount();
+        int currentCycle = gcwCalculateInvasionCycle();
+        int invasionInterval = gcwGetTimeToInvasion();
+        int currentHour = player_structure.convertSecondsTime(getCalendarTime())[1];
+
+        // loop through possible cycles to find when the city will be next active.
+        int checkCycle = currentCycle;
+        int checkHour = currentHour;
+        for(int i = 0; i < activeCityCount; i++){
+            checkCycle++;
+            checkHour = checkHour + invasionInterval;
+            if(checkCycle >= activeCityCount) checkCycle = 0;
+            if(gcwHasInvasionInCycle(cityName, checkCycle)) {
+                break;
+            }
+        }
+        int nextHour = checkHour;
+
+        if(nextHour > 23)
+            nextHour = nextHour - 24;
+        return nextHour;
+    }
+    public static boolean gcwHasInvasionInCycle(String cityName, int cycle) throws InterruptedException
+    {
+
+        // if the max is set to 0 then nothing should happen.
+        int maxRunning = gcwGetInvasionMaximumRunning();
+        if(maxRunning == 0){
+            LOG("gcwlog","maxrunning is 0");
+            return false;
+        }
+
+        // if the total active cities is 0 or if the cycle is larger that the cities that are active
+        // then nothing should happen.
+        String[] activeCities = gcwGetActiveCities();
+        if(activeCities.length == 0 || cycle >= activeCities.length)
         {
-            return -1;
+            LOG("gcwlog","no active cities or cycle is bigger than active cities.  Active city length is " + activeCities.length + " and cycle is " + cycle);
+            return false;
+        }
+
+        int cityIndex = -1;
+        for(int i = 0; i < activeCities.length; i++){
+            if(activeCities[i].equals(cityName)){
+                cityIndex = i;
+                break;
+            }
+        }
+        // if the city in question was not found in the active cities then nothing should happen.
+        if(cityIndex == -1)
+        {
+            LOG("gcwlog","hmmm... " + cityName + " wasn't found in active cities...");
+            return false;
+        }
+
+        // make sure total active cities is capped at total available to be active.
+        if(maxRunning > activeCities.length)
+            maxRunning = INVASION_CITIES.length;
+
+        LOG("gcwlog","Checking if city (" + cityName + ") is active in cycle (" + cycle + ") with active city count of (" + activeCities.length + ") and max running (" + maxRunning + ") with city index of (" + cityIndex + ").");
+
+        switch(activeCities.length){
+            case 1:
+                return true;
+            case 2:
+                if(maxRunning == 1){
+                    return cityIndex == cycle;
+                }
+                return true;
+            case 3:
+                switch(maxRunning){
+                    case 1:
+                        return cityIndex == cycle;
+                    case 2:
+                        return ((cycle == 0 && (cityIndex == 0 || cityIndex == 1))
+                                || (cycle == 1 && (cityIndex == 1 || cityIndex == 2))
+                                || (cycle == 2 && (cityIndex == 2 || cityIndex == 0)));
+                    case 3:
+                        return true;
+                }
+                break;
+            default:
+                return false;
+        }
+        return false;
+        /*
+        int totalActiveCities = gcwGetActiveCityCount();
+        if (cycle < 0 || cycle >= totalActiveCities)
+        {
+            return false;
         }
         int maximumRunning = gcwGetInvasionMaximumRunning();
-        int[] bestineSchedule = null;
-        int[] dearicSchedule = null;
-        int[] kerenSchedule = null;
+        boolean[] bestineSchedule = null;
+        boolean[] dearicSchedule = null;
+        boolean[] kerenSchedule = null;
         switch (maximumRunning)
         {
             case 0:
-            return -1;
+                return false;
             case 1:
-            bestineSchedule = new int[]
-            {
-                1,
-                0,
-                0
-            };
-            dearicSchedule = new int[]
-            {
-                0,
-                1,
-                0
-            };
-            kerenSchedule = new int[]
-            {
-                0,
-                0,
-                1
-            };
-            break;
+                bestineSchedule = new boolean[]
+                        {
+                                true,
+                                false,
+                                false
+                        };
+                dearicSchedule = new boolean[]
+                        {
+                                false,
+                                true,
+                                false
+                        };
+                kerenSchedule = new boolean[]
+                        {
+                                false,
+                                false,
+                                true
+                        };
+                break;
             case 2:
-            bestineSchedule = new int[]
-            {
-                1,
-                0,
-                1
-            };
-            dearicSchedule = new int[]
-            {
-                1,
-                1,
-                0
-            };
-            kerenSchedule = new int[]
-            {
-                0,
-                1,
-                1
-            };
-            break;
+                bestineSchedule = new boolean[]
+                        {
+                                true,
+                                false,
+                                true
+                        };
+                dearicSchedule = new boolean[]
+                        {
+                                true,
+                                true,
+                                false
+                        };
+                kerenSchedule = new boolean[]
+                        {
+                                false,
+                                true,
+                                true
+                        };
+                break;
             case 3:
-            return 1;
+                return true;
             default:
-            return -1;
+                return false;
         }
         if (cityName.equals("bestine"))
         {
-            return bestineSchedule[cycle];
+            if(gcwIsInvasionCityOn(cityName))
+                return bestineSchedule[cycle];
         }
         else if (cityName.equals("dearic"))
         {
-            return dearicSchedule[cycle];
+            if(gcwIsInvasionCityOn(cityName))
+                return dearicSchedule[cycle];
         }
         else if (cityName.equals("keren"))
         {
-            return kerenSchedule[cycle];
+            if(gcwIsInvasionCityOn(cityName))
+                return kerenSchedule[cycle];
         }
-        return -1;
+        return false;
+        */
+    }
+    public static String[] gcwGetActiveCities() throws InterruptedException
+    {
+        Vector<String> activeCities = new Vector<String>();
+        for (String cityName : INVASION_CITIES){
+            String value = getConfigSetting("GameServer", "gcwcity" + cityName);
+            if (value != null && (value.equals("1") || value.toLowerCase().equals("true"))) {
+                activeCities.add(cityName);
+            }
+        }
+        return activeCities.toArray(new String[activeCities.size()]);
+    }
+    public static int gcwGetActiveCityCount() throws InterruptedException
+    {
+        return gcwGetActiveCities().length;
     }
     public static int gcwCalculateInvasionCycle() throws InterruptedException
     {
-        int invasionInterval = gcwGetTimeToInvasion();
+        int invasionInterval = gcwGetTimeToInvasion();  // from config setting.
+        int totalActiveCities = gcwGetActiveCityCount();
         if (invasionInterval <= 0)
         {
             invasionInterval = 3;
         }
+
         int[] convertedCalendarTime = player_structure.convertSecondsTime(getCalendarTime());
         int hour = convertedCalendarTime[1];
-        return ((hour / invasionInterval) % invasionInterval);
+        return ((hour / invasionInterval) % totalActiveCities);
     }
+    // GMT
+    // Returns seconds until the next invasion
     public static int gcwGetNextInvasionTime(String cityName) throws InterruptedException
     {
         LOG("gcwlog", "gcwGetNextInvasionTime cityName: " + cityName);
@@ -2933,49 +3027,56 @@ public class gcw extends script.base_script
             LOG("gcwlog", "cityName: " + cityName + " !gcwIsInvasionCityOn(cityName): " + !gcwIsInvasionCityOn(cityName));
             return -1;
         }
+
+        // Get the invasion interval.  Interval defines the amount of time between invasion cycles.
         int invasionInterval = gcwGetTimeToInvasion();
+
+        // Divide by zero?
         if (invasionInterval <= 0)
         {
-            invasionInterval = 3;
+            invasionInterval = 3; // Default to an invasion every three hours; 8 per day per city, if all cities are on
         }
         int calendarTime = getCalendarTime();
+
         int[] convertedCalendarTime = player_structure.convertSecondsTime(calendarTime);
         int hour = convertedCalendarTime[1];
+
+        // get what cycle we are currently in.  A cycle is defined as a single invasion and where it occurs in the day.
+        // Depending on configuration, each city may have 1 invasion per cycle.  Interval determines the amount of time
+        // (in hours) between the start of each cycle.
         int cycle = gcwCalculateInvasionCycle();
+
         int nextCycle = cycle + 1;
-        if (nextCycle > 2 || 24 - hour <= invasionInterval)
+        int totalActiveCities = gcwGetActiveCityCount();
+        if (nextCycle >= totalActiveCities)
         {
             nextCycle = 0;
         }
-        int nextInterval = gcwGetCityInterval(cityName, nextCycle);
-        LOG("gcwlog", "XXXXXXXX cityName: " + cityName + " nextInterval: " + nextInterval + " cycle: " + cycle + " hour: " + hour + " nextCycle: " + nextCycle);
-        if (nextInterval < 0)
+
+        // Find out if the given city is running in the next cycle or not.
+        boolean invasionOnNextInterval = gcwHasInvasionInCycle(cityName, nextCycle);
+        LOG("gcwlog", "XXXXXXXX cityName: " + cityName + (invasionOnNextInterval ? " does" : " does not") + " have an invasion next cycle.  Cycle: " + cycle + " hour: " + hour + " nextCycle: " + nextCycle);
+
+        int nextHour;
+        // Next interval is skipped?  Return the time to the next interval plus another interval cycle.
+        if (!invasionOnNextInterval)
         {
-            LOG("gcwlog", "cityName: " + cityName + " nextInterval: " + nextInterval);
-            return -1;
+            // next hour should be the next time the given city should run.
+            nextHour = gcwGetNextInvasionHour(cityName);
         }
-        if (nextInterval == 0)
+        else
         {
-            int nextHour = hour + (invasionInterval - (hour % invasionInterval)) + invasionInterval;
-            if (nextHour > 23)
-            {
-                nextHour = nextHour - 24;
-            }
-            LOG("gcwlog", "cityName: " + cityName + " nextInterval: " + nextInterval + " nextHour: " + nextHour);
-            return secondsUntilNextDailyTime(nextHour, 0, 0);
+            // next hour should be the next time the given city should run.
+            nextHour = hour + invasionInterval;
         }
-        if (nextInterval == 1)
+
+        if (nextHour > 23)
         {
-            int nextHour = hour + (invasionInterval - (hour % invasionInterval));
-            if (nextHour > 23)
-            {
-                nextHour = nextHour - 24;
-            }
-            LOG("gcwlog", "cityName: " + cityName + " nextInterval: " + nextInterval + " nextHour: " + nextHour);
-            return secondsUntilNextDailyTime(nextHour, 0, 0);
+            nextHour = nextHour - 24;
         }
-        LOG("gcwlog", "cityName: " + cityName + " nextInterval: " + nextInterval);
-        return -1;
+
+        LOG("gcwlog", "cityName: " + cityName + " nextInterval: " + invasionOnNextInterval + " nextHour: " + nextHour);
+        return secondsUntilNextDailyTime(nextHour, 0, 0);
     }
     public static boolean gcwTutorialCheck(obj_id player) throws InterruptedException
     {

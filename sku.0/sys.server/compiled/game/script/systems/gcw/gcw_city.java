@@ -21,6 +21,12 @@ public class gcw_city extends script.base_script
     public static final float DEARIC_ANNOUNCEMENT_RADIUS = 650.0f;
     public static final String COLOR_REBELS = "\\" + colors_hex.COLOR_REBELS;
     public static final String COLOR_IMPERIALS = "\\" + colors_hex.COLOR_IMPERIALS;
+
+    /*
+    CITY_OBJECT_BESTINE 9835358 tatooine(-1292.5868, 12.0, -3590.0999)
+    CITY_OBJECT_DEARIC 9805353 talus(329.7967, 6.0, -2930.803)
+    CITY_OBJECT_KEREN 9865353 naboo(1434.6715, 13.0, 2771.1726)
+    */
     public static final obj_id CITY_OBJECT_BESTINE = getObjIdWithNull(9835358);
     public static final obj_id CITY_OBJECT_DEARIC = getObjIdWithNull(9805353);
     public static final obj_id CITY_OBJECT_KEREN = getObjIdWithNull(9865353);
@@ -248,7 +254,7 @@ public class gcw_city extends script.base_script
         }
         obj_id planet = getPlanetByName("tatooine");
         String cityName = gcw.getCityFromTable(self);
-        if (cityName != null && cityName.length() > 0 && isIdValid(planet))
+        if (cityName != null && cityName.length() > 0 && isIdValid(planet) && gcw.gcwIsInvasionCityOn(cityName))
         {
             CustomerServiceLog("gcw_city_invasion", "gcw_city.checkForInvasion: The city sequencer object is being checked for a running invasion. session: " + params.getInt(trial.MESSAGE_SESSION));
             params = new dictionary();
@@ -274,6 +280,11 @@ public class gcw_city extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+
+    /*
+    This is the messageHandler received when construction
+    phase starts.
+    */
     public int beginInvasion(obj_id self, dictionary params) throws InterruptedException
     {
         LOG("gcw_announcement", "beginInvasion init");
@@ -295,6 +306,8 @@ public class gcw_city extends script.base_script
             return SCRIPT_CONTINUE;
         }
         utils.removeScriptVar(self, "gcw.configOverride");
+
+        // If the invasion is already running, then do not start again.
         if (utils.hasScriptVar(self, "gcw.invasionRunning"))
         {
             CustomerServiceLog("gcw_city_invasion", "gcw_city.beginInvasion: beginInvasion has been called but according to the city object AN INVASION IS CURRENTLY RUNNING. session: " + params.getInt(trial.MESSAGE_SESSION));
@@ -315,6 +328,8 @@ public class gcw_city extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int calendarTime = getCalendarTime();
+
+        // When did this city last have its invasion?
         int[] convertedCalendarTime = player_structure.convertSecondsTime(calendarTime);
         int hour = convertedCalendarTime[1];
         CustomerServiceLog("gcw_city_invasion_started", "gcw_city.beginInvasion: cityName: " + cityName + " interval: " + gcw.gcwGetTimeToInvasion() + " cycle: " + gcw.gcwCalculateInvasionCycle() + " hour: " + hour);
@@ -436,6 +451,11 @@ public class gcw_city extends script.base_script
         messageTo(self, "updateGcwMapData", params, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
+
+    /*
+    This is the messageHandler received when the construction
+    phase is about to end.
+    */
     public int constructionEndsSoon(obj_id self, dictionary params) throws InterruptedException
     {
         LOG("gcw_announcement", "constructionEndsSoon init");
@@ -493,6 +513,11 @@ public class gcw_city extends script.base_script
         CustomerServiceLog("gcw_city_invasion", "gcw_city.constructionEndsSoon: constructionEndsSoon has sent all players messages regarding the construction phase ending soon. Message sent at: " + getGameTime() + " session: " + params.getInt(trial.MESSAGE_SESSION));
         return SCRIPT_CONTINUE;
     }
+
+    /*
+    This is the messageHandler received when the battle phase is
+    about to end.
+    */
     public int invasionEndsSoon(obj_id self, dictionary params) throws InterruptedException
     {
         LOG("gcw_announcement", "invasionEndsSoon init");
@@ -778,6 +803,10 @@ public class gcw_city extends script.base_script
         setInvulnerable(defendingGeneral, false);
         return SCRIPT_CONTINUE;
     }
+
+    /*
+    The City has been invaded and the defenders have lost.
+    */
     public int defendersEvacuate(obj_id self, dictionary params) throws InterruptedException
     {
         LOG("gcw_announcement", "defendersEvacuate init");
@@ -889,6 +918,10 @@ public class gcw_city extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+
+    /*
+    The Defenders have won.
+    */
     public int cityAttackUnsuccessful(obj_id self, dictionary params) throws InterruptedException
     {
         LOG("gcw_announcement", "cityAttackUnsuccessful init");
@@ -1027,6 +1060,17 @@ public class gcw_city extends script.base_script
         CustomerServiceLog("gcw_city_invasion", "gcw_city.cleanupInvasion: cleanupInvasion is cleaning up all the assets for the battle. This happened at: " + getGameTime() + " session: " + params.getInt(trial.MESSAGE_SESSION));
         return SCRIPT_CONTINUE;
     }
+
+    /*
+    This handler updates the player overhead map. There are a few possible phases identified
+    in the handler:
+    1. Rebel Construction
+    2. Imperial Construction
+    3. Rebel Attack
+    4. Imperial Attack
+    5. Rebel Occupation
+    6. Imperial Occupation
+    */
     public int updateGcwMapData(obj_id self, dictionary params) throws InterruptedException
     {
         LOG("gcw_map_data", "updateGcwMapData init");
@@ -1052,6 +1096,11 @@ public class gcw_city extends script.base_script
             LOG("gcw_map_data_faction", "(!isValidId(cityObject) || !exists(cityObject))");
             return SCRIPT_CONTINUE;
         }
+
+	/*
+	CHECK TO MAKE SURE THE CITY REGION FACTION IS THE SAME AS
+	THE OCCUPATION FACTION
+	*/
         if (phase == gcw.GCW_CITY_PHASE_UNKNOWN)
         {
             LOG("gcw_map_data_faction", "verifyCurrentOccupyFaction");
@@ -1194,11 +1243,14 @@ public class gcw_city extends script.base_script
             return false;
         }
         int percentage = gcw.getRebelPercentileByRegion(cityObject);
+
+        // Rebels own this region?
         if (percentage > 50 && faction == factions.FACTION_FLAG_IMPERIAL)
         {
             LOG("gcw_map_data", "switchCurrentOccupyFaction switching to REB faction");
             utils.setScriptVar(cityObject, "currentOccupyFaction", factions.FACTION_FLAG_REBEL);
         }
+        // Imperials own this region
         else if (percentage < 50 && faction == factions.FACTION_FLAG_REBEL)
         {
             LOG("gcw_map_data", "switchCurrentOccupyFaction switching to IMP faction");
@@ -1213,12 +1265,17 @@ public class gcw_city extends script.base_script
         messageTo(cityObject, "updateGcwMapData", dict, 0.0f, false);
         return true;
     }
+
+    // The general is checked every 30 seconds to see if the object is valid.
     public int checkGeneral(obj_id self, dictionary params) throws InterruptedException
     {
+        // self is invalid if the object is null or does not exist
         if (!isIdValid(self) || !exists(self))
         {
             return SCRIPT_CONTINUE;
         }
+
+        // only process messageTo()'s that are for this version of the sequencer
         if (!trial.verifySession(self, params))
         {
             return SCRIPT_CONTINUE;
