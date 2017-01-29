@@ -531,52 +531,20 @@ public class quest_npc extends script.base_script
         String datatable = getStringObjVar(self, "quest_table");
         int questNum = getIntObjVar(self, "questNum");
         location here = getLocation(self);
-        String spawn = dataTableGetString(datatable, questNum, "extra_npc");
-        String spawn2 = dataTableGetString(datatable, questNum, "extra_npc2");
-        String spawn3 = dataTableGetString(datatable, questNum, "extra_npc3");
-        String spawn4 = dataTableGetString(datatable, questNum, "extra_npc4");
-        if (!spawn.equals("none"))
-        {
-            here.x = here.x + rand(5, 20);
-            here.z = here.z + rand(5, 20);
-            obj_id extra = create.object(spawn, here);
-            String disposition = dataTableGetString(datatable, questNum, "extra_npc_disposition");
-            if (disposition.equals("aggro"))
-            {
-                startCombat(extra, player);
-            }
-        }
-        if (!spawn2.equals("none"))
-        {
-            here.x = here.x + rand(5, 20);
-            here.z = here.z + rand(5, 20);
-            obj_id extra2 = create.object(spawn2, here);
-            String disposition2 = dataTableGetString(datatable, questNum, "extra_npc2_disposition");
-            if (disposition2.equals("aggro"))
-            {
-                startCombat(extra2, player);
-            }
-        }
-        if (!spawn3.equals("none"))
-        {
-            here.x = here.x + rand(5, 20);
-            here.z = here.z + rand(5, 20);
-            obj_id extra3 = create.object(spawn3, here);
-            String disposition3 = dataTableGetString(datatable, questNum, "extra_npc3_disposition");
-            if (disposition3.equals("aggro"))
-            {
-                startCombat(extra3, player);
-            }
-        }
-        if (!spawn4.equals("none"))
-        {
-            here.x = here.x + rand(5, 20);
-            here.z = here.z + rand(5, 20);
-            obj_id extra4 = create.object(spawn4, here);
-            String disposition4 = dataTableGetString(datatable, questNum, "extra_npc4_disposition");
-            if (disposition4.equals("aggro"))
-            {
-                startCombat(extra4, player);
+        for(int i = 1; i <= 4; i++) {
+            String npcNum = "";
+            if(i > 1) npcNum = npcNum + i;
+            String spawn = dataTableGetString(datatable, questNum, "extra_npc" + npcNum);
+            if (!spawn.equals("none")) {
+                here.x = here.x + rand(5, 20);
+                here.z = here.z + rand(5, 20);
+                obj_id extra = create.object(spawn, here);
+                if (isValidId(extra)) {
+                    String disposition = dataTableGetString(datatable, questNum, "extra_npc" + npcNum + "_disposition");
+                    if (disposition.equals("aggro")) {
+                        startCombat(extra, player);
+                    }
+                }
             }
         }
         return SCRIPT_CONTINUE;
