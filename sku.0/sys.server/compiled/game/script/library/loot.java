@@ -1321,14 +1321,11 @@ public class loot extends script.base_script
             else 
             {
                 String[] strItems = dataTableGetStringColumnNoDefaults(strItemTable, strItemTypeHeader);
-                if ((strItems != null) || (strItems.length > 0))
+                if (strItems != null && strItems.length > 0)
                 {
                     String strLootToMake = strItems[rand(0, strItems.length - 1)];
                     createLootItem(objContainer, strLootToMake, intLevel);
                     boolMadeLoot = true;
-                }
-                else 
-                {
                 }
             }
         }
