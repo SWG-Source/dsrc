@@ -30,6 +30,10 @@ public class give_item_to_npc extends script.base_script
         }
         int questCrc = groundquests.getQuestIdFromString(questName);
         int taskId = groundquests.getTaskId(questCrc, taskName);
+        if(taskId == -1){
+            LOG("groundquests","Task could not be found for this quest.");
+            return SCRIPT_CONTINUE;
+        }
         if (!questIsTaskActive(questCrc, taskId, giver))
         {
             if (hasObjVar(self, "alternate_quest_name"))
