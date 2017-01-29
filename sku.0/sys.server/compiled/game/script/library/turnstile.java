@@ -233,7 +233,7 @@ public class turnstile extends script.base_script
             return false;
         }
         int arrayPosition = utils.getElementPositionInArray(patrons, player);
-        if (arrayPosition == -1)
+        if (arrayPosition == -1 || arrayPosition >= timestamps.length)
         {
             return false;
         }
