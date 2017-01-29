@@ -422,6 +422,10 @@ public class tcg_pet_controller extends script.base_script
             return false;
         }
         obj_id pet = create.object(petCreatureName, spawnLoc);
+        if(!isIdValid(pet)){
+            LOG("tcg-pet","Unable to spawn pet (" + pet + ") with template (" + petCreatureName + ") near the owner (" + owner + ") in building (" + objBuilding + ") at location (" + spawnLoc.toString() + ").");
+            return false;
+        }
         setOwner(pet, owner);
         ai_lib.setDefaultCalmBehavior(pet, ai_lib.BEHAVIOR_WANDER);
         setObjVar(controller, house_pet.CHILD_OBJ_ID, pet);
