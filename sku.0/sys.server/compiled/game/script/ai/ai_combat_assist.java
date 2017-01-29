@@ -65,6 +65,10 @@ public class ai_combat_assist extends script.base_script
         }
         String type = getStringObjVar(self, "creature_type");
         dictionary aiData = dataTableGetRow("datatables/mob/creatures.iff", type);
+        if(aiData == null){
+            LOG("DESIGNER_FATAL", "Creature Type (" + type + ") not found in creatures table (datatables/mob/creatures.iff)!!");
+            return false;
+        }
         float assistRange = aiData.getFloat("assist");
         if (assistRange == 0.0f)
         {
