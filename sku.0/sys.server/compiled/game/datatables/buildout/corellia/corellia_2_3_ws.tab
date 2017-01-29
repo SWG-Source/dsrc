@@ -802,6 +802,9 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -6	2625361	object/tangible/npc/corellia_spawn/karena_keer.iff	9	-8	-0.9	18.7	0	0	1	0		$|
 2625362	2625352	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 2625363	2625352	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+-7	2625363	object/tangible/npc/rebel_recruiter_spawner.iff	11	-28.5	-0.9	-1.3	0.707107	0	0.707106	0		$|
+937455	2625363	object/tangible/terminal/terminal_mission_rebel.iff	11	-26.8143	-0.894985	-2.39947	1	0	0	0		$|
+937457	2625363	object/tangible/terminal/terminal_mission_rebel.iff	11	-26.8729	-0.894984	3.28025	-3.20013e-08	0	1	0		$|
 2625364	2625352	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
 1570630	2625364	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	12	-19.1	-0.9	22.1	0.026177	0	-0.99966	0		$|
 2625365	2625352	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
