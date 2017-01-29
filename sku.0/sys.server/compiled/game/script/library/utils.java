@@ -6684,12 +6684,15 @@ public class utils extends script.base_script
             return null;
         }
         location testLoc;
-        for (obj_id allObject : allObjects) {
-            testLoc = getLocation(trial.getTop(allObject));
+        for (obj_id obj : allObjects) {
+            testLoc = getLocation(trial.getTop(obj));
+            if(testLoc == null || !isValidLocation(testLoc, 1f)){
+                continue;
+            }
             if (testLoc.x < x1 || testLoc.x > x2 || testLoc.z < z1 || testLoc.z > z2) {
                 continue;
             }
-            objectsInArea.add(allObject);
+            objectsInArea.add(obj);
         }
         if (objectsInArea.size() == 0)
         {
