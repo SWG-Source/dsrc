@@ -377,7 +377,7 @@ public class poi_object extends script.theme_park.poi.base
     {
         obj_id[] objContents = getTriggerVolumeContents(self, "playerBreachPOI");
         int intPlayers = 0;
-        if ((objContents != null) || (objContents.length != 0))
+        if (objContents != null && objContents.length > 0)
         {
             for (int intI = 0; intI < objContents.length; intI++)
             {
