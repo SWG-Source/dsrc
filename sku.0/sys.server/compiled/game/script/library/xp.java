@@ -908,7 +908,11 @@ public class xp extends script.base_script
         }
         params.put("creatureName", creatureName);
         params.put("location", getLocation(target));
-        params.put("socialGroup", ai_lib.getSocialGroup(target));
+        // only put a value in socialGroup if one can be derived from the target.
+        if(ai_lib.getSocialGroup(target) != null)
+            params.put("socialGroup", ai_lib.getSocialGroup(target));
+        else
+            LOG("DESIGNER_FATAL", "WARNING: target (" + target + ":" + creatureName + ") with tempate (" + getTemplateName(target) + ") does not have a social group!!");
         // only put a value in col_faction if one is found in the datatable.
         if(dataTableGetString(CREATURES_TABLE, creatureName, "col_faction") != null)
             params.put("col_faction", dataTableGetString(CREATURES_TABLE, creatureName, "col_faction"));
