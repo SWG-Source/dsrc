@@ -2320,6 +2320,10 @@ public class terminal_character_builder extends script.base_script
         location loc = getLocation(player);
         String planet = "current";
         String[] resourceList = getResourceChildClasses(RESOURCE_BASE_TYPES[idx]);
+        if(resourceList == null){
+            LOG("frog-bestResource", "Could not get child classes for resource (" + RESOURCE_BASE_TYPES[idx] + ")");
+            return SCRIPT_CONTINUE;
+        }
         int goodResources = 0;
         for (String resource : resourceList)
         {
