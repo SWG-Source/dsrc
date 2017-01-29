@@ -22,10 +22,9 @@ public class gcw_data_updater extends script.base_script
     public int updateGCWInfo(obj_id self, dictionary params) throws InterruptedException
     {
         if(!isIdValid(self) || !exists(self)){
-            debugServerConsoleMsg(self, "Exception: Apparently, I'm not a valid thing for the GCW Data Updater.  (gcw_data_updater)");
-            debugServerConsoleMsg(self, "What I am: " + getTemplateName(self));
-            debugServerConsoleMsg(self, "I'm located at " + getLocation(self));
-            debugServerConsoleMsg(self, "My Scene is " + getLocation(self).area);
+            LOG("gcwdata", "Exception: Apparently, I'm not a valid thing for the GCW Data Updater.  (gcw_data_updater)");
+            LOG("gcwdata", "What I am: " + getTemplateName(self));
+            LOG("gcwdata", "I'm located at " + getLocation(self));
             return SCRIPT_CONTINUE;
         }
         int imperial = gcw.getImperialPercentileByRegion(self);
