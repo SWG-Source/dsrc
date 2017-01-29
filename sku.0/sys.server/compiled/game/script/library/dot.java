@@ -2678,7 +2678,8 @@ public class dot extends script.base_script
                 return false;
             }
             doDamage(caster, target, hit);
-            if (isIdValid(caster) && isIdValid(target) && exists(caster) && exists(target))
+            // Cekis: added check (!caster.equals(target)) to make sure caster doesn't start combat with itself (that would be dumb).
+            if (isIdValid(caster) && isIdValid(target) && exists(caster) && exists(target) && !caster.equals(target))
             {
                 startCombat(caster, target);
                 startCombat(target, caster);
