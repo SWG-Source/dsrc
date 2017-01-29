@@ -502,12 +502,12 @@ public class respec extends script.base_script
         if (newXpAmount > oldXpAmount)
         {
             setWorkingSkill(player, skillList[0]);
-            for (String aSkillList : skillList) {
-                int skillCost = getSkillXpCost(player, aSkillList);
+            for (String skill : skillList) {
+                int skillCost = getSkillXpCost(player, skill);
                 if (skillCost <= newXpAmount) {
                     newXpAmount -= skillCost;
-                    if (!hasSkill(player, aSkillList)) {
-                        grantSkill(player, aSkillList);
+                    if (!hasSkill(player, skill)) {
+                        grantSkill(player, skill);
                         if (withItems) {
                             skill_template.grantRoadmapItem(player);
                         }
@@ -526,7 +526,7 @@ public class respec extends script.base_script
             int curXp = getExperiencePoints(player, xp_type);
             grantExperiencePoints(player, xp_type, -curXp);
             int xpDiff = oldXpAmount - newXpAmount - curXp;
-            for (int i = skillList.length - 1; i >= 0; i--)
+            for (int i = 0; i < (skillList.length - 1) + 1; i++)
             {
                 if (!hasSkill(player, skillList[i]))
                 {
@@ -541,7 +541,7 @@ public class respec extends script.base_script
                 else 
                 {
                     grantExperiencePoints(player, xp_type, -xpDiff);
-                    setWorkingSkill(player, skillList[i + 1]);
+                    setWorkingSkill(player, skillList[i]);
                     break;
                 }
             }
