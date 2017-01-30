@@ -272,7 +272,7 @@ public class delivery extends script.base_script
             }
             catch(Exception e){
                 LOG("space_quest","Bad quest logic:  Quest (space/quest/" + questType + "/" + questName + ") contains invalid pickup point while trying to parse string (" +
-                        getStringObjVar(self, "pickupPoint") + ") for player (" + player + ":" + getPlayerFullName(player) + "), name (" + name + "), going to location (" + loc.toString() + ").");
+                getStringObjVar(self, "pickupPoint") + ") for player (" + player + ":" + getPlayerFullName(player) + "), name (" + name + "), going to location (" + loc + ").");
             }
             if (destNav.equals(name))
             {
