@@ -373,13 +373,18 @@ public class gcw_city_pylon extends script.base_script
         }
         desiredTemplate = getStringObjVar(self, gcw.GCW_TOOL_TEMPLATE_OBJVAR);
         obj_id[] toolList = utils.getAllItemsPlayerHasByTemplate(player, desiredTemplate);
+        if(toolList == null)
+        {
+            return SCRIPT_CONTINUE;
+        }
         int bestToolValue = 0;
         int toolValue = 0;
         obj_id bestTool = null;
         for (int i = 0; i < toolList.length; i++)
         {
+            toolValue = 0;
             String itemTemplate = getTemplateName(toolList[i]);
-            if (itemTemplate.equals(desiredTemplate))
+            if (itemTemplate != null && itemTemplate.equals(desiredTemplate))
             {
                 if (hasObjVar(toolList[i], "crafting_components.power"))
                 {
