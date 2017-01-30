@@ -1320,7 +1320,7 @@ public class groundquests extends script.base_script
                     int taskId = tasksForCurrentQuest[i];
                     String baseObjVar = groundquests.getBaseObjVar(player, taskType, questGetQuestName(questCrc), taskId);
                     String retrieveTemplateName = groundquests.getTaskStringDataEntry(questCrc, taskId, "SERVER_TEMPLATE");
-                    if (retrieveTemplateName != null && itemTemplateName.equals(retrieveTemplateName))
+                    if (retrieveTemplateName != null && itemTemplateName != null && itemTemplateName.equals(retrieveTemplateName))
                     {
                         needed = true;
                         String objvarRetrievedFull = baseObjVar + dot + "retrieved_items";
