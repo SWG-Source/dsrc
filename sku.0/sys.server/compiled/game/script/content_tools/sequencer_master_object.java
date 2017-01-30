@@ -276,7 +276,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("spacechat"))
         {
-            if(objTarget != null) {
+            if(objTarget != null && objActor != null) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -287,7 +287,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("tutorialcomm"))
         {
-            if(objTarget != null) {
+            if(objTarget != null && objActor != null) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -298,7 +298,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("jabbacomm"))
         {
-            if(objTarget != null) {
+            if(objTarget != null && objActor != null) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -309,7 +309,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("hancomm"))
         {
-            if(objTarget != null) {
+            if(objTarget != null && objActor != null) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -320,7 +320,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("vadercomm"))
         {
-            if(objTarget != null) {
+            if(objTarget != null && objActor != null) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -331,7 +331,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("wookieecomm"))
         {
-            if(objTarget != null) {
+            if(objTarget != null && objActor != null) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (getSpecies(objTarget) == SPECIES_WOOKIEE) {
