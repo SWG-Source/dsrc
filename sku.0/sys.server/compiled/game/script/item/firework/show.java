@@ -28,7 +28,7 @@ public class show extends script.base_script
     {
         int eventCount = getCount(self);
         Vector show_fx = getResizeableStringArrayObjVar(self, firework.VAR_SHOW_FX);
-        if (eventCount != 0 && (show_fx == null || show_fx.size() != eventCount))
+        if(show_fx == null || (eventCount > 0 && show_fx.size() != eventCount))
         {
             setCount(self, 0);
             removeObjVar(self, firework.VAR_SHOW_FX);
