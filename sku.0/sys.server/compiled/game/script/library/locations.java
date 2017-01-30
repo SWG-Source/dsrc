@@ -619,6 +619,11 @@ public class locations extends script.base_script
         }
         location locGoodLocation = new location();
         string_id strFictionalName = utils.unpackString(rgnCity.getName());
+        if(strFictionalName == null)
+        {
+            LOG("mission_spam", "getGoodCityLocation was unable to get the Fictional name from rgnCity (" + rgnCity.getName() + ")");
+            return null;
+        }
         String strAsciiId = strFictionalName.getAsciiId();
         LOG("mission_spam", "strAsciiId is " + strAsciiId);
         int regionType = regions.getDeliverMissionRegionType(strAsciiId);
