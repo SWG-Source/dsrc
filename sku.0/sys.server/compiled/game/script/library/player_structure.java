@@ -4692,7 +4692,7 @@ public class player_structure extends script.base_script
                             there.x += 0.5f;
                             x += 0.5f;
                         }
-                        else if (structureTemplate.startsWith("object/building/player/player_merchant_tent_style_01.iff") || structureTemplate.startsWith("object/building/player/player_merchant_tent_style_02.iff") || structureTemplate.startsWith("object/building/player/player_merchant_tent_style_03.iff"))
+                        else if (structureTemplate.startsWith("object/building/player/player_merchant_tent_style_01.iff") || structureTemplate.startsWith("object/building/player/player_merchant_tent_style_02.iff") || structureTemplate.startsWith("object/building/player/player_merchant_tent_style_03.iff") || structureTemplate.startsWith("object/building/player/player_pgc_merchant_tent_s01.iff"))
                         {
                             heading += 100;
                             there.z -= 0.1f;
