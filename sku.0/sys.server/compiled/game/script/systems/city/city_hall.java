@@ -416,6 +416,7 @@ public class city_hall extends script.base_script
             int diff = civic_count - max_civic;
             prose_package bodypp = prose.getPackage(BUSTED_CIVIC_CAP_BODY, cityGetName(city_id), diff);
             utils.sendMail(BUSTED_CIVIC_CAP_SUBJECT, bodypp, mayor_name, "Planetary Civic Authority");
+            CustomerServiceLog("player_city","City: " + cityGetName(city_id) + " (ID:" + city_id + "/OBJID:" + self + ") has more civic structures (" + civic_count + ") than allowed (" + max_civic + ")!");
         }
         else if (hasObjVar(self, "city.civic_cap_penalty"))
         {
@@ -472,7 +473,23 @@ public class city_hall extends script.base_script
         payparams.put("city_id", city_id);
         payparams.put("cost", cost);
         payparams.put("structure", structure);
-        transferBankCreditsToNamedAccount(self, money.ACCT_CITY, cost, "handleMaintSuccess", "handleMaintFail", payparams);
+
+        // rewrote city maintenance pay system as server connection has problems at times
+        // cause is unknown, but fails at transferBankCreditsToNamedAccount()
+        String cityName = cityGetName(city_id);
+        int maintenancePool = getBankBalance(self);
+        if(maintenancePool < cost){
+            CustomerServiceLog("player_city","City: " + cityName + " (" + city_id + ") City Hall (" + self + ") doesn't have enough maintenance in the pool (" + maintenancePool + ") to cover the required costs (" + cost + ") for city structures.");
+            handleMaintFail(self, payparams);
+            return;
+        }
+        CustomerServiceLog("player_city","City: " + cityName + " (" + city_id + ") City Hall (" + self + ") has enough maintenance in the pool (" + maintenancePool + ") to cover the required costs (" + cost + ") for city structures.");
+        withdrawCashFromBank(self, cost, null, null, payparams);
+        if(getBankBalance(self) + cost != maintenancePool){
+            CustomerServiceLog("player_city", "City: " + cityName + " (" + city_id + ") maintenance costs could not be deducted from the city maintenance pool!!");
+        }
+        handleMaintSuccess(self, payparams);
+        // transferBankCreditsToNamedAccount(self, money.ACCT_CITY, cost, "handleMaintSuccess", "handleMaintFail", payparams);
     }
     public int handleMaintSuccess(obj_id self, dictionary params) throws InterruptedException
     {
@@ -517,7 +534,23 @@ public class city_hall extends script.base_script
         payparams.put("city_id", city_id);
         payparams.put("cost", cost);
         payparams.put("structure", structure);
-        transferBankCreditsToNamedAccount(self, money.ACCT_CITY, cost, "handleSpecMaintSuccess", "handleSpecMaintFail", payparams);
+
+        // rewrote city maintenance pay system as server connection has problems at times
+        // cause is unknown, but fails at transferBankCreditsToNamedAccount()
+        String cityName = cityGetName(city_id);
+        int maintenancePool = getBankBalance(self);
+        if(maintenancePool < cost){
+            CustomerServiceLog("player_city","City: " + cityName + " (" + city_id + ") City Hall (" + self + ") doesn't have enough maintenance in the pool (" + maintenancePool + ") to cover the required costs (" + cost + ") for city structures.");
+            handleSpecMaintFail(self, payparams);
+            return;
+        }
+        CustomerServiceLog("player_city","City: " + cityName + " (" + city_id + ") City Hall (" + self + ") has enough maintenance in the pool (" + maintenancePool + ") to cover the required costs (" + cost + ") for city structures.");
+        withdrawCashFromBank(self, cost, null, null, payparams);
+        if(getBankBalance(self) + cost != maintenancePool){
+            CustomerServiceLog("player_city", "City: " + cityName + " (" + city_id + ") maintenance costs could not be deducted from the city maintenance pool!!");
+        }
+        handleSpecMaintSuccess(self, payparams);
+        //transferBankCreditsToNamedAccount(self, money.ACCT_CITY, cost, "handleSpecMaintSuccess", "handleSpecMaintFail", payparams);
     }
     public int handleSpecMaintSuccess(obj_id self, dictionary params) throws InterruptedException
     {
