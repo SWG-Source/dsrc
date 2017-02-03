@@ -481,7 +481,8 @@ public class combat_base extends script.base_script
             return;
         }
         dictionary dctWeaponStats = utils.getDictionaryScriptVar(objWeapon, "dctWeaponStats");
-        utils.setScriptVar(egg, "dctWeaponStats", dctWeaponStats);
+        if(dctWeaponStatus)
+            utils.setScriptVar(egg, "dctWeaponStats", dctWeaponStats);
         utils.setScriptVar(egg, "isAutoAimed", isAutoAimed);
         doStandardDelayedAction(egg, target, attackName, actionData, instantHit);
     }
