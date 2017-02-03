@@ -17653,6 +17653,11 @@ public class base_class
      * @return True if there's nothing within radius of the position
      */
     public static native boolean isValidLocation(location loc, float radius);
+    public static boolean isValidLocation(location loc){
+        if(loc != null && isValidLocation(getValidLocation(loc, 0f, loc, 0f)))
+            return isValidLocation(loc, 0f);
+        return false;
+    }
     /**
      * Find a valid point inside the corral that's near the given point
      * @param corralCenter The center of the 'corral' that we'd like the object to be inside

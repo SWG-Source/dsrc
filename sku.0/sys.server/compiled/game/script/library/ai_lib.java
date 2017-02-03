@@ -918,7 +918,7 @@ public class ai_lib extends script.base_script
         }
         location myLoc = getLocation(npc);
         location targetLoc = getLocation(target);
-        if(isValidLocation(myLoc, 0f) && isValidLocation(targetLoc, 0f)) {
+        if(isValidLocation(myLoc) && isValidLocation(targetLoc)) {
             if (myLoc.x < targetLoc.x) {
                 myLoc.x -= rand(20f, 40f);
             } else {

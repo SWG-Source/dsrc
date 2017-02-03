@@ -744,7 +744,7 @@ public class npc_lair_ai extends script.theme_park.poi.base
         utils.setScriptVar(self, "npc_lair.pathingToConverse", true);
         location destLoc = new location(getLocation(partner));
         location myLoc = getLocation(self);
-        if(myLoc == null || !isValidLocation(myLoc, 1f)){
+        if(myLoc == null || !isValidLocation(myLoc)){
             return SCRIPT_CONTINUE;
         }
         if (myLoc.x < destLoc.x)

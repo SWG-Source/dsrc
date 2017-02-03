@@ -6686,7 +6686,7 @@ public class utils extends script.base_script
         location testLoc;
         for (obj_id obj : allObjects) {
             testLoc = getLocation(trial.getTop(obj));
-            if(testLoc == null || !isValidLocation(testLoc, 1f)){
+            if(testLoc == null || !isValidLocation(testLoc)){
                 continue;
             }
             if (testLoc.x < x1 || testLoc.x > x2 || testLoc.z < z1 || testLoc.z > z2) {
