@@ -414,12 +414,14 @@ public class ai_corpse extends script.base_script
                         proseParameters.put("stf", group.GROUP_STF);
                         proseParameters.put("message", transferProblem);
                         proseParameters.put("TO", item);
-                        proseParameters.put("TT", lottoWinner);
-                        obj_id gid = getGroupObject(lottoWinner);
-                        obj_id[] members = utils.getLocalGroupMemberIds(gid);
-                        if(members != null) {
-                            for (int x = 0; x < members.length; ++x) {
-                                messageTo(members[x], "sendSystemMessageProseAuthoritative", proseParameters, 1, true);
+                        if(isValidId(lottoWinner)) {
+                            proseParameters.put("TT", lottoWinner);
+                            obj_id gid = getGroupObject(lottoWinner);
+                            obj_id[] members = utils.getLocalGroupMemberIds(gid);
+                            if (members != null) {
+                                for (int x = 0; x < members.length; ++x) {
+                                    messageTo(members[x], "sendSystemMessageProseAuthoritative", proseParameters, 1, true);
+                                }
                             }
                         }
                         allTransfersComplete = false;
