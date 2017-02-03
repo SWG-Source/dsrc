@@ -1486,7 +1486,12 @@ public class space_combat extends script.base_script
         {
             fltCurrentEnergy = fltCurrentEnergy - fltEnergy;
         }
-        setShipCapacitorEnergyCurrent(objShip, fltCurrentEnergy);
+        try {
+            setShipCapacitorEnergyCurrent(objShip, fltCurrentEnergy);
+        }
+        catch(Exception e){
+            return false;
+        }
         return true;
     }
     public static boolean drainEnergyFromShield(obj_id objShip, int intSide, float fltEnergy, boolean boolOverride) throws InterruptedException
