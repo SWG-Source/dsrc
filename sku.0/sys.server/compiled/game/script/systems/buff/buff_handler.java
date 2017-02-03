@@ -2733,12 +2733,14 @@ public class buff_handler extends script.base_script
                             continue;
                         }
                         messageTo(groupMembers[j], "setGroupBuffs", data, 0f, false);
-                        addTriggerVolumeEventSource("group_buff_breach", groupMembers[j]);
+                        if(hasTriggerVolume(self, "group_buff_breach"))
+                            addTriggerVolumeEventSource("group_buff_breach", groupMembers[j]);
                     }
                     continue;
                 }
                 messageTo(addedMembers[i], "setGroupBuffs", data, 0f, false);
-                addTriggerVolumeEventSource("group_buff_breach", addedMembers[i]);
+                if(hasTriggerVolume(self, "group_buff_breach"))
+                    addTriggerVolumeEventSource("group_buff_breach", addedMembers[i]);
             }
         }
         if (removedMembers != null && removedMembers.length > 0)
