@@ -417,9 +417,10 @@ public class ai_corpse extends script.base_script
                         proseParameters.put("TT", lottoWinner);
                         obj_id gid = getGroupObject(lottoWinner);
                         obj_id[] members = utils.getLocalGroupMemberIds(gid);
-                        for (int x = 0; x < members.length; ++x)
-                        {
-                            messageTo(members[x], "sendSystemMessageProseAuthoritative", proseParameters, 1, true);
+                        if(members != null) {
+                            for (int x = 0; x < members.length; ++x) {
+                                messageTo(members[x], "sendSystemMessageProseAuthoritative", proseParameters, 1, true);
+                            }
                         }
                         allTransfersComplete = false;
                     }
