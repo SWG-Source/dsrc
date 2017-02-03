@@ -2702,7 +2702,7 @@ public class dot extends script.base_script
             }
             if (!isPlayer(target))
             {
-                if (isIdValid(caster) && exists(caster))
+                if (isIdValid(caster) && exists(caster) && !target.equals(caster))
                 {
                     addHate(target, caster, strength);
                     addHate(caster, target, 0.0f);
