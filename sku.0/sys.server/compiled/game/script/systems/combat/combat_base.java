@@ -254,14 +254,14 @@ public class combat_base extends script.base_script
                     atkRslt.weapon = weaponData.id;
                     atkRslt.actionName = getStringCrc(toLower(actionName));
                     atkRslt.useLocation = true;
-                    if(isValidLocation(targetLoc,1f)) {
+                    if(targetLoc != null && isValidLocation(targetLoc)) {
                         atkRslt.targetLocation = new vector(targetLoc.x, targetLoc.y, targetLoc.z);
                         atkRslt.targetCell = targetLoc.cell;
                     }
                     else {
                         location tl = getLocation(target);
-                        if(!isValidLocation(tl, 1f)){
-                            LOG("heroics","IG-88 could not identify the target's (" + target + ":" + getPlayerFullName(target) + ") location (" + targetLoc.toString() + ") to attack it.");
+                        if(!isValidLocation(tl)){
+                            LOG("combat","Could not identify the target's (" + target + ":" + getPlayerFullName(target) + ") location (" + targetLoc + ") to attack it.");
                         }
                         atkRslt.targetLocation = new vector(tl.x, tl.y, tl.z);
                         atkRslt.targetCell = tl.cell;
@@ -896,7 +896,7 @@ public class combat_base extends script.base_script
             {
                 if (weaponData.weaponType == WEAPON_TYPE_DIRECTIONAL)
                 {
-                    if(actionData != null && isValidLocation(actionData.targetLoc, 1f)) {
+                    if(actionData != null && isValidLocation(actionData.targetLoc)) {
                         defenders = pvpGetTargetsInCone(self, self, actionData.targetLoc, length, width);
                     }
                     else{

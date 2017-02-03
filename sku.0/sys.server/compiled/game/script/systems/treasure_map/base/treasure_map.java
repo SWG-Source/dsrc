@@ -830,7 +830,7 @@ public class treasure_map extends script.base_script
             for (int i = 0; (i < 30) && !goodLoc; i++)
             {
                 treasureLoc = locations.getGoodLocationOutsideOfRegion(closestCity, 1, 1, 8000);
-                if (!isValidLocation(treasureLoc, 10.f) || treasureLoc == null || locations.isInCity(treasureLoc))
+                if (!isValidLocation(treasureLoc) || treasureLoc == null || locations.isInCity(treasureLoc))
                 {
                     continue;
                 }
