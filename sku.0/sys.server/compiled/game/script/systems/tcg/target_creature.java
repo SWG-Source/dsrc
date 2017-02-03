@@ -445,7 +445,7 @@ public class target_creature extends script.base_script
                 {
                     location there = getLocation(enemy);
                     location here = getLocation(self);
-                    if (there.cell != here.cell || utils.getDistance2D(here, there) > 60)
+                    if (!isValidLocation(there, 0f) || !isValidLocation(here, 0f) || there.cell != here.cell || utils.getDistance2D(here, there) > 60)
                     {
                         target_dummy.removeAttackerFromCombat(self, enemy);
                     }
