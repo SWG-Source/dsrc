@@ -276,7 +276,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("spacechat"))
         {
-            if(objTarget != null && objActor != null) {
+            if(objTarget != null && objActor != null && isValidId(objActor)) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -287,7 +287,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("tutorialcomm"))
         {
-            if(objTarget != null && objActor != null) {
+            if(objTarget != null && objActor != null && isValidId(objActor)) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -298,7 +298,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("jabbacomm"))
         {
-            if(objTarget != null && objActor != null) {
+            if(objTarget != null && objActor != null && isValidId(objActor)) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -309,7 +309,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("hancomm"))
         {
-            if(objTarget != null && objActor != null) {
+            if(objTarget != null && objActor != null && isValidId(objActor)) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (strData2.equals("") || strData2 == null) {
@@ -320,10 +320,10 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("vadercomm"))
         {
-            if(objTarget != null && objActor != null) {
+            if(objTarget != null && objActor != null && isValidId(objActor)) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
-                if (strData2.equals("") || strData2 == null) {
+                if (strData2 == null || strData2.equals("")) {
                     strData2 = "sound/sys_comm_generic.snd";
                 }
                 npe.commTutorialPlayer(objActor, objTarget, intTime, strChat, strData2, "object/mobile/darth_vader.iff");
@@ -331,7 +331,7 @@ public class sequencer_master_object extends script.base_script
         }
         else if (strAction.equals("wookieecomm"))
         {
-            if(objTarget != null && objActor != null) {
+            if(objTarget != null && objActor != null && isValidId(objActor)) {
                 String stf = getStringObjVar(self, "strSequenceTable");
                 string_id strChat = new string_id(stf, strData1);
                 if (getSpecies(objTarget) == SPECIES_WOOKIEE) {
