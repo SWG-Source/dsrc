@@ -25,6 +25,9 @@ public class loot_kit_base extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         String datatable = getStringObjVar(self, "loot_kit");
+        if(datatable == null || datatable.length() == 0){
+            return SCRIPT_CONTINUE;
+        }
         String[] objvarToSet = dataTableGetStringColumnNoDefaults(datatable, "objvar_name");
         int numObjVars = objvarToSet.length;
         if (numObjVars == 0)
