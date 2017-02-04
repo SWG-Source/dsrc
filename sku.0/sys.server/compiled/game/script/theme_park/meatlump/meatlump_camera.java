@@ -85,13 +85,14 @@ public class meatlump_camera extends script.base_script
             return false;
         }
         String[] adminList = getStringArrayObjVar(target, player_structure.VAR_ADMIN_LIST);
-        String str_player_id = "" + player;
-        for (int q = 0; q < adminList.length; q++)
-        {
-            if (adminList[q].equals(str_player_id))
-            {
-                sendSystemMessage(player, SID_NO_DESTROY_YOUR_STUFF);
-                return false;
+        if(adminList != null && adminList.length > 0) {
+            String str_player_id = "" + player;
+            int adminSize = adminList.length;
+            for (int q = 0; q < adminSize; q++) {
+                if (adminList[q].equals(str_player_id)) {
+                    sendSystemMessage(player, SID_NO_DESTROY_YOUR_STUFF);
+                    return false;
+                }
             }
         }
         if (hasCompletedCollection(player, PHOTO_COLLECTION))
