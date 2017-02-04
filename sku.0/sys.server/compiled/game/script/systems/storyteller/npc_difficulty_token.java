@@ -106,7 +106,7 @@ public class npc_difficulty_token extends script.base_script
     {
         String staticName = getStaticItemName(token);
         String difficulty = "normal";
-        if (staticName && staticName.equals("st_o_elite_maker"))
+        if (staticName != null && staticName.equals("st_o_elite_maker"))
         {
             difficulty = "elite";
         }
