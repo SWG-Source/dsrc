@@ -469,7 +469,7 @@ public class xp extends script.base_script
         }
         int count = 0;
         for (obj_id member : members) {
-            if (member.isLoaded() && isPlayer(member)) {
+            if (member != null && member.isLoaded() && isPlayer(member)) {
                 count++;
             }
             if (count >= MAX_GROUP_BONUS_COUNT) {
