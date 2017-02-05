@@ -17654,7 +17654,7 @@ public class base_class
      */
     public static native boolean isValidLocation(location loc, float radius);
     public static boolean isValidLocation(location loc){
-        if(loc != null && getValidLocation(loc, 0f, loc, 0f) != null)
+        if(loc != null)
             return isValidLocation(loc, 0f);
         return false;
     }
