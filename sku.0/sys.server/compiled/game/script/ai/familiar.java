@@ -213,6 +213,10 @@ public class familiar extends script.base_script
     public int handleSetupPet(obj_id self, dictionary params) throws InterruptedException
     {
         applySkillStatisticModifier(self, "slope_move", 100);
+        if(!pet_lib.hasMaster(self)){
+            destroyObject(self);
+            return SCRIPT_CONTINUE;
+        }
         obj_id master = getMaster(self);
         if (!isIdValid(master))
         {
