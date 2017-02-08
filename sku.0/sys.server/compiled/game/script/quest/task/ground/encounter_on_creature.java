@@ -79,14 +79,14 @@ public class encounter_on_creature extends script.base_script
                 int taskId = getIntObjVar(self, objvarOnCreatureTaskId);
                 groundquests.questOutputDebugInfo(player, questCrc, taskId, taskType, "messageEncounterTaskCheckCreatureDistance", "[" + self + "] not closing on player [" + player + "], warping to player location.");
                 setLocation(self, playerLocation);
-                if (!isConversing)
+                if (!isConversing && isTangible(player))
                 {
                     startCombat(self, player);
                 }
                 return SCRIPT_CONTINUE;
             }
         }
-        if (!isConversing)
+        if (!isConversing && isTangible(player))
         {
             startCombat(self, player);
         }
