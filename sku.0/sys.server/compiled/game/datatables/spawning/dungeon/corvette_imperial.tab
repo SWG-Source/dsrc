@@ -131,4 +131,4 @@ r3		bridge66	-4.68	0	146.7	theme_park.dungeon.corvette.path	0		180
 r5		escapepods34	11.88	-12	-15.89	theme_park.dungeon.corvette.path	-89.91		180
 commoner	prisoner	officerquarters63	20.46	0	121.82	"conversation.corvette_imperial_prisoner_02,theme_park.dungeon.corvette.prisoner"	22.61		180
 dr_bledsoe	prisoner	officerquarters63	15.49	0	122.78	"conversation.corvette_bledsoe_imperial_rescue_target,theme_park.dungeon.corvette.prisoner"	179.18		180
-clone_droid		airlock1	-41.5	0	2.6	"script.ai.ai,script.ai.creature_combat,script.systems.combat.combat_actions_humanoid,script.systems.skills.stealth.player_stealth,script.conversation.clone_droid,script.systems.combat.credit_for_kills"	-170		20
+clone_droid		airlock1	-41.5	0	2.6	"ai.ai,ai.creature_combat,systems.combat.combat_actions_humanoid,systems.skills.stealth.player_stealth,conversation.clone_droid,systems.combat.credit_for_kills"	-170		20
