@@ -268,7 +268,7 @@ public class city_hall extends script.base_script
             prose_package bodypp = prose.getPackage(NEW_CITY_SUCCESS_BODY, mayor);
             utils.sendMail(NEW_CITY_SUCCESS_SUBJECT, bodypp, mname, "Planetary Civic Authority");
         }
-        else 
+        else
         {
             String mname = cityGetCitizenName(city_id, mayor);
             prose_package bodypp = prose.getPackage(NEW_CITY_FAIL_BODY, mayor);
@@ -382,7 +382,7 @@ public class city_hall extends script.base_script
                     utils.sendMail(STRUCTURE_DESTROYED_RADIUS_SUBJECT, bodypp, mayor_name, "City Hall");
                 }
             }
-            else 
+            else
             {
                 city.checkStructureValid(city_id, structures[i], rank);
             }
@@ -398,7 +398,7 @@ public class city_hall extends script.base_script
         {
             city.removeTaxesSetRadius(city_id, radius);
         }
-        else 
+        else
         {
             city.setRadius(city_id, radius);
         }
@@ -416,7 +416,6 @@ public class city_hall extends script.base_script
             int diff = civic_count - max_civic;
             prose_package bodypp = prose.getPackage(BUSTED_CIVIC_CAP_BODY, cityGetName(city_id), diff);
             utils.sendMail(BUSTED_CIVIC_CAP_SUBJECT, bodypp, mayor_name, "Planetary Civic Authority");
-            CustomerServiceLog("player_city","City: " + cityGetName(city_id) + " (ID:" + city_id + "/OBJID:" + self + ") has more civic structures (" + civic_count + ") than allowed (" + max_civic + ")!");
         }
         else if (hasObjVar(self, "city.civic_cap_penalty"))
         {
@@ -440,7 +439,7 @@ public class city_hall extends script.base_script
             {
                 payStructureMaint(self, city_id, structures[i], false);
             }
-            else 
+            else
             {
                 paySpecialMaint(self, city_id, structures[i]);
             }
@@ -473,23 +472,7 @@ public class city_hall extends script.base_script
         payparams.put("city_id", city_id);
         payparams.put("cost", cost);
         payparams.put("structure", structure);
-
-        // rewrote city maintenance pay system as server connection has problems at times
-        // cause is unknown, but fails at transferBankCreditsToNamedAccount()
-        String cityName = cityGetName(city_id);
-        int maintenancePool = getBankBalance(self);
-        if(maintenancePool < cost){
-            CustomerServiceLog("player_city","City: " + cityName + " (" + city_id + ") City Hall (" + self + ") doesn't have enough maintenance in the pool (" + maintenancePool + ") to cover the required costs (" + cost + ") for city structures.");
-            handleMaintFail(self, payparams);
-            return;
-        }
-        CustomerServiceLog("player_city","City: " + cityName + " (" + city_id + ") City Hall (" + self + ") has enough maintenance in the pool (" + maintenancePool + ") to cover the required costs (" + cost + ") for city structures.");
-        withdrawCashFromBank(self, cost, null, null, payparams);
-        if(getBankBalance(self) + cost != maintenancePool){
-            CustomerServiceLog("player_city", "City: " + cityName + " (" + city_id + ") maintenance costs could not be deducted from the city maintenance pool!!");
-        }
-        handleMaintSuccess(self, payparams);
-        // transferBankCreditsToNamedAccount(self, money.ACCT_CITY, cost, "handleMaintSuccess", "handleMaintFail", payparams);
+        transferBankCreditsToNamedAccount(self, money.ACCT_CITY, cost, "handleMaintSuccess", "handleMaintFail", payparams);
     }
     public int handleMaintSuccess(obj_id self, dictionary params) throws InterruptedException
     {
@@ -534,23 +517,7 @@ public class city_hall extends script.base_script
         payparams.put("city_id", city_id);
         payparams.put("cost", cost);
         payparams.put("structure", structure);
-
-        // rewrote city maintenance pay system as server connection has problems at times
-        // cause is unknown, but fails at transferBankCreditsToNamedAccount()
-        String cityName = cityGetName(city_id);
-        int maintenancePool = getBankBalance(self);
-        if(maintenancePool < cost){
-            CustomerServiceLog("player_city","City: " + cityName + " (" + city_id + ") City Hall (" + self + ") doesn't have enough maintenance in the pool (" + maintenancePool + ") to cover the required costs (" + cost + ") for city structures.");
-            handleSpecMaintFail(self, payparams);
-            return;
-        }
-        CustomerServiceLog("player_city","City: " + cityName + " (" + city_id + ") City Hall (" + self + ") has enough maintenance in the pool (" + maintenancePool + ") to cover the required costs (" + cost + ") for city structures.");
-        withdrawCashFromBank(self, cost, null, null, payparams);
-        if(getBankBalance(self) + cost != maintenancePool){
-            CustomerServiceLog("player_city", "City: " + cityName + " (" + city_id + ") maintenance costs could not be deducted from the city maintenance pool!!");
-        }
-        handleSpecMaintSuccess(self, payparams);
-        //transferBankCreditsToNamedAccount(self, money.ACCT_CITY, cost, "handleSpecMaintSuccess", "handleSpecMaintFail", payparams);
+        transferBankCreditsToNamedAccount(self, money.ACCT_CITY, cost, "handleSpecMaintSuccess", "handleSpecMaintFail", payparams);
     }
     public int handleSpecMaintSuccess(obj_id self, dictionary params) throws InterruptedException
     {
@@ -642,7 +609,7 @@ public class city_hall extends script.base_script
                     }
                 }
             }
-            else 
+            else
             {
                 int curTime = getCalendarTime();
                 setObjVar(city_hall, "city.safe_house_capacity_overload", curTime);
@@ -710,7 +677,7 @@ public class city_hall extends script.base_script
                 d.put("city_hall", city_hall);
                 messageTo(city_hall, "handleMultipleSafeHouseCitizenRemoval", d, 300.0f, false);
             }
-            else 
+            else
             {
                 removeObjVar(city_hall, "city.safe_house_capacity_overload");
             }
@@ -750,7 +717,7 @@ public class city_hall extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            else 
+            else
             {
                 citySetFaction(city_id, factionId, false);
             }
@@ -795,7 +762,7 @@ public class city_hall extends script.base_script
                 {
                     return SCRIPT_CONTINUE;
                 }
-                else 
+                else
                 {
                     citySetGcwDefenderRegion(city_id, region, regionTimeStartDefend, false);
                 }
