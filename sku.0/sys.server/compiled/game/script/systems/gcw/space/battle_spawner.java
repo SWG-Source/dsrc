@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Vector;
 
 public class battle_spawner extends script.base_class {
-
+    public static final String CONTROLLER_SCRIPT = "script.systems.gcw.space.battle_controller";
     public static final String IMPERIAL_SHIP_TEMPLATE = "object/ship/imperial_lancer.iff";
     public static final String REBEL_SHIP_TEMPLATE = "object/ship/nebulon_frigate.iff";
     public static final String IMPERIAL_STATION_TEMPLATE = "object/ship/spacestation_imperial.iff";
@@ -143,6 +143,7 @@ public class battle_spawner extends script.base_class {
     }
     public int registerWithController(obj_id self, dictionary params) throws InterruptedException {
         obj_id controller = getPlanetByName("tatooine");
+        if(!hasScript(controller, CONTROLLER_SCRIPT)) attachScript(controller, CONTROLLER_SCRIPT);
         location battleLocation = getLocation(self);
         setObjVar(self, "controller", controller);
         setObjVar(controller, "space_gcw." + battleLocation.area + ".spawner", self);
@@ -154,9 +155,8 @@ public class battle_spawner extends script.base_class {
         obj_id controller = getObjIdObjVar(self, "controller");
         String battleId = getLocation(self).area + "_" + getGameTime();
         if(getIntObjVar(controller, "space_gcw." + self.toString() + ".active") == 1) return SCRIPT_CONTINUE;
-        String battleType = BATTLE_TYPES[rand(0,1)];
 
-        setObjVar(self, "battle_type", battleType);
+        // controller should have chosen the battle type.
         params.put("battle_id", battleId);
 
         // tell the controller we've started the battle
@@ -321,6 +321,8 @@ public class battle_spawner extends script.base_class {
             params.put("destroyedShip", params.getObjId("attackingShip"));
             params.put("losingFaction", params.getString("attackingFaction"));
         }
+        setObjVar(self, "space_gcw.lastBattleType", getObjVar(self, "battle_type"));
+        setObjVar(self, "space_gcw.lastBattleTime", getGameTime());
         distributeAwards(self, params);
         cleanup(params);
         reset();
@@ -474,6 +476,7 @@ public class battle_spawner extends script.base_class {
         );
 
         // distribute tokens to player
+
 
     }
     public String constructFinishedBattleMessage(boolean playerWasAttacking, boolean playerWon, String shipType, String attackingFaction, String tokenFaction, int tokenReward) {
