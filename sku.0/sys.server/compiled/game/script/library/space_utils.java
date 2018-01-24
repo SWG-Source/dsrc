@@ -228,7 +228,26 @@ public class space_utils extends script.base_script
     public static boolean isShipPaintable(obj_id objShip) throws InterruptedException
     {
         String chassis = getShipChassisType(objShip);
-        if (chassis.equals("player_basic_tiefighter") || chassis.equals("player_decimator") || chassis.equals("player_tieadvanced") || chassis.equals("player_tieaggressor") || chassis.equals("player_tiebomber") || chassis.equals("player_tiefighter") || chassis.equals("player_tie_in") || chassis.equals("player_tieinterceptor") || chassis.equals("player_tie_light_duty") || chassis.equals("player_tieoppressor") || chassis.equals("player_gunship_imperial") || chassis.equals("player_gunship_rebel") || chassis.equals("player_gunship_neutral") || chassis.equals("player_vwing") || chassis.equals("player_naboo_n1"))
+        if (
+                chassis.equals("player_basic_tiefighter") ||
+                chassis.equals("player_decimator") ||
+                chassis.equals("player_tieadvanced") ||
+                chassis.equals("player_tieaggressor") ||
+                chassis.equals("player_tiebomber") ||
+                chassis.equals("player_tiefighter") ||
+                chassis.equals("player_tie_in") ||
+                chassis.equals("player_tieinterceptor") ||
+                chassis.equals("player_tie_light_duty") ||
+                chassis.equals("player_tieoppressor") ||
+                chassis.equals("player_gunship_imperial") ||
+                chassis.equals("player_gunship_rebel") ||
+                chassis.equals("player_gunship_neutral") ||
+                chassis.equals("player_vwing") ||
+                chassis.equals("player_naboo_n1") ||
+                chassis.equals("player_tiedefender") ||
+                chassis.equals("player_havoc") ||
+                chassis.equals("player_twing")
+            )
         {
             return false;
         }
@@ -237,7 +256,26 @@ public class space_utils extends script.base_script
     public static boolean isShipTextureable(obj_id objShip) throws InterruptedException
     {
         String chassis = getShipChassisType(objShip);
-        if (chassis.equals("player_basic_tiefighter") || chassis.equals("player_decimator") || chassis.equals("player_tieadvanced") || chassis.equals("player_tieaggressor") || chassis.equals("player_tiebomber") || chassis.equals("player_tiefighter") || chassis.equals("player_tie_in") || chassis.equals("player_tieinterceptor") || chassis.equals("player_tie_light_duty") || chassis.equals("player_tieoppressor") || chassis.equals("player_gunship_imperial") || chassis.equals("player_gunship_rebel") || chassis.equals("player_gunship_neutral") || chassis.equals("player_vwing") || chassis.equals("player_naboo_n1"))
+        if (
+                chassis.equals("player_basic_tiefighter") ||
+                chassis.equals("player_decimator") ||
+                chassis.equals("player_tieadvanced") ||
+                chassis.equals("player_tieaggressor") ||
+                chassis.equals("player_tiebomber") ||
+                chassis.equals("player_tiefighter") ||
+                chassis.equals("player_tie_in") ||
+                chassis.equals("player_tieinterceptor") ||
+                chassis.equals("player_tie_light_duty") ||
+                chassis.equals("player_tieoppressor") ||
+                chassis.equals("player_gunship_imperial") ||
+                chassis.equals("player_gunship_rebel") ||
+                chassis.equals("player_gunship_neutral") ||
+                chassis.equals("player_vwing") ||
+                chassis.equals("player_naboo_n1") ||
+                chassis.equals("player_tiedefender") ||
+                chassis.equals("player_havoc") ||
+                chassis.equals("player_twing")
+            )
         {
             return false;
         }

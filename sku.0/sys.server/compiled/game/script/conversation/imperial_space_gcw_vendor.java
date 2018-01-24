@@ -12,14 +12,18 @@ public class imperial_space_gcw_vendor extends script.base_script
     public imperial_space_gcw_vendor()
     {
     }
-    public static String c_stringFile = "conversation/imperial_space_gcw_vendor";
+    public static String c_stringFile = "conversation/imperial_gcw2_vendor";
     private boolean defaultCondition() throws InterruptedException
     {
         return true;
     }
-    private boolean isImperial(obj_id player) throws InterruptedException
+    private boolean isRebel(obj_id player) throws InterruptedException
     {
-        return factions.isImperial(player);
+        return factions.isRebel(player);
+    }
+    private boolean isNeutral(obj_id player) throws InterruptedException
+    {
+        return factions.isNeutral(player);
     }
     private void showTokenVendorUI(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -72,17 +76,24 @@ public class imperial_space_gcw_vendor extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
-        if (isImperial(player))
+        if (isRebel(player))
         {
             doAnimationAction(self, "dismiss");
-            string_id message = new string_id(c_stringFile, "s_5");
+            string_id message = new string_id(c_stringFile, "s_4");
+            chat.chat(self, player, message);
+            return SCRIPT_CONTINUE;
+        }
+        if (isNeutral(player))
+        {
+            showTokenVendorUI(player, self);
+            string_id message = new string_id(c_stringFile, "s_7");
             chat.chat(self, player, message);
             return SCRIPT_CONTINUE;
         }
         if (defaultCondition())
         {
             showTokenVendorUI(player, self);
-            string_id message = new string_id(c_stringFile, "s_6");
+            string_id message = new string_id(c_stringFile, "s_8");
             chat.chat(self, player, message);
             return SCRIPT_CONTINUE;
         }

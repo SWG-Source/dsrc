@@ -270,7 +270,19 @@ public class customization_kit extends script.base_script
                     if (isIdValid(objShip))
                     {
                         String chassis = getShipChassisType(objShip);
-                        if (chassis.equals("player_basic_tiefighter") || chassis.equals("player_decimator") || chassis.equals("player_tieadvanced") || chassis.equals("player_tieaggressor") || chassis.equals("player_tiebomber") || chassis.equals("player_tiefighter") || chassis.equals("player_tie_in") || chassis.equals("player_tieinterceptor") || chassis.equals("player_tie_light_duty") || chassis.equals("player_tieoppressor"))
+                        if (
+                                chassis.equals("player_basic_tiefighter") ||
+                                chassis.equals("player_decimator") ||
+                                chassis.equals("player_tieadvanced") ||
+                                chassis.equals("player_tieaggressor") ||
+                                chassis.equals("player_tiebomber") ||
+                                chassis.equals("player_tiefighter") ||
+                                chassis.equals("player_tie_in") ||
+                                chassis.equals("player_tieinterceptor") ||
+                                chassis.equals("player_tie_light_duty") ||
+                                chassis.equals("player_tieoppressor") ||
+                                chassis.equals("player_tiedefender")
+                            )
                         {
                             string_id message = new string_id(STF, "imperial");
                             sendSystemMessage(player, message);

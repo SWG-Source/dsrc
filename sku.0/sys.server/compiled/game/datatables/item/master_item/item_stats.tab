@@ -4620,3 +4620,11 @@ item_heroic_tusken_shelves
 item_heroic_tusken_stairs											
 item_heroic_tusken_vent_pillar											
 item_tcg_loot_reward_series8_bespin_house_deed			"string:player_structure.deed.template=object/building/player/player_house_tcg_8_bespin_house.iff,int:player_structure.deed.buildtime=90"								
+item_schematic_gcw2_mandal_armor_plating			"string:loot_schematic.schematic=object/draft_schematic/space/armor/adv_mandal_armor_plating.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase4_novice"
+item_schematic_gcw2_mandal_fusion_reactor			"string:loot_schematic.schematic=object/draft_schematic/space/reactor/fusion_reactor_mandal.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase4_novice"
+item_schematic_gcw2_eng_reward_experimental			"string:loot_schematic.schematic=object/draft_schematic/space/engine/eng_reward_experimental.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase4_novice"
+item_schematic_gcw2_borstel_cannon			"string:loot_schematic.schematic=object/draft_schematic/space/weapon/wpn_borstel_experimental.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_structures_phase4_novice"
+item_ship_deed_tiedefender			"int:loot_schematic.type=1,string:loot_schematic.skill_req=class_structures_phase4_novice,string:loot_schematic.schematic=object/draft_schematic/space/chassis/tiedefender.iff,int:loot_schematic.uses=1"
+item_ship_deed_twing			"int:loot_schematic.type=1,string:loot_schematic.skill_req=class_structures_phase4_novice,string:loot_schematic.schematic=object/draft_schematic/space/chassis/twing.iff,int:loot_schematic.uses=1"
+item_schematic_gcw2_vaksai_heavy			"int:loot_schematic.type=1,string:loot_schematic.skill_req=class_structures_phase4_novice,string:loot_schematic.schematic=object/draft_schematic/space/chassis/blacksun_heavy_vaksai.iff,int:loot_schematic.uses=1"
+item_ship_deed_havoc			"int:loot_schematic.type=1,string:loot_schematic.skill_req=class_structures_phase4_novice,string:loot_schematic.schematic=object/draft_schematic/space/chassis/havoc.iff,int:loot_schematic.uses=1"

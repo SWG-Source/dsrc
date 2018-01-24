@@ -53,29 +53,26 @@ public class terminal_space extends script.terminal.base.base_terminal
         if (rgnCities == null || rgnCities.length == 0)
         {
             setName(self, "BUSTED TERMINAL! PUT ME IN A CITY!@!@!@!@");
+            return SCRIPT_CONTINUE;
         }
         else 
         {
-            for (int i = 0; i < rgnCities.length; i++)
-            {
-                region rgnTest = rgnCities[i];
+            for (region rgnTest : rgnCities) {
                 strName = rgnTest.getName();
-                if (strName.startsWith("@"))
-                {
+                if (strName.startsWith("@")) {
                     string_id strTest = utils.unpackString(strName);
                     strName = strTest.getAsciiId();
                     dctTeleportInfo = dataTableGetRow(strFileName, strName);
-                    if (dctTeleportInfo != null)
-                    {
+                    if (dctTeleportInfo != null) {
                         break;
                     }
                 }
             }
-        }
-        if (dctTeleportInfo == null)
-        {
-            setName(self, "NO ENTRY FOR " + strName + " in teleport datable. Busted terminal");
-            return SCRIPT_CONTINUE;
+            if (dctTeleportInfo == null)
+            {
+                setName(self, "NO ENTRY FOR " + strName + " in teleport datatable. Busted terminal");
+                return SCRIPT_CONTINUE;
+            }
         }
         utils.setScriptVar(self, "space.loc.space", new location(dctTeleportInfo.getFloat("spaceX"), dctTeleportInfo.getFloat("spaceY"), dctTeleportInfo.getFloat("spaceZ"), dctTeleportInfo.getString("spaceScene")));
         utils.setScriptVar(self, "space.locationName", "w" + dctTeleportInfo.getInt("spaceLocationIndex"));
