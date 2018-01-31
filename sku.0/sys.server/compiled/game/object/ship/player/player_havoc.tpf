@@ -1,0 +1,11 @@
+@base object/ship/blacksun_light_s04.iff
+
+@class ship_object_template 1
+
+shipType = "player_havoc"
+
+@class tangible_object_template 4
+
+@class object_template 10
+
+sharedTemplate = "object/ship/player/shared_player_havoc.iff"

@@ -72,7 +72,7 @@ public class space_crafting extends script.base_script
     public static final String STARSHIP_DROID_TABLE = "datatables/space_combat/ship_droid_assignments.iff";
     public static final String SHIP_COMPONENT_TABLE = "datatables/space/ship_components.iff";
     public static final String SHIP_WEAPON_TABLE = "datatables/ship/components/weapon.iff";
-    public static double randBell(double avg, double var) throws InterruptedException
+    public static double randBell(double avg, double var)
     {
         var = var / 2;
         double r, v1, v2;
@@ -93,25 +93,24 @@ public class space_crafting extends script.base_script
             return value;
         }
     }
-    public static float getBellValue(float fltValue, float fltModifier) throws InterruptedException
+    public static float getBellValue(float fltValue, float fltModifier)
     {
         return (float)(randBell(fltValue, fltModifier));
     }
-    public static float getModifiedValue(float fltValue, float fltModifier) throws InterruptedException
+    public static float getModifiedValue(float fltValue, float fltModifier)
     {
         fltValue = fltValue + rand(-1 * fltModifier, fltModifier);
         return fltValue;
     }
-    public static float getRawModifiedValue(float fltModifier) throws InterruptedException
+    public static float getRawModifiedValue(float fltModifier)
     {
         return rand(-1 * fltModifier, fltModifier);
     }
-    public static String getShipComponentStringType(obj_id objComponent) throws InterruptedException
-    {
+    public static String getShipComponentStringType(obj_id objComponent) {
         int intComponentType = getShipComponentDescriptorType(objComponent);
         return getShipComponentStringType(intComponentType);
     }
-    public static String getShipComponentStringType(int intComponentType) throws InterruptedException
+    public static String getShipComponentStringType(int intComponentType)
     {
         if (intComponentType < ship_component_type.names.length)
         {
@@ -120,47 +119,45 @@ public class space_crafting extends script.base_script
         LOG("space", "type is " + intComponentType);
         return null;
     }
-    public static int getComponentSlotInt(String strName) throws InterruptedException
+    public static int getComponentSlotInt(String strName)
     {
         return ship_chassis_slot_type.getTypeByName(strName);
     }
-    public static String getComponentSlotNameString(int intSlot) throws InterruptedException
+    public static String getComponentSlotNameString(int intSlot)
     {
         return ship_chassis_slot_type.getNameByType(intSlot);
     }
     public static obj_id setupStandardStatistics(obj_id objComponent, dictionary dctParams) throws InterruptedException
     {
-        float fltCurrentHitpoints = dctParams.getFloat("fltCurrentHitpoints");
-        float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
         float fltEnergyMaintenanceModifier = dctParams.getFloat("fltEnergyMaintenanceModifier");
         float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
         fltEnergyMaintenance = getBellValue(fltEnergyMaintenance, fltEnergyMaintenanceModifier);
+
         float fltMassModifier = dctParams.getFloat("fltMassModifier");
         float fltMass = dctParams.getFloat("fltMass");
         fltMass = getBellValue(fltMass, fltMassModifier);
-        float fltCurrentConduitHitpoints = dctParams.getFloat("fltCurrentConduitHitpoints");
-        float fltMaximumConduitHitpoints = dctParams.getFloat("fltMaximumConduitHitpoints");
+
         float fltEfficiency = dctParams.getFloat("fltEfficiency");
-        float fltCurrentArmorHitpoints = dctParams.getFloat("fltCurrentArmorHitpoints");
-        String strComponentType = getShipComponentStringType(objComponent);
-        int armorfactor = 2;
-        if (strComponentType.equals("armor"))
-        {
-            armorfactor = 1;
-        }
+
         float fltArmor = dctParams.getFloat("fltMaximumArmorHitpoints");
         float fltArmorMod = dctParams.getFloat("fltMaximumArmorHitpointsMod");
         fltArmor = getBellValue(fltArmor, fltArmorMod);
+
         setComponentCurrentArmorHitpoints(objComponent, fltArmor);
         setComponentMaximumArmorHitpoints(objComponent, fltArmor);
+
         setComponentMaximumConduitHitpoints(objComponent, fltArmor);
         setComponentCurrentConduitHitpoints(objComponent, fltArmor);
+
         setComponentCurrentHitpoints(objComponent, fltArmor);
         setComponentMaximumHitpoints(objComponent, fltArmor);
+
         setComponentMass(objComponent, fltMass);
+
         setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
         setComponentEnergyEfficiency(objComponent, fltEfficiency);
         setComponentGeneralEfficiency(objComponent, fltEfficiency);
+
         return objComponent;
     }
     public static int getReverseEngineeringLevel(obj_id objComponent) throws InterruptedException
@@ -191,9 +188,8 @@ public class space_crafting extends script.base_script
         }
         return 0;
     }
-    public static float filterFireRateForObject(float weaponFireRate, int reverseEngineeringLevel) throws InterruptedException
+    public static float filterFireRateForObject(float weaponFireRate, int reverseEngineeringLevel)
     {
-        float newWeaponFireRate = weaponFireRate;
         if (weaponFireRate == 0.44625f || weaponFireRate == 0.425f || weaponFireRate == 0.408f || weaponFireRate == 0.357f || weaponFireRate == 0.34f)
         {
             switch (reverseEngineeringLevel)
@@ -222,11 +218,9 @@ public class space_crafting extends script.base_script
                 return 0.35f;
             }
         }
-        return newWeaponFireRate;
+        return weaponFireRate;
     }
-    public static float filterFireRateForShip(float weaponFireRate, int reverseEngineeringLevel) throws InterruptedException
-    {
-        float newWeaponFireRate = weaponFireRate;
+    public static float filterFireRateForShip(float weaponFireRate, int reverseEngineeringLevel) {
         if (weaponFireRate == 0.44625f || weaponFireRate == 0.45f || weaponFireRate == 0.425f || weaponFireRate == 0.43f || weaponFireRate == 0.408f || weaponFireRate == 0.41f || weaponFireRate == 0.357f || weaponFireRate == 0.36f || weaponFireRate == 0.34f)
         {
             switch (reverseEngineeringLevel)
@@ -255,12 +249,11 @@ public class space_crafting extends script.base_script
                 return 0.35f;
             }
         }
-        return newWeaponFireRate;
+        return weaponFireRate;
     }
     public static void recalculateFireRateFromObject(obj_id player, obj_id weapon) throws InterruptedException
     {
-        int objType = getGameObjectType(weapon);
-        if (objType != GOT_ship_component_weapon)
+        if (getGameObjectType(weapon) != GOT_ship_component_weapon)
         {
             return;
         }
@@ -273,19 +266,15 @@ public class space_crafting extends script.base_script
         float weaponFireRate = getWeaponRefireRate(weapon);
         int reverseEngineeringLevel = dataTableGetInt(SHIP_WEAPON_TABLE, template, "reverseEngineeringLevel");
         float newWeaponFireRate = filterFireRateForObject(weaponFireRate, reverseEngineeringLevel);
-        float lootDropFireRateAverage = dataTableGetFloat(SHIP_WEAPON_TABLE, template, "fltRefireRate");
+
         CustomerServiceLog("space_loot", "Possible fire rate fix on weapon. |player: " + player + "|ship: null|weapon name: " + descName + "|weaponFireRate: " + weaponFireRate + "|newWeaponFireRate: " + newWeaponFireRate + "|reverseEngineeringLevel: " + reverseEngineeringLevel);
         if (newWeaponFireRate != weaponFireRate)
         {
             CustomerServiceLog("space_loot", "Weapon fire rate fix on weapon. |player: " + player + "|ship: null|weapon name: " + descName + "|weaponFireRate: " + weaponFireRate + "|newWeaponFireRate: " + newWeaponFireRate + "|reverseEngineeringLevel: " + reverseEngineeringLevel);
             setWeaponRefireRate(weapon, newWeaponFireRate);
-            return;
         }
     }
-    public static void recalculateFireRateFromSlot(obj_id player, obj_id self, int slot) throws InterruptedException
-    {
-	return;
-    }
+
     public static obj_id initializeSpaceShipComponent(obj_id objComponent) throws InterruptedException
     {
         String strComponentType = getShipComponentStringType(objComponent);
@@ -304,130 +293,126 @@ public class space_crafting extends script.base_script
                 return null;
             }
             objComponent = setupStandardStatistics(objComponent, dctParams);
-            if (strComponentType.equals("armor"))
-            {
-            }
-            else if (strComponentType.equals("booster"))
-            {
-                float fltCurrentEnergy = dctParams.getFloat("fltCurrentEnergy");
-                float fltMaximumEnergyModifier = dctParams.getFloat("fltMaximumEnergyModifier");
-                float fltMaximumEnergy = dctParams.getFloat("fltMaximumEnergy");
-                float fltRoll = rand(-1 * fltMaximumEnergyModifier, fltMaximumEnergyModifier);
-                fltMaximumEnergy = fltMaximumEnergy + fltRoll;
-                fltCurrentEnergy = fltCurrentEnergy + fltRoll;
-                setBoosterMaximumEnergy(objComponent, fltMaximumEnergy);
-                setBoosterCurrentEnergy(objComponent, fltCurrentEnergy);
-                float fltRechargeRateModifier = dctParams.getFloat("fltRechargeRateModifier");
-                float fltRechargeRate = dctParams.getFloat("fltRechargeRate");
-                fltRechargeRate = getBellValue(fltRechargeRate, fltRechargeRateModifier);
-                setBoosterEnergyRechargeRate(objComponent, fltRechargeRate);
-                float fltConsumptionRateModifier = dctParams.getFloat("fltConsumptionRateModifier");
-                float fltConsumptionRate = dctParams.getFloat("fltConsumptionRate");
-                fltConsumptionRate = getBellValue(fltConsumptionRate, fltConsumptionRateModifier);
-                setBoosterEnergyConsumptionRate(objComponent, fltConsumptionRate);
-                float fltAccelerationModifier = dctParams.getFloat("fltAccelerationModifier");
-                float fltAcceleration = dctParams.getFloat("fltAcceleration");
-                fltAcceleration = getBellValue(fltAcceleration, fltAccelerationModifier);
-                setBoosterAcceleration(objComponent, fltAcceleration);
-                float fltMaxSpeedModifier = dctParams.getFloat("fltMaxSpeedModifier");
-                float fltMaxSpeed = dctParams.getFloat("fltMaxSpeed");
-                fltMaxSpeed = getBellValue(fltMaxSpeed, fltMaxSpeedModifier);
-                setBoosterMaximumSpeed(objComponent, fltMaxSpeed);
-            }
-            else if (strComponentType.equals("cargo_hold"))
-            {
-                int intCargoHoldCapacity = dctParams.getInt("intCargoHoldCapacity");
-                setCargoHoldMaxCapacity(objComponent, intCargoHoldCapacity);
-            }
-            else if (strComponentType.equals("droid_interface"))
-            {
-                float fltCommandSpeedModifier = dctParams.getFloat("fltCommandSpeedModifier");
-                float fltCommandSpeed = dctParams.getFloat("fltCommandSpeed");
-                fltCommandSpeed = getBellValue(fltCommandSpeed, fltCommandSpeedModifier);
-                setDroidInterfaceCommandSpeed(objComponent, fltCommandSpeed);
-            }
-            else if (strComponentType.equals("engine"))
-            {
-                float fltMaxSpeedModifier = dctParams.getFloat("fltMaxSpeedModifier");
-                float fltMaxSpeed = dctParams.getFloat("fltMaxSpeed");
-                fltMaxSpeed = getBellValue(fltMaxSpeed, fltMaxSpeedModifier);
-                setEngineMaximumSpeed(objComponent, fltMaxSpeed);
-                float fltMaxPitchModifier = dctParams.getFloat("fltMaxPitchModifier");
-                float fltMaxPitch = dctParams.getFloat("fltMaxPitch");
-                fltMaxPitch = getBellValue(fltMaxPitch, fltMaxPitchModifier);
-                setEngineMaximumPitch(objComponent, fltMaxPitch);
-                float fltMaxRollModifier = dctParams.getFloat("fltMaxRollModifier");
-                float fltMaxRoll = dctParams.getFloat("fltMaxRoll");
-                fltMaxRoll = getBellValue(fltMaxRoll, fltMaxRollModifier);
-                setEngineMaximumRoll(objComponent, fltMaxRoll);
-                float fltMaxYawModifier = dctParams.getFloat("fltMaxYawModifier");
-                float fltMaxYaw = dctParams.getFloat("fltMaxYaw");
-                fltMaxYaw = getBellValue(fltMaxYaw, fltMaxYawModifier);
-                setEngineMaximumYaw(objComponent, fltMaxYaw);
-            }
-            else if (strComponentType.equals("reactor"))
-            {
-                float fltEnergyGenerationModifier = dctParams.getFloat("fltEnergyGenerationModifier");
-                float fltEnergyGeneration = dctParams.getFloat("fltEnergyGeneration");
-                fltEnergyGeneration = getBellValue(fltEnergyGeneration, fltEnergyGenerationModifier);
-                setReactorEnergyGeneration(objComponent, fltEnergyGeneration);
-            }
-            else if (strComponentType.equals("shield"))
-            {
-                float fltShieldHitpointsMaximumFrontModifier = dctParams.getFloat("fltShieldHitpointsMaximumFrontModifier");
-                float fltShieldHitpointsMaximumFront = dctParams.getFloat("fltShieldHitpointsMaximumFront");
-                fltShieldHitpointsMaximumFront = getBellValue(fltShieldHitpointsMaximumFront, fltShieldHitpointsMaximumFrontModifier);
-                float fltShieldHitpointsMaximumBackModifier = dctParams.getFloat("fltShieldHitpointsMaximumBackModifier");
-                float fltShieldHitpointsMaximumBack = dctParams.getFloat("fltShieldHitpointsMaximumFront");
-                fltShieldHitpointsMaximumBack = getBellValue(fltShieldHitpointsMaximumBack, fltShieldHitpointsMaximumBackModifier);
-                setShieldGeneratorCurrentFrontHitpoints(objComponent, 0f);
-                setShieldGeneratorCurrentBackHitpoints(objComponent, 0f);
-                setShieldGeneratorMaximumFrontHitpoints(objComponent, fltShieldHitpointsMaximumFront);
-                setShieldGeneratorMaximumBackHitpoints(objComponent, fltShieldHitpointsMaximumBack);
-                float fltShieldRechargeRateModifier = dctParams.getFloat("fltShieldRechargeRateModifier");
-                float fltShieldRechargeRate = dctParams.getFloat("fltShieldRechargeRate");
-                fltShieldRechargeRate = getBellValue(fltShieldRechargeRate, fltShieldRechargeRateModifier);
-                setShieldGeneratorRechargeRate(objComponent, fltShieldRechargeRate);
-            }
-            else if (strComponentType.equals("weapon"))
-            {
-                float fltMinDamageModifier = dctParams.getFloat("fltMinDamageModifier");
-                float fltMinDamage = dctParams.getFloat("fltMinDamage");
-                fltMinDamage = getBellValue(fltMinDamage, fltMinDamageModifier);
-                setWeaponMinimumDamage(objComponent, fltMinDamage);
-                float fltMaxDamageModifier = dctParams.getFloat("fltMaxDamageModifier");
-                float fltMaxDamage = dctParams.getFloat("fltMaxDamage");
-                fltMaxDamage = getBellValue(fltMaxDamage, fltMaxDamageModifier);
-                setWeaponMaximumDamage(objComponent, fltMaxDamage);
-                float fltShieldEffectivenessModifier = dctParams.getFloat("fltShieldEffectivenessModifier");
-                float fltShieldEffectiveness = dctParams.getFloat("fltShieldEffectiveness");
-                fltShieldEffectiveness = getBellValue(fltShieldEffectiveness, fltShieldEffectivenessModifier);
-                setWeaponShieldEffectiveness(objComponent, fltShieldEffectiveness);
-                float fltArmorEffectivenessModifier = dctParams.getFloat("fltArmorEffectivenessModifier");
-                float fltArmorEffectiveness = dctParams.getFloat("fltArmorEffectiveness");
-                fltArmorEffectiveness = getBellValue(fltArmorEffectiveness, fltArmorEffectivenessModifier);
-                setWeaponArmorEffectiveness(objComponent, fltArmorEffectiveness);
-                float fltEnergyPerShotModifier = dctParams.getFloat("fltEnergyPerShotModifier");
-                float fltEnergyPerShot = dctParams.getFloat("fltEnergyPerShot");
-                fltEnergyPerShot = getBellValue(fltEnergyPerShot, fltEnergyPerShotModifier);
-                setWeaponEnergyPerShot(objComponent, fltEnergyPerShot);
-                float fltRefireRateModifier = dctParams.getFloat("fltRefireRateModifier");
-                float fltRefireRate = dctParams.getFloat("fltRefireRate");
-                fltRefireRate = getBellValue(fltRefireRate, fltRefireRateModifier);
-                setWeaponRefireRate(objComponent, fltRefireRate);
-            }
-            else if (strComponentType.equals("capacitor"))
-            {
-                float fltCurrentEnergy = dctParams.getFloat("fltCurrentEnergy");
-                float fltMaxEnergyModifier = dctParams.getFloat("fltMaxEnergyModifier");
-                float fltMaxEnergy = dctParams.getFloat("fltMaxEnergy");
-                fltMaxEnergy = getBellValue(fltMaxEnergy, fltMaxEnergyModifier);
-                setWeaponCapacitorMaximumEnergy(objComponent, fltMaxEnergy);
-                setWeaponCapacitorCurrentEnergy(objComponent, fltMaxEnergy);
-                float fltRechargeRateModifier = dctParams.getFloat("fltRechargeRateModifier");
-                float fltRechargeRate = dctParams.getFloat("fltRechargeRate");
-                fltRechargeRate = getBellValue(fltRechargeRate, fltRechargeRateModifier);
-                setWeaponCapacitorRechargeRate(objComponent, fltRechargeRate);
+            if (!strComponentType.equals("armor")) {
+                switch (strComponentType) {
+                    case "booster": {
+                        float fltCurrentEnergy = dctParams.getFloat("fltCurrentEnergy");
+                        float fltMaximumEnergyModifier = dctParams.getFloat("fltMaximumEnergyModifier");
+                        float fltMaximumEnergy = dctParams.getFloat("fltMaximumEnergy");
+                        float fltRoll = rand(-1 * fltMaximumEnergyModifier, fltMaximumEnergyModifier);
+                        fltMaximumEnergy = fltMaximumEnergy + fltRoll;
+                        fltCurrentEnergy = fltCurrentEnergy + fltRoll;
+                        setBoosterMaximumEnergy(objComponent, fltMaximumEnergy);
+                        setBoosterCurrentEnergy(objComponent, fltCurrentEnergy);
+                        float fltRechargeRateModifier = dctParams.getFloat("fltRechargeRateModifier");
+                        float fltRechargeRate = dctParams.getFloat("fltRechargeRate");
+                        fltRechargeRate = getBellValue(fltRechargeRate, fltRechargeRateModifier);
+                        setBoosterEnergyRechargeRate(objComponent, fltRechargeRate);
+                        float fltConsumptionRateModifier = dctParams.getFloat("fltConsumptionRateModifier");
+                        float fltConsumptionRate = dctParams.getFloat("fltConsumptionRate");
+                        fltConsumptionRate = getBellValue(fltConsumptionRate, fltConsumptionRateModifier);
+                        setBoosterEnergyConsumptionRate(objComponent, fltConsumptionRate);
+                        float fltAccelerationModifier = dctParams.getFloat("fltAccelerationModifier");
+                        float fltAcceleration = dctParams.getFloat("fltAcceleration");
+                        fltAcceleration = getBellValue(fltAcceleration, fltAccelerationModifier);
+                        setBoosterAcceleration(objComponent, fltAcceleration);
+                        float fltMaxSpeedModifier = dctParams.getFloat("fltMaxSpeedModifier");
+                        float fltMaxSpeed = dctParams.getFloat("fltMaxSpeed");
+                        fltMaxSpeed = getBellValue(fltMaxSpeed, fltMaxSpeedModifier);
+                        setBoosterMaximumSpeed(objComponent, fltMaxSpeed);
+                        break;
+                    }
+                    case "cargo_hold":
+                        int intCargoHoldCapacity = dctParams.getInt("intCargoHoldCapacity");
+                        setCargoHoldMaxCapacity(objComponent, intCargoHoldCapacity);
+                        break;
+                    case "droid_interface":
+                        float fltCommandSpeedModifier = dctParams.getFloat("fltCommandSpeedModifier");
+                        float fltCommandSpeed = dctParams.getFloat("fltCommandSpeed");
+                        fltCommandSpeed = getBellValue(fltCommandSpeed, fltCommandSpeedModifier);
+                        setDroidInterfaceCommandSpeed(objComponent, fltCommandSpeed);
+                        break;
+                    case "engine": {
+                        float fltMaxSpeedModifier = dctParams.getFloat("fltMaxSpeedModifier");
+                        float fltMaxSpeed = dctParams.getFloat("fltMaxSpeed");
+                        fltMaxSpeed = getBellValue(fltMaxSpeed, fltMaxSpeedModifier);
+                        setEngineMaximumSpeed(objComponent, fltMaxSpeed);
+                        float fltMaxPitchModifier = dctParams.getFloat("fltMaxPitchModifier");
+                        float fltMaxPitch = dctParams.getFloat("fltMaxPitch");
+                        fltMaxPitch = getBellValue(fltMaxPitch, fltMaxPitchModifier);
+                        setEngineMaximumPitch(objComponent, fltMaxPitch);
+                        float fltMaxRollModifier = dctParams.getFloat("fltMaxRollModifier");
+                        float fltMaxRoll = dctParams.getFloat("fltMaxRoll");
+                        fltMaxRoll = getBellValue(fltMaxRoll, fltMaxRollModifier);
+                        setEngineMaximumRoll(objComponent, fltMaxRoll);
+                        float fltMaxYawModifier = dctParams.getFloat("fltMaxYawModifier");
+                        float fltMaxYaw = dctParams.getFloat("fltMaxYaw");
+                        fltMaxYaw = getBellValue(fltMaxYaw, fltMaxYawModifier);
+                        setEngineMaximumYaw(objComponent, fltMaxYaw);
+                        break;
+                    }
+                    case "reactor":
+                        float fltEnergyGenerationModifier = dctParams.getFloat("fltEnergyGenerationModifier");
+                        float fltEnergyGeneration = dctParams.getFloat("fltEnergyGeneration");
+                        fltEnergyGeneration = getBellValue(fltEnergyGeneration, fltEnergyGenerationModifier);
+                        setReactorEnergyGeneration(objComponent, fltEnergyGeneration);
+                        break;
+                    case "shield":
+                        float fltShieldHitpointsMaximumFrontModifier = dctParams.getFloat("fltShieldHitpointsMaximumFrontModifier");
+                        float fltShieldHitpointsMaximumFront = dctParams.getFloat("fltShieldHitpointsMaximumFront");
+                        fltShieldHitpointsMaximumFront = getBellValue(fltShieldHitpointsMaximumFront, fltShieldHitpointsMaximumFrontModifier);
+                        float fltShieldHitpointsMaximumBackModifier = dctParams.getFloat("fltShieldHitpointsMaximumBackModifier");
+                        float fltShieldHitpointsMaximumBack = dctParams.getFloat("fltShieldHitpointsMaximumFront");
+                        fltShieldHitpointsMaximumBack = getBellValue(fltShieldHitpointsMaximumBack, fltShieldHitpointsMaximumBackModifier);
+                        setShieldGeneratorCurrentFrontHitpoints(objComponent, 0f);
+                        setShieldGeneratorCurrentBackHitpoints(objComponent, 0f);
+                        setShieldGeneratorMaximumFrontHitpoints(objComponent, fltShieldHitpointsMaximumFront);
+                        setShieldGeneratorMaximumBackHitpoints(objComponent, fltShieldHitpointsMaximumBack);
+                        float fltShieldRechargeRateModifier = dctParams.getFloat("fltShieldRechargeRateModifier");
+                        float fltShieldRechargeRate = dctParams.getFloat("fltShieldRechargeRate");
+                        fltShieldRechargeRate = getBellValue(fltShieldRechargeRate, fltShieldRechargeRateModifier);
+                        setShieldGeneratorRechargeRate(objComponent, fltShieldRechargeRate);
+                        break;
+                    case "weapon":
+                        float fltMinDamageModifier = dctParams.getFloat("fltMinDamageModifier");
+                        float fltMinDamage = dctParams.getFloat("fltMinDamage");
+                        fltMinDamage = getBellValue(fltMinDamage, fltMinDamageModifier);
+                        setWeaponMinimumDamage(objComponent, fltMinDamage);
+                        float fltMaxDamageModifier = dctParams.getFloat("fltMaxDamageModifier");
+                        float fltMaxDamage = dctParams.getFloat("fltMaxDamage");
+                        fltMaxDamage = getBellValue(fltMaxDamage, fltMaxDamageModifier);
+                        setWeaponMaximumDamage(objComponent, fltMaxDamage);
+                        float fltShieldEffectivenessModifier = dctParams.getFloat("fltShieldEffectivenessModifier");
+                        float fltShieldEffectiveness = dctParams.getFloat("fltShieldEffectiveness");
+                        fltShieldEffectiveness = getBellValue(fltShieldEffectiveness, fltShieldEffectivenessModifier);
+                        setWeaponShieldEffectiveness(objComponent, fltShieldEffectiveness);
+                        float fltArmorEffectivenessModifier = dctParams.getFloat("fltArmorEffectivenessModifier");
+                        float fltArmorEffectiveness = dctParams.getFloat("fltArmorEffectiveness");
+                        fltArmorEffectiveness = getBellValue(fltArmorEffectiveness, fltArmorEffectivenessModifier);
+                        setWeaponArmorEffectiveness(objComponent, fltArmorEffectiveness);
+                        float fltEnergyPerShotModifier = dctParams.getFloat("fltEnergyPerShotModifier");
+                        float fltEnergyPerShot = dctParams.getFloat("fltEnergyPerShot");
+                        fltEnergyPerShot = getBellValue(fltEnergyPerShot, fltEnergyPerShotModifier);
+                        setWeaponEnergyPerShot(objComponent, fltEnergyPerShot);
+                        float fltRefireRateModifier = dctParams.getFloat("fltRefireRateModifier");
+                        float fltRefireRate = dctParams.getFloat("fltRefireRate");
+                        fltRefireRate = getBellValue(fltRefireRate, fltRefireRateModifier);
+                        setWeaponRefireRate(objComponent, fltRefireRate);
+                        break;
+                    case "capacitor": {
+                        float fltCurrentEnergy = dctParams.getFloat("fltCurrentEnergy");
+                        float fltMaxEnergyModifier = dctParams.getFloat("fltMaxEnergyModifier");
+                        float fltMaxEnergy = dctParams.getFloat("fltMaxEnergy");
+                        fltMaxEnergy = getBellValue(fltMaxEnergy, fltMaxEnergyModifier);
+                        setWeaponCapacitorMaximumEnergy(objComponent, fltMaxEnergy);
+                        setWeaponCapacitorCurrentEnergy(objComponent, fltMaxEnergy);
+                        float fltRechargeRateModifier = dctParams.getFloat("fltRechargeRateModifier");
+                        float fltRechargeRate = dctParams.getFloat("fltRechargeRate");
+                        fltRechargeRate = getBellValue(fltRechargeRate, fltRechargeRateModifier);
+                        setWeaponCapacitorRechargeRate(objComponent, fltRechargeRate);
+                        break;
+                    }
+                }
             }
             return objComponent;
         }
@@ -436,7 +421,7 @@ public class space_crafting extends script.base_script
             return objComponent;
         }
     }
-    public static void uninstallAll(obj_id ship) throws InterruptedException
+    public static void uninstallAll(obj_id ship)
     {
         if (isIdValid(ship))
         {
@@ -449,469 +434,380 @@ public class space_crafting extends script.base_script
             }
         }
     }
-    public static boolean setComponentCurrentHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
+    public static boolean setComponentCurrentHitpoints(obj_id objComponent, float fltValue)
     {
         String OBJVAR_NAME = "ship_comp.hitpoints_current";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentMaximumHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
+    public static boolean setComponentMaximumHitpoints(obj_id objComponent, float fltValue)
     {
         String OBJVAR_NAME = "ship_comp.hitpoints_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentCurrentArmorHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
+    public static boolean setComponentCurrentArmorHitpoints(obj_id objComponent, float fltValue)
     {
         String OBJVAR_NAME = "ship_comp.armor_hitpoints_current";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentMaximumArmorHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setComponentMaximumArmorHitpoints(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.armor_hitpoints_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentGeneralEfficiency(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setComponentGeneralEfficiency(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.efficiency_general";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentEnergyEfficiency(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setComponentEnergyEfficiency(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.efficiency_energy";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentEnergyMaintenance(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setComponentEnergyMaintenance(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.energy_maintenance_requirement";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentMass(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setComponentMass(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.mass";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentCurrentConduitHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setComponentCurrentConduitHitpoints(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.conduit_hitpoints_current";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setComponentMaximumConduitHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setComponentMaximumConduitHitpoints(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.conduit_hitpoints_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setBoosterCurrentEnergy(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setBoosterCurrentEnergy(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.booster.energy_current";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setBoosterMaximumEnergy(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setBoosterMaximumEnergy(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.booster.energy_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setBoosterEnergyRechargeRate(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setBoosterEnergyRechargeRate(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.booster.energy_recharge_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setBoosterEnergyConsumptionRate(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setBoosterEnergyConsumptionRate(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.booster.energy_consumption_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setBoosterAcceleration(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setBoosterAcceleration(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.booster.acceleration";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setBoosterMaximumSpeed(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setBoosterMaximumSpeed(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.booster.speed_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setCargoHoldMaxCapacity(obj_id objComponent, int intValue) throws InterruptedException
-    {
+    public static boolean setCargoHoldMaxCapacity(obj_id objComponent, int intValue) {
         String OBJVAR_NAME = "ship_comp.cargo_hold.contents_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, intValue);
     }
-    public static boolean setCargoHoldCurrentContents(obj_id objComponent, int intValue) throws InterruptedException
-    {
+    public static boolean setCargoHoldCurrentContents(obj_id objComponent, int intValue) {
         String OBJVAR_NAME = "ship_comp.cargo_hold.contents_current";
         return setObjVar(objComponent, OBJVAR_NAME, intValue);
     }
-    public static boolean setWeaponCapacitorCurrentEnergy(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponCapacitorCurrentEnergy(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.capacitor.energy_current";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponCapacitorMaximumEnergy(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponCapacitorMaximumEnergy(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.capacitor.energy_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponCapacitorRechargeRate(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponCapacitorRechargeRate(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.capacitor.energy_recharge_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setDroidInterfaceCommandSpeed(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setDroidInterfaceCommandSpeed(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.droid_interface.command_speed";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineAcceleration(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineAcceleration(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.acceleration_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineDeceleration(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineDeceleration(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.deceleration_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEnginePitch(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEnginePitch(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.pitch_acceleration_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineYaw(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineYaw(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.yaw_acceleration_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineRoll(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineRoll(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.roll_acceleration_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineSpeedRotationFactorMaximum(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineSpeedRotationFactorMaximum(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.speed_rotation_factor_max";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineSpeedRotationFactorMinimum(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineSpeedRotationFactorMinimum(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.speed_rotation_factor_min";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineSpeedRotationFactorOptimal(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineSpeedRotationFactorOptimal(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.speed_rotation_factor_optimal";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineMaximumPitch(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineMaximumPitch(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.pitch_rate_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineMaximumYaw(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineMaximumYaw(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.yaw_rate_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineMaximumRoll(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineMaximumRoll(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.roll_rate_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setEngineMaximumSpeed(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setEngineMaximumSpeed(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.engine.speed_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setReactorEnergyGeneration(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setReactorEnergyGeneration(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.reactor.energy_generation_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setShieldGeneratorCurrentFrontHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setShieldGeneratorCurrentFrontHitpoints(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.shield.hitpoints_front_current";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setShieldGeneratorMaximumFrontHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setShieldGeneratorMaximumFrontHitpoints(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.shield.hitpoints_front_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setShieldGeneratorCurrentBackHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setShieldGeneratorCurrentBackHitpoints(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.shield.hitpoints_back_current";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setShieldGeneratorMaximumBackHitpoints(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setShieldGeneratorMaximumBackHitpoints(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.shield.hitpoints_back_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setShieldGeneratorRechargeRate(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setShieldGeneratorRechargeRate(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.shield.recharge_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponMaximumDamage(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponMaximumDamage(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.weapon.damage_maximum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponMinimumDamage(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponMinimumDamage(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.weapon.damage_minimum";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponShieldEffectiveness(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponShieldEffectiveness(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.weapon.effectiveness_shields";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponArmorEffectiveness(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponArmorEffectiveness(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.weapon.effectiveness_armor";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponEnergyPerShot(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponEnergyPerShot(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.weapon.energy_per_shot";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponRefireRate(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponRefireRate(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.weapon.refire_rate";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static boolean setWeaponProjectileSpeed(obj_id objComponent, float fltValue) throws InterruptedException
-    {
+    public static boolean setWeaponProjectileSpeed(obj_id objComponent, float fltValue) {
         String OBJVAR_NAME = "ship_comp.weapon.projectile_speed";
         return setObjVar(objComponent, OBJVAR_NAME, fltValue);
     }
-    public static float getComponentCurrentHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentCurrentHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.hitpoints_current";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentMaximumHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentMaximumHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.hitpoints_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentCurrentArmorHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentCurrentArmorHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.armor_hitpoints_current";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentMaximumArmorHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentMaximumArmorHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.armor_hitpoints_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentEnergyEfficiency(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentEnergyEfficiency(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.efficiency_energy";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentGeneralEfficiency(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentGeneralEfficiency(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.efficiency_general";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentEnergyMaintenance(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentEnergyMaintenance(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.energy_maintenance_requirement";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentMass(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentMass(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.mass";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentCurrentConduitHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentCurrentConduitHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.conduit_hitpoints_current";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getComponentMaximumConduitHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getComponentMaximumConduitHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.conduit_hitpoints_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getBoosterCurrentEnergy(obj_id objComponent) throws InterruptedException
-    {
+    public static float getBoosterCurrentEnergy(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.booster.energy_current";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getBoosterMaximumEnergy(obj_id objComponent) throws InterruptedException
-    {
+    public static float getBoosterMaximumEnergy(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.booster.energy_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getBoosterEnergyRechargeRate(obj_id objComponent) throws InterruptedException
-    {
+    public static float getBoosterEnergyRechargeRate(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.booster.energy_recharge_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getboosterEnergyConsumptionRate(obj_id objComponent) throws InterruptedException
-    {
+    public static float getboosterEnergyConsumptionRate(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.booster.energy_consumption_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getBoosterAcceleration(obj_id objComponent) throws InterruptedException
-    {
+    public static float getBoosterAcceleration(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.booster.acceleration";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getBoosterMaximumSpeed(obj_id objComponent) throws InterruptedException
-    {
+    public static float getBoosterMaximumSpeed(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.booster.speed_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponCapacitorCurrentEnergy(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponCapacitorCurrentEnergy(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.capacitor.energy_current";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponCapacitorMaximumEnergy(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponCapacitorMaximumEnergy(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.capacitor.energy_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponCapacitorRechargeRate(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponCapacitorRechargeRate(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.capacitor.energy_recharge_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getDroidInterfaceCommandSpeed(obj_id objComponent) throws InterruptedException
-    {
+    public static float getDroidInterfaceCommandSpeed(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.droid_interface.command_speed";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineAcceleration(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineAcceleration(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.acceleration_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineDeceleration(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineDeceleration(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.deceleration_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEnginePitch(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEnginePitch(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.pitch_acceleration_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineYaw(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineYaw(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.yaw_acceleration_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineRoll(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineRoll(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.roll_acceleration_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineSpeedRotationFactorMaximum(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineSpeedRotationFactorMaximum(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.speed_rotation_factor_max";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineSpeedRotationFactorMinimum(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineSpeedRotationFactorMinimum(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.speed_rotation_factor_min";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineSpeedRotationFactorOptimal(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineSpeedRotationFactorOptimal(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.speed_rotation_factor_optimal";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineMaximumPitch(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineMaximumPitch(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.pitch_rate_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineMaximumYaw(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineMaximumYaw(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.yaw_rate_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineMaximumRoll(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineMaximumRoll(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.roll_rate_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getEngineMaximumSpeed(obj_id objComponent) throws InterruptedException
-    {
+    public static float getEngineMaximumSpeed(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.engine.speed_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getReactorEnergyGeneration(obj_id objComponent) throws InterruptedException
-    {
+    public static float getReactorEnergyGeneration(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.reactor.energy_generation_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getShieldGeneratorCurrenFrontHitpointst(obj_id objComponent) throws InterruptedException
-    {
+    public static float getShieldGeneratorCurrenFrontHitpointst(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.shield.hitpoints_front_current";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getShieldGeneratorMaximumFrontHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getShieldGeneratorMaximumFrontHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.shield.hitpoints_front_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getShieldGeneratorCurrentBackHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getShieldGeneratorCurrentBackHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.shield.hitpoints_back_current";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getShieldGeneratorMaximumBackHitpoints(obj_id objComponent) throws InterruptedException
-    {
+    public static float getShieldGeneratorMaximumBackHitpoints(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.shield.hitpoints_back_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getShieldGeneratorRechargeRate(obj_id objComponent) throws InterruptedException
-    {
+    public static float getShieldGeneratorRechargeRate(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.shield.recharge_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponMaximumDamage(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponMaximumDamage(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.weapon.damage_maximum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponMinimumDamage(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponMinimumDamage(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.weapon.damage_minimum";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponShieldEffectiveness(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponShieldEffectiveness(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.weapon.effectiveness_shields";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponArmorEffectiveness(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponArmorEffectiveness(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.weapon.effectiveness_armor";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponEnergyPerShot(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponEnergyPerShot(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.weapon.energy_per_shot";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponRefireRate(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponRefireRate(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.weapon.refire_rate";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
-    public static float getWeaponProjectileSpeed(obj_id objComponent) throws InterruptedException
-    {
+    public static float getWeaponProjectileSpeed(obj_id objComponent) {
         String OBJVAR_NAME = "ship_comp.weapon.projectile_speed";
         return getFloatObjVar(objComponent, OBJVAR_NAME);
     }
     public static Vector getRepairKitsForItem(obj_id objPlayer, int intSlot) throws InterruptedException
     {
-        String strComponent = "";
+        String strComponent;
         if (intSlot == CHASSIS)
         {
             strComponent = "chassis";
@@ -933,14 +829,11 @@ public class space_crafting extends script.base_script
         obj_id[] objContents = getInventoryAndEquipment(objPlayer);
         Vector objKits = new Vector();
         objKits.setSize(0);
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            if (hasObjVar(objContents[intI], "strKitType"))
-            {
-                String strKitType = getStringObjVar(objContents[intI], "strKitType");
-                if ((strKitType.equals(strComponent)) || (strKitType.equals("all_purpose")))
-                {
-                    objKits = utils.addElement(objKits, objContents[intI]);
+        for (obj_id objContent : objContents) {
+            if (hasObjVar(objContent, "strKitType")) {
+                String strKitType = getStringObjVar(objContent, "strKitType");
+                if ((strKitType.equals(strComponent)) || (strKitType.equals("all_purpose"))) {
+                    objKits = utils.addElement(objKits, objContent);
                 }
             }
         }
@@ -957,15 +850,7 @@ public class space_crafting extends script.base_script
             return false;
         }
         boolean boolHealed = false;
-        String strComponent = "";
-        if (intSlot == CHASSIS)
-        {
-            strComponent = "chassis";
-        }
-        else 
-        {
-            strComponent = getShipComponentStringType(intSlot);
-        }
+
         obj_id objRepairKit = ((obj_id)objRepairKits.get(0));
         if (intSlot == CHASSIS)
         {
@@ -1021,8 +906,7 @@ public class space_crafting extends script.base_script
         float fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, intSlot);
         float fltMaximumArmorHitpoints = getShipComponentArmorHitpointsMaximum(objShip, intSlot);
         float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, intSlot);
-        float fltEnergyEfficiency = getShipComponentEfficiencyEnergy(objShip, intSlot);
-        float fltGeneralEfficiency = getShipComponentEfficiencyGeneral(objShip, intSlot);
+
         if ((fltCurrentHitpoints == fltMaximumHitpoints) && (fltMaximumArmorHitpoints == fltCurrentArmorHitpoints))
         {
             string_id strSpam = new string_id("space/space_interaction", "no_damage_to_repair");
@@ -1116,13 +1000,12 @@ public class space_crafting extends script.base_script
         }
         obj_id objRepairKit = ((obj_id)objRepairKits.get(0));
         boolean boolHealed = false;
-        String strComponent = getShipComponentStringType(objComponent);
+
         float fltMaximumHitpoints = getComponentMaximumHitpoints(objComponent);
         float fltCurrentHitpoints = getComponentCurrentHitpoints(objComponent);
         float fltMaximumArmorHitpoints = getComponentMaximumArmorHitpoints(objComponent);
         float fltCurrentArmorHitpoints = getComponentCurrentArmorHitpoints(objComponent);
-        float fltEnergyEfficiency = getComponentEnergyEfficiency(objComponent);
-        float fltGeneralEfficiency = getComponentGeneralEfficiency(objComponent);
+
         if ((fltCurrentHitpoints == fltMaximumHitpoints) && (fltMaximumArmorHitpoints == fltCurrentArmorHitpoints))
         {
             string_id strSpam = new string_id("space/space_interaction", "no_damage_to_repair");
@@ -1180,18 +1063,14 @@ public class space_crafting extends script.base_script
         }
         return boolHealed;
     }
-    public static boolean isRepairKit(obj_id objItem) throws InterruptedException
-    {
+    public static boolean isRepairKit(obj_id objItem) {
         String strTest = getTemplateName(objItem);
+
         int intIndex = strTest.indexOf("object/tangible/ship/crafted/repair");
-        if (intIndex < 0)
-        {
-            return false;
-        }
-        return true;
+
+        return intIndex >= 0;
     }
-    public static obj_id getDroidContainer(obj_id objShip) throws InterruptedException
-    {
+    public static obj_id getDroidContainer(obj_id objShip) {
         return getObjectInSlot(objShip, SHIP_DROID_SLOT_NAME);
     }
     public static obj_id[] getDatapadDroidCommands(obj_id objControlDevice) throws InterruptedException
@@ -1205,22 +1084,14 @@ public class space_crafting extends script.base_script
         obj_id[] objContents = utils.getContents(objDatapad);
         Vector objCommands = new Vector();
         objCommands.setSize(0);
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            if (hasObjVar(objContents[intI], "strDroidCommand"))
-            {
-                objCommands = utils.addElement(objCommands, objContents[intI]);
+        for (obj_id objContent : objContents) {
+            if (hasObjVar(objContent, "strDroidCommand")) {
+                objCommands = utils.addElement(objCommands, objContent);
             }
         }
         if (objCommands.size() > 0)
         {
-            obj_id[] _objCommands = new obj_id[0];
-            if (objCommands != null)
-            {
-                _objCommands = new obj_id[objCommands.size()];
-                objCommands.toArray(_objCommands);
-            }
-            return _objCommands;
+            return new obj_id[objCommands.size()];
         }
         else 
         {
@@ -1276,10 +1147,8 @@ public class space_crafting extends script.base_script
         {
             int intIndex = utils.getElementPositionInArray(strDroidTypes, strName);
             LOG("space", "intIndex: " + intIndex + " strName: " + strName);
-            if (intIndex > -1)
-            {
-                return true;
-            }
+
+            return intIndex > -1;
         }
         else 
         {
@@ -1288,10 +1157,7 @@ public class space_crafting extends script.base_script
                 strName = getStringObjVar(objControlDevice, "item.objectName");
                 int intIndex = utils.getElementPositionInArray(strDroidTypes, strName);
                 LOG("space", "intIndex: " + intIndex + " strName: " + strName);
-                if (intIndex > -1)
-                {
-                    return true;
-                }
+                return intIndex > -1;
             }
             else 
             {
@@ -1315,10 +1181,7 @@ public class space_crafting extends script.base_script
         {
             String name = getStringObjVar(controlDevice, "item.objectName");
             int intIndex = utils.getElementPositionInArray(computerTypes, name);
-            if (intIndex > -1)
-            {
-                return true;
-            }
+            return intIndex > -1;
         }
         return false;
     }
@@ -1341,53 +1204,34 @@ public class space_crafting extends script.base_script
         {
             return null;
         }
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            if (hasObjVar(objContents[intI], "objActiveShipDroid"))
-            {
-                obj_id objTest = getObjIdObjVar(objContents[intI], "objActiveShipDroid");
-                if (objTest != objPlayer)
-                {
+        for (obj_id objContent : objContents) {
+            if (hasObjVar(objContent, "objActiveShipDroid")) {
+                obj_id objTest = getObjIdObjVar(objContent, "objActiveShipDroid");
+                if (objTest != objPlayer) {
                     removeObjVar(objTest, "objActiveShipDroid");
-                }
-                else 
-                {
-                    return objContents[intI];
+                } else {
+                    return objContent;
                 }
             }
         }
         return null;
     }
-    public static boolean isUsingCorrectComputer(obj_id objControlDevice, obj_id ship) throws InterruptedException
-    {
-        if (!usesFlightComputerNotAstromech(ship) && hasObjVar(objControlDevice, "pet.creatureName"))
-        {
-            return true;
-        }
-        else if (usesFlightComputerNotAstromech(ship) && !hasObjVar(objControlDevice, "pet.creatureName"))
-        {
-            return true;
-        }
-        return false;
+    public static boolean isUsingCorrectComputer(obj_id objControlDevice, obj_id ship) throws InterruptedException {
+        return !usesFlightComputerNotAstromech(ship) && hasObjVar(objControlDevice, "pet.creatureName") || usesFlightComputerNotAstromech(ship) && !hasObjVar(objControlDevice, "pet.creatureName");
     }
     public static boolean usesFlightComputerNotAstromech(obj_id ship) throws InterruptedException
     {
         String templateName = utils.getTemplateFilenameNoPath(ship);
         String shipUsesThis = dataTableGetString(STARSHIP_DROID_TABLE, templateName, "usesDroidOrFlightComputer");
         debugServerConsoleMsg(null, "+++ SPACE_CRAFTING . Got shipUsesThis. It was: " + shipUsesThis);
-        if ((shipUsesThis.equals("")) || (shipUsesThis == null))
+        if (shipUsesThis == null || shipUsesThis.equals(""))
         {
             debugServerConsoleMsg(null, "SPACE_CRAFTING.usesFlightComputerNotAstromech: shipUsesThis failed out as being -1");
             return false;
         }
-        if (shipUsesThis.equals("flight_computer"))
-        {
-            return true;
-        }
-        return false;
+        return shipUsesThis.equals("flight_computer");
     }
-    public static boolean isMissileSlot(obj_id objShip, int intSlot) throws InterruptedException
-    {
+    public static boolean isMissileSlot(obj_id objShip, int intSlot) {
         if (isShipSlotInstalled(objShip, intSlot))
         {
             int intCrc = getShipComponentCrc(objShip, intSlot);
@@ -1395,8 +1239,7 @@ public class space_crafting extends script.base_script
         }
         return false;
     }
-    public static boolean isCounterMeasureSlot(obj_id objShip, int intSlot) throws InterruptedException
-    {
+    public static boolean isCounterMeasureSlot(obj_id objShip, int intSlot) {
         if (isShipSlotInstalled(objShip, intSlot))
         {
             int intCrc = getShipComponentCrc(objShip, intSlot);
@@ -1404,8 +1247,7 @@ public class space_crafting extends script.base_script
         }
         return false;
     }
-    public static boolean isProperAmmoForWeapon(obj_id objAmmo, obj_id objShip, int intSlot) throws InterruptedException
-    {
+    public static boolean isProperAmmoForWeapon(obj_id objAmmo, obj_id objShip, int intSlot) {
         int intWeaponAmmoType = getShipWeaponAmmoType(objShip, intSlot);
         int intWeaponType = getIntObjVar(objAmmo, "weapon.intAmmoType");
         int intCrc = getShipComponentCrc(objShip, intSlot);
@@ -1414,11 +1256,7 @@ public class space_crafting extends script.base_script
         {
             return false;
         }
-        if (intWeaponAmmoType != intWeaponType)
-        {
-            return false;
-        }
-        return true;
+        return intWeaponAmmoType == intWeaponType;
     }
     public static boolean applyAmmoToWeapon(obj_id objShip, obj_id objAmmo, int intSlot, obj_id objPlayer, boolean boolVerbose) throws InterruptedException
     {
@@ -1474,22 +1312,13 @@ public class space_crafting extends script.base_script
         destroyObject(objAmmo);
         return true;
     }
-    public static boolean isWeaponAmmo(obj_id objAmmo) throws InterruptedException
-    {
-        if (hasObjVar(objAmmo, "weapon.intAmmoType"))
-        {
-            return true;
-        }
-        return false;
+    public static boolean isWeaponAmmo(obj_id objAmmo) {
+        return hasObjVar(objAmmo, "weapon.intAmmoType");
     }
     public static boolean isDamaged(obj_id objPlayer) throws InterruptedException
     {
         float fltDamage = getDamageTotalModified(space_transition.getContainingShip(objPlayer), 1.0f);
-        if (fltDamage > 0)
-        {
-            return true;
-        }
-        return false;
+        return fltDamage > 0;
     }
     public static float getDamageTotal(obj_id objPlayer, obj_id objShip) throws InterruptedException
     {
@@ -1503,12 +1332,11 @@ public class space_crafting extends script.base_script
         float fltRepairValue = 0;
         fltRepairValue = fltRepairValue + fltDifference;
         int[] intSlots = getShipInstalledSlots(objShip);
-        for (int intI = 0; intI < intSlots.length; intI++)
-        {
-            fltMaximumHitpoints = getShipComponentHitpointsMaximum(objShip, intSlots[intI]);
-            fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, intSlots[intI]);
-            float fltMaximumArmorHitpoints = getShipComponentArmorHitpointsMaximum(objShip, intSlots[intI]);
-            float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, intSlots[intI]);
+        for (int intSlot : intSlots) {
+            fltMaximumHitpoints = getShipComponentHitpointsMaximum(objShip, intSlot);
+            fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, intSlot);
+            float fltMaximumArmorHitpoints = getShipComponentArmorHitpointsMaximum(objShip, intSlot);
+            float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, intSlot);
             fltDifference = fltMaximumHitpoints - fltCurrentHitpoints;
             fltRepairValue = fltRepairValue + fltDifference;
             fltDifference = fltMaximumArmorHitpoints - fltCurrentArmorHitpoints;
@@ -1535,41 +1363,34 @@ public class space_crafting extends script.base_script
             fltCurrentHitpoints = fltCurrentHitpoints + fltDifference;
             setShipCurrentChassisHitPoints(objShip, fltCurrentHitpoints);
         }
-        fltDifference = 0;
+
         int[] intSlots = getShipInstalledSlots(objShip);
-        for (int intI = 0; intI < intSlots.length; intI++)
-        {
-            fltMaximumHitpoints = getShipComponentHitpointsMaximum(objShip, intSlots[intI]);
-            fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, intSlots[intI]);
-            float fltMaximumArmorHitpoints = getShipComponentArmorHitpointsMaximum(objShip, intSlots[intI]);
-            float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, intSlots[intI]);
-            float fltEnergyEfficiency = getShipComponentEfficiencyEnergy(objShip, intSlots[intI]);
-            float fltGeneralEfficiency = getShipComponentEfficiencyGeneral(objShip, intSlots[intI]);
+        for (int intSlot : intSlots) {
+            fltMaximumHitpoints = getShipComponentHitpointsMaximum(objShip, intSlot);
+            fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, intSlot);
+            float fltMaximumArmorHitpoints = getShipComponentArmorHitpointsMaximum(objShip, intSlot);
+            float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, intSlot);
             fltDifference = fltMaximumHitpoints - fltCurrentHitpoints;
             fltDifference = fltDifference * fltPercentage;
-            LOG("space", "RAW for " + fltDifference + " worth of points on " + intSlots[intI] + " Repairing " + fltDifference + " worth of points");
-            if (fltDifference > 0)
-            {
+            LOG("space", "RAW for " + fltDifference + " worth of points on " + intSlot + " Repairing " + fltDifference + " worth of points");
+            if (fltDifference > 0) {
                 fltCurrentHitpoints = fltCurrentHitpoints + fltDifference;
-                setShipComponentHitpointsCurrent(objShip, intSlots[intI], fltCurrentHitpoints);
-            }
-            else 
-            {
+                setShipComponentHitpointsCurrent(objShip, intSlot, fltCurrentHitpoints);
+            } else {
                 clearCondition(objShip, CONDITION_EJECT);
-                space_utils.setComponentDisabled(objShip, intSlots[intI], false);
+                space_utils.setComponentDisabled(objShip, intSlot, false);
             }
-            fltDifference = 0;
+
             fltDifference = fltMaximumArmorHitpoints - fltCurrentArmorHitpoints;
             fltDifference = fltDifference * fltPercentage;
-            LOG("space", "RAW ARMOR for " + fltDifference + " worth of points on " + intSlots[intI] + " Repairing " + fltDifference + " worth of points");
-            if (fltDifference > 0)
-            {
+            LOG("space", "RAW ARMOR for " + fltDifference + " worth of points on " + intSlot + " Repairing " + fltDifference + " worth of points");
+            if (fltDifference > 0) {
                 fltCurrentArmorHitpoints = fltCurrentArmorHitpoints + fltDifference;
-                setShipComponentArmorHitpointsCurrent(objShip, intSlots[intI], fltCurrentArmorHitpoints);
+                setShipComponentArmorHitpointsCurrent(objShip, intSlot, fltCurrentArmorHitpoints);
                 clearCondition(objShip, CONDITION_EJECT);
-                space_utils.setComponentDisabled(objShip, intSlots[intI], false);
+                space_utils.setComponentDisabled(objShip, intSlot, false);
             }
-            space_combat.recalculateEfficiency(intSlots[intI], objShip);
+            space_combat.recalculateEfficiency(intSlot, objShip);
         }
         space_combat.normalizeAllComponents(objShip);
         return true;
@@ -1588,11 +1409,9 @@ public class space_crafting extends script.base_script
         int[] intRawSlots = getShipChassisSlots(objShip);
         Vector intInstalledSlots = new Vector();
         intInstalledSlots.setSize(0);
-        for (int intI = 0; intI < intRawSlots.length; intI++)
-        {
-            if (isShipSlotInstalled(objShip, intRawSlots[intI]))
-            {
-                intInstalledSlots = utils.addElement(intInstalledSlots, intRawSlots[intI]);
+        for (int intRawSlot : intRawSlots) {
+            if (isShipSlotInstalled(objShip, intRawSlot)) {
+                intInstalledSlots = utils.addElement(intInstalledSlots, intRawSlot);
             }
         }
         int[] _intInstalledSlots = new int[0];
@@ -1601,7 +1420,7 @@ public class space_crafting extends script.base_script
             _intInstalledSlots = new int[intInstalledSlots.size()];
             for (int _i = 0; _i < intInstalledSlots.size(); ++_i)
             {
-                _intInstalledSlots[_i] = ((Integer)intInstalledSlots.get(_i)).intValue();
+                _intInstalledSlots[_i] = (Integer) intInstalledSlots.get(_i);
             }
         }
         return _intInstalledSlots;
@@ -1690,10 +1509,8 @@ public class space_crafting extends script.base_script
         {
             LOG("space", "NOFUNDS");
         }
-        return;
     }
-    public static float getDamagePercentage(obj_id objShip, int intSlot) throws InterruptedException
-    {
+    public static float getDamagePercentage(obj_id objShip, int intSlot) {
         float fltMaximumHitpoints = getShipComponentArmorHitpointsMaximum(objShip, intSlot) + getShipComponentHitpointsMaximum(objShip, intSlot);
         float fltCurrentHitpoints = getShipComponentArmorHitpointsCurrent(objShip, intSlot) + getShipComponentHitpointsCurrent(objShip, intSlot);
         // protect against less than zero.
@@ -1708,8 +1525,7 @@ public class space_crafting extends script.base_script
         }
         return fltCurrentHitpoints / fltMaximumHitpoints;
     }
-    public static int getExtendedComponentType(String strSlot) throws InterruptedException
-    {
+    public static int getExtendedComponentType(String strSlot) {
         int intSlot = ship_chassis_slot_type.getTypeByName(strSlot);
         if (intSlot == ship_chassis_slot_type.SCST_num_types)
         {
@@ -1736,38 +1552,29 @@ public class space_crafting extends script.base_script
         }
         return intSlot;
     }
-    public static String getExtendedComponentType(int intSlot) throws InterruptedException
-    {
+    public static String getExtendedComponentType(int intSlot) {
         String strType = ship_chassis_slot_type.getNameByType(intSlot);
         if (strType.equals("none"))
         {
-            if (intSlot == HULL)
-            {
-                return "hull";
+            switch (intSlot) {
+                case HULL:
+                    return "hull";
+                case LIFE_SUPPORT:
+                    return "life_support";
+                case PLASMA_CONDUIT:
+                    return "plasma_conduit";
+                case AMMO_BAY:
+                    return "ammo_bay";
+                case HYPERDRIVE:
+                    return "hyperdrive";
+                default:
+                    return null;
             }
-            if (intSlot == LIFE_SUPPORT)
-            {
-                return "life_support";
-            }
-            if (intSlot == PLASMA_CONDUIT)
-            {
-                return "plasma_conduit";
-            }
-            if (intSlot == AMMO_BAY)
-            {
-                return "ammo_bay";
-            }
-            if (intSlot == HYPERDRIVE)
-            {
-                return "hyperdrive";
-            }
-            return null;
         }
         return strType;
     }
     public static void breakHullPanel(obj_id objPanel, obj_id objShip, location locTest, boolean boolAddToList) throws InterruptedException
     {
-        obj_id objCell = locTest.cell;
         int intHitpoints = getHitpoints(objPanel);
         if (intHitpoints == 1)
         {
@@ -1806,11 +1613,9 @@ public class space_crafting extends script.base_script
         }
         fltDamage = fltDamage + 0.5f;
         setShipInternalDamageOverTime(objShip, ship_chassis_slot_type.SCST_num_types, fltDamage, 0);
-        return;
     }
     public static void fixHullPanel(obj_id objPanel, obj_id objShip, location locTest) throws InterruptedException
     {
-        obj_id objCell = locTest.cell;
         int intHitpoints = getHitpoints(objPanel);
         if (intHitpoints == getMaxHitpoints(objPanel))
         {
@@ -1824,7 +1629,7 @@ public class space_crafting extends script.base_script
         Vector locBrokenComponents = getResizeableLocationArrayObjVar(objShip, "locBrokenComponents");
         int intIndex = utils.getElementPositionInArray(locBrokenComponents, locTest);
         locBrokenComponents = utils.removeElementAt(locBrokenComponents, intIndex);
-        if (locBrokenComponents.size() > 0)
+        if (locBrokenComponents != null && locBrokenComponents.size() > 0)
         {
             setObjVar(objShip, "locBrokenComponents", locBrokenComponents);
         }
@@ -1855,7 +1660,6 @@ public class space_crafting extends script.base_script
         }
         setShipInternalDamageOverTime(objShip, ship_chassis_slot_type.SCST_num_types, fltDamage, 0);
         setInvulnerableHitpoints(objPanel, getMaxHitpoints(objPanel));
-        return;
     }
     public static void breakPlasmaConduit(obj_id objConduit, obj_id objShip, location locTest, boolean boolAddToList) throws InterruptedException
     {
@@ -1872,7 +1676,6 @@ public class space_crafting extends script.base_script
             LOG("space", "Bad Cell!");
             return;
         }
-        int intHitpoints = getHitpoints(objConduit);
         if (hasCondition(objConduit, CONDITION_ON))
         {
             LOG("space", "Already on!!");
@@ -1919,7 +1722,6 @@ public class space_crafting extends script.base_script
         LOG("space", "Notifying cell");
         space_utils.notifyObject(objCell, "incrementDotDamage", dctParams);
         setCondition(objConduit, CONDITION_ON);
-        return;
     }
     public static void fixPlasmaConduit(obj_id objConduit, obj_id objShip, location locTest) throws InterruptedException
     {
@@ -1943,7 +1745,7 @@ public class space_crafting extends script.base_script
             locBrokenComponents = utils.removeElementAt(locBrokenComponents, intIndex);
             LOG("space", "fixPlasmaConduit() Removing " + intIndex + " locBrokenComponents.length is " + locBrokenComponents.size());
         }
-        if (locBrokenComponents.size() > 0)
+        if (locBrokenComponents != null && locBrokenComponents.size() > 0)
         {
             setObjVar(objShip, "locBrokenComponents", locBrokenComponents);
         }
@@ -1976,10 +1778,8 @@ public class space_crafting extends script.base_script
         LOG("space", "fixPlasmaConduit() Notifying " + objCell);
         space_utils.notifyObject(objCell, "decrementDotDamage", dctParams);
         clearCondition(objConduit, CONDITION_ON);
-        return;
     }
-    public static boolean grantAmmoBay(obj_id objShip, int intSlot, transform trTest, obj_id objCell, int intLevel) throws InterruptedException
-    {
+    public static boolean grantAmmoBay(obj_id objShip, int intSlot, transform trTest, obj_id objCell, int intLevel) {
         String strContainer = "object/tangible/container/drum/warren_drum_loot.iff";
         obj_id objContainer = createObject(strContainer, trTest, objCell);
         if (!isIdValid(objContainer))
@@ -1993,8 +1793,7 @@ public class space_crafting extends script.base_script
         setObjVar(objContainer, "intBayLevel", intLevel);
         return true;
     }
-    public static boolean removeAmmoBay(obj_id objShip, int intSlot) throws InterruptedException
-    {
+    public static boolean removeAmmoBay(obj_id objShip, int intSlot) {
         obj_id objBay = getObjIdObjVar(objShip, "weapon.objAmmoBay" + intSlot);
         if (isIdValid(objBay))
         {
@@ -2016,7 +1815,6 @@ public class space_crafting extends script.base_script
         else 
         {
             sendSystemMessage(objPlayer, SID_INCORRECTLY_CONFIGURED_ITEM);
-            return;
         }
     }
     public static Vector getAllInstalledComponents(obj_id objShip) throws InterruptedException
@@ -2024,11 +1822,9 @@ public class space_crafting extends script.base_script
         int[] intRawSlots = getShipChassisSlots(objShip);
         Vector intSlots = new Vector();
         intSlots.setSize(0);
-        for (int intI = 0; intI < intRawSlots.length; intI++)
-        {
-            if (isShipSlotInstalled(objShip, intRawSlots[intI]))
-            {
-                intSlots = utils.addElement(intSlots, intRawSlots[intI]);
+        for (int intRawSlot : intRawSlots) {
+            if (isShipSlotInstalled(objShip, intRawSlot)) {
+                intSlots = utils.addElement(intSlots, intRawSlot);
             }
         }
         return intSlots;
@@ -2039,12 +1835,10 @@ public class space_crafting extends script.base_script
         {
             setObjVar(objShip, "intAlarmsOn", 1);
             obj_id[] objAlarms = utils.getObjIdArrayScriptVar(objShip, "objAlarms");
-            for (int intI = 0; intI < objAlarms.length; intI++)
-            {
-                setCondition(objAlarms[intI], CONDITION_ON);
+            for (obj_id objAlarm : objAlarms) {
+                setCondition(objAlarm, CONDITION_ON);
             }
         }
-        return;
     }
     public static void turnOffInteriorAlarms(obj_id objShip) throws InterruptedException
     {
@@ -2052,42 +1846,32 @@ public class space_crafting extends script.base_script
         {
             removeObjVar(objShip, "intAlarmsOn");
             obj_id[] objAlarms = utils.getObjIdArrayScriptVar(objShip, "objAlarms");
-            for (int intI = 0; intI < objAlarms.length; intI++)
-            {
-                clearCondition(objAlarms[intI], CONDITION_ON);
+            for (obj_id objAlarm : objAlarms) {
+                clearCondition(objAlarm, CONDITION_ON);
             }
         }
-        return;
     }
     public static boolean isValidShipComponent(obj_id objShipComponent) throws InterruptedException
     {
-        if (isIdValid(objShipComponent))
-        {
+        if (isIdValid(objShipComponent)) {
             String type = getShipComponentStringType(objShipComponent);
-            if (type == null || type.equals(""))
-            {
-                return false;
-            }
-            else if (getShipComponentStringType(objShipComponent) == "armor" || getShipComponentStringType(objShipComponent) == "booster" || getShipComponentStringType(objShipComponent) == "capacitor" || getShipComponentStringType(objShipComponent) == "droid_interface" || getShipComponentStringType(objShipComponent) == "engine" || getShipComponentStringType(objShipComponent) == "reactor" || getShipComponentStringType(objShipComponent) == "shield" || getShipComponentStringType(objShipComponent) == "weapon")
-            {
-                return true;
-            }
-            else 
-            {
-                return false;
-            }
+            return type != null && !type.equals("") && (
+                    getShipComponentStringType(objShipComponent).equals("armor") ||
+                            getShipComponentStringType(objShipComponent).equals("booster") ||
+                            getShipComponentStringType(objShipComponent).equals("capacitor") ||
+                            getShipComponentStringType(objShipComponent).equals("droid_interface") ||
+                            getShipComponentStringType(objShipComponent).equals("engine") ||
+                            getShipComponentStringType(objShipComponent).equals("reactor") ||
+                            getShipComponentStringType(objShipComponent).equals("shield") ||
+                            getShipComponentStringType(objShipComponent).equals("weapon")
+            );
         }
-        else 
-        {
-            return false;
-        }
+        return false;
     }
-    public static void setShipEngineRotationRate(obj_id objPlayer, obj_id objShip, float fltRateMax, float fltRateMin, float fltOptimal) throws InterruptedException
-    {
+    public static void setShipEngineRotationRate(obj_id objPlayer, obj_id objShip, float fltRateMax, float fltRateMin, float fltOptimal) {
         setShipEngineSpeedRotationFactorMaximum(objShip, fltRateMax);
         setShipEngineSpeedRotationFactorMinimum(objShip, fltRateMin);
         setShipEngineSpeedRotationFactorOptimal(objShip, fltOptimal);
-        return;
     }
     public static void setShipChassisPerformanceVariations(obj_id objShip, String strType, obj_id objPlayer) throws InterruptedException
     {
@@ -2100,7 +1884,6 @@ public class space_crafting extends script.base_script
             return;
         }
         setShipEngineRotationRate(objPlayer, objShip, dctShipInfo.getFloat("speed_rotation_factor_max"), dctShipInfo.getFloat("speed_rotation_factor_min"), dctShipInfo.getFloat("speed_rotation_factor_optimal"));
-        return;
     }
     public static void purchaseChassisFromBroker(obj_id player, obj_id broker) throws InterruptedException
     {
@@ -2111,35 +1894,28 @@ public class space_crafting extends script.base_script
         final String BUY_SHIP_PROMPT = "@" + BROKER_STF + ":buy_ship_prompt";
         final String BTN_BUY = "@" + BROKER_STF + ":btn_buy";
         int rows = dataTableGetNumRows(SHIP_TABLE);
-        String shipTypes[] = new String[rows];
+
         int shipPrices[] = new int[rows];
         int shipCount = 0;
         obj_id[] inv = getInventoryAndEquipment(player);
         obj_id[] shipDeeds = new obj_id[inv.length];
         String entries[] = new String[inv.length];
-        for (int i = 0; i < inv.length; i++)
-        {
-            if (hasObjVar(inv[i], "shiptype"))
-            {
-                if (!hasObjVar(getContainedBy(inv[i]), "crafting.tool"))
-                {
-                    if (utils.getContainingPlayer(inv[i]) == player)
-                    {
-                        shipDeeds[shipCount] = inv[i];
-                        String type = getStringObjVar(inv[i], "shiptype");
+        for (obj_id anInv : inv) {
+            if (hasObjVar(anInv, "shiptype")) {
+                if (!hasObjVar(getContainedBy(anInv), "crafting.tool")) {
+                    if (utils.getContainingPlayer(anInv) == player) {
+                        shipDeeds[shipCount] = anInv;
+                        String type = getStringObjVar(anInv, "shiptype");
                         int price = dataTableGetInt(SHIP_TABLE, type, 1);
                         String name = dataTableGetString(SHIP_TABLE, type, 2);
-                        entries[shipCount] = ("[" + price + "] " + " --- " + name + " --- " + getName(inv[i]));
+                        entries[shipCount] = ("[" + price + "] " + " --- " + name + " --- " + getName(anInv));
                         shipCount++;
                     }
                 }
             }
         }
         String realEntries[] = new String[shipCount];
-        for (int i = 0; i < realEntries.length; i++)
-        {
-            realEntries[i] = entries[i];
-        }
+        System.arraycopy(entries, 0, realEntries, 0, realEntries.length);
         if (entries[0] != null && entries.length > 0)
         {
             int pid = sui.listbox(broker, player, BUY_SHIP_PROMPT, sui.OK_CANCEL, BUY_SHIP_TITLE, realEntries, "handleCheckShip", false, false);
@@ -2161,7 +1937,6 @@ public class space_crafting extends script.base_script
             utils.removeBatchScriptVar(player, "chassis_npc.type");
             utils.removeScriptVar(player, "chassis_npc.deed");
         }
-        return;
     }
     public static boolean sellLootItem(obj_id objPlayer, obj_id objBroker, obj_id objItem) throws InterruptedException
     {
@@ -2192,13 +1967,10 @@ public class space_crafting extends script.base_script
         money.bankTo("space_component_sale", objPlayer, intValue);
         return true;
     }
-    public static boolean hasLootToSell(obj_id objPlayer) throws InterruptedException
-    {
+    public static boolean hasLootToSell(obj_id objPlayer) {
         obj_id[] objContents = getInventoryAndEquipment(objPlayer);
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            if (hasScript(objContents[intI], "space.crafting.component_loot"))
-            {
+        for (obj_id objContent : objContents) {
+            if (hasScript(objContent, "space.crafting.component_loot")) {
                 return true;
             }
         }
@@ -2258,17 +2030,14 @@ public class space_crafting extends script.base_script
         Vector ppEntries = new Vector();
         ppEntries.setSize(0);
         string_id strSpam = new string_id("space/space_loot", "item_list");
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            if (hasScript(objContents[intI], "space.crafting.component_loot"))
-            {
-                int intValue = getComponentSellPrice(objContents[intI]);
+        for (obj_id objContent : objContents) {
+            if (hasScript(objContent, "space.crafting.component_loot")) {
+                int intValue = getComponentSellPrice(objContent);
                 prose_package ppTest = new prose_package();
-                prose.setTO(ppTest, getEncodedName(objContents[intI]));
+                prose.setTO(ppTest, getEncodedName(objContent));
                 prose.setDI(ppTest, intValue);
                 prose.setStringId(ppTest, strSpam);
-                String strLine = "[" + intValue + "] " + " ------- " + getName(objContents[intI]);
-                objLoot = utils.addElement(objLoot, objContents[intI]);
+                objLoot = utils.addElement(objLoot, objContent);
                 ppEntries = utils.addElement(ppEntries, ppTest);
             }
         }
@@ -2293,10 +2062,8 @@ public class space_crafting extends script.base_script
             strSpam = new string_id("space/space_loot", "nothing_to_sell");
             sendSystemMessage(objPlayer, strSpam);
         }
-        return;
     }
-    public static obj_id createDeedFromBlueprints(obj_id player, String type, obj_id inventory, float mass, float hp) throws InterruptedException
-    {
+    public static obj_id createDeedFromBlueprints(obj_id player, String type, obj_id inventory, float mass, float hp) {
         if (isIdValid(player))
         {
             obj_id newDeed = createObject("object/tangible/ship/crafted/chassis/" + type + "_deed.iff", inventory, "");
@@ -2359,10 +2126,8 @@ public class space_crafting extends script.base_script
             }
             setShipEngineSpeedRotationFactorMaximum(objShip, fltRotationSpeedFactorMaximum);
         }
-        return;
     }
-    public static void clearComponentDisabledFlag(obj_id objComponent) throws InterruptedException
-    {
+    public static void clearComponentDisabledFlag(obj_id objComponent) {
         int flags = getIntObjVar(objComponent, "ship_comp.flags");
         flags &= ~(base_class.ship_component_flags.SCF_disabled);
         flags &= ~(base_class.ship_component_flags.SCF_demolished);
@@ -2496,16 +2261,13 @@ public class space_crafting extends script.base_script
                 }
             }
         }
-        return;
     }
-    public static void sellResourcesToSpaceStation(obj_id player, obj_id npc) throws InterruptedException
-    {
+    public static void sellResourcesToSpaceStation(obj_id player, obj_id npc) {
         String priceList = getStringObjVar(npc, "space_mining.priceList");
         if (isIdValid(player) && isIdValid(npc))
         {
             openSpaceMiningUi(player, npc, priceList);
         }
-        return;
     }
     public static boolean checkForCollectionReactor(obj_id self, obj_id ship) throws InterruptedException
     {
@@ -2562,40 +2324,33 @@ public class space_crafting extends script.base_script
         blog("component_fix", "SCD - chassisType: " + getShipChassisType(ship));
         CustomerServiceLog("ShipComponents", "Collection reactor check for (" + self + ") has found ship (" + ship + ") is in datapad:(" + datapad + ") which belongs to player (" + player + ").  The ship has: " + intRawSlots + " component slots that will be looped through to find a collection reactor.");
         boolean reactorFound = false;
-        for (int j = 0; j < intRawSlots.length; j++)
-        {
-            String component = space_crafting.getShipComponentStringType(intRawSlots[j]);
-            if (component == null || component.equals(""))
-            {
+        for (int intRawSlot : intRawSlots) {
+            String component = space_crafting.getShipComponentStringType(intRawSlot);
+            if (component == null || component.equals("")) {
                 continue;
             }
-            if (!component.equals("reactor"))
-            {
+            if (!component.equals("reactor")) {
                 continue;
             }
             CustomerServiceLog("ShipComponents", "Collection reactor check for (" + self + ") has found ship (" + ship + ") is in datapad:(" + datapad + ") which belongs to player (" + player + ").  We are in the reactor slot.");
             blog("component_fix", "SCD - FOUND REACTOR");
-            int crc = getShipComponentCrc(ship, intRawSlots[j]);
+            int crc = getShipComponentCrc(ship, intRawSlot);
             blog("component_fix", "SCD - REACTOR CRC: " + crc);
             String crcName = getShipComponentDescriptorCrcName(crc);
             blog("component_fix", "SCD - REACTOR NAME: " + crcName);
-            if (!crcName.startsWith("collection_reward_reactor_01_mk") || crcName.equals("collection_reward_reactor_01_mk5"))
-            {
+            if (!crcName.startsWith("collection_reward_reactor_01_mk") || crcName.equals("collection_reward_reactor_01_mk5")) {
                 setCollectionReactorChecked(self);
                 break;
             }
             CustomerServiceLog("ShipComponents", "Collection reactor check for (" + self + ") has found ship (" + ship + ") is in datapad:(" + datapad + ") which belongs to player (" + player + ").  We are in the reactor slot and WE HAVE FOUND A COLLECTION REACTOR WE NEED TO DESTROY: " + crcName);
             blog("component_fix", "SCD - THIS REACTOR NEEDS TO BE DESTROYED: " + crcName);
             boolean success = uninstallDeleteReplaceCollectionReactor(self, player, ship, crcName, pInv);
-            if (success)
-            {
+            if (success) {
                 blog("component_fix", "SCD - SUCCESS MESSAGE RECEIVED, LOOP CONTINUES/ENDS: ");
                 CustomerServiceLog("ShipComponents", "Collection reactor check for (" + self + ") has found ship (" + ship + ") is in datapad:(" + datapad + ") which belongs to player (" + player + ").  The reactor (" + crcName + ") was ejected from the ship and should now be destroyed.");
                 reactorFound = true;
                 setCollectionReactorChecked(self);
-            }
-            else 
-            {
+            } else {
                 blog("component_fix", "SCD - FAIL MESSAGE RECEIVED, THIS ISN'T WORKING: ");
                 CustomerServiceLog("ShipComponents", "Collection reactor check for (" + self + ") has found ship (" + ship + ") is in datapad:(" + datapad + ") which belongs to player (" + player + ").  The reactor (" + crcName + ") FAILED TO EJECT AND COULD NOT BE DESTORYED.");
             }
@@ -2644,13 +2399,11 @@ public class space_crafting extends script.base_script
         sendSystemMessage(player, SID_COLLECTION_REACTOR_REPLACED);
         return true;
     }
-    public static boolean setCollectionReactorChecked(obj_id self) throws InterruptedException
-    {
+    public static boolean setCollectionReactorChecked(obj_id self) {
         setObjVar(self, COLLECTION_REACTOR_CHECKED, true);
         return true;
     }
-    public static boolean blog(String category, String msg) throws InterruptedException
-    {
+    public static boolean blog(String category, String msg) {
         return true;
     }
 }

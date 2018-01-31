@@ -1,19 +1,13 @@
 package script.space.crafting;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.space_crafting;
-import script.library.player_structure;
-import script.library.utils;
-import script.library.create;
 import script.library.space_transition;
 import script.library.space_utils;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class chassis_deed extends script.base_script
 {
@@ -57,7 +51,7 @@ public class chassis_deed extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (hasObjVar(self, "ship_chassis.multifactional") && getBooleanObjVar(self, "ship_chassis.multifactional") == true)
+        if (hasObjVar(self, "ship_chassis.multifactional") && getBooleanObjVar(self, "ship_chassis.multifactional"))
         {
             if (type.equals("vwing"))
             {
@@ -75,7 +69,7 @@ public class chassis_deed extends script.base_script
         else 
         {
             names[idx] = "pilotSkillRequired";
-            attribs[idx] = getSkillRequiredForShip(self, type);
+            attribs[idx] = space_utils.getSkillRequiredForShip(self);
             idx++;
         }
         names[idx] = "chassisHitpoints";
@@ -83,7 +77,6 @@ public class chassis_deed extends script.base_script
         idx++;
         names[idx] = "chassisMass";
         attribs[idx] = Float.toString(mass);
-        idx++;
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
@@ -93,10 +86,6 @@ public class chassis_deed extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int mnuColor = mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_CREATE_VEHICLE);
-        if (mnuColor > -1 && ((getContainedBy(self) != getOwner(self)) || isGod(player)))
-        {
-            String template = utils.getTemplateFilenameNoPath(self);
-        }
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
@@ -105,7 +94,7 @@ public class chassis_deed extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        String template = utils.getTemplateFilenameNoPath(self);
+
         if (item == menu_info_types.SERVER_MENU1)
         {
             obj_id datapad = utils.getDatapad(player);
@@ -141,177 +130,5 @@ public class chassis_deed extends script.base_script
             space_transition.handlePotentialSceneChange(player);
         }
         return SCRIPT_CONTINUE;
-    }
-    public String getSkillRequiredForShip(obj_id deed, String type) throws InterruptedException
-    {
-        if (!isValidId(deed) || !exists(deed))
-        {
-            return "";
-        }
-        if (type == null || type.equals(""))
-        {
-            return "";
-        }
-        if (type.equals("z95"))
-        {
-            return "@skl_n:pilot_rebel_navy_novice";
-        }
-        if (type.equals("xwing"))
-        {
-            return "@skl_n:pilot_rebel_navy_starships_03";
-        }
-        if (type.equals("hutt_light_s01"))
-        {
-            return "@skl_n:pilot_neutral_novice";
-        }
-        if (type.equals("hutt_light_s02"))
-        {
-            return "@skl_n:pilot_neutral_novice";
-        }
-        if (type.equals("tiefighter"))
-        {
-            return "@skl_n:pilot_imperial_navy_starships_01";
-        }
-        if (type.equals("tieinterceptor"))
-        {
-            return "@skl_n:pilot_imperial_navy_starships_03";
-        }
-        if (type.equals("tieadvanced"))
-        {
-            return "@skl_n:pilot_imperial_navy_starships_04";
-        }
-        if (type.equals("tieaggressor"))
-        {
-            return "@skl_n:pilot_imperial_navy_starships_04";
-        }
-        if (type.equals("tiebomber"))
-        {
-            return "@skl_n:pilot_imperial_navy_starships_03";
-        }
-        if (type.equals("tieoppressor"))
-        {
-            return "@skl_n:pilot_imperial_navy_master";
-        }
-        if (type.equals("awing"))
-        {
-            return "@skl_n:pilot_rebel_navy_starships_04";
-        }
-        if (type.equals("bwing"))
-        {
-            return "@skl_n:pilot_rebel_navy_master";
-        }
-        if (type.equals("ywing"))
-        {
-            return "@skl_n:pilot_rebel_navy_starships_01";
-        }
-        if (type.equals("firespray"))
-        {
-            return "@space_crafting_n:all_master";
-        }
-        if (type.equals("yt1300"))
-        {
-            return "@skl_n:pilot_neutral_master";
-        }
-        if (type.equals("decimator"))
-        {
-            return "@skl_n:pilot_imperial_navy_master";
-        }
-        if (type.equals("ykl37r"))
-        {
-            return "@skl_n:pilot_rebel_navy_master";
-        }
-        if (type.equals("hutt_heavy_s01"))
-        {
-            return "@skl_n:pilot_neutral_starships_02";
-        }
-        if (type.equals("hutt_heavy_s02"))
-        {
-            return "@skl_n:pilot_neutral_starships_02";
-        }
-        if (type.equals("hutt_medium_s01"))
-        {
-            return "@skl_n:pilot_neutral_starships_01";
-        }
-        if (type.equals("hutt_medium_s02"))
-        {
-            return "@skl_n:pilot_neutral_starships_01";
-        }
-        if (type.equals("tie_in"))
-        {
-            return "@skl_n:pilot_imperial_navy_starships_02";
-        }
-        if (type.equals("tie_light_duty"))
-        {
-            return "@skl_n:pilot_imperial_navy_novice";
-        }
-        if (type.equals("ywing_longprobe"))
-        {
-            return "@skl_n:pilot_rebel_navy_starships_02";
-        }
-        if (type.equals("blacksun_light_s01"))
-        {
-            return "@skl_n:pilot_neutral_starships_02";
-        }
-        if (type.equals("blacksun_light_s02"))
-        {
-            return "@skl_n:pilot_neutral_starships_02";
-        }
-        if (type.equals("blacksun_light_s03"))
-        {
-            return "@skl_n:pilot_neutral_starships_02";
-        }
-        if (type.equals("blacksun_light_s04"))
-        {
-            return "@skl_n:pilot_neutral_starships_02";
-        }
-        if (type.equals("blacksun_heavy_s01"))
-        {
-            return "@skl_n:pilot_neutral_starships_04";
-        }
-        if (type.equals("blacksun_heavy_s02"))
-        {
-            return "@skl_n:pilot_neutral_starships_04";
-        }
-        if (type.equals("blacksun_heavy_s03"))
-        {
-            return "@skl_n:pilot_neutral_starships_04";
-        }
-        if (type.equals("blacksun_heavy_s04"))
-        {
-            return "@skl_n:pilot_neutral_starships_04";
-        }
-        else if (type.equals("blacksun_medium_s01"))
-        {
-            return "@skl_n:pilot_neutral_starships_03";
-        }
-        else if (type.equals("blacksun_medium_s02"))
-        {
-            return "@skl_n:pilot_neutral_starships_03";
-        }
-        else if (type.equals("blacksun_medium_s03"))
-        {
-            return "@skl_n:pilot_neutral_starships_03";
-        }
-        else if (type.equals("blacksun_medium_s04"))
-        {
-            return "@skl_n:pilot_neutral_starships_03";
-        }
-        else if (type.equals("hutt_turret_ship"))
-        {
-            return "@skl_n:pilot_neutral_master";
-        }
-        else if (type.equals("gunship_neutral"))
-        {
-            return "@skl_n:pilot_neutral_master";
-        }
-        else if (type.equals("gunship_imperial"))
-        {
-            return "@skl_n:pilot_imperial_navy_master";
-        }
-        else if (type.equals("gunship_rebel"))
-        {
-            return "@skl_n:pilot_rebel_navy_master";
-        }
-        return "";
     }
 }

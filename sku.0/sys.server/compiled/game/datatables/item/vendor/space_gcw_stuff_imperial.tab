@@ -4,7 +4,15 @@ item_schematic_gcw2_mandal_armor_plating		100					0		"See library.utils for the 
 item_schematic_gcw2_mandal_fusion_reactor		100					0		"So in the case of this table only traders will see the ""all"" items."
 item_schematic_gcw2_eng_reward_experimental		100					0
 item_schematic_gcw2_borstel_cannon		100					0
-item_ship_deed_tiedefender		300					0
-item_ship_deed_twing		300					0
+item_schematic_gcw2_tie_defender		300					0
 item_schematic_gcw2_vaksai_heavy		300					0
-item_ship_deed_havoc		300					0
+item_schematic_gcw2_havoc		300					0
+item_ship_deed_tiedefender		1000					0
+item_ship_deed_havoc		1000					0
+item_helmet_ace_imp		50					0
+item_helmet_ace_neut		50					0
+item_jacket_ace_imp		50					0
+item_jacket_ace_neut		50					0
+item_kimogila_s01_texture_kit		50					0
+item_schematic_gcw2_survey_tool_all		100					0
+

@@ -5,9 +5,9 @@
 
 shipType = "player_tiedefender"
 
-@class tangible_object_template 0
+@class tangible_object_template 4
 
-@class object_template 2
+@class object_template 10
 
 sharedTemplate = "object/ship/player/shared_player_tiedefender.iff"
 

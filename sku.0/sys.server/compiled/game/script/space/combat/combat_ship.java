@@ -351,15 +351,6 @@ public class combat_ship extends script.base_script
                 space_crafting.setupChassisDifferentiation(self);
             }
             space_combat.recalculateEfficiency(intSlots[intI], self);
-            if (currentSlotComponentType == ship_component_type.SCT_weapon)
-            {
-                int flags = getShipComponentFlags(self, intSlots[intI]);
-                boolean isBitSet = (flags & ship_component_flags.SCF_reverse_engineered) != 0;
-                if (isBitSet)
-                {
-                    space_crafting.recalculateFireRateFromSlot(player, self, intSlots[intI]);
-                }
-            }
         }
         return SCRIPT_CONTINUE;
     }
@@ -860,17 +851,6 @@ public class combat_ship extends script.base_script
             space_crafting.setupChassisDifferentiation(self);
         }
         space_pilot_command.allPurposeShipComponentReset(self);
-        int currentSlotComponentType = ship_chassis_slot_type.getComponentTypeForSlot(intSlot);
-        if (currentSlotComponentType == ship_component_type.SCT_weapon)
-        {
-            int flags = getShipComponentFlags(self, intSlot);
-            boolean isBitSet = (flags & ship_component_flags.SCF_reverse_engineered) != 0;
-            obj_id player = utils.getContainingPlayer(self);
-            if (isBitSet)
-            {
-                space_crafting.recalculateFireRateFromSlot(player, self, intSlot);
-            }
-        }
         return SCRIPT_CONTINUE;
     }
     public int OnShipFiredCountermeasure(obj_id self, int intWeaponIndex, obj_id objPlayer) throws InterruptedException

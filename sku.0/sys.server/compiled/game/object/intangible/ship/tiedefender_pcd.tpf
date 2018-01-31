@@ -2,7 +2,7 @@
 
 @class intangible_object_template 0
 
-@class object_template 5
+@class object_template 10
 
 volume = 1
 sharedTemplate = "object/intangible/ship/shared_tiedefender_pcd.iff"

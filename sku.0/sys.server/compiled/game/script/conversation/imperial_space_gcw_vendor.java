@@ -76,6 +76,7 @@ public class imperial_space_gcw_vendor extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
+        faceTo(self, player);
         if (isRebel(player))
         {
             doAnimationAction(self, "dismiss");
@@ -92,7 +93,6 @@ public class imperial_space_gcw_vendor extends script.base_script
         }
         if (defaultCondition())
         {
-            faceTo(self, player);
             doAnimationAction(self, "salute1");
             showTokenVendorUI(player, self);
             string_id message = new string_id(c_stringFile, "s_8");
