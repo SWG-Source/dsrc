@@ -11,7 +11,7 @@
 
 itemsPerContainer = 0
 category = CT_space
-craftedObjectTemplate = "object/tangible/ship/crafted/engine/eng_orion_01.iff"
+craftedObjectTemplate = "object/tangible/ship/crafted/engine/eng_reward_experimental.iff"
 slots = [
 	[
 	optional = false,
@@ -56,9 +56,9 @@ slots = [
 skillCommands = ["unskilled"]
 manufactureScripts = [ "systems.crafting.space.engine.crafting_basic_engine" ]
 
-@class intangible_object_template 1
+@class intangible_object_template 0
 
-@class object_template 8
+@class object_template 10
 
 xpPoints = [[type = XP_shipwright, level = 0, value = 0]]
 complexity = 36

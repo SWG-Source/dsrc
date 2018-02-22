@@ -55,9 +55,9 @@ slots = [
 skillCommands = ["unskilled"]
 manufactureScripts = [ "systems.crafting.space.weapon.crafting_basic_weapon" ]
 
-@class intangible_object_template 1
+@class intangible_object_template 0
 
-@class object_template 8
+@class object_template 10
 
 complexity = 36
 sharedTemplate = "object/draft_schematic/space/weapon/shared_wpn_borstel_experimental.iff"

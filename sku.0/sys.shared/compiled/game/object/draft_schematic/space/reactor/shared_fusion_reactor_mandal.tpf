@@ -31,7 +31,7 @@ craftedSharedTemplate="object/tangible/ship/crafted/reactor/shared_fusion_reacto
 
 @class intangible_object_template 0
 
-@class object_template 8
+@class object_template 10
 
 snapToTerrain = false
 containerType = CT_none

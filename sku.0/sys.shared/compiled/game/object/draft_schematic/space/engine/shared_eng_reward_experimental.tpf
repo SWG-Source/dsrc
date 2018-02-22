@@ -34,7 +34,7 @@ craftedSharedTemplate="object/tangible/ship/crafted/engine/shared_eng_reward_exp
 
 @class intangible_object_template 0
 
-@class object_template 8
+@class object_template 10
 
 snapToTerrain = false
 containerType = CT_none

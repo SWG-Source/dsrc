@@ -11,7 +11,7 @@
 
 itemsPerContainer = 0
 category = CT_space
-craftedObjectTemplate = "object/tangible/ship/crafted/armor/adv_durasteel_plating.iff"
+craftedObjectTemplate = "object/tangible/ship/crafted/armor/adv_mandal_armor_plating.iff"
 slots = [
 	[
 	optional = false,
@@ -56,9 +56,9 @@ slots = [
 skillCommands = ["unskilled"]
 manufactureScripts = [ "systems.crafting.space.armor.crafting_basic_armor" ]
 
-@class intangible_object_template 1
+@class intangible_object_template 0
 
-@class object_template 8
+@class object_template 10
 
 xpPoints = [[type = XP_shipwright, level = 0, value = 0]]
 complexity = 32

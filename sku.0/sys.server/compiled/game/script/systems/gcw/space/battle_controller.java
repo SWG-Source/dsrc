@@ -7,6 +7,8 @@ import script.obj_id;
 
 public class battle_controller extends script.base_script {
 
+    public final boolean debug = true;
+
     public final int DEFAULT_TATOOINE_DELAY = 3;
     public final int DEFAULT_CORELLIA_DELAY = 3;
     public final int DEFAULT_DANTOOINE_DELAY = 3;
@@ -19,12 +21,15 @@ public class battle_controller extends script.base_script {
     public final int DEFAULT_LOK_STAGGER = 2;
     public final int DEFAULT_NABOO_STAGGER = 4;
 
+    // Configuration Array:
+    // 1. Zone.
+    // 2. Initial Battle Type.
     public final String[][] BATTLE_SCENES = {
-            {"space_tatooine", battle_spawner.BATTLE_TYPE_PVE, "6", "0"},
-            {"space_corellia", battle_spawner.BATTLE_TYPE_PVE, "6", "2"},
-            {"space_dantooine", battle_spawner.BATTLE_TYPE_PVP, "6", "0"},
-            {"space_lok", battle_spawner.BATTLE_TYPE_PVP, "6", "2"},
-            {"space_naboo", battle_spawner.BATTLE_TYPE_PVE, "6", "4"}
+            {"space_tatooine", battle_spawner.BATTLE_TYPE_PVE},
+            {"space_corellia", battle_spawner.BATTLE_TYPE_PVE},
+            {"space_dantooine", battle_spawner.BATTLE_TYPE_PVP},
+            {"space_lok", battle_spawner.BATTLE_TYPE_PVP},
+            {"space_naboo", battle_spawner.BATTLE_TYPE_PVE}
     };
     public boolean tatooineActive = true;
     public boolean corelliaActive = true;
@@ -50,70 +55,103 @@ public class battle_controller extends script.base_script {
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        CustomerServiceLog("gcw_space", "battle_controller.OnInitialize: The space battle sequencer object is starting for the fist time.");
+        LOG("space_gcw", "battle_controller.OnInitialize: The space battle sequencer object is starting for the fist time.");
 
         // get minutes to the top of the hour so we can kick off a regularly scheduled battle status check.
         int calendarTime = getCalendarTime();
         int[] convertedCalendarTime = player_structure.convertSecondsTime(calendarTime);
-        int minutesToTopOfHour = 59 - convertedCalendarTime[2];
+        float minutesToTopOfHour = 59 - convertedCalendarTime[2];
         getSettings();
+        if(debug) minutesToTopOfHour = 3.0f;
+        LOG("space_gcw", "battle_controller.OnInitialize: Starting check for battle status in roughly " + minutesToTopOfHour + " minutes.");
         // check battle status at the top of the hour
-        messageTo(self, "checkBattleStatus", null, minutesToTopOfHour, false);
+        messageTo(self, "checkBattleStatus", null, minutesToTopOfHour * 60.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int checkBattleStatus(obj_id self, dictionary params) throws InterruptedException{
-        CustomerServiceLog("gcw_space", "battle_controller.checkBattleStatus: The space battle sequencer object is checking the battle status of all zones.");
+        LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is checking the battle status of all zones.");
         for(String[] scene : BATTLE_SCENES){
             obj_id spawner = getObjIdObjVar(self, "space_gcw." + scene[0] + ".spawner");
-            if(spawner == null || !isSceneActive(scene[0])) continue;
-
+            if(spawner == null){
+                continue;
+            }
+            if(getBooleanObjVar(spawner, "timer_set")){
+                LOG("space_gcw", "battle_controller.checkBattleStatus: Scene " + scene[0] + " already has a timer set so skipping this zone.");
+                continue;
+            }
+            boolean sceneEnabled = isSceneActive(scene[0]);
+            LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is checking if zone " + scene[0] + " is enabled: " + (sceneEnabled ? "Enabled" : "Disabled"));
+            if(!sceneEnabled) continue;
             boolean battleIsActive = getIntObjVar(self, "space_gcw." + spawner + ".active") == 1;
+            LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is checking if battle for zone " + scene[0] + " is currently in progress: " + (battleIsActive ? "IN PROGRESS" : "NOT IN PROGRESS"));
+            if(battleIsActive) continue;
 
-            CustomerServiceLog("gcw_space", "battle_controller.checkBattleStatus: The space battle sequencer object is checking zone " + scene[0] + ": " + (battleIsActive ? "Active" : "Inactive"));
-
-            int hoursUntilNext;
-            int stagger = getStagger(scene[0]);
-
-            if(hasObjVar(spawner, "space_gcw.lastRunInterval")){
-                hoursUntilNext = Integer.parseInt(scene[2]) - (getIntObjVar(spawner, "space_gcw.lastRunInterval") % Integer.parseInt(scene[2]));
+            int secondsUntilNextBattle;
+            if(hasObjVar(spawner, "last_battle_time")) {
+                secondsUntilNextBattle = getSecondsUntilNextBattle(scene, getIntObjVar(spawner, "last_battle_time"));
             }
             else{
-                hoursUntilNext = Integer.parseInt(scene[3]) + stagger;
+                secondsUntilNextBattle = getStagger(scene[0]) * 60 * 60;
             }
-            if(!battleIsActive && hoursUntilNext == 0 && !hasObjVar(spawner, "space_gcw.lastBattleTime")){
-                CustomerServiceLog("gcw_space", "battle_controller.checkBattleStatus: The space battle sequencer object is starting a " + scene[1]+ " battle in zone " + scene[0] + " for the first time.");
-                dictionary battleDetails = new dictionary();
-                battleDetails.put("battle_type", scene[1]);
-                setObjVar(spawner, "space_gcw.lastBattleTime", getGameTime());
-                setObjVar(spawner, "space_gcw.lastRunInterval", stagger + Integer.parseInt(scene[2]));
-                messageTo(spawner, "startBattle", battleDetails, stagger, false);
+
+            dictionary battleDetails = new dictionary();
+            String battleType = getStringObjVar(self, "space_gcw." + spawner + ".lastBattleType");
+            if(battleType != null && battleType.equals(battle_spawner.BATTLE_TYPE_PVE)) {
+                battleType = battle_spawner.BATTLE_TYPE_PVP;
             }
-            else if(!battleIsActive && hoursUntilNext == 0 && hasObjVar(spawner, "space_gcw.lastBattleTime")) {
-                String nextType;
-                if(getStringObjVar(spawner, "space_gcw.lastBattleType").equals(battle_spawner.BATTLE_TYPE_PVE)){
-                    nextType = battle_spawner.BATTLE_TYPE_PVP;
-                }
-                else{
-                    nextType = battle_spawner.BATTLE_TYPE_PVE;
-                }
-                CustomerServiceLog("gcw_space", "battle_controller.checkBattleStatus: The space battle sequencer object is starting a " + nextType + " battle in zone " + scene[0] + ".");
-                dictionary battleDetails = new dictionary();
-                battleDetails.put("battle_type", nextType);
-                setObjVar(spawner, "space_gcw.lastBattleTime", getGameTime());
-                setObjVar(spawner, "space_gcw.lastRunInterval", stagger + Integer.parseInt(scene[2]));
-                messageTo(spawner, "startBattle", battleDetails, 0.0f, false);
+            else {
+                battleType = battle_spawner.BATTLE_TYPE_PVE;
             }
-            else{
-                CustomerServiceLog("gcw_space", "battle_controller.checkBattleStatus: The space battle sequencer is not starting a battle in zone " + scene[0] + " because it " + (battleIsActive ? "is already" : "it isn't") + "active or because it has " + hoursUntilNext + " hours until the next battle.");
+            battleDetails.put("battle_type", battleType);
+            battleDetails.put("controller", self);
+
+            setObjVar(self, "space_gcw." + spawner + ".lastBattleType", battleType);
+
+            if(secondsUntilNextBattle == 0){
+                LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is starting a " + scene[1]+ " battle in zone " + scene[0] + " for the first time.");
+                setObjVar(spawner, "timer_set", false);
             }
+            else {
+                LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer is not starting a battle in zone " + scene[0] + " because it has " + String.format("%.2f", secondsUntilNextBattle / 60.0f) + " minutes until the next battle.");
+                setObjVar(spawner, "timer_set", true);
+            }
+            messageTo(spawner, "startBattle", battleDetails, secondsUntilNextBattle, false);
         }
 
+        LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object will check battle status again in 60 seconds.");
         // check battle status every hour from now.
         messageTo(self, "checkBattleStatus", null, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
 
-    public boolean isSceneActive(String zone)throws InterruptedException{
+    public int getSecondsUntilNextBattle(String[] scene, int lastBattleTime){
+        int secondsUntilNext = getHoursBetweenBattles(scene[0]) * 60 * 60;
+        int gameTime = getGameTime();
+        int nextBattleTime = lastBattleTime + secondsUntilNext;
+
+        if(nextBattleTime >= gameTime){
+            return nextBattleTime - gameTime;
+        }
+
+        return 0;
+    }
+    public int getHoursBetweenBattles(String scene){
+        switch(scene){
+            case "space_tatooine":
+                return tatooineDelay;
+            case "space_corellia":
+                return corelliaDelay;
+            case "space_dantooine":
+                return dantooineDelay;
+            case "space_lok":
+                return lokDelay;
+            case "space_naboo":
+                return nabooDelay;
+            default:
+                return 0;
+        }
+    }
+    public boolean isSceneActive(String zone) {
         switch(zone){
             case "space_tatooine":
                 return tatooineActive;
@@ -129,7 +167,13 @@ public class battle_controller extends script.base_script {
         return true;
     }
 
-    public int getStagger(String zone)throws InterruptedException{
+    /*
+    * Stagger is the amount of time (in hours) to stagger the battles.
+      * ex:
+      * 1. If a battle starts at 1PM and the stagger is 2 (hours) then the next battle will occur at 3PM.
+      * 2. If the stagger is 0, the next battle will start as soon as the first one finishes.
+     */
+    public int getStagger(String zone) {
         int stagger = 0;
         switch(zone){
             case "space_tatooine":
@@ -147,12 +191,14 @@ public class battle_controller extends script.base_script {
     }
 
     public void getSettings() throws InterruptedException {
-        // get customized settings
-        tatooineActive = getConfigSetting("GameServer", "spaceGcwTatooineActive").equals("1");
-        corelliaActive = getConfigSetting("GameServer", "spaceGcwCorelliaActive").equals("1");
-        dantooineActive = getConfigSetting("GameServer", "spaceGcwDantooineActive").equals("1");
-        lokActive = getConfigSetting("GameServer", "spaceGcwLokActive").equals("1");
-        nabooActive = getConfigSetting("GameServer", "spaceGcwNabooActive").equals("1");
+        LOG("space_gcw", "battle_controller.getSettings: The space battle sequencer object is getting settings.");
+
+        // check which zones are active
+        tatooineActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwTatooineActive")) > 0;
+        corelliaActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwCorelliaActive")) > 0;
+        dantooineActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwDantooineActive")) > 0;
+        lokActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwLokActive")) > 0;
+        nabooActive = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwNabooActive")) > 0;
 
         tatooineDelay = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwTatooineDelay"));
         if(tatooineDelay < 0) tatooineDelay = DEFAULT_TATOOINE_DELAY;
@@ -175,6 +221,7 @@ public class battle_controller extends script.base_script {
         if(lokStagger < 0) lokStagger = DEFAULT_LOK_STAGGER;
         nabooStagger = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwNabooStagger"));
         if(nabooStagger < 0) nabooStagger = DEFAULT_NABOO_STAGGER;
+        LOG("space_gcw", "battle_controller.getSettings: The space battle sequencer object has finished getting settings.");
 
     }
 }

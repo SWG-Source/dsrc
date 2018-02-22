@@ -7,14 +7,12 @@ import script.obj_id;
 
 import java.util.Vector;
 
-public class capital_ship extends script.space.combat.combat_ship_capital {
-    @Override
+public class capital_ship extends script.space.combat.combat_space_base {
     public int OnShipWasHit(obj_id self, obj_id attacker, int weaponIndex, boolean isMissile, int missileType, int intSlot, boolean fromPlayerAutoTurret, float hitLocationX_o, float hitLocationY_o, float hitLocationZ_o) throws InterruptedException {
+        if(!space_utils.isPlayerControlledShip(attacker) || getShipFaction(attacker).equals(getShipFaction(self))) {
+            return SCRIPT_CONTINUE;
+        }
         sendSystemMessageTestingOnly(attacker, "You hit the capital ship!");
-        if(!space_utils.isPlayerControlledShip(attacker))
-            return SCRIPT_CONTINUE;
-        if(getShipFaction(attacker).equals(getShipFaction(self)))
-            return SCRIPT_CONTINUE;
         obj_id spawner = getObjIdObjVar(self, "spawner");
         String battleType = getStringObjVar(spawner, "battleType");
         if(space_utils.isPobType(attacker)){
@@ -40,25 +38,31 @@ public class capital_ship extends script.space.combat.combat_ship_capital {
             }
             setObjVar(spawner, "space_gcw.participant." + getStringObjVar(self, "battle_id") + "." + player, "1");
         }
-        super.OnShipWasHit(self, attacker, weaponIndex, isMissile, missileType, intSlot, fromPlayerAutoTurret, hitLocationX_o, hitLocationY_o, hitLocationZ_o);
         return SCRIPT_CONTINUE;
     }
-    @Override
     public int OnDestroy(obj_id self) throws InterruptedException{
+        // make sure battle is active because it won't be if we're just cleaning up and destroying the capital ships.
         obj_id spawner = getObjIdObjVar(self, "spawner");
+        if(isValidId(spawner)) {
+            obj_id controller = getObjIdObjVar(spawner, "controller");
+            if (controller != null && getIntObjVar(controller, "space_gcw." + spawner + ".active") != 1)
+                return SCRIPT_CONTINUE;
+        }
         dictionary params = new dictionary();
-        params.put("losingFaction", getShipFaction(self));
         params.put("role", getObjVar(self, "role"));
         params.put("spawner", getObjVar(self, "spawner"));
         params.put("destroyedShip", self);
-        space_utils.notifyObject(spawner, "captitalShipDestroyed", params);
+        params.put("losingFaction", getShipFaction(self));
+        messageTo(spawner, "capitalShipDestroyed", params, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
 
     public int removeSupportShip(obj_id self, dictionary params) throws InterruptedException{
         obj_id destroyedShip = params.getObjId("destroyedShip");
-        Vector<obj_id> spawnedShips = getResizeableObjIdArrayObjVar(self, "supportCraft");
+        Vector spawnedShips = getResizeableObjIdArrayObjVar(self, "supportCraft");
         if(spawnedShips == null) return SCRIPT_CONTINUE;
+        if(hasObjVar(destroyedShip, "ace_pilot"))
+            removeObjVar(self, "heroSpawned");
 
         // remove destroyed ship
         spawnedShips.remove(

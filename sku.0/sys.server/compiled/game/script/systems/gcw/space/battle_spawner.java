@@ -9,15 +9,17 @@ import java.util.List;
 import java.util.Vector;
 
 public class battle_spawner extends script.base_class {
-    public static final String CONTROLLER_SCRIPT = "script.systems.gcw.space.battle_controller";
-    public static final String IMPERIAL_SHIP_TEMPLATE = "object/ship/imperial_lancer.iff";
-    public static final String REBEL_SHIP_TEMPLATE = "object/ship/nebulon_frigate.iff";
-    public static final String IMPERIAL_STATION_TEMPLATE = "object/ship/spacestation_imperial.iff";
-    public static final String REBEL_STATION_TEMPLATE = "object/ship/spacestation_rebel.iff";
+    private static final boolean debug = true;
+    public static final String CONTROLLER_SCRIPT = "systems.gcw.space.battle_controller";
+    public static final String IMPERIAL_SHIP_TEMPLATE = "imperial_lancer";
+    public static final String REBEL_SHIP_TEMPLATE = "nebulon_frigate";
+    public static final String IMPERIAL_STATION_TEMPLATE = "spacestation_imperial";
+    public static final String REBEL_STATION_TEMPLATE = "spacestation_rebel";
+    private static final String HERO_PILOT_DATA = "datatables/npc/space/space_gcw_hero.iff";
     public static float BATTLE_TIME_PREPATORY = 900.0f;  // 900 == 15 minutes
-    public static float BATTLE_TIME_LENGTH = 3600.0f;  // 3600 == 60 minutes
-    public static float MAX_SUPPORT_CRAFT = 15;
-    public static final float HERO_SPAWN_CHANCE = 0.20f;  // 0.20f == 20% chance a hero will spawn
+    public static float BATTLE_TIME_LENGTH = 180.0f;  // 3600 == 60 minutes
+    public static float MAX_SUPPORT_CRAFT = 30;
+    public static final float HERO_SPAWN_CHANCE = 0.05f;  // 0.20f == 20% chance a hero will spawn
     public static final float DEFAULT_PVP_POINT_MULTIPLIER = 2.0f;
     public static final float DEFAULT_PVE_POINT_MULTIPLIER = 1.0f;
     public static final float DEFAULT_PVP_TOKEN_MULTIPLIER = 2.0f;
@@ -32,43 +34,42 @@ public class battle_spawner extends script.base_class {
     public static final int DEFAULT_POINT_AWARD = 2500;
 
     public static final String[] IMPERIAL_SUPPORT_CRAFT = {
-            "object/ship/tieaggressor_tier7.iff",
-            "object/ship/tiebomber_tier7.iff",
-            "object/ship/tiefighter_tier7.iff",
-            "object/ship/tieinterceptor_tier7.iff",
-            "object/ship/tieoppressor_tier7.iff"
+            "tieaggressor_tier7",
+            "tiebomber_tier7",
+            "tiefighter_tier7",
+            "tieinterceptor_tier7",
+            "tieoppressor_tier7"
     };
     public static final String[] REBEL_SUPPORT_CRAFT = {
-            "object/ship/awing_tier7.iff",
-            "object/ship/bwing_tier7.iff",
-            "object/ship/xwing_tier7.iff",
-            "object/ship/ywing_tier7.iff",
-            "object/ship/z95_tier7.iff"
+            "awing_tier7",
+            "bwing_tier7",
+            "xwing_tier7",
+            "ywing_tier7",
+            "z95_tier7"
     };
-    public static final String[][] IMPERIAL_HEROES = {
-            {"object/ship/firespray_tier10.iff","Boba Fett"},
-            {"object/ship/tieoppressor_tier9.iff","Maarek Steeke"},
-            {"object/ship/tieinterceptor_tier9.iff","Soontir Fel"},
-            {"object/ship/tieadvanced_tier10.iff","Darth Vader"},
-            {"object/ship/tieadvanced_tier9.iff","Mara Jade"},
-            {"object/ship/tiefighter_tier8.iff","Vindoo Barvel"},
-            {"object/ship/tiefighter_tier8.iff","Turr Phennir"},
-            {"object/ship/tieoppressor_tier9.iff","Iran Ryad"},
-            {"object/ship/tieinterceptor_tier9.iff","DS-181-4"},
-            {"object/ship/tiefighter_tier9.iff","Chiraneau"},
+    public static final String[] IMPERIAL_HEROES = {
+            "darth_vader",
+            "maarek_stele",
+            "chiraneau",
+            "cive_rashon",
+            "ds1814",
+            "iran_ryad",
+            "soontir_fel",
+            "turr_phennir",
+            "vindoo_barvel",
+            "mara_jade"
     };
-    public static final String[][] REBEL_HEROES = {
-            {"object/ship/xwing_tier10.iff","Luke Skywalker"},
-            {"object/ship/yt1300_tier10.iff","Lando Calrissian"},
-            {"object/ship/ywing_tier10.iff","Derek \"Hobbie\" Klivian"},
-            {"object/ship/xwing_tier10.iff","Wedge Antilles"},
-            {"object/ship/awing_tier9.iff","Tycho Celchu"},
-            {"object/ship/xwing_tier9.iff","Keyan Farlander"},
-            {"object/ship/xwing_tier9.iff","Tarrin Datch"},
-            {"object/ship/awing_tier9.iff","Pash Cracken"},
-            {"object/ship/bwing_tier9.iff","Jan Ors"},
-            {"object/ship/xwing_tier9.iff","Arhul Narra"},
-            {"object/ship/awing_tier9.iff","Arvel Crynyd"}
+    public static final String[] REBEL_HEROES = {
+            "arhul_narra",
+            "arvel_crynyd",
+            "derek_klivian",
+            "jan_ors",
+            "keyan_farlander",
+            "pash_cracken",
+            "tarrin_datch",
+            "tycho_celchu",
+            "wedge_antilles",
+            "luke_skywalker"
     };
 
     public static final String BATTLE_TYPE_PVP = "pvp";
@@ -103,44 +104,6 @@ public class battle_spawner extends script.base_class {
         messageTo(self, "registerWithController", null, 5.0f, false);
         return SCRIPT_CONTINUE;
     }
-    public int OnInitialize(obj_id self) throws InterruptedException
-    {
-        messageTo(self, "registerWithController", null, 5.0f, false);
-        return SCRIPT_CONTINUE;
-    }
-    public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
-    {
-        if (!isIdValid(speaker) || !isGod(speaker))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        String[] words = split(text, ' ');
-        dictionary params = new dictionary();
-        switch(words[0]){
-            case "start":
-                sendSystemMessageTestingOnly(speaker, "Starting battle.");
-                messageTo(self, "startBattle", null, 3, false);
-                break;
-            case "end":
-                sendSystemMessageTestingOnly(speaker, "Ending battle.");
-                params.put("type", "none");
-                messageTo(self, "endBattle", null, 3, false);
-                break;
-            case "cleanup":
-                sendSystemMessageTestingOnly(speaker, "Cleaning up.");
-                params.put("type", "cleanup");
-                messageTo(self, "endBattle", params, 3, false);
-                break;
-            case "reset":
-                sendSystemMessageTestingOnly(speaker, "Cleaning up.");
-                params.put("type", "reset");
-                messageTo(self, "endBattle", params, 3, false);
-                break;
-            default:
-                break;
-        }
-        return SCRIPT_CONTINUE;
-    }
     public int registerWithController(obj_id self, dictionary params) throws InterruptedException {
         obj_id controller = getPlanetByName("tatooine");
         if(!hasScript(controller, CONTROLLER_SCRIPT)) attachScript(controller, CONTROLLER_SCRIPT);
@@ -150,13 +113,21 @@ public class battle_spawner extends script.base_class {
         getSettings();
         return SCRIPT_CONTINUE;
     }
-    public int startBattle(obj_id self, dictionary params) {
+    public int startBattle(obj_id self, dictionary params) throws InterruptedException {
         // make sure we're not already having a battle
-        obj_id controller = getObjIdObjVar(self, "controller");
-        String battleId = getLocation(self).area + "_" + getGameTime();
-        if(getIntObjVar(controller, "space_gcw." + self.toString() + ".active") == 1) return SCRIPT_CONTINUE;
+        if(!battleIsNotActive()) return SCRIPT_CONTINUE;
+
+        LOG("space_gcw", "In startBattle... beginning battle creation.");
+        obj_id controller = params.getObjId("controller");
+
+        int gameTime = getGameTime();
+        String battleId = getLocation(self).area + "_" + gameTime;
 
         // controller should have chosen the battle type.
+        setObjVar(self, "battle_id", battleId);
+        setObjVar(self, "battle_type", params.getString("battle_type"));
+        setObjVar(self, "last_battle_time", gameTime);
+        setObjVar(controller, "space_gcw." + self + ".lastBattleTime", gameTime);
         params.put("battle_id", battleId);
 
         // tell the controller we've started the battle
@@ -172,14 +143,15 @@ public class battle_spawner extends script.base_class {
         transform defenseSpawnPoint = transform.identity.setPosition_p(spaceLocation.x, spaceLocation.y, spaceLocation.z);
         obj_id defendingShip;
         if(defendingFaction.equalsIgnoreCase("imperial")){
-            defendingShip = createObjectHyperspace(IMPERIAL_SHIP_TEMPLATE, defenseSpawnPoint, null);
+            defendingShip = space_create.createShipHyperspace(IMPERIAL_SHIP_TEMPLATE, defenseSpawnPoint);
         }
         else{
-            defendingShip = createObjectHyperspace(REBEL_SHIP_TEMPLATE, defenseSpawnPoint, null);
+            defendingShip = space_create.createShipHyperspace(REBEL_SHIP_TEMPLATE, defenseSpawnPoint);
         }
+        LOG("space_gcw", "In startBattle... just created defending ship(" + defendingShip + ").");
         setObjVar(defendingShip, "role", "defense");
         setObjVar(defendingShip, "spawner", self);
-        attachScript(defendingShip, "script.systems.gcw.space.capital_ship");
+        attachScript(defendingShip, "systems.gcw.space.capital_ship");
 
         // create configuration parameters that will be used throughout battle.
         params.put("controller", controller);
@@ -188,39 +160,44 @@ public class battle_spawner extends script.base_class {
         params.put("defendingShip", defendingShip);
 
         // spawn attacking capital ship
+        if(debug) BATTLE_TIME_PREPATORY = 120.0f;
+        LOG("space_gcw", "In startBattle... starting battle in " + BATTLE_TIME_PREPATORY / 60.0f + " minutes.");
         messageTo(self, "spawnAttack", params, BATTLE_TIME_PREPATORY, false);
 
         return SCRIPT_CONTINUE;
     }
-    public int spawnAttack(obj_id self, dictionary params) {
+    public int spawnAttack(obj_id self, dictionary params) throws InterruptedException {
+        LOG("space_gcw", "In spawnAttack... beginning to spawn attack craft.");
         // get spawn point for the attacker ship - defaults to 2500 m away from battle point (use pythag theorum, a2 + b2 = c2 where c == 2500 and b == 1000)
         location battleLocation = params.getLocation("battleLocation");
         transform attackSpawnPoint = transform.identity.setPosition_p(battleLocation.x - 1000.0f, battleLocation.y, battleLocation.z - 2291.0f);
         obj_id attackingShip;
         if(params.getString("defendingFaction").equalsIgnoreCase("rebel")){
-            attackingShip = createObjectHyperspace(IMPERIAL_SHIP_TEMPLATE, attackSpawnPoint, null);
+            attackingShip = space_create.createShipHyperspace(IMPERIAL_SHIP_TEMPLATE, attackSpawnPoint);
+            LOG("space_gcw", "In spawnAttack... just created attack capital ship (" + IMPERIAL_SHIP_TEMPLATE + ":" + attackingShip + ").");
             params.put("attackingFaction", "imperial");
         }
         else{
-            attackingShip = createObjectHyperspace(REBEL_SHIP_TEMPLATE, attackSpawnPoint, null);
+            attackingShip = space_create.createShipHyperspace(REBEL_SHIP_TEMPLATE, attackSpawnPoint);
+            LOG("space_gcw", "In spawnAttack... just created attack capital ship (" + REBEL_SHIP_TEMPLATE + ":" + attackingShip + ").");
             params.put("attackingFaction", "rebel");
         }
         setObjVar(attackingShip, "role", "attack");
         setObjVar(attackingShip, "spawner", self);
+        attachScript(attackingShip, "systems.gcw.space.capital_ship");
         params.put("attackingShip", attackingShip);
 
         // define the path
         transform[] flightPath = {
-                transform.identity.setPosition_p(battleLocation.x - 500.0f, battleLocation.y, battleLocation.z - 1500.0f),
-                transform.identity.setPosition_p(battleLocation.x - 250.0f, battleLocation.y, battleLocation.z - 900.0f),
-                transform.identity.setPosition_p(battleLocation.x - 0.0f, battleLocation.y, battleLocation.z - 600.0f)
+                transform.identity.setPosition_p(battleLocation.x - 925.0f, battleLocation.y, battleLocation.z - 1500.0f),
+                transform.identity.setPosition_p(battleLocation.x - 850.0f, battleLocation.y, battleLocation.z - 750.0f),
+                transform.identity.setPosition_p(battleLocation.x - 800.0f, battleLocation.y, battleLocation.z - 0.0f)
         };
-
-        params.put("flightPath", flightPath);
 
         // move the attacking ship along the path
         _spaceUnitMoveTo(attackingShip, flightPath);
 
+        LOG("space_gcw", "In spawnAttack... will spawn support craft in 20 seconds.");
         messageTo(self, "spawnSupportCraft", params, 20.0f, false);
 
         // set timer to keep track of battle time - set config value for length of battle
@@ -229,106 +206,133 @@ public class battle_spawner extends script.base_class {
         return SCRIPT_CONTINUE;
     }
     public int spawnSupportCraft(obj_id self, dictionary params) throws InterruptedException {
+        LOG("space_gcw", "In spawnSupportCraft... now starting to spawn supporting craft.");
         obj_id attackingShip = params.getObjId("attackingShip");
         obj_id defendingShip = params.getObjId("defendingShip");
-        List<obj_id> attackCraft;
-        List<obj_id> defenseCraft;
+        LOG("space_gcw", "In spawnSupportCraft... attacking ship is obj id " + attackingShip + " and defending ship is obj id " + defendingShip + ".");
 
         // spawn offense & defense support craft
-        defenseCraft = spawnSupportShips(defendingShip);
-        attackCraft = spawnSupportShips(attackingShip);
+        Vector defenseCraft = spawnSupportShips(defendingShip);
+        Vector attackCraft = spawnSupportShips(attackingShip);
         setObjVar(defendingShip, "supportCraft", defenseCraft);
         setObjVar(attackingShip, "supportCraft", attackCraft);
 
         // make sure all attacking craft have something to attack (this increases hate by a lot - "oooo, I so HATE that guy!").
         int spawnedShipCount = defenseCraft.size();
         for(int i=0; i < spawnedShipCount; i++){
-            ship_ai.spaceAttack(attackCraft.get(i), defenseCraft.get(i));
+            obj_id attacker = (obj_id) attackCraft.get(i);
+            obj_id defender = (obj_id) defenseCraft.get(i);
+            LOG("space_gcw","In spawnSupportCraft... forcing ship " + attacker + " to attack ship " + defender + ".");
+            if(attacker != null && defender != null)
+                ship_ai.spaceAttack(attacker, defender);
         }
         return SCRIPT_CONTINUE;
     }
-    public static List<obj_id> spawnSupportShips(obj_id motherShip) throws InterruptedException{
+    private static boolean battleIsNotActive(){
+        obj_id self = getSelf();
+        obj_id controller = getObjIdObjVar(self, "controller");
+        return getIntObjVar(controller, "space_gcw." + self.toString() + ".active") == 0;
+    }
+    public static Vector spawnSupportShips(obj_id motherShip) throws InterruptedException{
         String[] support_ship_types;
-        String[][] hero_ships;
+        String[] hero_pilots;
         if(shipGetSpaceFaction(motherShip) == 370444368){
             // rebel
             support_ship_types = REBEL_SUPPORT_CRAFT;
-            hero_ships = REBEL_HEROES;
+            hero_pilots = REBEL_HEROES;
         }
         // imperial
         else{
             support_ship_types = IMPERIAL_SUPPORT_CRAFT;
-            hero_ships = IMPERIAL_HEROES;
+            hero_pilots = IMPERIAL_HEROES;
         }
-        Vector<obj_id> shipList = getResizeableObjIdArrayObjVar(motherShip, "supportCraft");
+        Vector shipList = getResizeableObjIdArrayObjVar(motherShip, "supportCraft");
         if(shipList == null) shipList = new Vector<>();
         boolean heroSpawned = false;
+        if(hasObjVar(motherShip, "heroSpawned") || (hasObjVar(motherShip, "heroSpawnTime") && getIntObjVar(motherShip, "heroSpawnTime") > (getGameTime() - (60 * 10)))){
+            // a hero is only eligible to spawn once every 10 minutes.
+            heroSpawned = true;
+        }
         obj_id ship;
 
         for (int i = shipList.size(); i < MAX_SUPPORT_CRAFT; i++) {
-            if (heroSpawned || rand(0f, 1f) < HERO_SPAWN_CHANCE) {
+            if (heroSpawned || Math.random() < HERO_SPAWN_CHANCE) {
                 ship = createUnit(motherShip, support_ship_types[rand(0, support_ship_types.length - 1)], 200.0f);
                 attachScript(ship, "systems.gcw.space.support_ship");
                 setObjVar(ship, "motherShip", motherShip);
+                LOG("space_gcw", "In spawnSupportShips... just spawned a regular ship (" + ship + ":" + getTemplateName(ship) + ") #" + (i+1) + " / " + MAX_SUPPORT_CRAFT + " ships.");
             } else {
-                int rng = rand(0, hero_ships.length - 1);
-                ship = createUnit(motherShip, hero_ships[rng][0], 100.0f);
-                setName(ship, hero_ships[rng][1]);
+                dictionary pilot = choosePilot(hero_pilots);
+                if(pilot == null){
+                    LOG("space_gcw", "Could not find an ace pilot to spawn!");
+                    continue;
+                }
+                ship = createUnit(motherShip, pilot.getString("ship_template"), 100.0f);
+                setName(ship, new string_id("space/ship_names", pilot.getString("ship_name")));
                 attachScript(ship, "systems.gcw.space.hero_ship");
                 setObjVar(ship, "motherShip", motherShip);
-                setObjVar(motherShip, "attackHeroSpawned", true);
+                setObjVar(ship, "ace_name", pilot.getString("hero_name"));
+                setObjVar(motherShip, "heroSpawned", true);
+                setObjVar(motherShip, "heroSpawnTime", getGameTime());
                 heroSpawned = true;
+                LOG("space_gcw", "In spawnSupportShips... just spawned a hero ship (" + ship + ":" + pilot.getString("hero_name") + ") #" + (i+1) + " / " + MAX_SUPPORT_CRAFT + " ships.");
             }
             shipList.add(ship);
         }
+        LOG("space_gcw", "Returning array of ships of size " + shipList.size());
         return shipList;
     }
-    public static vector getRandomPosition(float radius) throws InterruptedException
-    {
-        return new vector(
-                radius * 2.0f * (0.5f - (float)Math.random()),
-                radius * 2.0f * (0.5f - (float)Math.random()),
-                radius * 2.0f * (0.5f - (float)Math.random())
-        );
+    private static dictionary choosePilot(String[] pilots){
+        int rng = rand(0, pilots.length - 1);
+        String pilot = pilots[rng];
+        String[] pilotNames = dataTableGetStringColumn(HERO_PILOT_DATA, "hero_name");
+        if(pilotNames == null){
+            LOG("space_gcw", "In battle_spawner.choosePilot... we didn't get ANY pilot names from our datatable (" + HERO_PILOT_DATA + ")!");
+            return null;
+        }
+        else if(pilotNames.length == 0){
+            LOG("space_gcw", "In battle_spawner.choosePilot... crap - somehow we couldn't find a pilot to spawn.");
+            return null;
+        }
+        for(int i=0; i < pilotNames.length; i++){
+            if(pilot.equals(pilotNames[i])) return dataTableGetRow(HERO_PILOT_DATA, i);
+        }
+        return null;
     }
-    public static obj_id createUnit(obj_id self, String unitName, float radius, vector position) throws InterruptedException
+    public static obj_id createUnit(obj_id centralObject, String unitName, float radius) throws InterruptedException
     {
-        final vector randomPosition = new vector(getRandomPosition(radius));
         return space_create.createShip(
                 unitName,
-                transform.identity.move_p(
-                        new vector(
-                                position.x + randomPosition.x,
-                                position.y + randomPosition.y,
-                                position.z + randomPosition.z
-                        )
-                )
+                space_utils.getRandomPositionInSphere(getTransform_o2p(centralObject), 100.0f, radius, true)
         );
     }
-    public static obj_id createUnit(obj_id self, String unitName, float radius) throws InterruptedException
-    {
-        return createUnit(self, unitName, radius, vector.zero);
-    }
-    public int capitalShipDestroyed(obj_id self, dictionary params) throws InterruptedException {
+    public int capitalShipDestroyed(obj_id self, dictionary params) {
+        if(battleIsNotActive()) return SCRIPT_CONTINUE;
         // end the battle
+        LOG("space_gcw", "Capital Ship Destroyed... ending the battle.");
         messageTo(self, "endBattle", params, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int endBattle(obj_id self, dictionary params) throws InterruptedException {
-        // tell the controller we've ended the battle
-        setObjVar(getObjIdObjVar(self, "controller"), "space_gcw." + self.toString() + ".active", 0);
+        obj_id controller = getObjIdObjVar(self, "controller");
+        LOG("space_gcw", "In endBattle... ending the battle.");
+
         if(!params.containsKey("destroyedShip")){
+            LOG("space_gcw", "In endBattle... reason - time ran out - making the attackers the losing side.");
             params.put("destroyedShip", params.getObjId("attackingShip"));
             params.put("losingFaction", params.getString("attackingFaction"));
+            params.put("role", "attack");
         }
-        setObjVar(self, "space_gcw.lastBattleType", getObjVar(self, "battle_type"));
-        setObjVar(self, "space_gcw.lastBattleTime", getGameTime());
+        else{
+            LOG("space_gcw", "In endBattle... reason - " + params.getString("losingFaction") + " " + params.getString("role") + " capital ship destroyed.");
+        }
+        setObjVar(self, "last_battle_type", getObjVar(self, "battle_type"));
         distributeAwards(self, params);
         cleanup(params);
-        reset();
         return SCRIPT_CONTINUE;
     }
     public void distributeAwards(obj_id self, dictionary params) throws InterruptedException {
+        LOG("space_gcw", "In distributeAwards... distributing the awards to the participants.");
         String battleType = getStringObjVar(self, "battle_type");
         obj_id controller = getObjIdObjVar(self, "controller");
         String battleId = getStringObjVar(self, "battle_id");
@@ -336,9 +340,9 @@ public class battle_spawner extends script.base_class {
         String losingFaction = params.getString("losingFaction");
         String winningFaction = params.getString("losingFaction").equals("imperial") ? "imperial" : "rebel";
         boolean imperialsWon = !losingFaction.equals("imperial");
-        boolean shipWasDefending = params.getString("role").equals("defense");
         obj_id destroyedShip = params.getObjId("destroyedShip");
         String shipTemplate = getTemplateName(destroyedShip);
+        boolean shipWasDefending = getStringObjVar(destroyedShip, "role").equals("defense");
         String shipType;
         String attackingFaction = !shipWasDefending ? losingFaction : winningFaction;
         switch (shipTemplate) {
@@ -363,10 +367,18 @@ public class battle_spawner extends script.base_class {
 
         // get all single-member participants in this battle.
         obj_var_list participants = getObjVarList(controller, "space_gcw.participant." + battleId);
+        if(participants == null || participants.getNumItems() == 0){
+            LOG("space_gcw", "In distributeAwards... no participants were found for battle " + battleId);
+            return;
+        }
+
         int numParticipants = participants.getNumItems();
 
         attackingFaction = attackingFaction.equals("imperial") ? "Imperial" : "Rebel";
 
+        // TODO: Add check for multi-pilot non POB/GUNSHIP participants (i.e. Havoc and Wookiee ship)
+
+        LOG("space_gcw", "In distributeAwards... now checking single pilot participants.");
         // distribute to single pilots (non-pob or gunship)
         for (int i = 0; i < numParticipants; i++) {
             obj_var participantVar = participants.getObjVar(i);
@@ -379,6 +391,7 @@ public class battle_spawner extends script.base_class {
             pointAwardedPlayers.add(player);
         }
 
+        LOG("space_gcw", "In distributeAwards... now checking POB participants.");
         // distribute to pob qualifiers
         pointAwardedPlayers.addAll(
                 processMultiPassengerShip(
@@ -394,6 +407,7 @@ public class battle_spawner extends script.base_class {
                 )
         );
 
+        LOG("space_gcw", "In distributeAwards... now checking gunship participants.");
         // distribute to gunship qualifiers
         pointAwardedPlayers.addAll(
                 processMultiPassengerShip(
@@ -444,6 +458,7 @@ public class battle_spawner extends script.base_class {
         return pointAwardedPlayers;
     }
     public void handlePlayerAwards(obj_id player, String attackingFaction, boolean imperialsWon, String shipType, String battleType, String battleId, float pointAdjustmentValue) throws InterruptedException {
+        LOG("space_gcw", "In handlePlayerAwards... now awarding GCW points.");
         boolean playerIsImperial = factions.isImperial(player);
         boolean playerWasAttacking = playerIsImperial && attackingFaction.equals("Imperial");
         boolean playerWon = (playerIsImperial && imperialsWon) ||
@@ -475,6 +490,7 @@ public class battle_spawner extends script.base_class {
                 null
         );
 
+        LOG("space_gcw", "In handlePlayerAwards... now giving out coins to players.");
         // distribute tokens to player
 
 
@@ -516,7 +532,7 @@ public class battle_spawner extends script.base_class {
 
         return msg.toString();
     }
-    public int calculateAwardedPoints(boolean wonBattle, String battleType) throws InterruptedException {
+    public int calculateAwardedPoints(boolean wonBattle, String battleType) {
         if(!wonBattle){
             if(battleType.equals(BATTLE_TYPE_PVE)){
                 return new Float(customPointAward * customPveBattleModifier * customLossPointModifier).intValue();
@@ -535,7 +551,7 @@ public class battle_spawner extends script.base_class {
         }
 
     }
-    public int calculateAwardedTokens(boolean wonBattle, String battleType, String faction) throws InterruptedException {
+    public int calculateAwardedTokens(boolean wonBattle, String battleType, String faction) {
         if(!wonBattle){
             if(battleType.equals(BATTLE_TYPE_PVE)){
                 return new Float(customTokenAward * customPveBattleModifier * customLossTokenModifier).intValue();
@@ -555,18 +571,76 @@ public class battle_spawner extends script.base_class {
 
     }
     public void cleanup(dictionary params) throws InterruptedException {
-        // despawn ships
+        LOG("space_gcw", "In cleanup... now cleaning up the battle.");
+        obj_id self = getSelf();
 
-        // clean up objvars on controller
+        // despawn ships
+        obj_id attackingShip = params.getObjId("attackingShip");
+        obj_id defendingShip = params.getObjId("defendingShip");
+        LOG("space_gcw", "In cleanup... attacking ship is (" + attackingShip + ") and defending ship is (" + defendingShip + ").");
+
+        LOG("space_gcw", "In cleanup... despawning attack support craft...");
+        Vector supportShips = getResizeableObjIdArrayObjVar(attackingShip, "supportCraft");
+        if(supportShips != null) {
+            for (Object ship : supportShips) {
+                LOG("space_gcw", "...despawning attack ship (" + ship + ")");
+                if(isValidId((obj_id) ship)){
+                    detachAllScripts((obj_id) ship);
+                    destroyObjectHyperspace((obj_id) ship);
+                }
+            }
+        }
+        LOG("space_gcw", "In cleanup... despawning defense support craft...");
+        supportShips = getResizeableObjIdArrayObjVar(defendingShip, "supportCraft");
+        if(supportShips != null) {
+            for (Object ship : supportShips) {
+                LOG("space_gcw", "...despawning defense ship (" + ship + ")");
+                if(isValidId((obj_id) ship)){
+                    detachAllScripts((obj_id) ship);
+                    destroyObjectHyperspace((obj_id) ship);
+                }
+            }
+        }
+        LOG("space_gcw", "In cleanup... despawning attack capital ship...");
+
+        if(isValidId(attackingShip)){
+            detachAllScripts(attackingShip);
+            destroyObjectHyperspace(attackingShip);
+        }
+
+        obj_id controller = params.getObjId("controller");
+
+        if(isValidId(defendingShip)){
+            messageTo(self, "despawnDefendingShip", params, 60.0f, false);
+        }
+        else{
+            // tell the controller we've ended the battle
+            setObjVar(controller, "space_gcw." + self.toString() + ".active", 0);
+        }
 
         // clean up objvars on self
+        int lastRunTime = getIntObjVar(self, "last_battle_time");
+        boolean timerSet = getBooleanObjVar(self, "timer_set");
         removeAllObjVars(getSelf());
+        setObjVar(self, "last_battle_time", lastRunTime);
+        setObjVar(self, "timer_set", timerSet);
+        setObjVar(self, "controller", controller);
     }
-    public void reset() throws InterruptedException {
 
+    public int despawnDefendingShip(obj_id self, dictionary params) {
+        // tell the controller we've ended the battle
+        obj_id controller = params.getObjId("controller");
+        setObjVar(controller, "space_gcw." + self.toString() + ".active", 0);
+
+        obj_id defendingShip = params.getObjId("defendingShip");
+        detachAllScripts(defendingShip);
+        LOG("space_gcw", "In cleanup... despawning defending capital ship...");
+        destroyObjectHyperspace(defendingShip);
+        return SCRIPT_CONTINUE;
     }
 
     public void getSettings() throws InterruptedException {
+        LOG("space_gcw", "Getting Settings...");
         // get customized settings
         customPveBattleModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPvETokenModifier"));
         if (customPveBattleModifier < 0) customPveBattleModifier = DEFAULT_PVE_TOKEN_MULTIPLIER;
@@ -597,5 +671,6 @@ public class battle_spawner extends script.base_class {
 
         gunshipPlayerCeiling = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwGunshipPlayerCeiling"));
         if (gunshipPlayerCeiling < 0) gunshipPlayerCeiling = DEFAULT_GUNSHIP_PLAYER_CEILING;
+        LOG("space_gcw", "Done getting settings...");
     }
 }

@@ -6,9 +6,9 @@ $balance_sheet = "ship_balance.txt";
 $comp_sheet = "crafted_component_balance.txt";
 
 #$template_path = "C:\Projects\swg\current\exe\win32\TemplateCompiler.exe
-$server_prefix = "\\swg\\current\\dsrc\\sku.0\\sys.server\\compiled\\game\\object\\draft_schematic\\space";
-$shared_prefix = "\\swg\\current\\dsrc\\sku.0\\sys.shared\\compiled\\game\\object\\draft_schematic\\space";
-$shared_bin_prefix = "\\swg\\current\\data\\sku.0\\sys.shared\\compiled\\game\\object\\draft_schematic\\space";
+$server_prefix = "~/swg-main/dsrc/sku.0/sys.server/compiled/game/object/draft_schematic/space";
+$shared_prefix = "~/swg-main/dsrc/sku.0/sys.shared/compiled/game/object/draft_schematic/space";
+$shared_bin_prefix = "~/swg-main/data/sku.0/sys.shared/compiled/game/object/draft_schematic/space";
 
 ###
 # main
@@ -185,10 +185,10 @@ sub processChassis
 	}
 	else
 	{
-		my $filename = $shared_prefix . "\\chassis\\shared_" . $fields[0] . ".tpf";
+		my $filename = $shared_prefix . "\/chassis\/shared_" . $fields[0] . ".tpf";
 		$filename =~ s/\\/\//g;
 		my $p4name = $filename;
-		my $filename = $shared_prefix . "\\chassis\\shared_" . $fields[0] . ".tpf";
+		my $filename = $shared_prefix . "\/chassis\/shared_" . $fields[0] . ".tpf";
 		
 		# Calculate the mass range for this chassis.
 		@mass = split /\t/, $massb;
@@ -222,15 +222,9 @@ sub processChassis
 		}
 		close CHASSIS;
 		@lines = ();
-		
-		# Check out the .iff.
-		my $sfilename = $shared_bin_prefix . "\\chassis\\shared_" . $fields[0] . ".iff";
-		$sfilename =~ s/\\/\//g;
-		my $sp4name = $sfilename;
-		system( "p4 edit //depot" . $sp4name );
-		
+
 		# Compile the freaking file.
-		system( "templatecompiler -compile $filename" );
+		system( "~/swg-main/exe/linux/bin/TemplateCompiler -compile $filename" );
 	}
 }
 
@@ -292,15 +286,12 @@ sub processComponentChunk
 	
 	# Read a component chunk entry.
 
-	my $filename = "$shared_prefix\\$directory\\shared_$fields[0].tpf";
+	my $filename = "$shared_prefix\/$directory\/shared_".$fields[0].".tpf";
 	$filename =~ s/\\/\//g;
 	my $p4name = $filename;
-	my $filename = "$shared_prefix\\$directory\\shared_$fields[0].tpf";
+	my $filename = "$shared_prefix\/$directory\/shared_".$fields[0].".tpf";
 	
 	print $filename . "\n";
-
-	# Check out the file to be edited.
-	system( "p4 edit //depot" . $p4name );
 		
 	# Read the schematic.
 	open SCHEMATIC, "<$filename";
@@ -467,12 +458,6 @@ sub processComponentChunk
 	
 	@lines = ();
 
-	# Check out the .iff.
-	my $sfilename = "$shared_bin_prefix\\$directory\\shared_$fields[0].iff";
-	$sfilename =~ s/\\/\//g;
-	my $sp4name = $sfilename;
-	system( "p4 edit //depot" . $sp4name );
-
 	# Compile the freaking file.
-	system( "templatecompiler -compile $filename" );
+    system( "~/swg-main/exe/linux/bin/TemplateCompiler -compile $filename" );
 }

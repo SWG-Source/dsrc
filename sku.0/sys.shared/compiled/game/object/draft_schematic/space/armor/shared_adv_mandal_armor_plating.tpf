@@ -30,7 +30,7 @@ craftedSharedTemplate="object/tangible/ship/crafted/armor/shared_adv_mandal_armo
 
 @class intangible_object_template 0
 
-@class object_template 8
+@class object_template 10
 
 snapToTerrain = false
 containerType = CT_none

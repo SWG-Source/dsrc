@@ -69,7 +69,7 @@ public class chassis_deed extends script.base_script
         else 
         {
             names[idx] = "pilotSkillRequired";
-            attribs[idx] = space_utils.getSkillRequiredForShip(self);
+            attribs[idx] = space_utils.getSkillRequiredForShip(type);
             idx++;
         }
         names[idx] = "chassisHitpoints";

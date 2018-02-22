@@ -8,7 +8,10 @@ import script.obj_id;
 public class support_ship extends script.space.combat.combat_ship {
     @Override
     public int OnShipWasHit(obj_id self, obj_id attacker, int weaponIndex, boolean isMissile, int missileType, int intSlot, boolean fromPlayerAutoTurret, float hitLocationX_o, float hitLocationY_o, float hitLocationZ_o) throws InterruptedException {
-        if(getShipCurrentChassisHitPoints(self) < 0){
+        if(!isValidId(attacker) || !space_utils.isPlayerControlledShip(attacker)){
+            return super.OnShipWasHit(self, attacker, weaponIndex, isMissile, missileType, intSlot, fromPlayerAutoTurret, hitLocationX_o, hitLocationY_o, hitLocationZ_o);
+        }
+        if(getShipCurrentChassisHitPoints(self) <= 0){
             sendSystemMessageTestingOnly(attacker, "You shot down a participating ship!");
             if(!space_utils.isPlayerControlledShip(attacker))
                 return SCRIPT_CONTINUE;
@@ -42,16 +45,19 @@ public class support_ship extends script.space.combat.combat_ship {
                 setObjVar(spawner, "space_gcw.participant." + getStringObjVar(self, "battle_id") + "." + player, "1");
             }
         }
-        super.OnShipWasHit(self, attacker, weaponIndex, isMissile, missileType, intSlot, fromPlayerAutoTurret, hitLocationX_o, hitLocationY_o, hitLocationZ_o);
-        return SCRIPT_CONTINUE;
+        return super.OnShipWasHit(self, attacker, weaponIndex, isMissile, missileType, intSlot, fromPlayerAutoTurret, hitLocationX_o, hitLocationY_o, hitLocationZ_o);
     }
     @Override
     public int OnDestroy(obj_id self) throws InterruptedException {
         obj_id motherShip = getObjIdObjVar(self, "motherShip");
+        obj_id spawner = getObjIdObjVar(motherShip, "spawner");
+        obj_id controller = getObjIdObjVar(spawner, "controller");
+        if(getIntObjVar(controller, "space_gcw." + spawner + ".active") == 0)
+            return super.OnDestroy(self);
+
         dictionary params = new dictionary();
         params.put("destroyedShip", self);
         messageTo(motherShip, "removeSupportShip", params, 0f, false);
-        super.OnDestroy(self);
-        return SCRIPT_CONTINUE;
+        return super.OnDestroy(self);
     }
 }

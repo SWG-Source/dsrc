@@ -2,66 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57902b84-2a13-42eb-8e1e-94f513be1a6d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../.idea/compiled.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_imperial.tab" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/imperial_gcw2_vendor.tab" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/rebel2_gcw2_vendor.tab" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/game.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_imperial_ace.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_neut_ace.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_reb_ace.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_imperial_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_privateer_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_rebel_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/draft_schematic/item/item_survey_tool_all.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/intangible/ship/blacksun_vaksai_s02_pcd.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/intangible/ship/havoc_pcd.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/intangible/ship/twing_pcd.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/ship/havoc.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/ship/player/player_havoc.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/ship/components/chassis/havoc_chassis_token.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/blacksun_vaksai_s02_deed.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/havoc_deed.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/texture_kit_hutt_heavy_s01_s07.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/survey_tool/survey_tool_all_s01.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_imperial_ace_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_privateer_ace_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_rebel_ace_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_imperial_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_privateer_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_rebel_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/game.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/workspace.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_vaksai_s02.tab" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_havoc.tab" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tiedefender.tab" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_twing.tab" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_blacksun_vaksai_s02_pcd.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_havoc_pcd.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_twing_pcd.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_havoc.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_havoc.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_havoc_chassis_token.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_havoc_deed.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_texture_kit_hutt_heavy_s01_s07.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/survey_tool/shared_survey_tool_all_s01.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_imperial_ace_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_privateer_ace_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_rebel_ace_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_imperial_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_privateer_craft.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_rebel_craft.tpf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/engine/eng_reward_experimental.tpf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/object/tangible/space/content_infrastructure/space_gcw_battle_point.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../../include/Tag.h" afterPath="$PROJECT_DIR$/../../../../include/Tag.h" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiled.iml" afterPath="$PROJECT_DIR$/../.idea/compiled.iml" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" afterPath="$PROJECT_DIR$/../.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/datatables/ai/ai_weapons.tab" afterPath="$PROJECT_DIR$/datatables/ai/ai_weapons.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/buildout/corellia/corellia_1_3_ws.tab" afterPath="$PROJECT_DIR$/datatables/buildout/corellia/corellia_1_3_ws.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/buildout/corellia/corellia_1_6_ws.tab" afterPath="$PROJECT_DIR$/datatables/buildout/corellia/corellia_1_6_ws.tab" />
@@ -479,6 +431,7 @@
       <change beforePath="$PROJECT_DIR$/datatables/buildout/yavin4/yavin4_7_6_ws.tab" afterPath="$PROJECT_DIR$/datatables/buildout/yavin4/yavin4_7_6_ws.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/buildout/yavin4/yavin4_7_7_ws.tab" afterPath="$PROJECT_DIR$/datatables/buildout/yavin4/yavin4_7_7_ws.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/buildout/yavin4/yavin4_8_3_ws.tab" afterPath="$PROJECT_DIR$/datatables/buildout/yavin4/yavin4_8_3_ws.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/commodity/ship_certification_attribute.tab" afterPath="$PROJECT_DIR$/datatables/commodity/ship_certification_attribute.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/interior_buildouts/npe_hangar_1.tab" afterPath="$PROJECT_DIR$/datatables/interior_buildouts/npe_hangar_1.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/item/master_item/item_stats.tab" afterPath="$PROJECT_DIR$/datatables/item/master_item/item_stats.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/item/master_item/master_item.tab" afterPath="$PROJECT_DIR$/datatables/item/master_item/master_item.tab" />
@@ -486,7 +439,8 @@
       <change beforePath="$PROJECT_DIR$/datatables/item/vendor/mtp_corellia_times_vendor.tab" afterPath="$PROJECT_DIR$/datatables/item/vendor/mtp_corellia_times_vendor.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/item/vendor/nova_schematic_vendor.tab" afterPath="$PROJECT_DIR$/datatables/item/vendor/nova_schematic_vendor.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/item/vendor/orion_schematic_vendor.tab" afterPath="$PROJECT_DIR$/datatables/item/vendor/orion_schematic_vendor.tab" />
-      <change beforePath="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff.tab" afterPath="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_rebel.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_imperial.tab" afterPath="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_imperial.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_rebel.tab" afterPath="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_rebel.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/loot/loot_items/mustafar/hk47_loot.tab" afterPath="$PROJECT_DIR$/datatables/loot/loot_items/mustafar/hk47_loot.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/loot/loot_types/mustafar/mustafar_trial_hk47.tab" afterPath="$PROJECT_DIR$/datatables/loot/loot_types/mustafar/mustafar_trial_hk47.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/mob/creatures.tab" afterPath="$PROJECT_DIR$/datatables/mob/creatures.tab" />
@@ -495,11 +449,17 @@
       <change beforePath="$PROJECT_DIR$/datatables/planet_map/map_locations.tab" afterPath="$PROJECT_DIR$/datatables/planet_map/map_locations.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/region/region_rori.tab" afterPath="$PROJECT_DIR$/datatables/region/region_rori.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/region/region_tatooine.tab" afterPath="$PROJECT_DIR$/datatables/region/region_tatooine.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/ship/balance_space_crafted.pl" afterPath="$PROJECT_DIR$/datatables/ship/balance_space_crafted.pl" />
       <change beforePath="$PROJECT_DIR$/datatables/ship/chassis_modifiers.tab" afterPath="$PROJECT_DIR$/datatables/ship/chassis_modifiers.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/ship/components/armor.tab" afterPath="$PROJECT_DIR$/datatables/ship/components/armor.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/ship/components/engine.tab" afterPath="$PROJECT_DIR$/datatables/ship/components/engine.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/ship/crafted_component_balance.xls" afterPath="$PROJECT_DIR$/datatables/ship/crafted_component_balance.xls" />
       <change beforePath="$PROJECT_DIR$/datatables/ship/ship_start_locations.tab" afterPath="$PROJECT_DIR$/datatables/ship/ship_start_locations.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/ship/shiptype.tab" afterPath="$PROJECT_DIR$/datatables/ship/shiptype.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/space_combat/ship_droid_assignments.tab" afterPath="$PROJECT_DIR$/datatables/space_combat/ship_droid_assignments.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/space_crafting/chassis_npc.tab" afterPath="$PROJECT_DIR$/datatables/space_crafting/chassis_npc.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/space_mobile/space_mobile.tab" afterPath="$PROJECT_DIR$/datatables/space_mobile/space_mobile.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab" afterPath="$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/space_zones/launch_locations.tab" afterPath="$PROJECT_DIR$/datatables/space_zones/launch_locations.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spacequest/delivery_no_pickup/tatooine_imperial_tier4_2_c.tab" afterPath="$PROJECT_DIR$/datatables/spacequest/delivery_no_pickup/tatooine_imperial_tier4_2_c.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spacequest/destroy_duty/naboo_rogue_droid_tier1.tab" afterPath="$PROJECT_DIR$/datatables/spacequest/destroy_duty/naboo_rogue_droid_tier1.tab" />
@@ -519,6 +479,8 @@
       <change beforePath="$PROJECT_DIR$/datatables/spawning/dungeon/corvette_rebel.tab" afterPath="$PROJECT_DIR$/datatables/spawning/dungeon/corvette_rebel.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/dungeon/nightsister_fortress.tab" afterPath="$PROJECT_DIR$/datatables/spawning/dungeon/nightsister_fortress.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/ep3/ep3_coronet_medical_center.tab" afterPath="$PROJECT_DIR$/datatables/spawning/ep3/ep3_coronet_medical_center.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/imperial_gcw2_vendor.tab" afterPath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/imperial_gcw2_vendor.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/rebel2_gcw2_vendor.tab" afterPath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/rebel2_gcw2_vendor.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/heroic/heroic_star_destroyer.tab" afterPath="$PROJECT_DIR$/datatables/spawning/heroic/heroic_star_destroyer.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/patrol_spawner.tab" afterPath="$PROJECT_DIR$/datatables/spawning/patrol_spawner.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/poi_spawner/corellia/corellia_commoner.tab" afterPath="$PROJECT_DIR$/datatables/spawning/poi_spawner/corellia/corellia_commoner.tab" />
@@ -551,19 +513,31 @@
       <change beforePath="$PROJECT_DIR$/datatables/structure/player_structure.tab" afterPath="$PROJECT_DIR$/datatables/structure/player_structure.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/structure/player_structure_sign.tab" afterPath="$PROJECT_DIR$/datatables/structure/player_structure_sign.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/structure/sign_adjust_by_template.tab" afterPath="$PROJECT_DIR$/datatables/structure/sign_adjust_by_template.tab" />
+      <change beforePath="$PROJECT_DIR$/game.iml" afterPath="$PROJECT_DIR$/game.iml" />
       <change beforePath="$PROJECT_DIR$/object/building/base/base_cantina.tpf" afterPath="$PROJECT_DIR$/object/building/base/base_cantina.tpf" />
       <change beforePath="$PROJECT_DIR$/object/building/base/base_filler_building.tpf" afterPath="$PROJECT_DIR$/object/building/base/base_filler_building.tpf" />
       <change beforePath="$PROJECT_DIR$/object/building/content/talus_meeting_hall_generic_small_style_02.tpf" afterPath="$PROJECT_DIR$/object/building/content/talus_meeting_hall_generic_small_style_02.tpf" />
       <change beforePath="$PROJECT_DIR$/object/building/tatooine/bestine_museum.tpf" afterPath="$PROJECT_DIR$/object/building/tatooine/bestine_museum.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_imperial_ace.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_imperial_ace.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_neut_ace.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_neut_ace.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_reb_ace.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_reb_ace.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_imperial_craft.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_imperial_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_privateer_craft.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_privateer_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_rebel_craft.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_rebel_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/draft_schematic/item/item_survey_tool_all.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/item/item_survey_tool_all.tpf" />
       <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/armor/adv_mandal_armor_plating.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/armor/adv_mandal_armor_plating.tpf" />
       <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/chassis/blacksun_heavy_vaksai.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/chassis/blacksun_heavy_vaksai.tpf" />
       <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/chassis/havoc.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/chassis/havoc.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.tpf" />
       <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/chassis/tiedefender.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/chassis/tiedefender.tpf" />
       <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/chassis/twing.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/chassis/twing.tpf" />
       <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/engine/eng_reward_experimental.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/engine/eng_reward_experimental.tpf" />
       <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/reactor/fusion_reactor_mandal.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/reactor/fusion_reactor_mandal.tpf" />
       <change beforePath="$PROJECT_DIR$/object/draft_schematic/space/weapon/wpn_borstel_experimental.tpf" afterPath="$PROJECT_DIR$/object/draft_schematic/space/weapon/wpn_borstel_experimental.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/intangible/ship/blacksun_vaksai_s02_pcd.tpf" afterPath="$PROJECT_DIR$/object/intangible/ship/blacksun_vaksai_s02_pcd.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/intangible/ship/havoc_pcd.tpf" afterPath="$PROJECT_DIR$/object/intangible/ship/havoc_pcd.tpf" />
       <change beforePath="$PROJECT_DIR$/object/intangible/ship/tiedefender_pcd.tpf" afterPath="$PROJECT_DIR$/object/intangible/ship/tiedefender_pcd.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/intangible/ship/twing_pcd.tpf" afterPath="$PROJECT_DIR$/object/intangible/ship/twing_pcd.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mission/base_mission_data.tpf" afterPath="$PROJECT_DIR$/object/mission/base_mission_data.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mission/mission_list_entry_object.tpf" afterPath="$PROJECT_DIR$/object/mission/mission_list_entry_object.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/coa_colonel_braedic_ekirk.tpf" afterPath="$PROJECT_DIR$/object/mobile/coa_colonel_braedic_ekirk.tpf" />
@@ -585,8 +559,11 @@
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_syirlabradawk.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_syirlabradawk.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_trezya_nenei.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_trezya_nenei.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_vayde_quellium.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_vayde_quellium.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/ship/havoc.tpf" afterPath="$PROJECT_DIR$/object/ship/havoc.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/ship/nebulon_frigate.tpf" afterPath="$PROJECT_DIR$/object/ship/nebulon_frigate.tpf" />
       <change beforePath="$PROJECT_DIR$/object/ship/player/player_blacksun_vaksai.tpf" afterPath="$PROJECT_DIR$/object/ship/player/player_blacksun_vaksai.tpf" />
       <change beforePath="$PROJECT_DIR$/object/ship/player/player_blacksun_vaksai_s02.tpf" afterPath="$PROJECT_DIR$/object/ship/player/player_blacksun_vaksai_s02.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/ship/player/player_havoc.tpf" afterPath="$PROJECT_DIR$/object/ship/player/player_havoc.tpf" />
       <change beforePath="$PROJECT_DIR$/object/ship/player/player_tiedefender.tpf" afterPath="$PROJECT_DIR$/object/ship/player/player_tiedefender.tpf" />
       <change beforePath="$PROJECT_DIR$/object/ship/player/player_twing.tpf" afterPath="$PROJECT_DIR$/object/ship/player/player_twing.tpf" />
       <change beforePath="$PROJECT_DIR$/object/ship/tiedefender.tpf" afterPath="$PROJECT_DIR$/object/ship/tiedefender.tpf" />
@@ -606,11 +583,15 @@
       <change beforePath="$PROJECT_DIR$/object/tangible/poi/spawnegg/patrol_spawnegg.tpf" afterPath="$PROJECT_DIR$/object/tangible/poi/spawnegg/patrol_spawnegg.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/poi/tatooine/explore_dathomir_escape_pod.tpf" afterPath="$PROJECT_DIR$/object/tangible/poi/tatooine/explore_dathomir_escape_pod.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/poi/tatooine/explore_tal_imp_vs_reb_battle.tpf" afterPath="$PROJECT_DIR$/object/tangible/poi/tatooine/explore_tal_imp_vs_reb_battle.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/ship/components/chassis/havoc_chassis_token.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/components/chassis/havoc_chassis_token.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/ship/components/chassis/player_blacksun_vaksai_s02_chassis_token.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/components/chassis/player_blacksun_vaksai_s02_chassis_token.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/ship/components/chassis/tiedefender_chassis_token.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/components/chassis/tiedefender_chassis_token.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/ship/components/chassis/twing_chassis_token.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/components/chassis/twing_chassis_token.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/ship/components/reactor/rct_mandal_fusion.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/components/reactor/rct_mandal_fusion.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/ship/crafted/armor/adv_mandal_armor_plating.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/armor/adv_mandal_armor_plating.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/blacksun_vaksai_s02_deed.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/blacksun_vaksai_s02_deed.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/havoc_deed.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/havoc_deed.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/texture_kit_hutt_heavy_s01_s07.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/texture_kit_hutt_heavy_s01_s07.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/tiedefender_deed.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/tiedefender_deed.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/twing_deed.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/twing_deed.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/ship/crafted/reactor/fusion_reactor_mandal.tpf" afterPath="$PROJECT_DIR$/object/tangible/ship/crafted/reactor/fusion_reactor_mandal.tpf" />
@@ -620,12 +601,19 @@
       <change beforePath="$PROJECT_DIR$/object/tangible/spawning/static_npc/herald_rori_imperial_military_base.tpf" afterPath="$PROJECT_DIR$/object/tangible/spawning/static_npc/herald_rori_imperial_military_base.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/spawning/static_npc/herald_tatooine_rebel_military_base.tpf" afterPath="$PROJECT_DIR$/object/tangible/spawning/static_npc/herald_tatooine_rebel_military_base.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/spawning/static_npc/herald_tatooine_tusken_bunker.tpf" afterPath="$PROJECT_DIR$/object/tangible/spawning/static_npc/herald_tatooine_tusken_bunker.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/survey_tool/survey_tool_all_s01.tpf" afterPath="$PROJECT_DIR$/object/tangible/survey_tool/survey_tool_all_s01.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/tcg/series1/structure_deed_barn.tpf" afterPath="$PROJECT_DIR$/object/tangible/tcg/series1/structure_deed_barn.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/veteran_reward/instant_travel_terminal.tpf" afterPath="$PROJECT_DIR$/object/tangible/veteran_reward/instant_travel_terminal.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/wearables/armor/ubese/armor_ubese_jacket.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/armor/ubese/armor_ubese_jacket.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/wearables/armor/zam/armor_zam_wesell_chest_plate.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/armor/zam/armor_zam_wesell_chest_plate.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/wearables/base/base_backpack.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/base/base_backpack.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/wearables/base/base_fannypack.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/base/base_fannypack.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_imperial_ace_craft.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_imperial_ace_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_privateer_ace_craft.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_privateer_ace_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_rebel_ace_craft.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_rebel_ace_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_imperial_craft.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_imperial_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_privateer_craft.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_privateer_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_rebel_craft.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_rebel_craft.tpf" />
       <change beforePath="$PROJECT_DIR$/object/tangible/wearables/pants/pants_s27.tpf" afterPath="$PROJECT_DIR$/object/tangible/wearables/pants/pants_s27.tpf" />
       <change beforePath="$PROJECT_DIR$/script/ai/ai.java" afterPath="$PROJECT_DIR$/script/ai/ai.java" />
       <change beforePath="$PROJECT_DIR$/script/ai/ai_combat_assist.java" afterPath="$PROJECT_DIR$/script/ai/ai_combat_assist.java" />
@@ -1146,6 +1134,9 @@
       <change beforePath="$PROJECT_DIR$/script/theme_park/tatooine/jabbaspawner/masterspawner.java" afterPath="$PROJECT_DIR$/script/theme_park/tatooine/jabbaspawner/masterspawner.java" />
       <change beforePath="$PROJECT_DIR$/script/theme_park/tatooine/jabbaspawner/oola.java" afterPath="$PROJECT_DIR$/script/theme_park/tatooine/jabbaspawner/oola.java" />
       <change beforePath="$PROJECT_DIR$/script/theme_park/tatooine/mos_eisley/masterspawner.java" afterPath="$PROJECT_DIR$/script/theme_park/tatooine/mos_eisley/masterspawner.java" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/game.iml" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/game.iml" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/modules.xml" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/abstract/slot/descriptor/ship_havoc.mif" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/abstract/slot/descriptor/ship_havoc.mif" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/appearance/appearance_table.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/appearance/appearance_table.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/appearance/door_style.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/appearance/door_style.tab" />
@@ -1154,18 +1145,101 @@
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/crafting/schematic_group.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/crafting/schematic_group.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/skill/skills.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/skill/skills.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_advanced_xwing.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_advanced_xwing.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_advanced_z95.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_advanced_z95.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_arc170.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_arc170.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_awing.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_awing.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_basic_z95.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_basic_z95.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_heavy_s01.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_heavy_s01.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_heavy_s02.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_heavy_s02.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_heavy_s03.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_heavy_s03.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_heavy_s04.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_heavy_s04.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_light_s01.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_light_s01.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_light_s02.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_light_s02.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_light_s03.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_light_s03.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_light_s04.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_light_s04.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_medium_s01.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_medium_s01.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_medium_s02.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_medium_s02.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_medium_s03.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_medium_s03.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_medium_s04.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_medium_s04.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_vaksai.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_vaksai.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_vaksai_s02.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_blacksun_vaksai_s02.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_bwing.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_bwing.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_decimator.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_decimator.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_firespray.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_firespray.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_grievous_starship.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_grievous_starship.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_gunship_imperial.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_gunship_imperial.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_gunship_neutral.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_gunship_neutral.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_gunship_rebel.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_gunship_rebel.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_havoc.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_havoc.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_heavy_s01.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_heavy_s01.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_heavy_s02.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_heavy_s02.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_light_s01.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_light_s01.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_light_s02.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_light_s02.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_medium_s01.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_medium_s01.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_medium_s02.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_medium_s02.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_turret_ship.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_hutt_turret_ship.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_jedi_starfighter.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_jedi_starfighter.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_naboo_n1.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_naboo_n1.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_prototype_hutt_light.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_prototype_hutt_light.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_prototype_tiefighter.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_prototype_tiefighter.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_prototype_z95.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_prototype_z95.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tie_in.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tie_in.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tie_light_duty.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tie_light_duty.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieadvanced.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieadvanced.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieadvanced_modified.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieadvanced_modified.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieaggressor.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieaggressor.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tiebomber.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tiebomber.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tiedefender.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tiedefender.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tiefighter_modified.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tiefighter_modified.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieinterceptor.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieinterceptor.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieinterceptor_imperial_guard.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieinterceptor_imperial_guard.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieoppressor.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_tieoppressor.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_twing.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_twing.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_vwing.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_vwing.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_xwing.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_xwing.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_y8_mining_ship.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_y8_mining_ship.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_ykl37r.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_ykl37r.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_yt1300.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_yt1300.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_yt2400.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_yt2400.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_ywing.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_ywing.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_ywing_longprobe.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_ywing_longprobe.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_z95.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_player_z95.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier1.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier1.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier10.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier10.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier2.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier2.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier3.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier3.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier4.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier4.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier5.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier5.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier6.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier6.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier7.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier7.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier8.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier8.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier9.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis_ywing_tier9.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_components.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_components.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_turret.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_turret.tab" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_weapon_components.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_weapon_components.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/building/general/shared_rori_hyperdrive_research_facility.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/building/general/shared_rori_hyperdrive_research_facility.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_hat_imperial_ace.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_hat_imperial_ace.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_hat_neut_ace.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_hat_neut_ace.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_hat_reb_ace.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_hat_reb_ace.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_jacket_ace_imperial.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_jacket_ace_imperial.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_jacket_ace_privateer.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_jacket_ace_privateer.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_jacket_ace_rebel.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/clothing/shared_clothing_jacket_ace_rebel.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/item/shared_item_survey_tool_all.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/item/shared_item_survey_tool_all.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/armor/shared_adv_mandal_armor_plating.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/armor/shared_adv_mandal_armor_plating.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_blacksun_heavy_vaksai.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_blacksun_heavy_vaksai.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_havoc.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_havoc.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_texture_kit_hutt_heavy_s01_s07.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_texture_kit_hutt_heavy_s01_s07.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_tiedefender.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_tiedefender.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_twing.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/chassis/shared_twing.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/engine/shared_eng_reward_experimental.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/engine/shared_eng_reward_experimental.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/reactor/shared_fusion_reactor_mandal.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/reactor/shared_fusion_reactor_mandal.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/weapon/shared_wpn_borstel_experimental.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/draft_schematic/space/weapon/shared_wpn_borstel_experimental.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/dummy.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/dummy.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_blacksun_vaksai_s02_pcd.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_blacksun_vaksai_s02_pcd.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_havoc_pcd.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_havoc_pcd.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_tiedefender_pcd.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_tiedefender_pcd.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_twing_pcd.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_twing_pcd.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mission/shared_mission_data_object.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mission/shared_mission_data_object.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mission/shared_mission_list_entry_object.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mission/shared_mission_list_entry_object.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_colonel_braedic_ekirk.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_colonel_braedic_ekirk.tpf" />
@@ -1193,8 +1267,12 @@
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/talus_npc/shared_coa_galiir_ac_yandar.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/talus_npc/shared_coa_galiir_ac_yandar.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/talus_npc/shared_coa_syirlabradawk.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/talus_npc/shared_coa_syirlabradawk.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_blacksun_vaksai_s02.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_blacksun_vaksai_s02.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_havoc.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_havoc.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_tiedefender.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_tiedefender.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_twing.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/player/shared_player_twing.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_havoc.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_havoc.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_imperial_lancer.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_imperial_lancer.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_nebulon_frigate.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_nebulon_frigate.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_tiedefender.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_tiedefender.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_twing.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/ship/shared_twing.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/collection/shared_rock_burning_06.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/collection/shared_rock_burning_06.tpf" />
@@ -1212,16 +1290,20 @@
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/attachment/weapon/shared_havoc_weapon_s01.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/attachment/weapon/shared_havoc_weapon_s01.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/attachment/weapon/shared_havoc_weapon_s02.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/attachment/weapon/shared_havoc_weapon_s02.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/attachment/weapon/shared_kessel_mine_turret_base_s02.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/attachment/weapon/shared_kessel_mine_turret_base_s02.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_havoc_chassis_token.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_havoc_chassis_token.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_player_blacksun_vaksai_s02_chassis_token.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_player_blacksun_vaksai_s02_chassis_token.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_tiedefender_chassis_token.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_tiedefender_chassis_token.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_twing_chassis_token.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/components/chassis/shared_twing_chassis_token.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/armor/shared_adv_mandal_armor_plating.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/armor/shared_adv_mandal_armor_plating.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_blacksun_vaksai_s02_deed.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_blacksun_vaksai_s02_deed.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_havoc_deed.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_havoc_deed.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_texture_kit_hutt_heavy_s01_s07.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_texture_kit_hutt_heavy_s01_s07.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_tiedefender_deed.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_tiedefender_deed.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_twing_deed.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/chassis/shared_twing_deed.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/engine/shared_eng_reward_experimental.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/engine/shared_eng_reward_experimental.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/reactor/shared_fusion_reactor_mandal.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/reactor/shared_fusion_reactor_mandal.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/weapon/shared_wpn_borstel_experimental.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/ship/crafted/weapon/shared_wpn_borstel_experimental.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/survey_tool/shared_survey_tool_all_s01.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/survey_tool/shared_survey_tool_all_s01.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/terminal/base/shared_base_terminal_nosnap.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/terminal/base/shared_base_terminal_nosnap.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/armor/assault_trooper/shared_armor_assault_trooper_boots.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/armor/assault_trooper/shared_armor_assault_trooper_boots.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/armor/bone/shared_armor_bone_s01_boots.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/armor/bone/shared_armor_bone_s01_boots.tpf" />
@@ -1328,6 +1410,12 @@
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/base/shared_base_helmet_open.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/base/shared_base_helmet_open.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/base/shared_base_sabaton.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/base/shared_base_sabaton.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/base/shared_base_wookiee_chest_plate.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/base/shared_base_wookiee_chest_plate.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_imperial_ace_craft.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_imperial_ace_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_privateer_ace_craft.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_privateer_ace_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_rebel_ace_craft.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/helmet/shared_helmet_fighter_rebel_ace_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_imperial_craft.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_imperial_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_privateer_craft.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_privateer_craft.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_rebel_craft.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/tangible/wearables/jacket/shared_jacket_ace_rebel_craft.tpf" />
     </list>
     <ignored path="game.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1347,81 +1435,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="master_item.tab" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datatables/item/master_item/master_item.tab">
+      <file leaf-file-name="battle_spawner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="8260" column="105" lean-forward="false" selection-start-line="8260" selection-start-column="105" selection-end-line="8260" selection-end-column="105" />
+            <state relative-caret-position="284">
+              <caret line="633" column="0" lean-forward="false" selection-start-line="633" selection-start-column="0" selection-end-line="633" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="item_stats.tab" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datatables/item/master_item/item_stats.tab">
+      <file leaf-file-name="support_ship.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20392">
-              <caret line="3413" column="164" lean-forward="false" selection-start-line="3413" selection-start-column="141" selection-end-line="3413" selection-end-column="164" />
+            <state relative-caret-position="884">
+              <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="texture_kit_hutt_heavy_s01_s07.tpf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.tpf">
+      <file leaf-file-name="battle_controller.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="35" column="183" lean-forward="false" selection-start-line="35" selection-start-column="116" selection-end-line="35" selection-end-column="183" />
+            <state relative-caret-position="277">
+              <caret line="93" column="72" lean-forward="true" selection-start-line="93" selection-start-column="72" selection-end-line="93" selection-end-column="72" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="texture_kit_xwing_s07.tpf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/object/tangible/ship/crafted/chassis/texture_kit_xwing_s07.tpf">
+      <file leaf-file-name="capital_ship.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="44" column="57" lean-forward="true" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="combat_ship_boss.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_boss.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="34" column="86" lean-forward="false" selection-start-line="34" selection-start-column="86" selection-end-line="34" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="texture_kit_hutt_heavy_s01_s07.tpf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/object/tangible/ship/crafted/chassis/texture_kit_hutt_heavy_s01_s07.tpf">
+      <file leaf-file-name="imperial_lancer.tab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/imperial_lancer.tab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="texture_kit.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/script/space/crafting/texture_kit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="147" column="64" lean-forward="false" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script/library/hue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="353" column="65" lean-forward="true" selection-start-line="353" selection-start-column="65" selection-end-line="353" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ranged_int_custom_var.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script/ranged_int_custom_var.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-187">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="34">
+              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -1438,52 +1508,55 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>item_ship_deed_t</find>
-      <find>item_helmet_ace_imp</find>
-      <find>&quot;salute&quot;</find>
-      <find>item_jacket_ace_neut</find>
-      <find>item_jacket_ace_imp</find>
-      <find>tiedefender</find>
-      <find>item_ship_deed</find>
-      <find>leather_heavy_duty</find>
-      <find>reinforced</find>
-      <find>leather_prison_guard</find>
-      <find>npc/tusken:tusken_low</find>
-      <find>:tusken_normal</find>
-      <find>tusken_beserker</find>
-      <find>tusken_berserker</find>
-      <find>IT_resourceType</find>
-      <find>generic_limited_use</find>
-      <find>item_schematic_gcw2_survey_tool_all</find>
-      <find>&quot;GameServer&quot;</find>
-      <find>gcwTokenBonus</find>
-      <find>heavy_</find>
-      <find>leather</find>
-      <find>texture_kit_xwing_s07.iff</find>
-      <find>changed_paint_job</find>
-      <find>loot_schematic</find>
-      <find>int:loot_schematic.uses</find>
-      <find>texture_style</find>
-      <find>texture_</find>
-      <find>texture</find>
-      <find>ancient_asteroid_chunk</find>
-      <find>shared_owner/index_texture_</find>
+      <find>required_config</find>
+      <find>exteriorAppearance</find>
+      <find>getObjIdWithNull</find>
+      <find>matchesNameAndDescriptor</find>
+      <find>isIdNull</find>
+      <find>decd_maple_sparse</find>
+      <find>appearance</find>
+      <find>imperial_tier5</find>
+      <find>kessel</find>
+      <find>corellian_corvette</find>
+      <find>ravager</find>
+      <find>imp_corellian_corvette_tier4</find>
+      <find>kessel_no_destroy</find>
+      <find>squad_corvette_convoy_imp</find>
+      <find>exbx</find>
+      <find>corvette</find>
+      <find>imperial_lancer</find>
+      <find>combat_ship_capital</find>
+      <find>&quot;role&quot;</find>
+      <find>cap</find>
+      <find>bossType</find>
+      <find>combat_ship_boss</find>
+      <find>battle_type</find>
+      <find>lastRunInterval</find>
+      <find>endBattle</find>
+      <find>&quot;endBattle&quot;</find>
+      <find>== 1</find>
+      <find>&quot;controller&quot;</find>
+      <find>.active</find>
+      <find>last_battle_time</find>
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>imperial_space_gcw</replace>
+      <replace>/</replace>
     </replaceStrings>
     <dirStrings>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\datatables\spacequest</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\object</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\script\systems\gcw</dir>
-      <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\datatables\buildout\rori</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\datatables\buildout</dir>
-      <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\script</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\datatables</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\object\draft_schematic</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\object\draft_schematic\clothing</dir>
+      <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game</dir>
+      <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\script\npe</dir>
+      <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\object\weapon\melee</dir>
+      <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\script</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -1497,34 +1570,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/object/intangible/ship/tiedefender_pcd.tpf" />
-        <option value="$PROJECT_DIR$/object/intangible/ship/havoc_pcd.tpf" />
-        <option value="$PROJECT_DIR$/object/intangible/ship/twing_pcd.tpf" />
-        <option value="$PROJECT_DIR$/object/intangible/ship/blacksun_heavy_vaksai.tpf" />
-        <option value="$PROJECT_DIR$/object/intangible/ship/blacksun_vaksai_s02_pcd.tpf" />
-        <option value="$PROJECT_DIR$/datatables/ship/chassis_modifiers.tab" />
-        <option value="$PROJECT_DIR$/datatables/ship/shiptype.tab" />
-        <option value="$PROJECT_DIR$/datatables/space_combat/ship_droid_assignments.tab" />
-        <option value="$PROJECT_DIR$/datatables/space_crafting/chassis_npc.tab" />
-        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/blacksun_vaksai_s02_deed.tpf" />
-        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/havoc_deed.tpf" />
-        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/tiedefender_deed.tpf" />
-        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/chassis/twing_deed.tpf" />
-        <option value="$PROJECT_DIR$/object/tangible/ship/components/chassis/havoc_chassis_token.tpf" />
-        <option value="$PROJECT_DIR$/object/tangible/ship/components/chassis/tiedefender_chassis_token.tpf" />
-        <option value="$PROJECT_DIR$/object/tangible/ship/components/chassis/player_blacksun_vaksai_s02_chassis_token.tpf" />
-        <option value="$PROJECT_DIR$/object/tangible/ship/components/chassis/twing_chassis_token.tpf" />
-        <option value="$PROJECT_DIR$/object/ship/havoc.tpf" />
-        <option value="$PROJECT_DIR$/object/ship/tiedefender.tpf" />
-        <option value="$PROJECT_DIR$/object/ship/twing.tpf" />
-        <option value="$PROJECT_DIR$/object/ship/player/player_blacksun_vaksai_s02.tpf" />
-        <option value="$PROJECT_DIR$/object/ship/player/player_havoc.tpf" />
-        <option value="$PROJECT_DIR$/object/ship/player/player_tiedefender.tpf" />
-        <option value="$PROJECT_DIR$/object/ship/player/player_twing.tpf" />
-        <option value="$PROJECT_DIR$/datatables/ship/ship_start_locations.tab" />
-        <option value="$PROJECT_DIR$/datatables/mob/creatures.tab" />
-        <option value="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_imperial.tab" />
-        <option value="$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_rebel.tab" />
         <option value="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_rebel_ace_craft.tpf" />
         <option value="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_privateer_ace_craft.tpf" />
         <option value="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_imperial_ace_craft.tpf" />
@@ -1548,14 +1593,42 @@
         <option value="$PROJECT_DIR$/script/space/crafting/texture_kit.java" />
         <option value="$PROJECT_DIR$/datatables/item/master_item/master_item.tab" />
         <option value="$PROJECT_DIR$/datatables/item/master_item/item_stats.tab" />
+        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/armor/adv_mandal_armor_plating.tpf" />
+        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/reactor/fusion_reactor_mandal.tpf" />
+        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/engine/eng_reward_experimental.tpf" />
+        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/weapon/wpn_borstel_experimental.tpf" />
+        <option value="$PROJECT_DIR$/object/draft_schematic/space/armor/adv_mandal_armor_plating.tpf" />
+        <option value="$PROJECT_DIR$/object/draft_schematic/space/reactor/fusion_reactor_mandal.tpf" />
+        <option value="$PROJECT_DIR$/object/draft_schematic/space/weapon/wpn_borstel_experimental.tpf" />
+        <option value="$PROJECT_DIR$/object/draft_schematic/space/engine/eng_reward_experimental.tpf" />
+        <option value="$PROJECT_DIR$/script/library/space_utils.java" />
+        <option value="$PROJECT_DIR$/script/space/crafting/chassis_deed.java" />
+        <option value="$PROJECT_DIR$/datatables/ship/balance_space_crafted.pl" />
+        <option value="$PROJECT_DIR$/datatables/ship/components/armor.tab" />
+        <option value="$PROJECT_DIR$/datatables/ship/components/engine.tab" />
+        <option value="$PROJECT_DIR$/datatables/commodity/ship_certification_attribute.tab" />
+        <option value="$PROJECT_DIR$/object/tangible/ship/components/armor/arm_adv_mandal_armor_plating.tpf" />
+        <option value="$PROJECT_DIR$/script/space/combat/combat_ship.java" />
+        <option value="$PROJECT_DIR$/script/library/space_combat.java" />
+        <option value="$PROJECT_DIR$/script/library/respec.java" />
+        <option value="$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab" />
+        <option value="$PROJECT_DIR$/object/tangible/space/content_infrastructure/space_gcw_battle_point.tpf" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java" />
+        <option value="$PROJECT_DIR$/datatables/npc/space/space_gcw_hero.tab" />
+        <option value="$PROJECT_DIR$/object/ship/nebulon_frigate.tpf" />
+        <option value="$PROJECT_DIR$/datatables/space_mobile/space_mobile.tab" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/support_ship.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2119" />
-    <option name="y" value="26" />
-    <option name="width" value="1565" />
-    <option name="height" value="1012" />
+    <option name="x" value="2133" />
+    <option name="y" value="41" />
+    <option name="width" value="1474" />
+    <option name="height" value="945" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -1573,7 +1646,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -1585,58 +1659,20 @@
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="draft_schematic" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="space_combat" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="draft_schematic" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="draft_schematic" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-              <item name="chassis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="tangible" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="tangible" type="462c0819:PsiDirectoryNode" />
-              <item name="ship" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="tangible" type="462c0819:PsiDirectoryNode" />
-              <item name="ship" type="462c0819:PsiDirectoryNode" />
-              <item name="crafted" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="tangible" type="462c0819:PsiDirectoryNode" />
-              <item name="ship" type="462c0819:PsiDirectoryNode" />
-              <item name="crafted" type="462c0819:PsiDirectoryNode" />
-              <item name="chassis" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="space_combat" type="462c0819:PsiDirectoryNode" />
+              <item name="capital_ships" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
@@ -1654,14 +1690,34 @@
               <item name="game" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
               <item name="space" type="462c0819:PsiDirectoryNode" />
-              <item name="crafting" type="462c0819:PsiDirectoryNode" />
+              <item name="combat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="systems" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="systems" type="462c0819:PsiDirectoryNode" />
+              <item name="gcw" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="systems" type="462c0819:PsiDirectoryNode" />
+              <item name="gcw" type="462c0819:PsiDirectoryNode" />
+              <item name="space" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1947,15 +2003,15 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3223481" sideWeight="0.53361344" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4067971" sideWeight="0.54149157" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25787815" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3223481" sideWeight="0.46638656" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4067971" sideWeight="0.4585084" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1988,391 +2044,369 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_outbreak_prison_guard.tpf">
+    <entry file="file://$PROJECT_DIR$/script/library/utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="726" column="22" lean-forward="false" selection-start-line="726" selection-start-column="22" selection-end-line="726" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/theme_park/outbreak/dungeon_scientist_trigger_volume.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="33" column="15" lean-forward="false" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/admin/command_permissions.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="106" column="7" lean-forward="false" selection-start-line="106" selection-start-column="7" selection-end-line="106" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/object/tangible/space/content_infrastructure/space_gcw_battle_point.tpf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/zone_objects/space_tatooine.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="90" lean-forward="false" selection-start-line="13" selection-start-column="90" selection-end-line="13" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/content_tools/content_generation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24514">
+          <caret line="1464" column="42" lean-forward="false" selection-start-line="1464" selection-start-column="42" selection-end-line="1464" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/npc/space/space_gcw_hero.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="62" lean-forward="false" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/ship/shiptype.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4658">
+          <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/spawning/clone_relic/ep3_restuss_starport.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="65" lean-forward="false" selection-start-line="1" selection-start-column="65" selection-end-line="1" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/object/ship/krayt_tier7.tpf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_privateer_ace.tpf">
+    <entry file="file://$PROJECT_DIR$/object/ship/imperial_lancer.tpf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_imperial_ace.tpf">
+    <entry file="file://$PROJECT_DIR$/script/item/component/serialize.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_rebel_ace.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/space/special_loot/privateer_only.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        <state relative-caret-position="255">
+          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/object/tangible_object_template.tdf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-424">
-          <caret line="102" column="9" lean-forward="false" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
+        <state relative-caret-position="0">
+          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_privateer_ace_craft.tpf">
+    <entry file="file://$PROJECT_DIR$/object/ship_object_template.tdf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_rebel_ace_craft.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_imperial_ace_craft.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/conversation/imperial_space_gcw_vendor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="78" column="29" lean-forward="false" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/conversation/rebel_space_gcw_vendor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="78" column="29" lean-forward="false" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_nightsister_s02.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-591">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/item/vendor/space_gcw_stuff_rebel.tab">
+    <entry file="file://$PROJECT_DIR$/object/object_template.tdf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-39189">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/object/ship/nebulon_frigate.tpf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="20" />
-          <folding />
+          <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_imperial.tpf">
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_yavin4.tab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="182">
+          <caret line="162" column="25" lean-forward="false" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_imperial_craft.tpf">
+    <entry file="file://$PROJECT_DIR$/datatables/ship/ship_start_locations.tab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="182">
+          <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_privateer.tpf">
+    <entry file="file://$PROJECT_DIR$/object/ship/corvette.tpf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_privateer_craft.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_rebel.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_rebel_craft.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_rebel_craft.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="152" lean-forward="false" selection-start-line="50" selection-start-column="109" selection-end-line="50" selection-end-column="152" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/space/chassis/blacksun_heavy_vaksai.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-714">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_imperial_craft.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_imperial_ace.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="42" column="40" lean-forward="false" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/mob/creatures.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="5415" column="16" lean-forward="false" selection-start-line="5415" selection-start-column="16" selection-end-line="5415" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_neut_ace.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="42" column="40" lean-forward="false" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/clothing/clothing_hat_reb_ace.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="42" column="40" lean-forward="false" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/component/clothing/leather_prison_guard.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="1" lean-forward="false" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/clothing/clothing_jacket_ace_privateer_craft.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="63" column="86" lean-forward="false" selection-start-line="63" selection-start-column="86" selection-end-line="63" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/item/item_survey_tool_flora.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/item/item_survey_tool_gas.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/survey_tool/survey_tool_all.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/terminal/gcw_supply_terminal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="136" column="53" lean-forward="false" selection-start-line="136" selection-start-column="53" selection-end-line="136" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/library/utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="760" column="24" lean-forward="false" selection-start-line="760" selection-start-column="24" selection-end-line="760" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/systems/gcw/player_pvp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="836" column="92" lean-forward="false" selection-start-line="836" selection-start-column="79" selection-end-line="836" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/systems/gcw/pvp_battlefield.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30248">
-          <caret line="241" column="69" lean-forward="true" selection-start-line="241" selection-start-column="69" selection-end-line="241" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/survey_tool/survey_tool_inorganic.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/item/item_survey_tool_all.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="55" column="73" lean-forward="false" selection-start-line="55" selection-start-column="73" selection-end-line="55" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/survey_tool/survey_tool_gas.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/survey_tool/survey_tool_all_s01.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/ship/crafted/chassis/texture_kit_xwing_s06.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/ship/player/player_hutt_heavy_s01.tpf">
+    <entry file="file://$PROJECT_DIR$/datatables/space_content/battlefields/kessel_no_destroy.tab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="33" />
-          <folding />
+          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/ship/crafted/chassis/texture_kit_xwing_s07.tpf">
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/capital_ships/capital_ship_spacestation.tab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/star_destroyer_e3.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/star_destroyer.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/rebel_spacestation.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/nebulon_frigate.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/chassis/xwing.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_content/spacestations.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_content/battlefields/entry_stations.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="123" lean-forward="false" selection-start-line="0" selection-start-column="123" selection-end-line="0" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_content/capital_ship_interiors/test_capital_ship.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_content/spawners/waves.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_content/spawners/squads.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_mobile/space_appearances.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_trainer_spawner/coronet_starport.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_light1.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="415" lean-forward="false" selection-start-line="6" selection-start-column="415" selection-end-line="6" selection-end-column="415" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/library/space_combat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4106" column="23" lean-forward="false" selection-start-line="4106" selection-start-column="23" selection-end-line="4106" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_naboo.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19033">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="639" column="79" lean-forward="false" selection-start-line="639" selection-start-column="79" selection-end-line="639" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/ship/cap_ship_turret_spawner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/capital_ships/test_capital_ship.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="32" lean-forward="false" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_mobile/space_mobile.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="2448" column="298" lean-forward="false" selection-start-line="2448" selection-start-column="298" selection-end-line="2448" selection-end-column="298" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_capital.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_space_base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/ranged_int_custom_var.java">
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/imperial_lancer.tab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/ship/crafted/chassis/texture_kit_hutt_heavy_s01_s07.tpf">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Math.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="437">
+          <caret line="771" column="25" lean-forward="false" selection-start-line="771" selection-start-column="25" selection-end-line="771" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_boss.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="34" column="86" lean-forward="false" selection-start-line="34" selection-start-column="86" selection-end-line="34" selection-end-column="86" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.tpf">
+    <entry file="file://$PROJECT_DIR$/script/base_class.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="35" column="183" lean-forward="false" selection-start-line="35" selection-start-column="116" selection-end-line="35" selection-end-column="183" />
+        <state relative-caret-position="182">
+          <caret line="1933" column="25" lean-forward="false" selection-start-line="1933" selection-start-column="25" selection-end-line="1933" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/item/master_item/master_item.tab">
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="8260" column="105" lean-forward="false" selection-start-line="8260" selection-start-column="105" selection-end-line="8260" selection-end-column="105" />
+        <state relative-caret-position="85">
+          <caret line="44" column="57" lean-forward="true" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="633" column="0" lean-forward="false" selection-start-line="633" selection-start-column="0" selection-end-line="633" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/item/loot_schematic/loot_schematic.java">
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="187" column="22" lean-forward="false" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/item/master_item/item_stats.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20392">
-          <caret line="3413" column="164" lean-forward="false" selection-start-line="3413" selection-start-column="141" selection-end-line="3413" selection-end-column="164" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/test/qatool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="1017" column="60" lean-forward="false" selection-start-line="1017" selection-start-column="60" selection-end-line="1017" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/library/hue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="353" column="65" lean-forward="true" selection-start-line="353" selection-start-column="65" selection-end-line="353" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/space/crafting/texture_kit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="147" column="64" lean-forward="false" selection-start-line="147" selection-start-column="37" selection-end-line="147" selection-end-column="64" />
+        <state relative-caret-position="277">
+          <caret line="93" column="72" lean-forward="true" selection-start-line="93" selection-start-column="72" selection-end-line="93" selection-end-column="72" />
           <folding />
         </state>
       </provider>

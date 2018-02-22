@@ -1146,9 +1146,11 @@ public class space_utils extends script.base_script
         }
         return null;
     }
-    public static String getSkillRequiredForShip(obj_id deed) throws InterruptedException
-    {
+    public static String getSkillRequiredForShip(obj_id deed) throws InterruptedException {
         String type = getStringObjVar(deed, "shiptype");
+        return getSkillRequiredForShip(type);
+    }
+    public static String getSkillRequiredForShip(String type) {
         switch(type){
             case "z95":
                 return "@skl_n:pilot_rebel_navy_novice";

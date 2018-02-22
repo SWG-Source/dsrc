@@ -128,10 +128,12 @@ public class respec extends script.base_script
         trace.log("respec", msg, player, trace.TL_CS_LOG);
         pet_lib.destroyOfficerPets(player);
         obj_id weapon = getCurrentWeapon(player);
-        if (isIdValid(weapon))
+        // make sure our weapon is valid and isn't the base default weapon
+        if (isIdValid(weapon) && !getTemplateName(weapon).equals("object/weapon/melee/unarmed/unarmed_default_player.iff"))
         {
             putInOverloaded(weapon, utils.getInventoryContainer(player));
         }
+
         if (cost > 0)
         {
             money.requestPayment(player, money.ACCT_SKILL_TRAINING, cost, "none", null, false);

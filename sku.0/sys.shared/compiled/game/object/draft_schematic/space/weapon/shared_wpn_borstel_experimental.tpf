@@ -36,7 +36,7 @@ craftedSharedTemplate="object/tangible/ship/crafted/weapon/shared_wpn_borstel_ex
 
 @class intangible_object_template 0
 
-@class object_template 8
+@class object_template 10
 
 snapToTerrain = false
 containerType = CT_none
