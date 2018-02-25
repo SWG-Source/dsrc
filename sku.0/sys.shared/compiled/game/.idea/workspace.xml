@@ -41,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shared_nebulon_frigate.tpf" pinned="false" current-in-tab="true">
+      <file leaf-file-name="shared_nebulon_frigate.tpf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/object/ship/shared_nebulon_frigate.tpf">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -51,18 +51,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="command_table.tab" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/datatables/command/command_table.tab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="79" lean-forward="false" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="skills.tab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datatables/skill/skills.tab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10234">
+              <caret line="602" column="335" lean-forward="false" selection-start-line="602" selection-start-column="335" selection-end-line="602" selection-end-column="335" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>texture_kit_awing_s06</find>
-      <find>texture_</find>
-      <find>enginePitch</find>
-      <find>engine_pitch_accel</find>
-      <find>eng_orion_01_n</find>
-      <find>wpn_vulcan_cannon</find>
-      <find>pitch</find>
-      <find>adv_durasteel_plating</find>
       <find>tiede</find>
       <find>mustafar_fusion_reactor</find>
       <find>arm_adv_durasteel_plating</find>
@@ -85,6 +97,14 @@
       <find>_n</find>
       <find>imp_corellian_corvette_tier4</find>
       <find>ravager</find>
+      <find>shd_cygnus_experimental</find>
+      <find>fireRepublicFlameThrowerGeneric</find>
+      <find>space</find>
+      <find>cmdBattlefield</find>
+      <find>spaceimperialhelper</find>
+      <find>bactaSpray</find>
+      <find>centerOfBeing</find>
+      <find>fireRocketLauncher</find>
     </findStrings>
     <replaceStrings>
       <replace>1</replace>
@@ -102,8 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/object/ship/player/shared_player_blacksun_vaksai_s02.tpf" />
-        <option value="$PROJECT_DIR$/object/ship/player/shared_player_havoc.tpf" />
         <option value="$PROJECT_DIR$/object/ship/player/shared_player_twing.tpf" />
         <option value="$PROJECT_DIR$/object/tangible/ship/attachment/engine/shared_havoc_engine_s01.tpf" />
         <option value="$PROJECT_DIR$/object/tangible/ship/attachment/engine/shared_twing_engine_01.tpf" />
@@ -153,12 +171,14 @@
         <option value="$PROJECT_DIR$/datatables/space/ship_chassis_player_advanced_z95.tab" />
         <option value="$PROJECT_DIR$/object/ship/shared_nebulon_frigate.tpf" />
         <option value="$PROJECT_DIR$/object/ship/shared_imperial_lancer.tpf" />
+        <option value="$PROJECT_DIR$/datatables/command/command_table.tab" />
+        <option value="$PROJECT_DIR$/datatables/skill/skills.tab" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="2050" />
-    <option name="y" value="28" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="3949" />
+    <option name="y" value="5" />
     <option name="width" value="1618" />
     <option name="height" value="1024" />
   </component>
@@ -177,13 +197,32 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="command" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="skill" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
@@ -220,8 +259,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -340,7 +377,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2050" y="28" width="1618" height="1024" extended-state="0" />
+    <frame x="3949" y="5" width="1618" height="1024" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -356,7 +393,6 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28901374" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -368,6 +404,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -378,34 +415,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/customization/asset_customization_manager.mif">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5780679">
-          <caret line="305" column="41" lean-forward="false" selection-start-line="305" selection-start-column="41" selection-end-line="305" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/customization/customization_data.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7255">
-          <caret line="14" column="74" lean-forward="false" selection-start-line="14" selection-start-column="74" selection-end-line="14" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/ship/crafted/chassis/shared_texture_kit_xwing_s07.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/customization/vehicle_customizations.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/customization/vehicle_appearances.tab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -585,7 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7769">
           <caret line="457" column="190" lean-forward="false" selection-start-line="457" selection-start-column="190" selection-end-line="457" selection-end-column="190" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -593,7 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4556">
           <caret line="268" column="61" lean-forward="false" selection-start-line="268" selection-start-column="61" selection-end-line="268" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -608,7 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -616,7 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -624,7 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -632,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -640,7 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="126" lean-forward="true" selection-start-line="3" selection-start-column="126" selection-end-line="3" selection-end-column="126" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -648,7 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="1048" column="19" lean-forward="false" selection-start-line="1048" selection-start-column="13" selection-end-line="1048" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -656,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="610">
           <caret line="632" column="15" lean-forward="false" selection-start-line="632" selection-start-column="0" selection-end-line="632" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="16" column="35" lean-forward="false" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -696,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-264">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -712,7 +709,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -720,7 +716,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -728,7 +723,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -736,7 +730,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,6 +744,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/command/command_table_ground.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/command/command_tables_shared.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/skill/skills.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10234">
+          <caret line="602" column="335" lean-forward="false" selection-start-line="602" selection-start-column="335" selection-end-line="602" selection-end-column="335" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/command/command_table.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="79" lean-forward="false" selection-start-line="9" selection-start-column="79" selection-end-line="9" selection-end-column="79" />
           <folding />
         </state>
       </provider>

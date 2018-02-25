@@ -113,11 +113,11 @@ public class battle_spawner extends script.base_class {
         getSettings();
         return SCRIPT_CONTINUE;
     }
-    public int startBattle(obj_id self, dictionary params) throws InterruptedException {
+    public int startSpaceGCWBattle(obj_id self, dictionary params) throws InterruptedException {
         // make sure we're not already having a battle
         if(!battleIsNotActive()) return SCRIPT_CONTINUE;
 
-        LOG("space_gcw", "In startBattle... beginning battle creation.");
+        LOG("space_gcw", "In startSpaceGCWBattle... beginning battle creation.");
         obj_id controller = params.getObjId("controller");
 
         int gameTime = getGameTime();
@@ -148,7 +148,7 @@ public class battle_spawner extends script.base_class {
         else{
             defendingShip = space_create.createShipHyperspace(REBEL_SHIP_TEMPLATE, defenseSpawnPoint);
         }
-        LOG("space_gcw", "In startBattle... just created defending ship(" + defendingShip + ").");
+        LOG("space_gcw", "In startSpaceGCWBattle... just created defending ship(" + defendingShip + ").");
         setObjVar(defendingShip, "role", "defense");
         setObjVar(defendingShip, "spawner", self);
         attachScript(defendingShip, "systems.gcw.space.capital_ship");
@@ -161,7 +161,7 @@ public class battle_spawner extends script.base_class {
 
         // spawn attacking capital ship
         if(debug) BATTLE_TIME_PREPATORY = 120.0f;
-        LOG("space_gcw", "In startBattle... starting battle in " + BATTLE_TIME_PREPATORY / 60.0f + " minutes.");
+        LOG("space_gcw", "In startSpaceGCWBattle... starting battle in " + BATTLE_TIME_PREPATORY / 60.0f + " minutes.");
         messageTo(self, "spawnAttack", params, BATTLE_TIME_PREPATORY, false);
 
         return SCRIPT_CONTINUE;
@@ -321,10 +321,10 @@ public class battle_spawner extends script.base_class {
             LOG("space_gcw", "In endBattle... reason - time ran out - making the attackers the losing side.");
             params.put("destroyedShip", params.getObjId("attackingShip"));
             params.put("losingFaction", params.getString("attackingFaction"));
-            params.put("role", "attack");
+            params.put("losingRole", "attack");
         }
         else{
-            LOG("space_gcw", "In endBattle... reason - " + params.getString("losingFaction") + " " + params.getString("role") + " capital ship destroyed.");
+            LOG("space_gcw", "In endBattle... reason - " + params.getString("losingFaction") + " " + params.getString("losingRole") + " capital ship destroyed.");
         }
         setObjVar(self, "last_battle_type", getObjVar(self, "battle_type"));
         distributeAwards(self, params);
@@ -608,7 +608,11 @@ public class battle_spawner extends script.base_class {
             destroyObjectHyperspace(attackingShip);
         }
 
+        // set obj vars on controller for next battle
         obj_id controller = params.getObjId("controller");
+        setObjVar(controller, "space_gcw." + self.toString() + ".lastWinningFaction", params.getString("losingFaction").equals("imperial") ? "rebel" : "imperial");
+        setObjVar(controller, "space_gcw." + self.toString() + ".lastDefendingFaction", params.getString("defendingFaction").equals("imperial") ? "imperial" : "rebel");
+        setObjVar(controller, "space_gcw." + self.toString() + ".lastWinningRole", params.getString("losingRole").equals("attack") ? "defense" : "attack");
 
         if(isValidId(defendingShip)){
             messageTo(self, "despawnDefendingShip", params, 60.0f, false);
@@ -620,10 +624,8 @@ public class battle_spawner extends script.base_class {
 
         // clean up objvars on self
         int lastRunTime = getIntObjVar(self, "last_battle_time");
-        boolean timerSet = getBooleanObjVar(self, "timer_set");
         removeAllObjVars(getSelf());
         setObjVar(self, "last_battle_time", lastRunTime);
-        setObjVar(self, "timer_set", timerSet);
         setObjVar(self, "controller", controller);
     }
 

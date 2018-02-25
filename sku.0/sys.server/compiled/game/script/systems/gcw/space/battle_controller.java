@@ -24,7 +24,7 @@ public class battle_controller extends script.base_script {
     // Configuration Array:
     // 1. Zone.
     // 2. Initial Battle Type.
-    public final String[][] BATTLE_SCENES = {
+    public static final String[][] BATTLE_SCENES = {
             {"space_tatooine", battle_spawner.BATTLE_TYPE_PVE},
             {"space_corellia", battle_spawner.BATTLE_TYPE_PVE},
             {"space_dantooine", battle_spawner.BATTLE_TYPE_PVP},
@@ -68,15 +68,48 @@ public class battle_controller extends script.base_script {
         messageTo(self, "checkBattleStatus", null, minutesToTopOfHour * 60.0f, false);
         return SCRIPT_CONTINUE;
     }
-    public int checkBattleStatus(obj_id self, dictionary params) throws InterruptedException{
+    private String craftPendingBattleMessage(String defendingFaction, String defendingShipType, String zone, String attackingFaction, int time){
+        return "The " + defendingFaction + " " + defendingShipType + " in the " + zone + " will be coming under attack from the " + attackingFaction + " capital ship in " + time + " minutes.";
+    }
+    private void handlePendingBattleWarning(obj_id spawner, String scene) {
+        int timeUntilBattle = timeUntilMessageTo(spawner, "startSpaceGCWBattle");
+
+        // if time until the next battle is between 15 minutes and 14 minutes, send system wide message.
+        if(timeUntilBattle > (15 * 60)){
+            return;
+        }
+
+        String msg = null;
+        obj_id controller = getSelf();
+        String defendingFaction = getStringObjVar(controller, "space_gcw." + spawner + ".lastDefendingFaction").equals("imperial") ? "Imperial" : "Rebel";
+        String attackingFaction = defendingFaction.equals("Imperial") ? "Rebel" : "Imperial";
+        String defendingShipType = "Capital Ship";
+
+        if(timeUntilBattle < (15 * 60) && timeUntilBattle >= (14 * 60)){
+            msg = craftPendingBattleMessage(defendingFaction, defendingShipType, scene, attackingFaction, 15);
+        }
+        // if time until the next battle is between 10 minutes and 9 minutes, send system wide message.
+        else if(timeUntilBattle < (10 * 60) && timeUntilBattle >= (9 * 60)){
+            msg = craftPendingBattleMessage(defendingFaction, defendingShipType, scene, attackingFaction, 10);
+        }
+        // if time until the next battle is between 15 minutes and 14 minutes, send system wide message.
+        else if(timeUntilBattle < (5 * 60) && timeUntilBattle >= (4 * 60)){
+            msg = craftPendingBattleMessage(defendingFaction, defendingShipType, scene, attackingFaction, 5);
+        }
+        if(msg != null) {
+            chatSendToRoom(getGameChatCode() + "." + getGalaxyName() + ".Pilot", msg, null);
+        }
+    }
+    public int checkBattleStatus(obj_id self, dictionary params) {
         LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is checking the battle status of all zones.");
         for(String[] scene : BATTLE_SCENES){
             obj_id spawner = getObjIdObjVar(self, "space_gcw." + scene[0] + ".spawner");
             if(spawner == null){
                 continue;
             }
-            if(getBooleanObjVar(spawner, "timer_set")){
+            if(hasMessageTo(spawner, "startSpaceGCWBattle")){
                 LOG("space_gcw", "battle_controller.checkBattleStatus: Scene " + scene[0] + " already has a timer set so skipping this zone.");
+                handlePendingBattleWarning(spawner, scene[0]);
                 continue;
             }
             boolean sceneEnabled = isSceneActive(scene[0]);
@@ -109,13 +142,12 @@ public class battle_controller extends script.base_script {
 
             if(secondsUntilNextBattle == 0){
                 LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is starting a " + scene[1]+ " battle in zone " + scene[0] + " for the first time.");
-                setObjVar(spawner, "timer_set", false);
             }
             else {
-                LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer is not starting a battle in zone " + scene[0] + " because it has " + String.format("%.2f", secondsUntilNextBattle / 60.0f) + " minutes until the next battle.");
-                setObjVar(spawner, "timer_set", true);
+                LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer is not starting a battle in zone " + scene[0] + " because it has " + String.format("%.0f", secondsUntilNextBattle / 60.0f) + " minutes until the next battle.");
             }
-            messageTo(spawner, "startBattle", battleDetails, secondsUntilNextBattle, false);
+
+            messageTo(spawner, "startSpaceGCWBattle", battleDetails, secondsUntilNextBattle, false);
         }
 
         LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object will check battle status again in 60 seconds.");
@@ -223,5 +255,55 @@ public class battle_controller extends script.base_script {
         if(nabooStagger < 0) nabooStagger = DEFAULT_NABOO_STAGGER;
         LOG("space_gcw", "battle_controller.getSettings: The space battle sequencer object has finished getting settings.");
 
+    }
+    /*
+     * Helper method for command:
+     *          /spaceBattleStatus <zone>
+     *
+     * Method to get the amount of time (in seconds) until the next scheduled battle.
+     * If no timer is present (i.e. battle is not scheduled) or the zone is not valid (no battle in the zone), a value of -1 will be returned.
+     * If the battle is currently active, a value of -2 will be returned.
+     *
+     * Otherwise, the remaning time until the start of the next battle (in seconds) will be returned.
+     */
+    public static int getTimeUntilNextBattleForZone(String zone){
+        obj_id controller = getPlanetByName("tatooine");
+        for (String[] scene : battle_controller.BATTLE_SCENES){
+            if(scene[0].equals(zone)){
+                obj_id spawner = getObjIdObjVar(controller, "space_gcw." + scene[0] + ".spawner");
+                LOG("space_gcw", "COMMAND: checking spawner " + spawner + " with controller " + controller + ".  Battle status: " + getIntObjVar(controller, "space_gcw." + spawner + ".active"));
+                if(getIntObjVar(controller, "space_gcw." + spawner + ".active") == 1){
+                    return -2;
+                }
+                else if(hasMessageTo(spawner, "startSpaceGCWBattle")) {
+                    LOG("space_gcw", "RESULT: " + timeUntilMessageTo(spawner, "startSpaceGCWBattle"));
+                    return timeUntilMessageTo(spawner, "startSpaceGCWBattle");
+                }
+                return -1;
+            }
+        }
+        return -1;
+    }
+    /*
+     * Helper method for command:
+     *          /spaceBattleStatus <zone>
+     *
+     * Method to get the last battle type (PvP or PvE) for the given zone.
+     *
+     */
+    public static String getLastBattleType(String zone){
+        obj_id controller = getPlanetByName("tatooine");
+        for (String[] scene : battle_controller.BATTLE_SCENES) {
+            if (scene[0].equals(zone)) {
+                obj_id spawner = getObjIdObjVar(controller, "space_gcw." + scene[0] + ".spawner");
+                if (hasObjVar(spawner, "last_battle_type")) {
+                    return getStringObjVar(spawner, "last_battle_type");
+                }
+                else if (scene[1].equals(battle_spawner.BATTLE_TYPE_PVE)) {
+                    return battle_spawner.BATTLE_TYPE_PVP;
+                }
+            }
+        }
+        return "";
     }
 }

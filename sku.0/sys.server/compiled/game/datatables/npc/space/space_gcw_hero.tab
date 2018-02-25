@@ -3,7 +3,7 @@ s	s	s	s	s	f	s
 darth_vader	object/mobile/darth_vader.iff	tieadvanced_tier10	ace_imperial_vader	space/taunts/ace_imp_vader.stf	1	imperial
 boba_fett	object/mobile/boba_fett.iff	firespray_tier10	ace_neutral_boba_fett	space/taunts/ace_neutral_boba.stf	1	neutral
 lando	object/mobile/lando.iff	yt1300_tier10	ace_neutral_lando	space/taunts/ace_neutral_lando.stf	3	neutral
-arhul_narra	object/mobile/arhul_narra.iff	xwing_tier_8	ace_rebel_arhul_narra	space/taunts/ace_reb_generic.stf	2	rebel
+arhul_narra	object/mobile/arhul_narra.iff	xwing_tier8	ace_rebel_arhul_narra	space/taunts/ace_reb_generic.stf	2	rebel
 maarek_stele	object/mobile/maarek_stele.iff	tieoppressor_tier9	ace_imperial_maarek_stele	space/taunts/ace_imp_generic.stf	1	imperial
 arvel_crynyd	object/mobile/arvel_crynyd.iff	awing_tier8	ace_rebel_arvel_crynyd	space/taunts/ace_reb_generic2.stf	3	rebel
 beedo	object/mobile/beedo.iff	dunelizard_s01_tier8	ace_neutral_beedo	space/taunts/ace_neutral_generic.stf	4	neutral
@@ -28,5 +28,5 @@ mara_jade	object/mobile/mara_jade.iff	tieadvanced_tier9	ace_imperial_mara_jade	s
 wedge_antilles	object/mobile/wedge_antilles.iff	xwing_tier10	ace_rebel_wedge	space/taunts/ace_reb_wedge.stf	4	rebel
 nym	object/mobile/nym.iff	havoc	ace_neutral_nym	space/taunts/ace_neutral_generic2.stf	3	neutral
 4lom	object/mobile/4lom.iff	droid_fighter_tier8	ace_neutral_4lom	space/taunts/ace_neutral_generic.stf	4	neutral
-luke_skywalker	object/mobile/luke_skywalker.iff	xwing_tier_10	ace_rebel_luke	space/taunts/ace_reb_luke.stf	4	rebel
+luke_skywalker	object/mobile/luke_skywalker.iff	xwing_tier10	ace_rebel_luke	space/taunts/ace_reb_luke.stf	4	rebel
 bossk	object/mobile/bossk.iff	scyk_s02_tier10	ace_neutral_bossk	space/taunts/ace_neutral_generic2.stf	2	neutral
