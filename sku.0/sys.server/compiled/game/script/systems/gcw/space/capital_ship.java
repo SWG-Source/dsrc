@@ -14,20 +14,21 @@ public class capital_ship extends script.space.combat.combat_space_base {
         }
         sendSystemMessageTestingOnly(attacker, "You hit the capital ship!");
         obj_id spawner = getObjIdObjVar(self, "spawner");
-        String battleType = getStringObjVar(spawner, "battleType");
+        String battleType = getStringObjVar(spawner, "battle_type");
+        String battleId = getStringObjVar(spawner, "battle_id");
         if(space_utils.isPobType(attacker)){
             if (battleType.equals(battle_spawner.BATTLE_TYPE_PVP)) {
                 if (!factions.isDeclared(getShipPilot(attacker)))
                     return SCRIPT_CONTINUE;
             }
-            setObjVar(spawner, "space_gcw.pob.participant." + attacker, space_utils.getAllPlayersInShip(attacker));
+            setObjVar(spawner, "space_gcw.pob.participant." + battleId + "." + attacker, space_utils.getAllPlayersInShip(attacker));
         }
         else if(getShipChassisType(attacker).startsWith("player_gunship")){
             if (battleType.equals(battle_spawner.BATTLE_TYPE_PVP)) {
                 if (!factions.isDeclared(getShipPilot(attacker)))
                     return SCRIPT_CONTINUE;
             }
-            setObjVar(spawner, "space_gcw.gunship.participant." + attacker, space_utils.getAllPlayersInShip(attacker));
+            setObjVar(spawner, "space_gcw.gunship.participant." + battleId + "." + attacker, space_utils.getAllPlayersInShip(attacker));
         }
         else {
             obj_id player = getShipPilot(attacker);
@@ -36,7 +37,7 @@ public class capital_ship extends script.space.combat.combat_space_base {
                 if (!factions.isDeclared(player))
                     return SCRIPT_CONTINUE;
             }
-            setObjVar(spawner, "space_gcw.participant." + getStringObjVar(self, "battle_id") + "." + player, "1");
+            setObjVar(spawner, "space_gcw.participant." + battleId + "." + player, "1");
         }
         return SCRIPT_CONTINUE;
     }

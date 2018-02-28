@@ -2675,80 +2675,73 @@ public class combat_ship_player extends script.base_script
     public int cmdBattleStatus(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         String[] args = params.split(" ");
-        int secondsUntilNextBattle;
         if(args.length > 1){
             sendSystemMessage(self, "Please specify only one space zone to provide status for.", null);
             return SCRIPT_CONTINUE;
         }
         else if(args.length == 1 && args[0].length() >= 3) {
-            String sys;
-            switch(args[0]){
-                case "tatooine":
-                    sys = "Tatoo";
-                    break;
-                case "corellia":
-                    sys = "Corellian";
-                    break;
-                case "dantooine":
-                    sys = "Dantooine";
-                case "lok":
-                    sys = "Karthakk";
-                case "naboo":
-                    sys = "Naboo";
-                    break;
-                default:
-                    sendSystemMessage(self, "No GCW Space Battles were identified for the zone you specified (" + args[0] + ").", null);
-                    return SCRIPT_CONTINUE;
-            }
-            String lastBattleType = battle_controller.getLastBattleType("space_" + args[0]);
-            secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone("space_" +  args[0]);
-            if(secondsUntilNextBattle == -1){
-                sendSystemMessage(self, "No GCW Space Battles were identified for the zone you specified.", null);
-                return SCRIPT_CONTINUE;
-            }
-            else if(secondsUntilNextBattle == -2){
-                sendSystemMessage(self, "There is currently a GCW Space Battle for " + Character.toUpperCase(args[0].charAt(0)) + args[0].substring(1) + " in progress,", null);
-            }
-            sendSystemMessage(self, "The next battle scheduled to take place in the " + sys + " System will start in " + getBattleTimeString(secondsUntilNextBattle), null);
-            if(lastBattleType.equals(battle_spawner.BATTLE_TYPE_PVE))
-                sendSystemMessage(self, "The battle wil require you to be Special Forces to participate", null);
+            sendSpaceBattleStatusMessage(self, args[0]);
         }
         else{
-            String scene = getCurrentSceneName();
-            String lastBattleType = battle_controller.getLastBattleType(scene);
-            secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone(scene);
-            String zone = scene.substring(6);
-
-            if(secondsUntilNextBattle == -1){
-                sendSystemMessage(self, "No GCW Space Battles were identified for the zone you specified.", null);
-                return SCRIPT_CONTINUE;
-            }
-            else if(secondsUntilNextBattle == -2){
-                sendSystemMessage(self, "There is currently a GCW Space Battle for " + Character.toUpperCase(zone.charAt(0)) + zone.substring(1) + " in progress,", null);
-                return SCRIPT_CONTINUE;
-            }
-            sendSystemMessage(self, "The next battle scheduled to take place in the " + Character.toUpperCase(zone.charAt(0)) + zone.substring(1) + " System will start in " + getBattleTimeString(secondsUntilNextBattle), null);
-            if(lastBattleType.equals(battle_spawner.BATTLE_TYPE_PVE))
-                sendSystemMessage(self, "The battle wil require you to be Special Forces to participate", null);
+            sendSpaceBattleStatusMessage(self, null);
         }
         return SCRIPT_CONTINUE;
+    }
+
+    private void sendSpaceBattleStatusMessage(obj_id self, String zone){
+        String scene = zone == null ? getCurrentSceneName() : "space_" + zone;
+
+        String lastBattleType = battle_controller.getLastBattleType(scene);
+        int secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone(scene);
+        String sys = getSpaceSystemName(scene.substring(6));
+
+        if(secondsUntilNextBattle == -1){
+            sendSystemMessage(self, "No GCW Space Battles were identified for the zone you specified.", null);
+            return;
+        }
+        else if(secondsUntilNextBattle == -2){
+            sendSystemMessage(self, "There is currently a GCW Space Battle for the " + sys + " System in progress,", null);
+            return;
+        }
+        sendSystemMessage(self, "The next battle scheduled to take place in the " + sys + " System will start in " + getBattleTimeString(secondsUntilNextBattle), null);
+        if(lastBattleType.equals(battle_spawner.BATTLE_TYPE_PVE))
+            sendSystemMessage(self, "The battle wil require you to be Special Forces to participate", null);
+    }
+
+    private String getSpaceSystemName(String zone) {
+        if(zone == null)
+            zone = getCurrentSceneName().substring(6);
+        switch(zone){
+            case "tatooine":
+                return "Tatoo";
+            case "corellia":
+                return "Corellian";
+            case "dantooine":
+                return "Dantooine";
+            case "lok":
+                return "Karthakk";
+            case "naboo":
+                return "Naboo";
+            default:
+                return null;
+        }
     }
 
     private String getBattleTimeString(int secondsUntilNextBattle){
         String timeString = secondsUntilNextBattle + " seconds";
         if(secondsUntilNextBattle > 59){
-            double seconds = secondsUntilNextBattle % 60;
-            double minutes = (secondsUntilNextBattle / 60) % 60;
-            double hours = Math.floor(secondsUntilNextBattle / 60 / 60);
-            timeString = hours > 0 ? new Double(hours).intValue() + " hours" : "";
-            if(minutes > 0 || seconds > 0){
+            int seconds = new Double(secondsUntilNextBattle % 60).intValue();
+            int minutes = new Double((secondsUntilNextBattle / 60) % 60).intValue();
+            int hours = new Double(Math.floor(secondsUntilNextBattle / 60 / 60)).intValue();
+            timeString = hours > 0 ? hours + " hours" : "";
+            if(minutes > 0 && seconds > 0){
                 timeString += ", ";
             }
             else if(minutes > 0 && seconds == 0){
                 timeString += " and ";
             }
-            timeString += minutes > 0 ? new Double(minutes).intValue() + " minutes" : "";
-            timeString += seconds > 0 ? " and " + new Double(seconds).intValue() +  " seconds" : "";
+            timeString += (minutes > 0 ? new Double(minutes).intValue() + " minutes" : "");
+            timeString += (seconds > 0 ? " and " + new Double(seconds).intValue() +  " seconds" : "");
         }
         return timeString + ".";
     }

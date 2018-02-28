@@ -3,10 +3,7 @@ package script.systems.gcw.space;
 import script.*;
 import script.library.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 public class battle_spawner extends script.base_class {
     private static final boolean debug = true;
@@ -101,11 +98,12 @@ public class battle_spawner extends script.base_class {
 
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "registerWithController", null, 5.0f, false);
+        messageTo(self, "registerWithController", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int registerWithController(obj_id self, dictionary params) throws InterruptedException {
         obj_id controller = getPlanetByName("tatooine");
+        removeObjVar(controller, "space_gcw");
         if(!hasScript(controller, CONTROLLER_SCRIPT)) attachScript(controller, CONTROLLER_SCRIPT);
         location battleLocation = getLocation(self);
         setObjVar(self, "controller", controller);
@@ -346,27 +344,23 @@ public class battle_spawner extends script.base_class {
         String shipType;
         String attackingFaction = !shipWasDefending ? losingFaction : winningFaction;
         switch (shipTemplate) {
-            case IMPERIAL_SHIP_TEMPLATE:
-                shipType = "Imperial capital ship";
+            case "object/ship/imperial_lancer.iff":
+            case "object/ship/nebulon_frigate.iff":
+                shipType = " capital ship";
                 break;
-            case REBEL_SHIP_TEMPLATE:
-                shipType = "Rebel capital ship";
-                break;
-            case IMPERIAL_STATION_TEMPLATE:
-                shipType = "Imperial Space Station";
-                break;
-            case REBEL_STATION_TEMPLATE:
-                shipType = "Rebel Space Station";
+            case "object/ship/spacestation_imperial.iff":
+            case "object/ship/spacestation_rebel.iff":
+                shipType = " Space Station";
                 break;
             default:
-                shipType = "Hulking Behemoth";
+                shipType = " Hulking Behemoth";
         }
 
         // keep track of players already awarded.
         List<obj_id> pointAwardedPlayers = new ArrayList<>();
 
         // get all single-member participants in this battle.
-        obj_var_list participants = getObjVarList(controller, "space_gcw.participant." + battleId);
+        obj_var_list participants = getObjVarList(self, "space_gcw.participant." + battleId);
         if(participants == null || participants.getNumItems() == 0){
             LOG("space_gcw", "In distributeAwards... no participants were found for battle " + battleId);
             return;
@@ -424,6 +418,7 @@ public class battle_spawner extends script.base_class {
         );
     }
     public List<obj_id> processMultiPassengerShip(obj_var_list qualifiedShips, int playerCeiling, obj_id self, List<obj_id> pointAwardedPlayers, String attackingFaction, boolean imperialsWon, String shipType, String battleType, String battleId) throws InterruptedException{
+        if(qualifiedShips == null || qualifiedShips.getNumItems() == 0) return Collections.EMPTY_LIST;
         int numQualifiedShips = qualifiedShips.getNumItems();
 
         // iterate through all qualified ships
@@ -460,16 +455,24 @@ public class battle_spawner extends script.base_class {
     public void handlePlayerAwards(obj_id player, String attackingFaction, boolean imperialsWon, String shipType, String battleType, String battleId, float pointAdjustmentValue) throws InterruptedException {
         LOG("space_gcw", "In handlePlayerAwards... now awarding GCW points.");
         boolean playerIsImperial = factions.isImperial(player);
-        boolean playerWasAttacking = playerIsImperial && attackingFaction.equals("Imperial");
+        boolean playerWasAttacking = (playerIsImperial && attackingFaction.equals("Imperial")) || (!playerIsImperial && attackingFaction.equals("Rebel"));
         boolean playerWon = (playerIsImperial && imperialsWon) ||
                 (!playerIsImperial && !imperialsWon);
 
         // distribute points to player
+        int awardedPoints = new Float(calculateAwardedPoints(playerWon, battleType) * pointAdjustmentValue).intValue();
+        LOG("space_gcw", "In handlePlayerAwards... giving " + awardedPoints + " GCW points to player \"" + getPlayerName(player) + "\" (" + player + ").");
         gcw.grantModifiedGcwPoints(
                 player,
-                new Float(calculateAwardedPoints(playerWon, battleType) * pointAdjustmentValue).intValue(),
+                awardedPoints,
                 battleType.equals(BATTLE_TYPE_PVP) ? gcw.GCW_POINT_TYPE_SPACE_PVP : gcw.GCW_POINT_TYPE_SPACE_PVE,
                 battleId
+        );
+
+        int awardedTokens = calculateAwardedTokens(
+                playerWon,
+                battleType,
+                playerIsImperial ? "Imperial" : "Rebel"
         );
 
         // tell player they've won/lost
@@ -478,24 +481,36 @@ public class battle_spawner extends script.base_class {
                 constructFinishedBattleMessage(
                         playerWasAttacking,
                         playerWon,
+                        imperialsWon ? "Imperial" : "Rebel",
+                        imperialsWon ? "Rebel" : "Imperial",
                         shipType,
                         attackingFaction,
                         playerIsImperial ? "Imperial" : "Rebel",
-                        calculateAwardedTokens(
-                                playerWon,
-                                battleType,
-                                playerIsImperial ? "Imperial" : "Rebel"
-                        )
+                        awardedTokens
                 ),
                 null
         );
 
+
         LOG("space_gcw", "In handlePlayerAwards... now giving out coins to players.");
         // distribute tokens to player
-
+        if(awardGcwTokens(player, awardedTokens, playerIsImperial ? "imperial" : "rebel")) {
+            LOG("space_gcw", "In handlePlayerAwards... giving " + awardedTokens + " " + (playerIsImperial ? "Imperial" : "Rebel") + " space gcw tokens to player \"" + getPlayerName(player) + "\" (" + player + ").");
+        }
+        else{
+            LOG("space_gcw", "In handlePlayerAwards... unable to reward player \"" + getPlayerName(player) + "\" (" + player + ") any space GCW tokens!");
+        }
 
     }
-    public String constructFinishedBattleMessage(boolean playerWasAttacking, boolean playerWon, String shipType, String attackingFaction, String tokenFaction, int tokenReward) {
+    public boolean awardGcwTokens(obj_id player, int quantity, String factionType) throws InterruptedException{
+        obj_id inventory = getObjectInSlot(player, "inventory");
+        if (isIdValid(inventory)) {
+            obj_id givenItem = static_item.createNewItemFunction("item_" + factionType + "_station_token_01_01", inventory, quantity);
+            return isValidId(givenItem);
+        }
+        return false;
+    }
+    public String constructFinishedBattleMessage(boolean playerWasAttacking, boolean playerWon, String winningFaction, String losingFaction, String shipType, String attackingFaction, String tokenFaction, int tokenReward) {
         // the following messages are for the capital ship battles only.
         // imperial defense win:  "You have succesfully helped defend the Imperial capital ship from the Rebel attack force."
         // rebel defense win: "You have successfully helped defend the Rebel capital ship from the Imperial attack force."
@@ -518,7 +533,8 @@ public class battle_spawner extends script.base_class {
 
         StringBuilder msg = new StringBuilder(playerWon ? "You have successfully" : "You have failed");
         msg.append(playerWasAttacking ? (playerWon ? " aided in destroying the " : " to destroy the ") : (playerWon ? " helped defend the " : " to defend the "));
-        msg.append(shipType);
+        msg.append(playerWasAttacking ? (playerWon ? losingFaction : winningFaction) : (playerWon ? winningFaction : losingFaction))
+                .append(shipType);
         msg.append(!playerWasAttacking ? " from the " + attackingFaction + " attack force" : "");
         msg.append(". ");
         if(tokenReward > 0) {
@@ -624,7 +640,7 @@ public class battle_spawner extends script.base_class {
 
         // clean up objvars on self
         int lastRunTime = getIntObjVar(self, "last_battle_time");
-        removeAllObjVars(getSelf());
+        removeAllObjVars(self);
         setObjVar(self, "last_battle_time", lastRunTime);
         setObjVar(self, "controller", controller);
     }

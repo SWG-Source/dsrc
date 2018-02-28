@@ -31,16 +31,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shared_corvette.tpf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/object/ship/shared_corvette.tpf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="shared_nebulon_frigate.tpf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/object/ship/shared_nebulon_frigate.tpf">
           <provider selected="true" editor-type-id="text-editor">
@@ -176,9 +166,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="3949" />
-    <option name="y" value="5" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4003" />
+    <option name="y" value="38" />
     <option name="width" value="1618" />
     <option name="height" value="1024" />
   </component>
@@ -377,7 +367,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3949" y="5" width="1618" height="1024" extended-state="1" />
+    <frame x="4003" y="38" width="1618" height="1024" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />

@@ -10,7 +10,7 @@ import script.string_id;
 
 import java.util.Vector;
 
-public class hero_ship extends combat_ship {
+public class hero_ship extends support_ship {
     private static final String HERO_PILOT_DATA = "datatables/npc/space/space_gcw_hero.iff";
     private final int TAUNT_QUANTITY = 5;
     private final String DESPAWN_TAUNT = "despawn";
@@ -21,14 +21,13 @@ public class hero_ship extends combat_ship {
 
     @Override
     public int OnAttach(obj_id self) throws InterruptedException {
-        super.OnAttach(self);
         return SCRIPT_CONTINUE;
     }
 
     @Override
     public int OnShipWasHit(obj_id self, obj_id attacker, int weaponIndex, boolean isMissile, int missileType, int intSlot, boolean fromPlayerAutoTurret, float hitLocationX_o, float hitLocationY_o, float hitLocationZ_o) throws InterruptedException {
         if(!isValidId(attacker) || !space_utils.isPlayerControlledShip(attacker)){
-            return super.OnShipWasHit(self, attacker, weaponIndex, isMissile, missileType, intSlot, fromPlayerAutoTurret, hitLocationX_o, hitLocationY_o, hitLocationZ_o);
+            return SCRIPT_CONTINUE;
         }
             // get this ship's pilot information
         dictionary pilotData = getPilotRow(getStringObjVar(self, "ace_name"));
@@ -60,7 +59,7 @@ public class hero_ship extends combat_ship {
             }
         }
 
-        return super.OnShipWasHit(self, attacker, weaponIndex, isMissile, missileType, intSlot, fromPlayerAutoTurret, hitLocationX_o, hitLocationY_o, hitLocationZ_o);
+        return SCRIPT_CONTINUE;
     }
 
     private int getPilotRowIndex(String hero_name){

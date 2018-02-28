@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java" line="2697" />
+    <bookmark url="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java" line="2747" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57902b84-2a13-42eb-8e1e-94f513be1a6d" name="Default" comment="">
@@ -1146,7 +1146,6 @@
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/buildout/areas_dungeon1.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/buildout/areas_dungeon1.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/buildout/areas_naboo.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/buildout/areas_naboo.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/command/command_table.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/command/command_table.tab" />
-      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/command/command_table_space.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/command/command_table_space.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/crafting/schematic_group.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/crafting/schematic_group.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/skill/skills.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/skill/skills.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/space/ship_chassis.tab" />
@@ -1446,8 +1445,18 @@
       <file leaf-file-name="battle_spawner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="614" column="155" lean-forward="true" selection-start-line="614" selection-start-column="155" selection-end-line="614" selection-end-column="155" />
+            <state relative-caret-position="879">
+              <caret line="545" column="66" lean-forward="true" selection-start-line="545" selection-start-column="66" selection-end-line="545" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hero_ship.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -1456,8 +1465,38 @@
       <file leaf-file-name="support_ship.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
+            <state relative-caret-position="-138">
+              <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="combat_ship.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="386" column="29" lean-forward="false" selection-start-line="386" selection-start-column="29" selection-end-line="386" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="combat_ship_player.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="729">
+              <caret line="2743" column="102" lean-forward="true" selection-start-line="2743" selection-start-column="102" selection-end-line="2743" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="space_combat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/library/space_combat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1212">
+              <caret line="563" column="40" lean-forward="true" selection-start-line="563" selection-start-column="40" selection-end-line="563" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -1466,8 +1505,8 @@
       <file leaf-file-name="battle_controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3756">
-              <caret line="64" column="31" lean-forward="true" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+            <state relative-caret-position="-3742">
+              <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -1477,32 +1516,10 @@
         <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="663">
-              <caret line="44" column="57" lean-forward="false" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
+              <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="combat_ship_player.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="2749" column="89" lean-forward="false" selection-start-line="2749" selection-start-column="89" selection-end-line="2749" selection-end-column="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imperial_lancer.tab" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/imperial_lancer.tab">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1518,36 +1535,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>== 1</find>
-      <find>&quot;controller&quot;</find>
-      <find>.active</find>
-      <find>last_battle_time</find>
-      <find>/pvp</find>
-      <find>cmdSpaceFaction</find>
-      <find>getMessageListeners</find>
-      <find>startBattle</find>
-      <find>&quot;startBattle&quot;</find>
-      <find>&quot;start</find>
-      <find>&quot;msgShuttleTakeOff&quot;</find>
-      <find>spaceimperialhelper</find>
-      <find>getPlanetByName</find>
-      <find>arhul_narra</find>
-      <find>soontir_fel</find>
-      <find>xwing_tier_8</find>
-      <find>xwing_tier_10</find>
-      <find>tier_</find>
-      <find>fireRocketLauncher</find>
-      <find>devastation</find>
-      <find>timerSet</find>
-      <find>timer_set</find>
-      <find>chat.*gcw</find>
       <find>&quot;.gcw</find>
       <find>imperial_announcement</find>
       <find>send</find>
       <find>sendSystemMessage</find>
       <find>gcw_announcement_invasion_almost_lost_imperial_tatooine_bestine</find>
       <find>stringsBestine.txt</find>
+      <find>spacestation</find>
+      <find>spacestation_rebel</find>
       <find>&quot;role&quot;</find>
+      <find>water_pressure.lights</find>
+      <find>getObjVarList</find>
+      <find>armor_special_protection</find>
+      <find>crafting_components_internal</find>
+      <find>crafting_components_internal.</find>
+      <find>getTemplateName</find>
+      <find>obj_id inv</find>
+      <find>createNewItemFunction</find>
+      <find>sendPlacedInInventorySystemMessage</find>
+      <find>item_schematic_gcw2_survey_tool_all</find>
+      <find>item_rebel_station_token_01_01</find>
+      <find>token</find>
+      <find>item_token_duty_space_01_01</find>
+      <find>objectDestroyed</find>
+      <find>sendDestructionNotification</find>
+      <find>&quot;attacker&quot;</find>
+      <find>&quot;objWinner&quot;</find>
+      <find>.keys(</find>
+      <find>objAttacker</find>
+      <find>super</find>
+      <find>the next battle</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -1580,7 +1597,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/object/tangible/wearables/helmet/helmet_fighter_imperial_ace_craft.tpf" />
         <option value="$PROJECT_DIR$/script/conversation/rebel_space_gcw_vendor.java" />
         <option value="$PROJECT_DIR$/script/conversation/imperial_space_gcw_vendor.java" />
         <option value="$PROJECT_DIR$/object/tangible/wearables/jacket/jacket_ace_imperial_craft.tpf" />
@@ -1621,20 +1637,21 @@
         <option value="$PROJECT_DIR$/script/library/respec.java" />
         <option value="$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab" />
         <option value="$PROJECT_DIR$/object/tangible/space/content_infrastructure/space_gcw_battle_point.tpf" />
-        <option value="$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java" />
         <option value="$PROJECT_DIR$/object/ship/nebulon_frigate.tpf" />
         <option value="$PROJECT_DIR$/datatables/space_mobile/space_mobile.tab" />
-        <option value="$PROJECT_DIR$/script/systems/gcw/space/support_ship.java" />
-        <option value="$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java" />
         <option value="$PROJECT_DIR$/datatables/npc/space/space_gcw_hero.tab" />
         <option value="$PROJECT_DIR$/script/base_class.java" />
-        <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java" />
         <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java" />
+        <option value="$PROJECT_DIR$/script/theme_park/meatlump/hideout/meatlump_king.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/support_ship.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java" />
         <option value="$PROJECT_DIR$/script/space/combat/combat_ship_player.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1920" />
     <option name="width" value="1920" />
     <option name="height" value="1080" />
@@ -1668,20 +1685,13 @@
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="object" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
-              <item name="systems" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="script" type="462c0819:PsiDirectoryNode" />
-              <item name="systems" type="462c0819:PsiDirectoryNode" />
-              <item name="gcw" type="462c0819:PsiDirectoryNode" />
+              <item name="object" type="462c0819:PsiDirectoryNode" />
+              <item name="ship" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1965,7 +1975,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1973,7 +1983,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4067971" sideWeight="0.54359245" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4067971" sideWeight="0.5456933" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1981,7 +1991,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4067971" sideWeight="0.45640758" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4067971" sideWeight="0.45430672" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2014,76 +2024,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/datatables/spawning/clone_relic/ep3_restuss_starport.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="65" lean-forward="false" selection-start-line="1" selection-start-column="65" selection-end-line="1" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/ship/krayt_tier7.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/ship/imperial_lancer.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/item/component/serialize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="30" lean-forward="false" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible_object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/ship_object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39189">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/ship/nebulon_frigate.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_yavin4.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="162" column="25" lean-forward="false" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/ship/ship_start_locations.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="55" column="26" lean-forward="false" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/object/ship/corvette.tpf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -2140,13 +2080,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/space_content/spacestations.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datatables/space_content/battlefields/entry_stations.tab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2193,13 +2126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="415" lean-forward="false" selection-start-line="6" selection-start-column="415" selection-end-line="6" selection-end-column="415" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/library/space_combat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4106" column="23" lean-forward="false" selection-start-line="4106" selection-start-column="23" selection-end-line="4106" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -2271,6 +2197,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="34" column="86" lean-forward="false" selection-start-line="34" selection-start-column="86" selection-end-line="34" selection-end-column="86" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2278,16 +2205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="52" lean-forward="false" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="44" column="57" lean-forward="false" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2316,6 +2233,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="3895" column="24" lean-forward="false" selection-start-line="3895" selection-start-column="24" selection-end-line="3895" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2323,21 +2241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3100">
           <caret line="150" column="23" lean-forward="false" selection-start-line="150" selection-start-column="23" selection-end-line="150" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="55" column="12" lean-forward="false" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/base_class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="5278" column="32" lean-forward="false" selection-start-line="5278" selection-start-column="32" selection-end-line="5278" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -2358,29 +2261,149 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_content/spacestations.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/theme_park/dungeon/death_watch_bunker/water_pressure_master.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="57" column="63" lean-forward="false" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/base_class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="2098" column="31" lean-forward="false" selection-start-line="2098" selection-start-column="31" selection-end-line="2098" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/crafting/armor/component/crafting_armor_component_attribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="49" column="134" lean-forward="false" selection-start-line="49" selection-start-column="110" selection-end-line="49" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/crafting/crafting_base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="135" column="44" lean-forward="false" selection-start-line="135" selection-start-column="44" selection-end-line="135" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/theme_park/meatlump/hideout/meatlump_king.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="122" column="95" lean-forward="false" selection-start-line="122" selection-start-column="85" selection-end-line="122" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/item/master_item/master_item.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="8174" column="167" lean-forward="true" selection-start-line="8174" selection-start-column="167" selection-end-line="8174" selection-end-column="167" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="579" column="19" lean-forward="false" selection-start-line="579" selection-start-column="19" selection-end-line="579" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/library/craftinglib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/library/utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="2894" column="26" lean-forward="false" selection-start-line="2894" selection-start-column="26" selection-end-line="2894" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3756">
-          <caret line="64" column="31" lean-forward="true" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+        <state relative-caret-position="-3742">
+          <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/library/space_combat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1212">
+          <caret line="563" column="40" lean-forward="true" selection-start-line="563" selection-start-column="40" selection-end-line="563" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="386" column="29" lean-forward="false" selection-start-line="386" selection-start-column="29" selection-end-line="386" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138">
+          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="614" column="155" lean-forward="true" selection-start-line="614" selection-start-column="155" selection-end-line="614" selection-end-column="155" />
+        <state relative-caret-position="879">
+          <caret line="545" column="66" lean-forward="true" selection-start-line="545" selection-start-column="66" selection-end-line="545" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="2749" column="89" lean-forward="false" selection-start-line="2749" selection-start-column="89" selection-end-line="2749" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="729">
+          <caret line="2743" column="102" lean-forward="true" selection-start-line="2743" selection-start-column="102" selection-end-line="2743" selection-end-column="102" />
+          <folding />
         </state>
       </provider>
     </entry>
