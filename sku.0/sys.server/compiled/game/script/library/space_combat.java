@@ -3440,6 +3440,12 @@ public class space_combat extends script.base_script
             dictionary dctParams = new dictionary();
             space_utils.notifyObject(objDefender, "OnHullNearlyDestroyed", dctParams);
         }
+        if(fltChassisHitPoints <= fltDamage && hasScript(objDefender, "systems.gcw.space.hero_ship")){
+            dictionary params = new dictionary();
+            params.put("attacker", objAttacker);
+            space_utils.notifyObject(objDefender, "OnAboutToBeDestroyed", params);
+            return 0;
+        }
         fltChassisHitPoints = fltChassisHitPoints - fltDamage;
         doInteriorDamageNotification(objDefender, space_combat.CHASSIS, fltMaximumChassisHitPoints, fltChassisHitPoints);
         if ((fltChassisHitPoints + fltDamage) > 0.0f && fltMaximumChassisHitPoints > 0.0f)

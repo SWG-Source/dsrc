@@ -72,6 +72,8 @@ public class capital_ship extends script.space.combat.combat_space_base {
             )
         );
 
+        setObjVar(self, "supportCraft", spawnedShips);
+
         // create a new ship
         setObjVar(self, "supportCraft", battle_spawner.spawnSupportShips(self));
         return SCRIPT_CONTINUE;

@@ -1,5 +1,7 @@
 package script.systems.gcw.space;
 
+import script.library.prose;
+import script.library.space_quest;
 import script.library.space_utils;
 import script.library.utils;
 import script.obj_id;
@@ -17,7 +19,7 @@ public class hero_ship extends support_ship {
     private final String ENTER_COMBAT_TAUNT = "entercombat";
     private final String GOT_HIT_TAUNT = "gothit";
     private final String HIT_YOU_TAUNT = "hityou";
-    private final String VANQUISH_TAUNT = "vanquish";
+    private final String VANQUISH_TAUNT = "vanquished";
 
     @Override
     public int OnAttach(obj_id self) throws InterruptedException {
@@ -33,31 +35,40 @@ public class hero_ship extends support_ship {
         dictionary pilotData = getPilotRow(getStringObjVar(self, "ace_name"));
 
         // check if this is a new attacker - if so, add it to the list of attackers.
-        boolean newAttacker = !getAttackers().contains(attacker);
-        if(newAttacker){
+        Vector attackers = getAttackers();
+        boolean newAttacker = false;
+        if(attackers != null){
+            newAttacker = !attackers.contains(attacker);
+        }
+        if(attackers == null || newAttacker){
             addAttacker(attacker);
         }
-
-        // check to see if our ship is about to be destroyed... if so, protect it and handle accordingly.
-        float hitpoints = getShipCurrentChassisHitPoints(self);
-        if(hitpoints < 2000) {
-            setInvulnerable(self, true);
-            obj_id motherShip = getObjIdObjVar(self, "motherShip");
-            dictionary params = new dictionary();
-            params.put("destroyedShip", self);
-            handleTauntVanquished(attacker, pilotData);
-            pilotData.put("attacker", attacker);
-            messageTo(self, "handleDespawn", pilotData, 10.0f, false);
-            messageTo(motherShip, "removeSupportShip", params, 0.0f, false);
+        if(newAttacker){
+            handleTauntNewAttacker(attacker, pilotData);
         }
         else{
-            if(newAttacker){
-                handleTauntNewAttacker(attacker, pilotData);
-            }
-            else{
-                handleTauntKnownAttacker(attacker, pilotData);
-            }
+            handleTauntKnownAttacker(attacker, pilotData);
         }
+
+        return SCRIPT_CONTINUE;
+    }
+    public int OnAboutToBeDestroyed(obj_id self, dictionary params) throws InterruptedException
+    {
+        dictionary pilotData = getPilotRow(getStringObjVar(self, "ace_name"));
+
+        // make the ship immune to damage.
+        setObjVar(self, "intNoPlayerDamage", 1);
+
+        obj_id motherShip = getObjIdObjVar(self, "motherShip");
+        obj_id attacker = params.getObjId("attacker");
+
+        params.put("destroyedShip", self);
+        pilotData.put("attacker", attacker);
+
+        handleTauntVanquished(attacker, pilotData);
+
+        messageTo(self, "handleDespawn", pilotData, 10.0f, false);
+        messageTo(motherShip, "removeSupportShip", params, 0.0f, false);
 
         return SCRIPT_CONTINUE;
     }
@@ -74,13 +85,14 @@ public class hero_ship extends support_ship {
         return dataTableGetRow(HERO_PILOT_DATA, getPilotRowIndex(hero_name));
     }
 
-    private Vector<obj_id> getAttackers(){
+    private Vector getAttackers(){
         return getResizeableObjIdArrayObjVar(getSelf(), "attackers");
     }
 
     private void addAttacker(obj_id attacker){
         // get all current attackers and add the supplied attacker.
-        Vector<obj_id> attackers = getAttackers();
+        Vector attackers = getAttackers();
+        if(attackers == null) attackers = new Vector();
         attackers.add(attacker);
         setObjVar(getSelf(), "attackers", attackers);
     }
@@ -134,8 +146,13 @@ public class hero_ship extends support_ship {
 
         setObjVar(self, "convo.appearance", pilotData.getString("hero_template"));
 
+        obj_id objOwner = getOwner(attacker);
+
         // taunt the player
-        space_utils.tauntPlayer(attacker, self, strSpam);
+        prose_package pp = prose.getPackage(strSpam, 0);
+        pp.actor.set(objOwner);
+        pp.target.set(objOwner);
+        space_utils.tauntShip(attacker, self, pp, true, false, true, true);
 
         // save the taunt time to make sure we can reference when we last taunted (don't need to taunt toooooo much!)
         utils.setLocalVar(self, "lastTauntTime", getGameTime());

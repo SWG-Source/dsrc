@@ -16,7 +16,7 @@ public class battle_spawner extends script.base_class {
     public static float BATTLE_TIME_PREPATORY = 900.0f;  // 900 == 15 minutes
     public static float BATTLE_TIME_LENGTH = 180.0f;  // 3600 == 60 minutes
     public static float MAX_SUPPORT_CRAFT = 30;
-    public static final float HERO_SPAWN_CHANCE = 0.05f;  // 0.20f == 20% chance a hero will spawn
+    public static final double HERO_SPAWN_CHANCE = 0.05d;  // 0.20f == 20% chance a hero will spawn
     public static final float DEFAULT_PVP_POINT_MULTIPLIER = 2.0f;
     public static final float DEFAULT_PVE_POINT_MULTIPLIER = 1.0f;
     public static final float DEFAULT_PVP_TOKEN_MULTIPLIER = 2.0f;
