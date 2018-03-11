@@ -2692,6 +2692,7 @@ public class combat_ship_player extends script.base_script
         String scene = zone == null ? getCurrentSceneName() : "space_" + zone;
 
         String lastBattleType = battle_controller.getLastBattleType(scene);
+        String currentBattleType = battle_controller.getCurrentBattleType(scene);
         int secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone(scene);
         String sys = getSpaceSystemName(scene.substring(6));
 
@@ -2700,12 +2701,12 @@ public class combat_ship_player extends script.base_script
             return;
         }
         else if(secondsUntilNextBattle == -2){
-            sendSystemMessage(self, "There is currently a GCW Space Battle for the " + sys + " System in progress,", null);
+            sendSystemMessage(self, "There is currently a GCW Space Battle for the " + sys + " System in progress.", null);
             return;
         }
         sendSystemMessage(self, "The next battle scheduled to take place in the " + sys + " System will start in " + getBattleTimeString(secondsUntilNextBattle), null);
-        if(lastBattleType.equals(battle_spawner.BATTLE_TYPE_PVE))
-            sendSystemMessage(self, "The battle wil require you to be Special Forces to participate", null);
+        if(lastBattleType.equals(battle_spawner.BATTLE_TYPE_PVE) || currentBattleType.equals(battle_spawner.BATTLE_TYPE_PVP))
+            sendSystemMessage(self, "The battle will require you to be Special Forces to participate", null);
     }
 
     private String getSpaceSystemName(String zone) {

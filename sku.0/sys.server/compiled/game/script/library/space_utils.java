@@ -720,6 +720,7 @@ public class space_utils extends script.base_script
         if (crew != null)
         {
             _crew = new obj_id[crew.size()];
+            crew.toArray(_crew);
         }
         return _crew;
     }

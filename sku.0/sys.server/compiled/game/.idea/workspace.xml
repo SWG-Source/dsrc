@@ -1,59 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java" line="2747" />
+    <bookmark url="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java" line="2748" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57902b84-2a13-42eb-8e1e-94f513be1a6d" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/arhul_narra.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/arvel_crynyd.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/beedo.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/chiraneau.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/cive_rashon.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/dengar.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/derek_klivian.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/ds1814.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/guri.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/iran_ryad.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/jan_ors.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/keyan_farlander.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/lando.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/maarek_stele.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/pash_cracken.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/soontir_fel.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/tarrin_datch.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/turr_phennir.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/tyber_zann.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/tycho_celchu.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/vindoo_barvel.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/object/mobile/zardra.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_arhul_narra.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_arvel_crynyd.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_beedo.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_chiraneau.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_cive_rashon.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dengar.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_derek_klivian.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_ds1814.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_guri.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_iran_ryad.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_jan_ors.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_keyan_farlander.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_lando.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_maarek_stele.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_pash_cracken.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_soontir_fel.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tarrin_datch.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_turr_phennir.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tyber_zann.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tycho_celchu.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_vindoo_barvel.tpf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_zardra.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../../include/Tag.h" afterPath="$PROJECT_DIR$/../../../../include/Tag.h" />
-      <change beforePath="$PROJECT_DIR$/../.idea/compiled.iml" afterPath="$PROJECT_DIR$/../.idea/compiled.iml" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" afterPath="$PROJECT_DIR$/../.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" afterPath="$PROJECT_DIR$/../.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
@@ -504,6 +456,10 @@
       <change beforePath="$PROJECT_DIR$/datatables/ship/shiptype.tab" afterPath="$PROJECT_DIR$/datatables/ship/shiptype.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/space_combat/ship_droid_assignments.tab" afterPath="$PROJECT_DIR$/datatables/space_combat/ship_droid_assignments.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/space_crafting/chassis_npc.tab" afterPath="$PROJECT_DIR$/datatables/space_crafting/chassis_npc.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/space_zones/buildout/space_corellia.tab" afterPath="$PROJECT_DIR$/datatables/space_zones/buildout/space_corellia.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/space_zones/buildout/space_dantooine.tab" afterPath="$PROJECT_DIR$/datatables/space_zones/buildout/space_dantooine.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/space_zones/buildout/space_lok.tab" afterPath="$PROJECT_DIR$/datatables/space_zones/buildout/space_lok.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/space_zones/buildout/space_naboo.tab" afterPath="$PROJECT_DIR$/datatables/space_zones/buildout/space_naboo.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab" afterPath="$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/space_zones/launch_locations.tab" afterPath="$PROJECT_DIR$/datatables/space_zones/launch_locations.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spacequest/delivery_no_pickup/tatooine_imperial_tier4_2_c.tab" afterPath="$PROJECT_DIR$/datatables/spacequest/delivery_no_pickup/tatooine_imperial_tier4_2_c.tab" />
@@ -585,10 +541,17 @@
       <change beforePath="$PROJECT_DIR$/object/intangible/ship/twing_pcd.tpf" afterPath="$PROJECT_DIR$/object/intangible/ship/twing_pcd.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mission/base_mission_data.tpf" afterPath="$PROJECT_DIR$/object/mission/base_mission_data.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mission/mission_list_entry_object.tpf" afterPath="$PROJECT_DIR$/object/mission/mission_list_entry_object.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/arhul_narra.tpf" afterPath="$PROJECT_DIR$/object/mobile/arhul_narra.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/arvel_crynyd.tpf" afterPath="$PROJECT_DIR$/object/mobile/arvel_crynyd.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/beedo.tpf" afterPath="$PROJECT_DIR$/object/mobile/beedo.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/chiraneau.tpf" afterPath="$PROJECT_DIR$/object/mobile/chiraneau.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/cive_rashon.tpf" afterPath="$PROJECT_DIR$/object/mobile/cive_rashon.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/coa_colonel_braedic_ekirk.tpf" afterPath="$PROJECT_DIR$/object/mobile/coa_colonel_braedic_ekirk.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/coa_dathnaeya_loessin.tpf" afterPath="$PROJECT_DIR$/object/mobile/coa_dathnaeya_loessin.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/coa_mark_hieks.tpf" afterPath="$PROJECT_DIR$/object/mobile/coa_mark_hieks.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/coa_syirlabradawk.tpf" afterPath="$PROJECT_DIR$/object/mobile/coa_syirlabradawk.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/dengar.tpf" afterPath="$PROJECT_DIR$/object/mobile/dengar.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/derek_klivian.tpf" afterPath="$PROJECT_DIR$/object/mobile/derek_klivian.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/dressed_diax.tpf" afterPath="$PROJECT_DIR$/object/mobile/dressed_diax.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/dressed_fath_hray.tpf" afterPath="$PROJECT_DIR$/object/mobile/dressed_fath_hray.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/dressed_kais.tpf" afterPath="$PROJECT_DIR$/object/mobile/dressed_kais.tpf" />
@@ -596,7 +559,16 @@
       <change beforePath="$PROJECT_DIR$/object/mobile/dressed_tatooine_pfilbee_jhorn.tpf" afterPath="$PROJECT_DIR$/object/mobile/dressed_tatooine_pfilbee_jhorn.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/dressed_tatooine_rakir_banai.tpf" afterPath="$PROJECT_DIR$/object/mobile/dressed_tatooine_rakir_banai.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/dressed_tatooine_vardias_tyne.tpf" afterPath="$PROJECT_DIR$/object/mobile/dressed_tatooine_vardias_tyne.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/ds1814.tpf" afterPath="$PROJECT_DIR$/object/mobile/ds1814.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/ep3/ep3_dr_price.tpf" afterPath="$PROJECT_DIR$/object/mobile/ep3/ep3_dr_price.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/guri.tpf" afterPath="$PROJECT_DIR$/object/mobile/guri.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/iran_ryad.tpf" afterPath="$PROJECT_DIR$/object/mobile/iran_ryad.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/jan_ors.tpf" afterPath="$PROJECT_DIR$/object/mobile/jan_ors.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/keyan_farlander.tpf" afterPath="$PROJECT_DIR$/object/mobile/keyan_farlander.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/lando.tpf" afterPath="$PROJECT_DIR$/object/mobile/lando.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/maarek_stele.tpf" afterPath="$PROJECT_DIR$/object/mobile/maarek_stele.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/pash_cracken.tpf" afterPath="$PROJECT_DIR$/object/mobile/pash_cracken.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/soontir_fel.tpf" afterPath="$PROJECT_DIR$/object/mobile/soontir_fel.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_colonel_braedic_ekirk.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_colonel_braedic_ekirk.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_dathnaeya_loessin.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_dathnaeya_loessin.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_galiir_ac_yandar.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_galiir_ac_yandar.tpf" />
@@ -604,6 +576,12 @@
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_syirlabradawk.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_syirlabradawk.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_trezya_nenei.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_trezya_nenei.tpf" />
       <change beforePath="$PROJECT_DIR$/object/mobile/talus_npc/coa_vayde_quellium.tpf" afterPath="$PROJECT_DIR$/object/mobile/talus_npc/coa_vayde_quellium.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/tarrin_datch.tpf" afterPath="$PROJECT_DIR$/object/mobile/tarrin_datch.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/turr_phennir.tpf" afterPath="$PROJECT_DIR$/object/mobile/turr_phennir.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/tyber_zann.tpf" afterPath="$PROJECT_DIR$/object/mobile/tyber_zann.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/tycho_celchu.tpf" afterPath="$PROJECT_DIR$/object/mobile/tycho_celchu.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/vindoo_barvel.tpf" afterPath="$PROJECT_DIR$/object/mobile/vindoo_barvel.tpf" />
+      <change beforePath="$PROJECT_DIR$/object/mobile/zardra.tpf" afterPath="$PROJECT_DIR$/object/mobile/zardra.tpf" />
       <change beforePath="$PROJECT_DIR$/object/ship/havoc.tpf" afterPath="$PROJECT_DIR$/object/ship/havoc.tpf" />
       <change beforePath="$PROJECT_DIR$/object/ship/nebulon_frigate.tpf" afterPath="$PROJECT_DIR$/object/ship/nebulon_frigate.tpf" />
       <change beforePath="$PROJECT_DIR$/object/ship/player/player_blacksun_vaksai.tpf" afterPath="$PROJECT_DIR$/object/ship/player/player_blacksun_vaksai.tpf" />
@@ -1181,9 +1159,6 @@
       <change beforePath="$PROJECT_DIR$/script/theme_park/tatooine/jabbaspawner/masterspawner.java" afterPath="$PROJECT_DIR$/script/theme_park/tatooine/jabbaspawner/masterspawner.java" />
       <change beforePath="$PROJECT_DIR$/script/theme_park/tatooine/jabbaspawner/oola.java" afterPath="$PROJECT_DIR$/script/theme_park/tatooine/jabbaspawner/oola.java" />
       <change beforePath="$PROJECT_DIR$/script/theme_park/tatooine/mos_eisley/masterspawner.java" afterPath="$PROJECT_DIR$/script/theme_park/tatooine/mos_eisley/masterspawner.java" />
-      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/game.iml" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/game.iml" />
-      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/modules.xml" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/abstract/slot/descriptor/ship_havoc.mif" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/abstract/slot/descriptor/ship_havoc.mif" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/appearance/appearance_table.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/appearance/appearance_table.tab" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/appearance/door_style.tab" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/datatables/appearance/door_style.tab" />
@@ -1293,10 +1268,17 @@
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_twing_pcd.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/intangible/ship/shared_twing_pcd.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mission/shared_mission_data_object.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mission/shared_mission_data_object.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mission/shared_mission_list_entry_object.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mission/shared_mission_list_entry_object.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_arhul_narra.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_arhul_narra.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_arvel_crynyd.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_arvel_crynyd.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_beedo.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_beedo.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_chiraneau.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_chiraneau.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_cive_rashon.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_cive_rashon.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_colonel_braedic_ekirk.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_colonel_braedic_ekirk.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_dathnaeya_loessin.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_dathnaeya_loessin.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_mark_hieks.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_mark_hieks.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_syirlabradawk.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_coa_syirlabradawk.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dengar.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dengar.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_derek_klivian.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_derek_klivian.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_aujante_klee.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_aujante_klee.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_baritha.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_baritha.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_diax.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_diax.tpf" />
@@ -1310,10 +1292,25 @@
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_vinzel_haylon.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_vinzel_haylon.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_wallaw_loowobbli.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_wallaw_loowobbli.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_xarot_korlin.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_dressed_xarot_korlin.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_ds1814.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_ds1814.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_guri.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_guri.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_iran_ryad.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_iran_ryad.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_jan_ors.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_jan_ors.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_keyan_farlander.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_keyan_farlander.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_lando.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_lando.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_maarek_stele.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_maarek_stele.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_mara_jade.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_mara_jade.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_npc_dressed_corellia_slavemaster.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_npc_dressed_corellia_slavemaster.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_pash_cracken.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_pash_cracken.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_soontir_fel.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_soontir_fel.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tarrin_datch.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tarrin_datch.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_turr_phennir.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_turr_phennir.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tyber_zann.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tyber_zann.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tycho_celchu.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_tycho_celchu.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_vehicular_prototype.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_vehicular_prototype.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_vehicular_prototype_bike.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_vehicular_prototype_bike.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_vindoo_barvel.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_vindoo_barvel.tpf" />
+      <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_zardra.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/shared_zardra.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/skeleton/shared_bm_mobile.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/skeleton/shared_bm_mobile.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/talus_npc/shared_coa_dathnaeya_loessin.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/talus_npc/shared_coa_dathnaeya_loessin.tpf" />
       <change beforePath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/talus_npc/shared_coa_galiir_ac_yandar.tpf" afterPath="$PROJECT_DIR$/../../../sys.shared/compiled/game/object/mobile/talus_npc/shared_coa_galiir_ac_yandar.tpf" />
@@ -1482,26 +1479,6 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="space_gcw_hero.tab" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/datatables/npc/space/space_gcw_hero.tab">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="459">
-                    <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="14" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="game" />
   </component>
@@ -1510,33 +1487,98 @@
       <file leaf-file-name="battle_spawner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="233" column="42" lean-forward="false" selection-start-line="233" selection-start-column="25" selection-end-line="233" selection-end-column="42" />
+            <state relative-caret-position="321">
+              <caret line="202" column="59" lean-forward="true" selection-start-line="202" selection-start-column="59" selection-end-line="202" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hero_ship.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java">
+      <file leaf-file-name="support_ship.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="146" column="42" lean-forward="false" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="42" />
-              <folding>
-                <element signature="e#3158#3159#0" expanded="true" />
-                <element signature="e#3234#3235#0" expanded="true" />
-                <element signature="e#3604#3605#0" expanded="true" />
-                <element signature="e#3660#3661#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="28" column="69" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="capital_ship.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java">
+      <file leaf-file-name="battle_controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="74" column="40" lean-forward="false" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+            <state relative-caret-position="271">
+              <caret line="26" column="52" lean-forward="true" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="space_tatooine.tab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="639" column="148" lean-forward="false" selection-start-line="639" selection-start-column="144" selection-end-line="639" selection-end-column="148" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="space_naboo.tab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_naboo.tab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="602">
+              <caret line="1145" column="164" lean-forward="false" selection-start-line="1145" selection-start-column="164" selection-end-line="1145" selection-end-column="164" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="space_lok.tab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_lok.tab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="602">
+              <caret line="683" column="165" lean-forward="false" selection-start-line="683" selection-start-column="165" selection-end-line="683" selection-end-column="165" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="space_dantooine.tab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_dantooine.tab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="602">
+              <caret line="1408" column="165" lean-forward="false" selection-start-line="1408" selection-start-column="165" selection-end-line="1408" selection-end-column="165" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="space_corellia.tab" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_corellia.tab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="619">
+              <caret line="598" column="0" lean-forward="true" selection-start-line="598" selection-start-column="0" selection-end-line="598" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="space_combat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/library/space_combat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="601" column="36" lean-forward="false" selection-start-line="601" selection-start-column="29" selection-end-line="601" selection-end-column="79" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="combat_ship.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="158" column="128" lean-forward="true" selection-start-line="158" selection-start-column="127" selection-end-line="158" selection-end-column="128" />
               <folding />
             </state>
           </provider>
@@ -1553,36 +1595,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getAttackers</find>
-      <find>tauntPlayer</find>
-      <find>dogfightTauntPlayer</find>
-      <find>.stf</find>
-      <find>taunt</find>
-      <find>convo.appearance</find>
-      <find>shield</find>
-      <find>onShipHit</find>
+      <find>squad_blacksun_tier4_patrol_02</find>
+      <find>squad_blacksun_tier4_patrol_03</find>
+      <find>blacksun_.*tier4</find>
+      <find>rebel_spacestation</find>
+      <find>spacestation_rebel</find>
+      <find>getShipShieldHitpoints</find>
+      <find>combat_ship</find>
+      <find>OnShipHit</find>
+      <find>setShipSlotTargetable</find>
+      <find>turret</find>
+      <find>imperial_lancer</find>
+      <find>losingRole</find>
+      <find>defendingFaction</find>
+      <find>defendingFaction&quot;</find>
+      <find>getObjIdArrayData</find>
+      <find>getAllPlayersInShip</find>
+      <find>hasScript</find>
+      <find>OnShipWas</find>
+      <find>LOITER</find>
+      <find>patrolRandomPath</find>
+      <find>station</find>
+      <find>debug</find>
+      <find>hasMessageTo</find>
+      <find>rebelhelper</find>
+      <find>&quot;attackingFaction&quot;</find>
+      <find>capital</find>
+      <find>spacebattlestatus</find>
+      <find>dec</find>
       <find>OnShipWasHit</find>
-      <find>manufacture</find>
-      <find>getConfigSetting</find>
-      <find>ConfigSetting</find>
-      <find>getConfig</find>
-      <find>doChassisDamage</find>
-      <find>objAttacker</find>
-      <find>OnHullNearlyDestroyed</find>
-      <find>hullComplain</find>
-      <find>%TU</find>
-      <find>.actor.set</find>
-      <find>entercombat&quot;</find>
-      <find>OnSpaceUnitEnterCombat</find>
-      <find>invulnerable</find>
-      <find>invuln</find>
-      <find>setCondition(ship,</find>
-      <find>setInvulnerable</find>
-      <find>armorDepleted</find>
-      <find>&quot;convo.appearance&quot;</find>
-      <find>rescueAppearance</find>
-      <find>SCOT</find>
-      <find>spawnSupportShips</find>
+      <find>battle_spawner</find>
     </findStrings>
     <replaceStrings>
       <replace>imperial_space_gcw</replace>
@@ -1601,9 +1643,9 @@
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\script\npe</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\object\weapon\melee</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\script</dir>
-      <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\datatables</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\script\</dir>
       <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\script\space</dir>
+      <dir>Z:\swg-main\dsrc\sku.0\sys.server\compiled\game\datatables</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -1617,32 +1659,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/object/tangible/ship/crafted/weapon/wpn_borstel_experimental.tpf" />
-        <option value="$PROJECT_DIR$/object/draft_schematic/space/armor/adv_mandal_armor_plating.tpf" />
-        <option value="$PROJECT_DIR$/object/draft_schematic/space/reactor/fusion_reactor_mandal.tpf" />
-        <option value="$PROJECT_DIR$/object/draft_schematic/space/weapon/wpn_borstel_experimental.tpf" />
-        <option value="$PROJECT_DIR$/object/draft_schematic/space/engine/eng_reward_experimental.tpf" />
-        <option value="$PROJECT_DIR$/script/library/space_utils.java" />
-        <option value="$PROJECT_DIR$/script/space/crafting/chassis_deed.java" />
-        <option value="$PROJECT_DIR$/datatables/ship/balance_space_crafted.pl" />
         <option value="$PROJECT_DIR$/datatables/ship/components/armor.tab" />
         <option value="$PROJECT_DIR$/datatables/ship/components/engine.tab" />
         <option value="$PROJECT_DIR$/datatables/commodity/ship_certification_attribute.tab" />
         <option value="$PROJECT_DIR$/object/tangible/ship/components/armor/arm_adv_mandal_armor_plating.tpf" />
         <option value="$PROJECT_DIR$/script/library/respec.java" />
-        <option value="$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab" />
         <option value="$PROJECT_DIR$/object/tangible/space/content_infrastructure/space_gcw_battle_point.tpf" />
         <option value="$PROJECT_DIR$/object/ship/nebulon_frigate.tpf" />
         <option value="$PROJECT_DIR$/datatables/space_mobile/space_mobile.tab" />
         <option value="$PROJECT_DIR$/script/base_class.java" />
-        <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java" />
         <option value="$PROJECT_DIR$/script/theme_park/meatlump/hideout/meatlump_king.java" />
-        <option value="$PROJECT_DIR$/script/systems/gcw/space/support_ship.java" />
-        <option value="$PROJECT_DIR$/script/space/combat/combat_ship_player.java" />
-        <option value="$PROJECT_DIR$/script/space/combat/combat_ship.java" />
-        <option value="$PROJECT_DIR$/script/library/space_combat.java" />
         <option value="$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java" />
-        <option value="$PROJECT_DIR$/datatables/npc/space/space_gcw_hero.tab" />
         <option value="$PROJECT_DIR$/object/mobile/lando.tpf" />
         <option value="$PROJECT_DIR$/object/mobile/arhul_narra.tpf" />
         <option value="$PROJECT_DIR$/object/mobile/maarek_stele.tpf" />
@@ -1666,8 +1693,23 @@
         <option value="$PROJECT_DIR$/object/mobile/vindoo_barvel.tpf" />
         <option value="$PROJECT_DIR$/object/mobile/zardra.tpf" />
         <option value="$PROJECT_DIR$/object/mobile/ace_mara_jade.tpf" />
-        <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java" />
+        <option value="$PROJECT_DIR$/datatables/npc/space/space_gcw_hero.tab" />
+        <option value="$PROJECT_DIR$/datatables/space_combat/turret_definitions/imperial_lancer.tab" />
+        <option value="$PROJECT_DIR$/datatables/space_combat/turret_definitions/nebulon_frigate.tab" />
+        <option value="$PROJECT_DIR$/script/library/space_combat.java" />
+        <option value="$PROJECT_DIR$/script/space/combat/combat_ship_capital.java" />
+        <option value="$PROJECT_DIR$/script/library/space_utils.java" />
         <option value="$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/support_ship.java" />
+        <option value="$PROJECT_DIR$/script/space/combat/combat_ship_player.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java" />
+        <option value="$PROJECT_DIR$/script/space/combat/combat_ship.java" />
+        <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java" />
+        <option value="$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab" />
+        <option value="$PROJECT_DIR$/datatables/space_zones/buildout/space_naboo.tab" />
+        <option value="$PROJECT_DIR$/datatables/space_zones/buildout/space_lok.tab" />
+        <option value="$PROJECT_DIR$/datatables/space_zones/buildout/space_dantooine.tab" />
+        <option value="$PROJECT_DIR$/datatables/space_zones/buildout/space_corellia.tab" />
       </list>
     </option>
   </component>
@@ -1705,13 +1747,31 @@
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="mobile" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="space_zones" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="space_zones" type="462c0819:PsiDirectoryNode" />
+              <item name="buildout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="game" type="b2602c69:ProjectViewProjectNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+              <item name="systems" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2003,7 +2063,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4067971" sideWeight="0.5456933" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23171988" sideWeight="0.5456933" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -2011,7 +2071,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4067971" sideWeight="0.45430672" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23171988" sideWeight="0.45430672" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2044,238 +2104,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3742">
-          <caret line="64" column="31" lean-forward="false" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/darth_vader.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/structure/manufacture/manufacture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="231" column="53" lean-forward="false" selection-start-line="231" selection-start-column="53" selection-end-line="231" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="1241" column="29" lean-forward="false" selection-start-line="1241" selection-start-column="29" selection-end-line="1241" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-359">
-          <caret line="13" column="55" lean-forward="false" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/prose_package.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-612">
-          <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/conversation/chassis_npc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="195" column="46" lean-forward="false" selection-start-line="195" selection-start-column="46" selection-end-line="195" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/conversation/naboo_privateer_trainer_3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="556" column="41" lean-forward="false" selection-start-line="556" selection-start-column="41" selection-end-line="556" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/conversation/tatooine_privateer_trainer_2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="724" column="37" lean-forward="true" selection-start-line="724" selection-start-column="37" selection-end-line="724" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/library/space_combat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="4039" column="88" lean-forward="false" selection-start-line="4039" selection-start-column="88" selection-end-line="4039" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/tatooine.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="37" column="176" lean-forward="false" selection-start-line="37" selection-start-column="176" selection-end-line="37" selection-end-column="176" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/base_class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="10716" column="30" lean-forward="false" selection-start-line="10716" selection-start-column="30" selection-end-line="10716" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="2743" column="102" lean-forward="false" selection-start-line="2743" selection-start-column="102" selection-end-line="2743" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="154" column="46" lean-forward="false" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script/space/quest_logic/rescue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="176" column="74" lean-forward="false" selection-start-line="176" selection-start-column="56" selection-end-line="176" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/nova_orion_pilot_f_01.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/nova_orion_jonas_nova.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/creature_object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/cell_object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/static_object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible_object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/token_object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/object_template.tdf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/lando.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="33" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/arhul_narra.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/maarek_stele.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="51" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/arvel_crynyd.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/beedo.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/mobile/chiraneau.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="48" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/object/mobile/dengar.tpf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -2380,14 +2208,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/datatables/npc/space/space_gcw_hero.tab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/object/mobile/zardra.tpf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -2420,14 +2240,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Math.java">
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_endor.tab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="771" column="25" lean-forward="false" selection-start-line="771" selection-start-column="25" selection-end-line="771" selection-end-column="25" />
-          <folding>
-            <element signature="e#32010#32011#0" expanded="true" />
-            <element signature="e#32095#32096#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1195">
+          <caret line="306" column="389" lean-forward="false" selection-start-line="306" selection-start-column="389" selection-end-line="306" selection-end-column="389" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_content/spawners/squads.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="182" column="30" lean-forward="false" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/npc/space/space_gcw_hero.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="52" lean-forward="false" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_space_base.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2436,26 +2277,248 @@
         <state relative-caret-position="681">
           <caret line="146" column="42" lean-forward="false" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="42" />
           <folding>
-            <element signature="e#3158#3159#0" expanded="true" />
-            <element signature="e#3234#3235#0" expanded="true" />
-            <element signature="e#3604#3605#0" expanded="true" />
-            <element signature="e#3660#3661#0" expanded="true" />
+            <element signature="e#3158#3159#0" expanded="false" />
+            <element signature="e#3234#3235#0" expanded="false" />
+            <element signature="e#3604#3605#0" expanded="false" />
+            <element signature="e#3660#3661#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java">
+    <entry file="file://$PROJECT_DIR$/script/space/ai/space_ai.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="233" column="42" lean-forward="false" selection-start-line="233" selection-start-column="25" selection-end-line="233" selection-end-column="42" />
+        <state relative-caret-position="182">
+          <caret line="33" column="15" lean-forward="false" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/rebel_spacestation.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="41" lean-forward="true" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/nebulon_frigate.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="145" lean-forward="true" selection-start-line="2" selection-start-column="145" selection-end-line="2" selection-end-column="145" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_combat/turret_definitions/imperial_lancer.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="177" lean-forward="true" selection-start-line="0" selection-start-column="177" selection-end-line="0" selection-end-column="177" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/ship/cap_ship_turret_spawner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="45" lean-forward="false" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_capital.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/library/gcw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="1640" column="32" lean-forward="false" selection-start-line="1640" selection-start-column="32" selection-end-line="1640" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/conversation/station_heroic_star_destroyer_hangar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="47" column="51" lean-forward="false" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/base_class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="23267" column="25" lean-forward="false" selection-start-line="23267" selection-start-column="25" selection-end-line="23267" selection-end-column="25" />
+          <folding>
+            <element signature="e#1035123#1035124#0" expanded="false" />
+            <element signature="e#1035200#1035201#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="771" column="25" lean-forward="false" selection-start-line="771" selection-start-column="25" selection-end-line="771" selection-end-column="25" />
+          <folding>
+            <element signature="e#32010#32011#0" expanded="false" />
+            <element signature="e#32095#32096#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/content_tools/spawner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="396" column="87" lean-forward="true" selection-start-line="393" selection-start-column="9" selection-end-line="399" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/library/space_utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="715" column="17" lean-forward="true" selection-start-line="715" selection-start-column="17" selection-end-line="715" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/library/factions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="367" column="26" lean-forward="false" selection-start-line="367" selection-start-column="26" selection-end-line="367" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/gcw_entertainer_faction_quest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/gcw_city.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-748">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/capital_ship.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="74" column="40" lean-forward="false" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+        <state relative-caret-position="323">
+          <caret line="37" column="64" lean-forward="false" selection-start-line="37" selection-start-column="64" selection-end-line="37" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship_player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="2694" column="67" lean-forward="false" selection-start-line="2694" selection-start-column="67" selection-end-line="2694" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/library/space_combat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="601" column="36" lean-forward="false" selection-start-line="601" selection-start-column="29" selection-end-line="601" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="28" column="69" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/space/combat/combat_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="158" column="128" lean-forward="true" selection-start-line="158" selection-start-column="127" selection-end-line="158" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_spawner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="202" column="59" lean-forward="true" selection-start-line="202" selection-start-column="59" selection-end-line="202" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/launch_locations.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/battlefield_zones.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="26" column="52" lean-forward="true" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_tatooine.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="639" column="148" lean-forward="false" selection-start-line="639" selection-start-column="144" selection-end-line="639" selection-end-column="148" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_naboo.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="1145" column="164" lean-forward="false" selection-start-line="1145" selection-start-column="164" selection-end-line="1145" selection-end-column="164" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_lok.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="683" column="165" lean-forward="false" selection-start-line="683" selection-start-column="165" selection-end-line="683" selection-end-column="165" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_dantooine.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="1408" column="165" lean-forward="false" selection-start-line="1408" selection-start-column="165" selection-end-line="1408" selection-end-column="165" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datatables/space_zones/buildout/space_corellia.tab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="598" column="0" lean-forward="true" selection-start-line="598" selection-start-column="0" selection-end-line="598" selection-end-column="0" />
           <folding />
         </state>
       </provider>

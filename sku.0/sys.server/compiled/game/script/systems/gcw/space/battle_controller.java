@@ -129,11 +129,15 @@ public class battle_controller extends script.base_script {
 
             dictionary battleDetails = new dictionary();
             String battleType = getStringObjVar(self, "space_gcw." + spawner + ".lastBattleType");
-            if(battleType != null && battleType.equals(battle_spawner.BATTLE_TYPE_PVE)) {
-                battleType = battle_spawner.BATTLE_TYPE_PVP;
+            if(battleType != null) {
+                if (battleType.equals(battle_spawner.BATTLE_TYPE_PVE)) {
+                    battleType = battle_spawner.BATTLE_TYPE_PVP;
+                } else {
+                    battleType = battle_spawner.BATTLE_TYPE_PVE;
+                }
             }
-            else {
-                battleType = battle_spawner.BATTLE_TYPE_PVE;
+            else{
+                battleType = scene[1];
             }
             battleDetails.put("battle_type", battleType);
             battleDetails.put("controller", self);
@@ -141,7 +145,7 @@ public class battle_controller extends script.base_script {
             setObjVar(self, "space_gcw." + spawner + ".lastBattleType", battleType);
 
             if(secondsUntilNextBattle == 0){
-                LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is starting a " + scene[1]+ " battle in zone " + scene[0] + " for the first time.");
+                LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is starting a " + scene[1] + " battle in zone " + scene[0] + " for the first time.");
             }
             else {
                 LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer is not starting a battle in zone " + scene[0] + " because it has " + String.format("%.0f", secondsUntilNextBattle / 60.0f) + " minutes until the next battle.");
@@ -300,6 +304,31 @@ public class battle_controller extends script.base_script {
                     return getStringObjVar(spawner, "last_battle_type");
                 }
                 else if (scene[1].equals(battle_spawner.BATTLE_TYPE_PVE)) {
+                    return battle_spawner.BATTLE_TYPE_PVP;
+                }
+            }
+        }
+        return "";
+    }
+    /*
+     * Helper method for command:
+     *          /spaceBattleStatus <zone>
+     *
+     * Method to get the current battle type (PvP or PvE) for the given zone.
+     *
+     */
+    public static String getCurrentBattleType(String zone){
+        obj_id controller = getPlanetByName("tatooine");
+        for (String[] scene : battle_controller.BATTLE_SCENES) {
+            if (scene[0].equals(zone)) {
+                obj_id spawner = getObjIdObjVar(controller, "space_gcw." + scene[0] + ".spawner");
+                if (hasObjVar(spawner, "battle_type")) {
+                    return getStringObjVar(spawner, "battle_type");
+                }
+                else if (scene[1].equals(battle_spawner.BATTLE_TYPE_PVE)) {
+                    return battle_spawner.BATTLE_TYPE_PVE;
+                }
+                else {
                     return battle_spawner.BATTLE_TYPE_PVP;
                 }
             }

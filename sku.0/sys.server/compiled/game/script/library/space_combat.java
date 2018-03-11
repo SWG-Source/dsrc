@@ -4122,13 +4122,14 @@ public class space_combat extends script.base_script
         float[] fltRefire = dataTableGetFloatColumn(strFileName, "fltRefire");
         float[] fltDrain = dataTableGetFloatColumn(strFileName, "fltDrain");
         float[] fltShieldEfficiency = dataTableGetFloatColumn(strFileName, "fltShieldEfficiency");
+        boolean targetable = !strDefinition.equals("imperial_lancer") && !strDefinition.equals("nebulon_frigate");
         for (int intI = 0; intI < strSlots.length; intI++)
         {
             if (intComponents[intI] != 0)
             {
                 int intSlot = space_crafting.getComponentSlotInt(strSlots[intI]);
                 if (shipPseudoInstallComponent(objShip, intSlot, intComponents[intI])) {
-                    setShipSlotTargetable(objShip, intSlot, true);
+                    setShipSlotTargetable(objShip, intSlot, targetable);
                     setShipComponentArmorHitpointsMaximum(objShip, intSlot, fltArmorHitpoints[intI]);
                     setShipComponentArmorHitpointsCurrent(objShip, intSlot, fltArmorHitpoints[intI]);
                     setShipComponentHitpointsMaximum(objShip, intSlot, fltComponentHitpoints[intI]);

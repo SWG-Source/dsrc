@@ -156,6 +156,9 @@ public class combat_ship extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+        if(hasObjVar(self, "intPvPDamageOnly") && space_utils.isPlayerControlledShip(objAttacker) && !(pvpGetType(objAttacker) == PVPTYPE_DECLARED)){
+            return SCRIPT_CONTINUE;
+        }
         if (!isShipSlotTargetable(self, intTargetedComponent))
         {
             intTargetedComponent = space_combat.SHIP;
@@ -228,6 +231,10 @@ public class combat_ship extends script.base_script
             fltRemainingDamage = space_combat.doArmorDamage(objAttacker, self, intWeaponSlot, fltRemainingDamage, intSide);
             if (fltRemainingDamage > 0)
             {
+                // this case prevents a player from doing component or chassis damage during a space GCW fight.
+                if(space_utils.isPlayerControlledShip(objAttacker) && hasScript(self, "systems.gcw.space.capital_ship")){
+                    return SCRIPT_CONTINUE;
+                }
                 if (bossShip && !utils.hasScriptVar(self, "armorDepleted"))
                 {
                     messageTo(self, "armorDepleted", null, 0f, false);

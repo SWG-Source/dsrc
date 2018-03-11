@@ -19,9 +19,9 @@ keyan_farlander	object/mobile/keyan_farlander.iff	xwing_tier9	ace_rebel_keyan_fa
 pash_cracken	object/mobile/pash_cracken.iff	awing_tier9	ace_rebel_pash_cracken	space/taunts/ace_reb_generic2	3	rebel
 soontir_fel	object/mobile/soontir_fel.iff	tieinterceptor_tier9	ace_imperial_soontir_fel	space/taunts/ace_imp_fel	3	imperial
 tarrin_datch	object/mobile/tarrin_datch.iff	xwing_tier9	ace_rebel_tarrin_datch	space/taunts/ace_reb_generic	3	rebel
-turr_phennir	object/mobile/turr_phennir.iff	tiefighter_tier8	ace_imperial_turr_phennir	space/taunts/ace_imp_generic2	2	imperial
+turr_phennir	object/mobile/turr_phennir.iff	tieaggressor_tier8	ace_imperial_turr_phennir	space/taunts/ace_imp_generic2	2	imperial
 tyber_zann	object/mobile/tyber_zann.iff	kimogilla_s02_tier9	ace_neutral_tyber_zann	space/taunts/ace_neutral_generic2	2	neutral
-tycho_celchu	object/mobile/tycho_celchu.iff	awing_tier9	ace_rebel_tycho_celchu	space/taunts/ace_reb_generic2	2	rebel
+tycho_celchu	object/mobile/tycho_celchu.iff	xwing_tier8	ace_rebel_tycho_celchu	space/taunts/ace_reb_generic2	2	rebel
 vindoo_barvel	object/mobile/vindoo_barvel.iff	tiefighter_tier8	ace_imperial_vindoo_barvel	space/taunts/ace_imp_generic2	2	imperial
 zardra	object/mobile/zardra.iff	dunelizard_s02_tier9	ace_neutral_zardra	space/taunts/ace_neutral_generic	2	neutral
 mara_jade	object/mobile/mara_jade.iff	tieadvanced_tier9	ace_imperial_mara_jade	space/taunts/ace_imp_marajade	3	imperial

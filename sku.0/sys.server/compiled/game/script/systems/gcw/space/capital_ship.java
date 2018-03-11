@@ -2,6 +2,7 @@ package script.systems.gcw.space;
 
 import script.dictionary;
 import script.library.factions;
+import script.library.space_crafting;
 import script.library.space_utils;
 import script.obj_id;
 
@@ -12,20 +13,20 @@ public class capital_ship extends script.space.combat.combat_space_base {
         if(!space_utils.isPlayerControlledShip(attacker) || getShipFaction(attacker).equals(getShipFaction(self))) {
             return SCRIPT_CONTINUE;
         }
-        sendSystemMessageTestingOnly(attacker, "You hit the capital ship!");
         obj_id spawner = getObjIdObjVar(self, "spawner");
         String battleType = getStringObjVar(spawner, "battle_type");
         String battleId = getStringObjVar(spawner, "battle_id");
-        if(space_utils.isPobType(attacker)){
+        boolean isGunship = getShipChassisType(attacker).startsWith("player_gunship");
+        if(!isGunship && space_utils.isPobType(attacker)){
             if (battleType.equals(battle_spawner.BATTLE_TYPE_PVP)) {
-                if (!factions.isDeclared(getShipPilot(attacker)))
+                if (!(pvpGetType(attacker) == PVPTYPE_DECLARED))
                     return SCRIPT_CONTINUE;
             }
             setObjVar(spawner, "space_gcw.pob.participant." + battleId + "." + attacker, space_utils.getAllPlayersInShip(attacker));
         }
-        else if(getShipChassisType(attacker).startsWith("player_gunship")){
+        else if(isGunship){
             if (battleType.equals(battle_spawner.BATTLE_TYPE_PVP)) {
-                if (!factions.isDeclared(getShipPilot(attacker)))
+                if (!(pvpGetType(attacker) == PVPTYPE_DECLARED))
                     return SCRIPT_CONTINUE;
             }
             setObjVar(spawner, "space_gcw.gunship.participant." + battleId + "." + attacker, space_utils.getAllPlayersInShip(attacker));
@@ -34,10 +35,10 @@ public class capital_ship extends script.space.combat.combat_space_base {
             obj_id player = getShipPilot(attacker);
 
             if (battleType.equals(battle_spawner.BATTLE_TYPE_PVP)) {
-                if (!factions.isDeclared(player))
+                if (!(pvpGetType(attacker) == PVPTYPE_DECLARED))
                     return SCRIPT_CONTINUE;
             }
-            setObjVar(spawner, "space_gcw.participant." + battleId + "." + player, "1");
+            setObjVar(spawner, "space_gcw.participant." + battleId + "." + attacker, space_utils.getAllPlayersInShip(attacker));
         }
         return SCRIPT_CONTINUE;
     }
@@ -50,30 +51,44 @@ public class capital_ship extends script.space.combat.combat_space_base {
                 return SCRIPT_CONTINUE;
         }
         dictionary params = new dictionary();
-        params.put("role", getObjVar(self, "role"));
-        params.put("spawner", getObjVar(self, "spawner"));
+        params.put("spawner", getObjIdObjVar(self, "spawner"));
         params.put("destroyedShip", self);
         params.put("losingFaction", getShipFaction(self));
+        params.put("losingRole", getStringObjVar(self, "role"));
+        params.put("supportCraft", getResizeableObjIdArrayObjVar(self, "supportCraft"));
         messageTo(spawner, "capitalShipDestroyed", params, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
 
-    public int removeSupportShip(obj_id self, dictionary params) throws InterruptedException{
+    public int removeSupportShip(obj_id self, dictionary params) {
         obj_id destroyedShip = params.getObjId("destroyedShip");
         Vector spawnedShips = getResizeableObjIdArrayObjVar(self, "supportCraft");
-        if(spawnedShips == null) return SCRIPT_CONTINUE;
-        if(hasObjVar(destroyedShip, "ace_pilot"))
+        if (spawnedShips == null) return SCRIPT_CONTINUE;
+        if (hasObjVar(destroyedShip, "ace_pilot"))
             removeObjVar(self, "heroSpawned");
 
-        // remove destroyed ship
-        spawnedShips.remove(
-            spawnedShips.indexOf(
-                    destroyedShip
-            )
-        );
-
-        setObjVar(self, "supportCraft", spawnedShips);
-
+        try {
+            // remove destroyed ship
+            spawnedShips.remove(
+                    spawnedShips.indexOf(
+                            destroyedShip
+                    )
+            );
+            setObjVar(self, "supportCraft", spawnedShips);
+        } catch (Exception e) {
+            LOG("space_gcw", "Could not remove support ship from the mothership's supportCraft array.");
+        }
+        messageTo(self, "spawnSupportShip", null, rand(15.0f, 45.0f), false);
+        return SCRIPT_CONTINUE;
+    }
+    public int spawnSupportShip(obj_id self, dictionary params) throws InterruptedException{
+        // make sure we don't orphan ships if the battle is over.
+        if(!isValidId(self)) return SCRIPT_CONTINUE;
+        obj_id spawner = getObjIdObjVar(self, "spawner");
+        if(isValidId(spawner)) {
+            obj_id controller = getObjIdObjVar(spawner, "controller");
+            if (getIntObjVar(controller, "space_gcw." + self.toString() + ".active") == 0) return SCRIPT_CONTINUE;
+        }
         // create a new ship
         setObjVar(self, "supportCraft", battle_spawner.spawnSupportShips(self));
         return SCRIPT_CONTINUE;
