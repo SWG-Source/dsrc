@@ -45,17 +45,16 @@ public class capital_ship extends script.space.combat.combat_space_base {
     public int OnDestroy(obj_id self) throws InterruptedException{
         // make sure battle is active because it won't be if we're just cleaning up and destroying the capital ships.
         obj_id spawner = getObjIdObjVar(self, "spawner");
-        if(isValidId(spawner)) {
-            obj_id controller = getObjIdObjVar(spawner, "controller");
-            if (controller != null && getIntObjVar(controller, "space_gcw." + spawner + ".active") != 1)
-                return SCRIPT_CONTINUE;
-        }
+        obj_id controller = getObjIdObjVar(spawner, "controller");
+        if (controller != null && getIntObjVar(controller, "space_gcw." + spawner + ".active") != 1)
+            return SCRIPT_CONTINUE;
         dictionary params = new dictionary();
         params.put("spawner", getObjIdObjVar(self, "spawner"));
         params.put("destroyedShip", self);
         params.put("losingFaction", getShipFaction(self));
         params.put("losingRole", getStringObjVar(self, "role"));
         params.put("supportCraft", getResizeableObjIdArrayObjVar(self, "supportCraft"));
+        params.put("controller", controller);
         messageTo(spawner, "capitalShipDestroyed", params, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
@@ -76,7 +75,7 @@ public class capital_ship extends script.space.combat.combat_space_base {
             );
             setObjVar(self, "supportCraft", spawnedShips);
         } catch (Exception e) {
-            LOG("space_gcw", "Could not remove support ship from the mothership's supportCraft array.");
+            LOG("space_gcw", "Could not remove support ship (" + destroyedShip + ") from the mothership's (" + self + ") supportCraft array: " + e.getLocalizedMessage());
         }
         messageTo(self, "spawnSupportShip", null, rand(15.0f, 45.0f), false);
         return SCRIPT_CONTINUE;
@@ -87,7 +86,7 @@ public class capital_ship extends script.space.combat.combat_space_base {
         obj_id spawner = getObjIdObjVar(self, "spawner");
         if(isValidId(spawner)) {
             obj_id controller = getObjIdObjVar(spawner, "controller");
-            if (getIntObjVar(controller, "space_gcw." + self.toString() + ".active") == 0) return SCRIPT_CONTINUE;
+            if (getIntObjVar(controller, "space_gcw." + spawner + ".active") == 0) return SCRIPT_CONTINUE;
         }
         // create a new ship
         setObjVar(self, "supportCraft", battle_spawner.spawnSupportShips(self));

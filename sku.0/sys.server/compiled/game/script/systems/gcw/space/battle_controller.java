@@ -7,8 +7,6 @@ import script.obj_id;
 
 public class battle_controller extends script.base_script {
 
-    public final boolean debug = true;
-
     public final int DEFAULT_TATOOINE_DELAY = 3;
     public final int DEFAULT_CORELLIA_DELAY = 3;
     public final int DEFAULT_DANTOOINE_DELAY = 3;
@@ -57,12 +55,14 @@ public class battle_controller extends script.base_script {
     {
         LOG("space_gcw", "battle_controller.OnInitialize: The space battle sequencer object is starting for the fist time.");
 
+        removeObjVar(self, "space_gcw");
+
         // get minutes to the top of the hour so we can kick off a regularly scheduled battle status check.
         int calendarTime = getCalendarTime();
         int[] convertedCalendarTime = player_structure.convertSecondsTime(calendarTime);
-        float minutesToTopOfHour = 59 - convertedCalendarTime[2];
+        //float minutesToTopOfHour = 59 - convertedCalendarTime[2];
+        float minutesToTopOfHour = 0;
         getSettings();
-        if(debug) minutesToTopOfHour = 3.0f;
         LOG("space_gcw", "battle_controller.OnInitialize: Starting check for battle status in roughly " + minutesToTopOfHour + " minutes.");
         // check battle status at the top of the hour
         messageTo(self, "checkBattleStatus", null, minutesToTopOfHour * 60.0f, false);
@@ -81,7 +81,14 @@ public class battle_controller extends script.base_script {
 
         String msg = null;
         obj_id controller = getSelf();
-        String defendingFaction = getStringObjVar(controller, "space_gcw." + spawner + ".lastDefendingFaction").equals("imperial") ? "Imperial" : "Rebel";
+        String lastDefendingFaction;
+        if(hasObjVar(controller, "space_gcw." + spawner + ".lastDefendingFaction")){
+            lastDefendingFaction = getStringObjVar(controller, "space_gcw." + spawner + ".lastDefendingFaction");
+        }
+        else{
+            lastDefendingFaction = "imperial";
+        }
+        String defendingFaction = lastDefendingFaction.equals("imperial") ? "Imperial" : "Rebel";
         String attackingFaction = defendingFaction.equals("Imperial") ? "Rebel" : "Imperial";
         String defendingShipType = "Capital Ship";
 
@@ -103,12 +110,14 @@ public class battle_controller extends script.base_script {
     public int checkBattleStatus(obj_id self, dictionary params) {
         LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is checking the battle status of all zones.");
         for(String[] scene : BATTLE_SCENES){
+            // try implementation that just fires off a check to the spawner itself... do this because of the messageTo authoritative issues.
+
             obj_id spawner = getObjIdObjVar(self, "space_gcw." + scene[0] + ".spawner");
             if(spawner == null){
                 continue;
             }
-            if(hasMessageTo(spawner, "startSpaceGCWBattle")){
-                LOG("space_gcw", "battle_controller.checkBattleStatus: Scene " + scene[0] + " already has a timer set so skipping this zone.");
+            if(hasObjVar(self, "space_gcw." + scene[0] + ".nextBattleStart")){
+                LOG("space_gcw", "battle_controller.checkBattleStatus: Scene " + scene[0] + " already has a timer set (firing in " + (getIntObjVar(self, "space_gcw." + scene[0] + ".nextBattleStart") - getCalendarTime()) + " seconds) so skipping this zone.");
                 handlePendingBattleWarning(spawner, scene[0]);
                 continue;
             }
@@ -120,8 +129,8 @@ public class battle_controller extends script.base_script {
             if(battleIsActive) continue;
 
             int secondsUntilNextBattle;
-            if(hasObjVar(spawner, "last_battle_time")) {
-                secondsUntilNextBattle = getSecondsUntilNextBattle(scene, getIntObjVar(spawner, "last_battle_time"));
+            if(hasObjVar(self, "space_gcw." + scene[0] + ".lastBattleTime")) {
+                secondsUntilNextBattle = getSecondsUntilNextBattle(scene, getIntObjVar(self, "space_gcw." + scene[0] + ".lastBattleTime"));
             }
             else{
                 secondsUntilNextBattle = getStagger(scene[0]) * 60 * 60;
@@ -145,12 +154,12 @@ public class battle_controller extends script.base_script {
             setObjVar(self, "space_gcw." + spawner + ".lastBattleType", battleType);
 
             if(secondsUntilNextBattle == 0){
-                LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is starting a " + scene[1] + " battle in zone " + scene[0] + " for the first time.");
+                LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer object is starting a " + scene[1] + " battle in zone " + scene[0] + ".");
             }
             else {
                 LOG("space_gcw", "battle_controller.checkBattleStatus: The space battle sequencer is not starting a battle in zone " + scene[0] + " because it has " + String.format("%.0f", secondsUntilNextBattle / 60.0f) + " minutes until the next battle.");
             }
-
+            setObjVar(self, "space_gcw." + scene[0] + ".nextBattleStart", secondsUntilNextBattle + getCalendarTime());
             messageTo(spawner, "startSpaceGCWBattle", battleDetails, secondsUntilNextBattle, false);
         }
 
@@ -162,13 +171,12 @@ public class battle_controller extends script.base_script {
 
     public int getSecondsUntilNextBattle(String[] scene, int lastBattleTime){
         int secondsUntilNext = getHoursBetweenBattles(scene[0]) * 60 * 60;
-        int gameTime = getGameTime();
+        int gameTime = getCalendarTime();
         int nextBattleTime = lastBattleTime + secondsUntilNext;
 
-        if(nextBattleTime >= gameTime){
+        if(nextBattleTime > gameTime){
             return nextBattleTime - gameTime;
         }
-
         return 0;
     }
     public int getHoursBetweenBattles(String scene){
@@ -270,18 +278,17 @@ public class battle_controller extends script.base_script {
      *
      * Otherwise, the remaning time until the start of the next battle (in seconds) will be returned.
      */
-    public static int getTimeUntilNextBattleForZone(String zone){
-        obj_id controller = getPlanetByName("tatooine");
+    public static int getTimeUntilNextBattleForZone(obj_id self, String zone){
         for (String[] scene : battle_controller.BATTLE_SCENES){
             if(scene[0].equals(zone)){
-                obj_id spawner = getObjIdObjVar(controller, "space_gcw." + scene[0] + ".spawner");
-                LOG("space_gcw", "COMMAND: checking spawner " + spawner + " with controller " + controller + ".  Battle status: " + getIntObjVar(controller, "space_gcw." + spawner + ".active"));
-                if(getIntObjVar(controller, "space_gcw." + spawner + ".active") == 1){
+                obj_id spawner = getObjIdObjVar(self, "space_gcw." + scene[0] + ".spawner");
+                LOG("space_gcw", "COMMAND: checking spawner " + spawner + " with controller " + self + ".  Battle status: " + getIntObjVar(self, "space_gcw." + spawner + ".active"));
+
+                if(getIntObjVar(self, "space_gcw." + spawner + ".active") == 1){
                     return -2;
                 }
-                else if(hasMessageTo(spawner, "startSpaceGCWBattle")) {
-                    LOG("space_gcw", "RESULT: " + timeUntilMessageTo(spawner, "startSpaceGCWBattle"));
-                    return timeUntilMessageTo(spawner, "startSpaceGCWBattle");
+                else if(hasObjVar(self, "space_gcw." + scene[0] + ".nextBattleTime")) {
+                    return getIntObjVar(self, "space_gcw." + scene[0] + ".nextBattleTime") - getCalendarTime();
                 }
                 return -1;
             }
@@ -295,11 +302,10 @@ public class battle_controller extends script.base_script {
      * Method to get the last battle type (PvP or PvE) for the given zone.
      *
      */
-    public static String getLastBattleType(String zone){
-        obj_id controller = getPlanetByName("tatooine");
+    public static String getLastBattleType(obj_id self, String zone){
         for (String[] scene : battle_controller.BATTLE_SCENES) {
             if (scene[0].equals(zone)) {
-                obj_id spawner = getObjIdObjVar(controller, "space_gcw." + scene[0] + ".spawner");
+                obj_id spawner = getObjIdObjVar(self, "space_gcw." + scene[0] + ".spawner");
                 if (hasObjVar(spawner, "last_battle_type")) {
                     return getStringObjVar(spawner, "last_battle_type");
                 }
@@ -317,11 +323,10 @@ public class battle_controller extends script.base_script {
      * Method to get the current battle type (PvP or PvE) for the given zone.
      *
      */
-    public static String getCurrentBattleType(String zone){
-        obj_id controller = getPlanetByName("tatooine");
+    public static String getCurrentBattleType(obj_id self, String zone){
         for (String[] scene : battle_controller.BATTLE_SCENES) {
             if (scene[0].equals(zone)) {
-                obj_id spawner = getObjIdObjVar(controller, "space_gcw." + scene[0] + ".spawner");
+                obj_id spawner = getObjIdObjVar(self, "space_gcw." + scene[0] + ".spawner");
                 if (hasObjVar(spawner, "battle_type")) {
                     return getStringObjVar(spawner, "battle_type");
                 }

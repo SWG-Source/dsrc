@@ -3441,6 +3441,8 @@ public class space_combat extends script.base_script
             space_utils.notifyObject(objDefender, "OnHullNearlyDestroyed", dctParams);
         }
         if(fltChassisHitPoints <= fltDamage && hasScript(objDefender, "systems.gcw.space.hero_ship")){
+            if(hasObjVar(objDefender, "intInvincible")) return 0;
+            setObjVar(objDefender, "intInvincible", 1);
             dictionary params = new dictionary();
             params.put("attacker", objAttacker);
             space_utils.notifyObject(objDefender, "OnAboutToBeDestroyed", params);

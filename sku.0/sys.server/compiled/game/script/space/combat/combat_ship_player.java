@@ -2691,9 +2691,9 @@ public class combat_ship_player extends script.base_script
     private void sendSpaceBattleStatusMessage(obj_id self, String zone){
         String scene = zone == null ? getCurrentSceneName() : "space_" + zone;
 
-        String lastBattleType = battle_controller.getLastBattleType(scene);
-        String currentBattleType = battle_controller.getCurrentBattleType(scene);
-        int secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone(scene);
+        String lastBattleType = battle_controller.getLastBattleType(self, scene);
+        String currentBattleType = battle_controller.getCurrentBattleType(self, scene);
+        int secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone(self, scene);
         String sys = getSpaceSystemName(scene.substring(6));
 
         if(secondsUntilNextBattle == -1){

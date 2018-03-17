@@ -198,6 +198,13 @@ public class combat_ship extends script.base_script
             }
         }
         float fltDamage = space_combat.getShipWeaponDamage(objAttacker, self, intWeaponSlot, isMissile);
+
+        // scale back cap ship to cap ship damage for space gcw battles
+        if(hasScript(self, "systems.gcw.space.capital_ship") && hasScript(objAttacker, "systems.gcw.space.capital_ship")){
+            // scale damage down 50%
+            fltDamage = fltDamage * 0.25f;
+        }
+
         if (isIdValid(getPilotId(self)))
         {
             if (hasObjVar(getPilotId(self), "intCombatDebug"))
