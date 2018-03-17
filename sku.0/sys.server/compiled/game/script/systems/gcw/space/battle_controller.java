@@ -278,17 +278,17 @@ public class battle_controller extends script.base_script {
      *
      * Otherwise, the remaning time until the start of the next battle (in seconds) will be returned.
      */
-    public static int getTimeUntilNextBattleForZone(obj_id self, String zone){
+    public static int getTimeUntilNextBattleForZone(String zone){
+        obj_id controller = getPlanetByName("tatooine");
         for (String[] scene : battle_controller.BATTLE_SCENES){
             if(scene[0].equals(zone)){
-                obj_id spawner = getObjIdObjVar(self, "space_gcw." + scene[0] + ".spawner");
-                LOG("space_gcw", "COMMAND: checking spawner " + spawner + " with controller " + self + ".  Battle status: " + getIntObjVar(self, "space_gcw." + spawner + ".active"));
-
-                if(getIntObjVar(self, "space_gcw." + spawner + ".active") == 1){
+                obj_id spawner = getObjIdObjVar(controller, "space_gcw." + scene[0] + ".spawner");
+                
+                if(getIntObjVar(controller, "space_gcw." + spawner + ".active") == 1){
                     return -2;
                 }
-                else if(hasObjVar(self, "space_gcw." + scene[0] + ".nextBattleTime")) {
-                    return getIntObjVar(self, "space_gcw." + scene[0] + ".nextBattleTime") - getCalendarTime();
+                else if(hasObjVar(controller, "space_gcw." + scene[0] + ".nextBattleStart")) {
+                    return getIntObjVar(controller, "space_gcw." + scene[0] + ".nextBattleStart") - getCalendarTime();
                 }
                 return -1;
             }

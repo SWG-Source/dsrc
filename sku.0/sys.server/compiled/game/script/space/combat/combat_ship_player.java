@@ -2680,7 +2680,7 @@ public class combat_ship_player extends script.base_script
             return SCRIPT_CONTINUE;
         }
         else if(args.length == 1 && args[0].length() >= 3) {
-            sendSpaceBattleStatusMessage(self, args[0]);
+            sendSpaceBattleStatusMessage(self, args[0].toLowerCase());
         }
         else{
             sendSpaceBattleStatusMessage(self, null);
@@ -2693,7 +2693,7 @@ public class combat_ship_player extends script.base_script
 
         String lastBattleType = battle_controller.getLastBattleType(self, scene);
         String currentBattleType = battle_controller.getCurrentBattleType(self, scene);
-        int secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone(self, scene);
+        int secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone(scene);
         String sys = getSpaceSystemName(scene.substring(6));
 
         if(secondsUntilNextBattle == -1){
