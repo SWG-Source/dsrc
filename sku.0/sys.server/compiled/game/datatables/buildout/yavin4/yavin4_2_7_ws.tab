@@ -1,0 +1,34 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+4295622	0	object/static/structure/general/poi_temple_ancient_ruined.iff	0	569.156	86.9	801.498	-0.0549723	0	0.998488	0		$|
+4295688	0	object/static/structure/general/tato_cave_rock_large.iff	0	589.632	86.8392	832.357	0.560603	0	0.828085	0		$|
+4295689	0	object/static/structure/general/tato_cave_rock_med.iff	0	590.499	86.7888	831.326	-0.457333	0	0.889295	0		$|
+4295690	0	object/static/structure/general/tato_cave_rock_large.iff	0	588.156	86.8997	831.544	0.96618	0	0.257868	0		$|
+4295691	0	object/static/structure/general/tato_cave_rock_med.iff	0	588.552	86.8938	830.312	0.719869	0	-0.69411	0		$|
+4295692	0	object/static/structure/general/tato_cave_rock_med.iff	0	586.854	86.8976	832.481	0.119202	0	0.99287	0		$|
+4295693	0	object/static/structure/general/skeleton_human_head.iff	0	589.196	86.8786	831.354	0.104807	0	0.994493	0		$|
+4295696	0	object/static/structure/general/poi_all_monolith_s01.iff	0	545.492	88.169	807.597	1	0	0	0		$|
+4295698	0	object/static/structure/general/rock_forestriverrock_lg.iff	0	568.419	86.9	762.36	1	0	0	0		$|
+4295700	0	object/static/structure/general/rock_forestriverrock_lg.iff	0	588.045	86.5857	833.53	0.937072	0.0657024	-0.342058	0.0239833		$|
+4295701	0	object/static/structure/general/tato_cave_rock_large.iff	0	540.124	87.2279	811.506	1	0	0	0		$|
+4295703	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	560.143	87.4399	807.501	0.928665	0	0.370921	0		$|
+8525417	0	object/building/yavin/light_enclave.iff	0	630.28	87.7084	815.808	-0.7071	0	0.707114	0		$|
+8545446	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	622.594	100.821	132.256	0.454543	-0.04648	0.886474	-0.0734392		$|
+8545447	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	618.816	100.613	134.537	0.430554	-0.0534979	0.900972	-0.00315313		$|
+8545449	0	object/static/structure/military/military_wall_med_rebl_style_01.iff	0	641.123	66.9893	1005.74	0.941089	0.230121	0.247395	0.0138412		$|
+8545450	0	object/static/structure/military/military_column_med_rebel_style_01.iff	0	647.024	67.4645	1002.83	0.961414	0.141112	-0.163303	-0.170596		$|
+8545451	0	object/static/structure/dantooine/dant_gate.iff	0	547.078	119.761	1957.64	-0.536088	0	0.844162	0		$|
+8545452	0	object/static/structure/dantooine/dant_fence_8m.iff	0	544.862	119.948	1963.05	-0.597834	0	0.80162	0		$|
+8545453	0	object/static/structure/dantooine/dant_fence_8m.iff	0	548.544	119.67	1951.66	0.783822	0	0.620986	0		$|
+8845405	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1394.13	67.4614	868.643	0.707107	0	-0.707106	0		$|
+8845499	0	object/building/military/outpost_shed.iff	0	1839.83	64.8922	1486.59	0.935897	0	0.352274	0		$|
+8845500	8845499	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8845501	8845499	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+8845502	8845499	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8845503	8845499	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+8845504	8845499	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+8845505	8845499	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+8845506	0	object/static/structure/nobuild/nobuild_32.iff	0	1851.93	65.1233	1499.19	1	0	0	0		$|
+8905396	0	object/static/structure/general/debris_deathstar_turbolaser.iff	0	1996.5	64.0562	1236.62	0.998975	0.0449843	-0.000224923	-0.00499492		$|
+3125389	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	637.23877	66.32144928	1001.539551	1	0	0	0		$|
+3495388	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1994.092773	64.67002106	1237.48877	1	0	0	0		$|

@@ -1,0 +1,7 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8415356	0	object/static/corellia/rock_bowl_agrilat_double.iff	0	256.67	93.6374	1006.48	1	0	0	0		$|
+5755428	0	object/tangible/ground_spawning/mob_spawner.iff	0	264	43	921	1	0	0	0		$|
+5755429	0	object/tangible/ground_spawning/mob_spawner.iff	0	264	43	921	1	0	0	0		$|
+5755430	0	object/tangible/ground_spawning/mob_spawner.iff	0	264	43	921	1	0	0	0		$|
+5755431	0	object/tangible/ground_spawning/mob_spawner.iff	0	264	43	921	1	0	0	0		$|

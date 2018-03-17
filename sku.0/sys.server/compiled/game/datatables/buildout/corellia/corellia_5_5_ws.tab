@@ -1,0 +1,8 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+33615	0	object/static/particle/pt_poi_droid_weld_sparks.iff	0	161.559	20.0491	1721.48	-0.584471	0.633951	0.444294	-0.243112		$|
+923819	0	object/static/creature/droids_r2.iff	0	161.529	19.28	1721.59	0.114747	0	0.993395	0		$|
+5475532	0	object/tangible/furniture/all/frn_all_toolchest_med_s01.iff	0	159.95	19.2115	1720.93	0.738469	0	0.674288	0		$|
+9825754	0	object/static/installation/mockup_mining_ore_harvester_style_1.iff	0	166.069	20.5827	1716.36	1	0	0	0		$|
+9825767	0	object/static/particle/particle_smoke.iff	0	161.937	20.6961	1720.42	1	0	0	0		$|
+33612	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	159.6596375	19.40831184	1725.445923	1	0	0	0		$|

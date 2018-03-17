@@ -1,0 +1,15 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1610923	0	object/static/item/item_datapad_s1.iff	0	2040.79	75.781	1998.82	0.979862	0.0160909	-0.0884264	-0.178305		$|
+1610928	0	object/static/item/item_jar_spice_white.iff	0	2040.9	75.8799	1998.35	-0.0610195	-0.510968	0.847975	0.126995		$|
+2746396	0	object/static/structure/general/escape_pod.iff	0	2044.38	75.8933	2002.18	0.510981	-0.411841	-0.523208	0.543634		$|
+2746397	0	object/static/structure/general/escape_pod_door.iff	0	2042.09	75.29	2002.67	0.893609	-0.448484	0.00221131	0.0178898		$|
+2746401	0	object/static/structure/general/prp_junk_s3.iff	0	2037.87	75.4234	2006.23	1	0	0	0		$|
+2746410	0	object/static/structure/general/transport_debris_02.iff	0	2046.16	78.0528	2010.89	0.995043	0.0948145	0.00284529	0.0298602		$|
+2746414	0	object/static/particle/particle_smoke.iff	0	2042.79	75.7985	2022.32	1	0	0	0		$|
+2746426	0	object/static/particle/pt_sparks_large.iff	0	2042.97	76.8306	2020.98	1	0	0	0		$|
+9715905	0	object/static/structure/naboo/gungan_relic_s01.iff	0	562.639	69.4322	1683.17	1	0	0	0		$|
+9715906	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	562.06	86.0972	1683.1	1	0	0	0		$|
+9715907	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	546.95	72.5409	1689.37	0.932183	0	0.361986	0		$|
+9715908	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	568.625	72.6927	1678.93	0.907636	-0.0825247	0.352454	-0.212517		$|
+1775434	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	577.799438	76.37374878	1673.745605	1	0	0	0		$|

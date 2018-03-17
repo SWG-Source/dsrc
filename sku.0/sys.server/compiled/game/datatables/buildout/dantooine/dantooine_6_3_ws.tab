@@ -1,0 +1,21 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8465731	0	object/building/military/military_outpost_guard_house_imperial.iff	0	454.208	7	2042.44	0.707389	0	0.706824	0		$|
+8465732	8465731	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8465733	8465731	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+8465748	0	object/static/structure/general/banner_imperial_style_01.iff	0	447.637	7	2046.49	-0.696707	0	0.717356	0		$|
+8465761	0	object/tangible/furniture/all/frn_all_command_console.iff	0	458.504	14.0385	2046.98	0.930508	0	0.366273	0		$|
+8465763	0	object/tangible/furniture/all/frn_all_technical_console_s02.iff	0	458.417	13.9064	2037.52	0.9998	0	0.0199987	0		$|
+9015505	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	496.33	44.3196	1214.52	0.915116	0	0.40319	0		$|
+9015508	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	485.376	56.06	1232.36	1	0	0	0		$|
+9015509	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	486.361	56.0525	1232.34	1	0	0	0		$|
+9015510	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	487.303	56.0256	1232.31	1	0	0	0		$|
+9015512	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	481.143	53.1915	1228.65	0.984727	0	-0.174108	0		$|
+9015513	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	474.581	52.995	1229.79	0.955336	0	0.29552	0		$|
+9015514	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	473.6	53.5594	1236.49	0.934124	0	-0.356949	0		$|
+9015515	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	479.539	61.3265	1232.19	0.758362	0	-0.651834	0		$|
+9015516	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	477.277	62.2623	1230.96	0.709102	0.0109184	0.0274546	-0.704486		$|
+3625425	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	481.485107	56.58944702	1238.251953	1	0	0	0		$|
+-1	0	object/tangible/npc/storyline_npc/imperial_commander_spawner.iff	0	445	7	2039	1	0	0	0		$|
+-2	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	445.08	7	2045.23	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	464	7	2045	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|3.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|3|intSpawnSystem|0|1|registerWithController|0|1|strName|4|imperial_trooper|strSpawnerType|4|area|strSpawns|4|imperial_trooper|$|

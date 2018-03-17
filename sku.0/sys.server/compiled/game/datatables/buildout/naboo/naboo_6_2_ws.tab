@@ -1,0 +1,10 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1726353	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	321.256	325.034	2043.52	-0.0491837	0	0.99879	0		$|
+1726354	1726353	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+1726355	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	73.4055	294.134	1958.23	0.0807085	0	0.996738	0		$|
+1726356	1726355	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+5555372	0	object/static/structure/general/streetlamp_small_style_01.iff	0	73.0144	298.209	1960.55	-0.500199	-0.499801	0.500199	0.499801		$|
+5555373	0	object/static/structure/general/streetlamp_small_style_01.iff	0	321.447	328.974	2045.9	-0.523744	-0.479025	0.47827	0.517191		$|
+6336757	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	168.837891	225.9378052	1955.794922	1	0	0	0		$|
+6336768	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	67.338867	291.5395508	1980.509277	1	0	0	0		$|

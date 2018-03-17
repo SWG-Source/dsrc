@@ -1,0 +1,24 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8365446	0	object/tangible/camp/camp_tent_s6.iff	0	2002.78	142.597	81.1189	0.932328	0	0.361615	0		$|
+8365447	0	object/tangible/camp/camp_tent_s5.iff	0	2009.03	155.775	95.3843	0.402461	0	0.915437	0		$|
+8365450	0	object/static/structure/general/streetlamp_large_red_style_01_on.iff	0	1997.51	141.785	88.0595	0.286715	0	0.958016	0		$|
+8365451	0	object/static/structure/general/streetlamp_large_red_style_01_on.iff	0	2012.97	154.192	95.7365	0.8543	0	0.51978	0		$|
+8365453	0	object/static/item/item_tool_sensor_beacon.iff	0	1980.63	150.962	86.6758	1	0	0	0		$|
+8365454	0	object/static/item/item_tool_sensor_beacon.iff	0	1997.98	155.766	62.3385	1	0	0	0		$|
+8365456	0	object/static/item/item_tool_sensor_beacon.iff	0	2016.81	142.781	82.5929	1	0	0	0		$|
+8365457	0	object/static/item/item_tool_sensor_beacon.iff	0	2017.72	145.902	102.362	1	0	0	0		$|
+8365458	0	object/static/flora/flora_decd_dath_blacktree.iff	0	2006.88	145.87	79.3591	1	0	0	0		$|
+8365460	0	object/static/structure/general/banner_rebel_style_01.iff	0	1997.42	141.971	84.3302	0.839192	0	-0.543835	0		$|
+8365538	0	object/static/item/item_tool_sensor_beacon.iff	0	2015.18	161.082	59.2635	1	0	0	0		$|
+9725619	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1051.17	119.191	856.137	0.724836	0	0.688921	0		$|
+9725622	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.39	122.651	858.689	0.519168	0.478383	0.534555	0.464612		$|
+9725623	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.05	127.052	857.463	0.601123	0.362648	0.61894	0.352208		$|
+9725624	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.21	124.956	858.405	0.584671	0.390123	0.601999	0.378893		$|
+9725626	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.35	126.998	854.705	-0.578801	0.367497	0.60387	-0.406541		$|
+9725628	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.46	124.965	853.716	-0.544461	0.41458	0.57257	-0.451495		$|
+9725629	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1050.51	122.63	853.426	-0.504165	0.461693	0.535306	-0.496089		$|
+1143372	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1047.68	116.318	862.406	1	0	0	0		$|
+-1	0	object/tangible/npc/storyline_npc/rebel_commander_spawner.iff	0	1999	142	86	1	0	0	0		$|
+-2	0	object/tangible/npc/rebel_recruiter_spawner.iff	0	1995.84	142	88.46	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	2000	142	86	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|3.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|3|intSpawnSystem|0|1|registerWithController|0|1|strName|4|rebel_trooper|strSpawnerType|4|area|strSpawns|4|rebel_trooper|$|

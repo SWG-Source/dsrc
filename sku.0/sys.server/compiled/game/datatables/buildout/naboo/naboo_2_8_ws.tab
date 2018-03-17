@@ -1,0 +1,22 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8185414	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	65.3896	-196.369	621.946	1	0	0	0		$|
+8185415	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	64.4624	-196.377	618.733	1	0	0	0		$|
+8185417	0	object/static/item/item_bowl_shallow.iff	0	64.9673	-196.374	620.378	1	0	0	0		$|
+8185418	0	object/building/endor/endor_tiki_torch.iff	0	64.918	-197.869	620.351	1	0	0	0		$|
+8185423	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	63.1357	-196.472	620.833	0.990901	0	0.13459	0		$|
+8185442	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	537.224	-196.81	195.513	1	0	0	0		$|
+8185443	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	536.354	-196.973	195.115	0.984727	0	0	-0.174108		$|
+8185444	0	object/static/structure/general/skeleton_human_head.iff	0	536.797	-196.808	194.957	0.301053	0	0.953607	0		$|
+8185445	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1102.52	-197.998	37.0166	0.988771	0	0	0.149438		$|
+8185446	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	1094.24	-197.922	37.6191	1	0	0	0		$|
+8185447	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1097.8	-197.682	37.5088	-0.0242013	0	0.999707	0		$|
+8185448	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	1092.68	-198.407	38.4795	-0.22186	-0.0163845	0.972913	0.0628538		$|
+8185449	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	1100.41	-197.701	39.5366	0.955337	0	-0.29552	0		$|
+8185450	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1097.09	-199.698	33.9043	1	0	0	0		$|
+8185452	0	object/static/flora/flora_decd_scorched_tallbirch.iff	0	2022.87	-195.629	105.412	1	0	0	0		$|
+8185453	0	object/static/structure/general/skeleton_human_head.iff	0	2023.85	-194.458	105.409	0.593818	0	0.804599	0		$|
+8185454	0	object/static/structure/general/skeleton_human_head.iff	0	2023.75	-193.919	105.415	0.613746	0	0.789504	0		$|
+8185458	0	object/static/structure/dantooine/dant_skull_bol.iff	0	2023.8	-195.413	105.429	0.593818	0	0.804599	0		$|
+8156126	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	63.005859	-196.4911804	623.788086	1	0	0	0		$|
+8156127	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1097.228027	-197.6695709	29.799805	1	0	0	0		$|

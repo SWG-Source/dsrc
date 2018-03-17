@@ -1,0 +1,28 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8545421	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	659.813	155.529	117.806	0.993956	0	-0.109778	0		$|
+8545422	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	659.071	155.645	121.885	0.990216	0	0.139543	0		$|
+8545423	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	660.876	155.776	113.781	0.934124	0	-0.356949	0		$|
+8545424	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	664.134	155.582	111.861	0.518758	0	0.854921	0		$|
+8545425	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	661.387	155.511	125.187	0.947651	0	0.319309	0		$|
+8545426	0	object/static/structure/general/debris_deathstar_tractorbeam.iff	0	492.331	457.2	955.005	-0.607316	0.0561424	0.78936	0.0701856		$|
+8545430	0	object/static/structure/general/debris_deathstar_small_chunk.iff	0	497.316	455.048	956.98	0.931004	0.232772	0.272761	-0.0681965		$|
+8545432	0	object/static/structure/tatooine/debris_tatt_radar_dish.iff	0	728.005	465.965	1749.14	0.983502	-0.0468081	0.0985007	-0.144325		$|
+8545433	0	object/static/structure/general/prp_junk_s1.iff	0	733.031	463.347	1747.19	0.963388	0.0645515	0.232207	-0.117459		$|
+8645387	0	object/static/structure/general/debris_deathstar_small_chunk.iff	0	1156.83	292.087	452.134	0.959774	-0.148368	0.12052	0.205662		$|
+8645388	0	object/static/structure/general/debris_deathstar_large_tube.iff	0	1157.38	292.091	453.264	0.81701	0.0646614	-0.572608	0.0208455		$|
+8645389	0	object/static/structure/general/debris_deathstar_large_tube.iff	0	1158.73	291.777	449.766	0.901812	-0.276196	0.326409	0.0625101		$|
+8645390	0	object/static/structure/general/debris_deathstar_small_tube.iff	0	1157.01	290.984	450.067	0.819011	-0.29433	0.463512	0.166574		$|
+8645394	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	1524.12	399.656	1190.24	0.906662	-0.0664678	-0.412548	-0.0578834		$|
+8645397	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1527.4	399.332	1187.7	0.925053	-0.0450843	0.358794	-0.116238		$|
+8645398	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1521.61	401.065	1192.82	0.947651	0	0.319309	0		$|
+8645401	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	1518.35	401.307	1196.19	0.341803	-0.0153915	0.938694	0.0422698		$|
+8845399	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	1490.3	268.038	1822.7	0.872745	0	0.488177	0		$|
+8845400	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	1485.02	268.479	1823.82	0.967663	0	-0.252245	0		$|
+8845401	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	1486.79	268.34	1829.06	0.860269	0	0.509841	0		$|
+8905378	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	2020.89	543.991	1141.69	1	0	0	0		$|
+8905380	0	object/static/structure/general/campfire_ash.iff	0	2018.38	543.988	1136.56	0.995478	0.094856	-0.000474284	-0.00497743		$|
+3125387	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	669.517578	156.8135834	118.3825073	1	0	0	0		$|
+3125388	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	499.724121	453.3067627	956.4142456	1	0	0	0		$|
+3495379	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1154.936035	290.0135498	450.9048157	1	0	0	0		$|
+3495380	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1522.680176	404.5874634	1196.705688	1	0	0	0		$|

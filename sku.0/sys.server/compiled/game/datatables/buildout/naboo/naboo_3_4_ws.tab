@@ -1,0 +1,10 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9525649	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	506.046	91.6429	1166.42	1	0	0	0		$|
+9525651	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	512.297	92.1474	1171.64	0.841901	0	-0.539632	0		$|
+9525652	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	510.542	92.2556	1166.08	1	0	0	0		$|
+9525654	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	515.997	92.065	1172.97	1	0	0	0		$|
+3737687	0	object/tangible/ground_spawning/mob_spawner.iff	0	513	93	1173	1	0	0	0		$|
+3737688	0	object/tangible/ground_spawning/mob_spawner.iff	0	513	93	1173	1	0	0	0		$|
+3737689	0	object/tangible/ground_spawning/mob_spawner.iff	0	513	93	1173	1	0	0	0		$|
+3737690	0	object/tangible/ground_spawning/mob_spawner.iff	0	513	93	1173	1	0	0	0		$|

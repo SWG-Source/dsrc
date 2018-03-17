@@ -1,0 +1,31 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7825660	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	2.01865	442.106	183.44	0.860269	0	0	-0.509841		$|
+7825775	0	object/building/military/military_outpost_guard_house_imperial.iff	0	971.886	260.468	701.6	1	0	0	0		$|
+7825776	7825775	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+7825777	7825775	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+7825810	0	object/static/structure/general/skeleton_human_headandbody.iff	0	974.147	262.227	714.149	1	0	0	0		$|
+7825811	0	object/static/structure/general/skeleton_human_headandbody.iff	0	972.506	267.521	705.267	1	0	0	0		$|
+7825812	0	object/static/structure/general/skeleton_human_head.iff	0	971.633	268.423	707.774	0.390152	0	0.920751	0		$|
+7825813	0	object/static/structure/general/skeleton_human_head.iff	0	969.207	260.285	693.743	0.0607589	0	0.998152	0		$|
+7825814	0	object/static/item/item_tapestry_imperial.iff	0	952.841	262.592	700.438	-0.689498	0	0	0.724287		$|
+7825819	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	964.809	260.58	698.641	1	0	0	0		$|
+7825821	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	964.793	260.706	699.56	1	0	0	0		$|
+7825822	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	964.186	260.451	696.933	1	0	0	0		$|
+7825826	0	object/static/structure/general/skeleton_human_head.iff	0	963.945	261.148	696.686	-0.703845	0	0.710353	0		$|
+7825827	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	959.458	261.799	701.468	0.955336	0	0	-0.29552		$|
+7935371	0	object/static/flora/flora_tree_lok_mkpud.iff	0	976.994	261.484	707.038	0.783822	0	0	-0.620986		$|
+7935372	0	object/static/flora/flora_tree_lok_mkpud.iff	0	972.865	266.078	708.898	-3.20013e-008	1	0	0		$|
+7935373	0	object/static/flora/flora_tree_lok_mkpud.iff	0	977.609	266.976	702.517	1	0	0	0		$|
+7935381	0	object/static/flora/flora_tree_lok_mkpud.iff	0	977.761	259.729	694.99	1	0	0	0		$|
+7935383	0	object/static/flora/flora_tree_lok_mkpud.iff	0	966.285	268.891	695.043	-0.0230783	-0.17087	-0.565647	0.806421		$|
+8156118	0	object/static/item/item_food_vegetable_s01.iff	0	1.20492	443.359	179.813	1	0	0	0		$|
+8156119	0	object/static/item/item_food_fruit_s03.iff	0	4.7636	442.048	187.405	1	0	0	0		$|
+9525604	0	object/static/structure/naboo/obelisk_naboo_theed_style_1.iff	0	1216.59	215.322	800	1	0	0	0		$|
+8156120	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	6.762289047	442.2239075	184.33667	1	0	0	0		$|
+8156123	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	954.2766113	261.9730225	705.183472	1	0	0	0		$|
+8156124	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	968.9437866	262.9919434	717.066772	1	0	0	0		$|
+3737683	0	object/tangible/ground_spawning/mob_spawner.iff	0	1216	223	803	1	0	0	0		$|
+3737684	0	object/tangible/ground_spawning/mob_spawner.iff	0	1216	223	803	1	0	0	0		$|
+3737685	0	object/tangible/ground_spawning/mob_spawner.iff	0	1216	223	803	1	0	0	0		$|
+3737686	0	object/tangible/ground_spawning/mob_spawner.iff	0	1216	223	803	1	0	0	0		$|

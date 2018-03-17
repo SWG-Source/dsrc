@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705402	0	object/building/endor/endor_lake_walkway_square.iff	0	283.671	1.00027	12.3672	1	0	0	0		$|
+9705403	0	object/building/endor/endor_forest_hut.iff	0	285.284	11.0667	12.7034	-0.379452	0	0.925212	0		$|
+9705406	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	289.045	7.93246	9.03589	0.978031	0	0.20846	0		$|
+9705408	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	284.671	7.58065	19.4858	0.717912	0	0.696134	0		$|
+9705410	0	object/building/endor/endor_tiki_torch.iff	0	284.775	17.5758	11.6204	-0.0391936	0	0	0.999232		$|
+9705414	0	object/static/item/item_basket_shallow.iff	0	285.01	10.9976	12.9431	1	0	0	0		$|
+9705415	0	object/static/item/item_bowl_shallow.iff	0	281.128	7.99182	8.89502	0.0291996	0	0	0.999574		$|
+9705418	0	object/static/item/item_basket_closed.iff	0	279.76	11.4085	12.3674	0.00465897	0.862368	-0.00793708	0.506199		$|
+9705421	0	object/static/item/item_bottle_pear.iff	0	281.619	7.8348	6.6958	0.710913	0	0	-0.70328		$|
+9705422	0	object/static/item/item_bottle_tall.iff	0	283.949	7.76638	10.0662	-0.671178	0	0	0.741297		$|
+2835665	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	280.844727	7.86439991	3.808594	1	0	0	0		$|

@@ -1,0 +1,36 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3515440	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	2025.01	13.0965	931.31	1	0	0	0		$|
+3515441	0	object/static/structure/general/skeleton_human_headandbody.iff	0	2030.62	12.9992	939.576	0.00488081	0.939005	-0.0133381	-0.343611		$|
+3515442	0	object/static/structure/general/skeleton_human_headandbody.iff	0	2016.85	13.0577	920.489	0.780707	0	0.624897	0		$|
+7805631	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	872.964	12.9502	2017.61	-0.440178	0	0.897911	0		$|
+7805634	0	object/static/flora/flora_tree_palm_sm.iff	0	879.419	12.896	2015.9	0.982936	0.183947	0	0		$|
+7805635	0	object/static/flora/flora_tree_palm_sm.iff	0	879.595	13.1986	2013.57	0.976932	-0.198034	0.0158766	0.0783217		$|
+7805636	0	object/static/flora/flora_tree_palm_sm.iff	0	875.077	13.2027	2009.87	0.970137	0.242556	0	0		$|
+7805637	0	object/static/flora/flora_tree_palm_sm.iff	0	874.183	13.0111	2007.29	0.985572	-0.16918	0.000845908	-0.0049279		$|
+7805638	0	object/static/structure/general/planter_generic_style_4.iff	0	875.674	0.545805	2009.37	1	0	0	0		$|
+7805639	0	object/static/structure/general/planter_generic_style_2.iff	0	879.871	6.37722	2015.38	1	0	0	0		$|
+7805640	0	object/static/structure/general/planter_generic_style_1.iff	0	875.035	7.85009	2018.73	1	0	0	0		$|
+7806080	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	393.456	11.3996	1268.77	0.707107	0	-0.707106	0		$|
+7806081	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	385.909	13.1162	1268.25	0.74849	0.00331566	0.663127	0.00374248		$|
+7806082	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	401.986	12.9152	1268.93	1	0	0	0		$|
+9685427	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	385.358	12.9346	1251.05	1	0	0	0		$|
+9685428	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	401.797	12.897	1262.97	0.707107	0	-0.707106	0		$|
+9685429	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	385.276	12.988	1262.95	1	0	0	0		$|
+9685432	0	object/static/structure/tatooine/wall_gate_tatooine_wide_style_01.iff	0	393.485	12.8082	1242.73	0.707107	0	-0.707106	0		$|
+9685433	0	object/static/structure/tatooine/wall_pristine_tatooine_large_style_02.iff	0	402.042	12.7743	1251.02	1	0	0	0		$|
+9685434	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	385.501	12.882	1243.26	1	0	0	0		$|
+9685435	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	402.312	12.8406	1243.26	1	0	0	0		$|
+9685827	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	2030.95	12.9743	929.437	0.382681	0	0.92388	0		$|
+9685828	0	object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff	0	2008.9	9.1158	914.06	0.92388	0	-0.382683	0		$|
+9685829	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	2024.46	13.0655	935.907	0.382681	0	0.92388	0		$|
+9685830	0	object/static/structure/tatooine/beam_tatooine_overhead_style_02.iff	0	2027.97	12.3587	933.638	0.923879	0	0.382685	0		$|
+9685831	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	2031.47	12.9645	929.968	0.382681	0	0.92388	0		$|
+9685832	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	2024.98	13.0618	936.437	0.382681	0	0.92388	0		$|
+9685833	0	object/static/structure/general/poi_tato_corral_half_32x32_s04.iff	0	2027.09	12.9115	920.299	0.382683	0	0.92388	0		$|
+9685834	0	object/static/structure/general/poi_tato_corral_half_32x32_s04.iff	0	2014.64	12.9973	932.792	0.92388	0	-0.382683	0		$|
+9685835	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	2008.93	13.8089	914.085	1	0	0	0		$|
+9685836	0	object/static/structure/tatooine/stone_hovel_tatooine_style_01.iff	0	2011.97	12.9842	917.651	0.92388	0	0.382683	0		$|
+9685839	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	2027.79	12.9687	927.016	0.382683	0	0.92388	0		$|
+3515357	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	870.683594	13.04385757	2008.119873	1	0	0	0		$|
+3515414	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	391.651855	13.092309	1258.617432	1	0	0	0		$|

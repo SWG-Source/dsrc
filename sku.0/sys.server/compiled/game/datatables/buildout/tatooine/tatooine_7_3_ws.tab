@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8985368	0	object/tangible/furniture/all/frn_all_chair_metal_s1.iff	0	1844.25	179.81	267.362	0.710914	0	-0.703279	0		$|
+8985369	0	object/tangible/furniture/all/frn_all_professor_desk.iff	0	1843.43	179.81	266.972	0.710914	0	0.703279	0		$|
+8985370	0	object/tangible/furniture/all/frn_all_toolchest_med_s01.iff	0	1843.39	179.589	268.884	0.689498	0	0.724287	0		$|
+8985371	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	1842.22	180	267.121	0.913089	0	0.40776	0		$|
+8985372	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1844.61	180	264.427	0.217452	0	0.976071	0		$|
+8985373	0	object/static/structure/general/data_terminal_free_s1.iff	0	1844.56	179.747	265.154	1	0	0	0		$|
+8985374	0	object/static/structure/general/data_terminal_s2.iff	0	1845.64	179.715	265.491	1	0	0	0		$|
+8985375	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1844.64	179.81	267.299	1	0	0	0		$|
+894894	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1848.547363	180	268.218994	1	0	0	0		$|

@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+178330	0	object/building/endor/endr_lake_rail8m.iff	0	969.859	191.729	87.1191	1	0	0	0		$|
+178335	0	object/static/structure/dantooine/dant_fence_4m.iff	0	996.706	184.675	80.3159	0.987849	0.0119513	-0.119114	-0.0991155		$|
+178336	0	object/static/structure/dantooine/dant_fence_4m.iff	0	999.279	184.162	78.978	-0.632648	0.037234	0.773131	-0.025244		$|
+178337	0	object/static/structure/dantooine/dant_fence_4m.iff	0	997.521	184.488	76.5767	0.985754	-0.0175529	-0.107629	-0.128052		$|
+178338	0	object/static/structure/dantooine/dant_fence_4m.iff	0	995.445	184.968	78.0161	-0.633218	0.0116083	0.773828	-0.00949898		$|
+9825782	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	970.064	190.266	88.147	-0.0291993	0	0.999574	0		$|
+9825796	0	object/static/structure/general/gravestone_generic_style_05.iff	0	996.34	184.71	77.3843	0.774332	-0.0101692	0.632601	-0.0110259		$|
+9825798	0	object/static/structure/general/gravestone_generic_style_04.iff	0	996.031	184.618	78.9419	0.774332	-0.00948973	0.632601	-0.0116159		$|
+9825806	0	object/static/structure/general/campfire_ash.iff	0	970.084	189.675	95.9238	0.966236	0.196877	0.164688	-0.0224951		$|
+33637	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	963.888672	190.2650604	92.555176	1	0	0	0		$|

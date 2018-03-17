@@ -1,0 +1,5 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8545371	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	662.178	70.3225	1889.32	-0.565684	0.297879	0.725578	0.254569		$|
+3666222	0	object/tangible/ground_spawning/mob_spawner.iff	0	661	71	1890	1	0	0	0		$|
+3666223	0	object/tangible/ground_spawning/mob_spawner.iff	0	661	71	1890	1	0	0	0		$|

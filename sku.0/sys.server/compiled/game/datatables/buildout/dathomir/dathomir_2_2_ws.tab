@@ -1,0 +1,34 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1105957	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1418.18	90.3084	1371.82	1	0	0	0		$|
+1105958	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1442.21	89.752	1372.78	1	0	0	0		$|
+1105959	0	object/static/structure/general/skeleton_human_head.iff	0	1392.79	91.555	1391.76	1	0	0	0		$|
+1105960	0	object/static/structure/general/skeleton_human_head.iff	0	1412.41	89.2405	1360.5	1	0	0	0		$|
+1105961	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1442.64	88.8472	1356.71	1	0	0	0		$|
+1105967	0	object/static/particle/pt_buzzing_insects_small.iff	0	1389.41	91.5403	1390.1	1	0	0	0		$|
+1105968	0	object/static/particle/pt_buzzing_insects_small.iff	0	1442.23	92.3506	1373.02	1	0	0	0		$|
+9725770	0	object/static/structure/military/military_wall_strong_imperial_32_style_01.iff	0	1440.22	89.4083	1379	0.971326	0.2377	-0.00118851	0.00485667		$|
+9725771	0	object/static/structure/military/military_wall_strong_imperial_16_style_01.iff	0	1423.58	87.9919	1370.7	-0.636567	0.333247	0.614344	0.326053		$|
+9725773	0	object/static/structure/military/military_wall_strong_imperial_16_style_01.iff	0	1456.17	89.076	1369.71	0.685869	0	0.727726	0		$|
+9725775	0	object/static/structure/military/military_wall_strong_imperial_16_style_01.iff	0	1446.99	89.0571	1361.19	3.20E-08	0	1	0		$|
+9725776	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1455.76	88.9636	1361.23	1	0	0	0		$|
+9725778	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1457.1	88.8244	1379.06	0.827767	0.2606	0.473948	-0.14921		$|
+9725780	0	object/static/structure/military/military_wall_strong_imperial_16_style_01.iff	0	1430.39	85.7012	1359.77	0.099281	-0.0042274	0.801579	-0.589574		$|
+9725794	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1421.45	89.4339	1377.94	0.720553	0.579795	-0.324519	0.198315		$|
+9725795	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1413.8	87.9101	1354.11	0.62733	0.485218	0.480046	-0.374936		$|
+9725802	0	object/building/military/military_outpost_guard_tower_1.iff	0	1446.87	89.6077	1367.49	0.973769	-0.167154	-0.0261184	-0.152155		$|
+9725805	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1443.73	87.7198	1363.1	1	0	0	0		$|
+9725806	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1451.73	86.5079	1363.45	1	0	0	0		$|
+9725811	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	1450.14	89.2993	1387.94	0.617199	0.196955	0.386196	0.656602		$|
+9725814	0	object/static/structure/general/prp_junk_s4.iff	0	1431.53	90.1403	1375.65	0.947325	0.177282	-0.26218	0.0490643		$|
+9725815	0	object/static/structure/general/prp_junk_s6.iff	0	1446.44	88.7806	1350.75	0.600897	0.596559	-0.393486	-0.358063		$|
+9725819	0	object/static/structure/general/prp_junk_s2.iff	0	1449.98	89.5876	1374.51	0.893822	0	-0.448423	0		$|
+9725821	0	object/static/structure/general/prp_junk_s2.iff	0	1459.23	88.7452	1352.9	0.524963	0.638408	-0.362526	0.430608		$|
+9725828	0	object/static/structure/general/prp_junk_s1.iff	0	1473.2	88.4594	1376.32	0.71784	-0.0896538	-0.0750226	0.686323		$|
+9725830	0	object/static/structure/general/atst_destroyed.iff	0	1404.74	91.7143	1393.57	-0.468429	-0.512619	0.402629	0.596395		$|
+9725833	0	object/static/structure/general/atst_debris_01.iff	0	1409.35	90.9718	1386.18	0.841901	0	0.539632	0		$|
+9725838	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1389.6	90.8165	1389.88	0.946042	0	-0.324043	0		$|
+9725839	0	object/static/structure/tatooine/skeleton_krayt_tail.iff	0	1403.45	86.2769	1340.99	1	0	0	0		$|
+9725843	0	object/static/structure/tatooine/skeleton_greater_krayt_spine_medium.iff	0	1427.26	90.6072	1391.12	0.870293	0	0.492535	0		$|
+1105955	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1433.704102	89.85951996	1368.359375	1	0	0	0		$|
+1105956	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1405.018555	90.95259857	1381.476562	1	0	0	0		$|

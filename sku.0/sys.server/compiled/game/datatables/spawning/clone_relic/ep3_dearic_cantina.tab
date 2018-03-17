@@ -1,0 +1,12 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+clone_relics_mort		cantina	3.2	-0.9	5.7	-175			npc_standing_drinking							
+ep3_mining_thom_steele		alcove3	0.7	-0.9	-18.5	1			npc_sitting_chair							
+object/tangible/spawning/spawn_egg.iff		back_entrance	-44.8	0.1	-20.9	-179	city.interior_2_convo								
+object/tangible/spawning/spawn_egg.iff		cantina	13.1	-0.9	1.4	-179	city.interior_2_convo								
+object/tangible/spawning/spawn_egg.iff		alcove2	17.7	-0.9	17.9	179	city.interior_2_convo								
+object/tangible/spawning/spawn_egg.iff		foyer2	33.1	0.1	1.8	179	city.interior_3_convo								
+radlee_mathiss	Radlee Mathiss	cantina	-3.3	-0.9	5.8	90	npc.static_quest.quest_convo			10	string:quest_table=radlee_mathiss				
+kathikiis_ruwahurr	Kathikiis Ruwahurr	alcove1	20.6	-0.9	-19.2	-1	npc.static_quest.quest_convo			10	string:quest_table=kathikiis_ruwahurr				
+nurla_slinthiss	Nurla Slinthiss	stage	-4.4	-0.9	-18.1	-1	npc.static_quest.quest_convo			10	string:quest_table=nurla_slinthiss				
+rebel_recruiter		office	-25	-0.9	-1.6	45				300					

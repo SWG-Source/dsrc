@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995477	0	object/static/structure/military/military_wall_weak_rebl_style_01.iff	0	331.283	29.8446	1024.74	0.776951	0.025145	-0.62829	-0.0310946		$|
+8995478	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	330.349	30.4386	1020.2	0.994447	0.0548734	0.0897427	-0.00329636		$|
+8995479	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	332.247	29.6956	1029.22	0.997239	0.0249362	0.0699211	-0.00174839		$|
+8995480	0	object/static/structure/military/military_wall_weak_rebl_style_01.iff	0	329.921	29.1826	1032.79	-0.47104	-0.0290615	0.881418	0.0194918		$|
+8995481	0	object/static/structure/military/military_column_weak_rebel_style_01.iff	0	327.204	29.1123	1036.65	0.993636	0.0242979	0.109718	-0.00770688		$|
+8995496	0	object/static/structure/general/prp_junk_s2.iff	0	1956.44	12.7425	1040.17	-0.377492	-0.518736	0.751199	0.155283		$|
+8995497	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	1957.5	11.6721	1038.93	1	0	0	0		$|
+8995498	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	1955.34	12.084	1041.09	1	0	0	0		$|
+8995499	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	1957.6	11.5875	1040.72	1	0	0	0		$|
+3495404	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	334.152832	29.86035919	1033.028076	1	0	0	0		$|

@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+477	0	object/static/particle/pt_survey_tool_liquid.iff	0	1557.3	39.7834	500.836	1	0	0	0		$|
+485	0	object/static/particle/pt_miasma_of_fog_red.iff	0	1477.63	49.3876	472.133	1	0	0	0		$|
+486	0	object/static/particle/pt_survey_gas_sample.iff	0	1476.56	49.7356	472.729	1	0	0	0		$|
+487	0	object/static/structure/general/skeleton_human_body.iff	0	1476.13	49.5341	478.391	1	0	0	0		$|
+488	0	object/static/structure/general/skeleton_human_body.iff	0	1484.29	48.1769	471.871	1	0	0	0		$|
+489	0	object/static/structure/general/tankfarm_s01.iff	0	1477.31	49.2004	472.724	0.939185	-0.342829	-0.018786	-0.006857		$|
+484	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1483.170898	49.27311325	479.177246	1	0	0	0		$|

@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705770	0	object/tangible/camp/camp_tent_s1.iff	0	22.7695	160.002	259.195	0.707389	0	0.706825	0		$|
+9705771	0	object/tangible/camp/camp_tent_s1.iff	0	19.2964	160.005	265.937	0.643608	0	0.765355	0		$|
+9705772	0	object/static/structure/general/banner_imperial_style_01.iff	0	26.8975	159.768	257.255	0.715284	-0.0921951	-0.664132	-0.196969		$|
+9705774	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	16.6021	160.002	261.904	0.570185	-0.346068	0.565847	-0.484711		$|
+9705775	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	21.0928	159.888	267.559	0.889356	0.0892333	0.446183	-0.0447676		$|
+9705777	0	object/static/structure/general/trash_pile_s01.iff	0	14.5264	159.941	264.775	1	0	0	0		$|
+9705778	0	object/static/structure/general/trash_pile_s01.iff	0	22.2871	160.2	262.986	0.0457804	0.998951	0	0		$|
+9705779	0	object/static/structure/general/skeleton_human_headandbody.iff	0	10.8901	160.08	261.552	-0.00875532	0.585063	-0.00631682	0.810916		$|
+9705781	0	object/static/structure/general/skeleton_human_body.iff	0	11.084	159.94	272.96	0.0890843	-0.0049801	0.996012	-0.000445425		$|
+2305370	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	28.40918	160.0053253	261.67041	1	0	0	0		$|

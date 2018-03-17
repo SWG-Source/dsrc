@@ -1,0 +1,17 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705488	0	object/tangible/camp/camp_tent_s1.iff	0	614.919	1.78515	2014.37	0.959662	0	0.281157	0		$|
+9705490	0	object/static/structure/general/banner_imperial_style_01.iff	0	611.886	1.77375	2014.98	0.979775	0.148078	-0.0201129	-0.133079		$|
+9705492	0	object/static/structure/general/skeleton_human_headandbody.iff	0	620.371	1.58337	2012.5	-0.56941	-0.00411023	0.822039	0.00284707		$|
+9705498	0	object/static/structure/general/trash_pile_s01.iff	0	615.521	0.99295	2017.57	0.982936	0.183947	0	0		$|
+9705500	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	611.336	1.28295	2017.99	0.740482	0.238579	-0.534246	-0.330679		$|
+9705688	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1956.34	164.499	2043.71	0.741831	0	-0.670587	0		$|
+9705689	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1971.96	180.103	2015.99	0.990216	0	0.139543	0		$|
+9705690	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	1936.13	161.691	2016.26	0.96639	0	0.257081	0		$|
+9705693	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	2012.5	200.116	2011.88	0.90687	0	-0.42141	0		$|
+9705694	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1958.03	164.427	2035.27	0.917121	0	-0.39861	0		$|
+9705695	0	object/static/structure/dantooine/dant_mud_oven.iff	0	1979.59	179.653	2027.01	0.839192	0	-0.543835	0		$|
+9705696	0	object/static/structure/dantooine/dant_cooking_stone.iff	0	1969.22	179.217	2022.96	0.803111	0.257015	-0.537011	-0.0239864		$|
+9705697	0	object/static/structure/dantooine/dant_boundary_post.iff	0	2004.92	200.052	2012.11	0.928665	0	-0.37092	0		$|
+9705699	0	object/building/endor/endor_lake_platform_cap.iff	0	2000.35	200.367	2003.02	0.889872	0.215986	-0.394493	-0.0764989		$|
+2055820	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1944.58374	160.2987518	2030.861816	1	0	0	0		$|

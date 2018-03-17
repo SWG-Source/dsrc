@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+6595497	0	object/static/structure/general/prp_junk_s2.iff	0	1466.19	91.9995	1383.33	0.750867	0.65856	0.0329555	-0.0375746		$|
+6595498	0	object/static/structure/general/prp_junk_s3.iff	0	1458.84	91.3473	1380.3	0.731652	-0.681605	0.00188856	-0.00981988		$|
+6595499	0	object/static/structure/general/trash_pile_s01.iff	0	1462.96	91.966	1383.84	1	0	0	0		$|
+6595500	0	object/static/structure/general/trash_pile_s01.iff	0	1463.44	92.0034	1383.05	0.902611	0	0.430458	0		$|
+6595501	0	object/static/structure/general/trash_pile_s01.iff	0	1463.75	91.9446	1384.3	-0.685869	0	0.727726	0		$|
+9685952	0	object/static/structure/general/debris_deathstar_small_chunk.iff	0	1448.47	92.011	1386.5	1	0	0	0		$|
+9685953	0	object/static/structure/general/prp_junk_s1.iff	0	1458.55	91.617	1373.42	0.781702	-0.114958	-0.606683	-0.087536		$|
+9685954	0	object/static/structure/general/prp_junk_s7.iff	0	1473.17	94.6421	1389.57	-0.4192	0.677071	-0.237796	-0.556147		$|
+9685955	0	object/static/structure/general/debris_deathstar_large_tube.iff	0	1459.59	91.9521	1388.91	0.135609	0.852264	0.424474	-0.274004		$|
+2975413	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1455.363281	92.05569458	1389.62207	1	0	0	0		$|

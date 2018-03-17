@@ -1,0 +1,28 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+4546339	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	2039.02	4.59374	708.797	0.931993	-0.0517186	-0.357876	-0.0252667		$|
+4546340	0	object/static/structure/corellia/corl_tent_small.iff	0	2038.9	4.59191	709.064	0.919102	0	0.394019	0		$|
+4546341	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	2025.85	5.7007	707.37	1	0	0	0		$|
+4546342	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	2041.1	5.20803	721.439	1	0	0	0		$|
+4546343	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	2038.47	4.50853	705.542	1	0	0	0		$|
+7345540	0	object/tangible/jedi/force_shrine_stone.iff	0	800.362	234.849	154.74	0.707107	0	0.707107	0		$|
+7345541	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	795.94	235.589	153.144	0.707116	0	0.707097	0		$|
+7345542	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	804.625	235.612	153.177	1	0	0	0		$|
+7345543	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	799.394	235.612	153.132	0	0	1	0		$|
+7345544	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	801.187	235.606	153.084	1	0	0	0		$|
+7345545	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	800.303	217.658	153.143	1	0	0	0		$|
+7345546	0	object/static/particle/pt_poi_electricity_2x2.iff	0	800.364	235.607	154.737	1	0	0	0		$|
+9825352	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	707.553	242.001	122.877	0.911039	0	-0.412321	0		$|
+9825353	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	706.417	241.987	119.937	1	0	0	0		$|
+9825778	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	2026.26	5.40404	711.225	0.382683	0	0.92388	0		$|
+9825779	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	2037.37	5.00407	720.921	0.92388	0	-0.382683	0		$|
+9825781	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	2032.05	5.12408	716.097	-0.382683	0	0.92388	0		$|
+9825794	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	2026.56	5.81919	710.917	0.919443	-0.0903291	-0.380306	-0.0428004		$|
+9825795	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	2032.17	5.49885	716.519	0.949546	-0.0907595	-0.298939	-0.0275787		$|
+9825797	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	2037.38	5.40031	720.514	0.948895	-0.0808509	-0.303957	-0.0258988		$|
+33600	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	2034.168457	5.005291462	705.882568	1	0	0	0		$|
+33601	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	2045.814453	4.623856068	715.576172	1	0	0	0		$|
+6835508	0	object/tangible/ground_spawning/mob_spawner.iff	0	704	242	123	1	0	0	0		$|
+6835509	0	object/tangible/ground_spawning/mob_spawner.iff	0	704	242	123	1	0	0	0		$|
+6835510	0	object/tangible/ground_spawning/mob_spawner.iff	0	704	242	123	1	0	0	0		$|
+6835511	0	object/tangible/ground_spawning/mob_spawner.iff	0	704	242	123	1	0	0	0		$|

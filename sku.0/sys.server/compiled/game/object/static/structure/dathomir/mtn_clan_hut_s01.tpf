@@ -1,0 +1,13 @@
+// This file ws written by the template editor @ 10:47:54 AM -  Tue Nov 26 2002
+
+@base object/building/base/base_filler_building.iff
+
+@class static_object_template 1
+
+clientOnlyBuildout = false
+
+@class object_template 4
+
+
+sharedTemplate = "object/static/structure/dathomir/shared_mtn_clan_hut_s01.iff"
+

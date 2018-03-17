@@ -1,0 +1,35 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3735624	0	object/static/structure/general/planter_generic_style_4.iff	0	1477.24	21.9416	1177.54	1	0	0	0		$|
+3735625	0	object/static/structure/general/planter_generic_style_4.iff	0	1470.6	21.7469	1181.46	1	0	0	0		$|
+8265381	0	object/static/structure/general/prp_junk_s6.iff	0	1313.83	14.2866	1572.85	0.940166	0.257004	-0.138082	0.175984		$|
+8265382	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1319.34	13.4236	1567.59	0.452176	0	0.891929	0		$|
+8265383	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1305.71	13.0156	1571.08	-0.422132	0	0.906534	0		$|
+8265384	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1315.04	13.1118	1580.66	1	0	0	0		$|
+8265385	0	object/building/endor/endor_tiki_torch.iff	0	1312.94	13.4238	1571.48	1	0	0	0		$|
+8265386	0	object/building/endor/endor_tiki_torch.iff	0	1315.37	13.4066	1573.35	1	0	0	0		$|
+8265395	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	13.5046	34.7491	1863.65	0.971197	0.0237406	0.17255	0.1626		$|
+8265396	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	9.68726	32.8947	1860.39	0.95442	0.0699947	-0.130403	-0.259188		$|
+8265398	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	7.87915	32.9376	1870.2	1	0	0	0		$|
+8265399	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	19.104	34.7126	1867.49	-0.573222	-0.417619	0.640201	-0.295217		$|
+8265400	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	4.06323	32.8406	1863.45	1	0	0	0		$|
+8265401	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	13.8652	35.4137	1861.08	0.701754	0.679563	-0.113635	0.181173		$|
+8265510	0	object/static/structure/general/planter_generic_style_4.iff	0	1470.96	22.9604	1186.7	1	0	0	0		$|
+8265511	0	object/static/structure/general/planter_generic_style_4.iff	0	1475.2	22.8231	1189.06	1	0	0	0		$|
+8265512	0	object/static/structure/general/planter_generic_style_4.iff	0	1479.98	21.723	1188.61	1	0	0	0		$|
+8265513	0	object/static/structure/general/planter_generic_style_4.iff	0	1480.97	22.7881	1184.61	1	0	0	0		$|
+8265514	0	object/static/structure/general/planter_generic_style_4.iff	0	1479.62	22.3683	1180.11	1	0	0	0		$|
+8265516	0	object/static/structure/general/planter_generic_style_4.iff	0	1473.1	21.8426	1176.99	1	0	0	0		$|
+8395389	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1638.68	8.86051	481.956	0.764537	0.495455	-0.346017	0.224235		$|
+8395390	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1638.35	8.44036	480.15	-0.474124	-0.418018	0.612926	-0.474119		$|
+8395391	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1639.1	8.21441	478.725	-0.281159	-0.128332	0.724162	-0.616498		$|
+8395392	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1641.12	7.81845	477.479	0.227935	0.117221	0.859585	-0.442061		$|
+8395393	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1642.54	7.99488	479.012	0.470057	0.264235	0.741454	-0.399339		$|
+8395394	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1642.77	7.6873	481.086	0.788798	0.410657	0.405657	-0.211189		$|
+8395395	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1640.63	8.64185	482.459	0.759659	0.470994	-0.381115	-0.236294		$|
+8395396	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1639.48	8.19505	480.98	0.926237	0.256344	-0.167247	0.220002		$|
+8395397	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1641.39	8.14315	480.779	0.921487	0.317529	0.184555	-0.126396		$|
+8395398	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1638.55	8.96224	478.859	0.875256	-0.318506	0.36067	0.0489676		$|
+8395399	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1640.82	8.9849	479.738	0.576336	0.194446	0.747998	-0.265571		$|
+3735607	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1316.321777	13.58125401	1569.819336	1	0	0	0		$|
+3975396	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1636.838135	6.406970978	484.846191	1	0	0	0		$|

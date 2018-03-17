@@ -1,0 +1,23 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3305398	0	object/static/structure/corellia/corl_imprv_bridge_insert_s02.iff	0	2034.2	3.54601	1604.1	0.92295	0.00922981	-0.384789	0.00384802		$|
+3305399	0	object/static/structure/corellia/corl_imprv_bridge_lg_s02.iff	0	2044	3.7762	1594.4	0.92295	0.00922981	-0.384789	0.00384802		$|
+9645455	0	object/static/structure/general/campfire_ash.iff	0	1560.16	40.3635	2023.48	1	0	0	0		$|
+9645456	0	object/static/flora/flora_bush_talus_razorcoil.iff	0	1558.23	40.3519	2023.21	0.926798	0	-0.375559	0		$|
+9645457	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1562.09	40.2593	2023.12	0.99629	0.006335	0.084548	-0.0147499		$|
+9645466	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1559.44	40.2867	2025.33	-0.561168	0	0.827702	0		$|
+9645471	0	object/static/structure/general/trash_pile_s01.iff	0	315.957	18.2373	1206.8	0.928139	0.303341	-0.126635	0.174661		$|
+9645473	0	object/static/structure/general/prp_junk_s1.iff	0	316.586	18.2921	1206.91	0.928139	0.303341	-0.126635	0.174661		$|
+9645474	0	object/static/structure/general/prp_junk_s2.iff	0	314.478	18.4004	1207.32	-0.0138911	0.208439	0.00296078	0.977932		$|
+9645475	0	object/static/structure/general/prp_junk_s3.iff	0	316.08	17.0806	1205.69	0.928665	0	0	-0.37092		$|
+9645476	0	object/static/structure/general/prp_junk_s4.iff	0	319.45	17.3724	1205.95	0.708318	0.268671	0.0434236	-0.651319		$|
+9645477	0	object/static/structure/general/prp_junk_s5.iff	0	315.932	17.947	1209.95	0.825336	0	0	-0.564642		$|
+9645479	0	object/static/structure/general/prp_junk_s7.iff	0	318.65	17.3043	1204.98	0.955337	0	0	0.29552		$|
+9645480	0	object/static/structure/general/prp_junk_s8.iff	0	315.93	18.6229	1202.83	0.661974	-0.285677	0.622904	-0.303595		$|
+2735826	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	320.436279	17.66672325	1210.439941	1	0	0	0		$|
+2735827	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	315.901001	18.06607628	1212.779785	1	0	0	0		$|
+5226273	0	object/tangible/ground_spawning/mob_spawner.iff	0	1997	6	1613	1	0	0	0		$|
+5226274	0	object/tangible/ground_spawning/mob_spawner.iff	0	1997	6	1613	1	0	0	0		$|
+5226275	0	object/tangible/ground_spawning/mob_spawner.iff	0	1997	6	1613	1	0	0	0		$|
+5226276	0	object/tangible/ground_spawning/mob_spawner.iff	0	1997	6	1613	1	0	0	0		$|
+5226277	0	object/tangible/ground_spawning/mob_spawner.iff	0	1997	6	1613	1	0	0	0		$|

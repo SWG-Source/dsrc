@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995434	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	465.939	36.9807	1225.63	0.917121	0	-0.398609	0		$|
+8995435	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	464.496	36.927	1223.3	1	0	0	0		$|
+268517820	0	object/tangible/weather_object/weather_object_base.iff	0	0	195	0	1	0	0	0		$|
+3495397	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	458.827759	39.70347595	1233.132263	1	0	0	0		$|
+5585376	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1144.360169	84	26.678833	1	0	0	0		$|
+5585382	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1247.252625	84	68.841553	1	0	0	0		$|
+5585383	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1216.859924	84	73.253174	1	0	0	0		$|
+5585384	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1357.748962	92.83177185	33.013062	1	0	0	0		$|
+5585386	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1168.177551	84.7828598	0.256592	1	0	0	0		$|
+-1	0	object/tangible/poi/tatooine/explore_yavin_blueleaf_temple.iff	0	1173	84	1	1	0	0	0		$|

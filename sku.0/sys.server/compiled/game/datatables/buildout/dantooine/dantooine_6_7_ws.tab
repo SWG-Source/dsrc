@@ -1,0 +1,33 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3975376	0	object/static/structure/general/streetlamp_small_green_style_02.iff	0	15.8865	7.37105	1210.36	1	0	0	0		$|
+8215794	0	object/static/structure/dantooine/dant_totem_pole.iff	0	275.373	9.12426	2025.03	0.745165	-0.00109114	-0.666861	0.00487947		$|
+8215795	0	object/static/structure/dantooine/dant_totem_pole.iff	0	302.04	18.0025	1978.92	-0.291502	0	0.95657	0		$|
+8215798	0	object/static/structure/dantooine/dant_totem_pole.iff	0	360.099	22.9961	1959.34	0.133801	0	0.991008	0		$|
+8265580	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	24.7463	10.2151	1214.57	1	0	0	0		$|
+8265581	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	17	9.33717	1220	1	0	0	0		$|
+8265582	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	8	9.80983	1215	1	0	0	0		$|
+8265583	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	8	11.2128	1206	1	0	0	0		$|
+8265584	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	24	11.5934	1206	1	0	0	0		$|
+8265585	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	17.0457	11.4792	1201.23	1	0	0	0		$|
+8265587	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	26.8301	10.0781	1217.75	-0.604719	0.649372	0.324097	0.328012		$|
+8265588	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	28.8743	9.48872	1220.81	0.703019	0.491353	-0.421411	0.294532		$|
+8265589	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	31.2954	9.40134	1223.73	0.872745	0	-0.488177	0		$|
+8855418	0	object/static/structure/dantooine/dant_large_hut.iff	0	1151.61	3.82079	1910.15	0.323289	0	0.9463	0		$|
+8855419	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1138.65	2.61576	1872.44	-0.462485	0	0.886627	0		$|
+8855420	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1232.97	4.93762	1944.39	0.860269	0	0.509841	0		$|
+8855421	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1166.68	1.56363	1908.49	0.99955	0	0	-0.0299955		$|
+8855422	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1173.39	1.91224	1915.88	0.00420354	0	0.999991	0		$|
+8855423	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1174.85	1.0878	1908.55	0.999838	-0.00312678	0.00999871	-0.0146699		$|
+8855424	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1178.32	1.53656	1912.52	-0.636005	0.0395394	0.769352	-0.0450813		$|
+8855425	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1165.33	1.94434	1915.85	0.999987	0	-0.00499998	0		$|
+8855426	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	1167.13	2.18948	1921.38	1	0	0	0		$|
+8855427	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	1154.88	1.70906	1893.79	0.919102	0	-0.394019	0		$|
+8855429	0	object/static/structure/general/campfire_ash.iff	0	1151.43	1.96999	1909.19	1	0	0	0		$|
+8895408	0	object/static/structure/tatooine/pillar_watto_junkshop.iff	0	862.215	6.9509	418.645	0.971338	0	-0.237703	0		$|
+8895409	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	862.293	2.0787	418.863	0.939373	0	-0.342898	0		$|
+8895411	0	object/static/particle/particle_campfire_style_1.iff	0	861.734	10.3632	418.585	1	0	0	0		$|
+8895412	0	object/static/particle/particle_campfire_style_1.iff	0	862.443	10.4585	418.791	1	0	0	0		$|
+8895413	0	object/static/particle/particle_campfire_style_1.iff	0	862.421	10.4349	418.219	1	0	0	0		$|
+3735548	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1167.181152	0.995599985	1902.135742	1	0	0	0		$|
+3735549	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1160.909912	1.37800765	1896.445801	1	0	0	0		$|

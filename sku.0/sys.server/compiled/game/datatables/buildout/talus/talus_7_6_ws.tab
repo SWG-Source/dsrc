@@ -1,0 +1,22 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2735781	0	object/static/particle/pt_lair_med_burn.iff	0	213.474	53.569	514.667	1	0	0	0		$|
+9505537	0	object/building/endor/endor_lake_platform_cap.iff	0	1317.34	48.9332	607.605	0.748499	0	0.663135	0		$|
+9505583	0	object/static/structure/general/skeleton_human_head.iff	0	1317.4	61.7975	603.485	-0.62161	0	0.783327	0		$|
+9505587	0	object/static/structure/general/skeleton_human_head.iff	0	1316.6	61.5995	611.686	-0.685869	0	0.727726	0		$|
+9505590	0	object/static/structure/general/campfire_ash.iff	0	1313.85	57.9446	605.537	1	0	0	0		$|
+9505601	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	878.241	63.8436	1802.85	1	0	0	0		$|
+9505602	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	881.08	64.5838	1801.42	1	0	0	0		$|
+9505603	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	877.748	64.6495	1796.89	1	0	0	0		$|
+9505605	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	874.104	61.6144	1805.78	1	0	0	0		$|
+9505612	0	object/static/structure/general/streetlamp_small_style_01.iff	0	878.243	63.1175	1799.59	1	0	0	0		$|
+9575439	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	213.177	47.6924	516.788	-0.0388878	-0.00488646	0.991435	-0.124579		$|
+9575440	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	215.632	47.4683	513.551	0.642486	-0.0621155	0.754343	0.119666		$|
+9575441	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	212.038	47.6328	512.822	0.934938	0.123872	0.330245	-0.0385361		$|
+2735828	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1311.536621	57.28503036	614.193115	1	0	0	0		$|
+2735829	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	875.398926	63.88387299	1799.529785	1	0	0	0		$|
+5226303	0	object/tangible/ground_spawning/mob_spawner.iff	0	193	49	515	1	0	0	0		$|
+5226304	0	object/tangible/ground_spawning/mob_spawner.iff	0	193	49	515	1	0	0	0		$|
+5226305	0	object/tangible/ground_spawning/mob_spawner.iff	0	193	49	515	1	0	0	0		$|
+5226306	0	object/tangible/ground_spawning/mob_spawner.iff	0	193	49	515	1	0	0	0		$|
+5226307	0	object/tangible/ground_spawning/mob_spawner.iff	0	193	49	515	1	0	0	0		$|

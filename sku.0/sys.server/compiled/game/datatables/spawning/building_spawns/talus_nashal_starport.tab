@@ -1,0 +1,15 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+talus_ttlp_soldier		arrivals1	54.7	-0.5	34.2	-90										
+object/tangible/quest/talus_grave_robbers_box_magseal.iff		arrivals1	56	-0.5	33.7	77										
+object/tangible/collection/col_jalopy_crate_07.iff		foyer4	-11.9	0.6	50.8	55										
+object/tangible/spawning/spawn_egg.iff		arrivals1	45.7	0.6	45.4	-25	city.interior_2_convo								
+object/tangible/spawning/spawn_egg.iff		foyer4	3.6	0.6	59.5	-88	theme_park.poi.tatooine.city.npc_mission_create								
+object/tangible/spawning/spawn_egg.iff		foyer4	-5.8	0.6	54.7	-88	theme_park.poi.tatooine.city.npc_mission_create								
+junk_dealer		world	4540.5	2.0	5276.8	-54				300	int:ai.defaultCalmBehavior=1				
+igbi_freemo	Igbi Freemo	world	4541.1	2.0	5068.3	-160	npc.static_quest.quest_convo			300	string:quest_table=igbi_freemo,int:ai.defaultCalmBehavior=1				
+aakuan_champion		world	4175.9	2.0	5109.8	-20	npc.static_quest.quest_convo			300	string:quest_table=herald_talus_aakuan_champions,int:ai.defaultCalmBehavior=1				
+junk_dealer		world	4162.0	2.0	5145.6	-35				300	int:ai.defaultCalmBehavior=1				
+junk_dealer		world	4142.6	2.0	5314.7	179				300	int:ai.defaultCalmBehavior=1				
+coa2_rebel_coordinator		world	4065.3	2.0	5288.8	135				300	int:ai.defaultCalmBehavior=1				
+protocol_droid_3po	Race Coordinator	world	4198	2	5284.9	70	theme_park.racing.nashal.race_coordinator			300	int:ai.defaultCalmBehavior=1				

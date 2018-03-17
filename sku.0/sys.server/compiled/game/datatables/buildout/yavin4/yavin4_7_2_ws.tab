@@ -1,0 +1,8 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995507	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1611.16	570.502	1015.85	-0.130424	0	0.991458	0		$|
+8995508	0	object/static/structure/general/skeleton_human_head.iff	0	1610.02	570.81	1013.93	-0.497571	0	0.867423	0		$|
+8995509	0	object/static/structure/general/skeleton_human_head.iff	0	1610.6	570.858	1013.53	0.0657489	0	0.997836	0		$|
+8995510	0	object/static/structure/general/skeleton_human_head.iff	0	1610.91	570.865	1013.13	-0.388685	0	0.921371	0		$|
+8995511	0	object/static/structure/general/skeleton_human_head.iff	0	1611.87	570.599	1013.4	0.120871	0.0792263	0.988694	0.0399823		$|
+8995512	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1610.72	568.827	1012.81	1	0	0	0		$|

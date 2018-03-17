@@ -1,0 +1,22 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8165380	0	object/static/structure/naboo/garden_gazebo_sml_s01.iff	0	1003.63	73.4034	1264.81	0.95987	-0.0239734	0.0866223	-0.265652		$|
+8165381	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	954.309	73.9884	982.52	1	0	0	0		$|
+8165382	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	954.303	73.8993	997.284	1	0	0	0		$|
+8165383	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	954.308	73.9964	989.746	1	0	0	0		$|
+8165386	0	object/static/structure/naboo/arbor_corner_45_s01.iff	0	954.513	73.6355	989.847	0.717911	0	-0.696135	0		$|
+8165387	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	957.677	73.3692	978.761	0.837517	0.118435	0.530608	0.0547178		$|
+8165388	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	963.76	80.8577	397.814	0.915857	-0.0395282	0.177392	-0.358017		$|
+9715372	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	2030.33	90	1789.16	1	0	0	0		$|
+9715373	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	2033.36	90	1789.1	-0.652438	0	0.757843	0		$|
+9715374	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	2032.33	90	1788.83	0.857708	0	-0.514137	0		$|
+9715375	0	object/tangible/camp/camp_cot.iff	0	2030.55	90	1789.64	-0.685868	0	0.727726	0		$|
+9715377	0	object/tangible/camp/campfire_logs_ash.iff	0	2028.36	90.1318	1783.72	1	0	0	0		$|
+3355929	0	object/tangible/ground_spawning/mob_spawner.iff	0	1004	77	1285	1	0	0	0		$|
+3355930	0	object/tangible/ground_spawning/mob_spawner.iff	0	1004	77	1285	1	0	0	0		$|
+3355931	0	object/tangible/ground_spawning/mob_spawner.iff	0	1004	77	1285	1	0	0	0		$|
+3355932	0	object/tangible/ground_spawning/mob_spawner.iff	0	1004	77	1285	1	0	0	0		$|
+3355940	0	object/tangible/ground_spawning/mob_spawner.iff	0	953	81	402	1	0	0	0		$|
+3355941	0	object/tangible/ground_spawning/mob_spawner.iff	0	953	81	402	1	0	0	0		$|
+3355942	0	object/tangible/ground_spawning/mob_spawner.iff	0	953	81	402	1	0	0	0		$|
+3355943	0	object/tangible/ground_spawning/mob_spawner.iff	0	953	81	402	1	0	0	0		$|

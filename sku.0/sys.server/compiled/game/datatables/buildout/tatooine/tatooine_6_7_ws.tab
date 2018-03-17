@@ -1,0 +1,28 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8795590	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1454.64	29.5683	25.9409	1	0	0	0		$|
+8795591	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1454.64	29.5684	25.9424	1	0	0	0		$|
+8795593	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1454.62	29.6136	31.7349	0.947651	-0.319309	0	0		$|
+8795594	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1454.63	29.614	31.7373	0.947651	-0.319309	0	0		$|
+8795595	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1454.63	29.6144	31.7388	0.947651	-0.319309	0	0		$|
+8795601	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1427.56	29.1587	32.1162	0.764842	0	0	0.644218		$|
+8795602	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1427.56	29.1588	32.1147	0.764842	0	0	0.644218		$|
+8795603	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1427.55	29.1588	32.1123	0.764842	0	0	0.644218		$|
+8795605	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1427.57	29.2468	26.3198	1	0	0	0		$|
+8795606	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1427.57	29.2469	26.3184	1	0	0	0		$|
+59861	0	object/static/tatooine/rock_spire_lumpy_tatooine.iff	0	198.592	0.59428	808.433	1	0	0	0		$|
+59863	0	object/static/tatooine/rock_spire_smooth_tatooine_style_1.iff	0	153.32	-2.56735	802.057	1	0	0	0		$|
+59864	0	object/static/tatooine/rock_spire_smooth_tatooine_style_2.iff	0	186.531	-3.99295	844.577	1	0	0	0		$|
+60368	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	156.6	5.95541	834.946	1	0	0	0		$|
+60369	0	object/static/tatooine/rock_spire_skinny_tatooine_style_2.iff	0	279.422	1.99999	813.907	1	0	0	0		$|
+60371	0	object/static/tatooine/rock_spire_lumpy_tatooine_style_2.iff	0	784.4	0.730737	403.209	1	0	0	0		$|
+60372	0	object/static/tatooine/rock_spire_lumpy_tatooine.iff	0	759.491	8e-006	453.761	1	0	0	0		$|
+60373	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	894.136	1.49207	433	1	0	0	0		$|
+60374	0	object/static/tatooine/rock_spire_skinny_tatooine_style_2.iff	0	774.041	0.410507	418.705	1	0	0	0		$|
+60376	0	object/static/tatooine/rock_spire_lumpy_tatooine.iff	0	54.0134	10.4261	314.641	1	0	0	0		$|
+60377	0	object/static/tatooine/rock_spire_lumpy_tatooine_style_2.iff	0	62.9175	3.52896	289.907	-0.653293	0	0.757105	0		$|
+60379	0	object/static/tatooine/rock_spire_skinny_tatooine_style_2.iff	0	78.0229	-19.6573	272.992	1	0	0	0		$|
+1189232	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	370.11	0.978851	536.646	1	0	0	0		$|
+1189233	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	374.048	0.332954	497.549	1	0	0	0		$|
+1189234	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	665.937	0.454437	468.834	1	0	0	0		$|
+-1	0	object/tangible/spawning/static_npc/racing_coordinator.iff	0	328.9	2	901	1	0	0	0		$|

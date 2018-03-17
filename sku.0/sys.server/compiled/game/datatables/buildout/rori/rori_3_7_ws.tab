@@ -1,0 +1,14 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1775430	0	object/static/structure/general/droid_probedroid_powerdown.iff	0	447.841	78.8938	1435.87	1	0	0	0		$|
+9715559	0	object/tangible/camp/camp_tent_s1.iff	0	442.924	78.6865	1437.37	0.173324	0	0.984865	0		$|
+9715560	0	object/tangible/camp/camp_stool_short.iff	0	446.149	78.9257	1436.01	1	0	0	0		$|
+9715561	0	object/tangible/camp/campfire_logs_ash.iff	0	445.27	79.1677	1435.02	1	0	0	0		$|
+9715562	0	object/static/item/item_con_bag_ingredients_lg_s1.iff	0	441.444	78.6711	1436.13	0.510526	0	0.859862	0		$|
+9715563	0	object/static/item/item_con_barrel_lg_s1.iff	0	440.736	78.6899	1436.21	0.950796	0	0.309816	0		$|
+9715594	0	object/static/structure/naboo/gungan_relic_s01.iff	0	1388.26	68.533	389.827	1	0	0	0		$|
+1775429	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	442.91626	78.78051758	1432.731934	1	0	0	0		$|
+3355999	0	object/tangible/ground_spawning/mob_spawner.iff	0	1367	79	399	1	0	0	0		$|
+3356000	0	object/tangible/ground_spawning/mob_spawner.iff	0	1367	79	399	1	0	0	0		$|
+3356001	0	object/tangible/ground_spawning/mob_spawner.iff	0	1367	79	399	1	0	0	0		$|
+3356002	0	object/tangible/ground_spawning/mob_spawner.iff	0	1367	79	399	1	0	0	0		$|

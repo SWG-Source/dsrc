@@ -1,0 +1,7 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+talus_omkoo		foyer4	10.7	0.6	68.3	137										
+object/tangible/collection/col_jalopy_crate_06.iff		foyer4	-11.9	0.6	50.8	55										
+object/tangible/spawning/spawn_egg.iff		arrivals1	45.9	0.6	45.4	-27	city.interior_3_convo								
+object/tangible/spawning/spawn_egg.iff		foyer4	-3.1	0.6	59.8	-90	theme_park.poi.tatooine.city.npc_mission_create								
+object/tangible/spawning/spawn_egg.iff		foyer4	1.4	0.6	54.7	-90	city.interior_3_convo								

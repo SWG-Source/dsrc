@@ -1,0 +1,14 @@
+
+@base object/tangible/wearables/armor/ubese/shared_armor_ubese_pants.iff
+
+@class tangible_object_template 7
+
+
+@class object_template 8
+
+objectName = "wearables_name" "armor_ubese_pants_quest"
+detailedDescription = "wearables_detail" "armor_ubese_pants_quest"
+appearanceFilename = "appearance/armor_ubese_pants_f.sat"
+
+gameObjectType = GOT_armor_leg
+

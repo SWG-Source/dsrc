@@ -1,0 +1,14 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705462	0	object/building/endor/endor_forest_hut.iff	0	2040.9	84.9007	475.738	0.748499	0	0.663136	0		$|
+9705463	0	object/building/endor/endr_lake_rail2m.iff	0	2043.37	84.9722	472.406	1	0	0	0		$|
+9705464	0	object/building/endor/endr_lake_rail2m.iff	0	2043.77	84.6239	473.23	0.8499	0	0.526943	0		$|
+9705466	0	object/building/endor/endr_lake_rail2m.iff	0	2042.84	84.9351	473.313	0.514819	0	0.857299	0		$|
+9705469	0	object/building/endor/endor_tiki_torch.iff	0	2043.11	84.8641	472.875	1	0	0	0		$|
+9705473	0	object/static/structure/dantooine/dant_rack_spears.iff	0	2040.01	84.894	476.337	0.637151	0	0.770739	0		$|
+9705474	0	object/static/item/item_bowl_shallow.iff	0	2041.2	85.3734	474.666	0.988771	0	0	-0.149438		$|
+9705475	0	object/static/item/item_bread_loaf.iff	0	2041.19	85.3858	474.573	0.988771	0	0	-0.149438		$|
+9705476	0	object/static/item/item_cheese_wheel_s1_partial.iff	0	2041.24	85.4202	474.8	0.988771	0	0	-0.149438		$|
+9705477	0	object/static/item/item_bottle_fat.iff	0	2043.35	85.0995	477.546	1	0	0	0		$|
+9705478	0	object/static/item/item_bottle_pear.iff	0	2042.68	85.295	477.81	1	0	0	0		$|
+2835667	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	2045.403564	84.61425781	477.1924744	1	0	0	0		$|

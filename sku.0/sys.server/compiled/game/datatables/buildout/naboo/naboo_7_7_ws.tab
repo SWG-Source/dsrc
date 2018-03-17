@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3076036	0	object/static/structure/general/data_terminal_s1.iff	0	932.489	39.2965	57.9526	-3.20013e-008	0	1	0		$|
+8825472	0	object/static/structure/naboo/gungan_statue_s01.iff	0	1463	-193.814	1435	1	0	0	0		$|
+8825473	0	object/static/structure/naboo/fountain_naboo_style_1.iff	0	1463	-197.076	1435	1	0	0	0		$|
+9525839	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	932.514	39.2914	58.2319	1	0	0	0		$|
+9525840	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	932.701	39.2561	56.4512	0.999129	0.00848746	-0.000347124	-0.0408628		$|
+9525843	0	object/tangible/camp/camp_cot.iff	0	934.222	39.1679	56.3018	0.731689	0	-0.681639	0		$|
+9525845	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	931.163	39.4204	54.8901	1	0	0	0		$|
+9525846	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	930.957	39.4397	55.3359	1	0	0	0		$|
+8825476	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	1463	-205.265	1435	3.20013e-008	0	1	0		$|
+47300	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	928.661621	39.68065643	58.006348	1	0	0	0		$|

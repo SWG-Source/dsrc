@@ -1,0 +1,27 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+500	0	object/tangible/camp/camp_tent_s2.iff	0	110.357	18.4559	1050.38	-0.0357887	0	0.999359	0		$|
+501	0	object/tangible/camp/camp_stool_tall.iff	0	106.586	18.1439	1049.36	1	0	0	0		$|
+502	0	object/tangible/camp/campfire_logs_ash.iff	0	108.803	16.125	1036.44	1	0	0	0		$|
+503	0	object/tangible/camp/camp_lawn_chair.iff	0	117.23	16.9186	1038.28	0.959662	0	-0.281157	0		$|
+504	0	object/tangible/camp/camp_lantern_s3.iff	0	108.242	18.1823	1049.24	1	0	0	0		$|
+8515528	0	object/static/structure/tatooine/wall_archway_tatooine_wide_style_01.iff	0	124.066	16.2384	1049.76	0.879969	0	0.475032	0		$|
+8515531	0	object/static/structure/tatooine/bridge_tatooine_small_style_02.iff	0	122.872	17.3983	1051.75	0.877583	0	0.479425	0		$|
+8515533	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	104.544	17.8449	1052.34	0.882333	0	0.470626	0		$|
+8515534	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	102.079	16.0124	1040.37	0.973666	0	-0.227978	0		$|
+8515542	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	118.321	13.72	1035.92	-0.423724	-0.0311134	0.902143	0.075019		$|
+8515549	0	object/static/structure/tatooine/wall_cleft_tatooine_large_style_01.iff	0	112.251	16.6367	1053.17	0.272313	0	0.962209	0		$|
+8515576	0	object/static/structure/general/campfire_ash.iff	0	771.868	7.42678	378.413	1	0	0	0		$|
+8515577	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	770.944	7.76859	379.319	0.993395	0	-0.114747	0		$|
+8515578	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	770.754	7.78949	379.98	0.993395	0	-0.114747	0		$|
+8515579	0	object/tangible/camp/camp_tent_s1.iff	0	772.762	7.5639	381.035	-0.0591691	0	0.998248	0		$|
+8515581	0	object/tangible/camp/camp_stool_short.iff	0	771.116	7.4786	377.884	1	0	0	0		$|
+8515582	0	object/tangible/camp/camp_stool_tall.iff	0	772.648	7.25419	377.561	1	0	0	0		$|
+8795369	0	object/static/structure/general/poi_tato_tent_s01.iff	0	1494.13	9.44172	1809.87	0.999221	-0.0252855	0.00323781	0.0301107		$|
+8795370	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1494.12	9.11461	1803.86	0.996878	0.00292195	0.0448898	0.0648885		$|
+8795371	0	object/static/structure/general/campfire_ash.iff	0	1498.8	9.41091	1802.81	1	0	0	0		$|
+8795372	0	object/tangible/camp/camp_lawn_chair.iff	0	1497.88	9.45013	1803.42	0.256311	0	0.966594	0		$|
+8795373	0	object/tangible/camp/camp_lawn_chair.iff	0	1499.71	9.48752	1803.04	-0.380925	0	0.924606	0		$|
+498	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	113.42041	16.89082146	1039.669678	1	0	0	0		$|
+506	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	769.013428	7.511413097	376.435059	1	0	0	0		$|
+894823	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1488.251709	8.698589325	1804.448975	1	0	0	0		$|

@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2975378	0	object/static/particle/pt_miasma_of_fog_greenish.iff	0	646.389	12.1526	912.629	1	0	0	0		$|
+2975379	0	object/static/structure/general/skeleton_human_headandbody.iff	0	645.455	12.5862	904.625	1	0	0	0		$|
+5685469	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	635.507	11.2412	911.701	0.995004	0.0998334	0	0		$|
+5685470	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	646.712	11.6336	916.276	0.816773	0	0.576959	0		$|
+5685471	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	635.688	11.9891	928.008	0.813512	0.0174284	0.580774	0.0244127		$|
+5685472	0	object/static/structure/general/tankfarm_s01.iff	0	644.843	11.2226	912.533	0.106127	-0.0576649	0.978657	0.166258		$|
+9025560	0	object/tangible/camp/campfire_logs_smoldering.iff	0	588.711	12.0535	998.047	1	0	0	0		$|
+9025564	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	591.3	11.4111	993.132	0.963771	0	-0.266731	0		$|
+9025565	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	591.154	11.7295	994.662	0.92388	-0.382683	0	0		$|
+9025566	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	592.439	11.7882	994.511	0.815134	0.0600406	-0.569712	-0.085905		$|
+9025572	0	object/static/structure/tatooine/debris_tatt_radar_dish.iff	0	592.035	10.6334	984.425	-0.587603	0.115568	0.649635	0.468339		$|

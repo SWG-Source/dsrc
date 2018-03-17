@@ -1,0 +1,20 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2115748	0	object/static/structure/corellia/corl_imprv_wall_4x32_s02.iff	0	1875.34	28.3782	23.0142	-0.382683	0	0.92388	0		$|
+2115749	0	object/static/structure/corellia/corl_imprv_wall_4x32_s02.iff	0	1806.02	28.1522	23.01	0.92388	0	-0.382683	0		$|
+2115755	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1817.68	28.67	34.6914	0.92388	0	-0.382683	0		$|
+2115757	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	1863.66	28.7808	34.5754	0.92388	0	0.382683	0		$|
+2365608	0	object/tangible/furniture/modern/table_modern_style_01.iff	0	1874.13	28	2.68555	0.417596	0	0.908633	0		$|
+2365609	0	object/tangible/furniture/modern/chair_modern_style_01.iff	0	1877.06	28	2.69165	-0.662541	0	0.749026	0		$|
+2365610	0	object/tangible/furniture/modern/chair_modern_style_01.iff	0	1872	28	1.51489	0.839194	0	0.543833	0		$|
+2365611	0	object/tangible/furniture/modern/chair_modern_style_01.iff	0	1873.23	28	5.19556	0.0956499	0	0.995415	0		$|
+3695459	0	object/tangible/sign/all_sign_city_s02.iff	0	1843.03	28	19.0691	1	0	0	0		$|
+5406855	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1818.39	28.4059	35.5522	0.92388	0	0.382683	0		$|
+5406856	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1862.95	27.9527	35.1631	0.92388	0	-0.382683	0		$|
+5406858	0	object/static/structure/general/streetlamp_large_style_01.iff	0	1883.8	28	1.22168	0.707107	0	-0.707107	0		$|
+9825739	0	object/static/structure/general/escape_pod.iff	0	295.847	-0.257033	799.456	0.543353	-0.048185	-0.0435575	0.836988		$|
+9825743	0	object/static/structure/general/escape_pod_door.iff	0	297.748	0.0854916	804.326	0.707107	0.707106	0	0		$|
+9825747	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	290.888	-0.320913	801.769	0.768054	0.640385	0	0		$|
+9825748	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	292.828	-0.38606	807.083	0.892832	0.0986096	0.436806	-0.0482434		$|
+9825749	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	301.342	-0.962396	803.22	0.863643	-0.128555	-0.276649	-0.401323		$|
+2115582	0	object/building/corellia/filler_slum_24x16_s02.iff	0	1889.43	28.0989	1.09668	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/corellia/corellia_commoner.iff|$|

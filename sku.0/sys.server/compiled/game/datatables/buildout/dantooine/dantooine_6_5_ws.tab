@@ -1,0 +1,29 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8215789	0	object/static/flora/flora_decd_scorched_tallbirch_broke.iff	0	50.9004	19.6308	30.9803	-0.699965	0.245558	0.552306	0.380405		$|
+8215790	0	object/static/flora/flora_decd_scorched_tallbirch_broke.iff	0	56.5852	19.847	38.2525	0.908966	-0.416871	0	0		$|
+8215791	0	object/static/flora/flora_decd_scorched_tallbirch_broke.iff	0	59.2478	20.6577	25.3739	0.464108	0.0353038	0.815807	0.343245		$|
+8855409	0	object/static/structure/military/military_wall_strong_rebl_style_01.iff	0	94.533	24.1711	301.804	0.764842	0	-0.644218	0		$|
+8855410	0	object/static/structure/military/military_wall_strong_rebl_style_01.iff	0	110.85	24.2928	299.044	0.644218	0	0.764842	0		$|
+8855411	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	103.245	24.1064	303.707	-0.0852952	0	0.996356	0		$|
+8855412	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	101.89	24.0426	297.105	-0.0852949	0	0.996356	0		$|
+8855413	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	97.4028	24.6998	302.689	1	0	0	0		$|
+8855414	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	100.288	24.8587	301.316	0.995953	0	0.0898786	0		$|
+8855417	0	object/static/structure/corellia/corl_power_connector.iff	0	106.792	24.2714	301.359	0.99639	0	0.0848977	0		$|
+9015353	0	object/building/endor/endr_lake_rail4m.iff	0	1036.2	1.76494	1216.77	0.96214	0.210104	-0.167863	-0.044323		$|
+9015355	0	object/building/endor/endr_lake_rail2m.iff	0	1033.07	2.45069	1215.94	0.96484	-0.171015	-0.131469	-0.150177		$|
+9015356	0	object/building/endor/endr_lake_rail4m.iff	0	1029.93	3.46211	1215.2	0.946601	-0.283859	-0.0946897	-0.120019		$|
+9015357	0	object/building/endor/endr_lake_rail2m.iff	0	1026.47	4.1547	1214.8	0.557359	0.820816	-0.0488952	-0.114983		$|
+9015358	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1017.1	3.62118	1206.15	0.852525	0	0.522687	0		$|
+9015359	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1023	3.11353	1208.31	0.822502	0	-0.568762	0		$|
+9015360	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1018.8	3.53275	1214.14	0.0409336	-0.182704	0.967588	0.169463		$|
+9015424	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1812.18	14.1233	168.56	0.736431	0.468386	0.440414	-0.210524		$|
+9015425	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1808.81	14.2692	166.043	-0.289517	-0.243111	0.74979	-0.54304		$|
+9015426	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1809.24	14.6065	168.731	0.765684	0.553137	-0.301781	0.129214		$|
+9015427	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1811.35	14.684	165.118	-0.565588	0.494659	0.659404	-0.0246706		$|
+9015428	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	1811.01	14.6254	169.535	0.908966	0.416871	0	0		$|
+9015429	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	1808.55	14.8424	167.861	0.751573	0.271751	-0.536669	0.270696		$|
+9015430	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	1810.36	14.7395	165.311	0.913894	-0.363828	0.155528	0.0907597		$|
+9015431	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	1812.49	14.5892	166.689	0.707364	0.240991	0.596157	-0.293523		$|
+3735552	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	102.559326	23.62393761	292.9499512	1	0	0	0		$|
+3735590	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	63.093994	20.34606552	32.89024353	1	0	0	0		$|

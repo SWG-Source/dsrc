@@ -1,0 +1,26 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8185462	0	object/static/structure/dantooine/dant_fire_pit.iff	0	1546.16	-196.906	643.563	1	0	0	0		$|
+8185463	0	object/static/particle/particle_campfire_style_1.iff	0	1546.15	-196.938	643.581	1	0	0	0		$|
+8185464	0	object/static/structure/naboo/gungan_relic_s02.iff	0	1542.56	-200.949	645.292	1	0	0	0		$|
+8185465	0	object/static/structure/naboo/gungan_relic_s02.iff	0	1552.72	-199.376	644.81	0.975897	0	0	0.21823		$|
+8185466	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1550.25	-196.865	637.604	1	0	0	0		$|
+8185467	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	1542.17	-197.215	637.464	0.906473	0.0755318	-0.37261	-0.183751		$|
+8185468	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1546.36	-197.693	643.595	1	0	0	0		$|
+8185473	0	object/static/structure/naboo/arbor_pillar_s01.iff	0	1921.86	-195.671	214.941	1	0	0	0		$|
+8185476	0	object/static/structure/naboo/nboo_imprv_lattice_wall_long_s01.iff	0	1919.91	-196.319	218.899	0.721382	0	0.692537	0		$|
+8185477	0	object/static/structure/naboo/nboo_imprv_lattice_wall_long_s01.iff	0	1923.44	-196.274	219.034	0.721384	0	0.692535	0		$|
+8185478	0	object/static/structure/naboo/nboo_imprv_lattice_wall_short_s01.iff	0	1921.53	-196.341	222.978	0.999987	0	-0.00499997	0		$|
+8185479	0	object/static/structure/general/gravestone_generic_style_04.iff	0	1920.61	-195.793	221.69	0.0357886	0	0.999359	0		$|
+8185480	0	object/static/structure/general/gravestone_generic_style_03.iff	0	1922.47	-195.835	221.658	-0.0291994	0	0.999574	0		$|
+8185482	0	object/static/structure/general/gravestone_generic_style_01.iff	0	1920.77	-195.785	219.468	-0.0391936	0	0.999232	0		$|
+8185483	0	object/static/structure/general/gravestone_generic_style_05.iff	0	1922.48	-195.824	219.479	1	0	0	0		$|
+8185484	0	object/static/structure/general/gravestone_generic_style_02.iff	0	1920.73	-195.772	217.567	0.0357887	0	0.999359	0		$|
+8185485	0	object/static/structure/general/gravestone_generic_style_04.iff	0	1922.29	-195.811	217.704	-0.00420355	0	0.999991	0		$|
+8185486	0	object/static/structure/general/gravestone_generic_style_01.iff	0	1920.92	-195.766	215.69	0.0357887	0	0.999359	0		$|
+8185487	0	object/static/structure/general/gravestone_generic_style_03.iff	0	1922.23	-195.8	215.799	0.0157957	0	0.999875	0		$|
+8185488	0	object/static/flora/potted_plant_flowers_purple.iff	0	1922.25	-196.458	215.256	1	0	0	0		$|
+8185489	0	object/static/flora/potted_plant_flowers_orange.iff	0	1920.76	-196.381	218.932	1	0	0	0		$|
+8185490	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1922.07	-198.001	217.344	1	0	0	0		$|
+8245356	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1546.700439	-196.9725189	637.913574	1	0	0	0		$|
+8245357	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1918.721436	-195.7120514	213.025391	1	0	0	0		$|

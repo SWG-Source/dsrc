@@ -1,0 +1,26 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2975415	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	938.906	63.1732	236.688	1	0	0	0		$|
+2975416	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	936.813	63.0376	235.904	1	0	0	0		$|
+2975417	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	936.82	63.0589	236.428	1	0	0	0		$|
+2975418	0	object/static/structure/general/banner_imperial_style_01.iff	0	943.781	62.7048	239.882	1	0	0	0		$|
+8485355	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1957.65	11.9447	1050.48	1	0	0	0		$|
+8485356	0	object/static/structure/general/skeleton_human_body.iff	0	1960.06	12.0662	1045.54	1	0	0	0		$|
+8485366	0	object/static/structure/dantooine/dant_skull_lizard.iff	0	1954.04	11.922	1051.04	0.700285	0	0	0.713864		$|
+8485372	0	object/static/structure/general/escape_pod.iff	0	1965.78	12.8289	1053.53	0.0410113	-0.597995	-0.374056	0.707674		$|
+8485374	0	object/static/structure/general/escape_pod_door.iff	0	1962.17	11.7911	1051.87	0.394386	-0.18327	0.262329	0.861426		$|
+9685962	0	object/tangible/camp/camp_tent_s1.iff	0	931.087	62.7899	235.516	0.669996	0	0.742365	0		$|
+9685963	0	object/tangible/camp/camp_tent_s1.iff	0	934.226	62.8866	240.018	0.380925	0	0.924606	0		$|
+9685964	0	object/tangible/camp/camp_tent_s1.iff	0	940.627	63.1903	242.252	-0.0457804	0	0.998951	0		$|
+9685965	0	object/tangible/camp/camp_tent_s1.iff	0	947.197	63.5021	241.701	-0.219007	0	0.975723	0		$|
+9685967	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	927.71	62.4267	228.947	0.913089	0	-0.407761	0		$|
+9685968	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	938.146	63.2577	221.958	1	0	0	0		$|
+9685969	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	950.603	63.2358	227.103	0.904752	0	0.425939	0		$|
+9685970	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	955.174	62.9479	236.429	-0.165038	0	0.986287	0		$|
+9685972	0	object/static/structure/tatooine/wall_gate_tatooine_style_02.iff	0	944.95	63.1584	224.27	0.803029	-0.0284064	0.579373	-0.136621		$|
+9685974	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	933.472	61.9392	221.602	0.592511	0.165851	0.778123	0.126289		$|
+9685975	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	953.311	62.8235	229.381	0.974794	0	0	-0.223106		$|
+2975382	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1959.131836	11.92778587	1056.75293	1	0	0	0		$|
+2975383	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1957.678223	11.92688274	1047.630371	1	0	0	0		$|
+2975414	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	944.447266	63.55056381	231.740234	1	0	0	0		$|
+2975419	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	953.126953	62.60087204	214.363281	1	0	0	0		$|

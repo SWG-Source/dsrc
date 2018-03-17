@@ -1,0 +1,5 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+xalox_guul	Xalox Guul	room2	3.2	0.1	-2.4	-90	npc.static_quest.quest_convo			300	string:quest_table=xalox_guul					
+imperial_recruiter		world	-2191.4	20.0	2269.1	-90				300	int:ai.defaultCalmBehavior=1				
+gravin_attal	Gravin Attal	world	-2151.1	20.0	2303.8	112	npc.static_quest.quest_convo			300	string:quest_table=gravin_attal,int:ai.defaultCalmBehavior=1				

@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8795585	0	object/static/structure/tatooine/skeleton_krayt_foot.iff	0	1347.54	2.77125	1604.48	0.561355	0.262775	0.72062	-0.310704		$|
+8795586	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1339.64	6.38607	1606.31	0.320063	0	0.947396	0		$|
+8795587	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1339.03	7.12668	1606.4	1	0	0	0		$|
+8795588	0	object/static/structure/general/skeleton_human_head.iff	0	1341.16	7.28611	1605.83	0.829092	-0.121704	-0.508321	0.198504		$|
+8795589	0	object/static/structure/general/skeleton_ithorian_headandbody.iff	0	1339.79	7.03296	1604.02	1	0	0	0		$|
+8795597	0	object/static/structure/tatooine/skeleton_greater_krayt_head.iff	0	1343.97	4.75984	1599.81	0.253371	0.1204	0.937258	-0.207015		$|
+894865	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1335.322998	6.69831562	1607.445312	1	0	0	0		$|

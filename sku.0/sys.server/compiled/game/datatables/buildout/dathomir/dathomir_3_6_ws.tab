@@ -1,0 +1,19 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1105986	0	object/static/particle/pt_flocking_glowzees.iff	0	908.969	6.15465	1106.59	1	0	0	0		$|
+1105987	0	object/static/particle/pt_lair_evil_fire_large_red.iff	0	910.654	16.1763	1108.07	1	0	0	0		$|
+1105988	0	object/static/particle/pt_flocking_glowzees.iff	0	910.863	20.6208	1108.31	1	0	0	0		$|
+2716125	0	object/tangible/npc/tatooine_special/sarlacc.iff	0	2015.21	13.6917	1095.14	1	0	0	0		$|
+4548487	0	object/tangible/collection/rare_rifle_proton.iff	0	2008.67	20.5017	1084.96	-0.651185	-0.275866	0.190782	0.680778		$|
+6705434	0	object/static/terrain/tatooine/poi_sarlacc_collision_floor.iff	0	2014.94	-7.39829	1094.75	1	0	0	0		$|
+9725692	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	910.755	13.8116	1112.7	0.92388	0.382683	0	0		$|
+9725693	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	914.376	13.7432	1108.61	0.656798	0.290212	0.649746	-0.249446		$|
+9725696	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	906.932	13.6276	1108.7	-0.675992	-0.280005	0.629752	-0.260852		$|
+9725699	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	910.276	13.1543	1104.98	0.0223591	0.00926143	0.923609	-0.382571		$|
+9725707	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	910.769	6.89748	1109.26	1	0	0	0		$|
+9725713	0	object/static/item/item_bowl_shallow.iff	0	910.703	16.2644	1108.08	1	0	0	0		$|
+9725721	0	object/static/structure/general/campfire_burnt.iff	0	910.675	16.5883	1108.05	1	0	0	0		$|
+9725726	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	910.752	16.3813	1108.15	1	0	0	0		$|
+1105989	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	918.57373	21.82620049	1136.126221	1	0	0	0		$|
+1105990	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	910.498779	22.92370224	1137.802734	1	0	0	0		$|
+-1	0	object/tangible/poi/tatooine/explore_dathomir_sarlaac.iff	0	2008	19	1103	1	0	0	0		$|

@@ -1,0 +1,4 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995450	0	object/static/flora/flora_decd_scorched_massassi_broke.iff	0	272.351	85.7208	1264.55	0.730362	0.0201004	0.530241	-0.430129		$|
+3495399	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	271.394409	88.73310089	1269.554932	1	0	0	0		$|

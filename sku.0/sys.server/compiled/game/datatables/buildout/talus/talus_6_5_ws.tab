@@ -1,0 +1,18 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2735661	0	object/building/corellia/filler_slum_16x16_s01.iff	0	2046.81	6	943.954	0.17903	0	0.983844	0		$|
+2735710	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	2042.85	6	923.75	-0.453596	0	0.891208	0		$|
+2735713	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	2030.67	6	958.878	0.738469	0	-0.674288	0		$|
+2735714	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	2043.15	6	990.097	0.857709	0	-0.514136	0		$|
+8535412	0	object/static/structure/tatooine/skeleton_greater_krayt_head.iff	0	71.3357	27.2035	1273.22	-0.606573	0.27531	0.736134	0.119919		$|
+8535436	0	object/static/item/item_jar_spice_blue.iff	0	71.1829	27.7773	1273.23	1	0	0	0		$|
+8535437	0	object/static/structure/general/streetlamp_small_blue_style_02.iff	0	71.5176	24.4014	1273.14	1	0	0	0		$|
+8535444	0	object/static/structure/dantooine/dant_boundary_post.iff	0	422.536	33.6248	786.629	1	0	0	0		$|
+8535445	0	object/static/structure/general/skeleton_human_head.iff	0	423.553	36.6885	787.352	0.694277	0.546653	0.302765	-0.357047		$|
+8535446	0	object/static/structure/general/skeleton_bith_head.iff	0	421.551	36.6126	787.503	0.67221	0.631679	-0.317918	0.219189		$|
+8535456	0	object/building/military/military_outpost_guard_tower_1.iff	0	1156.59	6.78577	1265.34	0.886995	0	0.461779	0		$|
+8535457	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1162.59	6.92657	1267.48	0.886717	0.044267	0.451488	0.0890629		$|
+8535459	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	1156.11	15.7325	1263.29	1	0	0	0		$|
+8535460	0	object/static/flora/flora_decd_scorched_tallbirch.iff	0	1425.17	36.0271	482.999	1	0	0	0		$|
+2035875	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1166.757568	8.435930252	1259.736328	1	0	0	0		$|
+1053332	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	71.4	27.9468	1275.18	1	0	0	0		$|

@@ -1,0 +1,25 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2666198	0	object/static/structure/general/escape_pod.iff	0	1702.77	15.4044	571.609	-0.424594	0.406944	0.345646	0.731195		$|
+2666199	0	object/static/structure/general/escape_pod_door.iff	0	1697.67	17.461	576.502	-0.144722	-0.275079	-0.496881	0.810245		$|
+9725935	0	object/static/structure/dantooine/dant_fence_8m.iff	0	877.367	124.119	1296.11	0.947651	0	0.319309	0		$|
+9725936	0	object/static/structure/dantooine/dant_fence_8m.iff	0	884.648	124.197	1293.91	0.99955	0	-0.0299955	0		$|
+9725937	0	object/static/structure/dantooine/dant_fence_8m.iff	0	890.495	124.626	1303.05	0.950796	0	0.309817	0		$|
+9725938	0	object/static/structure/dantooine/dant_fence_8m.iff	0	883.362	124.306	1305.23	0.997951	-0.00199863	-0.0499392	0.0399394		$|
+9725939	0	object/static/structure/dantooine/dant_fence_8m.iff	0	876.655	124.193	1301.76	0.913089	0	-0.407761	0		$|
+9725940	0	object/static/structure/dantooine/dant_fence_8m.iff	0	891.043	124.367	1297.29	0.895649	-0.0133164	-0.443748	0.0268775		$|
+9725941	0	object/static/structure/general/tato_cave_rock_med.iff	0	888.156	124.489	1299.67	0.855832	0.362552	0.289569	0.228599		$|
+9725942	0	object/static/structure/general/tato_cave_rock_med.iff	0	884.556	124.186	1296.74	0.64864	0.761095	0	0		$|
+9725943	0	object/static/structure/general/tato_cave_rock_med.iff	0	884.222	124.4	1302.7	0.87571	-0.0796264	0.154833	-0.450353		$|
+9725944	0	object/static/structure/general/tato_cave_rock_med.iff	0	880.3	124.179	1299.26	0.824994	0.413893	0.34395	-0.172557		$|
+9725945	0	object/static/particle/particle_campfire_style_1.iff	0	880.277	124.189	1299.25	1	0	0	0		$|
+9725946	0	object/static/particle/particle_campfire_style_1.iff	0	884.545	124.203	1296.68	1	0	0	0		$|
+9725947	0	object/static/particle/particle_campfire_style_1.iff	0	884.193	124.392	1302.73	1	0	0	0		$|
+9725948	0	object/static/particle/particle_campfire_style_1.iff	0	888.243	124.454	1299.63	1	0	0	0		$|
+9725949	0	object/static/structure/dantooine/dant_boundary_post.iff	0	870.941	124.303	1298.29	-0.629412	0	0.777072	0		$|
+9725950	0	object/static/structure/dantooine/dant_boundary_post.iff	0	898.839	125.26	1300.57	0.761611	0	0.648034	0		$|
+9725951	0	object/static/structure/dathomir/night_sister_banner_s03.iff	0	884.143	124.294	1299.81	1	0	0	0		$|
+9725955	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	884.145	122.479	1300.13	0.999388	0	-0.0349929	0		$|
+9725956	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	885.136	122.487	1300.2	0.999388	0	-0.0349929	0		$|
+9185411	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	34.233398	131.0275421	964.8274536	1	0	0	0		$|
+-1	0	object/tangible/poi/tatooine/explore_dat_escape_pod.iff	0	1707	14	574	1	0	0	0		$|

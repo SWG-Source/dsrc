@@ -1,0 +1,27 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9715496	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1416.38	76.7615	1008.98	1	0	0	0		$|
+9715497	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1416.63	76.8726	1008.24	1	0	0	0		$|
+9715498	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1417.2	77.0381	1007.43	1	0	0	0		$|
+9715499	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1416.47	76.8861	1007.47	0.728271	0	-0.685289	0		$|
+9715500	0	object/tangible/camp/camp_cot.iff	0	1416.54	76.5027	1010.39	0.99935	-0.000599869	-0.0199897	0.0299895		$|
+9715501	0	object/tangible/camp/campfire_logs_ash.iff	0	1414.67	76.3618	1008.59	1	0	0	0		$|
+9715726	0	object/building/naboo/ply_nboo_house_s_s01_fp1.iff	0	1096.3	75.6463	1024.17	0.714421	0	-0.699716	0		$|
+9715727	9715726	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+9715728	9715726	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+9715729	9715726	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+9715739	0	object/static/structure/naboo/garden_gazebo_sml_s01.iff	0	1123.29	76.4558	1023.94	1	0	0	0		$|
+9715742	0	object/tangible/furniture/all/frn_all_table_s03.iff	0	1123.28	76.4308	1024.11	1	0	0	0		$|
+9715743	0	object/tangible/furniture/elegant/chair_s01.iff	0	1123.4	76.3068	1022.24	1	0	0	0		$|
+9715744	0	object/tangible/furniture/elegant/chair_s01.iff	0	1123.34	76.2869	1025.6	3.20013e-008	0	1	0		$|
+9715745	0	object/tangible/furniture/elegant/chair_s01.iff	0	1121.88	76.3969	1024.03	0.707107	0	0.707106	0		$|
+9715746	0	object/tangible/furniture/elegant/chair_s01.iff	0	1124.76	76.3782	1024.1	-0.707107	0	0.707107	0		$|
+9715747	0	object/static/flora/potted_plant_flowers_orange.iff	0	1105.84	76.1506	1024.97	1	0	0	0		$|
+9715756	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1108.99	76.11	1026.91	1	0	0	0		$|
+9715757	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1112.54	76.1146	1026.97	1	0	0	0		$|
+9715758	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1115.74	76.0193	1027.01	1	0	0	0		$|
+9715775	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1118.82	76.1061	1026.9	1	0	0	0		$|
+1352898	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1416.452637	76.93294525	1004.829163	1	0	0	0		$|
+1352899	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1419.708008	76.84846497	1015.507751	1	0	0	0		$|
+1775413	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1109.51416	75.99850464	1014.819641	1	0	0	0		$|
+1775414	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1116.522461	76.29162598	1021.762451	1	0	0	0		$|

@@ -1,0 +1,9 @@
+
+@base object/tangible/deed/base/base_deed.iff
+
+@class tangible_object_template 0
+
+@class object_template 7
+
+
+sharedTemplate = "object/tangible/deed/player_house_deed/shared_player_house_tcg_8_bespin_house_deed.iff"

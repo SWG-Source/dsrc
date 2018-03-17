@@ -1,0 +1,17 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+object/tangible/region/deliver_region_5.iff		world	-6953.841797	73	-5734.776367		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-6978.510254	73	-5676.131836		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-6919.4	73	-5654.233398		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-6912.210938	73	-5732.02832		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-6947.808105	73	-5754.456543		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-364.298798	35	4839.270508		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-365.840912	35	4866.648438		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-348.122101	35	4882.180664		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-324.673065	35	4889.007324		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-329.392395	35	4823.335449		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-352.762268	35	4820.839844		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-311.915222	35	4824.621582		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-274.233734	35	4827.906738		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-258.202026	35	4837.590332		systems.missions.dynamic.deliver_npc_spawner
+object/tangible/region/deliver_region_5.iff		world	-256.416534	35	4892.178711		systems.missions.dynamic.deliver_npc_spawner

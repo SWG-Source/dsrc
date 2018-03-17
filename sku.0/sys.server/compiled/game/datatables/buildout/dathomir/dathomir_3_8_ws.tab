@@ -1,0 +1,15 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725798	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1442.65	546.527	1235.53	-0.706789	0.706789	0.02121	-0.02121		$|
+9725810	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1431.14	548.894	1226.44	0.707107	0.707106	0	0		$|
+9725813	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1436.71	548.796	1218.12	0.92388	-0.382683	0	0		$|
+9725820	0	object/static/flora/flora_decd_dath_azerontree.iff	0	1448.7	546.204	1222.24	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_tree_and_skeletons.iff|$|
+9725822	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1431.28	550.061	1229.89	1	0	0	0		$|
+9725825	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1437.44	545.498	1226.02	1	0	0	0		$|
+9725827	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1448.38	545.683	1229.99	1	0	0	0		$|
+9725829	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1436.72	554.917	1210.25	1	0	0	0		$|
+9725837	0	object/static/structure/dathomir/night_sister_banner_s01.iff	0	1444.63	543.37	1222.29	0.819648	0	-0.572867	0		$|
+9725845	0	object/static/structure/dathomir/night_sister_banner_s01.iff	0	1443.39	543.33	1222.88	0.844589	0	-0.535416	0		$|
+9725849	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1437.53	543.815	1223.57	1	0	0	0		$|
+9725868	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1444.07	546.552	1222.41	0.60582	0	0.795602	0		$|
+9725873	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1443.95	546.499	1222.75	0.819648	0	-0.572867	0		$|

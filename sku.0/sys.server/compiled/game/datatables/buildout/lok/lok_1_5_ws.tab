@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5685436	0	object/static/structure/naboo/obelisk_naboo_theed_style_1.iff	0	1834.21	38.9893	1121.58	1	0	0	0		$|
+5685437	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1834.14	38.4124	1123.88	1	0	0	0		$|
+9025356	0	object/static/structure/general/campfire_ash.iff	0	1837.03	39.2397	1123.76	1	0	0	0		$|
+9025357	0	object/static/structure/general/skeleton_human_head.iff	0	1835.25	39.7126	1126.91	0.917121	0	0	-0.398609		$|
+9025358	0	object/static/structure/general/skeleton_human_head.iff	0	1834.87	39.7344	1126.46	0.013126	-0.443483	0.895113	-0.0438583		$|
+9025359	0	object/static/structure/general/skeleton_human_body.iff	0	1834.26	39.8061	1131.5	1	0	0	0		$|
+9025360	0	object/static/structure/general/skeleton_human_body.iff	0	1831.88	40.2525	1130.44	0.380925	0	0.924606	0		$|
+9025361	0	object/static/structure/general/skeleton_human_head.iff	0	1832.54	40.3311	1125.59	0.933959	0.0643773	0.317584	0.150722		$|
+9025362	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	1832.96	39.8177	1124.21	-0.495176	0.495176	0.504777	0.504778		$|
+9025363	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1834.56	39.8414	1123.79	0.707107	0	-0.707106	0		$|
+2975366	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1838.345703	39.9563942	1128.186523	1	0	0	0		$|

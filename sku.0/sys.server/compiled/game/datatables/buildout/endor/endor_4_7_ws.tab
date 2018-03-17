@@ -1,0 +1,37 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705552	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	253.369	399.402	1917.82	0.978031	0	-0.20846	0		$|
+9705563	0	object/static/structure/dantooine/dant_skull_bol.iff	0	250.602	402.126	1923.34	0.685399	0.678371	-0.174757	0.198746		$|
+9705571	0	object/static/structure/general/skeleton_human_head.iff	0	248.162	396.994	1926.99	1	0	0	0		$|
+9705572	0	object/static/structure/general/skeleton_human_head.iff	0	248.003	396.984	1926.94	0.917121	0	-0.398609	0		$|
+9705574	0	object/static/structure/general/skeleton_human_head.iff	0	247.94	397.014	1926.78	-0.659983	0	0.75128	0		$|
+9705575	0	object/static/structure/general/skeleton_human_head.iff	0	248.061	396.998	1926.68	-0.248176	0	0.968715	0		$|
+9705576	0	object/static/structure/general/skeleton_human_head.iff	0	248.208	397.022	1926.71	0.429739	0	0.902953	0		$|
+9705577	0	object/static/structure/general/skeleton_human_head.iff	0	248.275	396.993	1926.87	0.761612	0	0.648034	0		$|
+9705580	0	object/static/structure/general/skeleton_human_head.iff	0	248.106	397.138	1926.92	0.992198	0	-0.124675	0		$|
+9705583	0	object/static/structure/general/skeleton_human_head.iff	0	248.023	397.175	1926.72	-0.272313	0	0.962209	0		$|
+9705584	0	object/static/structure/general/skeleton_human_head.iff	0	248.208	397.17	1926.76	0.589788	0	0.807558	0		$|
+9705585	0	object/static/structure/general/skeleton_human_head.iff	0	248.142	397.31	1926.83	0.886995	0	0.461779	0		$|
+9705587	0	object/building/endor/endor_tiki_torch.iff	0	248.117	395.467	1926.87	1	0	0	0		$|
+9705593	0	object/static/item/item_kitchen_pot_style_01.iff	0	252.475	399.416	1917.01	0.999888	0	0	-0.0149995		$|
+9705600	0	object/static/item/item_jar_bugs.iff	0	251.238	398.979	1917.41	0.828148	0	0	-0.560509		$|
+9705602	0	object/static/item/item_con_tato_bowl_full_s02.iff	0	252.052	399.178	1917.68	0.985585	0	0	-0.169182		$|
+9705611	0	object/building/endor/endr_lake_rail2m.iff	0	248.354	396.891	1926.33	0.872744	0	-0.488177	0		$|
+9705612	0	object/building/endor/endr_lake_rail2m.iff	0	247.663	396.879	1926.56	0.751806	0	0.659384	0		$|
+9705613	0	object/building/endor/endr_lake_rail2m.iff	0	248.243	396.92	1927.37	0.992198	0	0.124675	0		$|
+9705624	0	object/static/structure/general/skeleton_human_head.iff	0	255.837	401.02	1920.9	0.967663	0	0.252245	0		$|
+9705625	0	object/static/structure/general/skeleton_human_head.iff	0	256.058	402.645	1919.03	0.810963	0	0.585097	0		$|
+9705627	0	object/static/structure/general/skeleton_human_head.iff	0	257.411	400.657	1917.39	0.780707	0	0.624897	0		$|
+9705628	0	object/static/structure/general/skeleton_human_head.iff	0	256.429	402.089	1916.1	0.531861	0	0.846832	0		$|
+9705630	0	object/static/structure/general/skeleton_human_head.iff	0	254.932	400.093	1913.97	0.238476	0	0.971148	0		$|
+9705632	0	object/static/structure/general/skeleton_human_head.iff	0	253.006	402.574	1914.78	-0.104015	0	0.994576	0		$|
+9705634	0	object/static/structure/general/skeleton_human_head.iff	0	251.191	400.94	1914.54	-0.346844	0	0.937923	0		$|
+9705636	0	object/static/structure/general/skeleton_human_head.iff	0	251.064	403.163	1916.74	-0.663732	0	0.747971	0		$|
+9705637	0	object/static/structure/general/skeleton_human_head.iff	0	249.371	400.741	1918.29	0.777573	0	-0.628793	0		$|
+9705646	0	object/static/item/item_bowl_shallow.iff	0	253.355	403.852	1917.78	1	0	0	0		$|
+9705655	0	object/static/structure/dantooine/dant_boundary_post.iff	0	253.378	400.824	1917.52	1	0	0	0		$|
+9705658	0	object/static/particle/particle_campfire_style_1.iff	0	253.455	404.641	1917.61	1	0	0	0		$|
+9705668	0	object/static/structure/general/campfire_burnt.iff	0	253.33	404.157	1917.78	1	0	0	0		$|
+9705671	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	253.327	404.038	1917.83	1	0	0	0		$|
+2835668	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	242.592651	396.0736084	1923.027344	1	0	0	0		$|
+2835669	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	252.814087	397.8625488	1927.563477	1	0	0	0		$|

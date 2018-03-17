@@ -1,0 +1,8 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725498	0	object/static/structure/dantooine/dant_skull_bol.iff	0	1386.89	98.2793	903.027	0.933316	-0.349168	-0.00482297	0.0835464		$|
+9725502	0	object/static/structure/dantooine/dant_skull_lizard.iff	0	1386.82	98.5397	903.109	0.929537	-0.355	-0.0840419	0.0536011		$|
+9725506	0	object/static/structure/general/skeleton_ancient_s01_with_floor.iff	0	1366.58	105.728	903.397	-0.504369	-0.0798992	-0.453026	0.73075		$|
+9725533	0	object/static/structure/tatooine/skeleton_krayt_foot.iff	0	1378.15	100.975	907.521	0.207606	0.970235	-0.121915	-0.0260868		$|
+1177360	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1373.307861	101.1135941	907.471924	1	0	0	0		$|
+1177361	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1379.925415	98.53570557	901.276123	1	0	0	0		$|

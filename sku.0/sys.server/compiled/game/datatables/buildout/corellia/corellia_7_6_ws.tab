@@ -1,0 +1,8 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+178344	0	object/static/structure/general/poi_all_obelisk_s01.iff	0	893.465	3.91605	849.284	0.338946	0	0.940806	0		$|
+9825719	0	object/static/corellia/rock_crystal_geyser_agrilat_small.iff	0	690.477	-25.2673	686.223	1	0	0	0		$|
+6835499	0	object/tangible/ground_spawning/mob_spawner.iff	0	896	4	866	1	0	0	0		$|
+6835500	0	object/tangible/ground_spawning/mob_spawner.iff	0	896	4	866	1	0	0	0		$|
+6835501	0	object/tangible/ground_spawning/mob_spawner.iff	0	896	4	866	1	0	0	0		$|
+6835502	0	object/tangible/ground_spawning/mob_spawner.iff	0	896	4	866	1	0	0	0		$|

@@ -1,0 +1,22 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2735820	0	object/static/item/item_crate_spice.iff	0	732.79	32.275	283.675	0.9998	0.0199987	0	0		$|
+2735821	0	object/static/item/item_crate_spice.iff	0	732.77	32.3214	283.028	0.9998	0.0199987	0	0		$|
+2735822	0	object/static/item/item_crate_spice.iff	0	732.742	32.3655	282.405	0.9998	0.0199987	0	0		$|
+2735823	0	object/static/item/item_crate_spice.iff	0	732.728	32.3814	281.777	0.9998	0.0199987	0	0		$|
+9505383	0	object/static/structure/general/atat_destroyed.iff	0	1657.1	34.7489	1877.26	1	0	0	0		$|
+9505384	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1656.89	33.6853	1888.39	1	0	0	0		$|
+9505385	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1657.14	37.1475	1881.15	0.99242	0.114046	0.0414405	0.0194766		$|
+9505386	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1660.38	32.415	1875.44	0.74813	-0.0527773	-0.647162	0.136738		$|
+9505387	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1656.48	33.4993	1872.41	0.998488	0	-0.0549723	0		$|
+9505388	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1663.66	32.0916	1864.99	1	0	0	0		$|
+9505389	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	1658.92	38.79	1874.19	0.722044	-0.603737	0.323201	0.0984647		$|
+9575418	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	733.406	32.1928	282.776	0.999838	0.0149874	-0.000599818	-0.00999871		$|
+9575423	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	733.68	32.3054	282.538	0.71428	0.0139933	0.699574	0.0142875		$|
+9575425	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	733.643	32.2568	283.476	0.9998	0.0199987	0	0		$|
+9645385	0	object/tangible/camp/camp_tent_s1.iff	0	1378.39	33.081	1828.1	0.919102	0	0.394019	0		$|
+9645386	0	object/tangible/camp/camp_tent_s1.iff	0	1378.48	33.2739	1832.6	0.501902	0	0.864925	0		$|
+9645387	0	object/tangible/camp/campfire_logs_burnt.iff	0	1379.79	33.0303	1830.47	1	0	0	0		$|
+9645388	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1378.56	33.1335	1830.77	1	0	0	0		$|
+2735819	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	730.165527	32.2374649	283.887939	1	0	0	0		$|
+2735824	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1373.644043	33.3350563	1830.990967	1	0	0	0		$|

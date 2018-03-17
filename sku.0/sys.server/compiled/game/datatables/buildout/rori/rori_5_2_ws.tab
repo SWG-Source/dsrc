@@ -1,0 +1,37 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5407162	0	object/building/general/rori_bat_cave.iff	0	848.8	99.5441	1263.75	0.382683	0	0.92388	0		$|
+5407163	5407162	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+5407164	5407162	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+5407165	5407162	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8795683	5407165	object/tangible/container/loot/placable_loot_crate_trashpile.iff	3	4.92003	-41.0546	-75.1324	1	0	0	0		$|
+5407174	5407165	object/tangible/poi/spawnegg/interior_spawnegg.iff	3	0.426025987	-40.633255	-70.41548157	1	0	0	0		intRandomYaw|0|1|$|
+5407166	5407162	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+8795684	5407166	object/tangible/container/loot/placable_loot_crate_trashpile.iff	4	51.482	-45.4791	-100.606	1	0	0	0		$|
+5407175	5407166	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	49.18745422	-46.78931046	-58.12530899	1	0	0	0		intRandomYaw|0|1|$|
+5407167	5407162	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+8795685	5407167	object/tangible/container/loot/placable_loot_crate_trashpile.iff	5	46.7424	-56.4031	-186.611	1	0	0	0		$|
+5407176	5407167	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	35.10682297	-49.68893814	-135.2621307	1	0	0	0		intRandomYaw|0|1|$|
+5407177	5407167	object/tangible/poi/spawnegg/interior_spawnegg.iff	5	-7.809340954	-46.53144073	-150.5702972	1	0	0	0		intRandomYaw|0|1|$|
+5407168	5407162	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+5407178	5407168	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	4.708403111	-64.0202713	-181.0233154	1	0	0	0		intRandomYaw|0|1|$|
+5407169	5407162	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+8795686	5407169	object/tangible/container/loot/placable_loot_crate_trashpile.iff	7	-19.8301	-62.8932	-260.998	1	0	0	0		$|
+5555727	5407169	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-12.82796478	-64.50260162	-222.0727386	1	0	0	0		intRandomYaw|0|1|$|
+5407170	5407162	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+4796076	5407170	object/tangible/collection/rare_pistol_mustafarian_modified_disruptor.iff	8	-46.546	-70.1603	-187.994	0.798942	-0.0116207	-0.0162775	-0.601075		$|
+8795687	5407170	object/tangible/container/loot/placable_loot_crate_trashpile.iff	8	-76.9857	-99.6929	-162.537	1	0	0	0		$|
+5555728	5407170	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-65.85313416	-69.0608902	-185.5432739	1	0	0	0		intRandomYaw|0|1|$|
+5555733	5407170	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-73.74629211	-99.1971817	-158.7744751	1	0	0	0		intRandomYaw|0|1|$|
+5555734	5407170	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-92.81435394	-101.6272049	-145.7274475	1	0	0	0		intRandomYaw|0|1|$|
+5555735	5407170	object/tangible/poi/spawnegg/interior_spawnegg.iff	8	-88.47186279	-70.06626892	-120.4943161	1	0	0	0		intRandomYaw|0|1|$|
+5407171	5407162	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+5555729	5407171	object/tangible/poi/spawnegg/interior_spawnegg.iff	9	-46.90835953	-69.36525726	-96.92070007	1	0	0	0		intRandomYaw|0|1|$|
+5407172	5407162	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+5555730	5407172	object/tangible/poi/spawnegg/interior_spawnegg.iff	10	-20.42021751	-80.23352051	-149.2533875	1	0	0	0		intRandomYaw|0|1|$|
+5407173	5407162	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+8795688	5407173	object/tangible/container/loot/placable_loot_crate_trashpile.iff	11	-100.588	-100.598	-94.6237	1	0	0	0		$|
+8795689	5407173	object/tangible/container/loot/placable_loot_crate_trashpile.iff	11	-83.9517	-99.9265	-93.6864	1	0	0	0		$|
+5555731	5407173	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-92.81098175	-100.9314957	-97.42961884	1	0	0	0		intRandomYaw|0|1|$|
+5555732	5407173	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-101.2669754	-100.6716843	-123.7068481	1	0	0	0		intRandomYaw|0|1|$|
+5407161	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	876.6038208	85.60910034	1236.91748	1	0	0	0		$|

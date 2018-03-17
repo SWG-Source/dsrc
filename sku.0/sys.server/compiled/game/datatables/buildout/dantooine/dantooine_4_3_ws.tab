@@ -1,0 +1,284 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8555515	0	object/static/structure/military/military_wall_weak_imperial_style_01.iff	0	1501.01	1	274.241	0.984727	0	-0.174108	0		$|
+8555520	0	object/static/structure/military/military_wall_weak_imperial_style_01.iff	0	1485.98	1	268.755	0.984727	0	-0.174108	0		$|
+8555521	0	object/static/structure/military/military_wall_weak_imperial_style_01.iff	0	1508.53	1	276.985	0.984727	0	-0.174108	0		$|
+8555529	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1504.77	1	275.613	0.984727	0	-0.174108	0		$|
+8555548	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1482.22	1	267.383	0.984727	0	-0.174108	0		$|
+8575633	0	object/static/structure/military/military_wall_weak_imperial_style_01.iff	0	1478.47	1	266.011	0.984727	0	-0.174108	0		$|
+8575634	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1497.25	1	272.869	0.984727	0	-0.174108	0		$|
+8575635	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1512.28	1	278.356	0.174108	0	0.984727	0		$|
+8575636	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1489.74	1	270.127	0.984727	0	-0.174108	0		$|
+8575637	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1516.04	1	279.728	0.174108	0	0.984727	0		$|
+8575638	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1519.8	1	281.099	0.819422	0	0.57319	0		$|
+8575639	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1518.43	1	284.856	0.819422	0	0.57319	0		$|
+8575640	0	object/static/structure/military/military_wall_med_imperial_style_01.iff	0	1513.3	1	287.243	0.984727	0	-0.174108	0		$|
+8575641	0	object/static/structure/military/military_wall_med_imperial_style_01.iff	0	1505.78	1	284.499	0.984727	0	-0.174108	0		$|
+8575642	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1509.54	1	285.871	0.984727	0	-0.174108	0		$|
+8575643	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1517.06	1	288.614	0.819419	0	0.573195	0		$|
+8575644	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1515.69	1	292.372	0.819419	0	0.573195	0		$|
+8575645	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1514.31	1	296.13	0.819419	0	0.573195	0		$|
+8575646	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1510.56	1	294.758	0.984727	0	-0.174108	0		$|
+8575647	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1461.71	1	276.927	-0.573194	0	0.81942	0		$|
+8575648	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1463.08	1	273.169	-0.573194	0	0.81942	0		$|
+8575649	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1464.45	1	269.412	-0.573194	0	0.81942	0		$|
+8575650	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1465.82	1	265.655	-0.573194	0	0.81942	0		$|
+8575651	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1467.19	1	261.896	-0.573194	0	0.81942	0		$|
+8575652	0	object/static/structure/military/military_wall_med_imperial_style_01.iff	0	1475.72	1	273.527	0.984727	0	-0.174108	0		$|
+8575653	0	object/static/structure/military/military_wall_med_imperial_style_01.iff	0	1468.21	1	270.783	0.984727	0	-0.174108	0		$|
+8575654	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1471.97	1	272.156	0.984727	0	-0.174108	0		$|
+8575655	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1465.47	1	278.298	0.984727	0	-0.174108	0		$|
+8575656	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1506.8	1	293.386	0.984727	0	-0.174108	0		$|
+8575657	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1469.22	1	279.67	0.984727	0	-0.174108	0		$|
+8575658	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1479.48	1	274.898	0.984727	0	-0.174108	0		$|
+8575659	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	1502.03	1	283.128	0.984727	0	-0.174108	0		$|
+8575660	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1470.95	1	263.269	0.174108	0	0.984727	0		$|
+8575661	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1474.71	1	264.64	0.174108	0	0.984727	0		$|
+8575662	0	object/static/structure/military/military_wall_strong_imperial_32_style_01.iff	0	1517.77	1	263.326	0.819422	0	0.57319	0		$|
+8575663	0	object/static/structure/military/military_wall_strong_imperial_32_style_01.iff	0	1480.2	1	249.609	-0.573194	0	0.81942	0		$|
+8575664	0	object/static/structure/military/military_wall_strong_imperial_16_style_01.iff	0	1493.2	1	237.323	0.174108	0	0.984727	0		$|
+8575665	0	object/static/structure/military/military_wall_strong_imperial_16_style_01.iff	0	1515.74	1	245.552	0.174108	0	0.984727	0		$|
+8575666	0	object/static/structure/military/military_wall_strong_imperial_style_01.iff	0	1504.47	1	241.438	0.174108	0	0.984727	0		$|
+8575667	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1485.68	1	234.58	0.174108	0	0.984727	0		$|
+8575668	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1500.71	1	240.066	0.174108	0	0.984727	0		$|
+8575669	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1508.23	1	242.811	0.174108	0	0.984727	0		$|
+8575670	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1523.26	1	248.297	0.174108	0	0.984727	0		$|
+8575671	0	object/building/general/bunker_warren_01.iff	0	1501.34	1	249.795	0.983844	0	-0.17903	0		$|
+8575672	8575671	object/cell/cell.iff	1	0	0	0	0	0	0	0		$|
+8575673	8575671	object/cell/cell.iff	2	0	0	0	0	0	0	0		$|
+8575674	8575671	object/cell/cell.iff	3	0	0	0	0	0	0	0		$|
+8575675	8575671	object/cell/cell.iff	4	0	0	0	0	0	0	0		$|
+8575676	8575671	object/cell/cell.iff	5	0	0	0	0	0	0	0		$|
+8575677	8575671	object/cell/cell.iff	6	0	0	0	0	0	0	0		$|
+8465875	8575677	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	13.90861702	-20	-14.64360714	1	0	0	0		intRandomYaw|0|1|$|
+8465876	8575677	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	8.56680584	-20	-29.9529438	1	0	0	0		intRandomYaw|0|1|$|
+8465878	8575677	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	-2.259725094	-20	-9.931739807	1	0	0	0		intRandomYaw|0|1|$|
+8465879	8575677	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	-6.829929829	-20	-24.61649132	1	0	0	0		intRandomYaw|0|1|$|
+8465880	8575677	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	-17.51726913	-20	-10.65285873	1	0	0	0		intRandomYaw|0|1|$|
+8465881	8575677	object/tangible/poi/spawnegg/interior_spawnegg.iff	6	-26.1503334	-20	-23.32725143	1	0	0	0		intRandomYaw|0|1|$|
+8575768	8575677	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	6	-11.7015	-20.3162	-5.96066	0.707108	0	0.707106	0	theme_park.warren.welcome_terminal	warren.bldg|0|8575671|$|
+8575678	8575671	object/cell/cell.iff	7	0	0	0	0	0	0	0		$|
+8465868	8575678	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-6.593266964	-20	-39.44527435	1	0	0	0		intRandomYaw|0|1|$|
+8465869	8575678	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-8.340379715	-20	-46.05516815	1	0	0	0		intRandomYaw|0|1|$|
+8465870	8575678	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-23.18226814	-20	-38.92226028	1	0	0	0		intRandomYaw|0|1|$|
+8465871	8575678	object/tangible/poi/spawnegg/interior_spawnegg.iff	7	-24.9301796	-20	-47.41087341	1	0	0	0		intRandomYaw|0|1|$|
+8575769	8575678	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	7	-17.8993	-20	-50.742	1	0	0	0	theme_park.warren.comm_terminal	warren.bldg|0|8575671|$|
+8575679	8575671	object/cell/cell.iff	8	0	0	0	0	0	0	0		$|
+8575680	8575671	object/cell/cell.iff	9	0	0	0	0	0	0	0		$|
+8575681	8575671	object/cell/cell.iff	10	0	0	0	0	0	0	0		$|
+8575682	8575671	object/cell/cell.iff	11	0	0	0	0	0	0	0		$|
+8465864	8575682	object/tangible/poi/spawnegg/interior_spawnegg.iff	11	-40.6780777	-20	-59.05558014	1	0	0	0		intRandomYaw|0|1|$|
+8575683	8575671	object/cell/cell.iff	12	0	0	0	0	0	0	0		$|
+8575684	8575671	object/cell/cell.iff	13	0	0	0	0	0	0	0		$|
+8465854	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-83.28953552	-18	-81.84902954	1	0	0	0		intRandomYaw|0|1|$|
+8465856	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-82.06538391	-18	-111.6564713	1	0	0	0		intRandomYaw|0|1|$|
+8465857	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-63.01676559	-18	-97.7494278	1	0	0	0		intRandomYaw|0|1|$|
+8465858	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-71.97775269	-18	-85.47014618	1	0	0	0		intRandomYaw|0|1|$|
+8465859	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-81.31250763	-18	-97.00535583	1	0	0	0		intRandomYaw|0|1|$|
+8465860	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-62.80376434	-18	-110.5256805	1	0	0	0		intRandomYaw|0|1|$|
+4705448	8575684	object/tangible/collection/rare_melee_white_thranta_lance.iff	13	-65.0165	-17.9718	-114.702	-0.579459	-0.413768	0.397223	0.578997		$|
+8465549	8575684	object/tangible/container/drum/warren_drum_skeleton.iff	13	-66.1419	-18	-96.5903	0.497571	0	0.867423	0	theme_park.warren.goodbye_letter_maker	warren.bldg|0|8575671|$|
+8465550	8575684	object/tangible/container/drum/warren_drum_skeleton.iff	13	-65.7341	-17.9368	-114.274	-2.14733e-08	0.314567	-1.45377e-08	0.949235	theme_park.warren.passkey_maker	warren.passkeyNumber|0|1|warren.bldg|0|8575671|$|
+8555708	8575684	object/tangible/container/drum/warren_drum_tech_chest.iff	13	-77.1607	-18	-78.2119	0.707107	0	0.707106	0	theme_park.warren.passkey_maker	warren.passkeyNumber|0|2|warren.bldg|0|8575671|$|
+8555709	8575684	object/tangible/container/drum/warren_drum_tech_armoire.iff	13	-67.767	-18	-106.272	0.707107	0	-0.707106	0	theme_park.warren.passkey_maker	warren.passkeyNumber|0|3|warren.bldg|0|8575671|$|
+8555710	8575684	object/tangible/container/drum/warren_drum_loot.iff	13	-88.1446	-18	-101.12	0.707107	0	0.707106	0	theme_park.warren.passkey_maker	warren.passkeyNumber|0|4|warren.bldg|0|8575671|$|
+8575770	8575684	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	13	-85.2989	-18	-71.2549	-3.20013e-08	0	1	0	theme_park.warren.diary_terminal	warren.bldg|0|8575671|$|
+8575685	8575671	object/cell/cell.iff	14	0	0	0	0	0	0	0		$|
+8465862	8575685	object/tangible/poi/spawnegg/interior_spawnegg.iff	14	-27.26020241	-20	-96.41531372	1	0	0	0		intRandomYaw|0|1|$|
+8465551	8575685	object/tangible/container/drum/warren_drum_skeleton.iff	14	-22.5632	-20	-95.864	0.995491	0	-0.0948572	0	theme_park.warren.turret_data_maker	warren.bldg|0|8575671|$|
+8575686	8575671	object/cell/cell.iff	15	0	0	0	0	0	0	0		$|
+8465563	8575686	object/tangible/terminal/terminal_elevator.iff	15	-16.5202	-28	-95.0052	0.707107	0	-0.707106	0		warren.bldg|0|8575671|$|
+8575772	8575686	object/tangible/terminal/terminal_elevator.iff	15	-16.5211	-20	-95.0005	-0.707107	0	0.707107	0		warren.bldg|0|8575671|$|
+8575687	8575671	object/cell/cell.iff	16	0	0	0	0	0	0	0		$|
+8575688	8575671	object/cell/cell.iff	17	0	0	0	0	0	0	0		$|
+8575689	8575671	object/cell/cell.iff	18	0	0	0	0	0	0	0		$|
+8465749	8575689	object/tangible/poi/spawnegg/interior_spawnegg.iff	18	3.469914913	-28	-51.84641266	1	0	0	0		intRandomYaw|0|1|$|
+8465750	8575689	object/tangible/poi/spawnegg/interior_spawnegg.iff	18	-5.386799812	-28	-40.80648041	1	0	0	0		intRandomYaw|0|1|$|
+8465751	8575689	object/tangible/poi/spawnegg/interior_spawnegg.iff	18	-19.01469231	-28	-45.46474457	1	0	0	0		intRandomYaw|0|1|$|
+8465752	8575689	object/tangible/poi/spawnegg/interior_spawnegg.iff	18	-30.20677185	-28	-54.62243652	1	0	0	0		intRandomYaw|0|1|$|
+8465753	8575689	object/tangible/poi/spawnegg/interior_spawnegg.iff	18	2.087618113	-28	-44.47664642	1	0	0	0		intRandomYaw|0|1|$|
+8465754	8575689	object/tangible/poi/spawnegg/interior_spawnegg.iff	18	-24.78320694	-28	-39.22372055	1	0	0	0		intRandomYaw|0|1|$|
+4465363	8575689	object/tangible/dungeon/corellian_corvette/corvette_search_rebel_rescue_01.iff	18	11.3442	-28	-29.774	0.707107	0	-0.707106	0		warren.bldg|0|8575671|$|
+8575690	8575671	object/cell/cell.iff	19	0	0	0	0	0	0	0		$|
+8575691	8575671	object/cell/cell.iff	20	0	0	0	0	0	0	0		$|
+8575773	8575691	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	20	-46.49	-28	-26.3612	-3.20013e-08	0	1	0	theme_park.warren.passkey_terminal	$|
+8575692	8575671	object/cell/cell.iff	21	0	0	0	0	0	0	0		$|
+8465776	8575692	object/tangible/poi/spawnegg/interior_spawnegg.iff	21	3.34732008	-28	-70.4442215	1	0	0	0		intRandomYaw|0|1|$|
+2036114	8575692	object/tangible/furniture/imperial/warren_warning_sign.iff	21	6.00172	-28	-76.4933	1	0	0	0		warren.bldg|0|8575671|$|
+8575693	8575671	object/cell/cell.iff	22	0	0	0	0	0	0	0		$|
+8465552	8575693	object/tangible/terminal/terminal_elevator.iff	22	3.49922	-28	-80.9988	1	0	0	0		warren.bldg|0|8575671|$|
+8465553	8575693	object/tangible/terminal/terminal_elevator.iff	22	3.51419	-20	-80.9906	1	0	0	0		warren.bldg|0|8575671|$|
+8575694	8575671	object/cell/cell.iff	23	0	0	0	0	0	0	0		$|
+8575695	8575671	object/cell/cell.iff	24	0	0	0	0	0	0	0		$|
+8575696	8575671	object/cell/cell.iff	25	0	0	0	0	0	0	0		$|
+8465783	8575696	object/tangible/poi/spawnegg/interior_spawnegg.iff	25	38.14503098	-20	-104.711937	1	0	0	0		intRandomYaw|0|1|$|
+8465791	8575696	object/tangible/poi/spawnegg/interior_spawnegg.iff	25	17.38489914	-20	-93.93575287	1	0	0	0		intRandomYaw|0|1|$|
+8465792	8575696	object/tangible/poi/spawnegg/interior_spawnegg.iff	25	22.57126999	-20	-107.5080109	1	0	0	0		intRandomYaw|0|1|$|
+8465559	8575696	object/tangible/furniture/all/frn_all_data_terminal_wall_s2.iff	25	19.5196	-20	-121.698	1	0	0	0	theme_park.warren.mcr_terminal	warren.passkeyNumber|0|1|$|
+8465560	8575696	object/tangible/furniture/all/frn_all_data_terminal_wall_s2.iff	25	35.5274	-20	-121.696	1	0	0	0	theme_park.warren.mcr_terminal	warren.passkeyNumber|0|2|$|
+8465561	8575696	object/tangible/furniture/all/frn_all_data_terminal_wall_s2.iff	25	52.1805	-20	-105.006	0.707107	0	-0.707106	0	theme_park.warren.mcr_terminal	warren.passkeyNumber|0|3|$|
+8465562	8575696	object/tangible/furniture/all/frn_all_data_terminal_wall_s2.iff	25	52.1835	-20	-89.0085	0.707107	0	-0.707106	0	theme_park.warren.mcr_terminal	warren.passkeyNumber|0|4|$|
+8575697	8575671	object/cell/cell.iff	26	0	0	0	0	0	0	0		$|
+6525465	8575697	object/tangible/container/loot/placable_loot_crate_tech_armoire.iff	26	-36.2427	-28	-98.0066	0.707107	0	0.707106	0		$|
+6525466	8575697	object/tangible/container/loot/placable_loot_crate_tech_armoire.iff	26	-35.0795	-28	-87.2652	-3.20013e-08	0	1	0		$|
+6525467	8575697	object/tangible/container/loot/placable_loot_crate_tech_chest.iff	26	-28.4995	-28	-87.203	-3.20013e-08	0	1	0		$|
+6525468	8575697	object/tangible/container/loot/placable_loot_crate_tech_armoire.iff	26	-20.7715	-28	-90.173	0.707107	0	-0.707106	0		$|
+8575698	8575671	object/cell/cell.iff	27	0	0	0	0	0	0	0		$|
+8465688	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	5.186871052	-28	-111.1040726	1	0	0	0		intRandomYaw|0|1|$|
+8465690	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	3.077526093	-28	-129.2653656	1	0	0	0		intRandomYaw|0|1|$|
+8465697	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-28.80288887	-28	-133.9293671	1	0	0	0		intRandomYaw|0|1|$|
+8465698	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-34.71841049	-28	-130.2256165	1	0	0	0		intRandomYaw|0|1|$|
+8465705	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	3.589655638	-28	-190.5363617	1	0	0	0		intRandomYaw|0|1|$|
+8465710	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-8.962738991	-28	-189.4793549	1	0	0	0		intRandomYaw|0|1|$|
+8465711	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-16.23983955	-28	-193.7705994	1	0	0	0		intRandomYaw|0|1|$|
+8465714	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-48.37226868	-28	-192.5680847	1	0	0	0		intRandomYaw|0|1|$|
+8465715	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-41.02770615	-28	-194.8816986	1	0	0	0		intRandomYaw|0|1|$|
+8575699	8575671	object/cell/cell.iff	28	0	0	0	0	0	0	0		$|
+8575700	8575671	object/cell/cell.iff	29	0	0	0	0	0	0	0		$|
+8575701	8575671	object/cell/cell.iff	30	0	0	0	0	0	0	0		$|
+8575702	8575671	object/cell/cell.iff	31	0	0	0	0	0	0	0		$|
+8465569	8575702	object/static/structure/general/skeleton_human_headandbody.iff	31	-62.728	-18.9564	-34.3886	-0.000796353	0	1	0		$|
+8465570	8575702	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	31	-94.5079	-20	-27.138	-3.20013e-08	0	1	0	theme_park.warren.evidence_terminal	warren.evidence|0|1|$|
+8575703	8575671	object/cell/cell.iff	32	0	0	0	0	0	0	0		$|
+8465686	8575703	object/tangible/poi/spawnegg/interior_spawnegg.iff	32	-78.4666748	-20	-1.011010051	1	0	0	0		intRandomYaw|0|1|$|
+8465571	8575703	object/tangible/container/loot/placable_loot_crate.iff	32	-70.7294	-20	-0.962916	0.707107	0	-0.707106	0		$|
+8465572	8575703	object/tangible/container/loot/placable_loot_crate.iff	32	-86.2819	-20	-2.48117	0.707107	0	0.707106	0		$|
+8575704	8575671	object/cell/cell.iff	33	0	0	0	0	0	0	0		$|
+8575705	8575671	object/cell/cell.iff	34	0	0	0	0	0	0	0		$|
+8575706	8575671	object/cell/cell.iff	35	0	0	0	0	0	0	0		$|
+8465568	8575706	object/tangible/terminal/terminal_elevator.iff	35	-62.5154	-28	-124.979	1	0	0	0		$|
+8465575	8575706	object/tangible/terminal/terminal_elevator.iff	35	-62.4887	-52	-124.97	1	0	0	0		$|
+8575707	8575671	object/cell/cell.iff	36	0	0	0	0	0	0	0		$|
+8465573	8575707	object/tangible/terminal/terminal_elevator.iff	36	-54.5161	-28	-2.99424	-0.707107	0	0.707107	0		$|
+8465574	8575707	object/tangible/terminal/terminal_elevator.iff	36	-54.5235	-52	-2.98147	0.707107	0	-0.707106	0		$|
+8575708	8575671	object/cell/cell.iff	37	0	0	0	0	0	0	0		$|
+8575709	8575671	object/cell/cell.iff	38	0	0	0	0	0	0	0		$|
+8465662	8575709	object/tangible/poi/spawnegg/interior_spawnegg.iff	38	-63.21613312	-52	-70.77112579	1	0	0	0		intRandomYaw|0|1|$|
+8575710	8575671	object/cell/cell.iff	39	0	0	0	0	0	0	0		$|
+8575711	8575671	object/cell/cell.iff	40	0	0	0	0	0	0	0		$|
+8465583	8575711	object/tangible/furniture/all/frn_all_data_terminal_wall_s2.iff	40	-104.398	-52	-46.9945	0.707107	0	0.707106	0	theme_park.warren.switch_two	$|
+8575712	8575671	object/cell/cell.iff	41	0	0	0	0	0	0	0		$|
+8465670	8575712	object/tangible/poi/spawnegg/interior_spawnegg.iff	41	-36.96987915	-52	-94.43244171	1	0	0	0		intRandomYaw|0|1|$|
+8575713	8575671	object/cell/cell.iff	42	0	0	0	0	0	0	0		$|
+8575714	8575671	object/cell/cell.iff	43	0	0	0	0	0	0	0		$|
+8575715	8575671	object/cell/cell.iff	44	0	0	0	0	0	0	0		$|
+8465668	8575715	object/tangible/poi/spawnegg/interior_spawnegg.iff	44	59.34507751	-54	-121.1047516	1	0	0	0		intRandomYaw|0|1|$|
+8465669	8575715	object/tangible/poi/spawnegg/interior_spawnegg.iff	44	62.36346054	-54	-128.6917877	1	0	0	0		intRandomYaw|0|1|$|
+6525464	8575715	object/tangible/container/drum/warren_reactor_core.iff	44	68.7294	-54	-125.007	0.96639	0	0.257081	0	theme_park.warren.reactor_core_container	$|
+8575716	8575671	object/cell/cell.iff	45	0	0	0	0	0	0	0		$|
+8465663	8575716	object/tangible/poi/spawnegg/interior_spawnegg.iff	45	-14.31783772	-54	-131.5129089	1	0	0	0		intRandomYaw|0|1|$|
+8465664	8575716	object/tangible/poi/spawnegg/interior_spawnegg.iff	45	-15.29162216	-54	-144.12323	1	0	0	0		intRandomYaw|0|1|$|
+8465665	8575716	object/tangible/poi/spawnegg/interior_spawnegg.iff	45	-10.03830624	-54	-140.1044006	1	0	0	0		intRandomYaw|0|1|$|
+8465666	8575716	object/tangible/poi/spawnegg/interior_spawnegg.iff	45	-25.62236977	-54	-131.3729706	1	0	0	0		intRandomYaw|0|1|$|
+8465667	8575716	object/tangible/poi/spawnegg/interior_spawnegg.iff	45	-27.07492638	-54	-147.7759094	1	0	0	0		intRandomYaw|0|1|$|
+8465578	8575716	object/tangible/furniture/all/frn_all_data_terminal_wall_s2.iff	45	-36.4	-54	-139.6	0.71	0	0.71	0	theme_park.warren.switch_one	$|
+8575717	8575671	object/cell/cell.iff	46	0	0	0	0	0	0	0		$|
+8465579	8575717	object/tangible/furniture/all/frn_all_data_terminal_wall_s2.iff	46	29.37	-50	-146.02	0.71	0	-0.71	0	theme_park.warren.cell_terminal	$|
+8575718	8575671	object/cell/cell.iff	47	0	0	0	0	0	0	0		$|
+8465580	8575718	object/tangible/container/drum/warren_drum_skeleton.iff	47	43.1797	-50	-148.246	-0.35302	0	0.935616	0	theme_park.warren.inquisitor_letter_maker	$|
+8575719	8575671	object/cell/cell.iff	48	0	0	0	0	0	0	0		$|
+8465660	8575719	object/tangible/poi/spawnegg/interior_spawnegg.iff	48	-71.10631561	-52	-12.03290558	1	0	0	0		intRandomYaw|0|1|$|
+8465661	8575719	object/tangible/poi/spawnegg/interior_spawnegg.iff	48	-61.32832718	-52	-8.597366333	1	0	0	0		intRandomYaw|0|1|$|
+8575720	8575671	object/cell/cell.iff	49	0	0	0	0	0	0	0		$|
+8575721	8575671	object/cell/cell.iff	50	0	0	0	0	0	0	0		$|
+8575722	8575671	object/cell/cell.iff	51	0	0	0	0	0	0	0		$|
+8575723	8575671	object/cell/cell.iff	52	0	0	0	0	0	0	0		$|
+8575724	8575671	object/cell/cell.iff	53	0	0	0	0	0	0	0		$|
+8575725	8575671	object/cell/cell.iff	54	0	0	0	0	0	0	0		$|
+8575726	8575671	object/cell/cell.iff	55	0	0	0	0	0	0	0		$|
+8465658	8575726	object/tangible/poi/spawnegg/interior_spawnegg.iff	55	-46.43535233	-52	16.66414452	1	0	0	0		intRandomYaw|0|1|$|
+8465659	8575726	object/tangible/poi/spawnegg/interior_spawnegg.iff	55	-52.79669189	-52	16.76895714	1	0	0	0		intRandomYaw|0|1|$|
+8575727	8575671	object/cell/cell.iff	56	0	0	0	0	0	0	0		$|
+8465655	8575727	object/tangible/poi/spawnegg/interior_spawnegg.iff	56	-84.34059143	-52	28.45767021	1	0	0	0		intRandomYaw|0|1|$|
+8465656	8575727	object/tangible/poi/spawnegg/interior_spawnegg.iff	56	-96.68729401	-52	16.6773243	1	0	0	0		intRandomYaw|0|1|$|
+8465657	8575727	object/tangible/poi/spawnegg/interior_spawnegg.iff	56	-85.39053345	-52	1.41930604	1	0	0	0		intRandomYaw|0|1|$|
+8465584	8575727	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	56	-76.7464	-52	28.208	0.707107	0	-0.707106	0	theme_park.warren.dev_control_terminal	$|
+8575728	8575671	object/cell/cell.iff	57	0	0	0	0	0	0	0		$|
+8575729	8575671	object/cell/cell.iff	58	0	0	0	0	0	0	0		$|
+8465653	8575729	object/tangible/poi/spawnegg/interior_spawnegg.iff	58	-50.11734009	-52	55.4706955	1	0	0	0		intRandomYaw|0|1|$|
+8465654	8575729	object/tangible/poi/spawnegg/interior_spawnegg.iff	58	-61.85805511	-52	50.27114105	1	0	0	0		intRandomYaw|0|1|$|
+8465585	8575729	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	58	-74.3449	-52	49.0006	0.707107	0	0.707106	0	theme_park.warren.evidence_terminal	warren.evidence|0|2|$|
+8575730	8575671	object/cell/cell.iff	59	0	0	0	0	0	0	0		$|
+8465586	8575730	object/tangible/furniture/imperial/warren_computer_terminal.iff	59	-92.34	-52	64.99	0.71	0	0.71	0		$|
+8575731	8575671	object/cell/cell.iff	60	0	0	0	0	0	0	0		$|
+8465646	8575731	object/tangible/poi/spawnegg/interior_spawnegg.iff	60	6.839791775	-60	35.93241501	1	0	0	0		intRandomYaw|0|1|$|
+8465647	8575731	object/tangible/poi/spawnegg/interior_spawnegg.iff	60	5.004779816	-60	29.9245739	1	0	0	0		intRandomYaw|0|1|$|
+8465648	8575731	object/tangible/poi/spawnegg/interior_spawnegg.iff	60	-8.889380455	-60	33.21231461	1	0	0	0		intRandomYaw|0|1|$|
+8575732	8575671	object/cell/cell.iff	61	0	0	0	0	0	0	0		$|
+8465594	8575732	object/tangible/terminal/terminal_elevator.iff	61	5.50694	-60	45.0024	-3.20013e-08	0	1	0		$|
+8465595	8575732	object/tangible/terminal/terminal_elevator.iff	61	5.51422	-84	44.9815	-3.20013e-08	0	1	0		$|
+8575733	8575671	object/cell/cell.iff	62	0	0	0	0	0	0	0		$|
+8575734	8575671	object/cell/cell.iff	63	0	0	0	0	0	0	0		$|
+8465644	8575734	object/tangible/poi/spawnegg/interior_spawnegg.iff	63	23.28150749	-60	1.10314405	1	0	0	0		intRandomYaw|0|1|$|
+8465587	8575734	object/tangible/container/drum/warren_drum_loot.iff	63	17.3109	-58.9881	1.16018	0.707107	0	0.707106	0		$|
+8575735	8575671	object/cell/cell.iff	64	0	0	0	0	0	0	0		$|
+8465645	8575735	object/tangible/poi/spawnegg/interior_spawnegg.iff	64	28.76455498	-60	-19.20421219	1	0	0	0		intRandomYaw|0|1|$|
+8575736	8575671	object/cell/cell.iff	65	0	0	0	0	0	0	0		$|
+8465643	8575736	object/tangible/poi/spawnegg/interior_spawnegg.iff	65	77.10684967	-68	20.94139481	1	0	0	0		intRandomYaw|0|1|$|
+8465588	8575736	object/static/item/item_door_impl_s01.iff	65	82.9191	-68	24.0167	0.703918	0.0670741	0.703918	-0.0670742		$|
+8465589	8575736	object/static/item/item_door_impl_s01.iff	65	83.1961	-67.2727	15.7408	0.569105	0.569104	0.419666	0.419667		$|
+8575737	8575671	object/cell/cell.iff	66	0	0	0	0	0	0	0		$|
+8575738	8575671	object/cell/cell.iff	67	0	0	0	0	0	0	0		$|
+8465590	8575738	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	67	93.5202	-68	49.1542	1	0	0	0	theme_park.warren.evidence_terminal	warren.evidence|0|3|$|
+8575739	8575671	object/cell/cell.iff	68	0	0	0	0	0	0	0		$|
+8575740	8575671	object/cell/cell.iff	69	0	0	0	0	0	0	0		$|
+8465635	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	15.04093361	-52	-69.36122894	1	0	0	0		intRandomYaw|0|1|$|
+8465636	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	1.287453055	-52	-36.22848511	1	0	0	0		intRandomYaw|0|1|$|
+8465637	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	-22.71477509	-52	-55.51921082	1	0	0	0		intRandomYaw|0|1|$|
+8465638	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	-5.867953777	-52	-70.70442963	1	0	0	0		intRandomYaw|0|1|$|
+8465639	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	-27.5986042	-52	-35.34315109	1	0	0	0		intRandomYaw|0|1|$|
+8465640	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	13.85278416	-52	-52.92116547	1	0	0	0		intRandomYaw|0|1|$|
+8465641	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	-24.43401909	-52	-72.81425476	1	0	0	0		intRandomYaw|0|1|$|
+8465642	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	19.21153831	-52	-33.75436783	1	0	0	0		intRandomYaw|0|1|$|
+8575741	8575671	object/cell/cell.iff	70	0	0	0	0	0	0	0		$|
+8575742	8575671	object/cell/cell.iff	71	0	0	0	0	0	0	0		$|
+8465596	8575742	object/tangible/furniture/imperial/warren_experiment_terminal.iff	71	-12.4868	-84	40.8493	-3.20013e-08	0	1	0		$|
+8575743	8575671	object/cell/cell.iff	72	0	0	0	0	0	0	0		$|
+8575744	8575671	object/cell/cell.iff	73	0	0	0	0	0	0	0		$|
+8575745	8575671	object/cell/cell.iff	74	0	0	0	0	0	0	0		$|
+8465625	8575745	object/tangible/poi/spawnegg/interior_spawnegg.iff	74	23.92491722	-84	-20.61969376	1	0	0	0		intRandomYaw|0|1|$|
+8575746	8575671	object/cell/cell.iff	75	0	0	0	0	0	0	0		$|
+8465597	8575746	object/tangible/container/drum/tatt_drum_1.iff	75	-2.1028	-84	-85.7419	0.707107	0	0.707106	0	theme_park.warren.core_rod_maker	$|
+8575747	8575671	object/cell/cell.iff	76	0	0	0	0	0	0	0		$|
+8465598	8575747	object/tangible/container/drum/tatt_drum_1.iff	76	29.1254	-84	-85.7581	-0.707107	0	0.707107	0	theme_park.warren.core_rod_maker	$|
+8575748	8575671	object/cell/cell.iff	77	0	0	0	0	0	0	0		$|
+8575749	8575671	object/cell/cell.iff	78	0	0	0	0	0	0	0		$|
+8465634	8575749	object/tangible/poi/spawnegg/interior_spawnegg.iff	78	85.87767792	-60	-54.64413452	1	0	0	0		intRandomYaw|0|1|$|
+8575750	8575671	object/cell/cell.iff	79	0	0	0	0	0	0	0		$|
+8465592	8575750	object/tangible/terminal/terminal_elevator.iff	79	95.4886	-60	-86.998	1	0	0	0		$|
+8465593	8575750	object/tangible/terminal/terminal_elevator.iff	79	95.4953	-84	-86.9879	1	0	0	0		$|
+8575751	8575671	object/cell/cell.iff	80	0	0	0	0	0	0	0		$|
+8465626	8575751	object/tangible/poi/spawnegg/interior_spawnegg.iff	80	95.75371552	-84	-98.40267181	1	0	0	0		intRandomYaw|0|1|$|
+8575752	8575671	object/cell/cell.iff	81	0	0	0	0	0	0	0		$|
+8575753	8575671	object/cell/cell.iff	82	0	0	0	0	0	0	0		$|
+8575754	8575671	object/cell/cell.iff	83	0	0	0	0	0	0	0		$|
+8575755	8575671	object/cell/cell.iff	84	0	0	0	0	0	0	0		$|
+8465628	8575755	object/tangible/poi/spawnegg/interior_spawnegg.iff	84	87.48309326	-52	10.89470959	1	0	0	0		intRandomYaw|0|1|$|
+8465629	8575755	object/tangible/poi/spawnegg/interior_spawnegg.iff	84	91.75022125	-52	11.09898281	1	0	0	0		intRandomYaw|0|1|$|
+8575756	8575671	object/cell/cell.iff	85	0	0	0	0	0	0	0		$|
+8575757	8575671	object/cell/cell.iff	86	0	0	0	0	0	0	0		$|
+8465591	8575757	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	86	119.381	-52	-4.97918	0.707107	0	-0.707106	0	theme_park.warren.evidence_terminal	warren.evidence|0|4|$|
+8575758	8575671	object/cell/cell.iff	87	0	0	0	0	0	0	0		$|
+8465627	8575758	object/tangible/poi/spawnegg/interior_spawnegg.iff	87	118.4384003	-52	39.37798691	1	0	0	0		intRandomYaw|0|1|$|
+8575759	0	object/static/installation/mockup_power_generator_fusion_style_1.iff	0	1516.02	1	256.675	0.174108	0	0.984727	0		$|
+8575760	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	1509.25	1	245.198	0.825336	0	0.564642	0		$|
+8575762	0	object/static/structure/general/banner_imperial_style_01.iff	0	1503.36	0.647874	284.903	0.983844	0	-0.17903	0		$|
+8575763	0	object/static/structure/general/banner_imperial_style_01.iff	0	1498.69	0.647874	274.241	0.985585	0	-0.169182	0		$|
+8575764	0	object/static/structure/general/banner_imperial_style_01.iff	0	1487.75	0.647874	270.227	0.984727	0	-0.174108	0		$|
+8575765	0	object/static/structure/general/banner_imperial_style_01.iff	0	1477.28	0.647874	275.338	0.983844	0	-0.17903	0		$|
+8575766	0	object/static/structure/general/banner_imperial_style_01.iff	0	1499.98	1	262.699	0.983844	0	-0.17903	0		$|
+8575767	0	object/static/structure/general/banner_imperial_style_01.iff	0	1493.89	1	260.392	0.983844	0	-0.17903	0		$|
+9015497	0	object/building/endor/endor_lake_walkway_straight.iff	0	1594.46	-9.50503	1077.31	0.731689	0	-0.681638	0		$|
+9015500	0	object/building/endor/endor_lake_walkway_straight.iff	0	1610.34	-9.50197	1076.15	0.731689	0	-0.681639	0		$|
+9015501	0	object/building/endor/endor_lake_walkway_straight.iff	0	1626.25	-9.49817	1075.05	0.731689	0	-0.681639	0		$|
+9015502	0	object/building/endor/endor_lake_walkway_straight.iff	0	1642.21	-9.4835	1073.95	0.731689	0	-0.681638	0		$|
+9015503	0	object/building/endor/endor_lake_walkway_straight.iff	0	1658.24	-9.47151	1072.73	0.735088	0	-0.677971	0		$|
+9015504	0	object/building/endor/endor_lake_walkway_straight.iff	0	1674.22	-9.52314	1071.46	0.735088	0	-0.677972	0		$|
+9015591	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	935.185	-1.20375	698.818	1	0	0	0		$|
+9015592	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	943.123	-1.20082	704.517	-0.629412	0	0.777072	0		$|
+9015593	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	934.876	1.342	710.82	-0.685868	0	0.727726	0		$|
+9015594	0	object/building/endor/endr_lake_rail4m.iff	0	934.298	1.13856	709.672	-0.532487	-0.0998196	0.8293	-0.136952		$|
+9015595	0	object/building/endor/endr_lake_rail4m.iff	0	931.231	1.02503	710.286	0.939828	-0.250014	-0.225017	-0.0598594		$|
+9015596	0	object/static/structure/general/tato_cave_rock_med.iff	0	931.378	1.2435	703.917	0.721382	0.692538	0	0		$|
+9015597	0	object/static/structure/general/tato_cave_rock_large.iff	0	943.955	1.72036	695.951	-0.569417	0	0	0.822049		$|
+3625420	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	930.49292	1.41153121	698.065186	1	0	0	0		$|

@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8795441	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	244.809	64.8003	199.149	0.653281	-0.270598	0.653282	-0.270598		$|
+8795443	0	object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff	0	252.12	57.4925	199.439	1	0	0	0		$|
+8795444	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	254.114	63.2317	205.683	0.499997	-0.499997	0.500001	0.500002		$|
+8795445	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	246.085	64.7862	198.254	0.92388	0	-0.382683	0		$|
+8795446	0	object/static/structure/tatooine/pillar_pristine_small_style_01.iff	0	246.786	64.8622	197.564	-0.653282	0.653281	-0.270598	-0.270598		$|
+8795447	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	245.332	65.3786	194.525	1	0	0	0		$|
+8795448	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	244.341	64.8126	199.038	0.707116	0	-0.707097	0		$|
+8795450	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	258.38	65.4577	206.1	0.92388	0	-0.382683	0		$|
+8795455	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	258.945	64.2871	193.115	1	0	0	0		$|
+8795456	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	245.734	64.8519	206.713	1	0	0	0		$|
+894906	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	256.648926	64.99223328	185.7153778	1	0	0	0		$|

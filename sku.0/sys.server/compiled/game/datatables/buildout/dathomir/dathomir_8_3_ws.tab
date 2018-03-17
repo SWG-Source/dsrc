@@ -1,0 +1,7 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725760	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1292.4	551.967	1077.54	0.7485	0	0.663135	0		$|
+9725761	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1296.64	550.458	1069.11	-0.425219	0	0.905091	0		$|
+9725763	0	object/static/structure/dathomir/mtn_clan_strong_fence_s01.iff	0	1298.19	549.731	1059.77	0.685869	0	0.727726	0		$|
+978350	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1292.271973	549.6482544	1064.387451	1	0	0	0		$|
+978351	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1295.004883	548.8052368	1052.110352	1	0	0	0		$|

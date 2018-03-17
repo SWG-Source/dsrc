@@ -1,0 +1,28 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+6595479	0	object/static/structure/general/trash_pile_s01.iff	0	505.1	63.1033	1990.8	1	0	0	0		$|
+6595480	0	object/static/structure/general/trash_pile_s01.iff	0	499.157	62.6989	1996.62	0.813878	0	0.581035	0		$|
+6595481	0	object/static/structure/general/trash_pile_s01.iff	0	498.928	63.9559	1977.38	0.930508	0	-0.366273	0		$|
+9685436	0	object/building/military/military_outpost_guard_tower_1.iff	0	508.367	62.659	1998.48	-0.0107954	0	0.999942	0		$|
+9685437	0	object/static/structure/general/debris_deathstar_conduit.iff	0	481.605	63.3444	1977.44	-0.627093	-0.113911	0.766343	-0.0806008		$|
+9685438	0	object/static/structure/general/prp_junk_s3.iff	0	504.792	63.8573	1975.58	-0.485259	-0.144047	0.855846	-0.106311		$|
+9685439	0	object/static/structure/general/prp_junk_s1.iff	0	480.825	63.3143	1981.92	-0.0257934	0	0.999667	0		$|
+9685440	0	object/static/structure/general/prp_junk_s6.iff	0	499.757	63.6632	1983.67	0.877192	0.425813	-0.221036	-0.0190065		$|
+9685442	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	506.379	68.6835	2001.45	1	0	0	0		$|
+9685443	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	479.495	63.2911	1974.47	0.731688	0	-0.681639	0		$|
+9685444	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	481.003	63.3241	1983.53	0.738468	0	-0.674289	0		$|
+9685445	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	487.569	61.9548	1974.11	-0.0257934	0	0.999667	0		$|
+9685446	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	495.987	64.0518	1973.59	-0.233617	0	0.972329	0		$|
+9685447	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	503.849	61.9838	1971.01	-0.155166	0	0.987888	0		$|
+9685448	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	487.246	62.0148	1988.83	0.346844	0	0.937923	0		$|
+9685449	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	493.884	62.9824	1994.56	0.71791	0	-0.696136	0		$|
+9685450	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	495.986	61.9372	2002.98	0.789992	0	-0.613117	0		$|
+9685451	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	504.972	61.9084	2006.78	-0.233616	0	0.972329	0		$|
+9685452	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	512.005	61.9576	1977.5	0.707389	0	-0.706825	0		$|
+9685453	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	512.018	62.3897	1985.66	0.71791	0	-0.696136	0		$|
+9685454	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	512.013	61.9895	1994.38	0.707389	0	-0.706825	0		$|
+9685455	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	512.067	62.3856	2003.05	-0.700285	0	0.713864	0		$|
+9685456	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	512.054	63.3633	1968.61	-0.417595	0	0.908633	0		$|
+9685457	0	object/static/structure/military/military_column_med_imperial_style_01.iff	0	497.906	62.1338	2010.32	-0.585743	0	0.810497	0		$|
+2975396	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	477.7557068	63.12424469	1993.410889	1	0	0	0		$|
+2975397	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	475.6400452	63.31567001	1982.277344	1	0	0	0		$|

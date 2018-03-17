@@ -1,0 +1,18 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5226121	0	object/static/structure/general/debris_deathstar_conduit.iff	0	300.175	170.939	1277.85	-0.548174	-0.118457	0.822848	0.091622		$|
+5226125	0	object/static/structure/general/debris_deathstar_storage.iff	0	302.362	155.296	1315.05	1	0	0	0		$|
+5226127	0	object/static/structure/general/debris_deathstar_turbolaser.iff	0	290.545	160.615	1303.93	0.583498	0.118728	0.803358	0.00710703		$|
+5226129	0	object/static/structure/general/debris_deathstar_tractorbeam.iff	0	279.541	161.264	1300.34	-0.535278	0.02947	0.842885	0.0464055		$|
+5226151	0	object/static/structure/general/prp_junk_s6.iff	0	285.96	165.616	1308.11	1	0	0	0		$|
+5226153	0	object/static/structure/general/prp_junk_s8.iff	0	283.176	165.124	1301.28	1	0	0	0		$|
+5226157	0	object/static/structure/general/debris_deathstar_tractorbeam.iff	0	285.392	163.521	1306.9	-0.0193919	0.975399	0.017008	-0.218934		$|
+5226158	0	object/static/structure/general/debris_deathstar_tractorbeam.iff	0	288.309	160.735	1301.52	0.771246	0	-0.636537	0		$|
+5226159	0	object/static/structure/general/allum_mine_pipes_s01.iff	0	287.91	158.577	1307.53	0.593818	0	0.804599	0		$|
+5226163	0	object/static/structure/general/lucky_despot_debris_sm_engine.iff	0	295.564	164.863	1299.86	1	0	0	0		$|
+5226164	0	object/static/structure/general/prp_junk_s6.iff	0	283.164	162.325	1301.21	0.974794	0	-0.223106	0		$|
+5226165	0	object/static/structure/general/debris_deathstar_large_tube.iff	0	273.709	176.78	1264.19	0.973658	0.223308	-0.0197738	-0.04162		$|
+5226216	0	object/static/structure/general/debris_deathstar_small_chunk.iff	0	319.368	205.122	1255.52	1	0	0	0		$|
+5226217	0	object/static/structure/general/debris_deathstar_small_tube.iff	0	316.836	199.47	1239.61	0.961007	0.276342	-0.00276351	-0.0096104		$|
+8995513	0	object/static/structure/general/debris_deathstar_conduit.iff	0	231.457	198.274	1264.97	-0.651556	0.266685	0.534611	0.467488		$|
+3495409	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	229.339355	199.0800934	1263.758545	1	0	0	0		$|

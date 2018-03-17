@@ -1,0 +1,14 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8845352	0	object/static/flora/flora_decd_dath_azerontree.iff	0	955.279	27.3684	1439.36	1	0	0	0		$|
+8845353	0	object/static/particle/particle_campfire_style_1.iff	0	954.219	38.877	1439.64	1	0	0	0		$|
+8845354	0	object/static/particle/particle_campfire_style_1.iff	0	956.759	39.5828	1439.74	1	0	0	0		$|
+8845355	0	object/static/structure/naboo/gungan_relic_s01.iff	0	950.145	4.54441	507.696	1	0	0	0		$|
+8845393	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	922.527	26.867	1515.92	1	0	0	0		$|
+8845394	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	935.207	27.1067	1515.51	1	0	0	0		$|
+8995462	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	330.574	52.772	1018.99	0.929964	-0.0581385	-0.362445	0.0205002		$|
+8995463	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	324.868	51.709	1024.84	0.916883	0.0770575	-0.381965	0.0865432		$|
+3666253	0	object/tangible/ground_spawning/mob_spawner.iff	0	322	53	1021	1	0	0	0		$|
+3666254	0	object/tangible/ground_spawning/mob_spawner.iff	0	322	53	1021	1	0	0	0		$|
+3666255	0	object/tangible/ground_spawning/mob_spawner.iff	0	322	53	1021	1	0	0	0		$|
+3666256	0	object/tangible/ground_spawning/mob_spawner.iff	0	322	53	1021	1	0	0	0		$|

@@ -1,0 +1,16 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9715704	0	object/static/structure/naboo/obelisk_naboo_theed_style_2.iff	0	703.844	108.154	1998.67	1	0	0	0		$|
+9715730	0	object/static/structure/naboo/nboo_imprv_metal_fence_wall_sml_s01.iff	0	702.379	108.186	2000.18	0.707108	0	-0.707105	0		$|
+9715732	0	object/static/structure/naboo/nboo_imprv_metal_fence_wall_sml_s01.iff	0	705.34	108.141	2000.17	1	0	0	0		$|
+9715734	0	object/static/structure/naboo/nboo_imprv_metal_fence_wall_sml_s01.iff	0	702.34	108.161	1997.14	3.20013e-008	0	1	0		$|
+9715735	0	object/static/structure/naboo/nboo_imprv_metal_fence_wall_sml_s01.iff	0	705.356	108.123	1997.13	0.707108	0	0.707105	0		$|
+9715966	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1452.02	80.7754	886.794	0.958244	0	0.285952	0		$|
+9715967	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1452.66	81.2532	886.411	0.953847	0	0.300293	0		$|
+9715968	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1451.01	81.132	885.935	0.983844	0	-0.17903	0		$|
+9715969	0	object/static/structure/general/campfire_ash.iff	0	1455.26	80.8663	882.786	1	0	0	0		$|
+9715970	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1454.03	81.1744	885.248	0.0790853	0.0299015	0.996417	0.00237327		$|
+3355720	0	object/tangible/ground_spawning/mob_spawner.iff	0	1459	81	885	1	0	0	0		$|
+3355727	0	object/tangible/ground_spawning/mob_spawner.iff	0	1459	81	885	1	0	0	0		$|
+3355728	0	object/tangible/ground_spawning/mob_spawner.iff	0	1459	81	885	1	0	0	0		$|
+3355729	0	object/tangible/ground_spawning/mob_spawner.iff	0	1459	81	885	1	0	0	0		$|

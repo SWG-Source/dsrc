@@ -1,0 +1,15 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+178356	0	object/static/particle/particle_smoke.iff	0	769.994	94.933	544.129	1	0	0	0		$|
+4546281	0	object/static/structure/corellia/corl_tent_large.iff	0	1954.41	169.707	253.229	0.993395	0	0	0.114747		$|
+9825635	0	object/tangible/camp/camp_cot.iff	0	1954.74	170.044	251.483	-0.0337325	0.985841	0.164156	0.00561693		$|
+9825639	0	object/tangible/camp/camp_cot.iff	0	1954.97	170.078	249.713	-0.609298	0.750757	0.253521	0.0291092		$|
+9825642	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1949.83	168.607	256.208	0.975897	-0.21823	0	0		$|
+9825643	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1950.16	168.536	255.171	0.905407	0.146114	-0.393518	0.0635057		$|
+9825646	0	object/static/item/item_crate_spice.iff	0	1956.9	169.493	257.829	-0.411708	0.0453389	0.890038	-0.190456		$|
+9825647	0	object/static/item/item_crate_spice.iff	0	1957.03	169.414	256.523	0.961055	0	0	-0.276356		$|
+9825648	0	object/static/item/item_crate_spice.iff	0	1957.33	169.832	255.197	1	0	0	0		$|
+9825658	0	object/tangible/furniture/modern/coffee_table_modern_style_01.iff	0	1951.51	168.933	251.944	0.538844	0.554178	-0.415744	0.479261		$|
+178354	0	object/static/corellia/rock_crystal_mound_agrilat_medium.iff	0	769.678	93.4783	544.491	0.936786	-0.045218	0.320873	-0.132014		$|
+33552	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1947.833008	168.8047485	257.703125	1	0	0	0		$|
+33553	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1954.437012	169.8053741	245.299316	1	0	0	0		$|

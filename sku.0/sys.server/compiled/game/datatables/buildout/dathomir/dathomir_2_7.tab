@@ -1,0 +1,5 @@
+server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+h	i	f	f	f	f	f	f	f	s	p
+object/building/kashyyyk/thm_kash_rodian_bannerpole_s01.iff	0	0	195	0	0	0	0	0		
+object/tangible/ground_spawning/patrol_spawner.iff	0	1506.36	120.413	1299.66	0.353019	0	0.935616	0	systems.spawning.spawner_patrol	fltMaxSpawnTime|2|3600.000000|fltMinSpawnTime|2|3500.000000|fltRadius|2|0.000000|intDefaultBehavior|0|3|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|patrolPathType|4|oscillate|registerWithController|0|1|strName|4|frenzied_graul_poi|strPatrolPointNames|5|frenzied_graul_poi_1:|strSpawnerType|4|patrol|strSpawns|4|frenzied_graul|$|
+object/tangible/ground_spawning/patrol_waypoint.iff	0	1518.66	121.572	1293.98	0	0	0	0	systems.spawning.patrol_point_setup	ignoreInBuildoutArray|0|1|pointName|4|frenzied_graul_poi_1|registerWithController|0|1|$|

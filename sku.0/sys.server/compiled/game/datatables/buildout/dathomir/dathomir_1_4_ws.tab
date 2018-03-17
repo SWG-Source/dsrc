@@ -1,0 +1,31 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1105891	0	object/static/particle/pt_flocking_glowzees.iff	0	1574.26	338.003	1260.82	1	0	0	0		$|
+1105896	0	object/static/particle/pt_flocking_glowzees.iff	0	1574.08	343.039	1260.56	1	0	0	0		$|
+1105897	0	object/static/particle/pt_flocking_glowzees.iff	0	1573.76	326.954	1259.78	1	0	0	0		$|
+8365587	0	object/tangible/camp/camp_tent_s6.iff	0	1893.43	122.674	1514.28	0.972614	-0.0601338	0.224117	-0.0133155		$|
+8365588	0	object/static/structure/general/banner_imperial_style_01.iff	0	1893.46	123.388	1519.38	0.435324	0	0.900274	0		$|
+8365589	0	object/static/structure/general/banner_imperial_style_01.iff	0	1888.45	122.618	1513.47	0.398975	0	0.916962	0		$|
+8365594	0	object/static/structure/general/camp_tent_s01.iff	0	1874.72	123.461	1514.46	0.463167	0.0260101	0.884516	-0.0493004		$|
+8365595	0	object/static/structure/general/camp_tent_s01.iff	0	1876.08	123.099	1508.81	0.953506	0.00237475	0.297271	-0.0495005		$|
+8365596	0	object/static/structure/general/camp_tent_s01.iff	0	1882.14	122.645	1510.46	0.884963	-0.0398358	-0.46384	-0.0102644		$|
+8365625	0	object/static/structure/general/streetlamp_medium_style_01_on.iff	0	1887.84	121.488	1516.09	0.762979	-0.0494021	-0.64383	0.0301035		$|
+8365629	0	object/static/structure/general/streetlamp_medium_style_01_on.iff	0	1890.69	121.811	1519.75	0.967829	-0.0657268	-0.241633	0.0244902		$|
+8365632	0	object/static/structure/general/campfire_fresh.iff	0	1878.32	123.019	1512.16	0.998826	-0.0290645	0.00112704	-0.0387316		$|
+8365639	0	object/building/military/military_outpost_guard_tower_1.iff	0	1912.18	127.505	1536.21	0.382683	0	0.92388	0		$|
+9725548	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1624.49	266.348	1306.17	0.755093	0	-0.655617	0		$|
+9725549	0	object/building/endor/endor_tiki_torch.iff	0	1627.55	263.7	1309.12	1	0	0	0		$|
+9725550	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1604.83	277.173	1303.64	-0.100386	0.197272	0.949808	-0.221068		$|
+9725552	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1606.06	276.46	1311.27	0.976287	0.16835	-0.00669712	-0.135933		$|
+9725553	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1590.42	291.963	1304.32	-0.171273	0.213282	0.939616	-0.205665		$|
+9725554	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1591.57	291.498	1312.13	0.976287	0.16835	-0.006697	-0.135933		$|
+9725559	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1575.85	309.077	1304.37	-0.0944236	0.200194	0.956012	-0.192479		$|
+9725560	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1574.57	309.321	1313.33	0.945926	0.168015	-0.202056	-0.190182		$|
+9725567	0	object/static/structure/dathomir/mtn_clan_gate_s01.iff	0	1559.09	322.157	1295.93	0.988012	0	0.15438	0		$|
+9725568	0	object/building/endor/endor_tiki_torch.iff	0	1562.89	321.7	1297.18	1	0	0	0		$|
+9725575	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1574.5	327.449	1265.23	1	0	0	0		$|
+1105890	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1574.046387	325.7238159	1270.280701	1	0	0	0		$|
+1105901	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1631.787598	264.6102905	1305.908691	1	0	0	0		$|
+-1	0	object/tangible/npc/storyline_npc/imperial_commander_spawner.iff	0	1889	123	1518	1	0	0	0		$|
+-2	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1890.56	123	1520.81	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	1889	123	1519	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|3.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|3|intSpawnSystem|0|1|registerWithController|0|1|strName|4|imperial_trooper|strSpawnerType|4|area|strSpawns|4|imperial_trooper|$|

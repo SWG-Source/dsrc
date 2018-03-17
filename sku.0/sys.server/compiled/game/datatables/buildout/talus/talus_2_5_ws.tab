@@ -1,0 +1,35 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2035820	0	object/static/structure/general/poi_all_obelisk_s01.iff	0	619.607	22.3944	1064.47	1	0	0	0		$|
+2035821	0	object/static/structure/general/streetlamp_small_green_style_02.iff	0	619.896	42.8285	1064.78	1	0	0	0		$|
+2035822	0	object/static/particle/pt_miasma_of_fog_red.iff	0	1042.85	9.5306	1271.08	1	0	0	0		$|
+8385359	0	object/static/structure/tatooine/skeleton_krayt_leg_style_02.iff	0	287.41	8.64853	1444.45	0.975897	0	0.21823	0		$|
+8385362	0	object/static/structure/general/skeleton_human_body.iff	0	1048.57	9.03255	1271.98	1	0	0	0		$|
+8385363	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1049.98	8.84369	1275.87	1	0	0	0		$|
+8385364	0	object/static/structure/general/skeleton_human_head.iff	0	1041.87	9.44668	1276.66	1	0	0	0		$|
+8385365	0	object/static/structure/general/skeleton_ithorian_headandbody.iff	0	1043.32	9.32621	1280.09	1	0	0	0		$|
+8385366	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	1039.63	9.79732	1271.05	1	0	0	0		$|
+8385367	0	object/static/structure/general/skeleton_ithorian_head.iff	0	1044.03	9.54028	1265.61	1	0	0	0		$|
+8385368	0	object/static/structure/general/skeleton_human_body.iff	0	1039.07	9.95015	1266.04	0.777573	0	-0.628793	0		$|
+8385369	0	object/static/structure/military/military_column_weak_imperial_style_01.iff	0	1042.8	9.52529	1270.64	1	0	0	0		$|
+8385370	0	object/static/structure/general/skeleton_human_head.iff	0	1043.29	11.4358	1270.11	0.376297	0	0.926499	0		$|
+8385371	0	object/static/structure/general/skeleton_human_head.iff	0	1043.53	11.4026	1270.65	0.714422	0	0.699715	0		$|
+8385372	0	object/static/structure/general/skeleton_human_head.iff	0	1043.28	11.4116	1271.19	0.917122	0	0.398607	0		$|
+8385373	0	object/static/structure/general/skeleton_human_head.iff	0	1042.77	11.4205	1271.36	0.999987	0	0.00499837	0		$|
+8385374	0	object/static/structure/general/skeleton_human_head.iff	0	1042.29	11.435	1271.15	0.922996	0	-0.38481	0		$|
+8385375	0	object/static/structure/general/skeleton_human_head.iff	0	1042.06	11.4204	1270.63	-0.702712	0	0.711475	0		$|
+8385376	0	object/static/structure/general/skeleton_human_head.iff	0	1042.3	11.4405	1270.13	-0.370179	0	0.92896	0		$|
+8385377	0	object/static/structure/general/skeleton_human_head.iff	0	1042.8	11.4369	1269.92	0.00579778	0	0.999983	0		$|
+8385380	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1429.4	30.8812	1132.5	0.769795	0.184052	-0.555395	-0.255102		$|
+8385381	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1428.73	31.0549	1130.16	0.772307	-0.178489	-0.557208	0.247391		$|
+8385382	0	object/static/structure/general/tato_cave_rock_med.iff	0	1428.11	29.9135	1132.29	1	0	0	0		$|
+8385383	0	object/static/structure/general/tato_cave_rock_med.iff	0	1427.71	30.0144	1130.8	0.841901	0	-0.539632	0		$|
+8385387	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1426.52	28.7446	1132.41	0.460569	-0.480874	0.491107	0.561649		$|
+8385388	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1426.11	28.784	1131.35	0.255291	0.731097	-0.631084	-0.0453524		$|
+8475363	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	1789.01	57.2738	1542.72	-0.499639	-0.0820443	0.861024	-0.047609		$|
+8475368	0	object/static/installation/mockup_farm_flora_style_1.iff	0	1793.95	58.5334	1537.55	0.920573	-0.117122	0.356401	0.108658		$|
+8535466	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1103.53	2.11274	114.288	0.979822	0.193766	-0.0490323	0.000154359		$|
+8635354	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1671.62	19.3343	65.4981	0.867802	0.335046	0.363274	-0.0519292		$|
+2035823	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1046.106445	9.33403492	1266.564697	1	0	0	0		$|
+2035876	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1668.975586	24.32635307	56.07921982	1	0	0	0		$|
+1053338	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1663.76	22.6774	64.0774	1	0	0	0		$|

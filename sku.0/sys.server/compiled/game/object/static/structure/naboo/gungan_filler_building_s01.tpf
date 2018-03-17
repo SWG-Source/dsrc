@@ -1,0 +1,13 @@
+// This file ws written by the template editor @ 9:58:46 AM -  Thu Sep 19 2002
+
+@base object/building/base/base_filler_building.iff
+
+@class building_object_template 1
+
+@class tangible_object_template 2
+
+@class object_template 5
+
+invulnerable = true
+
+sharedTemplate = "object/static/structure/naboo/shared_gungan_filler_building_s01.iff"

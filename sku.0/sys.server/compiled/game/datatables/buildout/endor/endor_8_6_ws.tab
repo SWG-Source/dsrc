@@ -1,0 +1,33 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705829	0	object/static/structure/general/tato_cave_rock_large.iff	0	144.719	263.382	151.655	0.507115	-0.209726	0.761657	0.344571		$|
+9705830	0	object/static/structure/general/tato_cave_rock_large.iff	0	147.491	263.17	149.395	-0.264572	-0.37391	0.513453	0.725644		$|
+9705831	0	object/static/structure/general/tato_cave_rock_large.iff	0	145.796	264.365	151.621	0.130953	0.716401	-0.123224	-0.674119		$|
+9705832	0	object/static/structure/general/tato_cave_rock_large.iff	0	146.738	264.82	150.785	-0.176172	-0.337738	-0.427617	0.819781		$|
+9705833	0	object/static/structure/general/tato_cave_rock_large.iff	0	147.35	264.306	150.02	0.993956	-0.109778	0	0		$|
+9705834	0	object/static/structure/general/tato_cave_rock_large.iff	0	144.374	263.081	150.603	0.54869	0	0.836026	0		$|
+9705835	0	object/static/structure/general/tato_cave_rock_large.iff	0	147.146	262.868	148.342	0.317922	-0.411674	0.833231	0.187553		$|
+9705836	0	object/static/structure/general/tato_cave_rock_large.iff	0	145.45	264.063	150.568	0.839506	-0.129319	-0.512057	0.127691		$|
+9705837	0	object/static/structure/general/tato_cave_rock_large.iff	0	146.393	264.518	149.733	-0.207262	-0.308507	-0.517024	0.771072		$|
+9705838	0	object/static/structure/general/tato_cave_rock_large.iff	0	147.004	264.004	148.967	0.741505	0.142606	0.643819	-0.123819		$|
+9705840	0	object/static/structure/general/tato_cave_rock_large.iff	0	143.776	263.158	149.675	0.863858	0.0164296	0.460772	-0.202903		$|
+9705841	0	object/static/structure/general/tato_cave_rock_large.iff	0	146.548	262.945	147.415	-0.0561218	-0.243472	0.644735	0.722419		$|
+9705842	0	object/static/structure/general/tato_cave_rock_large.iff	0	144.853	264.14	149.641	0.815725	-0.274639	0.247821	0.444691		$|
+9705843	0	object/static/structure/general/tato_cave_rock_large.iff	0	145.795	264.595	148.805	-0.0145154	0.369006	0.0067784	0.92929		$|
+9705844	0	object/static/structure/general/tato_cave_rock_large.iff	0	146.407	264.081	148.04	-0.470391	-0.504124	0.494124	0.529559		$|
+9705845	0	object/static/structure/general/tato_cave_rock_large.iff	0	143.169	263.244	148.729	0.467772	0.286793	0.712733	-0.43698		$|
+9705846	0	object/static/structure/general/tato_cave_rock_large.iff	0	145.941	263.031	146.469	0.374604	-0.423831	0.824564	-0.0115491		$|
+9705847	0	object/static/structure/general/tato_cave_rock_large.iff	0	144.246	264.226	148.695	0.0268195	-0.552618	0.219245	0.803632		$|
+9705848	0	object/static/structure/general/tato_cave_rock_large.iff	0	145.188	264.681	147.859	0.27347	0.265175	0.663785	-0.643651		$|
+9705849	0	object/static/structure/general/tato_cave_rock_large.iff	0	145.8	264.167	147.094	1	0	0	0		$|
+9705850	0	object/static/structure/general/tato_cave_rock_large.iff	0	142.793	262.806	147.716	0.730719	-0.176084	0.106703	-0.650891		$|
+9705851	0	object/static/structure/general/tato_cave_rock_large.iff	0	145.565	262.594	145.456	-0.264572	-0.37391	0.513453	0.725644		$|
+9705852	0	object/static/structure/general/tato_cave_rock_large.iff	0	143.87	263.789	147.682	0.203015	-0.581725	0.32113	0.719205		$|
+9705853	0	object/static/structure/general/tato_cave_rock_large.iff	0	144.812	264.243	146.846	-0.17998	-0.133821	-0.24133	0.944171		$|
+9705854	0	object/static/structure/general/tato_cave_rock_large.iff	0	145.424	263.729	146.081	0.694055	0.533121	-0.383682	-0.294716		$|
+9705856	0	object/static/structure/general/skeleton_human_body.iff	0	139.2	263.086	146.122	0.921061	0	-0.389418	0		$|
+9705857	0	object/static/structure/general/skeleton_ithorian_headandbody.iff	0	142.368	262.735	143.797	0.959662	0	0.281157	0		$|
+9705858	0	object/static/structure/general/skeleton_ithorian_head.iff	0	145.5	262.525	143.177	0.852525	0	0.522687	0		$|
+9705859	0	object/static/structure/general/skeleton_ithorian_head.iff	0	141.443	262.909	146.778	0.613746	0.789504	0	0		$|
+9705860	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	143.467	262.704	146.269	0.978031	0	0.20846	0		$|
+2835661	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	142.577637	262.2683716	140.48584	1	0	0	0		$|

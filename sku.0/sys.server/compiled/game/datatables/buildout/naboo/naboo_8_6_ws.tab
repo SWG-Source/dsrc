@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7825481	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1200.4	12.9053	1548.16	1	0	0	0		$|
+7825483	0	object/static/structure/naboo/planter_naboo_theed_style_2.iff	0	1197.85	-2.09168	1543.74	1	0	0	0		$|
+7825485	0	object/static/structure/general/campfire_ash.iff	0	1200.77	3.63331	1549.93	0.99912	-0.0348753	-0.000813385	0.0233021		$|
+7825487	0	object/static/flora/flora_tree_lok_mkpud.iff	0	1195.61	2.74079	1554.42	1	0	0	0		$|
+7825488	0	object/static/flora/flora_tree_lok_mkpud.iff	0	1193.7	2.92265	1550.17	1	0	0	0		$|
+7825489	0	object/static/flora/flora_tree_lok_mkpud.iff	0	1201.21	8.63848	1553.06	1	0	0	0		$|
+7825491	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1192.77	1.46673	1545.45	1	0	0	0		$|
+7825480	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	1200.43	1.34114	1548.29	-0.613746	0	0.789504	0		$|
+8156112	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1202.216309	4.137347221	1557.186279	1	0	0	0		$|

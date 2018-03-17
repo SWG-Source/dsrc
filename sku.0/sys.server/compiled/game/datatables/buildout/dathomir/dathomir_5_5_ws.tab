@@ -1,0 +1,5 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1177363	0	object/building/endor/endor_tiki_torch.iff	0	863.694	132.235	1096.14	1	0	0	0		$|
+9725613	0	object/tangible/camp/campfire_logs_ash.iff	0	868.106	132.004	1096.13	0.99959	-0.0198944	0.00539792	-0.0198944		$|
+1177362	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	865.6707764	132.016098	1094.974731	1	0	0	0		$|

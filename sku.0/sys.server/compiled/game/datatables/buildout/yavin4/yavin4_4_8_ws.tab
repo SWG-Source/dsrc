@@ -1,0 +1,7 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995453	0	object/static/structure/general/lucky_despot_debris_sm_engine.iff	0	101.629	7.74944	983.649	0.833146	0.248813	-0.20622	-0.448813		$|
+3666246	0	object/tangible/ground_spawning/mob_spawner.iff	0	107	9	991	1	0	0	0		$|
+3666247	0	object/tangible/ground_spawning/mob_spawner.iff	0	107	9	991	1	0	0	0		$|
+3666248	0	object/tangible/ground_spawning/mob_spawner.iff	0	107	9	991	1	0	0	0		$|
+3666249	0	object/tangible/ground_spawning/mob_spawner.iff	0	107	9	991	1	0	0	0		$|

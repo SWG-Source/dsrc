@@ -1,0 +1,37 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+178342	0	object/tangible/camp/camp_cot.iff	0	1909.24	3.70868	82.6847	0.992185	-0.124673	-0.000424083	-0.00498193		$|
+5475531	0	object/static/structure/corellia/corl_tent_med.iff	0	1909.89	3.10186	85.6793	1	0	0	0		$|
+9825650	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1909.85	3.94067	85.0427	1	0	0	0		$|
+9825652	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1910.18	4.07661	85.8171	1	0	0	0		$|
+9825654	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1909.38	4.00645	86.021	1	0	0	0		$|
+9825655	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1909.3	3.94217	85.3021	1	0	0	0		$|
+9825659	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1909.43	4.2239	85.9355	1	0	0	0		$|
+9825661	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1910.17	4.19417	85.1738	1	0	0	0		$|
+9825666	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1910.02	4.02334	84.4436	-0.57352	0	0.819192	0		$|
+9825667	0	object/tangible/camp/camp_stool_short.iff	0	1905.31	3.93432	85.5363	1	0	0	0		$|
+9825668	0	object/tangible/camp/camp_stool_tall.iff	0	1904.91	3.65233	87.1006	1	0	0	0		$|
+9825669	0	object/tangible/camp/campfire_logs_burnt.iff	0	1904.58	3.85906	85.8405	1	0	0	0		$|
+9825671	0	object/tangible/camp/camp_cot.iff	0	1909.84	3.82719	87.229	0.998738	0.0499785	-0.0012854	-0.00483193		$|
+9825807	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	408.057	20.7977	2009.49	1	0	0	0		$|
+9825808	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	407.651	22.3892	2004.5	1	0	0	0		$|
+9825809	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	405.76	20.5137	2013.26	1	0	0	0		$|
+9825813	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	400.992	25.5753	1988.05	1	0	0	0		$|
+9825815	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	409.575	26.5783	1994.01	1	0	0	0		$|
+9825817	0	object/static/structure/general/droid_r2_powerdown.iff	0	391.344	23.4249	1985.91	-0.613746	0	0	0.789504		$|
+9825818	0	object/static/structure/general/droid_r3_powerdown.iff	0	401.827	21.4445	2015	0.707107	0.707107	0	0		$|
+9825822	0	object/static/structure/general/droid_ra7_powerdown.iff	0	400.65	25.5605	1997.64	0.745174	0	0	0.66687		$|
+9825826	0	object/static/structure/general/poi_protocolleg.iff	0	388.694	25.1586	1985.46	-0.484207	0.0329309	-0.0118345	0.874253		$|
+9825827	0	object/static/structure/general/poi_protocolarm.iff	0	407.61	25.8719	1992.73	1	0	0	0		$|
+9825830	0	object/static/structure/general/poi_powerdroidbody.iff	0	402.235	25.9254	1993.67	1	0	0	0		$|
+9825831	0	object/static/structure/general/poi_powerdroid_powerdown.iff	0	406.928	24.6394	1997.43	1	0	0	0		$|
+9825832	0	object/static/structure/general/droid_21bmedical_powerdown.iff	0	404.495	25.6001	1992.73	0.707107	0.707106	0	0		$|
+9825833	0	object/static/structure/general/droid_probedroid_powerdown.iff	0	403.031	23.5234	2005.14	0.980067	0	0	-0.198669		$|
+9825840	0	object/static/structure/general/streetlamp_small_style_01.iff	0	394.269	26.3692	2005.67	1	0	0	0		$|
+9825819	0	object/static/structure/general/droid_r4_head.iff	0	401.879	25.0108	1989.66	1	0	0	0		$|
+9825820	0	object/static/structure/general/droid_r4_leg.iff	0	400.145	21.7312	2018.86	1	0	0	0		$|
+9825821	0	object/static/structure/general/droid_r4_torso.iff	0	408.23	25.6505	1995.01	0.964501	0.0337713	-0.00916495	0.261749		$|
+9825823	0	object/static/structure/general/droid_repairdroidtorso.iff	0	405.87	22.9675	2003.61	1	0	0	0		$|
+9825835	0	object/static/structure/general/droid_r5_head.iff	0	404.724	24.7309	1991.08	1	0	0	0		$|
+33606	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1904.462174	3.522120953	82.624023	1	0	0	0		$|
+164400	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	402.787354	25.73283195	1991.329174	1	0	0	0		$|

@@ -1,0 +1,20 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9525440	0	object/static/structure/naboo/gate_narrow_s02.iff	0	869.508	10.8025	1987.57	0.836325	-0.0107076	0.535309	-0.117857	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/naboo/naboo_commoner.iff|$|
+9525447	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s07.iff	0	867.961	10.8969	1983.01	0.8499	0	0	0.526943		$|
+9525464	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	857.478	10.1018	1993.14	0.962425	0	0	0.271547		$|
+9525465	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	874.356	11.2626	1996.06	1	0	0	0		$|
+9525474	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	864.783	10.5677	1997.21	0.947404	0.0447935	0.152892	0.277566		$|
+9525476	0	object/static/structure/general/streetlamp_small_style_01.iff	0	863.524	9.54138	1987.6	1	0	0	0		$|
+9525552	0	object/building/endor/endor_catwalk.iff	0	1875.88	4.69255	1062.74	0.989506	0	-0.144492	0		$|
+9525553	0	object/static/structure/dantooine/dant_fence_4m.iff	0	1876.45	2.96075	1062.44	0.992809	0	-0.119712	0		$|
+9525554	0	object/static/structure/dantooine/dant_fish_rack.iff	0	1875.69	4.71685	1065.92	0.937646	0	0.34759	0		$|
+9525555	0	object/static/structure/dantooine/dant_fire_pit.iff	0	1882.82	5.57915	1059.83	1	0	0	0		$|
+9525556	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1881.11	5.6977	1055.62	0.891568	0	0	0.452886		$|
+9525557	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1882.48	5.48266	1055.62	0.898261	0	0	-0.439462		$|
+9525558	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1881.72	4.82503	1054.65	1	0	0	0		$|
+9525562	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1883.01	4.64979	1059.79	1	0	0	0		$|
+9795424	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1881.419922	5.215501785	1055.143066	1	0	0	0		$|
+3737698	0	object/tangible/ground_spawning/mob_spawner.iff	0	870	11	1995	1	0	0	0		$|
+3737699	0	object/tangible/ground_spawning/mob_spawner.iff	0	870	11	1995	1	0	0	0		$|
+3737700	0	object/tangible/ground_spawning/mob_spawner.iff	0	870	11	1995	1	0	0	0		$|

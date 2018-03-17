@@ -1,0 +1,43 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2116360	0	object/static/structure/general/landing_pad_shuttle.iff	0	2007.24	90	1806.13	0.0530731	0	0.998591	0		$|
+2116361	0	object/static/vehicle/player_shuttle.iff	0	2006.94	90	1808.84	0.0507732	0	0.99871	0		$|
+2116365	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	2012.42	90	1812.19	0.69196	0	0.721935	0		$|
+2116366	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	2012.41	90	1813.07	0.084103	0	0.996457	0		$|
+2116367	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	2012.38	90.8854	1812.59	0.999687	0	-0.025	0		$|
+2116368	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	2013.28	90	1812.96	0.854301	0	0.519779	0		$|
+2116372	0	object/static/item/item_container_inorganic_minerals.iff	0	2013.22	90	1814.46	0.960835	0	0.277121	0		$|
+2116373	0	object/static/item/item_container_inorganic_minerals.iff	0	2012.89	90.8854	1814.91	-0.204346	0	0.978899	0		$|
+2116374	0	object/static/item/item_container_inorganic_minerals.iff	0	2012.53	90	1815.19	-0.248175	0	0.968715	0		$|
+2116375	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	2004.17	90	1797	0.998988	0	-0.0449855	0		$|
+2116376	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	2010.5	90	1815.11	0.997888	0	-0.0649541	0		$|
+2116378	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	2014.22	90	1800.63	0.94441	0	0.328769	0		$|
+2116379	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	2012.01	90	1813.83	0.854301	0	0.519779	0		$|
+2116381	0	object/static/structure/general/data_terminal_s1.iff	0	2012.31	90	1810.21	0.741564	0	0.670882	0		$|
+2116382	0	object/static/structure/tatooine/jawa/tent_jawa_01_med.iff	0	1998.39	90	1804.64	0.998988	0	-0.0449848	0		$|
+2116389	0	object/static/item/item_container_inorganic_minerals.iff	0	1998.82	91.1538	1806.62	-0.663731	0	0.747971	0		$|
+2116390	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1998.8	91.0273	1806.04	-0.663731	0	0.747971	0		$|
+2116391	0	object/static/item/item_container_inorganic_minerals.iff	0	1998.93	91.1538	1805.46	-0.663731	0	0.747971	0		$|
+2116392	0	object/static/item/item_container_inorganic_minerals.iff	0	1998.83	90.1265	1806.61	-0.663731	0	0.747971	0		$|
+2116393	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1998.81	90	1806.03	-0.663731	0	0.747971	0		$|
+2116394	0	object/static/item/item_container_inorganic_minerals.iff	0	1998.94	90.1265	1805.45	-0.663731	0	0.747971	0		$|
+2116423	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1999.54	90	1802.16	-3.20013e-008	0	1	0		$|
+2116424	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1999.21	90	1800.97	1	0	0	0		$|
+2116425	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1998.16	90	1801.36	1	0	0	0		$|
+2116426	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1998.64	90	1802.37	0.996802	0	0.0799147	0		$|
+2116427	0	object/static/structure/general/prp_junk_s6.iff	0	1998.12	90	1812.42	1	0	0	0		$|
+2116430	0	object/static/structure/general/prp_junk_s8.iff	0	1999.62	90.4491	1812.85	0.707107	0.707106	0	0		$|
+2116431	0	object/static/structure/corellia/corl_power_box_node.iff	0	2023.45	90	1801.37	0.9992	0	-0.0399893	0		$|
+2116432	0	object/static/structure/corellia/corl_power_connector.iff	0	2017.55	90.0011	1799.9	0.0399893	0	0.9992	0		$|
+2116433	0	object/static/structure/corellia/corl_power_connector.iff	0	2017.39	90.0029	1801.89	0.0399893	0	0.9992	0		$|
+8445742	0	object/building/military/outpost_shed.iff	0	2034.65	90	1811.8	-0.678264	0	0.734818	0		travel.point_name|4|Jabba's Palace|$|
+8445743	8445742	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8445744	8445742	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+8445745	8445742	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8445760	8445745	object/tangible/terminal/terminal_space.iff	3	0.039409	0.125265	-6.11584	1	0	0	0		$|
+8445746	8445742	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+8445747	8445742	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+8445748	8445742	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+8445756	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	2040	90	1794	0.99955	0	-0.0299955	0		$|
+8445757	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	2040	95.0361	1794	1	0	0	0		$|
+8445758	0	object/static/structure/general/tankfarm_s01.iff	0	2036.54	90	1802.71	0.0399893	0	0.9992	0		$|

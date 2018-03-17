@@ -1,0 +1,19 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9015562	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	166.616	2.30389	1567.38	0.771246	0	-0.636537	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dantooine/dant_commoner.iff|$|
+9015563	0	object/static/structure/dantooine/dant_cooking_stone.iff	0	173.742	2.47343	1571.13	0.979258	0.102015	-0.121053	-0.12646		$|
+9015564	0	object/static/structure/dantooine/dant_fence_8m.iff	0	172.79	2.83447	1574	0.811837	0.089664	-0.573472	0.0633375		$|
+9015565	0	object/static/structure/dantooine/dant_fence_8m.iff	0	175.049	2.74818	1581.65	0.790584	0.152045	-0.582503	0.112027		$|
+9015566	0	object/static/structure/dantooine/dant_fence_8m.iff	0	179.637	2.85212	1585.13	0.960093	-0.229869	0.154939	0.0370961		$|
+9015567	0	object/static/structure/dantooine/dant_boundary_post.iff	0	181.649	2.58189	1556.51	0.466913	0	0.884303	0		$|
+9015568	0	object/static/structure/general/tato_cave_rock_med.iff	0	177.81	1.91471	1564.93	0.925259	-0.316924	-0.197212	-0.06755		$|
+9015569	0	object/static/structure/general/tato_cave_rock_med.iff	0	177.516	1.95191	1565.49	0.910403	0.340847	-0.216783	0.0894189		$|
+9015570	0	object/static/structure/general/tato_cave_rock_med.iff	0	177.731	1.96228	1566.12	-0.456333	-0.345763	0.795532	0.198336		$|
+9015571	0	object/static/structure/general/tato_cave_rock_med.iff	0	178.528	2.0205	1565.91	-0.547366	-0.559052	0.598644	0.171689		$|
+9015572	0	object/static/structure/general/tato_cave_rock_med.iff	0	178.427	1.91461	1564.8	0.132959	0.716056	-0.624189	-0.282797		$|
+9015573	0	object/static/structure/general/tato_cave_rock_med.iff	0	178.732	1.95142	1565.4	-0.668576	-0.260089	0.641842	0.270922		$|
+9015574	0	object/static/structure/general/campfire_ash.iff	0	178.048	2.2887	1565.45	1	0	0	0		$|
+9015575	0	object/static/structure/general/campfire_ash.iff	0	177.995	2.2945	1565.72	1	0	0	0		$|
+9015576	0	object/static/structure/general/campfire_ash.iff	0	178.335	2.28936	1565.24	1	0	0	0		$|
+9015577	0	object/building/endor/endr_lake_rail2m.iff	0	178.102	1.95839	1565.39	-0.703845	0	0.710353	0		$|
+3625423	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	179.01416	2.688255787	1572.191895	1	0	0	0		$|

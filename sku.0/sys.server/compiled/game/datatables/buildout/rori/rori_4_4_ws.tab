@@ -1,0 +1,14 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9715649	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	1065.6	76.4654	1731.22	1	0	0	0		$|
+9715650	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	1057.43	75.9371	1737.97	0.828148	0	0.560509	0		$|
+9715651	0	object/static/structure/naboo/nboo_imprv_pillar_lattice_s01.iff	0	1061.52	75.7438	1736.37	0.949235	0	0	0.314567		$|
+9715655	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1058.69	74.8912	1728.04	0.870293	0	0	0.492535		$|
+9715662	0	object/tangible/furniture/all/frn_all_tree_potted_s2.iff	0	1060.36	75.2513	1736.75	0.935897	0	0	-0.352274		$|
+9715666	0	object/tangible/furniture/all/frn_all_tree_potted_s2.iff	0	1061.39	74.857	1736.95	0.566311	-0.322982	0.713641	-0.256303		$|
+9715672	0	object/tangible/furniture/all/frn_all_tree_potted_s2.iff	0	1061.09	75.8355	1736.31	-0.00782203	-0.526921	0.849864	0.00484971		$|
+9715680	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	1062.68	76.0527	1729.01	0.926808	0.0716803	0.286695	0.231723		$|
+9715684	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1058.47	73.1232	1732.37	1	0	0	0		$|
+3355964	0	object/tangible/ground_spawning/mob_spawner.iff	0	1063	75	1745	1	0	0	0		$|
+3355965	0	object/tangible/ground_spawning/mob_spawner.iff	0	1063	75	1745	1	0	0	0		$|
+3355966	0	object/tangible/ground_spawning/mob_spawner.iff	0	1063	75	1745	1	0	0	0		$|

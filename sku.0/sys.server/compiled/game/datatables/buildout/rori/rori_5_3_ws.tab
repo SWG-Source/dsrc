@@ -1,0 +1,35 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7825880	0	object/building/endor/endor_tiki_torch.iff	0	767.777	82.1273	2005.48	0.995108	-0.0672192	-0.0193296	-0.069772		$|
+7825893	0	object/static/structure/general/camp_tent_s01.iff	0	770.962	82.0336	2002.71	0.992809	0	0.119712	0		$|
+7825894	0	object/static/structure/general/camp_stool_short_s01.iff	0	774.301	81.7386	2005.69	0.988771	0	-0.149438	0		$|
+7825895	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	764.779	82.6081	2002.65	0.997352	0.0199827	-0.000799734	-0.0699289		$|
+7825896	0	object/static/structure/general/campfire_burnt.iff	0	773.825	81.741	2007.24	1	0	0	0		$|
+7825902	0	object/static/structure/dantooine/dant_hide_tanning_s02.iff	0	777.372	81.8263	2008.04	0.849385	0.0148425	-0.527561	0.00216749		$|
+7825903	0	object/static/structure/dantooine/dant_hide_tanning_s01.iff	0	776.443	81.7952	2006.73	0.891207	0	-0.453597	0		$|
+7825904	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	765.126	82.0376	2002.86	1	0	0	0		$|
+7825905	0	object/static/item/item_container_organic_structure.iff	0	764.466	82.7899	2002.19	0.948031	0.0406645	-0.309756	-0.0602972		$|
+7825906	0	object/static/structure/general/camp_stool_short_s01.iff	0	772.814	81.7435	2006.37	0.950796	0	-0.309817	0		$|
+7825907	0	object/static/structure/general/camp_stool_short_s01.iff	0	774.872	81.6886	2008.01	1	0	0	0		$|
+7825909	0	object/static/item/item_container_organic_structure.iff	0	764.029	82.8179	2003.25	0.997352	0.0199827	-0.000799734	-0.0699289		$|
+7825910	0	object/static/item/item_container_organic_hide.iff	0	764.671	82.7311	2003.28	0.997251	0.0189316	0.0141596	-0.0702207		$|
+7825911	0	object/static/item/item_container_organic_hide.iff	0	765.433	82.6621	2001.81	0.997136	0.0213772	-0.0207456	-0.0695153		$|
+7825912	0	object/static/structure/general/camp_tent_s01.iff	0	776.962	81.9182	2012.38	-0.348337	0	0.937369	0		$|
+7825913	0	object/static/item/item_container_organic_hide.iff	0	765.209	82.6684	2002.54	0.994608	0.0146867	0.0739341	-0.0712296		$|
+7825914	0	object/static/item/item_container_organic_hide.iff	0	765.477	82.5896	2003.36	0.99702	0.0217244	-0.0257303	-0.0694075		$|
+7825915	0	object/building/endor/endor_tiki_torch.iff	0	774.195	81.9343	2012.13	0.995108	-0.067219	-0.01933	-0.069772		$|
+7825935	0	object/static/structure/general/rock_mossy_big_a1.iff	0	701.747	95.9471	2033.98	0.917075	0.00398603	-0.398589	-0.00917106		$|
+7825936	0	object/static/structure/general/rock_mossy_big.iff	0	703.945	94.4711	2039.91	-0.140332	0	0.990105	0		$|
+7825937	0	object/static/flora/flora_shrb_dath_glingi.iff	0	704.955	94.7914	2036.41	0.731689	0	0.681639	0		$|
+7825940	0	object/static/flora/flora_tree_lok_mkpud.iff	0	705.542	93.9769	2036.04	0.947651	0	-0.319309	0		$|
+7825881	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	735.8218994	89.2004776	2021.089355	1	0	0	0		$|
+7825882	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	770.0692749	82.33384705	2011.604492	1	0	0	0		$|
+7825883	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	748.8343506	85.48389435	2005.275146	1	0	0	0		$|
+7825884	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	752.0621338	85.68347168	2013.249512	1	0	0	0		$|
+7825885	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	765.8907471	82.745224	2009.702637	1	0	0	0		$|
+7825886	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	781.5050659	82.5996933	2022.34668	1	0	0	0		$|
+7825887	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	772.185791	84.14787292	2027.533203	1	0	0	0		$|
+7825888	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	785.7376709	81.12446594	2036.116211	1	0	0	0		$|
+7825889	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	781.7628174	81.38103485	2047.645996	1	0	0	0		$|
+7825891	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	714.5766602	93.63275146	2032.490479	1	0	0	0		$|
+7825892	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	722.2453003	91.22486877	2019.500488	1	0	0	0		$|

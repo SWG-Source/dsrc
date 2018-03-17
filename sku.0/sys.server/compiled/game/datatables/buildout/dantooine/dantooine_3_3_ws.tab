@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9015489	0	object/static/structure/general/poi_all_rebl_corral_32x32_s01.iff	0	1919.33	6.33456	1870.96	0.978031	0	-0.20846	0		$|
+9015490	0	object/static/structure/general/droid_r5_powerdown.iff	0	1929.14	7.0576	1872.1	0.781265	-0.56068	0.0158023	-0.273885		$|
+9015491	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1921.73	7.30035	1876.61	-0.669203	0.170758	0.566389	0.449681		$|
+9015492	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1924.7	7.51754	1875.15	0.817221	-0.284492	0.473351	0.164783		$|
+9015493	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1923.36	7.16011	1873.68	0.905038	-0.120275	0.255301	0.318216		$|
+9015494	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1926.23	7.18263	1873.97	-0.643247	0.0525467	0.762457	-0.0461611		$|
+9015495	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1912.43	7.12235	1867.31	0.975897	0	-0.21823	0		$|
+9015496	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	1909.58	7.96512	1867.19	0.844588	0	0.535416	0		$|
+3625426	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1920.581787	7.85362196	1869.522461	1	0	0	0		$|

@@ -1,0 +1,7 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995503	0	object/static/structure/general/prp_junk_s7.iff	0	1807.12	43.3642	1018.61	0.518112	-0.409283	-0.526806	0.535279		$|
+8995504	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	1809.9	40.1711	1017.68	0.99875	0	-0.0499791	0		$|
+8995505	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	1805.19	40.545	1018.34	1	0	0	0		$|
+8995506	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	1809.55	40.352	1017.1	1	0	0	0		$|
+3495408	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1807.585449	40.60531235	1014.709473	1	0	0	0		$|

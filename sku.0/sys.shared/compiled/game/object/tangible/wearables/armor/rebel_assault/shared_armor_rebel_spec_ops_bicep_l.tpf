@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_bicep_l.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "item_n" "armor_rebel_spec_ops_bicep_l_n"
+detailedDescription = "item_n" "armor_rebel_spec_ops_bicep_l_d"
+appearanceFilename = "appearance/armor_rebel_s03_spec_ops_bicep_l_f.sat"
+

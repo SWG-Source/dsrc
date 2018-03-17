@@ -1,0 +1,16 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8735526	0	object/static/installation/mockup_factory_machine_style_1.iff	0	1761.97	32.5146	1736.24	0.724102	-0.0326067	-0.688224	-0.030991		$|
+8735528	0	object/tangible/camp/camp_tent_s3.iff	0	1751.52	33.4551	1710.15	0.0655878	0.0697915	0.995393	0.00459867		$|
+8735530	0	object/tangible/camp/camp_tent_s3.iff	0	1756.94	32.7532	1704.84	0.605103	0.0542723	0.792928	-0.0465757		$|
+8735534	0	object/static/structure/general/debris_deathstar_conduit.iff	0	1758.93	32.6496	1715.08	0.999388	0	0	-0.0349929		$|
+8735536	0	object/static/structure/general/debris_deathstar_small_chunk.iff	0	1761.03	32.415	1712.52	0.956802	0	0.29074	0		$|
+8735537	0	object/tangible/furniture/all/frn_all_toolchest_lg_s01.iff	0	1761.3	32.3201	1711.05	0.84904	-0.00807056	-0.527145	-0.0344068		$|
+8735538	0	object/static/structure/general/streetlamp_medium_style_01_on.iff	0	1758.49	32.2672	1711.86	0.994493	0	0.104807	0		$|
+8735539	0	object/static/particle/pt_poi_droid_weld_sparks.iff	0	1758.79	33.3669	1716.88	-0.441287	0.432205	-0.550274	0.561839		$|
+8735540	0	object/static/creature/droids_r2.iff	0	1758.78	32.6755	1716.99	-7.33659e-008	0	1	0		$|
+8735542	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1760.88	32.5021	1705.43	0.975788	0.0146379	0.218205	-0.00327332		$|
+8735543	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1760.53	32.5618	1704.55	0.975788	0.014638	0.218205	-0.003273		$|
+8735544	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1760.69	33.4218	1705.03	0.97491	0.0439007	0.218009	-0.0098167		$|
+8735545	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1764.145996	32.33410645	1710.22525	1	0	0	0		$|
+5226075	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1759.17	32.6743	1711.911	1	0	0	0		$|

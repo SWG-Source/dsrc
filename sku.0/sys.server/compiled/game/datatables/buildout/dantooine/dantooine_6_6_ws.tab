@@ -1,0 +1,23 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8565847	0	object/static/structure/tatooine/concrete_slab_tatooine_16x8.iff	0	47.2451	14.2356	784.183	0.972514	0	0.232843	0		$|
+8565849	0	object/static/structure/tatooine/guild_ball_free_style_01.iff	0	49.3557	17.6497	776.778	0.971338	0	0.237703	0		$|
+8565850	0	object/static/structure/tatooine/guild_ball_free_style_01.iff	0	54.5771	17.9593	786.983	0.972514	0	0.232843	0		$|
+8565851	0	object/static/structure/tatooine/guild_ball_free_style_01.iff	0	45.1919	17.8126	791.781	0.971338	0	0.237703	0		$|
+8565852	0	object/static/structure/tatooine/guild_ball_free_style_01.iff	0	39.8337	17.852	781.593	0.972514	0	0.232843	0		$|
+8565853	0	object/static/structure/dantooine/dant_boundary_post.iff	0	36.4802	3.38413	853.984	1	0	0	0		$|
+9015363	0	object/static/structure/general/tato_cave_rock_large.iff	0	690.002	21.3781	1314.98	0.716831	-0.263235	0.346269	-0.544938		$|
+9015364	0	object/static/structure/general/tato_cave_rock_large.iff	0	688.304	21.304	1310.9	-0.693597	-0.388258	0.469279	-0.384651		$|
+9015365	0	object/static/structure/general/tato_cave_rock_large.iff	0	685.717	21.8663	1312.44	0.72393	0.68806	0.0362267	-0.0344317		$|
+9015366	0	object/static/structure/general/tato_cave_rock_large.iff	0	686.8	21.9619	1315.48	0.885899	0.427938	-0.161207	0.0778717		$|
+9015367	0	object/static/structure/general/tato_cave_rock_large.iff	0	688.813	22.1493	1311.48	1	0	0	0		$|
+9015368	0	object/static/structure/general/tato_cave_rock_large.iff	0	689.955	22.3489	1314.36	-0.618206	-0.358077	0.350707	0.605481		$|
+9015369	0	object/static/structure/general/tato_cave_rock_large.iff	0	686.695	22.8149	1312.58	0.52762	0.849481	0	0		$|
+9015370	0	object/static/structure/general/tato_cave_rock_large.iff	0	687.431	22.7728	1314.73	-0.151861	0.787584	-0.111313	-0.586736		$|
+9015371	0	object/static/structure/general/tato_cave_rock_large.iff	0	688.837	23.1878	1312.18	0.275684	0.354592	-0.557138	0.69847		$|
+9015372	0	object/static/structure/general/tato_cave_rock_large.iff	0	687.443	23.4057	1312.97	0.0694635	0.671298	0.735194	-0.0634265		$|
+9015373	0	object/static/structure/general/tato_cave_rock_large.iff	0	688.073	23.1093	1313.95	-0.00420362	0.999991	0	0		$|
+9015374	0	object/static/structure/general/tato_cave_rock_large.iff	0	689.377	23.2036	1313.93	0.538389	-0.239912	0.532499	0.607474		$|
+9015375	0	object/static/structure/general/tato_cave_rock_large.iff	0	688.456	23.8302	1313.08	0.0856911	0.996322	0	0		$|
+9015376	0	object/static/structure/dantooine/dant_boundary_post.iff	0	688.618	25.5186	1313.05	1	0	0	0		$|
+3625435	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	692.2771	20.66812325	1310.769287	1	0	0	0		$|

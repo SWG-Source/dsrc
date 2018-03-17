@@ -1,0 +1,18 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1212332	0	object/static/terrain/tatooine/poi_sarlacc_collision_floor.iff	0	2017.99	16.9539	734.998	1	0	0	0		$|
+5225903	0	object/tangible/npc/tatooine_special/sarlacc.iff	0	2017.75	15.0045	735.025	-0.57352	0	0.819192	0		$|
+5996497	0	object/tangible/jedi/force_shrine_stone.iff	0	1686.14	73.3772	425.435	0.707107	0	0.707107	0		$|
+5996498	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1681.72	74.3461	423.838	0.707118	0	0.707095	0		$|
+5996499	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1690.41	73.8717	423.872	1	0	0	0		$|
+5996500	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1685.17	74.188	423.827	0	0	1	0		$|
+5996501	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1686.97	74.178	423.779	1	0	0	0		$|
+5996502	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	1686.08	56.2344	423.838	1	0	0	0		$|
+5996503	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1686.15	75.0523	425.432	1	0	0	0		$|
+8155866	0	object/static/structure/tatooine/stone_hovel_tatooine_style_01.iff	0	1013.04	41.154	1693.02	0.875175	0	0.483807	0		$|
+8155869	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1024.8	40.4424	1690.4	1	0	0	0		$|
+8155870	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1018.45	39.9903	1684.29	1	0	0	0		$|
+8155871	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1024.8	40.0342	1684.2	1	0	0	0		$|
+8155872	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1018.14	40.5965	1690.58	1	0	0	0		$|
+435	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1024.562988	41.24019241	1695.714355	1	0	0	0		$|
+-1	0	object/tangible/poi/tatooine/explore_sarlacc_pit.iff	0	2022	19	728	1	0	0	0		$|

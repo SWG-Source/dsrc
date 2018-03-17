@@ -1,0 +1,22 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705769	0	object/building/endor/endor_village_tree.iff	0	1349.94	-0.128208	1143.59	1	0	0	0		$|
+9705784	0	object/building/endor/endor_tiki_torch.iff	0	1346.42	19.7956	1154.32	0.605074	0.0266868	0.795547	-0.0166987		$|
+9705795	0	object/static/item/item_bowl_shallow.iff	0	1342.08	19.8613	1146.38	1	0	0	0		$|
+9705797	0	object/static/item/item_bread_loaf.iff	0	1342.2	19.8785	1146.38	1	0	0	0		$|
+9705798	0	object/static/item/item_cheese_wheel_s1_partial.iff	0	1341.97	19.916	1146.5	1	0	0	0		$|
+9705801	0	object/static/item/item_basket_closed.iff	0	1341.93	19.8294	1149.18	1	0	0	0		$|
+9705802	0	object/static/item/item_bottle_tall.iff	0	1343.18	19.8255	1147.87	1	0	0	0		$|
+9705803	0	object/static/item/item_jar_bugs.iff	0	1342.19	19.8972	1145.51	1	0	0	0		$|
+9705804	0	object/static/item/item_fruit_melon.iff	0	1342.01	19.9133	1146.29	1	0	0	0		$|
+9705807	0	object/static/item/item_con_tato_bowl_full_s01.iff	0	1344.1	19.8322	1145.49	1	0	0	0		$|
+9705821	0	object/building/endor/endr_lake_rail4m.iff	0	1349.98	19.8102	1154.19	1	0	0	0		$|
+9705823	0	object/building/endor/endr_lake_rail4m.iff	0	1360.45	19.8115	1143.4	-0.696707	0	0.717356	0		$|
+9705825	0	object/building/endor/endr_lake_rail4m.iff	0	1349.87	19.8097	1132.98	1	0	0	0		$|
+9705827	0	object/building/endor/endr_lake_rail4m.iff	0	1350.25	9.81117	1154.15	1	0	0	0		$|
+9705828	0	object/building/endor/endr_lake_rail4m.iff	0	1360.54	9.76019	1143.39	0.700285	0	0.713864	0		$|
+9705855	0	object/building/endor/endor_catwalk.iff	0	1312.81	0.666476	1159.91	0.793048	0	0.609159	0		$|
+9705861	0	object/building/endor/endor_village_tree_viewpoint.iff	0	1318.12	0.385679	1161.3	0.793048	0	0.609159	0		$|
+9705878	0	object/building/endor/endor_tiki_torch.iff	0	1317.81	2.13764	1159.47	0.744675	-0.187652	0.596056	-0.234441		$|
+9705880	0	object/building/endor/endor_tiki_torch.iff	0	1316.93	2.04359	1162.68	-0.598276	-0.176143	0.769604	0.136931		$|
+2835670	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1303.262207	6.623184204	1150.625488	1	0	0	0		$|

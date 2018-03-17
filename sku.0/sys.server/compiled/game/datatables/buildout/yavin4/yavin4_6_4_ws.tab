@@ -1,0 +1,5 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995487	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	1850.09	203.031	1170	0.984727	0	0.174108	0		$|
+8995488	0	object/static/flora/flora_decd_scorched_tallbirch_broke.iff	0	1858.15	203.906	1164.79	0.721669	0.109271	0.0551261	0.681334		$|
+3495406	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1847.130127	203.5587769	1171.774536	1	0	0	0		$|

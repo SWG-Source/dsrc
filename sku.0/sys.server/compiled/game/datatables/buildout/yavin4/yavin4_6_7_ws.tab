@@ -1,0 +1,4 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995482	0	object/static/structure/general/debris_deathstar_turbolaser.iff	0	303.899	53.3016	825.956	1	0	0	0		$|
+3495405	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	300.194824	53.56519318	822.692871	1	0	0	0		$|

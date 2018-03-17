@@ -1,0 +1,17 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9715600	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	1431.13	72.8361	1530.67	1	0	0	0		$|
+9715601	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	1439.59	73.5914	1537.25	0.738468	0	0.674288	0		$|
+9715602	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	1437.16	72.9336	1526.28	-0.699167	0.105669	0.698075	0.112655		$|
+9715603	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	1440.11	74.7535	1535.56	1	0	0	0		$|
+9715604	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	1445.19	74.4678	1527.55	-0.000796395	0	1	0		$|
+9715609	0	object/static/structure/naboo/gungan_shield_gen_s01.iff	0	633.764	75.9016	48.9624	1	0	0	0		$|
+9715610	0	object/static/structure/naboo/gungan_statue_s01.iff	0	635.41	75.1774	46.5935	0.682221	0	0.731146	0		$|
+9715612	0	object/static/structure/naboo/gungan_statue_s02.iff	0	634.936	75.0461	51.2297	0.731689	0	0.681639	0		$|
+9715614	0	object/tangible/gravestone/gravestone04.iff	0	635.834	75.4833	50.7117	0.63329	0	0.773915	0		$|
+1775431	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1443.503418	75.83508301	1521.55542	1	0	0	0		$|
+3356007	0	object/tangible/ground_spawning/mob_spawner.iff	0	647	75	58	1	0	0	0		$|
+3356008	0	object/tangible/ground_spawning/mob_spawner.iff	0	647	75	58	1	0	0	0		$|
+3356009	0	object/tangible/ground_spawning/mob_spawner.iff	0	647	75	58	1	0	0	0		$|
+3356010	0	object/tangible/ground_spawning/mob_spawner.iff	0	647	75	58	1	0	0	0		$|
+3356011	0	object/tangible/ground_spawning/mob_spawner.iff	0	647	75	58	1	0	0	0		$|

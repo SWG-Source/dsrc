@@ -1,0 +1,4 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1775424	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1229	102.216	507.878	1	0	0	0		$|
+1775425	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1233.71875	86.29315186	482.269043	1	0	0	0		$|

@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995407	0	object/static/flora/flora_decd_scorched_massassi_broke.iff	0	990.189	309.174	903.07	0.676373	-0.25177	0.551232	0.418658		$|
+8995408	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1285.22	107.103	1775.85	0.730602	0	-0.682804	0		$|
+8995409	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1286.28	104.816	1775.7	1	0	0	0		$|
+8995437	0	object/static/structure/general/debris_deathstar_storage.iff	0	1885.58	87.1575	1167.84	0.802761	-0.484834	0.34561	0.032645		$|
+3495393	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1001.193359	306.4512024	902.9347534	1	0	0	0		$|
+3495394	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1295.306885	107.7107315	1773.426147	1	0	0	0		$|
+3495398	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1884.912842	87.82538605	1156.263672	1	0	0	0		$|

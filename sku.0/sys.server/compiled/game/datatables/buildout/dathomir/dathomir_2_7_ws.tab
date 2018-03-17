@@ -1,0 +1,16 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7325410	0	object/tangible/jedi/force_shrine_stone.iff	0	1995.83	118.271	1827.19	0.707107	0	0.707107	0		$|
+7325411	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1991.41	118.819	1825.59	0.707112	0	0.707101	0		$|
+7325412	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	2000.09	118.819	1825.62	1	0	0	0		$|
+7325413	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1994.86	118.819	1825.58	0	0	1	0		$|
+7325414	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1996.65	118.809	1825.53	1	0	0	0		$|
+7325415	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	1995.77	100.866	1825.59	1	0	0	0		$|
+7325416	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1995.83	118.819	1827.18	1	0	0	0		$|
+9725967	0	object/tangible/camp/camp_tent_s1.iff	0	1518.34	121.991	1297.48	-0.510213	-0.0178648	0.859336	-0.030089		$|
+9725968	0	object/tangible/camp/campfire_logs_ash.iff	0	1512.88	121.205	1294.71	1	0	0	0		$|
+9725969	0	object/tangible/camp/camp_stool_tall.iff	0	1512.31	121.216	1296.53	0.770149	0.579417	-0.182943	-0.194107		$|
+9725970	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1518.66	121.572	1293.98	0.846399	-0.347917	0.372914	0.153288		$|
+9725971	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1506.36	120.413	1299.66	0.353019	0	0.935616	0		$|
+9725973	0	object/static/structure/general/banner_imperial_style_01.iff	0	1514.56	120.928	1298.27	0.90293	0.231313	0.305968	-0.193897		$|
+1105979	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1515.612793	121.6090088	1295.145996	1	0	0	0		$|

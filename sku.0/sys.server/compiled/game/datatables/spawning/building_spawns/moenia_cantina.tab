@@ -1,0 +1,10 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+arrek_von_sarko	Arrek Von Sarko	cantina	10.9	-0.9	3.6	90	npc.static_quest.quest_convo			100	string:quest_table=arrek_von_sarko					
+junk_lila	Lila Rawlkiss	cantina	26.1	-0.9	9.9	-126	npc.junk_dealer.junk_lila_borvo			100						
+object/tangible/spawning/spawn_egg.iff		cantina	14.4	-0.9	0.6	-179	city.interior_2_convo								
+object/tangible/spawning/spawn_egg.iff		alcove5	-7.5	-0.9	18.4	-179	city.interior_3_convo								
+object/tangible/npc/epic_quest/borvo_guard_spawner.iff		private_room	-17.0	-0.9	19.8	-60									
+object/tangible/npc/epic_quest/borvo_guard_spawner.iff		private_room	-25.7	-0.9	25.5	135									
+object/tangible/npc/epic_quest/borvo_guard_spawner.iff		private_room2	-23.9	-0.5	13.2	-50									
+borvo_the_hutt		private_room2	-28.9	-0.5	8.8	42									

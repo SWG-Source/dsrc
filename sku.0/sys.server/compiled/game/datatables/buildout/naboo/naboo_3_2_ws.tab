@@ -1,0 +1,21 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1670386	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	2036.33	2.97384	805.851	0.807204	-0.172049	-0.552238	-0.117705		$|
+1670387	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1996.46	1.08321	766.784	0.815856	-0.157485	-0.544042	0.1166		$|
+1670388	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1956.82	3.38081	711.74	0.956321	0.144358	-0.2137	0.137631		$|
+1670393	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1928.49	0.243962	657.579	0.739488	0.01111	-0.619157	-0.263966		$|
+1670394	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	2022.07	1.19864	594.356	-0.198088	-0.155497	0.9515	-0.176718		$|
+1670395	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1963.72	0.811789	607.928	-0.299533	0	0.954086	0		$|
+1670414	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	2029.2	5.55173	723.234	0.0998326	0	0.995004	0		$|
+1670415	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	2033.01	5.29312	721.615	0.0998326	0	0.995004	0		$|
+1670416	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	2030.05	6.03487	718.701	0.0998326	0	0.995004	0		$|
+1670417	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	2027.19	6.32402	718.139	0.0998326	0	0.995004	0		$|
+1670418	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	2026.38	6.01993	722.691	0.774166	0	0.632982	0		$|
+1670419	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	2031.9	5.07843	727.269	-0.636844	0	0.770993	0		$|
+1670420	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	2033.94	5.65386	716.171	0.0449849	0	0.998988	0		$|
+1670421	0	object/static/structure/naboo/gungan_statue_s01.iff	0	2032.98	5.29495	721.632	0.761354	0	0.648337	0		$|
+1670451	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	2046.53	5.11295	758.435	0.930507	0	-0.366273	0		$|
+1670454	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	2045.13	4.98431	757.127	0.917121	0	0.39861	0		$|
+1670487	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1960.86	2.4837	723.432	0.784718	-0.212274	-0.520434	-0.261355		$|
+5505363	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1961.42	5.55384	723.631	1	0	0	0		$|
+-1	0	object/tangible/poi/tatooine/explore_naboo_gungan_sacred_place.iff	0	2030	5	721	1	0	0	0		$|

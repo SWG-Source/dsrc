@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+937366	0	object/static/installation/mockup_mining_liquid_moisture_harvester.iff	0	35.6699	89.4967	952.923	1	0	0	0		$|
+937369	0	object/static/installation/mockup_mining_liquid_moisture_harvester.iff	0	98.3892	92.1094	900.759	1	0	0	0		$|
+937370	0	object/static/installation/mockup_mining_liquid_moisture_harvester.iff	0	82.1606	92.1487	953.635	1	0	0	0		$|
+2975401	0	object/static/structure/general/campfire_fresh.iff	0	61.4258	62.0884	921.416	1	0	0	0		$|
+9685470	0	object/static/structure/tatooine/stone_hovel_tatooine_style_01.iff	0	56.3862	61.8116	931.929	0.0307915	0	0.999526	0		$|
+9685471	0	object/static/structure/tatooine/stone_hovel_tatooine_style_01.iff	0	66.3887	62.0628	928.69	-0.310574	0	0.950549	0		$|
+9685472	0	object/static/structure/tatooine/stone_hovel_tatooine_style_01.iff	0	71.2002	62.0543	921.213	-0.471328	0	0.881958	0		$|
+9685505	0	object/static/structure/general/droid_lemedical_powerdown.iff	0	99.5435	92.0202	898.115	0.731697	0.262326	-0.177054	0.603702		$|
+9685491	0	object/static/structure/general/flag_corellia_style_01.iff	0	48.7729	62.103	921.31	1	0	0	0		$|
+2975400	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	58.962891	62.06383896	923.3737183	1	0	0	0		$|
+2975402	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	64.663086	61.91667557	917.3727417	1	0	0	0		$|

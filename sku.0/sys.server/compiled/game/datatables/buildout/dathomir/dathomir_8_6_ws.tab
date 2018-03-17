@@ -1,0 +1,18 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+978361	0	object/static/item/item_bottle_pear.iff	0	1048.89	491.047	1184.08	0.700285	0	0	0.713864		$|
+978362	0	object/static/item/item_bottle_tall.iff	0	1048.76	490.877	1183.38	0.735088	0	0	-0.677972		$|
+978363	0	object/static/item/item_bowl_plain.iff	0	1049.5	491.113	1184.19	0.00420349	0.999991	0	0		$|
+978364	0	object/static/item/item_bread_loaf.iff	0	1045.08	490.654	1181.22	1	0	0	0		$|
+978366	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1047.98	490.695	1181.87	1	0	0	0		$|
+978369	0	object/static/item/item_food_vegetable_s01.iff	0	1048.63	490.6	1177.89	1	0	0	0		$|
+978370	0	object/static/item/item_jar_berries.iff	0	1051.02	490.559	1179.12	0.802096	0	0	0.597195		$|
+978371	0	object/static/item/item_jar_funk.iff	0	1050.79	490.519	1178.73	0.738469	-0.674288	0	0		$|
+9725831	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1042.09	490.818	1180.71	-0.639774	0	0.768563	0		$|
+9725835	0	object/static/structure/dantooine/dant_hide_tanning_s01.iff	0	1049.42	490.98	1176.41	0.565306	0.599967	-0.479835	0.30038		$|
+9725836	0	object/static/structure/dantooine/dant_hide_tanning_s02.iff	0	1050.92	490.665	1174.96	0.761782	-0.521163	0.317596	0.217279		$|
+9725844	0	object/static/structure/dantooine/dant_rack_spears.iff	0	1043.66	491.064	1178.36	0.649815	0.71978	-0.219929	0.10625		$|
+9725846	0	object/static/structure/dantooine/dant_skull_thune.iff	0	1040.31	490.618	1181.52	0.516046	0.258898	0.709696	0.403733		$|
+9725848	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1042.69	488.925	1180.74	1	0	0	0		$|
+9725853	0	object/static/structure/general/campfire_ash.iff	0	1051.45	490.999	1182.55	1	0	0	0		$|
+978372	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1052.772461	490.4089355	1179.190186	1	0	0	0		$|

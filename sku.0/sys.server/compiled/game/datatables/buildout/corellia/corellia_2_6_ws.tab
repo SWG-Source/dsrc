@@ -1,0 +1,10 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9825495	0	object/static/structure/corellia/corl_imprv_bridge_lg_s01.iff	0	1876.71	0.106489	1591.94	0.891568	0	-0.452886	0		$|
+9825502	0	object/static/structure/corellia/corl_imprv_bridge_lg_s01.iff	0	1901.72	-0.0178074	1574.17	0.871981	-0.0944086	-0.442937	0.185856		$|
+9825518	0	object/building/endor/endr_lake_rail8m.iff	0	1865.25	0.273495	1600.86	0.898261	0	-0.439462	0		$|
+9825525	0	object/building/endor/endr_lake_rail4m.iff	0	1887.01	0.299979	1584.02	0.886258	0	-0.463191	0		$|
+9825660	0	object/static/flora/flora_decd_scorched_tallbirch_broke.iff	0	734.17	183.466	20.1199	1	0	0	0		$|
+9825725	0	object/static/structure/general/tie_bomber_debris_01.iff	0	729.099	175.991	31.6729	0.883237	0.328225	-0.231504	0.242004		$|
+9825738	0	object/static/structure/general/prp_junk_s1.iff	0	731.479	183.253	19.4268	0.90838	0.292759	-0.245647	0.169691		$|
+9165505	0	object/tangible/ground_spawning/mob_spawner.iff	0	1848	18	1753	1	0	0	0		$|

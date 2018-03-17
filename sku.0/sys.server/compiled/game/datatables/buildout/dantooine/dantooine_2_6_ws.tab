@@ -1,0 +1,35 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8395429	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	953.918	34.8954	1991.82	0.994493	0	-0.104807	0		$|
+8395430	0	object/static/structure/naboo/gungan_cleft_wall_lg_s01.iff	0	957.112	34.8803	1996.46	-0.615247	0	0.788335	0		$|
+8395431	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	958.802	34.8855	1989.22	-0.617686	0	0.786425	0		$|
+8395432	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	949.702	35.2908	1992.98	0.987227	0	-0.159318	0		$|
+8395433	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	950.973	34.9872	1988.42	0.992809	0	-0.119712	0		$|
+8395438	0	object/static/structure/dantooine/dant_fence_8m.iff	0	337.858	19.4705	1393.05	0.855127	0	0.518418	0		$|
+8395439	0	object/static/structure/dantooine/dant_fence_8m.iff	0	334.787	19.4982	1400.33	-0.585743	0	0.810497	0		$|
+8395440	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	346.928	15	1406.44	0.362358	0	0.932039	0		$|
+8395441	0	object/static/structure/dantooine/dant_cooking_stone.iff	0	357.454	15.6875	1391.5	0.9765	0.213653	-0.0223315	0.0173458		$|
+8395442	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	351.947	12.1223	1405.21	1	0	0	0		$|
+8395443	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	345.217	11.8729	1404.12	1	0	0	0		$|
+8435423	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	977.089	35.2238	662.219	0.735088	0	-0.677972	0		$|
+8435424	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	977.177	35.4507	653.972	0.707388	0	0.706825	0		$|
+8435429	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	970.642	34.9669	645.084	1	0	0	0		$|
+8435430	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	976.866	33.713	644.944	1	0	0	0		$|
+8435431	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	970.31	35.2409	653.562	1	0	0	0		$|
+8435432	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	970.837	35.4126	662.35	1	0	0	0		$|
+8435433	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	971.137	33.5764	666.084	0.77538	0.0727637	-0.613073	-0.132786		$|
+8435434	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	972.374	33.2731	669.142	0.830941	0	-0.556361	0		$|
+8435435	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	973.945	33.3752	672.413	0.0334832	0.833408	-0.140622	0.533419		$|
+8435454	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1576.8	4.53101	684.333	0.960693	-0.0577109	-0.271058	-0.016283		$|
+8435455	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1573.3	3.76854	689.514	-0.294627	-0.00884145	0.955142	0.0286628		$|
+8435456	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1573	3.11986	699.872	0.990901	-0.13459	0	0		$|
+8435457	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1578.99	3.23341	705.997	0.558522	-0.0859932	0.814997	-0.128212		$|
+8435458	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1585.32	3.15213	706	0.965988	0.0249129	0.236394	-0.101803		$|
+8435459	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1585	4.12558	681	0.875174	0	0.483807	0		$|
+8435460	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1594.63	3.93887	684	0.732873	0.167574	-0.629926	0.19496		$|
+8435462	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1597	4.33311	690	0.987227	0	0.159318	0		$|
+8435464	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1597.83	2.33737	696.088	0.761477	0.294866	-0.556724	0.15253		$|
+8435465	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	1593	2.96923	704	0.805072	0	-0.593177	0		$|
+3975366	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1586.04541	3.5	694.478271	1	0	0	0		$|
+3975375	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	973.439941	35.31245422	651.210205	1	0	0	0		$|
+3975390	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	352.188965	15	1396.925537	1	0	0	0		$|

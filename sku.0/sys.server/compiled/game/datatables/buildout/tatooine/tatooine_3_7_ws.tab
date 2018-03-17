@@ -1,0 +1,15 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+894935	0	object/static/particle/pt_buzzing_insects_large.iff	0	1265.71	278.224	1962.6	1	0	0	0		$|
+5996539	0	object/tangible/jedi/force_shrine_stone.iff	0	473.123	247.121	1181.99	0.707107	0	0.707107	0		$|
+5996540	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	468.701	248.162	1180.4	0.707116	0	0.707097	0		$|
+5996541	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	477.386	248.162	1180.43	1	0	0	0		$|
+5996542	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	472.155	248.162	1180.38	0	0	1	0		$|
+5996543	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	473.948	248.152	1180.34	1	0	0	0		$|
+5996544	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	473.064	230.209	1180.4	1	0	0	0		$|
+5996545	0	object/static/particle/pt_poi_electricity_2x2.iff	0	473.126	248.162	1181.99	1	0	0	0		$|
+8985536	0	object/static/structure/tatooine/skeleton_greater_krayt_head.iff	0	1268.96	275.853	1967.26	0.861199	0.304939	0.375752	0.155433		$|
+8985538	0	object/static/structure/tatooine/skeleton_krayt_ribcage.iff	0	1264.58	276.567	1963.97	0.905327	-0.0831063	0.411359	0.0652699		$|
+8985539	0	object/static/structure/tatooine/skeleton_krayt_tail.iff	0	1260.35	274.798	1958.13	0.831324	-0.0900644	0.46018	0.298367		$|
+8985540	0	object/static/structure/tatooine/skeleton_krayt_leg_style_02.iff	0	1263.34	272.989	1969.16	0.877178	0.442294	-0.165995	0.0859063		$|
+894938	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1269.180664	277.9603577	1961.762695	1	0	0	0		$|

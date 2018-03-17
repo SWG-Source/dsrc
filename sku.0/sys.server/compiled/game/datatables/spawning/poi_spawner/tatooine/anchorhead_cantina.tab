@@ -1,0 +1,5 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+nitra_vendallan		livingroom1	-2.953	0.4083	-9.3071	51	npc.static_quest.quest_convo			300	string:quest_table=nitra_vendallan
+rebel_recruiter		hall1	-6.2201	-3.9662	-6.589	90				300
+rebel_recruiter		world	69.6872	52	-5349.47	3				300

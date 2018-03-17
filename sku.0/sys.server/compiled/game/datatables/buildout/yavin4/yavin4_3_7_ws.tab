@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8905385	0	object/static/structure/general/skeleton_human_head.iff	0	212.884	95.3033	51.1421	-0.333709	0.0368568	0.936262	0.103406		$|
+8905389	0	object/static/structure/general/skeleton_human_head.iff	0	213.347	95.2674	50.8877	-0.333709	0.036857	0.936262	0.103406		$|
+8905390	0	object/static/structure/general/skeleton_human_head.iff	0	213.979	95.2105	50.5718	-0.333709	0.036857	0.936262	0.103406		$|
+8905391	0	object/static/structure/general/skeleton_human_head.iff	0	214.592	95.1515	50.2505	-0.333709	0.036857	0.936262	0.103406		$|
+8905392	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	212.731	93.9094	49.6553	1	0	0	0		$|
+3666231	0	object/tangible/ground_spawning/mob_spawner.iff	0	214	95	50	1	0	0	0		$|
+3666232	0	object/tangible/ground_spawning/mob_spawner.iff	0	214	95	50	1	0	0	0		$|
+3666233	0	object/tangible/ground_spawning/mob_spawner.iff	0	214	95	50	1	0	0	0		$|
+3666234	0	object/tangible/ground_spawning/mob_spawner.iff	0	214	95	50	1	0	0	0		$|

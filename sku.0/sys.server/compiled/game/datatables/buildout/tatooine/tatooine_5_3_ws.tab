@@ -1,0 +1,16 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8985396	0	object/static/structure/general/gravestone_generic_style_02.iff	0	1881.23	8.34433	1067.47	0.950796	0	-0.309816	0		$|
+8985397	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	1881.05	4.65438	1065.43	1	0	0	0		$|
+8985398	0	object/static/structure/tatooine/beam_tatooine_overhead_style_01.iff	0	1882.7	5.4322	1065.34	-0.690064	-0.154312	0.690064	0.154312		$|
+8985400	0	object/static/structure/general/gravestone_generic_style_04.iff	0	1880.13	8.33348	1066.59	0.949235	0	-0.314567	0		$|
+4725570	0	object/tangible/ground_spawning/mob_spawner.iff	0	1146	146	175	1	0	0	0		$|
+4725572	0	object/tangible/ground_spawning/mob_spawner.iff	0	1146	146	175	1	0	0	0		$|
+4725573	0	object/tangible/ground_spawning/mob_spawner.iff	0	1146	146	175	1	0	0	0		$|
+4725574	0	object/tangible/ground_spawning/mob_spawner.iff	0	964	183	1043	1	0	0	0		$|
+4725575	0	object/tangible/ground_spawning/mob_spawner.iff	0	964	183	1043	1	0	0	0		$|
+4725576	0	object/tangible/ground_spawning/mob_spawner.iff	0	964	183	1043	1	0	0	0		$|
+4725617	0	object/tangible/ground_spawning/mob_spawner.iff	0	1146	146	175	1	0	0	0		$|
+4725618	0	object/tangible/ground_spawning/mob_spawner.iff	0	964	183	1043	1	0	0	0		$|
+4725619	0	object/tangible/ground_spawning/mob_spawner.iff	0	964	183	1043	1	0	0	0		$|
+4725620	0	object/tangible/ground_spawning/mob_spawner.iff	0	964	183	1043	1	0	0	0		$|

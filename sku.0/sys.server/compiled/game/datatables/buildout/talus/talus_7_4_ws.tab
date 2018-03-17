@@ -1,0 +1,22 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2365969	0	object/static/item/item_tapestry_imperial.iff	0	1872.07	6.8797	863.562	0.974794	0	-0.223106	0		$|
+2735769	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	2.96436	8.97574	1991.56	0.978031	0	-0.208461	0		$|
+9505369	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	1086.09	30.6664	303.545	1	0	0	0		$|
+9505370	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	1094.78	30.0501	295.565	1	0	0	0		$|
+9505371	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	1101.96	30.1762	298.264	3.20013e-008	0	1	0		$|
+9505372	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	1102.4	30.4238	304.085	1	0	0	0		$|
+9505373	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	1102.05	28.3739	316.733	3.1219e-008	0	1	0		$|
+9505380	0	object/static/structure/tatooine/wall_gate_tatooine_style_02.iff	0	1093.61	31.1327	327.349	0.716566	0.0645106	0.691633	-0.0633634		$|
+9505381	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1093.72	31.266	325.205	0.996953	-0.0598891	0.0498892	0.00299695		$|
+9505382	0	object/static/structure/general/campfire_ash.iff	0	1092.82	31.5449	320.226	1	0	0	0		$|
+9505409	0	object/building/corellia/filler_slum_16x32_s01.iff	0	1880.86	2.41101	862.093	0.974794	0	-0.223106	0		$|
+9505414	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	1884.1	9.50454	852.98	0.839192	0	0.543835	0		$|
+9505417	0	object/static/structure/general/poi_all_corral_pen_8x16_s01.iff	0	1898.69	4.88732	859.879	-0.536088	0	0.844162	0		$|
+2365967	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1077.181152	32.14442825	309.439087	1	0	0	0		$|
+2365970	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1869.840332	2.182086468	857.298584	1	0	0	0		$|
+2365971	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1868.97998	2.188790083	863.114868	1	0	0	0		$|
+2365972	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1885.087402	3.485009193	842.379395	1	0	0	0		$|
+2735770	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	0.186035	8.27038765	1992.548176	1	0	0	0		$|
+2735771	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	0.145996	8.4820261	1999.983967	1	0	0	0		$|
+1053342	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1103.15	30.5354	309	1	0	0	0		$|

@@ -1,0 +1,18 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+33536	0	object/static/structure/general/debris_deathstar_conduit.iff	0	151.352	172.36	138.856	0.656145	-0.00840732	0.754486	-0.0124218		$|
+33537	0	object/static/structure/general/debris_deathstar_conduit.iff	0	151.277	171.863	139.484	-0.246605	0.0054244	0.969	-0.0139843		$|
+33538	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	147.22	169.094	146.55	1	0	0	0		$|
+4546260	0	object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	0	150.624	170.558	134.53	-0.527265	0.00873965	0.849642	-0.00489412		$|
+4546261	0	object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	0	155.136	170.352	136.704	-0.539967	0	0.841686	0		$|
+4546269	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	151.691	169.855	144.207	0.215984	0	0.976397	0		$|
+4546270	0	object/static/structure/corellia/corl_imprv_column_s04.iff	0	146.871	170.207	142.037	0.230583	0.00963316	0.973001	0.00274522		$|
+4546272	0	object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	0	151.154	173.999	135.525	0.599547	0.588336	0.385436	-0.381894		$|
+4546278	0	object/static/structure/general/rock_beach_dark_lg.iff	0	155.879	173.008	129.616	0.96919	0.0706021	-0.234441	0.0269037		$|
+4546279	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	149.748	170.85	143.866	0.690724	0.693862	-0.140461	0.147397		$|
+4546280	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	148.422	170.829	143.292	0.690724	0.693862	-0.140461	0.147397		$|
+9825407	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	154.537	169.469	145.788	0.955463	-0.21366	-0.0444244	-0.198661		$|
+9825411	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	145.044	170.162	140.877	-0.505051	-0.289918	0.812737	0.0181843		$|
+9825419	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	146.677	169.447	145.369	0.985585	0.169182	0	0		$|
+9825424	0	object/static/structure/general/trash_pile_s01.iff	0	156.476	172.522	137.782	0.900117	0.140646	-0.407378	-0.0636541		$|
+33544	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	146.810059	167.5739136	151.762451	1	0	0	0		$|

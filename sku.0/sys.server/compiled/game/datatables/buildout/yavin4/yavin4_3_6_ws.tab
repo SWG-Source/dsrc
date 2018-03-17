@@ -1,0 +1,14 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8905381	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	360.258	158.487	118.389	0.929101	-0.0201348	-0.365719	0.0511521		$|
+8905383	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	365.615	158.157	107.007	0.120406	-0.0396979	0.991919	-0.00481883		$|
+8905384	0	object/static/flora/flora_decd_scorched_massassi_broke.iff	0	249.994	103.29	1017.17	0.0142072	-0.428879	0.722497	-0.542087		$|
+8995410	0	object/static/structure/general/campfire_ash.iff	0	914.783	104.939	1301.35	1	0	0	0		$|
+8995411	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	912.419	105.225	1296.58	0.974794	0	0.223106	0		$|
+8995412	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	912.709	105.253	1296.71	1	0	0	0		$|
+8995413	0	object/static/structure/dantooine/dant_gate.iff	0	842.623	82.3173	1788.31	0.968912	0	0.247404	0		$|
+8995414	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	843.607	82.3369	1789.85	0.877357	0.0195406	-0.47916	0.0163708		$|
+8995415	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	844.247	80.2011	1791.22	1	0	0	0		$|
+3495386	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	355.731445	158.8389282	113.542969	1	0	0	0		$|
+3495387	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	257.079102	103.8823776	1017.801514	1	0	0	0		$|
+3495395	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	915.717529	105.1941376	1294.521484	1	0	0	0		$|

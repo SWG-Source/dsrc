@@ -1,0 +1,30 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+4725529	0	object/static/structure/general/camp_tent_s01.iff	0	1404.29	28.624	530.674	1	0	0	0		$|
+4725530	0	object/static/structure/general/camp_tent_s01.iff	0	1400.93	28.6016	538.302	0.577609	0	0.816314	0		$|
+4725532	0	object/static/structure/general/campfire_fresh.iff	0	1405.38	28.7115	535.179	1	0	0	0		$|
+4725534	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1407.15	28.6743	534.578	0.886995	0	-0.461779	0		$|
+4725535	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1404.16	28.5114	534.585	0.867819	0	0.49688	0		$|
+4725536	0	object/static/structure/general/camp_lawn_chair_s01.iff	0	1404.66	28.5765	536.284	0.27078	0	0.962641	0		$|
+9165526	0	object/static/structure/general/skeleton_human_headandbody.iff	0	681.249	42.8022	1116.67	0.991754	-0.124684	0.00045797	-0.0296301		$|
+9825429	0	object/static/structure/general/escape_pod.iff	0	684.103	43.2694	1118.24	-0.525402	0.167709	0.827335	-0.106504		$|
+9825433	0	object/static/structure/general/droid_r5_head.iff	0	674.352	40.5851	1113.08	-0.357693	0	0.933839	0		$|
+9825434	0	object/static/structure/general/droid_r5_leg.iff	0	674.136	42.3597	1119.2	0.120503	0	0.992713	0		$|
+9825435	0	object/static/structure/general/droid_r5_torso.iff	0	679.358	42.6422	1117.03	0.816774	0	0.576958	0		$|
+4725537	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725538	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725539	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725541	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725542	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725543	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725544	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725545	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725546	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725547	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725548	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725549	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725550	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725551	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725552	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725553	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|
+4725554	0	object/tangible/ground_spawning/mob_spawner.iff	0	1407	28	529	1	0	0	0		$|

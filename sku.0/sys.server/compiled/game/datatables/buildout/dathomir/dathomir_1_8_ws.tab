@@ -1,0 +1,8 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725690	0	object/static/structure/naboo/obelisk_naboo_theed_style_3.iff	0	1763.83	507.048	1061.85	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/dathomir/dath_large_stone_mast.iff|$|
+9725715	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1773.53	501.936	1067.29	0.595377	-0.373272	0.602799	-0.377925		$|
+9725716	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1776.03	501.872	1068.64	0.736301	0.268771	-0.583337	0.212935		$|
+9725719	0	object/static/structure/general/trash_pile_s01.iff	0	1771.59	501.492	1061.85	1	0	0	0		$|
+9725720	0	object/static/structure/general/trash_pile_s01.iff	0	1772.94	503.192	1068.81	0.955843	-0.0805147	0.0653364	-0.274979		$|
+9725722	0	object/static/structure/general/escape_pod_door.iff	0	1770.56	503.055	1064.23	-0.343994	0.780219	0.22849	0.469808		$|

@@ -1,0 +1,38 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3566217	0	object/static/structure/dantooine/dant_mud_oven.iff	0	1.00291	163.643	172.463	0.796084	0	-0.605186	0		$|
+4395570	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1611.32	51.739	546.148	0.883413	0	-0.468594	0		$|
+4395571	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1606.76	51.9261	539.362	0.470977	0	0.882145	0		$|
+4395572	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1615.89	51.7106	552.919	0.470977	0	0.882145	0		$|
+4395573	0	object/static/structure/military/military_wall_med_imperial_16_style_01.iff	0	1579.71	50.5001	576.801	0.331316	0	0.94352	0		$|
+4395574	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1586.07	50.5	581.936	0.942622	0	-0.333862	0		$|
+4395575	0	object/static/structure/military/military_column_strong_imperial_style_01.iff	0	1573.34	50.5481	571.682	0.942622	0	-0.333862	0		$|
+4395589	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1597.52	49.25	553.72	0.995953	0	-0.0898786	0		$|
+4395590	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	1586.19	49.25	559.584	0.761612	0	0.648033	0		$|
+4395598	0	object/static/creature/imperial_at_st.iff	0	1584.44	50.5	573.552	0.440178	0	0.897911	0		$|
+4395602	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1589.87	50.5099	546.645	0.996157	0	-0.0875866	0		$|
+4395627	0	object/static/creature/imperial_at_st.iff	0	1607.42	50.5	548.068	0.89791	0	-0.440178	0		$|
+8375462	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1613.8	50.5342	556.938	0.92388	0	0.382683	0		$|
+8375463	8375462	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8375464	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	1590.07	50.5	580.234	0.92388	0	0.382683	0		$|
+8375465	8375464	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8375506	0	object/tangible/camp/camp_tent_s6.iff	0	1580.6	50.5	558.939	0.380925	0	0.924606	0		$|
+8375507	0	object/tangible/camp/camp_tent_s6.iff	0	1597.91	50.5	548.163	0.678557	0	0.734548	0		$|
+8375508	0	object/static/structure/general/banner_imperial_style_01.iff	0	1589.47	50.5	555.171	0.954535	0	0.298098	0		$|
+8845372	0	object/static/structure/naboo/arbor_corner_45_s01.iff	0	938.002	39.9121	1597.05	3.20013e-008	0	1	0		$|
+8845373	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	934.523	39.4898	1600.71	0.973666	0	-0.227978	0		$|
+8845374	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	916.828	101.437	582.381	0.707107	0	-0.707106	0		$|
+8995396	0	object/tangible/gravestone/gravestone01.iff	0	339.968	173.924	1056.67	1	0	0	0		$|
+8995397	0	object/tangible/gravestone/gravestone02.iff	0	338.75	174.124	1056.61	1	0	0	0		$|
+8995398	0	object/tangible/gravestone/gravestone03.iff	0	336.869	174.512	1056.77	1	0	0	0		$|
+8995399	0	object/tangible/gravestone/gravestone04.iff	0	336.959	174.627	1058.74	1	0	0	0		$|
+8995400	0	object/tangible/gravestone/gravestone05.iff	0	338.671	174.247	1058.6	1	0	0	0		$|
+8995401	0	object/tangible/gravestone/gravestone03.iff	0	340.197	173.965	1058.36	1	0	0	0		$|
+8995402	0	object/tangible/gravestone/gravestone01.iff	0	336.919	174.787	1060.41	1	0	0	0		$|
+8995403	0	object/tangible/gravestone/gravestone02.iff	0	338.647	174.41	1060.38	1	0	0	0		$|
+8995404	0	object/tangible/gravestone/gravestone03.iff	0	340.307	174.095	1060.32	1	0	0	0		$|
+8995457	0	object/static/structure/general/debris_deathstar_tractorbeam.iff	0	316.377	183.735	952.912	0.924495	-0.0855107	0.345722	-0.135916		$|
+3495401	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	322.4275513	184.5551758	953.82373	1	0	0	0		$|
+-1	0	object/tangible/npc/storyline_npc/imperial_commander_spawner.iff	0	1587	50	562	1	0	0	0		$|
+-2	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1597.48	50	554.99	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	1596	50	563	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|3.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|3|intSpawnSystem|0|1|registerWithController|0|1|strName|4|imperial_trooper|strSpawnerType|4|area|strSpawns|4|imperial_trooper|$|

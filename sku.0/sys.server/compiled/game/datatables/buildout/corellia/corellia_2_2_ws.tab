@@ -1,0 +1,23 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1065358	0	object/static/structure/general/streetlamp_large_style_02.iff	0	587.026	23.4	2.72656	-0.685869	0	0.727725	0		$|
+1065359	0	object/static/structure/general/streetlamp_large_style_02.iff	0	586.739	23.4	47.2046	-0.693111	0	0.720831	0		$|
+1065361	0	object/static/structure/general/streetlamp_small_style_01.iff	0	592.699	14.74	103.408	1	0	0	0		$|
+2775506	0	object/building/corellia/shuttleport_corellia.iff	0	592.053	15.8901	104.033	0.707109	0	-0.707105	0	planet_map.map_loc:structure.municipal.starport	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Vreni Island Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
+3005484	0	object/building/corellia/filler_slum_16x16_s01.iff	0	438.872	14.6	4.02197	-3.20013e-008	0	1	0		$|
+3005582	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	478	14.6	13	1	0	0	0		$|
+3005583	0	object/static/structure/corellia/corl_imprv_wall_4x32_s04.iff	0	462	14.6	13	1	0	0	0		$|
+3005584	0	object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	0	438	14.6	13	1	0	0	0		$|
+3005585	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	430	14.6	13	1	0	0	0		$|
+3005586	0	object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	0	430	14.6	5	0.707107	0	0.707106	0		$|
+6035457	0	object/tangible/terminal/terminal_bazaar.iff	0	576.364	15.9684	91.5	0.707108	0	-0.707105	0		$|
+6035458	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	576.185	16	88.8838	1	0	0	0		$|
+6035459	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	576.139	16	89.6211	0.989506	0	0.144492	0		$|
+6035462	0	object/static/structure/general/streetlamp_large_style_02.iff	0	607.082	15.6865	79.4277	1	0	0	0		$|
+6035472	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	580.087	19.6659	91.9517	0.5	-0.5	0.5	0.5		$|
+8675791	0	object/static/structure/corellia/corl_imprv_flagpole_s01.iff	0	605.414	16.6687	78.0903	1	0	0	0		$|
+9665499	0	object/tangible/furniture/all/frn_bench_generic.iff	0	605.571	15.9234	80.0215	1	0	0	0		$|
+9665500	0	object/tangible/furniture/all/frn_bench_generic.iff	0	603.375	16.0008	78.0112	0.707107	0	-0.707106	0		$|
+9665501	0	object/tangible/furniture/all/frn_bench_generic.iff	0	605.408	16.0234	75.9126	-3.20013e-008	0	1	0		$|
+9665502	0	object/tangible/furniture/all/frn_bench_generic.iff	0	607.604	15.8327	77.9155	0.707107	0	0.707107	0		$|
+1284173	0	object/tangible/ground_spawning/mob_spawner.iff	0	598	15	79	1	0	0	0		$|

@@ -1,0 +1,28 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9715844	0	object/static/structure/general/poi_all_impl_corral_32x32_s01.iff	0	385.251	106.338	1380.31	0.805072	0	0.593177	0		$|
+9715847	0	object/static/structure/general/poi_all_corral_pen_8x16_s01.iff	0	365.498	105.276	1374.03	0.813878	0	0.581035	0		$|
+9715850	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	361.566	104.948	1374.31	0.980067	0	-0.198669	0		$|
+9715852	0	object/static/structure/general/campfire_ash.iff	0	363.978	105	1371.73	1	0	0	0		$|
+9715853	0	object/static/structure/general/campfire_ash.iff	0	368.782	105.711	1376.33	1	0	0	0		$|
+9715855	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	371.353	105.876	1374.99	0.911039	-0.412321	-1.58168e-009	5.60347e-009		$|
+9715856	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	371.266	105.951	1376.4	0.917121	0.398609	0	0		$|
+9715858	0	object/building/military/military_outpost_guard_tower_1.iff	0	387.254	107.459	1374.68	0.148651	0	0.98889	0		$|
+9715860	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	384.569	107.869	1388.67	0.155167	0	0.987888	0		$|
+9715861	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	380.743	107.464	1387.5	0.988771	0	-0.149438	0		$|
+9715862	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	377.957	107.032	1387.32	1	0	0	0		$|
+9715866	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	387.066	108	1389.81	1	0	0	0		$|
+9715869	0	object/static/structure/general/banner_imperial_style_01.iff	0	397.694	108	1381.77	0.796084	0	0.605186	0		$|
+9715870	0	object/static/structure/general/banner_imperial_style_01.iff	0	396.146	108	1386.34	-0.569417	0	0.822049	0		$|
+9715872	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	377.384	106.438	1374.66	0.990901	0	-0.13459	0		$|
+9715873	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	377.138	106.462	1375.48	0.991562	0	-0.129634	0		$|
+9715874	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	376.902	106.485	1376.28	0.991562	0	-0.129634	0		$|
+9715875	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	378.14	106.554	1375.31	0.143704	0	0.989621	0		$|
+9715876	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	377.871	106.575	1376.12	0.990901	0	-0.13459	0		$|
+9715877	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	377.254	106.449	1375.07	0.990901	0	-0.13459	0		$|
+9715878	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	376.996	106.47	1375.85	0.989506	0	-0.144492	0		$|
+9715879	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	378.001	106.562	1375.68	0.988771	0	-0.149438	0		$|
+9715880	0	object/static/structure/general/streetlamp_large_style_01.iff	0	358.87	104.561	1371.76	0.822502	0	0.568762	0		$|
+9715881	0	object/static/structure/general/streetlamp_medium_style_01.iff	0	395.652	108	1381.23	0.802096	0	0.597195	0		$|
+1775415	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	394.066406	108	1392.958984	1	0	0	0		$|
+1775416	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	389.467773	107.9543533	1380.947266	1	0	0	0		$|

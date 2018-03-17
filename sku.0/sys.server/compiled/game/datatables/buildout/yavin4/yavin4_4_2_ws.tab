@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995422	0	object/static/structure/general/prp_junk_s5.iff	0	252.259	45.2253	1446.3	0.627389	-0.33138	0.70461	0.00970137		$|
+8995425	0	object/static/structure/general/prp_junk_s2.iff	0	251.447	45.9748	1449.45	0.876611	-0.203854	0.42887	-0.077897		$|
+8995454	0	object/static/structure/general/skeleton_ithorian_headandbody.iff	0	1749.81	199.42	982.196	0.169312	0.103896	0.965438	-0.168726		$|
+8995455	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1749.04	200.116	982.741	-0.181846	0.0159479	0.972973	-0.141426		$|
+3666244	0	object/tangible/ground_spawning/mob_spawner.iff	0	255	46	1447	1	0	0	0		$|
+3666245	0	object/tangible/ground_spawning/mob_spawner.iff	0	255	46	1447	1	0	0	0		$|
+3666250	0	object/tangible/ground_spawning/mob_spawner.iff	0	1750	0	983	1	0	0	0		$|
+3666251	0	object/tangible/ground_spawning/mob_spawner.iff	0	1750	0	983	1	0	0	0		$|
+3666252	0	object/tangible/ground_spawning/mob_spawner.iff	0	1750	0	983	1	0	0	0		$|

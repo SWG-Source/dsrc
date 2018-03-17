@@ -1,0 +1,8 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8245352	0	object/static/dathomir/dath_mistyfalls_waterfall1.iff	0	933	96.5	1326	1	0	0	0		$|
+8245353	0	object/static/dathomir/dath_mistyfalls_waterfall2.iff	0	1585.46	101.892	1565.73	1	0	0	0		$|
+8245354	0	object/static/dathomir/dath_mistyfalls_waterfall2.iff	0	1586.84	102.319	1567.96	1	0	0	0		$|
+8245355	0	object/static/dathomir/dath_mistyfalls_waterfall1.iff	0	934.615	96.5185	1324.09	1	0	0	0		$|
+-1	0	object/tangible/poi/tatooine/explore_dathomir_misty_falls1.iff	0	1582	99	1562	1	0	0	0		$|
+-2	0	object/tangible/poi/tatooine/explore_dathomir_misty_falls2.iff	0	956	94	1312	1	0	0	0		$|

@@ -1,0 +1,7 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9015646	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1678.35	0.624379	1081.27	-0.597834	0	0.80162	0		$|
+9015647	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1665.53	0.977981	1117.52	-0.506221	0	0.862404	0		$|
+9015648	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1680.56	0.630591	1078.25	0.877582	0	0.479426	0		$|
+9015649	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1666.02	1.34363	1121.02	0.828148	0	0.560509	0		$|
+3625418	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1666.441895	1.924787283	1123.635498	1	0	0	0		$|

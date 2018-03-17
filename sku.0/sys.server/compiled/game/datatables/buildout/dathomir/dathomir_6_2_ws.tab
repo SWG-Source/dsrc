@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725957	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	945.15	87.5962	1004.41	0.90203	0.319081	0.274096	-0.096958		$|
+9725958	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	944.034	89.3848	1002.9	-0.273378	0.0972121	0.902248	0.319004		$|
+9725959	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	939.308	76.8258	991.208	0.836218	0.160115	-0.435345	-0.292535		$|
+9725960	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	941.468	77.0759	989.79	0.436011	0.292663	0.835872	0.159882		$|
+9725961	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	948.003	84.7823	991.048	0.402528	0.871926	0.111374	-0.255562		$|
+9725962	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	947.205	88.4046	991.984	0.186951	-0.21562	0.688798	-0.66642		$|
+9725963	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	949.968	77.5121	1007.38	-0.444347	0.0330291	0.83147	0.331847		$|
+9725964	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	951.945	76.1929	1008.42	0.831822	0.331822	0.443687	-0.0332937		$|
+1143374	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	946.12	80.2655	1001.37	1	0	0	0		$|

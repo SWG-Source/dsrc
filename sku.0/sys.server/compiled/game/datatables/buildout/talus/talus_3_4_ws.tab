@@ -1,0 +1,25 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2035877	0	object/static/structure/corellia/corl_tent_med.iff	0	409.84	34.9464	1495.3	1	0	0	0		$|
+8635368	0	object/static/structure/general/tato_cave_rock_med.iff	0	411.156	34.936	1494.9	0.79695	-0.134144	-0.0973349	0.580863		$|
+8635369	0	object/static/structure/general/tato_cave_rock_med.iff	0	408.061	34.9197	1495.17	0.991562	0	0.129634	0		$|
+8635370	0	object/static/structure/general/tato_cave_rock_med.iff	0	409.444	34.8475	1492.97	0.774572	-0.209272	-0.322928	0.501958		$|
+8635371	0	object/static/structure/general/tato_cave_rock_med.iff	0	409.928	35.0217	1497.03	0.555541	-0.296432	0.415009	0.656711		$|
+9645406	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	943.24	5.38709	1115	1	0	0	0		$|
+9645407	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	943.648	5.40798	1137.96	1	0	0	0		$|
+9645408	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	935.486	5.36989	1122.73	0.707109	0	-0.707105	0		$|
+9645421	0	object/static/structure/corellia/corl_imprv_gate_sm_s01.iff	0	951.28	4.66921	1119.22	0.707109	0	-0.707104	0		$|
+9645422	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	951.287	5.67657	1114.95	1	0	0	0		$|
+9645423	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	951.307	5.37442	1138.05	1	0	0	0		$|
+9645425	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	951.29	5.4133	1130.2	0.707109	0	-0.707104	0		$|
+9645426	0	object/static/structure/corellia/corl_imprv_wall_4x16_s01.iff	0	935.511	5.36598	1130.24	0.707127	0	-0.707086	0		$|
+9645429	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	935.586	5.34457	1137.87	1	0	0	0		$|
+9645430	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	935.512	5.55709	1114.99	1	0	0	0		$|
+9645433	0	object/static/structure/corellia/corl_fountain_statue_heroic_s01.iff	0	942.52	4.81389	1130.29	1	0	0	0		$|
+9645436	0	object/tangible/furniture/all/frn_bench_generic.iff	0	947.608	4.95506	1132.25	0.710913	0	-0.70328	0		$|
+9645437	0	object/tangible/furniture/all/frn_bench_generic.iff	0	947.608	4.91425	1128.36	0.710914	0	-0.703279	0		$|
+9645438	0	object/tangible/furniture/all/frn_bench_generic.iff	0	942.793	5.36576	1123.49	0.999673	-0.00013495	0.00539687	-0.024997		$|
+9645445	0	object/static/structure/tatooine/streetsign_upright_style_01.iff	0	952.38	4.82899	1122.77	0.714421	0	0.699716	0		$|
+2035878	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	413.713867	35.35825729	1504.6521	1	0	0	0		$|
+2035879	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	419.000977	35.00649261	1493.951294	1	0	0	0		$|
+2735825	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	944.605469	5.355751514	1121.152771	1	0	0	0		$|

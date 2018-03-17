@@ -1,0 +1,21 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2975361	0	object/static/structure/general/streetlamp_small_red_style_02.iff	0	1283.14	102.303	416.25	1	0	0	0		$|
+8335396	0	object/static/structure/tatooine/debris_tatt_radar_dish.iff	0	1778.12	90.9129	1643.56	0.947145	-0.028251	0.154085	-0.279957		$|
+8335397	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	1780.12	89.9587	1651.08	0.99995	0	0	0.00999983		$|
+8335399	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	1780.19	90.9657	1636.67	0.959662	0	0.281157	0		$|
+8335401	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	1790.95	90.3312	1651.23	-0.0921139	-0.449254	0.888642	-0.000945058		$|
+8335402	0	object/static/structure/tatooine/pillar_damaged_large_style_01.iff	0	1788.73	90.0642	1637.01	1	0	0	0		$|
+8335404	0	object/static/structure/tatooine/wall_archway_tatooine_large_style_01.iff	0	1784.19	91.0481	1650.07	-0.571383	-0.455893	0.541019	0.415909		$|
+8335407	0	object/static/structure/general/tato_cave_rock_large.iff	0	1786.45	91.9813	1656.63	0.120033	0.245498	0.961448	-0.0306495		$|
+8485400	0	object/static/structure/tatooine/pillar_pristine_tall_style_01.iff	0	1758.81	9.30957	759.901	0.793281	-0.0292705	0.486365	0.365101		$|
+8575355	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1283.27	105.845	410.748	0.99955	0	-0.0299956	0		$|
+8575357	0	object/static/structure/general/skeleton_human_head.iff	0	1284.16	105.934	414.026	0.99955	0	-0.0299955	0		$|
+8575358	0	object/static/structure/general/skeleton_human_head.iff	0	1282.05	105.897	413.891	0.99955	0	-0.0299955	0		$|
+8575361	0	object/static/structure/general/skeleton_human_head.iff	0	1283.15	105.81	415.511	0.99955	0	-0.0299955	0		$|
+8575362	0	object/static/structure/general/skeleton_human_head.iff	0	1283.18	105.874	412.869	0.99955	0	-0.0299955	0		$|
+8575363	0	object/static/structure/general/skeleton_human_head.iff	0	1283.15	105.907	414.354	0.99955	0	-0.0299955	0		$|
+8575364	0	object/static/structure/general/skeleton_human_head.iff	0	1283.23	105.862	411.395	0.99955	0	-0.0299955	0		$|
+8575433	0	object/static/particle/particle_campfire_style_1.iff	0	1898.13	14.441	0.916504	1	0	0	0		$|
+2975358	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1798.686035	91.98232269	1644.154785	1	0	0	0		$|
+2975362	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1286.145508	105.7964096	409.321289	1	0	0	0		$|

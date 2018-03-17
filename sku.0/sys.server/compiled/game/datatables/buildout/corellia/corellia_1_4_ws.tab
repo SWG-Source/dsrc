@@ -1,0 +1,5 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+4546290	0	object/static/structure/naboo/obelisk_naboo_theed_style_1.iff	0	1129.37	272.787	455.469	0.990901	0	-0.13459	0		$|
+9825396	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	1127.59	270.979	455.05	-0.613746	0	0.789504	0		$|
+9825431	0	object/static/structure/general/streetlamp_small_style_01.iff	0	1126.76	271.63	455.072	1	0	0	0		$|

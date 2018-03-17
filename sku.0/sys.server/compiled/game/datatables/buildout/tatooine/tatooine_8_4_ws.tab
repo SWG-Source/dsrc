@@ -1,0 +1,17 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5995564	0	object/building/general/tatooine_beetle_cave.iff	0	399.769	115.412	754.043	-0.281922	0	0.959437	0	theme_park.dungeon.generic_spawner:quest.hero_of_tatooine.altruism_control	portalProperty.crc|0|2294240807|spawn_table|4|datatables/quest/hero_of_tatooine/beetle_cave.iff|$|
+5995565	5995564	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+5995566	5995564	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+5995567	5995564	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+5995568	5995564	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+5995569	5995564	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+5995570	5995564	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+5995571	5995564	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+5995572	5995564	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+5995573	5995564	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+4888555	5995573	object/tangible/collection/rare_melee_blksn_razor.iff	9	194.23	-66.867	-103.176	-0.700206	-0.0107076	0.0105039	0.713783		$|
+5995574	5995564	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+5995575	5995564	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+-1	5995575	object/tangible/item/quest/hero_of_tatooine/explosives_crate.iff	11	76.8	-46.6	-141.9	1	0	0	0	quest.hero_of_tatooine.explosives_crate	$|
+9645552	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	403.725586	102.9482651	724.926636	1	0	0	0		$|

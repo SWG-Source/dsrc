@@ -1,0 +1,24 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8165389	0	object/static/structure/naboo/gungan_statue_s03.iff	0	954.706	78.6739	1997.69	-0.0197585	0.82483	0.564297	-0.0288808		$|
+8165390	0	object/static/structure/naboo/gungan_statue_s04.iff	0	953.582	77.9171	1999.45	0.462486	0	0	0.886627		$|
+8165391	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	958.705	76.6576	2001	1	0	0	0		$|
+8165392	0	object/static/structure/naboo/nboo_imprv_lattice_wall_short_s01.iff	0	946.455	75.4751	1433.46	1	0	0	0		$|
+8165393	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	948.222	75.6203	1431.74	0.999987	0	0.00499999	0		$|
+8165394	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	944.739	75.9099	1432.31	1	0	0	0		$|
+8165396	0	object/static/structure/general/gravestone_generic_style_01.iff	0	945.857	76.444	1432.09	1	0	0	0		$|
+8165397	0	object/static/structure/general/gravestone_generic_style_03.iff	0	946.452	76.2152	1432.66	1	0	0	0		$|
+8165398	0	object/static/structure/general/gravestone_generic_style_04.iff	0	947.422	76.2114	1431.91	1	0	0	0		$|
+8165399	0	object/static/structure/general/gravestone_generic_style_01.iff	0	946.305	76.4512	1431.57	1	0	0	0		$|
+8165400	0	object/static/structure/general/gravestone_generic_style_03.iff	0	945.939	76.5775	1430.76	1	0	0	0		$|
+8165401	0	object/static/structure/general/debris_deathstar_tractorbeam.iff	0	948.835	73.5348	864.238	0.981434	-0.0125218	0.0688129	-0.178591		$|
+8165402	0	object/static/structure/naboo/fountain_naboo_style_1.iff	0	949.023	72.3455	511.372	0.971338	0	0	-0.237703		$|
+8165403	0	object/static/structure/naboo/garden_gazebo_sml_s01.iff	0	953.379	65.5899	511.056	1	0	0	0		$|
+9715916	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1119.38	86.7275	1783.13	-0.700114	0.12313	0.703329	0.00287089		$|
+9715917	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	1114.92	84.9043	1782.8	1	0	0	0		$|
+3355944	0	object/tangible/ground_spawning/mob_spawner.iff	0	956	76	2010	1	0	0	0		$|
+3355945	0	object/tangible/ground_spawning/mob_spawner.iff	0	956	76	2010	1	0	0	0		$|
+3355946	0	object/tangible/ground_spawning/mob_spawner.iff	0	956	76	2010	1	0	0	0		$|
+3355947	0	object/tangible/ground_spawning/mob_spawner.iff	0	1098	78	1782	1	0	0	0		$|
+3355948	0	object/tangible/ground_spawning/mob_spawner.iff	0	1098	78	1782	1	0	0	0		$|
+3355949	0	object/tangible/ground_spawning/mob_spawner.iff	0	1098	78	1782	1	0	0	0		$|

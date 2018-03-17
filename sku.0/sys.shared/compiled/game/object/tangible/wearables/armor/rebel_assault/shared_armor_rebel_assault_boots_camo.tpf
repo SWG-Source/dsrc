@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_sabaton.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "wearables_name" "armor_rebel_assault_boots"
+detailedDescription = "wearables_detail" "armor_rebel_assault_boots"
+appearanceFilename = "appearance/armor_rebel_s03_boots_camo_f.sat"
+

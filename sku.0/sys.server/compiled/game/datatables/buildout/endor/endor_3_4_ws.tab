@@ -1,0 +1,6 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705566	0	object/building/endor/endor_lake_hut.iff	0	279.097	-2.0074	177.646	0.480124	0	0.877201	0		$|
+9705581	0	object/static/flora/flora_decd_endr_destree_dead.iff	0	676.817	10.7675	1948.24	1	0	0	0		$|
+9705586	0	object/static/structure/general/skeleton_human_headandbody.iff	0	677.246	11.631	1945.2	0.964852	0.182484	-0.187433	0.0250859		$|
+2055790	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	290.669434	3.683559656	197.762695	1	0	0	0		$|

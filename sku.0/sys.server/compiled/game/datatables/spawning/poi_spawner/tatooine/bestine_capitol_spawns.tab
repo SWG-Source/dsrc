@@ -1,0 +1,12 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+junk_dealer		world	-1026	10	-3557	5				1	"int:ai.defaultCalmBehavior=1"
+junk_dealer		world	-1135	12	-3683	-170				1	"int:ai.defaultCalmBehavior=1"					
+junk_dealer		world	-1118	12	-3687	-140				1	"int:ai.defaultCalmBehavior=1"					
+herald_tatooine_viconya	Vi`conya T`ili	world	-1001	10	-3550	-90	conversation.heraldtatooine1			1	"int:ai.defaultCalmBehavior=1"
+coa2_imperial_coordinator		world	-1131	12	-3659	-50				1	"int:ai.defaultCalmBehavior=1"
+death_watch_herald_imperial		world	-1160	12	-3525	-115	conversation.death_watch_imperial_herald			1	"int:ai.defaultCalmBehavior=1"
+kormund_thrylle		world	-1043	10	-3530	175	npc.static_quest.quest_convo			1	"string:quest_table=kormund_thrylle,int:ai.defaultCalmBehavior=1"
+imperial_recruiter		world	-1275	12	-3594	-80				1	"int:ai.defaultCalmBehavior=1"
+imperial_recruiter		world	-1138	98	-3897	-1				1	"int:ai.defaultCalmBehavior=1"
+imperial_recruiter		world	-1072	12	-3594	-140				1	"int:ai.defaultCalmBehavior=1"

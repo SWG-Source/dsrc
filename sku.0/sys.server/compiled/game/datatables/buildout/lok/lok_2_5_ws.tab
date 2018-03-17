@@ -1,0 +1,29 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2975367	0	object/static/particle/pt_miasma_of_fog_gray.iff	0	454.815	43.4277	273.252	1	0	0	0		$|
+2975368	0	object/static/particle/pt_miasma_of_fog_gray.iff	0	450.552	44.4924	266.259	1	0	0	0		$|
+2975372	0	object/static/flora/flora_decd_scorched_tallbirch.iff	0	457.303	33.2422	266.071	1	0	0	0		$|
+5685442	0	object/static/structure/general/gravestone_generic_style_01.iff	0	454.879	44.6885	264.441	1	0	0	0		$|
+5685443	0	object/static/structure/general/gravestone_generic_style_02.iff	0	452.617	44.5695	265.105	1	0	0	0		$|
+5685444	0	object/static/structure/general/gravestone_generic_style_02.iff	0	449.82	44.5054	265.589	1	0	0	0		$|
+5685445	0	object/static/structure/general/gravestone_generic_style_03.iff	0	446.416	44.2772	266.42	1	0	0	0		$|
+5685446	0	object/static/structure/general/gravestone_generic_style_05.iff	0	455.902	44.0669	269.156	1	0	0	0		$|
+5685447	0	object/static/structure/general/gravestone_generic_style_01.iff	0	453.395	43.9864	269.894	1	0	0	0		$|
+5685448	0	object/static/structure/general/gravestone_generic_style_03.iff	0	450.748	43.9656	270.59	1	0	0	0		$|
+5685449	0	object/static/structure/general/gravestone_generic_style_04.iff	0	447.636	43.9446	271.22	1	0	0	0		$|
+5685450	0	object/static/structure/general/gravestone_generic_style_05.iff	0	456.59	43.424	273.74	1	0	0	0		$|
+5685451	0	object/static/structure/general/gravestone_generic_style_05.iff	0	454.159	43.3023	274.151	1	0	0	0		$|
+5685452	0	object/static/structure/general/gravestone_generic_style_02.iff	0	451.383	43.3982	274.866	1	0	0	0		$|
+5685453	0	object/static/structure/general/gravestone_generic_style_03.iff	0	448.669	43.499	275.374	1	0	0	0		$|
+5685456	0	object/static/flora/flora_shrb_dath_glingi.iff	0	447.89	44.3802	265.277	1	0	0	0		$|
+5685457	0	object/static/flora/flora_shrb_dath_glingi.iff	0	452.403	43.693	271.583	0.802096	0	-0.597195	0		$|
+5685458	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	457.061	42.3157	277.141	0.764804	0.00636527	-0.644185	-0.00771233		$|
+5685460	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	458.551	42.2516	269.029	0.997888	0	0.0649542	0		$|
+6625598	0	object/tangible/jedi/force_shrine_stone.iff	0	337.325	33.456	1974.34	0.707107	0	0.707107	0		$|
+6625599	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	332.903	34.1869	1972.74	0.707112	0	0.707101	0		$|
+6625600	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	341.588	34.1869	1972.78	1	0	0	0		$|
+6625601	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	336.357	34.1869	1972.73	0	0	1	0		$|
+6625602	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	338.15	34.1769	1972.68	1	0	0	0		$|
+6625603	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	337.266	16.2333	1972.74	1	0	0	0		$|
+6625604	0	object/static/particle/pt_poi_electricity_2x2.iff	0	337.328	34.1869	1974.34	1	0	0	0		$|
+2975373	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	454.427246	43.50247192	272.4822388	1	0	0	0		$|

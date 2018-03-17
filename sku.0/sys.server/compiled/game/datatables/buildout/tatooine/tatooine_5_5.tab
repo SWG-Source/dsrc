@@ -1,0 +1,24 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+-2065663951	0	object/static/item/item_basket_closed.iff	0	571.778	160.747	348.745	1	0	0	0		$|
+-1906173541	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	574.103	160.486	348.311	1	0	0	0		$|
+-1829285872	0	object/static/vehicle/e3/landspeeder.iff	0	569.279	160.244	350.32	1	0	0	0		$|
+-1386249458	0	object/static/item/item_basket_frame.iff	0	571.786	160.464	348.762	1	0	0	0		$|
+-1377672784	0	object/static/vehicle/static_swoop_bike.iff	0	579.758	160.738	353.56	0.741831	0	0	-0.670587		$|
+-1186365852	0	object/static/vehicle/static_speeder_bike.iff	0	574.04	161.962	355.082	-0.0974602	-0.700626	-0.0634225	0.703991		$|
+-953722750	0	object/static/structure/tatooine/palette_supply_02.iff	0	598.927	146.809	368.693	1	0	0	0		$|
+-841887126	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	575.728	160.443	347.553	1	0	0	0		$|
+-677180122	0	object/static/structure/tatooine/palette_supply_01.iff	0	579.969	160.511	357.023	1	0	0	0		$|
+-660791378	0	object/static/structure/tatooine/palette_supply_05.iff	0	592.928	147.002	361.527	1	0	0	0		$|
+-368617947	0	object/static/item/eqp_camping_crate_s1.iff	0	573.027	160.456	348.454	1	0	0	0		$|
+-43642642	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	572.636	160.345	347.723	1	0	0	0		$|
+-190177861	0	object/tangible/collection/col_tatooine_vistas_marker_02.iff	0	576.435	171.144	367.639	0.968912	0	-0.247404	0	systems.collections.trigger_volume_vistas	collection.marker|4|tatooine_vistas_02|$|
+1254463	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	1557.7	6.87239	1391.03	1	0	0	0		$|
+1254464	0	object/static/tatooine/rock_spire_skinny_tatooine_style_1.iff	0	1595.66	30.6918	1497.02	1	0	0	0		$|
+1254465	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	1557.23	4.9091	1279.43	1	0	0	0		$|
+1254466	0	object/static/tatooine/rock_spire_lumpy_tatooine.iff	0	1571.47	10.5482	1427	1	0	0	0		$|
+1254467	0	object/static/tatooine/rock_spire_lumpy_tatooine.iff	0	1838.16	32.7803	752.819	1	0	0	0		$|
+1254468	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	1841.91	27.0051	781.264	1	0	0	0		$|
+1254505	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	1364.03	58.9003	1169.11	1	0	0	0		$|
+1254506	0	object/static/tatooine/rock_spire_smooth_tatooine.iff	0	1346.28	65.4516	1182.45	1	0	0	0		$|
+1254507	0	object/static/tatooine/rock_spire_smooth_tatooine_style_1.iff	0	1344.56	57.8811	1215.55	1	0	0	0		$|

@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9715843	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	1456.59	74.319	1281.56	1	0	0	0		$|
+9715845	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1450.69	74.5316	1283.16	1	0	0	0		$|
+9715846	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	1452.75	74.3601	1277.17	0.771246	0	-0.636537	0		$|
+9715848	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	1457.24	74.3366	1288.3	0.96821	-0.243208	0.0581635	-0.00604091		$|
+9715849	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	1450.82	71.0946	1290.53	0.865935	-0.484368	-0.0608633	0.108809		$|
+9715851	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	1450.31	71.5366	1293.92	1	0	0	0		$|
+9715854	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	1454.49	73.8129	1308.01	0.707107	0	0.707106	0		$|
+9715857	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	1457.78	72.1961	1299.57	0.99995	0	0.00999984	0		$|
+9715859	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	1450.48	71.8434	1300.45	1	0	0	0		$|
+1775433	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1453.591309	76.00589752	1272.137634	1	0	0	0		$|

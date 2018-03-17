@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_belt.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "" "armor_rebel_assault_belt_n"
+detailedDescription = "" "armor_rebel_assault_belt_d"
+appearanceFilename = "appearance/armor_rebel_s03_utility_belt_f.sat"
+

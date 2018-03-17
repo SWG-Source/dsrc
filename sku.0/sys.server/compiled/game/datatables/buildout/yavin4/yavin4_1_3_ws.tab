@@ -1,0 +1,22 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1622455	0	object/static/vehicle/player_shuttle.iff	0	1522.49	28.839	1832.45	1	0	0	0		$|
+7146338	0	object/static/structure/general/allum_mine_car_s01.iff	0	1517.84	28.9148	1842.75	0.82136	-0.0185667	-0.567577	0.0536633		$|
+8495471	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1986.19	179.583	277.908	1	0	0	0		$|
+8495472	0	object/static/structure/dantooine/dant_skull_lizard.iff	0	1986.11	182.456	278.331	0.992198	0.124675	0	0		$|
+8495473	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1986.08	177.222	278.651	1	0	0	0		$|
+8495474	0	object/static/structure/general/debris_deathstar_turbolaser.iff	0	1848.34	78.9676	998.279	0.216426	-0.0894719	0.964485	0.122158		$|
+8495478	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1775.91	48.4326	1863.88	1	0	0	0		$|
+7146378	0	object/static/structure/tatooine/palette_supply_01.iff	0	1512.6	28.8334	1850.04	0.968298	-0.0629799	0.240468	0.0246304		$|
+7146379	0	object/static/structure/tatooine/palette_supply_02.iff	0	1512.39	28.6338	1843.82	0.998383	-0.0105339	0.00943453	0.0550666		$|
+7146380	0	object/static/structure/tatooine/palette_supply_03.iff	0	1507.61	28.3331	1844.4	0.922465	0.0184996	-0.382926	0.0456529		$|
+7146381	0	object/static/structure/tatooine/palette_supply_04.iff	0	1516.79	28.9013	1839.48	0.95292	0.00928794	0.301817	0.0276206		$|
+7146382	0	object/static/structure/tatooine/palette_supply_05.iff	0	1516.45	28.8859	1847.35	0.999438	0.0107195	0.00091907	0.0317525		$|
+2955788	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1854.196289	79.29380798	1004.727295	1	0	0	0		$|
+7146383	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1522.79	29.0715	1851.44	1	0	0	0		$|
+7146384	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1516.12	28.5863	1834.5	1	0	0	0		$|
+7146385	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1506.88	28.0435	1848.86	1	0	0	0		$|
+3666184	0	object/tangible/ground_spawning/mob_spawner.iff	0	1776	50	1864	1	0	0	0		$|
+3666185	0	object/tangible/ground_spawning/mob_spawner.iff	0	1776	50	1864	1	0	0	0		$|
+3666186	0	object/tangible/ground_spawning/mob_spawner.iff	0	1776	50	1864	1	0	0	0		$|
+3666187	0	object/tangible/ground_spawning/mob_spawner.iff	0	1776	50	1864	1	0	0	0		$|

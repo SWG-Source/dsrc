@@ -1,0 +1,14 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8795628	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	340.977	8.51965	1873.08	0.808028	0	-0.589144	0		$|
+8795629	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	340.157	7.44883	1866.29	0.557355	0.190908	0.764429	-0.261836		$|
+8795630	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	338.035	8.50828	1869.76	0.573194	0	0.81942	0		$|
+8795631	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	334.903	6.62925	1878.61	0.780707	0	-0.624897	0		$|
+8795632	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	333.442	8.65406	1870.35	0.993395	0	0.114747	0		$|
+8795633	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	336.632	8.62382	1861.43	0.825336	0	-0.564642	0		$|
+8795634	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	328.299	8.16297	1880.17	0.993395	0	0.114747	0		$|
+8795635	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	326.486	8.60913	1873.47	0.993912	0	0.110174	0		$|
+1340501	0	object/tangible/ground_spawning/mob_spawner.iff	0	327	9	1867	1	0	0	0		$|
+1340502	0	object/tangible/ground_spawning/mob_spawner.iff	0	327	9	1867	1	0	0	0		$|
+1340503	0	object/tangible/ground_spawning/mob_spawner.iff	0	327	9	1867	1	0	0	0		$|
+1340504	0	object/tangible/ground_spawning/mob_spawner.iff	0	327	9	1867	1	0	0	0		$|

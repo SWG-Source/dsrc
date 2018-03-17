@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_belt.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "static_item_n" "armor_galactic_marine_belt"
+detailedDescription = "static_item_d" "armor_galactic_marine_belt"
+appearanceFilename = "appearance/armor_galactic_marine_belt_m.sat"
+

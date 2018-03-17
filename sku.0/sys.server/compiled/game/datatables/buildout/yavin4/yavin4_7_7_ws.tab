@@ -1,0 +1,25 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3465379	0	object/building/yavin/temple_exar_kun.iff	0	960.66	73.6701	1441.79	0.707107	0	0.707106	0	theme_park.rebel.exar_kun_temple_spawner	$|
+3465380	3465379	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+3465381	3465379	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+3465382	3465379	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+3465383	3465379	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+-1	3465383	object/tangible/poi/tatooine/explore_yavin_exar_kun.iff	4	0	0	4	1	0	0	0		$|
+3465384	3465379	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+3465385	3465379	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+3465386	3465379	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+3465387	3465379	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
+3465388	3465379	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
+3465389	3465379	object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
+3465390	3465379	object/cell/cell.iff	11	0	0	0	1	0	0	0		$|
+3465391	3465379	object/cell/cell.iff	12	0	0	0	1	0	0	0		$|
+3465392	3465379	object/cell/cell.iff	13	0	0	0	1	0	0	0		$|
+3465393	3465379	object/cell/cell.iff	14	0	0	0	1	0	0	0		$|
+3465394	3465379	object/cell/cell.iff	15	0	0	0	1	0	0	0		$|
+8995500	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	212.33	36.1296	724.677	0.865324	0	-0.501213	0		$|
+8995501	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	210.219	53.058	725.88	1	0	0	0		$|
+8995524	0	object/static/structure/dathomir/mtn_clan_pillar_s01.iff	0	1980.33	22.0798	1344.59	1	0	0	0		$|
+8995525	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1980.44	20.5048	1341.42	1	0	0	0		$|
+65521	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	187.98	54.4084	699.09	1	0	0	0		$|
+65522	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	244.26	60.3524	777.56	1	0	0	0		$|

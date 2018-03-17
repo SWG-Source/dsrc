@@ -1,0 +1,35 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8455401	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1345.46	28.7258	1968.9	1	0	0	0		$|
+8455402	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1341.51	30.4943	1969.88	1	0	0	0		$|
+8455403	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	1341.98	30.1603	1964.75	1	0	0	0		$|
+8455404	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1342.83	30.3736	1969.01	1	0	0	0		$|
+8455405	0	object/static/structure/general/gravestone_generic_style_05.iff	0	1339.92	31.5757	1968.27	0.71442	0	0.699717	0		$|
+8455406	0	object/static/structure/general/gravestone_generic_style_05.iff	0	1339.91	31.5725	1965.38	0.767033	0	-0.641608	0		$|
+8455407	0	object/static/structure/general/gravestone_generic_style_02.iff	0	1340.78	31.2204	1966.85	0.682221	0	0.731146	0		$|
+8835487	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	948.955	1.83172	495.887	0.810963	0	0.585097	0		$|
+8835488	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	954.954	1.39526	501.151	1	0	0	0		$|
+8835489	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	937.699	0.445381	484.544	0.96183	0.0369206	-0.165105	-0.215084		$|
+8835490	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	938.297	1.26186	492.823	1	0	0	0		$|
+8835491	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	967.34	1.51171	503.033	0.961342	0.0383455	-0.179905	-0.204903		$|
+8835492	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	973.306	0.641705	492.55	1	0	0	0		$|
+8835493	0	object/static/structure/naboo/gungan_statue_s02.iff	0	956.854	4.0535	474.262	0.988771	0	-0.149438	0		$|
+8835494	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	955.375	2.53247	478.19	1	0	0	0		$|
+8835495	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	946.806	1.96849	505.093	1	0	0	0		$|
+8915357	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	493.266	22.0869	1079.63	0.000796288	0	1	0		$|
+8915377	0	object/static/structure/naboo/gate_narrow_s02.iff	0	493.136	23.6738	1073.66	-0.00920349	0	0.999958	0		$|
+8915383	0	object/static/structure/naboo/nboo_imprv_metal_fence_wall_lg_s02.iff	0	495.742	24.1612	1079.89	0.700285	0	0.713863	0		$|
+8915395	0	object/static/structure/naboo/nboo_imprv_metal_fence_wall_lg_s02.iff	0	490.859	24.1839	1080.16	0.696707	0	0.717356	0		$|
+8915413	0	object/static/structure/tatooine/orchard_tatooine_style_02.iff	0	493.31	22.7694	1081.35	1	0	0	0		$|
+8915414	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	492.787	24.2371	1081.67	1	0	0	0		$|
+8915415	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	494.863	24.1974	1080.4	1	0	0	0		$|
+8915416	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	490.786	24.2209	1081.15	1	0	0	0		$|
+8915417	0	object/static/structure/general/gravestone_generic_style_01.iff	0	491.699	24.1573	1078.56	-0.0192025	0	0.999816	0		$|
+8915418	0	object/static/structure/general/gravestone_generic_style_04.iff	0	493.232	24.1504	1078.49	-0.00920353	0	0.999958	0		$|
+8915420	0	object/static/structure/general/gravestone_generic_style_01.iff	0	494.687	24.1441	1078.53	-0.019203	0	0.999816	0		$|
+8915423	0	object/static/structure/general/gravestone_generic_style_04.iff	0	493.121	24.0793	1075.97	-0.009204	0	0.999958	0		$|
+8915425	0	object/static/structure/general/gravestone_generic_style_01.iff	0	491.616	24.0866	1075.95	-0.019203	0	0.999816	0		$|
+8915426	0	object/static/structure/general/gravestone_generic_style_01.iff	0	494.613	24.0666	1075.89	-0.019203	0	0.999816	0		$|
+8915427	0	object/static/structure/general/streetlamp_small_style_01.iff	0	493.292	22.7387	1078.65	1	0	0	0		$|
+9795380	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	944.619141	4.589236736	513.111816	1	0	0	0		$|
+9795381	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	937.599609	4.621527195	511.153076	1	0	0	0		$|

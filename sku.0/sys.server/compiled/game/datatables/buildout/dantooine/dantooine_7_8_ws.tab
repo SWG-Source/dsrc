@@ -1,0 +1,13 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8895374	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	933.551	15.0727	727.498	1	0	0	0		$|
+8895375	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	929.418	15.734	727.716	-0.700284	0	0.713864	0		$|
+8895376	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	925.213	14.8245	716.794	3.1219e-008	0	1	0		$|
+8895377	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	929.162	14.6608	740.283	0.707107	0	0.707107	0		$|
+8895378	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	933.514	14.5853	714.956	-3.20013e-008	0	1	0		$|
+8895379	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	928.652	16.3964	738.024	0.463675	0.706272	0.307344	-0.437864		$|
+8895380	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	930.666	16.1891	725.615	0.0945177	-0.20582	-0.0641301	0.971901		$|
+8895381	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	935.367	15.0262	708.642	0.292607	0.200746	-0.608415	0.709869		$|
+8895382	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	923.346	15.0789	712.938	-0.604645	0.785875	0.0790497	0.102743		$|
+8895383	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	940.329	14.5051	734.867	0.501902	0.864925	0	0		$|
+3625440	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	924.90625	16.92269707	729.791992	1	0	0	0		$|

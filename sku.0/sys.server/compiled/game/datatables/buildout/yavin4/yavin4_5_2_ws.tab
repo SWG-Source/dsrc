@@ -1,0 +1,24 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8845376	0	object/static/structure/general/debris_deathstar_conduit.iff	0	938.158	172.374	1535.32	1	0	0	0		$|
+8845377	0	object/static/structure/general/debris_deathstar_large_tube.iff	0	930.369	168.407	1533.1	0.995478	0.000474284	-0.00497743	-0.094856		$|
+8845378	0	object/static/structure/general/debris_deathstar_small_chunk.iff	0	931.204	167.275	1545.84	1	0	0	0		$|
+8845379	0	object/static/structure/general/debris_deathstar_turbolaser.iff	0	944.797	173.444	1545.64	0.902609	0.197107	-0.373873	0.0816445		$|
+8845380	0	object/static/structure/general/debris_deathstar_storage.iff	0	923.364	162.885	1538.91	1	0	0	0		$|
+8845384	0	object/static/flora/flora_decd_scorched_massassi_broke.iff	0	948.029	200.309	560.646	1	0	0	0		$|
+8845385	0	object/static/particle/particle_smoke.iff	0	948.083	228.568	560.706	1	0	0	0		$|
+8995381	0	object/static/structure/naboo/planter_naboo_theed_style_2.iff	0	332.387	190.173	834.694	1	0	0	0		$|
+8995385	0	object/static/flora/flora_decd_scorched_massassi.iff	0	325.568	190.926	832.019	1	0	0	0		$|
+8995386	0	object/static/particle/particle_campfire_style_1.iff	0	326.635	190.439	826.843	1	0	0	0		$|
+8995388	0	object/static/particle/particle_campfire_style_1.iff	0	329.75	189.993	830.914	1	0	0	0		$|
+8995389	0	object/static/particle/particle_campfire_style_1.iff	0	324.981	190.805	835.866	1	0	0	0		$|
+8995390	0	object/static/particle/particle_campfire_style_1.iff	0	321.778	191.365	833.47	1	0	0	0		$|
+8995391	0	object/static/particle/particle_campfire_style_1.iff	0	322.931	198.36	834.598	1	0	0	0		$|
+8995392	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	318.042	187.121	1702.25	0.738469	0.674288	0	0		$|
+8995393	0	object/static/structure/naboo/gungan_relic_s01.iff	0	308.991	182.552	1710.89	0.000944321	0.00491003	0.990204	-0.139541		$|
+8995464	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1975.53	73.5394	832.398	0.783822	0	-0.620986	0		$|
+8995465	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1976.08	74.459	835.654	0.783821	0	-0.620987	0		$|
+8995466	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1977.02	74.0152	839.07	0.783821	0	-0.620987	0		$|
+3666257	0	object/tangible/ground_spawning/mob_spawner.iff	0	1980	73	835	1	0	0	0		$|
+3666258	0	object/tangible/ground_spawning/mob_spawner.iff	0	1980	73	835	1	0	0	0		$|
+3666259	0	object/tangible/ground_spawning/mob_spawner.iff	0	1980	73	835	1	0	0	0		$|

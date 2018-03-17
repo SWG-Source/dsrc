@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1189209	0	object/static/terrain/tatooine/rock_arch_medium_tatooine_style_1.iff	0	1825.06	0.019577	15.686	0.819648	0	0.572867	0		$|
+8795577	0	object/tangible/camp/camp_tent_s1.iff	0	786.395	10.5848	1370.66	-0.0790961	-0.024919	0.996554	0.00197781		$|
+8795578	0	object/tangible/camp/camp_tent_s1.iff	0	789.058	10.4581	1365.24	0.880249	-0.0259486	-0.471317	0.0484626		$|
+8795581	0	object/tangible/camp/campfire_logs_burnt.iff	0	785.738	10.2902	1367.44	1	0	0	0		$|
+8795582	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	784.669	10.2141	1369.93	0.830941	0	0.556361	0		$|
+8795583	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	790.676	10.6518	1366	0.843069	-0.0506449	0.534452	0.0321057		$|
+1189220	0	object/static/tatooine/rock_spire_skinny_tatooine.iff	0	2013.68	4e-006	31.3701	1	0	0	0		$|
+1189221	0	object/static/tatooine/rock_spire_lumpy_tatooine_style_2.iff	0	1959.68	0	55.3247	1	0	0	0		$|
+894842	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	784.040039	10.08303738	1367.371582	1	0	0	0		$|

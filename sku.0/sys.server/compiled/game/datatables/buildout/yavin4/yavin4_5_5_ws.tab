@@ -1,0 +1,36 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8275389	0	object/tangible/gravestone/gravestone01.iff	0	945.227	83.7978	1518.76	1	0	0	0		$|
+8275390	0	object/tangible/gravestone/gravestone02.iff	0	945.3	83.6816	1517.17	1	0	0	0		$|
+8275391	0	object/tangible/gravestone/gravestone03.iff	0	945.024	83.899	1520.21	1	0	0	0		$|
+8275392	0	object/tangible/gravestone/gravestone03.iff	0	947.388	84.1618	1520.29	1	0	0	0		$|
+8275393	0	object/tangible/gravestone/gravestone04.iff	0	947.741	84.0574	1518.71	1	0	0	0		$|
+8275394	0	object/tangible/gravestone/gravestone02.iff	0	947.787	83.9391	1517.22	1	0	0	0		$|
+8275396	0	object/static/structure/naboo/fountain_naboo_style_1.iff	0	951.244	79.6408	1519.8	1	0	0	0		$|
+8275398	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	942.497	83.5473	1518.18	1	0	0	0		$|
+8275400	0	object/static/structure/naboo/gungan_damaged_wall_lg_s01.iff	0	942.454	83.5757	1526.08	1	0	0	0		$|
+8275401	0	object/static/structure/naboo/gungan_relic_s01.iff	0	943.091	73.7919	1532.78	1	0	0	0		$|
+8735563	0	object/tangible/camp/camp_tent_s4.iff	0	1595.84	101.814	1539.32	0.990412	0.0594962	-0.12445	0.007476		$|
+8735564	0	object/tangible/camp/camp_tent_s3.iff	0	1587.99	101.458	1541.79	-0.561168	0	0.827702	0		$|
+8735565	0	object/tangible/camp/camp_tent_s3.iff	0	1588.14	101.937	1532.43	0.366899	-0.0180327	0.929925	0.0173116		$|
+8735573	0	object/static/structure/naboo/poi_nboo_tent_small.iff	0	1591.19	101.822	1536.42	0.897857	0.0269438	-0.439264	0.0131819	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/yavin4/yavin_commoner.iff|$|
+8735575	0	object/tangible/furniture/tatooine/frn_tato_table_small_style_01.iff	0	1592.08	101.791	1537.23	0.998888	0.0249774	-0.000999629	0.0399768		$|
+8735577	0	object/static/item/item_tool_radio.iff	0	1591.69	102.364	1537.53	0.688611	0.00448635	0.72408	0.0387771		$|
+8735584	0	object/static/item/item_tool_sensor_frequency_jammer_s2.iff	0	1590.18	101.733	1537.72	1	0	0	0		$|
+8735588	0	object/static/item/item_medical_console.iff	0	1592.19	102.428	1537.36	0.738428	-0.00160385	0.673405	0.0353042		$|
+8735589	0	object/static/item/item_carbine_dh17.iff	0	1592.31	102.473	1536.93	-0.489174	-0.526563	0.534879	0.444235		$|
+8845356	0	object/static/structure/naboo/gungan_relic_s02.iff	0	943.756	66.258	621.121	1	0	0	0		$|
+8845358	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	935.673	64.8942	616.037	0.707107	0	-0.707107	0		$|
+8845359	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	938.86	65.1096	626.035	0.707107	0	-0.707106	0		$|
+8995444	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	334.816	47.0898	1514.27	0.714421	0	0.699716	0		$|
+8995445	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	341.379	47.4204	1519.54	1	0	0	0		$|
+8995446	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	331.719	45.6243	1518.9	1	0	0	0		$|
+8995447	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	338.562	44.3689	1524.32	0.674876	0	0.737931	0		$|
+8995448	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	340.882	45.8486	1511.94	1	0	0	0		$|
+8995451	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	333.307	46.8561	1510.67	0.00579672	0	0.999983	0		$|
+8995452	0	object/static/structure/naboo/gungan_wall_ruined_sm_s02.iff	0	337.217	47.8214	1508.02	0.714422	0	0.699715	0		$|
+8735580	0	object/static/item/item_container_weapon.iff	0	1592.09	101.201	1543.65	0.983647	0.0196756	-0.178994	0.00358035		$|
+8735592	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1596.37085	102.6409988	1531.165894	1	0	0	0		$|
+8735608	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1590.474609	100.3879013	1563.772095	1	0	0	0		$|
+-1	0	object/tangible/npc/yavin_spawn/captain_eso_spawner.iff	0	1593.20	101	1537.54	0.5948227868	0	0.8038568606	0		$|
+-2	0	object/tangible/npc/yavin_spawn/yith_seenath.iff	0	1590.79	101	1536.74	1	0	0	0		$|

@@ -1,0 +1,5 @@
+spawns	name	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value	radius	planet_level
+s	s	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s	f	i[0]
+rancor_pygmy		world	-6425	506.4	7208	70	theme_park.dungeon.generic_death			750	int:ai.defaultCalmBehavior=2						1.5	1
+rancor_pygmy		world	-6423	506.4	7210	70	theme_park.dungeon.generic_death			750	int:ai.defaultCalmBehavior=2						1.5	1
+rancor_pygmy		world	-647	506.4	7206	70	theme_park.dungeon.generic_death			750	int:ai.defaultCalmBehavior=2						1.5	1

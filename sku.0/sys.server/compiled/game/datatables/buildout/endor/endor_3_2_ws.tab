@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7255422	0	object/tangible/jedi/force_shrine_stone.iff	0	225.057	0.0019522	1673.49	0.707107	0	0.707107	0		$|
+7255423	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	220.635	1.86549	1671.89	0.707114	0	0.707099	0		$|
+7255424	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	229.32	1.86321	1671.93	1	0	0	0		$|
+7255425	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	224.089	1.86165	1671.88	0	0	1	0		$|
+7255426	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	225.882	1.85381	1671.83	1	0	0	0		$|
+7255427	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	224.998	-16.0915	1671.89	1	0	0	0		$|
+7255428	0	object/static/particle/pt_poi_electricity_2x2.iff	0	225.06	1.86576	1673.49	1	0	0	0		$|
+9705529	0	object/static/flora/flora_decd_endr_destree_dead.iff	0	531.661	7.07289	138.059	-0.538455	0.38705	0.561629	-0.494805		$|
+2055787	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	535.179443	6.669077396	135.782715	1	0	0	0		$|

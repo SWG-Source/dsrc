@@ -1,0 +1,7 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705486	0	object/building/endor/endor_forest_hut.iff	0	255.446	22.8904	310.269	0.750754	0	-0.660582	0		$|
+9705487	0	object/static/structure/general/streetlamp_small_blue_style_01.iff	0	255.361	21.5901	310.535	1	0	0	0		$|
+9705503	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	644.888	6.727	1922.72	0.766364	-0.120274	-0.118982	0.619729		$|
+9705507	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	639.146	7.69488	1915.97	0.761997	0.487281	-0.321004	0.280846		$|
+2055786	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	251.978516	23.14570808	313.906738	1	0	0	0		$|

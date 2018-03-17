@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9015671	0	object/static/structure/military/military_wall_med_rebl_style_01.iff	0	1634.34	26.1491	1006.22	1	0	0	0		$|
+9015672	0	object/static/structure/military/military_wall_med_rebl_style_01.iff	0	1634.36	26.1466	1021.8	1	0	0	0		$|
+9015673	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1637.85	26.3029	1013.99	0.707107	0	0.707106	0		$|
+9015674	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1630.88	26.2958	1014.09	0.707107	0	0.707106	0		$|
+9015676	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	1634.4	26.7862	1018.87	1	0	0	0		$|
+9015677	0	object/static/structure/tatooine/antenna_tatt_style_1.iff	0	1636.57	26.7001	1008.41	0.947651	0	-0.319309	0		$|
+9015678	0	object/static/structure/tatooine/antenna_tatt_style_2.iff	0	1632.41	26.6853	1008.02	0.913089	0	-0.407761	0		$|
+9015679	0	object/static/structure/corellia/corl_power_connector.iff	0	1634.37	26.7865	1013.82	0.707107	0	0.707106	0		$|
+3625416	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1642.230194	26.78620911	1012.870605	1	0	0	0		$|

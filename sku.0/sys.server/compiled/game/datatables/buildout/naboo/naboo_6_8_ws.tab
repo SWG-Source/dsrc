@@ -1,0 +1,18 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7825521	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1442.79	-208.456	491.976	0.996936	-0.0255573	0.00189445	-0.0738987		$|
+7825550	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1443.84	-208.893	486.949	1	0	0	0		$|
+7825551	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1438.5	-208.193	486.575	1	0	0	0		$|
+7825552	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1435.45	-207.461	490.899	1	0	0	0		$|
+7825553	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1438.36	-207.564	496.875	1	0	0	0		$|
+7825554	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1445.59	-208.697	497.639	1	0	0	0		$|
+7825555	0	object/static/structure/general/tato_cave_stalagmite_tiny.iff	0	1449.72	-209.659	492.55	1	0	0	0		$|
+7825557	0	object/static/structure/general/skeleton_human_head.iff	0	1438.7	-207.791	486.573	0.728271	0	0.685289	0		$|
+7825559	0	object/static/structure/general/skeleton_human_head.iff	0	1438.52	-207.075	496.863	0.640997	0	0.767543	0		$|
+7825561	0	object/static/structure/general/skeleton_human_head.iff	0	1449.87	-209.079	492.539	0.667463	0	0.744643	0		$|
+7825562	0	object/static/structure/general/skeleton_human_head.iff	0	1445.05	-206.618	489.312	0.689498	0	0.724287	0		$|
+7825563	0	object/static/structure/general/skeleton_human_head.iff	0	1445.56	-206.618	494.382	0.637151	0	0.770739	0		$|
+7825565	0	object/static/structure/general/campfire_burnt.iff	0	1444.15	-208.762	492.175	1	0	0	0		$|
+7825566	0	object/static/structure/general/skeleton_human_head.iff	0	1444.36	-208.606	492.142	0.731688	0	0.681639	0		$|
+7825567	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	1444.27	-209.354	491.717	1	0	0	0		$|
+8156114	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1446.812988	-209.2051849	490.418457	1	0	0	0		$|

@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_belt.iff
+
+@class tangible_object_template 7
+
+
+@class object_template 7
+
+objectName = "wearables_name" "armor_marauder_s01_belt"
+detailedDescription = "wearables_detail" "armor_marauder_s01_belt"
+appearanceFilename = "appearance/armor_marauder_s01_belt_f.sat"
+

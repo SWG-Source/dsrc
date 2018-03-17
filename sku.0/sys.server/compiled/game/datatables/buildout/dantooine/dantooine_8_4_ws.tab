@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9015411	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	411.814	4.717	1875.03	1	0	0	0		$|
+9015412	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	415.631	4.85256	1875.06	1	0	0	0		$|
+9015413	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	419.607	4.98338	1877.18	1	0	0	0		$|
+9015416	0	object/static/structure/tatooine/wall_gate_tatooine_style_02.iff	0	415.332	4.04711	1867.06	0.707107	0	-0.707106	0		$|
+9015417	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	420.737	4.29634	1866.54	0.0856913	0	0.996322	0		$|
+9015418	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	415.578	3.91748	1883.27	1	0	0	0		$|
+9015419	0	object/static/structure/tatooine/pillar_ruined_small_style_01.iff	0	425.548	4.94677	1876.86	1	0	0	0		$|
+9015420	0	object/static/structure/tatooine/pillar_ruined_large_style_01.iff	0	424.614	5.06932	1881.51	1	0	0	0		$|
+3625430	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	418.413086	5.046539783	1883.667786	1	0	0	0		$|
+3625431	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	411.195801	5.03241396	1885.892136	1	0	0	0		$|

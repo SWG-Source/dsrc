@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9715615	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1649.79	74.5278	1086.74	0.92004	-0.0754512	-0.220279	0.315137		$|
+9715616	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1652.89	74.8366	1083.55	0.789953	0.552113	-0.152802	-0.218626		$|
+9715617	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1648.69	75.0112	1084.33	0.975392	0.0245956	-0.152408	-0.157408		$|
+9715618	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1651.91	74.7892	1086.32	0.941985	-0.266837	-0.194586	-0.0599887		$|
+3356012	0	object/tangible/ground_spawning/mob_spawner.iff	0	1638	77	1081	1	0	0	0		$|
+3356013	0	object/tangible/ground_spawning/mob_spawner.iff	0	1638	77	1081	1	0	0	0		$|
+3356014	0	object/tangible/ground_spawning/mob_spawner.iff	0	1638	77	1081	1	0	0	0		$|
+3356015	0	object/tangible/ground_spawning/mob_spawner.iff	0	1638	77	1081	1	0	0	0		$|
+3356016	0	object/tangible/ground_spawning/mob_spawner.iff	0	1638	77	1081	1	0	0	0		$|
+3356017	0	object/tangible/ground_spawning/mob_spawner.iff	0	1638	77	1081	1	0	0	0		$|

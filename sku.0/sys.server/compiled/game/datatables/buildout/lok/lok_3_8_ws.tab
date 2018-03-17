@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+5685426	0	object/static/structure/general/trash_pile_s01.iff	0	1515.78	11.8588	46.4312	-0.179804	0.00983694	0.983652	0.00179812		$|
+5685427	0	object/static/structure/general/trash_pile_s01.iff	0	1520.4	11.7298	35.7314	0.310574	0	0.950549	0		$|
+5685428	0	object/static/structure/general/trash_pile_s01.iff	0	1506.14	12.0006	37.4194	0.805072	0	-0.593177	0		$|
+5685429	0	object/static/structure/general/trash_pile_s01.iff	0	1506.99	12.0098	37.8159	1	0	0	0		$|
+5685430	0	object/static/structure/general/trash_pile_s01.iff	0	1506.68	12.0029	37.001	1	0	0	0		$|
+9025491	0	object/static/structure/general/prp_engine.iff	0	1507.13	11.6993	44.5327	0.882333	0	-0.470626	0		$|
+9025492	0	object/static/structure/general/prp_junk_s1.iff	0	1509.6	12.0863	42.7998	0.90687	0	0	0.42141		$|
+9025493	0	object/static/structure/tatooine/debris_tatt_radar_dish.iff	0	1522.52	10.6955	38.6763	0.92938	-0.066573	-0.207827	0.297706		$|
+9025494	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	1515.81	11.6473	41.3335	0.912306	-0.0785951	0.208805	-0.343395		$|
+2975356	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1515.445312	11.92970085	36.501465	1	0	0	0		$|

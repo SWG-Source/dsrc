@@ -1,0 +1,6 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725384	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1105.88	443.247	1287.7	1	0	0	0		$|
+9725386	0	object/static/structure/general/streetlamp_small_green_style_01.iff	0	1106.04	455.53	1287.88	1	0	0	0		$|
+978331	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1108.931152	446.9533691	1309.310059	1	0	0	0		$|
+978332	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1101.994629	446.5801697	1316.87207	1	0	0	0		$|

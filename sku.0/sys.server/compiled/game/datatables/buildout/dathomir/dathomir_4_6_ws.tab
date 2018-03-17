@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1105878	0	object/static/particle/pt_flocking_glowzees.iff	0	1194.67	146.967	743.153	1	0	0	0		$|
+1105886	0	object/static/particle/pt_flocking_glowzees.iff	0	1198.24	147.031	741.108	1	0	0	0		$|
+1105888	0	object/static/particle/pt_miasma_of_fog_greenish.iff	0	1195.04	146.926	740.819	1	0	0	0		$|
+9725705	0	object/static/flora/flora_decd_dath_azerontree.iff	0	1196.73	147.034	744.443	1	0	0	0		$|
+9725706	0	object/static/structure/dathomir/night_sister_banner_s01.iff	0	1200.74	150.177	742.325	0.975897	0	0.21823	0		$|
+9725711	0	object/static/structure/dathomir/night_sister_banner_s03.iff	0	1190.32	148.856	744.17	0.99875	0	-0.0499792	0		$|
+9725718	0	object/static/structure/dantooine/dant_skull_bol.iff	0	1196.76	152.763	743.296	-0.185194	-0.128235	0.782028	-0.581113		$|
+9725725	0	object/static/structure/general/streetlamp_small_green_style_02.iff	0	1196.63	147.584	743.762	1	0	0	0		$|
+1105889	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1192.356018	146.6954956	739.431885	1	0	0	0		$|

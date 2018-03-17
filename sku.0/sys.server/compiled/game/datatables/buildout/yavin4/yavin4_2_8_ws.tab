@@ -1,0 +1,19 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8545454	0	object/static/structure/general/debris_deathstar_conduit.iff	0	448.395	97.1496	568.791	0.828895	-0.535165	0.11435	0.116		$|
+8545457	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	685.447	265.351	1512.25	0.976469	0.0131312	0.212623	-0.0335638		$|
+8545458	0	object/static/structure/general/skeleton_human_headandbody.iff	0	685.424	266.314	1508.94	-0.217099	0.130296	-0.0665603	0.965122		$|
+8545459	0	object/static/structure/general/skeleton_human_body.iff	0	687.67	266.42	1512.14	-0.449454	-0.148792	0.880073	-0.0363718		$|
+8545460	0	object/static/structure/general/skeleton_human_head.iff	0	687.798	266.359	1512.46	0.179191	0.330087	0.828836	0.414685		$|
+8845410	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	1152.44	216.058	349.909	0.707107	0	-0.707106	0		$|
+8845411	0	object/static/structure/dantooine/dant_jedi_wall_1.iff	0	1152.87	217.5	358.42	-2.41953e-007	0	1	0		$|
+8845412	0	object/static/structure/dantooine/dant_jedi_wall_2.iff	0	1152.51	214.334	345.316	-2.41953e-007	0	1	0		$|
+8845414	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1148.05	214.223	351.743	1	0	0	0		$|
+8905398	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	1885.89	190.428	40.5913	0.931383	0.361249	-0.0219606	0.0392603		$|
+8905399	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	1886.54	194.264	49.2759	-0.705338	0.122635	0.692509	-0.0888217		$|
+3125390	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	446.258301	96.69286346	566.733887	1	0	0	0		$|
+3125391	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	689.145996	266.7350159	1513.220703	1	0	0	0		$|
+3495382	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1149.87207	215.3595886	346.245117	1	0	0	0		$|
+3666235	0	object/tangible/ground_spawning/mob_spawner.iff	0	1887	193	45	1	0	0	0		$|
+3666236	0	object/tangible/ground_spawning/mob_spawner.iff	0	1887	193	45	1	0	0	0		$|
+3666237	0	object/tangible/ground_spawning/mob_spawner.iff	0	1887	193	45	1	0	0	0		$|

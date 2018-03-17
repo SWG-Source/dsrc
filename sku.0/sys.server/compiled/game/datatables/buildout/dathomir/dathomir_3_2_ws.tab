@@ -1,0 +1,35 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1105982	0	object/static/particle/pt_lair_evil_fire_large_red.iff	0	1483.44	107.777	1283.03	1	0	0	0		$|
+4725585	0	object/static/structure/dantooine/dant_large_mudhut_no_flora_05m.iff	0	1517.68	77	624.336	1	0	0	0		$|
+4725586	0	object/static/structure/dantooine/dant_mud_oven.iff	0	1517.74	77	640.17	-0.00579649	0	0.999983	0		$|
+4725587	0	object/tangible/camp/camp_cot_s2.iff	0	1513.52	77	621.354	0.188077	0	0.982154	0		$|
+4725588	0	object/tangible/camp/camp_cot_s2.iff	0	1513.07	77	622.461	0.174892	0	0.984588	0		$|
+4725589	0	object/tangible/furniture/tatooine/frn_tato_table_small_style_01.iff	0	1517.7	77	624.391	1	0	0	0		$|
+4725591	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1517.3	77	623.954	0.955336	0	0.29552	0		$|
+4725592	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1517.28	77	624.861	0.365531	0	0.930799	0		$|
+4725593	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	1518.03	77	624.033	0.924909	0	-0.380188	0		$|
+4725594	0	object/tangible/furniture/technical/couch_s01.iff	0	1519.22	77.0007	619.19	0.980067	0	-0.198669	0		$|
+4725595	0	object/tangible/furniture/technical/end_table_s01.iff	0	1520.24	77.0006	619.761	0.998988	0	0.0449848	0		$|
+4725596	0	object/tangible/furniture/technical/end_table_s01.iff	0	1518.07	77.0002	618.833	-0.0557674	0	0.998444	0		$|
+4725597	0	object/static/structure/dantooine/dant_rack_spears.iff	0	1522.43	77.0004	622.856	0.822502	0	-0.568762	0		$|
+4725598	0	object/tangible/loot/quest/lifeday_orb.iff	0	1520.26	77.3804	619.775	1	0	0	0		$|
+4725599	0	object/tangible/loot/quest/lifeday_orb.iff	0	1518.07	77.3798	618.823	1	0	0	0		$|
+4725602	0	object/static/structure/nobuild/nobuild_32.iff	0	1517.32	77	635.193	1	0	0	0		$|
+4725603	0	object/static/vehicle/e3/landspeeder.iff	0	1509.71	77.0012	620.769	0.202787	0	0.979223	0		$|
+9725440	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1483.44	104.656	1282.88	0.741831	0	-0.670587	0		$|
+9725441	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1483.38	104.636	1282.88	-0.000796461	0	1	0		$|
+9725442	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1483.5	104.669	1282.84	0.659983	0	0.75128	0		$|
+9725444	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1483.54	104.681	1282.82	0.99995	0	-0.00999989	0		$|
+9725469	0	object/static/item/item_bowl_shallow.iff	0	1483.46	107.652	1282.89	1	0	0	0		$|
+9725473	0	object/static/structure/general/campfire_burnt.iff	0	1483.49	108.011	1282.91	1	0	0	0		$|
+9725499	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1485.1	104.779	1282.66	0.995004	0	0.0998333	0		$|
+9725505	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1483.23	104.731	1281.37	0.764842	0	-0.644218	0		$|
+9725507	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1481.88	104.771	1283.24	0.995491	0	0.0948572	0		$|
+9725515	0	object/static/item/item_basket_shallow.iff	0	1483.51	104.764	1283.78	1	0	0	0		$|
+9725519	0	object/static/structure/general/skeleton_human_head.iff	0	1483.47	104.806	1283.75	0.94441	0	-0.328769	0		$|
+9725520	0	object/static/structure/general/skeleton_human_head.iff	0	1483.54	104.97	1283.64	1	0	0	0		$|
+9725521	0	object/static/structure/general/skeleton_human_head.iff	0	1483.68	104.815	1283.73	0.872744	0	0.488177	0		$|
+9725522	0	object/static/structure/general/skeleton_human_head.iff	0	1483.6	104.827	1283.54	1	0	0	0		$|
+9725523	0	object/static/structure/general/skeleton_human_head.iff	0	1483.42	104.838	1283.56	1	0	0	0		$|
+1105981	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1480.211426	104.6884918	1280.399414	1	0	0	0		$|

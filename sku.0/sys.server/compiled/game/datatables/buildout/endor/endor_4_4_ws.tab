@@ -1,0 +1,28 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+4735482	0	object/static/structure/dantooine/dant_large_mudhut_no_flora_05m.iff	0	958.897	6.13152	1051.93	-0.696707	0	0.717356	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/endor/endor_commoner.iff|$|
+4735483	0	object/static/structure/dantooine/dant_mud_oven.iff	0	944.395	5.87281	1051.5	0.714421	0	0.699716	0		$|
+4735484	0	object/tangible/camp/camp_cot_s2.iff	0	961.734	6.18271	1047.77	0.822502	0	0.568762	0		$|
+4735485	0	object/tangible/camp/camp_cot_s2.iff	0	960.468	6.15097	1047.22	0.819648	0	0.572867	0		$|
+4735486	0	object/tangible/furniture/tatooine/frn_tato_table_small_style_01.iff	0	959.901	6.14902	1052.1	1	0	0	0		$|
+4735487	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	960.222	6.16029	1051.78	0.928665	0	-0.370921	0		$|
+4735488	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	960.297	6.15998	1052.43	-0.394751	0	0.918788	0		$|
+4735489	0	object/tangible/furniture/tatooine/frn_tato_chair_cafe_style_01.iff	0	959.502	6.11324	1052.55	0.360873	0	0.932615	0		$|
+4735490	0	object/tangible/furniture/technical/couch_s01.iff	0	964.069	6.21729	1053.28	-0.544503	0	0.838759	0		$|
+4735491	0	object/tangible/furniture/technical/end_table_s01.iff	0	963.483	6.20749	1054.32	0.952334	0	0.305059	0		$|
+4735492	0	object/tangible/furniture/technical/end_table_s01.iff	0	964.467	6.21441	1052.16	0.975897	0	-0.21823	0		$|
+4735493	0	object/tangible/loot/quest/lifeday_orb.iff	0	963.511	6.58427	1054.37	1	0	0	0		$|
+4735494	0	object/tangible/loot/quest/lifeday_orb.iff	0	964.5	6.59055	1052.14	1	0	0	0		$|
+4735495	0	object/static/structure/dantooine/dant_rack_spears.iff	0	960.159	6.39665	1056.54	-0.160104	0	0.9871	0		$|
+4735498	0	object/static/vehicle/e3/landspeeder.iff	0	962.874	6.2437	1044.03	0.870293	0	0.492535	0		$|
+4735499	0	object/static/structure/nobuild/nobuild_32.iff	0	949.062	5.94473	1051.39	1	0	0	0		$|
+5665451	0	object/building/endor/endor_tiki_torch.iff	0	339.232	31.6689	2039.83	1	0	0	0		$|
+9705446	0	object/building/endor/endor_lake_platform_cap.iff	0	168.194	8.12551	570.914	0.862807	0	0.505533	0		$|
+9705452	0	object/static/flora/flora_flower_endor_scrubwort.iff	0	170.576	9.96584	565.731	1	0	0	0		$|
+9705453	0	object/static/flora/flora_flower_endor_scrubwort.iff	0	164.246	9.35068	570.708	1	0	0	0		$|
+9705454	0	object/static/flora/flora_flower_endor_scrubwort.iff	0	171.837	9.74419	572.335	1	0	0	0		$|
+9705456	0	object/static/flora/flora_bush_endor_rainbowbush.iff	0	169.204	9.76455	570.144	1	0	0	0		$|
+9705457	0	object/static/flora/flora_bush_endor_rainbowbush.iff	0	159.662	9.91131	568.948	0.00920351	0	0.999958	0		$|
+268517840	0	object/tangible/weather_object/weather_object_base.iff	0	0	195	0	1	0	0	0		$|
+2835666	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	172.286133	9.669575691	574.276611	1	0	0	0		$|
+6016577	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	336.47583	31.81838226	2041.263595	1	0	0	0		$|

@@ -1,0 +1,17 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725733	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	1492.68	130.205	851.558	0.963771	0	-0.266731	0		$|
+9725734	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	1490.02	130.264	859.782	1	0	0	0		$|
+9725735	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	1492.86	129.071	867.24	0.884675	0	0.466208	0		$|
+9725736	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	1503.48	129.435	858.453	1	0	0	0		$|
+9725738	0	object/building/endor/endr_lake_rail4m.iff	0	1503.33	130.757	851.127	0.777573	0	-0.628793	0		$|
+9725739	0	object/building/endor/endr_lake_rail4m.iff	0	1501.19	130.338	848.151	0.956802	0	-0.29074	0		$|
+9725741	0	object/building/endor/endr_lake_rail4m.iff	0	1501.77	129.496	866.215	0.939373	0	0.342898	0		$|
+9725742	0	object/building/endor/endr_lake_rail4m.iff	0	1497.39	130.374	847.476	0.993395	0	0.114747	0		$|
+9725743	0	object/building/endor/endr_lake_rail4m.iff	0	1494.66	126.036	845.136	0.982004	0	0.188859	0		$|
+9725744	0	object/building/endor/endr_lake_rail4m.iff	0	1498.26	129.757	868.34	0.994493	0	0.104807	0		$|
+9725747	0	object/static/structure/dathomir/night_sister_banner_s02.iff	0	1497.02	131.381	856.257	0.731688	0	0.681639	0		$|
+9725749	0	object/static/structure/tatooine/skeleton_krayt_head_style_01.iff	0	1497.06	130.268	858.667	0.92388	-0.382683	0	0		$|
+9725751	0	object/static/item/item_con_tato_bowl_full_s02.iff	0	1497.11	131.181	859.256	1	0	0	0		$|
+9725752	0	object/building/endor/endor_tiki_torch.iff	0	1497.1	129.896	859.256	1	0	0	0		$|
+1177359	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1499.397949	131.2844238	855.878906	1	0	0	0		$|

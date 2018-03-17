@@ -1,0 +1,19 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2305366	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1859.81	200.464	1692.51	1	0	0	0		$|
+2305367	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1827.26	201.097	1649.6	1	0	0	0		$|
+2305368	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1863.78	199.354	1649.44	1	0	0	0		$|
+9705549	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	10.6841	207.307	216.934	0.793048	0	-0.609159	0		$|
+9705588	0	object/static/structure/general/poi_all_impl_corral_32x32_s01.iff	0	255.306	205.414	1764.53	0.696707	0	0.717356	0		$|
+9705590	0	object/static/structure/general/banner_imperial_style_01.iff	0	267.028	205.059	1761.69	-0.618663	0.220414	0.753575	0.0282502		$|
+9705594	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	257.826	205.422	1757.75	0.980128	0.158173	0.0190723	-0.118183		$|
+9705598	0	object/static/structure/corellia/corl_power_arial_thin.iff	0	257.092	205.625	1755.16	0.995491	-0.0948572	0	0		$|
+9705731	0	object/building/endor/endor_forest_hut.iff	0	1819.29	10.538	120.936	0.50622	0	0.862404	0		$|
+9705732	0	object/building/endor/endor_forest_hut.iff	0	1829.44	12.1063	104.51	0.717911	0	-0.696135	0		$|
+9705733	0	object/building/endor/endor_forest_hut.iff	0	1819.93	9.98734	147.926	0.100626	0	0.994924	0		$|
+9705734	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1864.85	200.257	1703.95	0.956608	0.105653	-0.269906	0.02981		$|
+9705736	0	object/static/structure/dantooine/dant_large_communal.iff	0	1867.65	197.617	1671.39	0.995953	-0.0898786	0	0		$|
+9705737	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1832.77	200.566	1679.91	0.939373	0	-0.342898	0		$|
+2305363	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1822.988037	11.83364868	108.374023	1	0	0	0		$|
+2305364	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1842.720703	199.042099	1665.82959	1	0	0	0		$|
+2305365	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1850.48584	199.7301483	1681.183594	1	0	0	0		$|

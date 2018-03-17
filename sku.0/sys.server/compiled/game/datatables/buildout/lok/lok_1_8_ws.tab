@@ -1,0 +1,10 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3515419	0	object/tangible/camp/camp_tent_s3.iff	0	2031.28	91.9721	53.019	0.394751	0	0.918788	0		$|
+3515420	0	object/static/installation/mockup_power_generator_solar_style_1.iff	0	2031.34	91.9687	68.7417	1	0	0	0		$|
+3515421	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	2032.24	91.9201	61.2344	1	0	0	0		$|
+3515422	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	2032.87	91.9263	62.1387	0.965092	0	0.261909	0		$|
+3515423	0	object/tangible/furniture/all/frn_all_toolchest_med_s01.iff	0	2029.15	91.9947	66.21	0.96639	0	-0.257081	0		$|
+7806084	0	object/static/structure/general/tankfarm_s01.iff	0	2036	91.7515	63	0.470977	0	0.882145	0		$|
+7806086	0	object/static/structure/tatooine/shed_junkshop_watto.iff	0	2041	89.6225	58	1	0	0	0		$|
+3515424	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	2032.750977	91.80912018	60.772461	1	0	0	0		$|

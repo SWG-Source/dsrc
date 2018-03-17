@@ -1,0 +1,26 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725372	0	object/static/flora/flora_shrb_dath_glingi.iff	0	833.23	102.579	1600.68	1	0	0	0		$|
+9725373	0	object/static/flora/flora_shrb_dath_glingi.iff	0	844.06	102.396	1614.27	1	0	0	0		$|
+9725374	0	object/static/flora/flora_shrb_dath_glingi.iff	0	852.158	104.668	1589.02	1	0	0	0		$|
+9725376	0	object/static/structure/dantooine/dant_gate.iff	0	857.056	102.212	1605.62	0.700285	0	0.713864	0		$|
+9725377	0	object/building/endor/endr_lake_rail4m.iff	0	855.252	101.85	1602.94	0.959662	0	-0.281158	0		$|
+9725378	0	object/building/endor/endr_lake_rail4m.iff	0	851.628	101.786	1600.97	0.975897	0	-0.21823	0		$|
+9725379	0	object/building/endor/endr_lake_rail4m.iff	0	848.212	101.519	1599	0.942755	0	-0.333487	0		$|
+9725380	0	object/building/endor/endr_lake_rail4m.iff	0	856.06	102.19	1609.06	0.882333	0	0.470626	0		$|
+9725381	0	object/building/endor/endr_lake_rail4m.iff	0	853.119	102.015	1611.49	0.981048	0	0.193767	0		$|
+9725382	0	object/building/endor/endr_lake_rail4m.iff	0	849.288	101.634	1612.27	1	0	0	0		$|
+9725383	0	object/building/endor/endr_lake_rail4m.iff	0	846.831	100.529	1611.24	0.751806	0	-0.659385	0		$|
+9725385	0	object/static/structure/general/campfire_burnt.iff	0	843.928	99.0266	1603.88	1	0	0	0		$|
+9725387	0	object/static/structure/general/skeleton_human_head.iff	0	844.572	103.833	1605.05	0.105599	0	0.994409	0		$|
+9725388	0	object/static/structure/general/skeleton_human_head.iff	0	844.676	103.548	1605.31	0.867819	0	0.49688	0		$|
+9725389	0	object/static/structure/general/skeleton_human_head.iff	0	844.441	103.342	1605.14	-0.351529	0	0.936177	0		$|
+9725390	0	object/static/structure/general/skeleton_human_head.iff	0	844.375	103.739	1605.35	0.8543	0	-0.51978	0		$|
+9725391	0	object/static/structure/general/skeleton_human_head.iff	0	844.615	103.827	1605.45	0.970137	0	0.242556	0		$|
+9725394	0	object/static/structure/general/tato_cave_stalactite_tiny.iff	0	844.515	102.882	1605.24	1	0	0	0		$|
+9725403	0	object/static/structure/dantooine/dant_rack_spears.iff	0	842.278	99.2035	1601.5	0.924909	0	0.380189	0		$|
+9725404	0	object/static/structure/general/skeleton_human_head.iff	0	842.084	99.3269	1602.63	0.758362	0	0.651834	0		$|
+9725405	0	object/static/structure/dantooine/dant_skull_bol.iff	0	857.035	105.151	1604.02	0.660039	0.273397	0.646453	-0.26777		$|
+9725406	0	object/static/structure/dantooine/dant_skull_bol.iff	0	857.258	105.092	1607.29	0.660039	0.273397	0.646453	-0.26777		$|
+9725412	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	843.998	96.9101	1603.99	1	0	0	0		$|
+1105980	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	846.790771	99.59764862	1608.1875	1	0	0	0		$|

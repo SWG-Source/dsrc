@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8995470	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	76.2834	103.28	1497.72	1	0	0	0		$|
+8995471	0	object/static/flora/potted_plant_leaves_small.iff	0	75.9985	102.723	1496.78	1	0	0	0		$|
+8995472	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	76.8484	103.259	1497.02	0.929424	-0.04848	-0.365578	-0.013135		$|
+8995486	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1967.22	650.826	1252.86	0.154284	0.0121868	0.938193	0.309584		$|
+3666260	0	object/tangible/ground_spawning/mob_spawner.iff	0	73	103	1498	1	0	0	0		$|
+3666261	0	object/tangible/ground_spawning/mob_spawner.iff	0	73	103	1498	1	0	0	0		$|
+3666265	0	object/tangible/ground_spawning/mob_spawner.iff	0	1967	650	1250	1	0	0	0		$|
+3666266	0	object/tangible/ground_spawning/mob_spawner.iff	0	1967	650	1250	1	0	0	0		$|
+3666267	0	object/tangible/ground_spawning/mob_spawner.iff	0	1967	650	1250	1	0	0	0		$|

@@ -1,0 +1,26 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+1283190	0	object/static/structure/general/skeleton_ithorian_headandbody.iff	0	1915.49	29.7018	1919.87	0.830276	-0.0222485	0.555916	-0.0332288		$|
+1283191	0	object/static/structure/general/skeleton_ithorian_head.iff	0	1917.56	29.7186	1920.17	0.969559	0.0706463	0.111088	-0.206455		$|
+1283192	0	object/static/structure/general/skeleton_human_body.iff	0	1916.47	29.8758	1921.87	-0.663731	0	0.747971	0		$|
+1283193	0	object/static/structure/general/skeleton_human_head.iff	0	1916.75	29.8798	1921.9	-0.663731	0	0.747971	0		$|
+1283194	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1917.72	29.7767	1920.87	0.819648	0	-0.572868	0		$|
+1283195	0	object/static/structure/general/skeleton_bith_head.iff	0	1917.54	29.8346	1921.36	0.886995	0	-0.461779	0		$|
+1283196	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	1916.76	29.7234	1920.21	0.917364	-0.0866241	-0.382725	0.066796		$|
+1283206	0	object/static/structure/general/gravestone_generic_style_02.iff	0	1996.73	33.2892	1011.69	0.990901	-0.13459	0	0		$|
+1283207	0	object/static/structure/general/gravestone_generic_style_02.iff	0	1998.12	33.1517	1011.9	0.997551	0.0699428	0	0		$|
+1283208	0	object/static/structure/general/gravestone_generic_style_03.iff	0	1997.75	32.815	1013.26	0.982334	0.183834	0.00643681	-0.0343957		$|
+1283209	0	object/static/structure/general/gravestone_generic_style_04.iff	0	1996.68	33.0215	1013.31	0.987227	0.159318	0	0		$|
+1283211	0	object/static/flora/flora_tree_tato_touchnot.iff	0	1994.52	33.1184	1013.34	0.833294	0.144305	0.532816	0.0300639		$|
+7785451	0	object/static/structure/general/distant_ship_controller2.iff	0	1992.53	31.6903	1798.33	1	0	0	0		$|
+7785458	0	object/static/structure/general/campfire_ash.iff	0	2015.77	31.38	1792.02	1	0	0	0		$|
+7785460	0	object/static/structure/general/escape_pod.iff	0	2020.81	30.8992	1790.98	0.826635	-0.137136	-0.495509	0.228778		$|
+7785461	0	object/tangible/gravestone/gravestone03.iff	0	2017.4	31.0787	1788.61	0.867819	0	-0.49688	0		$|
+7785462	0	object/tangible/gravestone/gravestone01.iff	0	2017.29	30.8098	1787.49	0.774419	0	-0.632673	0		$|
+7785605	0	object/static/structure/tatooine/skeleton_krayt_head_style_01.iff	0	1979.87	34.6008	960.478	0.886995	0	0	0.461779		$|
+7785607	0	object/static/structure/tatooine/skeleton_greater_krayt_spine_small.iff	0	1982.72	34.9667	959.548	0.747291	-0.17377	-0.604305	0.214887		$|
+7785611	0	object/static/structure/tatooine/skeleton_krayt_arm_style_01.iff	0	1980.68	35.5779	962.861	0.860424	0.0790983	0.243043	-0.440846		$|
+7785612	0	object/static/structure/tatooine/skeleton_krayt_arm_style_02.iff	0	1980.27	34.6031	958.963	0.995491	-0.0948572	0	0		$|
+7785613	0	object/static/structure/tatooine/skeleton_krayt_foot.iff	0	1989.54	34.3502	963.904	0.977266	0.0999071	0.186779	-0.00909943		$|
+7785617	0	object/static/structure/tatooine/skeleton_krayt_tail.iff	0	1991.98	34.9326	956.286	0.844545	-0.0424496	-0.529487	0.0677081		$|
+402	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1989.254395	34.46037674	964.157227	1	0	0	0		$|

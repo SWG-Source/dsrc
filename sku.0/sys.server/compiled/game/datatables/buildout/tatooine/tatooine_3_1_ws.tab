@@ -1,0 +1,24 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+134372	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	361.021973	8.631569862	1384.041504	1	0	0	0		$|
+134373	0	object/tangible/camp/camp_tent_s2.iff	0	365.383	8.31201	1377.84	-0.233618	0	0.972329	0		$|
+134374	0	object/tangible/camp/campfire_logs_ash.iff	0	360.611	8.87009	1375.19	1	0	0	0		$|
+134375	0	object/tangible/camp/camp_spit.iff	0	360.002	8.94718	1375.05	1	0	0	0		$|
+134376	0	object/tangible/camp/camp_lawn_chair.iff	0	359.786	8.8838	1376.95	-0.248176	0	0.968715	0		$|
+8595362	0	object/static/installation/mockup_factory_organic_style_1.iff	0	1181.52	1.65299	1940.32	-0.574172	0	0.818735	0		$|
+8595364	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1186.14	-1.15819	1941.12	0.179813	0	0.983701	0		$|
+8595367	0	object/static/structure/general/data_terminal_s4.iff	0	1185.79	-0.316228	1942.3	0.983844	0	-0.17903	0		$|
+8595379	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	1182.23	0	1937.29	0.816773	0	0.576959	0		$|
+8595380	0	object/static/structure/tatooine/wall_pristine_tatooine_small_style_01.iff	0	1179.05	0	1938.42	0.984727	0	-0.174108	0		$|
+8595386	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	364.36	8.17748	1380.54	0.382683	0	0.92388	0		$|
+8595387	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	363.36	8.23184	1381.18	1	0	0	0		$|
+8595388	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	363.407	8.27323	1379.87	-0.707107	0	0.707107	0		$|
+8595389	0	object/static/structure/general/tato_cave_rock_large.iff	0	363.768	11.1598	1380.56	0.987276	0.149212	-0.054355	0.00821495		$|
+8595390	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	360.029	8.33937	1382.97	0.382683	0	0.92388	0		$|
+8595391	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	359.029	8.39373	1383.6	1	0	0	0		$|
+8595392	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	359.076	8.43511	1382.29	-0.707107	0	0.707107	0		$|
+8595393	0	object/static/structure/general/tato_cave_rock_large.iff	0	359.437	11.3217	1382.98	0.987276	0.149212	-0.054355	0.008215		$|
+8595394	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	359.236	8.7929	1378.33	0.382683	0	0.92388	0		$|
+8595395	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	358.236	8.84726	1378.97	1	0	0	0		$|
+8595396	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	358.283	8.88865	1377.65	-0.707107	0	0.707107	0		$|
+8595397	0	object/static/structure/general/tato_cave_rock_large.iff	0	358.644	11.7753	1378.34	0.987276	0.149212	-0.054355	0.008215		$|

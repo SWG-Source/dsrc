@@ -1,0 +1,16 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705411	0	object/static/structure/tatooine/wall_ruined_tatooine_small_style_01.iff	0	271.055	197.987	1774.49	0.999888	0	-0.0149994	0		$|
+9705413	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	271.13	197.791	1776.19	0.714421	0	0.699716	0		$|
+9705417	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	271.743	197.774	1779.59	1	0	0	0		$|
+9705419	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	272.032	197.255	1777.78	0.797857	0.251184	-0.522731	-0.164568		$|
+9705423	0	object/static/structure/tatooine/debris_tatt_crate_1.iff	0	273.48	197.806	1780.88	1	0	0	0		$|
+9705424	0	object/static/structure/general/gravestone_generic_style_01.iff	0	265.841	198.332	1774.31	0.0741355	0	0.997248	0		$|
+9705425	0	object/static/structure/general/gravestone_generic_style_03.iff	0	267.188	198.257	1774.32	-0.0207948	0	0.999784	0		$|
+9705426	0	object/static/structure/general/gravestone_generic_style_01.iff	0	269.03	198.108	1774.54	-0.0207949	0	0.999784	0		$|
+9705427	0	object/static/structure/general/prp_engine_component.iff	0	267.163	197.53	1780.77	-0.609791	0	0.792563	0		$|
+9705430	0	object/static/structure/general/prp_junk_s8.iff	0	268.408	197.383	1779.29	0.959662	0.281157	0	0		$|
+9705491	0	object/building/endor/endor_catwalk.iff	0	2046.19	10.8879	83.9592	0.733084	0.0956084	-0.672923	-0.0249304		$|
+9705515	0	object/static/structure/general/skeleton_human_headandbody.iff	0	2045.35	11.5912	84.2122	1	0	0	0		$|
+9705516	0	object/static/flora/flora_bush_endor_rainbowbush.iff	0	2045.82	11.488	83.5964	1	0	0	0		$|
+2055809	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	276.348999	198.740799	1779.337891	1	0	0	0		$|

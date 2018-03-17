@@ -1,0 +1,21 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+2365963	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1837.14	101.371	1247.55	1	0	0	0		$|
+2365964	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1845.97	101.174	1256.6	1	0	0	0		$|
+2365965	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1858.01	101.588	1246.01	1	0	0	0		$|
+2365966	0	object/static/particle/pt_miasma_of_fog_mustard.iff	0	1844.68	101.7	1236.68	1	0	0	0		$|
+9505355	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1050.95	65.4069	50.6589	1	0	0	0		$|
+9505356	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	1050.82	65.394	57.6296	1	0	0	0		$|
+9505357	0	object/static/structure/military/military_wall_weak_rebl_style_01.iff	0	1042.96	65.7916	54.1406	0.707107	0	-0.707106	0		$|
+9505358	0	object/static/structure/military/military_wall_weak_rebl_style_01.iff	0	1059.06	65.828	54.1621	0.707107	0	-0.707106	0		$|
+9505360	0	object/static/structure/general/tankfarm_s01.iff	0	1048.55	64.9839	54.4846	1	0	0	0		$|
+9505361	0	object/static/structure/corellia/corl_power_transformer_s01.iff	0	1055.99	65.649	54.9705	0.707107	0	-0.707107	0		$|
+9505362	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	1056.5	65.7085	52.0369	1	0	0	0		$|
+9505363	0	object/building/corellia/filler_slum_16x16_s01.iff	0	1845.57	94.0554	1247.14	1	0	0	0		$|
+9505364	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1839.19	95.7825	1250.43	0.00686173	-0.70011	0.713932	-0.00999295		$|
+9505365	0	object/static/structure/tatooine/palette_tatooine_style_01.iff	0	1839.21	95.9885	1244.01	0.707377	0.00817861	-0.00904727	0.706731		$|
+9505366	0	object/building/endor/endr_lake_rail8m.iff	0	1834.35	93.7264	1253.87	0.979564	0.193764	0.000968826	0.0539304		$|
+9505367	0	object/building/endor/endr_lake_rail8m.iff	0	1834.16	94.9322	1241.16	0.962425	0.271547	0	0		$|
+9505368	0	object/building/endor/endr_lake_rail4m.iff	0	1829.07	93.9588	1251.91	0.371304	-0.335645	0.580543	0.64222		$|
+2365961	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1053.344482	65.92173004	32.691162	1	0	0	0		$|
+2365962	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1041.875488	65.86437988	78.098633	1	0	0	0		$|

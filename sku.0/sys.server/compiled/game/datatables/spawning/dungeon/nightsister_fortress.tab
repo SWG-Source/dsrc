@@ -1,0 +1,18 @@
+spawns	name	room	loc_x	loc_y	loc_z	script	yaw	mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s	f	f	f	s	f	s	i	s	s	s	s	s	s
+gethzerion	Gethzerion	r11	-0.99	7.22	-0.62	"npc.static_quest.quest_convo,theme_park.dungeon.generic_death"	107			string:quest_table=gethzerion					
+diax	Diax	r12	-19.61	7.22	-28.45	"npc.static_quest.quest_convo,theme_park.dungeon.generic_death"	167			string:quest_table=diax					
+fath_hray	Fath H'ray	r12	-12.37	7.22	-36.26	"npc.static_quest.quest_convo,theme_park.dungeon.generic_death"	-1			string:quest_table=fath_hray					
+kais	Kais	r10	13.46	7.22	-15.88	"npc.static_quest.quest_convo,theme_park.dungeon.generic_death"	-174			string:quest_table=kais					
+nightsister_elder		r7	0.88	0.76	-54.46	theme_park.dungeon.generic_death	-16	npc_meditate	900						
+nightsister_initiate		r12	-20.99	7.22	-20.79	theme_park.dungeon.generic_death	-78		900						
+nightsister_protector		r5	12.61	0.76	-30.47	theme_park.dungeon.generic_death	-20	npc_meditate	900						
+nightsister_rancor_tamer		r11	-7.46	7.22	-3.47	theme_park.dungeon.generic_death	-118		900						
+nightsister_ranger		r12	-12.85	7.22	-12.47	theme_park.dungeon.generic_death	173		900						
+nightsister_sentinal		r10	7.57	7.22	-34.77	theme_park.dungeon.generic_death	23		900						
+nightsister_spell_weaver		r9	-6.5	7.22	-16.8	theme_park.dungeon.generic_death	148		900						
+nightsister_stalker		r11	10.56	7.22	-8.42	theme_park.dungeon.generic_death	124		900						
+nightsister_protector		world	-3999	119	-65	npc.static_quest.quest_convo	-110			string:quest_table=herald_dathomir_singing_vs_nightsister
+herald_dathomir_leandra	Spell Weaver Leandra	world	-4085	133.7	-210	npc.static_quest.quest_convo	-150			string:quest_table=herald_dathomir_nsister_cave_leandra
+nightsister_rancor_tamer		world	-4156	121	-83	npc.static_quest.quest_convo	160			string:quest_table=herald_dathomir_mutant_rancor_cave					
+baritha	Baritha	world	-3976	131.5	-172	npc.static_quest.quest_convo	-160			string:quest_table=baritha					

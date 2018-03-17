@@ -1,0 +1,12 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9035355	0	object/static/structure/naboo/gungan_wall_ruined_lg_s01.iff	0	450.999	36.7472	1503.35	1	0	0	0		$|
+9035356	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	442.568	37.6721	1494.11	0.707107	0	0.707106	0		$|
+9035357	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	443.94	36.6223	1519.02	0.707388	0	-0.706826	0		$|
+9035389	0	object/static/structure/general/prp_junk_s7.iff	0	413.837	28.8425	1724.48	1	0	0	0		$|
+9035392	0	object/static/structure/general/prp_junk_s1.iff	0	389.932	29.8339	1705.73	0.984727	0	0	0.174108		$|
+5226313	0	object/tangible/ground_spawning/mob_spawner.iff	0	405	29	1713	1	0	0	0		$|
+5226314	0	object/tangible/ground_spawning/mob_spawner.iff	0	405	29	1713	1	0	0	0		$|
+5226315	0	object/tangible/ground_spawning/mob_spawner.iff	0	405	29	1713	1	0	0	0		$|
+5226316	0	object/tangible/ground_spawning/mob_spawner.iff	0	405	29	1713	1	0	0	0		$|
+5226317	0	object/tangible/ground_spawning/mob_spawner.iff	0	405	29	1713	1	0	0	0		$|

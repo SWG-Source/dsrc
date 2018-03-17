@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9015402	0	object/static/structure/tatooine/skeleton_krayt_tail.iff	0	875.824	2.25456	1009.83	0.898261	0	0.439463	0		$|
+9015404	0	object/static/structure/dantooine/dant_skull_thune.iff	0	879.2	2.28375	1012.52	0.898261	0	0.439463	0		$|
+9015405	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	874.485	2.1268	1002.07	0.882333	0	0.470626	0		$|
+9015406	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	877.196	-0.650692	1011.91	1	0	0	0		$|
+9015408	0	object/static/structure/general/tato_cave_rock_med.iff	0	880.249	2.60332	1010.28	1	0	0	0		$|
+9015409	0	object/static/structure/general/tato_cave_rock_large.iff	0	870.787	1.97114	1002.01	0.917121	0.398609	0	0		$|
+3625432	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	878.430176	2.605483294	1014.844604	1	0	0	0		$|

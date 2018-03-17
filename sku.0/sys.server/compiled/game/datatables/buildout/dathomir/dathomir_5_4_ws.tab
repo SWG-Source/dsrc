@@ -1,0 +1,19 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+4685453	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	44.884	125.455	1878.88	1	0	0	0		$|
+9725555	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	1125.37	131.86	1029.04	0.678557	0	0.734548	0		$|
+9725556	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	1122.95	131.92	1025.08	0.227202	0	0.973848	0		$|
+9725561	0	object/static/structure/dathomir/nsister_gate_style_01.iff	0	1127.24	131.912	1025.21	0.961055	0	0.276356	0		$|
+9725852	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	50.3312	123.296	1892.53	1	0	0	0		$|
+9725857	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	58.666	123.306	1884.21	0.707109	0	-0.707105	0		$|
+9725858	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	50.2741	123.294	1875.98	1	0	0	0		$|
+9725859	0	object/static/structure/corellia/corl_imprv_wall_4x16_s03.iff	0	41.8734	123.192	1884.02	-0.707107	0	0.707107	0		$|
+9725872	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	58.7467	123.211	1892.42	1	0	0	0		$|
+9725874	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	58.5598	123.341	1876.1	1	0	0	0		$|
+9725877	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	41.9149	123.324	1875.98	1	0	0	0		$|
+9725880	0	object/static/structure/corellia/corl_imprv_column_s03.iff	0	41.8668	123.32	1892.37	1	0	0	0		$|
+9725893	0	object/building/military/mun_all_military_tower_impl_guard_s01.iff	0	56.0028	117.04	1888.35	1	0	0	0		$|
+9725894	9725893	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+9725901	0	object/static/structure/corellia/corl_power_arial_prime.iff	0	57.1894	125.193	1886.88	1	0	0	0		$|
+9725902	0	object/static/structure/corellia/corl_power_bubble_node.iff	0	44.8122	124.716	1889.74	1	0	0	0		$|
+9725905	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	45.0241	125.033	1884.03	1	0	0	0		$|

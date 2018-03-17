@@ -1,0 +1,18 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+6885431	0	object/tangible/jedi/force_shrine_stone.iff	0	307.041	80.3581	1066.39	0.707107	0	0.707107	0		$|
+6885432	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	302.619	81.1398	1064.79	0.707113	0	0.7071	0		$|
+6885433	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	311.304	81.1398	1064.83	1	0	0	0		$|
+6885434	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	306.073	81.1398	1064.78	0	0	1	0		$|
+6885435	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	307.867	81.1298	1064.73	1	0	0	0		$|
+6885436	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	306.982	63.1862	1064.79	1	0	0	0		$|
+6885437	0	object/static/particle/pt_poi_electricity_2x2.iff	0	307.044	81.1398	1066.39	1	0	0	0		$|
+7825901	0	object/static/structure/general/cave_wall_damprock_style_01.iff	0	801.248	77.7417	6.81531	0.979061	0	0.203567	0		$|
+7825924	0	object/static/flora/flora_tree_rori_mkpodtree.iff	0	798.746	78.3095	12.9698	-0.343646	0	0.939099	0		$|
+7825927	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	797.366	78.4722	11.9105	1	0	0	0		$|
+7825928	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	796.809	78.4926	10.9863	0.982004	0	-0.188859	0		$|
+7825929	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	795.376	78.3917	3.6969	0.99995	0	-0.00999989	0		$|
+7825930	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	801.413	77.9864	0.540161	0.917121	0	0.398609	0		$|
+7825931	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	802.402	77.924	0.481567	1	0	0	0		$|
+7825890	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	790.6375122	78.94564819	11.191895	1	0	0	0		$|
+1311906	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1926.943359	80.82769775	1763.450195	1	0	0	0		$|

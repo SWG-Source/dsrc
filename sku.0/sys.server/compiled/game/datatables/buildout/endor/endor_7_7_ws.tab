@@ -1,0 +1,30 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705865	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1756.93	90.6943	288.579	0.955337	0	0.29552	0		$|
+9705866	0	object/static/structure/dantooine/dant_cooking_stone.iff	0	1756.43	92.3477	277.943	0.939373	0	0.342898	0		$|
+9705867	0	object/tangible/furniture/all/frn_all_throwpillow_med_s01.iff	0	1758.48	90.7655	289.436	1	0	0	0		$|
+9705868	0	object/tangible/furniture/all/frn_all_throwpillow_med_s03.iff	0	1759.03	90.2366	285.068	1	0	0	0		$|
+9705870	0	object/static/item/item_basket_closed.iff	0	1755.62	91.3901	290.923	1	0	0	0		$|
+9705871	0	object/static/item/item_basket_frame.iff	0	1756.02	90.491	287.086	1	0	0	0		$|
+9705872	0	object/static/item/item_basket_shallow.iff	0	1757.07	91.3244	291.24	0.995953	-0.0898786	0	0		$|
+9705873	0	object/building/endor/endr_lake_rail4m.iff	0	1747.52	93.2493	289.389	0.94133	-0.0367766	0.30267	-0.144691		$|
+9705874	0	object/building/endor/endr_lake_rail4m.iff	0	1750.25	92.5609	289.843	0.896775	-0.099671	-0.423532	-0.0805061		$|
+9705875	0	object/building/endor/endr_lake_rail4m.iff	0	1747.25	93.7935	291.987	0.407771	0.0658058	0.899078	-0.145093		$|
+9705876	0	object/building/endor/endr_lake_rail4m.iff	0	1750.12	93.066	292.581	0.9349	-0.0824841	0.303765	-0.163966		$|
+9705881	0	object/static/flora/potted_plant_leaves_fern.iff	0	1748.67	92.9457	292.571	0.913661	-0.166258	-0.370624	-0.0148329		$|
+9705882	0	object/static/flora/potted_plant_leaves_fern.iff	0	1748	92.9332	291.802	0.913661	-0.166258	-0.370624	-0.0148329		$|
+9705883	0	object/static/flora/potted_plant_leaves_fern.iff	0	1747.32	93.0412	291.042	0.913661	-0.166258	-0.370624	-0.0148329		$|
+9705884	0	object/static/flora/potted_plant_leaves_small.iff	0	1750.26	92.4418	291.534	0.91074	-0.123702	-0.390434	-0.0530311		$|
+9705885	0	object/static/flora/potted_plant_leaves_small.iff	0	1749.49	92.509	290.814	0.91074	-0.123702	-0.390434	-0.0530311		$|
+9705886	0	object/static/flora/potted_plant_leaves_small.iff	0	1748.58	92.6551	289.813	0.91074	-0.123702	-0.390434	-0.0530311		$|
+9705889	0	object/static/structure/tatooine/jawa/tent_jawa_01_med.iff	0	1835.2	208.978	2014.02	0.819884	-0.0647908	-0.560913	0.0947045		$|
+9705890	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	1832.11	208.938	2016.09	0.980128	-0.118183	0.158173	-0.0190723		$|
+9705891	0	object/static/structure/tatooine/debris_tatt_drum_storage_1.iff	0	1831.33	208.999	2015.14	0.979628	-0.108196	0.16816	-0.0185725		$|
+9705893	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1831.05	209.08	2013.92	0.73809	0.654394	0.0608795	-0.152595		$|
+9705895	0	object/static/structure/general/campfire_ash.iff	0	1831.36	208.006	2009.33	1	0	0	0		$|
+9705896	0	object/tangible/camp/camp_stool_short.iff	0	1830.08	208.204	2009.09	0.748499	-0.663136	0	0		$|
+9705897	0	object/tangible/camp/camp_stool_short.iff	0	1832.56	207.977	2007.89	-0.0312419	0.996631	0.0651392	0.0388375		$|
+9705898	0	object/static/structure/general/trash_pile_s01.iff	0	1838.23	209.058	2014.16	1	0	0	0		$|
+9705899	0	object/static/structure/general/trash_pile_s01.iff	0	1836.56	208.303	2008.75	0.000796301	0.9998	0.0197131	0.00336772		$|
+2835662	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1750.790527	92.29865265	280.433594	1	0	0	0		$|
+2835663	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1834.438477	208.0948792	2004.235352	1	0	0	0		$|

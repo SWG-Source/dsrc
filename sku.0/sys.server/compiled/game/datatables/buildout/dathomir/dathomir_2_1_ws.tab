@@ -1,0 +1,6 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9725753	0	object/static/item/item_basket_frame.iff	0	1577.85	37.5877	1644.13	1	0	0	0		$|
+9725754	0	object/building/endor/endor_catwalk.iff	0	1566.34	46.5715	1623.08	-0.700285	0	0.713864	0		$|
+9725755	0	object/building/endor/endor_catwalk.iff	0	1565.34	60.4106	1624.04	0.707389	0	-0.706825	0		$|
+9725757	0	object/building/endor/endor_catwalk.iff	0	1567.42	60.4565	1624.02	-0.703845	0	0.710353	0		$|

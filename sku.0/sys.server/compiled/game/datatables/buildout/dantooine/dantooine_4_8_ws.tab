@@ -1,0 +1,21 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3735569	0	object/static/structure/general/skeleton_human_head.iff	0	1124.68	15.0026	764.234	0.847255	0	0.531186	0		$|
+3735570	0	object/static/structure/general/skeleton_human_head.iff	0	1123.65	14.9099	766.233	0.847255	0	0.531186	0		$|
+3735573	0	object/static/particle/pt_lair_evil_fire_small.iff	0	1123.93	15.0084	765.005	1	0	0	0		$|
+3735576	0	object/static/structure/general/campfire_burnt.iff	0	1123.87	14.9745	764.994	0.978031	0	-0.20846	0		$|
+8215702	0	object/static/structure/naboo/gungan_relic_s01.iff	0	1117.34	8.8195	761.417	0.9716	0.0292548	-0.232415	-0.0334889		$|
+8215707	0	object/static/structure/dantooine/dant_boundary_post.iff	0	1573.58	9.42043	420.982	0.320064	0	0.947396	0		$|
+8215708	0	object/static/structure/dantooine/dant_skull_lizard.iff	0	1573.98	12.2711	420.546	0.320064	-1.90039e-011	0.947396	-4.79348e-010		$|
+8215726	0	object/static/structure/general/tato_cave_rock_med.iff	0	1571.63	9.06163	418.816	0.859268	0.237809	0.120799	0.436479		$|
+8215727	0	object/static/structure/general/tato_cave_rock_med.iff	0	1573.95	8.52739	418.083	0.945798	-0.297759	0.0389283	-0.123651		$|
+8215728	0	object/static/structure/general/tato_cave_rock_med.iff	0	1575.66	8.27143	419.224	0.946004	0.152666	-0.0455574	-0.2823		$|
+8215729	0	object/static/structure/general/tato_cave_rock_med.iff	0	1576.44	8.65967	420.941	0.857054	-0.362357	0.142633	0.337359		$|
+8215730	0	object/static/structure/general/tato_cave_rock_med.iff	0	1575.58	9.23862	422.567	0.906539	0.310512	-0.0926608	-0.270523		$|
+8215731	0	object/static/structure/general/tato_cave_rock_med.iff	0	1573.81	9.9198	423.75	0.903136	-0.117632	0.317839	-0.263603		$|
+8215732	0	object/static/structure/general/tato_cave_rock_med.iff	0	1571.53	10.0593	423.087	-0.535142	-0.379975	0.292349	0.695539		$|
+8215733	0	object/static/structure/general/tato_cave_rock_med.iff	0	1570.43	9.80966	420.974	0.967663	0	0	0.252245		$|
+8215756	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1759.17	23.3337	752.928	0.793048	0	0.609159	0		$|
+8215757	0	object/static/structure/dantooine/dant_totem_pole.iff	0	1745.96	24.1845	746.788	-0.241426	-0.0143801	0.773503	0.585832		$|
+3735577	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1125.463928	7.913491726	771.993164	1	0	0	0		$|
+3735578	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1569.378723	8.087823868	416.371582	1	0	0	0		$|

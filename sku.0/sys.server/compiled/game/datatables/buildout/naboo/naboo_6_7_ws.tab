@@ -1,0 +1,17 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9525390	0	object/static/structure/naboo/gungan_wall_ruined_lg_s02.iff	0	93.9268	-196.021	1334.47	0.939373	0	0.342898	0		$|
+9525391	0	object/static/structure/naboo/gungan_wall_ruined_sm_s01.iff	0	93.3423	-196.01	1328.63	0.941075	0	-0.338197	0		$|
+9525393	0	object/static/structure/naboo/gungan_pillar_ruined_s01.iff	0	98.9541	-196.004	1323.66	0.334238	0	0.942489	0		$|
+9525394	0	object/static/structure/naboo/gungan_pillar_damaged_s01.iff	0	105.203	-196.004	1329.57	0.935897	0	0.352274	0		$|
+9525395	0	object/static/structure/naboo/gungan_damaged_wide_arch_s01.iff	0	102.117	-195.993	1326.56	0.924909	0	0.380189	0		$|
+9525396	0	object/static/structure/naboo/gungan_statue_s01.iff	0	101.282	-195.993	1323.91	0.348337	0	0.937369	0		$|
+9525397	0	object/static/structure/naboo/gungan_statue_s01.iff	0	104.917	-196.011	1327.19	0.348337	0	0.937369	0		$|
+9525419	0	object/static/structure/naboo/gungan_relic_s01.iff	0	1375.03	-209.459	980.696	1	0	0	0		$|
+9525421	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1366.41	-202.389	975.302	1	0	0	0		$|
+9525422	0	object/static/structure/naboo/gungan_sacred_head_s01.iff	0	1384.54	-200.742	977.777	0.965092	0	0	0.261909		$|
+47296	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	97.414551	-196.0162201	1330.338379	1	0	0	0		$|
+47297	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1373.479492	-198.2344971	986.021973	1	0	0	0		$|
+3737695	0	object/tangible/ground_spawning/mob_spawner.iff	0	1414	-178	801	1	0	0	0		$|
+3737696	0	object/tangible/ground_spawning/mob_spawner.iff	0	1414	-178	801	1	0	0	0		$|
+3737697	0	object/tangible/ground_spawning/mob_spawner.iff	0	1414	-178	801	1	0	0	0		$|

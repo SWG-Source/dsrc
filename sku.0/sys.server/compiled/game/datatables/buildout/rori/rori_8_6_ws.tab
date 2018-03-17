@@ -1,0 +1,24 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9715686	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	653.345	73.6889	1030.45	0.833712	0	-0.5522	0		$|
+9715687	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	636.872	73.3988	991.015	0.857709	0	-0.514136	0		$|
+9715688	0	object/static/structure/naboo/gungan_damaged_narrow_arch_s01.iff	0	649.861	73.2879	954.791	0.962425	0	0.271547	0		$|
+9715689	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	644.107	75.4529	1019.35	1	0	0	0		$|
+9715690	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	651.551	75.3871	1015.68	1	0	0	0		$|
+9715691	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	636.421	75.427	1003.95	1	0	0	0		$|
+9715692	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	646.183	75.5122	1000.74	0.755093	0	0.655617	0		$|
+9715693	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	625.525	75.3401	975.055	0.921061	0	0.389418	0		$|
+9715694	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	639.343	75.2231	973.344	0.870293	0	0.492535	0		$|
+9715695	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	640.502	75.1024	952.968	0.942755	0	-0.333487	0		$|
+9715696	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	648.761	75.3518	962.65	0.862807	0	0.505533	0		$|
+9715697	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	661.719	75.13	940.447	0.963771	0	-0.266732	0		$|
+9715698	0	object/static/flora/flora_tree_rori_windswept_s00.iff	0	669.014	75.2128	953.745	0.932327	0	0.361615	0		$|
+3355884	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|
+3355885	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|
+3355886	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|
+3355887	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|
+3355888	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|
+3355889	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|
+3355890	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|
+3355891	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|
+3355892	0	object/tangible/ground_spawning/mob_spawner.iff	0	618	81	1003	1	0	0	0		$|

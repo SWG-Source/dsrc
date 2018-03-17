@@ -1,0 +1,15 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705703	0	object/static/structure/general/skeleton_bith_head.iff	0	90.7109	10.5422	410.542	0.717911	0	0.696135	0		$|
+9705704	0	object/static/structure/general/skeleton_bith_head.iff	0	90.0796	10.5389	411.184	1	0	0	0		$|
+9705705	0	object/static/structure/general/skeleton_bith_head.iff	0	89.3799	10.4705	410.517	0.735088	0	-0.677972	0		$|
+9705706	0	object/static/structure/general/skeleton_bith_head.iff	0	90.0425	10.5208	409.718	-0.0807085	0	0.996738	0		$|
+9705707	0	object/building/endor/endr_lake_rail4m.iff	0	96.3198	8.61453	406.112	0.967059	0.236167	0.0909541	-0.0273823		$|
+9705708	0	object/building/endor/endr_lake_rail8m.iff	0	98.9629	8.97315	410.154	-0.546034	0.553819	0.438386	0.450498		$|
+9705709	0	object/static/structure/general/skeleton_human_body.iff	0	79.8989	9.22015	408.191	0.685448	0.0240005	0.72728	-0.0254652		$|
+9705710	0	object/static/structure/general/skeleton_human_body.iff	0	81.5215	9.17912	403.431	0.740264	0.0435575	-0.669171	-0.0481851		$|
+9705711	0	object/static/structure/general/skeleton_human_body.iff	0	77.6577	9.2402	412.181	0.903065	-0.00123594	0.418118	-0.0982341		$|
+9705712	0	object/static/structure/general/skeleton_human_body.iff	0	82.2891	9.26557	412.902	-0.458047	0	0.888928	0		$|
+2055821	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	104.81543	10.35976124	407.440796	1	0	0	0		$|
+2305371	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1904.51709	120.7361526	2047.772961	1	0	0	0		$|
+2835660	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1900.277832	120.6787186	2047.13858	1	0	0	0		$|

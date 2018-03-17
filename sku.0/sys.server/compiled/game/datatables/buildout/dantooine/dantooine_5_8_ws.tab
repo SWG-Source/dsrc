@@ -1,0 +1,37 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3735581	0	object/static/structure/dantooine/dant_large_mudhut.iff	0	1172.32	12.7005	915.768	0.409561	0.118059	0.903025	0.0535449		$|
+3735583	0	object/static/structure/general/campfire_fresh.iff	0	1172.39	12.6025	916.188	0.998376	0.0449573	-0.00157415	-0.0349574		$|
+3735584	0	object/static/structure/dantooine/dant_rack_spears.iff	0	1185.72	11.228	908.416	-0.0257936	0	0.999667	0		$|
+3735585	0	object/static/structure/dantooine/dant_hide_tanning_s01.iff	0	1176.12	12.0432	915.794	-0.57352	0	0.819192	0		$|
+3735586	0	object/static/creature/dantooine_bol.iff	0	1175.35	13.6975	905.147	0.99875	0.0499792	0	0		$|
+8215758	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	381.498	1.67106	1079.44	-0.302117	0	0.953271	0		$|
+8215759	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	372.911	2.06951	1079.36	0.986091	0	-0.166209	0		$|
+8215760	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	365.242	2.23558	1085.13	0.470472	0	0.882415	0		$|
+8215761	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	363.445	2.17121	1094.23	0.929646	0	-0.368453	0		$|
+8215762	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	368.24	1.96242	1099.31	0.844069	0	0.536235	0		$|
+8215763	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	377.512	1.96183	1100.42	0.971338	0	0.237703	0		$|
+8215764	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	384.153	1.67012	1095.19	-0.63329	0	0.773915	0		$|
+8215765	0	object/static/structure/general/tato_cave_stalagmite_large.iff	0	384.064	1.72269	1086.49	-0.502491	0	0.864583	0		$|
+8215766	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	378.679	1.69898	1085.2	0.882829	0	-0.469694	0		$|
+8215767	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	375.266	1.87037	1083.13	0.921061	0	-0.389418	0		$|
+8215768	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	370.425	2.02638	1084.37	0.767377	0	0.641196	0		$|
+8215769	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	367.21	2.02819	1090.03	0.959662	0	-0.281157	0		$|
+8215770	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	368.978	1.95624	1094.67	1	0	0	0		$|
+8215771	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	373.823	1.91929	1097.22	0.939734	0	-0.341906	0		$|
+8215772	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	378.469	1.78588	1094.88	0.955337	0	0.29552	0		$|
+8215773	0	object/static/structure/general/tato_cave_stalagmite_med.iff	0	380.088	1.70318	1089.86	-0.693111	0	0.720831	0		$|
+8215774	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	376.982	1.67128	1088.47	0.952334	0	-0.305059	0		$|
+8215775	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	375.048	1.6665	1086.06	0.922997	0	0.384808	0		$|
+8215776	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	372.749	1.88038	1085.46	-0.0757239	0	0.997129	0		$|
+8215777	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	369.828	1.84523	1087.6	0.872744	0	-0.488177	0		$|
+8215778	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	369.329	1.88332	1091.76	-0.143704	0	0.989621	0		$|
+8215779	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	372.178	1.75201	1094.13	0.984727	0	-0.174108	0		$|
+8215780	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	375.37	1.7563	1094.51	0.946042	0	0.324043	0		$|
+8215781	0	object/static/structure/general/tato_cave_stalagmite_small.iff	0	376.799	1.60226	1091.69	0.367014	0	0.930216	0		$|
+8215783	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1184.67	11.1765	911.729	1	0	0	0		$|
+8215784	0	object/static/structure/dantooine/dant_fence_8m.iff	0	1184.57	11.8921	904.078	1	0	0	0		$|
+8215785	0	object/static/structure/dantooine/dant_cooking_stone.iff	0	1186.55	11.4637	906.365	0.696707	0	0.717356	0		$|
+8215786	0	object/static/structure/dantooine/dant_fence_4m.iff	0	1189.11	10.9881	909.498	0.748499	0	-0.663136	0		$|
+3735579	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	373.2793884	1.968140364	1089.990234	1	0	0	0		$|
+3735589	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1179.06665	12.95228577	905.39209	1	0	0	0		$|

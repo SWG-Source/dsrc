@@ -1,0 +1,14 @@
+spawns	name	required_config	room	loc_x	loc_y	loc_z	yaw	script	mood	animation_mood	respawn_time	spawn_objvar	special_room	special_room_script	room_objvar	room_objvar_name	room_objvar_value
+s	s	s[none]	s	f	f	f	f	s	s	s	i	s	s	s	s	s	s
+stormtrooper_fat_tk555	TK-555	lifeday	cantina	26.3	-0.9	11.8	-148			nervous	10						
+object/static/item/item_container_organic_food.iff		lifeday	cantina	25.8	-0.9	11.6	32				10						
+object/static/item/item_wrapped_candy.iff		lifeday	foyer1	43.1	0.1	0.2	-118				10						
+object/static/item/item_wrapped_candy.iff		lifeday	foyer1	37.6	0.1	-7.8	163				10						
+object/static/item/item_wrapped_candy.iff		lifeday	foyer2	31.7	0.1	-1.5	19				10						
+object/static/item/item_wrapped_candy.iff		lifeday	cantina	26.4	-0.9	8.8	-92				10						
+object/static/item/item_wrapped_candy.iff		lifeday	cantina	26.4	-0.9	9.9	19				10						
+jilljoo_jab	Jilljoo Jab	none	cantina	10.5758	-0.895	-3.564	-90	npc.static_quest.quest_convo	nervous		10	string:quest_table=jilljoo_jab			
+commoner_human_male		none	cantina	-6.0075	-0.895	-5.3522	-90	conversation.c_prof_ent_espacontact		10				
+object/tangible/spawning/spawn_egg.iff		none	alcove3	1.0656	-0.895	-14.9672	175	city.interior_2_convo							
+object/tangible/spawning/spawn_egg.iff		none	private_room	-19.6545	-0.895	25.0112	175	city.interior_2_convo							
+object/tangible/spawning/spawn_egg.iff		none	cantina	11.1732	-0.895	2.9361	175	city.interior_2_convo							

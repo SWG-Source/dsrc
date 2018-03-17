@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7825392	0	object/static/structure/general/prp_junk_s1.iff	0	173.011	4.05696	156.205	1	0	0	0		$|
+7825393	0	object/static/structure/general/prp_junk_s2.iff	0	167.136	4.45979	156.134	0.92295	0.00384802	-0.00922981	0.384789		$|
+7825394	0	object/static/structure/general/prp_junk_s3.iff	0	169.41	5.22345	159.172	0.0906717	0	0.995881	0		$|
+7825404	0	object/static/structure/general/escape_pod_door.iff	0	170.438	4.16531	154.578	0.714925	0.158816	0.390293	-0.557971		$|
+7825407	0	object/static/structure/general/droid_lemedical_powerdown.iff	0	170.812	3.97292	156.235	-0.584427	0.4541	0.462354	0.488331		$|
+7825409	0	object/static/structure/general/streetlamp_small_style_01.iff	0	169.738	2.96975	157.451	1	0	0	0		$|
+8156111	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	172.570313	3.80015254	152.546387	1	0	0	0		$|

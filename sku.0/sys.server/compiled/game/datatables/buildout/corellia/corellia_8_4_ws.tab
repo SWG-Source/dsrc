@@ -1,0 +1,18 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+178357	0	object/tangible/furniture/tatooine/frn_tato_cafe_parasol.iff	0	1331.33	1.95187	265.244	0.972903	-0.162973	-0.0997587	-0.130181		$|
+4546283	0	object/static/structure/corellia/corl_tent_small.iff	0	1345.49	3.29537	275.751	0.978504	0.0174486	0.183117	0.0932385		$|
+4546284	0	object/tangible/furniture/tatooine/frn_tato_cafe_parasol.iff	0	1339.57	1.7441	278.421	0.977077	-0.0881751	-0.0174155	-0.192982		$|
+4546285	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1338.47	1.84962	277.54	0.830822	0.0893788	-0.547422	0.0455557		$|
+4546286	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1339.26	1.79759	279.467	0.830822	0.089379	-0.547422	0.045556		$|
+9825679	0	object/static/structure/tatooine/tent_house_tatooine_style_01.iff	0	1340.57	4.10855	265.27	0.507092	-0.0390507	0.854258	0.107596		$|
+9825695	0	object/tangible/furniture/modern/rug_oval_m_s02.iff	0	1340.62	3.47016	265.314	0.861275	0.0934898	-0.496713	0.0523585		$|
+9825701	0	object/tangible/furniture/all/frn_all_throwpillow_med_s01.iff	0	1341.4	3.57533	266.539	0.995316	0.0601073	-0.0297408	0.0696387		$|
+9825702	0	object/tangible/furniture/all/frn_all_throwpillow_med_s03.iff	0	1340.09	3.65862	263.762	0.99053	0.0526653	0.085923	0.0932364		$|
+9825710	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1331.42	1.82983	266.347	0.844764	0.0933006	-0.523759	0.057847		$|
+9825712	0	object/tangible/furniture/all/frn_all_rug_rectangle_large_style_01.iff	0	1330.6	1.87627	264.454	0.846068	0.0843558	-0.524567	0.0433818		$|
+9825720	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1336.68	2.94409	263.709	0.876001	0.0450601	0.47289	0.0834713		$|
+9825723	0	object/static/structure/tatooine/debris_tatt_crate_metal_1.iff	0	1337.22	3.11484	262.976	0.880255	0.0465432	0.463879	0.0883201		$|
+9825724	0	object/static/structure/tatooine/debris_tatt_drum_storage_2.iff	0	1344.5	3.98232	266.67	0.880876	-0.0375864	0.463178	0.0900596		$|
+33554	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1336.089844	1.931572437	272.42981	1	0	0	0		$|
+33555	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1332.205078	1.67427814	268.947754	1	0	0	0		$|

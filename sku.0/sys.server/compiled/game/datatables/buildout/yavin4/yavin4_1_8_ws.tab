@@ -1,0 +1,22 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+8375365	0	object/building/military/military_base_shed_rebel_style_01.iff	0	739.019	5.23407	892.043	0.822502	0	-0.568762	0		$|
+8375376	0	object/static/structure/general/banner_rebel_style_01.iff	0	732.499	8.35877	896.87	0.661649	0.594246	-0.348472	0.296073		$|
+8495447	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	1240.22	48.266	402.523	0.996004	-0.0604828	-0.00606604	0.0654325		$|
+8495448	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	1242.09	48.4963	410.805	0.964812	0.0052558	0.261475	-0.0272095		$|
+8495449	0	object/static/structure/dathomir/nsister_fence_style_01.iff	0	1249.29	49.3759	416.615	0.832634	-0.0703889	0.548741	-0.0254985		$|
+8495452	0	object/static/structure/general/debris_deathstar_conduit.iff	0	1235.28	34.165	835.657	0.00417527	0.384078	0.902561	-0.194549		$|
+8495454	0	object/static/structure/general/prp_junk_s8.iff	0	1235.15	33.4764	835.676	0.418767	0.558692	0.570713	0.432186		$|
+8495455	0	object/static/flora/flora_bush_yavin_blueleaf.iff	0	1235.74	33.5338	836.734	0.919102	0	-0.394019	0		$|
+8545364	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	1720.82	83.1236	1205.44	0.995004	0	0.0998334	0		$|
+8545365	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	1729.27	83.119	1204.1	0.997888	0	0.0649542	0		$|
+8545366	0	object/static/structure/dantooine/dant_jedi_temple_pillar.iff	0	1722.42	82.7508	1212.77	0.99664	0.0464978	0.0637461	0.0219983		$|
+8545367	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	1731.92	82.959	1210.41	0.979074	0.0440881	0.198468	-0.00893711		$|
+8545368	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	1733.37	83.4051	1213.42	-0.47449	-0.514553	0.599176	-0.388694		$|
+8545369	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	1732.34	83.6789	1217.33	0.780707	0	-0.624897	0		$|
+8545370	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	1723.46	83.1946	1219.97	0.995281	0.053106	0.062541	0.0518124		$|
+2955766	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	731.21582	8.868413925	894.751953	1	0	0	0		$|
+2955784	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1251.664062	50.44658661	410.159668	1	0	0	0		$|
+2955785	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1238.239746	33.14742661	839.012695	1	0	0	0		$|
+2955786	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1117.709961	47.96231842	1417.544434	1	0	0	0		$|
+3125375	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1733.118652	83.65358734	1214.759766	1	0	0	0		$|

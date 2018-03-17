@@ -1,0 +1,11 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7806055	0	object/building/corellia/filler_slum_16x16_s01.iff	0	1548.48	25.1006	1767.6	0.0192025	0	0.999816	0		$|
+9535434	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1570	25.503	1762	-1.84354e-006	0	1	0		$|
+9535435	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1571	25.5468	1771	-1.84354e-006	0	1	0		$|
+9535436	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1571	25.4956	1762	-1.84354e-006	0	1	0		$|
+9535437	0	object/static/structure/tatooine/beam_tatooine_overhead_style_02.iff	0	1571	25.6869	1767	0.707105	0	0.707108	0		$|
+9535438	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1570	25.5403	1771	-1.84354e-006	0	1	0		$|
+9535439	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_01.iff	0	1565	25.4279	1777	0.92388	0	-0.382683	0		$|
+9535440	0	object/static/structure/tatooine/wall_ruined_tatooine_large_style_02.iff	0	1568	25.5761	1760	0.382683	0	0.92388	0		$|
+3515374	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1564.785522	26.16060829	1767.991211	1	0	0	0		$|

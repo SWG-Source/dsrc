@@ -1,0 +1,19 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+6535841	0	object/tangible/jedi/force_shrine_stone.iff	0	649.802	105.39	853.23	0.707107	0	0.707107	0		$|
+6535842	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	645.38	106.297	851.634	0.707114	0	0.707099	0		$|
+6535843	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	654.064	106.268	851.667	1	0	0	0		$|
+6535844	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	648.833	106.255	851.622	0	0	1	0		$|
+6535845	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	650.627	106.254	851.574	1	0	0	0		$|
+6535846	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	649.743	88.3015	851.633	1	0	0	0		$|
+6535847	0	object/static/particle/pt_poi_electricity_2x2.iff	0	649.804	106.259	853.227	1	0	0	0		$|
+9505460	0	object/static/structure/corellia/corl_power_connector.iff	0	499.894	80.2333	1725.94	1	0	0	0		$|
+9505475	0	object/static/structure/corellia/corl_power_transformer_s02.iff	0	496.394	76.5856	1725.98	1	0	0	0		$|
+9505584	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1585.26	139.832	1192.24	-0.625519	0	0.780209	0		$|
+9505585	0	object/static/installation/mockup_power_generator_wind_style_1.iff	0	1587.25	139.559	1184.13	-0.625519	0	0.780209	0		$|
+9505586	0	object/static/structure/corellia/corl_power_connector.iff	0	1586.24	141.173	1187.96	-0.625519	0	0.780209	0		$|
+2735810	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1588.503418	140.34198	1192.752441	1	0	0	0		$|
+9686300	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1218.661133	66.07276917	967.179687	1	0	0	0		$|
+9686301	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1231.047363	66.08342743	976.860107	1	0	0	0		$|
+9686302	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1232.236816	65.89779663	957.902832	1	0	0	0		$|
+1414952	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1225.72	66	985.55	1	0	0	0		$|

@@ -1,0 +1,37 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+7255436	0	object/tangible/jedi/force_shrine_stone.iff	0	670.399	205.027	1449.37	0.707107	0	0.707107	0		$|
+7255437	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	665.977	206.173	1447.78	0.707113	0	0.7071	0		$|
+7255438	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	674.661	206.173	1447.81	1	0	0	0		$|
+7255439	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	669.431	206.173	1447.77	0	0	1	0		$|
+7255440	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	671.224	206.163	1447.72	1	0	0	0		$|
+7255441	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	670.34	188.22	1447.78	1	0	0	0		$|
+7255442	0	object/static/particle/pt_poi_electricity_2x2.iff	0	670.401	206.363	1449.37	1	0	0	0		$|
+9705431	0	object/static/structure/general/skeleton_human_headandbody.iff	0	410.211	205.887	2014.79	0.891568	0	0.452886	0		$|
+9705432	0	object/static/structure/general/skeleton_human_head.iff	0	408.328	205.589	2009.49	1	0	0	0		$|
+9705433	0	object/static/structure/general/skeleton_human_body.iff	0	405.74	205.508	2008.76	0.94441	0	-0.328769	0		$|
+9705435	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	425.946	207.083	1998.08	0.857709	0	-0.514136	0		$|
+9705436	0	object/static/structure/general/tato_cave_rock_med.iff	0	405.544	205.159	2012.98	1	0	0	0		$|
+9705437	0	object/static/structure/general/tato_cave_rock_med.iff	0	404.822	205.2	2012.7	0.661908	0.610478	-0.319738	0.294894		$|
+9705438	0	object/static/structure/general/tato_cave_rock_med.iff	0	405.027	205.15	2012.36	-0.0467449	-0.223926	0.198928	0.952943		$|
+9705439	0	object/static/structure/general/tato_cave_rock_med.iff	0	405.679	205.159	2012.53	0.939361	0.00171448	0.342893	0.00469684		$|
+9705440	0	object/static/structure/general/tato_cave_rock_med.iff	0	405.42	205.192	2012.41	0.783822	0.620986	0	0		$|
+9705441	0	object/static/structure/general/tato_cave_rock_med.iff	0	404.946	205.19	2013.02	0.79287	0.35884	0.448718	-0.203082		$|
+9705445	0	object/static/structure/general/campfire_ash.iff	0	405.251	205.595	2012.72	1	0	0	0		$|
+9705447	0	object/static/structure/general/trash_pile_s01.iff	0	406.41	205.584	2014.84	-0.510213	-0.030089	0.859336	0.0178648		$|
+9705448	0	object/static/structure/tatooine/debris_tatt_drum_dented_1.iff	0	401.94	204.649	2009.18	0.941166	-0.235313	-0.0588336	-0.235313		$|
+9705550	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	2038.21	207.291	231.324	0.0557675	0	0.998444	0		$|
+9705551	0	object/static/structure/dantooine/dant_small_mudhut.iff	0	2025.62	207.754	206.948	0.877583	0	0.479426	0		$|
+9705553	0	object/static/structure/general/tato_cave_rock_med.iff	0	2039.53	207.228	214.538	0.975897	0	-0.21823	0		$|
+9705554	0	object/static/structure/general/tato_cave_rock_med.iff	0	2039.84	207.142	214.645	0.826113	-0.154935	0.273765	-0.467532		$|
+9705555	0	object/static/structure/general/tato_cave_rock_med.iff	0	2040.07	207.169	215.083	0.762061	0.635389	-0.0957569	-0.0798399		$|
+9705556	0	object/static/structure/general/tato_cave_rock_med.iff	0	2039.76	207.051	215.598	0.288331	0.704478	-0.514505	-0.394793		$|
+9705557	0	object/static/structure/general/tato_cave_rock_med.iff	0	2039.46	207.097	215.476	-0.674914	-0.19041	0.688001	0.186788		$|
+9705558	0	object/static/structure/general/tato_cave_rock_med.iff	0	2039.23	207.229	215.065	-0.629412	0	0.777072	0		$|
+9705559	0	object/static/structure/general/campfire_ash.iff	0	2039.67	207.56	215.022	1	0	0	0		$|
+9705560	0	object/building/endor/endr_lake_rail2m.iff	0	2039.75	207.55	215.077	1	0	0	0		$|
+9705564	0	object/building/endor/endr_lake_rail4m.iff	0	2033.3	207.665	206.734	0.909799	0.281434	0.291434	-0.090151		$|
+9705567	0	object/building/endor/endr_lake_rail4m.iff	0	2037.38	207.79	205.69	0.963771	-0.266731	0	0		$|
+9705568	0	object/building/endor/endr_lake_rail4m.iff	0	2041.38	207.714	205.732	0.952334	-0.305059	0	0		$|
+2055810	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	408.3974609	205.6797638	2012.633301	1	0	0	0		$|
+2055814	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	2037.542114	207.3040009	219.018555	1	0	0	0		$|

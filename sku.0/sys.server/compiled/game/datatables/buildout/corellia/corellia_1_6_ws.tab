@@ -1,0 +1,30 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+33568	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	1354.82	452.575	158.815	1	0	0	0		$|
+33569	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1354.93	458.796	158.76	1	0	0	0		$|
+33570	0	object/static/structure/dantooine/dant_jedi_temple_pillar_fallen.iff	0	1358.21	454.109	164.073	0.844589	0	-0.535416	0		$|
+33572	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1336.97	451.25	156.967	0.825901	0.124975	-0.534687	0.12798		$|
+33573	0	object/static/structure/general/skeleton_human_head.iff	0	1344.89	451.965	163.852	0.707389	0	-0.706824	0		$|
+33574	0	object/static/structure/general/skeleton_ithorian_headandbody.iff	0	1368.58	446.791	138.231	1	0	0	0		$|
+33575	0	object/static/structure/general/skeleton_human_body.iff	0	1349.89	446.212	121.108	1	0	0	0		$|
+33576	0	object/static/structure/general/skeleton_bith_head.iff	0	1355.72	453.838	166.323	1	0	0	0		$|
+33577	0	object/static/structure/general/skeleton_human_head.iff	0	1351.53	454.357	161.483	0.926798	0	0	0.375559		$|
+33578	0	object/static/structure/general/skeleton_human_head.iff	0	1363.08	454.424	163.596	0.940542	-0.210323	0.0582087	-0.260303		$|
+33581	0	object/static/structure/dantooine/dant_large_rock_hut.iff	0	1360.56	454.044	156.223	3.20013e-008	0	1	0		$|
+33582	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1360.35	453.084	156.487	1	0	0	0		$|
+33583	0	object/static/structure/general/skeleton_bith_head.iff	0	1360.35	454.394	156.531	0.997888	0	0	-0.0649542		$|
+33584	0	object/static/item/item_jar_guts.iff	0	1362.17	454.428	156.475	0.965092	0	0.261909	0		$|
+33585	0	object/static/item/item_jar_funk.iff	0	1362.08	454.454	156.929	0.950796	0	-0.309816	0		$|
+33586	0	object/static/item/item_jar_guts.iff	0	1362.79	454.369	155.968	-0.568107	0	0.822955	0		$|
+33587	0	object/static/item/item_jar_guts.iff	0	1362.24	454.4	156.071	0.338946	0	0.940806	0		$|
+33588	0	object/static/item/item_jar_guts.iff	0	1362.8	454.326	155.24	1	0	0	0		$|
+33589	0	object/static/item/item_jar_guts.iff	0	1362.19	454.381	155.625	0.987764	0	0.155954	0		$|
+33590	0	object/static/item/item_jar_funk.iff	0	1361.74	454.448	156.609	0.975897	0	0.21823	0		$|
+33591	0	object/static/item/item_jar_funk.iff	0	1363	454.392	156.33	-0.14528	0	0.98939	0		$|
+33592	0	object/static/item/item_jar_funk.iff	0	1363.17	454.319	155.477	1	0	0	0		$|
+33593	0	object/static/particle/pt_miasma_of_fog_greenish.iff	0	1360.86	454.326	165.048	1	0	0	0		$|
+33594	0	object/static/particle/pt_miasma_of_fog_greenish.iff	0	1353.97	454.735	156.982	1	0	0	0		$|
+33595	0	object/static/particle/pt_miasma_of_fog_greenish.iff	0	1361.44	453.27	150.082	1	0	0	0		$|
+33596	0	object/static/particle/pt_miasma_of_fog_greenish.iff	0	1367.96	453.907	157.981	1	0	0	0		$|
+33598	0	object/static/particle/pt_poi_electricity_2x2.iff	0	1354.94	456.307	158.66	1	0	0	0		$|
+33597	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1364.926758	454.3373413	163.751465	1	0	0	0		$|

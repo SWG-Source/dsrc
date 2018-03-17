@@ -1,0 +1,27 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+3435626	0	object/building/yavin/dark_enclave.iff	0	974.1	79	310.18	0.707113	0	0.7071	0		$|
+3435654	0	object/static/structure/general/poi_all_obelisk_s01.iff	0	949.045	80.5076	278.55	0.764842	0	-0.644218	0		$|
+3435655	0	object/static/structure/general/poi_all_obelisk_s01.iff	0	1002.36	63.8448	316.94	0.5653	0	0.824886	0		$|
+3435697	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	994	80.3911	288	1	0	0	0		$|
+3435698	0	object/static/structure/dantooine/dant_jedi_temple_pillar_med.iff	0	989	80.4847	288	-3.20013e-008	0	1	0		$|
+8845439	0	object/static/structure/nobuild/nobuild_64.iff	0	31.1982	37.1522	1619.14	1	0	0	0		$|
+8845440	0	object/building/military/military_base_shed_imperial_style_cantina_s01.iff	0	28.1963	37.3387	1628.19	0.169967	0	0.98545	0		$|
+8845441	8845440	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8845442	8845440	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+8845443	8845440	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8845444	8845440	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+8845445	8845440	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+8845446	8845440	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+8845447	0	object/building/military/military_base_shed_imperial_style_prison_01.iff	0	46.7842	37.4029	1619.48	-0.572215	0	0.820104	0		$|
+8845448	8845447	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
+8845449	8845447	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+8845450	8845447	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
+8845451	8845447	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+8845452	8845447	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+8845453	8845447	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
+8995489	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	273.429	93.0506	975.739	-0.660877	-0.0523915	0.747227	0.0463371		$|
+8995490	0	object/static/structure/general/campfire_ash.iff	0	278.771	93.039	976.198	1	0	0	0		$|
+8995515	0	object/static/flora/flora_decd_scorched_tallbirch.iff	0	1575.36	98.8227	1425.84	-0.624155	-0.0169285	0.296237	0.722764		$|
+3495407	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	268.77832	93.6818161	977.2194824	1	0	0	0		$|
+3495410	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1572.651855	98.99627686	1428.412231	1	0	0	0		$|

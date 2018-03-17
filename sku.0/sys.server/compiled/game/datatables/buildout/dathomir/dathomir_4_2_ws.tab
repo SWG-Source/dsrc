@@ -1,0 +1,15 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+978388	0	object/static/particle/pt_flocking_glowzees.iff	0	1219.6	95.3277	1102.09	1	0	0	0		$|
+978389	0	object/static/particle/pt_flocking_glowzees.iff	0	1219.35	113.35	1101.5	1	0	0	0		$|
+978390	0	object/static/particle/pt_flocking_glowzees.iff	0	1218.55	106.041	1103.35	1	0	0	0		$|
+9725483	0	object/static/structure/dathomir/mtn_clan_crows_nest_s01.iff	0	1218.74	96.256	1101.41	1	0	0	0		$|
+9725486	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1212.6	108.264	1101.76	1	0	0	0		$|
+9725487	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1218.41	108.479	1094.06	1	0	0	0		$|
+9725488	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1225.33	108.205	1100.36	1	0	0	0		$|
+9725489	0	object/tangible/furniture/all/frn_all_tiki_torch_s1.iff	0	1218.99	108.028	1108.13	1	0	0	0		$|
+9725508	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1219.81	94.8452	1130.02	0.678557	0	0.734548	0		$|
+9725510	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1214.9	95.0928	1125.29	0.0157957	0	0	0.999875		$|
+9725512	0	object/static/structure/general/skeleton_human_head.iff	0	1225.5	94.5873	1115.33	1	0	0	0		$|
+9725513	0	object/static/structure/general/skeleton_human_body.iff	0	1225.21	94.5828	1119.29	1	0	0	0		$|
+978391	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1229.064026	94.52524567	1109.287109	1	0	0	0		$|

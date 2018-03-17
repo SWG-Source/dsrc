@@ -1,0 +1,15 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+6535869	0	object/tangible/jedi/force_shrine_stone.iff	0	318.107	13.6759	1743.76	0.707107	0	0.707107	0		$|
+6535870	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	313.685	14.8805	1742.17	0.707113	0	0.7071	0		$|
+6535871	0	object/static/structure/dantooine/dant_jedi_temple_pillar_sm.iff	0	322.369	14.9023	1742.2	1	0	0	0		$|
+6535872	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	317.139	14.8853	1742.15	0	0	1	0		$|
+6535873	0	object/static/structure/dantooine/dant_jedi_temple_pillar_base.iff	0	318.932	14.8752	1742.11	1	0	0	0		$|
+6535874	0	object/static/structure/dantooine/dant_jedi_temple_altar.iff	0	318.048	-3.06836	1742.17	1	0	0	0		$|
+6535875	0	object/static/particle/pt_poi_electricity_2x2.iff	0	318.11	14.9759	1743.76	1	0	0	0		$|
+9575388	0	object/static/structure/general/skeleton_human_headandbody.iff	0	1637.39	7.0053	1335.19	0.974794	0	0.223106	0		$|
+9575390	0	object/static/structure/general/skeleton_ithorian_headandbody.iff	0	1639.05	6.90461	1336.6	0.9987	-0.00998734	0.000499783	-0.0499767		$|
+9575392	0	object/static/structure/tatooine/guild_statue_free_style_01.iff	0	912.069	78.5691	544.013	0.724836	0	-0.688921	0		$|
+9575396	0	object/static/structure/general/streetlamp_small_red_style_01.iff	0	911.262	78.9659	544.031	1	0	0	0		$|
+2735837	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1638.140381	7	1339.90332	1	0	0	0		$|
+1053341	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	911.502	80.6824	547.62	1	0	0	0		$|

@@ -1,0 +1,9 @@
+objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
+i	i	h	i	f	f	f	f	f	f	f	s	p
+9705713	0	object/static/structure/tatooine/jawa/tent_jawa_01_small.iff	0	1962.57	16.3614	70.5694	0.953847	0	-0.300293	0		$|
+9705714	0	object/static/item/item_crate_spice.iff	0	1964.1	16.88	71.0173	-0.384729	0.0599326	0.920741	-0.0250426		$|
+9705715	0	object/static/item/item_crate_spice.iff	0	1964.67	16.7216	70.1419	-0.363829	0.0410846	0.928679	-0.0591218		$|
+9705716	0	object/static/item/item_crate_spice.iff	0	1962.95	16.9708	71.4204	0.365531	0	0.930799	0		$|
+9705717	0	object/tangible/camp/camp_tent_s1.iff	0	1963.22	16.0535	63.631	0.986375	-0.0761798	-0.14242	-0.0312703		$|
+9705718	0	object/static/structure/general/skeleton_bith_headandbody.iff	0	1970.11	15.9614	67.1153	0.0215315	-0.5303	0.110464	0.840307		$|
+2305362	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	1965.06958	16.41264725	67.4961319	1	0	0	0		$|

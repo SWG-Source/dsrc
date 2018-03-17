@@ -1,0 +1,12 @@
+
+@base object/tangible/wearables/base/shared_base_wookiee_chest_plate.iff
+
+@class tangible_object_template 10
+
+
+@class object_template 10
+
+objectName = "wearables_name" "armor_kashyyykian_hunting_chestplate"
+detailedDescription = "wearables_detail" "armor_kashyyykian_hunting_chestplate"
+appearanceFilename = "appearance/armor_kashyyykian_hunting_chestplate_wke_m.sat"
+
