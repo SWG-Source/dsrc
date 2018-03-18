@@ -283,7 +283,7 @@ public class battle_controller extends script.base_script {
         for (String[] scene : battle_controller.BATTLE_SCENES){
             if(scene[0].equals(zone)){
                 obj_id spawner = getObjIdObjVar(controller, "space_gcw." + scene[0] + ".spawner");
-                
+
                 if(getIntObjVar(controller, "space_gcw." + spawner + ".active") == 1){
                     return -2;
                 }
