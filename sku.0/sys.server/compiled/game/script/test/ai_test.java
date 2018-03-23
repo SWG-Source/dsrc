@@ -134,6 +134,9 @@ public class ai_test extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        if(!isGod(self) || getGodLevel(self) < 10 || !isPlayer(self)){
+            detachScript(self, "test.ai_test");
+        }
         setObjVar(self, "blahblah", 1);
         start(self);
         return SCRIPT_CONTINUE;

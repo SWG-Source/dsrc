@@ -11,7 +11,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1213340	0	object/static/structure/tatooine/debris_tatt_pipe_widemouth.iff	0	34.5816	52	807.553	0.320061	0	0.947397	0		$|
 1213341	0	object/static/structure/tatooine/debris_tatt_pipe_narrow_2.iff	0	33.9657	52	807.545	0.320061	0	0.947397	0	theme_park.script_spawner.spawner_methods.gcw_spawner	$|
 1213342	0	object/building/tatooine/shuttleport_tatooine.iff	0	47.5333	52	825.093	-0.706544	0	0.707669	0	structure.municipal.starport:planet_map.map_loc	travel.cost|0|200|travel.ground_time|0|300|travel.is_shuttleport|0|1|travel.point_name|4|Anchorhead Shuttleport|travel.shuttle_available|0|1|travel.version|0|3|$|
-1213343	0	object/building/tatooine/housing_tatt_style01_med.iff	0	131.753	52	787.661	-0.00079638	0	1	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/anchorhead_cantina.iff|$|
+1213343	0	object/building/tatooine/housing_tatt_style01_med.iff	0	131.753	52	787.661	-0.00079638	0	1	0	planet_map.map_loc:structure.municipal.cantina:theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/tatooine/anchorhead_cantina.iff|$|
 1213344	1213343	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1213345	1213343	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 4935502	1213345	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	8.6	0.4	0.4	1	0	0	0		intRandomYaw|0|1|$|

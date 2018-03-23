@@ -257,6 +257,9 @@ public class spawn_base extends script.base_script
                 strFileName = "datatables/spawning/spawn_lists/" + strPlanetName + "/" + strPlanetName + "_" + strRegionName + ".iff";
                 break;
         }
+        if(strFileName == null){
+            return null;
+        }
         String[] strTemplates = dataTableGetStringColumn(strFileName, "strTemplate");
         int[] intMinDifficulties = dataTableGetIntColumn(strFileName, "intMinDifficulty");
         int[] intMaxDifficulties = dataTableGetIntColumn(strFileName, "intMaxDifficulty");
@@ -481,8 +484,15 @@ public class spawn_base extends script.base_script
     }
     public String getFictionalRegionFileName(String strPlanet, String strFullName) throws InterruptedException
     {
-        String strRegionName = utils.unpackString(strFullName).getAsciiId();
-        return "datatables/spawning/spawn_lists/" + strPlanet + "/" + strRegionName + ".iff";
+        try {
+            String strRegionName = utils.unpackString(strFullName).getAsciiId();
+            return "datatables/spawning/spawn_lists/" + strPlanet + "/" + strRegionName + ".iff";
+        }
+        catch(Exception e) {
+            LOG("spawning", "Unable to get spawns for planet (" + strPlanet + ") in region with name (" + strFullName + ").");
+            Thread.dumpStack();
+            return null;
+        }
     }
     public String getOverLoadRegionFileName(String strRegionName) throws InterruptedException
     {

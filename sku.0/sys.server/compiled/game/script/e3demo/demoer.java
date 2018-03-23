@@ -295,6 +295,10 @@ public class demoer extends script.base_script
     };
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        if(!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)){
+            detachScript(self, "e3demo.demoer");
+            return SCRIPT_CONTINUE;
+        }
         setObjVar(self, "intAutoSaveOff", 1);
         return SCRIPT_CONTINUE;
     }

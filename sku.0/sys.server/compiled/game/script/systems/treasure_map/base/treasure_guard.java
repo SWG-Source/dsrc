@@ -209,10 +209,10 @@ public class treasure_guard extends script.base_script
             return false;
         }
         int j = rand(0, members.length - 1);
-        if (getDistance(getLocation(self), getLocation(members[j])) < 100)
+        if (members[j] != null && members[j].isLoaded() && getDistance(getLocation(self), getLocation(members[j])) < 100)
         {
-            startCombat(self, members[j]);
             CustomerServiceLog("treasureMap", "Mob: " + self + " " + getName(self) + " is attacking: " + members[j] + " " + getName(members[j]) + " located: " + getLocation(members[j]) + ". [ getRandomGroupMember() ]");
+            startCombat(self, members[j]);
             return true;
         }
         return false;

@@ -205,7 +205,8 @@ public class instance_manager extends script.base_script
             instance.closeInstance(self);
             return SCRIPT_CONTINUE;
         }
-        dict.put("player", players);
+        if(players != null)
+            dict.put("player", players);
         messageTo(self, "validatePlayer", dict, 0.0f, false);
         int minPlayers = instance.getMinPlayers(self);
         int numPlayers = instance.getCurrentPopulation(self);

@@ -911,6 +911,9 @@ public class mboudreaux_test extends script.base.remote_object_requester
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.mboudreaux_test");
+        }
         return SCRIPT_CONTINUE;
     }
     public int startPerform(obj_id self, dictionary params) throws InterruptedException

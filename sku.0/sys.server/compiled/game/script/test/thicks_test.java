@@ -58,6 +58,13 @@ public class thicks_test extends script.base_script
     public static final int clearAllObjVars = 5;
     public static final int doClientEffect = 6;
     public static final int spawnCreature = 7;
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.thicks_test");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnMoveMoving(obj_id self) throws InterruptedException
     {
         setState(self, STATE_STUNNED, false);

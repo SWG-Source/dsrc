@@ -2520,8 +2520,10 @@ public class player_structure extends script.base_script
         city.addStructureToCity(house);
         trace.log("housepackup", "%TU unpacked their house (" + house + ") from structure control device ( " + scd + ") to new location " + loc.toString(), owner, trace.TL_CS_LOG);
         obj_id[] houseContents = trial.getAllObjectsInDungeon(house);
-        for (obj_id houseContent : houseContents) {
-            messageTo(houseContent, "OnUnpack", null, 1.0f, false);
+        if(houseContents != null) {
+            for (obj_id houseContent : houseContents) {
+                messageTo(houseContent, "OnUnpack", null, 1.0f, false);
+            }
         }
         return true;
     }
@@ -2638,11 +2640,19 @@ public class player_structure extends script.base_script
         }
         if (!hasObjVar(structure, "player_structure.sign.id"))
         {
-            LOG("sissynoid", "Structure(" + structure + ") does not have a House Sign ObjVar");
+            LOG("playerStructure", "Structure(" + structure + ") at location [" + getLocation(structure).toString() + "] does not have a House Sign ObjVar");
             return;
         }
         obj_id signId = getObjIdObjVar(structure, "player_structure.sign.id");
+        if(!isValidId(signId)){
+            LOG("playerStructure", "Structure (" + structure + ") at location [" + getLocation(structure).toString() + "] has an invalid value for player_structure.sign.id.");
+            return;
+        }
         String signText = getName(signId);
+        if(signText == null){
+            LOG("playerStructure", "WARNING: Structure (" + structure + ") at location [" + getLocation(structure).toString() + "] has a sign (" + signId + "), but the sign name could not be retrieved.");
+            return;
+        }
         int indexOfAbandonedText = signText.indexOf(player_structure.CITY_ABANDONED_TEXT);
         if (indexOfAbandonedText > -1)
         {
@@ -4682,12 +4692,10 @@ public class player_structure extends script.base_script
                             there.x += 0.5f;
                             x += 0.5f;
                         }
-                        else if (structureTemplate.startsWith("object/building/player/player_merchant_tent_style_01.iff") || structureTemplate.startsWith("object/building/player/player_merchant_tent_style_02.iff") || structureTemplate.startsWith("object/building/player/player_merchant_tent_style_03.iff"))
+                        else if (structureTemplate.startsWith("object/building/player/player_merchant_tent_style_01.iff") || structureTemplate.startsWith("object/building/player/player_merchant_tent_style_02.iff") || structureTemplate.startsWith("object/building/player/player_merchant_tent_style_03.iff") || structureTemplate.startsWith("object/building/player/player_pgc_merchant_tent_s01.iff"))
                         {
-                            heading += 10;
-                            there.x += 0.3f;
+                            heading += 100;
                             there.z -= 0.1f;
-                            x += 0.3f;
                             z -= 0.1f;
                         }
                         else if (structureTemplate.startsWith("object/building/player/player_house_tatooine_large_style_01.iff"))
@@ -4862,9 +4870,9 @@ public class player_structure extends script.base_script
                         {
                             Vector thisStructure = new Vector();
                             thisStructure.setSize(0);
-                            for (String allStructure : allStructures) {
-                                if (structureTemplate.equals(allStructure)) {
-                                    thisStructure = utils.addElement(thisStructure, allStructure);
+                            for (String struct : allStructures) {
+                                if (structureTemplate.equals(struct)) {
+                                    thisStructure = utils.addElement(thisStructure, struct);
                                 }
                             }
                         }

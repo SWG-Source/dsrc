@@ -84,7 +84,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	s
 1153492	1153485	object/cell/cell.iff	7	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1153493	1153485	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1153494	1153485	object/cell/cell.iff	9	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
-1153495	0	object/building/tatooine/lucky_despot.iff	0	1703.7700195313	7	973.7680664063	0.7712469101	0	0.6365360618	0	planet_map.map_loc	healing.canhealshock|0|1|safeLogout|0|1|portalProperty.crc|0|679368329|terminal1|6|41032756|terminal2|6|41032759|terminal3|6|41032762|terminal4|6|41032765|terminal5|6|41032768|terminal6|6|41032771|terminal7|6|41032774|terminal8|6|41032777|alreadySpawned|0|1|$|
+1153495	0	object/building/tatooine/lucky_despot.iff	0	1703.7700195313	7	973.7680664063	0.7712469101	0	0.6365360618	0	planet_map.map_loc	planetMap.name|4|The Fallen Star|healing.canhealshock|0|1|safeLogout|0|1|portalProperty.crc|0|679368329|terminal1|6|41032756|terminal2|6|41032759|terminal3|6|41032762|terminal4|6|41032765|terminal5|6|41032768|terminal6|6|41032771|terminal7|6|41032774|terminal8|6|41032777|alreadySpawned|0|1|$|
 1153496	1153495	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1153497	1153495	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1153498	1153495	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|

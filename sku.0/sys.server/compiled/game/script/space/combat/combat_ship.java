@@ -1065,6 +1065,9 @@ public class combat_ship extends script.base_script
     public int OnSpaceUnitUnDocked(obj_id self, obj_id target, boolean dockSuccessful) throws InterruptedException
     {
         obj_id objPilot = getPilotId(self);
+        if(!isValidId(objPilot) || !exists(objPilot)){
+            return SCRIPT_CONTINUE;
+        }
         if (!space_utils.isPlayerControlledShip(self))
         {
             return SCRIPT_CONTINUE;

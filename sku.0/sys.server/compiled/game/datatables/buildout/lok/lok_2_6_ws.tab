@@ -75,3 +75,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8405539	0	object/static/item/item_container_weapon.iff	0	1391.1	4.72733	1474.16	0.714421	0	-0.699716	0		$|
 8405598	0	object/static/structure/general/droid_r5_torso.iff	0	1394.3	4	1479.97	1	0	0	0		$|
 8405599	0	object/static/structure/general/droid_r5_head.iff	0	1393.61	4	1479.28	0.671178	0	0.741297	0		$|
+-1	0	object/tangible/npc/storyline_npc/rebel_commander_spawner.iff	0	1391	4	1468	1	0	0	0		$|
+-2	0	object/tangible/npc/rebel_recruiter_spawner.iff	0	1395.61	4	1471.82	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	1360	4	1504	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|1.000000|fltMinSpawnTime|2|0.000000|fltRadius|2|3.000000|intDefaultBehavior|0|2|intGoodLocationSpawner|0|0|intSpawnCount|0|3|intSpawnSystem|0|1|registerWithController|0|1|strName|4|rebel_trooper|strSpawnerType|4|area|strSpawns|4|rebel_trooper|$|

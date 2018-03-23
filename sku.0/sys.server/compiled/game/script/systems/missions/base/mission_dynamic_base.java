@@ -492,40 +492,49 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         {
             return null;
         }
-        int intMissionDifficulty = 1;
+        int intMissionDifficulty = MISSION_DIFFICULTY_EASY;
         if (boolIsCity)
         {
             int intRoll = rand(1, 100);
             if (intRoll < 50)
             {
                 locEndLocation = locations.getDifferentGoodCityRegionLocation(locStartLocation);
-                intMissionDifficulty = MISSION_DIFFICULTY_EASY;
             }
             else 
             {
-                region rgnEndRegion = locations.getDeliverCityRegion(rgnStartRegion);
-                String strName = rgnEndRegion.getName();
-                if (intRoll > 75)
-                {
-                    intMissionDifficulty = MISSION_DIFFICULTY_MEDIUM;
-                }
-                else 
+                if (intRoll < 75)
                 {
                     intMissionDifficulty = MISSION_DIFFICULTY_HARD;
                 }
-                String strNewPlanet = rgnEndRegion.getPlanetName();
-                if (!strPlanet.equals(strNewPlanet))
-                {
-                    strPlanet = strNewPlanet;
+                else{
+                    intMissionDifficulty = MISSION_DIFFICULTY_MEDIUM;
                 }
-                locEndLocation = locations.getGoodCityRegionLocation(rgnEndRegion, strPlanet);
+                region rgnEndRegion = locations.getDeliverCityRegion(rgnStartRegion);
+                try {
+                    locEndLocation = locations.getGoodCityRegionLocation(rgnEndRegion, rgnEndRegion.getPlanetName());
+                }
+                catch(Exception e){
+                    LOG("mission", "Missions (DELIVER): Unable to resolve end location for mission.  End Region Planet (" + rgnEndRegion.getPlanetName()
+                            + "), End Region City (" + rgnEndRegion.getName() + "), Start Location (" + locStartLocation.toString() + ") on Planet " + locStartLocation.area
+                            + "), Start Region City (" + rgnStartRegion.getName() + "), Pickup NPC (" + strPickupNPC + "), Dropoff NPC (" + strDropoffNPC
+                            + "), Terminal Location (" + getLocation(getSelf()) + "), Terminal ID (" + getSelf() + ")");
+                    return null;
+                }
             }
         }
         else 
         {
             region rgnEndRegion = locations.getClosestCityRegion(rgnStartRegion);
-            String strName = rgnEndRegion.getName();
-            locEndLocation = locations.getGoodCityRegionLocation(rgnEndRegion, strPlanet);
+            try {
+                locEndLocation = locations.getGoodCityRegionLocation(rgnEndRegion, strPlanet);
+            }
+            catch(Exception e){
+                LOG("mission", "Missions (DELIVER): Unable to resolve end location for mission.  End Region Planet (" + rgnEndRegion.getPlanetName()
+                        + "), End Region City (" + rgnEndRegion.getName() + "), Start Location (" + locStartLocation.toString() + ") on Planet " + locStartLocation.area
+                        + "), Start Region City (" + rgnStartRegion.getName() + "), Pickup NPC (" + strPickupNPC + "), Dropoff NPC (" + strDropoffNPC
+                        + "), Terminal Location (" + getLocation(getSelf()) + "), Terminal ID (" + getSelf() + ")");
+                return null;
+            }
         }
         setObjVar(objMissionData, "intMissionDifficulty", intMissionDifficulty);
         if (locEndLocation == null)
@@ -545,7 +554,6 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             setMissionStartLocation(objMissionData, locStartLocation);
             setMissionEndLocation(objMissionData, locEndLocation);
         }
-        setMissionType(objMissionData, "deliver");
         int intReward = getDeliverReward(locStartLocation, locEndLocation, DELIVER_REWARD_RATIO, 1);
         intReward = (int)(intReward * fltRewardModifier);
         if (intReward < 5)
@@ -1716,6 +1724,11 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
         String strDescription;
         if (boolNPC)
         {
+            /*
+            // Cekis:  mission_npc_hunting_neutral_medium
+            // this is breaking non-player city mission terminals where the description is not
+            // showing properly.  This commenting out MAY break Player city mission terminals
+            // but it is not known - need to revisit later.
             if (isObjectPersisted(objCreator))
             {
                 strDescription = "m" + intStringId + "o";
@@ -1724,6 +1737,10 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             {
                 strDescription = "m" + intStringId + "d" + flagChar;
             }
+            */
+            // so, instead, just set the default description to be the one we KNOW is missing from non-player city terminals.
+            strDescription = "m" + intStringId + "o" + flagChar;
+
             String strTest = getMissionType(objMissionData);
             if (strTest.equals("survey"))
             {

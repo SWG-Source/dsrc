@@ -468,9 +468,13 @@ public class pet_lib extends script.base_script
     {
         if (!isIdValid(player) || !isPlayer(player))
         {
-            return 1;
+            return 0;
         }
         String profession = skill.getProfessionName(getSkillTemplate(player));
+        if(profession == null){
+            LOG("pet","Cannot get the profession for player (" + player + ") while getting droid command level.");
+            return 0;
+        }
         boolean isTrader = false;
         if (profession.equals("trader"))
         {
@@ -3658,7 +3662,7 @@ public class pet_lib extends script.base_script
                     setWeaponAttackSpeed(rangedWeapon, wpnSpeed);
                     setWeaponMaxDamage(rangedWeapon, maxDamage);
                     setWeaponMinDamage(rangedWeapon, minDamage);
-                    weapons.setWeaponData(creatureWeapon);
+                    weapons.setWeaponData(rangedWeapon);
                 }
             }
         }

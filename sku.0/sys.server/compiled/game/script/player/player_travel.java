@@ -1135,6 +1135,10 @@ public class player_travel extends script.base_script
     {
         debugLogging("//***// canCallForPickup", "////>>>> ENTERED");
         obj_id playerCurrentMount = getMountId(player);
+        if(getLevel(player) < 50){
+            sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level 50.", null);
+            return false;
+        }
         if (isIdValid(playerCurrentMount))
         {
             sendSystemMessage(player, SID_INSTANT_MOUNT_NO);

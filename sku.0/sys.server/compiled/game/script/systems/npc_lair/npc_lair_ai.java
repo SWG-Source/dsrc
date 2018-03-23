@@ -83,28 +83,25 @@ public class npc_lair_ai extends script.theme_park.poi.base
         switch (job)
         {
             case JOB_DEFEND:
-            obj_id target = params.getObjId("target");
-            respondToScoutAlarm(mobile, target);
-            return;
+                obj_id target = params.getObjId("target");
+                respondToScoutAlarm(mobile, target);
+                break;
             case JOB_HEAL:
-            if (!ai_lib.isMonster(mobile))
-            {
-                return;
-            }
-            obj_id myTarget = getTarget(mobile);
-            if (!isIdValid(myTarget))
-            {
-                doLairHealing(mobile, params);
-            }
-            else if (getTarget(myTarget) != mobile)
-            {
-                doLairHealing(mobile, params);
-            }
+                if (!ai_lib.isMonster(mobile))
+                {
+                    return;
+                }
+                obj_id myTarget = getTarget(mobile);
+                if (!isIdValid(myTarget) || getTarget(myTarget) != mobile)
+                {
+                    doLairHealing(mobile, params);
+                }
+                break;
         }
     }
     public void respondToScoutAlarm(obj_id mobile, obj_id target) throws InterruptedException
     {
-        if (!isIdValid(target) || ai_lib.isAiDead(target))
+        if (!isIdValid(target) || ai_lib.isAiDead(target) || mobile.equals(target))
         {
             return;
         }
@@ -735,6 +732,9 @@ public class npc_lair_ai extends script.theme_park.poi.base
     }
     public int handleRequestToConverse(obj_id self, dictionary params) throws InterruptedException
     {
+        if(!isValidId(self) || isIncapacitated(self) || isDead(self) || !exists(self)){
+            return SCRIPT_CONTINUE;
+        }
         obj_id partner = params.getObjId("converseWith");
         if (!isIdValid(partner) || !exists(partner))
         {
@@ -744,6 +744,9 @@ public class npc_lair_ai extends script.theme_park.poi.base
         utils.setScriptVar(self, "npc_lair.pathingToConverse", true);
         location destLoc = new location(getLocation(partner));
         location myLoc = getLocation(self);
+        if(myLoc == null || !isValidLocation(myLoc)){
+            return SCRIPT_CONTINUE;
+        }
         if (myLoc.x < destLoc.x)
         {
             destLoc.x -= 1;

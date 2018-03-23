@@ -254,8 +254,18 @@ public class combat_base extends script.base_script
                     atkRslt.weapon = weaponData.id;
                     atkRslt.actionName = getStringCrc(toLower(actionName));
                     atkRslt.useLocation = true;
-                    atkRslt.targetLocation = new vector(targetLoc.x, targetLoc.y, targetLoc.z);
-                    atkRslt.targetCell = targetLoc.cell;
+                    if(targetLoc != null && isValidLocation(targetLoc)) {
+                        atkRslt.targetLocation = new vector(targetLoc.x, targetLoc.y, targetLoc.z);
+                        atkRslt.targetCell = targetLoc.cell;
+                    }
+                    else {
+                        location tl = getLocation(target);
+                        if(!isValidLocation(tl)){
+                            LOG("combat","Could not identify the target's (" + target + ":" + getPlayerFullName(target) + ") location (" + targetLoc + ") to attack it.");
+                        }
+                        atkRslt.targetLocation = new vector(tl.x, tl.y, tl.z);
+                        atkRslt.targetCell = tl.cell;
+                    }
                     atkRslt.endPosture = (combat.isMeleeWeapon(weaponData.id) || combat.isLightsaberWeapon(weaponData.id)) ? POSTURE_UPRIGHT : getPosture(self);
                     String anim = actionData.animDefault;
                     stealth.testInvisCombatAction(self, target, actionData);
@@ -471,7 +481,8 @@ public class combat_base extends script.base_script
             return;
         }
         dictionary dctWeaponStats = utils.getDictionaryScriptVar(objWeapon, "dctWeaponStats");
-        utils.setScriptVar(egg, "dctWeaponStats", dctWeaponStats);
+        if(dctWeaponStats != null)
+            utils.setScriptVar(egg, "dctWeaponStats", dctWeaponStats);
         utils.setScriptVar(egg, "isAutoAimed", isAutoAimed);
         doStandardDelayedAction(egg, target, attackName, actionData, instantHit);
     }
@@ -885,8 +896,12 @@ public class combat_base extends script.base_script
             {
                 if (weaponData.weaponType == WEAPON_TYPE_DIRECTIONAL)
                 {
-                    location where = (location)actionData.targetLoc.clone();
-                    defenders = pvpGetTargetsInCone(self, self, where, length, width);
+                    if(actionData != null && isValidLocation(actionData.targetLoc)) {
+                        defenders = pvpGetTargetsInCone(self, self, actionData.targetLoc, length, width);
+                    }
+                    else{
+                        defenders = pvpGetTargetsInCone(self, self, target, length, width);
+                    }
                 }
                 else 
                 {

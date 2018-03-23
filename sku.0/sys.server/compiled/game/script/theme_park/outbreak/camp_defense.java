@@ -145,11 +145,13 @@ public class camp_defense extends script.base_script
                 utils.removeScriptVar(self, GUARD_OCCUPIED);
             }
         }
-        if (!groundquests.isQuestActive(whoTriggeredMe, questName))
+        // added "isLoaded()" to attempt to prevent situation where isQuestActive could not find the player.
+        if (whoTriggeredMe.isLoaded() && !groundquests.isQuestActive(whoTriggeredMe, questName))
         {
             return SCRIPT_CONTINUE;
         }
-        if (!groundquests.isTaskActive(whoTriggeredMe, questName, "surviveTimer") && !groundquests.isTaskActive(whoTriggeredMe, questName, "waitToCleanUpAll"))
+        // added "isLoaded()" to attempt to prevent situation where isQuestActive could not find the player.
+        if (whoTriggeredMe.isLoaded() && !groundquests.isTaskActive(whoTriggeredMe, questName, "surviveTimer") && !groundquests.isTaskActive(whoTriggeredMe, questName, "waitToCleanUpAll"))
         {
             return SCRIPT_CONTINUE;
         }

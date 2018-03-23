@@ -49,7 +49,14 @@ public class space_ai extends script.base_script
     {
         if (ship_ai.isShipDead(target))
         {
-            ship_ai.spaceStopAttack(self, target);
+            // get my target list and only attempt to remove the target if it's on my list.
+            obj_id[] targetList = ship_ai.unitGetAttackTargetList(self);
+            for(obj_id listMember : targetList){
+                if(listMember.equals(target)){
+                    ship_ai.spaceStopAttack(self, target);
+                    break;
+                }
+            }
         }
         return SCRIPT_CONTINUE;
     }

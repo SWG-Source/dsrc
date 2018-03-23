@@ -352,6 +352,10 @@ public class destroy_duty extends script.base_script
                     gloc = gloc.move_p(vd);
                 }
                 obj_id newship = space_create.createShipHyperspace(ships[j][ship], gloc);
+                if(!isValidId(newship) || !isGameObjectTypeOf(getGameObjectType(newship),GOT_ship)) {
+                    LOG("DESIGNER_FATAL","QUEST: spacequest/" + questType + "/" + questName + " New ship (" + ships[j][ship] + ":" + newship + ") which " + (isGameObjectTypeOf(getGameObjectType(newship),GOT_ship) ? "is" : "is not") + " a ship could not be created.");
+                    continue;
+                }
                 ship_ai.unitSetLeashDistance(newship, 16000);
                 if (count > 3)
                 {

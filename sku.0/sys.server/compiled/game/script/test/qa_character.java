@@ -88,6 +88,13 @@ public class qa_character extends script.base_script
         "camouflage",
         "combat_block_value"
     };
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 10) {
+            detachScript(self, "test.qa_character");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnSpeaking(obj_id self, String text) throws InterruptedException
     {
         debugConsoleMsg(self, text);

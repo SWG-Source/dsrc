@@ -235,7 +235,8 @@ public class tusken_raider extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id listener = utils.getObjIdScriptVar(self, "ai.pathingToSocialize");
-        endSocializing(self, listener);
+        if(listener != null)
+            endSocializing(self, listener);
         return SCRIPT_CONTINUE;
     }
     public int OnMovePathNotFound(obj_id self) throws InterruptedException
@@ -322,7 +323,9 @@ public class tusken_raider extends script.base_script
                 return;
             }
             obj_id isFollowedBy = getObjIdObjVar(target, "ai.isFollowedBy");
-            if (isFollowedBy == null || isFollowedBy == npc)
+            // Cekis: added check on the NPC to make sure it's a creature object... may need
+            // to just return SCRIPT_CONTINUE if it's not a creature object.
+            if ((isFollowedBy == null || isFollowedBy == npc) && isNpcCreature(npc))
             {
                 setMovementWalk(npc);
                 follow(npc, target, 2f, 5f);

@@ -593,10 +593,13 @@ public class combat_ship_player extends script.base_script
         }
         LOG("space", "params is " + params);
         String hyperspacePoint = strParams[0];
+        String sceneName = getSceneForHyperspacePoint(hyperspacePoint);
+        if(sceneName == null || sceneName.equals("")){
+            LOG("space","WARNING: Unable to get hyperspace scene name from hyperspacePoint (" + hyperspacePoint + ").  Self (" + self + ":" + getName(self) + "), Target(" + target + ":" + getName(target) + ").");
+        }
         if (!isGod(self))
         {
-            String sceneName = getSceneForHyperspacePoint(hyperspacePoint);
-            if (sceneName.equals("space_kashyyyk"))
+            if (sceneName != null && sceneName.equals("space_kashyyyk"))
             {
                 if (!features.hasEpisode3Expansion(self))
                 {

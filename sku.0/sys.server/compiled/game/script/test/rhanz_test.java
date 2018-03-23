@@ -24,6 +24,13 @@ public class rhanz_test extends script.base.remote_object_requester
     {
     }
     public static final String STARTING_EQUIPMENT_FILE = "datatables/equipment/newbie_equipment.iff";
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.rhanz_test");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnSpeaking(obj_id self, String text) throws InterruptedException
     {
         if (isGod(self))

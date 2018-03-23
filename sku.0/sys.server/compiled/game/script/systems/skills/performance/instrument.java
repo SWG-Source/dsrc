@@ -160,7 +160,7 @@ public class instrument extends script.base_script
         if (utils.hasScriptVar(self, "instrument.loc"))
         {
             location where = getLocationObjVar(self, "instrument.loc");
-            if (!where.equals(getLocation(self)))
+            if (where == null || !where.equals(getLocation(self)))
             {
                 if (hasObjVar(self, "instrument.owner"))
                 {

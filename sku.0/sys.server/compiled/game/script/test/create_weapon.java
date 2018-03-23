@@ -17,6 +17,13 @@ public class create_weapon extends script.base_script
     public create_weapon()
     {
     }
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 10 || !isPlayer(self)) {
+            detachScript(self, "test.create_weapon");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public void makeResource(obj_id self, String rclass) throws InterruptedException
     {
         obj_id[] rtypes = getResourceTypes(rclass);

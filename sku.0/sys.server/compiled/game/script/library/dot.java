@@ -763,7 +763,7 @@ public class dot extends script.base_script
         {
             absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_bleeding");
             vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_bleed");
-            if (isPlayer(target))
+            if (isPlayer(target) && protDic != null)
             {
                 resistance += protDic.getFloat("cold");
             }
@@ -779,7 +779,7 @@ public class dot extends script.base_script
         {
             absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_poison");
             vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_poison");
-            if (isPlayer(target))
+            if (isPlayer(target) && protDic != null)
             {
                 resistance += protDic.getFloat("acid");
             }
@@ -795,7 +795,7 @@ public class dot extends script.base_script
         {
             absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_disease");
             vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_disease");
-            if (isPlayer(target))
+            if (isPlayer(target) && protDic != null)
             {
                 resistance += protDic.getFloat("cold");
             }
@@ -811,7 +811,7 @@ public class dot extends script.base_script
         {
             absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_fire");
             vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_fire");
-            if (isPlayer(target))
+            if (isPlayer(target) && protDic != null)
             {
                 resistance += protDic.getFloat("heat");
             }
@@ -827,7 +827,7 @@ public class dot extends script.base_script
         {
             absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_acid");
             vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_acid");
-            if (isPlayer(target))
+            if (isPlayer(target) && protDic != null)
             {
                 resistance += protDic.getFloat("acid");
             }
@@ -843,7 +843,7 @@ public class dot extends script.base_script
         {
             absorption_mod += getEnhancedSkillStatisticModifier(target, "absorption_energy");
             vulnerability_mod += getEnhancedSkillStatisticModifierUncapped(target, "dot_vulnerability_energy");
-            if (isPlayer(target))
+            if (isPlayer(target) && protDic != null)
             {
                 resistance += protDic.getFloat("energy");
             }
@@ -2184,7 +2184,7 @@ public class dot extends script.base_script
         {
             return false;
         }
-        if (isIdValid(attacker) && isMob(attacker))
+        if (isIdValid(attacker) && isMob(attacker) && !target.equals(attacker))
         {
             addHate(target, attacker, 0.0f);
             addHate(attacker, target, 0.0f);
@@ -2678,7 +2678,8 @@ public class dot extends script.base_script
                 return false;
             }
             doDamage(caster, target, hit);
-            if (isIdValid(caster) && isIdValid(target) && exists(caster) && exists(target))
+            // Cekis: added check (!caster.equals(target)) to make sure caster doesn't start combat with itself (that would be dumb).
+            if (isIdValid(caster) && isIdValid(target) && exists(caster) && exists(target) && !caster.equals(target))
             {
                 startCombat(caster, target);
                 startCombat(target, caster);
@@ -2701,7 +2702,7 @@ public class dot extends script.base_script
             }
             if (!isPlayer(target))
             {
-                if (isIdValid(caster) && exists(caster))
+                if (isIdValid(caster) && exists(caster) && !target.equals(caster))
                 {
                     addHate(target, caster, strength);
                     addHate(caster, target, 0.0f);

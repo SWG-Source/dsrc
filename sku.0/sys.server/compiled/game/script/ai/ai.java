@@ -1009,6 +1009,12 @@ public class ai extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean hasLoot = loot.addLoot(self);
+        String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
+        if(goldenTicketActive != null && goldenTicketActive.equals("true")) {
+            for (obj_id killer : killers) {
+                loot.addGoldenTicket(killer, self);
+            }
+        }
         boolean hasChanceToDropChroniclesLoot = false;
         if (hasObjVar(self, xp.VAR_TOP_GROUP))
         {

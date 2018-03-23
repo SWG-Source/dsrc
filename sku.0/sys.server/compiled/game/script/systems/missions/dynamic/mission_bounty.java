@@ -620,9 +620,14 @@ public class mission_bounty extends script.systems.missions.base.mission_dynamic
             }
             else 
             {
-                location locDestination = locations.getBountyLocation(locSpawnLocation.area);
-                setObjVar(self, "locDestination", locDestination);
-                fltDelay = rand(100, 300);
+                if(isValidLocation(locSpawnLocation)) {
+                    location locDestination = locations.getBountyLocation(locSpawnLocation.area);
+                    setObjVar(self, "locDestination", locDestination);
+                    fltDelay = rand(100, 300);
+                }
+                else{
+                    return SCRIPT_CONTINUE;
+                }
             }
         }
         else 
