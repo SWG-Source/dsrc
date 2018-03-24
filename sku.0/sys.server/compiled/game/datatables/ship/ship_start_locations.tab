@@ -92,3 +92,4 @@ object/ship/player/player_gunship_rebel.iff		bridge	0	1.8	15.4
 		hall4	0	-3.5	-15.6
 		storage3	5.7	-3.5	-4.2
 		storage4	-5.7	-3.5	-4.2
+object/ship/player/player_havoc.iff	ship_gunner1

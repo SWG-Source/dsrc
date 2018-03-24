@@ -156,6 +156,9 @@ public class combat_ship extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
+        if(hasObjVar(self, "intPvPDamageOnly") && space_utils.isPlayerControlledShip(objAttacker) && !(pvpGetType(objAttacker) == PVPTYPE_DECLARED)){
+            return SCRIPT_CONTINUE;
+        }
         if (!isShipSlotTargetable(self, intTargetedComponent))
         {
             intTargetedComponent = space_combat.SHIP;
@@ -195,6 +198,13 @@ public class combat_ship extends script.base_script
             }
         }
         float fltDamage = space_combat.getShipWeaponDamage(objAttacker, self, intWeaponSlot, isMissile);
+
+        // scale back cap ship to cap ship damage for space gcw battles
+        if(hasScript(self, "systems.gcw.space.capital_ship") && hasScript(objAttacker, "systems.gcw.space.capital_ship")){
+            // scale damage down 50%
+            fltDamage = fltDamage * 0.25f;
+        }
+
         if (isIdValid(getPilotId(self)))
         {
             if (hasObjVar(getPilotId(self), "intCombatDebug"))
@@ -228,6 +238,10 @@ public class combat_ship extends script.base_script
             fltRemainingDamage = space_combat.doArmorDamage(objAttacker, self, intWeaponSlot, fltRemainingDamage, intSide);
             if (fltRemainingDamage > 0)
             {
+                // this case prevents a player from doing component or chassis damage during a space GCW fight.
+                if(space_utils.isPlayerControlledShip(objAttacker) && hasScript(self, "systems.gcw.space.capital_ship")){
+                    return SCRIPT_CONTINUE;
+                }
                 if (bossShip && !utils.hasScriptVar(self, "armorDepleted"))
                 {
                     messageTo(self, "armorDepleted", null, 0f, false);
@@ -351,15 +365,6 @@ public class combat_ship extends script.base_script
                 space_crafting.setupChassisDifferentiation(self);
             }
             space_combat.recalculateEfficiency(intSlots[intI], self);
-            if (currentSlotComponentType == ship_component_type.SCT_weapon)
-            {
-                int flags = getShipComponentFlags(self, intSlots[intI]);
-                boolean isBitSet = (flags & ship_component_flags.SCF_reverse_engineered) != 0;
-                if (isBitSet)
-                {
-                    space_crafting.recalculateFireRateFromSlot(player, self, intSlots[intI]);
-                }
-            }
         }
         return SCRIPT_CONTINUE;
     }
@@ -860,17 +865,6 @@ public class combat_ship extends script.base_script
             space_crafting.setupChassisDifferentiation(self);
         }
         space_pilot_command.allPurposeShipComponentReset(self);
-        int currentSlotComponentType = ship_chassis_slot_type.getComponentTypeForSlot(intSlot);
-        if (currentSlotComponentType == ship_component_type.SCT_weapon)
-        {
-            int flags = getShipComponentFlags(self, intSlot);
-            boolean isBitSet = (flags & ship_component_flags.SCF_reverse_engineered) != 0;
-            obj_id player = utils.getContainingPlayer(self);
-            if (isBitSet)
-            {
-                space_crafting.recalculateFireRateFromSlot(player, self, intSlot);
-            }
-        }
         return SCRIPT_CONTINUE;
     }
     public int OnShipFiredCountermeasure(obj_id self, int intWeaponIndex, obj_id objPlayer) throws InterruptedException

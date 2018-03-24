@@ -1226,3 +1226,12 @@ shd_taim_torton	object/tangible/ship/components/shield_generator/shd_taim_torton
 shd_moncal_ionweb_prototype_b	object/tangible/ship/components/shield_generator/shd_shd_moncal_ionweb_prototype_b.iff	object/tangible/ship/components/shield_generator/shared_shd_shd_moncal_ionweb_prototype_b.iff	shield	shd_0
 eng_t86_shooting_star	object/tangible/ship/components/engine/eng_t86_shooting_star.iff	object/tangible/ship/components/engine/shared_eng_t86_shooting_star.iff	engine	eng_0
 eng_kuat_m24	object/tangible/ship/components/engine/eng_kuat_m24.iff	object/tangible/ship/components/engine/shared_eng_kuat_m24.iff	engine	eng_0
+wpn_borstel_experimental	object/tangible/ship/crafted/weapon/wpn_borstel_experimental.iff	object/tangible/ship/crafted/weapon/shared_wpn_borstel_experimental.iff	weapon	wpn_0
+shd_cygnus_experimental	object/tangible/ship/components/shield_generator/shd_cygnus_experimental.iff	object/tangible/ship/components/shield_generator/shared_shd_cygnus_experimental.iff	shield	shd_0
+wpn_incom_experimental	object/tangible/ship/components/weapon/wpn_incom_experimental.iff	object/tangible/ship/components/weapon/shared_wpn_incom_experimental.iff	weapon	wpn_0
+eng_kuat_experimental	object/tangible/ship/components/engine/eng_kuat_experimental.iff	object/tangible/ship/components/engine/shared_eng_kuat_experimental.iff	engine	eng_0
+rct_kse_experimental	object/tangible/ship/components/reactor/rct_kse_experimental.iff	object/tangible/ship/components/reactor/shared_rct_kse_experimental.iff	reactor	rct_0
+rct_cygnus_experimental	object/tangible/ship/components/reactor/rct_cygnus_experimental.iff	object/tangible/ship/components/reactor/shared_rct_cygnus_experimental.iff	reactor	rct_0
+adv_mandal_armor_plating	object/tangible/ship/crafted/armor/adv_mandal_armor_plating.iff	object/tangible/ship/crafted/armor/shared_adv_mandal_armor_plating.iff	armor	arm_0
+fusion_reactor_mandal	object/tangible/ship/crafted/reactor/fusion_reactor_mandal.iff	object/tangible/ship/crafted/reactor/shared_fusion_reactor_mandal.iff	reactor	rct_0
+eng_reward_experimental	object/tangible/ship/crafted/engine/eng_reward_experimental.iff	object/tangible/ship/crafted/engine/shared_eng_reward_experimental.iff	engine	eng_0

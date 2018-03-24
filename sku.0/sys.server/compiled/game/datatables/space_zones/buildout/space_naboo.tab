@@ -1143,3 +1143,4 @@ object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.229852	0.8
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.271674	0.896994	0.348704	0.569279	0.142360	-0.809726	371.17	1057.37	-1805.24	strName|4|commerce_route_1_02|$|	
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.271674	0.896994	0.348704	0.569279	0.142360	-0.809726	785.85	1161.08	-2395.07	strName|4|commerce_route_1_03|$|	
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.271674	0.896994	0.348704	0.569279	0.142360	-0.809726	987.24	1211.45	-2681.53	strName|4|commerce_route_1_04|$|	
+object/tangible/space/content_infrastructure/space_gcw_battle_point.iff	0.484332	-0.747792	-0.454126	0.016503	0.526786	-0.849838	-5032.0	-3958.0	4345.0	strName|4|naboo_gcw_battle|$|

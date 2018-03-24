@@ -595,3 +595,4 @@ object/tangible/space/content_infrastructure/basic_patrol_point.iff	-0.202991	0.
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	-0.202991	0.965038	0.165820	-0.961370	-0.228573	0.153372	1488.72	1562.78	-3194.32	strName|4|rebel_gunboat_patrol_03_03|$|	
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	-0.202991	0.965038	0.165820	-0.961370	-0.228573	0.153372	48.72	7162.78	-5626.32	strName|4|rebel_gunboat_patrol_03_04|$|	
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	-0.202991	0.965038	0.165820	-0.961370	-0.228573	0.153372	-2863.28	5850.78	-5738.32	strName|4|rebel_gunboat_patrol_03_05|$|	
+object/tangible/space/content_infrastructure/space_gcw_battle_point.iff	0.484332	-0.747792	-0.454126	0.016503	0.526786	-0.849838	1200.0	3000.0	5500.0	strName|4|corellian_gcw_battle|$|

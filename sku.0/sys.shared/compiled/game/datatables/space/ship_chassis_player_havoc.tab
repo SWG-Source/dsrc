@@ -1,0 +1,303 @@
+component	engine	weapon_0	weapon_1	weapon_2
+s	s	s	s	s
+eng_bezelbok_kessel_runner	havoc_engine_s01:			
+eng_corellian_cruiser_grade_mk1	havoc_engine_s01:			
+eng_corellian_cruiser_grade_mk2	havoc_engine_s01:			
+eng_corellian_deluxe_cruiser_grade_mk1	havoc_engine_s01:			
+eng_crafted_incom_fusialthrust	havoc_engine_s01:			
+eng_crafted_novaldex_eventhorizon	havoc_engine_s01:			
+eng_crafted_qualdex_kyromaster	havoc_engine_s01:			
+eng_cygnus_hd3	havoc_engine_s01:			
+eng_cygnus_hd7	havoc_engine_s01:			
+eng_cygnus_hd8	havoc_engine_s01:			
+eng_cygnus_hd_5	havoc_engine_s01:			
+eng_cygnus_hdx	havoc_engine_s01:			
+eng_damorian_rx7	havoc_engine_s01:			
+eng_freitek_dual_jet	havoc_engine_s01:			
+eng_gallofree_advanced	havoc_engine_s01:			
+eng_gallofree_jx2	havoc_engine_s01:			
+eng_gallofree_jx3	havoc_engine_s01:			
+eng_h17_singularity	havoc_engine_s01:			
+eng_haor_chall_old_engine	havoc_engine_s01:			
+eng_incom_advanced	havoc_engine_s01:			
+eng_incom_advanced_fusialthrust	havoc_engine_s01:			
+eng_incom_e16	havoc_engine_s01:			
+eng_incom_elite	havoc_engine_s01:			
+eng_incom_fusialthrust	havoc_engine_s01:			
+eng_incom_fusialthrust_2	havoc_engine_s01:			
+eng_incom_heavy_fusialthrust	havoc_engine_s01:			
+eng_incom_improved_fusialthrust_2	havoc_engine_s01:			
+eng_incom_light_fusialthrust	havoc_engine_s01:			
+eng_koensayr_advanced	havoc_engine_s01:			
+eng_koensayr_dual_small_ionjet	havoc_engine_s01:			
+eng_koensayr_elite	havoc_engine_s01:			
+eng_koensayr_enhanced_dual_small_ionjet	havoc_engine_s01:			
+eng_koensayr_heavy_ionjet	havoc_engine_s01:			
+eng_koensayr_ionjet	havoc_engine_s01:			
+eng_koensayr_small_ionjet	havoc_engine_s01:			
+eng_koensayr_tuned_small_ionjet	havoc_engine_s01:			
+eng_kongar_defender	havoc_engine_s01:			
+eng_kse_a2x	havoc_engine_s01:			
+eng_kse_a5x	havoc_engine_s01:			
+eng_kse_a7x	havoc_engine_s01:			
+eng_kse_a8x	havoc_engine_s01:			
+eng_kse_advanced	havoc_engine_s01:			
+eng_kse_elite	havoc_engine_s01:			
+eng_kse_improved_a2x	havoc_engine_s01:			
+eng_kuat_a9x	havoc_engine_s01:			
+eng_kuat_f31	havoc_engine_s01:			
+eng_kuat_tc40	havoc_engine_s01:			
+eng_mandal_advanced	havoc_engine_s01:			
+eng_mandal_elite	havoc_engine_s01:			
+eng_mandal_enhanced_heavy	havoc_engine_s01:			
+eng_mandal_firestorm	havoc_engine_s01:			
+eng_mandal_firestorm_2	havoc_engine_s01:			
+eng_mandal_heavy	havoc_engine_s01:			
+eng_mandal_x37_vandal	havoc_engine_s01:			
+eng_mandal_x57_vandal	havoc_engine_s01:			
+eng_mission_reward_imperial_cygnus_megadrive	havoc_engine_s01:			
+eng_mission_reward_neutral_haor_chall_military	havoc_engine_s01:			
+eng_mission_reward_neutral_mandal_inferno	havoc_engine_s01:			
+eng_mission_reward_rebel_incom_military	havoc_engine_s01:			
+eng_mk1	havoc_engine_s01:			
+eng_mk2	havoc_engine_s01:			
+eng_mk3	havoc_engine_s01:			
+eng_mk4	havoc_engine_s01:			
+eng_mk5	havoc_engine_s01:			
+eng_moncal_charged_standard	havoc_engine_s01:			
+eng_moncal_enhanced_light	havoc_engine_s01:			
+eng_moncal_heavy	havoc_engine_s01:			
+eng_moncal_ifs32	havoc_engine_s01:			
+eng_moncal_ifs64	havoc_engine_s01:			
+eng_moncal_improved_heavy	havoc_engine_s01:			
+eng_moncal_light	havoc_engine_s01:			
+eng_moncal_standard	havoc_engine_s01:			
+eng_novaldex_advanced	havoc_engine_s01:			
+eng_novaldex_eventhorizon	havoc_engine_s01:			
+eng_novaldex_light_eventhorizon	havoc_engine_s01:			
+eng_novaldex_singularity	havoc_engine_s01:			
+eng_novaldex_x12	havoc_engine_s01:			
+eng_novaldex_x6	havoc_engine_s01:			
+eng_novaldex_x7	havoc_engine_s01:			
+eng_novaldex_x9	havoc_engine_s01:			
+eng_nubian_221	havoc_engine_s01:			
+eng_nubian_221_racing_mod	havoc_engine_s01:			
+eng_prototype	havoc_engine_s01:			
+eng_qualdex_a10	havoc_engine_s01:			
+eng_qualdex_a13	havoc_engine_s01:			
+eng_qualdex_advanced	havoc_engine_s01:			
+eng_qualdex_b10	havoc_engine_s01:			
+eng_qualdex_elite	havoc_engine_s01:			
+eng_qualdex_igt	havoc_engine_s01:			
+eng_qualdex_kyromaster	havoc_engine_s01:			
+eng_qualdex_small_kyromaster	havoc_engine_s01:			
+eng_quantum_ion_drive	havoc_engine_s01:			
+eng_rendili_demon_mk1	havoc_engine_s01:			
+eng_rendili_elite	havoc_engine_s01:			
+eng_rss_advanced	havoc_engine_s01:			
+eng_rss_elite	havoc_engine_s01:			
+eng_rss_imperial_skyrunner	havoc_engine_s01:			
+eng_rss_imperial_skyrunner_2	havoc_engine_s01:			
+eng_rss_imperial_skyrunner_3	havoc_engine_s01:			
+eng_rss_imperial_skyrunner_4	havoc_engine_s01:			
+eng_sds_imperial_1	havoc_engine_s01:			
+eng_sds_imperial_2	havoc_engine_s01:			
+eng_sds_limited_imperial_1	havoc_engine_s01:			
+eng_seinar_ps56	havoc_engine_s01:			
+eng_sfs_advanced	havoc_engine_s01:			
+eng_sfs_elite	havoc_engine_s01:			
+eng_sfs_imperial_1	havoc_engine_s01:			
+eng_sfs_imperial_2	havoc_engine_s01:			
+eng_sfs_imperial_3	havoc_engine_s01:			
+eng_sfs_imperial_4	havoc_engine_s01:			
+eng_sfs_imperial_5	havoc_engine_s01:			
+eng_sfs_modified_imperial_3	havoc_engine_s01:			
+eng_sfs_performance_imperial_1	havoc_engine_s01:			
+eng_sfs_tuned_imperial_2	havoc_engine_s01:			
+eng_sorosuub_l_337_ion_engine	havoc_engine_s01:			
+eng_sorosuub_tuned_l_337_ion_engine	havoc_engine_s01:			
+eng_sorosuub_u83r_ion_drive	havoc_engine_s01:			
+eng_subpro_light_engines	havoc_engine_s01:			
+eng_surronian_a2	havoc_engine_s01:			
+eng_surronian_a25	havoc_engine_s01:			
+eng_ubrikkian_n2	havoc_engine_s01:			
+eng_reward_kuat_elite	havoc_engine_s01:			
+eng_nova_01	havoc_engine_s01:			
+eng_orion_01	havoc_engine_s01:			
+collection_reward_engine_01_mk1	havoc_engine_s01:			
+collection_reward_engine_01_mk2	havoc_engine_s01:			
+collection_reward_engine_01_mk3	havoc_engine_s01:			
+collection_reward_engine_01_mk4	havoc_engine_s01:			
+collection_reward_engine_01_mk5	havoc_engine_s01:			
+eng_t86_shooting_star	havoc_engine_s01:			
+eng_kuat_m24	havoc_engine_s01:			
+eng_kuat_experimental	havoc_engine_s01:			
+eng_reward_experimental	havoc_engine_s01:			
+wpn_advanced_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_advanced_blaster_green		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_advanced_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_advanced_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_armek_advanced		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_armek_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_armek_sw4		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_armek_sw6		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_armek_sw7		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_armek_sw8		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_awing_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_bwing_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_corellian_1d		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_corellian_ag1g_laser		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_corellian_ag2g_quad_laser		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_corellian_cruiser_grade_blaster_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_corellian_heavy_gauss		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_crafted_incom_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_crafted_slayn_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_crafted_subpro_tripleblaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_crafted_tractor_beam		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_cygnus_destroyer_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_cygnus_destroyer_mk2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_cygnus_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_cygnus_eradicator_1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_experimental_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_experimental_blaster_green		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_experimental_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_experimental_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_fastspray_2000_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_freitek_cannoneer_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_gyrhil_auto_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_gyrhil_r9x		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_haor_chall_speedblaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_heavy_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_heavy_blaster_green		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_heavy_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_heavy_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_hk_modified_scorcher_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_hk_scorcher		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_hk_scorcher_2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_hk_scorcher_3		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_hk_scorcher_advanced		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_hk_scorcher_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_hk_scorcher_heavy		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_hoersch_railgun		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_advanced_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_elite_quad_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_heavy_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_heavy_quad_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_light_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_quad_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_shredder		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_tt13		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_incom_tt8		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kdy_pounder_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_koensayr_deluxe_ion_accelerator		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_koensayr_ion_accelerator		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_koensayr_ion_accelerator_2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_koensayr_ion_accelerator_3		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_koensayr_ion_accelerator_advanced		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_koensayr_light_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_koensayr_tuned_light_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kse_double_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kse_light_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_light_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_light_blaster_green		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_light_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_light_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_advanced_annihilator		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_annihilator_mk2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_annilhator_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_elite_annihilator		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_enhanced_mangler_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_heavy_annihilator		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_mangler_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_qv3_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_qv5_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mandal_super_mangler		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_medium_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_medium_blaster_green		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_medium_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_medium_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mining_laser_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mining_laser_mk2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mining_laser_mk3		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mission_reward_imperial_cygnus_starblaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mission_reward_imperial_sds_boltdriver		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mission_reward_neutral_borstel_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mission_reward_neutral_hk_military_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mission_reward_neutral_mandal_light_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mission_reward_rebel_incom_tricannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_mission_reward_rebel_taim_ion_driver		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_moncal_light_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_prototype_tie		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_rendili_advanced		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_rendili_fr13_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_rendili_fr9_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_rendili_sc3_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_rendili_sc8_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_rss_imperial_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sds_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sds_heavy_imperial_spc_forces_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sds_imperial_blaster_1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sds_imperial_blaster_2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sds_imperial_special_forces_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sds_modified_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_seinar_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_seinar_ion_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_seinar_linked_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_seinar_ls1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_seinar_ls72		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sfs_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sfs_imperial_blaster_1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sfs_imperial_blaster_2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sfs_imperial_blaster_3		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sfs_imperial_blaster_4		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sfs_imperial_special_forces_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_sfs_improved_imperial_blaster_2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_slayn_deluxe_light_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_slayn_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_slayn_light_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_subpro_advanced_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_subpro_improved_light_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_subpro_light_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_subpro_modified_tricannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_subpro_tricannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_subpro_tripleblaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_subpro_tripleblaster_mark2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_subpro_tripleblaster_mark3		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_taim_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_taim_heavy_laser		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_taim_ix4		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_taim_ix5		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_taim_kx5		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_taim_kx8		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_taim_kx9		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_tieadvanced_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_tractor_beam_gun		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_tractor_pulse_gun		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_trandoshan_fg1a		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_vengeance_ion_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_vulcan_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_z95_blaster		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_heavy_ionic_pulse_weapon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_crafted_mining_laser_mk1		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_crafted_mining_laser_mk2		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_crafted_mining_laser_mk3		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_crafted_mining_laser_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_prototype		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_ionic_pulse_weapon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_reward_seinar_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kessel_imperial_rendili_prototype_x		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kessel_imperial_sds_experimental_secret_ops		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kessel_imperial_sfs_elite_ops		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kessel_rebel_incom_dualcore_flashcannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kessel_rebel_riiz_combine_slammer_cannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_kessel_rebel_unknown_rayslinger		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_reward_incom_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_reward_seinar_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_reward_slayn_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_reward_subpro_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_reward_taim_elite		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_nova_ioncannon		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_orion_disruptor		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2
+wpn_borstel_experimental		havoc_weapon_s01:weapon1	havoc_turret_s02:turretyaw1	havoc_weapon_s02:weapon2

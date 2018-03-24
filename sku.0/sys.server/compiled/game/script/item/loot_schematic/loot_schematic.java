@@ -82,7 +82,7 @@ public class loot_schematic extends script.base_script
         if (hasObjVar(self, VAR_SCHEMATIC) && !static_item.isStaticItem(self))
         {
             String schemGranted = getStringObjVar(self, VAR_SCHEMATIC);
-            if (schemGranted.indexOf("weapon") > -1 && schemGranted.indexOf("component") < 0)
+            if (schemGranted.contains("weapon") && !schemGranted.contains("component"))
             {
                 if (schemGranted.indexOf("appearance") < 0)
                 {

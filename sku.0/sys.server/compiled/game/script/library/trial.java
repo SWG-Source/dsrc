@@ -277,7 +277,9 @@ public class trial extends script.base_script
         "item_pgc_token_03",
         "item_gcw_rebel_token",
         "item_gcw_imperial_token",
-        "item_token_duty_space_01_01"
+        "item_token_duty_space_01_01",
+        "item_imperial_station_token_01_01",
+        "item_rebel_station_token_01_01"
     };
     public static final int NUM_HEROIC_TOKEN_TYPES = 20;
     public static final String KIMARU_HATE_LIST = "kimaru_hate_list";

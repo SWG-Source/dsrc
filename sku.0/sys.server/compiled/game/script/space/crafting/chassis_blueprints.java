@@ -1,16 +1,8 @@
 package script.space.crafting;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_crafting;
 import script.library.space_utils;
 import script.library.utils;
+import script.obj_id;
 
 public class chassis_blueprints extends script.base_script
 {
@@ -45,7 +37,15 @@ public class chassis_blueprints extends script.base_script
         if (hasObjVar(self, "shiptype"))
         {
             names[idx] = "pilotSkillRequired";
-            attribs[idx] = getSkillRequiredForShip(self);
+            attribs[idx] = space_utils.getSkillRequiredForShip(self);
+            idx++;
+        }
+        names[idx] = "ship_assembly_n";
+        String text = " \\#pcontrast2 " + "$@obj_attr_n:ship_assembly_d$" + " \\# ";
+        attribs[idx] = text;
+        return SCRIPT_CONTINUE;
+    }
+}
             idx++;
         }
         names[idx] = "ship_assembly_n";

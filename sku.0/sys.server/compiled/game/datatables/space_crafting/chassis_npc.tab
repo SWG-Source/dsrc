@@ -41,3 +41,7 @@ gunship_rebel	1000000	Rebel Gunship	pilot_rebel_navy_master
 gunship_neutral	1000000	Neutral Gunship	pilot_neutral_master
 gunship_imperial	1000000	Imperial Gunship	pilot_imperial_navy_master
 naboo_n1	75000	Naboo N-1	pilot_neutral_starships_04
+tiedefender	100000	TIE Defender	pilot_imperial_navy_master
+havoc	75000	Havoc Starfighter	pilot_neutral_starships_04
+twing	75000	T-Wing	pilot_rebel_navy_starships_03
+blacksun_vaksai_s02 75000   Blacksun Heavy Vaksai   pilot_neutral_starships_04

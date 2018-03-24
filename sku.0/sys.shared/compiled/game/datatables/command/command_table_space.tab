@@ -14,43 +14,44 @@ iffscramble		normal	cmdIffScramble					iffscramble																														
 droid		front	droid																																																										0	1							2		astromech				astromech											
 lootAll		immediate	lootAll																																																																optional																			
 serverAsteroidDataListen		normal			serverAsteroidDataListen																																																														none							5												
-serverAsteroidDataStopListening		normal			serverAsteroidDataStopListening																																																														none							5	
-disableTarget		immediate	disableTarget					admin																																																																			
-destroyTarget		immediate	destroyTarget					admin																																																																			
-sendFormObjectData		normal			sendFormObjectData																																																														optional							5	
-waypoint		normal	cmdSpaceWaypoint																									1	1																			0												1							optional		2						
-wp		normal	cmdSpaceWaypoint																									1	1																			0												1							optional		2						
-inspacerepair		normal	cmdInSpaceRepair					inspacerepair																																																				1	0	1	0	0			optional		2		ship				ship
-lightEngineScramble		normal	cmdLightEngineScramble					lightEngineScramble																																																				1	0	1	0	0			optional		2		ship				ship
-hyperspace		normal	hyperspaceToHyperspacePoint																																																										1	0	0	0			none				ship				ship
-aborthyperspace		normal	abortHyperspace																																																										1	0	0	0			none				ship				ship
-eweapons		normal	cmdEmergencyWeapons					eweapons																																																				1	0	1	0	0			optional		2		ship				ship
-eshields		normal	cmdEmergencyShields					eshields																																																				1	0	1	0	0			optional		2		ship				ship
-ethrust		normal	cmdEmergencyThrust					ethrust																																																				1	0	1	0	0			optional		2		ship				ship
-vrepair		normal	cmdVampiricRepair					vrepair																																																				1	0	1	0	0			optional		2		ship				ship
-bstrike1		normal	cmdLightBomberStrike					bstrike1																																																				1	0	1	0	0			optional		2		ship				ship
-bstrike2		normal	cmdMediumBomberStrike					bstrike2																																																				1	0	1	0	0			optional		2		ship				ship
-bstrike3		normal	cmdHeavyBomberStrike					bstrike3																																																				1	0	1	0	0			optional		2		ship				ship
-ptrap1		normal	cmdPirateLure					ptrap1																																																				1	0	1	0	0			optional		2		ship				ship
-ptrap2		normal	cmdPirateLureAdvanced					ptrap2																																																				1	0	1	0	0			optional		2		ship				ship
-epulse1		normal	cmdEnergyPulseOne					epulse1																																																				1	0	1	0	0			optional		2		ship				ship
-epulse2		normal	cmdEnergyPulseTwo					epulse2																																																				1	0	1	0	0			optional		2		ship				ship
-epulse3		normal	cmdEnergyPulseThree					epulse3																																																				1	0	1	0	0			optional		2		ship				ship
-nblast		normal	cmdNebulaBlast					nblast																																																				1	0	1	0	0			optional		2		ship				ship
-vrepairother		normal	cmdVampiricRepairOther					vrepairother																																																				1	0	1	0	0			optional		2		ship				ship
-undock		immediate			undock																										0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	0	0	0			none		3		ship				ship
-jstart1		normal	cmdJstartOne					jstart1																																																				1	0	1	0	0			optional		2		ship				ship
-jstart2		normal	cmdJstartTwo					jstart2																																																				1	0	1	0	0			optional		2		ship				ship
-jstart3		normal	cmdJstartThree					jstart3																																																				1	0	1	0	0			optional		2		ship				ship
-taunt		normal	spaceTaunt																																																									1	0	0	0	0											
-escapePod		normal	escapePod																																																									1	0	0	1	1											
-inspacereload		normal	cmdInSpaceReload					inspacereload																																																				1	0	1	0	0			optional		2		ship				ship
-inspacerr		normal	cmdInSpaceRepairAndReload					inspacerr																																																				1	0	1	0	0			optional		2		ship				ship
-requestSpaceTrainer		normal	requestSpaceTrainer																																																									1	0	0	0	1											
-kickFromShip		normal			kickFromShip																																																							1	0	0	0	1			required				ship				ship
-requestInstance		normal	requestInstance																									1	1		0																																												
-spacepvprebel		normal	cmdSpacepvprebel					spacepvprebel																																																				1	1	0	0	0			optional		2		ship				ship
-spacepvpimperial		normal	cmdSpacepvpimperial					spacepvpimperial																																																				1	1	0	0	0			optional		2		ship				ship
-spacerebelhelper		normal	cmdSpaceRebelHelper					spacerebelhelper																																																				1	1	0	0	0			optional		2		ship				ship
-spaceimperialhelper		normal	cmdSpaceImperialHelper					spaceimperialhelper																																																				1	1	0	0	0			optional		2		ship				ship
-spacefaction		normal	cmdSpaceFaction					spacefaction																																																				1	1	1	1	1			optional		2		ship				ship
+serverAsteroidDataStopListening		normal			serverAsteroidDataStopListening																																																														none							5												
+disableTarget		immediate	disableTarget					admin																																																																														
+destroyTarget		immediate	destroyTarget					admin																																																																														
+sendFormObjectData		normal			sendFormObjectData																																																														optional							5												
+waypoint		normal	cmdSpaceWaypoint																									1	1																			0												1							optional		2																	
+wp		normal	cmdSpaceWaypoint																									1	1																			0												1							optional		2																	
+inspacerepair		normal	cmdInSpaceRepair					inspacerepair																																																				1	0	1	0	0			optional		2		ship				ship											
+lightEngineScramble		normal	cmdLightEngineScramble					lightEngineScramble																																																				1	0	1	0	0			optional		2		ship				ship											
+hyperspace		normal	hyperspaceToHyperspacePoint																																																										1	0	0	0			none				ship				ship											
+aborthyperspace		normal	abortHyperspace																																																										1	0	0	0			none				ship				ship											
+eweapons		normal	cmdEmergencyWeapons					eweapons																																																				1	0	1	0	0			optional		2		ship				ship											
+eshields		normal	cmdEmergencyShields					eshields																																																				1	0	1	0	0			optional		2		ship				ship											
+ethrust		normal	cmdEmergencyThrust					ethrust																																																				1	0	1	0	0			optional		2		ship				ship											
+vrepair		normal	cmdVampiricRepair					vrepair																																																				1	0	1	0	0			optional		2		ship				ship											
+bstrike1		normal	cmdLightBomberStrike					bstrike1																																																				1	0	1	0	0			optional		2		ship				ship											
+bstrike2		normal	cmdMediumBomberStrike					bstrike2																																																				1	0	1	0	0			optional		2		ship				ship											
+bstrike3		normal	cmdHeavyBomberStrike					bstrike3																																																				1	0	1	0	0			optional		2		ship				ship											
+ptrap1		normal	cmdPirateLure					ptrap1																																																				1	0	1	0	0			optional		2		ship				ship											
+ptrap2		normal	cmdPirateLureAdvanced					ptrap2																																																				1	0	1	0	0			optional		2		ship				ship											
+epulse1		normal	cmdEnergyPulseOne					epulse1																																																				1	0	1	0	0			optional		2		ship				ship											
+epulse2		normal	cmdEnergyPulseTwo					epulse2																																																				1	0	1	0	0			optional		2		ship				ship											
+epulse3		normal	cmdEnergyPulseThree					epulse3																																																				1	0	1	0	0			optional		2		ship				ship											
+nblast		normal	cmdNebulaBlast					nblast																																																				1	0	1	0	0			optional		2		ship				ship											
+vrepairother		normal	cmdVampiricRepairOther					vrepairother																																																				1	0	1	0	0			optional		2		ship				ship											
+undock		immediate			undock																										0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	0	0	0			none		3		ship				ship											
+jstart1		normal	cmdJstartOne					jstart1																																																				1	0	1	0	0			optional		2		ship				ship											
+jstart2		normal	cmdJstartTwo					jstart2																																																				1	0	1	0	0			optional		2		ship				ship											
+jstart3		normal	cmdJstartThree					jstart3																																																				1	0	1	0	0			optional		2		ship				ship											
+taunt		normal	spaceTaunt																																																									1	0	0	0	0																						
+escapePod		normal	escapePod																																																									1	0	0	1	1																						
+inspacereload		normal	cmdInSpaceReload					inspacereload																																																				1	0	1	0	0			optional		2		ship				ship											
+inspacerr		normal	cmdInSpaceRepairAndReload					inspacerr																																																				1	0	1	0	0			optional		2		ship				ship											
+requestSpaceTrainer		normal	requestSpaceTrainer																																																									1	0	0	0	1																						
+kickFromShip		normal			kickFromShip																																																							1	0	0	0	1			required				ship				ship											
+requestInstance		normal	requestInstance																									1	1		0																																																							
+spacepvprebel		normal	cmdSpacepvprebel					spacepvprebel																																																				1	1	0	0	0			optional		2		ship				ship											
+spacepvpimperial		normal	cmdSpacepvpimperial					spacepvpimperial																																																				1	1	0	0	0			optional		2		ship				ship											
+spacerebelhelper		normal	cmdSpaceRebelHelper					spacerebelhelper																																																				1	1	0	0	0			optional		2		ship				ship											
+spaceimperialhelper		normal	cmdSpaceImperialHelper					spaceimperialhelper																																																				1	1	0	0	0			optional		2		ship				ship											
+spacefaction		normal	cmdSpaceFaction					spacefaction																																																				1	1	1	1	1			optional		2		ship				ship											
+spacebattlestatus		normal	cmdBattleStatus					spacebattlestatus																				0	0																							0								1	1	1	1	1			optional		2		ship				ship											

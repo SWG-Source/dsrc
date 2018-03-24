@@ -681,3 +681,4 @@ object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.075949	0.9
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.451617	0.892205	0.003489	-0.846408	0.427192	0.317964	1272.35	-6135.08	-7037.98	strName|4|trade_fed_station_patrol_12|$|	
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.509398	0.860225	-0.022960	-0.744418	0.453892	0.489719	436.41	-5653.30	-6579.18	strName|4|trade_fed_station_patrol_13|$|	
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.528843	0.848108	-0.032223	-0.726480	0.471978	0.499463	-1373.58	-4465.47	-5356.12	strName|4|trade_fed_station_patrol_14|$|	
+object/tangible/space/content_infrastructure/space_gcw_battle_point.iff	0.484332	-0.747792	-0.454126	0.016503	0.526786	-0.849838	2933.0	473.0	-1450.0	strName|4|karthak_gcw_battle|$|

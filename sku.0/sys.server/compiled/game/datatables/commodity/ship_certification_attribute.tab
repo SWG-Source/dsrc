@@ -1244,3 +1244,7 @@ object/tangible/ship/crafted/weapon/wpn_medium_disruptor.iff	@cmd_n:cert_ordnanc
 object/tangible/ship/crafted/weapon/wpn_medium_ioncannon.iff	@cmd_n:cert_ordnance_level3
 object/tangible/ship/crafted/weapon/wpn_nova_ioncannon.iff	@cmd_n:cert_ordnance_level5
 object/tangible/ship/crafted/weapon/wpn_orion_disruptor.iff	@cmd_n:cert_ordnance_level5
+object/tangible/ship/crafted/weapon/wpn_borstel_experimental.iff	@cmd_n:cert_ordnance_level7
+object/tangible/ship/crafted/engine/eng_reward_experimental.iff	@cmd_n:cert_ordnance_level9
+object/tangible/ship/crafted/armor/adv_mandal_armor_plating.iff	@cmd_n:cert_ordnance_level7
+object/tangible/ship/crafted/reactor/fusion_reactor_mandal.iff	@cmd_n:cert_ordnance_level7

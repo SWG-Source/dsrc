@@ -1,0 +1,16 @@
+@base object/creature/npc/base/shared_base_npc_theme_park.iff
+
+@class creature_object_template 13
+
+@class tangible_object_template 10
+
+@class object_template 10
+
+objectName = "npc_name" "lando_n"
+
+lookAtText = "npc_lookat" "yoda_d"
+appearanceFilename = "appearance/lando.sat"
+portalLayoutFilename = ""
+clientDataFile = "clientdata/npc/client_shared_npc_lando.cdf"
+
+

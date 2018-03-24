@@ -1,0 +1,17 @@
+
+@base object/ship/base/shared_ship_fighter_base.iff
+
+@class ship_object_template 4
+
+@class tangible_object_template 10
+
+@class object_template 10
+
+objectName = "" "twing_n"
+detailedDescription = ""  "twing_d"
+lookAtText = ""  "xwing swg-se test"
+
+appearanceFilename = "appearance/twing_body.apt"
+
+clientDataFile = "clientData/ship/client_shared_twing.cdf"
+

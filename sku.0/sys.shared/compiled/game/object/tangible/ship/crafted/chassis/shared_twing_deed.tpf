@@ -1,0 +1,15 @@
+@base object/tangible/ship/crafted/chassis/shared_base_deed.iff
+
+@class tangible_object_template 10
+
+@class object_template 10
+clearFloraRadius = 0
+
+objectName = "space_crafting_n" "twing_deed"
+detailedDescription = "space_crafting_d" "twing_deed"
+containerType = CT_none
+appearanceFilename = "appearance/eqp_comp_chassis_deed.apt"
+portalLayoutFilename = ""
+clientDataFile = ""
+
+

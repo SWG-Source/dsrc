@@ -1,19 +1,13 @@
 package script.space.crafting;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.space_crafting;
-import script.library.player_structure;
-import script.library.utils;
-import script.library.create;
 import script.library.space_transition;
 import script.library.space_utils;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class chassis_deed extends script.base_script
 {
@@ -57,7 +51,7 @@ public class chassis_deed extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (hasObjVar(self, "ship_chassis.multifactional") && getBooleanObjVar(self, "ship_chassis.multifactional") == true)
+        if (hasObjVar(self, "ship_chassis.multifactional") && getBooleanObjVar(self, "ship_chassis.multifactional"))
         {
             if (type.equals("vwing"))
             {
@@ -75,7 +69,7 @@ public class chassis_deed extends script.base_script
         else 
         {
             names[idx] = "pilotSkillRequired";
-            attribs[idx] = getSkillRequiredForShip(self, type);
+            attribs[idx] = space_utils.getSkillRequiredForShip(type);
             idx++;
         }
         names[idx] = "chassisHitpoints";
@@ -83,7 +77,6 @@ public class chassis_deed extends script.base_script
         idx++;
         names[idx] = "chassisMass";
         attribs[idx] = Float.toString(mass);
-        idx++;
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
@@ -93,10 +86,6 @@ public class chassis_deed extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int mnuColor = mi.addRootMenu(menu_info_types.SERVER_MENU1, MNU_CREATE_VEHICLE);
-        if (mnuColor > -1 && ((getContainedBy(self) != getOwner(self)) || isGod(player)))
-        {
-            String template = utils.getTemplateFilenameNoPath(self);
-        }
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
@@ -105,7 +94,7 @@ public class chassis_deed extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        String template = utils.getTemplateFilenameNoPath(self);
+
         if (item == menu_info_types.SERVER_MENU1)
         {
             obj_id datapad = utils.getDatapad(player);
@@ -132,6 +121,17 @@ public class chassis_deed extends script.base_script
                     return SCRIPT_CONTINUE;
                 }
                 CustomerServiceLog("ship_deed", "PLAYER: " + player + "(" + getPlayerName(player) + ") created SHIP: " + newShip + " from DEED:" + self + " which provided the Ship Type: " + type + " MASS: " + mass + " MAX CHASSIS HP: " + hp + " and CURRENT CHASSIS HP: " + currentHp);
+                return SCRIPT_CONTINUE;
+            }
+            else 
+            {
+                utils.removeScriptVar(self, "chassis_deed.inUse");
+            }
+            space_transition.handlePotentialSceneChange(player);
+        }
+        return SCRIPT_CONTINUE;
+    }
+}
                 return SCRIPT_CONTINUE;
             }
             else 

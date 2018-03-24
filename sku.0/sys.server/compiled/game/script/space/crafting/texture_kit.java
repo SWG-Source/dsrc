@@ -146,11 +146,15 @@ public class texture_kit extends script.base_script
                 if (utils.getContainingPlayer(shipId) == player && isIdValid(shipId))
                 {
                     String index = "/shared_owner/index_texture_1";
-                    hue.setRangedIntCustomVar(shipId, index, texture);
-                    string_id message = new string_id(STF, "changed_paint_job");
-                    sendSystemMessage(player, message);
-                    destroyObject(self);
-                    utils.removeScriptVar(self, "paint_kit.inuse");
+                    if(hue.setRangedIntCustomVar(shipId, index, texture)) {
+                        string_id message = new string_id(STF, "changed_paint_job");
+                        sendSystemMessage(player, message);
+                        destroyObject(self);
+                    }
+                    else{
+                        sendSystemMessage(player, "Sorry, we were unable to paint this ship.", null);
+                        utils.removeScriptVar(self, "paint_kit.inuse");
+                    }
                 }
                 return SCRIPT_CONTINUE;
             }

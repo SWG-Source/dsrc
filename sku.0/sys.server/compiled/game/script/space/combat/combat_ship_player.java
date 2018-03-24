@@ -2,6 +2,8 @@ package script.space.combat;
 
 import script.*;
 import script.library.*;
+import script.systems.gcw.space.battle_controller;
+import script.systems.gcw.space.battle_spawner;
 
 import java.util.Iterator;
 import java.util.Vector;
@@ -2670,11 +2672,85 @@ public class combat_ship_player extends script.base_script
         messageTo(self, "spaceImperialHelper", null, 0, false);
         return SCRIPT_CONTINUE;
     }
+    public int cmdBattleStatus(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        String[] args = params.split(" ");
+        if(args.length > 1){
+            sendSystemMessage(self, "Please specify only one space zone to provide status for.", null);
+            return SCRIPT_CONTINUE;
+        }
+        else if(args.length == 1 && args[0].length() >= 3) {
+            sendSpaceBattleStatusMessage(self, args[0].toLowerCase());
+        }
+        else{
+            sendSpaceBattleStatusMessage(self, null);
+        }
+        return SCRIPT_CONTINUE;
+    }
+
+    private void sendSpaceBattleStatusMessage(obj_id self, String zone){
+        String scene = zone == null ? getCurrentSceneName() : "space_" + zone;
+
+        String lastBattleType = battle_controller.getLastBattleType(self, scene);
+        String currentBattleType = battle_controller.getCurrentBattleType(self, scene);
+        int secondsUntilNextBattle = battle_controller.getTimeUntilNextBattleForZone(scene);
+        String sys = getSpaceSystemName(scene.substring(6));
+
+        if(secondsUntilNextBattle == -1){
+            sendSystemMessage(self, "No GCW Space Battles were identified for the zone you specified.", null);
+            return;
+        }
+        else if(secondsUntilNextBattle == -2){
+            sendSystemMessage(self, "There is currently a GCW Space Battle for the " + sys + " System in progress.", null);
+            return;
+        }
+        sendSystemMessage(self, "The next battle scheduled to take place in the " + sys + " System will start in " + getBattleTimeString(secondsUntilNextBattle), null);
+        if(lastBattleType.equals(battle_spawner.BATTLE_TYPE_PVE) || currentBattleType.equals(battle_spawner.BATTLE_TYPE_PVP))
+            sendSystemMessage(self, "The battle will require you to be Special Forces to participate", null);
+    }
+
+    private String getSpaceSystemName(String zone) {
+        if(zone == null)
+            zone = getCurrentSceneName().substring(6);
+        switch(zone){
+            case "tatooine":
+                return "Tatoo";
+            case "corellia":
+                return "Corellian";
+            case "dantooine":
+                return "Dantooine";
+            case "lok":
+                return "Karthakk";
+            case "naboo":
+                return "Naboo";
+            default:
+                return null;
+        }
+    }
+
+    private String getBattleTimeString(int secondsUntilNextBattle){
+        String timeString = secondsUntilNextBattle + " seconds";
+        if(secondsUntilNextBattle > 59){
+            int seconds = new Double(secondsUntilNextBattle % 60).intValue();
+            int minutes = new Double((secondsUntilNextBattle / 60) % 60).intValue();
+            int hours = new Double(Math.floor(secondsUntilNextBattle / 60 / 60)).intValue();
+            timeString = hours > 0 ? hours + " hours" : "";
+            if(minutes > 0 && seconds > 0){
+                timeString += ", ";
+            }
+            else if(minutes > 0 && seconds == 0){
+                timeString += " and ";
+            }
+            timeString += (minutes > 0 ? new Double(minutes).intValue() + " minutes" : "");
+            timeString += (seconds > 0 ? " and " + new Double(seconds).intValue() +  " seconds" : "");
+        }
+        return timeString + ".";
+    }
     public int ionizeArea(obj_id self, dictionary params) throws InterruptedException
     {
         int radius = 100;
         obj_id[] objects = getAllObjectsWithScript(getLocation(self), radius, "space.combat.combat_ship_player");
-        if (objects == null && objects.length <= 0)
+        if (objects == null || objects.length <= 0)
         {
             return SCRIPT_CONTINUE;
         }
@@ -2686,19 +2762,16 @@ public class combat_ship_player extends script.base_script
     public int ionizeTarget(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] objects = params.getObjIdArray("ionizeObjects");
-        if (objects == null && objects.length <= 0)
+        if (objects == null || objects.length <= 0)
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (!isIdValid(objects[i]) || !exists(objects[i]))
-            {
+        for (obj_id object : objects) {
+            if (!isIdValid(object) || !exists(object)) {
                 continue;
             }
-            if (space_utils.isPlayerControlledShip(objects[i]) && pvpCanAttack(objects[i], self) && getDistance(self, objects[i]) < 100)
-            {
-                space_pilot_command.doSubSystemStun(objects[i], ship_chassis_slot_type.SCST_engine, 10);
+            if (space_utils.isPlayerControlledShip(object) && pvpCanAttack(object, self) && getDistance(self, object) < 100) {
+                space_pilot_command.doSubSystemStun(object, ship_chassis_slot_type.SCST_engine, 10);
             }
         }
         return SCRIPT_CONTINUE;
@@ -2876,44 +2949,38 @@ public class combat_ship_player extends script.base_script
         }
         location locTest = getLocation(objShip);
         obj_id[] objObjects = getAllObjectsWithScript(locTest, 320000, "space.combat.combat_ship");
-        String strOutputToFile = "";
-        for (int intI = 0; intI < objObjects.length; intI++)
-        {
-            if (!space_utils.isPlayerControlledShip(objObjects[intI]))
-            {
+        StringBuilder strOutputToFile = new StringBuilder();
+        for (obj_id objObject : objObjects) {
+            if (!space_utils.isPlayerControlledShip(objObject)) {
                 String strTest = "";
-                strTest += "OBJECT_ID: " + objObjects[intI] + ", ";
-                strTest += "TYPE: " + getStringObjVar(objObjects[intI], "ship.shipName");
-                strTest += ", LOCATION " + getLocation(objObjects[intI]);
-                if (!strFileName.equals(""))
-                {
-                    strOutputToFile += strTest + "\r\n";
+                strTest += "OBJECT_ID: " + objObject + ", ";
+                strTest += "TYPE: " + getStringObjVar(objObject, "ship.shipName");
+                strTest += ", LOCATION " + getLocation(objObject);
+                if (!strFileName.equals("")) {
+                    strOutputToFile.append(strTest).append("\r\n");
                 }
                 debugConsoleMsg(self, strTest);
                 sendSystemMessageTestingOnly(self, strTest);
             }
         }
         objObjects = getAllObjectsWithScript(locTest, 320000, "space.combat.combat_ship_capital");
-        for (int intI = 0; intI < objObjects.length; intI++)
-        {
-            if (!space_utils.isPlayerControlledShip(objObjects[intI]))
-            {
+        for (obj_id objObject : objObjects) {
+            if (!space_utils.isPlayerControlledShip(objObject)) {
                 String strTest = "";
-                strTest += "OBJECT_ID: " + objObjects[intI] + ", ";
-                strTest += "TYPE: " + getStringObjVar(objObjects[intI], "ship.shipName");
-                strTest += ", LOCATION " + getLocation(objObjects[intI]);
-                if (!strFileName.equals(""))
-                {
-                    strOutputToFile += strTest + "\r\n";
+                strTest += "OBJECT_ID: " + objObject + ", ";
+                strTest += "TYPE: " + getStringObjVar(objObject, "ship.shipName");
+                strTest += ", LOCATION " + getLocation(objObject);
+                if (!strFileName.equals("")) {
+                    strOutputToFile.append(strTest).append("\r\n");
                 }
                 debugConsoleMsg(self, strTest);
                 sendSystemMessageTestingOnly(self, strTest);
             }
         }
-        debugConsoleMsg(self, strOutputToFile);
+        debugConsoleMsg(self, strOutputToFile.toString());
         if (!strFileName.equals(""))
         {
-            saveTextOnClient(self, strFileName, strOutputToFile);
+            saveTextOnClient(self, strFileName, strOutputToFile.toString());
             sendSystemMessageTestingOnly(self, "Saved information to " + strFileName);
         }
         sendSystemMessageTestingOnly(self, "Dumped");
@@ -2966,23 +3033,20 @@ public class combat_ship_player extends script.base_script
         }
         if (objChipsToRemove != null)
         {
-            for (int intI = 0; intI < objChipsToRemove.length; intI++)
-            {
-                space_combat.destroyObject(objChipsToRemove[intI]);
+            for (obj_id anObjChipsToRemove : objChipsToRemove) {
+                space_combat.destroyObject(anObjChipsToRemove);
             }
         }
         if (strCommands != null)
         {
-            for (int intI = 0; intI < strCommands.length; intI++)
-            {
-                space_combat.addModuleToDatapad(strCommands[intI], objDatapad);
+            for (String strCommand : strCommands) {
+                space_combat.addModuleToDatapad(strCommand, objDatapad);
             }
         }
         if (objChipsToAdd != null)
         {
-            for (int intI = 0; intI < objChipsToAdd.length; intI++)
-            {
-                space_combat.addModuleToDatapad(objChipsToAdd[intI], objDatapad);
+            for (obj_id anObjChipsToAdd : objChipsToAdd) {
+                space_combat.addModuleToDatapad(anObjChipsToAdd, objDatapad);
             }
         }
         return SCRIPT_CONTINUE;

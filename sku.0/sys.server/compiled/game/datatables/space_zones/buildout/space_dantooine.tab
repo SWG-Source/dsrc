@@ -1406,3 +1406,4 @@ object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.902661	-0.
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.890738	-0.156573	-0.426697	-0.439393	-0.056474	-0.896518	1427.69	-939.59	-2225.18	strName|4|mining_route_1_07|$|	
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.510280	-0.269551	-0.816674	-0.572267	0.602431	-0.556406	1382.94	-895.20	-2277.41	strName|4|mining_route_1_08|$|	
 object/tangible/space/content_infrastructure/basic_patrol_point.iff	0.360168	-0.130056	-0.923777	0.278442	0.960084	-0.026607	1352.59	-767.10	-2311.27	strName|4|mining_route_1_09|$|	
+object/tangible/space/content_infrastructure/space_gcw_battle_point.iff	0.484332	-0.747792	-0.454126	0.016503	0.526786	-0.849838	2700.0	4400.0	-2800.0	strName|4|tatoo_gcw_battle|$|

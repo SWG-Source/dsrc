@@ -1142,3 +1142,4 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -1	0	object/tangible/poi/tatooine/explore_tal_imp_base.iff	0	1913	20	349	1	0	0	0		$|
 -2	0	object/tangible/poi/tatooine/explore_tal_imp_vs_reb_battle.iff	0	1644	39	1798	1	0	0	0		$|
 4845399	0	object/tangible/ground_spawning/mob_spawner.iff	0	1917	0	225	1	0	0	0		$|
+-3	0	object/tangible/ground_spawning/area_spawner.iff	0	1858.06	20	190.075	0.4226	0	0.9063	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|2.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|imperial_vendor_gcw2|strSpawnerType|4|area|strSpawns|4|imperial_vendor_gcw2|$|

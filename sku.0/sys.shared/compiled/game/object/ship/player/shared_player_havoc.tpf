@@ -1,0 +1,23 @@
+
+@base object/ship/shared_blacksun_light_s04.iff
+
+@class ship_object_template 4
+
+cockpitFilename = "cockpit/havoc.iff"
+playerControlled = true
+
+@class tangible_object_template 10
+
+certificationsRequired = ["cert_starships_havoc"]
+
+@class object_template 10
+
+objectName = "space_ship" "player_havoc"
+lookAtText = "space_ship" "player_havoc"
+
+containerType = CT_slotted
+slotDescriptorFilename = "abstract/slot/descriptor/ship_havoc.iff"
+
+appearanceFilename = "appearance/a_havoc_nyms.apt"
+
+clientDataFile = "clientData/ship/client_shared_havoc.cdf"

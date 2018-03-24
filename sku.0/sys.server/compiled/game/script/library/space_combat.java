@@ -73,20 +73,17 @@ public class space_combat extends script.base_script
             intDamageDone = utils.addElement(intDamageDone, intDamage);
             utils.setLocalVar(objDefender, "damage.objAttackers", objAttackers);
             utils.setLocalVar(objDefender, "damage.intDamageDone", intDamageDone);
-            return;
         }
         else 
         {
-            intDamageDone.set(intIndex, new Integer(((Integer)intDamageDone.get(intIndex)).intValue() + intDamage));
+            intDamageDone.set(intIndex, (Integer) intDamageDone.get(intIndex) + intDamage);
             utils.setLocalVar(objDefender, "damage.intDamageDone", intDamageDone);
         }
-        return;
     }
     public static void targetDestroyed(obj_id objTarget) throws InterruptedException
     {
         dictionary dctParams = new dictionary();
         space_utils.notifyObject(objTarget, "objectDestroyed", dctParams);
-        return;
     }
     public static void normalizeAllComponents(obj_id objShip) throws InterruptedException
     {
@@ -98,9 +95,8 @@ public class space_combat extends script.base_script
             "reactor_normalize",
             "weapcap_equalize"
         };
-        for (int i = 0; i < normalizeList.length; i++)
-        {
-            space_combat.unrestrictedDroidCommand(objShip, normalizeList[i]);
+        for (String aNormalizeList : normalizeList) {
+            space_combat.unrestrictedDroidCommand(objShip, aNormalizeList);
         }
     }
     public static void unrestrictedDroidCommand(obj_id objShip, String strCommand) throws InterruptedException
@@ -115,22 +111,12 @@ public class space_combat extends script.base_script
             debugServerConsoleMsg(null, "SPACE_COMBAT.performDroidCommands - FAILED TO GET COMMAND INFO DICTIONARY. STRING NOT FOUND WAS:" + strCommand);
             return;
         }
-        String strClientEffect = dctCommandInfo.getString("strClientEffect");
-        String strStringId = dctCommandInfo.getString("strStringId");
         int intComponentToModify = dctCommandInfo.getInt("intComponentToModify");
         float fltEnergyEfficiency = dctCommandInfo.getFloat("fltEnergyEfficiency");
         float fltGeneralEfficiency = dctCommandInfo.getFloat("fltGeneralEfficiency");
-        float fltRepairMin = dctCommandInfo.getFloat("fltRepairMin");
-        float fltRepairMax = dctCommandInfo.getFloat("fltRepairMax");
-        float fltBaseDelay = dctCommandInfo.getFloat("fltBaseDelay");
-        float fltRepairKitConsumed = dctCommandInfo.getFloat("fltRepairKitConsumed");
-        float fltCountermeasureCapacitorCost = dctCommandInfo.getFloat("fltCountermeasureCapacitorCost");
-        float fltCountermeasureShieldCost = dctCommandInfo.getFloat("fltCountermeasureShieldCost");
         float fltFrontToBackShieldReinforcePercentage = dctCommandInfo.getFloat("fltFrontToBackShieldReinforcePercentage");
         float fltBackToFrontShieldReinforcePercentage = dctCommandInfo.getFloat("fltBackToFrontShieldReinforcePercentage");
         float fltCapacitorReinforcePercentage = dctCommandInfo.getFloat("fltCapacitorReinforcePercentage");
-        float fltMissileSavingThrow = dctCommandInfo.getFloat("fltMissileSavingThrow");
-        String strMessageHandlerOnPlayer = dctCommandInfo.getString("strMessageHandlerOnPlayer");
         float fltDamageToComponent = dctCommandInfo.getFloat("fltDamageToComponent");
         float fltFrontShieldRatio = dctCommandInfo.getFloat("fltFrontShieldRatio");
         if ((intComponentToModify != NONE) && (intComponentToModify != ALL_WEAPONS))
@@ -183,42 +169,31 @@ public class space_combat extends script.base_script
         }
         else if (intComponentToModify == ALL_WEAPONS)
         {
-            for (int intI = 0; intI < WEAPON_SLOTS.length; intI++)
-            {
-                if (isShipSlotInstalled(objShip, WEAPON_SLOTS[intI]))
-                {
-                    if (fltDamageToComponent > 0)
-                    {
-                        float fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, WEAPON_SLOTS[intI]);
-                        float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOTS[intI]);
+            for (int WEAPON_SLOT : WEAPON_SLOTS) {
+                if (isShipSlotInstalled(objShip, WEAPON_SLOT)) {
+                    if (fltDamageToComponent > 0) {
+                        float fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, WEAPON_SLOT);
+                        float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOT);
                         fltCurrentArmorHitpoints = fltCurrentArmorHitpoints - fltDamageToComponent;
-                        if (fltCurrentArmorHitpoints < 0)
-                        {
+                        if (fltCurrentArmorHitpoints < 0) {
                             float fltRemainingDamage = Math.abs(fltCurrentArmorHitpoints);
                             fltCurrentHitpoints = fltCurrentHitpoints - fltRemainingDamage;
-                            if (fltCurrentHitpoints < 1)
-                            {
+                            if (fltCurrentHitpoints < 1) {
                                 return;
+                            } else {
+                                setShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOT, 0);
+                                setShipComponentHitpointsCurrent(objShip, WEAPON_SLOT, fltCurrentHitpoints);
+                                recalculateEfficiencyGeneral(WEAPON_SLOT, objShip);
                             }
-                            else 
-                            {
-                                setShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOTS[intI], 0);
-                                setShipComponentHitpointsCurrent(objShip, WEAPON_SLOTS[intI], fltCurrentHitpoints);
-                                recalculateEfficiencyGeneral(WEAPON_SLOTS[intI], objShip);
-                            }
-                        }
-                        else 
-                        {
-                            setShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOTS[intI], fltCurrentArmorHitpoints);
+                        } else {
+                            setShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOT, fltCurrentArmorHitpoints);
                         }
                     }
-                    if ((fltGeneralEfficiency != 0) && (fltEnergyEfficiency != 0))
-                    {
-                        if (isEfficiencyModified(WEAPON_SLOTS[intI], objShip))
-                        {
-                            setEfficiencyModifier(WEAPON_SLOTS[intI], objShip, 1.0f, 1.0f);
+                    if ((fltGeneralEfficiency != 0) && (fltEnergyEfficiency != 0)) {
+                        if (isEfficiencyModified(WEAPON_SLOT, objShip)) {
+                            setEfficiencyModifier(WEAPON_SLOT, objShip, 1.0f, 1.0f);
                         }
-                        setEfficiencyModifier(WEAPON_SLOTS[intI], objShip, fltGeneralEfficiency, fltEnergyEfficiency);
+                        setEfficiencyModifier(WEAPON_SLOT, objShip, fltGeneralEfficiency, fltEnergyEfficiency);
                     }
                 }
             }
@@ -241,7 +216,6 @@ public class space_combat extends script.base_script
         {
             if (!transferBackShieldToFront(objShip, fltBackToFrontShieldReinforcePercentage))
             {
-                return;
             }
         }
     }
@@ -261,21 +235,14 @@ public class space_combat extends script.base_script
                 debugServerConsoleMsg(null, "SPACE_COMBAT.performDroidCommands - FAILED TO GET COMMAND INFO DICTIONARY. STRING NOT FOUND WAS:" + strCommand);
                 return;
             }
-            String strClientEffect = dctCommandInfo.getString("strClientEffect");
             String strStringId = dctCommandInfo.getString("strStringId");
             int intComponentToModify = dctCommandInfo.getInt("intComponentToModify");
             float fltEnergyEfficiency = dctCommandInfo.getFloat("fltEnergyEfficiency");
             float fltGeneralEfficiency = dctCommandInfo.getFloat("fltGeneralEfficiency");
-            float fltRepairMin = dctCommandInfo.getFloat("fltRepairMin");
-            float fltRepairMax = dctCommandInfo.getFloat("fltRepairMax");
             float fltBaseDelay = dctCommandInfo.getFloat("fltBaseDelay");
-            float fltRepairKitConsumed = dctCommandInfo.getFloat("fltRepairKitConsumed");
-            float fltCountermeasureCapacitorCost = dctCommandInfo.getFloat("fltCountermeasureCapacitorCost");
-            float fltCountermeasureShieldCost = dctCommandInfo.getFloat("fltCountermeasureShieldCost");
             float fltFrontToBackShieldReinforcePercentage = dctCommandInfo.getFloat("fltFrontToBackShieldReinforcePercentage");
             float fltBackToFrontShieldReinforcePercentage = dctCommandInfo.getFloat("fltBackToFrontShieldReinforcePercentage");
             float fltCapacitorReinforcePercentage = dctCommandInfo.getFloat("fltCapacitorReinforcePercentage");
-            float fltMissileSavingThrow = dctCommandInfo.getFloat("fltMissileSavingThrow");
             String strMessageHandlerOnPlayer = dctCommandInfo.getString("strMessageHandlerOnPlayer");
             float fltDamageToComponent = dctCommandInfo.getFloat("fltDamageToComponent");
             float fltFrontShieldRatio = dctCommandInfo.getFloat("fltFrontShieldRatio");
@@ -339,44 +306,33 @@ public class space_combat extends script.base_script
             }
             else if (intComponentToModify == ALL_WEAPONS)
             {
-                for (int intI = 0; intI < WEAPON_SLOTS.length; intI++)
-                {
-                    if (isShipSlotInstalled(objShip, WEAPON_SLOTS[intI]))
-                    {
-                        if (fltDamageToComponent > 0)
-                        {
-                            float fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, WEAPON_SLOTS[intI]);
-                            float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOTS[intI]);
+                for (int WEAPON_SLOT : WEAPON_SLOTS) {
+                    if (isShipSlotInstalled(objShip, WEAPON_SLOT)) {
+                        if (fltDamageToComponent > 0) {
+                            float fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, WEAPON_SLOT);
+                            float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOT);
                             fltCurrentArmorHitpoints = fltCurrentArmorHitpoints - fltDamageToComponent;
-                            if (fltCurrentArmorHitpoints < 0)
-                            {
+                            if (fltCurrentArmorHitpoints < 0) {
                                 float fltRemainingDamage = Math.abs(fltCurrentArmorHitpoints);
                                 fltCurrentHitpoints = fltCurrentHitpoints - fltRemainingDamage;
-                                if (fltCurrentHitpoints < 1)
-                                {
+                                if (fltCurrentHitpoints < 1) {
                                     string_id strSpam = new string_id("space/space_interaction", "droid_command_weapons_too_damaged");
                                     space_utils.sendSystemMessageShip(objShip, strSpam, true, true, true, true);
                                     return;
+                                } else {
+                                    setShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOT, 0);
+                                    setShipComponentHitpointsCurrent(objShip, WEAPON_SLOT, fltCurrentHitpoints);
+                                    recalculateEfficiencyGeneral(WEAPON_SLOT, objShip);
                                 }
-                                else 
-                                {
-                                    setShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOTS[intI], 0);
-                                    setShipComponentHitpointsCurrent(objShip, WEAPON_SLOTS[intI], fltCurrentHitpoints);
-                                    recalculateEfficiencyGeneral(WEAPON_SLOTS[intI], objShip);
-                                }
-                            }
-                            else 
-                            {
-                                setShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOTS[intI], fltCurrentArmorHitpoints);
+                            } else {
+                                setShipComponentArmorHitpointsCurrent(objShip, WEAPON_SLOT, fltCurrentArmorHitpoints);
                             }
                         }
-                        if ((fltGeneralEfficiency != 0) && (fltEnergyEfficiency != 0))
-                        {
-                            if (isEfficiencyModified(WEAPON_SLOTS[intI], objShip))
-                            {
-                                setEfficiencyModifier(WEAPON_SLOTS[intI], objShip, 1.0f, 1.0f);
+                        if ((fltGeneralEfficiency != 0) && (fltEnergyEfficiency != 0)) {
+                            if (isEfficiencyModified(WEAPON_SLOT, objShip)) {
+                                setEfficiencyModifier(WEAPON_SLOT, objShip, 1.0f, 1.0f);
                             }
-                            setEfficiencyModifier(WEAPON_SLOTS[intI], objShip, fltGeneralEfficiency, fltEnergyEfficiency);
+                            setEfficiencyModifier(WEAPON_SLOT, objShip, fltGeneralEfficiency, fltEnergyEfficiency);
                         }
                     }
                 }
@@ -481,13 +437,10 @@ public class space_combat extends script.base_script
         }
         obj_id[] objContents = utils.getContents(objDataPad);
         boolean retval = false;
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            if (hasObjVar(objContents[intI], "strDroidCommand"))
-            {
-                String strTest = getStringObjVar(objContents[intI], "strDroidCommand");
-                if (strTest.equals(strCommand))
-                {
+        for (obj_id objContent : objContents) {
+            if (hasObjVar(objContent, "strDroidCommand")) {
+                String strTest = getStringObjVar(objContent, "strDroidCommand");
+                if (strTest.equals(strCommand)) {
                     retval = true;
                 }
             }
@@ -546,10 +499,7 @@ public class space_combat extends script.base_script
             objAttackers = utils.getResizeableObjIdArrayLocalVar(objDefender, "combat.objAttackers");
             fltDamageTracked = utils.getResizeableFloatArrayLocalVar(objDefender, "combat.fltDamageTracked");
         }
-        else 
-        {
-        }
-        int intIndex = -1;
+        int intIndex;
         obj_id objGroup = getGroupObject(objAttacker);
         if (!isIdValid(objGroup))
         {
@@ -561,7 +511,7 @@ public class space_combat extends script.base_script
         }
         if (intIndex > -1)
         {
-            fltDamageTracked.set(intIndex, new Float(((Float)fltDamageTracked.get(intIndex)).floatValue() + fltDamage));
+            fltDamageTracked.set(intIndex, (Float) fltDamageTracked.get(intIndex) + fltDamage);
             if (isIdValid(objGroup))
             {
                 Vector objGroupMembers = utils.getResizeableObjIdArrayLocalVar(objDefender, "combat.groups." + objGroup);
@@ -576,7 +526,7 @@ public class space_combat extends script.base_script
                 }
                 else 
                 {
-                    fltGroupDamage.set(intIndex, new Float(((Float)fltGroupDamage.get(intIndex)).floatValue() + fltDamage));
+                    fltGroupDamage.set(intIndex, (Float) fltGroupDamage.get(intIndex) + fltDamage);
                     utils.setLocalVar(objDefender, "combat.groups." + objGroup + ".fltDamage", fltGroupDamage);
                 }
             }
@@ -599,7 +549,6 @@ public class space_combat extends script.base_script
         }
         utils.setLocalVar(objDefender, "combat.objAttackers", objAttackers);
         utils.setLocalVar(objDefender, "combat.fltDamageTracked", fltDamageTracked);
-        return;
     }
     public static void doFactionPointGrant(obj_id objPlayer, int intImperialFactionPoints, int intRebelFactionPoints) throws InterruptedException
     {
@@ -611,7 +560,6 @@ public class space_combat extends script.base_script
         {
             factions.addFactionStanding(objPlayer, factions.FACTION_REBEL, (float)intRebelFactionPoints);
         }
-        return;
     }
     public static void grantRewardsAndCreditForKills(obj_id objDefender) throws InterruptedException
     {
@@ -632,7 +580,6 @@ public class space_combat extends script.base_script
         }
         float[] fltPercentages = dctParams.getFloatArray("fltPercentages");
         obj_id[] objWinningMembers = dctParams.getObjIdArray("objWinningMembers");
-        float[] fltWinningMemberDamage = dctParams.getFloatArray("fltWinningMemberDamage");
         int intXP = getIntObjVar(objDefender, "xp.intXP");
         for (int intI = 0; intI < objAttackers.length; intI++)
         {
@@ -663,119 +610,83 @@ public class space_combat extends script.base_script
                             fltTest = fltTest / objPlayers.size();
                             intRebelFactionPoints = (int)fltTest;
                         }
-                        for (int intJ = 0; intJ < objPlayers.size(); intJ++)
-                        {
-                            collection.spaceGetCreditForKills(((obj_id)objPlayers.get(intJ)), slotNames);
-                            String tier = getPlayerTierString(((obj_id)objPlayers.get(intJ)));
-                            if (utils.getIntLocalVar(objDefender, "intRebelFactionPoints") > 0 && factions.isRebel(((obj_id)objPlayers.get(intJ))))
-                            {
-                                int credit = 0;
-                                if (isCapShip(objDefender))
-                                {
+                        for (Object objPlayer : objPlayers) {
+                            collection.spaceGetCreditForKills(((obj_id) objPlayer), slotNames);
+                            String tier = getPlayerTierString(((obj_id) objPlayer));
+                            if (utils.getIntLocalVar(objDefender, "intRebelFactionPoints") > 0 && factions.isRebel(((obj_id) objPlayer))) {
+                                int credit;
+                                if (isCapShip(objDefender)) {
                                     credit = 30;
-                                }
-                                else 
-                                {
-                                    credit = gcw.getSpaceKillCredit(space_flags.getPilotTier(((obj_id)objPlayers.get(intJ))), getShipDifficulty(objDefender));
+                                } else {
+                                    credit = gcw.getSpaceKillCredit(space_flags.getPilotTier(((obj_id) objPlayer)), getShipDifficulty(objDefender));
                                 }
                                 String information = getName(objDefender);
-                                gcw.grantModifiedGcwPoints(((obj_id)objPlayers.get(intJ)), credit, gcw.GCW_POINT_TYPE_SPACE_PVE, information);
+                                gcw.grantModifiedGcwPoints(((obj_id) objPlayer), credit, gcw.GCW_POINT_TYPE_SPACE_PVE, information);
                             }
-                            if (utils.getIntLocalVar(objDefender, "intImperialFactionPoints") > 0 && factions.isImperial(((obj_id)objPlayers.get(intJ))))
-                            {
-                                int credit = 0;
-                                if (isCapShip(objDefender))
-                                {
+                            if (utils.getIntLocalVar(objDefender, "intImperialFactionPoints") > 0 && factions.isImperial(((obj_id) objPlayer))) {
+                                int credit;
+                                if (isCapShip(objDefender)) {
                                     credit = 30;
-                                }
-                                else 
-                                {
-                                    credit = gcw.getSpaceKillCredit(space_flags.getPilotTier(((obj_id)objPlayers.get(intJ))), getShipDifficulty(objDefender));
+                                } else {
+                                    credit = gcw.getSpaceKillCredit(space_flags.getPilotTier(((obj_id) objPlayer)), getShipDifficulty(objDefender));
                                 }
                                 String information = getName(objDefender);
-                                gcw.grantModifiedGcwPoints(((obj_id)objPlayers.get(intJ)), credit, gcw.GCW_POINT_TYPE_SPACE_PVE, information);
+                                gcw.grantModifiedGcwPoints(((obj_id) objPlayer), credit, gcw.GCW_POINT_TYPE_SPACE_PVE, information);
                             }
                             String disableGroundXp = getConfigSetting("GameServer", "disableGroundXpInSpace");
-                            if (disableGroundXp == null || disableGroundXp.equals("false") || disableGroundXp.equals("0"))
-                            {
-                                if (!utils.isProfession(((obj_id)objPlayers.get(intJ)), utils.TRADER) && !utils.isProfession(((obj_id)objPlayers.get(intJ)), utils.ENTERTAINER))
-                                {
-                                    int combatLevel = getLevel(((obj_id)objPlayers.get(intJ)));
-                                    if (combatLevel < 90)
-                                    {
+                            if (disableGroundXp == null || disableGroundXp.equals("false") || disableGroundXp.equals("0")) {
+                                if (!utils.isProfession(((obj_id) objPlayer), utils.TRADER) && !utils.isProfession(((obj_id) objPlayer), utils.ENTERTAINER)) {
+                                    int combatLevel = getLevel(((obj_id) objPlayer));
+                                    if (combatLevel < 90) {
                                         float fltGroundXp = intAmount * GROUND_XP_PERCENT;
-                                        int intGroundXp = (int)fltGroundXp;
-                                        xp.grant(((obj_id)objPlayers.get(intJ)), "combat_general", intGroundXp);
+                                        int intGroundXp = (int) fltGroundXp;
+                                        xp.grant(((obj_id) objPlayer), "combat_general", intGroundXp);
                                     }
                                 }
                             }
-                            doFactionPointGrant(((obj_id)objPlayers.get(intJ)), intImperialFactionPoints, intRebelFactionPoints);
-                            if (hasSkill(((obj_id)objPlayers.get(intJ)), "pilot_rebel_navy_master"))
-                            {
-                                xp.grant(((obj_id)objPlayers.get(intJ)), xp.SPACE_PRESTIGE_REBEL, intAmount, true);
-                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_REBEL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id)objPlayers.get(intJ)) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id)objPlayers.get(intJ))) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
-                            }
-                            else if (hasSkill(((obj_id)objPlayers.get(intJ)), "pilot_imperial_navy_master"))
-                            {
-                                xp.grant(((obj_id)objPlayers.get(intJ)), xp.SPACE_PRESTIGE_IMPERIAL, intAmount, true);
-                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_IMPERIAL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id)objPlayers.get(intJ)) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id)objPlayers.get(intJ))) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
-                            }
-                            else if (hasSkill(((obj_id)objPlayers.get(intJ)), "pilot_neutral_master"))
-                            {
-                                xp.grant(((obj_id)objPlayers.get(intJ)), xp.SPACE_PRESTIGE_PILOT, intAmount, true);
-                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_PILOT|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id)objPlayers.get(intJ)) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id)objPlayers.get(intJ))) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
-                            }
-                            else 
-                            {
-                                xp.grant(((obj_id)objPlayers.get(intJ)), xp.SPACE_COMBAT_GENERAL, intAmount, true);
-                                CustomerServiceLog("space_xp", "SPACE_COMBAT_GENERAL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id)objPlayers.get(intJ)) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id)objPlayers.get(intJ))) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
+                            doFactionPointGrant(((obj_id) objPlayer), intImperialFactionPoints, intRebelFactionPoints);
+                            if (hasSkill(((obj_id) objPlayer), "pilot_rebel_navy_master")) {
+                                xp.grant(((obj_id) objPlayer), xp.SPACE_PRESTIGE_REBEL, intAmount, true);
+                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_REBEL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
+                            } else if (hasSkill(((obj_id) objPlayer), "pilot_imperial_navy_master")) {
+                                xp.grant(((obj_id) objPlayer), xp.SPACE_PRESTIGE_IMPERIAL, intAmount, true);
+                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_IMPERIAL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
+                            } else if (hasSkill(((obj_id) objPlayer), "pilot_neutral_master")) {
+                                xp.grant(((obj_id) objPlayer), xp.SPACE_PRESTIGE_PILOT, intAmount, true);
+                                CustomerServiceLog("space_xp", "SPACE_PRESTIGE_PILOT|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
+                            } else {
+                                xp.grant(((obj_id) objPlayer), xp.SPACE_COMBAT_GENERAL, intAmount, true);
+                                CustomerServiceLog("space_xp", "SPACE_COMBAT_GENERAL|V1|" + tier + "|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + intAmount);
                                 int badgeCount = 0;
-                                if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_rebel_navy_naboo"))
-                                {
+                                if (badge.hasBadge(((obj_id) objPlayer), "pilot_rebel_navy_naboo")) {
+                                    badgeCount++;
+                                } else if (badge.hasBadge(((obj_id) objPlayer), "pilot_rebel_navy_corellia")) {
+                                    badgeCount++;
+                                } else if (badge.hasBadge(((obj_id) objPlayer), "pilot_rebel_navy_tatooine")) {
                                     badgeCount++;
                                 }
-                                else if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_rebel_navy_corellia"))
-                                {
+                                if (badge.hasBadge(((obj_id) objPlayer), "pilot_imperial_navy_naboo")) {
+                                    badgeCount++;
+                                } else if (badge.hasBadge(((obj_id) objPlayer), "pilot_imperial_navy_corellia")) {
+                                    badgeCount++;
+                                } else if (badge.hasBadge(((obj_id) objPlayer), "pilot_imperial_navy_tatooine")) {
                                     badgeCount++;
                                 }
-                                else if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_rebel_navy_tatooine"))
-                                {
+                                if (badge.hasBadge(((obj_id) objPlayer), "pilot_neutral_naboo")) {
+                                    badgeCount++;
+                                } else if (badge.hasBadge(((obj_id) objPlayer), "pilot_neutral_corellia")) {
+                                    badgeCount++;
+                                } else if (badge.hasBadge(((obj_id) objPlayer), "pilot_neutral_tatooine")) {
                                     badgeCount++;
                                 }
-                                if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_imperial_navy_naboo"))
-                                {
-                                    badgeCount++;
-                                }
-                                else if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_imperial_navy_corellia"))
-                                {
-                                    badgeCount++;
-                                }
-                                else if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_imperial_navy_tatooine"))
-                                {
-                                    badgeCount++;
-                                }
-                                if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_neutral_naboo"))
-                                {
-                                    badgeCount++;
-                                }
-                                else if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_neutral_corellia"))
-                                {
-                                    badgeCount++;
-                                }
-                                else if (badge.hasBadge(((obj_id)objPlayers.get(intJ)), "pilot_neutral_tatooine"))
-                                {
-                                    badgeCount++;
-                                }
-                                if (badgeCount > 0)
-                                {
+                                if (badgeCount > 0) {
                                     int bonus = intAmount * badgeCount;
                                     string_id sid_xp = new string_id(xp.STF_XP_N, xp.SPACE_COMBAT_GENERAL);
-                                    xp.grant(((obj_id)objPlayers.get(intJ)), xp.SPACE_COMBAT_GENERAL, bonus, false);
-                                    CustomerServiceLog("space_xp", "SPACE_COMBAT_GENERAL_BONUS|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id)objPlayers.get(intJ)) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id)objPlayers.get(intJ))) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + bonus);
+                                    xp.grant(((obj_id) objPlayer), xp.SPACE_COMBAT_GENERAL, bonus, false);
+                                    CustomerServiceLog("space_xp", "SPACE_COMBAT_GENERAL_BONUS|TIME:" + getGameTime() + "|PLAYER:" + ((obj_id) objPlayer) + "|PLAYER_SHIP:" + getPilotedShip(((obj_id) objPlayer)) + "|DEFENDER:" + objDefender + "|DEFENDER_TYPE:" + defenderType + "|AMT:" + bonus);
                                     prose_package pp = prose.getPackage(xp.PROSE_GRANT_XP_BONUS, sid_xp);
-                                    if (exists(((obj_id)objPlayers.get(intJ))) && (((obj_id)objPlayers.get(intJ)).isLoaded()))
-                                    {
-                                        sendSystemMessageProse(((obj_id)objPlayers.get(intJ)), pp);
+                                    if (exists(((obj_id) objPlayer)) && (((obj_id) objPlayer).isLoaded())) {
+                                        sendSystemMessageProse(((obj_id) objPlayer), pp);
                                     }
                                 }
                             }
@@ -786,7 +697,6 @@ public class space_combat extends script.base_script
         }
         if (objWinningMembers != null)
         {
-            int intRoll = rand(0, objWinningMembers.length - 1);
             objWinner = objWinningMembers[rand(0, objWinningMembers.length - 1)];
         }
         if ((objWinner.isLoaded() && (objWinner.isAuthoritative())))
@@ -798,7 +708,6 @@ public class space_combat extends script.base_script
                 CustomerServiceLog("battlefield", "Creating Loot from " + objDefender + " in " + getLocation(objDefender) + " for " + objWinner);
             }
         }
-        return;
     }
     public static String getPlayerTierString(obj_id player) throws InterruptedException
     {
@@ -839,11 +748,9 @@ public class space_combat extends script.base_script
                     proseTest = prose.setStringId(proseTest, strSpam);
                     proseTest = prose.setTT(proseTest, getEncodedName(objShip));
                     proseTest = prose.setDI(proseTest, intCredits);
-                    for (int intI = 0; intI < objGroupMembers.length; intI++)
-                    {
-                        if (exists(objGroupMembers[intI]))
-                        {
-                            sendSystemMessageProse(objGroupMembers[intI], proseTest);
+                    for (obj_id objGroupMember : objGroupMembers) {
+                        if (exists(objGroupMember)) {
+                            sendSystemMessageProse(objGroupMember, proseTest);
                         }
                     }
                 }
@@ -877,11 +784,9 @@ public class space_combat extends script.base_script
                     obj_id[] objGroupMembers = space_utils.getSpaceGroupMemberIds(objGroup);
                     if (objGroupMembers != null)
                     {
-                        for (int intI = 0; intI < objGroupMembers.length; intI++)
-                        {
-                            if (exists(objGroupMembers[intI]))
-                            {
-                                sendSystemMessageProse(objGroupMembers[intI], proseTest);
+                        for (obj_id objGroupMember : objGroupMembers) {
+                            if (exists(objGroupMember)) {
+                                sendSystemMessageProse(objGroupMember, proseTest);
                             }
                         }
                     }
@@ -918,11 +823,9 @@ public class space_combat extends script.base_script
                 obj_id[] objGroupMembers = space_utils.getSpaceGroupMemberIds(objGroup);
                 if (objGroupMembers != null)
                 {
-                    for (int intI = 0; intI < objGroupMembers.length; intI++)
-                    {
-                        if (exists(objGroupMembers[intI]))
-                        {
-                            sendSystemMessageProse(objGroupMembers[intI], proseTest);
+                    for (obj_id objGroupMember : objGroupMembers) {
+                        if (exists(objGroupMember)) {
+                            sendSystemMessageProse(objGroupMember, proseTest);
                         }
                     }
                 }
@@ -956,11 +859,9 @@ public class space_combat extends script.base_script
                     obj_id[] objGroupMembers = space_utils.getSpaceGroupMemberIds(objGroup);
                     if (objGroupMembers != null)
                     {
-                        for (int intI = 0; intI < objGroupMembers.length; intI++)
-                        {
-                            if (exists(objGroupMembers[intI]))
-                            {
-                                sendSystemMessageProse(objGroupMembers[intI], proseTest);
+                        for (obj_id objGroupMember : objGroupMembers) {
+                            if (exists(objGroupMember)) {
+                                sendSystemMessageProse(objGroupMember, proseTest);
                             }
                         }
                     }
@@ -986,7 +887,7 @@ public class space_combat extends script.base_script
         final String LOOT_TABLE = "datatables/space_loot/loot_items.iff";
         final String LOOKUP_TABLE = "datatables/space_loot/loot_lookup.iff";
         String strContainer = "object/tangible/container/drum/warren_drum_loot.iff";
-        obj_id objContainer = null;
+        obj_id objContainer;
         obj_id objPilot = getPilotId(objAttacker);
         if (space_utils.isShipWithInterior(objAttacker))
         {
@@ -1093,10 +994,10 @@ public class space_combat extends script.base_script
             {
                 return;
             }
-            if ((strItems != null) && (strItems.length > 0))
+            if (strItems.length > 0)
             {
                 int intRoll2 = rand(0, strItems.length - 1);
-                String itemTemplateName = "";
+                String itemTemplateName;
                 if (getConfigSetting("GameServer", "enableLevelUpLoot") != null && (rand(1, 10000) == 1))
                 {
                     itemTemplateName = "object/tangible/loot/quest/levelup_lifeday_orb.iff";
@@ -1133,17 +1034,15 @@ public class space_combat extends script.base_script
                 int min = NOVA_ORION_RESOURCE_MIN + novaOrionLootModifier;
                 int max = NOVA_ORION_RESOURCE_MAX + novaOrionLootModifier;
                 int count = rand(min, max);
-                obj_id[] contents = getContents(objContainer);
+                obj_id[] items = getContents(objContainer);
                 boolean foundCrystal = false;
-                if (contents != null && contents.length > 0)
+                if (items != null && items.length > 0)
                 {
-                    for (int i = 0; i < contents.length; ++i)
-                    {
-                        if (static_item.isStaticItem(contents[i]) && (getStaticItemName(contents[i])).equals(NOVA_ORION_RESOURCE))
-                        {
-                            int oldCount = getCount(contents[i]);
+                    for (obj_id item : items) {
+                        if (static_item.isStaticItem(item) && (getStaticItemName(item)).equals(NOVA_ORION_RESOURCE)) {
+                            int oldCount = getCount(item);
                             int newCount = oldCount + count;
-                            setCount(contents[i], newCount);
+                            setCount(item, newCount);
                             foundCrystal = true;
                             break;
                         }
@@ -1161,7 +1060,6 @@ public class space_combat extends script.base_script
                 sendSystemMessageProse(objPilot, proseTest);
             }
         }
-        return;
     }
     public static void grantLootPermission(obj_id objWinner, obj_id objContainer) throws InterruptedException
     {
@@ -1173,7 +1071,6 @@ public class space_combat extends script.base_script
         }
         objWinners = utils.addElement(objWinners, objWinner);
         setObjVar(objContainer, "objLooters", objWinners);
-        return;
     }
     public static void notifyAttacker(obj_id objAttacker, obj_id objDefender, float fltPercentage) throws InterruptedException
     {
@@ -1195,7 +1092,6 @@ public class space_combat extends script.base_script
         }
         dctParams.put("fltPercentage", fltPercentage);
         space_utils.notifyObject(objAttacker, "targetDestroyed", dctParams);
-        return;
     }
     public static void notifyAttackerDisabled(obj_id objAttacker, obj_id objDefender, dictionary dctParams) throws InterruptedException
     {
@@ -1215,7 +1111,6 @@ public class space_combat extends script.base_script
             }
         }
         space_utils.notifyObject(objAttacker, "targetDisabled", dctParams);
-        return;
     }
     public static dictionary getKillPercentages(obj_id objDefender) throws InterruptedException
     {
@@ -1252,8 +1147,8 @@ public class space_combat extends script.base_script
                 dctParams.put("objWinningMembers", utils.getObjIdArrayLocalVar(objDefender, "combat.groups." + objTrackedAttackers[intMaxDamageIndex]));
                 dctParams.put("fltWinningMemberDamage", utils.getFloatArrayLocalVar(objDefender, "combat.groups." + objTrackedAttackers[intMaxDamageIndex] + "fltDamage"));
             }
-            float fltDamage = 0;
-            float fltPercentage = 0;
+            float fltDamage;
+            float fltPercentage;
             for (int intI = 0; intI < objTrackedAttackers.length; intI++)
             {
                 fltDamage = fltTrackedDamage[intI];
@@ -1261,11 +1156,9 @@ public class space_combat extends script.base_script
                 if (utils.hasLocalVar(objDefender, "combat.groups." + objTrackedAttackers[intI]))
                 {
                     obj_id[] objGroupMembers = utils.getObjIdArrayLocalVar(objDefender, "combat.groups." + objTrackedAttackers[intI]);
-                    for (int intJ = 0; intJ < objGroupMembers.length; intJ++)
-                    {
-                        if ((objGroupMembers[intJ].isLoaded() && (objGroupMembers[intJ].isAuthoritative())))
-                        {
-                            objAttackers = utils.addElement(objAttackers, objGroupMembers[intJ]);
+                    for (obj_id objGroupMember : objGroupMembers) {
+                        if (objGroupMember.isLoaded() && objGroupMember.isAuthoritative()) {
+                            objAttackers = utils.addElement(objAttackers, objGroupMember);
                             fltPercentages = utils.addElement(fltPercentages, fltPercentage);
                         }
                     }
@@ -1292,7 +1185,6 @@ public class space_combat extends script.base_script
         if ((fltGeneralModifier == 1.0f) && (fltEnergyModifier == 1.0f))
         {
             clearEfficiencyModifier(intSlot, objShip);
-            return;
         }
         else 
         {
@@ -1302,7 +1194,6 @@ public class space_combat extends script.base_script
             utils.setLocalVar(objShip, strName + "EfficiencyEnergy", fltEnergyModifier);
             recalculateEfficiency(intSlot, objShip);
         }
-        return;
     }
     public static void clearEfficiencyModifier(int intSlot, obj_id objShip) throws InterruptedException
     {
@@ -1311,16 +1202,11 @@ public class space_combat extends script.base_script
         utils.removeLocalVar(objShip, strName + "EfficiencyGeneral");
         utils.removeLocalVar(objShip, strName + "EfficiencyEnergy");
         recalculateEfficiency(intSlot, objShip);
-        return;
     }
     public static boolean isEfficiencyModified(int intSlot, obj_id objShip) throws InterruptedException
     {
         String strName = ship_chassis_slot_type.names[intSlot];
-        if (utils.hasLocalVar(objShip, strName + "Efficiency"))
-        {
-            return true;
-        }
-        return false;
+        return utils.hasLocalVar(objShip, strName + "Efficiency");
     }
     public static void recalculateEfficiency(int intSlot, obj_id objShip, float fltRawEfficiency) throws InterruptedException
     {
@@ -1371,7 +1257,6 @@ public class space_combat extends script.base_script
             fltGeneralModifier = MINIMUM_EFFICIENCY;
         }
         setShipComponentEfficiencyGeneral(objShip, intSlot, fltGeneralModifier);
-        return;
     }
     public static void setEfficiencies(int intSlot, obj_id objShip, float fltGeneralModifier, float fltEnergyModifier) throws InterruptedException
     {
@@ -1385,7 +1270,6 @@ public class space_combat extends script.base_script
         }
         setShipComponentEfficiencyGeneral(objShip, intSlot, fltGeneralModifier);
         setShipComponentEfficiencyEnergy(objShip, intSlot, fltEnergyModifier);
-        return;
     }
     public static void zeroEfficienciesClearPowerups(int intSlot, obj_id objShip) throws InterruptedException
     {
@@ -1394,11 +1278,9 @@ public class space_combat extends script.base_script
         utils.removeLocalVar(objShip, strName + "EfficiencyGeneral");
         utils.removeLocalVar(objShip, strName + "EfficiencyEnergy");
         setEfficiencies(intSlot, objShip, 0.0f, 0.0f);
-        return;
     }
     public static float getRawEfficiency(int intSlot, obj_id objShip) throws InterruptedException
     {
-        boolean boolUpdateComponent = true;
         float fltCurrentHitpoints = getShipComponentHitpointsCurrent(objShip, intSlot);
         float fltMaximumHitpoints = getShipComponentHitpointsMaximum(objShip, intSlot);
         if (fltMaximumHitpoints == 0)
@@ -1408,7 +1290,6 @@ public class space_combat extends script.base_script
                 dictionary dctParams = new dictionary();
                 dctParams.put("intSlot", intSlot);
                 space_utils.notifyObject(objShip, "componentDisabledByDamage", dctParams);
-                boolUpdateComponent = false;
             }
             space_utils.setComponentDisabled(objShip, intSlot, true);
             return 0;
@@ -1420,30 +1301,25 @@ public class space_combat extends script.base_script
                 dictionary dctParams = new dictionary();
                 dctParams.put("intSlot", intSlot);
                 space_utils.notifyObject(objShip, "componentDisabledByDamage", dctParams);
-                boolUpdateComponent = false;
             }
             space_utils.setComponentDisabled(objShip, intSlot, true);
             return 0;
         }
-        if (boolUpdateComponent)
+        if (hasScript(objShip, "space.ship.ship_interior"))
         {
-            if (hasScript(objShip, "space.ship.ship_interior"))
-            {
-                dictionary dctParams = new dictionary();
-                dctParams.put("intSlot", intSlot);
-                dctParams.put("fltCurrentHitpoints", fltCurrentHitpoints);
-                dctParams.put("fltMaximumHitpoints", fltMaximumHitpoints);
-                space_utils.notifyObject(objShip, "componentEfficiencyChanged", dctParams);
-            }
+            dictionary dctParams = new dictionary();
+            dctParams.put("intSlot", intSlot);
+            dctParams.put("fltCurrentHitpoints", fltCurrentHitpoints);
+            dctParams.put("fltMaximumHitpoints", fltMaximumHitpoints);
+            space_utils.notifyObject(objShip, "componentEfficiencyChanged", dctParams);
         }
-        float fltEfficiency = fltCurrentHitpoints / fltMaximumHitpoints;
-        return fltEfficiency;
+        return fltCurrentHitpoints / fltMaximumHitpoints;
     }
     public static void recalculateEfficiencies(obj_id objComponent) throws InterruptedException
     {
         float fltMaximumHitpoints = space_crafting.getComponentMaximumHitpoints(objComponent);
         float fltCurrentHitpoints = space_crafting.getComponentCurrentHitpoints(objComponent);
-        float fltEfficiency = 0;
+        float fltEfficiency;
         if (fltCurrentHitpoints > 0)
         {
             fltEfficiency = fltMaximumHitpoints / fltCurrentHitpoints;
@@ -1466,7 +1342,6 @@ public class space_combat extends script.base_script
         }
         space_crafting.setComponentGeneralEfficiency(objComponent, fltGeneralModifier);
         space_crafting.setComponentEnergyEfficiency(objComponent, fltEnergyModifier);
-        return;
     }
     public static boolean drainEnergyFromCapacitor(obj_id objShip, float fltEnergy, boolean boolOverride) throws InterruptedException
     {
@@ -1645,7 +1520,6 @@ public class space_combat extends script.base_script
         float fltEnergy = fltCurrentEnergy * fltPercentage;
         if (drainEnergyFromCapacitor(objShip, fltEnergy, false))
         {
-            fltCurrentEnergy = getShipCapacitorEnergyCurrent(objShip);
             addEnergyToShield(objShip, space_combat.FRONT, fltEnergy / 2, true);
             addEnergyToShield(objShip, space_combat.BACK, fltEnergy / 2, true);
             return true;
@@ -1698,13 +1572,12 @@ public class space_combat extends script.base_script
         clearHyperspace(objShip);
         if (objPlayers != null)
         {
-            for (int intI = 0; intI < objPlayers.size(); intI++)
-            {
-                groundquests.sendSignal(((obj_id)objPlayers.get(intI)), "smugglerEnemyIncap");
+            for (Object objPlayer : objPlayers) {
+                groundquests.sendSignal(((obj_id) objPlayer), "smugglerEnemyIncap");
                 string_id strSpam = new string_id("space/space_interaction", "your_ship_esploded");
-                sendSystemMessage(((obj_id)objPlayers.get(intI)), strSpam);
-                CustomerServiceLog("space_death", "Wounding " + ((obj_id)objPlayers.get(intI)) + " because " + objShip + " exploded", ((obj_id)objPlayers.get(intI)));
-                healing.healClone(((obj_id)objPlayers.get(intI)), false);
+                sendSystemMessage(((obj_id) objPlayer), strSpam);
+                CustomerServiceLog("space_death", "Wounding " + ((obj_id) objPlayer) + " because " + objShip + " exploded", ((obj_id) objPlayer));
+                healing.healClone(((obj_id) objPlayer), false);
             }
         }
         ship_ai.unitRemoveFromAllAttackTargetLists(objShip);
@@ -1736,7 +1609,6 @@ public class space_combat extends script.base_script
                 removeObjVar(objShip, "battlefield.locRespawnLocation");
                 warpPlayer(objShip, locTest.area, locTest.x, locTest.y, locTest.z, null, locTest.x, locTest.y, locTest.z, null, true);
             }
-            return;
         }
         else 
         {
@@ -1769,11 +1641,10 @@ public class space_combat extends script.base_script
                 setTransform_o2p(objShip, trFinalTransform);
             }
         }
-        return;
     }
     public static obj_id getClosestSpaceStation(obj_id objShip) throws InterruptedException
     {
-        obj_id objQuestManager = null;
+        obj_id objQuestManager;
         if (!utils.checkConfigFlag("ScriptFlags", "liveSpaceServer"))
         {
             try
@@ -1801,13 +1672,11 @@ public class space_combat extends script.base_script
         }
         float fltDistance = 320000;
         obj_id objClosestStation = null;
-        for (int intI = 0; intI < objSpaceStations.length; intI++)
-        {
-            location locStation = getLocation(objSpaceStations[intI]);
+        for (obj_id objSpaceStation : objSpaceStations) {
+            location locStation = getLocation(objSpaceStation);
             float fltTest = getDistance(locTest, locStation);
-            if (fltTest < fltDistance)
-            {
-                objClosestStation = objSpaceStations[intI];
+            if (fltTest < fltDistance) {
+                objClosestStation = objSpaceStation;
                 fltDistance = fltTest;
             }
         }
@@ -1887,18 +1756,8 @@ public class space_combat extends script.base_script
         }
         return true;
     }
-    public static boolean doesReactorScram(obj_id pilot, obj_id ship, String difficultyOfCommand) throws InterruptedException
-    {
-        if (!isIdValid(pilot) || !isIdValid(ship))
-        {
-            return true;
-        }
-        int successLevel = doPilotCommandSkillCheck(pilot, difficultyOfCommand);
-        if (successLevel > 4)
-        {
-            return true;
-        }
-        return false;
+    public static boolean doesReactorScram(obj_id pilot, obj_id ship, String difficultyOfCommand) throws InterruptedException {
+        return !isIdValid(pilot) || !isIdValid(ship) || doPilotCommandSkillCheck(pilot, difficultyOfCommand) > 4;
     }
     public static void scramReactor(obj_id pilot, obj_id ship) throws InterruptedException
     {
@@ -1926,7 +1785,7 @@ public class space_combat extends script.base_script
     }
     public static int getPlayerCommandSkill(obj_id pilot) throws InterruptedException
     {
-        int playerSkill = 0;
+        int playerSkill;
         if (hasSkill(pilot, "pilot_rebel_navy_master") || hasSkill(pilot, "pilot_imperial_navy_master") || hasSkill(pilot, "pilot_neutral_master"))
         {
             playerSkill = 10;
@@ -1952,7 +1811,7 @@ public class space_combat extends script.base_script
     public static int getAttackerSkill(obj_id targetShip) throws InterruptedException
     {
         final int CONST_PILOT_FAIL = 0;
-        int pilotSkill = 0;
+        int pilotSkill;
         if (ship_ai.isPlayerShip(targetShip))
         {
             obj_id playerPilot = space_utils.getCommandExecutor(targetShip);
@@ -2003,34 +1862,23 @@ public class space_combat extends script.base_script
         int rnd = rand(1, 10);
         int playerSkill = getPlayerCommandSkill(pilot);
         int spoofedAttackers = 0;
-        dictionary params = new dictionary();
         int numberOfJammedDudes = 0;
         int sumTotalOfSkillCheckDeltas = 0;
-        int lowestSkillCheckDelta = 0;
-        int highestSkillCheckDelta = 0;
-        for (int i = 0; i < myAttackers.length; i++)
-        {
-            if (isIdValid(myAttackers[i]))
-            {
-                obj_id thisAttacker = myAttackers[i];
-                if (exists(thisAttacker))
-                {
-                    if (!space_utils.isPlayerControlledShip(myAttackers[i]))
-                    {
-                        int attackerSkill = getAttackerSkill(myAttackers[i]);
-                        if ((playerSkill + rnd) > (attackerSkill + 3))
-                        {
-                            debugServerConsoleMsg(null, "space_combat.doIffScramble ++ iff scrambled ship " + thisAttacker + " with my skill " + playerSkill + " and botskill " + attackerSkill + " and rnd " + rnd);
-                            ship_ai.unitRemoveAttackTarget(thisAttacker, ship);
-                            playClientEffectObj(ship, "clienteffect/space_command/shp_shocked_radio_01_noshake.cef", thisAttacker, "");
+        for (obj_id myAttacker : myAttackers) {
+            if (isIdValid(myAttacker)) {
+                if (exists(myAttacker)) {
+                    if (!space_utils.isPlayerControlledShip(myAttacker)) {
+                        int attackerSkill = getAttackerSkill(myAttacker);
+                        if ((playerSkill + rnd) > (attackerSkill + 3)) {
+                            debugServerConsoleMsg(null, "space_combat.doIffScramble ++ iff scrambled ship " + myAttacker + " with my skill " + playerSkill + " and botskill " + attackerSkill + " and rnd " + rnd);
+                            ship_ai.unitRemoveAttackTarget(myAttacker, ship);
+                            playClientEffectObj(ship, "clienteffect/space_command/shp_shocked_radio_01_noshake.cef", myAttacker, "");
                             spoofedAttackers++;
                             int skillCheckDelta = (playerSkill + rnd) - (attackerSkill + 3);
                             sumTotalOfSkillCheckDeltas += skillCheckDelta;
                             numberOfJammedDudes++;
-                        }
-                        else 
-                        {
-                            debugServerConsoleMsg(null, "space_combat.doIffScramble ++ iff did NOT scramble ship " + thisAttacker + " with my skill " + playerSkill + " and botskill " + attackerSkill + " and rnd " + rnd);
+                        } else {
+                            debugServerConsoleMsg(null, "space_combat.doIffScramble ++ iff did NOT scramble ship " + myAttacker + " with my skill " + playerSkill + " and botskill " + attackerSkill + " and rnd " + rnd);
                         }
                     }
                 }
@@ -2066,7 +1914,7 @@ public class space_combat extends script.base_script
         {
             if (isShipSlotInstalled(ship, chassisSlot))
             {
-                if (disable == true)
+                if (disable)
                 {
                     space_utils.setComponentDisabled(ship, chassisSlot, true);
                 }
@@ -2081,7 +1929,6 @@ public class space_combat extends script.base_script
                 }
             }
         }
-        return;
     }
     public static String[] getProgrammedDroidCommands(obj_id objPlayer) throws InterruptedException
     {
@@ -2103,49 +1950,30 @@ public class space_combat extends script.base_script
         obj_id[] objContents = utils.getContents(objDataPad);
         Vector strCommands = new Vector();
         strCommands.setSize(0);
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            if (hasObjVar(objContents[intI], "strDroidCommand"))
-            {
-                String strTest = getStringObjVar(objContents[intI], "strDroidCommand");
+        for (obj_id objContent : objContents) {
+            if (hasObjVar(objContent, "strDroidCommand")) {
+                String strTest = getStringObjVar(objContent, "strDroidCommand");
                 strCommands = utils.addElement(strCommands, strTest);
             }
         }
-        String[] _strCommands = new String[0];
-        if (strCommands != null)
-        {
-            _strCommands = new String[strCommands.size()];
-            strCommands.toArray(_strCommands);
-        }
-        return _strCommands;
+        if(strCommands.size() > 0)
+            return (String[]) strCommands.toArray();
+        return null;
     }
     public static String[] getDroidCommands(obj_id objPlayer) throws InterruptedException
     {
         String[] strRawCommands = getCommandListingForPlayer(objPlayer);
         Vector strDroidCommands = new Vector();
         strDroidCommands.setSize(0);
-        for (int intI = 0; intI < strRawCommands.length; intI++)
-        {
-            int intIndex = strRawCommands[intI].indexOf("droidcommand");
-            if (intIndex > -1)
-            {
-                strDroidCommands = utils.addElement(strDroidCommands, strRawCommands[intI]);
+        for (String strRawCommand : strRawCommands) {
+            int intIndex = strRawCommand.indexOf("droidcommand");
+            if (intIndex > -1) {
+                strDroidCommands = utils.addElement(strDroidCommands, strRawCommand);
             }
         }
         if (strDroidCommands.size() > 0)
-        {
-            String[] _strDroidCommands = new String[0];
-            if (strDroidCommands != null)
-            {
-                _strDroidCommands = new String[strDroidCommands.size()];
-                strDroidCommands.toArray(_strDroidCommands);
-            }
-            return _strDroidCommands;
-        }
-        else 
-        {
-            return null;
-        }
+            return (String[]) strDroidCommands.toArray();
+        return null;
     }
     public static void grantCapitalShipSequenceRewardsAndCreditForKills(obj_id objDefender) throws InterruptedException
     {
@@ -2155,9 +1983,7 @@ public class space_combat extends script.base_script
             return;
         }
         obj_id[] objAttackers = dctParams.getObjIdArray("objAttackers");
-        obj_id objWinner = dctParams.getObjId("objWinner");
         float[] fltPercentages = dctParams.getFloatArray("fltPercentages");
-        obj_id[] objWinningMembers = utils.getObjIdArrayLocalVar(objDefender, "objWinningMembers");
         utils.removeLocalVar(objDefender, "objAttackers");
         utils.removeLocalVar(objDefender, "objWinner");
         utils.removeLocalVar(objDefender, "fltPercentages");
@@ -2178,7 +2004,6 @@ public class space_combat extends script.base_script
                 }
             }
         }
-        return;
     }
     public static void flightDroidVocalize(obj_id ship, int vocalizePriority) throws InterruptedException
     {
@@ -2234,7 +2059,6 @@ public class space_combat extends script.base_script
                     }
                 }
             }
-            return;
         }
         else if (vocalizePriority < 3)
         {
@@ -2256,7 +2080,6 @@ public class space_combat extends script.base_script
                 }
                 vocalizeSpaceDroid(droidPcd, player, ship, vocalizePriority);
             }
-            return;
         }
         else 
         {
@@ -2268,7 +2091,6 @@ public class space_combat extends script.base_script
                 int droidVocalizeDelay = rndDroidVocalizeDelay();
                 utils.setLocalVar(ship, "droidVocalizationQueued", droidVocalizeDelay);
                 messageTo(ship, "flightDroidVocalize", outparams, droidVocalizeDelay, false);
-                return;
             }
             else 
             {
@@ -2283,21 +2105,19 @@ public class space_combat extends script.base_script
                 }
             }
         }
-        return;
     }
     public static int rndDroidVocalizeDelay() throws InterruptedException
     {
         int currentTime = getGameTime();
         int rndVocDelay = (int)(rand(5.0f * DROID_VOCALIZE_DELAY_CONST, 30.0f * DROID_VOCALIZE_DELAY_CONST));
-        int newProjectedVocTime = currentTime + rndVocDelay;
-        return newProjectedVocTime;
+        return currentTime + rndVocDelay;
     }
     public static void vocalizeSpaceDroid(obj_id droidPcd, obj_id player, obj_id ship, int vocalizePriority) throws InterruptedException
     {
         debugServerConsoleMsg(null, "SPACE_COMBAT.vocalizeSpaceDroid: ############################################################# Just Entered function.");
         obj_id droid = null;
         debugServerConsoleMsg(null, "SPACE_COMBAT.vocalizeSpaceDroid: Just read in pet.current ObjIdScriptVar off of droidPCD. The droidPcd we grabbed from was: " + droidPcd + " and the pet.current obj_id was: " + droid);
-        int droidSpecies = 0;
+        int droidSpecies;
         if (space_crafting.isFlightComputerController(droidPcd))
         {
             droidSpecies = 216;
@@ -2314,7 +2134,7 @@ public class space_combat extends script.base_script
             debugServerConsoleMsg(null, "SPACE_COMBAT.vocalizeSpaceDroid: speciesChecksum failed out as being -1");
             return;
         }
-        int column = 0;
+        int column;
         if (vocalizePriority == 1)
         {
             column = 7;
@@ -2334,7 +2154,6 @@ public class space_combat extends script.base_script
         if (droidVocalizationEffectFile == null)
         {
             debugServerConsoleMsg(null, "SPACE_COMBAT.vocalizeSpaceDroid: droidVocalizationEffectFile was null. Kicking out! ");
-            return;
         }
         else if (droidSpecies == 214 || droidSpecies == 215 || droidSpecies == 216)
         {
@@ -2344,7 +2163,6 @@ public class space_combat extends script.base_script
         {
             playClientEffectObj(player, droidVocalizationEffectFile, ship, "astromech");
         }
-        return;
     }
     public static String targetHardpointForCefPlayback(obj_id ship) throws InterruptedException
     {
@@ -2386,7 +2204,7 @@ public class space_combat extends script.base_script
             debugServerConsoleMsg(null, "SPACE_COMBAT.createFlightDroidFromData: No ai.pet_master script detected. Adding it.");
             attachScript(master, "ai.pet_master");
         }
-        obj_id pet = null;
+        obj_id pet;
         if (!isIdValid(objContainer))
         {
             debugServerConsoleMsg(null, "SPACE_COMBAT.createFlightDroidFromData: FIRST CUSTOM SPACEFLIGHT DROID CREATION BIT. objContainer isIdValid check failed. objContainer was: " + objContainer);
@@ -2505,19 +2323,11 @@ public class space_combat extends script.base_script
             return false;
         }
         obj_id controllerDpad = utils.getDatapad(controlDevice);
-        if (!isIdValid(controllerDpad))
-        {
-            return false;
-        }
-        return true;
+        return isIdValid(controllerDpad);
     }
     public static boolean readyForEmergencyPower(obj_id ship) throws InterruptedException
     {
-        if (!isIdValid(ship))
-        {
-            return false;
-        }
-        return true;
+        return isIdValid(ship);
     }
     public static int[] getInstalledMissileWeapons(obj_id objShip) throws InterruptedException
     {
@@ -2540,7 +2350,7 @@ public class space_combat extends script.base_script
             _intWeapons = new int[intWeapons.size()];
             for (int _i = 0; _i < intWeapons.size(); ++_i)
             {
-                _intWeapons[_i] = ((Integer)intWeapons.get(_i)).intValue();
+                _intWeapons[_i] = (Integer) intWeapons.get(_i);
             }
         }
         return _intWeapons;
@@ -2551,18 +2361,7 @@ public class space_combat extends script.base_script
         {
             return;
         }
-        final int[] WEAPON_SLOTS = 
-        {
-            ship_chassis_slot_type.SCST_weapon_0,
-            ship_chassis_slot_type.SCST_weapon_1,
-            ship_chassis_slot_type.SCST_weapon_2,
-            ship_chassis_slot_type.SCST_weapon_3,
-            ship_chassis_slot_type.SCST_weapon_4,
-            ship_chassis_slot_type.SCST_weapon_5,
-            ship_chassis_slot_type.SCST_weapon_6,
-            ship_chassis_slot_type.SCST_weapon_7
-        };
-        if (!clientEffect.equals("") && clientEffect != null)
+        if (!clientEffect.equals(""))
         {
             playClientEffectObj(pilot, clientEffect, ship, targetHardpointForCefPlayback(ship));
         }
@@ -2575,9 +2374,6 @@ public class space_combat extends script.base_script
                 sendSystemMessage(pilot, strSpam);
                 return;
             }
-            float fltCurrentHitpoints = getShipComponentHitpointsCurrent(ship, primaryComponent);
-            float fltCurrentArmorHitpoints = getShipComponentArmorHitpointsCurrent(ship, primaryComponent);
-            fltCurrentArmorHitpoints = fltCurrentArmorHitpoints - fltDamageToComponent;
             if (fltDamageToComponent > 0)
             {
                 float currentHitpoints = getShipComponentHitpointsCurrent(ship, primaryComponent);
@@ -2587,15 +2383,7 @@ public class space_combat extends script.base_script
                 {
                     float fltRemainingDamage = Math.abs(currentArmorHitpoints);
                     currentHitpoints = currentHitpoints - fltRemainingDamage;
-                    if (currentHitpoints < 0)
-                    {
-                        string_id strSpam = new string_id("space/space_interaction", "droid_component_too_damaged");
-                        string_id strComponent = new string_id("space/space_interaction", space_crafting.getShipComponentStringType(primaryComponent));
-                        prose_package proseTest = prose.getPackage(strSpam, strComponent);
-                        return;
-                    }
-                    else 
-                    {
+                    if (currentHitpoints >= 0) {
                         setShipComponentArmorHitpointsCurrent(ship, primaryComponent, 0);
                         setShipComponentHitpointsCurrent(ship, primaryComponent, currentHitpoints);
                         recalculateEfficiency(primaryComponent, ship);
@@ -2607,7 +2395,6 @@ public class space_combat extends script.base_script
                 }
             }
         }
-        return;
     }
     public static void vampiricTypeShipsSystemsRepair(obj_id pilot, obj_id ship, int successLevel) throws InterruptedException
     {
@@ -2701,9 +2488,6 @@ public class space_combat extends script.base_script
                 float newHitPoints = currentHitPoints - hitPointDelta;
                 setShipComponentHitpointsCurrent(ship, currentShipComponent, newHitPoints);
             }
-            else 
-            {
-            }
         }
         if (damagePointDispersionPool > 0.0f)
         {
@@ -2739,7 +2523,6 @@ public class space_combat extends script.base_script
             sendSystemMessage(pilot, strSpam);
             break;
         }
-        return;
     }
     public static int getShipsPilotCommandSkillCheckMods(obj_id ship) throws InterruptedException
     {
@@ -2768,30 +2551,26 @@ public class space_combat extends script.base_script
         debugServerConsoleMsg(null, "=========================================================");
         debugServerConsoleMsg(null, "SPACE_COMBAT.doPilotCommandSkillCheck  ============= ENTERED FUNCTION	");
         debugServerConsoleMsg(null, "passed in player obj_id of: " + player + " and passed in difficulty of command of: " + difficultyOfCommand);
-        int risk = 0;
-        if (difficultyOfCommand.equals("level1command"))
-        {
-            risk = 20;
-        }
-        else if (difficultyOfCommand.equals("level2command"))
-        {
-            risk = 40;
-        }
-        else if (difficultyOfCommand.equals("level3command"))
-        {
-            risk = 60;
-        }
-        else if (difficultyOfCommand.equals("level4command"))
-        {
-            risk = 80;
-        }
-        else if (difficultyOfCommand.equals("level5command"))
-        {
-            risk = 100;
-        }
-        else 
-        {
-            risk = 60;
+        int risk;
+        switch (difficultyOfCommand) {
+            case "level1command":
+                risk = 20;
+                break;
+            case "level2command":
+                risk = 40;
+                break;
+            case "level3command":
+                risk = 60;
+                break;
+            case "level4command":
+                risk = 80;
+                break;
+            case "level5command":
+                risk = 100;
+                break;
+            default:
+                risk = 60;
+                break;
         }
         debugServerConsoleMsg(null, "Risk is computed as being " + risk);
         int playerSkill = getEnhancedSkillStatisticModifier(player, "pilot_special_tactics");
@@ -2809,8 +2588,7 @@ public class space_combat extends script.base_script
         float goodSuccess = AVERAGE_COMMAND_SUCCESS_RATE - (AVERAGE_COMMAND_SUCCESS_RATE * 0.25f);
         float greatSuccess = AVERAGE_COMMAND_SUCCESS_RATE - (AVERAGE_COMMAND_SUCCESS_RATE * 0.50f);
         float moderateFailure = AVERAGE_COMMAND_SUCCESS_RATE + (AVERAGE_COMMAND_SUCCESS_RATE * 0.20f);
-        float bigFailure = AVERAGE_COMMAND_SUCCESS_RATE + (AVERAGE_COMMAND_SUCCESS_RATE * 0.40f);
-        int successLevel = 0;
+        int successLevel;
         if (moddedRoll < greatSuccess)
         {
             successLevel = 1;
@@ -2855,12 +2633,9 @@ public class space_combat extends script.base_script
         }
         int localCalledBomberCount = 0;
         obj_id[] nearbyPlayers = getObservedPlayerShips(ship, true);
-        for (int i = 0; i < nearbyPlayers.length; i++)
-        {
-            if (isIdValid(nearbyPlayers[i]))
-            {
-                if (utils.hasLocalVar(nearbyPlayers[i], "cmd.bmb.bmbrStrike"))
-                {
+        for (obj_id nearbyPlayer : nearbyPlayers) {
+            if (isIdValid(nearbyPlayer)) {
+                if (utils.hasLocalVar(nearbyPlayer, "cmd.bmb.bmbrStrike")) {
                     localCalledBomberCount++;
                 }
             }
@@ -2985,7 +2760,7 @@ public class space_combat extends script.base_script
         float dist = rand(600.f, 700.f);
         vector n = ((loc.getLocalFrameK_p()).normalize()).multiply(dist);
         loc = loc.move_p(n);
-        if (flip == true)
+        if (flip)
         {
             loc = loc.yaw_l(3.14f);
         }
@@ -3003,7 +2778,7 @@ public class space_combat extends script.base_script
             return false;
         }
         transform loc = playerCommandSpawnerLocGetter(ship, true);
-        String targetDifficultyTier = "_tier3";
+        String targetDifficultyTier;
         int targetSquad = ship_ai.unitGetSquadId(target);
         int targetSquadSize = ship_ai.squadGetSize(targetSquad);
         targetDifficultyTier = "_tier" + space_pilot_command.targetTierDetect(target);
@@ -3022,7 +2797,7 @@ public class space_combat extends script.base_script
             return false;
         }
         int bomberSquadId = ship_ai.unitGetSquadId(((obj_id)objStrikePack.get(0)));
-        obj_id[] squaddyList = null;
+        obj_id[] squaddyList;
         if (ship_ai.isSquadIdValid(bomberSquadId))
         {
             squaddyList = ship_ai.squadGetUnitList(bomberSquadId);
@@ -3035,9 +2810,8 @@ public class space_combat extends script.base_script
         {
             ship_ai.squadSetFormationSpacing(bomberSquadId, 3.0f);
         }
-        for (int i = 0; i < squaddyList.length; i++)
-        {
-            setObjVar(squaddyList[i], "commanderPlayer", commander);
+        for (obj_id aSquaddyList : squaddyList) {
+            setObjVar(aSquaddyList, "commanderPlayer", commander);
         }
         if (utils.hasLocalVar(commander, "cmd.bmb.bmbrSquadId"))
         {
@@ -3071,7 +2845,7 @@ public class space_combat extends script.base_script
     public static boolean setupStrikePackageEscort(int bomberSquadId, String packageType, obj_id commander, String targetDifficultyTier) throws InterruptedException
     {
         debugServerConsoleMsg(null, "SETUPsTRIKEpACKAGEeSCORT");
-        obj_id[] bomberSquaddyList = null;
+        obj_id[] bomberSquaddyList;
         if (ship_ai.isSquadIdValid(bomberSquadId))
         {
             bomberSquaddyList = ship_ai.squadGetUnitList(bomberSquadId);
@@ -3080,7 +2854,6 @@ public class space_combat extends script.base_script
         {
             return false;
         }
-        int numBombers = ship_ai.squadGetSize(bomberSquadId);
         int successLevel = doPilotCommandSkillCheck(commander, "level3command");
         String escortPackageType = "";
         debugServerConsoleMsg(null, "============================================");
@@ -3111,32 +2884,26 @@ public class space_combat extends script.base_script
         }
         transform loc = playerCommandSpawnerLocGetter(bomberSquaddyList[0], false);
         int totalEscorts = 0;
-        for (int i = 0; i < bomberSquaddyList.length; i++)
-        {
+        for (obj_id aBomberSquaddyList : bomberSquaddyList) {
             Vector objStrikeEscortPack = space_create.createSquadHyperspace(null, escortPackageType, loc, 20.0f, null);
-            int escortSquadId = ship_ai.unitGetSquadId(((obj_id)objStrikeEscortPack.get(0)));
-            obj_id[] escortSquaddyList = null;
-            if (ship_ai.isSquadIdValid(escortSquadId))
-            {
+            int escortSquadId = ship_ai.unitGetSquadId(((obj_id) objStrikeEscortPack.get(0)));
+            obj_id[] escortSquaddyList;
+            if (ship_ai.isSquadIdValid(escortSquadId)) {
                 escortSquaddyList = ship_ai.squadGetUnitList(escortSquadId);
-            }
-            else 
-            {
+            } else {
                 return false;
             }
             totalEscorts += objStrikeEscortPack.size();
-            utils.setLocalVar(bomberSquaddyList[i], "escortSquadId", escortSquadId);
-            utils.setLocalVar(bomberSquaddyList[i], "crrntEscrtSqdSz", escortSquaddyList.length);
-            for (int j = 0; j < escortSquaddyList.length; j++)
-            {
-                setObjVar(escortSquaddyList[j], "commanderPlayer", commander);
+            utils.setLocalVar(aBomberSquaddyList, "escortSquadId", escortSquadId);
+            utils.setLocalVar(aBomberSquaddyList, "crrntEscrtSqdSz", escortSquaddyList.length);
+            for (obj_id anEscortSquaddyList : escortSquaddyList) {
+                setObjVar(anEscortSquaddyList, "commanderPlayer", commander);
             }
-            if (utils.hasLocalVar(commander, "cmd.bmb.initEscrtPckSize"))
-            {
+            if (utils.hasLocalVar(commander, "cmd.bmb.initEscrtPckSize")) {
                 utils.removeLocalVar(commander, "cmd.bmb.initEscrtPckSize");
             }
             utils.setLocalVar(commander, "cmd.bmb.initEscrtPckSize", totalEscorts);
-            ship_ai.squadFollow(escortSquadId, bomberSquaddyList[i], new vector(0.0f, 0.0f, -1.0f), 2.0f);
+            ship_ai.squadFollow(escortSquadId, aBomberSquaddyList, new vector(0.0f, 0.0f, -1.0f), 2.0f);
             ship_ai.squadSetGuardTarget(escortSquadId, bomberSquadId);
         }
         return true;
@@ -3148,10 +2915,9 @@ public class space_combat extends script.base_script
         obj_id ship = space_transition.getContainingShip(commander);
         obj_id strikeLeader = null;
         int strikeSurvivorSquad = -1;
-        int currentStrikePackageSize = utils.getIntLocalVar(commander, "cmd.bmb.currentStrikePackSize");
         if (bomberSquadId > 0 && fighterSquadId < 0)
         {
-            obj_id[] bomberSquaddyList = null;
+            obj_id[] bomberSquaddyList;
             if (ship_ai.isSquadIdValid(bomberSquadId))
             {
                 bomberSquaddyList = ship_ai.squadGetUnitList(bomberSquadId);
@@ -3164,14 +2930,12 @@ public class space_combat extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < bomberSquaddyList.length; i++)
-            {
-                setObjVar(bomberSquaddyList[i], "evacuate", 1);
+            for (obj_id aBomberSquaddyList : bomberSquaddyList) {
+                setObjVar(aBomberSquaddyList, "evacuate", 1);
             }
             strikeLeader = bomberSquaddyList[0];
             strikeSurvivorSquad = bomberSquadId;
         }
-        obj_id squadTarget = ship_ai.unitGetPrimaryAttackTarget(strikeLeader);
         if (!isIdValid(ship))
         {
             ship = strikeLeader;
@@ -3186,7 +2950,7 @@ public class space_combat extends script.base_script
         if (utils.hasLocalVar(commander, "cmd.bmb.targetSquadId") && !utils.hasLocalVar(commander, "cmd.bmb.targetSquadCrrntSz"))
         {
             int targetSquadId = utils.getIntLocalVar(commander, "cmd.bmb.targetSquadId");
-            obj_id[] targetSquaddyList = null;
+            obj_id[] targetSquaddyList;
             if (ship_ai.isSquadIdValid(targetSquadId))
             {
                 targetSquaddyList = ship_ai.squadGetUnitList(targetSquadId);
@@ -3195,23 +2959,18 @@ public class space_combat extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < targetSquaddyList.length; i++)
-            {
-                if (hasScript(targetSquaddyList[i], "space.command.player_cmd_bomber_strike_target"))
-                {
-                    detachScript(targetSquaddyList[i], "space.command.player_cmd_bomber_strike_target");
+            for (obj_id aTargetSquaddyList : targetSquaddyList) {
+                if (hasScript(aTargetSquaddyList, "space.command.player_cmd_bomber_strike_target")) {
+                    detachScript(aTargetSquaddyList, "space.command.player_cmd_bomber_strike_target");
                 }
-                if (hasObjVar(targetSquaddyList[i], "targetedByPlayerObjId"))
-                {
-                    removeObjVar(targetSquaddyList[i], "targetedByPlayerObjId");
+                if (hasObjVar(aTargetSquaddyList, "targetedByPlayerObjId")) {
+                    removeObjVar(aTargetSquaddyList, "targetedByPlayerObjId");
                 }
-                if (hasObjVar(targetSquaddyList[i], "damageMultiplier"))
-                {
-                    removeObjVar(targetSquaddyList[i], "damageMultiplier");
+                if (hasObjVar(aTargetSquaddyList, "damageMultiplier")) {
+                    removeObjVar(aTargetSquaddyList, "damageMultiplier");
                 }
             }
         }
-        return;
     }
     public static void initializeTargetTracking(obj_id commander, int bomberSquadId, int targetSquadId) throws InterruptedException
     {
@@ -3219,7 +2978,7 @@ public class space_combat extends script.base_script
         {
             utils.removeLocalVar(commander, "cmd.bmb.targetSquadId");
         }
-        obj_id[] targetSquaddyList = null;
+        obj_id[] targetSquaddyList;
         if (ship_ai.isSquadIdValid(targetSquadId))
         {
             targetSquaddyList = ship_ai.squadGetUnitList(targetSquadId);
@@ -3230,13 +2989,11 @@ public class space_combat extends script.base_script
         }
         utils.setLocalVar(commander, "cmd.bmb.targetSquadId", targetSquadId);
         utils.setLocalVar(commander, "cmd.bmb.targetSquadCrrntSz", targetSquaddyList.length);
-        for (int i = 0; i < targetSquaddyList.length; i++)
-        {
-            attachScript(targetSquaddyList[i], "space.command.player_cmd_bomber_strike_target");
-            setObjVar(targetSquaddyList[i], "targetedByPlayerObjId", commander);
-            setObjVar(targetSquaddyList[i], "damageMultiplier", NPC_DAMAGE_MULTIPLIER);
+        for (obj_id aTargetSquaddyList : targetSquaddyList) {
+            attachScript(aTargetSquaddyList, "space.command.player_cmd_bomber_strike_target");
+            setObjVar(aTargetSquaddyList, "targetedByPlayerObjId", commander);
+            setObjVar(aTargetSquaddyList, "damageMultiplier", NPC_DAMAGE_MULTIPLIER);
         }
-        return;
     }
     public static void strikeBomberCleanup(obj_id commander) throws InterruptedException
     {
@@ -3248,7 +3005,6 @@ public class space_combat extends script.base_script
                 strikePackageEvac(commander, bomberSquadId, -1);
             }
         }
-        return;
     }
     public static boolean readyForPirateRaid(obj_id ship, obj_id commander) throws InterruptedException
     {
@@ -3267,12 +3023,9 @@ public class space_combat extends script.base_script
         }
         int localCalledPirateCount = 0;
         obj_id[] nearbyPlayers = getObservedPlayerShips(ship, true);
-        for (int i = 0; i < nearbyPlayers.length; i++)
-        {
-            if (isIdValid(nearbyPlayers[i]))
-            {
-                if (utils.hasLocalVar(nearbyPlayers[i], "cmd.pirate.goRaid"))
-                {
+        for (obj_id nearbyPlayer : nearbyPlayers) {
+            if (isIdValid(nearbyPlayer)) {
+                if (utils.hasLocalVar(nearbyPlayer, "cmd.pirate.goRaid")) {
                     localCalledPirateCount++;
                 }
             }
@@ -3312,7 +3065,6 @@ public class space_combat extends script.base_script
     public static boolean executePirateRaidOne(obj_id ship, obj_id commander, obj_id target, int CMD_PIRATE_LURE_DELAY) throws InterruptedException
     {
         debugServerConsoleMsg(null, "SPACE_COMBAT.executePirateRaidOne");
-        String packageType = "light";
         String attackType = "many";
         String level = "level1";
         if (!space_combat.spawnPirateRaiders(ship, commander, level, attackType, target))
@@ -3333,7 +3085,6 @@ public class space_combat extends script.base_script
     public static boolean executePirateRaidTwo(obj_id ship, obj_id commander, obj_id target, int CMD_PIRATE_LURE_DELAY) throws InterruptedException
     {
         debugServerConsoleMsg(null, "SPACE_COMBAT.executePirateRaidOne");
-        String packageType = "light";
         String attackType = "many";
         String level = "level2";
         if (!space_combat.spawnPirateRaiders(ship, commander, level, attackType, target))
@@ -3473,7 +3224,7 @@ public class space_combat extends script.base_script
             obj_id currentPirate = space_create.createShipHyperspace(spawnShip, loc, null);
             ship_ai.unitSetSquadId(currentPirate, pirateSquadId);
         }
-        obj_id[] squaddyList = null;
+        obj_id[] squaddyList;
         if (ship_ai.isSquadIdValid(pirateSquadId))
         {
             squaddyList = ship_ai.squadGetUnitList(pirateSquadId);
@@ -3487,10 +3238,9 @@ public class space_combat extends script.base_script
         {
             ship_ai.squadSetFormationSpacing(pirateSquadId, 3.0f);
         }
-        for (int i = 0; i < squaddyList.length; i++)
-        {
-            setObjVar(squaddyList[i], "commanderPlayer", commander);
-            attachScript(squaddyList[i], "space.command.player_cmd_pirate");
+        for (obj_id aSquaddyList : squaddyList) {
+            setObjVar(aSquaddyList, "commanderPlayer", commander);
+            attachScript(aSquaddyList, "space.command.player_cmd_pirate");
         }
         if (utils.hasLocalVar(commander, "cmd.pirate.squadId"))
         {
@@ -3515,12 +3265,10 @@ public class space_combat extends script.base_script
             ship_ai.squadPatrol(pirateSquadId, loiterPath);
         }
         dictionary params = new dictionary();
-        for (int j = 0; j < squaddyList.length; j++)
-        {
-            obj_id thisAttacker = squaddyList[j];
+        for (obj_id thisAttacker : squaddyList) {
             params.put("loopsleft", 2);
             params.put("targetship", ship);
-            messageTo(squaddyList[j], "iAmSpoofed", params, 2.0f, false);
+            messageTo(thisAttacker, "iAmSpoofed", params, 2.0f, false);
         }
         if (successLevel == 6)
         {
@@ -3536,7 +3284,7 @@ public class space_combat extends script.base_script
                     int targetSquadSize = ship_ai.squadGetSize(targetSquad);
                     if (targetSquadSize > 1)
                     {
-                        obj_id[] targetSquaddyList = null;
+                        obj_id[] targetSquaddyList;
                         if (ship_ai.isSquadIdValid(targetSquad))
                         {
                             targetSquaddyList = ship_ai.squadGetUnitList(targetSquad);
@@ -3545,9 +3293,8 @@ public class space_combat extends script.base_script
                         {
                             return true;
                         }
-                        for (int k = 0; k < targetSquaddyList.length; k++)
-                        {
-                            setObjVar(targetSquaddyList[k], "damageMultiplier", NPC_DAMAGE_MULTIPLIER);
+                        for (obj_id aTargetSquaddyList : targetSquaddyList) {
+                            setObjVar(aTargetSquaddyList, "damageMultiplier", NPC_DAMAGE_MULTIPLIER);
                         }
                         ship_ai.squadSetPrimaryTarget(pirateSquadId, targetSquad);
                     }
@@ -3577,7 +3324,7 @@ public class space_combat extends script.base_script
         debugServerConsoleMsg(null, "PIRATEpACKAGEeVAC");
         utils.removeLocalVar(commander, "cmd.pirate");
         obj_id ship = space_transition.getContainingShip(commander);
-        obj_id[] pirateSquaddyList = null;
+        obj_id[] pirateSquaddyList;
         if (ship_ai.isSquadIdValid(pirateSquadId))
         {
             pirateSquaddyList = ship_ai.squadGetUnitList(pirateSquadId);
@@ -3590,12 +3337,10 @@ public class space_combat extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < pirateSquaddyList.length; i++)
-        {
-            setObjVar(pirateSquaddyList[i], "evacuate", 1);
+        for (obj_id aPirateSquaddyList : pirateSquaddyList) {
+            setObjVar(aPirateSquaddyList, "evacuate", 1);
         }
         obj_id pirateLeader = pirateSquaddyList[0];
-        obj_id squadTarget = ship_ai.unitGetPrimaryAttackTarget(pirateLeader);
         if (!isIdValid(ship))
         {
             ship = pirateLeader;
@@ -3606,7 +3351,7 @@ public class space_combat extends script.base_script
         if (utils.hasLocalVar(commander, "cmd.pirate.squadId"))
         {
             int targetSquadId = utils.getIntLocalVar(commander, "cmd.pirate.squadId");
-            obj_id[] targetSquaddyList = null;
+            obj_id[] targetSquaddyList;
             if (ship_ai.isSquadIdValid(targetSquadId))
             {
                 targetSquaddyList = ship_ai.squadGetUnitList(targetSquadId);
@@ -3615,15 +3360,12 @@ public class space_combat extends script.base_script
             {
                 return;
             }
-            for (int i = 0; i < targetSquaddyList.length; i++)
-            {
-                if (hasObjVar(targetSquaddyList[i], "damageMultiplier"))
-                {
-                    removeObjVar(targetSquaddyList[i], "damageMultiplier");
+            for (obj_id aTargetSquaddyList : targetSquaddyList) {
+                if (hasObjVar(aTargetSquaddyList, "damageMultiplier")) {
+                    removeObjVar(aTargetSquaddyList, "damageMultiplier");
                 }
             }
         }
-        return;
     }
     public static float getShipWeaponDamage(obj_id objAttacker, obj_id objDefender, int intWeaponSlot) throws InterruptedException
     {
@@ -3698,6 +3440,14 @@ public class space_combat extends script.base_script
             dictionary dctParams = new dictionary();
             space_utils.notifyObject(objDefender, "OnHullNearlyDestroyed", dctParams);
         }
+        if(fltChassisHitPoints <= fltDamage && hasScript(objDefender, "systems.gcw.space.hero_ship")){
+            if(hasObjVar(objDefender, "intInvincible")) return 0;
+            setObjVar(objDefender, "intInvincible", 1);
+            dictionary params = new dictionary();
+            params.put("attacker", objAttacker);
+            space_utils.notifyObject(objDefender, "OnAboutToBeDestroyed", params);
+            return 0;
+        }
         fltChassisHitPoints = fltChassisHitPoints - fltDamage;
         doInteriorDamageNotification(objDefender, space_combat.CHASSIS, fltMaximumChassisHitPoints, fltChassisHitPoints);
         if ((fltChassisHitPoints + fltDamage) > 0.0f && fltMaximumChassisHitPoints > 0.0f)
@@ -3721,7 +3471,6 @@ public class space_combat extends script.base_script
         if (fltChassisHitPoints <= 0)
         {
             space_combat.registerDamageDoneToShip(objAttacker, objDefender, fltDamage + fltChassisHitPoints);
-            location locTest = getLocation(objDefender);
             setShipCurrentChassisHitPoints(objDefender, 0);
             doChassisDamageSpam(objAttacker, objDefender, fltDamage, fltChassisHitPoints);
             return 10;
@@ -3820,9 +3569,6 @@ public class space_combat extends script.base_script
             {
                 setShipShieldHitpointsBackCurrent(objDefender, fltHitPoints);
             }
-            else 
-            {
-            }
         }
     }
     public static void setArmorHitPoints(obj_id objDefender, int intSide, float fltHitPoints) throws InterruptedException
@@ -3842,9 +3588,6 @@ public class space_combat extends script.base_script
             {
                 setShipComponentArmorHitpointsCurrent(objDefender, intSlot, fltHitPoints);
             }
-        }
-        else 
-        {
         }
     }
     public static float damageShield(obj_id objAttacker, obj_id objDefender, int intWeaponSlot, float fltDamage, int intSide) throws InterruptedException
@@ -3951,7 +3694,6 @@ public class space_combat extends script.base_script
         {
             space_combat.registerDamageDoneToShip(objAttacker, objDefender, fltDamage + fltArmorHitPoints);
             setArmorHitPoints(objDefender, intSide, 0);
-            doArmorDamageSpam(objAttacker, objDefender, intSide, fltDamage + fltArmorHitPoints, 0);
             return Math.abs(fltArmorHitPoints);
         }
         else 
@@ -3968,7 +3710,6 @@ public class space_combat extends script.base_script
             }
             space_combat.registerDamageDoneToShip(objAttacker, objDefender, fltDamage + fltDamage);
             setArmorHitPoints(objDefender, intSide, fltArmorHitPoints);
-            doArmorDamageSpam(objAttacker, objDefender, intSide, fltDamage, fltArmorHitPoints);
             return 0;
         }
     }
@@ -4010,12 +3751,7 @@ public class space_combat extends script.base_script
     {
         if (intTargetedComponent != space_combat.SHIP)
         {
-            if (!isShipSlotInstalled(objDefender, intTargetedComponent))
-            {
-                intTargetedComponent = space_combat.SHIP;
-            }
-            else 
-            {
+            if (isShipSlotInstalled(objDefender, intTargetedComponent)) {
                 dictionary dctReturn = new dictionary();
                 int[] intSlots = new int[1];
                 int[] intWeightings = new int[1];
@@ -4038,17 +3774,12 @@ public class space_combat extends script.base_script
         Vector intSlots = new Vector();
         intSlots.setSize(0);
         int[] intRawSlots = getShipChassisSlots(objDefender);
-        for (int intI = 0; intI < intRawSlots.length; intI++)
-        {
-            if ((isShipSlotInstalled(objDefender, intRawSlots[intI])) && (intRawSlots[intI] != ship_chassis_slot_type.SCST_armor_0) && (intRawSlots[intI] != ship_chassis_slot_type.SCST_armor_1))
-            {
-                String strSlotName = space_crafting.getComponentSlotNameString(intRawSlots[intI]);
+        for (int intRawSlot : intRawSlots) {
+            if ((isShipSlotInstalled(objDefender, intRawSlot)) && (intRawSlot != ship_chassis_slot_type.SCST_armor_0) && (intRawSlot != ship_chassis_slot_type.SCST_armor_1)) {
+                String strSlotName = space_crafting.getComponentSlotNameString(intRawSlot);
                 strSlotName = strSlotName + "_hitweight";
                 intWeightings = utils.addElement(intWeightings, dctRow.getInt(strSlotName));
-                intSlots = utils.addElement(intSlots, intRawSlots[intI]);
-            }
-            else 
-            {
+                intSlots = utils.addElement(intSlots, intRawSlot);
             }
         }
         if (intWeightings.size() == 0)
@@ -4093,11 +3824,7 @@ public class space_combat extends script.base_script
                 intCounter++;
             }
         }
-        else 
-        {
-        }
-        int intComponent = intSlots[intCounter];
-        return intComponent;
+        return intSlots[intCounter];
     }
     public static float damageComponent(obj_id objAttacker, obj_id objDefender, int intWeaponSlot, int intComponent, float fltDamage, int intSide, boolean boolTrackDisabled) throws InterruptedException
     {
@@ -4107,7 +3834,7 @@ public class space_combat extends script.base_script
         float fltOldComponentHitPoints = getShipComponentHitpointsCurrent(objDefender, intComponent);
         float fltComponentArmor = fltOldComponentArmor;
         float fltComponentHitPoints = fltOldComponentHitPoints;
-        float fltRemainingDamage = 0;
+        float fltRemainingDamage;
         if ((fltComponentHitPoints == 0) && (fltComponentArmor == 0))
         {
             return fltDamage;
@@ -4213,7 +3940,6 @@ public class space_combat extends script.base_script
             return;
         }
         obj_id objAttackerPilot = getPilotId(objAttacker);
-        obj_id objDefenderPilot = getPilotId(objDefender);
         if (isIdValid(objAttackerPilot) && hasObjVar(objAttackerPilot, "intCombatDebug"))
         {
             if (fltDamage > 0)
@@ -4222,37 +3948,6 @@ public class space_combat extends script.base_script
                 sendSystemMessageTestingOnly(objAttackerPilot, "Succesful Shield Hit! Side: " + strSide + " Damage:" + fltDamage + " Remaining Shield Points:" + fltRemainingHitPoints);
             }
         }
-        if (isIdValid(objDefenderPilot))
-        {
-        }
-        return;
-    }
-    public static void doArmorDamageSpam(obj_id objAttacker, obj_id objDefender, int intSide, float fltDamage, float fltRemainingHitPoints) throws InterruptedException
-    {
-        if (!space_utils.isShip(objAttacker) || (!space_utils.isShip(objDefender)))
-        {
-            return;
-        }
-        obj_id objAttackerPilot = getPilotId(objAttacker);
-        obj_id objDefenderPilot = getPilotId(objDefender);
-        if (!isIdValid(objAttackerPilot))
-        {
-            return;
-        }
-        if (hasObjVar(objAttackerPilot, "intCombatDebug"))
-        {
-            if (fltDamage > 0)
-            {
-                String strSide = getSideName(intSide);
-                if (isIdValid(objAttackerPilot))
-                {
-                }
-            }
-        }
-        if (isIdValid(objDefenderPilot))
-        {
-        }
-        return;
     }
     public static void doComponentDamageSpam(obj_id objAttacker, obj_id objDefender, int intComponent, float fltDamage) throws InterruptedException
     {
@@ -4294,10 +3989,6 @@ public class space_combat extends script.base_script
                 }
             }
         }
-        if (isIdValid(objDefenderPilot))
-        {
-        }
-        return;
     }
     public static void doChassisDamageSpam(obj_id objAttacker, obj_id objDefender, float fltDamage, float fltRemainingHitPoints) throws InterruptedException
     {
@@ -4310,7 +4001,6 @@ public class space_combat extends script.base_script
         {
             return;
         }
-        obj_id objDefenderPilot = getPilotId(objDefender);
         if (hasObjVar(objAttackerPilot, "intCombatDebug"))
         {
             if (fltDamage > 0)
@@ -4321,10 +4011,6 @@ public class space_combat extends script.base_script
                 }
             }
         }
-        if (isIdValid(objDefenderPilot))
-        {
-        }
-        return;
     }
     public static void doInteriorDamageNotification(obj_id objShip, int intDamageType, float fltCurrentHitpoints, float fltMaximumHitpoints) throws InterruptedException
     {
@@ -4343,6 +4029,9 @@ public class space_combat extends script.base_script
     }
     public static void checkAndPerformCombatTaunts(obj_id objTaunter, obj_id objTauntee, String strLocalVar, String strType, float fltRange) throws InterruptedException
     {
+        // don't taunt if the pilot is from the Ace Pilot System as we're handling that in the game.script.systems.gcw.space.hero_ship class.
+        if(hasObjVar(objTaunter, "ace_name")) return;
+
         final int TAUNT_DELAY = 3;
         final int TAUNT_QUANTITY = 5;
         final int TAUNT_LISTEN_DELAY = 2;
@@ -4360,7 +4049,7 @@ public class space_combat extends script.base_script
             return;
         }
         int intGameTime = getGameTime();
-        int intLastTime = 0;
+        int intLastTime;
         if (isIdValid(objTaunter))
         {
             intLastTime = utils.getIntLocalVar(objTaunter, "intTauntTime");
@@ -4386,6 +4075,317 @@ public class space_combat extends script.base_script
             String strDiction = utils.getStringLocalVar(objTaunter, "strTauntDiction");
             if ((strDiction != null) && (!strDiction.equals("")))
             {
+                String strFileName = "space/taunts/" + strDiction;
+                strType = strType + rand(1, TAUNT_QUANTITY);
+                string_id strSpam = new string_id(strFileName, strType);
+                if (fltRange > 0)
+                {
+                    obj_id[] objPlayerShips = getObservedPlayerShips(objTaunter, true);
+                    if (objPlayerShips != null)
+                    {
+                        for (obj_id objPlayerShip : objPlayerShips) {
+                            intLastTime = utils.getIntLocalVar(objPlayerShip, "intTauntTime");
+                            if (((intGameTime - intLastTime) > TAUNT_LISTEN_DELAY)) {
+                                if ((getDistance(objPlayerShip, objTaunter) < fltRange)) {
+                                    prose_package pp = new prose_package();
+                                    pp.stringId = strSpam;
+                                    pp.actor.set(objOwner);
+                                    pp.target.set(objOwner);
+                                    space_utils.tauntShip(objPlayerShip, objTaunter, pp, true, false, true, true);
+                                    utils.setLocalVar(objTaunter, "intTauntTime", intGameTime);
+                                    utils.setLocalVar(objTauntee, "intTauntTime", intGameTime);
+                                }
+                            }
+                        }
+                    }
+                }
+                else 
+                {
+                    prose_package pp = new prose_package();
+                    pp.stringId = strSpam;
+                    pp.actor.set(objOwner);
+                    pp.target.set(objOwner);
+                    space_utils.tauntShip(objTauntee, objTaunter, pp, true, false, true, true);
+                    utils.setLocalVar(objTaunter, "intTauntTime", intGameTime);
+                    utils.setLocalVar(objTauntee, "intTauntTime", intGameTime);
+                }
+            }
+        }
+    }
+    public static void setupCapitalShipFromTurretDefinition(obj_id objShip, String strDefinition) throws InterruptedException
+    {
+        String strFileName = "datatables/space_combat/turret_definitions/" + strDefinition + ".iff";
+        String[] strSlots = dataTableGetStringColumn(strFileName, "strSlot");
+        int[] intComponents = dataTableGetIntColumn(strFileName, "intComponent");
+        float[] fltComponentHitpoints = dataTableGetFloatColumn(strFileName, "fltComponentHitpoints");
+        float[] fltArmorHitpoints = dataTableGetFloatColumn(strFileName, "fltArmorHitpoints");
+        float[] fltMinDamage = dataTableGetFloatColumn(strFileName, "fltMinDamage");
+        float[] fltMaxDamage = dataTableGetFloatColumn(strFileName, "fltMaxDamage");
+        float[] fltRefire = dataTableGetFloatColumn(strFileName, "fltRefire");
+        float[] fltDrain = dataTableGetFloatColumn(strFileName, "fltDrain");
+        float[] fltShieldEfficiency = dataTableGetFloatColumn(strFileName, "fltShieldEfficiency");
+        boolean targetable = !strDefinition.equals("imperial_lancer") && !strDefinition.equals("nebulon_frigate");
+        for (int intI = 0; intI < strSlots.length; intI++)
+        {
+            if (intComponents[intI] != 0)
+            {
+                int intSlot = space_crafting.getComponentSlotInt(strSlots[intI]);
+                if (shipPseudoInstallComponent(objShip, intSlot, intComponents[intI])) {
+                    setShipSlotTargetable(objShip, intSlot, targetable);
+                    setShipComponentArmorHitpointsMaximum(objShip, intSlot, fltArmorHitpoints[intI]);
+                    setShipComponentArmorHitpointsCurrent(objShip, intSlot, fltArmorHitpoints[intI]);
+                    setShipComponentHitpointsMaximum(objShip, intSlot, fltComponentHitpoints[intI]);
+                    setShipComponentHitpointsCurrent(objShip, intSlot, fltComponentHitpoints[intI]);
+                    setShipWeaponDamageMaximum(objShip, intSlot, fltMinDamage[intI]);
+                    setShipWeaponDamageMinimum(objShip, intSlot, fltMaxDamage[intI]);
+                    setShipWeaponEffectivenessShields(objShip, intSlot, fltShieldEfficiency[intI]);
+                    setShipWeaponEffectivenessArmor(objShip, intSlot, fltShieldEfficiency[intI]);
+                    setShipWeaponEnergyPerShot(objShip, intSlot, fltDrain[intI]);
+                    setShipWeaponRefireRate(objShip, intSlot, fltRefire[intI]);
+                    setShipWeaponEfficiencyRefireRate(objShip, intSlot, 1.0f);
+                    setShipComponentEfficiencyGeneral(objShip, intSlot, 1.0f);
+                    setShipComponentEfficiencyEnergy(objShip, intSlot, 1.0f);
+                }
+            }
+        }
+        String strPilotType = getStringObjVar(objShip, "ship.pilotType");
+        ship_ai.unitSetPilotType(objShip, strPilotType);
+    }
+    public static void playCombatTauntSound(obj_id objPlayer) throws InterruptedException
+    {
+        String[] strSounds = 
+        {
+            "sound/sys_comm_generic.snd",
+            "sound/sys_comm_imperial.snd",
+            "sound/sys_comm_rebel.snd"
+        };
+        if (!isIdValid(objPlayer))
+        {
+            return;
+        }
+        playMusic(objPlayer, strSounds[rand(0, strSounds.length - 1)]);
+    }
+    public static transform getClosestStationRespawnLocation(obj_id objShip) throws InterruptedException
+    {
+        obj_id objClosestStation = getClosestSpaceStation(objShip);
+        if (!isIdValid(objClosestStation) || !exists(objClosestStation))
+        {
+            return null;
+        }
+        transform trTest = space_utils.getRandomPositionInSphere(getTransform_o2p(objClosestStation), 425f, 450f, false);
+        vector vctTest = space_utils.getVector(objClosestStation);
+        return space_utils.faceTransformToVector(trTest, vctTest);
+    }
+    public static location getClosestStationLocation(obj_id objShip) throws InterruptedException
+    {
+        obj_id objClosestStation = getClosestSpaceStation(objShip);
+        if (!isIdValid(objClosestStation) || !exists(objClosestStation))
+        {
+            return null;
+        }
+        return getLocation(objClosestStation);
+    }
+    public static void sendDestructionNotification(obj_id objShip, obj_id objAttacker) throws InterruptedException
+    {
+        if (space_utils.isPlayerControlledShip(objShip))
+        {
+            Vector objOfficers = space_utils.getShipOfficers(objShip);
+            dictionary dctParams = new dictionary();
+            dctParams.put("objAttacker", objAttacker);
+            dctParams.put("objShip", objShip);
+            for (Object objOfficer : objOfficers) {
+                space_utils.notifyObject(((obj_id) objOfficer), "playerShipDestroyed", dctParams);
+            }
+        }
+    }
+    public static void clearHyperspace(obj_id objShip) throws InterruptedException
+    {
+        if (utils.hasScriptVar(objShip, "intHyperspacing"))
+        {
+            utils.removeScriptVar(objShip, "intHyperspacing");
+        }
+        if (utils.hasScriptVar(objShip, "intHyperspaceDelayStamp"))
+        {
+            utils.removeScriptVar(objShip, "intHyperspaceDelayStamp");
+        }
+        obj_id objPilot = getPilotId(objShip);
+        if (isIdValid(objPilot))
+        {
+            hyperspaceRestoreShipOnClientFromAbortedHyperspace(objPilot);
+        }
+    }
+    public static void doDeathCleanup(obj_id self) throws InterruptedException
+    {
+        if (hasObjVar(self, "intAlarmsOn"))
+        {
+            space_crafting.turnOffInteriorAlarms(self);
+            setObjVar(self, "intAlarmsOn", 1);
+        }
+        utils.removeScriptVar(self, "intHyperspacing");
+    }
+    public static void setDeathFlags(obj_id objShip) throws InterruptedException
+    {
+        utils.setScriptVar(objShip, "intDestroyed", getGameTime());
+    }
+    public static void clearDeathFlags(obj_id objShip) throws InterruptedException
+    {
+        utils.removeScriptVar(objShip, "intDestroyed");
+        utils.removeScriptVar(objShip, "intPVPKill");
+    }
+    public static boolean hasDeathFlags(obj_id objShip) throws InterruptedException
+    {
+        if (utils.hasScriptVar(objShip, "intDestroyed"))
+        {
+            int intTime = getGameTime();
+            int intFlagTime = utils.getIntScriptVar(objShip, "intDestroyed");
+            int intDifference = intTime - intFlagTime;
+            if (intDifference > 20)
+            {
+                utils.removeScriptVar(objShip, "intDestroyed");
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+    public static void addModuleToDatapad(obj_id objModule, obj_id objDatapad) throws InterruptedException
+    {
+        String strDroidCommand = getStringObjVar(objModule, "strDroidCommand");
+        int programSize;
+        if (hasObjVar(objModule, "programSize"))
+        {
+            programSize = getIntObjVar(objModule, "programSize");
+            addModuleToDatapad(strDroidCommand, objDatapad, programSize);
+            destroyObject(objModule);
+        }
+        else 
+        {
+            addModuleToDatapad(strDroidCommand, objDatapad);
+        }
+    }
+    public static void addModuleToDatapad(String strDroidCommand, obj_id objDatapad) throws InterruptedException
+    {
+        int programSize = space_pilot_command.getDroidProgramSize(strDroidCommand, null);
+        addModuleToDatapad(strDroidCommand, objDatapad, programSize);
+    }
+    public static void addModuleToDatapad(String strDroidCommand, obj_id objDatapad, int intProgramSize) throws InterruptedException
+    {
+        String programDataTemplate = "object/intangible/data_item/droid_command.iff";
+        switch (intProgramSize)
+        {
+            case 35:
+            programDataTemplate = "object/intangible/data_item/droid_command_5.iff";
+            break;
+            case 25:
+            programDataTemplate = "object/intangible/data_item/droid_command_4.iff";
+            break;
+            case 24:
+            programDataTemplate = "object/intangible/data_item/droid_command_4_2.iff";
+            break;
+            case 20:
+            programDataTemplate = "object/intangible/data_item/droid_command_3.iff";
+            break;
+            case 19:
+            programDataTemplate = "object/intangible/data_item/droid_command_3_2.iff";
+            break;
+            case 10:
+            programDataTemplate = "object/intangible/data_item/droid_command_2.iff";
+            break;
+            case 5:
+            programDataTemplate = "object/intangible/data_item/droid_command_1.iff";
+            break;
+        }
+        obj_id objNewCommand = createObject(programDataTemplate, objDatapad, "");
+        setObjVar(objNewCommand, "strDroidCommand", strDroidCommand);
+        setName(objNewCommand, new string_id("space/droid_commands", strDroidCommand + "_chipname"));
+        setObjVar(objNewCommand, "programSize", intProgramSize);
+    }
+    public static void doBattlefieldRepairCheck(obj_id objShip) throws InterruptedException
+    {
+        location locTest = getLocation(objShip);
+        if (locTest.area.equals("space_heavy1"))
+        {
+            obj_id objPlayer = getOwner(objShip);
+            space_crafting.repairDamage(objPlayer, objShip, 1.0f, 0);
+        }
+    }
+    public static void simpleShieldRatioRebalance(obj_id ship) throws InterruptedException
+    {
+        float fltShieldFrontMaximum = getShipShieldHitpointsFrontMaximum(ship);
+        float fltShieldBackMaximum = getShipShieldHitpointsBackMaximum(ship);
+        if (fltShieldFrontMaximum != fltShieldBackMaximum)
+        {
+            float fltShieldTotal = fltShieldFrontMaximum + fltShieldBackMaximum;
+            float fltFrontMax = (fltShieldTotal / 2);
+            float fltBackMax = fltShieldTotal - fltFrontMax;
+            setShipShieldHitpointsFrontMaximum(ship, fltFrontMax);
+            setShipShieldHitpointsBackMaximum(ship, fltBackMax);
+        }
+    }
+    public static boolean isCapShip(obj_id ship) throws InterruptedException
+    {
+        return (dataTableGetInt("datatables/space_mobile/space_mobile.iff", getStringObjVar(ship, "ship.shipName"), "shipClass") == 2);
+    }
+    public static boolean getCollectionLoot(obj_id objAttacker, obj_id objPilot, obj_id objContainer, String collectionLoot) throws InterruptedException
+    {
+        if (!isIdValid(objAttacker))
+        {
+            return false;
+        }
+        if (!isIdValid(objPilot))
+        {
+            return false;
+        }
+        if (!isIdValid(objContainer))
+        {
+            return false;
+        }
+        if (collectionLoot.equals(""))
+        {
+            return false;
+        }
+        String[] collectionsInColumn = split(collectionLoot, ',');
+        int collectionIndex = rand(0, (collectionsInColumn.length - 1));
+        collectionLoot = collectionsInColumn[collectionIndex];
+        String[] lootArray = dataTableGetStringColumnNoDefaults(SPACE_COLLECTIONS_LOOT_TABLE, collectionLoot);
+        int max = lootArray.length - 1;
+        int idx = rand(0, max);
+        String lootToGrant = lootArray[idx];
+        attemptToGrantLootItem(lootToGrant, objAttacker, objContainer);
+        return true;
+    }
+    public static boolean attemptToGrantLootItem(String lootItem, obj_id objAttacker, obj_id objContainer) throws InterruptedException
+    {
+        if (!isIdValid(objAttacker))
+        {
+            return false;
+        }
+        if (!isIdValid(objContainer))
+        {
+            return false;
+        }
+        if (lootItem.equals(""))
+        {
+            return false;
+        }
+        if(getVolumeFree(objContainer) > 0) {
+            obj_id objItem = space_utils.createObjectTrackItemCount(lootItem, objContainer);
+            if (isIdValid(objItem))
+            {
+                sendItemNotification(objAttacker, objItem);
+                return true;
+            }
+        }
+        string_id strSpam = new string_id("space/space_loot", "no_more_loot");
+        if (space_utils.isShipWithInterior(objAttacker))
+        {
+            strSpam = new string_id("space/space_loot", "loot_box_full");
+        }
+        space_utils.sendSystemMessageShip(objAttacker, strSpam, true, true, true, true);
+        CustomerServiceLog("space_loot", "Failed to create " + lootItem + " in " + objContainer + " contained by " + objAttacker + ". The Ship or Player Inventory container was full.", getOwner(objAttacker));
+        return false;
+    }
+}
                 String strFileName = "space/taunts/" + strDiction;
                 strType = strType + rand(1, TAUNT_QUANTITY);
                 string_id strSpam = new string_id(strFileName, strType);

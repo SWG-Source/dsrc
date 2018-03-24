@@ -1691,9 +1691,13 @@ craftShipwrightMaster	object/draft_schematic/space/weapon/missile/wpn_launcher_i
 craftShipwrightMaster	object/draft_schematic/space/weapon/missile/wpn_imagerec_missile_mk2.iff
 craftShipwrightMaster	object/draft_schematic/space/shields/shield_energy_saver_kit_mk5.iff
 craftShipwrightMaster	object/draft_schematic/space/shields/shield_intensifier_mk5.iff
+craftShipwrightMaster	object/draft_schematic/space/chassis/blacksun_heavy_vaksai.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/bwing.iff
+craftShipwrightMaster	object/draft_schematic/space/chassis/twing.iff
+craftShipwrightMaster	object/draft_schematic/space/chassis/havoc.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/hutt_turret_ship.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/yt1300.iff
+craftShipwrightMaster	object/draft_schematic/space/chassis/tiedefender.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/tieoppressor.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/decimator.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/ykl37r.iff
@@ -1725,6 +1729,7 @@ craftShipwrightMaster	object/draft_schematic/space/weapon/wpn_elite_null_bolt.if
 craftShipwrightMaster	object/draft_schematic/space/weapon/wpn_elite_railgun.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/texture_kit_arc170_s01.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/texture_kit_arc170_s02.iff
+craftShipwrightMaster	object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/texture_kit_awing_s06.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/texture_kit_bwing_s06.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/texture_kit_bwing_s07.iff
