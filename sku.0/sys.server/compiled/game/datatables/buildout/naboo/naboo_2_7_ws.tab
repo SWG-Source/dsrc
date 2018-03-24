@@ -232,6 +232,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1692069	1692066	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1692070	1692066	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1692071	1692066	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-7	1692071	object/tangible/npc/storyline_npc/coa3_tactical_imperial_spawner.iff	5	9.7	1.1	0.1	1	0	0	0		$|
 1692072	1692066	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1692073	1692066	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1692074	1692066	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -244,6 +245,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1692081	1692076	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1692082	1692076	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1692083	1692076	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+-6	1692083	object/tangible/npc/storyline_npc/coa3_information_imperial_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 1692084	1692076	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1692085	1692076	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 1692097	0	object/building/naboo/power_generator_naboo_theed.iff	0	1348.81	5.96226	143.118	0.938444	0	0.345432	0		$|
@@ -729,7 +731,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5125660	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	260.825	6	107.504	0.876821	0	0.480817	0		$|
 8725355	0	object/building/naboo/thm_nboo_block_bldg_64x32_style_01.iff	0	378.259	6	214.128	-0.0618635	0	0.998085	0		$|
 8865396	0	object/tangible/poi/spawnegg/exterior_spawnegg.iff	0	987.77	6.21467	33.35	1	0	0	0		$|
--1	0	object/tangible/poi/tatooine/explore_naboo_theed_falls.iff	0	1523	1837	156	1	0	0	0		$|
+-1	0	object/tangible/poi/tatooine/explore_naboo_theed_falls.iff	0	1516	6	111	1	0	0	0		$|
 4295615	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	628	6	307	0.38268	0	0.92388	0		$|
 91572	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1289	6	62	1	0	0	0		$|
 91573	0	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	0	1288	6	62	1	0	0	0		$|
@@ -737,3 +739,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -2	0	object/tangible/spawning/static_npc/herald_naboo_noble_pirate_rescue_hanna.iff	0	664	6	302	1	0	0	0		$|
 -3	0	object/tangible/spawning/static_npc/herald_naboo_01_vaikanna.iff	0	659.66	10	328.48	0	0	1	0		$|
 -4	0	object/tangible/spawning/static_npc/herald_naboo_mauler_encampment.iff	0	606.03	6	269.09	0.7071067812	0	-0.7071067812	0		$|
+-5	0	object/tangible/npc/storyline_npc/imperial_coordinator_spawner.iff	0	713	6	72	1	0	0	0		$|
+-8	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1216	6	134	1	0	0	0		$|
+-9	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1208	6	134	1	0	0	0		$|

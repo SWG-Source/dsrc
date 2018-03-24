@@ -16,6 +16,7 @@ public class tusken_master_spawner extends script.base_script
     {
         deltadictionary tuskenSpawn = self.getScriptVars();
         tuskenSpawn.put("count", 0);
+        tuskenSpawn.put("wave",0);
         messageTo(self, "checkSpawnStatus", null, 60, false);
         return SCRIPT_CONTINUE;
     }
@@ -32,6 +33,9 @@ public class tusken_master_spawner extends script.base_script
         if (count == 0)
         {
             int delay = 3600 + rand(300, 900);
+            if(utils.getIntScriptVar(self, "wave") == 0) delay = 1;
+            utils.setScriptVar(self, "delay", delay);
+            utils.setScriptVar(self, "nextSpawn", delay + getGameTime());
             messageTo(self, "spawnTuskenNpcs", null, delay, false);
         }
         return SCRIPT_CONTINUE;
@@ -40,6 +44,7 @@ public class tusken_master_spawner extends script.base_script
     {
         deltadictionary tuskenSpawn = self.getScriptVars();
         int count = tuskenSpawn.getInt("count");
+        tuskenSpawn.put("wave", tuskenSpawn.getInt("wave") + 1);
         obj_id building = getTopMostContainer(self);
 
         try {
@@ -56,11 +61,13 @@ public class tusken_master_spawner extends script.base_script
             count++;
 
             createSpawn(self, new location(2.17f, 8.36f, -32.02f, "tatooine", getCellId(building, "r5")), "tusken_witch_doctor");
-            tuskenSpawn.put("count", ++count);
+            count++;
         }
         catch(Exception e){
-            tuskenSpawn.put("count", ++count);
+            // do nothing.
         }
+        tuskenSpawn.put("lastSpawned", getGameTime());
+        tuskenSpawn.put("count", count);
 
         return SCRIPT_CONTINUE;
     }

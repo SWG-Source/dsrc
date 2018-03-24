@@ -229,8 +229,11 @@ public class turnstile extends script.base_script
         }
         obj_id[] patrons = getObjIdArrayObjVar(building, VAR_TURNSTILE_PATRON_IDS);
         int[] timestamps = getIntArrayObjVar(building, VAR_TURNSTILE_PATRON_STAMPS);
+        if(timestamps == null){
+            return false;
+        }
         int arrayPosition = utils.getElementPositionInArray(patrons, player);
-        if (arrayPosition == -1)
+        if (arrayPosition == -1 || arrayPosition >= timestamps.length)
         {
             return false;
         }

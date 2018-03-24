@@ -110,7 +110,12 @@ public class tford_test extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        debugSpeakMsg(self, "tford_test.script attached");
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.tford_test");
+        }
+        else{
+            debugSpeakMsg(self, "tford_test.script attached");
+        }
         return SCRIPT_CONTINUE;
     }
     public int OnLocomotionChanged(obj_id self, int newLocomotion, int oldLocomotion) throws InterruptedException

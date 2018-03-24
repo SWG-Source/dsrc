@@ -831,16 +831,15 @@ public class guild extends script.base_script
         if (members != null && members.length > 0)
         {
             java.util.StringTokenizer st = new java.util.StringTokenizer(name);
-            String compareName = toLower(st.nextToken());
-            for (int i = 0; i < members.length; ++i)
-            {
-                if (isIdValid(members[i]))
-                {
-                    java.util.StringTokenizer st2 = new java.util.StringTokenizer(guildGetMemberName(guildId, members[i]));
-                    String memberName = toLower(st2.nextToken());
-                    if (compareName.equals(memberName))
-                    {
-                        return members[i];
+            if(st != null && st.hasMoreTokens()) {
+                String compareName = toLower(st.nextToken());
+                for (int i = 0; i < members.length; ++i) {
+                    if (isIdValid(members[i])) {
+                        java.util.StringTokenizer st2 = new java.util.StringTokenizer(guildGetMemberName(guildId, members[i]));
+                        String memberName = toLower(st2.nextToken());
+                        if (compareName.equals(memberName)) {
+                            return members[i];
+                        }
                     }
                 }
             }

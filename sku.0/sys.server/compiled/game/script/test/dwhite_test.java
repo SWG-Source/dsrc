@@ -28,6 +28,9 @@ public class dwhite_test extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.dwhite_test");
+        }
         return SCRIPT_CONTINUE;
     }
     public int OnSpeaking(obj_id self, String text) throws InterruptedException

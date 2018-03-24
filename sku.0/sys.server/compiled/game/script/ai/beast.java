@@ -448,7 +448,9 @@ public class beast extends script.base_script
         }
         if (isIdValid(master))
         {
-            setHomeLocation(self, getLocation(master));
+            location masterLoc = getLocation(master);
+            if(isValidLocation(masterLoc))
+                setHomeLocation(self, masterLoc);
         }
         return SCRIPT_CONTINUE;
     }

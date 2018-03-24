@@ -916,26 +916,25 @@ public class ai_lib extends script.base_script
                 return;
             }
         }
-        location myLoc = new location(getLocation(npc));
-        location targetLoc = new location(getLocation(target));
-        if (myLoc.x < targetLoc.x)
-        {
-            myLoc.x -= rand(20f, 40f);
+        location myLoc = getLocation(npc);
+        location targetLoc = getLocation(target);
+        if(isValidLocation(myLoc) && isValidLocation(targetLoc)) {
+            if (myLoc.x < targetLoc.x) {
+                myLoc.x -= rand(20f, 40f);
+            } else {
+                myLoc.x += rand(20f, 40f);
+            }
+            if (myLoc.z < targetLoc.z) {
+                myLoc.z -= rand(20f, 40f);
+            } else {
+                myLoc.z += rand(20f, 40f);
+            }
+            setObjVar(npc, "ai.pathingAwayFrom", target);
+            pathTo(npc, myLoc);
         }
-        else 
-        {
-            myLoc.x += rand(20f, 40f);
+        else{
+            LOG("debug_ai","Unable to get a valid location for myLoc (" + myLoc + ") or targetLoc (" + targetLoc + ") to make vendor path away.");
         }
-        if (myLoc.z < targetLoc.z)
-        {
-            myLoc.z -= rand(20f, 40f);
-        }
-        else 
-        {
-            myLoc.z += rand(20f, 40f);
-        }
-        setObjVar(npc, "ai.pathingAwayFrom", target);
-        pathTo(npc, myLoc);
         messageTo(npc, "handleClearPathingFlag", null, 30f, isObjectPersisted(npc));
     }
     public static void setLoiterRanges(obj_id npc, float minRange, float maxRange) throws InterruptedException

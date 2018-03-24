@@ -28,6 +28,13 @@ public class jwatson_test extends script.base_script
     public jwatson_test()
     {
     }
+    public int OnAttach(obj_id self) throws InterruptedException
+    {
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.jwatson_test");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public void colorize(obj_id player, obj_id target, String customizationVar) throws InterruptedException
     {
         int pId = createSUIPage("Script.ColorPicker", player, player, "ColorizeCallback");

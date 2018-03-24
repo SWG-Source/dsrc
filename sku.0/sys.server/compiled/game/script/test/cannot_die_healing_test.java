@@ -13,6 +13,12 @@ public class cannot_die_healing_test extends script.base_script
     public cannot_die_healing_test()
     {
     }
+    public int OnAttach(obj_id self) throws InterruptedException {
+        if (!isGod(self) || getGodLevel(self) < 10 || !isPlayer(self)) {
+            detachScript(self, "test.buy_box");
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id weapon, int[] damage) throws InterruptedException
     {
         setAttrib(self, HEALTH, 100);

@@ -31,7 +31,7 @@ public class woman1 extends script.base_script
         }
         
         {
-            obj_id suit = createObject("object/tangible/wearables/dress/dress_s30.iff", self, "");
+            // obj_id suit = createObject("object/tangible/wearables/dress/dress_s30.iff", self, "");
             obj_id boots = createObject("object/tangible/wearables/shoes/shoes_s01.iff", self, "");
             hue.hueObject(self);
             pvpSetAlignedFaction(self, (-615855020));

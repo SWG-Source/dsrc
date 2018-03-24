@@ -52,12 +52,12 @@ public class taike_tusken_spawner extends script.base_script
     }
     public location getStartLocation() throws InterruptedException
     {
-        location raid = new location(3802, 15, 2359, "tatooine", null);
+        location raid = new location(3802, 13, 2359, "tatooine", null);
         int raidSpot = rand(1, 3);
         switch (raidSpot)
         {
             case 1:
-            raid = new location(3802, 15, 2359, "tatooine", null);
+            raid = new location(3802, 13, 2359, "tatooine", null);
             break;
             case 2:
             raid = new location(0, 0, 0, "tatooine", null);

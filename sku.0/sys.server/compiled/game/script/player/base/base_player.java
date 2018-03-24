@@ -487,8 +487,35 @@ public class base_player extends script.base_script
             expertise.autoAllocateExpertiseByLevel(self, true);
         }
         recomputeCommandSeries(self);
+        grantLevelSpecificRewards(self, newCombatLevel);
         skill.sendlevelUpStatChangeSystemMessages(self, oldCombatLevel, newCombatLevel);
         return SCRIPT_CONTINUE;
+    }
+    public void grantLevelSpecificRewards(obj_id player, int newCombatLevel) throws InterruptedException{
+        if(hasObjVar(player, "level.reward." + newCombatLevel)) return;
+        obj_id inv = utils.getInventoryContainer(player);
+        switch(newCombatLevel){
+            case 20:
+                // create the Level 20 reward Flash Speeder (stella)
+                createLevelReward("Flash Speeder deed", "object/tangible/deed/vehicle_deed/speederbike_flash_deed.iff", newCombatLevel, player);
+                break;
+            case 70:
+                createLevelReward("Lava Flea deed", "object/tangible/veteran_reward/mount_lava_flea.iff", newCombatLevel, player);
+                // create the Level 70 reward Lava Flea (stella)
+                break;
+        }
+    }
+    public void createLevelReward(String name, String template, int level, obj_id player) throws InterruptedException{
+        String playerName = getName(player);
+        obj_id reward = createObjectInInventoryAllowOverload(template, player);
+        if(isIdValid(reward)){
+            setObjVar(player, "level.reward." + level, true);
+            sendSystemMessage(player, "A " + name + " has been placed in your inventory.", null);
+            CustomerServiceLog("LevelItemRewards", "Player " + playerName + " (" + player + ") has been awarded the " + name + " for reaching Level " + level + ".");
+        }
+        else{
+            CustomerServiceLog("LevelItemRewards", "Unable to create " + name + " reward for Player " + playerName + " (" + player + ")");
+        }
     }
     public int updateGCWStanding(obj_id self, dictionary params) throws InterruptedException
     {
@@ -12616,6 +12643,19 @@ public class base_player extends script.base_script
             }
             smuggler.flagJunkSaleSui(self, junkDealer);
         }
+        return SCRIPT_CONTINUE;
+    }
+    public int setupLotteryListener(obj_id self, dictionary params) throws InterruptedException{
+        listenToMessage(getObjIdObjVar(self, "lottery.broker"), "updateLotteryStatus");
+        return SCRIPT_CONTINUE;
+    }
+    public int removeLotteryListener(obj_id self, dictionary params) throws InterruptedException{
+        stopListeningToMessage(getObjIdObjVar(self, "lottery.broker"), "updateLotteryStatus");
+        return SCRIPT_CONTINUE;
+    }
+    public int updateLotteryStatus(obj_id self, dictionary params) throws InterruptedException
+    {
+        setObjVar(self, "lottery.availableTickets", params.getInt("available"));
         return SCRIPT_CONTINUE;
     }
     public boolean blog(String txt) throws InterruptedException

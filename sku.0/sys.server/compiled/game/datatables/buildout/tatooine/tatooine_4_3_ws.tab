@@ -318,6 +318,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028547	1028544	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1028548	1028544	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1028549	1028544	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-56	1028549	object/tangible/npc/storyline_npc/coa3_tactical_imperial_spawner.iff	5	9.7	1.1	0.1	1	0	0	0		$|
 1028550	1028544	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1028551	1028544	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1028552	1028544	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -330,6 +331,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1028559	1028554	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1028560	1028554	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1028561	1028554	object/cell/cell.iff	7	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
+-55	1028561	object/tangible/npc/storyline_npc/coa3_information_imperial_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 1028562	1028554	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1028563	1028554	object/cell/cell.iff	9	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1028574	0	object/building/tatooine/guild_university_tatooine_style_01.iff	0	793.718	12	581.644	0.431176	0	0.902268	0		$|
@@ -676,6 +678,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1223847	1223845	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
 1223848	1223845	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1223849	1223845	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4935531	1223849	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	7.2	1.0	-8.2	1	0	0	0		intRandomYaw|0|1|$|
 1443039	1223849	object/tangible/space/content_infrastructure/ground_npc_spawner.iff	4	7.6	1.0	5.1	0.70710	0	-0.70710	0		$|
 1106011	1223849	object/tangible/gambling/slot/standard.iff	4	0.384282	0.999499	-22.1791	1	0	0	0		$|
 1106012	1223849	object/tangible/gambling/slot/standard.iff	4	4.43562	1	-22.1384	1	0	0	0		$|
@@ -1415,7 +1418,6 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4006232	0	object/tangible/spawning/spawn_egg.iff	0	677.89	12	456.17	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
 -1	0	object/tangible/poi/tatooine/bestine/bestine_marketplace_spawner_object.iff	12	1000	0	400	1	0	0	0		$|
 -2	0	object/tangible/poi/tatooine/bestine/bestine_city_raid_spawner_object.iff	12	1000	0	401	1	0	0	0		$|
--3	0	object/tangible/creature_spawner/tusken_master_spawner.iff	0	1000	12	402	1	0	0	0		$|
 -4	0	object/tangible/poi/tatooine/bestine/bestine_city_raid_grandparent_object.iff	0	1065	12	353	1	0	0	0		$|
 -12	0	object/tangible/spawning/static_npc/victor_questp_slums.iff	0	691	26	225	1	0	0	0		$|
 -13	0	object/tangible/spawning/static_npc/victor_questp_hospital.iff	0	754	12	596	1	0	0	0		$|

@@ -41,6 +41,20 @@ public class reward_pet_deed extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+    public obj_id generatePet(obj_id deed, obj_id player, String controlTemplate, String creatureType, String datapadItemName, boolean noTrade, boolean noStuff) throws InterruptedException{
+        obj_id datapad = utils.getPlayerDatapad(player);
+        obj_id petControlDevice = createObject(controlTemplate, datapad, "");
+        setObjVar(petControlDevice, "pet.creatureName", creatureType);
+        attachScript(petControlDevice, "ai.pet_control_device");
+        setName(petControlDevice, datapadItemName);
+        int petType = pet_lib.PET_TYPE_MOUNT;
+        setObjVar(petControlDevice, "ai.pet.type", petType);
+        setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
+        if(noTrade) setObjVar(petControlDevice, "noTrade", 1);
+        if(noStuff) setObjVar(petControlDevice, "noStuff", 1);
+        destroyObject(deed);
+        return petControlDevice;
+    }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
         if (item == menu_info_types.SERVER_MENU1 && hasObjVar(self, "creatureName"))
@@ -59,129 +73,40 @@ public class reward_pet_deed extends script.base_script
                     destroyObject(self);
                 }
             }
-            if (creatureType.equals("ep3_mount_varactyl"))
-            {
-                String controlTemplate = "object/intangible/pet/varactyl.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "ep3_mount_varactyl");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(varactyl)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                setObjVar(petControlDevice, "storageUnlimited", 1);
-                destroyObject(self);
-            }
-            if (creatureType.equals("ep3_mount_bolotaur"))
-            {
-                String controlTemplate = "object/intangible/pet/bolotaur.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "ep3_mount_bolotaur");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(bolotaur)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                destroyObject(self);
-            }
-            if (creatureType.equals("ep3_mount_kashyyyk_bantha"))
-            {
-                String controlTemplate = "object/intangible/pet/kashyyyk_bantha.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "ep3_mount_kashyyyk_bantha");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(kashyyyk bantha)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                destroyObject(self);
-            }
-            if (creatureType.equals("carrion_spat"))
-            {
-                String controlTemplate = "object/intangible/pet/carrion_spat_hue.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "carrion_spat");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(Kartha's Cliff-Jumper)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                destroyObject(self);
-            }
-            if (creatureType.equals("som_lava_flea_preorder"))
-            {
-                String controlTemplate = "object/intangible/pet/lava_flea.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "som_lava_flea_preorder");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(Lava Flea)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                destroyObject(self);
-            }
-            if (creatureType.equals("walker_at_rt_camo"))
-            {
-                String controlTemplate = "object/intangible/vehicle/walker_at_rt_camo_pcd.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "walker_at_rt_camo");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(AT-RT)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                destroyObject(self);
-            }
-            if (creatureType.equals("tcg_armored_bantha"))
-            {
-                String controlTemplate = "object/intangible/pet/bantha_armored.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "tcg_armored_bantha");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(Armored Bantha)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                setObjVar(petControlDevice, "noTrade", 1);
-                setObjVar(petControlDevice, "noStuff", 1);
-                destroyObject(self);
-            }
-            if (creatureType.equals("tcg_peko_peko_mount"))
-            {
-                String controlTemplate = "object/intangible/pet/tcg_peko_peko_mount.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "tcg_peko_peko_mount");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(Peko Peko)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                setObjVar(petControlDevice, "noTrade", 1);
-                setObjVar(petControlDevice, "noStuff", 1);
-                destroyObject(self);
-            }
-            if (creatureType.equals("tcg_gualaar"))
-            {
-                String controlTemplate = "object/intangible/pet/gualaar_pcd.iff";
-                obj_id datapad = utils.getPlayerDatapad(player);
-                obj_id petControlDevice = createObject(controlTemplate, datapad, "");
-                setObjVar(petControlDevice, "pet.creatureName", "tcg_gualaar");
-                attachScript(petControlDevice, "ai.pet_control_device");
-                setName(petControlDevice, "(Gualaar)");
-                int petType = pet_lib.PET_TYPE_MOUNT;
-                setObjVar(petControlDevice, "ai.pet.type", petType);
-                setObjVar(petControlDevice, "ai.pet.trainedMount", 1);
-                setObjVar(petControlDevice, "noTrade", 1);
-                setObjVar(petControlDevice, "noStuff", 1);
-                destroyObject(self);
+            else {
+                obj_id petControlDevice;
+                switch (creatureType) {
+                    case "ep3_mount_varactyl":
+                        petControlDevice = generatePet(self, player, "object/intangible/pet/varactyl.iff", creatureType, "(varactyl)", false, false);
+                        setObjVar(petControlDevice, "storageUnlimited", 1);
+                        break;
+                    case "ep3_mount_bolotaur":
+                        petControlDevice = generatePet(self, player, "object/intangible/pet/bolotaur.iff", creatureType, "(bolotaur)", false, false);
+                        break;
+                    case "ep3_mount_kashyyyk_bantha":
+                        petControlDevice = generatePet(self, player, "object/intangible/pet/kashyyyk_bantha.iff", creatureType, "(kashyyyk bantha)", false, false);
+                        break;
+                    case "carrion_spat":
+                        petControlDevice = generatePet(self, player, "object/intangible/pet/carrion_spat_hue.iff", creatureType, "(Kartha's Cliff-Jumper)", false, false);
+                        break;
+                    case "som_lava_flea_preorder":
+                        petControlDevice = generatePet(self, player, "object/intangible/pet/lava_flea.iff", creatureType, "(Lava Flea)", false, false);
+                        break;
+                    case "walker_at_rt_camo":
+                        petControlDevice = generatePet(self, player, "object/intangible/vehicle/walker_at_rt_camo_pcd.iff", creatureType, "(AT-RT)", false, false);
+                        break;
+                    case "tcg_armored_bantha":
+                        petControlDevice = generatePet(self, player, "object/intangible/pet/bantha_armored.iff", creatureType, "(Armored Bantha)", true, true);
+                        break;
+                    case "tcg_peko_peko_mount":
+                        petControlDevice = generatePet(self, player, "object/intangible/pet/tcg_peko_peko_mount.iff", creatureType, "(Peko Peko)", true, true);
+                        break;
+                    case "tcg_gualaar":
+                        petControlDevice = generatePet(self, player, "object/intangible/pet/gualaar_pcd.iff", creatureType, "(Gualaar)", true, true);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         return SCRIPT_CONTINUE;

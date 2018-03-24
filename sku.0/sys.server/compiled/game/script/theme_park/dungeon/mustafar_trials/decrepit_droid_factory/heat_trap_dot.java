@@ -44,7 +44,7 @@ public class heat_trap_dot extends script.base_script
         String or5_script = "theme_park.dungeon.mustafar_trials.decrepit_droid_factory.colonel_or5";
         obj_id[] withScript = trial.getObjectsInDungeonWithScript(trial.getTop(self), or5_script);
         obj_id or_5 = null;
-        if (withScript == null && withScript.length == 0)
+        if (withScript == null || withScript.length == 0)
         {
             return SCRIPT_CONTINUE;
         }

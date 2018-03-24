@@ -6684,12 +6684,15 @@ public class utils extends script.base_script
             return null;
         }
         location testLoc;
-        for (obj_id allObject : allObjects) {
-            testLoc = getLocation(trial.getTop(allObject));
+        for (obj_id obj : allObjects) {
+            testLoc = getLocation(trial.getTop(obj));
+            if(testLoc == null || !isValidLocation(testLoc)){
+                continue;
+            }
             if (testLoc.x < x1 || testLoc.x > x2 || testLoc.z < z1 || testLoc.z > z2) {
                 continue;
             }
-            objectsInArea.add(allObject);
+            objectsInArea.add(obj);
         }
         if (objectsInArea.size() == 0)
         {
@@ -6778,7 +6781,22 @@ public class utils extends script.base_script
             }
         }
         respec.setRespecVersion(player);
+        float mtp_eavesdrop_duration = 0;
+        float mtp_wine_duration = 0;
+        obj_id self = getSelf();
+        if(buff.hasBuff(self, "mtp_eavesdrop_lockout")){
+            mtp_eavesdrop_duration = buff.getDuration("mtp_eavesdrop_lockout");
+        }
+        if(buff.hasBuff(self, "mtp_wine_lockout")){
+            mtp_wine_duration = buff.getDuration("mtp_wine_lockout");
+        }
         buff.removeAllBuffs(player, false, true);
+        if(mtp_eavesdrop_duration > 0){
+            buff.applyBuff(self, "mtp_eavesdrop_lockout", mtp_eavesdrop_duration);
+        }
+        if(mtp_wine_duration > 0){
+            buff.applyBuff(self, "mtp_wine_lockout", mtp_eavesdrop_duration);
+        }
         resetExpertises(player);
     }
     public static obj_id[] getAllRidersInVehicle(obj_id player, obj_id vehicle) throws InterruptedException

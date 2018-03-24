@@ -274,13 +274,11 @@ public class stormtrooper_respect extends script.base_script
     }
     public int stFilterHandler(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id speakerTarget = null;
-        if (utils.hasScriptVar(self, "stFilterSpeaker") || isIncapacitated(self) || isDead(self) || ai_lib.isInCombat(self))
+        if (utils.hasScriptVar(self, "stFilterSpeaker") && !isIncapacitated(self) && !isDead(self) && !ai_lib.isInCombat(self))
         {
-            speakerTarget = utils.getObjIdScriptVar(self, "stFilterSpeaker");
-            if (isPlayer(speakerTarget) || !isIncapacitated(speakerTarget) || !isDead(speakerTarget) || !ai_lib.isInCombat(speakerTarget))
+            obj_id speakerTarget = utils.getObjIdScriptVar(self, "stFilterSpeaker");
+            if (isPlayer(speakerTarget) && !isIncapacitated(speakerTarget) && !isDead(speakerTarget) && !ai_lib.isInCombat(speakerTarget))
             {
-                speakerTarget = utils.getObjIdScriptVar(self, "stFilterSpeaker");
                 String stSpeech = utils.getStringScriptVar(speakerTarget, "stFilterSpeech");
                 String[] keyphrases = dataTableGetStringColumn(KEYPHRASES, "keyphrase");
                 String stSayFaction = factions.getFaction(speakerTarget);
@@ -313,17 +311,10 @@ public class stormtrooper_respect extends script.base_script
                     }
                 }
             }
-        }
-        else 
-        {
             utils.removeScriptVar(speakerTarget, "stFilter");
             utils.removeScriptVar(self, "stFilterSpeaker");
             utils.removeScriptVar(speakerTarget, "stFilterSpeech");
-            return SCRIPT_CONTINUE;
         }
-        utils.removeScriptVar(speakerTarget, "stFilter");
-        utils.removeScriptVar(self, "stFilterSpeaker");
-        utils.removeScriptVar(speakerTarget, "stFilterSpeech");
         return SCRIPT_CONTINUE;
     }
     public int OnSawEmote(obj_id self, obj_id emoteSayer, String emotein) throws InterruptedException

@@ -88,8 +88,10 @@ public class sequencer extends script.base_script
     }
     public static void runToSequenceObject(obj_id objNPC, obj_id objSeq) throws InterruptedException
     {
-        setMovementRun(objNPC);
-        pathTo(objNPC, getLocation(objSeq));
+        if(isNpcCreature(objNPC)) {
+            setMovementRun(objNPC);
+            pathTo(objNPC, getLocation(objSeq));
+        }
     }
     public static void runToSequenceObject(obj_id objNPC, String strObject) throws InterruptedException
     {

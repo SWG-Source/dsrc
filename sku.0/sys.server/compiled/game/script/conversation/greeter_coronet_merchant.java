@@ -34,10 +34,6 @@ public class greeter_coronet_merchant extends script.base_script
         {
             return true;
         }
-        if (groundquests.isTaskActive(player, "corellia_coronet_capitol_problems_missing_shipment_intro", "ralMundi_getSchedule") && (groundquests.isTaskActive(player, "corellia_coronet_capitol_problems_missing_shipment_intro", "ralMundi_getInvoice") || groundquests.isTaskActive(player, "corellia_coronet_capitol_problems_missing_shipment_intro", "ralMundi_gaveTool")))
-        {
-            return true;
-        }
         return false;
     }
     public boolean greeter_coronet_merchant_condition_getSchedule(obj_id player, obj_id npc) throws InterruptedException
@@ -46,19 +42,11 @@ public class greeter_coronet_merchant extends script.base_script
         {
             return true;
         }
-        if (groundquests.isTaskActive(player, "corellia_coronet_capitol_problems_missing_shipment_intro", "ralMundi_getSchedule") && groundquests.hasCompletedTask(player, "corellia_coronet_capitol_problems_missing_shipment_intro", "ralMundi_gaveTool"))
-        {
-            return true;
-        }
         return false;
     }
     public boolean greeter_coronet_merchant_condition_getInvoice(obj_id player, obj_id npc) throws InterruptedException
     {
         if (groundquests.hasCompletedTask(player, "corellia_coronet_find_missing_shipment", "ralMundi_getSchedule") && (groundquests.isTaskActive(player, "corellia_coronet_find_missing_shipment", "ralMundi_getInvoice") || groundquests.isTaskActive(player, "corellia_coronet_find_missing_shipment", "ralMundi_craftTool") || groundquests.isTaskActive(player, "corellia_coronet_find_missing_shipment", "ralMundi_craftedTool")))
-        {
-            return true;
-        }
-        if (groundquests.hasCompletedTask(player, "corellia_coronet_capitol_problems_missing_shipment_intro", "ralMundi_getSchedule") && (groundquests.isTaskActive(player, "corellia_coronet_capitol_problems_missing_shipment_intro", "ralMundi_getInvoice") || groundquests.isTaskActive(player, "corellia_coronet_capitol_problems_missing_shipment_intro", "ralMundi_gaveTool")))
         {
             return true;
         }

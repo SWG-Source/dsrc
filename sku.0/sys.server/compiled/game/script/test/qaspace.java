@@ -72,7 +72,12 @@ public class qaspace extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        sendSystemMessageTestingOnly(self, "QaSpace script attached.");
+        if (!isGod(self) || getGodLevel(self) < 50 || !isPlayer(self)) {
+            detachScript(self, "test.qaspace");
+        }
+        else {
+            sendSystemMessageTestingOnly(self, "QaSpace script attached.");
+        }
         return SCRIPT_CONTINUE;
     }
     public int OnDetach(obj_id self) throws InterruptedException

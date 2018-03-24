@@ -134,6 +134,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4615369	4615366	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 4615370	4615366	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 4615371	4615366	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-16	4615371	object/tangible/npc/storyline_npc/coa3_tactical_imperial_spawner.iff	5	9.7	1.1	0.1	1	0	0	0		$|
 4615372	4615366	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 4615373	4615366	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 4615374	4615366	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -146,6 +147,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4615381	4615376	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 4615382	4615376	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 4615383	4615376	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
+-15	4615383	object/tangible/npc/storyline_npc/coa3_information_imperial_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 4615384	4615376	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 4615385	4615376	object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
 4615389	0	object/static/structure/naboo/nboo_imprv_pristine_wall_large_s01.iff	0	971	80	1654	0.707108	0	0.707105	0		$|

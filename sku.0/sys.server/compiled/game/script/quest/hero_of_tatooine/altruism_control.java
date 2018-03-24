@@ -79,7 +79,8 @@ public class altruism_control extends script.base_script
                         obj_id object = objects[i];
                         if (isIdValid(object) && isMob(object))
                         {
-                            if ((getCreatureName(object)).equals("quest_hero_of_tatooine_farmer_wife"))
+                            String cName = getCreatureName(object);
+                            if (cName != null && cName.equals("quest_hero_of_tatooine_farmer_wife"))
                             {
                                 mother = object;
                                 break;

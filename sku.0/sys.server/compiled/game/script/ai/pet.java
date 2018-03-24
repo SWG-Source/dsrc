@@ -747,6 +747,9 @@ public class pet extends script.base_script
     }
     public int handleSetupPet(obj_id self, dictionary params) throws InterruptedException
     {
+        if(!pet_lib.hasMaster(self)){
+            return SCRIPT_CONTINUE;
+        }
         LOGC(aiLoggingEnabled(self), "debug_ai", "pet::handleSetupPet() self(" + self + ":" + getName(self) + ") master(" + getMaster(self) + ":" + getName(getMaster(self)) + ")");
         if (!isMob(self))
         {

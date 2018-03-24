@@ -43,8 +43,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1082874	0	object/building/tatooine/cantina_tatooine.iff	0	1384.35	5	1325.87	0.945266	0	0.326302	0	theme_park.tatooine.mos_eisley.masterspawner:event.bh_event.cantina_controller	intSpawnBartender|0|0|$|
 1082875	1082874	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1082876	1082874	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+7106354	1082876	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	31.3	0.1	0.6	1	0	0	0		intRandomYaw|0|1|$|
 1082877	1082874	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1082878	1082874	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
+4936257	1082878	object/tangible/poi/spawnegg/interior_spawnegg.iff	4	19.5	-0.9	-19.8	1	0	0	0		intRandomYaw|0|1|$|
 1082879	1082874	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 509457808	1082879	object/tangible/collection/hanging_light_02_01.iff	5	17.8356	2.7849	19.0699	1	0	0	0		$|
 1082880	1082874	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
@@ -319,6 +321,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1188045	0	object/building/tatooine/housing_tatt_style01_med.iff	0	1179.5	5	1298.22	0.945525	0	0.32555	0		$|
 1188046	1188045	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 1188047	1188045	object/cell/cell.iff	2	0	0	0	1	0	0	0		$|
+2976495	1188047	object/tangible/poi/spawnegg/interior_spawnegg.iff	2	7.6	0.4	-2.8	1	0	0	0		intRandomYaw|0|1|$|
 1188048	1188045	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1188049	1188045	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1188050	1188045	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
@@ -508,6 +511,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1189633	1189630	object/cell/cell.iff	3	0	0	0	1	0	0	0		$|
 1189634	1189630	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 1189635	1189630	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
+-29	1189635	object/tangible/npc/storyline_npc/coa3_tactical_rebel_spawner.iff	5	9.7	1.1	0.1	1	0	0	0		$|
 1189636	1189630	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1189637	1189630	object/cell/cell.iff	7	0	0	0	1	0	0	0		$|
 1189638	1189630	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
@@ -812,6 +816,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1279961	1279956	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 1279962	1279956	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
 1279963	1279956	object/cell/cell.iff	7	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
+-28	1279963	object/tangible/npc/storyline_npc/coa3_information_rebel_spawner.iff	7	14.1	1.1	-9.1	1	0	0	0		$|
 1279964	1279956	object/cell/cell.iff	8	0	0	0	1	0	0	0		$|
 1279965	1279956	object/cell/cell.iff	9	0	0	0	1	0	0	0	systems.crafting.station_cell	$|
 1279976	0	object/static/structure/tatooine/pillar_pristine_large_style_01.iff	0	1353.19	5	1410.15	-0.296281	0	0.955101	0		$|
@@ -2300,10 +2305,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4006269	0	object/tangible/spawning/spawn_egg.iff	0	1433.75	5	1502.95	1	0	0	0	quest.hero_of_tatooine.intellect_spawner	$|
 -17	0	object/tangible/spawning/static_npc/bestine_artist01.iff	0	1264.6	5	1488.8	1	0	0	0		$|
 -18	0	object/tangible/spawning/static_npc/bestine_artist04.iff	0	1426.7	5	1168.8	1	0	0	0		$|
--19	0	object/tangible/terminal/terminal_character_builder.iff	0	1474.772	4	1344.1626	1	0	0	0		$|
 -20	0	object/tangible/npc/tatooine_spawn/lt_harburik.iff	0	1437	4.9	1404.2	1	0	0	0		$|
 -21	0	object/tangible/gcw/flip_banner_onpole_spawner.iff	0	1443.4	5.0	1409.6	0.90631	0	-0.42262	0		$|
 -22	0	object/tangible/npc/imperial_recruiter_spawner.iff	0	1443	5.0	1411.2	1	0	0	0		$|
 -24	0	object/tangible/ground_spawning/area_spawner.iff	0	1223	5	1347	0.956304756	0	-0.292371705	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|4.000000|fltMinSpawnTime|2|2.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|junk_dealer|strSpawnerType|4|area|strSpawns|4|tatooine/junk_dealer|$|
 -25	0	object/tangible/spawning/static_npc/herald_tatooine_01_errik.iff	0	1333	4	1646	0.446197813	0	-0.894934362	0		$|
 -26	0	object/tangible/spawning/static_npc/static_quests_record_keeper_tatooine.iff	0	1337.62	4	1351.29	1	0	0	0		$|
+-27	0	object/tangible/npc/storyline_npc/rebel_coordinator_spawner.iff	0	1237.8	5	1620.1	1	0	0	0		$|

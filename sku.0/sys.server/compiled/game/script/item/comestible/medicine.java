@@ -286,6 +286,10 @@ public class medicine extends script.base_script
         else if (item == menu_info_types.EXAMINE)
         {
             String template = getTemplateName(self);
+            if(template == null){
+                LOG("medicine","Unable to get template name from item (" + item + ") with object id (" + self + ") and name (" + getName(self) + ") while examining.");
+                return SCRIPT_CONTINUE;
+            }
             String id = template.substring(template.lastIndexOf("/") + 1, template.lastIndexOf("."));
             String title = "@food_name:" + id;
             String prompt = "Select USE from the radial menu options to apply the following attribute modifiers to your target.";

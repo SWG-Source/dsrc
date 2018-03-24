@@ -33,11 +33,11 @@ public class texture_kit extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id target = getIntendedTarget(player);
-        if (!isIdValid(target) || (!pet_lib.isDroidPet(target) && getMaster(target) != player))
+        if (!isIdValid(target) || (!pet_lib.isDroidPet(target) && pet_lib.hasMaster(target) && getMaster(target) != player))
         {
             target = getLookAtTarget(player);
         }
-        if (pet_lib.isDroidPet(target) && getMaster(target) == player)
+        if (pet_lib.isDroidPet(target) && pet_lib.hasMaster(target) && getMaster(target) == player)
         {
             int mnuTexture = mi.addRootMenu(menu_info_types.ITEM_USE, MNU_TEXTURE);
         }
@@ -53,11 +53,11 @@ public class texture_kit extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id target = getIntendedTarget(player);
-        if (!isIdValid(target) || (!pet_lib.isDroidPet(target) && getMaster(target) != player))
+        if (!isIdValid(target) || (!pet_lib.isDroidPet(target) && pet_lib.hasMaster(target) && getMaster(target) != player))
         {
             target = getLookAtTarget(player);
         }
-        if (pet_lib.isDroidPet(target) && getMaster(target) == player)
+        if (pet_lib.isDroidPet(target) && pet_lib.hasMaster(target) && getMaster(target) == player)
         {
             if (item == menu_info_types.ITEM_USE)
             {

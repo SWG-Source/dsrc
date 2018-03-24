@@ -195,17 +195,28 @@ public class zone_transition extends script.base_script
         location parent = params.getLocation("location");
         obj_id player = params.getObjId("player");
         String[] parsed_list = utils.getStringArrayScriptVar(player, "zoneTransition");
-        String world = parsed_list[2];
-        float locX = utils.stringToFloat(parsed_list[4]);
-        float locY = utils.stringToFloat(parsed_list[5]);
-        float locZ = utils.stringToFloat(parsed_list[6]);
-        locX += parent.x;
-        locY += parent.y;
-        locZ += parent.z;
-        callable.storeCallables(player);
-        utils.dismountRiderJetpackCheck(player);
-        warpPlayer(player, world, locX, locY, locZ, null, locX, locY, locZ);
-        return SCRIPT_CONTINUE;
+        try {
+            String world = parsed_list[2];
+            float locX = utils.stringToFloat(parsed_list[4]);
+            float locY = utils.stringToFloat(parsed_list[5]);
+            float locZ = utils.stringToFloat(parsed_list[6]);
+            locX += parent.x;
+            locY += parent.y;
+            locZ += parent.z;
+            callable.storeCallables(player);
+            utils.dismountRiderJetpackCheck(player);
+            warpPlayer(player, world, locX, locY, locZ, null, locX, locY, locZ);
+        }
+        catch(Exception e){
+            String scene = "";
+            if(parent != null) scene = parent.area;
+            // if zone transition cannot be found or is invalid.
+            LOG("zone_transition", "ERROR: Unable to get zoneTransition script var (" + (parsed_list != null ? parsed_list.toString() : "") + ") off player (" + player + ":" + getName(player) + ") located at (" + scene + ":" + parent + ").");
+            Thread.dumpStack();
+        }
+        finally{
+            return SCRIPT_CONTINUE;
+        }
     }
     public void doLogging(String section, String message) throws InterruptedException
     {

@@ -177,8 +177,7 @@ public class vehicle_base extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        boolean isMountedOn = isMountedOnCreatureQueried(self, player);
-        if ((item != menu_info_types.SERVER_VEHICLE_ENTER_EXIT) && (player != getMaster(self)))
+        if (item != menu_info_types.SERVER_VEHICLE_ENTER_EXIT && pet_lib.isPet(self) && pet_lib.hasMaster(self) && player != getMaster(self))
         {
             return SCRIPT_CONTINUE;
         }
@@ -202,7 +201,7 @@ public class vehicle_base extends script.base_script
             if (getMountsEnabled())
             {
                 debugServerConsoleMsg(player, "+++ pet . onObjectMenuSelect +++ getMountsEneabled returnted TRUE");
-                if (isMountedOn)
+                if (isMountedOnCreatureQueried(self, player))
                 {
                     queueCommand(player, (117012717), self, creature_name, COMMAND_PRIORITY_FRONT);
                 }

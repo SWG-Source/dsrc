@@ -268,7 +268,7 @@ public class city_hall extends script.base_script
             prose_package bodypp = prose.getPackage(NEW_CITY_SUCCESS_BODY, mayor);
             utils.sendMail(NEW_CITY_SUCCESS_SUBJECT, bodypp, mname, "Planetary Civic Authority");
         }
-        else 
+        else
         {
             String mname = cityGetCitizenName(city_id, mayor);
             prose_package bodypp = prose.getPackage(NEW_CITY_FAIL_BODY, mayor);
@@ -382,7 +382,7 @@ public class city_hall extends script.base_script
                     utils.sendMail(STRUCTURE_DESTROYED_RADIUS_SUBJECT, bodypp, mayor_name, "City Hall");
                 }
             }
-            else 
+            else
             {
                 city.checkStructureValid(city_id, structures[i], rank);
             }
@@ -398,7 +398,7 @@ public class city_hall extends script.base_script
         {
             city.removeTaxesSetRadius(city_id, radius);
         }
-        else 
+        else
         {
             city.setRadius(city_id, radius);
         }
@@ -439,7 +439,7 @@ public class city_hall extends script.base_script
             {
                 payStructureMaint(self, city_id, structures[i], false);
             }
-            else 
+            else
             {
                 paySpecialMaint(self, city_id, structures[i]);
             }
@@ -609,7 +609,7 @@ public class city_hall extends script.base_script
                     }
                 }
             }
-            else 
+            else
             {
                 int curTime = getCalendarTime();
                 setObjVar(city_hall, "city.safe_house_capacity_overload", curTime);
@@ -677,7 +677,7 @@ public class city_hall extends script.base_script
                 d.put("city_hall", city_hall);
                 messageTo(city_hall, "handleMultipleSafeHouseCitizenRemoval", d, 300.0f, false);
             }
-            else 
+            else
             {
                 removeObjVar(city_hall, "city.safe_house_capacity_overload");
             }
@@ -717,7 +717,7 @@ public class city_hall extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            else 
+            else
             {
                 citySetFaction(city_id, factionId, false);
             }
@@ -762,7 +762,7 @@ public class city_hall extends script.base_script
                 {
                     return SCRIPT_CONTINUE;
                 }
-                else 
+                else
                 {
                     citySetGcwDefenderRegion(city_id, region, regionTimeStartDefend, false);
                 }

@@ -804,7 +804,7 @@ public class healing extends script.base_script
         hateValue *= hateMod;
         for (int i = 0; i < hateList.length; i++)
         {
-            if (!isIdValid(hateList[i]))
+            if (!isIdValid(hateList[i]) || !isTangible(hateList[i]))
             {
                 continue;
             }

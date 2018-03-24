@@ -442,6 +442,11 @@ public class bounty_hunter extends script.base_script
             endMission(mission);
         }
         removeJediBounty(target, hunter);
+        // remove TEFs that were set when players engaged in battle
+        if(isPlayer(hunter) && isPlayer(target)) {
+            if (pvpHasPersonalEnemyFlag(target, hunter)) pvpRemovePersonalEnemyFlags(target, hunter);
+            if (pvpHasPersonalEnemyFlag(hunter, target)) pvpRemovePersonalEnemyFlags(hunter, target);
+        }
         CustomerServiceLog("bounty", "%TU was defeated by %TT and failed to collect the bounty on %PT head", hunter, target);
     }
     public static obj_id getBountyMission(obj_id player) throws InterruptedException

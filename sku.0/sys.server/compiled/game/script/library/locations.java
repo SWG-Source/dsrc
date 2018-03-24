@@ -619,6 +619,11 @@ public class locations extends script.base_script
         }
         location locGoodLocation = new location();
         string_id strFictionalName = utils.unpackString(rgnCity.getName());
+        if(strFictionalName == null)
+        {
+            LOG("mission_spam", "getGoodCityLocation was unable to get the Fictional name from rgnCity (" + rgnCity.getName() + ")");
+            return null;
+        }
         String strAsciiId = strFictionalName.getAsciiId();
         LOG("mission_spam", "strAsciiId is " + strAsciiId);
         int regionType = regions.getDeliverMissionRegionType(strAsciiId);
@@ -648,8 +653,11 @@ public class locations extends script.base_script
         {
             return null;
         }
-        location locGoodLocation = new location();
         string_id strFictionalName = utils.unpackString(rgnCity.getName());
+        if(strFictionalName == null){
+            LOG("mission_spam", "Can't unpack city name (" + rgnCity.getName() + ") to get fictional name.");
+            return null;
+        }
         String strAsciiId = strFictionalName.getAsciiId();
         LOG("mission_spam", "strAsciiId is " + strAsciiId);
         int regionType = regions.getDeliverMissionRegionType(strAsciiId);
@@ -658,10 +666,11 @@ public class locations extends script.base_script
         LOG("mission_spam", "strPlanet is " + strPlanet);
         if (rgnGoodLocations == null)
         {
-            LOG("mission_spam", "No regions were foind of type " + regionType);
+            LOG("mission_spam", "No regions were found of type " + regionType);
             return null;
         }
         region rgnSpawnRegion = rgnGoodLocations[rand(0, rgnGoodLocations.length - 1)];
+        location locGoodLocation = new location();
         locGoodLocation = getRegionCenter(rgnSpawnRegion);
         return locGoodLocation;
     }

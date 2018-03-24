@@ -194,6 +194,9 @@ public class familiar extends script.base_script
             removePetBuff(master);
         }
         obj_id petControlDevice = callable.getCallableCD(pet);
+        if(!isIdValid(petControlDevice)){
+            return;
+        }
         utils.setScriptVar(pet, "stored", true);
         dictionary messageData = new dictionary();
         messageData.put(MESSAGE_PET_ID, pet);
@@ -210,6 +213,10 @@ public class familiar extends script.base_script
     public int handleSetupPet(obj_id self, dictionary params) throws InterruptedException
     {
         applySkillStatisticModifier(self, "slope_move", 100);
+        if(!pet_lib.hasMaster(self)){
+            destroyObject(self);
+            return SCRIPT_CONTINUE;
+        }
         obj_id master = getMaster(self);
         if (!isIdValid(master))
         {

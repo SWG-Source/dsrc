@@ -1239,6 +1239,9 @@ public class creature_combat extends script.systems.combat.combat_base
         {
             return SCRIPT_CONTINUE;
         }
+        if (!pet_lib.hasMaster(self)){
+            return SCRIPT_CONTINUE;
+        }
         String bestBeastAbility = beast_lib.getBestAutoRepeatAbility(self);
         obj_id target = getTarget(self);
         if (!isIdValid(target))

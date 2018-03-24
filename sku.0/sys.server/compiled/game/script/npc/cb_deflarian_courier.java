@@ -26,8 +26,8 @@ public class cb_deflarian_courier extends script.base_script
         if (!utils.hasScriptVar(self, "intCleanedUp"))
         {
             utils.setScriptVar(self, "intCleanedUp", 1);
-            obj_id objParent = getObjIdObjVar(self, "objParent");
-            float fltRespawnTime = getFloatObjVar(self, "fltRespawnTime");
+            obj_id objParent = utils.getObjIdObjVar(self, "objParent");
+            float fltRespawnTime = utils.getFloatScriptVar(self, "fltRespawnTime");
             messageTo(objParent, "spawnDestroyed", null, fltRespawnTime, false);
         }
         destroyObject(self);

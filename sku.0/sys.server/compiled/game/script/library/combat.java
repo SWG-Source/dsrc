@@ -1747,11 +1747,11 @@ public class combat extends script.base_script
             addHate(attacker, defender, 0.0f);
             
             {
-                final obj_id[] hateList = getHateList(attacker);
+                obj_id[] hateList = getHateList(attacker);
                 for (int i = 0; i < hateList.length; ++i)
                 {
-                    final obj_id hateTarget = hateList[i];
-                    if (!isPlayer(hateTarget))
+                    obj_id hateTarget = hateList[i];
+                    if (!isPlayer(hateTarget) && isTangible(hateTarget))
                     {
                         if (getHateTarget(hateTarget) == attacker)
                         {
@@ -3315,7 +3315,6 @@ public class combat extends script.base_script
         if (weaponData == null)
         {
             CustomerServiceLog("COMBAT_exception", "getAttackerCritMod: Player %TU caused an exception with bad cached data on weapon " + weapon + "/" + getTemplateName(weapon), attacker);
-            return critMod;
         }
         boolean isRangedAttacker = isRangedWeapon(weapon);
         if (isRangedAttacker)
@@ -3330,54 +3329,55 @@ public class combat extends script.base_script
             dr_critMod += ((float)getEnhancedSkillStatisticModifierUncapped(attacker, "combat_critical_melee") / 10.0f);
             critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_melee");
         }
-        switch (weaponData.weaponType)
-        {
-            case WEAPON_TYPE_PISTOL:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_pistol");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_pistol");
-            break;
-            case WEAPON_TYPE_RIFLE:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_rifle");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_rifle");
-            break;
-            case WEAPON_TYPE_LIGHT_RIFLE:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_carbine");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_carbine");
-            break;
-            case WEAPON_TYPE_HEAVY:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
-            break;
-            case WEAPON_TYPE_GROUND_TARGETTING:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
-            break;
-            case WEAPON_TYPE_DIRECTIONAL:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
-            break;
-            case WEAPON_TYPE_1HAND_MELEE:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_1h");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_1h");
-            break;
-            case WEAPON_TYPE_2HAND_MELEE:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_2h");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_2h");
-            break;
-            case WEAPON_TYPE_UNARMED:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_unarmed");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_unarmed");
-            break;
-            case WEAPON_TYPE_POLEARM:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_polearm");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_polearm");
-            break;
-            case WEAPON_TYPE_WT_1HAND_LIGHTSABER:
-            case WEAPON_TYPE_WT_2HAND_LIGHTSABER:
-            case WEAPON_TYPE_WT_POLEARM_LIGHTSABER:
-            dr_critMod2 += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_lightsaber");
-            critMod += (float)getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_lightsaber");
-            break;
+        if(weaponData != null) {
+            switch (weaponData.weaponType) {
+                case WEAPON_TYPE_PISTOL:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_pistol");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_pistol");
+                    break;
+                case WEAPON_TYPE_RIFLE:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_rifle");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_rifle");
+                    break;
+                case WEAPON_TYPE_LIGHT_RIFLE:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_carbine");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_carbine");
+                    break;
+                case WEAPON_TYPE_HEAVY:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
+                    break;
+                case WEAPON_TYPE_GROUND_TARGETTING:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
+                    break;
+                case WEAPON_TYPE_DIRECTIONAL:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_heavy");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_heavy");
+                    break;
+                case WEAPON_TYPE_1HAND_MELEE:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_1h");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_1h");
+                    break;
+                case WEAPON_TYPE_2HAND_MELEE:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_2h");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_2h");
+                    break;
+                case WEAPON_TYPE_UNARMED:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_unarmed");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_unarmed");
+                    break;
+                case WEAPON_TYPE_POLEARM:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_polearm");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_polearm");
+                    break;
+                case WEAPON_TYPE_WT_1HAND_LIGHTSABER:
+                case WEAPON_TYPE_WT_2HAND_LIGHTSABER:
+                case WEAPON_TYPE_WT_POLEARM_LIGHTSABER:
+                    dr_critMod2 += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_critical_lightsaber");
+                    critMod += (float) getEnhancedSkillStatisticModifierUncapped(attacker, "expertise_undiminished_critical_lightsaber");
+                    break;
+            }
         }
         dr_critMod = getDiminishedReturnValue(dr_critMod, DR_ATTACKER_CRITICAL);
         dr_critMod2 = getDiminishedReturnValue(dr_critMod2, DR_ATTACKER_CRITICAL_2);

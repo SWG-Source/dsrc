@@ -596,7 +596,14 @@ public final class obj_id implements Comparable, Serializable
 					byte[] deltaBuffer = pdo.packDeltaScriptVars();
 					if (deltaBuffer != null && deltaBuffer.length > 0)
 					{
-						base_class.sendScriptVarsToProxies(pdo, deltaBuffer);
+						boolean res = base_class.sendScriptVarsToProxies(pdo, deltaBuffer);
+
+						if (res == false) {
+							System.err.println("WARNING: Java packAllScriptVars - sendScriptVarsToProxies returned false!");
+							// if we ever hit this condition, testing with the below should be dont e
+							//pdo.scriptVars.clearDelta();
+						}
+
 					}
 				}
 			}

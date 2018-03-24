@@ -209,13 +209,13 @@ public class space_pilot_command extends script.base_script
         obj_id[] possibleTargetShips = getAllObjectsWithScript(getLocation(ship), MAX_EPULSE_RANGE, "space.combat.combat_ship");
         Vector attackable_targets = new Vector();
         attackable_targets.setSize(0);
-        for (int i = 0; i < possibleTargetShips.length; i++)
+        for (obj_id possibleTarget : possibleTargetShips)
         {
-            if (isIdValid(possibleTargetShips[i]) && !space_utils.isPlayerControlledShip(possibleTargetShips[i]))
+            if (isIdValid(possibleTarget) && !space_utils.isPlayerControlledShip(possibleTarget))
             {
-                if (pvpCanAttack(ship, possibleTargetShips[i]))
+                if (pvpCanAttack(ship, possibleTarget))
                 {
-                    attackable_targets = utils.addElement(attackable_targets, possibleTargetShips[i]);
+                    attackable_targets = utils.addElement(attackable_targets, possibleTarget);
                 }
             }
         }
@@ -224,7 +224,9 @@ public class space_pilot_command extends script.base_script
         int numStunnedShipComponents = 0;
         for (int j = 0; j < attackable_targets.size(); j++)
         {
-            if (((obj_id)attackable_targets.get(j)) != ship)
+            obj_id attackableTarget = (obj_id) attackable_targets.get(j);
+            if(!isValidId(attackableTarget) || ship_ai.isDead(attackableTarget)) continue;
+            if (attackableTarget.equals(ship))
             {
                 if (cmdLevel.equals("e_pulse_three"))
                 {
@@ -262,17 +264,17 @@ public class space_pilot_command extends script.base_script
                 }
                 if (numStunnedShipComponents == 0)
                 {
-                    if (space_utils.isPlayerControlledShip(((obj_id)attackable_targets.get(j))))
+                    if (space_utils.isPlayerControlledShip(attackableTarget))
                     {
-                        playClientEffectObj(ship, "clienteffect/space_command/cbt_impact_emp_lght.cef", ((obj_id)attackable_targets.get(j)), "");
+                        playClientEffectObj(ship, "clienteffect/space_command/cbt_impact_emp_lght.cef", attackableTarget, "");
                     }
                     else 
                     {
-                        playClientEffectObj(ship, "clienteffect/space_command/cbt_impact_emp_lght_noshake.cef", ((obj_id)attackable_targets.get(j)), "");
+                        playClientEffectObj(ship, "clienteffect/space_command/cbt_impact_emp_lght_noshake.cef", attackableTarget, "");
                     }
                 }
                 float damageAmount = totalCurrentEnergy;
-                float distanceToBlast = Math.abs(getDistance(ship, ((obj_id)attackable_targets.get(j))));
+                float distanceToBlast = Math.abs(getDistance(ship, attackableTarget));
                 if (distanceToBlast < space_pilot_command.MAX_EPULSE_RANGE)
                 {
                     debugServerConsoleMsg(null, "SPACE_COMBAT.readyForEnergyPulse *************** UNMODIFIED normal damage amount is: " + damageAmount);
@@ -281,18 +283,18 @@ public class space_pilot_command extends script.base_script
                     debugServerConsoleMsg(null, "SPACE_COMBAT.readyForEnergyPulse *************** num of stunned components was: " + numStunnedShipComponents);
                     debugServerConsoleMsg(null, "SPACE_COMBAT.readyForEnergyPulse *************** num of damaged components was: " + numDamagedShipComponents);
                     debugServerConsoleMsg(null, "SPACE_COMBAT.readyForEnergyPulse *************** RANGE-MODIFIED damage amount is: " + damageAmount);
-                    doRandomSubSystemDamage(((obj_id)attackable_targets.get(j)), numDamagedShipComponents, componentDamageAmount);
+                    doRandomSubSystemDamage(attackableTarget, numDamagedShipComponents, componentDamageAmount);
                     if (numStunnedShipComponents > 0)
                     {
-                        doRandomSubSystemStun(((obj_id)attackable_targets.get(j)), numStunnedShipComponents);
+                        doRandomSubSystemStun(attackableTarget, numStunnedShipComponents);
                     }
-                    doNormalDamage(ship, ((obj_id)attackable_targets.get(j)), damageAmount);
+                    doNormalDamage(ship, attackableTarget, damageAmount);
                 }
                 dictionary outparams = new dictionary();
                 outparams.put("attacker", commander);
-                if (space_utils.isPlayerControlledShip(ship))
+                if (space_utils.isPlayerControlledShip(ship) && isValidId(attackableTarget))
                 {
-                    space_utils.notifyObject(((obj_id)attackable_targets.get(j)), "ePulseVictimized", outparams);
+                    space_utils.notifyObject(attackableTarget, "ePulseVictimized", outparams);
                 }
             }
         }

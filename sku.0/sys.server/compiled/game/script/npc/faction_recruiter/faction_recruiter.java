@@ -149,20 +149,11 @@ public class faction_recruiter extends script.base_script
     {
         if (hasObjVar(self, VAR_FACTION))
         {
-            if (!hasScript(self, "systems.gcw.gcw_data_updater"))
-            {
-                attachScript(self, "systems.gcw.gcw_data_updater");
-            }
             if (hasScript(self, "conversation.faction_recruiter_general"))
             {
                 detachScript(self, "conversation.faction_recruiter_general");
             }
             String faction = getStringObjVar(self, VAR_FACTION);
-            String strScript = "conversation.faction_recruiter_" + toLower(faction);
-            if (!hasScript(self, strScript))
-            {
-                attachScript(self, strScript);
-            }
             int faction_id = getFactionId(faction);
             if (faction_id == 0)
             {
@@ -176,6 +167,15 @@ public class faction_recruiter extends script.base_script
             }
             else 
             {
+                if (!hasScript(self, "systems.gcw.gcw_data_updater"))
+                {
+                    attachScript(self, "systems.gcw.gcw_data_updater");
+                }
+                String strScript = "conversation.faction_recruiter_" + toLower(faction);
+                if (!hasScript(self, strScript))
+                {
+                    attachScript(self, strScript);
+                }
                 pvpSetAlignedFaction(self, faction_id);
                 pvpMakeDeclared(self);
                 if (isInvulnerable(self))

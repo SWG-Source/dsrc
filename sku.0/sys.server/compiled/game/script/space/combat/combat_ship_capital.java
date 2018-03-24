@@ -1,20 +1,9 @@
 package script.space.combat;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.space_combat;
-import script.library.space_crafting;
-import script.library.pclib;
-import script.library.utils;
-import script.library.space_utils;
-import script.library.space_content;
-import script.library.ship_ai;
+import java.util.Vector;
 
 public class combat_ship_capital extends script.space.combat.combat_space_base
 {
@@ -23,57 +12,48 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
     }
     public static final string_id SID_TARGET_DISABLED = new string_id("space/quest", "target_disabled2");
     public static final int MAXIMUM_DAMAGE_PHASES = 9;
+
     public int OnAttach(obj_id self) throws InterruptedException
     {
         detachScript(self, "space.combat.combat_ship");
         int[] intSlots = getShipChassisSlots(self);
-        for (int intI = 0; intI < intSlots[intI]; intI++)
+        for (int intI = 0; intI < intSlots.length; intI++)
         {
-            setShipComponentEfficiencyGeneral(self, intSlots[intI], 1.0f);
-            setShipComponentEfficiencyEnergy(self, intSlots[intI], 1.0f);
+            if(isShipSlotInstalled(self, intI)) {
+                setShipComponentEfficiencyGeneral(self, intSlots[intI], 1.0f);
+                setShipComponentEfficiencyEnergy(self, intSlots[intI], 1.0f);
+            }
         }
         String strCapitalShipType = getStringObjVar(self, "strCapitalShipType");
-        if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType == "null") //yes, it seems there's a literal string "null" somewhere
+        if (strCapitalShipType == null || strCapitalShipType.equals("") || strCapitalShipType.equals("null")) //yes, it seems there's a literal string "null" derived from the space mobile table
         {
             debugSpeakMsg(self, "BAD CAPITAL SHIP DEFINED!");
         }
-        String strFileName = "datatables/space_combat/capital_ships/" + strCapitalShipType + ".iff";
-        if (dataTableOpen(strFileName))
-        {
-            setupCapitalShipComponents(self);
-        }
-        else 
-        {
+        else {
+            String strFileName = "datatables/space_combat/capital_ships/" + strCapitalShipType + ".iff";
+            if (dataTableOpen(strFileName)) {
+                setupCapitalShipComponents(self);
+            }
         }
         return SCRIPT_CONTINUE;
     }
     public int OnShipWasHit(obj_id self, obj_id objAttacker, int intWeaponIndex, boolean isMissile, int missileType, int intTargetedComponent, boolean fromPlayerAutoTurret, float hitLocationX_o, float hitLocationY_o, float hitLocationZ_o) throws InterruptedException
     {
-        if (hasObjVar(self, "intInvincible"))
+        if (hasObjVar(self, "intInvincible") || space_combat.hasDeathFlags(self) || !pvpCanAttack(objAttacker, self))
         {
             return SCRIPT_CONTINUE;
         }
         int intWeaponSlot = intWeaponIndex + ship_chassis_slot_type.SCST_weapon_0;
-        if (hasObjVar(self, "intInvincible"))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (space_combat.hasDeathFlags(self))
-        {
-            return SCRIPT_CONTINUE;
-        }
+
         obj_id objPilot = getPilotId(objAttacker);
         transform attackerTransform_w = getTransform_o2w(objAttacker);
         transform defenderTransform_w = getTransform_o2w(self);
+
         vector hitDirection_o = defenderTransform_w.rotateTranslate_p2l(attackerTransform_w.getPosition_p());
         int intSide = 0;
         if (hitDirection_o.z < 0.f)
         {
             intSide = 1;
-        }
-        if (!pvpCanAttack(objAttacker, self))
-        {
-            return SCRIPT_CONTINUE;
         }
         pvpAttackPerformed(objAttacker, self);
         float fltDamage = space_combat.getShipWeaponDamage(objAttacker, self, intWeaponSlot, isMissile);
@@ -101,19 +81,12 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
             return SCRIPT_CONTINUE;
         }
         ship_ai.unitAddDamageTaken(self, objAttacker, fltDamage);
-        if (fltDamage > 0.f)
+        if (fltDamage > 0f)
         {
             notifyShipDamage(self, objAttacker, fltDamage);
         }
-        fltDamage = space_combat.doComponentDamage(objAttacker, self, intWeaponSlot, intTargetedComponent, fltDamage, intSide);
-        checkAndUpdateCapitalShipStatus(self, intTargetedComponent);
-        if (fltDamage > 0)
-        {
-            boolean boolDisabled = false;
-            if (boolDisabled)
-            {
-            }
-        }
+        space_combat.doComponentDamage(objAttacker, self, intWeaponSlot, intTargetedComponent, fltDamage, intSide);
+        checkAndUpdateCapitalShipStatus(self, intTargetedComponent, objAttacker, fltDamage);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
@@ -133,9 +106,6 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
                 setShipSlotTargetable(objShip, intChassisSlot, true);
                 intDamagePhaseComponents[intI] = intChassisSlot;
             }
-            else 
-            {
-            }
         }
         return intDamagePhaseComponents;
     }
@@ -150,9 +120,6 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
                 setShipSlotTargetable(objShip, intChassisSlot, false);
                 intDamagePhaseComponents[intI] = intChassisSlot;
             }
-            else 
-            {
-            }
         }
         return intDamagePhaseComponents;
     }
@@ -164,7 +131,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
             setShipSlotTargetable(objShip, intSlots[intI], false);
         }
         String strCapitalShipType = getStringObjVar(objShip, "strCapitalShipType");
-	if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType == "null")
+	    if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType.equals("null"))
         {
             return;
         }
@@ -172,37 +139,36 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
         String strFileName = "datatables/space_combat/capital_ships/" + strCapitalShipType + ".iff";
         if (dataTableOpen(strFileName))
         {
+            // get components that are part of the first damage phase and make them targetable
             String[] strComponents = dataTableGetStringColumnNoDefaults(strFileName, "strComponents1");
             int[] intDamagePhaseComponents = makeComponentsTargetable(objShip, strComponents);
             utils.setScriptVar(objShip, "intDamagePhaseComponents", intDamagePhaseComponents);
+
+            // get components that are always targetable and make them targetable too.
             strComponents = dataTableGetStringColumnNoDefaults(strFileName, "strAlwaysTargetable");
             makeComponentsTargetable(objShip, strComponents);
         }
-        else 
-        {
-        }
         utils.setScriptVar(objShip, "intDamagePhase", 1);
     }
-    public void checkAndUpdateCapitalShipStatus(obj_id objShip, int intSlot) throws InterruptedException
+    public void checkAndUpdateCapitalShipStatus(obj_id objShip, int intSlot, obj_id attacker, float damage) throws InterruptedException
     {
         dictionary dctParams = new dictionary();
         float fltPercentage = space_crafting.getDamagePercentage(objShip, intSlot);
         dctParams.put("fltPercentage", fltPercentage);
         dctParams.put("intSlot", intSlot);
+        dctParams.put("objAttacker", attacker);
+        float minHp = getShipComponentHitpointsCurrent(objShip, intSlot);
+        float maxHp = getShipComponentHitpointsMaximum(objShip, intSlot);
         if (fltPercentage == 0.0f)
         {
+            // don't output slot 115 stuff... that's the main ship and it's generally disabled.
+            if(intSlot != 115)
+                LOG("space","---- Component DISABLED on ship (" + objShip + ":" + getName(objShip) + ") in slot " + intSlot + " by " + getName(attacker) + " - notifying ship ----");
             space_utils.notifyObject(objShip, "componentDisabled", dctParams);
         }
-        else if (fltPercentage < 0.25f)
+        else if (fltPercentage < 1f)
         {
-            space_utils.notifyObject(objShip, "componentDamageUpdate", dctParams);
-        }
-        else if (fltPercentage < 0.50f)
-        {
-            space_utils.notifyObject(objShip, "componentDamageUpdate", dctParams);
-        }
-        else if (fltPercentage < 0.75f)
-        {
+            LOG("space","---- Component Damaged (" + damage + ") on ship (" + objShip + ":" + getName(objShip) + ") in slot: " + intSlot + " by " + getName(attacker) + " - integrity at: " + ((minHp/maxHp) * 100) + "% ----");
             space_utils.notifyObject(objShip, "componentDamageUpdate", dctParams);
         }
     }
@@ -214,22 +180,41 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
     {
         int intSlot = params.getInt("intSlot");
         setShipSlotTargetable(self, intSlot, false);
+
         Vector intDamagePhaseComponents = utils.getResizeableIntArrayScriptVar(self, "intDamagePhaseComponents");
-        int intIndex = -1;
-        for (int intI = 0; intI < intDamagePhaseComponents.size(); intI++)
-        {
-            if (((Integer)intDamagePhaseComponents.get(intI)).intValue() == intSlot)
-            {
-                intIndex = intI;
-                intI = intDamagePhaseComponents.size() + 1;
+
+        int dpcSize = intDamagePhaseComponents.size();
+        LOG("space","Ship (" + getName(self) + " has " + dpcSize + " component(s) remaining this phase:");
+
+        for(int i = 0; i < dpcSize; i++){
+            int slot = ((Integer) intDamagePhaseComponents.get(i)).intValue();
+            LOG("space","-- Component in slot " + slot + ": " + getShipComponentName(self, slot) + " has " + getShipComponentHitpointsCurrent(self, slot) + "/" + getShipComponentHitpointsMaximum(self, slot) + " hitpoints.");
+            // remove component from being tracked for this phase if it's disabled - also checks for other disabled components.
+            if(isShipComponentDisabled(self, slot)){
+                intDamagePhaseComponents = utils.removeElementAt(intDamagePhaseComponents, i);
+                dpcSize--;
             }
         }
-        if (intIndex > -1)
-        {
-            utils.removeElementAt(intDamagePhaseComponents, intIndex);
+        int[] shipSlots = getShipChassisSlots(self);
+
+        // statements and for loop just for debugging.
+        LOG("space","---- This ships (" + self + ":" + getName(self) + ") components and durabilities are as follows:");
+        for(int j = 0; j < shipSlots.length; j++){
+            int shipSlot = shipSlots[j];
+            if(isShipSlotInstalled(self, shipSlot)){
+                float minHp = getShipComponentHitpointsCurrent(self, shipSlot);
+                float maxHp = getShipComponentHitpointsMaximum(self, shipSlot);
+                float integrity =  (minHp/maxHp) * 100;
+                LOG("space","---- SLOT " + shipSlot + ": " + getShipComponentName(self, shipSlot) + " HP: "
+                        +  minHp + "/" + maxHp + " Integrity: " + integrity + "%"
+                );
+            }
         }
+
         if (intDamagePhaseComponents.size() == 0)
         {
+            LOG("space","====================== Damage Phase " + utils.getIntScriptVar(self, "intDamagePhase") + " Complete!! ======================");
+            LOG("space","====================== Processing Damage Phase!! ======================");
             processDamagePhase(self);
         }
         else 
@@ -241,32 +226,43 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
     public void processDamagePhase(obj_id objShip) throws InterruptedException
     {
         String strCapitalShipType = getStringObjVar(objShip, "strCapitalShipType");
-	if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType == "null")
+	    if ((strCapitalShipType == null) || (strCapitalShipType.equals("")) || strCapitalShipType.equals("null"))
         {
             return;
         }
         String strFileName = "datatables/space_combat/capital_ships/" + strCapitalShipType + ".iff";
+
         int intDamagePhase = utils.getIntScriptVar(objShip, "intDamagePhase");
+
         String[] strOldComponents = dataTableGetStringColumnNoDefaults(strFileName, "strComponents" + intDamagePhase);
-        intDamagePhase = intDamagePhase + 1;
+
+        intDamagePhase++;
+
         String[] strNewComponents = dataTableGetStringColumnNoDefaults(strFileName, "strComponents" + intDamagePhase);
-        if ((strNewComponents != null) && (strNewComponents.length > 0))
-        {
-            int[] intDamagePhaseComponents = makeComponentsTargetable(objShip, strNewComponents);
-            makeComponentsUntargetable(objShip, strOldComponents);
-            utils.setScriptVar(objShip, "intDamagePhaseComponents", intDamagePhaseComponents);
-            utils.setScriptVar(objShip, "intDamagePhase", intDamagePhase);
-            return;
+
+        if (strNewComponents != null && strNewComponents.length > 0) {
+            LOG("space","============= Found more ship components in table ==============");
+            if (strNewComponents.length != 1 || strNewComponents[0].length() != 0) {
+                LOG("space","============= Adding " + strNewComponents.length + " Components for Phase " + intDamagePhase + " ==============");
+                int[] intDamagePhaseComponents = makeComponentsTargetable(objShip, strNewComponents);
+                makeComponentsUntargetable(objShip, strOldComponents);
+                utils.setScriptVar(objShip, "intDamagePhaseComponents", intDamagePhaseComponents);
+                utils.setScriptVar(objShip, "intDamagePhase", intDamagePhase);
+                return;
+            }
+            LOG("space","============= Could not add components!! ==============");
+            for(int i = 0; i < strNewComponents.length; i++){
+                LOG("space","== Component (" + strNewComponents[i] + ") with name length " + strNewComponents[i].length() + " could not be added.");
+            }
+            LOG("space","============= Assuming error and granting pilot rewards!! ==============");
         }
-        else 
-        {
-            space_combat.grantRewardsAndCreditForKills(objShip);
-            space_combat.targetDestroyed(objShip);
-        }
+        space_combat.grantRewardsAndCreditForKills(objShip);
+        space_combat.targetDestroyed(objShip);
     }
     public int OnDestroy(obj_id self) throws InterruptedException
     {
         debugSpeakMsg(self, "KABOOM");
+        LOG("space","================ Ship (" + self + ":" + getName(self) + ") has been destroyed ===============");
         obj_id[] notifylist = getObjIdArrayObjVar(self, "destroynotify");
         if (notifylist != null)
         {
@@ -313,6 +309,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
     }
     public int targetDestroyed(obj_id self, dictionary params) throws InterruptedException
     {
+        LOG("space","================ Target (" + self + ":" + getName(self) + ") has been destroyed ===============");
         obj_id objPilot = getPilotId(self);
         if (!space_utils.isPlayerControlledShip(self))
         {
@@ -328,12 +325,13 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
     }
     public int targetDisabled(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id objDefender = params.getObjId("objDefender");
-        obj_id objPilot = getPilotId(self);
+        LOG("space","================ Target (" + self + ":" + getName(self) + ") has been disabled ===============");
         if (!space_utils.isPlayerControlledShip(self))
         {
             return SCRIPT_CONTINUE;
         }
+        obj_id objDefender = params.getObjId("objDefender");
+        obj_id objPilot = getPilotId(self);
         sendSystemMessage(objPilot, SID_TARGET_DISABLED);
         space_utils.notifyObject(objPilot, "targetDisabled", params);
         return SCRIPT_CONTINUE;

@@ -469,7 +469,7 @@ public class xp extends script.base_script
         }
         int count = 0;
         for (obj_id member : members) {
-            if (member.isLoaded() && isPlayer(member)) {
+            if (member != null && member.isLoaded() && isPlayer(member)) {
                 count++;
             }
             if (count >= MAX_GROUP_BONUS_COUNT) {
@@ -908,8 +908,14 @@ public class xp extends script.base_script
         }
         params.put("creatureName", creatureName);
         params.put("location", getLocation(target));
-        params.put("socialGroup", ai_lib.getSocialGroup(target));
-        params.put("col_faction", dataTableGetString(CREATURES_TABLE, creatureName, "col_faction"));
+        // only put a value in socialGroup if one can be derived from the target.
+        if(ai_lib.getSocialGroup(target) != null)
+            params.put("socialGroup", ai_lib.getSocialGroup(target));
+        else
+            LOG("DESIGNER_FATAL", "WARNING: target (" + target + ":" + creatureName + ") with tempate (" + getTemplateName(target) + ") does not have a social group!!");
+        // only put a value in col_faction if one is found in the datatable.
+        if(dataTableGetString(CREATURES_TABLE, creatureName, "col_faction") != null)
+            params.put("col_faction", dataTableGetString(CREATURES_TABLE, creatureName, "col_faction"));
         params.put("difficultyClass", dataTableGetInt(CREATURES_TABLE, creatureName, "difficultyClass"));
         params.put("target", target);
         if (hasObjVar(target, "quest_spawner.spawned_by"))
