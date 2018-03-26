@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57902b84-2a13-42eb-8e1e-94f513be1a6d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" afterPath="$PROJECT_DIR$/../../../../.gitignore" />
       <change beforePath="$PROJECT_DIR$/../../../../include/Tag.h" afterPath="$PROJECT_DIR$/../../../../include/Tag.h" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
@@ -482,8 +481,8 @@
       <change beforePath="$PROJECT_DIR$/datatables/spawning/dungeon/corvette_rebel.tab" afterPath="$PROJECT_DIR$/datatables/spawning/dungeon/corvette_rebel.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/dungeon/nightsister_fortress.tab" afterPath="$PROJECT_DIR$/datatables/spawning/dungeon/nightsister_fortress.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/ep3/ep3_coronet_medical_center.tab" afterPath="$PROJECT_DIR$/datatables/spawning/ep3/ep3_coronet_medical_center.tab" />
-      <change beforePath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/imperial_vendor_gcw2.tab" afterPath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/imperial_vendor_gcw2.tab" />
-      <change beforePath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/rebel_vendor_gcw2.tab" afterPath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/rebel_vendor_gcw2.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/imperial_gcw2_vendor.tab" afterPath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/imperial_vendor_gcw2.tab" />
+      <change beforePath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/rebel2_gcw2_vendor.tab" afterPath="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/rebel_vendor_gcw2.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/heroic/heroic_star_destroyer.tab" afterPath="$PROJECT_DIR$/datatables/spawning/heroic/heroic_star_destroyer.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/patrol_spawner.tab" afterPath="$PROJECT_DIR$/datatables/spawning/patrol_spawner.tab" />
       <change beforePath="$PROJECT_DIR$/datatables/spawning/poi_spawner/corellia/corellia_commoner.tab" afterPath="$PROJECT_DIR$/datatables/spawning/poi_spawner/corellia/corellia_commoner.tab" />
@@ -1506,31 +1505,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="battle_controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="battle_controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="285" column="0" lean-forward="false" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="havoc.tpf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/object/draft_schematic/space/chassis/havoc.tpf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="space_gcw_battle_point.tpf" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/object/tangible/space/content_infrastructure/space_gcw_battle_point.tpf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="221">
+              <caret line="285" column="16" lean-forward="false" selection-start-line="285" selection-start-column="16" selection-end-line="285" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -1567,6 +1546,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>LOG(&quot;space_gcw&quot;,</find>
       <find>+ &quot;.active&quot;</find>
       <find>heroSpawnTime</find>
       <find>.active</find>
@@ -1596,7 +1576,6 @@
       <find>pvp_bf_rebel_vendor</find>
       <find>pvp_bf</find>
       <find>spacebattlestatus</find>
-      <find>gcw_battle_point</find>
     </findStrings>
     <replaceStrings>
       <replace>imperial_space_gcw</replace>
@@ -1632,6 +1611,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/datatables/space_mobile/space_mobile.tab" />
         <option value="$PROJECT_DIR$/script/base_class.java" />
         <option value="$PROJECT_DIR$/script/theme_park/meatlump/hideout/meatlump_king.java" />
         <option value="$PROJECT_DIR$/object/mobile/lando.tpf" />
@@ -1682,7 +1662,6 @@
         <option value="$PROJECT_DIR$/datatables/spawning/ground_spawning/types/rebel_vendor_gcw2.tab" />
         <option value="$PROJECT_DIR$/script/space/combat/combat_ship_player.java" />
         <option value="$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java" />
-        <option value="$PROJECT_DIR$/object/draft_schematic/space/chassis/havoc.tpf" />
       </list>
     </option>
   </component>
@@ -1719,28 +1698,28 @@
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="tangible" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="spawning" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="tangible" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="spawning" type="462c0819:PsiDirectoryNode" />
+              <item name="ground_spawning" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="game" type="b2602c69:ProjectViewProjectNode" />
               <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
-              <item name="tangible" type="462c0819:PsiDirectoryNode" />
-              <item name="space" type="462c0819:PsiDirectoryNode" />
-              <item name="content_infrastructure" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="spawning" type="462c0819:PsiDirectoryNode" />
+              <item name="ground_spawning" type="462c0819:PsiDirectoryNode" />
+              <item name="types" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -2074,6 +2053,21 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/script/base_class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="2892" column="104" lean-forward="true" selection-start-line="2892" selection-start-column="104" selection-end-line="2892" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/hero_ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="59" column="48" lean-forward="false" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/support_ship.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -2432,24 +2426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script/systems/gcw/space/battle_controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="285" column="0" lean-forward="false" selection-start-line="285" selection-start-column="0" selection-end-line="285" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/draft_schematic/space/chassis/havoc.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="58" lean-forward="false" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/object/tangible/space/content_infrastructure/space_gcw_battle_point.tpf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="221">
+          <caret line="285" column="16" lean-forward="false" selection-start-line="285" selection-start-column="16" selection-end-line="285" selection-end-column="16" />
           <folding />
         </state>
       </provider>

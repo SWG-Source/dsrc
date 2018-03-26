@@ -340,15 +340,3 @@ public class customization_kit extends script.base_script
         return SCRIPT_CONTINUE;
     }
 }
-        }
-        else 
-        {
-            utils.removeScriptVar(self, "paint_kit.inuse");
-        }
-        if (getIntObjVar(self, "ship_customization.usedOne") == 1 && getIntObjVar(self, "ship_customization.usedTwo") == 1)
-        {
-            destroyObject(self);
-        }
-        return SCRIPT_CONTINUE;
-    }
-}

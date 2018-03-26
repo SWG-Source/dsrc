@@ -483,6 +483,3 @@ public class terminal_space extends script.terminal.base.base_terminal
         return true;
     }
 }
-        return true;
-    }
-}
