@@ -9,3 +9,5 @@ armor = ""
 
 sharedTemplate = "object/tangible/wearables/armor/rebel_assault/shared_armor_rebel_spec_ops_bicep_l.iff"
 
+scripts = +["npc.faction_recruiter.faction_item"]
+objvars = +["faction_recruiter.faction"="Rebel"]

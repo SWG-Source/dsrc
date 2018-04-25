@@ -9,3 +9,5 @@ armor = "abstract/armor_statistics/armor/marine/base/statistics_armor_marine_boo
 
 sharedTemplate = "object/tangible/wearables/armor/marine/shared_armor_marine_boots.iff"
 
+scripts = +["npc.faction_recruiter.faction_item"]
+objvars = +["faction_recruiter.faction"="Rebel"]

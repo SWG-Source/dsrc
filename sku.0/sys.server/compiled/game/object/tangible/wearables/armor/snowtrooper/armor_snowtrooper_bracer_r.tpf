@@ -9,3 +9,5 @@ armor = ""
 
 sharedTemplate = "object/tangible/wearables/armor/snowtrooper/shared_armor_snowtrooper_bracer_r.iff"
 
+scripts = +["npc.faction_recruiter.faction_item"]
+objvars = +["faction_recruiter.faction"="Imperial"]
