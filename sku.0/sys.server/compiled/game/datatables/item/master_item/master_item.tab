@@ -8268,6 +8268,12 @@ item_schematic_gcw2_survey_tool_all	object/tangible/loot/loot_schematic/generic_
 rare_loot_chest_quality_1	object/tangible/item/rare_loot_chest_1.iff									systems.loot.rare_loot_chest		Rare Loot Chest	Rare Loot Chest... Open it up!		
 rare_loot_chest_quality_2	object/tangible/item/rare_loot_chest_2.iff									systems.loot.rare_loot_chest			Exceptional Loot Chest	Exceptional Loot Chest... Open it up!	
 rare_loot_chest_quality_3	object/tangible/item/rare_loot_chest_3.iff									systems.loot.rare_loot_chest			Legendary Loot Chest	Legen-wait for it-dary Loot Chest... Open it up!	
+weapon_carbine_e5_legendary	object/weapon/ranged/carbine/carbine_e5_legend.iff	weapon		88				2					Legendary E5 Carbine	A Legendary E5 Carbine.	
+weapon_pistol_fwg5_legendary	object/weapon/ranged/pistol/pistol_fwg5_legendary.iff	weapon		88				2					Legendary FWG5 Pistol	A Legendary FWG5 Pistol.	
+weapon_rifle_legendary_t21	object/weapon/ranged/rifle/rifle_t21_legendary.iff	weapon		88				2					Legendary Nightsister Polearm	A Legendary Nightsister Polearm.	
+weapon_energy_lance_legendary	object/weapon/melee/polearm/lance_nightsister_legendary.iff	weapon		88				2					Legendary Nightsister Polearm	A Legendary Nightsister Polearm.	
+weapon_2h_sword_maul_legendary	object/weapon/melee/2h_sword/2h_sword_maul_legendary.iff	weapon		88				2					Legendary Power Hammer	A Legendary Power Hammer	
+weapon_stun_baton_legendary	object/weapon/melee/baton/baton_stun_legendary.iff	weapon		88				2					Legendary Stun Baton	A Legendary Stun Baton	
 item_player_house_deed_jabbas_sail_barge	object/tangible/deed/player_house_deed/jabbas_sail_barge_deed.iff							4		item.special.nomove,item.structure_deed.player_structure_deed			cloud city house	a cloud city house	
 item_tcg_loot_reward_series8_glass_sculpture	object/tangible/tcg/series8/decorative_bespin_glass_sculpture.iff							4		item.special.nomove			Glass Helix Sculpture	From the skilled artisans of the Cloud City, this showy piece beautifies your home, creating an opulent diffusion of light in even the most humble of dwellings.	
 item_tcg_loot_reward_series8_bespin_lamp	object/tangible/tcg/series8/decorative_bespin_lamp_off.iff					string:type=lamp,string:status=off		4		item.special.nomove,systems.tcg.tcg_bespin_lights			Cloud City Lamp	Build-An-Item Object #2: This elegant lamp is patterned after the decorative illumination units found in the Cloud city on Bespin.	
