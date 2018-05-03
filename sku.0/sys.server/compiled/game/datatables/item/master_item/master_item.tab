@@ -8266,3 +8266,6 @@ item_jacket_ace_neut	object/tangible/loot/loot_schematic/generic_limited_use.iff
 item_jacket_ace_reb	object/tangible/loot/loot_schematic/generic_limited_use.iff							3		item.loot_schematic.loot_schematic		1	Rebel Ace Pilot Jacket Schematic	A schematic for a Rebel Ace Pilot Jacket.
 item_kimogila_s01_texture_kit	object/tangible/loot/loot_schematic/generic_limited_use.iff							3		item.loot_schematic.loot_schematic		1	Kimogila Style 1 Texture Kit (Style 7) Schematic	A schematic for the Kimogila Style 1 Texture Kit (Style 7).
 item_schematic_gcw2_survey_tool_all	object/tangible/loot/loot_schematic/generic_limited_use.iff							3		item.loot_schematic.loot_schematic		1	All Resource Survey Tool Schematic	A schematic for the All Resource Survey Tool.
+rare_loot_chest_quality_1   object/tangible/item/rare_loot_chest_1.iff									"systems.loot.rare_loot_chest"			Rare Loot Chest	"Rare Loot Chest... Open it up!"
+rare_loot_chest_quality_2	object/tangible/item/rare_loot_chest_2.iff									"systems.loot.rare_loot_chest"			Exceptional Loot Chest	"Exceptional Loot Chest... Open it up!"
+rare_loot_chest_quality_3	object/tangible/item/rare_loot_chest_3.iff									"systems.loot.rare_loot_chest"			Legendary Loot Chest	"Legen-wait for it-dary Loot Chest... Open it up!"
