@@ -66,6 +66,6 @@ manufactureScripts = [ "systems.crafting.structure.specific_item.crafting_instal
 
 @class object_template 5
 
-complexity = 36
+complexity = 45
 sharedTemplate = "object/draft_schematic/structure/shared_house_guild_hall.iff"
 volume = 14

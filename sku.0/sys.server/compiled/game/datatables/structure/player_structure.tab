@@ -92,9 +92,9 @@ object/building/player/player_guildhall_generic_style_01.iff	object/building/pla
 																							object/tangible/terminal/terminal_player_structure.iff	17.88	2.25	10.45	closeta	90	
 object/building/player/player_guildhall_naboo_style_01.iff	object/building/player/construction/construction_player_house_tatooine_large_style_01.iff			4									25	5	7200	5000	1					4							
 																							object/tangible/terminal/terminal_player_structure.iff	17.88	2.25	10.45	closeta	90	
-object/building/player/player_guildhall_tatooine_style_01.iff	object/building/player/construction/construction_player_house_tatooine_large_style_01.iff			2									25	5	7200	5000	1					4							
-																							object/tangible/terminal/terminal_player_structure.iff	8.16	1.06	11.24	public	180	
-object/building/player/player_guildhall_tatooine_style_02.iff	object/building/player/construction/construction_player_house_tatooine_large_style_01.iff			2									25	5	7200	5000	1					4							
+object/building/player/player_guildhall_tatooine_style_01.iff	object/building/player/construction/construction_player_house_tatooine_large_style_01.iff			4									25	5	7200	5000	1					4							
+																							object/tangible/terminal/terminal_player_structure.iff	17.88	2.25	10.45	closeta	90	
+object/building/player/player_guildhall_tatooine_style_02.iff	object/building/player/construction/construction_player_house_tatooine_large_style_01.iff			4									25	5	7200	5000	1					4							
 																							object/tangible/terminal/terminal_player_structure.iff	9.13	1	6.36	lobby	90	
 object/installation/turret/turret_block_large.iff	object/installation/base/construction_installation_base.iff											0	15	6		3000													
 object/installation/turret/turret_block_med.iff	object/installation/base/construction_installation_base.iff											0	10	6		2000													
