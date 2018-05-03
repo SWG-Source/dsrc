@@ -1,0 +1,76 @@
+strItemType	comments
+s	s
+object/tangible/item/quest/force_sensitive/fs_sculpture_1.iff	An Aurillian Sculpture Section 1
+object/tangible/item/quest/force_sensitive/fs_sculpture_2.iff	An Aurillian Sculpture Section 2
+object/tangible/item/quest/force_sensitive/fs_sculpture_3.iff	An Aurillian Sculpture Section 3
+object/tangible/item/quest/force_sensitive/fs_sculpture_4.iff	An Aurillian Sculpture Section 4
+item_schematic_hide_rack_s01	Animal Hide Rack Style 1 Schematic
+item_schematic_hide_rack_s02	Animal Hide Rack Style 2 Schematic
+item_schematic_hide_rack_s03	Animal Hide Rack Style 3 Schematic
+item_schematic_hide_rack_s04	Animal Hide Rack Style 4 Schematic
+object/tangible/mission/quest_item/bren_kingal_q4_needed.iff	AT-ST pilot's helmet
+item_color_crystal_02_16	Bane's Heart
+item_treasure_map_bar_piece_curve_s1_schematic	Bar Corner Piece 1 Schematic
+item_treasure_map_bar_piece_curve_s2_schematic	Bar Corner Piece 2 Schematic
+item_treasure_map_bar_piece_straight_s1_schematic	Bar Corner Piece 3 Schematic
+item_treasure_map_bar_piece_straight_s2_schematic	Bar Counter Large Schematic
+object/tangible/painting/painting_bothan_m.iff	Bothan Buff (Painting)
+object/tangible/painting/painting_bothan_f.iff	Bothan Beauty (Painting)
+object/tangible/veteran_reward/one_year_anniversary/painting_01.iff	Cast Wing in Flight
+item_painting_corl_02	Corellian Seaside (Painting)
+item_content_decor_hologram_disk_03_01	Data Disk Hologram
+item_content_bubble_tank_02_01	Decorative Bubble Tank
+item_painting_droid_bright	Droid in Contrast
+object/tangible/container/drum/treasure_drum.iff	Drum
+object/tangible/veteran_reward/one_year_anniversary/painting_09.iff	Emperor's Eyes (TIE Sentinel)
+item_event_lifeday_family_painting	Family Bonds
+object/tangible/painting/painting_rodian_f.iff	Feared (Painting)
+object/tangible/veteran_reward/one_year_anniversary/painting_05.iff	Fighter Study
+object/tangible/painting/painting_trandoshan_m_01.iff	Fighter's Courage (Painting)
+item_costume_geonosian	Geonosian Costume Instructions
+item_lifeday_gift_04_11	Hanging Life Day Orb
+object/tangible/veteran_reward/one_year_anniversary/painting_06.iff	Hutt Greed
+object/tangible/veteran_reward/one_year_anniversary/painting_08.iff	Imperial Oppression
+item_tow_schematic_jedi_statue_02_01	Schematic: Jedi Statue
+item_lifeday_gift_04_10	Kachirho Wall Cornucopia
+item_event_lifeday_monkey_cage	Kowakian Cage
+item_schematic_fruit_stand_lg	Large Fruit Stand Schematic
+item_tow_decor_lava_geode_02_01	Lava Geode
+item_lifeday_gift_04_09	Life Day Lamp
+item_lifeday_painting_03_01_01	Life Day Painting (Proud Wookiee)
+item_lifeday_painting_01_01_01	Life Day Painting (Red Robed Wookiee)
+item_tow_decor_painting_02_04	Living Canals
+item_schematic_lugjack_machine	Lugjack Machine Schematic
+item_lifeday_gift_04_07	Miniature Wroshyr Tree
+object/tangible/painting/painting_droid_bright.iff	Modified Fusion Reactor Schematic
+item_costume_mynock	Mynock Costume Instructions
+object/tangible/painting/painting_bw_stormtrooper.iff	No Division
+item_publish_gift_update_16	Nym Collectible Globe
+item_power_crystal_04_21	Perfect Power Crystal
+object/tangible/painting/painting_food_baking_s02.iff	Poster of Food Preparation
+object/tangible/painting/painting_schematic_weapon.iff	Poster of a Turret Schematic (Painting)
+object/tangible/painting/painting_schematic_transport_ship.iff	Poster of a Ship Schematic (Painting)
+item_lifeday_gift_04_02	Pilgrimage
+item_event_lifeday_proton_chair	Proton Chair
+item_costume_rancor	Rancor Costume Instructions
+object/tangible/wearables/helmet/helmet_s06.iff	Endor Rebel Helmet
+item_tow_buff_crystal_02_03	Shard of the Serpent
+item_event_lifeday_stap_speeder	Vehicle Deed: STAP-1 Vehicle Deed
+item_target_dummy_blacksun	Black Sun Target Dummy Controller
+item_target_dummy_rebel_trooper	Rebel Target Dummy Controller
+item_target_dummy_stormtrooper	Imperial Target Dummy Controller
+object/tangible/veteran_reward/one_year_anniversary/painting_03.iff	Tatooine Dune Speeder (Painting)
+item_lifeday_gift_04_04	Triumph
+item_costume_ugnaught	Ugnaught Costume Instructions
+object/tangible/painting/painting_vader_victory.iff	Victory
+item_costume_wampa	Wampa Costume Instuctions
+item_publish_gift_37_04_01	War Terminal
+object/tangible/painting/painting_trandoshan_m.iff	Warrior's Honor (Painting)
+item_lifeday_gift_04_11	Wookie Life Day Orb
+item_lifeday_gift_04_12	Wookiee Home Banner Kit
+item_housepack_xeno_couch_01_01	Xeno Couch
+item_housepack_xeno_desk_01_01	Xeno Desk
+item_housepack_xeno_desk_lamp_01_01	Xeno Desk Lamp
+item_housepack_xeno_rug_01_01	Xeno Rug
+item_housepack_xeno_table_01_01	Xeno Table
+item_tow_proc_generic_03_01	Mustafarian Injector

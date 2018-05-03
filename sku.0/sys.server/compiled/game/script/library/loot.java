@@ -1,31 +1,7 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.corpse;
-import script.library.consumable;
-import script.library.craftinglib;
-import script.library.factions;
-import script.library.healing;
-import script.library.hue;
-import script.library.money;
-import script.library.pet_lib;
-import script.library.resource;
-import script.library.slots;
-import script.library.static_item;
-import script.library.storyteller;
-import script.library.trace;
-import script.library.utils;
-import script.library.weapons;
-import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -123,6 +99,15 @@ public class loot extends script.base_script
         "tatooine",
         "yavin4"
     };
+    public static final String[] CHEST_TYPES = {
+            "rare",
+            "exceptional",
+            "legendary"
+    };
+    private static final String CHEST_BASE = "rare_loot_chest_quality_";
+    private static final String RLS_EFFECT = "appearance/pt_rare_chest.prt";
+    private static final String RLS_SOUND = "sound/rare_loot_chest.snd";
+
     public static boolean addLoot(obj_id target) throws InterruptedException
     {
         if (!isIdValid(target))
@@ -158,6 +143,7 @@ public class loot extends script.base_script
         }
         hasLoot |= setupLootItems(target);
         hasLoot |= addCollectionLoot(target);
+        hasLoot |= addRareLoot(target);
         int niche = ai_lib.aiGetNiche(mobType);
         if (niche == NICHE_MONSTER || niche == NICHE_HERBIVORE || niche == NICHE_CARNIVORE || niche == NICHE_PREDATOR)
         {
@@ -179,7 +165,7 @@ public class loot extends script.base_script
             obj_id broker = getObjIdObjVar(player, "lottery.broker");
             if(!isValidId(broker)) return false;
             Vector qualifiers = getResizeableObjIdArrayObjVar(broker, "lottery.qualifiers");
-            obj_id playerStationId = utils.stringToObjId(new String("" + getPlayerStationId(player)));
+            obj_id playerStationId = utils.stringToObjId("" + getPlayerStationId(player));
             if(qualifiers != null && utils.getElementPositionInArray(qualifiers, playerStationId) > -1) return false;
             double dropChance = 2;
             try {
@@ -190,9 +176,11 @@ public class loot extends script.base_script
             if(dropChance > 0 && rng <= dropChance) {
                 String goldenTicket = "object/tangible/travel/travel_ticket/dungeon_ticket.iff";
                 obj_id[] items = utils.getAllItemsInBankAndInventory(player);
-                for (obj_id item : items){
-                    if (getTemplateName(item).equals(goldenTicket)){
-                        return false;
+                if(items != null) {
+                    for (obj_id item : items) {
+                        if (getTemplateName(item).equals(goldenTicket)) {
+                            return false;
+                        }
                     }
                 }
                 obj_id lootItem = createObject(goldenTicket, utils.getInventoryContainer(player), "");
@@ -417,11 +405,7 @@ public class loot extends script.base_script
         {
             return false;
         }
-        if (getGameObjectType(item) == GOT_data_fictional)
-        {
-            return true;
-        }
-        return false;
+        return getGameObjectType(item) == GOT_data_fictional;
     }
     public static obj_id[] getFactionalDataItems(obj_id target, String faction) throws InterruptedException
     {
@@ -748,41 +732,41 @@ public class loot extends script.base_script
         String strTreasureTable = "treasure/treasure_";
         String treasureLevel = "1_10";
         int intLevel = getIntObjVar(mark, "intCombatDifficulty");
-        if (intLevel <= 90)
+        if (intLevel <= 10)
         {
-            treasureLevel = "81_90";
-        }
-        else if (intLevel <= 80)
-        {
-            treasureLevel = "71_80";
-        }
-        else if (intLevel <= 70)
-        {
-            treasureLevel = "61_70";
-        }
-        else if (intLevel <= 60)
-        {
-            treasureLevel = "51_60";
-        }
-        else if (intLevel <= 50)
-        {
-            treasureLevel = "41_50";
-        }
-        else if (intLevel <= 40)
-        {
-            treasureLevel = "31_40";
-        }
-        else if (intLevel <= 30)
-        {
-            treasureLevel = "21_30";
+            treasureLevel = "1_10";
         }
         else if (intLevel <= 20)
         {
             treasureLevel = "11_20";
         }
-        else if (intLevel <= 10)
+        else if (intLevel <= 30)
         {
-            treasureLevel = "1_10";
+            treasureLevel = "21_30";
+        }
+        else if (intLevel <= 40)
+        {
+            treasureLevel = "31_40";
+        }
+        else if (intLevel <= 50)
+        {
+            treasureLevel = "41_50";
+        }
+        else if (intLevel <= 60)
+        {
+            treasureLevel = "51_60";
+        }
+        else if (intLevel <= 70)
+        {
+            treasureLevel = "61_70";
+        }
+        else if (intLevel <= 80)
+        {
+            treasureLevel = "71_80";
+        }
+        else if (intLevel <= 90)
+        {
+            treasureLevel = "81_90";
         }
         else 
         {
@@ -857,10 +841,7 @@ public class loot extends script.base_script
         String template = getTemplateName(item);
         if (template.equals(CASH_ITEM_TEMPLATE))
         {
-            if (hasObjVar(item, "loot.cashAmount"))
-            {
-                return true;
-            }
+            return hasObjVar(item, "loot.cashAmount");
         }
         return false;
     }
@@ -909,20 +890,14 @@ public class loot extends script.base_script
             }
             else 
             {
-                for (int i = 0; i < objMembersWhoExist.length; i++)
-                {
-                    if (numContents > 0 && !(numContents == 1 && isCashLootItem(contents[0])))
-                    {
-                        openLotteryWindow(objMembersWhoExist[i], corpseInv);
-                    }
-                    else if (numContents == 1 && isCashLootItem(contents[0]))
-                    {
+                for (obj_id objMemberWhoExists : objMembersWhoExist) {
+                    if (numContents > 0 && !(numContents == 1 && isCashLootItem(contents[0]))) {
+                        openLotteryWindow(objMemberWhoExists, corpseInv);
+                    } else if (numContents == 1 && isCashLootItem(contents[0])) {
                         return true;
-                    }
-                    else 
-                    {
+                    } else {
                         string_id emptyCorpse = new string_id(group.GROUP_STF, "corpse_empty");
-                        sendSystemMessage(objMembersWhoExist[i], emptyCorpse);
+                        sendSystemMessage(objMemberWhoExists, emptyCorpse);
                         lootAiCorpse(transferer, corpseId);
                         return false;
                     }
@@ -1010,20 +985,14 @@ public class loot extends script.base_script
                 {
                     return false;
                 }
-                for (int i = 0; i < objMembersWhoExist.length; i++)
-                {
-                    if (numContents > 0 && !(numContents == 1 && isCashLootItem(contents[0])))
-                    {
-                        openLotteryWindow(objMembersWhoExist[i], corpseInv);
-                    }
-                    else if (numContents == 1 && isCashLootItem(contents[0]))
-                    {
+                for (obj_id objMemberWhoExists : objMembersWhoExist) {
+                    if (numContents > 0 && !(numContents == 1 && isCashLootItem(contents[0]))) {
+                        openLotteryWindow(objMemberWhoExists, corpseInv);
+                    } else if (numContents == 1 && isCashLootItem(contents[0])) {
                         return true;
-                    }
-                    else 
-                    {
+                    } else {
                         string_id emptyCorpse = new string_id(group.GROUP_STF, "corpse_empty");
-                        sendSystemMessage(objMembersWhoExist[i], emptyCorpse);
+                        sendSystemMessage(objMemberWhoExists, emptyCorpse);
                         lootAiCorpse(player, corpseId);
                         return false;
                     }
@@ -1048,54 +1017,14 @@ public class loot extends script.base_script
         }
         return false;
     }
-    public static boolean pickRandomLooter(obj_id player, obj_id team, obj_id corpse) throws InterruptedException
-    {
-        if (team != null && corpse != null)
-        {
-            obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(team);
-            if (objMembersWhoExist == null)
-            {
-                return false;
-            }
-            obj_id corpsePack = utils.getInventoryContainer(corpse);
-            obj_id[] corpseContents = getContents(corpsePack);
-            if (corpseContents != null && corpseContents.length > 0)
-            {
-                int numTeam = objMembersWhoExist.length;
-                int numItems = corpseContents.length;
-                if (numItems > 0)
-                {
-                    for (int i = 0; i < numItems; i++)
-                    {
-                        int choice = rand(0, numTeam - 1);
-                        obj_id chosenPlayer = objMembersWhoExist[choice];
-                        if (chosenPlayer != null)
-                        {
-                            return true;
-                        }
-                        else 
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-        }
-        return true;
-    }
+
     public static void sendGroupLootSystemMessage(obj_id item, obj_id winner, String stf, String message) throws InterruptedException
     {
         sendGroupLootSystemMessage(item, winner, stf, message, false);
-        return;
     }
     public static void sendGroupLootSystemMessage(obj_id item, obj_id winner, String stf, String message, boolean skipWinner) throws InterruptedException
     {
-        if (!group.isGrouped(winner))
-        {
-            return;
-        }
-        else 
-        {
+        if (group.isGrouped(winner)) {
             obj_id team = getGroupObject(winner);
             obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(team);
             prose_package pp = new prose_package();
@@ -1103,47 +1032,40 @@ public class loot extends script.base_script
             pp = prose.setStringId(pp, lootMsg);
             pp = prose.setTO(pp, item);
             pp = prose.setTT(pp, winner);
-            if (!skipWinner)
-            {
-                for (int intI = 0; intI < objMembersWhoExist.length; intI++)
-                {
-                    sendSystemMessageProse(objMembersWhoExist[intI], pp);
-                }
-            }
-            else 
-            {
-                for (int intI = 0; intI < objMembersWhoExist.length; intI++)
-                {
-                    if (objMembersWhoExist[intI] != winner)
-                    {
-                        sendSystemMessageProse(objMembersWhoExist[intI], pp);
+            if(objMembersWhoExist != null) {
+                if (!skipWinner) {
+                    for (obj_id objMemberWhoExists : objMembersWhoExist) {
+                        sendSystemMessageProse(objMemberWhoExists, pp);
+                    }
+                } else {
+                    for (obj_id objMemberWhoExists : objMembersWhoExist) {
+                        if (objMemberWhoExists != winner) {
+                            sendSystemMessageProse(objMemberWhoExists, pp);
+                        }
                     }
                 }
             }
         }
-        return;
     }
     public static void setAutoLootComplete(obj_id winner, obj_id corpse, obj_id item) throws InterruptedException
     {
         setObjVar(corpse, "autoLootComplete", 1);
         setObjVar(item, "pickupable", winner);
-        return;
     }
     public static obj_id chooseRandomLootPlayerFromGroup(obj_id corpse, obj_id player) throws InterruptedException
     {
         obj_id team = getGroupObject(player);
-        int groupLootRule = getGroupLootRule(team);
         obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(team);
-        int teamNumber = objMembersWhoExist.length;
-        if (hasObjVar(corpse, "autoLootComplete"))
-        {
-            obj_id corpseInv = utils.getInventoryContainer(corpse);
-            queueCommand(player, (1880585606), corpseInv, "", COMMAND_PRIORITY_DEFAULT);
-        }
-        if (teamNumber > 0)
-        {
-            int which = rand(0, teamNumber - 1);
-            player = objMembersWhoExist[which];
+        if(objMembersWhoExist != null) {
+            int teamNumber = objMembersWhoExist.length;
+            if (hasObjVar(corpse, "autoLootComplete")) {
+                obj_id corpseInv = utils.getInventoryContainer(corpse);
+                queueCommand(player, (1880585606), corpseInv, "", COMMAND_PRIORITY_DEFAULT);
+            }
+            if (teamNumber > 0) {
+                int which = rand(0, teamNumber - 1);
+                player = objMembersWhoExist[which];
+            }
         }
         return player;
     }
@@ -1171,39 +1093,16 @@ public class loot extends script.base_script
     }
     public static void lootAiCorpse(obj_id self, obj_id target) throws InterruptedException
     {
-        if (!isIdValid(target))
-        {
-            return;
-        }
-        if (!isMob(target))
-        {
-            return;
-        }
-        if (!isIncapacitated(target))
-        {
-            return;
-        }
-        if (isIncapacitated(self))
-        {
-            return;
-        }
-        if (pet_lib.isPet(target))
-        {
-            return;
-        }
-        if (!hasObjVar(target, "readyToLoot"))
-        {
-            return;
-        }
-        if (!corpse.hasLootPermissions(target, self))
-        {
-            return;
-        }
-        if (corpse.lootAICorpse(self, target))
-        {
+        if (isIdValid(target)
+                && isMob(target)
+                && isIncapacitated(target)
+                && !isIncapacitated(self)
+                && !pet_lib.isPet(target)
+                && hasObjVar(target, "readyToLoot")
+                && corpse.hasLootPermissions(target, self)
+                && corpse.lootAICorpse(self, target)) {
             messageTo(target, "handleCorpseEmpty", null, 0, true);
         }
-        return;
     }
     public static obj_id findItemToStack(obj_id item) throws InterruptedException
     {
@@ -1217,19 +1116,16 @@ public class loot extends script.base_script
         {
             itemStaticName = "";
         }
-        obj_id[] allItems = utils.getAllItemsInContainerByTemplate(container, getTemplateName(item), false);
-        if ((allItems != null) && (allItems.length > 0))
+        obj_id[] likeItemsInContainer = utils.getAllItemsInContainerByTemplate(container, getTemplateName(item), false);
+        if ((likeItemsInContainer != null) && (likeItemsInContainer.length > 0))
         {
-            for (int i = 0; i < allItems.length; ++i)
-            {
-                String curItemStaticName = getStaticItemName(allItems[i]);
-                if (curItemStaticName == null)
-                {
+            for (obj_id likeItem : likeItemsInContainer) {
+                String curItemStaticName = getStaticItemName(likeItem);
+                if (curItemStaticName == null) {
                     curItemStaticName = "";
                 }
-                if (item != allItems[i] && curItemStaticName.equals(itemStaticName))
-                {
-                    return allItems[i];
+                if (item != likeItem && curItemStaticName.equals(itemStaticName)) {
+                    return likeItem;
                 }
             }
         }
@@ -1255,7 +1151,6 @@ public class loot extends script.base_script
         {
             notifyThiefOfItemStolen(container, objDestinationItem);
         }
-        return;
     }
     public static boolean setupLootItems(obj_id objCreature) throws InterruptedException
     {
@@ -1315,11 +1210,7 @@ public class loot extends script.base_script
             {
                 strItemTypeHeader = parseItem[1];
             }
-            if (!dataTableOpen(strItemTable))
-            {
-            }
-            else 
-            {
+            if (dataTableOpen(strItemTable)) {
                 String[] strItems = dataTableGetStringColumnNoDefaults(strItemTable, strItemTypeHeader);
                 if (strItems != null && strItems.length > 0)
                 {
@@ -1331,9 +1222,8 @@ public class loot extends script.base_script
         }
         if (strRequiredItems != null && strRequiredItems.length > 0)
         {
-            for (int intI = 0; intI < strRequiredItems.length; intI++)
-            {
-                createLootItem(objContainer, strRequiredItems[intI], intLevel);
+            for (String strRequiredItem : strRequiredItems) {
+                createLootItem(objContainer, strRequiredItem, intLevel);
                 boolMadeLoot = true;
             }
         }
@@ -1341,29 +1231,28 @@ public class loot extends script.base_script
     }
     public static obj_id createLootItem(obj_id objContainer, String strLootToMake, int intLevel) throws InterruptedException
     {
-        String lootItemName = null;
         int intIndex = strLootToMake.indexOf(".iff");
         if (intIndex > -1)
         {
             obj_id lootItem = createObject(strLootToMake, objContainer, "");
             int got = getGameObjectType(lootItem);
-            if (isGameObjectTypeOf(got, GOT_clothing) || (got == GOT_armor_foot) || (got == GOT_armor_hand))
+            if (isGameObjectTypeOf(got, GOT_clothing) || got == GOT_armor_foot || got == GOT_armor_hand)
             {
                 hue.hueObject(lootItem);
             }
-            if (isGameObjectTypeOf(got, GOT_weapon))
+            else if (isGameObjectTypeOf(got, GOT_weapon))
             {
                 randomizeWeapon(lootItem, intLevel);
             }
-            if (got >= GOT_armor && got <= GOT_armor_arm)
+            else if (got >= GOT_armor && got <= GOT_armor_arm)
             {
                 randomizeArmor(lootItem, intLevel);
             }
-            if (got == GOT_misc_pharmaceutical)
+            else if (got == GOT_misc_pharmaceutical)
             {
                 randomizeMedicine(lootItem, intLevel);
             }
-            if ((got >= GOT_component && got <= GOT_component_weapon_ranged) || (got >= GOT_armor_layer && got <= GOT_armor_core) || (got == GOT_component_new_armor))
+            else if ((got >= GOT_component && got <= GOT_component_weapon_ranged) || (got >= GOT_armor_layer && got <= GOT_armor_core) || got == GOT_component_new_armor)
             {
                 randomizeComponent(lootItem, intLevel, objContainer);
             }
@@ -1380,19 +1269,12 @@ public class loot extends script.base_script
             {
                 String itemDatatable = "datatables/loot/" + parseItem[0] + ".iff";
                 String lootColumnHeader = parseItem[1];
-                if (!dataTableOpen(itemDatatable))
-                {
-                }
-                else 
-                {
+                if (dataTableOpen(itemDatatable)) {
                     String[] lootList = dataTableGetStringColumnNoDefaults(itemDatatable, lootColumnHeader);
                     if (lootList != null && lootList.length > 0)
                     {
                         String lootItemsLoot = lootList[rand(0, lootList.length - 1)];
                         return createLootItem(objContainer, lootItemsLoot, intLevel);
-                    }
-                    else 
-                    {
                     }
                 }
             }
@@ -1428,7 +1310,6 @@ public class loot extends script.base_script
         {
             return false;
         }
-        boolean groceries = true;
         String[] groceryItems = 
         {
             "milk_domesticated",
@@ -1442,7 +1323,7 @@ public class loot extends script.base_script
         int level = getLevel(objCreature);
         int amount = (int)(rand(1, 20) + (level * rand(1.0f, 2.0f)));
         resource.createRandom(groceryItems[randItem], amount, here, objContainer);
-        return groceries;
+        return true;
     }
     public static void notifyThiefOfItemStolen(obj_id objContainer, obj_id loot) throws InterruptedException
     {
@@ -1458,7 +1339,6 @@ public class loot extends script.base_script
             }
             utils.removeScriptVar(objContainer, "theft_in_progress");
         }
-        return;
     }
     public static boolean addBeastEnzymes(obj_id creature) throws InterruptedException
     {
@@ -1493,6 +1373,11 @@ public class loot extends script.base_script
             return false;
         }
         dictionary creatureRow = dataTableGetRow(CREATURES_TABLE, creatureName);
+        if(creatureRow == null){
+            CustomerServiceLog("chroniclesLoot", "FIX ME: Add creature (" + creatureName + ") to the creatures table (" + CREATURES_TABLE + ")!");
+            return false;
+        }
+
         int mobLevel = getIntObjVar(target, "intCombatDifficulty");
         obj_id mobInv = utils.getInventoryContainer(target);
         int chronicleLootChance = creatureRow.getInt("chronicleLootChance");
@@ -1516,11 +1401,9 @@ public class loot extends script.base_script
                 String[] rawChronicleLootCategories = split(chronicleLootData, ',');
                 Vector chronicleLootCategories = new Vector();
                 chronicleLootCategories.setSize(0);
-                for (int i = 0; i < rawChronicleLootCategories.length; i++)
-                {
-                    if (!rawChronicleLootCategories[i].equals("rare"))
-                    {
-                        utils.addElement(chronicleLootCategories, rawChronicleLootCategories[i]);
+                for (String rawChronicleLootCategory : rawChronicleLootCategories) {
+                    if (!rawChronicleLootCategory.equals("rare")) {
+                        utils.addElement(chronicleLootCategories, rawChronicleLootCategory);
                     }
                 }
                 int lootOptions = chronicleLootCategories.size();
@@ -1529,12 +1412,12 @@ public class loot extends script.base_script
                 {
                     lootCatergoryChoice = "rare";
                 }
-                else if (rareLootRoll > 1 && rareLootRoll < 6)
+                else if (rareLootRoll < 6)
                 {
                     lootCatergoryChoice = "comm_message";
                     relicCount = rand(6, 9);
                 }
-                else if (rareLootRoll > 6 && rareLootRoll < 10)
+                else if (rareLootRoll < 10)
                 {
                     lootCatergoryChoice = "goto_task";
                     relicCount = rand(6, 9);
@@ -1544,9 +1427,6 @@ public class loot extends script.base_script
                     int lootCategoryChoiceRoll = rand(0, lootOptions - 1);
                     lootCatergoryChoice = ((String)chronicleLootCategories.get(lootCategoryChoiceRoll));
                 }
-            }
-            else 
-            {
             }
             if (lootCatergoryChoice.length() > 0)
             {
@@ -1579,7 +1459,7 @@ public class loot extends script.base_script
         }
         return false;
     }
-    public static String getChronicleRelicLootOfCategory(String lootCatergoryChoice) throws InterruptedException
+    public static String getChronicleRelicLootOfCategory(String lootCategoryChoice) throws InterruptedException
     {
         String relic = "";
         Vector tokenReferences = new Vector();
@@ -1592,13 +1472,9 @@ public class loot extends script.base_script
             {
                 String row_lootCategory = row.getString("relicLootCatergory");
                 String[] relicLootCategories = split(row_lootCategory, ',');
-                for (int j = 0; j < relicLootCategories.length; j++)
-                {
-                    String relicCategory = relicLootCategories[j];
-                    if (relicCategory.equals(lootCatergoryChoice))
-                    {
-                        String token_reference = row.getString("name");
-                        tokenReferences = utils.addElement(tokenReferences, token_reference);
+                for (String relicCategory : relicLootCategories) {
+                    if (relicCategory.equals(lootCategoryChoice)) {
+                        tokenReferences = utils.addElement(tokenReferences, row.getString("name"));
                     }
                 }
             }
@@ -1607,7 +1483,7 @@ public class loot extends script.base_script
         {
             relic = ((String)tokenReferences.get(rand(0, tokenReferences.size() - 1)));
         }
-        if (lootCatergoryChoice.equals("goto_task"))
+        if (lootCategoryChoice.equals("goto_task"))
         {
             int genericChance = rand(1, 3);
             if (genericChance == 3)
@@ -1670,12 +1546,10 @@ public class loot extends script.base_script
     public static void disableChroniclesLoot(obj_id player) throws InterruptedException
     {
         setObjVar(player, CHRONICLES_LOOT_TOGGLE_OBJVAR, true);
-        return;
     }
     public static void enableChroniclesLoot(obj_id player) throws InterruptedException
     {
         removeObjVar(player, CHRONICLES_LOOT_TOGGLE_OBJVAR);
-        return;
     }
     public static boolean addCollectionLoot(obj_id target) throws InterruptedException
     {
@@ -1686,16 +1560,20 @@ public class loot extends script.base_script
         String creatureName = ai_lib.getCreatureName(target);
         int collectionLootChance = rand(1, 100);
         dictionary creatureRow = dataTableGetRow(CREATURES_TABLE, creatureName);
+        if(creatureRow == null || creatureRow.isEmpty()){
+            CustomerServiceLog("chroniclesLoot", "FIX ME: Add creature (" + creatureName + ") to the creatures table (" + CREATURES_TABLE + ")!");
+            return false;
+        }
         int rollBaseChance = creatureRow.getInt("collectionRoll");
         rollBaseChance *= COL_LOOT_MULTIPLIER_ON;
-        if (creatureRow == null || creatureRow.isEmpty())
+        if (creatureRow.isEmpty())
         {
             return false;
         }
         if (collectionLootChance <= rollBaseChance)
         {
             String myCollectionLoot = creatureRow.getString("collectionLoot");
-            if (myCollectionLoot.equals("no_loot") || myCollectionLoot == null)
+            if (myCollectionLoot == null || myCollectionLoot.equals("no_loot"))
             {
                 return false;
             }
@@ -1734,14 +1612,7 @@ public class loot extends script.base_script
                 }
             }
         }
-        else if (collectionLootChance > rollBaseChance)
-        {
-            return false;
-        }
-        else 
-        {
-            return false;
-        }
+        return false;
     }
     public static String getFactionalCollectionItem(String faction) throws InterruptedException
     {
@@ -1766,12 +1637,10 @@ public class loot extends script.base_script
             return null;
         }
         blog("getFactionalCollectionItem - allLootColumns.length: " + allLootColumns.length);
-        for (int i = 0; i < allLootColumns.length; i++)
-        {
-            if (allLootColumns[i].startsWith(toLower(faction)))
-            {
+        for (String lootColumn : allLootColumns) {
+            if (lootColumn.startsWith(toLower(faction))) {
                 blog("getFactionalCollectionItem - found a column I am adding to col list");
-                utils.addElement(factionCols, allLootColumns[i]);
+                utils.addElement(factionCols, lootColumn);
             }
         }
         blog("getFactionalCollectionItem - factionCols.length: " + factionCols.size());
@@ -1781,7 +1650,7 @@ public class loot extends script.base_script
         }
         if (factionCols.size() == 1)
         {
-            blog("getFactionalCollectionItem - randColStr: " + ((String)factionCols.get(randColInt)));
+            blog("getFactionalCollectionItem - randColStr: " + factionCols.get(randColInt));
             randColStr = ((String)factionCols.get(randColInt));
         }
         else 
@@ -1839,12 +1708,10 @@ public class loot extends script.base_script
             return null;
         }
         blog("getFactionalCollectionItem - allLootColumns.length: " + allLootColumns.length);
-        for (int i = 0; i < allLootColumns.length; i++)
-        {
-            if (allLootColumns[i].startsWith(toLower(faction)))
-            {
+        for (String lootColumn : allLootColumns) {
+            if (lootColumn.startsWith(toLower(faction))) {
                 blog("getFactionalCollectionItem - found a column I wanted: ");
-                utils.addElement(pvpCols, allLootColumns[i]);
+                utils.addElement(pvpCols, lootColumn);
             }
         }
         if (pvpCols.size() <= 0)
@@ -1861,7 +1728,7 @@ public class loot extends script.base_script
             randColInt = rand(0, pvpCols.size() - 1);
             randColStr = ((String)pvpCols.get(randColInt));
         }
-        blog("getFactionalCollectionItem - pvpCols[randColInt]: " + ((String)pvpCols.get(randColInt)));
+        blog("getFactionalCollectionItem - pvpCols[randColInt]: " + pvpCols.get(randColInt));
         blog("getFactionalCollectionItem - randColStr: " + randColStr);
         switch (rank)
         {
@@ -1935,15 +1802,10 @@ public class loot extends script.base_script
     public static boolean grantFactionalCollectible(obj_id winner, String staticItem) throws InterruptedException
     {
         blog("grantFactionalCollectible - arrival in grantFactionalCollectible function");
-        if (isIdNull(winner))
-        {
-            return false;
-        }
-        if (staticItem == null || staticItem.equals(""))
-        {
-            return false;
-        }
-        if (!static_item.isStaticItem(staticItem))
+        if (isIdNull(winner)
+                || staticItem == null
+                || staticItem.equals("")
+                || !static_item.isStaticItem(staticItem))
         {
             return false;
         }
@@ -1968,18 +1830,15 @@ public class loot extends script.base_script
     }
     public static obj_id addMeatlumpLumpsAsLoot(obj_id target, obj_id targetInventory, int cash) throws InterruptedException
     {
-        if (!isValidId(target) || !exists(target))
+        if (cash < 1
+            || !isValidId(target)
+            || !exists(target)
+            || !isValidId(targetInventory)
+            || !exists(targetInventory))
         {
             return null;
         }
-        else if (!isValidId(targetInventory) || !exists(targetInventory))
-        {
-            return null;
-        }
-        else if (cash < 1)
-        {
-            return null;
-        }
+
         obj_id inv = utils.getInventoryContainer(target);
         if (inv == null)
         {
@@ -2014,7 +1873,7 @@ public class loot extends script.base_script
             {
                 lumpAmount++;
             }
-            else if (lumpRoll > 51 && lumpRoll < 90)
+            else if (lumpRoll < 91)
             {
                 lumpAmount += 2;
             }
@@ -2045,33 +1904,26 @@ public class loot extends script.base_script
         {
             lootItemAmount += rand(0, 1);
         }
-        else if (puzzleThreshold)
+        else if (puzzleThreshold && (rand(0,100) > 95 || puzzleBuff))
         {
-            if (rand(0, 100) > 95)
-            {
-                lootItemAmount += rand(0, 1);
-            }
-            else if (puzzleBuff)
-            {
-                lootItemAmount += rand(0, 1);
-            }
+            lootItemAmount += rand(0,1);
         }
         for (int i = 0; i < lootItemAmount; i++)
         {
             int cols = 1;
             int randCol = rand(0, 100);
-            if (randCol > 71 && randCol < 90)
+            if (randCol >= 70 && randCol <= 90)
             {
                 cols = 3;
             }
-            else if (randCol > 91)
+            else if (randCol > 90)
             {
                 cols = 5;
             }
             blog("giveMeatlumpPuzzleLoot - randCols: " + randCol);
             blog("giveMeatlumpPuzzleLoot - TOTAL cols: " + cols);
             String[] strLootItems = dataTableGetStringColumnNoDefaults(MEATLUMP_LOOT_TABLE, rand(0, cols));
-            if ((strLootItems == null) || (strLootItems.length < 0))
+            if (strLootItems == null || strLootItems.length == 0)
             {
                 return false;
             }
@@ -2207,10 +2059,7 @@ public class loot extends script.base_script
             CustomerServiceLog("foraging", "Player: " + getName(player) + " OID: " + player + " has a " + something + "% chance of receiving something within the foraging system.");
         }
         int initialRoll = rand(1, 100);
-        if (initialRoll <= 0)
-        {
-            initialRoll = 0;
-        }
+
         forage_blog("playerForaging: initialRoll: " + initialRoll);
         CustomerServiceLog("foraging", "Player: " + getName(player) + " OID: " + player + " has rolled a " + initialRoll + ". If this number is less than " + nothing + " the player gets nothing from the foraging system.");
         if (initialRoll <= nothing)
@@ -2246,10 +2095,7 @@ public class loot extends script.base_script
             forage_blog("Player receives extra roll because of buffs for: enzyme");
             buffMsg += " Plant Enzymes";
             int enzymRoll = rand(1, 100);
-            if (enzymRoll <= 0)
-            {
-                enzymRoll = 0;
-            }
+
             CustomerServiceLog("foraging", "Player: " + getName(player) + " OID: " + player + " rolled " + enzymRoll + ". If this number is less than, or equal to " + enzymeMod + ", the player will get an enzyme.");
             if (enzymRoll <= enzymeMod)
             {
@@ -2325,10 +2171,7 @@ public class loot extends script.base_script
         CustomerServiceLog("foraging", "Player: " + getName(player) + " OID: " + player + " will receive a bait or bugs if they roll between " + baitLow + " and " + baitHigh + ".");
         CustomerServiceLog("foraging", "Player: " + getName(player) + " OID: " + player + " will receive a treasure map if they roll between " + treasLow + " and " + treasHigh + ".");
         int lootRoll = rand(1, 100);
-        if (lootRoll <= 0)
-        {
-            lootRoll = 0;
-        }
+
         CustomerServiceLog("foraging", "Player: " + getName(player) + " OID: " + player + " rolled " + lootRoll + ". The system will now attempt to reward the player with the specific item won.");
         forage_blog("YOU ROLLED: " + lootRoll);
         if (lootRoll >= enzLow && lootRoll <= enzHigh)
@@ -2432,32 +2275,32 @@ public class loot extends script.base_script
         forage_blog("rareItemList.size(): " + listSize);
         int randNum = rand(0, listSize - 1);
         forage_blog("randNum: " + randNum);
-        forage_blog("Random return: " + ((Integer)rareItemList.get(randNum)).intValue());
-        CustomerServiceLog("foraging", "Player: " + getName(self) + " OID: " + self + "rolled against a foraging rare item list and received rare loot item category: " + ((Integer)rareItemList.get(randNum)).intValue());
+        forage_blog("Random return: " + rareItemList.get(randNum));
+        CustomerServiceLog("foraging", "Player: " + getName(self) + " OID: " + self + "rolled against a foraging rare item list and received rare loot item category: " + rareItemList.get(randNum));
         forage_blog("getRandomRareForagedLoot do we have the scriptvar: " + utils.hasScriptVar(self, "qa.give_forage_data"));
         if (utils.hasScriptVar(self, "qa.give_forage_data") && isGod(self))
         {
-            String strForageFeedBack = utils.getStringScriptVar(self, "qa.strForageFeedBack");
-            strForageFeedBack += "Categories: Enzyme = 0, Worm/Thief = 1, Component = 2, Treasure Map = 3\n\r";
-            strForageFeedBack += "Rare Item List Length: " + listSize + "\n\r";
+            StringBuilder strForageFeedBack = new StringBuilder(utils.getStringScriptVar(self, "qa.strForageFeedBack"));
+            strForageFeedBack.append("Categories: Enzyme = 0, Worm/Thief = 1, Component = 2, Treasure Map = 3\n\r");
+            strForageFeedBack.append("Rare Item List Length: ").append(listSize).append("\n\r");
             for (int i = 0; i < listSize; ++i)
             {
-                strForageFeedBack += "Rare Item Number " + i + " is category: " + ((Integer)rareItemList.get(i)).intValue() + "\n\r";
+                strForageFeedBack.append("Rare Item Number ").append(i).append(" is category: ").append(rareItemList.get(i)).append("\n\r");
             }
-            strForageFeedBack += "Winning Item Category: " + ((Integer)rareItemList.get(randNum)).intValue() + "\n\r\n\r";
-            strForageFeedBack += "Check Constants - The values should never change.\n\r";
-            strForageFeedBack += "DEFAULT_ENZYME_CHANCE: (40) " + DEFAULT_ENZYME_CHANCE + "\n\r";
-            strForageFeedBack += "DEFAULT_WORM_CHANCE: (40) " + DEFAULT_WORM_CHANCE + "\n\r";
-            strForageFeedBack += "DEFAULT_TREASURE_CHANCE: (0) " + DEFAULT_TREASURE_CHANCE + "\n\r";
-            strForageFeedBack += "DEFAULT_COMPONENT_CHANCE: (40) " + DEFAULT_COMPONENT_CHANCE + "\n\r";
-            strForageFeedBack += "ENZYME_MODIFIER: (0) " + ENZYME_MODIFIER + "\n\r";
-            strForageFeedBack += "TREASURE_MODIFIER: (0) " + TREASURE_MODIFIER + "\n\r";
-            strForageFeedBack += "PLAYER_DEFAULT_FIND_MODIFIER: (0) " + PLAYER_DEFAULT_FIND_MODIFIER + "\n\r";
-            strForageFeedBack += "LUCKY_FIND_MODIFIER: (6) " + LUCKY_FIND_MODIFIER + "\n\r";
-            utils.setScriptVar(self, "qa.strForageFeedBack", strForageFeedBack);
-            utils.setScriptVar(self, "qa.strForageFeedBackCategory", ((Integer)rareItemList.get(randNum)).intValue());
+            strForageFeedBack.append("Winning Item Category: ").append(rareItemList.get(randNum)).append("\n\r\n\r");
+            strForageFeedBack.append("Check Constants - The values should never change.\n\r");
+            strForageFeedBack.append("DEFAULT_ENZYME_CHANCE: (40) " + DEFAULT_ENZYME_CHANCE + "\n\r");
+            strForageFeedBack.append("DEFAULT_WORM_CHANCE: (40) " + DEFAULT_WORM_CHANCE + "\n\r");
+            strForageFeedBack.append("DEFAULT_TREASURE_CHANCE: (0) " + DEFAULT_TREASURE_CHANCE + "\n\r");
+            strForageFeedBack.append("DEFAULT_COMPONENT_CHANCE: (40) " + DEFAULT_COMPONENT_CHANCE + "\n\r");
+            strForageFeedBack.append("ENZYME_MODIFIER: (0) " + ENZYME_MODIFIER + "\n\r");
+            strForageFeedBack.append("TREASURE_MODIFIER: (0) " + TREASURE_MODIFIER + "\n\r");
+            strForageFeedBack.append("PLAYER_DEFAULT_FIND_MODIFIER: (0) " + PLAYER_DEFAULT_FIND_MODIFIER + "\n\r");
+            strForageFeedBack.append("LUCKY_FIND_MODIFIER: (6) " + LUCKY_FIND_MODIFIER + "\n\r");
+            utils.setScriptVar(self, "qa.strForageFeedBack", strForageFeedBack.toString());
+            utils.setScriptVar(self, "qa.strForageFeedBackCategory", (Integer) rareItemList.get(randNum));
         }
-        return ((Integer)rareItemList.get(randNum)).intValue();
+        return (Integer) rareItemList.get(randNum);
     }
     public static boolean getRareForagedTreasureMap(obj_id player, obj_id pInv) throws InterruptedException
     {
@@ -2546,10 +2389,8 @@ public class loot extends script.base_script
         forage_blog("rareObject reward: IN giveCollectionObject");
         forage_blog("rareObject reward: scene: " + scene);
         boolean componentPlanet = false;
-        for (int i = 0; i < COMPONENT_PLANETS.length; ++i)
-        {
-            if (scene.startsWith(COMPONENT_PLANETS[i]))
-            {
+        for (String COMPONENT_PLANET : COMPONENT_PLANETS) {
+            if (scene.startsWith(COMPONENT_PLANET)) {
                 componentPlanet = true;
                 break;
             }
@@ -2560,7 +2401,7 @@ public class loot extends script.base_script
             return false;
         }
         String[] component = dataTableGetStringColumnNoDefaults(FORAGING_RARE_TABLE, scene);
-        if ((component == null) || (component.length < 0))
+        if (component == null || component.length == 0)
         {
             return false;
         }
@@ -2577,9 +2418,8 @@ public class loot extends script.base_script
         if (utils.hasScriptVar(self, "forage.listOfAlreadyForagedLocs"))
         {
             location[] oldListOfLocs = utils.getLocationArrayScriptVar(self, "forage.listOfAlreadyForagedLocs");
-            for (int i = 0; i < oldListOfLocs.length; ++i)
-            {
-                utils.addElement(newListOfLocs, oldListOfLocs[i]);
+            for (location loc : oldListOfLocs) {
+                utils.addElement(newListOfLocs, loc);
             }
         }
         utils.addElement(newListOfLocs, curLoc);
@@ -2614,40 +2454,33 @@ public class loot extends script.base_script
         switch (strForageFeedBackCategoryLog)
         {
             case loot.ENZYME:
-            categoryName = "ENZYME";
-            break;
+                categoryName = "ENZYME";
+                break;
             case loot.WORM:
-            categoryName = "WORMTHIEF";
-            break;
+                categoryName = "WORMTHIEF";
+                break;
             case loot.COMPONENT:
-            categoryName = "COMPONENT";
-            break;
+                categoryName = "COMPONENT";
+                break;
             case loot.TREASURE:
-            categoryName = "TREASURE" + getPlayerTreasureMapString(player);
-            break;
+                categoryName = "TREASURE" + getPlayerTreasureMapString(player);
+                break;
             case loot.BAIT:
-            categoryName = "BAIT";
-            break;
+                categoryName = "BAIT";
+                break;
             case loot.NOTHING:
-            categoryName = "NOTHING";
-            break;
+                categoryName = "NOTHING";
+                break;
             default:
-            categoryName = "ERROR";
-            break;
+                break;
         }
-        if (categoryName == null || categoryName.equals(""))
+        if (categoryName.equals(""))
         {
             sendSystemMessageTestingOnly(player, "The Category Name was blank");
             return false;
         }
         int number = getGameTime() + loopSeed + rand(1, 100) + rand(1, 100);
-        String title = "";
-        title = "foraged" + categoryName + number;
-        if (title == null || title.equals(""))
-        {
-            sendSystemMessageTestingOnly(player, "The title was blank");
-            return false;
-        }
+        String title = "foraged" + categoryName + number;
         loopSeed++;
         utils.setScriptVar(player, "qa.loopseed", loopSeed);
         saveTextOnClient(player, title + ".txt", strForageFeedBackLog);
@@ -2665,5 +2498,148 @@ public class loot extends script.base_script
             LOG(FORAGE_LOGGING_CATEGORY, msg);
         }
         return true;
+    }
+    public static boolean addRareLoot(obj_id target) throws InterruptedException
+    {
+        // get the attacker who did the most damage.
+        obj_id player = getObjIdObjVar(target, xp.VAR_TOP_GROUP);
+
+        // make sure the attacker is a player.
+        if(!isValidId(player) || !isPlayer(player)){
+            return false;
+        }
+
+        // if they're AFK then skip to the next.
+        if(isAwayFromKeyBoard(player)) return false;
+
+        // get custom settings from the configuration
+        boolean rlsEnabled = Boolean.parseBoolean(getConfigSetting("GameServer", "rlsEnabled"));
+        if (!rlsEnabled) return false;
+
+        // get RLS Chance - default: 1%
+        String rlsc = getConfigSetting("GameServer", "rlsDropChance");
+        double rlsChance = rlsc == null ? 0.005d : Double.parseDouble(rlsc) / 100;
+
+        // did they qualify for a RLS chest?
+        double rollValue = Math.random();
+        if(rollValue > rlsChance){
+            // did not qualify due to roll out of range.
+            return false;
+        }
+        LOG("rare_loot", "Player (" + player + ") qualified for an RLS chest (chance: " + rlsChance + " roll: " + rollValue + ")");
+
+        String lb = getConfigSetting("GameServer", "rlsMaxLevelsBelowPlayerLevel");
+        int levelsBelow = lb == null ? 6 : Math.abs(Integer.parseInt(lb));
+        String la = getConfigSetting("GameServer", "rlsMaxLevelsAbovePlayerLevel");
+        int levelsAbove = la == null ? 6 : Math.abs(Integer.parseInt(la));
+        String rdc = getConfigSetting("GameServer", "rlsRareDropChance");
+        int rareDropChance = rdc == null ? 70 : Math.abs(Integer.parseInt(rdc));
+        String edc = getConfigSetting("GameServer", "rlsExceptionalDropChance");
+        int exceptionalDropChance = edc == null ? 25 : Math.abs(Integer.parseInt(edc));
+        String ldc = getConfigSetting("GameServer", "rlsLegendaryDropChance");
+        int legendaryDropChance = ldc == null ? 5 : Math.abs(Integer.parseInt(ldc));
+        String dist = getConfigSetting("GameServer", "rlsMinDistanceFromLastLoot");
+        int minDistanceFromLast = dist == null ? 0 : Math.abs(Integer.parseInt(dist));
+        String tmpTime = getConfigSetting("GameServer", "rlsMinTimeBetweenAwards");
+
+        // check to make sure player is far enough away from the last looted location (if set)
+        location targetLocation = getLocation(target);
+        if(minDistanceFromLast > 0 && hasObjVar(player, "loot.rls.lastLootedLocation")){
+            location last = getLocationObjVar(player, "loot.rls.lastLootedLocation");
+            float distanceFromLast = getDistance(last, targetLocation);
+            if(distanceFromLast <= minDistanceFromLast){
+                LOG("rare_loot", "Player (" + player + ") last looted a chest only " + distanceFromLast + " meters away - which is too close to this current location.");
+                return false;
+            }
+        }
+
+        // make sure it's been longer than minimum time required between chests (default 15 minutes) since last looted chest
+        int rlsMinTimeBetweenAwards = (tmpTime == null ? 15 * 60 : Integer.parseInt(tmpTime));
+        if(hasObjVar(player, "loot.rls.lastChestAwardTime")) {
+            int lastLootTime = getIntObjVar(player, "loot.rls.lastChestAwardTime");
+            int elapsedTime = getGameTime() - lastLootTime;
+            LOG("rare_loot", "Player (" + player + ") last looted a chest " + elapsedTime + " game seconds ago (should be greater than " + rlsMinTimeBetweenAwards + ")!");
+            if (elapsedTime < rlsMinTimeBetweenAwards) return false;
+        }
+        else{
+            LOG("rare_loot", "Player (" + player + ") is looting their first RLS chest!");
+        }
+
+        // make sure the level range is appropriate for this attacker.
+        int playerLevel = getLevel(player);
+        int mobLevel = getLevel(target);
+        int mobMinLevel = playerLevel - levelsBelow;
+        int mobMaxLevel = playerLevel + levelsAbove;
+        if(mobLevel < mobMinLevel || mobLevel > mobMaxLevel) return false;
+
+        int bonus = 0;
+        // make sure the player has an extremely more difficult time to loot a chest if they're still going through the tutorial
+        if (hasObjVar(player, "npe")) {
+            bonus -= 500;
+        }
+
+        // give the player a bonus if the mob is higher than their own level, lower bonus if mob is a lower level
+        bonus += 10 * (mobLevel - playerLevel);
+
+        // give the player a bonus if the mob is a silver or gold - only if they're equal to or higher than player's level
+        if (mobLevel >= playerLevel) {
+            LOG("rare_loot", "Player (" + player + ") killed an NPC that is equal to or greater than their level and is being evaluated for an RLS award!");
+            String creatureName = ai_lib.getCreatureName(target);
+            if (creatureName.equals("")) return false;
+
+            switch (dataTableGetInt("datatables/mob/creatures.iff", creatureName, "difficultyClass")) {
+                case 1:
+                    if (creatureName.startsWith("heroic_")) {
+                        LOG("rare_loot", "Player (" + player + ") killed a silver NPC and is being evaluated for an RLS award!");
+                        bonus += 10;
+                    }
+                    break;
+                case 2:
+                    if (creatureName.startsWith("heroic_")) {
+                        LOG("rare_loot", "Player (" + player + ") killed a gold NPC and is being evaluated for an RLS award!");
+                        bonus += 50;
+                    }
+                    break;
+            }
+        }
+
+        LOG("rare_loot", "Player (" + player + ") has a bonus of " + bonus + " and is applying that to their RLS award roll");
+        double rareLootRoll = (rand(1, 1000 - bonus) / 10);
+        LOG("rare_loot", "Player (" + player + ") just rolled a " + rareLootRoll + " value toward their RLS award (*with bonus*)!");
+
+        // now determine what kind of chest is dropped - default to rare quality.
+        // DEFAULTS:
+        // RARE: 70% chance.
+        // EXCEPTIONAL: 25% chance.
+        // LEGENDARY: 5% chance.
+        int lootType = 1;
+        String type = "RARE";
+
+        // evaluate Rare drop chance first, then Exceptional... if it's not either of those two, then it's Rare.
+        if (rareLootRoll <= legendaryDropChance) {
+            lootType = 3;
+            type = "LEGENDARY";
+        }
+        else if (rareLootRoll <= exceptionalDropChance) {
+            lootType = 2;
+            type = "EXCEPTIONAL";
+        }
+        LOG("rare_loot", "Player (" + player + ") just qualified for a " + type + " RLS chest!");
+
+        obj_id chest = createRareLootChest(target, lootType);
+
+        setObjVar(player, "loot.rls.lastChestAwardTime", getGameTime());
+        setObjVar(player, "loot.rls.lastLootedChest", chest);
+        setObjVar(player, "loot.rls.lastLootedLocation", targetLocation);
+
+        playClientEffectLoc(target, RLS_EFFECT, targetLocation, 1f);
+        playClientEffectLoc(target, RLS_SOUND, targetLocation, 1f);
+
+        return true;
+    }
+    public static obj_id createRareLootChest(obj_id creature, int lootType) throws InterruptedException {
+        obj_id chest = static_item.createNewItemFunction(CHEST_BASE + lootType, utils.getInventoryContainer(creature));
+        LOG("rare_loot", "Just created item #" + chest + " in the inventory of creature " + creature);
+        return chest;
     }
 }
