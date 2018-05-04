@@ -27,5 +27,4 @@ objvars = +[
 	"player_structure.deed.buildtime" = 300,
 	"player_structure.deed.scene" = "tatooine,lok,dantooine"]
 
-scripts = +[
-	"item.structure_deed.player_structure_deed"]
+scripts = +["item.structure_deed.player_structure_deed"]
