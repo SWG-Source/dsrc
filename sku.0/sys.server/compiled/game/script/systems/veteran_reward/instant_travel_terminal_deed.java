@@ -23,34 +23,39 @@ public class instant_travel_terminal_deed extends script.base_script
     {
         if (item == menu_info_types.ITEM_USE)
         {
-            if(getLevel(player) < 50){
+            if(getLevel(player) > 90){
                 sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level 50.", null);
             }
             else if (hasObjVar(self, "privateerShip"))
             {
                 grantCommand(player, "callforprivateerpickup");
+            	destroyObject(self);
             }
             else if (hasObjVar(self, "royalShip"))
             {
                 grantCommand(player, "callforroyalpickup");
+            	destroyObject(self);
             }
             else if (hasObjVar(self, "junk"))
             {
                 grantCommand(player, "callforrattletrappickup");
+            	destroyObject(self);
             }
             else if (hasObjVar(self, "tcg_itv_home"))
             {
                 grantCommand(player, "callforsolarsailerpickup");
+            	destroyObject(self);
             }
             else if (hasObjVar(self, "tcg_itv_location"))
             {
                 grantCommand(player, "callforg9riggerpickup");
+            	destroyObject(self);
             }
-            else 
+            else
             {
                 grantCommand(player, "callforpickup");
+            	destroyObject(self);
             }
-            destroyObject(self);
         }
         return SCRIPT_CONTINUE;
     }
