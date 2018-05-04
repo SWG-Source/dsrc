@@ -4601,6 +4601,7 @@
 0x14361706	object/building/military/shared_poi_all_impl_bunker_recon_outpost.iff
 0x1437047b	object/tangible/furniture/decorative/shared_carved_bowl.iff
 0x1437b3be	object/tangible/crafting/station/generic_tool.iff
+0x1438e3cf	object/building/corellia/ply_corl_house_m_s02_fp1.iff
 0x14391e9d	object/mobile/dressed_binayre_hooligan_zabrak_female_01.iff
 0x14394c1c	object/tangible/space/content_infrastructure/shared_quest_nav_point.iff
 0x1439d63a	object/draft_schematic/structure/generic_house_player_large_style_02.iff
@@ -11970,6 +11971,7 @@
 0x349579a7	object/tangible/collection/reward/shared_buddy_painting_03.iff
 0x3497e7b3	object/tangible/wearables/base/base_jumpsuit_gloved.iff
 0x3499d620	object/mobile/space_comm_aynat_ace_03.iff
+0x3499f925	object/draft_schematic/structure/shared_kashyyyk_treehouse.iff
 0x349baf95	object/building/poi/player_camp_s05.iff
 0x349c54ec	object/tangible/lair/eopie/lair_eopie_wasteland.iff
 0x349c76f5	object/tangible/deed/pet_deed/shared_deed_le_repair_basic.iff
@@ -15074,6 +15076,7 @@
 0x428c1d2c	object/draft_schematic/weapon/appearance/weapon_appearance_pistol_republic_blaster.iff
 0x428d7743	object/mobile/shared_dressed_solcar_dienbel.iff
 0x428fb306	object/building/kashyyyk/poi_kash_rryatt_lvl1_far_canopy_a1.iff
+0x42919fea	object/draft_schematic/structure/shared_yt1300_house.iff
 0x4291aa8a	object/static/item/item_painting_corellia_style_01.iff
 0x4291f002	object/mobile/junk_ollobo.iff
 0x42959866	object/mobile/mamien.iff
@@ -27303,6 +27306,7 @@
 0x7923db67	object/tangible/wearables/armor/rebel_snow/armor_rebel_snow_boots.iff
 0x79248510	object/ship/shared_rebel_shuttle_tier4.iff
 0x79256c2f	object/draft_schematic/weapon/appearance/weapon_appearance_lance_trando.iff
+0x792645d1	object/draft_schematic/structure/corellia_house_player_medium_style_02.iff
 0x79285131	object/static/structure/general/shared_web_06.iff
 0x7929a232	object/ship/shared_blacksun_heavy_s04_tier4.iff
 0x792aadeb	object/tangible/ship/attachment/weapon/shared_hutt_heavy_weapon3_s01.iff
@@ -27780,6 +27784,7 @@
 0x7b35a550	object/draft_schematic/space/shields/shared_shield_intensifier_mk5.iff
 0x7b369407	object/mobile/dressed_tatooine_jabba_scout.iff
 0x7b37492e	object/mobile/shared_dressed_padawan_female_wke_03.iff
+0x7b384627	object/building/corellia/shared_ply_corl_house_m_s02_fp1.iff
 0x7b38d77a	object/tangible/deed/event_perk/shared_imperial_1x10_honorguard_deed.iff
 0x7b3aba8d	object/mobile/shared_dressed_force_trained_archaist.iff
 0x7b3b7b69	object/tangible/dungeon/corellian_corvette/corvette_search_neutral_rescue_01.iff
@@ -28427,6 +28432,7 @@
 0x7dfd2982	object/tangible/ship/components/booster/shared_bst_moncal_rare_advanced.iff
 0x7dfdbd53	object/building/general/naboo_deeja_peak_stonewall_labs.iff
 0x7dfeef11	object/tangible/npc/mustafar_spawn/story_arc_chapter_milo.iff
+0x7e011d18	object/tangible/deed/player_house_deed/corellia_house_medium_style_02_deed.iff
 0x7e029091	object/tangible/ship/crafted/engine/shared_collection_reward_engine_01_mk4.iff
 0x7e02b395	object/draft_schematic/food/dish_dustcrepe.iff
 0x7e0338d9	object/tangible/medicine/shared_medikit_tool_basic.iff
@@ -32871,6 +32877,7 @@
 0x91a9d357	object/tangible/spawning/static_npc/emp_day_imp_detainment_reb_pilot_06.iff
 0x91aa23ac	object/building/mustafar/items/shared_static_hk47.iff
 0x91abfac1	object/draft_schematic/furniture/furniture_light_gem_purple.iff
+0x91af2d4b	object/draft_schematic/structure/kashyyyk_treehouse.iff
 0x91b0e7c1	object/tangible/wearables/necklace/ith_necklace_ace_pilot_empire_f.iff
 0x91b18aee	object/draft_schematic/clothing/clothing_ith_pants_casual_17.iff
 0x91b3aa45	object/tangible/lair/fanned_rawl/lair_fanned_rawl_swamp.iff
@@ -35845,6 +35852,7 @@
 0x9f77ec58	object/draft_schematic/vehicle/component/power_plant_mk1.iff
 0x9f797769	object/tangible/loot/loot_schematic/death_watch_pistol_de_10_schematic.iff
 0x9f79c3e7	object/building/military/shared_poi_all_mad_bio_mine_s01.iff
+0x9f7caa9d	object/draft_schematic/structure/yt1300_house.iff
 0x9f7e55e8	object/tangible/medicine/crafted/shared_medpack_poison_mind_c.iff
 0x9f7e8f25	object/building/heroic/ig88_factory_arena.iff
 0x9f7efd49	object/tangible/loot/misc/loot_krayt_arm2.iff

@@ -5953,6 +5953,7 @@
 0x34918cbe	object/static/item/shared_item_comp_turret_base.iff
 0x349304c5	object/tangible/hair/bothan/shared_hair_bothan_male_s04.iff
 0x349579a7	object/tangible/collection/reward/shared_buddy_painting_03.iff
+0x3499f925	object/draft_schematic/structure/shared_kashyyyk_treehouse.iff
 0x349c76f5	object/tangible/deed/pet_deed/shared_deed_le_repair_basic.iff
 0x349f7bcc	object/mobile/shared_dressed_valarian_thug_naut.iff
 0x34a00f32	object/tangible/item/som/shared_lava_lizard_food.iff
@@ -7533,6 +7534,7 @@
 0x4288329c	object/tangible/quest/shared_pod_egg_sacs.iff
 0x428b2f49	object/mobile/shared_dressed_myyydril_treesh.iff
 0x428d7743	object/mobile/shared_dressed_solcar_dienbel.iff
+0x42919fea	object/draft_schematic/structure/shared_yt1300_house.iff
 0x4295fc89	object/tangible/loot/generic_usable/shared_software_module_generic.iff
 0x4298cf92	object/ship/shared_freighterlight.iff
 0x429b028b	object/draft_schematic/weapon/shared_lightsaber_two_handed_gen3.iff
@@ -13793,6 +13795,7 @@
 0x7b2cdaed	object/mobile/shared_outbreak_undead_civilian_04.iff
 0x7b35a550	object/draft_schematic/space/shields/shared_shield_intensifier_mk5.iff
 0x7b37492e	object/mobile/shared_dressed_padawan_female_wke_03.iff
+0x7b384627	object/building/corellia/shared_ply_corl_house_m_s02_fp1.iff
 0x7b38d77a	object/tangible/deed/event_perk/shared_imperial_1x10_honorguard_deed.iff
 0x7b3aba8d	object/mobile/shared_dressed_force_trained_archaist.iff
 0x7b3c1f97	object/static/vehicle/shared_static_at_at.iff
