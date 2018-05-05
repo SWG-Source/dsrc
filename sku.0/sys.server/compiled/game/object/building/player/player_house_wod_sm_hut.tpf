@@ -8,7 +8,5 @@
 
 @class object_template 3
 
-                  
-sharedTemplate = "object/building/player/shared_player_house_tcg_8_bespin_house.iff"
 
-
+sharedTemplate = "object/building/player/shared_player_house_wod_sm_hut.iff"

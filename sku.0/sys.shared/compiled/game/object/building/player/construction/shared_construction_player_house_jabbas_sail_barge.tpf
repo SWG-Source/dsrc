@@ -1,4 +1,4 @@
-//            Filename:     
+//            Filename:     shared_construction_player_player_house_hangar.tpf
 //            Directory:    object/building/player/temp_struct
 //
 //            Description:
@@ -18,7 +18,7 @@
 
 @class tangible_object_template 5
 
-structureFootprintFileName = "footprint/building/player/shared_player_house_tcg_bespin_house.sfp"
+structureFootprintFileName = "footprint/building/player/shared_player_house_jabbas_sail_barge.sfp"
 useStructureFootprintOutline = true
 
 targetable = true
@@ -26,8 +26,8 @@ targetable = true
 @class object_template 6
 clearFloraRadius = 15
 
-objectName = "player_structure" "temporary_structure"
-detailedDescription = "" ""
+objectName = "" "construction_player_house_jabbas_sail_barge_n"
+detailedDescription = "" "construction_player_house_jabbas_sail_barge_d"
 lookAtText = "player_structure" "temporary_structure"
 
 snapToTerrain = true

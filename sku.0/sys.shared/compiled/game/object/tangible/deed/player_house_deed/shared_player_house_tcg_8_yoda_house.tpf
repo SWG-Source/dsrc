@@ -1,0 +1,14 @@
+
+@base object/tangible/deed/base/shared_deed_building_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+
+objectName = "building_name"  "player_house_tcg_8_yoda_house_n"
+
+detailedDescription = "building_detail"  "player_house_tcg_8_yoda_house_d"
+lookAtText = ""  ""
+
+appearanceFilename = "appearance/eqp_tool_datapad.apt"

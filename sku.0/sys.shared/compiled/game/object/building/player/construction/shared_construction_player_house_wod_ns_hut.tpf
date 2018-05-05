@@ -1,4 +1,4 @@
-//            Filename:     
+//            Filename:     shared_temp_player_house_tatooine_large_style_01
 //            Directory:    object/building/player/temp_struct
 //
 //            Description:
@@ -18,7 +18,7 @@
 
 @class tangible_object_template 5
 
-structureFootprintFileName = "footprint/building/player/shared_player_house_tcg_bespin_house.sfp"
+structureFootprintFileName = "footprint/building/player/shared_player_house_ns_hut.sfp"
 useStructureFootprintOutline = true
 
 targetable = true

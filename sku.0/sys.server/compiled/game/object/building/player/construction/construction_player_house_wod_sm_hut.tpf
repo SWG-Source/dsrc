@@ -1,4 +1,4 @@
-//            Filename:     construction_player_tcg_relaxation_pool
+//            Filename:     construction_player_house_tatooine_large_style_01
 //            Directory:    object/building/player/construction
 //
 //            Description:
@@ -18,7 +18,7 @@
 
 @class object_template 2
 
-sharedTemplate = "object/building/player/construction/shared_construction_player_house_tcg_8_bespin_house.iff"
+sharedTemplate = "object/building/player/construction/shared_construction_player_house_wod_sm_hut.iff"
 
 tintIndex = 0
 

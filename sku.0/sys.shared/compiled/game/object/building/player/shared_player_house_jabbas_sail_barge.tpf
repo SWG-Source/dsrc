@@ -1,0 +1,27 @@
+// This file ws written by the template editor @ 6:56:04 PM -  Tue Nov 26 2002
+
+@base object/building/base/shared_base_player_building.iff
+
+@class building_object_template 0
+
+
+@class tangible_object_template 4
+
+
+structureFootprintFileName = "footprint/building/player/shared_player_house_jabbas_sail_barge.sfp"
+
+@class object_template 6
+
+clearFloraRadius = 38
+
+objectName = "player_structure"  "player_house_jabbas_sail_barge_n"
+
+detailedDescription = "player_structure"  "player_house_jabbas_sail_barge_d"
+
+appearanceFilename = "appearance/ply_all_sail_barge_r0_exterior.apt"
+
+portalLayoutFilename = "appearance/ply_all_sail_barge.pob"
+
+clientDataFile = "clientdata/building/shared_player_house_atat.cdf"
+
+//noBuildRadius = 48
