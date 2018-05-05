@@ -77,6 +77,8 @@ public class battle_spawner extends script.base_class {
 
     public float customPveBattleModifier;
     public float customPvpBattleModifier;
+    public float customPvePointModifier;
+    public float customPvpPointModifier;
     public float customWinTokenModifier;
     public float customLossTokenModifier;
     public float customWinPointModifier;
@@ -616,18 +618,18 @@ public class battle_spawner extends script.base_class {
     public int calculateAwardedPoints(boolean wonBattle, String battleType) {
         if(!wonBattle){
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return new Float(customPointAward * customPveBattleModifier * customLossPointModifier).intValue();
+                return new Float(customPointAward * customPvePointModifier * customLossPointModifier).intValue();
             }
             else{
-                return new Float(customPointAward * customPvpBattleModifier * customLossPointModifier).intValue();
+                return new Float(customPointAward * customPvpPointModifier * customLossPointModifier).intValue();
             }
         }
         else{
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return new Float(customPointAward * customPveBattleModifier * customWinPointModifier).intValue();
+                return new Float(customPointAward * customPvePointModifier * customWinPointModifier).intValue();
             }
             else{
-                return new Float(customPointAward * customPvpBattleModifier * customWinPointModifier).intValue();
+                return new Float(customPointAward * customPvpPointModifier * customWinPointModifier).intValue();
             }
         }
 
@@ -785,11 +787,17 @@ public class battle_spawner extends script.base_class {
         customPointAward = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwPointAward"));
         if (customPointAward < 0) customPointAward = DEFAULT_POINT_AWARD;
 
+        customPvePointModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPvEPointModifier"));
+        if (customPvePointModifier < 0) customPvePointModifier = DEFAULT_PVE_POINT_MULTIPLIER;
+
+        customPvpPointModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwPvPPointModifier"));
+        if (customPvpPointModifier < 0) customPvpPointModifier = DEFAULT_PVP_POINT_MULTIPLIER;
+
         customWinPointModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwWinPointModifier"));
-        if (customWinPointModifier < 0) customWinPointModifier = DEFAULT_WIN_TOKEN_MULTIPLIER;
+        if (customWinPointModifier < 0) customWinPointModifier = DEFAULT_WIN_POINT_MULTIPLIER;
 
         customLossPointModifier = utils.stringToFloat(getConfigSetting("GameServer", "spaceGcwLossPointModifier"));
-        if (customLossPointModifier < 0) customLossPointModifier = DEFAULT_LOSS_TOKEN_MULTIPLIER;
+        if (customLossPointModifier < 0) customLossPointModifier = DEFAULT_LOSS_POINT_MULTIPLIER;
 
         pobPlayerCeiling = utils.stringToInt(getConfigSetting("GameServer", "spaceGcwPobPlayerCeiling"));
         if (pobPlayerCeiling < 0) pobPlayerCeiling = DEFAULT_POB_PLAYER_CEILING;
