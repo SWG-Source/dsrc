@@ -34,7 +34,7 @@ public class callable extends script.base_script
     public static final String SCRIPTVAR_RIDEABLE_PACKED_CALLABLE = "callable.recently_packed";
     public static final int MAX_STORED_COMBAT_PETS = 20;
     public static final int MAX_STORED_FAMILIARS = 40;
-    public static final int BASE_MAX_STORED_RIDEABLES = 40;
+    public static final int BASE_MAX_STORED_RIDEABLES = 60;
     public static final int ABSOLUTE_MAX_STORED_RIDEABLES = 150;
     public static final String ADDON_MAX_STORED_RIDEABLES_OBJVAR = "rideables.addonMaxStoredRideables";
     public static void clog(String text) throws InterruptedException
