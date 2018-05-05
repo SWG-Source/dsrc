@@ -1,10 +1,10 @@
 STRUCTURE_APPEARANCE	DEFAULT_SIGN	X	Y	Z	HEADING	ALT_X	ALT_Y	ALT_Z	ALT_HEADING	COMMENTS
 s	s[object/tangible/sign/player/house_address.iff]	f[0]	f[0]	f[0]	f[0]	f[0]	f[0]	f[0]	f[0]	c
-object/building/player/player_guildhall_corellia_style_01.iff	object/tangible/sign/player/house_address_corellia.iff	4.15	1	22.1	90	9.1	0	22.25		Set sign to 0 0 0 then rotate appropriately using heading.
-object/building/player/player_guildhall_generic_style_01.iff		4.15	1.25	21.5	180	9.1	0	22.25		"You only need to change the float, then restart your planet to see the changes, login, cluster and client can be left up."
-object/building/player/player_guildhall_naboo_style_01.iff	object/tangible/sign/player/house_address_naboo.iff	4.15	1.25	21.7	180	9.1	0	22.25		"An alternate way is to make your character a trader, reload the table with changes, and switch the shop signs with default sign"
-object/building/player/player_guildhall_tatooine_style_01.iff	object/tangible/sign/player/house_address_tatooine.iff	4.15	1.25	21.7	180	-7.52	0.5	13.51		
-object/building/player/player_guildhall_tatooine_style_02.iff	object/tangible/sign/player/house_address_tatooine.iff	0	1.45	16.35	180	24.99	0	12.87		
+object/building/player/player_guildhall_corellia_style_01.iff	object/tangible/sign/player/house_address_corellia.iff	4.15	1.25	22.1	90	9.1	0.2	22.25		Set sign to 0 0 0 then rotate appropriately using heading.
+object/building/player/player_guildhall_generic_style_01.iff		4.15	1.25	21.5	180	9.1	0.2	22.25		You only need to change the float, then restart your planet to see the changes, login, cluster and client can be left up.
+object/building/player/player_guildhall_naboo_style_01.iff	object/tangible/sign/player/house_address_naboo.iff	4.15	1.25	21.7	180	9.1	0.2	22.25		An alternate way is to make your character a trader, reload the table with changes, and switch the shop signs with default sign
+object/building/player/player_guildhall_tatooine_style_01.iff	object/tangible/sign/player/house_address_tatooine.iff	4.15	1.25	21.7	180	9.1	0.2	22.25		
+object/building/player/player_guildhall_tatooine_style_02.iff	object/tangible/sign/player/house_address_tatooine.iff	0	1.45	16.35	180	24.99	0.2	15	180	
 object/building/player/player_house_corellia_large_style_01.iff	object/tangible/sign/player/house_address_corellia.iff	6	2.25	13.75	90	-3.29	0.5	12.94		
 object/building/player/player_house_corellia_large_style_02.iff	object/tangible/sign/player/house_address_corellia.iff	-6.35	2.25	15.5	90	-14.48	0.5	18.53		
 object/building/player/player_house_corellia_medium_style_01.iff	object/tangible/sign/player/house_address_corellia.iff	5.13	2.21	8	90	11.79	0.5	11.64		
@@ -12,11 +12,11 @@ object/building/player/player_house_corellia_medium_style_02.iff	object/tangible
 object/building/player/player_house_corellia_small_style_01.iff	object/tangible/sign/player/house_address_corellia.iff	-4.05	2.4	8.25	90	-7.56	0.5	11.64		
 object/building/player/player_house_corellia_small_style_01_floorplan_02.iff	object/tangible/sign/player/house_address_corellia.iff	-4.05	2.4	8.25	90	-7.56	0.5	11.64		
 object/building/player/player_house_corellia_small_style_02.iff	object/tangible/sign/player/house_address_corellia.iff	2.5	2.4	8.4	90	-7.43	0.5	11.64		
-object/building/player/player_house_corellia_small_style_02_floorplan_02.iff	object/tangible/sign/player/house_address_corellia.iff	2.5	2.4	8.4	90	-7.43	0.5	11.64		Z = FORWARD/BACK
-object/building/player/player_house_generic_large_window_s01.iff		-12.07	4	9.1	180	-14.48	0.5	18.53		Y = UP/DOWN
+object/building/player/player_house_corellia_small_style_02_floorplan_02.iff	object/tangible/sign/player/house_address_corellia.iff	2.5	2.4	8.4	90	-7.43	0.5	11.64		
+object/building/player/player_house_generic_large_window_s01.iff		-12.07	4	9.1	180	-14.48	0.5	18.53		
 object/building/player/player_house_generic_large_window_s02.iff		1	4	-11.15	0	11.5	0.5	-15.7	180	X = right/left
-object/building/player/player_house_generic_large_style_01.iff		11.94	2.25	14.51	180	-3.29	0.5	12.94		
-object/building/player/player_house_generic_large_style_02.iff		-6.07	2.5	15.26	180	-14.48	0.5	18.53		
+object/building/player/player_house_generic_large_style_01.iff		11.94	2.25	14.51	180	-3.29	0.5	12.94		Y = UP/DOWN
+object/building/player/player_house_generic_large_style_02.iff		-6.07	2.5	15.26	180	-14.48	0.5	18.53		Z = FORWARD/BACK
 object/building/player/player_house_generic_medium_windowed.iff		5.13	2.25	7.91	180	11.79	0.5	11.64		
 object/building/player/player_house_generic_medium_windowed_s02.iff		5.13	2.25	7.91	180	11.79	0.5	11.64		
 object/building/player/player_house_generic_medium_style_01.iff		5.13	2.25	7.91	180	11.79	0.5	11.64		
@@ -70,4 +70,10 @@ object/building/player/player_house_tcg_rebel_spire.iff		0	5.95	5.8	180	1.65	0.7
 object/building/player/player_house_tcg_commando_bunker.iff	object/tangible/sign/player/house_address_corellia.iff	3.4	3.4	6.8	90	5.1	0.3	8.7	0	
 object/building/player/player_house_tcg_vehicle_garage.iff	object/tangible/sign/player/house_address_corellia.iff	-15.1	1.4	15.9	90	-12.9	0.5	20.4	0	
 object/building/player/player_house_tcg_vip_bunker.iff	object/tangible/sign/player/house_address_corellia.iff	2.8	0.6	0.1	-90	0	5.2	1.1	180	
-object/building/player/player_house_tcg_8_bespin_house.iff	 object/tangible/sign/player/shared_house_address.iff	0	0.7071	0	42	0	0.7	8.2	-42	
+object/building/player/player_house_tcg_8_bespin_house.iff		0.75	3	-2.2	0	9.75	0	7.3	0	
+object/building/player/player_house_tcg_8_yoda_house.iff		4	2.8	7.8	180	10.5	2	8.75	210	X = right/left
+object/building/player/player_house_yt1300.iff		-6.5	1.8	0	90	-7.2	-1.1	-1.1	90	Y = UP/DOWN
+object/building/player/player_house_tree_house_01.iff		-6.5	5	12.5	180	9.75	0.7	7.3	0	Z = FORWARD/BACK
+object/building/player/player_house_wod_ns_hut.iff		-1.5	3	6.3	180	9	0.5	6.2	180	
+object/building/player/player_house_wod_sm_hut.iff		-1.9	3	5.4	180	9	0.5	6.2	180	
+object/building/player/player_house_jabbas_sail_barge.iff		1	5.5	-3	0	-6	0.8	15	0	

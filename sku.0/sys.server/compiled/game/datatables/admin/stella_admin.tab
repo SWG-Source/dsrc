@@ -1,9 +1,7 @@
 AdminAccounts	AdminLevel	AdminSkill	AdminComment	AdminComment2	AdminIpBlocks	AdminIpComment	AdminSuid	OldAdminSuid
 s	i{0}	s	c	c	s	c	i{0}	i{0}
-demo	40	admin		all account names must be lower case		Stella-Demo-Account	1	-695782159
-swgnoobs	50	admin				SWGNoobs MainAdminAccount	6	1856394569
-darth	50	admin				Darthargus Main AdminAccount	4	39468200
-sririerac	40	admin					5	-1657710596
-cekis	50	admin				Cekis AdminAccount	9	-78823672
-silentguardian	10	admin				Silent AdminAccount	11	-1250432769
-celestial	5	csr					985	586410758
+swg	50	admin		all account names must be lower case		main admin account	1	
+swg2	50	admin				main admin account	2	
+swg3	50	admin				main admin account	3	
+swg4	50	admin				main admin account	4	
+swg5	50	admin				main admin account	5	

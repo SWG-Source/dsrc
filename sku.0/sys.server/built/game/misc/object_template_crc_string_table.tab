@@ -2354,6 +2354,7 @@
 0x0a924e07	object/mobile/shared_dressed_industrialist_trainer_01.iff
 0x0a938067	object/tangible/loot/collectible/collectible_parts/shared_sculpture_structure_06.iff
 0x0a96f55a	object/mobile/dressed_talus_sif_mercenary_rodian_01.iff
+0x0a96fb85	object/tangible/painting/painting_posters_tfa.iff
 0x0a99bfee	object/tangible/lair/base/bramble_light.iff
 0x0a9d21e7	object/tangible/component/item/electronic_energy_distributor.iff
 0x0aa407c8	object/mobile/npe/shared_dressed_rakqua_guard_03.iff
@@ -4600,6 +4601,7 @@
 0x14361706	object/building/military/shared_poi_all_impl_bunker_recon_outpost.iff
 0x1437047b	object/tangible/furniture/decorative/shared_carved_bowl.iff
 0x1437b3be	object/tangible/crafting/station/generic_tool.iff
+0x1438e3cf	object/building/corellia/ply_corl_house_m_s02_fp1.iff
 0x14391e9d	object/mobile/dressed_binayre_hooligan_zabrak_female_01.iff
 0x14394c1c	object/tangible/space/content_infrastructure/shared_quest_nav_point.iff
 0x1439d63a	object/draft_schematic/structure/generic_house_player_large_style_02.iff
@@ -5038,6 +5040,7 @@
 0x1632164d	object/mobile/shared_junk_dealer_f_03.iff
 0x16344040	object/tangible/wearables/armor/ithorian_defender/shared_ith_armor_s01_chest_plate_camo.iff
 0x16346e3e	object/tangible/scout/camokit/shared_camokit_dathomir.iff
+0x1634e3cb	object/tangible/painting/painting_posters_rebels.iff
 0x1635d383	object/tangible/recycler/shared_flora_recycler.iff
 0x1636b9c3	object/tangible/tcg/series3/shared_greeter_deed_tusken.iff
 0x1637a9f2	object/tangible/quest/talus_dearic_lag_storage_crate.iff
@@ -10672,6 +10675,7 @@
 0x2eec3d2b	object/mobile/dressed_rebel_lance_corporal_twk_female_01.iff
 0x2eee327f	object/tangible/loot/simple_kit/spinning_blade.iff
 0x2eef2d75	object/static/item/lair_bones.iff
+0x2eef9927	object/tangible/item/shared_rare_loot_chest_2.iff
 0x2eefc979	object/tangible/ship/components/shield_generator/shd_moncal_ionweb_advanced.iff
 0x2ef0ac19	object/draft_schematic/weapon/appearance/weapon_appearance_2h_sword_kun_massassi.iff
 0x2ef1e43a	object/tangible/medicine/medpack_intimidated.iff
@@ -10849,6 +10853,7 @@
 0x2fb077bc	object/tangible/medicine/crafted/shared_medpack_grenade_damage_e.iff
 0x2fb156e0	object/tangible/poi/spawnegg/warren_spawnegg_stormtrooper.iff
 0x2fb196fa	object/tangible/loot/creature_loot/kashyyyk_loot/shared_kerritamba_jaw.iff
+0x2fb2eb52	object/tangible/painting/painting_posters_ro.iff
 0x2fb4676d	object/building/corellia/guild_combat_corellia_style_01.iff
 0x2fb46a32	object/building/poi/dathomir_nightsister_medium3.iff
 0x2fb481ae	object/tangible/loot/creature_loot/collections/shared_meatlump_lint_04.iff
@@ -11067,6 +11072,7 @@
 0x309dbdbe	object/tangible/loot/creature_loot/collections/space/engine_mark_04_incom.iff
 0x309dc93c	object/tangible/mission/quest_item/senni_tonnika_q1_needed.iff
 0x309e09c3	object/tangible/furniture/nym_themepark/collection/shared_frn_all_lamp_free_s04.iff
+0x309eea03	object/tangible/painting/shared_painting_posters_tfa.iff
 0x309f5c1c	object/building/mustafar/terrain/shared_must_rock_smooth_01.iff
 0x309feb5f	object/tangible/loot/creature_loot/collections/space/shared_booster_mark_02_qualdex.iff
 0x30a0395f	object/tangible/medicine/crafted/medpack_disease_area_willpower_c.iff
@@ -11965,6 +11971,7 @@
 0x349579a7	object/tangible/collection/reward/shared_buddy_painting_03.iff
 0x3497e7b3	object/tangible/wearables/base/base_jumpsuit_gloved.iff
 0x3499d620	object/mobile/space_comm_aynat_ace_03.iff
+0x3499f925	object/draft_schematic/structure/shared_kashyyyk_treehouse.iff
 0x349baf95	object/building/poi/player_camp_s05.iff
 0x349c54ec	object/tangible/lair/eopie/lair_eopie_wasteland.iff
 0x349c76f5	object/tangible/deed/pet_deed/shared_deed_le_repair_basic.iff
@@ -12144,6 +12151,7 @@
 0x356e81f3	object/building/player/city/garden_naboo_med_03.iff
 0x356f241f	object/tangible/ship/components/weapon_capacitor/shared_cap_qualdex_miser_standard.iff
 0x3570103d	object/draft_schematic/armor/armor_appearance_stormtrooper_gloves.iff
+0x357201b4	object/tangible/item/rare_loot_chest_3.iff
 0x3572ae08	object/mobile/dressed_meatlump_hideout_bomb_tech.iff
 0x3572ca90	object/mobile/dressed_rebel_specforce_captain_trandoshan_male_01.iff
 0x35731db8	object/draft_schematic/space/booster/xwing_booster_mk1.iff
@@ -15068,6 +15076,7 @@
 0x428c1d2c	object/draft_schematic/weapon/appearance/weapon_appearance_pistol_republic_blaster.iff
 0x428d7743	object/mobile/shared_dressed_solcar_dienbel.iff
 0x428fb306	object/building/kashyyyk/poi_kash_rryatt_lvl1_far_canopy_a1.iff
+0x42919fea	object/draft_schematic/structure/shared_yt1300_house.iff
 0x4291aa8a	object/static/item/item_painting_corellia_style_01.iff
 0x4291f002	object/mobile/junk_ollobo.iff
 0x42959866	object/mobile/mamien.iff
@@ -15170,6 +15179,7 @@
 0x43030c5b	object/tangible/quest/shared_tatooine_ac_antenna_01.iff
 0x4303712c	object/tangible/gcw/gcw_city_spawner.iff
 0x43043c4c	object/tangible/ship/crafted/reactor/shared_reactor_overcharger_mk1.iff
+0x4304593a	object/tangible/painting/painting_wod_sm_01.iff
 0x430486ce	object/intangible/beast/bm_gackle_bat.iff
 0x4304ffe8	object/mobile/dressed_biologist_05.iff
 0x43058a57	object/weapon/ranged/rifle/shared_event_rifle_tusken_berserker.iff
@@ -15411,6 +15421,7 @@
 0x4405572b	object/mobile/beast_master/bm_crystal_snake.iff
 0x4406e149	object/draft_schematic/armor/armor_appearance_mandalorian_belt.iff
 0x440bc2be	object/tangible/deed/pet_deed/shared_deed_union_sentry_droid.iff
+0x440c207c	object/tangible/painting/shared_painting_posters_ros.iff
 0x440c944a	object/tangible/wearables/armor/deathtrooper/shared_armor_deathtrooper_utility_belt.iff
 0x440eccf6	object/ship/shared_prototype_z95.iff
 0x440fb48b	object/mobile/dressed_rebel_commando_human_female_01.iff
@@ -15704,6 +15715,7 @@
 0x4569c19d	object/tangible/collection/col_force_shui_table_01.iff
 0x456defcd	object/tangible/quest/shared_naktra_crystals.iff
 0x456f579e	object/mobile/shared_dressed_fs_village_farmer.iff
+0x457034a2	object/tangible/painting/shared_painting_posters_tlj.iff
 0x45715a15	object/tangible/loot/loot_schematic/shared_death_watch_mandalorian_helmet_schematic.iff
 0x4571bab6	object/tangible/deed/corellia/player_house_deed/shared_corellia_house_small_deed.iff
 0x4573a455	object/tangible/ship/components/shield_generator/shd_incom_rayshield_x12.iff
@@ -17299,6 +17311,7 @@
 0x4c9bd123	object/tangible/food/generic/dessert_imperial_cookies.iff
 0x4c9ca929	object/draft_schematic/bio_engineer/dna_template/dna_template_gurreck.iff
 0x4c9ef4c6	object/tangible/lair/ikopi/lair_ikopi.iff
+0x4ca07a7c	object/tangible/holiday/empire_day/mara_jade_poster.iff
 0x4ca15267	object/building/mustafar/structures/shared_must_bandit_fence_16m.iff
 0x4ca3e3bc	object/tangible/ship/components/shield_generator/shd_incom_rayshield_z7.iff
 0x4ca48a34	object/ship/nova_orion_patrol_heavy_tier10.iff
@@ -18315,6 +18328,7 @@
 0x50d1ec1f	object/mobile/vendor/shared_greeter_meatlump_officer_f.iff
 0x50d30897	object/tangible/veteran_reward/shared_frn_vet_holo_darth_vader.iff
 0x50d425c1	object/draft_schematic/structure/city/shared_garden_medium.iff
+0x50d506d2	object/tangible/painting/painting_posters_ew2.iff
 0x50d7ef93	object/tangible/hair/sullustan/shared_sul_hair_s18_m.iff
 0x50d85ffe	object/tangible/ship/crafted/weapon/missile/shared_wpn_proton_missile_mk1.iff
 0x50dc9584	object/tangible/wearables/bandolier/multipocket_bandolier.iff
@@ -18609,6 +18623,7 @@
 0x523389b5	object/tangible/deed/city_deed/shared_shuttleport_naboo_deed.iff
 0x523543ba	object/tangible/component/structure/mustafar/must_soft_light_source.iff
 0x52366f9c	object/tangible/spawning/static_npc/racing_coordinator_narmle.iff
+0x5237780b	object/tangible/painting/shared_painting_wod_sm_01.iff
 0x52399c4f	object/building/naboo/filler_building_naboo_theed_style_11.iff
 0x523a376d	object/draft_schematic/weapon/shared_pistol_blaster_d18.iff
 0x523a4849	object/creature/npc/droid/crafted/bounty_imperial_probot_advanced.iff
@@ -19030,6 +19045,7 @@
 0x544053a5	object/tangible/hair/human/hair_human_male_s31.iff
 0x54408786	object/mobile/skeleton/shared_bird_turkey.iff
 0x5440f0cf	object/tangible/loot/creature_loot/collections/col_meatlump_rank_03.iff
+0x54431c95	object/tangible/painting/shared_painting_posters_ro.iff
 0x5443e870	object/tangible/dance_prop/shared_prop_sparkler_l_s03.iff
 0x54440974	object/mobile/shared_smuggler_broker_baldwin.iff
 0x54440d41	object/static/structure/dathomir/shared_decal_smear_03.iff
@@ -23389,6 +23405,7 @@
 0x67de35d0	object/tangible/component/structure/wall_module.iff
 0x67ded380	object/tangible/lair/base/shared_poi_all_lair_leaf_small_fog_gray.iff
 0x67df8532	object/draft_schematic/bio_engineer/creature/shared_creature_dalyrake.iff
+0x67e2feaa	object/tangible/item/shared_rare_loot_chest_3.iff
 0x67e398f0	object/tangible/spawning/fs_quest/fs_village_combat_p3.iff
 0x67e41611	object/tangible/lair/base/shared_poi_all_lair_dead_log_large_fog_gray.iff
 0x67e4e003	object/tangible/wearables/necklace/necklace_medallion_black_sun.iff
@@ -24053,6 +24070,7 @@
 0x6adad52e	object/mobile/dressed_kobola_miner_human_male_01.iff
 0x6adb149d	object/draft_schematic/weapon/appearance/shared_weapon_appearance_pistol_westar_pvp.iff
 0x6adce445	object/tangible/dance_prop/generic_must_prop_baton_01_l.iff
+0x6add1754	object/tangible/painting/shared_painting_posters_ew2.iff
 0x6addd4a5	object/building/general/shared_bunker_imperial_02.iff
 0x6ade7289	object/mobile/dressed_corsec_captain_human_male_01.iff
 0x6ae2c919	object/tangible/ship/attachment/booster/shared_naboo_n1_booster_s01.iff
@@ -27288,6 +27306,7 @@
 0x7923db67	object/tangible/wearables/armor/rebel_snow/armor_rebel_snow_boots.iff
 0x79248510	object/ship/shared_rebel_shuttle_tier4.iff
 0x79256c2f	object/draft_schematic/weapon/appearance/weapon_appearance_lance_trando.iff
+0x792645d1	object/draft_schematic/structure/corellia_house_player_medium_style_02.iff
 0x79285131	object/static/structure/general/shared_web_06.iff
 0x7929a232	object/ship/shared_blacksun_heavy_s04_tier4.iff
 0x792aadeb	object/tangible/ship/attachment/weapon/shared_hutt_heavy_weapon3_s01.iff
@@ -27317,6 +27336,7 @@
 0x7943f3c2	object/tangible/veteran_reward/shared_vr_nightspider_deed.iff
 0x79442288	object/tangible/item/kashyyyk/eqp_kash_hunting_license.iff
 0x7945dd7c	object/intangible/beast/shared_bm_chuba.iff
+0x794703f8	object/tangible/painting/shared_painting_posters_rebels.iff
 0x79473032	object/static/structure/military/shared_military_wall_strong_rebl_32_style_01.iff
 0x794888ef	object/tangible/quest/township/shared_axkva_nightsister_shards.iff
 0x7949c450	object/tangible/skill_buff/skill_buff_onehandmelee_accuracy.iff
@@ -27764,6 +27784,7 @@
 0x7b35a550	object/draft_schematic/space/shields/shared_shield_intensifier_mk5.iff
 0x7b369407	object/mobile/dressed_tatooine_jabba_scout.iff
 0x7b37492e	object/mobile/shared_dressed_padawan_female_wke_03.iff
+0x7b384627	object/building/corellia/shared_ply_corl_house_m_s02_fp1.iff
 0x7b38d77a	object/tangible/deed/event_perk/shared_imperial_1x10_honorguard_deed.iff
 0x7b3aba8d	object/mobile/shared_dressed_force_trained_archaist.iff
 0x7b3b7b69	object/tangible/dungeon/corellian_corvette/corvette_search_neutral_rescue_01.iff
@@ -28057,6 +28078,7 @@
 0x7c7aed4b	object/ship/kihraxz_tier10.iff
 0x7c7b2758	object/draft_schematic/clothing/clothing_skirt_formal_07.iff
 0x7c7f584e	object/tangible/ship/crafted/weapon/wpn_orion_disruptor.iff
+0x7c7f6639	object/tangible/item/rare_loot_chest_2.iff
 0x7c80a1d1	object/tangible/loot/mustafar/shared_bones_must_monster_jaw_large.iff
 0x7c80cfff	object/mobile/dressed_dressed_legacy_barrezz.iff
 0x7c80f82c	object/tangible/loot/creature_loot/generic/guts_jar.iff
@@ -28410,9 +28432,11 @@
 0x7dfd2982	object/tangible/ship/components/booster/shared_bst_moncal_rare_advanced.iff
 0x7dfdbd53	object/building/general/naboo_deeja_peak_stonewall_labs.iff
 0x7dfeef11	object/tangible/npc/mustafar_spawn/story_arc_chapter_milo.iff
+0x7e011d18	object/tangible/deed/player_house_deed/corellia_house_medium_style_02_deed.iff
 0x7e029091	object/tangible/ship/crafted/engine/shared_collection_reward_engine_01_mk4.iff
 0x7e02b395	object/draft_schematic/food/dish_dustcrepe.iff
 0x7e0338d9	object/tangible/medicine/shared_medikit_tool_basic.iff
+0x7e0431fa	object/tangible/painting/painting_posters_ros.iff
 0x7e055404	object/mobile/jawa_m_nonvendor_vendor.iff
 0x7e0be6fa	object/building/kashyyyk/poi_kash_rryatt_lvl2_bridge_s02.iff
 0x7e0c720b	object/tangible/ground_spawning/patrol_spawner.iff
@@ -28736,6 +28760,7 @@
 0x7f768c23	object/tangible/ship/components/weapon/shared_xwing_weapon_s02_test.iff
 0x7f76aaad	object/tangible/mission/quest_item/kaeline_ungasan_q2_needed.iff
 0x7f777f84	object/tangible/loot/npc_loot/large_dispersal_unit_generic.iff
+0x7f782524	object/tangible/painting/painting_posters_tlj.iff
 0x7f79608a	object/mobile/dressed_mercenary_commander_wee_m.iff
 0x7f79ba30	object/mobile/boar_wolf_hue.iff
 0x7f79ea18	object/tangible/loot/creature_loot/collections/space/shared_reactor_mark_04_subpro.iff
@@ -29347,6 +29372,7 @@
 0x8225e423	object/mobile/ep3/ep3_clone_relics_warren_scientist.iff
 0x82262f58	object/tangible/loot/factional_schematic/imperial_assault_trooper_bracer_r_schematic.iff
 0x8226ebc1	object/tangible/camp/camp_crate_s1.iff
+0x82281e56	object/tangible/painting/shared_painting_posters_cws.iff
 0x822ab0d4	object/draft_schematic/weapon/appearance/weapon_appearance_rifle_mandalorian.iff
 0x822c0880	object/tangible/lair/base/shared_poi_all_lair_garbage_small_fog_green.iff
 0x822c522c	object/tangible/wearables/pants/pants_s05.iff
@@ -30496,6 +30522,7 @@
 0x8738a518	object/mobile/dressed_forest_hunter.iff
 0x8738f6ec	object/draft_schematic/space/armor/armor_reinforcement_panel_mk1.iff
 0x873a0fe6	object/tangible/wearables/shirt/shared_shirt_s04.iff
+0x873a9a27	object/tangible/painting/painting_posters_tpm.iff
 0x873ca987	object/object/base/base_object.iff
 0x873d34d5	object/static/item/shared_item_chair_futon_s1.iff
 0x873d675d	object/static/structure/content/shared_exar_kun_fresco.iff
@@ -30907,6 +30934,7 @@
 0x891e75ef	object/tangible/furniture/plain/plain_armoire_s01.iff
 0x891fc2f5	object/static/structure/general/shared_campfire_smoldering.iff
 0x891fcb69	object/building/mustafar/terrain/shared_must_rock_scorched_lrg.iff
+0x8920d09c	object/tangible/painting/shared_painting_wod_sm_02.iff
 0x8922af68	object/tangible/tcg/series3/shared_decorative_wompa_skin_rug.iff
 0x89243190	object/tangible/loot/creature_loot/kashyyyk_loot/red_potion.iff
 0x8924e659	object/tangible/loot/quest/shared_nym_droid_memory_chip.iff
@@ -31474,6 +31502,7 @@
 0x8bbd06d7	object/building/kashyyyk/decd_trillium_palm_tall02.iff
 0x8bbddfad	object/static/creature/shared_corellia_murra.iff
 0x8bbee7d6	object/mobile/shared_ep3_myyydril_nk3.iff
+0x8bc2ae45	object/tangible/painting/painting_posters_ew1.iff
 0x8bc6a986	object/draft_schematic/clothing/clothing_armor_bone_leggings.iff
 0x8bc6bf95	object/tangible/wearables/ithorian/ith_bandolier_s02.iff
 0x8bc6de45	object/tangible/furniture/all/frn_all_lamp_tatt_s01.iff
@@ -32848,6 +32877,7 @@
 0x91a9d357	object/tangible/spawning/static_npc/emp_day_imp_detainment_reb_pilot_06.iff
 0x91aa23ac	object/building/mustafar/items/shared_static_hk47.iff
 0x91abfac1	object/draft_schematic/furniture/furniture_light_gem_purple.iff
+0x91af2d4b	object/draft_schematic/structure/kashyyyk_treehouse.iff
 0x91b0e7c1	object/tangible/wearables/necklace/ith_necklace_ace_pilot_empire_f.iff
 0x91b18aee	object/draft_schematic/clothing/clothing_ith_pants_casual_17.iff
 0x91b3aa45	object/tangible/lair/fanned_rawl/lair_fanned_rawl_swamp.iff
@@ -34253,6 +34283,7 @@
 0x98129dfd	object/tangible/skill_trainer/tailor_trainer.iff
 0x9813577f	object/mobile/dressed_biologist_06.iff
 0x981394db	object/tangible/ship/crafted/reactor/shared_reactor_overcharger_mk2.iff
+0x9813f1ad	object/tangible/painting/painting_wod_sm_02.iff
 0x98143733	object/building/general/shared_bunker_rebel_weapons_depot.iff
 0x9814a4cc	object/tangible/quest/shared_tatooine_ac_antenna_02.iff
 0x9816b2f4	object/tangible/spawning/ep3/quest_npc/kachiro_musolium.iff
@@ -35821,6 +35852,7 @@
 0x9f77ec58	object/draft_schematic/vehicle/component/power_plant_mk1.iff
 0x9f797769	object/tangible/loot/loot_schematic/death_watch_pistol_de_10_schematic.iff
 0x9f79c3e7	object/building/military/shared_poi_all_mad_bio_mine_s01.iff
+0x9f7caa9d	object/draft_schematic/structure/yt1300_house.iff
 0x9f7e55e8	object/tangible/medicine/crafted/shared_medpack_poison_mind_c.iff
 0x9f7e8f25	object/building/heroic/ig88_factory_arena.iff
 0x9f7efd49	object/tangible/loot/misc/loot_krayt_arm2.iff
@@ -37530,6 +37562,7 @@
 0xa7644f4d	object/tangible/jedi/shared_power_shrine_red.iff
 0xa764de12	object/mobile/dressed_commoner_tatooine_aqualish_female_05.iff
 0xa76528ce	object/creature/npc/droid/dark_trooper_phase_ii_base.iff
+0xa768ceae	object/tangible/item/rare_loot_chest_1.iff
 0xa7699820	object/mobile/emperor_royal_guard.iff
 0xa76a73e5	object/tangible/wearables/armor/scout_trooper/armor_scout_trooper_chest_plate_camo.iff
 0xa76ac98d	object/tangible/spawning/static_npc/story_loot_espa.iff
@@ -39878,6 +39911,7 @@
 0xb1c9da1e	object/mobile/dressed_corsec_captain_human_male_02.iff
 0xb1ca35a3	object/tangible/food/crafted/shared_crafted_bantha_surprise.iff
 0xb1ca7c32	object/building/general/shared_bunker_imperial_01.iff
+0xb1cabfc3	object/tangible/painting/shared_painting_posters_ew1.iff
 0xb1cb3996	object/draft_schematic/armor/armor_appearance_padded_bracer_l.iff
 0xb1cbc030	object/mobile/shared_mouse_droid_crafted.iff
 0xb1ce151a	object/tangible/medicine/instant_stimpack/stimpack_syren.iff
@@ -41273,6 +41307,7 @@
 0xb81cab21	object/tangible/tcg/series5/consumable_signal_unit.iff
 0xb81cc9ee	object/tangible/loot/creature_loot/kashyyyk_loot/shared_potion_component_03.iff
 0xb81d8345	object/mobile/dressed_sayromi_monk_04.iff
+0xb8200fd0	object/tangible/painting/painting_posters_cws.iff
 0xb823461f	object/tangible/ship/components/booster/shared_bst_incom_intimidator_mk4.iff
 0xb824dda0	object/tangible/ship/components/droid_interface/shared_ddi_moncal_dk2.iff
 0xb8261874	object/mobile/dressed_rebel_brigadier_general_old_zabrak_female.iff
@@ -42420,6 +42455,7 @@
 0xbd3033b1	object/mobile/dressed_herald_tatooine_02.iff
 0xbd30bb98	object/tangible/holiday/empire_day/rebel_resistance_poster_torn.iff
 0xbd323bba	object/draft_schematic/scout/item_camp_quality.iff
+0xbd328ba1	object/tangible/painting/shared_painting_posters_tpm.iff
 0xbd3314a3	object/weapon/melee/unarmed/unarmed_default_player3.iff
 0xbd356a1c	object/mobile/lifeday_figrin_dan_band.iff
 0xbd388adc	object/draft_schematic/clothing/shared_clothing_bodysuit_casual_08.iff
@@ -43866,6 +43902,7 @@
 0xc3f8a1bb	object/ship/rebel_shuttle_tier3.iff
 0xc3f97636	object/tangible/holiday/empire_day/component/shared_ration_high_carbohydrate_concentrate.iff
 0xc3fad585	object/ship/tieoppressor_tier5.iff
+0xc3fafdf8	object/tangible/painting/painting_posters_djj.iff
 0xc3fba2a1	object/building/naboo/shared_hospital_naboo.iff
 0xc3fd821a	object/tangible/holiday/empire_day/shared_imperial_recruitment_kiosks_city_object.iff
 0xc3ff5273	object/mobile/shared_dressed_tatooine_opening_santos.iff
@@ -44972,6 +45009,7 @@
 0xc8f1ddd1	object/draft_schematic/furniture/bestine/painting_bestine_mattberry.iff
 0xc8f4b711	object/creature/npc/base/wookiee_base_male.iff
 0xc8f4c374	object/draft_schematic/munition/shared_detonator_thermal_class_a.iff
+0xc8f54a43	object/tangible/painting/painting_posters_cwm.iff
 0xc8f65181	object/building/poi/shared_endor_ewok_large3.iff
 0xc8f971aa	object/tangible/dance_prop/shared_prop_ribbon_spark_r_s03.iff
 0xc8fa20f4	object/mobile/shared_gorax.iff
@@ -45247,6 +45285,7 @@
 0xca582fa5	object/mobile/shared_narglatch_hue.iff
 0xca5a334f	object/tangible/component/weapon/chemical_dispersion_mechanism_advanced.iff
 0xca5bc4d5	object/tangible/loot/creature_loot/kashyyyk_loot/shared_adventurers_remains_02.iff
+0xca5d7009	object/tangible/painting/painting_posters_aoc.iff
 0xca60d991	object/tangible/mission/quest_item/jazeen_thurmm_q1_needed.iff
 0xca6188d7	object/tangible/ship/components/shield_generator/shd_phased_fullerine_fx27.iff
 0xca63d721	object/ship/shared_nova_orion_smuggler_light_tier9.iff
@@ -51366,6 +51405,7 @@
 0xe5305a03	object/tangible/wearables/armor/clone_trooper/shared_armor_clone_trooper_imperial_s01_chest_plate.iff
 0xe530e7a5	object/tangible/furniture/all/shared_frn_all_couch_lg_s2.iff
 0xe5318592	object/draft_schematic/weapon/component/weapon_power_bit.iff
+0xe532a7c3	object/tangible/holiday/empire_day/shared_mara_jade_poster.iff
 0xe532a84a	object/tangible/component/weapon/shared_weapon_carbine_laser_stock.iff
 0xe532b7a3	object/building/general/shared_tatooine_dera_tusken_cave.iff
 0xe5339b83	object/mobile/space_imperial_tier2_lok_fuel_tech.iff
@@ -53924,6 +53964,7 @@
 0xf0524e46	object/tangible/furniture/all/shared_frn_all_light_death_watch.iff
 0xf0527858	object/static/creature/shared_endor_arachne.iff
 0xf0553520	object/tangible/saga_system/shared_saga_relic_comm.iff
+0xf055618f	object/tangible/painting/shared_painting_posters_aoc.iff
 0xf057f604	object/mobile/shared_exar_kun_cultist.iff
 0xf05943d0	object/draft_schematic/furniture/shared_furniture_collection_pob_couch.iff
 0xf05c28ca	object/tangible/storyteller/prop/pr_ch9_installation_fusion_generator.iff
@@ -54522,6 +54563,7 @@
 0xf2f3ba63	object/building/general/bunker_imperial_kashyyyk_01.iff
 0xf2f959ee	object/draft_schematic/armor/armor_appearance_ithorian_guardian_chest.iff
 0xf2fc6236	object/tangible/terminal/shared_terminal_player_hangar_structure.iff
+0xf2fd5bc5	object/tangible/painting/shared_painting_posters_cwm.iff
 0xf2ff0db4	object/intangible/pet/shared_r3_crafted.iff
 0xf3009fc6	object/static/worldbuilding/terminal/floor_data_terminal_02.iff
 0xf300d4ba	object/tangible/ship/components/armor/shared_arm_corellian_modified_heavy_durasteel.iff
@@ -55184,6 +55226,7 @@
 0xf5f599f1	object/tangible/furniture/elegant/end_table_hue_s01.iff
 0xf5f6625a	object/mobile/shared_space_comm_civilian_05.iff
 0xf5f66910	object/tangible/storyteller/prop/pr_sandcrawler.iff
+0xf5f831b0	object/tangible/item/shared_rare_loot_chest_1.iff
 0xf5f957ea	object/tangible/spawning/fs_quest/fs_village_combat_p1.iff
 0xf5fe7aea	object/mobile/hoth_turret_s2.iff
 0xf600bf36	object/building/heroic/tusken_tatooine_house_medium.iff
@@ -56088,6 +56131,7 @@
 0xf9e71709	object/draft_schematic/dance_prop/prop_double_ribbon_magic_l_s05.iff
 0xf9ee3a77	object/ship/asteroid/mining_asteroid_static_acid_large_s02.iff
 0xf9ef3fbb	object/tangible/hair/human/shared_hair_human_female_s21.iff
+0xf9f2ec7e	object/tangible/painting/shared_painting_posters_djj.iff
 0xf9f7a0b1	object/mobile/azure_cabal_kwaila.iff
 0xf9f9b5dc	object/tangible/ship/crafted/engine/base_engine_subcomponent_mk5.iff
 0xf9fa611c	object/ship/asteroid/shared_mining_asteroid_dynamic_default.iff

@@ -5,7 +5,7 @@
 //
 
 itemsPerContainer = 1
-craftedObjectTemplate = "object/tangible/deed/guild_deed/tatooine_guild_style_02_deed.iff"
+craftedObjectTemplate = "object/tangible/deed/player_house_deed/corellia_house_medium_style_02_deed.iff"
 
 slots = [
 	[
@@ -36,7 +36,7 @@ slots = [
 	optional=false,
 	name = "craft_structure_ingredients_n" "wall_sections",
 	options = [
-		[ingredientType=IT_templateGeneric, ingredients = [[name="craft_structure_ingredients_n" "wall_sections", ingredient="object/tangible/component/structure/wall_module.iff", count=20]], complexity = 0, skillCommand = "unskilled"]],
+		[ingredientType=IT_templateGeneric, ingredients = [[name="craft_structure_ingredients_n" "wall_sections", ingredient="object/tangible/component/structure/wall_module.iff", count=6]], complexity = 0, skillCommand = "unskilled"]],
 	optionalSkillCommand = "",
 	complexity = 0,
 	appearance = "" ],
@@ -44,7 +44,7 @@ slots = [
 	optional=false,
 	name = "craft_structure_ingredients_n" "power_supply_unit",
 	options = [
-		[ingredientType=IT_template, ingredients = [[name="craft_structure_ingredients_n" "power_supply_unit", ingredient="object/tangible/component/structure/power_core_unit.iff", count=2]], complexity = 0, skillCommand = "unskilled"]],
+		[ingredientType=IT_template, ingredients = [[name="craft_structure_ingredients_n" "power_supply_unit", ingredient="object/tangible/component/structure/generator_turbine.iff", count=1]], complexity = 0, skillCommand = "unskilled"]],
 	optionalSkillCommand = "",
 	complexity = 0,
 	appearance = "" ],
@@ -52,7 +52,7 @@ slots = [
 	optional=false,
 	name = "craft_structure_ingredients_n" "storage_space",
 	options = [
-		[ingredientType=IT_template, ingredients = [[name="craft_structure_ingredients_n" "storage_space", ingredient="object/tangible/component/structure/structure_storage_section.iff", count=8]], complexity = 0, skillCommand = "unskilled"]],
+		[ingredientType=IT_templateGeneric, ingredients = [[name="craft_structure_ingredients_n" "storage_space", ingredient="object/tangible/component/structure/structure_storage_section.iff", count=1]], complexity = 0, skillCommand = "unskilled"]],
 	optionalSkillCommand = "",
 	complexity = 0,
 	appearance = "" ]]
@@ -66,7 +66,6 @@ manufactureScripts = [ "systems.crafting.structure.specific_item.crafting_instal
 
 @class object_template 5
 
-complexity = 45
-sharedTemplate = "object/draft_schematic/structure/shared_tatooine_house_guild_hall_style_02.iff"
-volume = 14
-
+complexity = 35
+sharedTemplate = "object/draft_schematic/structure/shared_corellia_house_player_medium_style_02.iff"
+volume = 12

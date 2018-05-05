@@ -131,7 +131,7 @@ public class player_travel extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        else 
+        else
         {
             utils.removeScriptVar(player, "instantTravel");
         }
@@ -226,7 +226,7 @@ public class player_travel extends script.base_script
                 CustomerServiceLog("NEW_PLAYER_QUESTS", custLogMsg, self);
                 messageTo(self, "msgTicketPaymentComplete", webster, 1, false);
             }
-            else 
+            else
             {
                 sendSystemMessage(self, new string_id("new_player", "travel_coupon_invaild"));
             }
@@ -245,7 +245,7 @@ public class player_travel extends script.base_script
                     utils.setScriptVar(self, travel.VAR_PURCHASING_TICKET, 1);
                 }
             }
-            else 
+            else
             {
                 sendSystemMessage(self, new string_id("new_player", "travel_coupon_cancelled"));
             }
@@ -282,7 +282,7 @@ public class player_travel extends script.base_script
             departure_planet = utils.getStringScriptVar(self, travel.VAR_DEPARTURE_PLANET);
             utils.removeScriptVar(self, travel.VAR_DEPARTURE_PLANET);
         }
-        else 
+        else
         {
             CustomerServiceLog("travel", getFirstName(self) + " has an invalid departure planet. Unable to check for travel success.");
             return SCRIPT_CONTINUE;
@@ -292,7 +292,7 @@ public class player_travel extends script.base_script
             departure_point = utils.getStringScriptVar(self, travel.VAR_DEPARTURE_POINT);
             utils.removeScriptVar(self, travel.VAR_DEPARTURE_POINT);
         }
-        else 
+        else
         {
             CustomerServiceLog("travel", getFirstName(self) + " has an invalid departure point. Unable to check for travel success.");
             return SCRIPT_CONTINUE;
@@ -302,7 +302,7 @@ public class player_travel extends script.base_script
             arrival_planet = utils.getStringScriptVar(self, travel.VAR_ARRIVAL_PLANET);
             utils.removeScriptVar(self, travel.VAR_ARRIVAL_PLANET);
         }
-        else 
+        else
         {
             CustomerServiceLog("travel", getFirstName(self) + " has an invalid arrival planet. Unable to check for travel success.");
             return SCRIPT_CONTINUE;
@@ -312,7 +312,7 @@ public class player_travel extends script.base_script
             arrival_point = utils.getStringScriptVar(self, travel.VAR_ARRIVAL_POINT);
             utils.removeScriptVar(self, travel.VAR_ARRIVAL_POINT);
         }
-        else 
+        else
         {
             CustomerServiceLog("travel", getFirstName(self) + " has an invalid arrival point. Unable to check for travel success.");
             return SCRIPT_CONTINUE;
@@ -333,7 +333,7 @@ public class player_travel extends script.base_script
                 CustomerServiceLog("travel", getFirstName(self) + " arrived at the incorrect travel location. Unable to recreate ticket.");
             }
         }
-        else 
+        else
         {
             CustomerServiceLog("travel", "Unable to find travel location for " + getFirstName(self) + ". Unable to check for travel success.");
         }
@@ -509,7 +509,7 @@ public class player_travel extends script.base_script
                 travel.movePlayerToDestination(self, arrival_planet, arrival_point);
             }
         }
-        else 
+        else
         {
             if (hasObjVar(self, travel.VAR_TRAVEL))
             {
@@ -556,7 +556,7 @@ public class player_travel extends script.base_script
             }
             space_dungeon.activateDungeonTicket(self, ticket, ticket_collector);
         }
-        else 
+        else
         {
             utils.removeScriptVar(self, space_dungeon.SCRIPT_VAR_VALID_TICKETS);
         }
@@ -802,7 +802,7 @@ public class player_travel extends script.base_script
                 sendSystemMessage(self, new string_id(STF_FILE, "shuttle_not_available"));
                 return SCRIPT_CONTINUE;
             }
-            else 
+            else
             {
                 target = shuttle;
             }
@@ -882,7 +882,7 @@ public class player_travel extends script.base_script
                 sendSystemMessage(self, new string_id(STF_FILE, "no_ticket"));
                 return SCRIPT_CONTINUE;
             }
-            else 
+            else
             {
                 if (!utils.hasScriptVar(self, "travel.hasTicketList"))
                 {
@@ -895,14 +895,14 @@ public class player_travel extends script.base_script
                     }
                     sui.listbox(self, self, utils.packStringId(SID_SUI_SELECT_DESTINATION_TITLE), sui.OK_CANCEL, utils.packStringId(SID_SUI_SELECT_DESTINATION_HEADER), dsrc, "msgBoardShuttle");
                 }
-                else 
+                else
                 {
                     sendSystemMessage(self, new string_id(STF_FILE, "boarding_ticket_selection"));
                 }
                 return SCRIPT_CONTINUE;
             }
         }
-        else 
+        else
         {
             if (!travel.isTravelTicketValid(ticket, planet, depart_point))
             {
@@ -977,7 +977,7 @@ public class player_travel extends script.base_script
                         utils.setScriptVar(self, SCRIPTVAR_ACCEPT_GCW_SURCHARGE_SHUTTLE_ID, target);
                         return SCRIPT_CONTINUE;
                     }
-                    else 
+                    else
                     {
                         gcwTravelRestrictionsSkipWaitSurcharge = 50000;
                     }
@@ -1013,7 +1013,7 @@ public class player_travel extends script.base_script
                     sendSystemMessage(self, "You do not have enough credits to pay the " + totalSurcharge + " credits GCW travel surcharge.", "");
                     return SCRIPT_CONTINUE;
                 }
-                else 
+                else
                 {
                     final int bankBalance = getBankBalance(self);
                     if (bankBalance < totalSurcharge)
@@ -1135,7 +1135,7 @@ public class player_travel extends script.base_script
     {
         debugLogging("//***// canCallForPickup", "////>>>> ENTERED");
         obj_id playerCurrentMount = getMountId(player);
-        if(getLevel(player) < 50){
+        if(getLevel(player) > 90){
             sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level 50.", null);
             return false;
         }
