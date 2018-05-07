@@ -8269,3 +8269,4 @@ item_schematic_gcw2_survey_tool_all	object/tangible/loot/loot_schematic/generic_
 rare_loot_chest_quality_1	object/tangible/item/rare_loot_chest_1.iff								systems.loot.rare_loot_chest			Rare Loot Chest	Rare Loot Chest... Open it up!		
 rare_loot_chest_quality_2	object/tangible/item/rare_loot_chest_2.iff									systems.loot.rare_loot_chest			Exceptional Loot Chest	Exceptional Loot Chest... Open it up!	
 rare_loot_chest_quality_3	object/tangible/item/rare_loot_chest_3.iff									systems.loot.rare_loot_chest			Legendary Loot Chest	Legen-wait for it-dary Loot Chest... Open it up!	
+item_player_house_deed_jabbas_sail_barge	object/tangible/deed/player_house_deed/jabbas_sail_barge_deed.iff							4		item.special.nomove,item.structure_deed.player_structure_deed			cloud city house	a cloud city house	
