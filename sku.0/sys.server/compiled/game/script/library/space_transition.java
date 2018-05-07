@@ -100,7 +100,7 @@ public class space_transition extends script.base_script
                                 LOG("space_transition", "Player [" + player + "] in space, going to an already unpacked ship [" + launchedShip + "] in station [" + loc.area + "] failed.");
                             }
                         }
-                        else 
+                        else
                         {
                             if (debugSpaceTransition)
                             {
@@ -126,7 +126,7 @@ public class space_transition extends script.base_script
                         LOG("space_transition", "Player [" + player + "] in space, going to an already unpacked ship [" + launchedShip + "] but could not find a start location.");
                     }
                 }
-                else 
+                else
                 {
                     if (getOwner(launchedShip) == player && getContainedBy(getContainedBy(launchedShip)) == utils.getDatapad(player))
                     {
@@ -147,7 +147,7 @@ public class space_transition extends script.base_script
                 {
                     LOG("space_transition", "Player " + player + " could not enter ship in space, sending to launch point. Ship(" + launchedShip + ") isValid(" + isIdValid(launchedShip) + ") isLoaded(" + launchedShip.isLoaded() + ")");
                 }
-                else 
+                else
                 {
                     LOG("space_transition", "Player " + player + " could not enter ship in space, sending to launch point. Ship(null)");
                 }
@@ -161,7 +161,7 @@ public class space_transition extends script.base_script
             }
             teleportPlayerToLaunchLoc(player);
         }
-        else 
+        else
         {
             removeObjVar(player, "space.launch");
             if (isIdValid(containingShip))
@@ -340,7 +340,7 @@ public class space_transition extends script.base_script
         {
             return getObjIdObjVar(ship, "shipControlDevice");
         }
-        else 
+        else
         {
             return findEmptyShipControlDeviceForPlayer(player);
         }
@@ -397,7 +397,7 @@ public class space_transition extends script.base_script
         {
             return true;
         }
-        else 
+        else
         {
             return isPlayerBelowShipLimit(player);
         }
@@ -510,7 +510,7 @@ public class space_transition extends script.base_script
                 {
                     teleportPlayerToLaunchLoc(player);
                 }
-                else 
+                else
                 {
                     if (teleportFixup)
                     {
@@ -611,7 +611,7 @@ public class space_transition extends script.base_script
         {
             setName(ship, getName(player));
         }
-        else 
+        else
         {
             setName(ship, getName(player) + " (" + strName + ")");
         }
@@ -698,7 +698,7 @@ public class space_transition extends script.base_script
                 LOG("space", "AOK");
                 return true;
             }
-            else 
+            else
             {
                 LOG("space", "NO piloting");
             }
@@ -740,7 +740,7 @@ public class space_transition extends script.base_script
         {
             return (370444368);
         }
-        else 
+        else
         {
             String strFaction = space_flags.getSpaceTrack(player);
             if (strFaction != null)
@@ -759,7 +759,7 @@ public class space_transition extends script.base_script
                     {
                         return (1153980303);
                     }
-                    else 
+                    else
                     {
                         return (1808105482);
                     }
@@ -797,7 +797,7 @@ public class space_transition extends script.base_script
                             shipSetSpaceFactionAllies(ship, alliedFactions);
                             return (1089617796);
                         }
-                        else 
+                        else
                         {
                             alliedFactions[0] = (2043986206);
                             alliedFactions[1] = (-160237431);
@@ -832,7 +832,7 @@ public class space_transition extends script.base_script
             shipSetSpaceFactionAllies(ship, alliedFactions);
             return (370444368);
         }
-        else 
+        else
         {
             String strFaction = space_flags.getSpaceTrack(player);
             if (strFaction != null)
@@ -857,7 +857,7 @@ public class space_transition extends script.base_script
                     {
                         return (1153980303);
                     }
-                    else 
+                    else
                     {
                         return (1808105482);
                     }
@@ -926,7 +926,7 @@ public class space_transition extends script.base_script
         {
             hyperspacePlayerToLocation(player, worldLaunchLoc.area, worldLaunchLoc.x, worldLaunchLoc.y, worldLaunchLoc.z, null, worldLaunchLoc.x, worldLaunchLoc.y, worldLaunchLoc.z, null, false);
         }
-        else 
+        else
         {
             warpPlayer(player, worldLaunchLoc.area, worldLaunchLoc.x, worldLaunchLoc.y, worldLaunchLoc.z, null, worldLaunchLoc.x, worldLaunchLoc.y, worldLaunchLoc.z, null, false);
         }
@@ -1005,12 +1005,12 @@ public class space_transition extends script.base_script
                         {
                             startLocations = utils.addElement(startLocations, new location(0.f, 0.f, 0.f, slotName, null));
                         }
-                        else 
+                        else
                         {
                             LOG("space", "Launching into space.  Turret not installed.  slotName: " + slotName + " slot: " + slot);
                         }
                     }
-                    else 
+                    else
                     {
                         String cellName = dataTableGetString(DATATABLE_SHIP_START_LOCATIONS, rowIndex, COLUMN_CELL);
                         obj_id cell = getCellId(ship, cellName);
@@ -1036,7 +1036,7 @@ public class space_transition extends script.base_script
             LOG("space", "HASOBJVAR");
             objLaunchWaypoint = createWaypointInDatapad(objPlayer, locTest);
         }
-        else 
+        else
         {
             objLaunchWaypoint = getObjIdObjVar(objPlayer, "space.objLaunchWaypoint");
             LOG("space", "objLaunchWaypoint of " + objLaunchWaypoint + " does not exist");
@@ -1044,7 +1044,7 @@ public class space_transition extends script.base_script
             {
                 objLaunchWaypoint = createWaypointInDatapad(objPlayer, locTest);
             }
-            else 
+            else
             {
                 setWaypointLocation(objLaunchWaypoint, locTest);
             }
@@ -1065,7 +1065,7 @@ public class space_transition extends script.base_script
             spaceFaction = getIntObjVar(ship, "intBattlefieldTeam");
             shipSetSpaceFaction(ship, spaceFaction);
         }
-        else 
+        else
         {
             spaceFaction = getPlayerSpaceFaction(player);
             shipSetSpaceFaction(ship, spaceFaction);
@@ -1137,7 +1137,7 @@ public class space_transition extends script.base_script
             }
             pvpMakeDeclared(objShip);
         }
-        else 
+        else
         {
             int intType = pvpGetType(objShip);
             if (intType == PVPTYPE_DECLARED)
@@ -1161,17 +1161,17 @@ public class space_transition extends script.base_script
             LOG("space", "Setting sorosuub to be immune");
             ship_ai.unitSetAutoAggroImmune(objShip, true);
         }
-        else 
+        else
         {
             ship_ai.unitSetAutoAggroImmuneTime(objShip, 60);
         }
-        if (hasObjVar(getOwner(objShip), "gm"))
+/*        if (hasObjVar(getOwner(objShip), "gm"))
         {
             ship_ai.unitRemoveFromAllAttackTargetLists(objShip);
             ship_ai.unitSetAutoAggroImmune(objShip, true);
             ship_ai.unitSetDamageAggroImmune(objShip, true);
             sendSystemMessageTestingOnly(getOwner(objShip), "aiIgnore[ON]: AI will no longer aggro you or fight back.");
-        }
+        }*/
     }
     public static void adjustShipTeleportFixupInSpaceScene(obj_id ship) throws InterruptedException
     {
@@ -1226,7 +1226,7 @@ public class space_transition extends script.base_script
                                 passengerStartIndexes = utils.addElement(passengerStartIndexes, startIndex);
                             }
                         }
-                        else 
+                        else
                         {
                             string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
                             sendSystemMessage(passenger, strSpam);
