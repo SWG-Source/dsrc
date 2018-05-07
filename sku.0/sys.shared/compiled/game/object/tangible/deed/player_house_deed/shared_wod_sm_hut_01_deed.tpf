@@ -6,9 +6,9 @@
 @class object_template 5
 
 
-objectName = "deed" "wod_sm_hut_deed_n"
+objectName = "static_item_n" "wod_sm_hut_deed_n"
 
-detailedDescription = "deed_detail" "wod_sm_hut_deed_d"
+detailedDescription = "static_item_d" "wod_sm_hut_deed_d"
 lookAtText = ""  ""
 
-appearanceFilename = "appearance/eqp_tool_datapad.apt"
+appearanceFilename = "appearance/item_dath_mtn_clan_hut.apt"

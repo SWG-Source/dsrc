@@ -11,4 +11,4 @@ objectName = "deed" "tree_house_01_deed_n"
 detailedDescription = "deed_detail" "tree_house_01_deed_d"
 lookAtText = ""  ""
 
-appearanceFilename = "appearance/eqp_tool_datapad.apt"
+appearanceFilename = "appearance/frn_tree_house.apt"

@@ -6,9 +6,9 @@
 @class object_template 5
 
 
-objectName = "building_name"  "player_house_tcg_8_yoda_house_n"
+objectName = "static_item_n"  "player_house_tcg_8_yoda_house_n"
 
-detailedDescription = "building_detail"  "player_house_tcg_8_yoda_house_d"
+detailedDescription = "static_item_d"  "player_house_tcg_8_yoda_house_d"
 lookAtText = ""  ""
 
 appearanceFilename = "appearance/eqp_tool_datapad.apt"
