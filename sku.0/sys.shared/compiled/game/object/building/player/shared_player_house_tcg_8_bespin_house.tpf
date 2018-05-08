@@ -13,11 +13,10 @@ structureFootprintFileName = "footprint/building/player/shared_player_house_tcg_
 
 clearFloraRadius = 38
 
-objectName = "building_name"  "player_house_tcg_8_bespin_house_n"
+objectName = "static_item_n"  "player_house_tcg_8_bespin_house_n"
+detailedDescription = "static_item_d"  "player_house_tcg_8_bespin_house_d"
 
-detailedDescription = "building_detail"  "player_house_tcg_8_bespin_house_d"
-
-lookAtText = "building_lookat"  "player_house_tcg_8_bespin_house_d"
+lookAtText = ""  "player_house_tcg_8_bespin_house_d"
 
 appearanceFilename = ""
 
