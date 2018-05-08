@@ -59,3 +59,4 @@ hk47_jetpack	object/intangible/vehicle/tcg_hk47_jetpack_pcd.iff	object/mobile/ve
 tcg_at_pt_walker	object/intangible/vehicle/tcg_at_pt_walker_pcd.iff	object/mobile/vehicle/tcg_at_pt_walker.iff	object/tangible/tcg/series7/garage_display_vehicles/tcg_at_pt_walker.iff	15	1.5	1
 tcg_military_transport	object/intangible/vehicle/tcg_military_transport_pcd.iff	object/mobile/vehicle/tcg_military_transport.iff	object/tangible/tcg/series7/garage_display_vehicles/tcg_military_transport.iff	15	4	1
 tcg_republic_gunship	object/intangible/vehicle/tcg_republic_gunship_pcd.iff	object/mobile/vehicle/tcg_republic_gunship.iff	object/tangible/tcg/series7/garage_display_vehicles/tcg_republic_gunship.iff	15	4	1
+single_pod_airspeeder	object/intangible/vehicle/tcg_8_air_speeder_pcd.iff	object/mobile/vehicle/tcg_8_air_speeder.iff	object/tangible/tcg/series8/garage_display_vehicles/tcg_8_air_speeder.iff	15	4	1
