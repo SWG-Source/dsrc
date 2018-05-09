@@ -4280,4 +4280,63 @@ public class cmd extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+    public int gmCreateSpecificResource(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if ((params == null) || (params.equals("")))
+        {
+            sendSystemMessageTestingOnly(self, "Bad class passed in, syntax is /gmCreateClassResource class");
+            return SCRIPT_CONTINUE;
+        }
+        obj_id rtype = pickRandomNonDepeletedResource(params);
+        if (!isIdValid(rtype))
+        {
+            sendSystemMessageTestingOnly(self, "No id found");
+            sendSystemMessageTestingOnly(self, "Type was " + params);
+            return SCRIPT_CONTINUE;
+        }
+        String crateTemplate = getResourceContainerForType(rtype);
+        if (!crateTemplate.equals(""))
+        {
+            obj_id pInv = utils.getInventoryContainer(self);
+            if (pInv != null)
+            {
+                obj_id crate = createObject(crateTemplate, pInv, "");
+                if (addResourceToContainer(crate, rtype, 100000, self))
+                {
+                    sendSystemMessageTestingOnly(self, "Resource of class " + params + " added");
+                    return SCRIPT_CONTINUE;
+                }
+            }
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int gmCreateClassResource(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if ((params == null) || (params.equals("")))
+        {
+            sendSystemMessageTestingOnly(self, "Bad class passed in, syntax is /gmCreateClassResource class");
+            return SCRIPT_CONTINUE;
+        }
+        obj_id rtype = pickRandomNonDepeletedResource(params);
+        if (!isIdValid(rtype))
+        {
+            sendSystemMessageTestingOnly(self, "Bad class passed in, syntax is /gmCreateClassResource class");
+            return SCRIPT_CONTINUE;
+        }
+        String crateTemplate = getResourceContainerForType(rtype);
+        if (!crateTemplate.equals(""))
+        {
+            obj_id pInv = utils.getInventoryContainer(self);
+            if (pInv != null)
+            {
+                obj_id crate = createObject(crateTemplate, pInv, "");
+                if (addResourceToContainer(crate, rtype, 100000, self))
+                {
+                    sendSystemMessageTestingOnly(self, "Resource of class " + params + " added");
+                    return SCRIPT_CONTINUE;
+                }
+            }
+        }
+        return SCRIPT_CONTINUE;
+    }
 }
