@@ -1,0 +1,8 @@
+@base object/tangible/wearables/base/shared_base_backpack.iff
+@class tangible_object_template 5
+@class object_template 5
+objectName = "static_item_n" "item_tcg_loot_reward_series8_c3po_backpack"
+detailedDescription = "static_item_d" "item_tcg_loot_reward_series8_c3po_backpack"
+appearanceFilename = "appearance/c3po_backpack_f.sat"
+portalLayoutFilename = ""
+containerVolumeLimit = 65

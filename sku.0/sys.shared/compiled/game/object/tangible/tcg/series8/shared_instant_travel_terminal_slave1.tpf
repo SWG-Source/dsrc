@@ -1,0 +1,8 @@
+@base object/tangible/base/shared_tangible_base.iff
+@class tangible_object_template 9
+@class object_template 9
+objectName = "static_item_n" "item_tcg_loot_reward_series8_slave_1_itv_01"
+detailedDescription = "static_item_d" "item_tcg_loot_reward_series8_slave_1_itv_01"
+lookAtText = "" ""
+appearanceFilename = "appearance/eqp_tool_datapad.apt"
+gameObjectType = GOT_misc

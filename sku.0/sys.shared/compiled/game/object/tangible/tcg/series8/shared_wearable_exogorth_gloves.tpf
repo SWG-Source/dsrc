@@ -1,0 +1,7 @@
+@base object/tangible/wearables/base/shared_base_gloves.iff
+@class tangible_object_template 3
+@class object_template 3
+objectName = "static_item_n" "item_tcg_loot_reward_series8_exogorth_gloves"
+detailedDescription = "static_item_d" "item_tcg_loot_reward_series8_exogorth_gloves"
+appearanceFilename = "appearance/gloves_exogorth_m.sat"
+portalLayoutFilename = ""
