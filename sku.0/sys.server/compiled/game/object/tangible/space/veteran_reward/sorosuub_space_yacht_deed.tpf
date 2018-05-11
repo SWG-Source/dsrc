@@ -5,9 +5,4 @@
 
 sharedTemplate = "object/tangible/space/veteran_reward/shared_sorosuub_space_yacht_deed.iff"
 
-objvars = +[ "noTrade" = 1]
-
-scripts = +[
-	"space.veteran_reward.yacht_deed",
-	"item.special.nomove",
-	"item.special.nodestroy"]
+scripts = +["space.veteran_reward.yacht_deed"]
