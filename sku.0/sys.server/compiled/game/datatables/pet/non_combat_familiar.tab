@@ -19,4 +19,4 @@ tcg_tie_fighter_familiar	object/intangible/pet/tcg_familiar_tie_fighter_pcd.iff
 tcg_xwing_fighter_familiar	object/intangible/pet/tcg_familiar_xwing_fighter_pcd.iff	
 gcw_atst_familiar	object/intangible/pet/gcw_atst_familiar_pcd.iff	
 gcw_atxt_familiar	object/intangible/pet/gcw_atxt_familiar_pcd.iff	
-tcg_snow_speeder_familiar	object/intangible/pet/snow_speeder_familiar_pcd.iff	
+item_tcg_loot_reward_series8_snow_speeder_familiar	object/intangible/pet/snow_speeder_familiar_pcd.iff	

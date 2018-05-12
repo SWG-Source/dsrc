@@ -1,7 +1,7 @@
 @base object/intangible/base/shared_base_intangible.iff
 @class intangible_object_template 0
 @class object_template 5
-objectName = "" ""
+objectName = "static_item_n" "item_tcg_loot_reward_series8_snow_speeder_familiar"
 detailedDescription = "" ""
 appearanceFilename = "appearance/snow_speeder_familiar.sat"
 gameObjectType = GOT_data_pet_control_device
