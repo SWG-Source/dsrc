@@ -14280,7 +14280,6 @@
 0x3f0b9005	object/draft_schematic/food/drink_alcohol.iff
 0x3f0da6fd	object/mobile/shared_outbreak_undead_deathtrooper_24_m.iff
 0x3f0e3006	object/tangible/ship/attachment/weapon/shared_gunship_rebel_weapon_s02.iff
-0x3f1151e2	object/tangible/tcg/series8/familiar_deed_swow_speeder.iff
 0x3f1473c0	object/tangible/loot/creature_loot/collections/shared_trader_str_tubing.iff
 0x3f151a3c	object/tangible/quest/imperial/itp_kaja_tower_access_terminal.iff
 0x3f164fc1	object/tangible/loot/creature_loot/collections/space/engine_mark_04_koensayr.iff
@@ -30093,7 +30092,6 @@
 0x84e9c14f	object/tangible/tcg/series1/vendor_deed_gungan.iff
 0x84ea60cf	object/installation/mining_liquid/mining_liquid_harvester_style_3.iff
 0x84eb8a1c	object/draft_schematic/clothing/shared_clothing_dress_casual_05.iff
-0x84ec8076	object/tangible/tcg/series8/shared_familiar_deed_swow_speeder.iff
 0x84ecd55b	object/tangible/scout/trap/trap_melee_ranged_def_1.iff
 0x84ed833e	object/mobile/beast_master/shared_bm_nuna.iff
 0x84efa59e	object/mobile/dressed_yraka_nes.iff
