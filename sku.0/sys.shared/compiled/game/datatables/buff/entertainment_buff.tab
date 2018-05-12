@@ -19,5 +19,5 @@ prop_ribbon	prop_glowstick	prop_sparkler
 prop_torch	prop_glowstick	prop_sparkler
 prop_glowstick	prop_sparkler	prop_sword
 prop_sparkler	prop_sword	prop_staff
-prop_sword	prop_staff	
-prop_staff		
+prop_sword	prop_staff	none
+prop_staff	none	none
