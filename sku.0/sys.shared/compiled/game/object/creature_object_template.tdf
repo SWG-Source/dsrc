@@ -2957,6 +2957,7 @@ enum Species
 	SP_maulProbeDroid                            = 225
 	SP_atst                                      = 226
 	SP_atat                                      = 227
+	SP_t47										 = 228
 }
 
 enum Race
@@ -3293,6 +3294,7 @@ enum Species
 	SP_maulProbeDroid                            = 225
 	SP_atst                                      = 226
 	SP_atat                                      = 227
+	SP_t47										 = 228
 }
 
 enum Race
@@ -3631,6 +3633,7 @@ enum Species
 	SP_maulProbeDroid                            = 225
 	SP_atst                                      = 226
 	SP_atat                                      = 227
+	SP_t47										 = 228
 }
 
 enum Race
@@ -3970,6 +3973,7 @@ enum Species
 	SP_maulProbeDroid                            = 225
 	SP_atst                                      = 226
 	SP_atat                                      = 227
+	SP_t47										 = 228
 
 	// species put in after the others species have been defined so we don't have to recompile all the creatures
 	SP_geonosian                                 = 228,

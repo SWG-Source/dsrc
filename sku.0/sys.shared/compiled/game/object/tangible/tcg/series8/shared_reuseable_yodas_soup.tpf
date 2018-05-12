@@ -4,4 +4,3 @@
 objectName = "static_item_n" "item_tcg_loot_reward_series8_yodas_soup"
 detailedDescription = "static_item_d" "item_tcg_loot_reward_series8_yodas_soup"
 appearanceFilename = "appearance/item_yodas_soup.apt"
-gameObjectType = GOT_misc_item_usable

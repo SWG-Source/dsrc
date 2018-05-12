@@ -8370,6 +8370,7 @@
 0x4a1e6643	object/tangible/lair/gekk/shared_lair_gekk_forest.iff
 0x4a1fec2a	object/tangible/location/shared_location_80.iff
 0x4a2521b1	object/draft_schematic/chemistry/enhancer/shared_enhancer_bactainfusion.iff
+0x4a29b6d5	object/tangible/tcg/series8/shared_familiar_deed_snow_speeder.iff
 0x4a2a8698	object/tangible/lair/jellyfish/shared_lair_jellyfish.iff
 0x4a2c7d02	object/tangible/loot/creature_loot/collections/shared_opt_in_mail_01.iff
 0x4a2ca275	object/tangible/wearables/cybernetic/shared_cybernetic_crafted_s05_torso.iff
@@ -10476,6 +10477,7 @@
 0x5d7b26dd	object/tangible/veteran_reward/one_year_anniversary/shared_painting_03.iff
 0x5d7be60c	object/tangible/item/beast/shared_converted_blistmok_decoration.iff
 0x5d7bf79d	object/tangible/ship/components/shield_generator/shared_shd_kse_mk5.iff
+0x5d7ea464	object/intangible/pet/shared_snow_speeder_familiar_pcd.iff
 0x5d7ed84c	object/mobile/shared_warren_phy_hudgen.iff
 0x5d7fb4af	object/tangible/wearables/armor/rebel_battle/shared_armor_rebel_battle_belt.iff
 0x5d8027d1	object/tangible/lair/remmer/shared_lair_remmer.iff
@@ -15767,6 +15769,7 @@
 0x8c83b3d0	object/mobile/shared_chadra_fan_male.iff
 0x8c850951	object/tangible/deed/pet_deed/shared_fambaa_deed.iff
 0x8c85cc6e	object/draft_schematic/armor/shared_armor_appearance_padded_boots.iff
+0x8c89b077	object/mobile/shared_snow_speeder_toy.iff
 0x8c89f82d	object/tangible/collection/shared_rare_melee_katana_runaway.iff
 0x8c8d106c	object/tangible/quest/empire_day/shared_crash_site_05_crate_03_container.iff
 0x8c91f6e4	object/mobile/shared_dressed_cobral_bandit_bith_female_01.iff

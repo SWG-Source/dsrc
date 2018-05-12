@@ -10824,6 +10824,7 @@
 0x2f77b551	object/tangible/quest/legacy_head_bag.iff
 0x2f7abd7c	object/draft_schematic/chemistry/component/biologic_effect_controller.iff
 0x2f7c72b8	object/mobile/shared_outbreak_undead_deathtrooper_02_m.iff
+0x2f7e545a	object/intangible/pet/snow_speeder_familiar_pcd.iff
 0x2f7f34b6	object/mobile/shared_dressed_meatlump_lieutenant_04.iff
 0x2f7f4f39	object/draft_schematic/vehicle/military/shared_starship_impl_tie_b.iff
 0x2f7f9196	object/ship/hutt_turret_ship.iff
@@ -16790,6 +16791,7 @@
 0x4a27f866	object/tangible/loot/creature_loot/collections/space/capacitor_mark_02_moncal.iff
 0x4a2887ca	object/building/faction_perk/hq/planet_base_register.iff
 0x4a2927fc	object/tangible/crafting/base/base_incubator.iff
+0x4a29b6d5	object/tangible/tcg/series8/shared_familiar_deed_snow_speeder.iff
 0x4a2a8698	object/tangible/lair/jellyfish/shared_lair_jellyfish.iff
 0x4a2b3af5	object/mobile/space_privateer_tier2_corellia.iff
 0x4a2c7d02	object/tangible/loot/creature_loot/collections/shared_opt_in_mail_01.iff
@@ -21113,6 +21115,7 @@
 0x5d7be60c	object/tangible/item/beast/shared_converted_blistmok_decoration.iff
 0x5d7bf79d	object/tangible/ship/components/shield_generator/shared_shd_kse_mk5.iff
 0x5d7c49f3	object/tangible/furniture/space/frn_couch_falcon_corner_s01.iff
+0x5d7ea464	object/intangible/pet/shared_snow_speeder_familiar_pcd.iff
 0x5d7ed84c	object/mobile/shared_warren_phy_hudgen.iff
 0x5d7fb4af	object/tangible/wearables/armor/rebel_battle/shared_armor_rebel_battle_belt.iff
 0x5d8027d1	object/tangible/lair/remmer/shared_lair_remmer.iff
@@ -31736,6 +31739,7 @@
 0x8c849842	object/tangible/wearables/armor/rebel_assault/armor_rebel_assault_belt_camo.iff
 0x8c850951	object/tangible/deed/pet_deed/shared_fambaa_deed.iff
 0x8c85cc6e	object/draft_schematic/armor/shared_armor_appearance_padded_boots.iff
+0x8c89b077	object/mobile/shared_snow_speeder_toy.iff
 0x8c89f82d	object/tangible/collection/shared_rare_melee_katana_runaway.iff
 0x8c8b475a	object/draft_schematic/chemistry/medpack_disease_area_constitution_c.iff
 0x8c8c3e70	object/tangible/wearables/ithorian/ith_bodysuit_s03.iff
@@ -41929,6 +41933,7 @@
 0xba7426e1	object/building/poi/hq/imperial_base_large.iff
 0xba74cbcf	object/tangible/lair/base/shared_poi_all_lair_brambles_small_fog_mustard.iff
 0xba75c28e	object/tangible/medicine/crafted/medpack_disease_area_constitution_a.iff
+0xba76ebb3	object/mobile/snow_speeder_toy.iff
 0xba79d22e	object/intangible/beast/shared_bm_shaupaut.iff
 0xba7a5c0e	object/tangible/component/droid/mark_iv_sentry_droid_chassis.iff
 0xba7c4164	object/draft_schematic/dance_prop/shared_prop_glowstick_l_s05.iff
@@ -54432,6 +54437,7 @@
 0xf1d40373	object/mobile/shared_dressed_meatlump_captain_05.iff
 0xf1d42399	object/tangible/quest/shared_som_kenobi_mining_computer.iff
 0xf1d44017	object/draft_schematic/space/reactor/shared_gunship_reactor.iff
+0xf1d46741	object/tangible/tcg/series8/familiar_deed_snow_speeder.iff
 0xf1d4b2fe	object/draft_schematic/weapon/lance_massassi.iff
 0xf1d5caf4	object/tangible/quest/shared_naboo_theed_skaak_antenna.iff
 0xf1d62502	object/tangible/component/bio/bio_component_clothing_casual_charisma_2.iff
