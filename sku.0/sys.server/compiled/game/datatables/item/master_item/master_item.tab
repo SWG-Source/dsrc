@@ -8299,7 +8299,7 @@ item_tcg_loot_reward_series8_painting_yoda	object/tangible/tcg/series8/painting_
 item_tcg_loot_reward_series8_wampa_arm	object/tangible/tcg/series8/reuseable_buff_wampa_arm.iff							4		"item.special.nomove,item.buff_click_item"			Wampa Arm	"10 minute Duration.  +100 to Constitution, Stamina, Luck, and Agility. Cool down time is one hour."	
 item_tcg_loot_reward_series8_yodas_soup	object/tangible/tcg/series8/reuseable_yodas_soup.iff							4		item.special.nomove			Yodas Soup	"Three-minute luck combat buff.  +200 to Constitution, Stamina, Precision, and Luck. Cool down time is one hour."	
 item_tcg_loot_reward_series8_armored_tauntaun_statue	object/tangible/tcg/series8/tauntaun_armored_statue.iff							4		item.special.nomove			Tauntaun armored statue	a statue of an armored Tauntaun.	
-item_tcg_loot_reward_series8_vader_pod	object/tangible/tcg/series8/vader_pod.iff							4		item.special.nomove			Vader Pod	a Vader Pod.	
+item_tcg_loot_reward_series8_vader_pod	object/tangible/tcg/series8/vader_pod.iff							4		"item.special.nomove,systems.tcg.tcg_vader_pod"			Vader Pod	a Vader Pod.
 item_tcg_loot_reward_series8_c3po_backpack	object/tangible/tcg/series8/wearable_backpack_c3po.iff							4		item.special.nomove			c3po Backpack	a c3po backpack.	
 item_tcg_loot_reward_series8_yoda_backpack	object/tangible/tcg/series8/wearable_backpack_yoda.iff							4		item.special.nomove			Yoda Backpack	a Yoda backpack.	
 item_tcg_loot_reward_series8_exogorth_gloves	object/tangible/tcg/series8/wearable_exogorth_gloves.iff							4		item.special.nomove			Exogorth Gloves	Gloves made from the heads of tiny larvae of the giant silicone-based life form.	
