@@ -1,21 +1,9 @@
 package script.test;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import java.util.HashSet;
-import script.library.ai_lib;
-import script.library.anims;
-import script.library.buff;
-import script.library.performance;
-import script.library.qa;
-import script.library.sui;
-import script.library.utils;
+import java.util.Vector;
 
 public class qa_ai_helper_attach extends script.base_script
 {

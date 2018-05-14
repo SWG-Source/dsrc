@@ -3,7 +3,6 @@ package script.creature;
 import script.dictionary;
 import script.library.chat;
 import script.library.groundquests;
-import script.location;
 import script.obj_id;
 import script.string_id;
 

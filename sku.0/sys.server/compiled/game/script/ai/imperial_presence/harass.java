@@ -1,32 +1,9 @@
 package script.ai.imperial_presence;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.utils;
-import script.library.chat;
-import script.library.gcw;
-import script.library.ai_lib;
-import script.ai.ai_combat;
-import script.library.attrib;
-import script.library.badge;
-import script.library.factions;
-import script.library.faction_perk;
-import script.library.anims;
-import script.library.sui;
-import script.library.money;
-import script.library.prose;
-import script.library.group;
-import script.library.regions;
-import script.library.jedi;
-import script.library.create;
-import script.library.space_utils;
-import script.library.stealth;
+import java.util.Vector;
 
 public class harass extends script.base_script
 {

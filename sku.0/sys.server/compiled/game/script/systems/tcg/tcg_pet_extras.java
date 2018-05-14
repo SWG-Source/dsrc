@@ -1,20 +1,7 @@
 package script.systems.tcg;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.create;
-import script.library.house_pet;
-import script.library.locations;
 import script.library.player_structure;
-import script.library.static_item;
 import script.library.utils;
 
 public class tcg_pet_extras extends script.base_script
