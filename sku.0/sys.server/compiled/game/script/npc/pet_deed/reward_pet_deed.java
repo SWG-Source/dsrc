@@ -1,19 +1,11 @@
 package script.npc.pet_deed;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.pet_lib;
-import script.library.bio_engineer;
-import script.library.ai_lib;
 import script.library.utils;
-import script.library.create;
-import script.library.hue;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class reward_pet_deed extends script.base_script
 {

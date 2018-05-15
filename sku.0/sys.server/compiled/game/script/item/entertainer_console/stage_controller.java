@@ -1,21 +1,10 @@
 package script.item.entertainer_console;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.create;
-import script.library.utils;
-import script.library.player_structure;
-import script.library.sui;
-import script.library.static_item;
-import script.library.space_utils;
-import script.library.space_transition;
-import script.library.sui;
+import java.util.Arrays;
+import java.util.Vector;
 
 public class stage_controller extends script.terminal.base.base_terminal
 {

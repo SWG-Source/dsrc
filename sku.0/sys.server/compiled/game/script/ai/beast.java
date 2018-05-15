@@ -1,34 +1,7 @@
 package script.ai;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.callable;
-import script.library.chat;
-import script.ai.ai_combat;
-import script.library.pet_lib;
-import script.library.beast_lib;
-import script.library.colors;
-import script.library.combat_consts;
-import script.library.healing;
-import script.library.utils;
-import script.library.poi;
-import script.library.xp;
-import script.library.hue;
-import script.library.player_stomach;
-import script.library.consumable;
-import script.library.food;
-import script.library.space_transition;
-import script.library.sui;
-import script.library.stealth;
-import script.library.prose;
-import script.library.buff;
+import script.library.*;
 
 public class beast extends script.base_script
 {
