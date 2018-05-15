@@ -1,45 +1,10 @@
 package script.gm;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
 import java.util.StringTokenizer;
-import script.library.arena;
-import script.library.badge;
-import script.library.city;
-import script.library.colors;
-import script.library.craftinglib;
-import script.library.create;
-import script.library.dump;
-import script.library.factions;
-import script.library.force_rank;
-import script.library.fs_counterstrike;
-import script.library.fs_dyn_village;
-import script.library.fs_quests;
-import script.library.gm;
-import script.library.hue;
-import script.library.jedi_trials;
-import script.library.loot;
-import script.library.money;
-import script.library.npe;
-import script.library.quests;
-import script.library.pclib;
-import script.library.player_structure;
-import script.library.ship_ai;
-import script.library.skill;
-import script.library.sui;
-import script.library.target_dummy;
-import script.library.trace;
-import script.library.utils;
-import script.library.veteran_deprecated;
-import script.library.xp;
-import script.library.weapons;
-import script.library.static_item;
+import java.util.Vector;
 
 public class cmd extends script.base_script
 {
