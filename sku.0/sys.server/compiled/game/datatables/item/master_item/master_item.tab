@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name	template_name	type	unique	required_level	required_skill	creation_objvars	charges	tier	value	scripts	version	can_reverse_engineer	string_name	string_detail	comments
 s[unique]	s	"e(weapon=1,armor=2,item=3,storyteller=4,object=5)[item]"	i[0]	i	s	s	i	i	i[0]	s	i[1]	i[0]	c	c	c
 weapon_pistol_02_01	object/weapon/ranged/pistol/pistol_d18.iff	weapon						2	45			1	Basic D18 Pistol	A basic pistol in dire need of cleaning.	level 5 required
@@ -8304,3 +8305,6 @@ item_tcg_loot_reward_series8_exogorth_gloves	object/tangible/tcg/series8/wearabl
 item_tcg_loot_reward_series8_lando_cape	object/tangible/tcg/series8/wearable_lando_cape.iff							4		item.special.nomove			a Lando Cape	a Lando cape.	
 item_tcg_loot_reward_series8_bespin_house_deed	object/tangible/deed/player_house_deed/player_house_tcg_8_bespin_house_deed.iff							4		"item.special.nomove,item.structure_deed.player_structure_deed"			Structure Deed: Cloud City House	a Cloud City House.	
 item_tcg_loot_reward_series8_yoda_house_deed	object/tangible/deed/player_house_deed/player_house_tcg_8_yoda_house.iff							4		"item.special.nomove,item.structure_deed.player_structure_deed"			Structure Deed: Yoda House	a Yoda House.	
+privateer_itv	object/tangible/veteran_reward/instant_travel_terminal_privateer.iff									systems.veteran_reward.instant_travel_terminal_deed,item.special.nomove		1	ITV: Privateer	Deed for your very own privateer instant travel vehicle.
+royal_itv	object/tangible/deed/vehicle_deed/instant_travel_terminal_royal_ship_deed.iff									systems.veteran_reward.instant_travel_terminal_deed,item.special.nomove		1	ITV: Royal Ship	Deed for your very own royal instant travel vehicle.	
+xwing_tie_itv	object/tangible/veteran_reward/instant_travel_terminal.iff									systems.veteran_reward.instant_travel_terminal_deed,item.special.nomove		1	ITV: Factional Ship	Deed for your very own factional instant travel vehicle.	
