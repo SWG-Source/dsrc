@@ -3,5 +3,5 @@
 @class object_template 8
 sharedTemplate = "object/tangible/tcg/series8/shared_instant_travel_terminal_slave1.iff"
 scripts = ["systems.veteran_reward.instant_travel_terminal_deed", "item.special.nomove"]
-objvars = +[ "noTrade" = 1]
+objvars = +[ "noTrade" = 1, "slave1Ship" =1]
 persistByDefault = true
