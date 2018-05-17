@@ -6492,6 +6492,7 @@
 0x39362900	object/tangible/wearables/armor/rebel_assault/shared_armor_rebel_assault_boots.iff
 0x39376db1	object/mobile/shared_mtp_corsec_intelligence_officer.iff
 0x393a5a14	object/ship/player/shared_player_basic_z95.iff
+0x39405fb7	object/tangible/terminal/shared_terminal_travel_instant_snowspeeder.iff
 0x39406aff	object/tangible/lair/base/shared_lair_base_trash_dark.iff
 0x3943a810	object/tangible/ship/components/weapon/shared_wpn_imperial_lancer_turret.iff
 0x394541ec	object/static/structure/general/shared_droid_r5_powerdown.iff
@@ -6965,6 +6966,7 @@
 0x3d63d6ef	object/tangible/tcg/series6/shared_mount_deed_gualaar.iff
 0x3d655cbe	object/tangible/wearables/armor/composite/shared_armor_composite_bracer_r.iff
 0x3d69236f	object/tangible/quest/rebel/shared_rtp_qualdo_design_overview.iff
+0x3d6f3645	object/tangible/deed/shared_instant_travel_terminal_snowspeeder.iff
 0x3d71e8d7	object/mobile/beast_master/shared_bm_gnort.iff
 0x3d78210d	object/tangible/food/generic/shared_drink_alcohol.iff
 0x3d78f86e	object/soundobject/shared_soundobject_nightsisters_stronghold.iff
@@ -7777,6 +7779,7 @@
 0x446c08dd	object/mobile/ep3/shared_ep3_etyyy_hunter_eharttclan_03.iff
 0x446cce9e	object/tangible/loot/mustafar/cube_loot/shared_cube_loot_2t.iff
 0x446d8d99	object/tangible/skill_buff/shared_skill_buff_heavy_weapon_accuracy.iff
+0x44718792	object/tangible/terminal/shared_terminal_travel_instant_slave1.iff
 0x44734428	object/static/item/shared_item_chair_cafe_s01.iff
 0x447351ae	object/draft_schematic/armor/shared_armor_appearance_composite_leggings.iff
 0x44739cc1	object/creature/player/sullustan_female.iff
@@ -8883,6 +8886,7 @@
 0x4ec3e091	object/mobile/som/shared_som_kenobi_reunite_dark_jedi.iff
 0x4ec6025a	object/draft_schematic/clothing/shared_clothing_ith_shirt_casual_08.iff
 0x4ec79d2e	object/mobile/som/shared_must_junk.iff
+0x4ec89260	object/tangible/deed/vehicle_deed/shared_instant_travel_terminal_snowspeeder.iff
 0x4ec91aa6	object/installation/faction_perk/minefield/base/shared_minefield_base.iff
 0x4eca3395	object/mobile/shared_ig_88_rocket.iff
 0x4ecc3942	object/installation/turret/gcw/shared_adv_turret_block_large_electricity.iff
@@ -22327,6 +22331,7 @@
 0xc793ffe4	object/tangible/camp/shared_camp_spit.iff
 0xc7968044	object/tangible/furniture/all/shared_frn_all_couch_divan_hue_s1.iff
 0xc796e29f	object/mobile/talus_npc/shared_coa_galiir_ac_yandar.iff
+0xc7976742	object/tangible/terminal/shared_terminal_travel_instant_tcg_slave_1.iff
 0xc798834d	object/tangible/ship/components/armor/shared_arm_kessel_imperial_sds_imperial_impervious.iff
 0xc79a581a	object/tangible/gravestone/shared_gravestone02.iff
 0xc79ec27d	object/mobile/shared_azure_cabal_frosch_researcher_m_02.iff
