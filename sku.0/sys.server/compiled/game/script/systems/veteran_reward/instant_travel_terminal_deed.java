@@ -1,12 +1,9 @@
 package script.systems.veteran_reward;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class instant_travel_terminal_deed extends script.base_script
 {
@@ -21,10 +18,15 @@ public class instant_travel_terminal_deed extends script.base_script
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
+        // get the setting for minimum ITV level (if its not set, make it the max player level)
+        String minLevelSetting = getConfigSetting("GameServer", "itvMinUsageLevel");
+        if(minLevelSetting == null) minLevelSetting = "90";
+
+        int minimumLevel = Integer.parseInt(minLevelSetting);
         if (item == menu_info_types.ITEM_USE)
         {
-            if(getLevel(player) > 90){
-                sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level 50.", null);
+            if(getLevel(player) < minimumLevel){
+                sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level " + minLevelSetting, null);
             }
             else if (hasObjVar(self, "privateerShip"))
             {
@@ -50,6 +52,16 @@ public class instant_travel_terminal_deed extends script.base_script
             {
                 grantCommand(player, "callforg9riggerpickup");
             	destroyObject(self);
+            }
+            else if (hasObjVar(self, "itv_snowspeeder"))
+            {
+                grantCommand(player, "callforsnowspeeder");
+                destroyObject(self);
+            }
+            else if (hasObjVar(self, "itv_slave_1"))
+            {
+                grantCommand(player, "callforslave1pickup");
+                destroyObject(self);
             }
             else
             {

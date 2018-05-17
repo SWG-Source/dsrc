@@ -1,21 +1,7 @@
 package script.systems.tcg;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.combat;
-import script.library.locations;
-import script.library.pet_lib;
-import script.library.regions;
-import script.library.space_dungeon;
-import script.library.structure;
-import script.library.sui;
-import script.library.utils;
+import script.library.*;
 
 public class tcg_instant_travel extends script.base_script
 {
@@ -24,11 +10,7 @@ public class tcg_instant_travel extends script.base_script
     }
     public static final String PID_VAR = "tcg_instant_travel";
     public static final string_id SID_WHILE_DEAD = new string_id("spam", "while_dead");
-    public static final String[] LOC_ITV_MANAGE_OPTIONS = 
-    {
-        "Set Location 1",
-        "Set Location 2"
-    };
+
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
         if (!isIdValid(player))
@@ -104,7 +86,6 @@ public class tcg_instant_travel extends script.base_script
         }
         int pid = sui.listbox(itv, player, "@tcg:stationary_set_location_d", sui.OK_CANCEL, "@tcg:stationary_set_location_t", main_options, "handlePlayerNameSetLocation", true, true);
         sui.setPid(player, pid, PID_VAR);
-        return;
     }
     public int handlePlayerNameSetLocation(obj_id self, dictionary params) throws InterruptedException
     {

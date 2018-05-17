@@ -1,29 +1,9 @@
 package script.player;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.buff;
-import script.library.callable;
-import script.library.city;
-import script.library.combat;
-import script.library.create;
-import script.library.factions;
-import script.library.locations;
-import script.library.money;
-import script.library.prose;
-import script.library.regions;
-import script.library.space_dungeon;
-import script.library.space_dungeon_data;
-import script.library.structure;
-import script.library.sui;
-import script.library.travel;
-import script.library.utils;
+import java.util.Vector;
 
 public class player_travel extends script.base_script
 {
@@ -63,6 +43,8 @@ public class player_travel extends script.base_script
     public static final int SHIP_TYPE_INSTANT_JALOPY = 4;
     public static final int SHIP_TYPE_TCG_HOME_SHIP = 5;
     public static final int SHIP_TYPE_TCG_LOCATION_SHIP = 6;
+    public static final int SHIP_TYPE_SNOWSPEEDER_SHIP = 7;
+    public static final int SHIP_TYPE_TCG_SLAVE1_SHIP = 8;
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         LOG("LOG_CHANNEL", "player_travel.OnInitialize");
@@ -1045,8 +1027,7 @@ public class player_travel extends script.base_script
             LOG("debug/player_travel/" + section, message);
         }
     }
-    public int callForPickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
-    {
+    public int doCFP(obj_id self, int itvType) throws InterruptedException {
         if (travel.isTravelBlocked(self, false))
         {
             return SCRIPT_CONTINUE;
@@ -1055,81 +1036,41 @@ public class player_travel extends script.base_script
         {
             debugLogging("//***// commandHandler : callForPickup", "////>>>> player CAN call for pickup. Executing shuttle spawn sequence.");
             sendSystemMessage(self, SID_CALLING_FOR_PICKUP);
-            spawnPickupCraft(self, SHIP_TYPE_INSTANT_XWING_TIE);
+            spawnPickupCraft(self, itvType);
         }
         return SCRIPT_CONTINUE;
+    }
+    public int callForPickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        return doCFP(self, SHIP_TYPE_INSTANT_XWING_TIE);
     }
     public int callForPrivateerPickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        debugLogging("//***// commandHandler : callForPickup", "////>>>> ENTERED");
-        if (travel.isTravelBlocked(self, false))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (canCallForPickup(self))
-        {
-            debugLogging("//***// commandHandler : callForPickup", "////>>>> player CAN call for pickup. Executing shuttle spawn sequence.");
-            sendSystemMessage(self, SID_CALLING_FOR_PICKUP);
-            spawnPickupCraft(self, SHIP_TYPE_INSTANT_PRIVATEER);
-        }
-        return SCRIPT_CONTINUE;
+        return doCFP(self, SHIP_TYPE_INSTANT_PRIVATEER);
     }
     public int callForRattleTrapPickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        debugLogging("//***// commandHandler : callForJunkPickup", "////>>>> ENTERED");
-        if (travel.isTravelBlocked(self, false))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (canCallForPickup(self))
-        {
-            debugLogging("//***// commandHandler : callForJunkPickup", "////>>>> player CAN call for pickup. Executing shuttle spawn sequence.");
-            sendSystemMessage(self, SID_CALLING_FOR_PICKUP);
-            spawnPickupCraft(self, SHIP_TYPE_INSTANT_JALOPY);
-        }
-        return SCRIPT_CONTINUE;
+        return doCFP(self, SHIP_TYPE_INSTANT_JALOPY);
     }
     public int callForRoyalPickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        debugLogging("//***// commandHandler : callForPickup", "////>>>> ENTERED");
-        if (travel.isTravelBlocked(self, false))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (canCallForPickup(self))
-        {
-            sendSystemMessage(self, SID_CALLING_FOR_PICKUP);
-            spawnPickupCraft(self, SHIP_TYPE_INSTANT_ROYAL_SHIP);
-        }
-        return SCRIPT_CONTINUE;
+        return doCFP(self, SHIP_TYPE_INSTANT_ROYAL_SHIP);
     }
     public int callForTcgHomePickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        debugLogging("//***// commandHandler : callForPickup", "////>>>> ENTERED");
-        if (travel.isTravelBlocked(self, false))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (canCallForPickup(self))
-        {
-            sendSystemMessage(self, SID_CALLING_FOR_PICKUP);
-            spawnPickupCraft(self, SHIP_TYPE_TCG_HOME_SHIP);
-        }
-        return SCRIPT_CONTINUE;
+        return doCFP(self, SHIP_TYPE_TCG_HOME_SHIP);
     }
     public int callForTcgLocationPickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        debugLogging("//***// commandHandler : callForPickup", "////>>>> ENTERED");
-        if (travel.isTravelBlocked(self, false))
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (canCallForPickup(self))
-        {
-            sendSystemMessage(self, SID_CALLING_FOR_PICKUP);
-            spawnPickupCraft(self, SHIP_TYPE_TCG_LOCATION_SHIP);
-        }
-        return SCRIPT_CONTINUE;
+        return doCFP(self, SHIP_TYPE_TCG_LOCATION_SHIP);
+    }
+    public int callForSnowspeederPickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        return doCFP(self, SHIP_TYPE_SNOWSPEEDER_SHIP);
+    }
+    public int callForTcgSlave1Pickup(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        return doCFP(self, SHIP_TYPE_TCG_SLAVE1_SHIP);
     }
     public boolean canCallForPickup(obj_id player) throws InterruptedException
     {
@@ -1226,19 +1167,29 @@ public class player_travel extends script.base_script
         {
             pickupCraftType = "object/tangible/terminal/terminal_travel_instant_royal_ship.iff";
         }
-        if (type == SHIP_TYPE_INSTANT_JALOPY)
+        else if (type == SHIP_TYPE_INSTANT_JALOPY)
         {
             pickupCraftType = "object/tangible/terminal/terminal_travel_instant_jalopy.iff";
         }
-        if (type == SHIP_TYPE_TCG_LOCATION_SHIP)
+        else if (type == SHIP_TYPE_TCG_LOCATION_SHIP)
         {
             pickupCraftType = "object/tangible/terminal/terminal_travel_instant_tcg_location.iff";
             playClientEffectObj(player, "sound/g9_rigger_01.snd", player, "");
         }
-        if (type == SHIP_TYPE_TCG_HOME_SHIP)
+        else if (type == SHIP_TYPE_TCG_HOME_SHIP)
         {
             pickupCraftType = "object/tangible/terminal/terminal_travel_instant_tcg_home.iff";
             playClientEffectObj(player, "sound/solar_sailer_01.snd", player, "");
+        }
+        else if (type == SHIP_TYPE_SNOWSPEEDER_SHIP)
+        {
+            pickupCraftType = "object/tangible/terminal/terminal_travel_instant_snowspeeder.iff";
+            playClientEffectObj(player, "sound/veh_t47snowspeeder_decel.snd", player, "");
+        }
+        else if (type == SHIP_TYPE_TCG_SLAVE1_SHIP)
+        {
+            pickupCraftType = "object/tangible/terminal/terminal_travel_instant_slave_1.iff";
+            playClientEffectObj(player, "sound/eng_flyby_firespray.snd", player, "");
         }
         obj_id pickupCraft = create.object(pickupCraftType, spawnLoc);
         if (!isIdValid(pickupCraft))
