@@ -1,22 +1,9 @@
 package script.terminal;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.city;
-import script.library.faction_perk;
-import script.library.player_structure;
-import script.library.prose;
-import script.library.session;
-import script.library.static_item;
-import script.library.sui;
-import script.library.turnstile;
-import script.library.utils;
+import java.util.Vector;
 
 public class terminal_structure extends script.base_script
 {

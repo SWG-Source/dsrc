@@ -1,19 +1,7 @@
 package script.quest.task.ground.util;
 
+import script.library.utils;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.static_item;
-import script.library.buff;
-import script.library.collection;
-import script.library.sui;
-import script.library.utils;
 
 public class quest_use_object_on_object extends script.base_script
 {
