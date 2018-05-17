@@ -1944,7 +1944,7 @@ wod_rancor_super_strength	wod_rancor_super_strength			1	buffs.wod_super_strength
 wod_adaptive_biology	wod_adaptive_biology			1	buffs.wod_adaptive_bio	-1	dot_reduction_all	25	dot_resist_all	20		0		0		0	STATE_NONE	none			1	0		0	1	1	0	5	1	0	1	1	1
 wod_lethal_reflexes	wod_lethal_reflexes			1	buffs.wod_lethal_reflexes	-1	expertise_critical_niche_all	15		0		0		0		0	STATE_NONE	none			1	0		0	1	1	0	5	1	0	1	1	1
 wod_unstoppable_attack	wod_unstoppable_attack			1	buffs.wod_unstoppable_attack	-1	combat_glancing_blow_reduction	100	combat_block_reduction	100	combat_parry_reduction	100	combat_dodge_reduction	100		0	STATE_NONE	none			1	0		0	1	1	0	5	1	0	1	1	1
-tcg_series8_wampa_arm	towCrystal			70	buffs.tcg_series8_wampa_arm	600	constitution_modified	100	agility_modified	100	stamina_modified	100	luck_modified	100		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
+tcg_series8_severed_wampa_arm	towCrystal			70	buffs.tcg_series8_wampa_arm	600	constitution_modified	100	agility_modified	100	stamina_modified	100	luck_modified	100		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 of_cc_melee_1	snare			4	command.sm_dm_cc_melee	2	movement	0		0		0		0		0	STATE_NONE	none	appearance/pt_smuggler_dizzy_loop.prt		1	1		1	1	1	0	1	1	0	1	1	1
 of_cc_melee_2	snare			12	command.sm_dm_cc_melee	4	movement	0		0		0		0		0	STATE_NONE	none	appearance/pt_smuggler_dizzy_loop.prt		1	1		1	1	1	0	1	1	0	1	1	1
 of_cc_melee_3	snare			20	command.sm_dm_cc_melee	6	movement	0		0		0		0		0	STATE_NONE	none	appearance/pt_smuggler_dizzy_loop.prt		1	1		1	1	1	0	1	1	0	1	1	1
