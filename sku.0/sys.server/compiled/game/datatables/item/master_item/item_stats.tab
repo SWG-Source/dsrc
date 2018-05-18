@@ -4641,4 +4641,5 @@ item_kimogila_s01_texture_kit			"string:loot_schematic.schematic=object/draft_sc
 item_schematic_gcw2_survey_tool_all			"string:loot_schematic.schematic=object/draft_schematic/item/item_survey_tool_all.iff,string:loot_schematic.skill_req=class_engineering_phase1_novice,int:loot_schematic.uses=3"								
 item_player_house_deed_jabbas_sail_barge											
 item_tcg_loot_reward_series8_single_pod_airspeeder			"string:vehicle_attribs.object_ref=single_pod_airspeeder,float:hit_points=15000"								
-item_tcg_loot_reward_series8_snow_speeder_familiar			"string:creatureName=item_tcg_loot_reward_series8_snow_speeder_familiar"
+item_tcg_loot_reward_series8_snow_speeder_familiar			string:creatureName=item_tcg_loot_reward_series8_snow_speeder_familiar								
+item_tcg_loot_reward_series8_wampa_arm					tcg_series8_severed_wampa_arm	long_reuse_4	3600			clienteffect/tcg_shadow_scroll.cef	
