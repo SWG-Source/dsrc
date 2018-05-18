@@ -10,4 +10,5 @@ updateRanges[UR_far] = 500
 
 sharedTemplate = "object/tangible/tcg/series5/shared_combine_object_itv_atat_head.iff"
 objvars =+["combine"="true","returnObjectToOwner"=1]
+persistByDefault = true
 
