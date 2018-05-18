@@ -39,79 +39,72 @@ public class terminal_travel_instant extends script.base_script
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException
     {
-        obj_id owner = (playerCheck(self, "OnObjectMenuSelect - "));
-        if (owner != player)
-        {
-            return SCRIPT_CONTINUE;
-        }
-        if (getState(player, STATE_RIDING_MOUNT) == 1)
-        {
-            pet_lib.doDismountNow(player, true);
-        }
-        if (item == menu_info_types.ITEM_USE) {
-            if (hasObjVar(self, "tcg_itv_home") || hasObjVar(self, "itv_slave_1")) {
-                if (city.isAMayor(player)) {
-                    int city_id = getCitizenOfCityId(player);
-                    if (cityExists(city_id)) {
-                        obj_id city_hall = cityGetCityHall(city_id);
-                        if (isIdValid(city_hall)) {
+        if (item == menu_info_types.ITEM_USE || item == menu_info_types.ITEM_USE_OTHER) {
+            obj_id owner = (playerCheck(self, "OnObjectMenuSelect - "));
+            if (owner != player) {
+                return SCRIPT_CONTINUE;
+            }
+            if (getState(player, STATE_RIDING_MOUNT) == 1) {
+                pet_lib.doDismountNow(player, true);
+            }
+            if (item == menu_info_types.ITEM_USE) {
+                if (hasObjVar(self, "tcg_itv_home") || hasObjVar(self, "itv_slave_1")) {
+                    if (city.isAMayor(player)) {
+                        int city_id = getCitizenOfCityId(player);
+                        if (cityExists(city_id)) {
+                            obj_id city_hall = cityGetCityHall(city_id);
+                            if (isIdValid(city_hall)) {
+                                dictionary dict = new dictionary();
+                                dict.put("requestingObject", self);
+                                dict.put("homeOwner", player);
+                                messageTo(city_hall, "retrieveHouseCoords", dict, 0.0f, false);
+                            } else {
+                                sendSystemMessage(player, new string_id("tcg", "no_residence_home_itv"));
+                            }
+                        }
+                        return SCRIPT_CONTINUE;
+                    } else if (hasObjVar(player, "residenceHouseId")) {
+                        obj_id home = getObjIdObjVar(player, "residenceHouseId");
+                        if (isIdValid(home)) {
                             dictionary dict = new dictionary();
                             dict.put("requestingObject", self);
                             dict.put("homeOwner", player);
-                            messageTo(city_hall, "retrieveHouseCoords", dict, 0.0f, false);
+                            messageTo(home, "retrieveHouseCoords", dict, 0, false);
                         } else {
                             sendSystemMessage(player, new string_id("tcg", "no_residence_home_itv"));
                         }
-                    }
-                    return SCRIPT_CONTINUE;
-                }
-                else if (hasObjVar(player, "residenceHouseId")) {
-                    obj_id home = getObjIdObjVar(player, "residenceHouseId");
-                    if (isIdValid(home)) {
-                        dictionary dict = new dictionary();
-                        dict.put("requestingObject", self);
-                        dict.put("homeOwner", player);
-                        messageTo(home, "retrieveHouseCoords", dict, 0, false);
-                    }
-                    else {
+                    } else {
                         sendSystemMessage(player, new string_id("tcg", "no_residence_home_itv"));
                     }
-                }
-                else {
-                    sendSystemMessage(player, new string_id("tcg", "no_residence_home_itv"));
+                    return SCRIPT_CONTINUE;
+                } else if (hasObjVar(self, "tcg_itv_location") || hasObjVar(self, "itv_snowspeeder")) {
+                    LocationItvOptions(self, player);
+                    return SCRIPT_CONTINUE;
                 }
             }
-            else if (hasObjVar(self, "tcg_itv_location") || hasObjVar(self, "itv_snowspeeder")) {
-                LocationItvOptions(self, player);
-            }
-        }
-        else
-        {
+            // This section is for "regular" ITV's - Privateer, Royal Ship, etc.
             String planet = getCurrentSceneName();
             String travel_point = "Starfighter";
             int cityId = getCityAtLocation(getLocation(player), 1000);
             debugLogging("//***// OnObjectMenuSelect: ", "////>>>> cityId at player's location is: " + cityId);
-            if (cityId != 0)
-            {
+            if (cityId != 0) {
                 travel_point = cityGetName(cityId);
                 debugLogging("//***// OnObjectMenuSelect: ", "////>>>> city name at player's location is: " + travel_point);
             }
             LOG("LOG_CHANNEL", "player ->" + player + " planet ->" + planet + " travel_point ->" + travel_point);
             String config = getConfigSetting("GameServer", "disableTravelSystem");
-            if (config != null)
-            {
-                if (config.equals("on"))
-                {
+            if (config != null) {
+                if (config.equals("on")) {
                     return SCRIPT_CONTINUE;
                 }
             }
             utils.setScriptVar(player, travel.SCRIPT_VAR_TERMINAL, self);
             utils.setScriptVar(player, "instantTravel", true);
             boolean success = enterClientTicketPurchaseMode(player, planet, travel_point, true);
-            if (success)
-            {
+            if (success) {
                 utils.setScriptVar(self, "transport", 1);
             }
+            return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
     }
