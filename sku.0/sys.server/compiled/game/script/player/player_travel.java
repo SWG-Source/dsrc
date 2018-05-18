@@ -1075,9 +1075,14 @@ public class player_travel extends script.base_script
     public boolean canCallForPickup(obj_id player) throws InterruptedException
     {
         debugLogging("//***// canCallForPickup", "////>>>> ENTERED");
+        // get the setting for minimum ITV level (if its not set, make it the max player level)
+        String minLevelSetting = getConfigSetting("GameServer", "itvMinUsageLevel");
+        if(minLevelSetting == null) minLevelSetting = "0";
+
+        int minimumLevel = Integer.parseInt(minLevelSetting);
         obj_id playerCurrentMount = getMountId(player);
-        if(getLevel(player) > 90){
-            sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level 50.", null);
+        if(getLevel(player) < minimumLevel){
+            sendSystemMessage(player, "Instant Travel vehicles may not be used until you have reached level " + minLevelSetting, null);
             return false;
         }
         if (isIdValid(playerCurrentMount))
