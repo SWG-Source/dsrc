@@ -15,7 +15,10 @@ public class patrol_point_setup extends script.base_script
     }
     public int setPatrolName(obj_id self, dictionary params) throws InterruptedException
     {
-        setName(self, "Orphaned Patrol Point");
+        if (hasObjVar(self, "pointName")) {
+            setName(self, getStringObjVar(self, "pointName"));
+        }
+        else setName(self, "Orphaned Patrol Point");
         return SCRIPT_CONTINUE;
     }
 }

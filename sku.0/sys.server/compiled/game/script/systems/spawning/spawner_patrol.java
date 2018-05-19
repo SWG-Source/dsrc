@@ -16,6 +16,11 @@ public class spawner_patrol extends script.base_script
     {
     }
     public static final int LOCATION_SEARCH_RADIUS = 1000;
+    public int OnInitialize(obj_id self) throws InterruptedException
+    {
+        start(self);
+        return SCRIPT_CONTINUE;
+    }
     public int OnAttach(obj_id self) throws InterruptedException
     {
         start(self);
@@ -131,7 +136,7 @@ public class spawner_patrol extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int intGoodLocationSpawner = getIntObjVar(self, "intGoodLocationSpawner");
-        float fltSize;
+        float fltSize = 1.0f;
         String strSpawn = getStringObjVar(self, "strSpawns");
         if (strSpawn == null || strSpawn.length() < 1)
         {
@@ -161,11 +166,6 @@ public class spawner_patrol extends script.base_script
             int intRoll = rand(0, strSpawns.length - 1);
             fltSize = fltSizes[intRoll];
             strSpawn = strSpawns[intRoll];
-        }
-        else
-        {
-            setName(self, "Mangled spawner: strSpawn is " + strSpawn + " and datatable could not be opened.");
-            return SCRIPT_CONTINUE;
         }
         float fltRadius = getFloatObjVar(self, "fltRadius");
         location locTest = spawning.getRandomLocationInCircle(getLocation(self), fltRadius);
