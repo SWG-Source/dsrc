@@ -27,38 +27,31 @@ public class rare_loot_chest extends script.base_script {
                     rarity = i - 1;
                 }
             }
+
             int numberOfItems = rand(1, 2);
             for (int i = 0; i < numberOfItems; i++) {
                 loot.makeLootInContainer(utils.getInventoryContainer(player), "rls/" + loot.CHEST_TYPES[rand(0,rarity)] + "_loot", 1, 1);
             }
+
             destroyObject(self);
             handleRareLootCollection(player, rarity + 1);
             LOG("rare_loot", "Player (" + getName(player) + ":" + player + ") opened RLS chest with rarity of " + loot.CHEST_TYPES[rarity]);
         }
-        return SCRIPT_CONTINUE;
+        return SCRIPT_CONTINUE; 
     }
 
     private void handleRareLootCollection(obj_id player, int lootType) throws InterruptedException {
-        if (getCollectionSlotValue(player, "rare_loot_opened_one_" + lootType) == 0) {
-            modifyCollectionSlotValue(player, "rare_loot_opened_one_" + lootType, 1);
-        }
+        String typeOpenedOne = "rare_loot_opened_one_" + lootType;
+        String typeOpenedFive = "rare_loot_opened_five_" + lootType;
 
-        if (!badge.hasBadge(player, "bdg_rare_loot")) {
-            for (int i = 1; i < 5; i++) {
-                if (!hasCompletedCollection(player, "rare_loot_opened_one_" + i)) {
-                    break;
-                } else if (i == 4) {
-                    badge.grantBadge(player, "bdg_rare_loot");
-                }
+        modifyCollectionSlotValue(player, typeOpenedOne, 1);
+        modifyCollectionSlotValue(player, typeOpenedFive, 1);
+        if (getCollectionSlotValue(player, typeOpenedFive) == 5) {
+            switch(lootType) {
+            case 1: collection.removeCompletedCollection(player, "col_rare_loot_five"); break;
+            case 2: collection.removeCompletedCollection(player, "col_exceptional_loot_five"); break;
+            case 3: collection.removeCompletedCollection(player, "col_legendary_loot_five"); break;
             }
-        }
-
-        long numberOfChests = getCollectionSlotValue(player, "rare_loot_opened_five_" + lootType);
-        modifyCollectionSlotValue(player, "rare_loot_opened_five_" + lootType, ++numberOfChests);
-
-        if (hasCompletedCollection(player, "rare_loot_opened_five_" + lootType)) {
-            loot.createRareLootChest(player, lootType);
-            collection.removeCompletedCollection(player, "rare_loot_opened_five_" + lootType);
         }
     }
 }
