@@ -360,24 +360,12 @@ public class live_conversions extends script.base_script
     public static final int NPE_BIRTH_DATE = 1777;
     public void grantElderBuff(obj_id player) throws InterruptedException
     {
-        if (hasConversionFlag(player, ELDER_BUFF_GRANT))
-        {
-            return;
-        }
-        int myBirthDate = getPlayerBirthDate(player);
-        if (myBirthDate == -1)
-        {
-            messageTo(player, "handleBirthDateCallBack", null, 10, false);
-            return;
-        }
-        else if (myBirthDate <= NPE_BIRTH_DATE)
-        {
-            if (!hasCommand(player, "veteranPlayerBuff"))
-            {
+        String config = getConfigSetting("Custom", "grantElderBuff");
+        if(config != null && utils.stringToInt(config) == 1) {
+            if (!hasCommand(player, "veteranPlayerBuff")) {
                 grantCommand(player, "veteranPlayerBuff");
             }
         }
-        setConversionFlag(player, ELDER_BUFF_GRANT);
     }
     public int handleBirthDateCallBack(obj_id self, dictionary params) throws InterruptedException
     {
