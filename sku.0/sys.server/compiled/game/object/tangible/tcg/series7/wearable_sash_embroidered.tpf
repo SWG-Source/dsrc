@@ -7,3 +7,6 @@
 @class object_template 2
 
 sharedTemplate = "object/tangible/tcg/series7/shared_wearable_sash_embroidered.iff"
+
+
+objvars = +["skillmod.bonus.luck_modified" = 77]
