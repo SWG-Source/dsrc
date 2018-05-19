@@ -962,6 +962,17 @@ public class qatool extends script.base_script
             qaSetScriptVar(self, st);
             return SCRIPT_CONTINUE;
         }
+        else if ((toLower(command)).equals("setcount"))
+        {
+            if (st.hasMoreTokens())
+            {
+                obj_id oid = getIntendedTarget(self);
+                int count = utils.stringToInt(st.nextToken());
+                setCount(oid, count);
+                sendSystemMessageTestingOnly(self, "Object: " + target + " has added " + count + " to it's item count.");
+                return SCRIPT_CONTINUE;
+            }
+        }
         else if ((toLower(command)).equals("collectionclickbypass"))
         {
             cleanAllScriptVars(self);
