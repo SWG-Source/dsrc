@@ -30,7 +30,7 @@ public class missions extends script.base_script
     public static final int BH_STAT_MAX = 4;
     public static final int BOUNTY_FLAG_NONE = 0;
     public static final int BOUNTY_FLAG_SMUGGLER = 1;
-    public static final int DAILY_MISSION_XP_REWARD = 10;
+    public static final int DAILY_MISSION_XP_REWARD_DEFAULT = 10;
     public static final int DAILY_MISSION_CASH_REWARD = 15;
     public static final int DAILY_MISSION_XP_SANITY = 5;
     public static final int DAILY_MISSION_XP_LOW = 9;
@@ -39,6 +39,14 @@ public class missions extends script.base_script
     public static final String DAILY_MISSION_OBJVAR = "missions.daily";
     public static final String DAILY_MISSION_CLOCK_OBJVAR = "missions.dailyClock";
     public static final string_id DAILY_REWARD_XP = new string_id("base_player", "prose_mission_xp_amount");
+    public static int getDailyMissionXpLimit() throws InterruptedException
+    {
+        String config = getConfigSetting("Custom", "dailyMissionXpLimit");
+        if (config != null && config.length() > 0) {
+            return utils.stringToInt(config);
+        }
+        return DAILY_MISSION_XP_REWARD_DEFAULT;
+    }
     public static void sendBountyFail(obj_id hunter, obj_id target) throws InterruptedException
     {
         dictionary params = new dictionary();
@@ -119,7 +127,7 @@ public class missions extends script.base_script
         {
             return false;
         }
-        if (dailyData < DAILY_MISSION_XP_REWARD)
+        if (dailyData < getDailyMissionXpLimit())
         {
             return true;
         }

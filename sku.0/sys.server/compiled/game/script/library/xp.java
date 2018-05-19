@@ -1879,7 +1879,7 @@ public class xp extends script.base_script
             {
                 grantCombatStyleXp(player, COMBAT_GENERAL, xpToGrantForRealsies);
                 displayXpFlyText(player, player, xpToGrantForRealsies);
-                int huySaidToUseTTForTheSecondNumber = ((missions.DAILY_MISSION_XP_REWARD - missions.getPlayerDailyCount(player)) - 1);
+                int huySaidToUseTTForTheSecondNumber = ((missions.getDailyMissionXpLimit() - missions.getPlayerDailyCount(player)) - 1);
                 prose_package pp = new prose_package();
                 prose.setStringId(pp, missions.DAILY_REWARD_XP);
                 prose.setDI(pp, xpToGrantForRealsies);

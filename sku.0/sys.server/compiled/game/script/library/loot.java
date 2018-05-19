@@ -1229,6 +1229,42 @@ public class loot extends script.base_script
         }
         return boolMadeLoot;
     }
+    public static obj_id makeRareLootItem(obj_id objContainer, String strTable) throws InterruptedException
+    {
+        String strRootItems = "datatables/loot/loot_items/";
+        String[] parse = split(strTable, ':');
+        strTable = parse[0];
+        strTable = "datatables/loot/loot_types/" + strTable + ".iff";
+        String strItemsHeader = "strItems";
+        
+        if (parse.length == 2) {
+            strItemsHeader = parse[1];
+        }
+        
+        String[] strLootTypes = dataTableGetStringColumnNoDefaults(strTable, strItemsHeader);
+        String strItemTable = strLootTypes[rand(0, strLootTypes.length - 1)];
+        String[] parseItem = split(strItemTable, ':');
+        strItemTable = parseItem[0];
+        strItemTable = strRootItems + strItemTable + ".iff";
+        String strItemTypeHeader = "strItemType";
+        
+        if (parseItem.length == 2)
+        {
+            strItemTypeHeader = parseItem[1];
+        }
+        if (dataTableOpen(strItemTable)) {
+            String[] strItems = dataTableGetStringColumnNoDefaults(strItemTable, strItemTypeHeader);
+            if (strItems != null && strItems.length > 0)
+            {
+                String strLootToMake = strItems[rand(0, strItems.length - 1)];
+                obj_id lootItem = createLootItem(objContainer, strLootToMake, 1);
+                attachScript(lootItem, "systems.loot.rare_item");
+                return lootItem;
+            }
+        }
+
+        return null;
+    }
     public static obj_id createLootItem(obj_id objContainer, String strLootToMake, int intLevel) throws InterruptedException
     {
         int intIndex = strLootToMake.indexOf(".iff");

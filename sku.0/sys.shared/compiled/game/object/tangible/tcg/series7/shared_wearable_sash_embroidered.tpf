@@ -1,5 +1,5 @@
 
-@base object/tangible/wearables/base/shared_base_bandolier.iff
+@base object/tangible/wearables/base/shared_base_backpack.iff
 
 @class tangible_object_template 5
 
@@ -10,3 +10,5 @@ objectName = "static_item_n" "item_tcg_loot_reward_series7_embroidered_sash"
 detailedDescription = "static_item_d" "item_tcg_loot_reward_series7_embroidered_sash"
 
 appearanceFilename = "appearance/sash_02_f.sat"
+
+containerVolumeLimit = 60

@@ -21,6 +21,7 @@ new_weapon_comp_reinforcement_core	object/tangible/component/weapon/new_weapon_c
 new_weapon_comp_reinforcement_core_advanced	object/tangible/component/weapon/new_weapon_comp_reinforcement_core_advanced.iff	profession_wheel	
 new_weapon_comp_scope	object/tangible/component/weapon/scope_weapon_advanced.iff	profession_wheel	
 new_weapon_comp_stock	object/tangible/component/weapon/stock_advanced.iff	profession_wheel	
+weapon_appearance_2h_maul_legendary	object/weapon/melee/2h_sword/2h_sword_maul_legendary.iff
 weapon_appearance_2h_sword_avatar_wke_toothpick	object/weapon/melee/2h_sword/2h_sword_avatar_wke_toothpick.iff		
 weapon_appearance_2h_sword_kashyyk	object/weapon/melee/2h_sword/2h_sword_kashyyk.iff		
 weapon_appearance_2h_sword_kun_massassi	object/weapon/melee/2h_sword/2h_sword_kun_massassi.iff		1
@@ -48,6 +49,7 @@ weapon_appearance_carbine_czerka_dart	object/weapon/ranged/carbine/carbine_czerk
 weapon_appearance_carbine_dc15	object/weapon/ranged/carbine/ep3/carbine_dc15.iff	
 weapon_appearance_carbine_e11_mk2	object/weapon/ranged/carbine/carbine_e11_mark2.iff		
 weapon_appearance_carbine_e5	object/weapon/ranged/carbine/carbine_e5.iff	profession_wheel	
+weapon_appearance_carbine_e5_legendary	object/weapon/ranged/carbine/carbine_e5_legend.iff
 weapon_appearance_carbine_ee3_bounty	object/weapon/ranged/carbine/carbine_bounty_ee3.iff		12
 weapon_appearance_carbine_gcw_charric	object/weapon/ranged/carbine/carbine_charric.iff		1
 weapon_appearance_carbine_geo	object/weapon/ranged/carbine/carbine_geo.iff		
@@ -92,6 +94,7 @@ weapon_appearance_knife_vibroblade_quest	object/weapon/melee/knife/knife_vibrobl
 weapon_appearance_knuckler_pvp	object/weapon/melee/special/pvp_bf_knuckler.iff	
 weapon_appearance_knuckler_vibro	object/weapon/melee/special/vibroknuckler.iff	profession_wheel
 weapon_appearance_lance_avatar_wke_heartlance	object/weapon/melee/polearm/lance_avatar_wke_heartlance.iff	
+weapon_appearance_lance_energy_legendary	object/weapon/melee/polearm/lance_nightsister_legendary.iff
 weapon_appearance_lance_cryo	object/weapon/melee/polearm/lance_cryo.iff	profession_wheel
 weapon_appearance_lance_kaminoan	object/weapon/melee/polearm/lance_kaminoan.iff	
 weapon_appearance_lance_massassi	object/weapon/melee/polearm/lance_massassi.iff	
@@ -163,6 +166,7 @@ weapon_appearance_pistol_flare	object/weapon/ranged/pistol/pistol_flare.iff
 weapon_appearance_pistol_flechette	object/weapon/ranged/pistol/pistol_flechette.iff	
 weapon_appearance_pistol_flechette_fwg5	object/weapon/ranged/pistol/pistol_fwg5.iff	profession_wheel
 weapon_appearance_pistol_flechette_fwg5_quest	object/weapon/ranged/pistol/pistol_fwg5_quest.iff	
+weapon_appearance_pistol_fwg5_legendary	object/weapon/ranged/pistol/pistol_fwg5_legendary.iff
 weapon_appearance_pistol_geo_sonic_blaster	object/weapon/ranged/pistol/pistol_geonosian_sonic_blaster_loot.iff	
 weapon_appearance_pistol_heroic_exar	object/weapon/ranged/pistol/pistol_heroic_exar.iff	
 weapon_appearance_pistol_heroic_sd	object/weapon/ranged/pistol/pistol_heroic_sd.iff	
@@ -231,6 +235,7 @@ weapon_appearance_rifle_geo_drill	object/weapon/ranged/rifle/rifle_geo_drill.iff
 weapon_appearance_rifle_jinkins_j1	object/weapon/ranged/rifle/jinkins_j1_rifle.iff		1
 weapon_appearance_rifle_laser_light	object/weapon/ranged/rifle/rifle_laser_light.iff	
 weapon_appearance_rifle_ld1	object/weapon/ranged/rifle/rifle_ld1.iff	
+weapon_appearance_rifle_legendary_t21	object/weapon/ranged/rifle/rifle_t21_legendary.iff
 weapon_appearance_rifle_light_blaster_dh17_carbine	object/weapon/ranged/carbine/carbine_dh17.iff	profession_wheel
 weapon_appearance_rifle_light_blaster_dh17_carbine_black	object/weapon/ranged/carbine/carbine_dh17_black.iff	
 weapon_appearance_rifle_light_blaster_dh17_carbine_snubnose	object/weapon/ranged/carbine/carbine_dh17_snubnose.iff	profession_wheel
@@ -265,6 +270,7 @@ weapon_appearance_staff	object/weapon/melee/polearm/lance_staff_wood_s1.iff	prof
 weapon_appearance_staff_janta	object/weapon/melee/polearm/lance_staff_janta.iff		
 weapon_appearance_staff_metal	object/weapon/melee/polearm/lance_staff_metal.iff	profession_wheel	
 weapon_appearance_staff_reinforced	object/weapon/melee/polearm/lance_staff_wood_s2.iff	profession_wheel	
+weapon_appearance_stun_baton_legendary	object/weapon/melee/baton/baton_stun_legendary.iff
 weapon_appearance_sword	object/weapon/melee/sword/sword_01.iff	profession_wheel	
 weapon_appearance_sword_acid	object/weapon/melee/sword/sword_acid.iff		
 weapon_appearance_sword_avatar_wke_spiritblade	object/weapon/melee/sword/sword_avatar_wke_spiritblade.iff		

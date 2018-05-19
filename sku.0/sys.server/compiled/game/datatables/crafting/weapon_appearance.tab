@@ -2119,3 +2119,41 @@ slot																																		template	0	barrel_rifle_projectile	object/
 slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_ranged_base.iff	1																												
 slot																																		template	1	scope	object/tangible/component/weapon/scope_weapon_base.iff	1	scope																											
 slot																																		template	1	stock	object/tangible/component/weapon/stock_base.iff	1	stock
+weapon	carbine	weapon_appearance_carbine_e5_legendary		systems.crafting.weapon.core.crafting_new_weapon_final	0	weapon	7	weapon_crafting		object/weapon/ranged/carbine/carbine_e5_legend.iff	object/weapon/ranged/carbine/carbine_e5_legend.iff	40	450	800	1100	0	0	0	0	0	0	energy	none	-1	-1	carbine	carbine	1	1	100	100		50							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	62	0	40
+slot																																		resource	0	frame_assembly	steel_carbonite	100																												
+slot																																		resource	0	receiver_assembly	copper_polysteel	65																												
+slot																																		resource	0	grip_assembly	petrochem_inert_polymer	65																												
+slot																																		template	0	barrel_rifle_projectile	object/tangible/component/weapon/projectile_rifle_barrel_base.iff	1	muzzle																											
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_ranged_base.iff	1																												
+slot																																		template	1	scope	object/tangible/component/weapon/scope_weapon_base.iff	1	scope																											
+slot																																		template	1	stock	object/tangible/component/weapon/stock_base.iff	1	stock																											
+weapon	pistol	weapon_appearance_pistol_fwg5_legendary		systems.crafting.weapon.core.crafting_new_weapon_final	0	weapon	8	weapon_crafting		object/weapon/ranged/pistol/pistol_fwg5_legendary.iff	object/weapon/ranged/pistol/pistol_fwg5_legendary.iff	40	450	800	1100	0	0	0	0	0	0	kinetic	none	-1	-1	pistol	pistol	1	1	100	100		35							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	53	0	31
+slot																																		resource	0	frame_assembly	steel_quadranium	100																												
+slot																																		resource	0	receiver_assembly	iron_plumbum	65																												
+slot																																		resource	0	grip_assembly	petrochem_inert	65																												
+slot																																		template	0	barrel_pistol_projectile	object/tangible/component/weapon/projectile_pistol_barrel_base.iff	1	muzzle																										
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_ranged_base.iff	1																												
+slot																																		template	1	scope	object/tangible/component/weapon/scope_weapon_base.iff	1	scope																											
+slot																																		template	1	stock	object/tangible/component/weapon/stock_base.iff	1	stock																											
+weapon	melee	weapon_appearance_2h_maul_legendary		systems.crafting.weapon.core.crafting_new_weapon_final	0	weapon	5	weapon_crafting		object/weapon/melee/2h_sword/2h_sword_maul_legendary.iff	object/weapon/melee/2h_sword/2h_sword_maul_legendary.iff	40	450	800	1100	0	0	0	0	0	0	kinetic	none	-1	-1	melee	melee	1	1	100	100		4							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	42	0	30
+slot																																		resource	0	grip_unit	petrochem_inert	40																												
+slot																																		resource	0	strike_face	steel_ditanium	75																												
+slot																																		resource	0	vibro_unit_and_power_cell_brackets	copper_polysteel	85																												
+slot																																		template	0	power_cell_socket	copper_codoan	30																												
+slot																																		resource	0	power_cell_socket	copper_codoan	30																												
+slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																												
+weapon	melee	weapon_appearance_stun_baton_legendary		systems.crafting.weapon.core.crafting_new_weapon_final	25	weapon	5	weapon_crafting		object/weapon/melee/baton/baton_stun_legendary.iff	object/weapon/melee/baton/baton_stun_legendary.iff	40	120	800	1100	0	0	0	0	0	0	energy	none	-1	-1	melee	melee	1	1	100	100		4							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	50	0	40
+slot																																		resource	0	sword_core_jacket	steel_ditanium	120																												
+slot																																		resource	0	charge_accumulator	crystalline_byrothsis	20																												
+slot																																		resource	0	grip	petrochem_inert_polymer	40																												
+slot																																		resource	0	power_cell_socket	copper_codoan	60																												
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																												
+slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
+weapon	melee	weapon_appearance_lance_energy_legendary		systems.crafting.weapon.core.crafting_new_weapon_final	0	weapon	6	weapon_crafting		object/weapon/melee/polearm/lance_nightsister_legendary.iff	object/weapon/melee/polearm/lance_nightsister_legendary.iff	40	450	800	1100	0	0	0	0	0	0	energy	electric	-1	-1	melee	melee	1	1	100	100		4							sys.server/compiled/game/object/draft_schematic/weapon/appearance/																							0	42	0	30
+slot																																		resource	0	lance_shaft	aluminum_phrik	100																												
+slot																																		resource	0	charge_accumulator	crystalline_byrothsis	20																												
+slot																																		resource	0	vibro_unit_and_power_cell_brackets	copper_polysteel	80																												
+slot																																		resource	0	grip_unit	petrochem_inert_polymer	35																												
+slot																																		template	0	vibration_generator	object/tangible/component/weapon/vibro_unit_base.iff	1																												
+slot																																		template	0	weapon_core	object/tangible/component/weapon/core/weapon_core_melee_base.iff	1																											

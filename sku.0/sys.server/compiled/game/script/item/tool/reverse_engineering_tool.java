@@ -538,7 +538,7 @@ public class reverse_engineering_tool extends script.base_script
         int maxStat = 0;
         int finalPower = 1;
         boolean containsCraftedItem = false;
-        skillMod += getEnhancedSkillStatisticModifierUncapped(player, "expertise_reverse_engineering_bonus");
+        skillMod += (getEnhancedSkillStatisticModifierUncapped(player, "expertise_reverse_engineering_bonus") * getReverseEngineeringBonusMultiplier());
         float toolMod = getFloatObjVar(self, "crafting.stationMod");
         skillMod += toolMod;
         int powerOrderResult = 0;
@@ -589,9 +589,10 @@ public class reverse_engineering_tool extends script.base_script
             LOG("reverse_engineering", "generatePowerBit randomRollMin: " + randomRollMin);
         }
         float powerResult = (maxStat * (50 + ((skillMod + rand(randomRollMin, 130)) / 3.4f))) / 100;
-        if (powerResult / maxStat > 1.25f)
-        {
-            powerResult = maxStat * 1.25f;
+        if(getReverseEngineeringBonusMultiplier() <= 1.2f) {
+            if (powerResult / maxStat > 1.25f) {
+                powerResult = maxStat * 1.25f;
+            }
         }
         finalPower = (int)powerResult;
         if (containsCraftedItem && powerResult > maxStat)
@@ -874,5 +875,13 @@ public class reverse_engineering_tool extends script.base_script
             setName(object, newName);
         }
         return;
+    }
+    public float getReverseEngineeringBonusMultiplier() throws InterruptedException
+    {
+        String config = getConfigSetting("Custom", "reverseEngineeringBonusMultiplier");
+        if (config != null && config.length() > 0) {
+            return utils.stringToFloat(config);
+        }
+        return 1.0f;
     }
 }

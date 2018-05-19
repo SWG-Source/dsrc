@@ -319,3 +319,9 @@ weapon_gcw_heavy_pulse_cannon_03_01	1	1000	462	777	0	kinetic	heat	15	100	1	100	0
 weapon_gcw_lance_03_01	1	1000	428	655	0	kinetic			100	1	100	0	5		int:wp.canBeDisMantled=1		lvl65	567	562
 weapon_gcw_carbine_charric_03_01	1	1000	242	482	0	kinetic			60	1	100	0	50		int:wp.canBeDisMantled=1		lvl65	603	603
 weapon_jinkins_j1_01_01	1	1000	336	671	0	kinetic			80	1	100	0	64		int:wp.canBeDisMantled=1		Nym's Theme Park Reward	629	629
+weapon_carbine_e5_legendary	1	1000	400	850	0	energy	electric	23	60	1	100	0	50		int:wp.canBeDisMantled=1		lvl88	1118	1118
+weapon_pistol_fwg5_legendary	1	1000	250	500	0	energy	heat	35	40	1	100	0	35		int:wp.canBeDisMantled=1		lvl88	1112	1112
+weapon_rifle_legendary_t21	1	1000	550	1100	0	energy	acid	30	80	1	100	0	64		int:wp.canBeDisMantled=1		lvl88	1106	1106
+weapon_energy_lance_legendary	1	1000	800	1200	0	energy	electric	50	100	1	100	0	5		int:wp.canBeDisMantled=1		lvl88	1100	1100
+weapon_2h_sword_maul_legendary	1	1000	900	1350	0	energy	acid	20	100	1	100	0	5		int:wp.canBeDisMantled=1		lvl88	1165	1165
+weapon_stun_baton_legendary	1	1000	600	1300	0	energy	electric	75	100	1	100	0	5		int:wp.canBeDisMantled=1		lvl88	1100	1100

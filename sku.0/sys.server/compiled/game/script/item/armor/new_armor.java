@@ -128,7 +128,7 @@ public class new_armor extends script.base_script
             {
                 player = getContainedBy(destContainer);
             }
-            if (!armor.isArmorCertified(player, self))
+            if (!armor.isArmorCertified(player, self) || (utils.isMando(self) && !utils.hasSpecialSkills(player)))
             {
                 prose_package pp = new prose_package();
                 pp = prose.setStringId(pp, new string_id("spam", "armor_no_cert"));

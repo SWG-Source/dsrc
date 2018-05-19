@@ -9,3 +9,5 @@ armor = "abstract/armor_statistics/armor/stormtrooper/base/statistics_armor_stor
 
 sharedTemplate = "object/tangible/wearables/armor/stormtrooper/shared_armor_stormtrooper_boots_gcw.iff"
 
+scripts = +["npc.faction_recruiter.faction_item"]
+objvars = +["faction_recruiter.faction"="Imperial"]

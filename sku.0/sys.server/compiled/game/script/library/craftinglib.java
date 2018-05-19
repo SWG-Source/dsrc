@@ -765,7 +765,7 @@ public class craftinglib extends script.base_script
                         if (isIdValid(player))
                         {
                             itemAttributeApplicableResourceValueAverage += getCraftingInspirationBonus(player, craftingValuesDictionary, itemAttributeApplicableResourceValueAverage, 1f);
-                            itemAttributeApplicableResourceValueAverage += (int)getSkillStatisticModifier(player, "expertise_resource_quality_increase");
+                            itemAttributeApplicableResourceValueAverage += (int)getEnhancedSkillStatisticModifierUncapped(player, "expertise_resource_quality_increase");
                             if (itemAttributeApplicableResourceValueAverage > 100.0f)
                             {
                                 itemAttributeApplicableResourceValueAverage = 100.0f;
