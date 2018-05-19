@@ -12,26 +12,14 @@ public class tcg_bespin_lights extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if(!hasObjVar(self, "status")){
-            setObjVar(self, "status", "off");
-        }
-        else{
-            String type = getStringObjVar(self, "type");
-            if(!isOn(self)){
-                toggleLight(self, type, "on");
-            }
+            setObjVar(self, "status", (getTemplateName(self).contains("_off") ? "off" : "on"));
         }
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         if(!hasObjVar(self, "status")){
-            setObjVar(self, "status", "off");
-        }
-        else{
-            String type = getStringObjVar(self, "type");
-            if(!isOn(self)){
-                toggleLight(self, type, "on");
-            }
+            setObjVar(self, "status", (getTemplateName(self).contains("_off") ? "off" : "on"));
         }
         return SCRIPT_CONTINUE;
     }
@@ -75,7 +63,7 @@ public class tcg_bespin_lights extends script.base_script
         sendSystemMessageTestingOnly(getOwner(self), "Turning light " + position);
         location currentLocation = getLocation(self);
 
-        dictionary itemData = dataTableGetRow("datatables/item/master_item/master_item.iff", "item_tcg_loot_reward_series8_bespin_" + type + "_" + position);
+        dictionary itemData = dataTableGetRow("datatables/item/master_item/master_item.iff", "item_tcg_loot_reward_series8_bespin_" + type);
         obj_id newLight = createObject(itemData.getString("template_name"), currentLocation);
 
         if(newLight == null){
@@ -84,6 +72,9 @@ public class tcg_bespin_lights extends script.base_script
         attachScript(newLight, "systems.tcg.tcg_bespin_lights");
         setObjVar(newLight, "status", position);
         setObjVar(newLight, "type", type);
+        setObjVar(newLight, "combine", "true");
+        setObjVar(newLight, "tcg.combineItemTemplatePattern", "object/tangible/tcg/series8/combine_decorative_");
+        setObjVar(newLight, "tcg.setName", "set8_cloud_house");
         float[] orientation = getQuaternion(self);
         setQuaternion(newLight, orientation[0], orientation[1], orientation[2], orientation[3]);
         persistObject(newLight);

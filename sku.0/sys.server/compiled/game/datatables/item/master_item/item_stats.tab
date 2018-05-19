@@ -4643,3 +4643,8 @@ item_player_house_deed_jabbas_sail_barge
 item_tcg_loot_reward_series8_single_pod_airspeeder			"string:vehicle_attribs.object_ref=single_pod_airspeeder,float:hit_points=15000"								
 item_tcg_loot_reward_series8_snow_speeder_familiar			string:creatureName=item_tcg_loot_reward_series8_snow_speeder_familiar								
 item_tcg_loot_reward_series8_wampa_arm					tcg_series8_severed_wampa_arm	long_reuse_4	3600			clienteffect/tcg_shadow_scroll.cef	
+item_tcg_loot_reward_series8_bespin_lamp_off			"string:type=lamp,string:status=off,string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house"
+item_tcg_loot_reward_series8_bespin_lamp_on			"string:type=lamp,string:status=off,string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house"
+item_tcg_loot_reward_series8_bespin_shelves			"string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house"
+item_tcg_loot_reward_series8_glowly_sculpture			"string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house"
+item_tcg_loot_reward_series8_torture_table			"string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house"

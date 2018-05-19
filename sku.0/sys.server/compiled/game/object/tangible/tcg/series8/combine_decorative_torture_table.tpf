@@ -2,3 +2,4 @@
 @class tangible_object_template 1
 @class object_template 2
 sharedTemplate = "object/tangible/tcg/series8/shared_combine_decorative_torture_table.iff"
+objvars =+["combine"="true"]
