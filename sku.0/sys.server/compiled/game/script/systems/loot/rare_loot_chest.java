@@ -9,6 +9,10 @@ import script.menu_info_types;
 import script.obj_id;
 import script.string_id;
 
+import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
+
 public class rare_loot_chest extends script.base_script {
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException {
         if (utils.getContainingPlayer(self) == player) {
@@ -19,19 +23,23 @@ public class rare_loot_chest extends script.base_script {
 
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException {
         sendDirtyObjectMenuNotification(self);
-        if (item == menu_info_types.ITEM_USE) {
+        if (item == menu_info_types.ITEM_USE)
+        {
             String template = getTemplateName(self);
-            int rarity = 0;
-            for (int i = 2; i < 4; i++) {
-                if (template.equals("object/tangible/item/rare_loot_chest_" + i + ".iff")) {
-                    rarity = i - 1;
+            int rarity = Integer.parseInt(template.replace("object/tangible/item/rare_loot_chest_", "").replace(".iff", "")) - 1;
+
+            List<obj_id> items = new ArrayList<>();
+            int numberOfItems = rand(1, 2);
+            while(items.size() < numberOfItems) {
+                obj_id rareItem = loot.makeRareLootItem(utils.getInventoryContainer(player), "rls/" + loot.CHEST_TYPES[rand(0,rarity)] + "_loot");
+                if(rareItem != null) {
+                    items.add(rareItem);
                 }
             }
 
-            int numberOfItems = rand(1, 2);
-            for (int i = 0; i < numberOfItems; i++) {
-                loot.makeLootInContainer(utils.getInventoryContainer(player), "rls/" + loot.CHEST_TYPES[rand(0,rarity)] + "_loot", 1, 1);
-            }
+            obj_id[] lootedItems = new obj_id[items.size()];
+            items.toArray(lootedItems);
+            showLootBox(player, lootedItems);
 
             destroyObject(self);
             handleRareLootCollection(player, rarity + 1);
