@@ -4294,7 +4294,7 @@ item_tcg_scurrier_trash_item_02_03			"string:tcg.combineItemTemplatePattern=obje
 item_tcg_scurrier_trash_item_02_04			"string:tcg.combineItemTemplatePattern=object/tangible/tcg/series5/combine_object_,string:tcg.setName=set5_scurrier"								
 item_tcg_scurrier_final_palm_schematic			"string:loot_schematic.schematic=object/draft_schematic/furniture/furniture_tcg_scurrier_palm.iff,int:loot_schematic.uses=1,string:loot_schematic.skill_req=class_trader"								
 item_tcg_loot_reward_series5_player_house_atat			"string:player_structure.deed.template=object/building/player/player_house_atat.iff,int:player_structure.deed.buildtime=90"								
-item_tcg_loot_reward_series5_armored_varactyl_statue											
+item_tcg_loot_reward_series5_armored_varactyl_statue			"string:armored_creature_type=tcg5_armored_varactyl"
 item_deed_landspeeder_usv5_s02			"string:vehicle_attribs.object_ref=landspeeder_usv5_s02,float:hit_points=15000"								
 item_deed_podracer_anakin			"string:vehicle_attribs.object_ref=podracer_anakin,float:hit_points=15000"								
 item_pgc_chronicle_master_robe											
@@ -4648,3 +4648,4 @@ item_tcg_loot_reward_series8_bespin_lamp_on			"string:type=lamp,string:status=of
 item_tcg_loot_reward_series8_bespin_shelves			"string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house"
 item_tcg_loot_reward_series8_glowly_sculpture			"string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house"
 item_tcg_loot_reward_series8_torture_table			"string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house"
+item_tcg_loot_reward_series8_armored_tauntaun_statue			"string:armored_creature_type=tcg8_armored_tauntaun"

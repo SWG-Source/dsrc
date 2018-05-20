@@ -1,3 +1,5 @@
 creature_type	eligible_beasts	armored_version
 s	s	s
+tcg5_armored_varactyl	"tcg_armored_mount_varactyl,ep3_mount_varactyl,ep3_qst_reward_varactyl"	tcg_armored_mount_varactyl
 tcg6_armored_dewback	"tcg_armored_dewback,bio_engineered_dewback,lesser_dewback"	tcg_armored_dewback
+tcg8_armored_tauntaun	"tcg_armored_tauntaun,heroic_echo_tauntaun_domesticated"	tcg_armored_tauntaun
