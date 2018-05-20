@@ -8310,3 +8310,9 @@ item_itv_deed_privateer	object/tangible/veteran_reward/instant_travel_terminal_p
 item_itv_deed_royal	object/tangible/deed/vehicle_deed/instant_travel_terminal_royal_ship_deed.iff							4		"systems.veteran_reward.instant_travel_terminal_deed,item.special.nomove"			ITV: Royal Ship	Deed for your very own royal instant travel vehicle.	
 item_itv_deed_factional	object/tangible/veteran_reward/instant_travel_terminal.iff							4		"systems.veteran_reward.instant_travel_terminal_deed,item.special.nomove"			ITV: Factional Ship	Deed for your very own factional instant travel vehicle.	
 item_itv_deed_snowspeeder	object/tangible/deed/vehicle_deed/instant_travel_terminal_snowspeeder.iff							4		systems.veteran_reward.instant_travel_terminal_deed			ITV: Snow Speeder	Deed for your very own snowspeeder instant travel vehicle.	
+weapon_carbine_e5_legendary	object/weapon/ranged/carbine/carbine_e5_legend.iff	weapon		88				2					Legendary E5 Carbine	A Legendary E5 Carbine.
+weapon_pistol_fwg5_legendary	object/weapon/ranged/pistol/pistol_fwg5_legendary.iff	weapon		88				2					Legendary FWG5 Pistol	A Legendary FWG5 Pistol.	
+weapon_rifle_legendary_t21	object/weapon/ranged/rifle/rifle_t21_legendary.iff	weapon		88				2					Legendary Nightsister Polearm	A Legendary Nightsister Polearm.	
+weapon_energy_lance_legendary	object/weapon/melee/polearm/lance_nightsister_legendary.iff	weapon		88				2					Legendary Nightsister Polearm	A Legendary Nightsister Polearm.	
+weapon_2h_sword_maul_legendary	object/weapon/melee/2h_sword/2h_sword_maul_legendary.iff	weapon		88				2					Legendary Power Hammer	A Legendary Power Hammer	
+weapon_stun_baton_legendary	object/weapon/melee/baton/baton_stun_legendary.iff	weapon		88				2					Legendary Stun Baton	A Legendary Stun Baton	
