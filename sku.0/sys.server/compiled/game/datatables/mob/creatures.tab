@@ -6683,4 +6683,4 @@ imperial_vendor_gcw2	100	0	0	0	0	NORMAL			anywhere	imperial	Imperial		tie_pilot_
 gcw_atst_familiar	1	0	0	0	0	NORMAL			global	imperial			atst_toy.iff	0.1	0.1	0					35	35	-1	100	100	0	0	100	2																									none																1								0			
 gcw_atxt_familiar	1	0	0	0	0	NORMAL			global	rebel			atxt_toy.iff	0.1	0.1	0					0	0	0	0	0	0	0	0	2																									none																1								0			
 item_tcg_loot_reward_series8_snow_speeder_familiar	1	0	0	0	0	NORMAL		tcg set 8 loot item - snow speeder familiar	anywhere	tcg_familiar	tcg_familiar_rebel		snow_speeder_toy.iff	1	1	0					0	0	0	0	0	0	0	0	0																									none																1								0			
-tcg_armored_tauntaun	1	0	0	0	-4	NORMAL			global	tauntaun			tauntaun_armored.sat			1					0	20	0	20	0	0	0	-1	2																									herbivore																					bull_1	bull_1	0	0			
+tcg_armored_tauntaun	1	0	0	0	-4	NORMAL			global	tauntaun			tcg_armored_tauntaun.iff			1					0	20	0	20	0	0	0	-1	2																									herbivore																					bull_1	bull_1	0	0			
