@@ -1,0 +1,11 @@
+@base object/mobile/skeleton/shared_tauntaun.iff
+@class creature_object_template 7
+@class tangible_object_template 3
+@class object_template 3
+objectName = "monster_name" "tauntaun"
+detailedDescription = "" ""
+lookAtText = "monster_lookat"  "tauntaun"
+appearanceFilename = "appearance/tauntaun_armored.sat"
+portalLayoutFilename = ""
+slotDescriptorFilename = "abstract/slot/descriptor/mount_rider.iff"
+clientDataFile = "clientdata/creature/client_shared_cr_tauntaun.cdf"

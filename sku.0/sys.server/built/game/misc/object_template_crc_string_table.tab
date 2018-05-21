@@ -3309,6 +3309,7 @@
 0x0e8880ba	object/tangible/wearables/shoes/shoes_s07.iff
 0x0e8f8838	object/static/structure/tatooine/shared_skeleton_krayt_leg_style_01.iff
 0x0e8fbf4e	object/creature/npc/base/tusken_raider_base_male.iff
+0x0e91fdb4	object/mobile/tcg_armored_tauntaun.iff
 0x0e934078	object/ship/shared_yt1300_tier2.iff
 0x0e936848	object/draft_schematic/furniture/furniture_collection_hanging_light_01.iff
 0x0e956806	object/tangible/furniture/modern/rug_rect_sml_s01.iff
@@ -29803,6 +29804,7 @@
 0x8393ff6b	object/tangible/lair/woolamander/shared_lair_woolamander.iff
 0x8395202c	object/tangible/loot/creature_loot/collections/backdrop_image_01.iff
 0x8395bb19	object/building/kashyyyk/shared_thm_all_humanoid_bone_calf.iff
+0x8395e6dc	object/mobile/shared_tcg_armored_tauntaun.iff
 0x839620ca	object/tangible/component/reverse_engineering/modifier_bit.iff
 0x83962b31	object/tangible/ship/crafted/shields/base_shields_subcomponent.iff
 0x8397231a	object/mobile/ep3/ep3_etyyy_chiss_poacher_03.iff
