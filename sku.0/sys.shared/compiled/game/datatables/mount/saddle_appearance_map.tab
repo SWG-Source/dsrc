@@ -1,15 +1,15 @@
-logical_saddle_name	saddle_capacity	saddle_appearance_name	client_data_filename
-s	i	s	s
-lookup/mnt_saddle_body1_medium_s01	1	appearance/mnt_saddle_body1_medium_s01.apt	
-lookup/mnt_saddle_body1_narrow_s01	1	appearance/mnt_saddle_body1_narrow_s01.apt	
-lookup/mnt_saddle_body1_wide_s01	1	appearance/mnt_saddle_body1_wide_s01.apt	
-lookup/mnt_saddle_body1_wide_s02	1	appearance/mnt_saddle_body1_wide_s02.apt	
-lookup/mnt_saddle_varactyl_armor	1	appearance/mnt_saddle_varactyl_armor.apt	
-lookup/mnt_saddle_body2_medium_s01	1	appearance/mnt_saddle_body2_medium_s01.apt	
-lookup/mnt_saddle_body2_narrow_s01	1	appearance/mnt_saddle_body2_narrow_s01.apt	
-lookup/mnt_saddle_body2_wide_s01	1	appearance/mnt_saddle_body2_wide_s01.apt	
-lookup/mnt_saddle_body3_wide_s01	1	appearance/mnt_saddle_body3_wide_s01.apt	
-lookup/mnt_saddle_body2_wide_s02	1	appearance/mnt_saddle_body2_wide_s02.apt	
+logical_saddle_name	saddle_capacity	saddle_appearance_name	client_data_filename	comment
+s	i	s	s	c
+lookup/mnt_saddle_body1_medium_s01	1	appearance/mnt_saddle_body1_medium_s01.apt		# Whatever you want here
+lookup/mnt_saddle_body1_narrow_s01	1	appearance/mnt_saddle_body1_narrow_s01.apt
+lookup/mnt_saddle_body1_wide_s01	1	appearance/mnt_saddle_body1_wide_s01.apt
+lookup/mnt_saddle_body1_wide_s02	1	appearance/mnt_saddle_body1_wide_s02.apt
+lookup/mnt_saddle_varactyl_armor	1	appearance/mnt_saddle_varactyl_armor.apt
+lookup/mnt_saddle_body2_medium_s01	1	appearance/mnt_saddle_body2_medium_s01.apt
+lookup/mnt_saddle_body2_narrow_s01	1	appearance/mnt_saddle_body2_narrow_s01.apt
+lookup/mnt_saddle_body2_wide_s01	1	appearance/mnt_saddle_body2_wide_s01.apt
+lookup/mnt_saddle_body3_wide_s01	1	appearance/mnt_saddle_body3_wide_s01.apt
+lookup/mnt_saddle_body2_wide_s02	1	appearance/mnt_saddle_body2_wide_s02.apt
 lookup/landspeeder_luke	2	appearance/landspeeder_luke.apt	clientdata/vehicle/landspeeder.iff
 lookup/speeder_bike	1	appearance/speeder_bike.apt	clientdata/vehicle/speeder_bike.iff
 lookup/swoop_bike	1	appearance/swoop_bike.apt	clientdata/vehicle/swoop_bike.iff
@@ -44,11 +44,11 @@ lookup/swamp_speeder	2	appearance/swamp_speeder.apt	clientdata/vehicle/swamp_spe
 lookup/mandalorian_jetpack	1	appearance/mandalorian_jetpack.apt	clientdata/vehicle/tcg_merr_sonn_jt12_jetpack.cdf
 lookup/geonosian_speeder	1	appearance/geonosian_speeder.apt	clientdata/vehicle/geonosian_speeder.cdf
 lookup/senate_pod	6	appearance/senate_pod.apt	clientdata/vehicle/senate_pod.iff
-lookup/mnt_saddle_bird_s01	1	appearance/mnt_saddle_bird_s01.apt	
-lookup/walker_at_xt	2	appearance/pv_at_xt.sat	clientdata/vehicle/at_xt.iff
+lookup/mnt_saddle_bird_s01	1	appearance/mnt_saddle_bird_s01.apt
+lookup/walker_at_xt	1	appearance/pv_at_xt.sat	clientdata/vehicle/at_xt.iff
 lookup/speeder_tantive4_adv	8	appearance/speeder_tantive_x.apt	clientdata/vehicle/speeder_tantive4.iff
 lookup/balta_podracer	1	appearance/balta_podracer.sat	clientdata/vehicle/balta_podracer.iff
-lookup/tcg_peko_peko_mount	1	appearance/mnt_saddle_bird_s01.apt	
+lookup/tcg_peko_peko_mount	1	appearance/mnt_saddle_bird_s01.apt
 lookup/panning_droid	1	appearance/pv_ma3_mark_2_vehicle.sat	clientdata/vehicle/panning_droid.cdf
 lookup/xj6_air_speeder	2	appearance/xj6_air_speeder.apt	clientdata/vehicle/xj6_air_speeder.iff
 lookup/fg_8t8_podracer	1	appearance/fg_8t8_podracer.apt	clientdata/vehicle/fg_8t8_podracer.iff
@@ -68,4 +68,3 @@ lookup/hk47_jetpack	1	appearance/jetpack_hk47_tcg.apt	clientdata/vehicle/tcg_hk4
 lookup/tcg_military_transport	11	appearance/enclosed_military_vehicle.apt	clientdata/vehicle/tcg_military_transport.cdf
 lookup/tcg_at_pt_walker	1	appearance/atpt.sat	clientdata/vehicle/tcg_at_pt.cdf
 lookup/tcg_republic_gunship	11	appearance/republic_gunship.apt	clientdata/vehicle/tcg_republic_gunship.cdf
-lookup/tcg_8_single_pod_airspeeder	1	appearance/single_pod_airspeeder.sat	clientdata/vehicle/single_pod_airspeeder.cdf
