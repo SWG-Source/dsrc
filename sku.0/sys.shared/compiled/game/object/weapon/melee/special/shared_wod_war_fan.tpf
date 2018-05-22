@@ -1,0 +1,21 @@
+// This file ws written by the template editor @ 1:46:46 PM -  Mon Jan 6 2003
+
+@base object/weapon/melee/base/shared_base_melee.iff
+
+@class weapon_object_template 4
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+
+objectName = "static_item_n"  "item_wod_war_fan"
+
+detailedDescription = "static_item_d"  "item_wod_war_fan"
+
+lookAtText = "static_item_d"  "item_wod_war_fan"
+
+appearanceFilename = "appearance/wp_mle_fan_metal_lb.apt"
+
+clientDataFile = "clientdata/weapon/client_melee_knuckler.cdf"
+

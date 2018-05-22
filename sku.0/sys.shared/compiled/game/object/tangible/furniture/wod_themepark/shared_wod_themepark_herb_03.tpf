@@ -1,0 +1,16 @@
+// Template Editor -SWG Source
+
+@base object/tangible/terminal/base/shared_base_terminal.iff
+
+@class tangible_object_template 3
+
+@class object_template 5
+
+objectName = "theme_park_wod/messages" "wod_themepark_herb"
+detailedDescription = "theme_park_wod/messages" "wod_themepark_herb_type_3"
+//lookAtText = "" ""
+
+appearanceFilename = "appearance/shrb_dath_greybush_sm.apt"
+
+//clientDataFile = "clientdata/"
+

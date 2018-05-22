@@ -1,0 +1,18 @@
+
+@base object/mobile/skeleton/shared_bm_bird_giant.iff
+
+@class creature_object_template 13
+
+species = SP_wingedOrnith
+cameraHeight=5
+@class tangible_object_template 5
+
+@class object_template 5
+
+objectName = "" "bm_whisper_bird_mount_n"
+detailedDescription = "" "bm_whisper_bird_mount_d"
+lookAtText = "monster_lookat"  "whisper_bird"
+appearanceFilename = "appearance/whisper_bird_saddle_hue.sat"
+slotDescriptorFilename = "abstract/slot/descriptor/mount_rider.iff"
+
+clientDataFile = "clientdata/creature/client_shared_bm_whisper_bird.cdf"

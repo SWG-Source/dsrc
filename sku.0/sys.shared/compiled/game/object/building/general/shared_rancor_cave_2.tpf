@@ -1,0 +1,18 @@
+// Template Editor -SWG Source
+
+@base object/building/base/shared_base_cave.iff
+
+@class building_object_template 1
+
+
+interiorLayoutFileName = "interiorlayout/dath_rancor_cave_2.ilf"
+@class tangible_object_template 6
+
+@class object_template 6
+
+clearFloraRadius = 50
+
+objectName = "building_name"  "cave"
+detailedDescription = "building_name"  "cave"
+
+portalLayoutFilename = "appearance/thm_all_cave_s01_damprock.pob"

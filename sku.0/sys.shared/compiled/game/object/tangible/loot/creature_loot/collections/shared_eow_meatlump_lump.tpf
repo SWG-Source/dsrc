@@ -1,0 +1,10 @@
+// Template Editor -SWG Source
+
+@base object/tangible/loot/creature_loot/collections/shared_base_collection.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+objectName = "static_item_n" "eow_scavenger_collection_meatlump_lump"
+detailedDescription = "static_item_d" "eow_scavenger_collection_meatlump_lump"
+appearanceFilename = "appearance/eqp_meatlump_lump_s02.apt"

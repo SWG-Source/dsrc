@@ -1,0 +1,14 @@
+
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 10
+
+@class tangible_object_template 3
+
+@class object_template 3
+
+objectName = "npc_name"  "humanoid"
+detailedDescription = "npc_detail" "humanoid"
+lookAtText = "npc_lookat"  "humanoid"
+appearanceFilename = "appearance/dantari.sat"
+

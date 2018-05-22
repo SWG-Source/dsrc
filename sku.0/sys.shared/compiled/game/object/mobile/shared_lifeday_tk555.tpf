@@ -1,0 +1,22 @@
+// NPC Editor - SWG Source
+@base object/mobile/skeleton/shared_humanoid.iff 
+
+@class creature_object_template 12
+
+gender = GE_male
+species = SP_human
+
+@class tangible_object_template 3
+
+//animationMapFilename = "all_male.map"
+
+@class object_template 3
+
+objectName = "npc_name" "st_fn_lifeday_tk555"
+//detailedDescription = "" ""
+lookAtText = "npc_lookat" "st_fn_lifeday_tk555"
+
+appearanceFilename = "appearance/hum_m.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_stormtrooper_fat_m.cdf"
+
+

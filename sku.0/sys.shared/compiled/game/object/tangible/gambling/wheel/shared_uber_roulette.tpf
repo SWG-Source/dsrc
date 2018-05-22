@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/gambling/base/shared_gambling_station.iff
+
+@class tangible_object_template 6
+
+@class object_template 7
+
+objectName = "item_n"  "uber_roulette"
+detailedDescription = "item_d"  "uber_roulette"
+
+appearanceFilename = "appearance/ksk_all_gaming_s01.apt"
+//clientDataFile = "clientdata/"
+//portalLayoutFilename = ""
+

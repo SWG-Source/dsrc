@@ -1,0 +1,20 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+
+objectName = "item_n"  "wod_sm_wall_n"
+detailedDescription = "item_d"  "wod_sm_wall_d"
+
+//lookAtText = "string_table"  "item"
+
+//snapToTerrain = false
+
+appearanceFilename = "appearance/thm_dath_mtn_clan_strong_fence_s01.apt"
+//clientDataFile = "clientdata"
+//portalLayoutFilename = ""
+

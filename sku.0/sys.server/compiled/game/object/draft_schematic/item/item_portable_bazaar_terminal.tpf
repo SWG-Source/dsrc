@@ -1,0 +1,76 @@
+@base object/draft_schematic/item/base_item_schematic.iff
+@class draft_schematic_object_template 7
+
+itemsPerContainer = 25
+
+category = CT_misc
+craftedObjectTemplate = "item_portable_bazaar_terminal"
+
+slots = [
+	[
+	optional=false,
+	name = "craft_structure_ingredients_n" "terminal_stand_mount",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_structure_ingredients_n" "terminal_stand_mount", ingredient="metal", count=4]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_structure_ingredients_n" "terminal_display",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_structure_ingredients_n" "terminal_display", ingredient="chemical", count=2]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_structure_ingredients_n" "basic_logic_unit",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_structure_ingredients_n" "basic_logic_unit", ingredient="chemical", count=2]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_structure_ingredients_n" "basic_data_unit",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_structure_ingredients_n" "basic_data_unit", ingredient="chemical", count=2]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_structure_ingredients_n" "thermal_insulator_and_charge_leakage_preventor",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_structure_ingredients_n" "thermal_insulator_and_charge_leakage_preventor", ingredient="chemical", count=2]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_structure_ingredients_n" "interface_pad",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_structure_ingredients_n" "interface_pad", ingredient="chemical", count=2]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_structure_ingredients_n" "power_unit",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_structure_ingredients_n" "power_unit", ingredient="chemical", count=2]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ]]
+skillCommands = ["unskilled"]
+
+manufactureScripts = [ "systems.crafting.item.specific_item.crafting_station_item" ]
+
+@class intangible_object_template 0
+
+@class object_template 5
+
+complexity = 2
+sharedTemplate = "object/draft_schematic/item/shared_item_portable_bazaar_terminal.iff"
+volume = 1

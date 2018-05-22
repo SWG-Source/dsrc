@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+objectName = "item_n"  "uber_dant_totem_pole"
+detailedDescription = "item_d"  "uber_dant_totem_pole"
+
+appearanceFilename = "appearance/thm_dant_totem_pole.apt"
+//clientDataFile = "clientdata/"
+portalLayoutFilename = ""
+

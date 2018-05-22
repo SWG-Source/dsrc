@@ -1,0 +1,18 @@
+// This file was created by Mr. SWG Source
+
+@base object/tangible/base/shared_tangible_base.iff
+
+@class tangible_object_template 6
+
+
+targetable = false
+@class object_template 5
+
+
+objectName = "" "wod_crafting_alter_n"
+
+detailedDescription = "" "wod_crafting_alter_d"
+
+appearanceFilename = "appearance/eqp_jedi_sith_holocron_s02.apt"
+
+portalLayoutFilename = ""

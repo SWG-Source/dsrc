@@ -1,0 +1,20 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+
+objectName = "static_item_n"  "ff_gg_painting_2010"
+detailedDescription = "static_item_d"  "ff_gg_painting_2010"
+
+//lookAtText = "string_table"  "item"
+
+//snapToTerrain = false
+
+appearanceFilename = "appearance/frn_painting_galatic_gathering_10.apt"
+//clientDataFile = "clientdata/client_shared_lamp_interior_on.cdf"
+//portalLayoutFilename = ""
+

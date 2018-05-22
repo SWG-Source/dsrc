@@ -1,0 +1,22 @@
+//
+// Template Editor -SWG Source
+//
+
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 10
+
+gender = GE_male
+species = SP_human
+
+@class tangible_object_template 3
+
+@class object_template 3
+
+objectName = "theme_park_name" "tekil_barje"
+detailedDescription = "theme_park_detail" "tekil_barje"
+lookAtText = "theme_park_lookat" "tekil_barje"
+
+
+appearanceFilename = "appearance/hum_m.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_tatooine_tekil_barje.cdf"

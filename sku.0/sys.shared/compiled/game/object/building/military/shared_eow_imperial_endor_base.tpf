@@ -1,0 +1,25 @@
+// Template Editor -SWG Source
+
+@base object/building/base/shared_base_military_building.iff
+
+@class building_object_template 1
+
+interiorLayoutFileName = "interiorlayout/police_station_imperial_otto.ilf"
+
+@class tangible_object_template 5
+
+@class object_template 5
+
+
+objectName = "building_name"  "eow_imperial_endor_base"
+
+detailedDescription = "building_detail"  "eow_imperial_endor_base"
+
+lookAtText = "building_lookat"  "eow_imperial_endor_base"
+
+appearanceFilename = ""
+
+clientDataFile = "clientdata/building/shared_eow_imp_base.cdf"
+
+portalLayoutFilename = "appearance/mun_all_military_base_police_station_impl_s01.pob"
+

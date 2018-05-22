@@ -1,0 +1,15 @@
+// SWG Source
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 9
+
+
+@class object_template 9
+
+objectName = "static_item_n" "yr7_painting_2010"
+detailedDescription = "static_item_d" "yr7_painting_2010"
+
+appearanceFilename = "appearance/frn_painting_swg_7_year.apt"
+
+
+

@@ -1,0 +1,16 @@
+// Template Editor - SWG Source
+
+@base object/static/flora/shared_flora_base.iff
+
+@class static_object_template 0
+
+@class object_template 3
+
+
+detailedDescription = ""  "eqp_platform_stage_d"
+
+lookAtText = "string_table"  "pristine wall"
+
+snapToTerrain = false
+
+appearanceFilename = "appearance/thm_endr_lakevillage_lake_hut_pc1.apt"

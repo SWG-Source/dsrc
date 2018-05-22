@@ -1,0 +1,22 @@
+//
+// Template Editor -SWG Source
+//
+
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 10
+
+gender = GE_male
+species = SP_human
+
+@class tangible_object_template 3
+
+@class object_template 3
+
+objectName = "theme_park_name" "windom_starkiller"
+detailedDescription = "theme_park_detail" "windom_starkiller"
+lookAtText = "theme_park_lookat" "windom_starkiller"
+
+
+appearanceFilename = "appearance/hum_m.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_tatooine_windom_starkiller.cdf"

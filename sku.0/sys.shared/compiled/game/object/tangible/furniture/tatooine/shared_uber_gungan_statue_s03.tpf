@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+objectName = "item_n"  "uber_gungan_statue_s03"
+detailedDescription = "item_d"  "uber_gungan_statue_s03"
+
+appearanceFilename = "appearance/thm_nboo_gungan_statue_s03.apt"
+//clientDataFile = "clientdata/"
+portalLayoutFilename = ""
+

@@ -1,0 +1,23 @@
+// NPC Editor - SWG Source
+@base object/mobile/skeleton/shared_humanoid.iff 
+
+@class creature_object_template 12
+
+gender = GE_male
+species = SP_human
+
+@class tangible_object_template 3
+
+//animationMapFilename = "all_male.map"
+
+@class object_template 3
+
+
+objectName = "monster_name" "monkey_lizard"
+//detailedDescription = "" ""
+lookAtText = "monster_lookat" "monkey_lizard"
+
+appearanceFilename = "appearance/kowakian_monkey_lizard_m.sat"
+clientDataFile = "clientdata/creature/client_shared_bm_monkey_lizard.cdf"
+
+

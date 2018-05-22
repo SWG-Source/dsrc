@@ -1,0 +1,24 @@
+// NPC Editor - SWG Source
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 12
+
+gender = GE_female
+species = SP_human
+
+
+@class tangible_object_template 3
+
+
+@class object_template 3
+
+
+//objectName = "" "wod_sm_rancor_handler_n"
+//detailedDescription = "" "wod_sm_rancor_handler_d"
+//lookAtText = "theme_park_lookat"  "singing_mt_clan_rancor_tamer"
+
+
+appearanceFilename = "appearance/hum_f_void_sister.sat"
+clientDataFile = "clientdata/npc/client_shared_wod_third_sister.cdf"
+
+

@@ -1,0 +1,16 @@
+
+@base object/tangible/terminal/base/shared_base_terminal.iff
+
+@class tangible_object_template 3
+
+@class object_template 5
+
+objectName = "item_n" "wod_logic_unit_componenet_n"
+detailedDescription = "item_d" "wod_logic_unit_componenet_d"
+//lookAtText = "terminal_lookat" "terminal_water_pressure"
+
+appearanceFilename = "appearance/eqp_must_republic_tech_s03.apt"
+
+//clientDataFile = "clientdata/structure/wod_first_sister_altar.cdf"
+
+//gameObjectType = GOT_terminal_misc

@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/wearables/base/shared_base_jumpsuit_longsleeve.iff
+
+@class tangible_object_template 3
+
+
+
+@class object_template 3
+
+objectName = "wearables_name" "bodysuit_s07"
+detailedDescription = "wearables_detail" "bodysuit_s07"
+lookAtText = "wearables_lookat" "bodysuit_s07"
+appearanceFilename = "appearance/translaver_m.sat"
+portalLayoutFilename = ""

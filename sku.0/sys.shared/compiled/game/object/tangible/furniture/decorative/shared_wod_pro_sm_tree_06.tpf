@@ -1,0 +1,20 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+
+objectName = "theme_park_wod/messages"  "wod_pro_sm_tree_06_n"
+detailedDescription = "theme_park_wod/messages"  "wod_pro_sm_tree_06_d"
+
+//lookAtText = "string_table"  "item"
+
+//snapToTerrain = false
+
+appearanceFilename = "appearance/frn_all_wod_planter_med_s02.apt"
+clientDataFile = "clientdata/item/client_shared_strong_blue_light.cdf"
+//portalLayoutFilename = ""
+

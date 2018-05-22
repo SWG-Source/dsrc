@@ -1,0 +1,14 @@
+// Template Editor -SWG Source
+@base object/tangible/wearables/base/shared_base_hat.iff
+
+@class tangible_object_template 3
+
+
+
+@class object_template 3
+
+objectName = "item_n" "cyborg_crafting_headband_s01_n"
+detailedDescription = "item_d" "cyborg_crafting_headband_s01_d"
+lookAtText = "" ""
+appearanceFilename = "appearance/hat_human_m_cyborg.sat"
+portalLayoutFilename = ""

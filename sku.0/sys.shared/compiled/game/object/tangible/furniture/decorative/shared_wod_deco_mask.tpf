@@ -1,0 +1,20 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+
+objectName = "frn_n"  "wod_deco_mask_n"
+detailedDescription = "frn_d"  "wod_deco_mask_n"
+
+//lookAtText = "string_table"  "item"
+
+//snapToTerrain = false
+
+appearanceFilename = "appearance/frn_all_sing_mt_clan_mask_s01.apt"
+//clientDataFile = "clientdata/"
+//portalLayoutFilename = ""
+

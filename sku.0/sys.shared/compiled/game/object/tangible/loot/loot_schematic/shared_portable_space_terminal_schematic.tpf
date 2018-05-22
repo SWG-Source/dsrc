@@ -1,0 +1,12 @@
+// Template Editor -SWG Source
+
+@base object/tangible/base/shared_tangible_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+objectName = "static_item_n"  "item_schematic_portable_space_terminal"
+detailedDescription = "static_item_d"  "item_schematic_portable_space_terminal"
+
+appearanceFilename = "appearance/ksk_all_ship_maintenance_terminal_small.apt"

@@ -1,0 +1,24 @@
+// NPC Editor - SWG Source
+@base object/creature/npc/base/shared_base_npc_theme_park.iff 
+
+@class creature_object_template 12
+
+//gender = GE_male
+species = SP_mynock
+
+@class tangible_object_template 3
+
+//animationMapFilename = "all_male.map"
+
+@class object_template 3
+
+
+objectName = "monster_name"  "mynock"
+//detailedDescription = "" ""
+lookAtText = "monster_lookat"  "mynock"
+
+
+appearanceFilename = "appearance/mynock_hue.sat"
+clientDataFile = "clientdata/npc/client_shared_cr_mynock.cdf"
+
+

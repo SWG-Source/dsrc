@@ -1,0 +1,20 @@
+
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 12
+
+@class tangible_object_template 3
+
+@class object_template 3
+
+objectName = "monster_name" "monkey_lizard"
+detailedDescription = "" ""
+lookAtText = "monster_lookat" "monkey_lizard"
+//snapToTerrain = true
+//tintPalette = "0"
+appearanceFilename = "appearance/kowakian_monkey_lizard_m.sat"
+
+portalLayoutFilename = ""
+
+clientDataFile = "clientdata/creature/client_shared_bm_monkey_lizard.cdf"
+
