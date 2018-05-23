@@ -442,6 +442,8 @@ sullustan_female	cosmetic	color	color_eye_shadow	index_color_eyeshadow				index_
 sullustan_female	cosmetic	color	color_lip	index_color_lips								0			face	1	physical
 sullustan_female	markings	hslider	pattern	index_patterns						250	1				markings	5	cosmetic
 sullustan_female	markings	color	pattern_color	index_color_patterns						250	1				markings	5	cosmetic
+sullustan_female	hair	color	color_hair	index_color_1										1	hair	1	cosmetic
+sullustan_female	hair	color	color_hair_trim	index_color_2										1	hair	2	cosmetic
 sullustan_male	body	hslider	muscle	blend_muscle											body	3	physical
 sullustan_male	body	hslider	height		1										body	5	physical
 sullustan_male	body	hslider	weight	"blend_skinny,blend_fat"											body	7	physical
@@ -467,3 +469,5 @@ sullustan_male	ears_chin_mouth	hslider	jowl	"blend_sensor_0,blend_sensor_1"					
 sullustan_male	ears_chin_mouth	color	color_skin	index_color_skin											body	9	physical
 sullustan_male	markings	hslider	pattern	index_patterns						250	1				markings	5	cosmetic
 sullustan_male	markings	color	pattern_color	index_color_patterns						250	1				markings	5	cosmetic
+sullustan_male	hair	color	color_hair	index_color_1										1	hair	1	cosmetic
+sullustan_male	hair	color	color_hair_trim	index_color_2										1	hair	2	cosmetic
