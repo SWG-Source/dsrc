@@ -5,7 +5,9 @@
 @class object_template 10
 
 objectName = "static_item_n" "rare_loot_chest_1"
+
 detailedDescription = "static_item_d" "rare_loot_chest_1"
 
 appearanceFilename = "appearance/item_rare_loot_chest.apt"
 
+gameObjectType = GOT_misc_item_usable
