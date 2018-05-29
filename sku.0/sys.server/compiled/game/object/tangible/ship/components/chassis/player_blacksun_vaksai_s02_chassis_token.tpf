@@ -5,6 +5,6 @@
 
 @class object_template 10
 
-sharedTemplate = "object/tangible/ship/components/chassis/shared_blacksun_vaksai_s02_chassis_token.iff"
+sharedTemplate = "object/tangible/ship/components/chassis/shared_player_blacksun_vaksai_s02_chassis_token.iff"
 
 objvars =+ ["shiptype" = "blacksun_heavy_vaksai"]
