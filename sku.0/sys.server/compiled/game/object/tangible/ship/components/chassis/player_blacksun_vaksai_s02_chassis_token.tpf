@@ -7,4 +7,4 @@
 
 sharedTemplate = "object/tangible/ship/components/chassis/shared_player_blacksun_vaksai_s02_chassis_token.iff"
 
-objvars =+ ["shiptype" = "blacksun_heavy_vaksai"]
+objvars =+ ["shiptype" = "blacksun_vaksai_s02"]
