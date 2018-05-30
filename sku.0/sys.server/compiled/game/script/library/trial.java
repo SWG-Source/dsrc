@@ -281,7 +281,7 @@ public class trial extends script.base_script
         "item_imperial_station_token_01_01",
         "item_rebel_station_token_01_01"
     };
-    public static final int NUM_HEROIC_TOKEN_TYPES = 20;
+    public static final int NUM_HEROIC_TOKEN_TYPES = 22;
     public static final String KIMARU_HATE_LIST = "kimaru_hate_list";
     public static final String WP_DATA = "nearPoint";
     public static final String PROT_CHILD = "protected_data";
