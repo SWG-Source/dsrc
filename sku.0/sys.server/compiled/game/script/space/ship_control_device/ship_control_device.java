@@ -1,21 +1,7 @@
 package script.space.ship_control_device;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.space_transition;
-import script.library.space_crafting;
-import script.library.space_utils;
-import script.library.space_combat;
-import script.library.static_item;
-import script.library.sui;
-import script.library.player_structure;
+import script.library.*;
 
 public class ship_control_device extends script.base_script
 {

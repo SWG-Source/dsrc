@@ -2,7 +2,7 @@
 
 @class ship_object_template 1
 
-shipType = "player_blacksun_heavy_vaksai"
+shipType = "player_blacksun_vaksai_s02"
 
 @class tangible_object_template 4
 
