@@ -1,0 +1,23 @@
+// NPC Editor - SWG Source
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 12
+
+gender = GE_male
+species = SP_ewok
+
+@class tangible_object_template 3
+
+
+@class object_template 3
+
+
+objectName = "npc_name"  "st_fn_loveday_ewok_chief"
+detailedDescription = "" ""
+lookAtText = "npc_lookat"  "st_fn_loveday_ewok_chief"
+
+
+appearanceFilename = "appearance/ewok_m.sat"
+clientDataFile = "clientdata/npc/client_shared_ewok_loveday_chief.cdf"
+
+

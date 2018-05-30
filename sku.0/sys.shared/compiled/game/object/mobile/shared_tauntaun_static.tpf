@@ -1,0 +1,23 @@
+// NPC Editor - SWG Source
+@base object/creature/npc/base/shared_base_npc_theme_park.iff
+
+@class creature_object_template 12
+
+//gender = GE_male
+species = SP_kwi
+
+@class tangible_object_template 3
+
+
+@class object_template 3
+
+
+objectName = "monster_name"  "tauntaun"
+detailedDescription = "" ""
+lookAtText = "monster_lookat"  "tauntaun"
+
+
+appearanceFilename = "appearance/tauntaun_hue_hoth.sat"
+clientDataFile = "clientdata/npc/client_shared_cr_tauntaun.cdf"
+
+

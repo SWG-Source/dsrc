@@ -1,0 +1,23 @@
+// NPC Editor - SWG Source
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 12
+
+gender = GE_male
+species = SP_human
+
+@class tangible_object_template 3
+
+
+@class object_template 3
+
+
+objectName = "npc_name"  "storyteller_wedge_antilles"
+detailedDescription = "" ""
+lookAtText = "npc_lookat"  "storyteller_wedge_antilles"
+
+
+appearanceFilename = "appearance/hum_m.sat"
+clientDataFile = "clientdata/npc/client_shared_wedge_antilles_remembrance_day.cdf"
+
+

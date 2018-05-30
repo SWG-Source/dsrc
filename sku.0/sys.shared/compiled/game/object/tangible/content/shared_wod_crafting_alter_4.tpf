@@ -1,0 +1,16 @@
+
+@base object/tangible/terminal/base/shared_base_terminal.iff
+
+@class tangible_object_template 3
+
+@class object_template 5
+
+objectName = "theme_park/wod" "wod_crafting_altar_4_n"
+detailedDescription = "theme_park/wod" "wod_crafting_altar_4_d"
+lookAtText = "terminal_lookat" "terminal_water_pressure"
+
+appearanceFilename = "appearance/thm_kash_column_wood.apt"
+
+clientDataFile = "clientdata/structure/axkva_nightsister_pedastal.cdf"
+
+//gameObjectType = GOT_terminal_misc

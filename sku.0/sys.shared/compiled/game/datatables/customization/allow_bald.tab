@@ -1,18 +1,20 @@
 SPECIES_GENDER	ALLOW_BALD
 s	b[1]
-moncal_female	
-moncal_male	
-bothan_female	
-bothan_male	
+moncal_female	1
+moncal_male	1
+bothan_female	1
+bothan_male	1
 zabrak_female	0
 zabrak_male	0
 twilek_female	0
 twilek_male	0
 trandoshan_female	0
 trandoshan_male	0
-wookiee_female	
-wookiee_male	
-rodian_female	
-rodian_male	
-human_female
-human_male
+wookiee_female	1
+wookiee_male	1
+rodian_female	1
+rodian_male	1
+human_female	1
+human_male	1
+sullustan_female	1
+sullustan_male	1

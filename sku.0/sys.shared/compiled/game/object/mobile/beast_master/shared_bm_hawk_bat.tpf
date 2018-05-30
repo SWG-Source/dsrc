@@ -1,0 +1,20 @@
+
+@base object/mobile/skeleton/shared_bm_mynock.iff
+
+@class creature_object_template 12
+
+@class tangible_object_template 3
+
+@class object_template 3
+
+objectName = "monster_name" "hawk_bat"
+detailedDescription = "" ""
+lookAtText = "monster_lookat"  "hawk_bat"
+//snapToTerrain = true
+//tintPalette = "0"
+appearanceFilename = "appearance/hawk_bat.sat"
+
+portalLayoutFilename = ""
+
+clientDataFile = "clientdata/creature/client_shared_cr_mynock.cdf"
+

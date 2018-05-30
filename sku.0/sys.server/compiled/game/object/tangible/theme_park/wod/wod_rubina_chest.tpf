@@ -1,0 +1,8 @@
+@base object/tangible/terminal/base/base_terminal.iff
+
+@class tangible_object_template 0
+
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/theme_park/wod/shared_wod_rubina_chest.iff"

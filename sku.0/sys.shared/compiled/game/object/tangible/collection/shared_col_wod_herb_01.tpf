@@ -1,0 +1,10 @@
+// Template Editor -SWG Source
+
+@base object/tangible/loot/creature_loot/collections/shared_base_collection.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+objectName = "collection_n" "icon_wod_herb_01"
+detailedDescription = "collection_d" "icon_wod_herb_01"
+appearanceFilename = "appearance/leaf_dath_lessetplant.apt"

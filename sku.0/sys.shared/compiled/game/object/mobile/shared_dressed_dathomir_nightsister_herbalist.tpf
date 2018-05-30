@@ -1,0 +1,20 @@
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 12
+
+gender = GE_female
+species = SP_bith
+
+@class tangible_object_template 3
+
+
+
+@class object_template 3
+
+objectName = "theme_park_wod/messages" "nightsister_herbalist_n"
+detailedDescription = "theme_park_wod/messages" "nightsister_herbalist_d"
+lookAtText = "theme_park_wod/messages" "nightsister_herbalist"
+appearanceFilename = "appearance/nightsister_f.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_dathomir_nightsister_rancor_tamer.cdf"
+
+

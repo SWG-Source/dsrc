@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+objectName = "item_n"  "uber_large_fruit_stand"
+detailedDescription = "item_d"  "uber_large_fruit_stand"
+
+appearanceFilename = "appearance/frn_tato_fruit_stand_large_s01.apt"
+//clientDataFile = "clientdata/"
+portalLayoutFilename = ""
+

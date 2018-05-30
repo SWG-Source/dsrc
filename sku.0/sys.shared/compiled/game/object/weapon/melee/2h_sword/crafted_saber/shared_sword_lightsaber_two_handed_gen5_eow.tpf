@@ -1,0 +1,20 @@
+// Template Editor -SWG Source
+
+@base object/weapon/melee/2h_sword/base/shared_crafted_lightsaber_base.iff
+
+@class weapon_object_template 1
+
+@class tangible_object_template 6
+
+
+
+@class object_template 0
+
+appearanceFilename = "appearance/wp_mle_2h_sword_lightsaber_blade_gen5_eow.lsb"
+
+objectName = "weapon_name" "sword_lightsaber_two_handed_gen5_eow"
+detailedDescription = "weapon_detail" "sword_lightsaber_two_handed_gen5_eow"
+lookAtText = "weapon_lookat" "sword_lightsaber_gen5_2h"
+
+clientDataFile = "clientdata/weapon/client_melee_lightsaber_quigon.cdf"
+

@@ -1174,7 +1174,6 @@ craftStructureGroupE	object/draft_schematic/structure/generic_house_guild_hall.i
 craftStructureGroupE	object/draft_schematic/structure/house_guild_hall.iff
 craftStructureGroupE	object/draft_schematic/structure/tatooine_house_guild_hall_style_02.iff
 craftStructureGroupE	object/draft_schematic/structure/naboo_house_guild_hall.iff
-craftStructureGroupE	object/draft_schematic/structure/yt1300_house.iff
 craftInstallationGroupAA	object/draft_schematic/structure/installation_factory_weapon.iff
 craftInstallationGroupAA	object/draft_schematic/structure/installation_mining_liquid_vapor.iff
 craftInstallationGroupAA	object/draft_schematic/structure/component/structure_fluidic_drilling_pumping_unit.iff
@@ -1491,8 +1490,6 @@ craftShipwrightEngGroupC	object/draft_schematic/space/armor/mass_reduction_kit_m
 craftShipwrightEngGroupC	object/draft_schematic/space/modification/tieadvanced_modification_s01.iff
 craftShipwrightEngGroupC	object/draft_schematic/space/cargo_hold/crg_starfighter_large.iff
 craftShipwrightEngGroupC	object/draft_schematic/space/cargo_hold/crg_pob_medium.iff
-craftShipwrightEngGroupC	object/draft_schematic/space/chassis/havoc.iff
-craftShipwrightEngGroupC	object/draft_schematic/space/chassis/twing.iff
 craftShipwrightEngGroupD	object/draft_schematic/space/chassis/tieadvanced.iff
 craftShipwrightEngGroupD	object/draft_schematic/space/chassis/tieaggressor.iff
 craftShipwrightEngGroupD	object/draft_schematic/space/chassis/awing.iff
@@ -1701,7 +1698,6 @@ craftShipwrightMaster	object/draft_schematic/space/chassis/bwing.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/hutt_turret_ship.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/yt1300.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/tieoppressor.iff
-craftShipwrightMaster	object/draft_schematic/space/chassis/tiedefender.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/decimator.iff
 craftShipwrightMaster	object/draft_schematic/space/chassis/ykl37r.iff
 craftShipwrightMaster	object/draft_schematic/space/droid_interface/droid_brain_upgrade_mk5.iff

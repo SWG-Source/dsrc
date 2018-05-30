@@ -1,0 +1,20 @@
+
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 10
+
+species = SP_bith
+gender = GE_female
+
+@class tangible_object_template 3
+
+
+
+@class object_template 3
+
+objectName = "npc_name" "vhaunda"
+detailedDescription = "npc_detail" "vhaunda"
+lookAtText = "npc_lookat" "vhaunda"
+appearanceFilename = "appearance/sing_mt_clan_f.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_vhaunda.cdf"
+

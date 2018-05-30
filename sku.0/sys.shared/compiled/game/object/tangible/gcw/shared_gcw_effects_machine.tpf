@@ -1,0 +1,13 @@
+// Template Editor -SWG Source
+
+@base object/tangible/dance_prop/shared_prop_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+objectName = "static_item_n" "item_fx_machine"
+detailedDescription = "static_item_d" "item_fx_machine"
+
+
+appearanceFilename = "appearance/eqp_jedi_relic_s03.apt"

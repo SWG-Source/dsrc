@@ -23,7 +23,7 @@ slots = [
 	[name = "craft_item_ingredients_n" "ship_skin", hardpoint = ""],
 	[name = "craft_item_ingredients_n" "cockpit_insulation", hardpoint = ""]]
 
-craftedSharedTemplate="object/tangible/ship/components/chassis/shared_tieadvanced_chassis_token.iff"
+craftedSharedTemplate="object/tangible/ship/components/chassis/shared_havoc_chassis_token.iff"
 
 @class intangible_object_template 0
 

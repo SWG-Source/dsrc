@@ -1,0 +1,15 @@
+// Template Editor - SWG Source
+
+@base object/static/item/shared_item_base.iff
+
+@class static_object_template 0
+
+@class object_template 3
+
+
+detailedDescription = ""  "item_stone_cage_wall_d"
+
+lookAtText = "string_table"  "item"
+
+
+appearanceFilename = "appearance/thm_all_cage_stone.apt"

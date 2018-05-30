@@ -1,0 +1,16 @@
+// Template Editor -SWG Source
+
+@base object/tangible/storyteller/prop/base/shared_storyteller_prop_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 10
+
+
+objectName = "item_n" "pr_emperor_statue"
+
+detailedDescription = "static_item_d" "st_pr_eqp_emperor_statue"
+
+appearanceFilename = "appearance/palpatine_statue.apt"
+
+//clientDataFile = "clientdata/creature/client_shared_cr_bantha_saddle.cdf"

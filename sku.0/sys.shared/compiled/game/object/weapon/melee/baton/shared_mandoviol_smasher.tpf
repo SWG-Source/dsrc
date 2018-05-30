@@ -1,0 +1,17 @@
+@base object/weapon/melee/base/shared_base_melee.iff
+
+@class weapon_object_template 1
+
+@class tangible_object_template 2
+
+@class object_template 10
+
+appearanceFilename = "appearance/eqp_music_mandoviol.apt"
+
+objectName = "static_item_n" "mandoviol_smasher"
+detailedDescription = "static_item_d" "mandoviol_smasher"
+lookAtText = "weapon_lookat" "mandoviol_smasher"
+
+//gameObjectType = GOT_weapon_melee_1h
+
+//clientDataFile = "clientdata/weapon/client_melee_baton.cdf"

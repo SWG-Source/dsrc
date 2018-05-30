@@ -1,0 +1,20 @@
+
+@base object/mobile/skeleton/shared_bm_dewback.iff
+
+@class creature_object_template 12
+
+@class tangible_object_template 3
+
+@class object_template 3
+
+objectName = "monster_name" "mutated_bol"
+detailedDescription = "" ""
+lookAtText = "monster_lookat" "mutated_bol"
+//snapToTerrain = true
+//tintPalette = "0"
+appearanceFilename = "appearance/bol_elite.sat"
+
+portalLayoutFilename = ""
+
+clientDataFile = "clientdata/creature/client_shared_cr_bol.cdf"
+

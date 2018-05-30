@@ -1,0 +1,20 @@
+//  Template Editor -SWG Source
+
+
+@base object/tangible/terminal/base/shared_base_portable_terminal.iff
+
+@class tangible_object_template 3
+
+
+@class object_template 5
+
+objectName = "static_item_n" "item_planning_table_dearic_imperial"
+detailedDescription = "static_item_d" "item_planning_table_dearic_imperial"
+lookAtText = "" ""
+
+snapToTerrain = false
+
+appearanceFilename = "appearance/frn_all_gcw_table_dearic_imp.apt"
+portalLayoutFilename = ""
+
+//clientDataFile= "clientdata/terminal/client_shared_terminal_bazaar.cdf"

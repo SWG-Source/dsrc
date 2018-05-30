@@ -1,0 +1,16 @@
+// SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+
+objectName = "frn_n"  "frn_shear_mite_toy_n"
+
+detailedDescription = "frn_d"  "frn_shear_mite_toy_d"
+
+appearanceFilename = "appearance/frn_all_wod_toy_shear_mite.apt"
+
+portalLayoutFilename = ""

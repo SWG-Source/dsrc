@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+objectName = "item_n"  "uber_beacon_marker"
+detailedDescription = "item_d"  "uber_beacon_marker"
+
+appearanceFilename = "appearance/eqp_tool_sensor_beacon.apt"
+//clientDataFile = "clientdata/"
+portalLayoutFilename = ""
+

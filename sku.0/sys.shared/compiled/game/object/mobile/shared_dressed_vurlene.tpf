@@ -1,0 +1,20 @@
+
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 3
+
+gender = GE_female
+species = SP_bith
+
+@class tangible_object_template 3
+
+
+
+@class object_template 3
+
+objectName = "npc_name" "vurlene"
+detailedDescription = "npc_detail" "vurlene"
+lookAtText = "npc_lookat" "vurlene"
+appearanceFilename = "appearance/sing_mt_clan_f.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_vurlene.cdf"
+

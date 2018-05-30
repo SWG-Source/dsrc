@@ -1,0 +1,20 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+
+objectName = "static_item_n"  "item_empire_day_2011_furniture_stand"
+detailedDescription = "static_item_d"  "item_empire_day_2011_furniture_stand"
+
+lookAtText = "string_table"  "item"
+
+snapToTerrain = false
+
+appearanceFilename = "appearance/frn_all_stand_s01.apt"
+//clientDataFile = "clientdata/client_shared_lamp_interior_on.cdf"
+portalLayoutFilename = ""
+

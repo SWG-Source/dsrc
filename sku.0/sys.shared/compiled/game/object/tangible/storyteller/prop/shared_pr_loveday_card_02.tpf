@@ -1,0 +1,17 @@
+// Template Editor -SWG Source
+
+@base object/tangible/storyteller/prop/base/shared_storyteller_prop_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 10
+
+
+objectName = "item_n" "pr_loveday_card_02"
+
+detailedDescription = "item_d" "pr_loveday_card_02"
+
+appearanceFilename = "appearance/ewok_loveday_card02.apt"
+
+//clientDataFile = "clientdata/"
+

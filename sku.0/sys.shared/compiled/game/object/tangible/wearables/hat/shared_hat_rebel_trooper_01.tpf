@@ -1,0 +1,10 @@
+@base object/tangible/wearables/base/shared_base_hat.iff
+
+@class tangible_object_template 3
+
+@class object_template 3
+
+objectName = "wearables_name" "hat_rebel_trooper_01"
+detailedDescription = "wearables_detail" "hat_rebel_trooper_01"
+
+appearanceFilename = "appearance/helmet_rebel_trooper_m.sat"

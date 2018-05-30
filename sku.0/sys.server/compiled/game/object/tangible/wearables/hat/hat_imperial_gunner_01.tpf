@@ -1,0 +1,11 @@
+
+@base object/tangible/wearables/base/wearables_base.iff
+
+@class tangible_object_template 0
+
+@class object_template 2
+
+sharedTemplate = "object/tangible/wearables/hat/shared_hat_imperial_gunner_01.iff"
+
+objvars =+ ["faction_recruiter.faction"="Imperial"]
+scripts =+ ["npc.faction_recruiter.faction_item"]

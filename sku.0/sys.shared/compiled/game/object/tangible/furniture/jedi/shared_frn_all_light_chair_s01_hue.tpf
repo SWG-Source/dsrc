@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+objectName = "frn_n"  "frn_all_light_chair_s01_hue"
+detailedDescription = "frn_d"  "frn_all_light_chair_s01_hue"
+
+appearanceFilename = "appearance/frn_jedi_chair_light_s1_hue.apt"
+//clientDataFile = "clientdata/"
+portalLayoutFilename = ""
+

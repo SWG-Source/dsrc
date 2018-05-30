@@ -1,0 +1,10 @@
+// Template Editor -SWG Source
+
+@base object/tangible/loot/creature_loot/collections/shared_base_collection.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+objectName = "static_item_n" "eow_scavenger_collection_broken_holoshroud"
+detailedDescription = "static_item_d" "eow_scavenger_collection_broken_holoshroud"
+appearanceFilename = "appearance/eqp_hologram_projector.apt"

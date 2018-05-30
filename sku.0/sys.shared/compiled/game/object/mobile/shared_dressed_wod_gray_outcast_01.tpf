@@ -1,0 +1,22 @@
+// NPC Editor - SWG Source
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 12
+
+gender = GE_female
+species = SP_bith
+
+@class tangible_object_template 3
+
+//animationMapFilename = "all_male.map"
+
+@class object_template 3
+
+objectName = "theme_park_name" "gray_outcast"
+//detailedDescription = "theme_park_detail" "gray_witch"
+lookAtText = "theme_park_lookat" "gray_outcast"
+
+appearanceFilename = "appearance/nightsister_f.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_wod_gray_outcast_01.cdf"
+
+

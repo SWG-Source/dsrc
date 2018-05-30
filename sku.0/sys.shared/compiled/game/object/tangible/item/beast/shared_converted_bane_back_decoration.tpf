@@ -1,0 +1,14 @@
+// Template Editor -SWG Source
+
+@base object/tangible/base/shared_tangible_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 7
+
+objectName = "monster_name" "bane_back"
+detailedDescription = "" ""
+lookAtText = "monster_lookat"  "bane_back"
+appearanceFilename = "appearance/bane_back_spider.sat"
+
+gameObjectType = GOT_misc_item

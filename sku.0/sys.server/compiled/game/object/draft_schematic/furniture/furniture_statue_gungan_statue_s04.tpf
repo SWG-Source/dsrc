@@ -1,0 +1,34 @@
+@base object/draft_schematic/furniture/furniture_base.iff
+@class draft_schematic_object_template 7
+
+itemsPerContainer = 10
+craftedObjectTemplate = "object/tangible/furniture/tatooine/uber_gungan_statue_s04.iff"
+
+slots = [
+	[
+	optional=false,
+	name = "craft_furniture_ingredients_n" "artistic_medium",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_furniture_ingredients_n" "artistic_medium", ingredient="metal", count=35]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_furniture_ingredients_n" "decorative_trim",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_furniture_ingredients_n" "decorative_trim", ingredient="metal", count=15]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ]]
+skillCommands = ["unskilled"]
+
+manufactureScripts = [ "systems.crafting.furniture.specific_item.furniture_item" ]
+
+@class intangible_object_template 0
+
+@class object_template 5
+
+complexity = 16
+sharedTemplate = "object/draft_schematic/furniture/shared_furniture_statue_gungan_statue_s04.iff"
+volume = 2

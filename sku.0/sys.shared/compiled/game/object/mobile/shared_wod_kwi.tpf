@@ -1,0 +1,23 @@
+// NPC Editor - SWG Source
+@base object/mobile/skeleton/shared_tauntaun.iff
+
+@class creature_object_template 12
+
+//gender = GE_female
+species = SP_kwi
+
+@class tangible_object_template 3
+
+
+@class object_template 3
+
+
+objectName = "monster_name" "wod_kwi"
+detailedDescription = "" ""
+lookAtText = "monster_lookat"  "wod_kwi"
+
+
+appearanceFilename = "appearance/kwi_hue.sat"
+clientDataFile = "clientdata/creature/client_shared_wod_kwi.cdf"
+
+

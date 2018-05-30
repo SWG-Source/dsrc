@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/storyteller/prop/base/shared_storyteller_prop_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 10
+
+
+objectName = "static_item_n" "st_pr_item_burning_man_huge"
+
+detailedDescription = "static_item_d" "st_pr_item_burning_man_huge"
+
+appearanceFilename = "appearance/poi_moon_effigy_s02.apt"
+

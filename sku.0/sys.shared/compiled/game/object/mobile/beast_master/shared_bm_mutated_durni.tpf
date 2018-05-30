@@ -1,0 +1,19 @@
+
+@base object/mobile/skeleton/shared_bm_rabbit.iff
+
+@class creature_object_template 7
+// We may need to adjust creature template later -SWG Source
+//species = SP_xxxx
+
+@class tangible_object_template 3
+
+
+@class object_template 3
+
+objectName = "monster_name"  "mutated_durni"
+detailedDescription = "" ""
+lookAtText = "monster_lookat"  "mutated_durni"
+appearanceFilename = "appearance/crazed_durni.sat"
+
+
+clientDataFile = "clientdata/creature/client_shared_cr_durni.cdf"

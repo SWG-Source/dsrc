@@ -1,0 +1,22 @@
+// NPC Editor - SWG Source
+@base object/mobile/skeleton/shared_humanoid.iff
+
+@class creature_object_template 12
+
+gender = GE_female
+species = SP_bith
+
+@class tangible_object_template 3
+
+//animationMapFilename = "all_male.map"
+
+@class object_template 3
+
+//objectName = "theme_park_name" "omogg_rep"
+//detailedDescription = "theme_park_detail" "omogg_rep"
+//lookAtText = "theme_park_lookat" "omogg_rep"
+
+appearanceFilename = "appearance/sing_mt_clan_f.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_wod_sm_vendor.cdf"
+
+

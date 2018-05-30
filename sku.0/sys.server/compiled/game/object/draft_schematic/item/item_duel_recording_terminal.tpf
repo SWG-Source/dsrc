@@ -1,0 +1,76 @@
+@base object/draft_schematic/item/base_item_schematic.iff
+
+@class draft_schematic_object_template 7
+
+itemsPerContainer = 40
+
+category = CT_misc
+
+craftedObjectTemplate = "object/tangible/veteran_reward/duel_recording_terminal.iff"
+
+slots = [
+	[
+	optional=false,
+	name = "craft_item_ingredients_n" "frame",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_item_ingredients_n" "frame", ingredient="mineral", count=50]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_item_ingredients_n" "lightsaber_casting",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_item_ingredients_n" "lightsaber_casting", ingredient="chemical", count=40]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_item_ingredients_n" "combat_data_storage_circuit",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_item_ingredients_n" "combat_data_storage_circuit", ingredient="metal", count=20]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_item_ingredients_n" "combat_data_gathering_unit",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_item_ingredients_n" "combat_data_gathering_unit", ingredient="metal", count=20]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_item_ingredients_n" "combat_data_interface_unit",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_item_ingredients_n" "combat_data_interface_unit", ingredient="fiberplast", count=20]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_item_ingredients_n" "combat_data_interpretation_circuit",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_item_ingredients_n" "combat_data_interpretation_circuit", ingredient="metal", count=30]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_item_ingredients_n" "mounting_stand",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_item_ingredients_n" "mounting_stand", ingredient="metal", count=30]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ]]
+skillCommands = ["unskilled"]
+
+@class intangible_object_template 0
+
+@class object_template 5
+
+complexity = 11
+sharedTemplate = "object/draft_schematic/item/shared_item_duel_recording_terminal.iff"
+volume = 1

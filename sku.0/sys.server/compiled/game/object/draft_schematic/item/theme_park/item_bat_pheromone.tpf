@@ -1,0 +1,52 @@
+@base object/draft_schematic/item/base_item_schematic.iff
+@class draft_schematic_object_template 7
+
+itemsPerContainer = 25
+
+category = CT_misc
+craftedObjectTemplate = "object/tangible/event_perk/gmf_crafted_bat_pheromone.iff"
+
+slots = [
+	[
+	optional=false,
+	name = "craft_chemical_ingredients_n" "dispersal_mechanism",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_chemical_ingredients_n" "dispersal_mechanism", ingredient="gas_reactive", count=40]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_tissue_ingredients_n" "suspension_compound",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_tissue_ingredients_n" "suspension_compound", ingredient="petrochem_inert_polymer", count=25]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_chemical_ingredients_n" "casing",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_chemical_ingredients_n" "casing", ingredient="chemical", count=2]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ],
+	[
+	optional=false,
+	name = "craft_chemical_ingredients_n" "organic_element",
+	options = [
+		[ingredientType=IT_resourceClass, ingredients = [[name="craft_chemical_ingredients_n" "organic_element", ingredient="chemical", count=2]], complexity = 0, skillCommand = "unskilled"]],
+	optionalSkillCommand = "",
+	complexity = 0,
+	appearance = "" ]]
+skillCommands = ["unskilled"]
+
+manufactureScripts = [ "systems.crafting.item.specific_item.crafting_station_item" ]
+
+@class intangible_object_template 0
+
+@class object_template 5
+
+complexity = 2
+sharedTemplate = "object/draft_schematic/item/theme_park/shared_item_bat_pheromone.iff"
+volume = 1

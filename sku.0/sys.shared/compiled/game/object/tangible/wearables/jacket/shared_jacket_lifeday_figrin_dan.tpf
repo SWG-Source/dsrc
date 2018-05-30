@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/wearables/base/shared_base_jacket_longsleeve.iff
+
+@class tangible_object_template 3
+
+
+
+@class object_template 3
+
+objectName = "static_item_n" "item_lifeday_10_figrin_dan_jacket"
+detailedDescription = "static_item_d" "item_lifeday_10_figrin_dan_jacket"
+lookAtText = "" ""
+appearanceFilename = "appearance/jacket_s48_m.sat"
+portalLayoutFilename = ""

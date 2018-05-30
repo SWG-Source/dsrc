@@ -1,0 +1,12 @@
+type	shield	armor	component	chassis
+s	s	s	s	s
+	sound/cbt_hit_shield.snd	sound/cbt_hit_armor.snd	sound/cbt_hit_component.snd	sound/cbt_hit_chassis.snd
+xwing	sound/cbt_hit_shield_xwing.snd	sound/cbt_hit_armor_xwing.snd	sound/cbt_hit_component_xwing.snd	sound/cbt_hit_chassis.snd
+tie	sound/cbt_hit_shield_tie.snd	sound/cbt_hit_armor_tie.snd	sound/cbt_hit_component_tie.snd	sound/shp_hit_chassis.snd
+yt1300	sound/cbt_hit_shield_yt1300.snd	sound/cbt_hit_armor_yt1300.snd	sound/cbt_hit_component_yt1300.snd	sound/cbt_hit_chassis_yt1300.snd
+republic_cruiser	sound/cbt_hit_shield_republic_cruiser.snd	sound/cbt_hit_armor_republic_cruiser.snd	sound/cbt_hit_component_republic_cruiser.snd	sound/cbt_hit_chassis_republic_cruiser.snd
+star_destroyer	sound/cbt_hit_shield_star_destroyer.snd	sound/cbt_hit_armor_star_destroyer.snd	sound/cbt_hit_component_star_destroyer.snd	sound/cbt_hit_chassis_star_destroyer.snd
+moncal_cruiser	sound/cbt_hit_shield_moncal_cruiser.snd	sound/cbt_hit_armor_moncal_cruiser.snd	sound/cbt_hit_component_moncal_cruiser.snd	sound/cbt_hit_chassis_moncal_cruiser.snd
+blockade_runner	sound/cbt_hit_shield_blockade_runner.snd	sound/cbt_hit_armor_blockade_runner.snd	sound/cbt_hit_component_blockade_runner.snd	sound/cbt_hit_chassis_blockade_runner.snd
+mining_asteroid_dynamic	sound/cbt_hit_component_tie.snd	sound/cbt_hit_component_tie.snd	sound/cbt_hit_component_tie.snd	sound/cbt_hit_component_tie.snd
+mining_asteroid_static	sound/cbt_hit_component_yt1300.snd	sound/cbt_hit_component_yt1300.snd	sound/cbt_hit_component_yt1300.snd	sound/cbt_hit_component_yt1300.snd

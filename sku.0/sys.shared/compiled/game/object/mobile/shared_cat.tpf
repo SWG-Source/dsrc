@@ -1,0 +1,18 @@
+
+@base object/mobile/skeleton/shared_elephant.iff
+
+@class creature_object_template 10
+
+species = SP_spiderDroid
+
+@class tangible_object_template 3
+
+
+
+@class object_template 3
+
+objectName = "monster_name" "cat"
+detailedDescription = "" ""
+lookAtText = "monster_detail" "cat"
+appearanceFilename = "appearance/cat.sat"
+clientDataFile = "clientdata/droid/client_shared_cr_cat.cdf"

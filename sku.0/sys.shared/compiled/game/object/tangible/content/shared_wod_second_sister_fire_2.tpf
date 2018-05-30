@@ -1,0 +1,16 @@
+
+@base object/tangible/terminal/base/shared_base_terminal.iff
+
+@class tangible_object_template 3
+
+@class object_template 5
+
+objectName = "theme_park/wod" "wod_second_sister_fire_2"
+detailedDescription = "theme_park/wod" "wod_second_sister_fire_2"
+lookAtText = "terminal_lookat" "terminal_water_pressure"
+
+appearanceFilename = "appearance/poi_all_lair_wooden_destroyed.apt"
+
+//clientDataFile = "clientdata/structure/wod_first_sister_altar.cdf"
+
+//gameObjectType = GOT_terminal_misc

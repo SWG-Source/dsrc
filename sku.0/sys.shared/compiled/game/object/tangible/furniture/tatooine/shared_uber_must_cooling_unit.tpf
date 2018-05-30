@@ -1,0 +1,15 @@
+// Template Editor -SWG Source
+
+@base object/tangible/furniture/base/shared_furniture_base.iff
+
+@class tangible_object_template 6
+
+@class object_template 5
+
+objectName = "item_n"  "uber_must_cooling_unit"
+detailedDescription = "item_d"  "uber_must_cooling_unit"
+
+appearanceFilename = "appearance/poi_all_force_bandit_cooling_unit.apt"
+//clientDataFile = "clientdata/"
+portalLayoutFilename = ""
+

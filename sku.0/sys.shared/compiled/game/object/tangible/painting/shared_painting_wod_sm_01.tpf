@@ -1,6 +1,5 @@
-// This file ws written by the template editor @ 1:28:36 PM -  Thu Jan 2 2003
-
-@base object/tangible/furniture/base/shared_furniture_base.iff
+// Template Editor -SWG Source
+@base object/tangible/loot/creature_loot/collections/shared_base_collection.iff
 
 @class tangible_object_template 6
 
@@ -12,3 +11,6 @@ objectName = "static_item_n"  "item_painting_wod_sm_01"
 detailedDescription = "static_item_d"  "item_painting_wod_sm_01"
 
 appearanceFilename = "appearance/frn_all_tapestry_wod_singing_portrait.apt"
+
+//clientDataFile = "clientdata/item/client_shared_painting_leia_wanted.cdf"
+
