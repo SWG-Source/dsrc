@@ -11,7 +11,7 @@
 
 itemsPerContainer = 0
 category = CT_space
-craftedObjectTemplate = "object/tangible/ship/components/chassis/tieadvanced_chassis_token.iff"
+craftedObjectTemplate = "object/tangible/ship/components/chassis/havoc_chassis_token.iff"
 slots = [
 	[
 	optional = false,
