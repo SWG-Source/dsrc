@@ -1,34 +1,10 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.callable;
-import script.library.combat;
-import script.library.craftinglib;
-import script.library.create;
-import script.library.datatable;
-import script.library.factions;
-import script.library.gcw;
-import script.library.hue;
-import script.library.money;
-import script.library.pet_lib;
-import script.library.player_structure;
-import script.library.regions;
-import script.library.scheduled_drop;
-import script.library.skill;
-import script.library.space_crafting;
-import script.library.space_create;
-import script.library.space_transition;
-import script.library.sui;
-import script.library.xp;
-import script.library.utils;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.region;
 
 public class teidson_test extends script.base_script
 {

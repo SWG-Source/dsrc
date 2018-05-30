@@ -1,28 +1,12 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
 
 import java.util.HashSet;
 import java.util.Iterator;
-import script.library.ai_lib;
-import script.library.armor;
-import script.library.buff;
-import script.library.factions;
-import script.library.gcw;
-import script.library.groundquests;
-import script.library.group;
-import script.library.resource;
-import script.library.restuss_event;
-import script.library.static_item;
-import script.library.trial;
-import script.library.utils;
-import script.library.xp;
+import java.util.Vector;
 
 public class gcw_defensive_general_boss extends script.base_script
 {

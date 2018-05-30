@@ -1,18 +1,8 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.obj_id;
 
-import script.library.ai_lib;
-import script.library.pet_lib;
-import script.library.beast_lib;
-import script.library.utils;
-import script.library.vehicle;
+import java.util.Vector;
 
 public class callable extends script.base_script
 {
