@@ -4637,7 +4637,7 @@ item_helmet_ace_reb			string:loot_schematic.schematic=object/draft_schematic/clo
 item_jacket_ace_imp			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_imperial_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
 item_jacket_ace_neut			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_privateer_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
 item_jacket_ace_reb			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_rebel_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
-item_kimogila_s01_texture_kit			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_rebel_craft.iff,string:loot_schematic.skill_req=class_structures_phase1_novice,int:loot_schematic.uses=3								
+item_kimogila_s01_texture_kit			string:loot_schematic.schematic=object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.iff,string:loot_schematic.skill_req=class_structures_phase1_novice,int:loot_schematic.uses=3
 item_schematic_gcw2_survey_tool_all			string:loot_schematic.schematic=object/draft_schematic/item/item_survey_tool_all.iff,string:loot_schematic.skill_req=class_engineering_phase1_novice,int:loot_schematic.uses=3								
 item_player_house_deed_jabbas_sail_barge											
 item_tcg_loot_reward_series8_single_pod_airspeeder			string:vehicle_attribs.object_ref=single_pod_airspeeder,float:hit_points=15000								
