@@ -15,4 +15,6 @@ appearanceFilename = "appearance/eqp_tool_starship_paint_kit.apt"
 portalLayoutFilename = ""
 clientDataFile = ""
 
+gameObjectType = GOT_misc
+
 
