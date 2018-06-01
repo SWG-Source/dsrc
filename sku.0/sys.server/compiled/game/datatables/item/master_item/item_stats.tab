@@ -4648,4 +4648,6 @@ item_tcg_loot_reward_series8_bespin_lamp_on			string:type=lamp,string:status=off
 item_tcg_loot_reward_series8_bespin_shelves			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
 item_tcg_loot_reward_series8_glowly_sculpture			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
 item_tcg_loot_reward_series8_torture_table			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
-item_tcg_loot_reward_series8_armored_tauntaun_statue			string:armored_creature_type=tcg8_armored_tauntaun								
+item_tcg_loot_reward_series8_armored_tauntaun_statue			string:armored_creature_type=tcg8_armored_tauntaun
+item_imperial_station_token_01_01
+item_rebel_station_token_01_01

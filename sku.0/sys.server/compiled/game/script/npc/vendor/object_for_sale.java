@@ -1,20 +1,13 @@
 package script.npc.vendor;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
+import script.menu_info_types;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
-import script.library.factions;
-import script.library.money;
-import script.library.prose;
-import script.library.static_item;
-import script.library.township;
-import script.library.trial;
-import script.library.utils;
+import java.util.HashMap;
+import java.util.Map;
 
 public class object_for_sale extends script.base_script
 {
@@ -137,127 +130,70 @@ public class object_for_sale extends script.base_script
         }
         return true;
     }
-    public boolean confirmFunds(obj_id self, obj_id player) throws InterruptedException
-    {
-        boolean canPay = false;
-        boolean hasTheCredits = false;
-        boolean hasTheTokens = false;
-        boolean foundTokenHolderBox = false;
-        obj_id[] inventoryContents = getInventoryAndEquipment(player);
+
+    public boolean confirmFunds(obj_id self, obj_id player) throws InterruptedException {
         int creditCost = getIntObjVar(self, "item.object_for_sale.cash_cost");
-        int[] tokenCostInThisFunction = getIntArrayObjVar(self, "item.object_for_sale.token_cost");
-        if (creditCost < 1)
-        {
-            hasTheCredits = true;
-        }
-        if (creditCost >= 1)
-        {
-            if (money.hasFunds(player, money.MT_TOTAL, creditCost))
-            {
-                hasTheCredits = true;
+        int[] tokenCosts = getIntArrayObjVar(self, "item.object_for_sale.token_cost");
+
+        // do we have enough credits for the item?
+        boolean hasTheCredits = (creditCost < 1 || money.hasFunds(player, money.MT_TOTAL, creditCost));
+
+        // bail if we don't have enough credits - doesn't even matter if we have enough tokens or not.
+        if(!hasTheCredits) return false;
+
+        // this thing may have token cost requirements to it so we have to check if we have enough tokens now.
+        Map<String, Integer> tokensNeeded = new HashMap<>();
+        Map<String, Integer> tokensFound = new HashMap<>();
+
+        for (int i = 0; i < tokenCosts.length; i++) {
+            if(tokenCosts[i] > 0){
+                tokensNeeded.put(trial.HEROIC_TOKENS[i], tokenCosts[i]);
+                tokensFound.put(trial.HEROIC_TOKENS[i], 0);
             }
         }
-        int owedTokenCount = 0;
-        boolean owesTokens = false;
-        for (int o = 0; o < tokenCostInThisFunction.length; o++)
-        {
-            owedTokenCount += tokenCostInThisFunction[o];
-        }
-        if (owedTokenCount > 0)
-        {
-            owesTokens = true;
-        }
-        if (owesTokens)
-        {
-            for (int i = 0; i < inventoryContents.length; i++)
-            {
-                String itemName = getStaticItemName(inventoryContents[i]);
-                if (itemName != null && !itemName.equals(""))
-                {
-                    if (hasObjVar(self, VENDOR_TOKEN_TYPE))
-                    {
-                        String tokenList = getStringObjVar(self, VENDOR_TOKEN_TYPE);
-                        String[] differentTokens = split(tokenList, ',');
-                        for (int j = 0; j < differentTokens.length; j++)
-                        {
-                            if (itemName.equals(differentTokens[j]) && tokenCostInThisFunction[j] > 0)
-                            {
-                                if (getCount(inventoryContents[i]) > 1)
-                                {
-                                    for (int m = 0; m < getCount(inventoryContents[i]); m++)
-                                    {
-                                        if (tokenCostInThisFunction[j] > 0)
-                                        {
-                                            tokenCostInThisFunction[j]--;
-                                        }
-                                    }
-                                }
-                                else 
-                                {
-                                    tokenCostInThisFunction[j]--;
-                                }
-                            }
-                        }
+
+        // bail if we don't need tokens because we've already proven we have the credits for it
+        if(tokensNeeded.size() == 0) return true;
+
+        boolean foundTokenHolderBox = false;
+        obj_id[] playerInventoryItems = getInventoryAndEquipment(player);
+        for (obj_id inventoryItem : playerInventoryItems) {
+            String itemName = getStaticItemName(inventoryItem);
+            if(itemName == null || itemName.equals("")) continue;
+
+            // first see if the item is a token
+            if (tokensNeeded.containsKey(itemName) && tokensNeeded.get(itemName) > 0) {
+                // this is a token that we need, let's see if we have enough of them
+                tokensFound.put(itemName, tokensFound.get(itemName) + getCount(inventoryItem));
+            }
+            // next, see if the item is a token box - all other item types can be ignored
+            else if (itemName.equalsIgnoreCase("item_heroic_token_box_01_01") && !foundTokenHolderBox) {
+                // this is a token box... let's see if we have this token in our box
+                // first, let's be efficient - we can only have one so set a flag that prevents us from "finding another"
+                foundTokenHolderBox = true;
+                int[] tokensInBox = getIntArrayObjVar(inventoryItem, "item.set.tokens_held");
+                // check if we have this token type in the box
+                for (int k = 0; k < trial.HEROIC_TOKENS.length; k++) {
+                    String checkToken = trial.HEROIC_TOKENS[k];
+                    if(!tokensNeeded.containsKey(checkToken)){
+                        continue;
                     }
-                    else 
-                    {
-                        for (int j = 0; j < trial.HEROIC_TOKENS.length; j++)
-                        {
-                            if (itemName.equals(trial.HEROIC_TOKENS[j]) && tokenCostInThisFunction[j] > 0)
-                            {
-                                if (getCount(inventoryContents[i]) > 1)
-                                {
-                                    for (int m = 0; m < getCount(inventoryContents[i]); m++)
-                                    {
-                                        if (tokenCostInThisFunction[j] > 0)
-                                        {
-                                            tokenCostInThisFunction[j]--;
-                                        }
-                                    }
-                                }
-                                else 
-                                {
-                                    tokenCostInThisFunction[j]--;
-                                }
-                            }
-                        }
-                        if (!foundTokenHolderBox && itemName.equals("item_heroic_token_box_01_01"))
-                        {
-                            foundTokenHolderBox = true;
-                            if (hasObjVar(inventoryContents[i], "item.set.tokens_held"))
-                            {
-                                int[] virtualTokens = getIntArrayObjVar(inventoryContents[i], "item.set.tokens_held");
-                                for (int k = 0; k < trial.HEROIC_TOKENS.length; k++)
-                                {
-                                    if (tokenCostInThisFunction[k] > 0 && virtualTokens[k] > 0)
-                                    {
-                                        int paymentIterations = tokenCostInThisFunction[k];
-                                        for (int l = 0; l < paymentIterations; l++)
-                                        {
-                                            if (virtualTokens[k] > 0)
-                                            {
-                                                virtualTokens[k]--;
-                                                tokenCostInThisFunction[k]--;
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    if (tokensNeeded.containsKey(checkToken) && tokensNeeded.get(checkToken) > 0 && tokensInBox[k] > 0) {
+                        tokensFound.put(checkToken, tokensFound.get(checkToken) + tokensInBox[k]);
                     }
                 }
             }
         }
-        int outstandingTokensOwed = 0;
-        for (int n = 0; n < tokenCostInThisFunction.length; n++)
-        {
-            outstandingTokensOwed += tokenCostInThisFunction[n];
+
+        // now after reviewing all inventory items, let's check how many tokens we have
+        for(Map.Entry<String, Integer> token : tokensNeeded.entrySet()){
+            // bail if we don't have enough of a token type
+            if(tokensFound.get(token.getKey()) < token.getValue()){
+                return false;
+            }
         }
-        if (outstandingTokensOwed == 0)
-        {
-            hasTheTokens = true;
-        }
-        return hasTheCredits && hasTheTokens;
+
+        return true;
     }
     public void processItemPurchase(obj_id self, obj_id player) throws InterruptedException
     {
