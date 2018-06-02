@@ -8,7 +8,7 @@ sharedTemplate = "object/tangible/ship/crafted/chassis/shared_texture_kit_hutt_h
 
 scripts = ["space.crafting.texture_kit"]
 
-objvars = ["texture_style" = 7, "texture_ship" = "player_hutt_heavy_s01"]
+objvars = ["texture_style" = 6, "texture_ship" = "player_hutt_heavy_s01"]
 
 moveFlags = [ MF_player ]
 
