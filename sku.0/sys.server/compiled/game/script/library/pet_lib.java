@@ -11,23 +11,6 @@ import script.base_script;
 import script.ai.ai_combat;
 import java.util.Arrays;
 import java.util.Vector;
-import script.library.ai_lib;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.callable;
-import script.library.camping;
-import script.library.chat;
-import script.library.colors;
-import script.library.consumable;
-import script.library.create;
-import script.library.group;
-import script.library.locations;
-import script.library.pclib;
-import script.library.player_structure;
-import script.library.space_dungeon;
-import script.library.space_transition;
-import script.library.stealth;
-import script.library.utils;
 
 public class pet_lib extends script.base_script
 {

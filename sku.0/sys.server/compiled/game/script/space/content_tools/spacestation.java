@@ -16,7 +16,6 @@ import script.library.space_quest;
 import script.library.space_create;
 import script.library.ship_ai;
 import script.library.utils;
-import java.lang.Math;
 import script.library.hue;
 
 public class spacestation extends script.base_script

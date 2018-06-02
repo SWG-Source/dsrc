@@ -5,8 +5,6 @@
 
 package script;
 
-import script.location;
-import script.obj_id;
 import java.io.*;;
 
 

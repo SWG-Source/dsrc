@@ -13,7 +13,6 @@ import script.library.colors;
 import java.util.StringTokenizer;
 import script.library.utils;
 import script.library.sui;
-import java.lang.Math;
 import script.library.prose;
 
 public class lottery_droid extends script.base_script

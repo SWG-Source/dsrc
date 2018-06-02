@@ -11,7 +11,6 @@ import script.base_script;
 import script.library.ai_lib;
 import script.library.factions;
 import script.library.chat;
-import script.ai.ai_combat;
 import script.library.pet_lib;
 import script.library.colors;
 import script.library.group;

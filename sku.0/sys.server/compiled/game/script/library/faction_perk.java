@@ -8,23 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.money;
-import script.library.npc;
-import script.library.skill;
-import script.library.factions;
-import script.library.prose;
-import script.library.player_structure;
-import script.library.structure;
-import script.library.regions;
-import script.library.utils;
-import script.library.sui;
-import script.library.datatable;
-import script.library.pet_lib;
-import script.library.create;
-import script.library.ai_lib;
-import script.library.temp_schematic;
-import script.library.static_item;
-import script.library.stealth;
 import java.util.StringTokenizer;
 
 public class faction_perk extends script.base_script

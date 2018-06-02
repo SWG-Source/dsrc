@@ -8,9 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.groundquests;
-import script.library.space_quest;
-import script.library.utils;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Vector;

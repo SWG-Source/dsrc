@@ -9,17 +9,6 @@ import java.util.Vector;
 import script.base_script;
 
 import java.util.HashSet;
-import script.library.badge;
-import script.library.buff;
-import script.library.gcw;
-import script.library.groundquests;
-import script.library.prose;
-import script.library.skill;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
 
 public class collection extends script.base_script
 {

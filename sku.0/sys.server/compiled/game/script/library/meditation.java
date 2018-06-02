@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.dot;
-import script.library.chat;
-import script.library.utils;
-import script.library.consumable;
-import script.library.trial;
-
 public class meditation extends script.base_script
 {
     public meditation()

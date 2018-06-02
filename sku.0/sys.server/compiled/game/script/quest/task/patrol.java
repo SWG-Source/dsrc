@@ -11,7 +11,6 @@ import script.base_script;
 import script.library.locations;
 import script.library.quests;
 import script.library.utils;
-import java.lang.Math;
 
 public class patrol extends script.base_script
 {

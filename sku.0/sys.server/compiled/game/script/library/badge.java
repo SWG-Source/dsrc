@@ -8,9 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.prose;
-import script.library.respec;
-
 public class badge extends script.base_script
 {
     public badge()

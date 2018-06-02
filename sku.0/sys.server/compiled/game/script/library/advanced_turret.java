@@ -8,15 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.callable;
-import script.library.factions;
-import script.library.pclib;
-import script.library.stealth;
-import script.library.trace;
-import script.library.utils;
-import script.library.vehicle;
-import script.library.weapons;
-
 public class advanced_turret extends script.base_script
 {
     public advanced_turret()

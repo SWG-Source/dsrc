@@ -8,16 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.beast_lib;
-import script.library.city;
-import script.library.create;
-import script.library.hue;
-import script.library.loot;
-import script.library.npe;
-import script.library.pet_lib;
-import script.library.resource;
-import script.library.utils;
-
 public class incubator extends script.base_script
 {
     public incubator()

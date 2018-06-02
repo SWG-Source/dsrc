@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.combat;
-import script.library.buff;
-import script.library.dot;
-import script.library.utils;
-import script.library.vehicle;
-
 public class grenade extends script.base_script
 {
     public grenade()

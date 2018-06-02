@@ -8,11 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.badge;
-import script.library.gcw;
-import script.library.groundquests;
-import script.library.utils;
-
 public class holiday extends script.base_script
 {
     public holiday()

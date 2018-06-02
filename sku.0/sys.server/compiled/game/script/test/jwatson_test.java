@@ -21,7 +21,6 @@ import script.library.space_crafting;
 import script.library.space_transition;
 import script.library.space_dungeon;
 import script.library.space_utils;
-import java.lang.Long;
 
 public class jwatson_test extends script.base_script
 {

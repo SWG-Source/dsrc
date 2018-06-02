@@ -8,8 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.colors_hex;
-
 public class sui extends script.base_script
 {
     public sui()

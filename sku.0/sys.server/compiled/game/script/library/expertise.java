@@ -8,11 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.proc;
-import script.library.sui;
-import script.library.skill;
-
 public class expertise extends script.base_script
 {
     public expertise()

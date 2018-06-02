@@ -14,7 +14,6 @@ import script.library.space_crafting;
 import script.library.ship_ai;
 import script.library.xp;
 import script.library.space_combat;
-import java.lang.Math;
 import script.library.space_pilot_command;
 import script.library.space_transition;
 

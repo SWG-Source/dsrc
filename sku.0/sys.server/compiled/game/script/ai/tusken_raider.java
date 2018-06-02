@@ -9,7 +9,6 @@ import java.util.Vector;
 import script.base_script;
 
 import script.library.ai_lib;
-import script.ai.ai_combat;
 import script.library.factions;
 import script.library.utils;
 import script.library.attrib;

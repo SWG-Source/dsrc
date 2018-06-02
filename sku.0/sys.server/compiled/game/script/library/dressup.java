@@ -8,7 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.hue;
 import script.ai.ai_combat;
 
 public class dressup extends script.base_script

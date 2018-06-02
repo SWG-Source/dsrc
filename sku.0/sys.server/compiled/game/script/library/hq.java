@@ -8,14 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.gcw;
-import script.library.player_structure;
-import script.library.planetary_map;
-import script.library.structure;
-import script.library.theater;
-import script.library.trial;
-import script.library.utils;
-
 public class hq extends script.base_script
 {
     public hq()

@@ -9,28 +9,6 @@ import java.util.Vector;
 import script.base_script;
 
 import script.ai.ai_combat;
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.camping;
-import script.library.combat;
-import script.library.combat;
-import script.library.consumable;
-import script.library.cybernetic;
-import script.library.dot;
-import script.library.factions;
-import script.library.group;
-import script.library.luck;
-import script.library.metrics;
-import script.library.pet_lib;
-import script.library.player_structure;
-import script.library.prose;
-import script.library.pvp;
-import script.library.stealth;
-import script.library.sui;
-import script.library.utils;
-import script.library.vehicle;
-import script.library.xp;
-import script.library.beast_lib;
 
 public class healing extends script.base_script
 {

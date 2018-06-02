@@ -8,15 +8,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.hue;
-import script.library.ai_lib;
 import script.ai.ai_combat;
-import script.library.factions;
-import script.library.dressup;
-import script.library.attrib;
-import script.library.weapons;
-import script.library.stealth;
 
 public class create extends script.base_script
 {

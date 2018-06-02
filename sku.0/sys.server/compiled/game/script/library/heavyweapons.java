@@ -8,13 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.trace;
-import script.library.combat;
-import script.library.vehicle;
-import script.library.dot;
-import script.library.ai_lib;
-
 public class heavyweapons extends script.base_script
 {
     public heavyweapons()

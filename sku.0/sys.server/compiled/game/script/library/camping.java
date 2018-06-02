@@ -8,15 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.factions;
-import script.library.battlefield;
-import script.library.locations;
-import script.library.pclib;
-import script.library.xp;
-import script.library.player_structure;
-import script.library.structure;
-
 public class camping extends script.base_script
 {
     public camping()

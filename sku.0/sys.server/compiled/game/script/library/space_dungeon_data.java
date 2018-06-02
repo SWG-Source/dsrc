@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.player_structure;
-import script.library.utils;
-import script.library.space_dungeon;
-import script.library.sui;
-import script.library.prose;
-
 public class space_dungeon_data extends script.base_script
 {
     public space_dungeon_data()

@@ -1,22 +1,6 @@
 package script.test;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.combat;
-import script.library.sui;
-import script.library.quests;
-import script.library.ai_lib;
-import script.library.money;
-import script.library.chat;
-import script.library.pclib;
-import script.library.vehicle;
-import script.library.ship_ai;
 
 public class jwatson_mining_asteroid_dynamic extends script.base_script
 {

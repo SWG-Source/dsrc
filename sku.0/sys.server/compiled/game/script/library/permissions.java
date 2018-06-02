@@ -8,8 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-
 public class permissions extends script.base_script
 {
     public permissions()

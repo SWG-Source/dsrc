@@ -8,18 +8,9 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.prose;
-import script.library.vehicle;
-import script.library.utils;
-import script.library.combat;
-import script.library.ai_lib;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Vector;
-import script.library.colors;
-import script.library.beast_lib;
-import script.library.skill;
-import script.library.trial;
 
 public class dot extends script.base_script
 {

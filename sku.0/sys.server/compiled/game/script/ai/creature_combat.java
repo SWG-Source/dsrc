@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.ai.ai_aggro;
-import script.ai.ai_combat;
-import script.ai.ai_combat_assist;
-import script.ai.ai_combat_damage;
-import script.ai.ai_combat_movement;
-import script.ai.ai_combat_target;
 import script.library.ai_lib;
 import script.library.beast_lib;
 import script.library.buff;

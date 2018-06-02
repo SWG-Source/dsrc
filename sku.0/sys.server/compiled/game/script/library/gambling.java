@@ -8,11 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.money;
-
 public class gambling extends script.base_script
 {
     public gambling()

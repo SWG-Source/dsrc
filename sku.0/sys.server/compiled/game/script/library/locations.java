@@ -8,9 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.regions;
-import script.library.trial;
-
 public class locations extends script.base_script
 {
     public locations()

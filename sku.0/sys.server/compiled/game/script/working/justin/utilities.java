@@ -18,8 +18,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
-import java.lang.Math;
-import java.lang.Runtime;
 
 public class utilities extends script.base_script
 {

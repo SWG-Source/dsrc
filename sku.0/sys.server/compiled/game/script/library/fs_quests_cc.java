@@ -8,11 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.community_crafting;
-import script.library.fs_dyn_village;
-import script.library.fs_quests;
-import script.library.quests;
-
 public class fs_quests_cc extends script.base_script
 {
     public fs_quests_cc()

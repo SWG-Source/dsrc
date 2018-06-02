@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.create;
-import script.library.fs_dyn_village;
-import script.library.trace;
-import script.library.utils;
-import script.library.locations;
-
 public class fs_counterstrike extends script.base_script
 {
     public fs_counterstrike()

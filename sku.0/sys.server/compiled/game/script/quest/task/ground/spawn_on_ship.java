@@ -9,7 +9,6 @@ import java.util.Vector;
 import script.base_script;
 
 import script.library.ship_ai;
-import script.quest.task.ground.spawn;
 
 public class spawn_on_ship extends script.base_script
 {

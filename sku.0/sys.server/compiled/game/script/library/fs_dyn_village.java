@@ -8,15 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import java.lang.Math;
-import script.library.trace;
-import script.library.create;
-import script.library.quests;
-import script.library.player_structure;
-import script.library.turret;
-import script.library.fs_counterstrike;
-
 public class fs_dyn_village extends script.base_script
 {
     public fs_dyn_village()

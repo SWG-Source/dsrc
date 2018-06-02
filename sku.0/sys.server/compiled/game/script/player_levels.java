@@ -6,7 +6,6 @@
 
 package script;
 
-import script.base_class;
 import java.util.Hashtable;
 
 public class player_levels

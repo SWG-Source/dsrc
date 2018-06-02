@@ -8,15 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.buff;
-import script.library.ai_lib;
-import script.library.camping;
-import script.library.locations;
-import script.library.city;
-import script.library.battlefield;
-import script.library.player_structure;
-
 public class event_perk extends script.base_script
 {
     public event_perk()

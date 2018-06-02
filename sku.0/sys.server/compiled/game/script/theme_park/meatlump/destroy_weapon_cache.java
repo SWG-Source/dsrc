@@ -14,7 +14,6 @@ import script.library.consumable;
 import script.library.sui;
 import script.library.stealth;
 import script.library.utils;
-import java.lang.System;
 
 public class destroy_weapon_cache extends script.base_script
 {

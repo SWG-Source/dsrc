@@ -14,7 +14,7 @@ import script.library.consumable;
 import script.library.sui;
 import script.library.stealth;
 import script.library.utils;
-import java.lang.System;
+
 import java.util.Random;
 
 public class disarm_bomb_puzzle extends script.base_script

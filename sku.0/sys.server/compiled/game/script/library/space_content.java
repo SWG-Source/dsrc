@@ -8,11 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.travel;
-import script.library.space_utils;
-import script.library.locations;
-
 public class space_content extends script.base_script
 {
     public space_content()

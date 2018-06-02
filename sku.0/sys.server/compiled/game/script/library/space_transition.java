@@ -8,18 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.callable;
-import script.library.pclib;
-import script.library.space_flags;
-import script.library.pet_lib;
-import script.library.ship_ai;
-import script.library.space_combat;
-import script.library.utils;
-import script.library.features;
-import script.library.space_dungeon;
-import script.library.space_dungeon_data;
-import script.library.township;
-
 public class space_transition extends script.base_script
 {
     public space_transition()

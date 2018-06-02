@@ -20,7 +20,6 @@ import script.library.ship_ai;
 import script.library.space_crafting;
 import script.library.space_transition;
 import script.library.space_dungeon;
-import java.lang.Long;
 
 public class dmellencamp_test extends script.base_script
 {

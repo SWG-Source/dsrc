@@ -8,16 +8,7 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import java.lang.Math;
 import script.ai.ai_combat;
-import script.library.ai_lib;
-import script.library.callable;
-import script.library.corpse;
-import script.library.create;
-import script.library.skill;
-import script.library.utils;
-import script.library.xp;
-import script.library.sui;
 
 public class bio_engineer extends script.base_script
 {

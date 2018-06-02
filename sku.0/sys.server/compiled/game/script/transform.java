@@ -2,7 +2,6 @@
 
 package script;
 
-import java.lang.Math;
 import java.io.Serializable;
 
 // ======================================================================

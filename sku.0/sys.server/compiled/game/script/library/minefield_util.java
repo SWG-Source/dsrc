@@ -8,9 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.anims;
-import script.library.combat;
-
 public class minefield_util extends script.base_script
 {
     public minefield_util()

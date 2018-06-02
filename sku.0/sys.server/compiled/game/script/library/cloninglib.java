@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.battlefield;
-import script.library.instance;
-import script.library.pclib;
-import script.library.regions;
-import script.library.space_dungeon;
-
 public class cloninglib extends script.base_script
 {
     public cloninglib()

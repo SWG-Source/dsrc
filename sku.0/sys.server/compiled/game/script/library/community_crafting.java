@@ -8,8 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.objvar_mangle;
-import script.library.utils;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;

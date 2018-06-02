@@ -5,7 +5,6 @@
 
 package script;
 
-import java.lang.Math;
 import java.io.Serializable;
 
 public final class location implements Comparable, Serializable

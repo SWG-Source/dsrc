@@ -8,18 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.callable;
-import script.library.pet_lib;
-import script.library.utils;
-import script.library.attrib;
-import script.library.skill;
-import script.library.ai_lib;
-import script.library.space_flags;
-import script.library.performance;
-import script.library.combat;
-import script.library.luck;
-import script.library.skill;
-
 public class factions extends script.base_script
 {
     public factions()

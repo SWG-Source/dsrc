@@ -8,15 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.money;
-import script.library.prose;
-import script.library.utils;
-import script.library.skill;
-import script.library.space_utils;
-import script.library.space_transition;
-import script.library.group;
-import script.library.features;
-
 public class space_quest extends script.base_script
 {
     public space_quest()

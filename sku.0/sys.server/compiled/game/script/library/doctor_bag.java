@@ -8,9 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.prose;
-import script.library.utils;
-
 public class doctor_bag extends script.base_script
 {
     public doctor_bag()

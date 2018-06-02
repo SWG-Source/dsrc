@@ -8,11 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.space_create;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.utils;
-
 public class load_test extends script.base_script
 {
     public load_test()

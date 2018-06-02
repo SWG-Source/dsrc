@@ -8,10 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.player_structure;
-import script.library.planetary_map;
-import script.library.debug;
-
 public class city extends script.base_script
 {
     public city()

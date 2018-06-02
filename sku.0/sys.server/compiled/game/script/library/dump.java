@@ -9,13 +9,6 @@ import java.util.Vector;
 import script.base_script;
 
 import java.util.HashSet;
-import script.library.features;
-import script.library.fs_quests;
-import script.library.gm;
-import script.library.jedi;
-import script.library.quests;
-import script.library.space_quest;
-import script.library.static_item;
 
 public class dump extends script.base_script
 {

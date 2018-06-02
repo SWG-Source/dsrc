@@ -8,9 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.healing;
-import script.library.pclib;
-
 public class debug extends script.base_script
 {
     public debug()

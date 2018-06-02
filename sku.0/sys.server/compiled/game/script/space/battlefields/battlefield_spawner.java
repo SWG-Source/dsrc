@@ -19,7 +19,6 @@ import script.library.space_combat;
 import script.library.space_transition;
 import script.library.space_battlefield;
 import script.library.utils;
-import java.lang.Math;
 
 public class battlefield_spawner extends script.base_script
 {

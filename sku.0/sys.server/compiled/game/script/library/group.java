@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.planetary_map;
-import script.library.missions;
-
 public class group extends script.base_script
 {
     public group()

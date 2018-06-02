@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.slots;
-import script.library.hue;
-import script.library.ai_lib;
-import script.library.factions;
-import script.library.utils;
-
 public class npc extends script.base_script
 {
     public npc()

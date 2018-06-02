@@ -9,7 +9,7 @@ import java.util.Vector;
 import script.base_script;
 
 import java.util.StringTokenizer;
-import java.lang.Math;
+
 import script.library.ai_lib;
 import script.library.buff;
 import script.library.beast_lib;

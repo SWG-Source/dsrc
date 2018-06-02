@@ -8,14 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.loot;
-import script.library.utils;
-import script.library.prose;
-import script.library.colors;
-import script.library.resource;
-import script.library.session;
-import script.library.static_item;
-
 public class minigame extends script.base_script
 {
     public minigame()

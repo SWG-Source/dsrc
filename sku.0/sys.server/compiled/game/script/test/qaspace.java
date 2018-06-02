@@ -53,7 +53,6 @@ import script.library.static_item;
 import script.library.sui;
 import script.library.utils;
 import script.library.xp;
-import script.test.qatool;
 
 public class qaspace extends script.base_script
 {

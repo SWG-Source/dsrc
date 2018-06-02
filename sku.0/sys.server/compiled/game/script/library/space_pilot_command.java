@@ -8,14 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.space_utils;
-import script.library.space_crafting;
-import script.library.ship_ai;
-import script.library.xp;
-import script.library.space_combat;
-import java.lang.Math;
-
 public class space_pilot_command extends script.base_script
 {
     public space_pilot_command()

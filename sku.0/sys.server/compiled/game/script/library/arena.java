@@ -8,15 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.pet_lib;
-import script.library.factions;
-import script.library.force_rank;
-import script.library.trace;
-import java.lang.Math;
-
 public class arena extends script.base_script
 {
     public arena()

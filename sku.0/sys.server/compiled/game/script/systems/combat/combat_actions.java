@@ -47,7 +47,6 @@ import script.library.vehicle;
 import script.library.weapons;
 import script.library.heavyweapons;
 import script.systems.missions.dynamic.bounty_probe_droid;
-import java.lang.Math;
 
 public class combat_actions extends script.systems.combat.combat_base
 {

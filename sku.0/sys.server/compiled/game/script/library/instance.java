@@ -8,12 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.locations;
-import script.library.prose;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.utils;
-
 public class instance extends script.base_script
 {
     public instance()

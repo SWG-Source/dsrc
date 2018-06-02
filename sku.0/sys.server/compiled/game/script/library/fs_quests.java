@@ -8,14 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.pclib;
-import script.library.fs_dyn_village;
-import script.library.locations;
-import script.library.ai_lib;
-import script.library.quests;
-import script.library.factions;
-
 public class fs_quests extends script.base_script
 {
     public fs_quests()

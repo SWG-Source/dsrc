@@ -8,8 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.colors;
-
 public class luck extends script.base_script
 {
     public luck()

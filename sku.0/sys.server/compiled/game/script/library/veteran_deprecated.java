@@ -8,8 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.features;
-
 public class veteran_deprecated extends script.base_script
 {
     public veteran_deprecated()

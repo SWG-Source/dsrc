@@ -8,14 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.healing;
-import script.library.player_stomach;
-import script.library.prose;
-import script.library.food;
-import script.library.metrics;
-import script.library.doctor_bag;
-
 public class consumable extends script.base_script
 {
     public consumable()

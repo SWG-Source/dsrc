@@ -8,15 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.chat;
-import script.library.skill;
-import script.library.prose;
-import script.library.luck;
-import script.library.static_item;
-import script.library.utils;
-import script.library.corpse;
-import script.library.groundquests;
-
 public class smuggler extends script.base_script
 {
     public smuggler()

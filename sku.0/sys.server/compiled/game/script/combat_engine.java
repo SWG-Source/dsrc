@@ -7,11 +7,9 @@
 
 package script;
 
-import script.location;
-import script.obj_id;
 import script.library.combat_consts;
 import script.library.utils;
-import script.base_class;
+
 import java.util.Hashtable;
 
 public class combat_engine

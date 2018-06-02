@@ -8,17 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.chat;
-import script.library.create;
-import script.library.force_rank;
-import script.library.fs_quests;
-import script.library.group;
-import script.library.jedi;
-import script.library.prose;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
-
 public class jedi_trials extends script.base_script
 {
     public jedi_trials()

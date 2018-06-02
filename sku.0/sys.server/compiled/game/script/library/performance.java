@@ -8,25 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.colors;
-import script.library.datatable;
-import script.library.utils;
-import script.library.sui;
-import script.library.combat;
-import script.library.camping;
-import script.library.city;
-import script.library.factions;
-import script.library.groundquests;
-import script.library.regions;
-import script.library.group;
-import script.library.pet_lib;
-import script.library.xp;
-import script.library.buff;
-import script.library.prose;
-import script.library.respec;
-import script.library.session;
-import script.library.beast_lib;
-
 public class performance extends script.base_script
 {
     public performance()

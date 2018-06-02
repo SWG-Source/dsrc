@@ -9,7 +9,7 @@ import java.util.Vector;
 import script.base_script;
 
 import script.ai.ai_combat;
-import java.lang.Math;
+
 import java.util.Iterator;
 import java.util.Set;
 import script.library.ai_lib;

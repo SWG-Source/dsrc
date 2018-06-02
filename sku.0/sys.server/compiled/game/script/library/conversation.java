@@ -8,9 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.chat;
-import script.library.group;
-
 public class conversation extends script.base_script
 {
     public conversation()

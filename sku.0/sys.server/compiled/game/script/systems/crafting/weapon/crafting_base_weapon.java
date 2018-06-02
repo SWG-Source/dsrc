@@ -12,7 +12,6 @@ import script.library.utils;
 import script.library.craftinglib;
 import script.library.weapons;
 import script.library.prose;
-import java.lang.Math;
 
 public class crafting_base_weapon extends script.systems.crafting.crafting_base
 {

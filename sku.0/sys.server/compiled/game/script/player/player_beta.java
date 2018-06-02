@@ -8,11 +8,10 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import java.lang.System;
 import java.lang.reflect.*;
 import java.util.Arrays;
 import java.util.Vector;
-import java.lang.Math;
+
 import script.library.sui;
 import script.library.skill;
 import script.library.pclib;

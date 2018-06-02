@@ -16,7 +16,6 @@ import script.library.space_create;
 import script.library.ship_ai;
 import script.library.utils;
 import script.library.space_battlefield;
-import java.lang.Math;
 import script.library.hue;
 
 public class npc_spawner extends script.base_script

@@ -8,7 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.developer.file_access;
 import script.library.utils;
 import java.io.InputStream;
 import script.library.chat;

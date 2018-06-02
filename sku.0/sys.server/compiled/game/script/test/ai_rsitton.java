@@ -8,7 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import java.lang.Math;
 import java.util.Random;
 import script.vector;
 import script.library.ship_ai;

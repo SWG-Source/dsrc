@@ -8,7 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.ai.ai_aggro;
 import script.library.ai_lib;
 import script.library.attrib;
 import script.library.factions;

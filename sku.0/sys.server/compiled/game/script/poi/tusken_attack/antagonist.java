@@ -13,7 +13,6 @@ import script.library.scenario;
 import script.library.poi;
 import script.library.pclib;
 import script.ai.ai_combat;
-import script.poi.tusken_attack.master;
 
 public class antagonist extends script.poi.base.scenario_actor
 {

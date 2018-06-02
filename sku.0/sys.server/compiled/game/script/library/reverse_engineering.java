@@ -8,10 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.utils;
-import script.library.buff;
-import script.library.static_item;
-
 public class reverse_engineering extends script.base_script
 {
     public reverse_engineering()

@@ -15,7 +15,6 @@ import script.library.space_battlefield;
 import script.library.space_create;
 import script.library.ship_ai;
 import script.library.utils;
-import java.lang.Math;
 import script.library.hue;
 
 public class battlefield_star_destroyer extends script.base_script

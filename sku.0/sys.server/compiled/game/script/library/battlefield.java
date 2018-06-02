@@ -8,13 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.factions;
-import script.library.player_structure;
-import script.library.pet_lib;
-import script.library.create;
-import script.library.utils;
-import java.lang.Math;
-
 public class battlefield extends script.base_script
 {
     public battlefield()

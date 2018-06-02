@@ -10,7 +10,6 @@ import script.base_script;
 
 import script.library.ai_lib;
 import script.library.factions;
-import script.ai.ai_combat;
 
 public class ai_template extends script.base_script
 {

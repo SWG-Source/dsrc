@@ -11,23 +11,6 @@ import script.base_script;
 import script.ai.ai_combat;
 import java.util.Arrays;
 import java.util.Vector;
-import script.library.ai_lib;
-import script.library.armor;
-import script.library.buff;
-import script.library.callable;
-import script.library.colors;
-import script.library.corpse;
-import script.library.factions;
-import script.library.group;
-import script.library.hue;
-import script.library.incubator;
-import script.library.instance;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.stealth;
-import script.library.storyteller;
-import script.library.utils;
-import script.library.xp;
 
 public class beast_lib extends script.base_script
 {

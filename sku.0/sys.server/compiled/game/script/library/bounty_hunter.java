@@ -9,12 +9,6 @@ import java.util.Vector;
 import script.base_script;
 
 import script.ai.ai_combat;
-import script.library.ai_lib;
-import script.library.anims;
-import script.library.chat;
-import script.library.money;
-import script.library.prose;
-import script.library.utils;
 
 public class bounty_hunter extends script.base_script
 {

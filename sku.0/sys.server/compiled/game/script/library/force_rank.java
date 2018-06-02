@@ -8,15 +8,6 @@ import java.util.Hashtable;
 import java.util.Vector;
 import script.base_script;
 
-import script.library.skill;
-import script.library.xp;
-import script.library.utils;
-import script.library.prose;
-import script.library.pvp;
-import script.library.trace;
-import script.library.player_structure;
-import java.lang.Math;
-
 public class force_rank extends script.base_script
 {
     public force_rank()
