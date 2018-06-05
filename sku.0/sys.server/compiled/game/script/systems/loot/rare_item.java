@@ -22,7 +22,7 @@ public class rare_item extends script.base_script {
             if ((firstFreeIndex >= 0) && (firstFreeIndex < names.length))
             {
                 names[firstFreeIndex] = "rare_loot_category";
-                attribs[firstFreeIndex] = "\\#ed8d16Rare";
+                attribs[firstFreeIndex] = "\\#ed8d16" + "Rare Item";
             }
         }
         return SCRIPT_CONTINUE;
