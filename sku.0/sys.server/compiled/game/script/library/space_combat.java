@@ -1972,7 +1972,7 @@ public class space_combat extends script.base_script
             }
         }
         if (strDroidCommands.size() > 0)
-            return (String[]) strDroidCommands.toArray();
+            return (String[]) strDroidCommands.toArray(new String[0]);
         return null;
     }
     public static void grantCapitalShipSequenceRewardsAndCreditForKills(obj_id objDefender) throws InterruptedException
