@@ -2,6 +2,8 @@ package script.library;
 
 import script.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 public class space_combat extends script.base_script
@@ -1947,33 +1949,25 @@ public class space_combat extends script.base_script
         {
             return null;
         }
-        obj_id[] objContents = utils.getContents(objDataPad);
-        Vector strCommands = new Vector();
-        strCommands.setSize(0);
-        for (obj_id objContent : objContents) {
-            if (hasObjVar(objContent, "strDroidCommand")) {
-                String strTest = getStringObjVar(objContent, "strDroidCommand");
-                strCommands = utils.addElement(strCommands, strTest);
+        obj_id[] dataPadItems = utils.getContents(objDataPad);
+        List<String> droidCommands = new ArrayList<>();
+        for (obj_id dataPadItem : dataPadItems) {
+            if (hasObjVar(dataPadItem, "strDroidCommand")) {
+                droidCommands.add(getStringObjVar(dataPadItem, "strDroidCommand"));
             }
         }
-        if(strCommands.size() > 0)
-            return (String[]) strCommands.toArray(new String[0]);
-        return null;
+        return droidCommands.toArray(new String[0]);
     }
     public static String[] getDroidCommands(obj_id objPlayer) throws InterruptedException
     {
-        String[] strRawCommands = getCommandListingForPlayer(objPlayer);
-        Vector strDroidCommands = new Vector();
-        strDroidCommands.setSize(0);
-        for (String strRawCommand : strRawCommands) {
-            int intIndex = strRawCommand.indexOf("droidcommand");
-            if (intIndex > -1) {
-                strDroidCommands = utils.addElement(strDroidCommands, strRawCommand);
+        String[] playerCommands = getCommandListingForPlayer(objPlayer);
+        List<String> droidCommands = new ArrayList<>();
+        for (String playerCommand : playerCommands) {
+            if (playerCommand.contains("droidcommand")) {
+                droidCommands.add(playerCommand);
             }
         }
-        if (strDroidCommands.size() > 0)
-            return (String[]) strDroidCommands.toArray();
-        return null;
+        return droidCommands.toArray(new String[0]);
     }
     public static void grantCapitalShipSequenceRewardsAndCreditForKills(obj_id objDefender) throws InterruptedException
     {

@@ -46,7 +46,7 @@ public class droid_memory_module extends script.base_script
         if (item == menu_info_types.MEMORY_CHIP_PROGRAM)
         {
             String[] strDroidCommands = space_combat.getDroidCommands(objPlayer);
-            if (strDroidCommands == null)
+            if (strDroidCommands.length == 0)
             {
                 string_id strSpam = new string_id("space/space_interaction", "no_droid_commands");
                 sendSystemMessage(objPlayer, strSpam);

@@ -1,12 +1,8 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
+
 import java.util.Vector;
-import script.base_script;
 
 public class space_transition extends script.base_script
 {
@@ -870,9 +866,8 @@ public class space_transition extends script.base_script
         String[] strDroidCommands = space_combat.getProgrammedDroidCommands(objPlayer);
         if (strDroidCommands != null && strDroidCommands.length > 0)
         {
-            for (int intI = 0; intI < strDroidCommands.length; intI++)
-            {
-                grantCommand(objPlayer, "droid+" + strDroidCommands[intI]);
+            for (String strDroidCommand : strDroidCommands) {
+                grantCommand(objPlayer, "droid+" + strDroidCommand);
             }
         }
     }
@@ -881,9 +876,8 @@ public class space_transition extends script.base_script
         String[] strDroidCommands = space_combat.getProgrammedDroidCommands(objPlayer);
         if (strDroidCommands != null && strDroidCommands.length > 0)
         {
-            for (int intI = 0; intI < strDroidCommands.length; intI++)
-            {
-                revokeCommand(objPlayer, "droid+" + strDroidCommands[intI]);
+            for (String strDroidCommand : strDroidCommands) {
+                revokeCommand(objPlayer, "droid+" + strDroidCommand);
             }
         }
     }
