@@ -1957,7 +1957,7 @@ public class space_combat extends script.base_script
             }
         }
         if(strCommands.size() > 0)
-            return (String[]) strCommands.toArray();
+            return (String[]) strCommands.toArray(new String[0]);
         return null;
     }
     public static String[] getDroidCommands(obj_id objPlayer) throws InterruptedException
