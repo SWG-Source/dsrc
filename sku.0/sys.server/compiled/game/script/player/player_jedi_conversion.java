@@ -1,21 +1,11 @@
 package script.player;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
-import script.library.player_version;
-import script.library.skill;
-import script.library.sui;
-import script.library.utils;
-import script.library.gm;
-import script.library.money;
-import script.library.jedi;
-import script.library.space_flags;
+import java.util.Vector;
 
 public class player_jedi_conversion extends script.base_script
 {

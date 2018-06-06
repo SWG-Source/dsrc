@@ -1,16 +1,10 @@
 package script.developer;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.utils;
-import java.io.InputStream;
-import script.library.chat;
+import script.obj_id;
+import script.system_process;
+
 import java.util.Date;
 
 public class script_editor extends script.base_script

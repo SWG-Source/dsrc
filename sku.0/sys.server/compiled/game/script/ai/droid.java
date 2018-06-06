@@ -1,20 +1,9 @@
 package script.ai;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
-import script.library.factions;
-import script.library.chat;
-import script.library.pet_lib;
-import script.library.colors;
-import script.library.group;
-import script.library.healing;
+import script.modifiable_float;
+import script.obj_id;
 
 public class droid extends script.base_script
 {

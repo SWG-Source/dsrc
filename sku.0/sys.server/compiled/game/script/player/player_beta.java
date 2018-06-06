@@ -1,22 +1,9 @@
 package script.player;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import java.lang.reflect.*;
-import java.util.Arrays;
-import java.util.Vector;
-
-import script.library.sui;
-import script.library.skill;
+import script.dictionary;
 import script.library.pclib;
-import script.library.utils;
-import script.library.money;
+import script.library.sui;
+import script.obj_id;
 
 public class player_beta extends script.base_script
 {

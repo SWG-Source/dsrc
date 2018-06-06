@@ -1,16 +1,10 @@
 package script.npc.converse;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.library.ai_lib;
 import script.library.badge;
 import script.library.utils;
-import script.library.ai_lib;
+import script.obj_id;
+import script.string_id;
 
 public class library_trivia extends script.base_script
 {

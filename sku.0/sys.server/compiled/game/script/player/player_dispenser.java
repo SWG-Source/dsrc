@@ -1,18 +1,12 @@
 package script.player;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.attrib_mod;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
-import script.library.healing;
-import script.library.consumable;
-import script.library.sui;
-import script.library.money;
-import script.library.utils;
+import java.util.Vector;
 
 public class player_dispenser extends script.base_script
 {

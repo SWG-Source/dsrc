@@ -1,27 +1,11 @@
 package script.ai;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.callable;
-import script.library.utils;
-import script.library.pet_lib;
-import script.library.colors;
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.combat;
-import script.library.scout;
-import script.library.create;
-import script.library.vehicle;
-import script.library.sui;
-import script.library.factions;
+import java.util.Vector;
 
 public class pet_master extends script.base_script
 {

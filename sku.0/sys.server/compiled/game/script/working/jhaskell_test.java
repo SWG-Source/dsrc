@@ -1,37 +1,10 @@
 package script.working;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.advanced_turret;
-import script.library.ai_lib;
-import script.library.armor;
-import script.library.buff;
-import script.library.city;
-import script.library.camping;
-import script.library.collection;
-import script.library.factions;
-import script.library.holiday;
-import script.library.house_pet;
-import script.library.gcw;
-import script.library.groundquests;
-import script.library.loot;
-import script.library.money;
-import script.library.player_structure;
-import script.library.qa;
-import script.library.performance;
-import script.library.player_structure;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.trial;
-import script.library.utils;
-import script.library.vendor_lib;
-import script.library.weapons;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class jhaskell_test extends script.base_script
 {

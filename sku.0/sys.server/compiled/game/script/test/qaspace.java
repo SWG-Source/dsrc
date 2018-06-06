@@ -1,58 +1,10 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.StringTokenizer;
-import java.util.Vector;
-import script.library.ai_lib;
-import script.library.anims;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.cloninglib;
-import script.library.combat;
-import script.library.corpse;
-import script.library.create;
-import script.library.datatable;
-import script.library.dump;
-import script.library.factions;
-import script.library.features;
-import script.library.gcw;
-import script.library.gm;
-import script.library.groundquests;
-import script.library.hue;
-import script.library.jedi;
-import script.library.loot;
-import script.library.minigame;
-import script.library.objvar_mangle;
-import script.library.pclib;
-import script.library.player_structure;
-import script.library.qa;
-import script.library.respec;
-import script.library.ship_ai;
-import script.library.skill;
-import script.library.skill_template;
-import script.library.space_battlefield;
+import script.dictionary;
 import script.library.space_combat;
-import script.library.space_content;
-import script.library.space_crafting;
 import script.library.space_create;
-import script.library.space_pilot_command;
-import script.library.space_quest;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.spawning;
-import script.library.static_item;
-import script.library.sui;
 import script.library.utils;
-import script.library.xp;
+import script.obj_id;
 
 public class qaspace extends script.base_script
 {

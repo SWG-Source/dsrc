@@ -1,22 +1,9 @@
 package script.conversation;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.conversation;
-import script.library.groundquests;
-import script.library.group;
-import script.library.instance;
-import script.library.space_dungeon;
-import script.library.space_dungeon_data;
-import script.library.utils;
+import java.util.Vector;
 
 public class story_arc_chapter_three_pilot extends script.base_script
 {

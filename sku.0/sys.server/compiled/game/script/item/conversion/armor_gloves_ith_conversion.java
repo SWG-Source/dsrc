@@ -1,16 +1,5 @@
 package script.item.conversion;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.sui;
-
 public class armor_gloves_ith_conversion extends script.item.conversion.armor_base_conversion
 {
     public armor_gloves_ith_conversion()

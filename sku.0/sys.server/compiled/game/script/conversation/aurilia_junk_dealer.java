@@ -1,10 +1,12 @@
 package script.conversation;
 
-import script.*;
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.smuggler;
 import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class aurilia_junk_dealer extends script.conversation.base.conversation_base
 {

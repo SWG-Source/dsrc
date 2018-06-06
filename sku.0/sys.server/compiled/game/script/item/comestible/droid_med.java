@@ -1,23 +1,7 @@
 package script.item.comestible;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.factions;
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.pet_lib;
-import script.library.healing;
-import script.library.consumable;
-import script.library.prose;
-import script.library.locations;
-import script.library.camping;
+import script.library.*;
 
 public class droid_med extends script.base_script
 {

@@ -1,17 +1,8 @@
 package script.item;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.buff;
-import script.library.dot;
 import script.library.prose;
-import script.library.utils;
+import script.*;
 
 public class target_buff extends script.base_script
 {

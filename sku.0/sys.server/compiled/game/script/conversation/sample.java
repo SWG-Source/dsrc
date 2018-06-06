@@ -1,19 +1,9 @@
 package script.conversation;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
 import script.library.anims;
 import script.library.chat;
-import script.library.cmd;
-import script.library.colors;
-import script.library.combat;
+import script.*;
 
 public class sample extends script.base_script
 {

@@ -1,17 +1,12 @@
 package script.item.medicine;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.buff;
-import script.library.sui;
-import script.library.utils;
 import script.library.healing;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_data;
+import script.menu_info_types;
+import script.obj_id;
 
 public class stimpack_pet extends script.base_script
 {

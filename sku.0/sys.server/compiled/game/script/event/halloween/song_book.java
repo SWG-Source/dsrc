@@ -1,7 +1,10 @@
 package script.event.halloween;
 
 import script.library.utils;
-import script.*;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class song_book extends script.base_script
 {

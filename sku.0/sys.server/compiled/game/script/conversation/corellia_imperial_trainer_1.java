@@ -1,22 +1,7 @@
 package script.conversation;
 
+import script.library.*;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.factions;
-import script.library.features;
-import script.library.skill;
-import script.library.space_flags;
-import script.library.space_quest;
-import script.library.utils;
-import script.library.xp;
 
 public class corellia_imperial_trainer_1 extends script.base_script
 {

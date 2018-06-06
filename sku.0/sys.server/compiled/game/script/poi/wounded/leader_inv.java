@@ -1,17 +1,13 @@
 package script.poi.wounded;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.attrib_mod;
+import script.attribute;
+import script.dictionary;
+import script.library.consumable;
+import script.library.healing;
 import script.library.poi;
 import script.library.scenario;
-import script.library.healing;
-import script.library.consumable;
+import script.obj_id;
 
 public class leader_inv extends script.item.container.add_only
 {

@@ -1,32 +1,8 @@
 package script.working;
 
+import script.combat_engine.hit_result;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.battlefield;
-import script.library.bio_engineer;
-import script.library.buff;
-import script.library.create;
-import script.library.dot;
-import script.library.features;
-import script.library.hq;
-import script.library.locations;
-import script.library.mustafar;
-import script.library.pclib;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.player_structure;
-import script.library.regions;
-import script.library.skill;
-import script.library.utils;
-import script.library.space_crafting;
-import script.library.space_transition;
+import script.library.*;
 
 public class reecetest extends script.base_script
 {

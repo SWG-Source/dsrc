@@ -1,26 +1,9 @@
 package script.player;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.badge;
-import script.library.buff;
-import script.library.callable;
-import script.library.factions;
-import script.library.group;
-import script.library.instance;
-import script.library.locations;
-import script.library.prose;
-import script.library.skill;
-import script.library.static_item;
-import script.library.sui;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class player_instance extends script.base_script
 {

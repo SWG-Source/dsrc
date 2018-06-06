@@ -1,6 +1,6 @@
 package script.library;
 
-import script.*;
+import script.obj_id;
 
 public class session extends script.base_script
 {

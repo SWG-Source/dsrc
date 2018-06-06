@@ -1,18 +1,7 @@
 package script.structure;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.utils;
-import script.library.player_structure;
-import script.library.space_utils;
-import script.library.space_transition;
+import script.library.*;
 
 public class custom_sign extends script.base_script
 {

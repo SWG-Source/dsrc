@@ -1,22 +1,9 @@
 package script.conversation;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.community_crafting;
-import script.library.fs_dyn_village;
-import script.library.fs_quests;
-import script.library.fs_quests_cc;
-import script.library.quests;
-import script.library.sui;
-import script.library.utils;
+import java.util.Vector;
 
 public class quharek_phase_3 extends script.base_script
 {

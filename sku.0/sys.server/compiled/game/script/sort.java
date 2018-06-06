@@ -1,6 +1,6 @@
 package script;
 
-import java.util.*;
+import java.util.Vector;
 
 /**
  * A class that contains sorting algorithms: currently has only

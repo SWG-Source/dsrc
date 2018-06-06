@@ -1,19 +1,9 @@
 package script.terminal;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.city;
-import script.library.prose;
-import script.library.sui;
-import script.library.utils;
-import script.library.money;
-import script.library.player_structure;
+import java.util.Arrays;
 import java.util.Vector;
 
 public class terminal_city extends script.base_script

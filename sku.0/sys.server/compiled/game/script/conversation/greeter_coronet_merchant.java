@@ -1,22 +1,7 @@
 package script.conversation;
 
+import script.library.*;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.features;
-import script.library.groundquests;
-import script.library.skill;
-import script.library.space_flags;
-import script.library.space_quest;
-import script.library.space_utils;
-import script.library.utils;
 
 public class greeter_coronet_merchant extends script.base_script
 {

@@ -1,16 +1,10 @@
 package script.guild;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.guild;
 import script.library.objvar_mangle;
 import script.library.utils;
+import script.obj_id;
 
 public class master_guild_object extends script.base_script
 {

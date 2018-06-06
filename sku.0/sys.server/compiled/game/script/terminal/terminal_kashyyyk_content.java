@@ -1,37 +1,9 @@
 package script.terminal;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.armor;
-import script.library.factions;
-import script.library.space_flags;
-import script.library.sui;
-import script.library.skill;
-import script.library.utils;
-import script.library.prose;
-import script.library.money;
-import script.library.resource;
-import script.library.ai_lib;
-import script.library.pet_lib;
-import script.library.chat;
-import script.library.create;
-import script.library.space_utils;
-import script.library.healing;
-import script.library.consumable;
-import script.library.player_stomach;
-import script.library.weapons;
-import script.library.buff;
-import script.library.jedi;
-import script.library.space_transition;
-import script.library.features;
-import script.library.groundquests;
-import script.library.space_crafting;
+import java.util.Vector;
 
 public class terminal_kashyyyk_content extends script.base_script
 {

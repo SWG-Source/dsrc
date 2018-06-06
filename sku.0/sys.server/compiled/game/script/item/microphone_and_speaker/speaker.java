@@ -1,17 +1,8 @@
 package script.item.microphone_and_speaker;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.chat;
-import script.library.utils;
 import script.library.debug;
-import script.library.xp;
 
 public class speaker extends script.base_script
 {

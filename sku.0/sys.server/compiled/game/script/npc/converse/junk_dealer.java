@@ -1,23 +1,8 @@
 package script.npc.converse;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.chat;
-import script.library.group;
-import script.library.prose;
-import script.library.money;
-import script.library.ai_lib;
-import script.library.utils;
-import script.library.luck;
-import script.library.static_item;
-import script.library.smuggler;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
 
 public class junk_dealer extends script.base_script
 {

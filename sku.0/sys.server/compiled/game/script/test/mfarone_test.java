@@ -1,36 +1,8 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.ai.ai_combat;
-import script.library.ai_lib;
-import script.library.badge;
-import script.library.buff;
-import script.library.chat;
-import script.library.corpse;
-import script.library.create;
-import script.library.factions;
-import script.library.groundquests;
-import script.library.holiday;
-import script.library.hue;
-import script.library.instance;
-import script.library.pet_lib;
 import script.library.pgc_quests;
-import script.library.prose;
-import script.library.skill_template;
-import script.library.static_item;
-import script.library.storyteller;
-import script.library.sui;
-import script.library.trial;
-import script.library.township;
-import script.library.utils;
-import script.library.vehicle;
+import script.location;
+import script.obj_id;
 
 public class mfarone_test extends script.base_script
 {

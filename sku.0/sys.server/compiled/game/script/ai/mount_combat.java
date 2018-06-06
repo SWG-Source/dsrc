@@ -1,22 +1,7 @@
 package script.ai;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.combat;
-import script.library.pclib;
-import script.library.factions;
-import script.library.utils;
-import script.library.pet_lib;
-import script.library.scout;
-import script.library.colors;
-import script.library.xp;
+import script.dictionary;
+import script.obj_id;
 
 public class mount_combat extends script.systems.combat.combat_base
 {

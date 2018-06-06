@@ -1,20 +1,9 @@
 package script.terminal;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.combat;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.static_item;
-import script.library.sui;
-import script.library.township;
-import script.library.utils;
+import java.util.Vector;
 
 public class terminal_travel_instant_ttgm extends script.base_script
 {

@@ -1,25 +1,7 @@
 package script.npc.stormtrooper_respect;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.chat;
-import script.library.factions;
-import script.library.ai_lib;
-import script.library.sui;
-import script.library.utils;
-import script.library.combat;
-import script.library.colors;
-import script.library.money;
-import script.library.anims;
-import script.library.pclib;
-import script.library.prose;
-import script.library.pet_lib;
+import script.library.*;
 
 public class stormtrooper_respect extends script.base_script
 {

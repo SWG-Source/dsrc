@@ -1,38 +1,14 @@
 package script.working;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.string_id;
+
 import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import java.util.StringTokenizer;
-
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.beast_lib;
-import script.library.create;
-import script.library.expertise;
-import script.library.groundquests;
-import script.library.guild;
-import script.library.incubator;
-import script.library.instance;
-import script.library.npe;
-import script.library.player_structure;
-import script.library.pet_lib;
-import script.library.respec;
-import script.library.skill;
-import script.library.skill_template;
-import script.library.space_combat;
-import script.library.space_flags;
-import script.library.space_quest;
-import script.library.static_item;
-import script.library.sui;
-import script.library.transition;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class jbenjtest extends script.base_script
 {

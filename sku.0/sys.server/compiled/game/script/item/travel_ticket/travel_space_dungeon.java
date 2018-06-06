@@ -1,18 +1,8 @@
 package script.item.travel_ticket;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.space_dungeon;
 import script.library.space_dungeon_data;
-import script.library.utils;
-import script.library.sui;
-import script.library.prose;
 
 public class travel_space_dungeon extends script.base_script
 {

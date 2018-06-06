@@ -1,17 +1,10 @@
 package script.poi.base;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.ai.ai_combat;
-import script.library.xp;
+import script.dictionary;
 import script.library.group;
 import script.library.scenario;
+import script.library.xp;
+import script.obj_id;
 
 public class scenario_actor extends script.theme_park.poi.base
 {

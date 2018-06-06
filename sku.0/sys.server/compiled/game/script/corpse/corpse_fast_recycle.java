@@ -1,22 +1,8 @@
 package script.corpse;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.pet_lib;
-import script.library.utils;
+import script.dictionary;
 import script.library.corpse;
-import script.library.permissions;
-import script.library.money;
-import script.library.prose;
-import script.library.group;
-import script.library.ai_lib;
-import script.library.loot;
+import script.obj_id;
 
 public class corpse_fast_recycle extends script.base_script
 {

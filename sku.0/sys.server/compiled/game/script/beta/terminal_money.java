@@ -1,14 +1,9 @@
 package script.beta;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.money;
+import script.menu_info_types;
+import script.obj_id;
 
 public class terminal_money extends script.terminal.base.terminal_add_use
 {

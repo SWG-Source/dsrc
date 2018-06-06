@@ -1,18 +1,8 @@
 package script.e3demo;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.ship_ai;
+import script.dictionary;
 import script.library.space_utils;
-import script.library.space_combat;
-import script.library.space_create;
+import script.obj_id;
 
 public class nebulon_child_object extends script.base_script
 {

@@ -1,19 +1,9 @@
 package script.harvesting;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.utils;
-import script.library.resource;
-import script.library.prose;
-import script.library.colors;
 import script.library.minigame;
+import script.library.resource;
+import script.library.utils;
 
 public class shellfish_harvesting extends script.base_script
 {

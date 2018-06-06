@@ -1,17 +1,7 @@
 package script.item.tool;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.hq;
-import script.library.metrics;
-import script.library.static_item;
-import script.library.sui;
 import script.library.utils;
 
 public class mine_disarm_kit extends script.base_script

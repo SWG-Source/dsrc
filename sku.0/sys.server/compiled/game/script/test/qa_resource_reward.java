@@ -1,17 +1,15 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
+import script.library.qa;
 import script.library.sui;
 import script.library.utils;
 import script.library.veteran_deprecated;
-import script.library.qa;
+import script.obj_id;
+import script.resource_attribute;
+import script.string_id;
+
+import java.util.Vector;
 
 public class qa_resource_reward extends script.base_script
 {

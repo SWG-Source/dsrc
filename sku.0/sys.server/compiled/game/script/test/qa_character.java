@@ -1,26 +1,9 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import java.util.HashSet;
-import java.util.StringTokenizer;
-import java.util.Vector;
-import java.util.Arrays;
-import script.library.utils;
-import script.library.qa;
-import script.library.sui;
-import script.library.skill;
-import script.library.respec;
-import script.library.skill_template;
-import script.library.gm;
-import script.library.buff;
-import script.library.performance;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
 public class qa_character extends script.base_script
 {

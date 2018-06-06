@@ -1,14 +1,7 @@
 package script.e3demo;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.anims;
+import script.dictionary;
+import script.obj_id;
 
 public class e3_bridge_worker_1 extends script.base_script
 {

@@ -1,16 +1,12 @@
 package script.item.comestible;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.attrib_mod;
 import script.library.consumable;
 import script.library.healing;
 import script.library.utils;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class newbie_medicine extends script.base_script
 {

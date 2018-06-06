@@ -5,7 +5,10 @@
 
 package script;
 
-import java.io.*;;
+import java.io.FileWriter;
+import java.io.IOException;
+
+;
 
 
 public class datatable_writer

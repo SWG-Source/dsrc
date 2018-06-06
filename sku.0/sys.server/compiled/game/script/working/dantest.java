@@ -1,48 +1,10 @@
 package script.working;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine.hit_result;
+import script.library.*;
 
-import script.library.callable;
-import script.library.locations;
-import script.library.loot;
-import script.library.npe;
-import script.library.static_item;
-import script.library.vehicle;
-import script.library.armor;
-import script.library.chat;
-import script.library.space_quest;
-import script.library.anims;
-import script.library.sequencer;
-import script.library.sui;
-import script.library.gcw;
-import script.library.space_pilot_command;
-import script.library.factions;
-import script.library.healing;
-import script.library.planetary_map;
-import script.library.player_structure;
-import script.library.space_battlefield;
-import script.library.space_utils;
-import script.library.ship_ai;
-import script.library.space_combat;
-import script.library.space_transition;
-import script.library.space_crafting;
-import script.library.datatable;
-import script.library.battlefield;
-import script.library.create;
-import script.library.utils;
-import script.library.skill;
-import script.library.pclib;
-import script.library.regions;
-import script.library.dot;
-import script.library.pet_lib;
-import script.library.space_create;
-import script.library.trial;
+import java.util.Vector;
 
 public class dantest extends script.base_script
 {

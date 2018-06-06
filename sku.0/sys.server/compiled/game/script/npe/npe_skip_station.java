@@ -1,17 +1,11 @@
 package script.npe;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.sui;
+import script.library.utils;
+import script.obj_id;
+import script.string_id;
+
 import java.util.StringTokenizer;
-import script.library.npe;
 
 public class npe_skip_station extends script.base_script
 {

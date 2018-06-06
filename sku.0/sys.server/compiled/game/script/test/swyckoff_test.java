@@ -1,28 +1,10 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.create;
-import script.library.groundquests;
-import script.library.pclib;
-import script.library.skill;
-import script.library.space_quest;
-import script.library.space_utils;
-import script.library.static_item;
-import script.library.utils;
-import script.library.weapons;
-import script.library.chat;
-import script.library.npe;
-import script.library.xp;
-import script.library.dump;
+import script.deltadictionary;
+import script.dictionary;
 import script.library.buff;
+import script.library.utils;
+import script.obj_id;
 
 public class swyckoff_test extends script.base.remote_object_requester
 {

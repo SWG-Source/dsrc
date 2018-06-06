@@ -5,8 +5,8 @@
 
 package script;
 
-import java.lang.reflect.Array;
 import java.io.Serializable;
+import java.lang.reflect.Array;
 
 public class obj_var implements Comparable, Serializable
 {

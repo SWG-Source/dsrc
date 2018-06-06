@@ -1,17 +1,10 @@
 package script.quest.ep3;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.groundquests;
 import script.library.money;
-import script.library.weapons;
 import script.library.utils;
+import script.library.weapons;
 
 public class kachirho_sealed_container extends script.base_script
 {

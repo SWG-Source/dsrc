@@ -1,20 +1,7 @@
 package script.conversation;
 
+import script.library.*;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.conversation;
-import script.library.groundquests;
-import script.library.loot;
-import script.library.space_quest;
-import script.library.utils;
 
 public class ep3_kachirho_lolo extends script.base_script
 {

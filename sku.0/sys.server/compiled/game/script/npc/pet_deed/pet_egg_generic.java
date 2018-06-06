@@ -1,16 +1,7 @@
 package script.npc.pet_deed;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.callable;
-import script.library.groundquests;
-import script.library.money;
 import script.library.create;
 import script.library.pet_lib;
 import script.library.utils;

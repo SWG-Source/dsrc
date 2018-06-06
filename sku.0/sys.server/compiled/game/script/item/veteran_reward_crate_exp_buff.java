@@ -1,16 +1,11 @@
 package script.item;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.npe;
 import script.library.static_item;
 import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class veteran_reward_crate_exp_buff extends script.base_script
 {

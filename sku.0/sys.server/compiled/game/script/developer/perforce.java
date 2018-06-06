@@ -1,21 +1,10 @@
 package script.developer;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.obj_id;
+import script.system_process;
 
 import java.io.File;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.IOException;
-import script.library.chat;
-
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
+import java.util.Vector;
 
 public class perforce extends script.base_script
 {

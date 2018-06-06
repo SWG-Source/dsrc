@@ -1,14 +1,7 @@
 package script.npc.converse;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
+import script.obj_id;
 
 public class junk_dealer_arms extends script.base_script
 {

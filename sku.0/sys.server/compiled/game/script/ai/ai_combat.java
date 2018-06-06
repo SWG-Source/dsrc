@@ -1,27 +1,7 @@
 package script.ai;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.colors;
-import script.library.combat;
-import script.library.combat_consts;
-import script.library.dot;
-import script.library.factions;
-import script.library.group;
-import script.library.locations;
-import script.library.pet_lib;
-import script.library.pet_lib;
-import script.library.posture;
-import script.library.scout;
-import script.library.utils;
+import script.library.*;
 
 public class ai_combat extends script.base_script
 {

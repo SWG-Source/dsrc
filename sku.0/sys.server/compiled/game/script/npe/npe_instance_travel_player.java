@@ -1,16 +1,9 @@
 package script.npe;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.space_dungeon;
+import script.dictionary;
 import script.library.npe;
+import script.library.space_dungeon;
+import script.obj_id;
 
 public class npe_instance_travel_player extends script.base_script
 {

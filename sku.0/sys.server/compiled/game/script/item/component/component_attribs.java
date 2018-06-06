@@ -1,15 +1,10 @@
 package script.item.component;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.craftinglib;
 import script.library.utils;
+import script.obj_id;
+import script.obj_var;
+import script.obj_var_list;
 
 public class component_attribs extends script.base_script
 {

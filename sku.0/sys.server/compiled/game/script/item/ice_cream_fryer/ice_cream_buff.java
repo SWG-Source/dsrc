@@ -1,16 +1,10 @@
 package script.item.ice_cream_fryer;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.buff;
+import script.dictionary;
 import script.library.collection;
 import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class ice_cream_buff extends script.base_script
 {

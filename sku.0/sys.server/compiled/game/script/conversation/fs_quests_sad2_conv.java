@@ -1,20 +1,7 @@
 package script.conversation;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.fs_quests;
-import script.library.fs_quests_sad;
-import script.library.geiger;
-import script.library.quests;
-import script.library.utils;
+import script.library.*;
 
 public class fs_quests_sad2_conv extends script.base_script
 {

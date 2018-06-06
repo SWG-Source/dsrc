@@ -1,18 +1,7 @@
 package script.item;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.static_item;
-import script.library.prose;
-import script.library.utils;
+import script.library.*;
 
 public class buff_beast_click_item extends script.base_script
 {

@@ -1,29 +1,9 @@
 package script.terminal;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
 import java.util.Vector;
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.dressup;
-import script.library.hue;
-import script.library.money;
-import script.library.player_structure;
-import script.library.prose;
-import script.library.session;
-import script.library.smuggler;
-import script.library.static_item;
-import script.library.sui;
-import script.library.turnstile;
-import script.library.utils;
-import script.library.vendor_lib;
-import script.library.xp;
 
 public class greeter extends script.terminal.base.base_terminal
 {

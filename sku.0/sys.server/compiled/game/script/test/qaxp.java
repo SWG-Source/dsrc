@@ -1,19 +1,8 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.qa;
-import script.library.skill_template;
-import script.library.space_flags;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
 
 public class qaxp extends script.base_script
 {

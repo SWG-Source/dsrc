@@ -1,24 +1,9 @@
 package script.npe;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.create;
-import script.library.utils;
-import script.library.sequencer;
-import script.library.chat;
-import script.library.ship_ai;
-import script.library.space_create;
-import script.library.space_utils;
-import script.library.groundquests;
-import script.library.npe;
-import script.library.xp;
-import script.library.dump;
+import java.util.Vector;
 
 public class millennium_falcon_manager extends script.base_script
 {

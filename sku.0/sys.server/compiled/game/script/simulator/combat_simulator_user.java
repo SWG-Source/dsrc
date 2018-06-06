@@ -1,19 +1,14 @@
 package script.simulator;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.deltadictionary;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
-import script.library.sui;
-import script.library.create;
-import script.library.utils;
-import script.library.weapons;
-import script.library.armor;
+import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.Vector;
 
 public class combat_simulator_user extends script.base_script
 {
