@@ -1,26 +1,10 @@
 package script.theme_park.nym;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.buff;
-import script.library.collection;
-import script.library.create;
-import script.library.factions;
 import script.library.groundquests;
-import script.library.holiday;
-import script.library.pclib;
 import script.library.pet_lib;
-import script.library.static_item;
 import script.library.stealth;
 import script.library.sui;
-import script.library.trial;
-import script.library.utils;
 
 public class dumpster_quest_object extends script.base_script
 {

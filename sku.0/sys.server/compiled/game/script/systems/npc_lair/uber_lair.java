@@ -1,19 +1,13 @@
 package script.systems.npc_lair;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.utils;
-import script.library.ai_lib;
+import script.dictionary;
 import script.library.factions;
 import script.library.regions;
 import script.library.uberlair;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.region;
 
 public class uber_lair extends script.theme_park.poi.base
 {

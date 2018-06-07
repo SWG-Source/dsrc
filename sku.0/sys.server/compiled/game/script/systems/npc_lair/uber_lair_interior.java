@@ -1,16 +1,11 @@
 package script.systems.npc_lair;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
+import script.dictionary;
 import script.library.ai_lib;
+import script.library.create;
 import script.library.player_structure;
+import script.location;
+import script.obj_id;
 
 public class uber_lair_interior extends script.base_script
 {

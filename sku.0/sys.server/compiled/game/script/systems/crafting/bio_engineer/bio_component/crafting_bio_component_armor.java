@@ -1,15 +1,7 @@
 package script.systems.crafting.bio_engineer.bio_component;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.craftinglib;
+import script.resource_weight;
 
 public class crafting_bio_component_armor extends script.systems.crafting.bio_engineer.crafting_base_bio_component_armor
 {

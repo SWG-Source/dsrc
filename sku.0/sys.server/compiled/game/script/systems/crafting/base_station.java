@@ -1,16 +1,13 @@
 package script.systems.crafting;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.buff;
 import script.library.craftinglib;
 import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class base_station extends script.base_script
 {

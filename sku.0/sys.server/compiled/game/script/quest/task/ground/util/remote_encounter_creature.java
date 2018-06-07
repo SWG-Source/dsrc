@@ -1,16 +1,10 @@
 package script.quest.task.ground.util;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.base.remote_object;
+import script.dictionary;
 import script.library.groundquests;
 import script.library.utils;
+import script.obj_id;
 import script.quest.task.ground.remote_encounter;
 
 public class remote_encounter_creature extends script.base_script

@@ -1,21 +1,7 @@
 package script.space.quest_logic;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_create;
-import script.library.space_quest;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.utils;
-import script.library.ship_ai;
-import script.library.prose;
-import script.library.money;
+import script.library.*;
 
 public class escort_duty extends script.base_script
 {

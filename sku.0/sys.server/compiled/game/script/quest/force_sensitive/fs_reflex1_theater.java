@@ -1,14 +1,9 @@
 package script.quest.force_sensitive;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.quests;
+import script.location;
+import script.obj_id;
 
 public class fs_reflex1_theater extends script.base_script
 {

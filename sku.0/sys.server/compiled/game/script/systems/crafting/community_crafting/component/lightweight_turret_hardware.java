@@ -1,15 +1,7 @@
 package script.systems.crafting.community_crafting.component;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.craftinglib;
+import script.resource_weight;
 
 public class lightweight_turret_hardware extends script.systems.crafting.community_crafting.component.base_component
 {

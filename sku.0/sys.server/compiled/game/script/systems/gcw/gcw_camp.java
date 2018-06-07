@@ -1,20 +1,12 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.obj_var_list;
 
-import script.library.camping;
-import script.library.create;
-import script.library.factions;
-import script.library.gcw;
-import script.library.theater;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class gcw_camp extends script.base_script
 {

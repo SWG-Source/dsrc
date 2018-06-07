@@ -1,18 +1,9 @@
 package script.theme_park.meatlump;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.city;
-import script.library.create;
-import script.library.groundquests;
-import script.library.locations;
-import script.library.utils;
+import java.util.Vector;
 
 public class quest_shuttle_comlink extends script.base_script
 {

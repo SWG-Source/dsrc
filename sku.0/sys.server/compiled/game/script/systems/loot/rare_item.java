@@ -1,13 +1,6 @@
 package script.systems.loot;
 
-import script.library.badge;
-import script.library.collection;
-import script.library.loot;
-import script.library.utils;
-import script.menu_info;
-import script.menu_info_types;
 import script.obj_id;
-import script.string_id;
 
 public class rare_item extends script.base_script {
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException

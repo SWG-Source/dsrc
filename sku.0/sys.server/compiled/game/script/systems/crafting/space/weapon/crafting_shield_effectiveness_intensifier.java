@@ -1,15 +1,7 @@
 package script.systems.crafting.space.weapon;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.craftinglib;
+import script.resource_weight;
 
 public class crafting_shield_effectiveness_intensifier extends script.systems.crafting.space.weapon.crafting_base_space_weapon_component
 {

@@ -1,16 +1,10 @@
 package script.theme_park.poi.general.special;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.quests;
+import script.location;
+import script.obj_id;
 import script.theme_park.tatooine.gating;
-import script.ai.ai_combat;
 
 public class spawn_squill extends script.base_script
 {

@@ -1,19 +1,7 @@
 package script.systems.city;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.player_structure;
-import script.library.utils;
-import script.library.city;
-import script.library.prose;
-import script.library.planetary_map;
-import script.library.money;
+import script.library.*;
 
 public class city_hall extends script.base_script
 {

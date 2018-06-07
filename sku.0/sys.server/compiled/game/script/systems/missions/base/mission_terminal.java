@@ -1,21 +1,10 @@
 package script.systems.missions.base;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.structure;
-import script.library.factions;
-import script.library.utils;
-import script.library.loot;
-import script.library.sui;
-import script.library.slicing;
 import script.library.prose;
-import script.library.xp;
+import script.library.slicing;
+import script.library.structure;
+import script.library.utils;
 
 public class mission_terminal extends script.base_script
 {

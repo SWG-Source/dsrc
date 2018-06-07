@@ -1,16 +1,9 @@
 package script.theme_park.dungeon.mustafar_trials.establish_the_link;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.utils;
+import script.dictionary;
 import script.library.trial;
+import script.library.utils;
+import script.obj_id;
 
 public class foreman_guard extends script.base_script
 {

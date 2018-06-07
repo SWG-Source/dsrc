@@ -1,17 +1,9 @@
 package script.systems.tcg;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.static_item;
 import script.library.target_dummy;
 import script.library.utils;
+
 import java.util.Enumeration;
 
 public class target_creature_deed extends script.base_script

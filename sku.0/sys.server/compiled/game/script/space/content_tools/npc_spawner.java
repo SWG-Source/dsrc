@@ -1,22 +1,11 @@
 package script.space.content_tools;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_utils;
+import script.dictionary;
 import script.library.planetary_map;
-import script.library.objvar_mangle;
-import script.library.space_quest;
-import script.library.space_create;
-import script.library.ship_ai;
 import script.library.utils;
-import script.library.space_battlefield;
-import script.library.hue;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class npc_spawner extends script.base_script
 {

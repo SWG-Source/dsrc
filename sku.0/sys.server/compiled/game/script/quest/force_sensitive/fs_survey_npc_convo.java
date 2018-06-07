@@ -1,22 +1,11 @@
 package script.quest.force_sensitive;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
-import script.library.fs_quests;
-import script.library.community_crafting;
-import script.library.quests;
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.factions;
-import script.library.skill;
-import script.library.utils;
-import script.library.fs_dyn_village;
+import java.util.Vector;
 
 public class fs_survey_npc_convo extends script.base_script
 {

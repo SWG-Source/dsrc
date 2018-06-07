@@ -1,22 +1,9 @@
 package script.systems.movement;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.callable;
-import script.library.space_dungeon;
-import script.library.sui;
-import script.library.utils;
-import script.library.pclib;
-import script.library.colors_hex;
-import script.library.pet_lib;
-import script.library.vehicle;
-import script.library.transition;
+import java.util.Vector;
 
 public class zone_transition extends script.base_script
 {

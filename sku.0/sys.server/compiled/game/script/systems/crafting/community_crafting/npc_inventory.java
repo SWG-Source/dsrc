@@ -1,14 +1,9 @@
 package script.systems.crafting.community_crafting;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.community_crafting;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class npc_inventory extends script.base_script
 {

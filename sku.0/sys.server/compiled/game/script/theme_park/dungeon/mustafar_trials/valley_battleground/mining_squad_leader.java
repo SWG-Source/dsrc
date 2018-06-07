@@ -1,21 +1,9 @@
 package script.theme_park.dungeon.mustafar_trials.valley_battleground;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.create;
-import script.library.ai_lib;
-import script.library.armor;
-import script.library.combat;
-import script.library.trial;
-import script.library.pet_lib;
-import script.library.factions;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
 public class mining_squad_leader extends script.base_script
 {

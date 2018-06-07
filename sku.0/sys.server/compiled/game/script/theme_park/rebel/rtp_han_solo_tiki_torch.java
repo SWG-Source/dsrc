@@ -1,14 +1,8 @@
 package script.theme_park.rebel;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.groundquests;
+import script.dictionary;
+import script.location;
+import script.obj_id;
 
 public class rtp_han_solo_tiki_torch extends script.base_script
 {

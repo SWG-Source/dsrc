@@ -1,19 +1,9 @@
 package script.theme_park.tatooine.mos_taike;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
-import script.library.hue;
 import script.library.colors;
-import script.library.chat;
-import script.library.factions;
-import script.library.skill;
+import script.library.hue;
+import script.obj_id;
 
 public class mos_taike_guard_old extends script.base_script
 {

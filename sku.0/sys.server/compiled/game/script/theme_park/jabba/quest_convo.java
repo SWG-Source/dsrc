@@ -1,24 +1,7 @@
 package script.theme_park.jabba;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.group;
-import script.library.factions;
-import script.library.chat;
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.locations;
-import script.library.money;
-import script.library.quests;
-import script.library.badge;
-import script.library.prose;
-import script.library.weapons;
+import script.library.*;
 
 public class quest_convo extends script.base_script
 {

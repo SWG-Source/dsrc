@@ -1,18 +1,12 @@
 package script.systems.veteran_reward;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.player_structure;
 import script.library.sui;
 import script.library.target_dummy;
 import script.library.utils;
 import script.library.veteran_deprecated;
+
+import java.util.Vector;
 
 public class resource extends script.base_script
 {

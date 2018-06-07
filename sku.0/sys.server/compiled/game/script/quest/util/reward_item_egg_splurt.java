@@ -1,15 +1,8 @@
 package script.quest.util;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.player_structure;
+import script.library.utils;
+import script.*;
 
 public class reward_item_egg_splurt extends script.base_script
 {

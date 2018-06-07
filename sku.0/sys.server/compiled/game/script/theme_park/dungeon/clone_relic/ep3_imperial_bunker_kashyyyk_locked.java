@@ -1,17 +1,10 @@
 package script.theme_park.dungeon.clone_relic;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.groundquests;
-import script.library.space_flags;
 import script.library.space_quest;
 import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class ep3_imperial_bunker_kashyyyk_locked extends script.base_script
 {

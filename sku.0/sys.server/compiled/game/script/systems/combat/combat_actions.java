@@ -1,52 +1,12 @@
 package script.systems.combat;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine.combat_data;
+import script.combat_engine.weapon_data;
+import script.library.*;
 
-import script.ai.ai_combat;
-import script.library.ai_lib;
-import script.library.bounty_hunter;
-import script.library.armor;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.callable;
-import script.library.chat;
-import script.library.colors;
-import script.library.combat;
-import script.library.corpse;
-import script.library.craftinglib;
-import script.library.create;
-import script.library.dot;
-import script.library.factions;
-import script.library.faction_perk;
-import script.library.grenade;
-import script.library.groundquests;
-import script.library.group;
-import script.library.healing;
-import script.library.innate;
-import script.library.instance;
-import script.library.locations;
-import script.library.movement;
-import script.library.performance;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.smuggler;
-import script.library.space_dungeon;
-import script.library.space_utils;
-import script.library.squad_leader;
-import script.library.stealth;
-import script.library.sui;
-import script.library.trial;
-import script.library.utils;
-import script.library.vehicle;
-import script.library.weapons;
-import script.library.heavyweapons;
-import script.systems.missions.dynamic.bounty_probe_droid;
+import java.util.Arrays;
+import java.util.Vector;
 
 public class combat_actions extends script.systems.combat.combat_base
 {

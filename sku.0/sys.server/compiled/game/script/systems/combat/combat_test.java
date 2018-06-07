@@ -1,12 +1,7 @@
 package script.systems.combat;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.attrib_mod;
+import script.obj_id;
 
 public class combat_test extends script.base_script
 {

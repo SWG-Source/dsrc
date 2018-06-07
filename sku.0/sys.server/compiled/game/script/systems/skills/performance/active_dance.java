@@ -1,21 +1,9 @@
 package script.systems.skills.performance;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.buff;
-import script.library.colors;
-import script.library.groundquests;
-import script.library.performance;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
-import script.library.beast_lib;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
 public class active_dance extends script.base_script
 {

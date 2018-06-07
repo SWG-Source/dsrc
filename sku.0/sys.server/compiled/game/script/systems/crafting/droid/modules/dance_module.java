@@ -1,17 +1,13 @@
 package script.systems.crafting.droid.modules;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.callable;
 import script.library.pet_lib;
 import script.library.sui;
 import script.library.utils;
+
+import java.util.Arrays;
+import java.util.Vector;
 
 public class dance_module extends script.base_script
 {

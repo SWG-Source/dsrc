@@ -1,15 +1,10 @@
 package script.systems.battlefield;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.battlefield;
 import script.library.player_structure;
+import script.obj_id;
+import script.region;
 
 public class battlefield_object extends script.base_script
 {

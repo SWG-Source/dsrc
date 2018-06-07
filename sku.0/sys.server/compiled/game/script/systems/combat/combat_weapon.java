@@ -1,24 +1,8 @@
 package script.systems.combat;
 
+import script.combat_engine.weapon_data;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.combat;
-import script.library.jedi;
-import script.library.proc;
-import script.library.prose;
-import script.library.static_item;
-import script.library.sui;
-import script.library.trace;
-import script.library.utils;
-import script.library.weapons;
+import script.library.*;
 
 public class combat_weapon extends script.base_script
 {

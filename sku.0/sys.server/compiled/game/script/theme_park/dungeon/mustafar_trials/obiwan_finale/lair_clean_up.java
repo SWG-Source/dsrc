@@ -1,18 +1,7 @@
 package script.theme_park.dungeon.mustafar_trials.obiwan_finale;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.player_structure;
-import script.library.space_dungeon;
-import script.library.create;
-import script.library.utils;
-import script.library.permissions;
+import script.dictionary;
+import script.obj_id;
 
 public class lair_clean_up extends script.base_script
 {

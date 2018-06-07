@@ -1,16 +1,8 @@
 package script.systems.crafting.community_crafting;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.draft_schematic;
 import script.library.craftinglib;
-import script.library.debug;
+import script.obj_id;
 
 public class base extends script.systems.crafting.crafting_base
 {

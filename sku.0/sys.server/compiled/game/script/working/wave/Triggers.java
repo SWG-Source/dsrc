@@ -2,7 +2,6 @@ package script.working.wave;
 
 import script.menu_info;
 import script.obj_id;
-import script.string_id;
 
 public final class Triggers
 {

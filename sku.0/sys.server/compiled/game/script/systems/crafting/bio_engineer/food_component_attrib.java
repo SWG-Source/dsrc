@@ -1,16 +1,7 @@
 package script.systems.crafting.bio_engineer;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.craftinglib;
-import script.library.bio_engineer;
-import script.library.utils;
+import script.obj_id;
 
 public class food_component_attrib extends script.base_script
 {

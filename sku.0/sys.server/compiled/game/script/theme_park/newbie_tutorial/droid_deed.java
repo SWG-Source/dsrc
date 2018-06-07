@@ -1,15 +1,11 @@
 package script.theme_park.newbie_tutorial;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.create;
 import script.library.pet_lib;
+import script.location;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
 
 public class droid_deed extends script.base_script
 {

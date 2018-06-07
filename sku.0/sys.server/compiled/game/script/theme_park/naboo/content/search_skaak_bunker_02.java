@@ -1,12 +1,7 @@
 package script.theme_park.naboo.content;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
 
 public class search_skaak_bunker_02 extends script.base_script
 {

@@ -1,16 +1,8 @@
 package script.systems.respec;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.respec;
-import script.library.sui;
-import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class check_inform_respec extends script.base_script
 {

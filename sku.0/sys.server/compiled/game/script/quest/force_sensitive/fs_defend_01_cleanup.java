@@ -1,16 +1,14 @@
 package script.quest.force_sensitive;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.factions;
 import script.library.fs_quests;
 import script.library.quests;
+import script.obj_id;
+import script.obj_var;
+import script.obj_var_list;
+
+import java.util.Vector;
 
 public class fs_defend_01_cleanup extends script.base_script
 {

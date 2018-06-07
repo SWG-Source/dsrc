@@ -1,16 +1,10 @@
 package script.poi.template.scene.base;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
+import script.library.factions;
 import script.library.poi;
 import script.library.theater;
-import script.library.factions;
+import script.obj_id;
 
 public class base_theater extends script.base_script
 {

@@ -1,20 +1,13 @@
 package script.systems.crafting.bio_engineer;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.craftinglib;
-import script.library.consumable;
-import script.library.player_stomach;
+import script.dictionary;
+import script.draft_schematic;
 import script.library.bio_engineer;
+import script.library.craftinglib;
 import script.library.create;
-import script.library.pet_lib;
+import script.library.utils;
+import script.modifiable_int;
+import script.obj_id;
 
 public class crafting_base_creature extends script.systems.crafting.crafting_base
 {

@@ -1,17 +1,8 @@
 package script.systems.crafting.space.chassis;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.craftinglib;
-import script.library.space_crafting;
-import script.library.create;
+import script.dictionary;
+import script.draft_schematic;
+import script.obj_id;
 
 public class crafting_base_blacksun_light_s02_chassis extends script.systems.crafting.crafting_base
 {

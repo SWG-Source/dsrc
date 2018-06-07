@@ -1,15 +1,10 @@
 package script.theme_park.dungeon.avatar_platform;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_dungeon;
+import script.dictionary;
 import script.library.pclib;
+import script.library.space_dungeon;
+import script.location;
+import script.obj_id;
 
 public class avatar_destruction_player extends script.base_script
 {

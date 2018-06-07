@@ -1,25 +1,9 @@
 package script.theme_park.jedi_trials;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.create;
-import script.library.fs_quests;
-import script.library.jedi;
-import script.library.jedi_trials;
-import script.library.locations;
-import script.library.prose;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
-import script.library.static_item;
+import java.util.Vector;
 
 public class padawan_trials extends script.base_script
 {

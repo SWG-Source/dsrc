@@ -1,18 +1,9 @@
 package script.systems.jedi;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.utils;
-import script.library.jedi;
-import script.library.pclib;
-import script.library.static_item;
-import script.library.weapons;
+import java.util.Vector;
 
 public class saber_base extends script.base_script
 {

@@ -1,20 +1,7 @@
 package script.theme_park.jedi_trials;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.badge;
-import script.library.buff;
-import script.library.jedi_trials;
-import script.library.jedi;
-import script.library.static_item;
-import script.library.sui;
-import script.library.utils;
+import script.library.*;
 
 public class force_shrine extends script.base_script
 {

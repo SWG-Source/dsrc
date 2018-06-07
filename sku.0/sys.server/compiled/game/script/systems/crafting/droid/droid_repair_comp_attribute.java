@@ -1,15 +1,8 @@
 package script.systems.crafting.droid;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.craftinglib;
 import script.library.utils;
+import script.obj_id;
 
 public class droid_repair_comp_attribute extends script.base_script
 {

@@ -1,15 +1,8 @@
 package script.space.ship;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.space_transition;
+import script.obj_id;
 
 public class ship_interior_loot extends script.base_script
 {

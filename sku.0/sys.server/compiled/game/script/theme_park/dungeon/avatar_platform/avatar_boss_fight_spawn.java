@@ -1,20 +1,12 @@
 package script.theme_park.dungeon.avatar_platform;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.create;
 import script.library.groundquests;
-import script.library.chat;
-import script.library.space_utils;
-import script.library.prose;
 import script.library.player_structure;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class avatar_boss_fight_spawn extends script.base_script
 {

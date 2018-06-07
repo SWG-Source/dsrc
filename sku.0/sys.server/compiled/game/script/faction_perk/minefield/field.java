@@ -1,22 +1,13 @@
 package script.faction_perk.minefield;
 
+import script.combat_engine.attacker_data;
+import script.combat_engine.defender_data;
+import script.combat_engine.hit_result;
+import script.combat_engine.weapon_data;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.pclib;
-import script.library.combat;
-import script.library.ai_lib;
-import script.library.factions;
-import script.library.faction_perk;
-import script.library.player_structure;
+import java.util.Vector;
 
 public class field extends script.systems.combat.combat_base_old
 {

@@ -1,18 +1,11 @@
 package script.theme_park.dungeon.mustafar_trials.obiwan_finale;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.chat;
+import script.dictionary;
 import script.library.groundquests;
 import script.library.mustafar;
-import script.library.prose;
 import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class obiwan_quest_monitor extends script.base_script
 {

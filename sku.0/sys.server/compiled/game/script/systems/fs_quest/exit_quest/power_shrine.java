@@ -1,17 +1,11 @@
 package script.systems.fs_quest.exit_quest;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.quests;
-import script.library.theater;
+import script.dictionary;
 import script.library.healing;
-import script.ai.ai_combat;
+import script.library.theater;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class power_shrine extends script.base_script
 {

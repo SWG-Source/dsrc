@@ -1,14 +1,7 @@
 package script.quest.task.ground.util;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.groundquests;
+import script.obj_id;
 
 public class enter_room_signal extends script.base_script
 {

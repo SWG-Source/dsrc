@@ -1,18 +1,14 @@
 package script.theme_park.dungeon.mustafar_trials.valley_battleground;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.combat;
+import script.dictionary;
 import script.library.colors;
-import script.library.attrib;
 import script.library.trial;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.string_id;
+
+import java.util.Vector;
 
 public class demolition_pack extends script.base_script
 {

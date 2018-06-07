@@ -1,17 +1,12 @@
 package script.theme_park.newbie_tutorial;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.utils;
-import script.library.colors;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class greeter_one extends script.theme_park.newbie_tutorial.tutorial_base
 {

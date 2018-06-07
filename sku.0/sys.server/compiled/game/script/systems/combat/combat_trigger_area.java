@@ -1,18 +1,8 @@
 package script.systems.combat;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.attrib;
-import script.library.buff;
-import script.library.combat;
-import script.library.group;
-import script.library.utils;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
 
 public class combat_trigger_area extends script.base_script
 {

@@ -1,18 +1,9 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.factions;
-import script.library.gcw;
-import script.library.trial;
-import script.library.utils;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
 
 public class gcw_city_kit_damaged_vehicle extends script.systems.gcw.gcw_city_kit
 {

@@ -1,18 +1,12 @@
 package script.theme_park.tatooine.bestine;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.chat;
 import script.library.ai_lib;
-import script.library.utils;
+import script.library.chat;
 import script.library.locations;
-import script.library.quests;
+import script.location;
+import script.obj_id;
+import script.region;
+import script.string_id;
 
 public class om_escort extends script.base_script
 {

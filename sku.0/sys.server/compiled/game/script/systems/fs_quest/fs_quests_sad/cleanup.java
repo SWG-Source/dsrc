@@ -1,17 +1,11 @@
 package script.systems.fs_quest.fs_quests_sad;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.fs_dyn_village;
+import script.dictionary;
 import script.library.fs_quests_sad;
 import script.library.geiger;
 import script.library.quests;
+import script.obj_id;
+import script.string_id;
 
 public class cleanup extends script.base_script
 {

@@ -1,18 +1,10 @@
 package script.theme_park.dungeon.trando_slave_camp;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_dungeon;
-import script.library.space_dungeon_data;
-import script.library.utils;
 import script.library.sui;
-import script.library.prose;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class exit_terminal extends script.base_script
 {

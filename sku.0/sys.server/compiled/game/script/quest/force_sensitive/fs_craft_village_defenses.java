@@ -1,18 +1,11 @@
 package script.quest.force_sensitive;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.community_crafting;
 import script.library.fs_dyn_village;
-import script.library.fs_quests;
 import script.library.quests;
 import script.library.utils;
+import script.obj_id;
 
 public class fs_craft_village_defenses extends script.base_script
 {

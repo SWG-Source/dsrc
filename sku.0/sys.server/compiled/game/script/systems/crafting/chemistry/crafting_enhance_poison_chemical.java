@@ -1,18 +1,12 @@
 package script.systems.crafting.chemistry;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.craftinglib;
-import script.library.utils;
-import script.library.healing;
+import script.attrib_mod;
+import script.dictionary;
+import script.draft_schematic;
 import script.library.consumable;
-import script.library.player_stomach;
+import script.library.craftinglib;
+import script.library.healing;
+import script.obj_id;
 
 public class crafting_enhance_poison_chemical extends script.systems.crafting.crafting_base
 {

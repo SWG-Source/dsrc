@@ -1,17 +1,6 @@
 package script.systems.missions.dynamic;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.skill;
-import script.library.locations;
-import script.library.regions;
 import script.library.ai_lib;
 import script.library.chat;
 

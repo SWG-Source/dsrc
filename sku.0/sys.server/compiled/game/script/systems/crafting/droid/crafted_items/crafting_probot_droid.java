@@ -1,15 +1,9 @@
 package script.systems.crafting.droid.crafted_items;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.draft_schematic;
 import script.library.craftinglib;
+import script.obj_id;
+import script.resource_weight;
 
 public class crafting_probot_droid extends script.systems.crafting.droid.crafting_base_droid
 {

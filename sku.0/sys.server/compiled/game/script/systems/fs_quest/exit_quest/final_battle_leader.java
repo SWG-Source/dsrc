@@ -1,19 +1,10 @@
 package script.systems.fs_quest.exit_quest;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
-import script.library.quests;
-import script.library.theater;
 import script.library.chat;
 import script.library.prose;
-import script.ai.ai_combat;
+import script.library.theater;
 
 public class final_battle_leader extends script.base_script
 {

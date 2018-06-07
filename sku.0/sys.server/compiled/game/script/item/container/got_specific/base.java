@@ -1,14 +1,9 @@
 package script.item.container.got_specific;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.prose;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class base extends script.base_script
 {

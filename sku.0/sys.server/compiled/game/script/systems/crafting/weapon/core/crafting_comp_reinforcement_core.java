@@ -1,15 +1,7 @@
 package script.systems.crafting.weapon.core;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.craftinglib;
+import script.resource_weight;
 
 public class crafting_comp_reinforcement_core extends script.systems.crafting.weapon.crafting_new_base_weapon_component
 {

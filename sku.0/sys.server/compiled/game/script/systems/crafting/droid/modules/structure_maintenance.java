@@ -1,21 +1,9 @@
 package script.systems.crafting.droid.modules;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.callable;
-import script.library.pet_lib;
-import script.library.player_structure;
-import script.library.prose;
-import script.library.sui;
-import script.library.utils;
-import script.library.money;
+import java.util.Vector;
 
 public class structure_maintenance extends script.base_script
 {

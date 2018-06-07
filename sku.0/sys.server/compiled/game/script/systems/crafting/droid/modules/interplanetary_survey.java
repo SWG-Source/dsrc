@@ -1,19 +1,9 @@
 package script.systems.crafting.droid.modules;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.resource;
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.craftinglib;
-import script.library.player_structure;
+import java.util.Vector;
 
 public class interplanetary_survey extends script.base_script
 {

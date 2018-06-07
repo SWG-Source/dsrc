@@ -1,17 +1,10 @@
 package script.systems.crafting.bio_engineer.creature;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.hue;
-import script.library.utils;
+import script.draft_schematic;
 import script.library.craftinglib;
-import script.library.bio_engineer;
+import script.library.hue;
+import script.obj_id;
+import script.resource_weight;
 
 public class crafting_creature_bearded_jax extends script.systems.crafting.bio_engineer.crafting_base_creature
 {

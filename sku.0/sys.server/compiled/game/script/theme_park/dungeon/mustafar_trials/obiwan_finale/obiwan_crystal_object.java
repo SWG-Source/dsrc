@@ -1,20 +1,7 @@
 package script.theme_park.dungeon.mustafar_trials.obiwan_finale;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.anims;
-import script.library.buff;
-import script.library.chat;
-import script.library.mustafar;
-import script.library.prose;
-import script.library.sui;
-import script.library.utils;
+import script.library.*;
 
 public class obiwan_crystal_object extends script.base_script
 {

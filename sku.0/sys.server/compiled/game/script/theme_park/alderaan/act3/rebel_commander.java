@@ -1,18 +1,12 @@
 package script.theme_park.alderaan.act3;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.locations;
-import script.library.chat;
-import script.library.create;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.region;
 
 public class rebel_commander extends script.base_script
 {

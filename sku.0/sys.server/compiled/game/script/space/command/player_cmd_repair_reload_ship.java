@@ -1,21 +1,9 @@
 package script.space.command;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.space_utils;
-import script.library.space_crafting;
-import script.library.ship_ai;
-import script.library.xp;
-import script.library.space_combat;
-import script.library.space_pilot_command;
-import script.library.space_transition;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
 public class player_cmd_repair_reload_ship extends script.base_script
 {

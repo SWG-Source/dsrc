@@ -1,20 +1,8 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.pet_lib;
-import script.library.factions;
-import script.library.force_rank;
 import script.library.arena;
+import script.library.utils;
+import script.obj_id;
 
 public class dark_jedi_arena extends script.base_script
 {

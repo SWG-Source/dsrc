@@ -1,20 +1,13 @@
 package script.systems.fs_quest;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.fs_dyn_village;
+import script.ai.ai_combat;
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.attrib;
-import script.ai.ai_combat;
-import script.library.factions;
-import script.library.chat;
+import script.library.fs_dyn_village;
 import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class fs_village_enemy_ai extends script.base_script
 {

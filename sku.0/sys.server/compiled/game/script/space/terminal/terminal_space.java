@@ -1,33 +1,9 @@
 package script.space.terminal;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.callable;
-import script.library.features;
-import script.library.locations;
-import script.library.performance;
-import script.library.pet_lib;
-import script.library.player_structure;
-import script.library.regions;
-import script.library.session;
-import script.library.space_crafting;
-import script.library.space_flags;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.stealth;
-import script.library.sui;
-import script.library.travel;
-import script.library.utils;
-import script.library.vehicle;
-import script.library.buff;
-import script.library.event_perk;
+import java.util.Vector;
 
 public class terminal_space extends script.terminal.base.base_terminal
 {

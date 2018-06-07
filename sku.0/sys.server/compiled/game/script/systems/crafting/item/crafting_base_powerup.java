@@ -1,16 +1,10 @@
 package script.systems.crafting.item;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
+import script.draft_schematic;
 import script.library.craftinglib;
 import script.library.powerup;
+import script.obj_id;
 
 public class crafting_base_powerup extends script.systems.crafting.crafting_base
 {

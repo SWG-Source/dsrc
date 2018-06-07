@@ -1,21 +1,11 @@
 package script.theme_park.dungeon.mustafar_trials.old_republic_facility;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.groundquests;
-import script.library.space_dungeon;
-import script.library.space_dungeon_data;
-import script.library.utils;
-import script.library.sui;
-import script.library.prose;
-import script.library.pet_lib;
 import script.library.instance;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class old_republic_facility_launcher extends script.base_script
 {

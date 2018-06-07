@@ -1,18 +1,10 @@
 package script.theme_park.recruitment;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
-import script.library.hue;
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.factions;
-import script.library.space_flags;
+import java.util.Vector;
 
 public class imperial_recruit extends script.theme_park.recruitment.base.base_recruiter
 {

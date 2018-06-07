@@ -3,7 +3,10 @@ package script.systems.gcw.space;
 import script.*;
 import script.library.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Vector;
 
 public class battle_spawner extends script.base_class {
     public static final String CONTROLLER_SCRIPT = "systems.gcw.space.battle_controller";

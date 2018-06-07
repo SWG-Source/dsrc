@@ -1,30 +1,9 @@
 package script.systems.gcw;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.colors_hex;
-import script.library.factions;
-import script.library.gcw;
-import script.library.group;
-import script.library.instance;
-import script.library.locations;
-import script.library.pclib;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.pvp;
-import script.library.restuss_event;
-import script.library.skill;
-import script.library.static_item;
-import script.library.sui;
-import script.library.utils;
+import java.util.Vector;
 
 public class player_pvp extends script.base_script
 {
