@@ -1655,7 +1655,15 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 7:
-            handleVehicleOption(player);
+            if (isGod(player) || checkConfigSetting("vehiclesEnabled"))
+            {
+                handleVehicleOption(player);
+            }
+            else 
+            {
+                sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
+                return SCRIPT_CONTINUE;
+            }
             break;
             case 8:
             if (isGod(player) || checkConfigSetting("shipsEnabled"))
