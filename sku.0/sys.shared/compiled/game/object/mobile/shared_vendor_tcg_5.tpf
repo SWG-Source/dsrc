@@ -1,0 +1,10 @@
+@base object/mobile/skeleton/shared_humanoid.iff
+@class creature_object_template 12
+@class tangible_object_template 3
+@class object_template 3
+
+objectName = "mob/creature_names" "vendor_tcg_5"
+detailedDescription = "" ""
+
+appearanceFilename = "appearance/nightsister_f.sat"
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_dathomir_nightsister_initiate.cdf"

@@ -535,8 +535,8 @@ expertise_aggro_channel	officer_1a	officer	1	3671			Channel Hate Ability Percent
 special_vendor_tcg_series1_ewok	ALL	misc	1	6000			TCG Set 1 & 2 Vendor
 special_vendor_tcg_series1_gungan	ALL	misc	1	6010			TCG Set 1 & 2 Vendor
 special_vendor_tcg_series1_jawa	ALL	misc	1	6020			TCG Set 1 & 2 Vendor
-special_vendor_tcg_series1_meatlump	ALL	misc	1	6030			TCG Set 1 & 2 Vendor
-special_vendor_tcg_series1_bomarr_monk	ALL	misc	1	6040			TCG Set 1 & 2 Vendor
+special_vendor_tcg_series2_meatlump	ALL	misc	1	6030			TCG Set 1 & 2 Vendor
+special_vendor_tcg_series2_bomarr_monk	ALL	misc	1	6040			TCG Set 1 & 2 Vendor
 special_vendor_tcg_series1_serving_droid	ALL	misc	1	6050			TCG Set 1 & 2 Vendor
 special_vendor_tcg_series3_nightsister	ALL	misc	1	6060			TCG Set 3 Vendor
 special_vendor_tcg_series3_battle_droid	ALL	misc	1	6070			TCG Set 3 Vendor
@@ -544,8 +544,8 @@ special_vendor_tcg_series4_toydarian	ALL	misc	1	6080			TCG Set 4 Vendor
 special_vendor_tcg_series4_kitonak	ALL	misc	1	6090			TCG Set 4 Vendor
 special_sign_tcg_series3	ALL	misc	1	7000			TCG Set 3 animated signs
 special_sign_tcg_series5	ALL	misc	1	7001			TCG Set 5 signs
-special_sign_halloween_hanging_sign	ALL	misc	1	7010			"Galactic Moon Festival Signs, version 2"
-special_sign_halloween_standing_sign	ALL	misc	1	7020			"Galactic Moon Festival Signs, version 2"
+special_sign_halloween_hanging_sign	ALL	misc	1	7010			Galactic Moon Festival Signs, version 2
+special_sign_halloween_standing_sign	ALL	misc	1	7020			Galactic Moon Festival Signs, version 2
 special_sign_imp_empire_day_standing	ALL	misc	1	7021			Empire Day 2009
 special_sign_imp_empire_day_hanging	ALL	misc	1	7022			Empire Day 2009
 special_sign_reb_empire_day_standing	ALL	misc	1	7023			Empire Day 2009

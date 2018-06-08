@@ -52,7 +52,7 @@ public class jhaskell_test extends script.base_script
     public static final int GROUP_MODIFIER = 1;
     public static final int ENEMY_COUNT = 3;
     public static final int DATATABLE_IDX = 8;
-    public static final String[] ALL_PLAYER_HOUSING = 
+    public static final String[] ALL_PLAYER_HOUSING =
     {
         "object/building/player/player_garage_corellia_style_01.iff",
         "object/building/player/player_garage_naboo_style_01.iff",
@@ -92,7 +92,7 @@ public class jhaskell_test extends script.base_script
         "object/building/player/player_merchant_tent_style_03.iff",
         "object/building/player/player_mustafar_house_lg.iff"
     };
-    public static final String[] ALL_PLAYER_CITY_STRUCTURES = 
+    public static final String[] ALL_PLAYER_CITY_STRUCTURES =
     {
         "object/building/player/city/bank_corellia.iff",
         "object/building/player/city/bank_naboo.iff",
@@ -175,42 +175,42 @@ public class jhaskell_test extends script.base_script
         "object/building/player/city/theater_naboo.iff",
         "object/building/player/city/theater_tatooine.iff"
     };
-    public static final String[] TCG_EXPANSION = 
+    public static final String[] TCG_EXPANSION =
     {
-        "item_tcg_loot_reward_series1_v_wing",
-        "item_tcg_loot_reward_series1_podracer_mawhonic",
-        "item_tcg_loot_reward_series1_sanyassan_skull",
+        "item_tcg_loot_reward_series2_v_wing",
+        "item_tcg_loot_reward_series2_podracer_mawhonic",
+        "item_tcg_loot_reward_series2_sanyassan_skull",
         "item_tcg_loot_reward_series1_video_game_table",
         "item_tcg_loot_reward_series1_organizational_datapad",
-        "item_tcg_loot_reward_series1_barn",
-        "item_tcg_loot_reward_series1_versafunction88_datapad",
-        "item_tcg_loot_reward_series1_keelkana_tooth",
-        "item_tcg_loot_reward_series1_painting_darth_vader",
-        "item_tcg_loot_reward_series1_diner",
-        "item_tcg_loot_reward_series1_display_case_02",
-        "item_tcg_loot_reward_series1_greeter_ewok",
-        "item_tcg_loot_reward_series1_chon_bust",
-        "item_tcg_loot_reward_series1_vendor_bomarr_monk",
-        "item_tcg_loot_reward_series1_greeter_serving_droid",
-        "item_tcg_loot_reward_series1_drink_dispenser",
-        "item_tcg_loot_reward_series1_painting_alliance_propaganda",
-        "item_tcg_loot_reward_series1_vendor_meatlump",
-        "item_tcg_loot_reward_series1_arc170_flightsuit",
+        "item_tcg_loot_reward_series2_barn",
+        "item_tcg_loot_reward_series2_versafunction88_datapad",
+        "item_tcg_loot_reward_series2_keelkana_tooth",
+        "item_tcg_loot_reward_series2_painting_darth_vader",
+        "item_tcg_loot_reward_series2_diner",
+        "item_tcg_loot_reward_series2_display_case_02",
+        "item_tcg_loot_reward_series2_greeter_ewok",
+        "item_tcg_loot_reward_series2_chon_bust",
+        "item_tcg_loot_reward_series2_vendor_bomarr_monk",
+        "item_tcg_loot_reward_series2_greeter_serving_droid",
+        "item_tcg_loot_reward_series2_drink_dispenser",
+        "item_tcg_loot_reward_series2_painting_alliance_propaganda",
+        "item_tcg_loot_reward_series2_vendor_meatlump",
+        "item_tcg_loot_reward_series2_arc170_flightsuit",
         "item_tcg_loot_reward_series1_indoor_garden_01",
-        "item_tcg_loot_reward_series1_mandalorian_strongbox",
-        "item_tcg_loot_reward_series1_computer_console_02",
+        "item_tcg_loot_reward_series2_mandalorian_strongbox",
+        "item_tcg_loot_reward_series2_computer_console_02",
         "item_tcg_loot_reward_series1_indoor_fountain_02",
-        "item_tcg_loot_reward_series1_lepese_dictionary",
+        "item_tcg_loot_reward_series9_lepese_dictionary",
         "item_tcg_loot_reward_series1_morgukai_shadow_scroll",
-        "item_tcg_loot_reward_series1_snow_jacket",
-        "item_tcg_loot_reward_series1_darth_vader_statuette",
-        "item_tcg_loot_reward_series1_princess_leia_statuette",
-        "item_tcg_loot_reward_series1_greeter_jawa",
+        "item_tcg_loot_reward_series6_snow_jacket",
+        "item_tcg_loot_reward_series2_darth_vader_statuette",
+        "item_tcg_loot_reward_series2_princess_leia_statuette",
+        "item_tcg_loot_reward_series2_greeter_jawa",
         "item_tcg_loot_reward_series1_vendor_serving_droid",
-        "item_tcg_loot_reward_series1_fish_tank",
+        "item_tcg_loot_reward_series9_fish_tank",
         "item_tcg_loot_reward_series1_greeter_gungan"
     };
-    public static final String[] TCG_LAUNCH = 
+    public static final String[] TCG_LAUNCH =
     {
         "item_tcg_loot_reward_series1_black_corset_dress",
         "item_tcg_loot_reward_series1_naboo_jacket",
@@ -243,9 +243,9 @@ public class jhaskell_test extends script.base_script
         "item_tcg_loot_reward_series1_vendor_bomarr_monk",
         "item_tcg_loot_reward_series1_target_creature",
         "item_tcg_loot_reward_series1_beru_whitesuns_cookbook",
-        "item_tcg_loot_reward_series1_jedi_library_bookshelf"
+        "item_tcg_loot_reward_series9_jedi_library_bookshelf"
     };
-    public static final String[] TCG_ANIMATIONS = 
+    public static final String[] TCG_ANIMATIONS =
     {
         "greeter_anims_face",
         "greeter_anims_happy",
@@ -306,7 +306,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessage(self, "Legacy Trainer Spawners placed", null);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessage(self, "The Trainer Routine Failed", null);
                     }
@@ -401,7 +401,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "You need to target a deprecated collection reactor.");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Forcing initialization on object.");
                         messageTo(lookAtTarget, "forceCollectionReactorInit", null, 1, false);
@@ -414,7 +414,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "You need to specify a valid OID of a collection reactor.");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Forcing initialization on object.");
                         messageTo(lookAtTarget, "forceCollectionReactorInit", null, 1, false);
@@ -604,7 +604,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "You have Skill Mod: " + secCommand + " and the value is: " + getSkillStatisticModifier(self, secCommand));
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "CANNOT FIND SKILL MOD: " + secCommand);
                     }
@@ -760,7 +760,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "Sound Failed.");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Sound should have played.");
                     }
@@ -776,7 +776,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "Sound Failed.");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Sound should have played.");
                     }
@@ -792,7 +792,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "Sound Failed.");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Sound should have played.");
                     }
@@ -1120,7 +1120,7 @@ public class jhaskell_test extends script.base_script
                         setObjVar(object, house_pet.SARLACC_LAST_FED, newFed);
                         sendSystemMessageTestingOnly(self, "Deluxe Sarlacc: " + secCommand + " Last Feeding Time has had " + totalSubtractedTime + " subtracted from it.");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Object: " + secCommand + " IS NOT a Deluxe Sarlacc or has never been fed.");
                     }
@@ -1140,7 +1140,7 @@ public class jhaskell_test extends script.base_script
                         setObjVar(object, house_pet.SARLACC_CURRENT_PHASE, 2);
                         sendSystemMessageTestingOnly(self, "Deluxe Sarlacc: " + secCommand + " has been set to very hungry.");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Object: " + secCommand + " IS NOT a Deluxe Sarlacc or has never been fed.");
                     }
@@ -1170,7 +1170,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "Nothing returned");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "List of Items Fed: " + list);
                     }
@@ -1191,7 +1191,7 @@ public class jhaskell_test extends script.base_script
                         setObjVar(object, house_pet.MASSIFF_LAST_FED, newFed);
                         sendSystemMessageTestingOnly(self, "Massif Bowl: " + secCommand + " Last Feeding Time has had " + totalSubtractedTime + " subtracted from it.");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Object: " + secCommand + " IS NOT a Massif Bowl or has no spawned and fed Massif.");
                     }
@@ -1322,7 +1322,7 @@ public class jhaskell_test extends script.base_script
                             sendSystemMessageTestingOnly(self, "FOUND QUEST: " + holiday.ALL_IMPERIAL_QUESTS[i]);
                             break;
                         }
-                        else 
+                        else
                         {
                             sendSystemMessageTestingOnly(self, "is not quest: " + holiday.ALL_IMPERIAL_QUESTS[i]);
                         }
@@ -1336,7 +1336,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "TASK QUEST: " + quest);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "Task not found: " + quest);
                     }
@@ -1391,7 +1391,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "HAS: " + holiday.EMPIRE_DAY_VANDAL_TIMESTAMP);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "DOES NOT HAVE: " + holiday.EMPIRE_DAY_VANDAL_TIMESTAMP);
                     }
@@ -1399,7 +1399,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "HAS: " + holiday.EMPIRE_DAY_RESISTANCE_TIMESTAMP);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "DOES NOT HAVE: " + holiday.EMPIRE_DAY_RESISTANCE_TIMESTAMP);
                     }
@@ -1407,7 +1407,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "HAS: " + holiday.EMPIRE_DAY_PROPAGANDA_TIMESTAMP);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "DOES NOT HAVE: " + holiday.EMPIRE_DAY_PROPAGANDA_TIMESTAMP);
                     }
@@ -1415,7 +1415,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "HAS: " + holiday.EMPIRE_DAY_RECRUITMENT_TIMESTAMP);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "DOES NOT HAVE: " + holiday.EMPIRE_DAY_RECRUITMENT_TIMESTAMP);
                     }
@@ -1426,7 +1426,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "HAS: " + holiday.EMPIRE_DAY_VANDAL_LOCKED_OUT);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "DOES NOT HAVE: " + holiday.EMPIRE_DAY_VANDAL_LOCKED_OUT);
                     }
@@ -1434,7 +1434,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "HAS: " + holiday.EMPIRE_DAY_RESISTANCE_LOCKED_OUT);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "DOES NOT HAVE: " + holiday.EMPIRE_DAY_RESISTANCE_LOCKED_OUT);
                     }
@@ -1442,7 +1442,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "HAS: " + holiday.EMPIRE_DAY_PROPAGANDA_LOCKED_OUT);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "DOES NOT HAVE: " + holiday.EMPIRE_DAY_PROPAGANDA_LOCKED_OUT);
                     }
@@ -1450,7 +1450,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "HAS: " + holiday.EMPIRE_DAY_RECRUITMENT_LOCKED_OUT);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "DOES NOT HAVE: " + holiday.EMPIRE_DAY_RECRUITMENT_LOCKED_OUT);
                     }
@@ -1484,7 +1484,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "Score var: " + getIntObjVar(self, holiday.PLAYER_EMPIRE_DAY_SCORE));
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "You don't have var");
                     }
@@ -1750,7 +1750,7 @@ public class jhaskell_test extends script.base_script
                     if (secCommand == null || secCommand.length() <= 0)
                     {
                     }
-                    else 
+                    else
                     {
                         groundquests.sendSignal(self, secCommand);
                     }
@@ -1767,7 +1767,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "failed");
                     }
-                    else 
+                    else
                     {
                         for (int i = 0; i < myList.length; i++)
                         {
@@ -1797,14 +1797,14 @@ public class jhaskell_test extends script.base_script
                         {
                             sendSystemMessageTestingOnly(self, "You are in entertainer camp");
                         }
-                        else 
+                        else
                         {
                             sendSystemMessageTestingOnly(self, "You are NOT in entertainer camp");
                         }
                         sendSystemMessageTestingOnly(self, "can performance heal: " + performance.canPerformanceHeal(self));
                         sendSystemMessageTestingOnly(self, "Max Duration: " + performance.inspireGetMaxDuration(self));
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "not a valid camp");
                     }
@@ -1887,7 +1887,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "invalid object");
                     }
-                    else 
+                    else
                     {
                         for (int i = 0; i < armor.DATATABLE_SPECIAL_PROTECTIONS.length; i++)
                         {
@@ -1926,7 +1926,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "no object defense_camp");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "defense_camp found");
                     }
@@ -1939,7 +1939,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "invalid object");
                     }
-                    else 
+                    else
                     {
                         int factionFlag = factions.getFactionFlag(secCmd);
                         if (factionFlag == 0)
@@ -1991,7 +1991,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "You are on list");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "You are NOT on list");
                     }
@@ -2007,7 +2007,7 @@ public class jhaskell_test extends script.base_script
                     {
                         sendSystemMessageTestingOnly(self, "You are removed");
                     }
-                    else 
+                    else
                     {
                         sendSystemMessageTestingOnly(self, "You werent on it");
                     }
@@ -2321,7 +2321,7 @@ public class jhaskell_test extends script.base_script
         {
             finalTarget = lookAtTarget;
         }
-        else 
+        else
         {
             finalTarget = self;
         }
@@ -2449,7 +2449,7 @@ public class jhaskell_test extends script.base_script
                 {
                     return objects[i];
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(player, "no objects found.");
                 }

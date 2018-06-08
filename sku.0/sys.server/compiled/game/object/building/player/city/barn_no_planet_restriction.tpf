@@ -12,6 +12,6 @@ updateRanges[UR_near] = 0
 
 updateRanges[UR_normal] = 0
 
-objvars =+["tcg.static_item_deed"="item_tcg_loot_reward_series1_barn", "structure.capacity_override"=150]
+objvars =+["tcg.static_item_deed"="item_tcg_loot_reward_series2_barn", "structure.capacity_override"=150]
 
 scripts =+ [ "systems.tcg.barn_structure" ]

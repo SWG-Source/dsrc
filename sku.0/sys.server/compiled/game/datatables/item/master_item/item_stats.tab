@@ -3732,67 +3732,67 @@ item_event_halloween_trick_device_01_01			int:item.lifespan=1814400,int:item.pro
 item_event_halloween_trick_device_02_01			int:item.lifespan=1814400,int:item.projector=2								
 item_event_halloween_trick_device_03_01			int:item.projector=3								
 item_event_halloween_coin											
-item_tcg_loot_reward_series1_diner			string:player_structure.deed.template=object/building/player/city/diner_no_planet_restriction.iff,int:player_structure.deed.buildtime=90								
-item_tcg_loot_reward_series1_barn			string:player_structure.deed.template=object/building/player/city/barn_no_planet_restriction.iff,int:player_structure.deed.buildtime=90								
+item_tcg_loot_reward_series2_diner			string:player_structure.deed.template=object/building/player/city/diner_no_planet_restriction.iff,int:player_structure.deed.buildtime=90								
+item_tcg_loot_reward_series2_barn			string:player_structure.deed.template=object/building/player/city/barn_no_planet_restriction.iff,int:player_structure.deed.buildtime=90								
 item_tcg_loot_reward_series1_housecleaning_kit			int:increaseAmount=50,int:nonGenericStorageItem=1							clienteffect/tcg_add_storage_house_cleaning.cef	
 item_tcg_loot_reward_series1_beru_whitesuns_cookbook			int:increaseAmount=100,int:nonGenericStorageItem=1							clienteffect/tcg_add_storage_cookbook.cef	
 item_tcg_loot_reward_series1_organizational_datapad			int:increaseAmount=100,int:nonGenericStorageItem=1							clienteffect/tcg_add_storage_datapad.cef	
 item_tcg_loot_reward_series1_gorax_ear					tcg_series1_gorax_ear	long_reuse_4	3600			clienteffect/tcg_gorax_ear.cef	
 item_tcg_loot_reward_series1_morgukai_shadow_scroll					tcg_series1_morgukai_shadow_scroll	long_reuse_4	3600			clienteffect/tcg_shadow_scroll.cef	
-item_tcg_loot_reward_series1_sanyassan_skull					tcg_series1_sanyassan_skull	long_reuse_4	3600			clienteffect/tcg_sanyassan_skull.cef	
+item_tcg_loot_reward_series2_sanyassan_skull					tcg_series2_sanyassan_skull	long_reuse_4	3600			clienteffect/tcg_sanyassan_skull.cef	
 item_tcg_loot_reward_series1_tusken_talisman					tcg_series1_tusken_talisman	long_reuse_4	3600			clienteffect/tcg_talisman.cef	
 item_tcg_loot_reward_series1_hans_hydrospanner					tcg_series1_hans_hydrospanner					clienteffect/tcg_xp.cef	
-item_tcg_loot_reward_series1_keelkana_tooth					tcg_series1_keelkana_tooth					clienteffect/tcg_xp_keelkana_tooth.cef	
-item_tcg_loot_reward_series1_lepese_dictionary					tcg_series1_lepese_dictionary					clienteffect/tcg_xp_instant.cef	
-item_tcg_loot_reward_series1_mandalorian_strongbox					tcg_series1_mandalorian_strongbox					clienteffect/tcg_xp.cef	
+item_tcg_loot_reward_series2_keelkana_tooth					tcg_series2_keelkana_tooth					clienteffect/tcg_xp_keelkana_tooth.cef	
+item_tcg_loot_reward_series9_lepese_dictionary					tcg_series9_lepese_dictionary					clienteffect/tcg_xp_instant.cef	
+item_tcg_loot_reward_series2_mandalorian_strongbox					tcg_series2_mandalorian_strongbox					clienteffect/tcg_xp.cef	
 item_tcg_loot_reward_series1_nuna_ball_advertisement					tcg_series1_nuna_ball_advertisement					clienteffect/tcg_xp_instant_nuna_ball.cef	
 item_tcg_loot_reward_series1_radtrooper_badge					tcg_series1_radtrooper_badge					clienteffect/tcg_xp.cef	
-item_tcg_loot_reward_series1_versafunction88_datapad					tcg_series1_versafunction88_datapad					clienteffect/tcg_xp_instant.cef	
-item_tcg_loot_reward_series1_chon_bust											
+item_tcg_loot_reward_series2_versafunction88_datapad					tcg_series2_versafunction88_datapad					clienteffect/tcg_xp_instant.cef	
+item_tcg_loot_reward_series2_chon_bust											
 item_tcg_loot_reward_series1_computer_console_01											
-item_tcg_loot_reward_series1_computer_console_02											
-item_tcg_loot_reward_series1_darth_vader_statuette											
+item_tcg_loot_reward_series2_computer_console_02											
+item_tcg_loot_reward_series2_darth_vader_statuette											
 item_tcg_loot_reward_series1_display_case_01											
-item_tcg_loot_reward_series1_display_case_02											
+item_tcg_loot_reward_series2_display_case_02											
 item_tcg_loot_reward_series1_dooku_bust											
-item_tcg_loot_reward_series1_drink_dispenser											
-item_tcg_loot_reward_series1_fish_tank											
+item_tcg_loot_reward_series2_drink_dispenser											
+item_tcg_loot_reward_series9_fish_tank											
 item_tcg_loot_reward_series1_indoor_fountain_01											
 item_tcg_loot_reward_series1_indoor_fountain_02											
 item_tcg_loot_reward_series1_indoor_garden_01											
-item_tcg_loot_reward_series1_indoor_garden_02											
-item_tcg_loot_reward_series1_jedi_library_bookshelf											
+item_tcg_loot_reward_series2_indoor_garden_02											
+item_tcg_loot_reward_series9_jedi_library_bookshelf											
 item_tcg_loot_reward_series1_bas_relief											
 item_tcg_loot_reward_series1_painting_jedi_crest											
 item_tcg_loot_reward_series1_painting_trooper											
 item_tcg_loot_reward_series1_painting_imperial_propaganda											
-item_tcg_loot_reward_series1_painting_alliance_propaganda											
-item_tcg_loot_reward_series1_painting_darth_vader											
-item_tcg_loot_reward_series1_princess_leia_statuette											
+item_tcg_loot_reward_series2_painting_alliance_propaganda											
+item_tcg_loot_reward_series2_painting_darth_vader											
+item_tcg_loot_reward_series2_princess_leia_statuette											
 item_tcg_loot_reward_series1_vendor_ewok	special_vendor_tcg_series1_ewok=1		string:nonvendor.give_nontrader=nonvendor_ewok								
 item_tcg_loot_reward_series1_vendor_gungan	special_vendor_tcg_series1_gungan=1		string:nonvendor.give_nontrader=nonvendor_gungan								
 item_tcg_loot_reward_series1_vendor_jawa	special_vendor_tcg_series1_jawa=1		string:nonvendor.give_nontrader=nonvendor_jawa								
-item_tcg_loot_reward_series1_vendor_meatlump	special_vendor_tcg_series1_meatlump=1		string:nonvendor.give_nontrader=nonvendor_meatlump								
-item_tcg_loot_reward_series1_vendor_bomarr_monk	special_vendor_tcg_series1_bomarr_monk=1		string:nonvendor.give_nontrader=nonvendor_bomarr_monk								
-item_tcg_loot_reward_series1_vendor_serving_droid	special_vendor_tcg_series1_serving_droid=1		string:nonvendor.give_nontrader=nonvendor_serving_droid								
+item_tcg_loot_reward_series2_vendor_meatlump	special_vendor_tcg_series2_meatlump=1		string:nonvendor.give_nontrader=nonvendor_meatlump								
+item_tcg_loot_reward_series2_vendor_bomarr_monk	special_vendor_tcg_series2_bomarr_monk=1		string:nonvendor.give_nontrader=nonvendor_bomarr_monk								
+item_tcg_loot_reward_series9_vendor_serving_droid	special_vendor_tcg_series9_serving_droid=1		string:nonvendor.give_nontrader=nonvendor_serving_droid								
 item_tcg_loot_reward_series1_target_creature			string:targetDummyCreatureName=tcg_target_creature_acklay								
 item_tcg_loot_reward_series1_video_game_table											
-item_tcg_loot_reward_series1_v_wing			boolean:ship_chassis.tcg_ship=true,boolean:ship_chassis.multifactional=true,string:ship_chassis.type=vwing,float:ship_chassis.hp=1850.0,float:ship_chassis.mass=66625.0								
-item_tcg_loot_reward_series1_podracer_mawhonic			string:vehicle_attribs.object_ref=pod_racer_two,float:hit_points=15000								
+item_tcg_loot_reward_series2_v_wing			boolean:ship_chassis.tcg_ship=true,boolean:ship_chassis.multifactional=true,string:ship_chassis.type=vwing,float:ship_chassis.hp=1850.0,float:ship_chassis.mass=66625.0								
+item_tcg_loot_reward_series2_podracer_mawhonic			string:vehicle_attribs.object_ref=pod_racer_two,float:hit_points=15000								
 item_tcg_loot_reward_series1_podracer_gasgano			string:vehicle_attribs.object_ref=pod_racer_one,float:hit_points=15000								
 item_tcg_loot_reward_series1_mechno_chair			string:vehicle_attribs.object_ref=mechno_chair,float:hit_points=15000								
 item_tcg_loot_reward_series1_organa_speeder			string:vehicle_attribs.object_ref=organa_speeder,float:hit_points=15000								
 item_tcg_loot_reward_series1_sith_speeder			string:vehicle_attribs.object_ref=sith_speeder,float:hit_points=15000								
-item_tcg_loot_reward_series1_greeter_ewok			string:greeter.give_greeter=greeter_ewok								
-item_tcg_loot_reward_series1_greeter_gungan			string:greeter.give_greeter=greeter_gungan								
-item_tcg_loot_reward_series1_greeter_jawa			string:greeter.give_greeter=greeter_jawa								
+item_tcg_loot_reward_series2_greeter_ewok			string:greeter.give_greeter=greeter_ewok								
+item_tcg_loot_reward_series9_greeter_gungan			string:greeter.give_greeter=greeter_gungan								
+item_tcg_loot_reward_series2_greeter_jawa			string:greeter.give_greeter=greeter_jawa								
 item_tcg_loot_reward_series1_greeter_meatlump			string:greeter.give_greeter=greeter_meatlump								
 item_tcg_loot_reward_series1_greeter_bomarr_monk			string:greeter.give_greeter=greeter_bomarr_monk								
-item_tcg_loot_reward_series1_greeter_serving_droid			string:greeter.give_greeter=greeter_serving_droid								
-item_tcg_loot_reward_series1_arc170_flightsuit											
+item_tcg_loot_reward_series2_greeter_serving_droid			string:greeter.give_greeter=greeter_serving_droid								
+item_tcg_loot_reward_series2_arc170_flightsuit											
 item_tcg_loot_reward_series1_orange_flightsuit											
 item_tcg_loot_reward_series1_naboo_jacket											
-item_tcg_loot_reward_series1_snow_jacket											
+item_tcg_loot_reward_series6_snow_jacket											
 item_tcg_loot_reward_series1_glowing_red_eyes											
 item_tcg_loot_reward_series1_glowing_blue_eyes											
 item_tcg_loot_reward_series1_black_corset_dress											
@@ -3900,11 +3900,11 @@ item_event_lifeday_stap_speeder			string:vehicle_attribs.object_ref=stap_speeder
 item_vet_66_month_jedi_temple											
 item_vet_66_month_jedi_temple_burning											
 item_event_lifeday_bantha_surprise			string:buff_name=lifeday_bantha_surprise		lifeday_bantha_surprise						
-item_tcg_loot_reward_series1_diner_package			string:tcg.object=item_tcg_loot_reward_series1_diner:item_tcg_loot_reward_series1_diner_booth:item_tcg_loot_reward_series1_diner_table:item_tcg_loot_reward_series1_diner_counter_corner:item_tcg_loot_reward_series1_diner_counter_center:item_tcg_loot_reward_series1_diner_counter_corner_s02								
-item_tcg_loot_reward_series1_diner_booth											
-item_tcg_loot_reward_series1_diner_table											
-item_tcg_loot_reward_series1_diner_counter_corner											
-item_tcg_loot_reward_series1_diner_counter_center											
+item_tcg_loot_reward_series2_diner_package			string:tcg.object=item_tcg_loot_reward_series2_diner:item_tcg_loot_reward_series2_diner_booth:item_tcg_loot_reward_series2_diner_table:item_tcg_loot_reward_series2_diner_counter_corner:item_tcg_loot_reward_series2_diner_counter_center:item_tcg_loot_reward_series2_diner_counter_corner_s02								
+item_tcg_loot_reward_series2_diner_booth											
+item_tcg_loot_reward_series2_diner_table											
+item_tcg_loot_reward_series2_diner_counter_corner											
+item_tcg_loot_reward_series2_diner_counter_center											
 item_cts_sarlacc_non_functional											
 item_cts_sarlacc_mini_game											
 item_housepack_emperor_chair_01_01											
@@ -4637,7 +4637,7 @@ item_helmet_ace_reb			string:loot_schematic.schematic=object/draft_schematic/clo
 item_jacket_ace_imp			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_imperial_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
 item_jacket_ace_neut			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_privateer_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
 item_jacket_ace_reb			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_rebel_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
-item_kimogila_s01_texture_kit			string:loot_schematic.schematic=object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.iff,string:loot_schematic.skill_req=class_structures_phase1_novice,int:loot_schematic.uses=3
+item_kimogila_s01_texture_kit			string:loot_schematic.schematic=object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.iff,string:loot_schematic.skill_req=class_structures_phase1_novice,int:loot_schematic.uses=3								
 item_schematic_gcw2_survey_tool_all			string:loot_schematic.schematic=object/draft_schematic/item/item_survey_tool_all.iff,string:loot_schematic.skill_req=class_engineering_phase1_novice,int:loot_schematic.uses=3								
 item_player_house_deed_jabbas_sail_barge											
 item_tcg_loot_reward_series8_single_pod_airspeeder			string:vehicle_attribs.object_ref=single_pod_airspeeder,float:hit_points=15000								
@@ -4648,6 +4648,6 @@ item_tcg_loot_reward_series8_bespin_lamp_on			string:type=lamp,string:status=off
 item_tcg_loot_reward_series8_bespin_shelves			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
 item_tcg_loot_reward_series8_glowly_sculpture			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
 item_tcg_loot_reward_series8_torture_table			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
-item_tcg_loot_reward_series8_armored_tauntaun_statue			string:armored_creature_type=tcg8_armored_tauntaun
-item_imperial_station_token_01_01
-item_rebel_station_token_01_01
+item_tcg_loot_reward_series8_armored_tauntaun_statue			string:armored_creature_type=tcg8_armored_tauntaun								
+item_imperial_station_token_01_01											
+item_rebel_station_token_01_01											

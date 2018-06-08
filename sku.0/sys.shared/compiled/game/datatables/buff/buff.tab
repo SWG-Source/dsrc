@@ -1,5 +1,5 @@
 NAME	GROUP1	GROUP2	BLOCK	PRIORITY	ICON	DURATION	EFFECT1_PARAM	EFFECT1_VALUE	EFFECT2_PARAM	EFFECT2_VALUE	EFFECT3_PARAM	EFFECT3_VALUE	EFFECT4_PARAM	EFFECT4_VALUE	EFFECT5_PARAM	EFFECT5_VALUE	STATE	CALLBACK	PARTICLE	PARTICLE_HARDPOINT	VISIBLE	DEBUFF	STANCE_PARTICLE	DISPELL_PLAYER	REMOVE_ON_DEATH	PLAYER_REMOVABLE	IS_CELESTIAL	MAX_STACKS	IS_PERSISTENT	DISPLAY_ORDER	REMOVE_ON_RESPEC	AI_REMOVE_ON_COMBAT_END	DECAY_ON_PVP_DEATH
-s	s[none]	s	s	i	s	f[0]	s	f	s	f	s	f	s	f	s	f	"e(STATE_COVER=0,STATE_ALERT=4,STATE_BERSERK=5,STATE_FEIGN_DEATH=6,STATE_TUMBLING=10,STATE_RALLIED=11,STATE_STUNNED=12,STATE_BLINDED=13,STATE_DIZZY=14,STATE_INTIMIDATED=15,STATE_IMMOBILIZED=16,STATE_FROZEN=17,STATE_POISONED=23,STATE_BLEEDING=24,STATE_ON_FIRE=26,STATE_ELECTRIC_BURNED=36,STATE_COLD_BURNED=37,STATE_ACID_BURNED=38,STATE_ENERGY_BURNED=39,STATE_KINETIC_BURNED=40,STATE_NONE=-1)[STATE_NONE]"	s[none]	s	s	i[1]	b[0]	s	i[1]	i[1]	i[1]	i[0]	i[1]	i[1]	i[0]	i[1]	i[1]	i[1]
+s	s[none]	s	s	i	s	f[0]	s	f	s	f	s	f	s	f	s	f	e(STATE_COVER=0,STATE_ALERT=4,STATE_BERSERK=5,STATE_FEIGN_DEATH=6,STATE_TUMBLING=10,STATE_RALLIED=11,STATE_STUNNED=12,STATE_BLINDED=13,STATE_DIZZY=14,STATE_INTIMIDATED=15,STATE_IMMOBILIZED=16,STATE_FROZEN=17,STATE_POISONED=23,STATE_BLEEDING=24,STATE_ON_FIRE=26,STATE_ELECTRIC_BURNED=36,STATE_COLD_BURNED=37,STATE_ACID_BURNED=38,STATE_ENERGY_BURNED=39,STATE_KINETIC_BURNED=40,STATE_NONE=-1)[STATE_NONE]	s[none]	s	s	i[1]	b[0]	s	i[1]	i[1]	i[1]	i[0]	i[1]	i[1]	i[0]	i[1]	i[1]	i[1]
 testHealthBuff1	medpackHealth			1	buffs.genericBuff	20	health	100		0		0		0		0	STATE_NONE	none			1	0		1	1	1	0	1	1	0	1	1	1
 testHealthBuff2	medpackHealth			2	buffs.genericBuff	30	health	500		0		0		0		0	STATE_NONE	none			1	0		1	1	1	0	1	1	0	1	1	1
 testConstBuff1	medpackConst			1	buffs.genericBuff	20	constitution	100		0		0		0		0	STATE_NONE	none			1	0		1	1	1	0	1	1	0	1	1	1
@@ -841,7 +841,7 @@ fs_buff_def_1_3	fsStance	fsDefStance		3	command.fs_buff_def_1	-1	expertise_stanc
 fs_buff_def_1_4	fsStance	fsDefStance		4	command.fs_buff_def_1	-1	expertise_stance	0	private_taunt_bonus	20		0		0		0	STATE_NONE	none			1	0	appearance/pt_force_resist_disease.prt	0	1	1	0	1	1	0	1	1	1
 fs_buff_def_1_5	fsStance	fsDefStance		5	command.fs_buff_def_1	-1	expertise_stance	0	private_taunt_bonus	20		0		0		0	STATE_NONE	none			1	0	appearance/pt_force_resist_states.prt	0	1	1	0	1	1	0	1	1	1
 fs_buff_def_1_6	fsStance	fsDefStance		6	command.fs_buff_def_1	-1	expertise_stance	0	private_taunt_bonus	20		0		0		0	STATE_NONE	none			1	0	appearance/pt_force_resist_poison.prt	0	1	1	0	1	1	0	1	1	1
-fs_force_run	fs_force_run			1	command.forceRun	15	slope_move	5	movement	0	movement_resist_snare	100	movement_resist_root	100		0	STATE_NONE	none	"clienteffect/pl_force_run.cef,appearance/pt_force_speed.prt"		1	0		1	1	1	0	1	1	0	1	1	1
+fs_force_run	fs_force_run			1	command.forceRun	15	slope_move	5	movement	0	movement_resist_snare	100	movement_resist_root	100		0	STATE_NONE	none	clienteffect/pl_force_run.cef,appearance/pt_force_speed.prt		1	0		1	1	1	0	1	1	0	1	1	1
 fs_meditate_1	fs_meditate			1	jedi.channelForce	1800	expertise_evasion_chance	3	expertise_evasion_value	30	expertise_resource_quality_increase	2		0		0	STATE_NONE	none	appearance/pt_force_channel_force.prt		1	0		1	1	1	0	1	1	0	1	1	1
 fs_meditate_2	fs_meditate			1	jedi.saberDervish	1800	expertise_strikethrough_chance	3	combat_strikethrough_value	50	expertise_resource_quality_increase	2		0		0	STATE_NONE	none	appearance/pt_force_meditate.prt		1	0		1	1	1	0	1	1	0	1	1	1
 fs_meditate_3	fs_meditate			1	jedi.avoidIncapacitation	1800	expertise_critical_niche_all	3	strength_modified	85	expertise_resource_quality_increase	2		0		0	STATE_NONE	none	appearance/pt_force_channel_force.prt		1	0		1	1	1	0	1	1	0	1	1	1
@@ -920,7 +920,7 @@ invis_sp_buff_stealth_1	invisibility			4	command.stealth	-1	invis	0	movement	0		
 invis_sp_buff_stealth_2	invisibility			4	command.stealth	-1	invis	0	movement	0		0		0		0	STATE_NONE	none			1	0		0	1	1	0	1	1	0	1	1	1
 invis_sp_buff_stealth_3	invisibility			4	command.stealth	-1	invis	0	movement	0		0		0		0	STATE_NONE	none			1	0		0	1	1	0	1	1	0	1	1	1
 invis_sp_buff_stealth_4	invisibility			4	command.stealth	-1	invis	0	movement	0		0		0		0	STATE_NONE	none			1	0		0	1	1	0	1	1	0	1	1	1
-fs_force_run	fs_force_run			1	command.forceRun	15	slope_move	5	movement	0	movement_resist_snare	100	movement_resist_root	100		0	STATE_NONE	none	"clienteffect/pl_force_run.cef,appearance/pt_force_speed.prt"		1	0		1	1	1	0	1	1	0	1	1	1
+fs_force_run	fs_force_run			1	command.forceRun	15	slope_move	5	movement	0	movement_resist_snare	100	movement_resist_root	100		0	STATE_NONE	none	clienteffect/pl_force_run.cef,appearance/pt_force_speed.prt		1	0		1	1	1	0	1	1	0	1	1	1
 veteranPlayerBuff	vetBuff			1	command.veteranPlayerBuff	900	group	0	constitution_modified	20	stamina_modified	20	agility_modified	20		0	STATE_NONE	none			1	0		0	1	1	0	1	1	0	1	1	1
 agiConsumable5	genBuff_3			3	command.diveShot	300	agility_modified	5		0		0		0		0	STATE_NONE	none			1	0		1	1	1	0	1	1	0	1	1	1
 agiConsumable10	genBuff_3			4	command.diveShot	300	agility_modified	10		0		0		0		0	STATE_NONE	none			1	0		1	1	1	0	1	1	0	1	1	1
@@ -1196,7 +1196,7 @@ me_rheumatic_calamity_1	medicArthritus			34	command.me_induce_insanity	10	action
 sp_burst_shadows	sp_burst_shadows			1	command.sp_burst_of_shadows	25	movement	0		0		0		0		0	STATE_NONE	none	appearance/pt_spy_burst_shadows.prt		1	0		0	1	1	0	1	1	0	1	1	1
 sp_avoid_damage	sp_avoid_damage			4	command.sp_avoid_damage	15	expertise_dodge	50	expertise_evasion_chance	75		0		0		0	STATE_NONE	none	appearance/pt_spy_avoid_damage.prt		1	0		0	1	1	0	1	1	0	1	1	1
 sp_preparation	sp_preparation			4	command.sp_preparation	15	expertise_damage_all	30	freeshot_case_crit	1	freeshot_case_strikethrough	1		0		0	STATE_NONE	none	appearance/pt_spy_preparation.prt		1	0		0	1	1	0	1	1	0	1	1	1
-sp_shifty_setup	sp_shifty_setup			1	command.sp_shifty_setup	30	expertise_avoidance_overpower	20	expertise_critical_niche_all	-20	expertise_strikethrough_chance	-20	on_attack_remove	1		0	STATE_NONE	none	"appearance/pt_spy_shifty_setup.prt,appearance/pt_spy_shifty_setup.prt"	"hold_l,hold_r"	1	0		1	1	1	0	1	1	0	1	1	1
+sp_shifty_setup	sp_shifty_setup			1	command.sp_shifty_setup	30	expertise_avoidance_overpower	20	expertise_critical_niche_all	-20	expertise_strikethrough_chance	-20	on_attack_remove	1		0	STATE_NONE	none	appearance/pt_spy_shifty_setup.prt,appearance/pt_spy_shifty_setup.prt	hold_l,hold_r	1	0		1	1	1	0	1	1	0	1	1	1
 sp_decoy_debuff	criticalEffect			12	command.bm_flank	6	critical_hit_vulnerable	15		0		0		0		0	STATE_NONE	none	appearance/pt_spy_decoy.prt		1	1		1	1	1	0	1	1	0	1	1	1
 sp_ploy_snare	sp_ploy_snare	snare		3	command.sp_crippling_traps	20	movement	60		0		0		0		0	STATE_NONE	none	appearance/pt_officer_crippling_vortex.prt		1	1		1	1	1	0	1	1	0	1	1	1
 sp_run_its_course	sp_run_its_course			6	command.sp_run_its_course	10	dot_divisor_natural	100	dot_resist_natural	100		0		0		0	STATE_NONE	none	appearance/pt_spy_run_course.prt		1	0		1	1	1	0	1	1	0	1	1	1
@@ -1747,14 +1747,14 @@ event_halloween_trick_cooldown	event_halloween_trick_cooldown			100	buffs.trickT
 event_halloween_trick_ready	event_halloween_trick_ready			100		120		0		0		0		0		0	STATE_NONE	none			0	1		0	1	0	1	1	0	0	1	1	1
 tcg_series1_radtrooper_badge	exp_buff			10	buffs.tcg_series1_radtrooper_badge	3600	tcg_xp_bonus	10		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 tcg_series1_hans_hydrospanner	exp_buff			20	buffs.tcg_series1_hans_hydrospanner	3600	tcg_xp_bonus	20		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
-tcg_series1_mandalorian_strongbox	exp_buff			30	buffs.tcg_series1_mandalorian_strongbox	3600	tcg_xp_bonus	30		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
-tcg_series1_keelkana_tooth	exp_buff			40	buffs.tcg_series1_keelkana_tooth	3600	tcg_xp_bonus	40		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
+tcg_series2_mandalorian_strongbox	exp_buff			30	buffs.tcg_series2_mandalorian_strongbox	3600	tcg_xp_bonus	30		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
+tcg_series2_keelkana_tooth	exp_buff			40	buffs.tcg_series2_keelkana_tooth	3600	tcg_xp_bonus	40		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 tcg_series1_nuna_ball_advertisement	exp_grant			1	buffs.tcg_series1_nuna_ball_advertisement	1	tcg_xp_granted	10		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
-tcg_series1_versafunction88_datapad	exp_grant			1	buffs.tcg_series1_versafunction88_datapad	1	tcg_xp_granted	15		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
-tcg_series1_lepese_dictionary	exp_grant			1	buffs.tcg_series1_lepese_dictionary	1	tcg_xp_granted	20		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
+tcg_series2_versafunction88_datapad	exp_grant			1	buffs.tcg_series2_versafunction88_datapad	1	tcg_xp_granted	15		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
+tcg_series9_lepese_dictionary	exp_grant			1	buffs.tcg_series9_lepese_dictionary	1	tcg_xp_granted	20		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 tcg_series1_gorax_ear	towCrystal			70	buffs.tcg_series1_gorax_ear	180	constitution_modified	200	precision_modified	200	stamina_modified	200	luck_modified	200		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 tcg_series1_morgukai_shadow_scroll	towCrystal			70	buffs.tcg_series1_morgukai_shadow_scroll	180	constitution_modified	200	precision_modified	200	stamina_modified	200	expertise_critical_niche_all	5		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
-tcg_series1_sanyassan_skull	towCrystal			70	buffs.tcg_series1_sanyassan_skull	180	constitution_modified	200	precision_modified	200	stamina_modified	200	agility_modified	200		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
+tcg_series2_sanyassan_skull	towCrystal			70	buffs.tcg_series1_sanyassan_skull	180	constitution_modified	200	precision_modified	200	stamina_modified	200	agility_modified	200		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 tcg_series1_tusken_talisman	towCrystal			70	buffs.tcg_series1_tusken_talisman	180	constitution_modified	200	precision_modified	200	stamina_modified	200	strength_modified	200		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 event_halloween_no_trick	event_halloween_no_trick			100		30		0		0		0		0		0	STATE_NONE	none			0	1		0	0	0	1	1	0	0	1	1	1
 event_halloween_spider_swarm	particle_swarm			1	buffs.spiderSwarm	300	event_halloween_spider_swarm	0		0		0		0		0	STATE_NONE	none	appearance/pt_spider_flock.prt		1	0		0	1	1	0	1	1	0	1	1	1
@@ -1833,7 +1833,7 @@ costume_toydarian	shapechange	costume		1	buffs.costume	3600	storyteller_costume	
 tcg_series3_general_grievous_gutsack	exp_buff			20	buffs.tcg_series3_general_grievous_gutsack	3600	tcg_xp_bonus	20		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 tcg_series3_hh_15_torpedo_warhead	gcw_exp_buff			10	buffs.tcg_series3_hh_15_torpedo_warhead	3600	tcg_gcw_bonus	10		0		0		0		0	STATE_NONE	none			1	0		0	0	1	0	1	1	0	1	1	1
 tcg_series3_wookiee_ceremonial_pipe	collection			20		1	random_collection_item	0		0		0		0		0	STATE_NONE	none			1	0		1	0	1	0	1	1	0	1	1	1
-tcg_series3_hands_of_seduction	hands_effect			10	buffs.batSwarm	-1	looping_hands_particle	0		0		0		0		0	STATE_NONE	none	"appearance/pt_tcg_hand_effect_01.prt,appearance/pt_tcg_hand_effect_01.prt"	"hold_l,hold_r"	0	0		0	0	0	0	1	1	0	0	0	1
+tcg_series3_hands_of_seduction	hands_effect			10	buffs.batSwarm	-1	looping_hands_particle	0		0		0		0		0	STATE_NONE	none	appearance/pt_tcg_hand_effect_01.prt,appearance/pt_tcg_hand_effect_01.prt	hold_l,hold_r	0	0		0	0	0	0	1	1	0	0	0	1
 costume_4lom	shapechange	costume		1	buffs.costume	3600	storyteller_costume	12	movement	0		0		0		0	STATE_NONE	none			1	0		0	1	1	1	1	1	0	1	1	1
 costume_dantari_m	shapechange	costume		1	buffs.costume	3600	storyteller_costume	13		0		0		0		0	STATE_NONE	none			1	0		0	1	1	1	1	1	0	1	1	1
 costume_dantari_f	shapechange	costume		1	buffs.costume	3600	storyteller_costume	14		0		0		0		0	STATE_NONE	none			1	0		0	1	1	1	1	1	0	1	1	1

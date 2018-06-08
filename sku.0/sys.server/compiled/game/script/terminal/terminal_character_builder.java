@@ -42,7 +42,7 @@ public class terminal_character_builder extends script.base_script
     public static final string_id SID_TERMINAL_MAX_SKILLS = new string_id("skill_teacher", "skill_terminal_max_skills");
     public static final string_id PROSE_GRANT_SKILL = new string_id("skill_teacher", "skill_terminal_grant");
     public static final string_id PROSE_GRANT_SKILL_FAIL = new string_id("skill_teacher", "skill_terminal_grant_fail");
-    public static final String[] CHARACTER_BUILDER_OPTIONS = 
+    public static final String[] CHARACTER_BUILDER_OPTIONS =
     {
 		"StellaTesting",
         "Weapons",
@@ -62,7 +62,7 @@ public class terminal_character_builder extends script.base_script
         "Flag for All Heroic Instances",
         "Draft Schematics"
     };
-    public static final String[] RESOURCE_TYPES = 
+    public static final String[] RESOURCE_TYPES =
     {
         "Creature Resources",
         "Flora Resources",
@@ -73,7 +73,7 @@ public class terminal_character_builder extends script.base_script
         "Energy",
         "Asteroid"
     };
-    public static final String[] BEST_RESOURCE_TYPES = 
+    public static final String[] BEST_RESOURCE_TYPES =
     {
         "Creature Resources",
         "Flora Resources",
@@ -85,7 +85,7 @@ public class terminal_character_builder extends script.base_script
         "Asteroid",
         "Filter by specific attribute"
     };
-    public static final String[] SPACE_RESOURCE_LOCALIZED = 
+    public static final String[] SPACE_RESOURCE_LOCALIZED =
     {
         "@resource/resource_names:space_chemical_acid",
         "@resource/resource_names:space_chemical_cyanomethanic",
@@ -101,7 +101,7 @@ public class terminal_character_builder extends script.base_script
         "@resource/resource_names:space_metal_obsidian",
         "@resource/resource_names:space_metal_silicaceous"
     };
-    public static final String[] SPACE_RESOURCE_CONST = 
+    public static final String[] SPACE_RESOURCE_CONST =
     {
         "space_chemical_acid",
         "space_chemical_cyanomethanic",
@@ -117,7 +117,7 @@ public class terminal_character_builder extends script.base_script
         "space_metal_obsidian",
         "space_metal_silicaceous"
     };
-    public static final String[] RESOURCE_BASE_TYPES = 
+    public static final String[] RESOURCE_BASE_TYPES =
     {
         "creature_resources",
         "flora_resources",
@@ -128,7 +128,7 @@ public class terminal_character_builder extends script.base_script
         "energy",
         "Asteroid"
     };
-    public static final String[] VEHICLE_MOUNT_OPTIONS = 
+    public static final String[] VEHICLE_MOUNT_OPTIONS =
     {
         "Vehicles",
         "Mounts",
@@ -137,7 +137,7 @@ public class terminal_character_builder extends script.base_script
         "Increase Beast Loyalty",
         "Master Taming Necklace"
     };
-    public static final String[] VEHICLE_OPTIONS = 
+    public static final String[] VEHICLE_OPTIONS =
     {
         "Swoop",
         "Speederbike",
@@ -150,7 +150,7 @@ public class terminal_character_builder extends script.base_script
         "X31",
         "Flash Speeder"
     };
-    public static final String[] MOUNT_OPTIONS = 
+    public static final String[] MOUNT_OPTIONS =
     {
         "Carrion Spat",
         "Kaduu",
@@ -161,7 +161,7 @@ public class terminal_character_builder extends script.base_script
         "Cu Pa - Creature Handler Version",
         "Bantha - Creature Handler Version"
     };
-    public static final String[] BEAST_OPTIONS_FOR_PLAYERS = 
+    public static final String[] BEAST_OPTIONS_FOR_PLAYERS =
     {
         "angler",
         "bageraset",
@@ -189,7 +189,7 @@ public class terminal_character_builder extends script.base_script
         "quenker",
         "reptilian_flier"
     };
-    public static final String[] BEAST_OPTIONS = 
+    public static final String[] BEAST_OPTIONS =
     {
         "acklay",
         "angler",
@@ -342,7 +342,7 @@ public class terminal_character_builder extends script.base_script
         "xandank",
         "zucca_boar"
     };
-    public static final String[] SHIP_OPTIONS = 
+    public static final String[] SHIP_OPTIONS =
     {
         "Rebel",
         "Imperial",
@@ -351,7 +351,7 @@ public class terminal_character_builder extends script.base_script
         "Parts",
         "Pilot Skills"
     };
-    public static final String[] REBEL_SHIP_OPTIONS = 
+    public static final String[] REBEL_SHIP_OPTIONS =
     {
         "Incom X4 Gunship",
         "Z95",
@@ -363,7 +363,7 @@ public class terminal_character_builder extends script.base_script
         "B-Wing",
         "YKL-37R Nova Courier"
     };
-    public static final String[] REBEL_SHIP_TYPES = 
+    public static final String[] REBEL_SHIP_TYPES =
     {
         "gunship_rebel",
         "z95",
@@ -375,7 +375,7 @@ public class terminal_character_builder extends script.base_script
         "bwing",
         "ykl37r"
     };
-    public static final String[] IMPERIAL_SHIP_OPTIONS = 
+    public static final String[] IMPERIAL_SHIP_OPTIONS =
     {
         "Imperial YE-4 Gunship",
         "TIE Fighter (Light Duty)",
@@ -388,7 +388,7 @@ public class terminal_character_builder extends script.base_script
         "TIE Interceptor (Imperial Guard)",
         "VT-49 Decimator"
     };
-    public static final String[] IMPERIAL_SHIP_TYPES = 
+    public static final String[] IMPERIAL_SHIP_TYPES =
     {
         "gunship_imperial",
         "tie_light_duty",
@@ -401,7 +401,7 @@ public class terminal_character_builder extends script.base_script
         "tieinterceptor_imperial_guard",
         "decimator"
     };
-    public static final String[] FREELANCE_SHIP_OPTIONS = 
+    public static final String[] FREELANCE_SHIP_OPTIONS =
     {
         "Blacksun AEG-77 Vigo Gunship",
         "Naboo N-1",
@@ -414,7 +414,7 @@ public class terminal_character_builder extends script.base_script
         "Vaksai",
         "Krayt"
     };
-    public static final String[] FREELANCE_SHIP_TYPES = 
+    public static final String[] FREELANCE_SHIP_TYPES =
     {
         "gunship_neutral",
         "naboo_n1",
@@ -427,7 +427,7 @@ public class terminal_character_builder extends script.base_script
         "blacksun_vaksai",
         "hutt_turret_ship"
     };
-    public static final String[] OTHER_SHIP_OPTIONS = 
+    public static final String[] OTHER_SHIP_OPTIONS =
     {
         "Sorosuub",
         "Eta-2 Actis (Jedi Starfighter)",
@@ -438,7 +438,7 @@ public class terminal_character_builder extends script.base_script
         "YT-1300",
         "YT-2400"
     };
-    public static final String[] OTHER_SHIP_TYPES = 
+    public static final String[] OTHER_SHIP_TYPES =
     {
         "sorosuub_space_yacht",
         "jedi_starfighter",
@@ -449,7 +449,7 @@ public class terminal_character_builder extends script.base_script
         "yt1300",
         "yt2400"
     };
-    public static final String[] MAIN_SHIP_OPTIONS = 
+    public static final String[] MAIN_SHIP_OPTIONS =
     {
         "Ship Components",
         "Ship Chassis",
@@ -457,19 +457,19 @@ public class terminal_character_builder extends script.base_script
         "Component Schematics",
         "Pilot Skills"
     };
-    public static final String[] PILOT_SKILLS = 
+    public static final String[] PILOT_SKILLS =
     {
         "Master Imperial Pilot",
         "Master Rebel Pilot",
         "Neutral Pilot",
         "Revoke Pilot"
     };
-    public static final String[] DEED_CRAFTING_OPTIONS = 
+    public static final String[] DEED_CRAFTING_OPTIONS =
     {
         "Deeds",
         "Crafting Items"
     };
-    public static final String[] DEED_OPTIONS = 
+    public static final String[] DEED_OPTIONS =
     {
         "Clothing Factory",
         "Food Factory",
@@ -491,7 +491,7 @@ public class terminal_character_builder extends script.base_script
         "Tatooine City Pack",
 		"TCG Houses"
     };
-    public static final String[] CRAFTING_OPTIONS = 
+    public static final String[] CRAFTING_OPTIONS =
     {
         "Weapon Crafting Station",
         "Structure Crafting Station",
@@ -505,7 +505,7 @@ public class terminal_character_builder extends script.base_script
         "Ship Crafting Tool",
         "Ship Crafting Station"
     };
-    public static final String[] PA_OPTIONS = 
+    public static final String[] PA_OPTIONS =
     {
         "Generic PA Hall",
         "Tatooine PA Hall",
@@ -515,7 +515,7 @@ public class terminal_character_builder extends script.base_script
         "Naboo City Hall",
         "Corellia City Hall"
     };
-    public static final String[] WEAPON_OPTIONS = 
+    public static final String[] WEAPON_OPTIONS =
     {
         "Pistols",
         "Carbines",
@@ -527,7 +527,7 @@ public class terminal_character_builder extends script.base_script
         "Polearm Weapons",
         "Battlefield Weapons"
     };
-    public static final String[] PISTOL_OPTIONS = 
+    public static final String[] PISTOL_OPTIONS =
     {
         "CDEF Pistol",
         "Scout Blaster",
@@ -559,7 +559,7 @@ public class terminal_character_builder extends script.base_script
         "Ion Relic Pistol",
         "Pistol Lamprey"
     };
-    public static final String[] CARBINE_OPTIONS = 
+    public static final String[] CARBINE_OPTIONS =
     {
         "CDEF Carbine",
         "DH 17 Carbine",
@@ -580,7 +580,7 @@ public class terminal_character_builder extends script.base_script
         "Sfor Carbine",
         "Whistler Modified"
     };
-    public static final String[] RIFLE_OPTIONS = 
+    public static final String[] RIFLE_OPTIONS =
     {
         "BWDL19 Rifle (Death Trooper)",
         "TC-22 Blaster Rifle Replica (GCW Rifle)",
@@ -613,7 +613,7 @@ public class terminal_character_builder extends script.base_script
         "Mustafar Disruptor Rifle",
         "Tusken Elite"
     };
-    public static final String[] HEAVY_WEAPON_OPTIONS = 
+    public static final String[] HEAVY_WEAPON_OPTIONS =
     {
         "Rocket Launcher",
         "Plasma Flame Thrower",
@@ -630,7 +630,7 @@ public class terminal_character_builder extends script.base_script
         "Devastator Acid Launcher",
         "CC-V 'Legion' Cryo Projector"
     };
-    public static final String[] UNARMED_OPTIONS = 
+    public static final String[] UNARMED_OPTIONS =
     {
         "Vibroknuckler",
         "Massasiknuckler",
@@ -638,7 +638,7 @@ public class terminal_character_builder extends script.base_script
         "Basterfist",
         "Guardian Blaster Fist"
     };
-    public static final String[] ONEHANDED_OPTIONS = 
+    public static final String[] ONEHANDED_OPTIONS =
     {
         "Survival Knife",
         "'Twilek' Dagger",
@@ -662,7 +662,7 @@ public class terminal_character_builder extends script.base_script
         "Mustafar Bandit Sword",
         "Gaderiffi Elite"
     };
-    public static final String[] TWOHANDED_OPTIONS = 
+    public static final String[] TWOHANDED_OPTIONS =
     {
         "Axe",
         "Battleaxe",
@@ -679,7 +679,7 @@ public class terminal_character_builder extends script.base_script
         "Obsidian 2h Sword",
         "Massassi Enforcer Blade"
     };
-    public static final String[] POLEARM_OPTIONS = 
+    public static final String[] POLEARM_OPTIONS =
     {
         "1H Wood Staff",
         "Metal Staff",
@@ -699,7 +699,7 @@ public class terminal_character_builder extends script.base_script
         "Xandank Lance",
         "Acidic Paragon Vibro Axe"
     };
-    public static final String[] GRENADE_OPTIONS = 
+    public static final String[] GRENADE_OPTIONS =
     {
         "Light Fragmentation Grenade",
         "Fragmentation Grenade",
@@ -709,7 +709,7 @@ public class terminal_character_builder extends script.base_script
         "Glop Detonator",
         "Cryoban"
     };
-    public static final String[] BATTLEFIELD_WEAPON_OPTIONS = 
+    public static final String[] BATTLEFIELD_WEAPON_OPTIONS =
     {
         "Westar-34 Blaster Pistol",
         "NGant-Zarvel 9118 Carbine",
@@ -723,7 +723,7 @@ public class terminal_character_builder extends script.base_script
         "Two-Handed Mysterious Lightsaber Hilt",
         "Double-Bladed Darth Phobos Lightsaber Hilt"
     };
-    public static final String[] ARMOR_OPTIONS = 
+    public static final String[] ARMOR_OPTIONS =
     {
         "Assault Armor, For Classes: Commando, Bounty Hunter",
         "Battle Armor, For Classes: Spy, Officer",
@@ -733,7 +733,7 @@ public class terminal_character_builder extends script.base_script
         "PvP Sets",
         "Heroic Jewelry"
     };
-    public static final String[] ARMOR_ASSAULT_OPTIONS = 
+    public static final String[] ARMOR_ASSAULT_OPTIONS =
     {
         "Composite Armor Set",
         "Marauder Assault Armor Set",
@@ -744,7 +744,7 @@ public class terminal_character_builder extends script.base_script
         "Shocktrooper (Imperial Factional) Armor Set",
         "Rebel Assault (Rebel Factional) Armor Set"
     };
-    public static final String[] ARMOR_BATTLE_OPTIONS = 
+    public static final String[] ARMOR_BATTLE_OPTIONS =
     {
         "Padded Armor Set",
         "Marauder Battle Armor Set",
@@ -756,7 +756,7 @@ public class terminal_character_builder extends script.base_script
         "Rebel Battle (Rebel Factional) Armor Set",
         "Imperial Snowtrooper Armor Set"
     };
-    public static final String[] ARMOR_RECON_OPTIONS = 
+    public static final String[] ARMOR_RECON_OPTIONS =
     {
         "Tantel Armor Set",
         "Ubese Armor Set",
@@ -768,23 +768,23 @@ public class terminal_character_builder extends script.base_script
         "Marine Rebel (Rebel Factional) Armor Set",
         "Alliance Cold Weather Armor set"
     };
-    public static final String[] ARMOR_PROTECTION_AMOUNT = 
+    public static final String[] ARMOR_PROTECTION_AMOUNT =
     {
         "Basic",
         "Standard",
         "Advanced"
     };
-    public static final String[] ARMOR_PSG_OPTIONS = 
+    public static final String[] ARMOR_PSG_OPTIONS =
     {
         "MARK I",
         "MARK II",
         "MARK III"
     };
-    public static final String[] ARMOR_ENHANCEMENT_OPTIONS = 
+    public static final String[] ARMOR_ENHANCEMENT_OPTIONS =
     {
         "Combat Enhancement Ring"
     };
-    public static final String[] ARMOR_PVP_SETS = 
+    public static final String[] ARMOR_PVP_SETS =
     {
         "Imperial Black PvP",
         "Imperial White PvP",
@@ -793,7 +793,7 @@ public class terminal_character_builder extends script.base_script
         "Galactic Marine Armor Set",
         "Rebel SpecForce Armor Set"
     };
-    public static final String[] MISCITEM_OPTIONS = 
+    public static final String[] MISCITEM_OPTIONS =
     {
         "Misc Items",
         "Medicines",
@@ -805,7 +805,7 @@ public class terminal_character_builder extends script.base_script
         "Crafting Suit",
         "Aurilia Crystals"
     };
-    public static final String[] CLOTHING_OPTIONS = 
+    public static final String[] CLOTHING_OPTIONS =
     {
         "Socketed Shirt",
         "Socketed Gloves",
@@ -814,14 +814,14 @@ public class terminal_character_builder extends script.base_script
         "Socketed Jacket",
         "Socketed Boots"
     };
-    public static final String[] ATTACHMENT_OPTIONS = 
+    public static final String[] ATTACHMENT_OPTIONS =
     {
         "Weapon",
         "Armor",
         "Chest Armor",
         "Shirt"
     };
-    public static final String[] MISC_OPTIONS = 
+    public static final String[] MISC_OPTIONS =
     {
         "Spec-Ops Pack",
         "Krayt Skull Pack",
@@ -846,19 +846,19 @@ public class terminal_character_builder extends script.base_script
 		"Healing Stims",
         "Toggle Chronicles Loot"
     };
-    public static final String[] MEDICINE_OPTIONS = 
+    public static final String[] MEDICINE_OPTIONS =
     {
         "High Charge Stimpack-A",
         "High Charge Stimpack-B",
         "High Charge Stimpack-C",
         "High Charge Stimpack-D"
     };
-    public static final String[] HEAL_OPTIONS = 
+    public static final String[] HEAL_OPTIONS =
     {
         "Heal Wounds",
         "Heal Battle Fatigue"
     };
-    public static final String[] SMUGGLER_TOOLS_OPTIONS = 
+    public static final String[] SMUGGLER_TOOLS_OPTIONS =
     {
         "Simple Toolkit",
         "Finely Crafted Toolset",
@@ -868,7 +868,7 @@ public class terminal_character_builder extends script.base_script
         "Mandalorian Interframe",
         "Micro Plating"
     };
-    public static final String[] FACTION_OPTIONS = 
+    public static final String[] FACTION_OPTIONS =
     {
         "Receive Faction Points",
         "Declare Faction Rebel",
@@ -877,20 +877,20 @@ public class terminal_character_builder extends script.base_script
         "Lose One Faction Rank",
         "Resign From Current Faction"
     };
-    public static final String[] ROADMAP_SKILL_OPTIONS = 
+    public static final String[] ROADMAP_SKILL_OPTIONS =
     {
         "Select Roadmap",
         "Earn Current Skill",
         "Set Combat Level",
         "Level 90 - Reset respecs"
     };
-    public static final String[] JEDI_OPTIONS = 
+    public static final String[] JEDI_OPTIONS =
     {
         "Saber Crystals",
         "Light Sabers",
         "Jedi Robes"
     };
-    public static final String[] PUBLISH_OPTIONS = 
+    public static final String[] PUBLISH_OPTIONS =
     {
         "Heavy Weapons",
         "Jedi Options",
@@ -898,7 +898,7 @@ public class terminal_character_builder extends script.base_script
         "Death Watch Bunker Entrance Flag",
         "Spy Camouflage Gear"
     };
-    public static final String[] CRYSTAL_OPTIONS = 
+    public static final String[] CRYSTAL_OPTIONS =
     {
         "Color Crystals",
         "Lava Crystal",
@@ -906,7 +906,7 @@ public class terminal_character_builder extends script.base_script
         "Ancient Krayt Pearls",
         "Sunriders Destiny"
     };
-    public static final String[] SABER_OPTIONS = 
+    public static final String[] SABER_OPTIONS =
     {
         "Training Saber",
         "Generation One Sabers",
@@ -915,12 +915,12 @@ public class terminal_character_builder extends script.base_script
         "Generation Four Sabers",
         "Generation Five Sabers"
     };
-    public static final String[] JEDI_PLAYTEST_OPTIONS = 
+    public static final String[] JEDI_PLAYTEST_OPTIONS =
     {
         "Level 26 Playtest",
         "Level 86 Playtest"
     };
-    public static final String[] ROBE_OPTIONS = 
+    public static final String[] ROBE_OPTIONS =
     {
         "Padawan Robe",
         "(40)Light Acolyte Robe",
@@ -936,7 +936,7 @@ public class terminal_character_builder extends script.base_script
         "Reset Jedi Statue Slots for Master Jedi Cloaks Collection"
     };
     public static final String ARMOR_SET_PREFIX = "object/tangible/wearables/armor/";
-    public static final String[] ARMOR_SET_ASSAULT_1 = 
+    public static final String[] ARMOR_SET_ASSAULT_1 =
     {
         "composite/armor_composite_bicep_l.iff",
         "composite/armor_composite_chest_plate.iff",
@@ -948,7 +948,7 @@ public class terminal_character_builder extends script.base_script
         "composite/armor_composite_leggings.iff",
         "composite/armor_composite_bracer_r.iff"
     };
-    public static final String[] ARMOR_SET_ASSAULT_2 = 
+    public static final String[] ARMOR_SET_ASSAULT_2 =
     {
         "chitin/armor_chitin_s01_bicep_l.iff",
         "chitin/armor_chitin_s01_bicep_r.iff",
@@ -960,7 +960,7 @@ public class terminal_character_builder extends script.base_script
         "chitin/armor_chitin_s01_helmet.iff",
         "chitin/armor_chitin_s01_leggings.iff"
     };
-    public static final String[] ARMOR_SET_ASSAULT_3 = 
+    public static final String[] ARMOR_SET_ASSAULT_3 =
     {
         "marauder/armor_marauder_s03_bicep_l.iff",
         "marauder/armor_marauder_s03_bicep_r.iff",
@@ -972,7 +972,7 @@ public class terminal_character_builder extends script.base_script
         "marauder/armor_marauder_s03_helmet.iff",
         "marauder/armor_marauder_s03_leggings.iff"
     };
-    public static final String[] ARMOR_SET_ASSAULT_4 = 
+    public static final String[] ARMOR_SET_ASSAULT_4 =
     {
         "bounty_hunter/armor_bounty_hunter_crafted_bicep_l.iff",
         "bounty_hunter/armor_bounty_hunter_crafted_bicep_r.iff",
@@ -984,7 +984,7 @@ public class terminal_character_builder extends script.base_script
         "bounty_hunter/armor_bounty_hunter_crafted_helmet.iff",
         "bounty_hunter/armor_bounty_hunter_crafted_leggings.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_1 = 
+    public static final String[] ARMOR_SET_BATTLE_1 =
     {
         "bone/armor_bone_s01_bicep_l.iff",
         "bone/armor_bone_s01_bicep_r.iff",
@@ -996,7 +996,7 @@ public class terminal_character_builder extends script.base_script
         "bone/armor_bone_s01_helmet.iff",
         "bone/armor_bone_s01_leggings.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_2 = 
+    public static final String[] ARMOR_SET_BATTLE_2 =
     {
         "marauder/armor_marauder_s01_bicep_l.iff",
         "marauder/armor_marauder_s01_bicep_r.iff",
@@ -1008,7 +1008,7 @@ public class terminal_character_builder extends script.base_script
         "marauder/armor_marauder_s01_helmet.iff",
         "marauder/armor_marauder_s01_leggings.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_3 = 
+    public static final String[] ARMOR_SET_BATTLE_3 =
     {
         "padded/armor_padded_s01_bicep_l.iff",
         "padded/armor_padded_s01_bicep_r.iff",
@@ -1020,7 +1020,7 @@ public class terminal_character_builder extends script.base_script
         "padded/armor_padded_s01_helmet.iff",
         "padded/armor_padded_s01_leggings.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_4 = 
+    public static final String[] ARMOR_SET_BATTLE_4 =
     {
         "ris/armor_ris_bicep_l.iff",
         "ris/armor_ris_bracer_l.iff",
@@ -1032,7 +1032,7 @@ public class terminal_character_builder extends script.base_script
         "ris/armor_ris_chest_plate.iff",
         "ris/armor_ris_leggings.iff"
     };
-    public static final String[] ARMOR_SET_RECON_1 = 
+    public static final String[] ARMOR_SET_RECON_1 =
     {
         "zam/armor_zam_wesell_helmet.iff",
         "zam/armor_zam_wesell_boots.iff",
@@ -1040,7 +1040,7 @@ public class terminal_character_builder extends script.base_script
         "zam/armor_zam_wesell_pants.iff",
         "zam/armor_zam_wesell_gloves.iff"
     };
-    public static final String[] ARMOR_SET_RECON_2 = 
+    public static final String[] ARMOR_SET_RECON_2 =
     {
         "marauder/armor_marauder_s02_bicep_l.iff",
         "marauder/armor_marauder_s02_bicep_r.iff",
@@ -1052,7 +1052,7 @@ public class terminal_character_builder extends script.base_script
         "marauder/armor_marauder_s02_helmet.iff",
         "marauder/armor_marauder_s02_leggings.iff"
     };
-    public static final String[] ARMOR_SET_RECON_3 = 
+    public static final String[] ARMOR_SET_RECON_3 =
     {
         "tantel/armor_tantel_skreej_bicep_l.iff",
         "tantel/armor_tantel_skreej_chest_plate.iff",
@@ -1064,7 +1064,7 @@ public class terminal_character_builder extends script.base_script
         "tantel/armor_tantel_skreej_bracer_r.iff",
         "tantel/armor_tantel_skreej_leggings.iff"
     };
-    public static final String[] ARMOR_SET_RECON_4 = 
+    public static final String[] ARMOR_SET_RECON_4 =
     {
         "ubese/armor_ubese_boots.iff",
         "ubese/armor_ubese_jacket.iff",
@@ -1075,7 +1075,7 @@ public class terminal_character_builder extends script.base_script
         "ubese/armor_ubese_helmet.iff",
         "ubese/armor_ubese_shirt.iff"
     };
-    public static final String[] ARMOR_SET_ASSAULT_ITHORIAN = 
+    public static final String[] ARMOR_SET_ASSAULT_ITHORIAN =
     {
         "ithorian_sentinel/ith_armor_s03_bicep_l.iff",
         "ithorian_sentinel/ith_armor_s03_chest_plate.iff",
@@ -1087,7 +1087,7 @@ public class terminal_character_builder extends script.base_script
         "ithorian_sentinel/ith_armor_s03_leggings.iff",
         "ithorian_sentinel/ith_armor_s03_bracer_r.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_ITHORIAN = 
+    public static final String[] ARMOR_SET_BATTLE_ITHORIAN =
     {
         "ithorian_defender/ith_armor_s01_bicep_l.iff",
         "ithorian_defender/ith_armor_s01_chest_plate.iff",
@@ -1099,7 +1099,7 @@ public class terminal_character_builder extends script.base_script
         "ithorian_defender/ith_armor_s01_leggings.iff",
         "ithorian_defender/ith_armor_s01_bracer_r.iff"
     };
-    public static final String[] ARMOR_SET_RECON_ITHORIAN = 
+    public static final String[] ARMOR_SET_RECON_ITHORIAN =
     {
         "ithorian_guardian/ith_armor_s02_bicep_l.iff",
         "ithorian_guardian/ith_armor_s02_chest_plate.iff",
@@ -1111,7 +1111,7 @@ public class terminal_character_builder extends script.base_script
         "ithorian_guardian/ith_armor_s02_leggings.iff",
         "ithorian_guardian/ith_armor_s02_bracer_r.iff"
     };
-    public static final String[] ARMOR_SET_ASSAULT_WOOKIEE = 
+    public static final String[] ARMOR_SET_ASSAULT_WOOKIEE =
     {
         "kashyyykian_hunting/armor_kashyyykian_hunting_bicep_l.iff",
         "kashyyykian_hunting/armor_kashyyykian_hunting_bicep_r.iff",
@@ -1120,7 +1120,7 @@ public class terminal_character_builder extends script.base_script
         "kashyyykian_hunting/armor_kashyyykian_hunting_chestplate.iff",
         "kashyyykian_hunting/armor_kashyyykian_hunting_leggings.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_WOOKIEE = 
+    public static final String[] ARMOR_SET_BATTLE_WOOKIEE =
     {
         "kashyyykian_black_mtn/armor_kashyyykian_black_mtn_bicep_l.iff",
         "kashyyykian_black_mtn/armor_kashyyykian_black_mtn_bicep_r.iff",
@@ -1129,7 +1129,7 @@ public class terminal_character_builder extends script.base_script
         "kashyyykian_black_mtn/armor_kashyyykian_black_mtn_chestplate.iff",
         "kashyyykian_black_mtn/armor_kashyyykian_black_mtn_leggings.iff"
     };
-    public static final String[] ARMOR_SET_RECON_WOOKIEE = 
+    public static final String[] ARMOR_SET_RECON_WOOKIEE =
     {
         "kashyyykian_ceremonial/armor_kashyyykian_ceremonial_bicep_l.iff",
         "kashyyykian_ceremonial/armor_kashyyykian_ceremonial_bicep_r.iff",
@@ -1138,7 +1138,7 @@ public class terminal_character_builder extends script.base_script
         "kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chestplate.iff",
         "kashyyykian_ceremonial/armor_kashyyykian_ceremonial_leggings.iff"
     };
-    public static final String[] ARMOR_SET_ASSAULT_IMPERIAL = 
+    public static final String[] ARMOR_SET_ASSAULT_IMPERIAL =
     {
         "assault_trooper/armor_assault_trooper_chest_plate.iff",
         "assault_trooper/armor_assault_trooper_leggings.iff",
@@ -1150,7 +1150,7 @@ public class terminal_character_builder extends script.base_script
         "assault_trooper/armor_assault_trooper_boots.iff",
         "assault_trooper/armor_assault_trooper_gloves.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_IMPERIAL = 
+    public static final String[] ARMOR_SET_BATTLE_IMPERIAL =
     {
         "stormtrooper/armor_stormtrooper_chest_plate.iff",
         "stormtrooper/armor_stormtrooper_leggings.iff",
@@ -1162,7 +1162,7 @@ public class terminal_character_builder extends script.base_script
         "stormtrooper/armor_stormtrooper_boots.iff",
         "stormtrooper/armor_stormtrooper_gloves.iff"
     };
-    public static final String[] ARMOR_SET_RECON_IMPERIAL = 
+    public static final String[] ARMOR_SET_RECON_IMPERIAL =
     {
         "scout_trooper/armor_scout_trooper_chest_plate.iff",
         "scout_trooper/armor_scout_trooper_leggings.iff",
@@ -1174,7 +1174,7 @@ public class terminal_character_builder extends script.base_script
         "scout_trooper/armor_scout_trooper_boots.iff",
         "scout_trooper/armor_scout_trooper_gloves.iff"
     };
-    public static final String[] ARMOR_SET_ASSAULT_REBEL = 
+    public static final String[] ARMOR_SET_ASSAULT_REBEL =
     {
         "rebel_assault/armor_rebel_assault_chest_plate.iff",
         "rebel_assault/armor_rebel_assault_leggings.iff",
@@ -1186,7 +1186,7 @@ public class terminal_character_builder extends script.base_script
         "rebel_assault/armor_rebel_assault_boots.iff",
         "rebel_assault/armor_rebel_assault_gloves.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_REBEL = 
+    public static final String[] ARMOR_SET_BATTLE_REBEL =
     {
         "rebel_battle/armor_rebel_battle_chest_plate.iff",
         "rebel_battle/armor_rebel_battle_leggings.iff",
@@ -1198,7 +1198,7 @@ public class terminal_character_builder extends script.base_script
         "rebel_battle/armor_rebel_battle_boots.iff",
         "rebel_battle/armor_rebel_battle_gloves.iff"
     };
-    public static final String[] ARMOR_SET_BATTLE_SNOWTROOPER = 
+    public static final String[] ARMOR_SET_BATTLE_SNOWTROOPER =
     {
         "snowtrooper/armor_snowtrooper_chest_plate.iff",
         "snowtrooper/armor_snowtrooper_leggings.iff",
@@ -1211,7 +1211,7 @@ public class terminal_character_builder extends script.base_script
         "snowtrooper/armor_snowtrooper_gloves.iff",
         "snowtrooper/armor_snowtrooper_belt.iff"
     };
-    public static final String[] ARMOR_SET_RECON_REBEL = 
+    public static final String[] ARMOR_SET_RECON_REBEL =
     {
         "marine/armor_marine_chest_plate_rebel.iff",
         "marine/armor_marine_leggings.iff",
@@ -1223,7 +1223,7 @@ public class terminal_character_builder extends script.base_script
         "marine/armor_marine_boots.iff",
         "marine/armor_marine_gloves.iff"
     };
-    public static final String[] ARMOR_SET_REBEL_SNOW = 
+    public static final String[] ARMOR_SET_REBEL_SNOW =
     {
         "rebel_snow/armor_rebel_snow_chest_plate.iff",
         "rebel_snow/armor_rebel_snow_leggings.iff",
@@ -1236,7 +1236,7 @@ public class terminal_character_builder extends script.base_script
         "rebel_snow/armor_rebel_snow_gloves.iff",
         "rebel_snow/armor_rebel_snow_belt.iff"
     };
-    public static final String[] ARMOR_SET_PVP_IMPERIAL_BLACK = 
+    public static final String[] ARMOR_SET_PVP_IMPERIAL_BLACK =
     {
         "armor_pvp_spec_ops_imperial_black_bicep_l_05_01",
         "armor_pvp_spec_ops_imperial_black_bicep_r_05_01",
@@ -1253,7 +1253,7 @@ public class terminal_character_builder extends script.base_script
         "armor_pvp_spec_ops_imperial_black_helmet_05_01",
         "armor_pvp_spec_ops_imperial_black_leggings_05_01"
     };
-    public static final String[] ARMOR_SET_PVP_IMPERIAL_WHITE = 
+    public static final String[] ARMOR_SET_PVP_IMPERIAL_WHITE =
     {
         "armor_pvp_spec_ops_imperial_white_bicep_l_05_01",
         "armor_pvp_spec_ops_imperial_white_bicep_r_05_01",
@@ -1270,7 +1270,7 @@ public class terminal_character_builder extends script.base_script
         "armor_pvp_spec_ops_imperial_white_helmet_05_01",
         "armor_pvp_spec_ops_imperial_white_leggings_05_01"
     };
-    public static final String[] ARMOR_SET_PVP_REBEL_GREY = 
+    public static final String[] ARMOR_SET_PVP_REBEL_GREY =
     {
         "armor_pvp_spec_ops_rebel_black_grey_bicep_l_05_01",
         "armor_pvp_spec_ops_rebel_black_grey_bicep_r_05_01",
@@ -1283,7 +1283,7 @@ public class terminal_character_builder extends script.base_script
         "armor_pvp_spec_ops_rebel_black_grey_chest_plate_05_01",
         "armor_pvp_spec_ops_rebel_black_black_chest_plate_05_01"
     };
-    public static final String[] ARMOR_SET_PVP_REBEL_GREEN = 
+    public static final String[] ARMOR_SET_PVP_REBEL_GREEN =
     {
         "armor_pvp_spec_ops_rebel_black_green_bicep_l_05_01",
         "armor_pvp_spec_ops_rebel_black_green_bicep_r_05_01",
@@ -1296,7 +1296,7 @@ public class terminal_character_builder extends script.base_script
         "armor_pvp_spec_ops_rebel_black_green_chest_plate_05_01",
         "armor_pvp_spec_ops_rebel_black_black_chest_plate_05_01"
     };
-    public static final String[] ARMOR_SET_ASSUALT_GALACTIC_MARINE = 
+    public static final String[] ARMOR_SET_ASSUALT_GALACTIC_MARINE =
     {
         "armor_galactic_marine_bicep_l",
         "armor_galactic_marine_bicep_r",
@@ -1309,7 +1309,7 @@ public class terminal_character_builder extends script.base_script
         "armor_galactic_marine_leggings",
         "armor_galactic_marine_belt"
     };
-    public static final String[] ARMOR_SET_ASSUALT_REBEL_SPECFORCE = 
+    public static final String[] ARMOR_SET_ASSUALT_REBEL_SPECFORCE =
     {
         "armor_rebel_spec_force_bicep_l",
         "armor_rebel_spec_force_bicep_r",
@@ -1322,27 +1322,27 @@ public class terminal_character_builder extends script.base_script
         "armor_rebel_spec_force_leggings",
         "armor_rebel_spec_force_belt"
     };
-    public static final String[][] ARMOR_SETS_ASSAULT = 
+    public static final String[][] ARMOR_SETS_ASSAULT =
     {
         ARMOR_SET_ASSAULT_1,
         ARMOR_SET_ASSAULT_2,
         ARMOR_SET_ASSAULT_3
     };
-    public static final String[][] ARMOR_SETS_BATTLE = 
+    public static final String[][] ARMOR_SETS_BATTLE =
     {
         ARMOR_SET_BATTLE_1,
         ARMOR_SET_BATTLE_2,
         ARMOR_SET_BATTLE_3,
         ARMOR_SET_BATTLE_4
     };
-    public static final String[][] ARMOR_SETS_RECON = 
+    public static final String[][] ARMOR_SETS_RECON =
     {
         ARMOR_SET_RECON_1,
         ARMOR_SET_RECON_2,
         ARMOR_SET_RECON_3,
         ARMOR_SET_RECON_4
     };
-    public static final String[] CYBERNETIC_ITEMS = 
+    public static final String[] CYBERNETIC_ITEMS =
     {
         "object/tangible/wearables/cybernetic/s02/cybernetic_s02_arm_l.iff",
         "object/tangible/wearables/cybernetic/s02/cybernetic_s02_arm_r.iff",
@@ -1353,7 +1353,7 @@ public class terminal_character_builder extends script.base_script
         "object/tangible/wearables/cybernetic/s05/cybernetic_s05_arm_r.iff",
         "object/tangible/wearables/cybernetic/s05/cybernetic_s05_legs.iff"
     };
-    public static final String[] PUB27_HEAVYPACK = 
+    public static final String[] PUB27_HEAVYPACK =
     {
         "object/weapon/ranged/heavy/ep3_loot_void.iff",
         "object/weapon/ranged/heavy/heavy_rocket_launcher.iff",
@@ -1373,7 +1373,7 @@ public class terminal_character_builder extends script.base_script
         "object/weapon/ranged/rifle/rifle_flame_thrower.iff",
         "object/weapon/ranged/rifle/rifle_flame_thrower_light.iff"
     };
-    public static final String[] PUB27_TRAPS = 
+    public static final String[] PUB27_TRAPS =
     {
         "prx_trapCaltrop",
         "tmr_trapCaltrop",
@@ -1388,7 +1388,7 @@ public class terminal_character_builder extends script.base_script
         "tmr_trapKamino",
         "rmt_trapKamino"
     };
-    public static final String[] PUB27_CAMOSTUFF = 
+    public static final String[] PUB27_CAMOSTUFF =
     {
         "item_clothing_spy_stealth_shirt_02_01",
         "item_clothing_spy_stealth_pants_02_01",
@@ -1396,7 +1396,7 @@ public class terminal_character_builder extends script.base_script
         "item_clothing_spy_stealth_gloves_02_01",
         "item_clothing_spy_stealth_boots_02_01"
     };
-    public static final String[] SPACE_LOOT_CATEGORIES = 
+    public static final String[] SPACE_LOOT_CATEGORIES =
     {
         "armor",
         "booster",
@@ -1408,7 +1408,7 @@ public class terminal_character_builder extends script.base_script
         "weapon_capacitor",
         "Looted Droid Interface"
     };
-    public static final String[] CRAFTING_PROFESSIONS = 
+    public static final String[] CRAFTING_PROFESSIONS =
     {
         "Domestics",
         "Engineer",
@@ -1416,7 +1416,7 @@ public class terminal_character_builder extends script.base_script
         "Weaponsmith",
         "Entertainer"
     };
-    public static final String[] CRAFTING_SKILL_TEMPLATES = 
+    public static final String[] CRAFTING_SKILL_TEMPLATES =
     {
         "trader_1a",
         "trader_1d",
@@ -1424,7 +1424,7 @@ public class terminal_character_builder extends script.base_script
         "trader_1c",
         "entertainer_1a"
     };
-    public static final String[] COLLECTION_COMPONENT_SCHEMS = 
+    public static final String[] COLLECTION_COMPONENT_SCHEMS =
     {
         "Collection Boosters",
         "Collection Capacitors",
@@ -1433,7 +1433,7 @@ public class terminal_character_builder extends script.base_script
         "Nova Orion Weapons and Engines",
         "GU16 Schematic"
     };
-    public static final String[] BASIC_MOD_STRINGS = 
+    public static final String[] BASIC_MOD_STRINGS =
     {
         "precision_modified",
         "strength_modified",
@@ -1444,7 +1444,7 @@ public class terminal_character_builder extends script.base_script
         "camouflage",
         "combat_block_value"
     };
-    public static final String[] BASIC_MOD_LIST = 
+    public static final String[] BASIC_MOD_LIST =
     {
         "Precision",
         "Strength",
@@ -1455,7 +1455,7 @@ public class terminal_character_builder extends script.base_script
         "Camouflage",
         "Block Value"
     };
-    public static final String[] HEROIC_JEWELRY_LIST = 
+    public static final String[] HEROIC_JEWELRY_LIST =
     {
         "Bounty Hunter Enforcer (DPS)",
         "Bounty Hunter Flawless (Utility A)",
@@ -1480,24 +1480,24 @@ public class terminal_character_builder extends script.base_script
         "Officer General's (Group PvE)",
         "Heroism (Stats)"
     };
-    public static final String[] AURILIA_CRYSTALS = 
+    public static final String[] AURILIA_CRYSTALS =
     {
         "Small Aurilian Crystal",
         "Medium Aurilian Crystal",
         "Large Aurilian Crystal"
     };
-    public static final String[] CRAFTING_SUIT = 
+    public static final String[] CRAFTING_SUIT =
     {
         "Blix's Ultra Crafting Suit"
     };
-	public static final String[] buffComponentKeys = 
+	public static final String[] buffComponentKeys =
     {
         "kinetic",
         "energy",
         "action_cost_reduction",
         "dodge"
     };
-    public static final int[] buffComponentValues = 
+    public static final int[] buffComponentValues =
     {
         15,
         15,
@@ -1524,7 +1524,7 @@ public class terminal_character_builder extends script.base_script
         {
             data.setServerNotify(true);
         }
-        else 
+        else
         {
             mi.addRootMenu(menu_info_types.ITEM_USE, new string_id("", ""));
         }
@@ -1540,7 +1540,7 @@ public class terminal_character_builder extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(player, "Only authorized users may access this terminal.");
             return SCRIPT_CONTINUE;
@@ -1581,19 +1581,19 @@ public class terminal_character_builder extends script.base_script
             {
                 handleStellaOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
             }
             break;
-			
+
             case 1:
             if (isGod(player) || checkConfigSetting("weaponsEnabled"))
             {
                 handleWeaponOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1604,7 +1604,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleArmorOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1615,7 +1615,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleRoadmapSkills(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "The Roadmap Skill Builder option is DISABLED.");
                 return SCRIPT_CONTINUE;
@@ -1626,7 +1626,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleResourceOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1637,7 +1637,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleCreditOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1648,7 +1648,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleFactionOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1662,7 +1662,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleShipMenuSelect(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1673,7 +1673,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleCraftingOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1684,7 +1684,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleDeedOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1695,7 +1695,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handlePAOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1706,7 +1706,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleMiscOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -1717,7 +1717,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleJediOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "You Are Not Authorized to use the Jedi Options!.");
                 return SCRIPT_CONTINUE;
@@ -1728,7 +1728,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleBestResourceOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This is for developers only.");
                 return SCRIPT_CONTINUE;
@@ -1739,7 +1739,7 @@ public class terminal_character_builder extends script.base_script
             {
                 flagAllHeroicInstances(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This is for developers only.");
                 return SCRIPT_CONTINUE;
@@ -1750,7 +1750,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleDraftSchematicsOption(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This is for developers only.");
                 return SCRIPT_CONTINUE;
@@ -1902,7 +1902,7 @@ public class terminal_character_builder extends script.base_script
                                     {
                                         armorSet = ARMOR_SET_ASSAULT_ITHORIAN;
                                     }
-                                    else 
+                                    else
                                     {
                                         armorSet = ARMOR_SETS_ASSAULT[rand(0, ARMOR_SETS_ASSAULT.length - 1)];
                                     }
@@ -1918,12 +1918,12 @@ public class terminal_character_builder extends script.base_script
                                     {
                                         armorSet = ARMOR_SET_BATTLE_ITHORIAN;
                                     }
-                                    else 
+                                    else
                                     {
                                         armorSet = ARMOR_SETS_BATTLE[rand(0, ARMOR_SETS_BATTLE.length - 1)];
                                     }
                                 }
-                                else 
+                                else
                                 {
                                     armorCategory = AC_reconnaissance;
                                     if (playerSpecies == SPECIES_WOOKIEE)
@@ -1934,7 +1934,7 @@ public class terminal_character_builder extends script.base_script
                                     {
                                         armorSet = ARMOR_SET_RECON_ITHORIAN;
                                     }
-                                    else 
+                                    else
                                     {
                                         armorSet = ARMOR_SETS_RECON[rand(0, ARMOR_SETS_RECON.length - 1)];
                                     }
@@ -1962,7 +1962,7 @@ public class terminal_character_builder extends script.base_script
                                     }
                                 }
                             }
-                            else 
+                            else
                             {
                                 if (!inventoryLookup.contains(value))
                                 {
@@ -1973,7 +1973,7 @@ public class terminal_character_builder extends script.base_script
                                     {
                                         newItem = weapons.createWeapon(itemTemplate, inventoryId, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
                                     }
-                                    else 
+                                    else
                                     {
                                         newItem = createObject(itemTemplate, inventoryId, "");
                                     }
@@ -2001,7 +2001,7 @@ public class terminal_character_builder extends script.base_script
             }
             sendSystemMessageTestingOnly(player, "Have fun storming the castle!");
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(player, "No new items were placed in your inventory. You've got everything you need.");
         }
@@ -2015,7 +2015,7 @@ public class terminal_character_builder extends script.base_script
             d.put("payoutTarget", player);
             money.systemPayout(money.ACCT_BETA_TEST, player, CASH_AMOUNT, "handlePayoutToPlayer", d);
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(player, "You already have 100,000,000+ credits. Why do you need any more money?");
         }
@@ -2085,7 +2085,7 @@ public class terminal_character_builder extends script.base_script
         {
             utils.setScriptVar(player, "character_builder.resourceList", SPACE_RESOURCE_CONST);
         }
-        else 
+        else
         {
             utils.setScriptVar(player, "character_builder.resourceList", resourceList);
         }
@@ -2138,7 +2138,7 @@ public class terminal_character_builder extends script.base_script
         {
             sendSystemMessageTestingOnly(player, "Resource grant failed. It is likely your inventory is full.");
         }
-        else 
+        else
         {
             resourceName = " \\#pcontrast1 " + getResourceName(resourceId) + "\\#. a type of " + getClassString(getResourceClass(resourceId));
             prose_package proseSuccess = prose.getPackage(resource.SID_SAMPLE_LOCATED, resourceName, AMT);
@@ -2182,7 +2182,7 @@ public class terminal_character_builder extends script.base_script
         }
         if (hasObjVar(self, "allPlanetResources"))
         {
-            String[] planetNames = 
+            String[] planetNames =
             {
                 "corellia",
                 "dantooine",
@@ -2202,7 +2202,7 @@ public class terminal_character_builder extends script.base_script
                 }
             }
         }
-        else 
+        else
         {
             resource_density[] resources = requestResourceList(loc, 0.0f, 1.0f, topParent);
             for (int j = 0; j < resources.length; j++)
@@ -2469,7 +2469,7 @@ public class terminal_character_builder extends script.base_script
             {
                 refreshMenu(player, prompt, title, VEHICLE_OPTIONS, "handleVehicleSelect", false);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -2480,7 +2480,7 @@ public class terminal_character_builder extends script.base_script
             {
                 refreshMenu(player, prompt, title, MOUNT_OPTIONS, "handleMountSelect", false);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 return SCRIPT_CONTINUE;
@@ -2747,7 +2747,7 @@ public class terminal_character_builder extends script.base_script
                 sendSystemMessage(player, pet_lib.SID_SYS_LACK_SKILL);
                 return;
             }
-            else 
+            else
             {
                 if (level > 10)
                 {
@@ -2765,7 +2765,7 @@ public class terminal_character_builder extends script.base_script
         {
             destroyObject(mount);
         }
-        else 
+        else
         {
             if (getMountsEnabled())
             {
@@ -2778,7 +2778,7 @@ public class terminal_character_builder extends script.base_script
                         setObjVar(petControlDevice, "ai.pet.type", pet_lib.getPetType(mount));
                     }
                 }
-                else 
+                else
                 {
                     sendSystemMessageTestingOnly(player, "For some reason, the creature spawned can NOT be turned into a mount. Might be out of SCALE, could be several other things.");
                 }
@@ -2902,7 +2902,7 @@ public class terminal_character_builder extends script.base_script
             {
                 refreshMenu(player, prompt, title, PILOT_SKILLS, "handlePilotSkillSelect", false);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "This Option is Currently Disabled.");
                 cleanScriptVars(player);
@@ -3120,12 +3120,12 @@ public class terminal_character_builder extends script.base_script
             {
                 sendSystemMessageTestingOnly(player, "Created ship (" + options[idx] + ") in datapad.");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "Failed to create ship.");
             }
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(player, "Failed to create ship. No room in datapad.");
         }
@@ -3186,7 +3186,7 @@ public class terminal_character_builder extends script.base_script
             break;
             case 1:
             String[] shipChassisArray = dataTableGetStringColumn(SHIP_CHASSIS_TBL, "name");
-            
+
             refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, shipChassisArray, "handleShipChasisSelection", false);
             break;
             case 2:
@@ -3322,7 +3322,7 @@ public class terminal_character_builder extends script.base_script
     public void handleShipChasisSelection(obj_id player) throws InterruptedException
     {
         String[] shipChassisArray = dataTableGetStringColumn(SHIP_CHASSIS_TBL, "name");
-        
+
         refreshMenu(player, GENERIC_PROMPT, GENERIC_TITLE, shipChassisArray, "handleShipChasisSelection", false);
     }
     public int handleShipChasisSelection(obj_id self, dictionary params) throws InterruptedException
@@ -4125,14 +4125,14 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Tatooine City Pack Created");
             break;
             case 18:
-			static_item.createNewItemFunction("item_tcg_loot_reward_series1_diner", pInv);
-			static_item.createNewItemFunction("item_tcg_loot_reward_series3_sith_meditation_room_deed", pInv);	
+			static_item.createNewItemFunction("item_tcg_loot_reward_series2_diner", pInv);
+			static_item.createNewItemFunction("item_tcg_loot_reward_series3_sith_meditation_room_deed", pInv);
 			static_item.createNewItemFunction("item_tcg_loot_reward_series3_jedi_meditation_room_deed", pInv);
 			static_item.createNewItemFunction("item_tcg_loot_reward_series4_relaxation_pool_deed_02_01", pInv);
 			static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_hangar", pInv);
 			static_item.createNewItemFunction("item_tcg_loot_reward_series5_player_house_atat", pInv);
 			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_emperor_spire", pInv);
-			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_rebel_spire", pInv);			
+			static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_rebel_spire", pInv);
 			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_commando_bunker", pInv);
 			static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_vip_bunker", pInv);
             sendSystemMessageTestingOnly(player, "TCG House Pack Created");
@@ -4804,7 +4804,7 @@ public class terminal_character_builder extends script.base_script
             {
                 static_item.createNewItemFunction(weapon, pInv);
             }
-            else 
+            else
             {
                 createSnowFlakeFrogWeapon(player, weapon);
             }
@@ -6090,7 +6090,7 @@ public class terminal_character_builder extends script.base_script
                     setBioLink(armorItem, player);
                 }
             }
-            else 
+            else
             {
                 String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
                 obj_id armorItem = createObject(armorTemplate, pInv, "");
@@ -6119,7 +6119,7 @@ public class terminal_character_builder extends script.base_script
                     setBioLink(armorItem, player);
                 }
             }
-            else 
+            else
             {
                 String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
                 obj_id armorItem = createObject(armorTemplate, pInv, "");
@@ -6147,7 +6147,7 @@ public class terminal_character_builder extends script.base_script
                     setBioLink(armorItem, player);
                 }
             }
-            else 
+            else
             {
                 String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
                 obj_id armorItem = createObject(armorTemplate, pInv, "");
@@ -6219,7 +6219,7 @@ public class terminal_character_builder extends script.base_script
                 static_item.createNewItemFunction("item_development_combat_test_ring_06_01", pInv);
                 sendSystemMessageTestingOnly(player, "Combat Enhancement Ring Issued");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Combat Ring!");
             }
@@ -6445,7 +6445,7 @@ public class terminal_character_builder extends script.base_script
 		}
         String goldenTicketActive = getConfigSetting("EventTeam", "goldenTicket");
         if(goldenTicketActive == null || !goldenTicketActive.equals("true")) idx++;
-       
+
        switch (idx)
         {
             case 0:
@@ -6539,13 +6539,13 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Spec-Ops Pack Issued.");
             break;
 			case 2:
-		
+
 			buff.applyBuff((player), "me_buff_health_2", 14400);
 			buff.applyBuff((player), "me_buff_action_3", 14400);
 			buff.applyBuff((player), "me_buff_strength_3", 14400);
 			buff.applyBuff((player), "me_buff_agility_3", 14400);
-			buff.applyBuff((player), "me_buff_precision_3", 14400);        
-			buff.applyBuff((player), "me_buff_melee_gb_1", 14400); 		
+			buff.applyBuff((player), "me_buff_precision_3", 14400);
+			buff.applyBuff((player), "me_buff_melee_gb_1", 14400);
 			buff.applyBuff((player), "me_buff_ranged_gb_1", 14400);
 			buff.applyBuff((player), "of_buff_def_9", 14400);
 			buff.applyBuff((player), "of_tactical_drop_6", 14400);
@@ -7432,7 +7432,7 @@ public class terminal_character_builder extends script.base_script
             {
                 static_item.createNewItemFunction(crystal, pInv);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "You Must be in God Mode to enjoy the Aurilia Crystals!");
             }
@@ -7494,7 +7494,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(stima, "healing.power", 250);
                 sendSystemMessageTestingOnly(player, "High Charge Instant Stimpack-A Issued!");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction, Invalid Stim.");
             }
@@ -7507,7 +7507,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(stimb, "healing.power", 400);
                 sendSystemMessageTestingOnly(player, "High Charge Instant Stimpack-B Issued!");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction, Invalid Stim.");
             }
@@ -7520,7 +7520,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(stimc, "healing.power", 700);
                 sendSystemMessageTestingOnly(player, "High Charge Instant Stimpack-C Issued!");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction, Invalid Stim.");
             }
@@ -7533,7 +7533,7 @@ public class terminal_character_builder extends script.base_script
                 setObjVar(stimd, "healing.power", 1200);
                 sendSystemMessageTestingOnly(player, "High Charge Instant Stimpack-D Issued!");
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "The system is unable to complete the transaction, Invalid Stim.");
             }
@@ -7584,7 +7584,7 @@ public class terminal_character_builder extends script.base_script
         switch (idx)
         {
             case 0:
-            
+
             {
                 sendSystemMessageTestingOnly(player, "You have been licked by a Frog!  All wounds have been Healed!");
             }
@@ -7691,7 +7691,7 @@ public class terminal_character_builder extends script.base_script
             {
                 factions.addFactionStanding(player, factionName, FACTION_AMT);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "You already have a large amount of unspent faction points. Why do you need any more?");
             }
@@ -7744,7 +7744,7 @@ public class terminal_character_builder extends script.base_script
                 sendSystemMessageTestingOnly(player, "You must declare a Faction before receiving Rank");
                 return SCRIPT_OVERRIDE;
             }
-            else 
+            else
             {
                 factions.setRank(player, current_rank + 1);
             }
@@ -7755,7 +7755,7 @@ public class terminal_character_builder extends script.base_script
                 sendSystemMessageTestingOnly(player, "You must declare a Faction before losing Rank");
                 return SCRIPT_OVERRIDE;
             }
-            else 
+            else
             {
                 factions.setRank(player, current_rank - 1);
             }
@@ -7824,7 +7824,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleRoadmapChoice(player);
             }
-            else 
+            else
             {
                 sendSystemMessageTestingOnly(player, "You cannot access that option.");
             }
@@ -7880,7 +7880,7 @@ public class terminal_character_builder extends script.base_script
         {
             sendSystemMessageTestingOnly(player, "Invalid level entered!");
         }
-        else 
+        else
         {
             respec.autoLevelPlayer(player, level, false);
         }
@@ -7899,7 +7899,7 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return;
         }
-        else 
+        else
         {
             closeOldWindow(player);
             utils.setBatchScriptVar(player, "character_builder.roadmap_list", roadmapList);
@@ -7940,7 +7940,7 @@ public class terminal_character_builder extends script.base_script
             {
                 handleRoadmapSkillProgression(player, roadmapList[idx]);
             }
-            else 
+            else
             {
                 handleProfessionLevelToNinety(player, roadmapList[idx]);
             }
@@ -7989,7 +7989,7 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             return;
         }
-        else 
+        else
         {
             closeOldWindow(player);
             utils.setScriptVar(player, "character_builder.skill_template", roadmap);
@@ -8118,7 +8118,7 @@ public class terminal_character_builder extends script.base_script
             }
             newAbilityList[newAbilityList.length - 1] = petAbilityList[idx];
         }
-        else 
+        else
         {
             newAbilityList = new int[1];
             newAbilityList[0] = petAbilityList[idx];
@@ -8312,17 +8312,17 @@ public class terminal_character_builder extends script.base_script
         switch (idx)
         {
             case 0:
-            
+
             {
-                float[] weaponMinDamage = 
+                float[] weaponMinDamage =
                 {
                     145f
                 };
-                float[] weaponMaxDamage = 
+                float[] weaponMaxDamage =
                 {
                     300f
                 };
-                float[] weaponAttackSpeed = 
+                float[] weaponAttackSpeed =
                 {
                     1f
                 };
@@ -8335,21 +8335,21 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 1:
-            
+
             {
-                float[] weaponMinDamage = 
+                float[] weaponMinDamage =
                 {
                     300f,
                     300f,
                     300f
                 };
-                float[] weaponMaxDamage = 
+                float[] weaponMaxDamage =
                 {
                     611f,
                     611f,
                     611f
                 };
-                float[] weaponAttackSpeed = 
+                float[] weaponAttackSpeed =
                 {
                     1f,
                     1f,
@@ -8364,21 +8364,21 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 2:
-            
+
             {
-                float[] weaponMinDamage = 
+                float[] weaponMinDamage =
                 {
                     360f,
                     360f,
                     360f
                 };
-                float[] weaponMaxDamage = 
+                float[] weaponMaxDamage =
                 {
                     740f,
                     740f,
                     740f
                 };
-                float[] weaponAttackSpeed = 
+                float[] weaponAttackSpeed =
                 {
                     1f,
                     1f,
@@ -8393,21 +8393,21 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 3:
-            
+
             {
-                float[] weaponMinDamage = 
+                float[] weaponMinDamage =
                 {
                     500f,
                     500f,
                     500f
                 };
-                float[] weaponMaxDamage = 
+                float[] weaponMaxDamage =
                 {
                     1000f,
                     1000f,
                     1000f
                 };
-                float[] weaponAttackSpeed = 
+                float[] weaponAttackSpeed =
                 {
                     1f,
                     1f,
@@ -8422,21 +8422,21 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 4:
-            
+
             {
-                float[] weaponMinDamage = 
+                float[] weaponMinDamage =
                 {
                     597f,
                     597f,
                     597f
                 };
-                float[] weaponMaxDamage = 
+                float[] weaponMaxDamage =
                 {
                     1193f,
                     1193f,
                     1193f
                 };
-                float[] weaponAttackSpeed = 
+                float[] weaponAttackSpeed =
                 {
                     1f,
                     1f,
@@ -8451,21 +8451,21 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 5:
-            
+
             {
-                float[] weaponMinDamage = 
+                float[] weaponMinDamage =
                 {
                     660f,
                     660f,
                     660f
                 };
-                float[] weaponMaxDamage = 
+                float[] weaponMaxDamage =
                 {
                     1350f,
                     1350f,
                     1350f
                 };
-                float[] weaponAttackSpeed = 
+                float[] weaponAttackSpeed =
                 {
                     1f,
                     1f,
@@ -8533,84 +8533,84 @@ public class terminal_character_builder extends script.base_script
         switch (idx)
         {
             case 0:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_padawan_04_01", pInv);
                 sendSystemMessageTestingOnly(player, "Padawan Robe Issued!");
             }
             break;
             case 1:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_light_03_01", pInv);
                 sendSystemMessageTestingOnly(player, "Light Acolyte Robe Issued!");
             }
             break;
             case 2:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_dark_03_01", pInv);
                 sendSystemMessageTestingOnly(player, "Dark Acolyte Robe Issued!");
             }
             break;
             case 3:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_light_03_02", pInv);
                 sendSystemMessageTestingOnly(player, "Light Apprentice Robe Issued!");
             }
             break;
             case 4:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_dark_03_02", pInv);
                 sendSystemMessageTestingOnly(player, "Dark Apprentice Robe Issued!");
             }
             break;
             case 5:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_light_03_03", pInv);
                 sendSystemMessageTestingOnly(player, "Light Jedi Knight Robe Issued!");
             }
             break;
             case 6:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_dark_03_03", pInv);
                 sendSystemMessageTestingOnly(player, "Dark Jedi Knight Robe Issued!");
             }
             break;
             case 7:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_06_01", pInv);
                 sendSystemMessageTestingOnly(player, "Jedi Master Cloak Issued!");
             }
             break;
             case 8:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_06_02", pInv);
                 sendSystemMessageTestingOnly(player, "Jedi Master Cloak Issued!");
             }
             break;
 			case 9:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_light_04_04", pInv);
                 sendSystemMessageTestingOnly(player, "Elder Jedi Arbiter Robe Issued!");
             }
             break;
 			case 10:
-            
+
             {
                 static_item.createNewItemFunction("item_jedi_robe_dark_04_04", pInv);
                 sendSystemMessageTestingOnly(player, "Elder Jedi Oppressor Robe Issued!");
             }
             break;
             case 11:
-            
+
             {
                 if (hasCompletedCollectionSlot(player, "jedi_robe_01_07"))
                 {
@@ -8637,7 +8637,7 @@ public class terminal_character_builder extends script.base_script
             saber = new String[1];
             saber[0] = "object/weapon/melee/sword/crafted_saber/sword_lightsaber_training.iff";
         }
-        else 
+        else
         {
             saber = new String[3];
             saber[0] = "object/weapon/melee/sword/crafted_saber/sword_lightsaber_one_handed_gen" + generation + ".iff";
@@ -8703,7 +8703,7 @@ public class terminal_character_builder extends script.base_script
                                 groupMembersToWarp = utils.addElement(groupMembersToWarp, groupMembers[i]);
                                 groupMemberStartIndex = utils.addElement(groupMemberStartIndex, startIndex);
                             }
-                            else 
+                            else
                             {
                                 string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
                                 sendSystemMessage(groupMembers[i], strSpam);
@@ -8781,7 +8781,7 @@ public class terminal_character_builder extends script.base_script
             sui.showSUIPage(pid);
             setWindowPid(player, pid);
         }
-        else 
+        else
         {
             int pid = sui.listbox(self, player, prompt, sui.OK_CANCEL, title, options, myHandler, true, false);
             sui.showSUIPage(pid);
@@ -8858,7 +8858,7 @@ public class terminal_character_builder extends script.base_script
         switch (idx)
         {
             case 0:
-            
+
             {
                 for (int i = 0; i < PUB27_HEAVYPACK.length; i++)
                 {
@@ -8866,7 +8866,7 @@ public class terminal_character_builder extends script.base_script
                     {
                         weapons.createWeapon(PUB27_HEAVYPACK[i], pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
                     }
-                    else 
+                    else
                     {
                         static_item.createNewItemFunction(PUB27_HEAVYPACK[i], pInv);
                     }
@@ -8883,21 +8883,21 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Heavy Weapons Pack Issued!");
             break;
             case 1:
-            
+
             {
-                float[] weaponMinDamage = 
+                float[] weaponMinDamage =
                 {
                     239f,
                     239f,
                     239f
                 };
-                float[] weaponMaxDamage = 
+                float[] weaponMaxDamage =
                 {
                     477f,
                     477f,
                     477f
                 };
-                float[] weaponAttackSpeed = 
+                float[] weaponAttackSpeed =
                 {
                     .5f,
                     .5f,
@@ -8927,7 +8927,7 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 2:
-            
+
             {
                 for (int i = 0; i < PUB27_TRAPS.length; i++)
                 {
@@ -8937,7 +8937,7 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 3:
-            
+
             {
                 setObjVar(player, "mand.acknowledge", true);
                 sendSystemMessageTestingOnly(player, "Death Watch Bunker Access Granted!");
@@ -8972,7 +8972,7 @@ public class terminal_character_builder extends script.base_script
             }
             sendSystemMessageTestingOnly(player, "All Heroic Instances Flagged");
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(player, "No Instance Flags Found.");
         }
@@ -9183,7 +9183,7 @@ public class terminal_character_builder extends script.base_script
             }
             return objComponent;
         }
-        else 
+        else
         {
             LOG("tweakSpaceShipComponent", "MAJOR MESSUP! " + objComponent + " could not be modified as it was not valid");
             return null;
@@ -9298,7 +9298,7 @@ public class terminal_character_builder extends script.base_script
         {
             utils.setScriptVar(player, "character_builder.qualityPercentage", 100.0f);
         }
-        else 
+        else
         {
             craftPercentage = utils.getFloatScriptVar(player, "character_builder.qualityPercentage");
         }
@@ -9379,7 +9379,7 @@ public class terminal_character_builder extends script.base_script
         {
             sendSystemMessageTestingOnly(player, "Making: " + getName(craftedItem));
         }
-        else 
+        else
         {
             sendSystemMessageTestingOnly(player, "Failed to make: " + schematics[idx]);
         }
