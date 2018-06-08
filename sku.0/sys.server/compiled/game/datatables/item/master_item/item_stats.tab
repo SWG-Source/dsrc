@@ -4651,3 +4651,18 @@ item_tcg_loot_reward_series8_torture_table			string:tcg.combineItemTemplatePatte
 item_tcg_loot_reward_series8_armored_tauntaun_statue			string:armored_creature_type=tcg8_armored_tauntaun								
 item_imperial_station_token_01_01											
 item_rebel_station_token_01_01											
+item_schematic_spice_yarrock			string:loot_schematic.schematic=object/draft_schematic/spices/spice_yarrock.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_pyrepenol			string:loot_schematic.schematic=object/draft_schematic/spices/spice_pyrepenol.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_giggledust			string:loot_schematic.schematic=object/draft_schematic/spices/spice_giggledust.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_scramjet			string:loot_schematic.schematic=object/draft_schematic/spices/spice_scramjet.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_gunjack			string:loot_schematic.schematic=object/draft_schematic/spices/spice_gunjack.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_h4b			string:loot_schematic.schematic=object/draft_schematic/spices/spice_sedative_h4b.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_droid_lube			string:loot_schematic.schematic=object/draft_schematic/spices/spice_droid_lube.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_shadowpaw			string:loot_schematic.schematic=object/draft_schematic/spices/spice_shadowpaw.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_muon_gold			string:loot_schematic.schematic=object/draft_schematic/spices/spice_muon_gold.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_sweetblossom			string:loot_schematic.schematic=object/draft_schematic/spices/spice_sweetblossoom.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_crash_n_burn			string:loot_schematic.schematic=object/draft_schematic/spices/spice_crash_n_burn.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_thruster_head			string:loot_schematic.schematic=object/draft_schematic/spices/spice_thruster_head.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_grey_gabaki			string:loot_schematic.schematic=object/draft_schematic/spices/spice_grey_gabaki.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_neutron_pixey			string:loot_schematic.schematic=object/draft_schematic/spices/spice_neutron_pixey.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_booster_blue			string:loot_schematic.schematic=object/draft_schematic/spices/spice_booster_blue.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
