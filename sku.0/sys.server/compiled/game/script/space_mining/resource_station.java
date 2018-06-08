@@ -1,17 +1,9 @@
 package script.space_mining;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.sui;
 import script.library.money;
 import script.library.space_utils;
+import script.obj_id;
+import script.string_id;
 
 public class resource_station extends script.base_script
 {

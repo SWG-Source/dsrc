@@ -1,7 +1,9 @@
 package script.theme_park.tatooine.darklighter_spawner;
 
 import script.dictionary;
-import script.library.*;
+import script.library.ai_lib;
+import script.library.create;
+import script.library.locations;
 import script.location;
 import script.obj_id;
 

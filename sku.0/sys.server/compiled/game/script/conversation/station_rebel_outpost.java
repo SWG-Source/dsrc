@@ -1,20 +1,7 @@
 package script.conversation;
 
+import script.library.*;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.badge;
-import script.library.chat;
-import script.library.space_battlefield;
-import script.library.space_quest;
-import script.library.space_transition;
-import script.library.utils;
 
 public class station_rebel_outpost extends script.base_script
 {

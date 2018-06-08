@@ -5,13 +5,11 @@
 
 package script;
 
+import java.io.Serializable;
 import java.util.Enumeration;
-import java.util.Map.Entry;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
-import java.io.Serializable;
 
 public final class obj_var_list extends obj_var implements Serializable
 {

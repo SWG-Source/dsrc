@@ -1,25 +1,7 @@
 package script.theme_park.newbie_tutorial;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.chat;
-import script.library.colors;
-import script.library.ai_lib;
-import script.library.factions;
-import script.library.create;
-import script.library.money;
-import script.library.utils;
-import script.library.pclib;
-import script.library.features;
-import script.library.trainerlocs;
-import script.library.weapons;
-import script.library.skill;
+import script.library.*;
 
 public class tutorial_base extends script.base_script
 {

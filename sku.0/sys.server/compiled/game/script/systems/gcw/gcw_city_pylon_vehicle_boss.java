@@ -1,19 +1,8 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.factions;
 import script.library.gcw;
-import script.library.groundquests;
 import script.library.resource;
-import script.library.skill;
-import script.library.utils;
+import script.obj_id;
 
 public class gcw_city_pylon_vehicle_boss extends script.systems.gcw.gcw_city_pylon
 {

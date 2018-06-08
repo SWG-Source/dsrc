@@ -1,6 +1,5 @@
 package script.systems.loot;
 
-import script.library.badge;
 import script.library.collection;
 import script.library.loot;
 import script.library.utils;
@@ -9,9 +8,8 @@ import script.menu_info_types;
 import script.obj_id;
 import script.string_id;
 
-import java.util.List;
-import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.List;
 
 public class rare_loot_chest extends script.base_script {
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException {

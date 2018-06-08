@@ -1,18 +1,9 @@
 package script.systems.jedi;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.force_rank;
-import script.library.prose;
-import script.library.utils;
-import script.library.jedi;
 import script.library.static_item;
+import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class jedi_robe extends script.base_script
 {

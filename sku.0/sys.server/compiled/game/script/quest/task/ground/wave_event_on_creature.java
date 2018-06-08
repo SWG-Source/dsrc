@@ -1,18 +1,9 @@
 package script.quest.task.ground;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.prose;
-import script.library.trial;
-import script.library.utils;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
 
 public class wave_event_on_creature extends script.base_script
 {

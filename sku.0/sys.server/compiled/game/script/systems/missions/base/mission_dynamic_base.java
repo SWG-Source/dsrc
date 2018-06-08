@@ -1,28 +1,9 @@
 package script.systems.missions.base;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.regions;
-import script.library.utils;
-import script.library.battlefield;
-import script.library.create;
-import script.library.ai_lib;
-import script.library.locations;
-import script.library.money;
-import script.library.create;
-import script.library.chat;
-import script.library.ai_lib;
-import script.library.anims;
-import script.library.jedi;
-import script.library.factions;
-import script.library.missions;
-import script.library.group;
+import java.util.Vector;
 
 public class mission_dynamic_base extends script.systems.missions.base.mission_base
 {

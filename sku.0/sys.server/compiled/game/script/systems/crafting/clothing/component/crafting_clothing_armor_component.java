@@ -1,15 +1,7 @@
 package script.systems.crafting.clothing.component;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.craftinglib;
+import script.resource_weight;
 
 public class crafting_clothing_armor_component extends script.systems.crafting.armor.crafting_base_armor_component
 {

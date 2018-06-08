@@ -1,20 +1,7 @@
 package script.systems.crafting.droid.modules;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.callable;
-import script.library.pet_lib;
-import script.library.healing;
-import script.library.group;
-import script.library.sui;
-import script.library.utils;
+import script.library.*;
 
 public class auto_repair extends script.base_script
 {

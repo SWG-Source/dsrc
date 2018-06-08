@@ -1,20 +1,13 @@
 package script.item.armor;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.armor;
-import script.library.craftinglib;
-import script.library.metrics;
-import script.library.utils;
-import script.library.prose;
 import script.library.static_item;
 import script.library.sui;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
 
 public class deconstruct_armor extends script.base_script
 {

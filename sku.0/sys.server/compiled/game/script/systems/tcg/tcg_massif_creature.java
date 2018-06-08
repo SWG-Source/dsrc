@@ -1,27 +1,7 @@
 package script.systems.tcg;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.create;
-import script.library.colors;
-import script.library.house_pet;
-import script.library.hue;
-import script.library.locations;
-import script.library.pet_lib;
-import script.library.player_structure;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.static_item;
-import script.library.sui;
-import script.library.utils;
+import script.library.*;
 
 public class tcg_massif_creature extends script.base_script
 {

@@ -1,23 +1,9 @@
 package script.space.quest_logic;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.space_combat;
-import script.library.space_content;
-import script.library.space_crafting;
-import script.library.space_transition;
+import script.library.prose;
 import script.library.space_quest;
 import script.library.space_utils;
-import script.library.prose;
-import script.library.utils;
 
 public class convoy_ship extends script.base_script
 {

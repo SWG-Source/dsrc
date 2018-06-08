@@ -1,17 +1,12 @@
 package script.content_tools;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.sui;
 import script.library.trial;
-import script.library.datatable;
+import script.library.utils;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class spawn_generation_tool extends script.base_script
 {

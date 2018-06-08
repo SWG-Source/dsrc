@@ -1,19 +1,11 @@
 package script.event.lost_squadron;
 
+import script.ai.ai_combat;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.create;
+import script.library.chat;
 import script.library.colors;
 import script.library.create;
-import script.ai.ai_combat;
-import script.library.chat;
+import script.library.utils;
 
 public class stolen_fighter extends script.base_script
 {

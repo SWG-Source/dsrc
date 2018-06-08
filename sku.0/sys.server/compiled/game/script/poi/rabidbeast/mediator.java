@@ -1,22 +1,11 @@
 package script.poi.rabidbeast;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
-import script.library.npc;
-import script.library.ai_lib;
-import script.library.poi;
-import script.library.scenario;
-import script.library.group;
-import script.library.badge;
-import script.library.utils;
-import script.library.chat;
-import script.ai.ai_combat;
+import java.util.Vector;
 
 public class mediator extends script.poi.base.scenario_actor
 {

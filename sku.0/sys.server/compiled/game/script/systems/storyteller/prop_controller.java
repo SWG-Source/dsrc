@@ -1,17 +1,9 @@
 package script.systems.storyteller;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.static_item;
 import script.library.storyteller;
 import script.library.trial;
+import script.library.utils;
 
 public class prop_controller extends script.base_script
 {

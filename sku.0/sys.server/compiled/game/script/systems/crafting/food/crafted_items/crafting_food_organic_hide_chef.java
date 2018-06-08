@@ -1,16 +1,9 @@
 package script.systems.crafting.food.crafted_items;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.craftinglib;
 import script.library.consumable;
+import script.library.craftinglib;
+import script.obj_id;
+import script.resource_weight;
 
 public class crafting_food_organic_hide_chef extends script.systems.crafting.food.crafting_base_food_new
 {

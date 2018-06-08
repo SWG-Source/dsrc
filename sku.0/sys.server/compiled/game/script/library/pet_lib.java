@@ -1,15 +1,7 @@
 package script.library;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.ai.ai_combat;
-import java.util.Arrays;
 import java.util.Vector;
 
 public class pet_lib extends script.base_script

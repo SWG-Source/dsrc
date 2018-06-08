@@ -1,17 +1,11 @@
 package script.item.dice;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.debug;
-import script.library.xp;
+import script.dictionary;
 import script.library.craftinglib;
+import script.library.debug;
+import script.library.utils;
+import script.library.xp;
+import script.obj_id;
 
 public class ten_sided_dice_set extends script.item.dice.base.base_dice
 {

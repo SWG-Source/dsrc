@@ -1,18 +1,12 @@
 package script.quest.force_sensitive;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.locations;
+import script.dictionary;
+import script.library.create;
 import script.library.quests;
 import script.library.utils;
-import script.library.create;
-import script.library.fs_dyn_village;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class fs_patrol_spawns1 extends script.base_script
 {

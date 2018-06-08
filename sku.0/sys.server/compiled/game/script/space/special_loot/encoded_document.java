@@ -1,19 +1,7 @@
 package script.space.special_loot;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.scenario;
-import script.library.space_quest;
-import script.library.space_create;
-import script.library.ship_ai;
-import script.library.utils;
+import script.library.*;
 
 public class encoded_document extends script.base_script
 {

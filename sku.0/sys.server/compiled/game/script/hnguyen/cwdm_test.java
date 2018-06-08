@@ -1,33 +1,13 @@
 package script.hnguyen;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine.hit_result;
+import script.library.*;
 
-import script.library.utils;
-import script.library.space_dungeon;
-import script.library.xp;
-import script.library.factions;
-import script.library.skill;
-import script.library.travel;
-import script.library.player_structure;
-import script.library.city;
-import script.library.create;
-import script.library.planetary_map;
-import script.library.sui;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.regions;
-import script.library.session;
-import script.library.badge;
-import script.library.static_item;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.Vector;
 
 public class cwdm_test extends script.base_script
 {

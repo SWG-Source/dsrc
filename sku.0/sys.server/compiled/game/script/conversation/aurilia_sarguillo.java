@@ -4,7 +4,8 @@ import script.library.ai_lib;
 import script.library.chat;
 import script.library.groundquests;
 import script.library.utils;
-import script.*;
+import script.obj_id;
+import script.string_id;
 
 public class aurilia_sarguillo extends script.conversation.base.conversation_base
 {

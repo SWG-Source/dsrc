@@ -1,18 +1,9 @@
 package script.item;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.buff;
-import script.library.static_item;
-import script.library.prose;
 import script.library.armor;
+import script.library.static_item;
+import script.library.utils;
+import script.obj_id;
 
 public class buff_worn_item extends script.base_script
 {

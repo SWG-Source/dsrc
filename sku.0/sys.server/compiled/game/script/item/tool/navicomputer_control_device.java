@@ -1,19 +1,7 @@
 package script.item.tool;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_crafting;
-import script.library.utils;
-import script.library.sui;
-import script.library.ai_lib;
-import script.library.pet_lib;
-import script.library.space_combat;
+import script.library.*;
 
 public class navicomputer_control_device extends script.base_script
 {

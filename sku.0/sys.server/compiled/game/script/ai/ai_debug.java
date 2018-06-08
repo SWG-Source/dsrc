@@ -1,15 +1,9 @@
 package script.ai;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
 import script.library.ai_lib;
+import script.library.create;
+import script.location;
+import script.obj_id;
 
 public class ai_debug extends script.base_script
 {

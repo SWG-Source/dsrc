@@ -1,17 +1,11 @@
 package script.item.structure_deed;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.player_structure;
-import script.library.utils;
-import script.library.sui;
+import script.dictionary;
 import script.library.city;
+import script.library.sui;
+import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class city_hall_deed extends script.item.structure_deed.player_structure_deed
 {

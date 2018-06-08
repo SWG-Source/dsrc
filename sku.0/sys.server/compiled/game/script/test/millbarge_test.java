@@ -1,18 +1,12 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.buff;
 import script.library.city;
 import script.library.house_pet;
 import script.library.utils;
-import script.library.static_item;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class millbarge_test extends script.base_script
 {

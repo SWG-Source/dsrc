@@ -1,22 +1,9 @@
 package script.event.housepackup;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
 import java.util.HashSet;
-import script.library.collection;
-import script.library.house_pet;
-import script.library.prose;
-import script.library.smuggler;
-import script.library.static_item;
-import script.library.space_utils;
-import script.library.sui;
-import script.library.utils;
 
 public class sarlacc_furniture_terminal extends script.base_script
 {

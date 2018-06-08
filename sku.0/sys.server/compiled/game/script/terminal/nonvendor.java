@@ -1,17 +1,10 @@
 package script.terminal;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.player_structure;
-import script.library.vendor_lib;
 import script.library.static_item;
+import script.library.utils;
+import script.library.vendor_lib;
 
 public class nonvendor extends script.terminal.base.base_terminal
 {

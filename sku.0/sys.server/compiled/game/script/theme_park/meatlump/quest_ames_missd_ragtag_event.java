@@ -1,17 +1,9 @@
 package script.theme_park.meatlump;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.chat;
-import script.library.create;
+import script.dictionary;
 import script.library.trial;
 import script.library.utils;
+import script.obj_id;
 
 public class quest_ames_missd_ragtag_event extends script.base_script
 {

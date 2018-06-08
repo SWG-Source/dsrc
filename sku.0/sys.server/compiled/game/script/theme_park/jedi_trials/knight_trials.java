@@ -1,23 +1,7 @@
 package script.theme_park.jedi_trials;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.chat;
-import script.library.create;
-import script.library.factions;
-import script.library.force_rank;
-import script.library.jedi;
-import script.library.jedi_trials;
-import script.library.prose;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
+import script.library.*;
 
 public class knight_trials extends script.base_script
 {

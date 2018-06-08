@@ -1,9 +1,9 @@
 package script.conversation.base;
 
-import script.*;
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.utils;
+import script.*;
 
 public class conversation_base extends script.base_script
 {

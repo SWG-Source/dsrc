@@ -1,19 +1,7 @@
 package script.theme_park.meatlump;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.city;
-import script.library.collection;
-import script.library.locations;
-import script.library.groundquests;
-import script.library.sui;
-import script.library.utils;
+import script.library.*;
 
 public class qrant_map_quest_object extends script.base_script
 {

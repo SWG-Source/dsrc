@@ -1,26 +1,9 @@
 package script.theme_park.new_player;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.callable;
-import script.library.chat;
-import script.library.create;
-import script.library.factions;
-import script.library.money;
-import script.library.performance;
-import script.library.pet_lib;
-import script.library.prose;
-import script.library.sui;
-import script.library.utils;
-import script.library.veteran_deprecated;
-import script.library.xp;
-import script.library.weapons;
+import java.util.Vector;
 
 public class new_player extends script.base_script
 {

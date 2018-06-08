@@ -1,14 +1,14 @@
 package script.poi.interior_spawner;
 
-import java.util.Vector;
-
-import script.library.utils;
+import script.dictionary;
 import script.library.ai_lib;
 import script.library.create;
 import script.library.locations;
+import script.library.utils;
 import script.location;
 import script.obj_id;
-import script.dictionary;
+
+import java.util.Vector;
 
 public class interior_spawner extends script.base_script
 {

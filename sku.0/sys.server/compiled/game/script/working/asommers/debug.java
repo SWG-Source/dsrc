@@ -1,17 +1,11 @@
 package script.working.asommers;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
 import script.library.create;
 import script.library.ship_ai;
+import script.library.sui;
 import script.library.utils;
+import script.location;
+import script.obj_id;
 
 public class debug extends script.base_script
 {

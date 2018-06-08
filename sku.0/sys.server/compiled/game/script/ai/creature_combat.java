@@ -1,33 +1,10 @@
 package script.ai;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine.combat_data;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.colors;
-import script.library.combat;
-import script.library.combat_consts;
-import script.library.factions;
-import script.library.instance;
-import script.library.movement;
-import script.library.pclib;
-import script.library.pet_lib;
-import script.library.posture;
-import script.library.scout;
-import script.library.stealth;
-import script.library.storyteller;
-import script.library.sui;
-import script.library.trial;
-import script.library.utils;
-import script.library.xp;
-import script.library.stealth;
+import java.util.Vector;
 
 public class creature_combat extends script.systems.combat.combat_base
 {

@@ -1,19 +1,9 @@
 package script.systems.storyteller;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
 import script.library.player_structure;
-import script.library.static_item;
 import script.library.storyteller;
 import script.library.sui;
-import script.library.trial;
 import script.library.utils;
 
 public class npc_token extends script.base_script

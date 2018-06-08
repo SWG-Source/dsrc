@@ -1,16 +1,8 @@
 package script.systems.crafting.armor.component;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.faction_perk;
-import script.library.utils;
-import script.library.craftinglib;
+import script.draft_schematic;
+import script.obj_id;
+import script.resource_weight;
 
 public class crafting_new_armor_nostat_factional_final extends script.systems.crafting.armor.crafting_new_armor_clothing_nostats
 {

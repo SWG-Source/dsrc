@@ -1,14 +1,8 @@
 package script.quest.task.ground;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.groundquests;
+import script.obj_id;
 
 public class perform_action_on_npc extends script.quest.task.ground.base_task
 {

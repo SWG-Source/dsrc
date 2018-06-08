@@ -1,19 +1,9 @@
 package script.theme_park.warren;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
-import script.ai.ai_combat;
-import script.library.factions;
-import script.library.utils;
-import script.library.attrib;
 import script.library.chat;
+import script.obj_id;
+import script.string_id;
 
 public class cell_guard extends script.base_script
 {

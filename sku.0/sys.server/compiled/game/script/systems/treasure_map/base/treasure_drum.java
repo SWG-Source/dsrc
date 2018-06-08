@@ -1,12 +1,7 @@
 package script.systems.treasure_map.base;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
 
 public class treasure_drum extends script.base_script
 {

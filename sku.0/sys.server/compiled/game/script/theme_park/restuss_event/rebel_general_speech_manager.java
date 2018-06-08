@@ -1,19 +1,11 @@
 package script.theme_park.restuss_event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
+import script.dictionary;
 import script.library.buff;
 import script.library.chat;
-import script.library.prose;
-import script.library.utils;
 import script.library.groundquests;
+import script.obj_id;
+import script.string_id;
 
 public class rebel_general_speech_manager extends script.base_script
 {

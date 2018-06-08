@@ -1,17 +1,10 @@
 package script.player.skill;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.performance;
-import script.library.utils;
-import script.library.prose;
 import script.library.sui;
+import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class performcommands extends script.base_script
 {

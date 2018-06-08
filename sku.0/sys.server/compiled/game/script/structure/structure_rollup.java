@@ -1,19 +1,10 @@
 package script.structure;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.player_structure;
-import script.library.city;
-import script.library.prose;
-import script.library.trace;
-import script.library.vendor_lib;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class structure_rollup extends script.base_script
 {

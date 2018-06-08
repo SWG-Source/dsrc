@@ -1,17 +1,8 @@
 package script.item.container;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.collection;
-import script.library.loot;
 import script.library.static_item;
-import script.library.sui;
 import script.library.utils;
 
 public class loot_crate extends script.base_script

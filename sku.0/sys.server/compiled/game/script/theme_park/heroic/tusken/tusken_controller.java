@@ -1,17 +1,10 @@
 package script.theme_park.heroic.tusken;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.instance;
 import script.library.skill;
-import script.library.trial;
 import script.library.utils;
+import script.obj_id;
 
 public class tusken_controller extends script.base_script
 {

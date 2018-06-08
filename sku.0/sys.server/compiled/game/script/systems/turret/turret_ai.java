@@ -1,26 +1,16 @@
 package script.systems.turret;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine.attacker_data;
+import script.combat_engine.defender_data;
+import script.combat_engine.hit_result;
+import script.combat_engine.weapon_data;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.obj_var;
 
-import script.library.ai_lib;
-import script.library.attrib;
-import script.library.battlefield;
-import script.library.combat;
-import script.library.factions;
-import script.library.hq;
-import script.library.list;
-import script.library.pclib;
-import script.library.pet_lib;
-import script.library.player_structure;
-import script.library.turret;
-import script.library.utils;
-import script.library.xp;
+import java.util.Vector;
 
 public class turret_ai extends script.systems.combat.combat_base_old
 {

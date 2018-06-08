@@ -1,15 +1,8 @@
 package script.quest.force_sensitive;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.fs_quests;
 import script.library.quests;
+import script.obj_id;
 
 public class phase_quest_complete extends script.base_script
 {

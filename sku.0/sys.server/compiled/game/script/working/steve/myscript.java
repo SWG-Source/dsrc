@@ -1,30 +1,9 @@
 package script.working.steve;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.armor;
-import script.library.buff;
-import script.library.combat;
-import script.library.create;
-import script.library.factions;
-import script.library.fs_dyn_village;
-import script.library.fs_quests;
-import script.library.jedi;
-import script.library.pclib;
-import script.library.player_structure;
-import script.library.quests;
-import script.library.skill;
-import script.library.space_utils;
-import script.library.sui;
-import script.library.utils;
-import script.library.community_crafting;
+import java.util.Vector;
 
 public class myscript extends script.base_script
 {

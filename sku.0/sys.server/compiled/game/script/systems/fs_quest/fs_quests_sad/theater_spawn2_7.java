@@ -1,14 +1,9 @@
 package script.systems.fs_quest.fs_quests_sad;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.quests;
+import script.location;
+import script.obj_id;
 
 public class theater_spawn2_7 extends script.base_script
 {

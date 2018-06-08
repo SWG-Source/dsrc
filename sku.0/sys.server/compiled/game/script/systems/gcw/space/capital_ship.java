@@ -1,8 +1,6 @@
 package script.systems.gcw.space;
 
 import script.dictionary;
-import script.library.factions;
-import script.library.space_crafting;
 import script.library.space_utils;
 import script.obj_id;
 

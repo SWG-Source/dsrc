@@ -1,17 +1,9 @@
 package script.theme_park.warren;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.locations;
-import script.library.utils;
-import script.library.pet_lib;
 import script.library.colors;
+import script.library.pet_lib;
+import script.library.utils;
+import script.*;
 
 public class elevator_one extends script.base_script
 {

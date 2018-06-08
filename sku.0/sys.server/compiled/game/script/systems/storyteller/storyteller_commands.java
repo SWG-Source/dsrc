@@ -1,23 +1,12 @@
 package script.systems.storyteller;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
-import script.library.chat;
-import script.library.guild;
-import script.library.loot;
-import script.library.pgc_quests;
-import script.library.prose;
-import script.library.skill_template;
-import script.library.storyteller;
-import script.library.sui;
-import script.library.target_dummy;
-import script.library.utils;
+import java.util.Vector;
 
 public class storyteller_commands extends script.base_script
 {

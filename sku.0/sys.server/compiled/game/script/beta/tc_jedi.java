@@ -1,16 +1,8 @@
 package script.beta;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.xp;
-import script.library.skill;
 import script.library.player_version;
+import script.library.xp;
+import script.obj_id;
 
 public class tc_jedi extends script.base_script
 {

@@ -1,13 +1,11 @@
 package script.systems.gcw.space;
 
+import script.dictionary;
 import script.library.prose;
-import script.library.space_quest;
 import script.library.space_utils;
 import script.library.utils;
 import script.obj_id;
-import script.dictionary;
 import script.prose_package;
-import script.space.combat.combat_ship;
 import script.string_id;
 
 import java.util.Vector;

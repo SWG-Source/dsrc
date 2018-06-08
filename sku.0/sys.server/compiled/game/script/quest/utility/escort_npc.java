@@ -1,14 +1,10 @@
 package script.quest.utility;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class escort_npc extends script.base_script
 {

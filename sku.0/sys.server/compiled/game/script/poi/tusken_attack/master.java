@@ -1,17 +1,12 @@
 package script.poi.tusken_attack;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
-import script.library.scenario;
-import script.library.poi;
 import script.library.locations;
+import script.library.poi;
+import script.library.scenario;
+import script.location;
+import script.obj_id;
 
 public class master extends script.theme_park.poi.base
 {

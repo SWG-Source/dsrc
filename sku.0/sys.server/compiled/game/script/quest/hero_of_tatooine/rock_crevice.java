@@ -1,14 +1,10 @@
 package script.quest.hero_of_tatooine;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class rock_crevice extends script.base_script
 {

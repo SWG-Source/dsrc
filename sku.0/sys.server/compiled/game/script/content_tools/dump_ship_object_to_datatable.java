@@ -1,31 +1,11 @@
 package script.content_tools;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.space_create;
-import script.library.npe;
-import script.library.sequencer;
-import script.library.create;
-import script.library.locations;
-import script.library.space_transition;
-import script.library.ship_ai;
-import script.library.space_battlefield;
-import script.library.space_crafting;
-import script.library.player_structure;
-import script.library.space_content;
-import script.library.objvar_mangle;
-import script.library.space_quest;
-import script.library.sui;
 import script.library.datatable;
-import script.library.utils;
-import script.library.hue;
 import script.library.space_utils;
+import script.library.utils;
+
+import java.util.Vector;
 
 public class dump_ship_object_to_datatable extends script.base_script
 {

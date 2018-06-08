@@ -1,20 +1,10 @@
 package script.item.trap;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.combat;
-import script.library.prose;
-import script.ai.ai_combat;
 import script.library.ai_lib;
-import script.library.utils;
 import script.library.buff;
 import script.library.colors;
+import script.library.prose;
 
 public class trap_tranq_dart extends script.item.trap.trap_base
 {

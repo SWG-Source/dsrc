@@ -1,19 +1,12 @@
 package script.theme_park.dungeon.mustafar_trials.working_droid_factory;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.combat;
-import script.library.prose;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class aurek_besh extends script.base_script
 {

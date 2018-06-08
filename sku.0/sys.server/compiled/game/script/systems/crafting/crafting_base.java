@@ -1,20 +1,7 @@
 package script.systems.crafting;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.craftinglib;
-import script.library.collection;
-import script.library.weapons;
-import script.library.temp_schematic;
-import script.library.xp;
-import script.library.sui;
+import script.library.*;
 
 public class crafting_base extends script.base_script
 {

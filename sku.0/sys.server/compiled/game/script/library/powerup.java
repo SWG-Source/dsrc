@@ -1,6 +1,9 @@
 package script.library;
 
-import script.*;
+import script.obj_id;
+import script.obj_var;
+import script.obj_var_list;
+import script.string_id;
 
 public class powerup extends script.base_script
 {

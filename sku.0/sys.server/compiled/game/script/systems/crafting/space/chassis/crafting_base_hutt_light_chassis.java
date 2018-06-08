@@ -1,17 +1,9 @@
 package script.systems.crafting.space.chassis;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.dictionary;
+import script.draft_schematic;
 import script.library.craftinglib;
-import script.library.space_crafting;
-import script.library.create;
+import script.obj_id;
 
 public class crafting_base_hutt_light_chassis extends script.systems.crafting.crafting_base
 {

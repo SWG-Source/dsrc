@@ -1,10 +1,13 @@
 package script.creature;
 
-import script.*;
+import script.dictionary;
 import script.library.anims;
 import script.library.chat;
 import script.library.groundquests;
 import script.library.prose;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class foraging_enemy extends script.base_script
 {

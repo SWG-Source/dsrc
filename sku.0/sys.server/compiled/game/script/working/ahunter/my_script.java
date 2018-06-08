@@ -1,23 +1,8 @@
 package script.working.ahunter;
 
+import script.combat_engine.hit_result;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.colors;
-import script.library.hue;
-import script.library.prose;
-import script.library.pclib;
-import script.library.player_structure;
-import script.library.skill;
-import script.library.utils;
-import script.library.fs_quests_sad;
-import script.library.chat;
-import script.library.respec;
+import script.library.*;
 
 public class my_script extends script.base_script
 {

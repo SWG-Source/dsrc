@@ -1,15 +1,7 @@
 package script.systems.crafting.furniture.specific_item;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.craftinglib;
+import script.resource_weight;
 
 public class structure_customization_kit extends script.systems.crafting.furniture.crafting_base_furniture_customization
 {

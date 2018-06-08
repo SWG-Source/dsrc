@@ -1,17 +1,6 @@
 package script.theme_park.nightsister;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.ai.ai_combat;
-import script.library.utils;
-import script.library.attrib;
+import script.obj_id;
 
 public class attack_script_rancor_cave extends script.base_script
 {

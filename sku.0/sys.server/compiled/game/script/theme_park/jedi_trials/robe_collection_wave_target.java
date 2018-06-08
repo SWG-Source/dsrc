@@ -1,19 +1,7 @@
 package script.theme_park.jedi_trials;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.chat;
-import script.library.prose;
-import script.library.trial;
-import script.library.utils;
+import script.library.*;
 
 public class robe_collection_wave_target extends script.base_script
 {

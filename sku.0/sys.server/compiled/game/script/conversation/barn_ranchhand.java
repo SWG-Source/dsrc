@@ -1,7 +1,8 @@
 package script.conversation;
 
 import script.library.*;
-import script.*;
+import script.obj_id;
+import script.string_id;
 
 public class barn_ranchhand extends script.conversation.base.conversation_base
 {

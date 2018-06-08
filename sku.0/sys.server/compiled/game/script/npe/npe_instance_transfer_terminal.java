@@ -1,16 +1,11 @@
 package script.npe;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.sui;
 import script.library.npe;
+import script.library.sui;
+import script.library.utils;
+
+import java.util.Vector;
 
 public class npe_instance_transfer_terminal extends script.base_script
 {

@@ -1,14 +1,8 @@
 package script.theme_park.dungeon.clone_relic;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.groundquests;
+import script.obj_id;
+import script.string_id;
 
 public class ep3_mos_eisley_lucky_despot_locked extends script.base_script
 {

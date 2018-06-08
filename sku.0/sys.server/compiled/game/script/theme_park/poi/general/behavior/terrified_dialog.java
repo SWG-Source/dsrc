@@ -1,14 +1,9 @@
 package script.theme_park.poi.general.behavior;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.chat;
+import script.obj_id;
+import script.string_id;
 
 public class terrified_dialog extends script.base_script
 {

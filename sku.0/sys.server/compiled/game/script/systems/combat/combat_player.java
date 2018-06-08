@@ -1,21 +1,8 @@
 package script.systems.combat;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.buff;
-import script.library.callable;
-import script.library.utils;
-import script.library.vehicle;
-import script.library.pet_lib;
-import script.library.jedi;
-import script.library.combat;
-import script.library.performance;
+import script.library.*;
+import script.obj_id;
+import script.string_id;
 
 public class combat_player extends script.systems.combat.combat_base
 {

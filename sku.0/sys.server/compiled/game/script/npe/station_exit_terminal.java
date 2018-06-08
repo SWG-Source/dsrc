@@ -1,17 +1,9 @@
 package script.npe;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.utils;
 import script.library.npe;
 import script.library.sui;
+import script.library.utils;
 
 public class station_exit_terminal extends script.base_script
 {

@@ -1,17 +1,10 @@
 package script.conversation;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.fs_quests;
 import script.library.quests;
+import script.*;
 
 public class fs_woman extends script.base_script
 {

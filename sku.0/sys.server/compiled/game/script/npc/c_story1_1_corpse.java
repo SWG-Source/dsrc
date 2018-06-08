@@ -1,12 +1,9 @@
 package script.npc;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.menu_info;
+import script.menu_info_data;
+import script.menu_info_types;
+import script.obj_id;
 
 public class c_story1_1_corpse extends script.base_script
 {

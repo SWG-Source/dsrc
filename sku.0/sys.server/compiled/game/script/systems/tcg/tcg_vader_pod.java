@@ -1,8 +1,11 @@
 package script.systems.tcg;
 
-import script.*;
 import script.library.player_structure;
 import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class tcg_vader_pod extends script.base_script
 {

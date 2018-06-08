@@ -1,14 +1,10 @@
 package script.theme_park.heroic.exar_kun;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.instance;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class exar_kun_door_enter extends script.base_script
 {

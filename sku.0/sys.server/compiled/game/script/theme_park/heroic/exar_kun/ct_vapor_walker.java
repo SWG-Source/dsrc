@@ -1,17 +1,11 @@
 package script.theme_park.heroic.exar_kun;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
-import script.library.buff;
 import script.library.factions;
 import script.library.trial;
+import script.location;
+import script.obj_id;
 
 public class ct_vapor_walker extends script.base_script
 {

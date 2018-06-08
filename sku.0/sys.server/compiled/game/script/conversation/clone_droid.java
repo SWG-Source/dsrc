@@ -1,19 +1,7 @@
 package script.conversation;
 
+import script.library.*;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.buff;
-import script.library.chat;
-import script.library.conversation;
-import script.library.pclib;
-import script.library.utils;
 
 public class clone_droid extends script.base_script
 {

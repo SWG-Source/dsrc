@@ -1,21 +1,11 @@
 package script.theme_park.dungeon.mustafar_trials.obiwan_finale;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.anims;
-import script.ai.ai_combat;
-import script.library.buff;
-import script.library.chat;
-import script.library.mustafar;
-import script.library.prose;
-import script.library.utils;
-import script.library.trial;
+import script.combat_engine.hit_result;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class obiwan_lair_boss extends script.base_script
 {

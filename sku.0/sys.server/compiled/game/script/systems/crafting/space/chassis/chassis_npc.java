@@ -1,17 +1,9 @@
 package script.systems.crafting.space.chassis;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
-import script.library.utils;
 import script.library.space_crafting;
 import script.library.space_transition;
+import script.library.utils;
+import script.obj_id;
 
 public class chassis_npc extends script.base_script
 {

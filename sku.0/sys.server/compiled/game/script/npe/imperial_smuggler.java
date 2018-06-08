@@ -1,16 +1,11 @@
 package script.npe;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.groundquests;
+import script.dictionary;
 import script.library.chat;
 import script.library.create;
+import script.library.groundquests;
+import script.location;
+import script.obj_id;
 
 public class imperial_smuggler extends script.base_script
 {

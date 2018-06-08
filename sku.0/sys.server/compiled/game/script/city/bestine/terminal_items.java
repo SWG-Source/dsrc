@@ -1,7 +1,10 @@
 package script.city.bestine;
 
-import script.*;
 import script.library.utils;
+import script.menu_info;
+import script.menu_info_types;
+import script.obj_id;
+import script.string_id;
 
 public class terminal_items extends script.base_script
 {

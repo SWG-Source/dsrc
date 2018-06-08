@@ -1,19 +1,16 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import java.util.Random;
-import script.vector;
+import script.library.load_test;
 import script.library.ship_ai;
 import script.library.space_create;
 import script.library.space_transition;
-import script.library.load_test;
+import script.location;
+import script.obj_id;
+import script.transform;
+import script.vector;
+
+import java.util.Random;
+import java.util.Vector;
 
 public class mbogue_test extends script.base_script
 {

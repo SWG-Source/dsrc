@@ -1,14 +1,8 @@
 package script.systems.combat;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class combat_supply_drop_crate extends script.base_script
 {

@@ -1,16 +1,8 @@
 package script.theme_park.dungeon.mustafar_trials.volcano_battlefield;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.sui;
-import script.library.space_dungeon;
 import script.library.instance;
+import script.library.sui;
 
 public class exit_terminal extends script.base_script
 {

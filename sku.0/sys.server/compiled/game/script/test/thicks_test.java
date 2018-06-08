@@ -1,38 +1,10 @@
 package script.test;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine.combat_data;
+import script.library.*;
 
-import script.library.chat;
-import script.library.utils;
-import script.library.sui;
-import script.library.attrib;
-import script.library.create;
-import script.library.space_dungeon;
-import script.library.space_transition;
-import script.library.pclib;
-import script.library.datatable;
-import script.library.buff;
-import script.library.trial;
-import script.library.space_dungeon_data;
-import script.library.badge;
-import script.library.ai_lib;
-import script.library.gcw;
-import script.library.factions;
-import script.library.faction_perk;
-import script.library.respec;
-import script.library.skill;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.space_crafting;
-import script.library.vehicle;
-import script.library.combat;
-import script.library.instance;
+import java.util.Vector;
 
 public class thicks_test extends script.base_script
 {

@@ -1,18 +1,11 @@
 package script.item.special;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.library.pet_lib;
+import script.library.structure;
 import script.library.sui;
 import script.library.utils;
-import script.library.pet_lib;
-import script.library.craftinglib;
-import script.library.structure;
+import script.location;
+import script.obj_id;
 
 public class nomove_furniture extends script.base_script
 {

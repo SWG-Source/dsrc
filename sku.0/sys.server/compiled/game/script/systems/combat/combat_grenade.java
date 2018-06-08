@@ -1,17 +1,11 @@
 package script.systems.combat;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.sui;
-import script.library.combat;
 import script.library.static_item;
+import script.library.utils;
+import script.menu_info;
+import script.menu_info_data;
+import script.menu_info_types;
+import script.obj_id;
 
 public class combat_grenade extends script.systems.combat.combat_base
 {

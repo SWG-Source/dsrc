@@ -1,20 +1,15 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
+import script.library.qa;
 import script.library.sui;
 import script.library.utils;
+import script.obj_id;
+
 import java.util.Arrays;
-import java.util.Vector;
 import java.util.HashSet;
 import java.util.StringTokenizer;
-import script.library.qa;
+import java.util.Vector;
 
 public class qawearables extends script.base_script
 {

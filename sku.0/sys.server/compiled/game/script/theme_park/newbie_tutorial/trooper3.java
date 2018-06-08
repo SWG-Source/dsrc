@@ -1,16 +1,8 @@
 package script.theme_park.newbie_tutorial;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.ai.ai_combat;
-import script.library.chat;
 import script.library.ai_lib;
+import script.library.chat;
 
 public class trooper3 extends script.theme_park.newbie_tutorial.tutorial_base
 {

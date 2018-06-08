@@ -1,22 +1,9 @@
 package script.systems.camping;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.camping;
-import script.library.factions;
-import script.library.faction_perk;
-import script.library.prose;
-import script.library.utils;
-import script.library.sui;
-import script.library.player_structure;
-import script.library.structure;
-import script.library.group;
+import java.util.Vector;
 
 public class camp_controlpanel extends script.base_script
 {

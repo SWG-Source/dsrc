@@ -1,12 +1,9 @@
 package script.library;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
+import script.combat_engine;
+import script.obj_id;
+
 import java.util.Vector;
-import script.base_script;
 
 public class metrics extends script.base_script
 {

@@ -1,19 +1,9 @@
 package script.systems.crafting.food;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
+import script.draft_schematic;
 import script.library.craftinglib;
-import script.library.consumable;
-import script.library.player_stomach;
-import script.library.bio_engineer;
-import script.library.debug;
+import script.obj_id;
+import script.resource_weight;
 
 public class crafting_food_additive extends script.systems.crafting.crafting_base
 {

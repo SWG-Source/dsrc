@@ -1,19 +1,15 @@
 package script.poi.family_feud;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.npc;
-import script.library.scenario;
-import script.library.poi;
+import script.dictionary;
 import script.library.ai_lib;
+import script.library.poi;
+import script.library.scenario;
 import script.library.utils;
-import script.ai.ai_combat;
+import script.location;
+import script.obj_id;
+import script.string_id;
+
+import java.util.Vector;
 
 public class antagonist extends script.poi.base.scenario_actor
 {

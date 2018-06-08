@@ -1,18 +1,13 @@
 package script.quest.force_sensitive;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.fs_dyn_village;
 import script.library.fs_quests;
 import script.library.prose;
 import script.library.quests;
-import script.library.utils;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class fs_reflex1_player extends script.base_script
 {

@@ -1,19 +1,9 @@
 package script.theme_park.newbie_tutorial;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.groundquests;
 import script.library.utils;
-import script.library.features;
 import script.library.weapons;
-import java.util.Vector;
-import java.util.Arrays;
 
 public class travel_terminal extends script.theme_park.newbie_tutorial.tutorial_base
 {

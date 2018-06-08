@@ -1,14 +1,7 @@
 package script.npc.bartender;
 
 import script.*;
-import script.library.ai_lib;
-import script.library.chat;
-import script.library.factions;
-import script.library.money;
-import script.library.prose;
-import script.library.sui;
-import script.library.township;
-import script.library.utils;
+import script.library.*;
 
 import java.util.Vector;
 

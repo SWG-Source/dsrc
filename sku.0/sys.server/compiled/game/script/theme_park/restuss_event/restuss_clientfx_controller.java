@@ -1,20 +1,10 @@
 package script.theme_park.restuss_event;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.obj_id;
 
-import script.library.trial;
-import script.library.restuss_event;
-import script.library.utils;
-import script.library.factions;
-import script.library.ai_lib;
-import script.library.pclib;
-import script.library.instance;
+import java.util.Vector;
 
 public class restuss_clientfx_controller extends script.base_script
 {

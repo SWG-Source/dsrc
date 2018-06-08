@@ -63,7 +63,10 @@ public class tcg_bespin_lights extends script.base_script
         sendSystemMessageTestingOnly(getOwner(self), "Turning light " + position);
         location currentLocation = getLocation(self);
 
-        dictionary itemData = dataTableGetRow("datatables/item/master_item/master_item.iff", "item_tcg_loot_reward_series8_bespin_" + type);
+        dictionary itemData = dataTableGetRow("datatables/item/master_item/master_item.iff", "item_tcg_loot_reward_series8_bespin_" + type + "_" + position);
+
+        if(itemData == null) return;
+
         obj_id newLight = createObject(itemData.getString("template_name"), currentLocation);
 
         if(newLight == null){

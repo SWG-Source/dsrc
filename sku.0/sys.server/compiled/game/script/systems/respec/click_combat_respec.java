@@ -1,23 +1,6 @@
 package script.systems.respec;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.force_rank;
-import script.library.groundquests;
-import script.library.npe;
-import script.library.respec;
-import script.library.skill_template;
-import script.library.skill;
-import script.library.static_item;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
+import script.obj_id;
 
 public class click_combat_respec extends script.base_script
 {

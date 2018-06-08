@@ -1,7 +1,6 @@
 package script.conversation;
 
 import script.*;
-
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.factions;

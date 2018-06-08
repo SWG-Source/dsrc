@@ -1,17 +1,10 @@
 package script.poi.dungeon;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.factions;
 import script.library.create;
-import script.library.hq;
 import script.library.utils;
+
+import java.util.Vector;
 
 public class dungeon_spawner_parent extends script.base_script
 {

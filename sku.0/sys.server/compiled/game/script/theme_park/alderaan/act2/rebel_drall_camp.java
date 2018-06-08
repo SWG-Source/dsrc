@@ -1,19 +1,12 @@
 package script.theme_park.alderaan.act2;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.library.*;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
-import script.library.ai_lib;
-import script.library.create;
-import script.library.utils;
-import script.library.factions;
-import script.library.badge;
-import script.library.chat;
+import java.util.Vector;
 
 public class rebel_drall_camp extends script.base_script
 {

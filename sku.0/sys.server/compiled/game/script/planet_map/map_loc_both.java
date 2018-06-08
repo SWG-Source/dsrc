@@ -1,14 +1,8 @@
 package script.planet_map;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.planetary_map;
+import script.location;
+import script.obj_id;
 
 public class map_loc_both extends script.planet_map.map_loc
 {

@@ -1,17 +1,12 @@
 package script.systems.fs_quest.exit_quest;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.theater;
-import script.library.chat;
+import script.dictionary;
 import script.library.quests;
+import script.library.theater;
 import script.library.utils;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class final_battle_theater extends script.base_script
 {

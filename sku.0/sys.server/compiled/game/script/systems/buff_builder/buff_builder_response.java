@@ -1,19 +1,9 @@
 package script.systems.buff_builder;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.buff;
-import script.library.money;
-import script.library.performance;
-import script.library.prose;
-import script.library.scheduled_drop;
-import script.library.utils;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class buff_builder_response extends script.base_script
 {

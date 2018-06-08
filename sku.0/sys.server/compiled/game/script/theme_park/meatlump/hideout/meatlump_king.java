@@ -1,21 +1,9 @@
 package script.theme_park.meatlump.hideout;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.anims;
-import script.library.buff;
-import script.library.chat;
-import script.library.groundquests;
-import script.library.prose;
-import script.library.static_item;
-import script.library.utils;
+import script.library.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class meatlump_king extends script.base_script
 {

@@ -1,20 +1,9 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.colors;
-import script.library.combat;
-import script.library.money;
-import script.library.quests;
-import script.library.sui;
-import script.library.hue;
-import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class tford_test extends script.base_script
 {

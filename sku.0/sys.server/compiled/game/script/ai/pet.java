@@ -1,35 +1,9 @@
 package script.ai;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.battlefield;
-import script.library.beast_lib;
-import script.library.bio_engineer;
-import script.library.callable;
-import script.library.chat;
-import script.library.colors;
-import script.library.combat_consts;
-import script.library.consumable;
-import script.library.food;
-import script.library.group;
-import script.library.healing;
-import script.library.hue;
-import script.library.pet_lib;
-import script.library.player_stomach;
-import script.library.poi;
-import script.library.space_crafting;
-import script.library.space_transition;
-import script.library.stealth;
-import script.library.sui;
-import script.library.utils;
-import script.library.xp;
+import java.util.Vector;
 
 public class pet extends script.base_script
 {

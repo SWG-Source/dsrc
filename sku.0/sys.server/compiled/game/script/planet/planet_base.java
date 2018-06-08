@@ -1,13 +1,14 @@
 package script.planet;
 
-import script.*;
-
-import java.util.Vector;
-
+import script.dictionary;
 import script.library.cloninglib;
 import script.library.gcw;
 import script.library.scheduled_drop;
 import script.library.utils;
+import script.location;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class planet_base extends script.base_script
 {

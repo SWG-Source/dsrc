@@ -1,14 +1,7 @@
 package script.poi.prisonbreak;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.poi;
+import script.dictionary;
+import script.obj_id;
 
 public class bombed_wall extends script.base_script
 {

@@ -1,15 +1,9 @@
 package script.quest.task.fs_quest_cs;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.quests;
 import script.library.fs_counterstrike;
+import script.library.quests;
+import script.obj_id;
+import script.string_id;
 
 public class quest_failed_escort extends script.base_script
 {

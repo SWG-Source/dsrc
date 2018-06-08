@@ -1,20 +1,11 @@
 package script.space.ai;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
+import script.library.attrib;
 import script.library.ship_ai;
 import script.library.space_utils;
 import script.library.utils;
-import script.library.attrib;
-import script.library.space_combat;
-import script.transform;
-import script.vector;
+import script.obj_id;
 
 public class space_ai extends script.base_script
 {

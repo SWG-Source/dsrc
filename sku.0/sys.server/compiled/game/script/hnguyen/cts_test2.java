@@ -1,21 +1,11 @@
 package script.hnguyen;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
+import script.script_entry;
 
+import java.io.*;
 import java.util.StringTokenizer;
-import java.io.FileOutputStream;
-import java.io.FileInputStream;
-import java.io.DataOutputStream;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.EOFException;
 
 public class cts_test2 extends script.base_script
 {

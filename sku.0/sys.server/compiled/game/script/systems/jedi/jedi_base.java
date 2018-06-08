@@ -1,25 +1,10 @@
 package script.systems.jedi;
 
+import script.combat_engine.weapon_data;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.armor;
-import script.library.jedi;
-import script.library.utils;
-import script.library.healing;
-import script.library.dot;
-import script.library.combat;
-import script.library.prose;
-import script.library.anims;
-import script.library.ai_lib;
-import script.library.vehicle;
-import script.library.buff;
-import script.library.stealth;
+import java.util.Vector;
 
 public class jedi_base extends script.base_script
 {

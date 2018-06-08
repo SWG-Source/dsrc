@@ -1,20 +1,9 @@
 package script.systems.gcw;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.buff;
-import script.library.factions;
-import script.library.gcw;
-import script.library.pvp;
-import script.library.regions;
-import script.library.trial;
-import script.library.utils;
+import java.util.Vector;
 
 public class pvp_battlefield extends script.base_script
 {

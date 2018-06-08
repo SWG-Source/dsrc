@@ -1,15 +1,8 @@
 package script.theme_park.recruitment.base;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.ai.ai;
 import script.library.ai_lib;
+import script.obj_id;
+import script.string_id;
 
 public class base_recruiter extends script.base_script
 {

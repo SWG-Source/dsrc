@@ -1,16 +1,9 @@
 package script.theme_park.meatlump;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.collection;
-import script.library.sui;
 import script.library.stealth;
+import script.library.sui;
 import script.library.utils;
 
 public class destroy_weapon_cachev2 extends script.base_script

@@ -1,16 +1,7 @@
 package script.systems.crafting.chemistry.enzyme;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
 import script.library.craftinglib;
-import script.library.weapons;
+import script.resource_weight;
 
 public class crafting_ws_enzyme_units extends script.systems.crafting.chemistry.enzyme.crafting_base_enzyme_units
 {

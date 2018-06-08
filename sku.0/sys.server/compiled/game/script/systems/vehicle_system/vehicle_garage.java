@@ -1,22 +1,7 @@
 package script.systems.vehicle_system;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.callable;
-import script.library.sui;
-import script.library.utils;
-import script.library.attrib;
-import script.library.money;
-import script.library.prose;
-import script.library.vehicle;
-import script.library.city;
-import script.library.player_structure;
+import script.library.*;
 
 public class vehicle_garage extends script.base_script
 {

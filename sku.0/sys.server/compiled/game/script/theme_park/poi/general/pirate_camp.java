@@ -1,16 +1,10 @@
 package script.theme_park.poi.general;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.factions;
+import script.dictionary;
 import script.library.ai_lib;
+import script.library.factions;
 import script.library.weapons;
+import script.obj_id;
 
 public class pirate_camp extends script.theme_park.poi.base
 {

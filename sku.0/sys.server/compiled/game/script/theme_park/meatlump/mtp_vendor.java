@@ -1,19 +1,12 @@
 package script.theme_park.meatlump;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.sui;
-import script.library.township;
-import script.library.trial;
-import script.library.static_item;
+import script.dictionary;
 import script.library.chat;
+import script.library.static_item;
+import script.library.township;
+import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class mtp_vendor extends script.base_script
 {

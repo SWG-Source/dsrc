@@ -1,17 +1,11 @@
 package script.theme_park.gating.imperial;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.factions;
 import script.library.groundquests;
 import script.library.space_flags;
 import script.library.space_quest;
+import script.obj_id;
+import script.string_id;
 
 public class hall2_block extends script.base_script
 {

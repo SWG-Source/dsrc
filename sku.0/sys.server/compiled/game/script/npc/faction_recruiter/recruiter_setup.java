@@ -1,14 +1,10 @@
 package script.npc.faction_recruiter;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.ai_lib;
+import script.menu_info;
+import script.menu_info_data;
+import script.menu_info_types;
+import script.obj_id;
 
 public class recruiter_setup extends script.base_script
 {

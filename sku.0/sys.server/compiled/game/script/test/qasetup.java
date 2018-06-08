@@ -1,34 +1,7 @@
 package script.test;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.armor;
-import script.library.skill;
-import script.library.utils;
-import script.library.create;
-import script.library.respec;
-import script.library.static_item;
-import script.library.skill_template;
-import java.util.HashSet;
-import java.util.StringTokenizer;
-import java.util.Vector;
-import java.util.Arrays;
-import script.library.qa;
-import script.library.sui;
-import script.library.utils;
-import script.library.pclib;
-import script.library.weapons;
-import script.library.skill;
-import script.library.gm;
-import script.library.respec;
-import script.library.buff;
-import script.library.performance;
+import script.library.*;
+import script.obj_id;
 
 public class qasetup extends script.base_script
 {

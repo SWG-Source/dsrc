@@ -1,25 +1,8 @@
 package script.space_mining;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.combat;
-import script.library.sui;
-import script.library.quests;
-import script.library.ai_lib;
-import script.library.money;
-import script.library.chat;
-import script.library.pclib;
-import script.library.vehicle;
-import script.library.ship_ai;
-import script.library.utils;
 import script.library.space_utils;
-import script.library.space_combat;
+import script.library.utils;
 
 public class mining_salvage_hulk extends script.base_script
 {

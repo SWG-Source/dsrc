@@ -1,55 +1,10 @@
 package script.player;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.badge;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.colors;
-import script.library.combat;
-import script.library.create;
-import script.library.factions;
-import script.library.gcw;
-import script.library.gm;
-import script.library.groundquests;
-import script.library.healing;
-import script.library.holiday;
-import script.library.incubator;
-import script.library.locations;
-import script.library.loot;
-import script.library.luck;
-import script.library.marriage;
-import script.library.money;
-import script.library.pclib;
-import script.library.performance;
-import script.library.pet_lib;
-import script.library.planetary_map;
-import script.library.player_structure;
-import script.library.player_version;
-import script.library.prose;
-import script.library.regions;
-import script.library.respec;
-import script.library.session;
-import script.library.skill;
-import script.library.skill_template;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.structure;
-import script.library.sui;
-import script.library.target_dummy;
-import script.library.trial;
-import script.library.turnstile;
-import script.library.utils;
-import script.library.vehicle;
-import script.library.weapons;
-import script.library.xp;
+import java.util.Arrays;
+import java.util.Vector;
 
 public class player_utility extends script.base_script
 {

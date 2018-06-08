@@ -1,23 +1,9 @@
 package script.systems.missions.base;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.factions;
-import script.library.force_rank;
-import script.library.gcw;
-import script.library.group;
-import script.library.jedi;
-import script.library.missions;
-import script.library.money;
-import script.library.prose;
-import script.library.utils;
-import script.library.xp;
+import java.util.Vector;
 
 public class mission_base extends script.base_script
 {

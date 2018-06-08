@@ -1,9 +1,8 @@
 package script.systems.gcw.space;
 
-import script.library.factions;
+import script.dictionary;
 import script.library.space_combat;
 import script.library.space_utils;
-import script.dictionary;
 import script.obj_id;
 
 public class support_ship extends script.space.combat.combat_ship {

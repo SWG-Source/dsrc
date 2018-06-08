@@ -1,20 +1,7 @@
 package script.item.survey_tool;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.utils;
-import script.library.resource;
-import script.library.prose;
-import script.library.structure;
-import script.library.sui;
-import script.library.xp;
+import script.library.*;
 
 public class survey_tool_script extends script.base_script
 {

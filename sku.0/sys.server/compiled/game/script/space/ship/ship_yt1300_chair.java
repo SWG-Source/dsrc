@@ -1,14 +1,7 @@
 package script.space.ship;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.create;
+import script.location;
+import script.obj_id;
 
 public class ship_yt1300_chair extends script.base_script
 {

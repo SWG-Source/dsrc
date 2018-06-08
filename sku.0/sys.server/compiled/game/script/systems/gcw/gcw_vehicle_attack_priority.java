@@ -1,21 +1,11 @@
 package script.systems.gcw;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.ai_lib;
-import script.library.beast_lib;
-import script.library.factions;
-import script.library.instance;
-import script.library.pclib;
-import script.library.pet_lib;
+import script.dictionary;
 import script.library.trial;
 import script.library.utils;
+import script.obj_id;
+
+import java.util.Vector;
 
 public class gcw_vehicle_attack_priority extends script.systems.combat.combat_base
 {

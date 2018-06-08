@@ -1,16 +1,9 @@
 package script.faction_perk.hq;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.pclib;
-import script.library.money;
+import script.dictionary;
 import script.library.cloninglib;
+import script.library.money;
+import script.obj_id;
 
 public class terminal_cloning_override extends script.base_script
 {

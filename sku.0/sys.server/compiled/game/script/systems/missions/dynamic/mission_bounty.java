@@ -1,18 +1,12 @@
 package script.systems.missions.dynamic;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.locations;
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.jedi;
 import script.library.missions;
+import script.library.utils;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 public class mission_bounty extends script.systems.missions.base.mission_dynamic_base
 {

@@ -6,12 +6,8 @@
 
 package script;
 
-import script.library.colors_hex;
-import script.library.combat_consts;
-import script.library.utils;
-
-import java.util.Hashtable;
 import java.util.Enumeration;
+import java.util.Hashtable;
 
 public class gcw_score
 {

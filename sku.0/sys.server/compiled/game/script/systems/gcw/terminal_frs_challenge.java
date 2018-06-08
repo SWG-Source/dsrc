@@ -1,21 +1,9 @@
 package script.systems.gcw;
 
+import script.library.*;
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
 
-import script.library.sui;
-import script.library.utils;
-import script.library.prose;
-import script.library.pet_lib;
-import script.library.factions;
-import script.library.force_rank;
-import script.library.arena;
-import script.library.player_structure;
+import java.util.Vector;
 
 public class terminal_frs_challenge extends script.base_script
 {

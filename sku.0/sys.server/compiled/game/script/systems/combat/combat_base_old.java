@@ -1,29 +1,13 @@
 package script.systems.combat;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.combat_engine.attacker_data;
+import script.combat_engine.defender_data;
+import script.combat_engine.hit_result;
+import script.combat_engine.weapon_data;
+import script.library.*;
 
-import script.library.combat;
-import script.library.vehicle;
-import script.library.prose;
-import script.library.jedi;
-import script.library.pet_lib;
-import script.library.dot;
-import script.library.colors;
-import script.library.utils;
-import script.library.ai_lib;
-import script.library.group;
-import script.library.powerup;
-import script.library.chat;
-import script.library.skill;
-import script.library.xp;
-import script.library.city;
-import script.library.metrics;
+import java.util.Vector;
 
 public class combat_base_old extends script.base_script
 {

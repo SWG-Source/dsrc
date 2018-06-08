@@ -1,18 +1,8 @@
 package script.systems.crafting.item;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.callable;
-import script.library.craftinglib;
-import script.library.pet_lib;
-import script.library.utils;
 import script.library.skill;
+import script.library.utils;
+import script.obj_id;
 
 public class crafting_gcw_tools extends script.base_script
 {

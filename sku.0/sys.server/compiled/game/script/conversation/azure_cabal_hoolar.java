@@ -1,11 +1,11 @@
 package script.conversation;
 
-import script.*;
-
 import script.library.ai_lib;
 import script.library.chat;
 import script.library.groundquests;
 import script.library.utils;
+import script.obj_id;
+import script.string_id;
 
 public class azure_cabal_hoolar extends script.conversation.base.conversation_base
 {

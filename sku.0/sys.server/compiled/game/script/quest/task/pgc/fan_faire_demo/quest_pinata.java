@@ -1,21 +1,8 @@
 package script.quest.task.pgc.fan_faire_demo;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.ai_lib;
-import script.library.buff;
-import script.library.combat;
-import script.library.create;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.trial;
-import script.library.utils;
+import script.obj_id;
 
 public class quest_pinata extends script.base_script
 {

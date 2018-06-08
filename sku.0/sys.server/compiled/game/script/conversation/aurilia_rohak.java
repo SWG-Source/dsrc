@@ -1,7 +1,9 @@
 package script.conversation;
 
 import script.library.*;
-import script.*;
+import script.obj_id;
+import script.prose_package;
+import script.string_id;
 
 public class aurilia_rohak extends script.conversation.base.conversation_base
 {

@@ -1,20 +1,7 @@
 package script.item.loot_schematic;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.prose;
-import script.library.utils;
-import script.library.temp_schematic;
-import script.library.skill;
-import script.library.static_item;
-import script.library.township;
-import script.library.beast_lib;
+import script.library.*;
 
 public class loot_schematic extends script.base_script
 {

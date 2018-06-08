@@ -1,16 +1,8 @@
 package script.player;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.innate;
-import script.library.cmd;
 import script.library.prose;
+import script.*;
 
 public class species_innate extends script.base_script
 {

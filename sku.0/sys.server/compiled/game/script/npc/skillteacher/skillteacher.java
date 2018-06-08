@@ -1,26 +1,9 @@
 package script.npc.skillteacher;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.npc;
-import script.library.skill;
-import script.library.utils;
-import script.library.city;
-import script.library.jedi;
-import script.library.chat;
-import script.library.prose;
-import script.library.anims;
-import script.library.sui;
-import script.library.money;
-import script.library.xp;
-import script.library.fs_quests;
-import script.library.features;
+import java.util.Vector;
 
 public class skillteacher extends script.base_script
 {

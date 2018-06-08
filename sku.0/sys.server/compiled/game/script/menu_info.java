@@ -4,10 +4,9 @@
 
 package script;
 
-import java.util.Vector;
-import java.util.Collection;
-import java.util.Iterator;
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.Vector;
 
 final public class menu_info implements Serializable
 {

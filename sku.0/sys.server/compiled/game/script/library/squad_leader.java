@@ -1,6 +1,9 @@
 package script.library;
 
-import script.*;
+import script.dictionary;
+import script.location;
+import script.obj_id;
+import script.string_id;
 
 import java.util.Vector;
 

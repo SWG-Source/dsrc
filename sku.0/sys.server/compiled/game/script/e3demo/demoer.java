@@ -1,25 +1,9 @@
 package script.e3demo;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.library.*;
 
-import script.library.utils;
-import script.library.space_transition;
-import script.library.create;
-import script.library.bio_engineer;
-import script.library.hue;
-import script.library.sui;
-import script.library.pet_lib;
-import script.library.ship_ai;
-import script.library.space_utils;
-import script.library.space_combat;
-import script.library.space_create;
-import script.library.ai_lib;
+import java.util.Vector;
 
 public class demoer extends script.base_script
 {
