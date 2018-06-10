@@ -4,7 +4,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5335527	0	object/building/endor/endor_village_tree.iff	0	395	9.97864	1674	0.92388	0	0.382683	0		$|
 5335528	0	object/building/endor/endor_village_tree.iff	0	448	20	1683	1	0	0	0		$|
 5335529	0	object/building/endor/endor_village_tree.iff	0	500	10.0658	1683	0.707108	0	-0.707106	0		$|
-5335530	0	object/building/endor/endor_village_tree.iff	0	448	20	1735	8.32009e-007	0	1	0		$|
+5335530	0	object/building/endor/endor_village_tree.iff	0	448	20	1735	8.32009E-07	0	1	0		$|
 5335531	0	object/building/endor/endor_village_tree.iff	0	448	30	1631	1	0	0	0		$|
 5335532	0	object/building/endor/endor_catwalk.iff	0	448	30	1699	1	0	0	0		$|
 5335533	0	object/building/endor/endor_catwalk_cap.iff	0	448	30	1724	1	0	0	0		$|
@@ -20,7 +20,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5335546	0	object/building/endor/endor_catwalk.iff	0	420	30	1699	0.92388	0	0.382683	0		$|
 5335547	0	object/building/endor/endor_catwalk.iff	0	406	30	1685	0.92388	0	0.382683	0		$|
 5335548	0	object/building/endor/endor_village_tree.iff	0	431	19.9059	1710	-0.382683	0	0.92388	0		$|
-5335549	0	object/building/endor/endor_forest_hut.iff	0	432.452	20.0969	1719.77	0.724835	0	0.688922	0		$|
+5335549	0	object/building/endor/endor_forest_hut.iff	0	432.452	20.0969	1719.77	0.724835	0	0.688922	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/endor/ewok_tree_village_2.iff|$|
 5335550	0	object/building/endor/endor_forest_hut.iff	0	442.73	20.0018	1726.79	-0.183166	0	0.983082	0		$|
 5335551	0	object/building/endor/endor_forest_hut.iff	0	442.669	20	1742.93	0.954772	0	0.297339	0		$|
 5335552	0	object/building/endor/endor_forest_hut.iff	0	446.462	20	1692.69	0.973303	0	-0.229526	0		$|
@@ -56,7 +56,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5335582	0	object/building/endor/endor_catwalk_cap.iff	0	448	40	1642	1	0	0	0		$|
 5335583	0	object/building/endor/endor_village_tree_viewpoint.iff	0	459.5	50	1631	0.707107	0	0.707107	0		$|
 5335584	0	object/building/endor/endor_village_tree_viewpoint.iff	0	459.5	40	1631	0.707107	0	0.707106	0		$|
-5335585	0	object/building/endor/endor_village_tree_viewpoint.iff	0	448	50	1619.5	-3.20013e-008	0	1	0		$|
+5335585	0	object/building/endor/endor_village_tree_viewpoint.iff	0	448	50	1619.5	-3.20013E-08	0	1	0		$|
 5335586	0	object/building/endor/endor_village_tree_viewpoint.iff	0	448	50	1642.5	1	0	0	0		$|
 5335587	0	object/building/endor/endor_village_tree_viewpoint.iff	0	448	40	1694.5	1	0	0	0		$|
 5335588	0	object/building/endor/endor_village_tree_viewpoint.iff	0	459.5	40	1683	0.707107	0	0.707106	0		$|
@@ -70,7 +70,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5335596	0	object/building/endor/endor_village_tree_viewpoint.iff	0	436.5	30	1735	0.707107	0	-0.707106	0		$|
 5335597	0	object/building/endor/endor_village_tree_viewpoint.iff	0	448	40	1746.5	1	0	0	0		$|
 5335598	0	object/building/endor/endor_village_tree_viewpoint.iff	0	436.405	40	1735	-0.707106	0	0.707107	0		$|
-5335599	0	object/building/endor/endor_village_tree_viewpoint.iff	0	448	40	1723.5	-3.20013e-008	0	1	0		$|
+5335599	0	object/building/endor/endor_village_tree_viewpoint.iff	0	448	40	1723.5	-3.20013E-08	0	1	0		$|
 5335600	0	object/building/endor/endor_village_tree_viewpoint.iff	0	511.5	30	1683	0.707107	0	0.707107	0		$|
 5335601	0	object/building/endor/endor_village_tree_viewpoint.iff	0	500	30	1694.5	1	0	0	0		$|
 5335602	0	object/building/endor/endor_village_tree_viewpoint.iff	0	500	20	1694.5	1	0	0	0		$|
@@ -280,7 +280,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6645607	0	object/static/item/item_basket_shallow.iff	0	512.243	10	1693.41	1	0	0	0		$|
 6645608	0	object/static/item/item_bottle_fat.iff	0	513.577	10	1692.68	1	0	0	0		$|
 6645609	0	object/static/structure/dantooine/dant_fish_rack.iff	0	508.983	10	1693.17	0.707107	0	-0.707106	0		$|
-6645610	0	object/static/structure/dantooine/dant_rack_spears.iff	0	493.975	10.1408	1694.04	3.20013e-008	0	1	0		$|
+6645610	0	object/static/structure/dantooine/dant_rack_spears.iff	0	493.975	10.1408	1694.04	3.20013E-08	0	1	0		$|
 6645611	0	object/static/structure/dantooine/dant_hide_tanning_s01.iff	0	495.635	10.2294	1697.55	1	0	0	0		$|
 6645617	0	object/static/structure/dantooine/dant_fish_rack.iff	0	457.387	30	1630.35	1	0	0	0		$|
 6645618	0	object/static/structure/dantooine/dant_rack_spears.iff	0	457.834	30	1622.76	1	0	0	0		$|

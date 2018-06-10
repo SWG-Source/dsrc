@@ -3,7 +3,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5165461	0	object/building/endor/endor_lake_walkway_straight.iff	0	1457	-9	802	1	0	0	0		$|
 5165462	0	object/building/endor/endor_lake_platform.iff	0	1461	0.8	834	1	0	0	0		$|
 5165463	0	object/building/endor/endor_lake_hut_s02.iff	0	1463.78	1.05951	836.293	-0.441886	0	0.897071	0		$|
-5165464	0	object/building/endor/endor_lake_hut.iff	0	1465.88	0.967114	778.01	1	0	0	0		$|
+5165464	0	object/building/endor/endor_lake_hut.iff	0	1465.88	0.967114	778.01	1	0	0	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/endor/ewok_lake_village_1.iff|$|
 5165466	0	object/building/endor/endor_lake_platform.iff	0	1456	0.8	786	1	0	0	0		$|
 5165467	0	object/building/endor/endor_lake_platform.iff	0	1461	0.8	818	1	0	0	0		$|
 5165468	0	object/building/endor/endor_lake_platform.iff	0	1472	0.8	786	1	0	0	0		$|
@@ -29,7 +29,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5165497	0	object/building/endor/endor_lake_platform_cap.iff	0	1422	-9	898	1	0	0	0		$|
 5165498	0	object/building/endor/endor_lake_walkway_straight.iff	0	1422	-9	922	1	0	0	0		$|
 5165499	0	object/building/endor/endor_lake_platform_cap.iff	0	1422	-9	914	1	0	0	0		$|
-5165500	0	object/building/endor/endor_lake_platform_cap.iff	0	1422	-9	930	3.48103e-007	0	1	0		$|
+5165500	0	object/building/endor/endor_lake_platform_cap.iff	0	1422	-9	930	3.48103E-07	0	1	0		$|
 5165502	0	object/building/endor/endor_lake_platform.iff	0	1430	0.8	818	1	0	0	0		$|
 5165503	0	object/building/endor/endor_lake_platform.iff	0	1430	0.8	882	1	0	0	0		$|
 5165504	0	object/building/endor/endor_lake_platform.iff	0	1430	0.799999	866	1	0	0	0		$|
@@ -62,8 +62,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5265372	0	object/building/endor/endor_lake_platform_cap.iff	0	1408	-9	786	1	0	0	0		$|
 5265373	0	object/building/endor/endor_lake_walkway_square.iff	0	1396	-9	778	0.707107	0	-0.707106	0		$|
 5265374	0	object/building/endor/endor_lake_platform_cap.iff	0	1400	-9	778	0.707107	0	-0.707106	0		$|
-5265375	0	object/building/endor/endor_lake_walkway_square.iff	0	1408	-9	766	3.20013e-008	0	1	0		$|
-5265376	0	object/building/endor/endor_lake_platform_cap.iff	0	1408	-9	770	3.20013e-008	0	1	0		$|
+5265375	0	object/building/endor/endor_lake_walkway_square.iff	0	1408	-9	766	3.20013E-08	0	1	0		$|
+5265376	0	object/building/endor/endor_lake_platform_cap.iff	0	1408	-9	770	3.20013E-08	0	1	0		$|
 5265377	0	object/building/endor/endor_lake_hut_s02.iff	0	1463.39	1.0581	816.289	0.894852	0	-0.446364	0		$|
 5265378	0	object/building/endor/endor_lake_hut.iff	0	1414	0.973179	834	1	0	0	0		$|
 5265379	0	object/building/endor/endor_lake_hut_s02.iff	0	1432.61	1	815.55	0.925781	0	-0.378059	0		$|
@@ -132,7 +132,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5685371	0	object/building/endor/endr_lake_rail8m.iff	0	1448.17	0.990707	786.061	0.707107	0	-0.707106	0		$|
 5685372	0	object/building/endor/endr_lake_rail4m.iff	0	1450.47	0.92268	793.804	1	0	0	0		$|
 5685373	0	object/building/endor/endr_lake_rail4m.iff	0	1448.35	0.956749	791.855	-0.707107	0	0.707107	0		$|
-5685374	0	object/building/endor/endr_lake_rail16m.iff	0	1469.1	0.932685	793.863	3.48103e-007	0	1	0		$|
+5685374	0	object/building/endor/endr_lake_rail16m.iff	0	1469.1	0.932685	793.863	3.48103E-07	0	1	0		$|
 5685375	0	object/building/endor/endr_lake_rail4m.iff	0	1470.11	0.962746	762.34	1	0	0	0		$|
 5685376	0	object/building/endor/endr_lake_rail2m.iff	0	1478.25	0.938258	793.819	1	0	0	0		$|
 5685377	0	object/building/endor/endr_lake_rail16m.iff	0	1479.92	0.964562	770.052	0.707107	0	-0.707106	0		$|
@@ -140,7 +140,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5685379	0	object/building/endor/endr_lake_rail16m.iff	0	1467.89	0.962683	753.53	0.707107	0	0.707106	0		$|
 5685380	0	object/building/endor/endr_lake_rail2m.iff	0	1469.07	0.92826	763.425	0.707108	0	-0.707106	0		$|
 5685381	0	object/building/endor/endr_lake_rail8m.iff	0	1475.8	0.969796	762.169	1	0	0	0		$|
-5685383	0	object/building/endor/endr_lake_rail2m.iff	0	1454.91	0.931165	762.187	-4.9624e-006	0	1	0		$|
+5685383	0	object/building/endor/endr_lake_rail2m.iff	0	1454.91	0.931165	762.187	-4.9624E-06	0	1	0		$|
 5685384	0	object/building/endor/endr_lake_rail4m.iff	0	1457.95	0.96565	762.22	1	0	0	0		$|
 5685385	0	object/building/endor/endr_lake_rail4m.iff	0	1439.62	1.02377	748.19	0.382683	0	0.92388	0		$|
 5685386	0	object/building/endor/endr_lake_rail2m.iff	0	1441.74	0.989287	750.359	0.923881	0	-0.382679	0		$|
@@ -154,11 +154,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6075353	0	object/building/endor/endr_lake_rail2m.iff	0	1469.76	0.933447	792.712	-0.707107	0	0.707107	0		$|
 6075354	0	object/building/endor/endr_lake_rail2m.iff	0	1476.53	0.93689	792.844	-0.707107	0	0.707107	0		$|
 6075355	0	object/building/endor/endr_lake_rail8m.iff	0	1408.01	0.942326	762.096	1	0	0	0		$|
-6075356	0	object/building/endor/endr_lake_rail2m.iff	0	1408	0.910494	763.209	4.32396e-007	0	1	0		$|
+6075356	0	object/building/endor/endr_lake_rail2m.iff	0	1408	0.910494	763.209	4.32396E-07	0	1	0		$|
 6075357	0	object/building/endor/endr_lake_rail2m.iff	0	1393.08	0.900789	777.948	-0.707107	0	0.707107	0		$|
 6075358	0	object/building/endor/endr_lake_rail4m.iff	0	1469.96	0.75843	745.694	1	0	0	0		$|
 6075359	0	object/building/endor/endr_lake_rail16m.iff	0	1471.84	0.958266	737.961	-0.707107	0	0.707107	0		$|
-6075360	0	object/building/endor/endr_lake_rail16m.iff	0	1464	0.705132	730.288	3.48103e-007	0	1	0		$|
+6075360	0	object/building/endor/endr_lake_rail16m.iff	0	1464	0.705132	730.288	3.48103E-07	0	1	0		$|
 6075361	0	object/building/endor/endr_lake_rail16m.iff	0	1456.1	0.8	737.926	-0.707107	0	0.707107	0		$|
 6075362	0	object/building/endor/endr_lake_rail4m.iff	0	1457.99	0.631509	745.698	0.999888	0	-0.0149994	0		$|
 6075363	0	object/building/endor/endr_lake_rail4m.iff	0	1440	0.970321	745.525	0.92388	0	0.382683	0		$|
@@ -182,10 +182,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6075381	0	object/building/endor/endr_lake_rail4m.iff	0	1400.12	0.958114	771.967	0.707107	0	-0.707106	0		$|
 6075382	0	object/building/endor/endr_lake_rail4m.iff	0	1413.9	0.8	785.7	0.999687	0	0.0249974	0		$|
 6075383	0	object/building/endor/endr_lake_rail4m.iff	0	1415.82	0.958114	783.89	0.707107	0	-0.707106	0		$|
-6075384	0	object/building/endor/endr_lake_rail16m.iff	0	1423.89	0.958114	774.151	-4.96241e-006	0	1	0		$|
-6075385	0	object/building/endor/endr_lake_rail16m.iff	0	1424	0.958114	781.828	-6.22681e-006	0	1	0		$|
-6075386	0	object/building/endor/endr_lake_rail16m.iff	0	1440.3	0.958114	774.152	-6.22681e-006	0	1	0		$|
-6075387	0	object/building/endor/endr_lake_rail16m.iff	0	1440.15	0.958114	781.805	-6.22681e-006	0	1	0		$|
+6075384	0	object/building/endor/endr_lake_rail16m.iff	0	1423.89	0.958114	774.151	-4.96241E-06	0	1	0		$|
+6075385	0	object/building/endor/endr_lake_rail16m.iff	0	1424	0.958114	781.828	-6.22681E-06	0	1	0		$|
+6075386	0	object/building/endor/endr_lake_rail16m.iff	0	1440.3	0.958114	774.152	-6.22681E-06	0	1	0		$|
+6075387	0	object/building/endor/endr_lake_rail16m.iff	0	1440.15	0.958114	781.805	-6.22681E-06	0	1	0		$|
 6235352	0	object/building/endor/endr_lake_rail16m.iff	0	1531.86	5.359	940.072	0.919102	0	0.394019	0		$|
 6235353	0	object/building/endor/endr_lake_rail16m.iff	0	1526.21	5.359	934.863	0.919102	0	0.394019	0		$|
 6235354	0	object/building/endor/endr_lake_rail16m.iff	0	1542.85	5.359	928.412	0.919102	0	0.394019	0		$|
@@ -207,8 +207,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6235372	0	object/building/endor/endr_lake_rail16m.iff	0	1406.1	1	882.006	-0.707107	0	0.707107	0		$|
 6235373	0	object/building/endor/endr_lake_rail16m.iff	0	1437.91	1	866.011	0.707113	0	-0.7071	0		$|
 6235374	0	object/building/endor/endr_lake_rail16m.iff	0	1437.9	1	882.02	-0.707107	0	0.707107	0		$|
-6235375	0	object/building/endor/endr_lake_rail16m.iff	0	1430.03	0.82316	810.101	-6.47969e-006	0	1	0		$|
-6235376	0	object/building/endor/endr_lake_rail16m.iff	0	1414.06	0.82316	810.108	9.52215e-008	0	1	0		$|
+6235375	0	object/building/endor/endr_lake_rail16m.iff	0	1430.03	0.82316	810.101	-6.47969E-06	0	1	0		$|
+6235376	0	object/building/endor/endr_lake_rail16m.iff	0	1414.06	0.82316	810.108	9.52215E-08	0	1	0		$|
 6235377	0	object/building/endor/endr_lake_rail4m.iff	0	1415.75	1	858.101	1	0	0	0		$|
 6235378	0	object/building/endor/endr_lake_rail8m.iff	0	1410.15	1	858.24	1	0	0	0		$|
 6235379	0	object/building/endor/endr_lake_rail16m.iff	0	1406.11	1	834.031	-0.707107	0	0.707107	0		$|
@@ -218,11 +218,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6235383	0	object/building/endor/endr_lake_rail4m.iff	0	1435.87	0.912825	858.089	1	0	0	0		$|
 6235384	0	object/building/endor/endr_lake_rail8m.iff	0	1430.27	0.912825	858.229	1	0	0	0		$|
 6235385	0	object/building/endor/endr_lake_rail2m.iff	0	1415.59	1	859.249	-0.707107	0	0.707107	0		$|
-6235386	0	object/building/endor/endr_lake_rail2m.iff	0	1407.26	1	867.948	3.48103e-007	0	1	0		$|
-6235387	0	object/building/endor/endr_lake_rail2m.iff	0	1407.2	1	880.399	3.48103e-007	0	1	0		$|
+6235386	0	object/building/endor/endr_lake_rail2m.iff	0	1407.26	1	867.948	3.48103E-07	0	1	0		$|
+6235387	0	object/building/endor/endr_lake_rail2m.iff	0	1407.2	1	880.399	3.48103E-07	0	1	0		$|
 6235388	0	object/building/endor/endr_lake_rail2m.iff	0	1428.51	1	888.882	-0.707107	0	0.707107	0		$|
 6235389	0	object/building/endor/endr_lake_rail2m.iff	0	1436.82	1	880.448	1	0	0	0		$|
-6235390	0	object/building/endor/endr_lake_rail2m.iff	0	1436.79	1	867.565	3.48103e-007	0	1	0		$|
+6235390	0	object/building/endor/endr_lake_rail2m.iff	0	1436.79	1	867.565	3.48103E-07	0	1	0		$|
 6235391	0	object/building/endor/endr_lake_rail2m.iff	0	1428.13	1	859.29	-0.707107	0	0.707107	0		$|
 6235392	0	object/building/endor/endr_lake_rail8m.iff	0	1430.14	0.820702	841.72	1	0	0	0		$|
 6235393	0	object/building/endor/endr_lake_rail4m.iff	0	1435.74	0.820702	841.58	1	0	0	0		$|
@@ -232,10 +232,10 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 6235397	0	object/building/endor/endr_lake_rail4m.iff	0	1437.86	1	839.744	0.707107	0	-0.707106	0		$|
 6235398	0	object/building/endor/endr_lake_rail4m.iff	0	1437.85	1	819.623	0.707107	0	-0.707106	0		$|
 6235399	0	object/building/endor/endr_lake_rail8m.iff	0	1437.71	1	814.023	0.707107	0	-0.707106	0		$|
-6235400	0	object/building/endor/endr_lake_rail2m.iff	0	1436.71	1	819.848	3.48103e-007	0	1	0		$|
+6235400	0	object/building/endor/endr_lake_rail2m.iff	0	1436.71	1	819.848	3.48103E-07	0	1	0		$|
 6235401	0	object/building/endor/endr_lake_rail2m.iff	0	1428.51	1	811.237	-0.707107	0	0.707107	0		$|
-6235402	0	object/building/endor/endr_lake_rail2m.iff	0	1467.36	1	831.73	3.48103e-007	0	1	0		$|
-6235404	0	object/building/endor/endr_lake_rail2m.iff	0	1467.6	1	820.78	3.48103e-007	0	1	0		$|
+6235402	0	object/building/endor/endr_lake_rail2m.iff	0	1467.36	1	831.73	3.48103E-07	0	1	0		$|
+6235404	0	object/building/endor/endr_lake_rail2m.iff	0	1467.6	1	820.78	3.48103E-07	0	1	0		$|
 9705356	0	object/building/endor/endor_forest_hut.iff	0	362.373	9.7519	279.815	-0.14528	0	0.989391	0		$|
 9705357	0	object/building/endor/endor_forest_hut.iff	0	374.534	6.25597	266.889	-0.689499	0	0.724287	0		$|
 9705359	0	object/building/endor/endr_lake_rail4m.iff	0	361.93	7.01516	265.02	0.98166	-0.0178896	0.148363	-0.118368		$|
