@@ -3866,8 +3866,8 @@ heroic_echo_wampa_junk_02_03
 heroic_echo_wampa_junk_02_04											
 armor_snowtrooper_backpack	strength_modified=35,constitution_modified=30,stamina_modified=30,agility_modified=25,luck_modified=25,precision_modified=35		string:faction_recruiter.faction=Imperial,int:item.set.set_id=110001								
 armor_rebel_snow_backpack	strength_modified=35,constitution_modified=30,stamina_modified=30,agility_modified=25,luck_modified=25,precision_modified=35		string:faction_recruiter.faction=Rebel,int:item.set.set_id=100001								
-item_wampa_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_wampa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
-item_tauntaun_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_wampa_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_wampa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_tauntaun_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 publish_gift_chapter_11_snow_balls_02_01											
 publish_gift_chapter_11_snow_machine_02_01											
 recapture_gift_chapter_11_hoth_hologram_02_01											
@@ -4666,3 +4666,7 @@ item_schematic_spice_thruster_head			string:loot_schematic.schematic=object/draf
 item_schematic_spice_grey_gabaki			string:loot_schematic.schematic=object/draft_schematic/spices/spice_grey_gabaki.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
 item_schematic_spice_neutron_pixey			string:loot_schematic.schematic=object/draft_schematic/spices/spice_neutron_pixey.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
 item_schematic_spice_booster_blue			string:loot_schematic.schematic=object/draft_schematic/spices/spice_booster_blue.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_cs_dna_mutated_narglatch			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_narglatch.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_nexu			string:beast.dna.creature_template=object/mobile/beast_master/bm_nexu.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_reek			string:beast.dna.creature_template=object/mobile/beast_master/bm_reek.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_hawk_bat			string:beast.dna.creature_template=object/mobile/beast_master/bm_hawk_bat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								

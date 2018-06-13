@@ -78,11 +78,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465860	8575684	object/tangible/poi/spawnegg/interior_spawnegg.iff	13	-62.80376434	-18	-110.5256805	1	0	0	0		intRandomYaw|0|1|$|
 4705448	8575684	object/tangible/collection/rare_melee_white_thranta_lance.iff	13	-65.0165	-17.9718	-114.702	-0.579459	-0.413768	0.397223	0.578997		$|
 8465549	8575684	object/tangible/container/drum/warren_drum_skeleton.iff	13	-66.1419	-18	-96.5903	0.497571	0	0.867423	0	theme_park.warren.goodbye_letter_maker	warren.bldg|0|8575671|$|
-8465550	8575684	object/tangible/container/drum/warren_drum_skeleton.iff	13	-65.7341	-17.9368	-114.274	-2.14733e-08	0.314567	-1.45377e-08	0.949235	theme_park.warren.passkey_maker	warren.passkeyNumber|0|1|warren.bldg|0|8575671|$|
+8465550	8575684	object/tangible/container/drum/warren_drum_skeleton.iff	13	-65.7341	-17.9368	-114.274	-2.14733E-08	0.314567	-1.45377E-08	0.949235	theme_park.warren.passkey_maker	warren.passkeyNumber|0|1|warren.bldg|0|8575671|$|
 8555708	8575684	object/tangible/container/drum/warren_drum_tech_chest.iff	13	-77.1607	-18	-78.2119	0.707107	0	0.707106	0	theme_park.warren.passkey_maker	warren.passkeyNumber|0|2|warren.bldg|0|8575671|$|
 8555709	8575684	object/tangible/container/drum/warren_drum_tech_armoire.iff	13	-67.767	-18	-106.272	0.707107	0	-0.707106	0	theme_park.warren.passkey_maker	warren.passkeyNumber|0|3|warren.bldg|0|8575671|$|
 8555710	8575684	object/tangible/container/drum/warren_drum_loot.iff	13	-88.1446	-18	-101.12	0.707107	0	0.707106	0	theme_park.warren.passkey_maker	warren.passkeyNumber|0|4|warren.bldg|0|8575671|$|
-8575770	8575684	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	13	-85.2989	-18	-71.2549	-3.20013e-08	0	1	0	theme_park.warren.diary_terminal	warren.bldg|0|8575671|$|
+8575770	8575684	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	13	-85.2989	-18	-71.2549	-3.20013E-08	0	1	0	theme_park.warren.diary_terminal	warren.bldg|0|8575671|$|
 8575685	8575671	object/cell/cell.iff	14	0	0	0	0	0	0	0		$|
 8465862	8575685	object/tangible/poi/spawnegg/interior_spawnegg.iff	14	-27.26020241	-20	-96.41531372	1	0	0	0		intRandomYaw|0|1|$|
 8465551	8575685	object/tangible/container/drum/warren_drum_skeleton.iff	14	-22.5632	-20	-95.864	0.995491	0	-0.0948572	0	theme_park.warren.turret_data_maker	warren.bldg|0|8575671|$|
@@ -101,7 +101,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4465363	8575689	object/tangible/dungeon/corellian_corvette/corvette_search_rebel_rescue_01.iff	18	11.3442	-28	-29.774	0.707107	0	-0.707106	0		warren.bldg|0|8575671|$|
 8575690	8575671	object/cell/cell.iff	19	0	0	0	0	0	0	0		$|
 8575691	8575671	object/cell/cell.iff	20	0	0	0	0	0	0	0		$|
-8575773	8575691	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	20	-46.49	-28	-26.3612	-3.20013e-08	0	1	0	theme_park.warren.passkey_terminal	$|
+8575773	8575691	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	20	-46.49	-28	-26.3612	-3.20013E-08	0	1	0	theme_park.warren.passkey_terminal	$|
 8575692	8575671	object/cell/cell.iff	21	0	0	0	0	0	0	0		$|
 8465776	8575692	object/tangible/poi/spawnegg/interior_spawnegg.iff	21	3.34732008	-28	-70.4442215	1	0	0	0		intRandomYaw|0|1|$|
 2036114	8575692	object/tangible/furniture/imperial/warren_warning_sign.iff	21	6.00172	-28	-76.4933	1	0	0	0		warren.bldg|0|8575671|$|
@@ -120,8 +120,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465562	8575696	object/tangible/furniture/all/frn_all_data_terminal_wall_s2.iff	25	52.1835	-20	-89.0085	0.707107	0	-0.707106	0	theme_park.warren.mcr_terminal	warren.passkeyNumber|0|4|$|
 8575697	8575671	object/cell/cell.iff	26	0	0	0	0	0	0	0		$|
 6525465	8575697	object/tangible/container/loot/placable_loot_crate_tech_armoire.iff	26	-36.2427	-28	-98.0066	0.707107	0	0.707106	0		$|
-6525466	8575697	object/tangible/container/loot/placable_loot_crate_tech_armoire.iff	26	-35.0795	-28	-87.2652	-3.20013e-08	0	1	0		$|
-6525467	8575697	object/tangible/container/loot/placable_loot_crate_tech_chest.iff	26	-28.4995	-28	-87.203	-3.20013e-08	0	1	0		$|
+6525466	8575697	object/tangible/container/loot/placable_loot_crate_tech_armoire.iff	26	-35.0795	-28	-87.2652	-3.20013E-08	0	1	0		$|
+6525467	8575697	object/tangible/container/loot/placable_loot_crate_tech_chest.iff	26	-28.4995	-28	-87.203	-3.20013E-08	0	1	0		$|
 6525468	8575697	object/tangible/container/loot/placable_loot_crate_tech_armoire.iff	26	-20.7715	-28	-90.173	0.707107	0	-0.707106	0		$|
 8575698	8575671	object/cell/cell.iff	27	0	0	0	0	0	0	0		$|
 8465688	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	5.186871052	-28	-111.1040726	1	0	0	0		intRandomYaw|0|1|$|
@@ -133,12 +133,13 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465711	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-16.23983955	-28	-193.7705994	1	0	0	0		intRandomYaw|0|1|$|
 8465714	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-48.37226868	-28	-192.5680847	1	0	0	0		intRandomYaw|0|1|$|
 8465715	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-41.02770615	-28	-194.8816986	1	0	0	0		intRandomYaw|0|1|$|
+8460001	8575698	object/tangible/poi/spawnegg/interior_spawnegg.iff	27	-31	-28	-132	1	0	0	0		intRandomYaw|0|1|$|
 8575699	8575671	object/cell/cell.iff	28	0	0	0	0	0	0	0		$|
 8575700	8575671	object/cell/cell.iff	29	0	0	0	0	0	0	0		$|
 8575701	8575671	object/cell/cell.iff	30	0	0	0	0	0	0	0		$|
 8575702	8575671	object/cell/cell.iff	31	0	0	0	0	0	0	0		$|
 8465569	8575702	object/static/structure/general/skeleton_human_headandbody.iff	31	-62.728	-18.9564	-34.3886	-0.000796353	0	1	0		$|
-8465570	8575702	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	31	-94.5079	-20	-27.138	-3.20013e-08	0	1	0	theme_park.warren.evidence_terminal	warren.evidence|0|1|$|
+8465570	8575702	object/tangible/furniture/all/frn_all_data_terminal_free_s1.iff	31	-94.5079	-20	-27.138	-3.20013E-08	0	1	0	theme_park.warren.evidence_terminal	warren.evidence|0|1|$|
 8575703	8575671	object/cell/cell.iff	32	0	0	0	0	0	0	0		$|
 8465686	8575703	object/tangible/poi/spawnegg/interior_spawnegg.iff	32	-78.4666748	-20	-1.011010051	1	0	0	0		intRandomYaw|0|1|$|
 8465571	8575703	object/tangible/container/loot/placable_loot_crate.iff	32	-70.7294	-20	-0.962916	0.707107	0	-0.707106	0		$|
@@ -205,8 +206,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465647	8575731	object/tangible/poi/spawnegg/interior_spawnegg.iff	60	5.004779816	-60	29.9245739	1	0	0	0		intRandomYaw|0|1|$|
 8465648	8575731	object/tangible/poi/spawnegg/interior_spawnegg.iff	60	-8.889380455	-60	33.21231461	1	0	0	0		intRandomYaw|0|1|$|
 8575732	8575671	object/cell/cell.iff	61	0	0	0	0	0	0	0		$|
-8465594	8575732	object/tangible/terminal/terminal_elevator.iff	61	5.50694	-60	45.0024	-3.20013e-08	0	1	0		$|
-8465595	8575732	object/tangible/terminal/terminal_elevator.iff	61	5.51422	-84	44.9815	-3.20013e-08	0	1	0		$|
+8465594	8575732	object/tangible/terminal/terminal_elevator.iff	61	5.50694	-60	45.0024	-3.20013E-08	0	1	0		$|
+8465595	8575732	object/tangible/terminal/terminal_elevator.iff	61	5.51422	-84	44.9815	-3.20013E-08	0	1	0		$|
 8575733	8575671	object/cell/cell.iff	62	0	0	0	0	0	0	0		$|
 8575734	8575671	object/cell/cell.iff	63	0	0	0	0	0	0	0		$|
 8465644	8575734	object/tangible/poi/spawnegg/interior_spawnegg.iff	63	23.28150749	-60	1.10314405	1	0	0	0		intRandomYaw|0|1|$|
@@ -232,7 +233,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465642	8575740	object/tangible/poi/spawnegg/interior_spawnegg.iff	69	19.21153831	-52	-33.75436783	1	0	0	0		intRandomYaw|0|1|$|
 8575741	8575671	object/cell/cell.iff	70	0	0	0	0	0	0	0		$|
 8575742	8575671	object/cell/cell.iff	71	0	0	0	0	0	0	0		$|
-8465596	8575742	object/tangible/furniture/imperial/warren_experiment_terminal.iff	71	-12.4868	-84	40.8493	-3.20013e-08	0	1	0		$|
+8465596	8575742	object/tangible/furniture/imperial/warren_experiment_terminal.iff	71	-12.4868	-84	40.8493	-3.20013E-08	0	1	0		$|
 8575743	8575671	object/cell/cell.iff	72	0	0	0	0	0	0	0		$|
 8575744	8575671	object/cell/cell.iff	73	0	0	0	0	0	0	0		$|
 8575745	8575671	object/cell/cell.iff	74	0	0	0	0	0	0	0		$|
@@ -251,6 +252,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8465626	8575751	object/tangible/poi/spawnegg/interior_spawnegg.iff	80	95.75371552	-84	-98.40267181	1	0	0	0		intRandomYaw|0|1|$|
 8575752	8575671	object/cell/cell.iff	81	0	0	0	0	0	0	0		$|
 8575753	8575671	object/cell/cell.iff	82	0	0	0	0	0	0	0		$|
+8460002	8575753	object/tangible/poi/spawnegg/interior_spawnegg.iff	82	125	-60	-75	1	0	0	0		intRandomYaw|0|1|$|
 8575754	8575671	object/cell/cell.iff	83	0	0	0	0	0	0	0		$|
 8575755	8575671	object/cell/cell.iff	84	0	0	0	0	0	0	0		$|
 8465628	8575755	object/tangible/poi/spawnegg/interior_spawnegg.iff	84	87.48309326	-52	10.89470959	1	0	0	0		intRandomYaw|0|1|$|
