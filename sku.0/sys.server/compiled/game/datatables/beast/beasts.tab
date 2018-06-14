@@ -154,3 +154,5 @@ bm_mutated_narglatch	bm_mutated_narglatch	bm_mutated_narglatch.iff			0.4	1.2	2	p
 bm_nexu	bm_nexu	bm_nexu.iff		84	0.8	1.45	2	predatory_cat	DAMAGE	
 bm_reek	bm_reek	bm_reek.iff			0.3	1.3	2	bull	DEFENSE	
 bm_hawk_bat	bm_hawk_bat	bm_hawk_bat.iff			0.65	1.2	2	bat	NINJA	
+bm_monkey_lizard	bm_monkey_lizard	bm_monkey_lizard.iff			0.7	1.6	2	monkey	DODGE	
+bm_forage_worm	bm_forage_worm	bm_forage_worm.iff			0.2	1.5	2	lizard	DEFENSE	

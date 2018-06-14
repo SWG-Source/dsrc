@@ -3418,7 +3418,7 @@ col_pristine_meat_02_01			string:collection.slotName=col_resource_harvest_meat:c
 col_reward_resource_harvest_02_01											
 col_reward_resource_harvest_bone_02_01											
 col_reward_resource_harvest_meat_02_01											
-item_dna_worm			string:beast.dna.creature_template=object/mobile/beast_master/bm_walluga.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_dna_worm			string:beast.dna.creature_template=object/mobile/beast_master/bm_forage_worm.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 col_pristine_egg_02_01			string:collection.slotName=col_resource_harvest_egg:col_resource_harvest_egg_01								
 col_pristine_milk_02_01			string:collection.slotName=col_resource_harvest_milk:col_resource_harvest_milk_01	index_color_1=31							
 col_photo_durni_reward_01											
@@ -4670,3 +4670,4 @@ item_cs_dna_mutated_narglatch			string:beast.dna.creature_template=object/mobile
 item_cs_dna_nexu			string:beast.dna.creature_template=object/mobile/beast_master/bm_nexu.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_reek			string:beast.dna.creature_template=object/mobile/beast_master/bm_reek.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_hawk_bat			string:beast.dna.creature_template=object/mobile/beast_master/bm_hawk_bat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_monkey_lizard_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_monkey_lizard.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
