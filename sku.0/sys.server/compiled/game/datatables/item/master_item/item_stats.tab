@@ -4671,3 +4671,6 @@ item_cs_dna_nexu			string:beast.dna.creature_template=object/mobile/beast_master
 item_cs_dna_reek			string:beast.dna.creature_template=object/mobile/beast_master/bm_reek.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_hawk_bat			string:beast.dna.creature_template=object/mobile/beast_master/bm_hawk_bat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_monkey_lizard_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_monkey_lizard.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_bane_back_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_bane_back.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_urnsoris_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_urnsoris.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_uwari_beetle_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_uwari_beetle.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								

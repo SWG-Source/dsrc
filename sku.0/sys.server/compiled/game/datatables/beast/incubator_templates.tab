@@ -143,3 +143,6 @@ appearance/reek.sat	0	object/tangible/item/beast/converted_reek_decoration.iff	o
 appearance/hawk_bat.sat	0	object/tangible/item/beast/converted_hawk_bat_decoration.iff	object/mobile/beast_master/bm_hawk_bat.iff	object/mobile/beast_master/bm_hawk_bat.iff								
 appearance/granite_slug.sat	0	object/tangible/item/beast/converted_forage_worm_decoration.iff	object/mobile/beast_master/bm_forage_worm.iff	object/mobile/beast_master/bm_forage_worm.iff								
 appearance/kowakian_monkey_lizard_m.sat	0	object/tangible/item/beast/converted_monkey_lizard_decoration.iff	object/mobile/beast_master/bm_monkey_lizard.iff	object/mobile/beast_master/bm_monkey_lizard.iff								
+appearance/bane_back_spider.sat		object/tangible/item/beast/converted_bane_back_decoration.iff	object/mobile/beast_master/bm_bane_back.iff	object/mobile/beast_master/bm_bane_back.iff								
+appearance/urnsoris.sat		object/tangible/item/beast/converted_urnsoris_decoration.iff	object/mobile/beast_master/bm_urnsoris.iff	object/mobile/beast_master/bm_urnsoris.iff								
+appearance/uwari_beetle.sat		object/tangible/item/beast/converted_uwari_beetle_decoration.iff	object/mobile/beast_master/bm_uwari_beetle.iff	object/mobile/beast_master/bm_uwari_beetle.iff								
