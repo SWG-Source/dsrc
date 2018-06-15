@@ -2469,6 +2469,7 @@ item_cs_dna_dwarf_nuna			string:beast.dna.creature_template=object/mobile/beast_
 item_cs_dna_eopie			string:beast.dna.creature_template=object/mobile/beast_master/bm_eopie.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_falumpaset			string:beast.dna.creature_template=object/mobile/beast_master/bm_falumpaset.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_fambaa			string:beast.dna.creature_template=object/mobile/beast_master/bm_fambaa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_spined_snake			string:beast.dna.creature_template=object/mobile/beast_master/bm_fanned_rawl.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_flewt			string:beast.dna.creature_template=object/mobile/beast_master/bm_flewt.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_flit			string:beast.dna.creature_template=object/mobile/beast_master/bm_flit.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_fynock			string:beast.dna.creature_template=object/mobile/beast_master/bm_fynock.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
@@ -4674,3 +4675,4 @@ item_monkey_lizard_dna			string:beast.dna.creature_template=object/mobile/beast_
 item_bane_back_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_bane_back.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_urnsoris_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_urnsoris.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_uwari_beetle_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_uwari_beetle.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_mooc_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_mooc.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
