@@ -922,10 +922,15 @@ public class terminal_character_builder extends script.base_script
         "314. empty",
         "315. empty",
         "316. empty",
-        "317. Starport, Kashyyyk",
-        "318. Rryatt Trial, Kashyyyk",
-        "319. empty",
-        "320. empty"
+        "317. Kachirho Starport, Kashyyyk",
+        "318. Kachirho, Kashyyyk",
+        "319. Rryatt Trial, Kashyyyk",
+        "320. Blackscale Slave Compound, Kashyyyk",
+        "321. Kkowir Forest, Kashyyyk",
+        "322. Etyyy Hunting Grounds, Kashyyyk",
+        "323. Rodian Hunters Camp, Kashyyyk",
+        "324. Isolationist Wookiee Village, Kashyyyk",
+        "325. empty"
     };
     public static final String[] OTHER_SHIP_OPTIONS = {
         "Sorosuub",
@@ -9358,15 +9363,30 @@ public class terminal_character_builder extends script.base_script
             warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
             break;
             case 317:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
+            warpPlayer(player, "kashyyyk_main", -679, 0, -150, null, 0, 0, 0, "", false);
             break;
             case 318:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
+            warpPlayer(player, "kashyyyk_main", -557, 0, -115, null, 0, 0, 0, "", false);
             break;
             case 319:
-            warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
+            warpPlayer(player, "kashyyyk_main", -63, 18, 826, null, 0, 0, 0, "", false);
             break;
             case 320:
+            warpPlayer(player, "kashyyyk_main", 412, 18, 933, null, 0, 0, 0, "", false);
+            break;
+            case 321:
+            warpPlayer(player, "kashyyyk_main", -762, 17, 239, null, 0, 0, 0, "", false);
+            break;
+            case 322:
+            warpPlayer(player, "kashyyyk_main", 224, 18, -401, null, 0, 0, 0, "", false);
+            break;
+            case 323:
+            warpPlayer(player, "kashyyyk_main", 721, 23, -611, null, 0, 0, 0, "", false);
+            break;
+            case 324:
+            warpPlayer(player, "kashyyyk_main", 340, 32, -173, null, 0, 0, 0, "", false);
+            break;
+            case 325:
             warpPlayer(player, "planet", 0, 0, 0, null, 0, 0, 0, "", false);
             break;
             default:
