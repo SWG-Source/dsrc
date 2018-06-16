@@ -7,5 +7,5 @@ objectName = "monster_name"  "mutated_hermit_spider"
 detailedDescription = "" ""
 lookAtText = "monster_lookat"  "mutated_hermit_spider"
 
-appearanceFilename = "appearance/whiskerback_widow.sat
+appearanceFilename = "appearance/whiskerback_widow.sat"
 clientDataFile = "clientdata/creature/client_shared_cr_hermit_spider.cdf"
