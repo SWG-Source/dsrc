@@ -2460,6 +2460,7 @@ item_cs_dna_condor_dragon			string:beast.dna.creature_template=object/mobile/bea
 item_cs_dna_corellian_butterfly			string:beast.dna.creature_template=object/mobile/beast_master/bm_corellian_butterfly.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_corellian_sand_panther			string:beast.dna.creature_template=object/mobile/beast_master/bm_corellian_sand_panther.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_corellian_slice_hound			string:beast.dna.creature_template=object/mobile/beast_master/bm_corellian_slice_hound.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_crystal_snake			string:beast.dna.creature_template=object/mobile/beast_master/bm_crystal_snake.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_cu_pa			string:beast.dna.creature_template=object/mobile/beast_master/bm_cu_pa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_dalyrake			string:beast.dna.creature_template=object/mobile/beast_master/bm_dalyrake.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_dewback			string:beast.dna.creature_template=object/mobile/beast_master/bm_dewback.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
@@ -2469,7 +2470,7 @@ item_cs_dna_dwarf_nuna			string:beast.dna.creature_template=object/mobile/beast_
 item_cs_dna_eopie			string:beast.dna.creature_template=object/mobile/beast_master/bm_eopie.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_falumpaset			string:beast.dna.creature_template=object/mobile/beast_master/bm_falumpaset.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_fambaa			string:beast.dna.creature_template=object/mobile/beast_master/bm_fambaa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
-item_cs_dna_spined_snake			string:beast.dna.creature_template=object/mobile/beast_master/bm_fanned_rawl.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_fanned_rawl			string:beast.dna.creature_template=object/mobile/beast_master/bm_fanned_rawl.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_flewt			string:beast.dna.creature_template=object/mobile/beast_master/bm_flewt.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_flit			string:beast.dna.creature_template=object/mobile/beast_master/bm_flit.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_fynock			string:beast.dna.creature_template=object/mobile/beast_master/bm_fynock.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
@@ -2527,6 +2528,7 @@ item_cs_dna_shear_mite			string:beast.dna.creature_template=object/mobile/beast_
 item_cs_dna_skreeg			string:beast.dna.creature_template=object/mobile/beast_master/bm_skreeg.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_snorbal			string:beast.dna.creature_template=object/mobile/beast_master/bm_snorbal.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_spined_puc			string:beast.dna.creature_template=object/mobile/beast_master/bm_spined_puc.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_spined_snake			string:beast.dna.creature_template=object/mobile/beast_master/bm_spined_snake.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_squall			string:beast.dna.creature_template=object/mobile/beast_master/bm_squall.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_squill			string:beast.dna.creature_template=object/mobile/beast_master/bm_squill.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_stintaril			string:beast.dna.creature_template=object/mobile/beast_master/bm_stintaril.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
