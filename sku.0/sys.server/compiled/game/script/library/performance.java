@@ -1743,7 +1743,7 @@ public class performance extends script.base_script
             performanceMessageToSelf(actor, null, SID_FLOURISH_NOT_PERFORMING);
             return;
         }
-        if ((index < 1) || (index > 8))
+        if (index < 1 || index > 9)
         {
             performanceMessageToSelf(actor, null, SID_FLOURISH_NOT_VALID);
             return;
@@ -1837,7 +1837,7 @@ public class performance extends script.base_script
             performanceMessageToSelf(actor, null, SID_FLOURISH_NOT_PERFORMING);
             return;
         }
-        if ((index < 0) || (index > 8))
+        if (index < 0 || index > 9)
         {
             performanceMessageToSelf(actor, null, SID_FLOURISH_NOT_VALID);
             return;
@@ -2465,11 +2465,10 @@ public class performance extends script.base_script
             }
             else 
             {
-                int perTickMinutesAddedInt = (int)perTickMinutesAdded / 60;
-                string_id strSpam = new string_id("spam", "buff_duration_tick_not_hardcoded");
                 prose_package pp = new prose_package();
-                pp = prose.setStringId(pp, strSpam);
-                pp = prose.setDI(pp, perTickMinutesAddedInt);
+                pp = prose.setStringId(pp, new string_id("spam", "buff_duration_tick_not_hardcoded"));
+                pp = prose.setTO(pp, getFormattedInspirationDuration(inspirationScriptVarVal));
+                pp.target.set(audience[i]);
                 showFlyTextPrivate(audience[i], audience[i], pp, 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
                 showFlyTextPrivate(audience[i], actor, pp, 0.66f, colors.LIGHTPINK.getR(), colors.LIGHTPINK.getG(), colors.LIGHTPINK.getB(), true);
             }
@@ -2483,6 +2482,18 @@ public class performance extends script.base_script
             xp.grantSocialStyleXp(band[i], xp.ENTERTAINER, experience);
         }
         return true;
+    }
+    private static String getFormattedInspirationDuration(float time) {
+        String formattedTime = "";
+        time /= 60;
+        if (time >= 60) {
+            int hours = (int)time / 60;
+            formattedTime = hours + " hour" + (hours > 1 ? "s" : "");
+        }
+        if (time % 60 != 0) {
+            formattedTime += (!formattedTime.isEmpty() ? ", " : "") + ((int)(time % 60)) + " minutes";
+        }
+        return formattedTime;
     }
     public static boolean performanceTargetedBuffFlourish(obj_id actor, String perf_type, float modifier) throws InterruptedException
     {
