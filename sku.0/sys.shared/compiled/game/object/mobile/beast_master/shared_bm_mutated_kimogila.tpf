@@ -1,19 +1,11 @@
-
 @base object/mobile/skeleton/shared_bm_lizard_giant.iff
-
 @class creature_object_template 9
-// We may need to adjust creature template later -SWG Source
-//species = SP_xxxx
-
 @class tangible_object_template 3
-
-
 @class object_template 4
 
 objectName = "monster_name"  "mutated_kimogila"
 detailedDescription = "" ""
 lookAtText = "monster_lookat"  "mutated_kimogila"
+
 appearanceFilename = "appearance/spiny_gorgilla.sat"
-
-
 clientDataFile = "clientdata/creature/client_shared_bm_kimogila.cdf"

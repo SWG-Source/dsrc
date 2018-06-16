@@ -24,7 +24,7 @@ bm_condor_dragon	bm_condor_dragon	bm_condor_dragon.iff			0.25	0.6	2	griffon	DODG
 bm_corellian_butterfly	bm_corellian_butterfly	bm_corellian_butterfly.iff			0.75	1.5	2	moth	DODGE	
 bm_corellian_sand_panther	bm_corellian_sand_panther	bm_corellian_sand_panther.iff			0.4	1.2	2	predatory_cat	DAMAGE	
 bm_corellian_slice_hound	bm_corellian_slice_hound	bm_corellian_slice_hound.iff			0.6	1.6	2	wolf	DAMAGE	
-bm_crystal_snake	bm_crystal_snake	bm_crystal_snake.iff			0.25	0.75	2	snake	NINJA	
+bm_crystal_snake	bm_crystal_snake	bm_crystal_snake.iff			0.25	1.1	2	snake	NINJA	
 bm_cu_pa	bm_cu_pa	bm_cu_pa.iff	bio_engineered_cu_pa		0.5	1	2	raptor	DODGE	
 bm_dalyrake	bm_dalyrake	bm_dalyrake.iff			0.5	1.2	2	mantis	DAMAGE	
 bm_dewback	bm_dewback	bm_dewback.iff	bio_engineered_dewback		0.3	0.6	2	bull	DEFENSE	
@@ -34,7 +34,7 @@ bm_dwarf_nuna	bm_dwarf_nuna	bm_dwarf_nuna.iff			1	1.7	2	turkey	DODGE
 bm_eopie	bm_eopie	bm_eopie.iff	eopie_mount		0.2	0.6	2	camel	BLOCK	
 bm_falumpaset	bm_falumpaset	bm_falumpaset.iff	bio_engineered_falumpaset		0.3	0.6	2	camel	BLOCK	
 bm_fambaa	bm_fambaa	bm_fambaa.iff			0.08	0.24	2	fambaa	BLOCK	
-bm_fanned_rawl	bm_fanned_rawl	bm_fanned_rawl.iff			0.25	0.75	2	snake	NINJA	
+bm_fanned_rawl	bm_fanned_rawl	bm_fanned_rawl.iff			0.25	1.1	2	snake	NINJA	
 bm_flewt	bm_flewt	bm_flewt.iff			0.75	1.5	2	moth	DAMAGE	
 bm_flit	bm_flit	bm_flit.iff			0.6	1.5	2	avian	DAMAGE	
 bm_fynock	bm_fynock	bm_fynock.iff			0.6	1.2	2	mynock	DODGE	
@@ -99,7 +99,7 @@ bm_shear_mite	bm_shear_mite	bm_shear_mite.iff			0.25	0.7	2	roach	NINJA
 bm_skreeg	bm_skreeg	bm_skreeg.iff			0.65	1.5	2	monkey	NINJA	
 bm_snorbal	bm_snorbal	bm_snorbal.iff			0.25	0.75	2	elephant	DEFENSE	
 bm_spined_puc	bm_spined_puc	bm_spined_puc.iff			1.5	3	2	frog	DODGE	
-bm_spined_snake	bm_spined_snake	bm_spined_snake.iff			0.2	0.6	2	snake	NINJA	
+bm_spined_snake	bm_spined_snake	bm_spined_snake.iff			0.25	1.1	2	snake	NINJA	
 bm_squall	bm_squall	bm_squall.iff			0.75	1.5	2	rabbit	DODGE	
 bm_squill	bm_squill	bm_squill.iff			0.65	1.5	2	monkey	DODGE	
 bm_stintaril	bm_stintaril	bm_stintaril.iff			0.75	1.75	2	rat	NINJA	
@@ -161,3 +161,11 @@ bm_urnsoris	bm_urnsoris	bm_urnsoris.iff			0.3	1.2	2	roach	DEFENSE
 bm_uwari_beetle	bm_uwari_beetle	bm_uwari_beetle.iff			0.6	1.8	2	roach	DEFENSE	
 bm_mooc	bm_mooc	bm_mooc.iff			0.5	1.4	2	predatory_cat	DAMAGE	
 bm_mutated_vesp	bm_mutated_vesp	bm_mutated_vesp.iff			0.4	1.3		lizard	DODGE	
+bm_finned_blaggart	bm_finned_blaggart	bm_finned_blaggart.iff			0.35	1.3	2	snake	NINJA	
+bm_mutated_malkloc	bm_mutated_malkloc	bm_mutated_malkloc.iff			0.11	0.35	2	fambaa	DEFENSE	
+bm_pangrack	bm_pangrack	bm_pangrack.iff			0.3	1.4	2	wolf	DAMAGE	
+bm_mutated_bol	bm_mutated_bol	bm_mutated_bol.iff			0.45	1.2	2	bull	DEFENSE	
+bm_mutated_kimogila	bm_mutated_kimogila	bm_mutated_kimogila.iff			0.15	0.45	2	lizard	DAMAGE	
+bm_mutated_bolle_bol	bm_mutated_bolle_bol	bm_mutated_bolle_bol.iff			0.4	0.85	2	giraffe	DODGE	
+bm_mutated_thune	bm_mutated_thune	bm_mutated_thune.iff			0.35	0.95	2	elephant	DEFENSE	
+bm_mutated_hermit_spider	bm_mutated_hermit_spider	bm_mutated_hermit_spider.iff			0.3	0.85	2	spider	DODGE	

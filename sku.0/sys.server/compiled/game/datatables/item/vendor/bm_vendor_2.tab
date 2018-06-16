@@ -4,6 +4,7 @@ item_cs_dna_langlatch	1
 item_cs_dna_lantern_bird	1								
 item_cs_dna_lava_flea	1								
 item_cs_dna_malkloc	1								
+item_mutated_malkloc_dna	1								
 item_cs_dna_mamien	1								
 item_cs_dna_mawgax	1								
 item_cs_dna_merek	1								
@@ -14,6 +15,7 @@ item_cs_dna_mynock	1
 item_cs_dna_narglatch	1								
 item_cs_dna_nexu	1								
 item_cs_dna_nuna	1								
+item_pangrack_dna	1								
 item_cs_dna_peko_peko	1								
 item_cs_dna_perlek	1								
 item_cs_dna_picket	1								
@@ -30,9 +32,11 @@ item_cs_dna_sharnaff	1
 item_cs_dna_shaupaut	1								
 item_cs_dna_shear_mite	1								
 item_cs_dna_skreeg	1								
+item_cs_dna_mutated_bol	1								
 item_cs_dna_snorbal	1								
 item_cs_dna_spined_puc	1								
 item_cs_dna_spined_snake	1								
+item_cs_dna_mutated_kimogila	1								
 item_cs_dna_squall	1								
 item_cs_dna_squill	1								
 item_cs_dna_stintaril	1								
@@ -43,6 +47,8 @@ item_cs_dna_thune	1
 item_cs_dna_torton	1								
 item_cs_dna_tulrus	1								
 item_cs_dna_tusk_cat	1								
+item_cs_dna_mutated_bolle_bol	1								
+item_cs_dna_mutated_thune	1								
 item_cs_dna_tybis	1								
 item_cs_dna_varactyl	1								
 item_cs_dna_veermok	1								
@@ -63,4 +69,5 @@ item_dna_uller	1
 item_dna_walluga	1								
 item_wampa_dna	1								
 item_dna_webweaver	1								
+item_cs_dna_mutated_hermit_spider	1								
 item_cs_dna_hawk_bat	1								
