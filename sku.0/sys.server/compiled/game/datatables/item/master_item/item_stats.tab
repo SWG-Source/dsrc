@@ -4687,3 +4687,9 @@ item_cs_dna_mutated_kimogila			string:beast.dna.creature_template=object/mobile/
 item_cs_dna_mutated_bolle_bol			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_bolle_bol.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_mutated_thune			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_thune.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_mutated_hermit_spider			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_hermit_spider.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_barbed_quenker_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_barbed_quenker.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_razor_angler_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_razor_angler.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_spiderclan_consort_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_spiderclan_consort.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_spiderclan_queen_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_spiderclan_queen.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_blackwing_rancor_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_blackwing_rancor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_vorpal_durni_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_durni.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								

@@ -5,24 +5,24 @@ import script.library.*;
 import script.location;
 import script.obj_id;
 
-public class cracktooth_dna extends script.base_script
+public class vorpal_durni_dna extends script.base_script
 {
-    public cracktooth_dna()
+    public vorpal_durni_dna()
     {
     }
-    public static final String CRACKTOOTH_NARGLATCH_DNA_LOOT_ITEM = "item_cs_dna_mutated_narglatch";
-    public static final int CRACKTOOTH_NARGLATCH_DNA_LOOT_CHANCE = 15;
+    public static final String VORPAL_DURNI_DNA_LOOT_ITEM = "item_vorpal_durni_dna";
+    public static final int VORPAL_DURNI_DNA_LOOT_CHANCE = 1;
 
 
     public int aiCorpsePrepared(obj_id self, dictionary params) throws InterruptedException
     {
         int chanceDna = rand(1, 100);
-        if (chanceDna > CRACKTOOTH_NARGLATCH_DNA_LOOT_CHANCE)
+        if (chanceDna > VORPAL_DURNI_DNA_LOOT_CHANCE)
         {
             return SCRIPT_CONTINUE;
         }
         obj_id inv = utils.getInventoryContainer(self);
-        obj_id dna = static_item.createNewItemFunction(CRACKTOOTH_NARGLATCH_DNA_LOOT_ITEM, inv);
+        obj_id dna = static_item.createNewItemFunction(VORPAL_DURNI_DNA_LOOT_ITEM, inv);
         return SCRIPT_CONTINUE;
     }
 }
