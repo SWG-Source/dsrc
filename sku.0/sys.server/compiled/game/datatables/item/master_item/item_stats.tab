@@ -2777,7 +2777,7 @@ item_ring_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_freesho
 item_ring_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_ring_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_ring_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_ring_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_ring_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_ring_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_ring_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_ring_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -2799,7 +2799,7 @@ item_band_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_freesho
 item_band_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_band_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_band_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_band_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_band_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_band_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_band_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_band_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -2821,7 +2821,7 @@ item_necklace_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_fre
 item_necklace_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_necklace_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_necklace_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_necklace_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_necklace_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_necklace_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_necklace_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_necklace_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -2843,7 +2843,7 @@ item_bracelet_r_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_f
 item_bracelet_r_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_bracelet_r_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_bracelet_r_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_bracelet_r_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_bracelet_r_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_bracelet_r_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_bracelet_r_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_bracelet_r_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -2865,7 +2865,7 @@ item_bracelet_l_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_f
 item_bracelet_l_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_bracelet_l_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_bracelet_l_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_bracelet_l_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_bracelet_l_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_bracelet_l_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_bracelet_l_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_bracelet_l_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
