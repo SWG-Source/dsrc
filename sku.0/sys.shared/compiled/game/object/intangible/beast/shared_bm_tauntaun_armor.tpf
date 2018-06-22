@@ -1,0 +1,9 @@
+@base object/intangible/base/shared_base_intangible.iff
+@class intangible_object_template 0
+@class object_template 5
+
+objectName = "monster_name" "tauntaun_armor"
+detailedDescription = "" ""
+
+appearanceFilename = "appearance/tauntaun_armored.sat"
+gameObjectType = GOT_data_pet_control_device

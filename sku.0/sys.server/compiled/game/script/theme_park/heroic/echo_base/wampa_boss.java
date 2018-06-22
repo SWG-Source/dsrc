@@ -16,7 +16,7 @@ public class wampa_boss extends script.base_script
     public static final String FORTY_PERCENT = ADDS_VAR_BASE + ".fortyPercent";
     public static final String SIXTY_PERCENT = ADDS_VAR_BASE + ".sixtyPercent";
     public static final String EIGHTY_PERCENT = ADDS_VAR_BASE + ".eightyPercent";
-    public static final String WAMPA_DNA_LOOT_ITEM = "item_wampa_dna";
+    public static final String WAMPA_DNA_LOOT_ITEM = "item_cs_dna_wampa";
     public static final int WAMPA_DNA_LOOT_CHANCE = 5;
     public static final int UNCLE_JOE_MAX_DISTANCE = 104;
     public int OnAttach(obj_id self) throws InterruptedException
@@ -56,7 +56,7 @@ public class wampa_boss extends script.base_script
             setInvulnerable(self, true);
             stopCombat(self);
         }
-        else 
+        else
         {
             messageTo(self, "handleUncleJoeDistanceCheck", null, 3, false);
         }

@@ -3872,8 +3872,6 @@ heroic_echo_wampa_junk_02_03
 heroic_echo_wampa_junk_02_04											
 armor_snowtrooper_backpack	strength_modified=35,constitution_modified=30,stamina_modified=30,agility_modified=25,luck_modified=25,precision_modified=35		string:faction_recruiter.faction=Imperial,int:item.set.set_id=110001								
 armor_rebel_snow_backpack	strength_modified=35,constitution_modified=30,stamina_modified=30,agility_modified=25,luck_modified=25,precision_modified=35		string:faction_recruiter.faction=Rebel,int:item.set.set_id=100001								
-item_cs_wampa_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_wampa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
-item_cs_tauntaun_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 publish_gift_chapter_11_snow_balls_02_01											
 publish_gift_chapter_11_snow_machine_02_01											
 recapture_gift_chapter_11_hoth_hologram_02_01											
@@ -4678,9 +4676,6 @@ item_cs_dna_reek			string:beast.dna.creature_template=object/mobile/beast_master
 item_cs_dna_hawk_bat			string:beast.dna.creature_template=object/mobile/beast_master/bm_hawk_bat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_monkey_lizard_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_monkey_lizard.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_bane_back_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_bane_back.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
-item_urnsoris_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_urnsoris.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
-item_uwari_beetle_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_uwari_beetle.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
-item_mooc_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_mooc.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_finned_blaggart_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_finned_blaggart.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_mutated_malkloc_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_malkloc.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_pangrack_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_pangrack.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
@@ -4696,3 +4691,59 @@ item_spiderclan_consort_dna			string:beast.dna.creature_template=object/mobile/b
 item_spiderclan_queen_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_spiderclan_queen.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_blackwing_rancor_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_blackwing_rancor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_vorpal_durni_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_durni.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_scorpion_kliknik_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_scorpion_kliknik.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_binjiinphant_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_binjinphant.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_painted_spat			string:beast.dna.creature_template=object/mobile/beast_master/bm_painted_spat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_murra_blanca			string:beast.dna.creature_template=object/mobile/beast_master/bm_murra_blanca.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_spiketail_blurrg			string:beast.dna.creature_template=object/mobile/beast_master/bm_spiketail_blurrg.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_vog_eel			string:beast.dna.creature_template=object/mobile/beast_master/bm_vog_eel.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_gualaar			string:beast.dna.creature_template=object/mobile/beast_master/bm_gualaar.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_katarn			string:beast.dna.creature_template=object/mobile/beast_master/bm_katarn.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_krayt			string:beast.dna.creature_template=object/mobile/beast_master/bm_krayt.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_kkorrwrot			string:beast.dna.creature_template=object/mobile/beast_master/bm_kkorrwrot.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_gorax			string:beast.dna.creature_template=object/mobile/beast_master/bm_gorax.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_tauntaun_armor			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun_armor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_dewback_armor			string:beast.dna.creature_template=object/mobile/beast_master/bm_dewback_armor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_bantha_armor			string:beast.dna.creature_template=object/mobile/beast_master/bm_bantha_armor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_reek			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_reek.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_pikobi			string:beast.dna.creature_template=object/mobile/beast_master/bm_pikobi.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_scurrier			string:beast.dna.creature_template=object/mobile/beast_master/bm_scurrier.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_massiff			string:beast.dna.creature_template=object/mobile/beast_master/bm_massiff.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_carax			string:beast.dna.creature_template=object/mobile/beast_master/bm_carax.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_acklay			string:beast.dna.creature_template=object/mobile/beast_master/bm_acklay.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_vesp			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_vesp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_baz_nitch			string:beast.dna.creature_template=object/mobile/beast_master/bm_baz_nitch.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_blistmok			string:beast.dna.creature_template=object/mobile/beast_master/bm_blistmok.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_boar			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_boar.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_bolotaur			string:beast.dna.creature_template=object/mobile/beast_master/bm_bolotaur.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_borgax			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_borgax.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_chuba_fly			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_chuba_fly.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_cu_pa			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_cu_pa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_cat			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_cat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_slice_hound			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_slice_hound.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_graul			string:beast.dna.creature_template=object/mobile/beast_master/bm_graul.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_dewback			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_dewback.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_griffon			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_griffon.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_horned_rasp			string:beast.dna.creature_template=object/mobile/beast_master/bm_horned_rasp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_jundak			string:beast.dna.creature_template=object/mobile/beast_master/bm_jundak.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_kubaza_beetle			string:beast.dna.creature_template=object/mobile/beast_master/bm_kubaza_beetle.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mooc			string:beast.dna.creature_template=object/mobile/beast_master/bm_mooc.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_acklay			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_acklay.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_pharple			string:beast.dna.creature_template=object/mobile/beast_master/bm_pharple.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_plumed_rasp			string:beast.dna.creature_template=object/mobile/beast_master/bm_plumed_rasp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_jax			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_jax.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_rancor			string:beast.dna.creature_template=object/mobile/beast_master/bm_rancor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_remmer			string:beast.dna.creature_template=object/mobile/beast_master/bm_remmer.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_rancor			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_rancor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_tanray			string:beast.dna.creature_template=object/mobile/beast_master/bm_tanray.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_urnsoris			string:beast.dna.creature_template=object/mobile/beast_master/bm_urnsoris.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_uwari_beetle			string:beast.dna.creature_template=object/mobile/beast_master/bm_uwari_beetle.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_varasquactyl			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_varasquactyl.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_whisper_bird			string:beast.dna.creature_template=object/mobile/beast_master/bm_whisper_bird.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_quenker			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_quenker.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_xandank			string:beast.dna.creature_template=object/mobile/beast_master/bm_xandank.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_crowned_rasp			string:beast.dna.creature_template=object/mobile/beast_master/bm_crowned_rasp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_flite_rasp			string:beast.dna.creature_template=object/mobile/beast_master/bm_flite_rasp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_wampa			string:beast.dna.creature_template=object/mobile/beast_master/bm_wampa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_tauntaun			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_sher_kar			string:beast.dna.creature_template=object/mobile/beast_master/bm_sher_kar.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								

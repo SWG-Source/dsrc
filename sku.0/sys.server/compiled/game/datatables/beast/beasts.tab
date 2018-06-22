@@ -132,7 +132,7 @@ bm_mutated_rancor	bm_mutated_rancor	bm_mutated_rancor.iff			0.18	0.47	2	elephant
 bm_mutated_dewback	bm_mutated_dewback	bm_mutated_dewback.iff	mutated_dewback_mount		0.3	0.6	2	bull	DEFENSE	
 bm_mutated_varasquactyl	bm_mutated_varasquactyl	bm_mutated_varasquactyl.iff			0.65	1.5	2	monkey	NINJA	
 bm_acklay	bm_acklay	bm_acklay.iff			0.25	0.65	2	mantis	DAMAGE	
-bm_mutated_acklay	bm_mutated_acklay	bm_mutated_acklay.iff			0.25	0.65	2	mantis	DAMAGE	
+bm_mutated_acklay	bm_mutated_acklay	bm_mutated_acklay.iff			0.35	0.75	2	mantis	DAMAGE	
 bm_mutated_griffon	bm_mutated_griffon	bm_mutated_griffon.iff			0.3	0.85	2	griffon	NINJA	
 bm_mutated_cat	bm_mutated_cat	bm_mutated_cat.iff			0.4	1.2	2	predatory_cat	DAMAGE	
 bm_mutated_boar	bm_mutated_boar	bm_mutated_boar.iff			0.5	1.5	2	pig	DEFENSE	
@@ -174,4 +174,26 @@ bm_razor_angler	bm_razor_angler	bm_razor_angler.iff			0.4	1.3	2	spider	NINJA
 bm_spiderclan_consort	bm_spiderclan_consort	bm_spiderclan_consort.iff			0.45	1.4	2	spider	DAMAGE	
 bm_spiderclan_queen	bm_spiderclan_queen	bm_spiderclan_queen.iff			0.45	1.5	2	spider	DEFENSE	
 bm_mutated_durni	bm_mutated_durni	bm_mutated_durni.iff			0.65	1.35	2	turkey	NINJA	
-bm_blackwing_rancor	bm_blackwing_rancor	bm_blackwing_rancor.iff			0.22	0.55	2		NINJA	
+bm_blackwing_rancor	bm_blackwing_rancor	bm_blackwing_rancor.iff			0.22	0.55	2	turkey	NINJA	
+bm_scorpion_kliknik	bm_scorpion_kliknik	bm_scorpion_kliknik.iff			0.5	1.4	2	spider	DAMAGE	
+bm_binjinphant	bm_binjinphant	bm_binjinphant.iff	binjinphant_mount	116	0.2	1.3	2	griffon	ARMOR_BREAK	
+bm_painted_spat	bm_painted_spat	bm_painted_spat.iff			0.35	1.2	2	mynock	ARMOR_BREAK	
+bm_murra_blanca	bm_murra_blanca	bm_murra_blanca.iff			0.45	1.2	2	goat	DAMAGE	
+bm_spiketail_blurrg	bm_spiketail_blurrg	bm_spiketail_blurrg.iff			0.45	1.2	2	raptor	ARMOR_BREAK	
+bm_vog_eel	bm_vog_eel	bm_vog_eel.iff			0.45	1.35	2	snake	ARMOR_BREAK	
+bm_katarn	bm_katarn	bm_katarn.iff			0.4	1.1	2	tanray	DEFENSE	
+bm_gualaar	bm_gualaar	bm_gualaar.iff			0.45	1.15	2	horse	ARMOR_BREAK	
+bm_krayt	bm_krayt	bm_krayt.iff			0.1	0.35	2	qa	ARMOR_BREAK	
+bm_kkorrwrot	bm_kkorrwrot	bm_kkorrwrot.iff			0.3	0.8	2	mantis	DEFENSE	
+bm_gorax	bm_gorax	bm_gorax.iff			0.5	0.3	2	monkey	ARMOR_BREAK	
+bm_tauntaun_armor	bm_tauntaun_armor	bm_tauntaun_armor.iff			0.6	1.1	2	raptor	ARMOR_BREAK	
+bm_dewback_armor	bm_dewback_armor	bm_dewback_armor.iff			0.35	0.7	2	bull	ARMOR_BREAK	
+bm_bantha_armor	bm_bantha_armor	bm_bantha_armor.iff			0.3	0.7	2	bull	ARMOR_BREAK	
+bm_mutated_reek	bm_mutated_reek	bm_mutated_reek.iff			0.35	1.25	2	bull	ARMOR_BREAK	
+bm_carax	bm_carax	bm_carax.iff			0.3	0.7	2	mantis	ARMOR_BREAK	
+bm_pikobi	bm_pikobi	bm_pikobi.iff			0.25	0.8	2	raptor	BLOCK	
+bm_scurrier	bm_scurrier	bm_scurrier.iff			0.25	1	2	raptor	DAMAGE	
+bm_massiff	bm_massiff	bm_massiff.iff			0.3	1.1	2	lizard	ARMOR_BREAK	
+bm_crowned_rasp	bm_crowned_rasp	bm_crowned_rasp.iff			2	6	2	avian	ARMOR_BREAK	too high
+bm_flite_rasp	bm_flite_rasp	bm_flite_rasp.iff			2	6	2	avian	DODGE	too high
+bm_sher_kar	bm_sher_kar	bm_sher_kar.iff			0.05	0.3	2	tanray	ARMOR_BREAK	

@@ -1,0 +1,13 @@
+@base object/mobile/skeleton/shared_bm_insect_mantis.iff
+@class creature_object_template 7
+species = SP_kliknik
+@class tangible_object_template 3
+@class object_template 3
+
+
+objectName = "monster_name"  "scorpion_kliknik"
+detailedDescription = "" ""
+lookAtText = "monster_lookat"  "scorpion_kliknik"
+
+appearanceFilename = "appearance/scorpion_kliknik.sat"
+clientDataFile = "clientdata/creature/client_shared_cr_kliknik.cdf"

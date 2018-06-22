@@ -1,0 +1,14 @@
+@base object/mobile/skeleton/shared_bm_rancor.iff
+@class creature_object_template 13
+species = SP_rancor
+cameraHeight=7.2
+collisionRadius = 2.5
+@class tangible_object_template 3
+@class object_template 7
+
+objectName = "monster_name"  "gorax"
+detailedDescription = "" ""
+lookAtText = "monster_lookat"  "gorax"
+
+appearanceFilename = "appearance/gorax_m.sat"
+clientDataFile = "clientdata/creature/client_shared_cr_giant_veermok.cdf"
