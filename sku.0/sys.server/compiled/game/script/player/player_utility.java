@@ -1940,6 +1940,190 @@ public class player_utility extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
+    public int costume_axkva_min(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_axkva_min"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_blackwing_rancor(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_blackwing_rancor"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_dug(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_dug"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_esb_boba_fett(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_esb_boba_fett"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_esb_darth_vader(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_esb_darth_vader"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_esb_han_solo(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_esb_han_solo"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_esb_lando(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_esb_lando"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_esb_leia(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_esb_leia"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_esb_luke(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_esb_luke"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_esb_yoda(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_esb_yoda"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_genosian(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_genosian"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_hutt_female(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_hutt_female"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_meatlump_king(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_meatlump_king"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_mutant_rancor(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_mutant_rancor"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_mynock(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_mynock"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_rancor(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_rancor"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_seven_obi_wan_ghost(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_seven_obi_wan_ghost"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_skeleton(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_skeleton"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_tauntaun(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_tauntaun"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_tusken_king(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_tusken_king"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_ugnaught(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_ugnaught"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_wampa(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_wampa"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int costume_zozpheratu(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    {
+        if (!applyCostume(self, "costume_zozpheratu"))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int cmdShowHousePackUpData(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         String housePackUpData = sui.colorGreen() + "";
