@@ -28,3 +28,25 @@ i	s	s[none]	s	c
 26	object/mobile/shared_costume_chiss_m_01.iff	object/mobile/shared_costume_chiss_f_01.iff	storyteller	chiss 01
 27	object/mobile/shared_costume_exar_kun_cultist.iff		storyteller	exar kun cultist
 28	object/mobile/shared_lifeday_monkey_lizard.iff		storyteller	life day monkey lizard
+29	object/mobile/shared_lando.iff		lando
+30	object/mobile/shared_leia_organa.iff		leia organa
+31	object/mobile/shared_han_solo.iff		han solo
+32	object/mobile/shared_luke_skywalker.iff		luke skywalker
+33	object/mobile/shared_darth_vader.iff		darth vader
+34	object/mobile/shared_yoda.iff		yoda
+35	object/mobile/shared_boba_fett.iff		boba fett
+36	object/mobile/som/shared_obi_wan_ghost.iff		obi-wan ghost
+37	object/mobile/shared_dressed_dathomir_nightsister_axkva.iff		axkva min
+38	object/mobile/shared_meatlump_king.iff		meatlump king
+39	object/mobile/shared_wampa.iff		wampa
+40	object/mobile/shared_rancor.iff		rancor
+41	object/mobile/shared_leia_organa.iff		mutant rancor
+42	object/mobile/shared_outbreak_afflicted_blackwing_rancor_boss.iff		blackwing rancor
+43	object/mobile/shared_tusken_king.iff		tusken king
+44	object/mobile/shared_zozpheratu_static.iff		zozpheratu
+45	object/mobile/shared_skeleton_static.iff		skeleton
+46	object/mobile/shared_dressed_geonosian_m.iff		geonosian
+47	object/mobile/shared_tauntaun.iff		tauntaun
+48	object/mobile/shared_mynock.iff		mynock
+49	object/mobile/shared_ugnaught_aggro.iff		ugnaught
+50	object/mobile/shared_dug_m.iff		dug
