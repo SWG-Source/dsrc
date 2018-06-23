@@ -2134,71 +2134,239 @@ public class terminal_character_builder extends script.base_script
         switch (idx)
         {
             case 0:
+            if (isGod(player) || checkConfigSetting("devEnabled"))
+            {
                 handleDevTestingOption(player);
+            } 
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Development Testing option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
                 break;
             case 1:
+            if (isGod(player) || checkConfigSetting("weaponsEnabled"))
+            {
                 handleWeaponOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Weapons option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 2:
+            if (isGod(player) || checkConfigSetting("armorEnabled"))
+            {
                 handleArmorOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Armor option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 3:
+            if (isGod(player) || checkConfigSetting("skillsEnabled"))
+            {
                 handleRoadmapSkills(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Skills Builder option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 4:
+            if (isGod(player) || checkConfigSetting("commandsEnabled"))
+            {
                 handleCommandOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Commands option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 5:
+            if (isGod(player) || checkConfigSetting("resourcesEnabled"))
+            {
                 handleResourceOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Resources option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 6:
+            if (isGod(player) || checkConfigSetting("creditsEnabled"))
+            {
                 handleCreditOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Credits option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 7:
+            if (isGod(player) || checkConfigSetting("factionEnabled"))
+            {
                 handleFactionOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Factions option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 8:
+            if (isGod(player) || checkConfigSetting("vehiclesEnabled"))
+            {
                 handleVehicleOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Vehicles and Beasts option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break; 
             case 9:
+            if (isGod(player) || checkConfigSetting("shipsEnabled"))
+            {
                 handleShipMenuSelect(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Ships option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 10:
+            if (isGod(player) || checkConfigSetting("craftingEnabled"))
+            {
                 handleCraftingOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Crafting options is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 11:
+            if (isGod(player) || checkConfigSetting("deedsEnabled"))
+            {
                 handleDeedOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "This Structures deeds option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 12:
+            if (isGod(player) || checkConfigSetting("pahallEnabled"))
+            {
                 handlePAOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "This Guild Halls option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 13:
+            if (isGod(player) || checkConfigSetting("miscitemEnabled"))
+            {
                 handleMiscOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Items option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 14:
+            if (isGod(player) || checkConfigSetting("jediEnabled"))
+            {
                 handleJediOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Jedi options is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 15:
+            if (isGod(player) || checkConfigSetting("BestResourcesEnabled"))
+            {
                 handleBestResourceOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Best Resources option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 16:
+             if (isGod(player) || checkConfigSetting("HeroicFlagEnabled"))
+            {
                 flagAllHeroicInstances(player);
                 setObjVar(player, "mand.acknowledge", true);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Flag for Instances option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 17:
+            if (isGod(player) || checkConfigSetting("DraftSchematicsEnabled"))
+            {
                 handleDraftSchematicsOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Draft Schematics option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 18:
+            if (isGod(player) || checkConfigSetting("buffsEnabled"))
+            {
                 handleBuffOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Buffs option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 19:
+            if (isGod(player) || checkConfigSetting("warpsEnabled"))
+            {
                 handleWarpOption(player);
                 setObjVar(player, "gm.warper", true);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Warp options is for developers only.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 20:
+            if (isGod(player) || checkConfigSetting("questEnabled"))
+            {
                 handleQuestOption(player);
                 setObjVar(player, "gm.quester", true);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Quests option is for developers only.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 21:
                 String message5 = "";
                 String staticitemtitle = "Object Tool";
@@ -2207,8 +2375,16 @@ public class terminal_character_builder extends script.base_script
                 refreshMenu(player, "Select the desired character option", "Test Center Terminal", CHARACTER_BUILDER_OPTIONS, "handleOptionSelect", true);
                 break;
             case 22:
+            if (isGod(player) || checkConfigSetting("petsEnabled"))
+            {
                 handlePetAbilityOption(player);
-                break;
+            }
+            else
+            {
+                sendSystemMessageTestingOnly(player, "The Pet Abilities option is currently disabled.");
+                return SCRIPT_CONTINUE;
+            }
+            break;
             case 23:
                 if (isGod(player)) {
                     sendSystemMessageTestingOnly(player, "God Options: Pay attention to what you click.");

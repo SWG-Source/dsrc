@@ -2117,7 +2117,7 @@ item_jedi_robe_light_04_01			int:armor.general_protection_clothing=5000,int:item
 item_jedi_robe_light_04_02			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_light_04_03			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_light_04_04	constitution_modified=250,agility_modified=250,strength_modified=250		int:armor.general_protection_clothing=6500,int:item.set.set_id=90001		proc_old_light_jedi_gift					appearance/pt_heal.prt	
-item_jedi_robe_light_04_05	constitution_modified=250,luck_modified=250,precision_modified=250		int:armor.general_protection_clothing=6500,int:item.set.set_id=90001								
+item_jedi_robe_light_04_05	constitution_modified=250,agility_modified=250,strength_modified=250		int:armor.general_protection_clothing=6500,int:item.set.set_id=90001								
 item_jedi_robe_dark_04_01			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_dark_04_02			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_dark_04_03			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
