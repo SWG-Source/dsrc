@@ -102,7 +102,7 @@ public class halloween_vendor extends script.base_script
     }
     public boolean halloween_vendor_condition_noBadge(obj_id player, obj_id npc) throws InterruptedException
     {
-        if (!hasCompletedCollectionSlot(player, "halloween_badge_09"))
+        if (!hasCompletedCollectionSlot(player, "halloween_badge_11"))
         {
             return true;
         }
@@ -343,7 +343,7 @@ public class halloween_vendor extends script.base_script
                                 setCount(inventoryContents[i], getCount(inventoryContents[i]) - 1);
                                 if (tokenCostForReals <= 0)
                                 {
-                                    badge.grantBadge(player, "halloween_badge_09");
+                                    badge.grantBadge(player, "halloween_badge_11");
                                 }
                             }
                         }
@@ -354,7 +354,7 @@ public class halloween_vendor extends script.base_script
                         tokenCostForReals--;
                         if (tokenCostForReals <= 0)
                         {
-                            badge.grantBadge(player, "halloween_badge_09");
+                            badge.grantBadge(player, "halloween_badge_11");
                         }
                     }
                 }
