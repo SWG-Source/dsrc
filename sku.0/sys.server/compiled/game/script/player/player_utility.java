@@ -2020,9 +2020,9 @@ public class player_utility extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int costume_genosian(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
+    public int costume_geonosian(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        if (!applyCostume(self, "costume_genosian"))
+        if (!applyCostume(self, "costume_geonosian"))
         {
             return SCRIPT_OVERRIDE;
         }
