@@ -132,7 +132,7 @@ public class callable extends script.base_script
     }
     public static obj_id[] getCallables(obj_id master) throws InterruptedException
     {
-        int[] callableTypes = 
+        int[] callableTypes =
         {
             CALLABLE_TYPE_COMBAT_OTHER,
             CALLABLE_TYPE_COMBAT_PET,
@@ -207,7 +207,7 @@ public class callable extends script.base_script
                     return true;
                 }
             }
-            else 
+            else
             {
                 if (isIdValid(objCallable) && exists(objCallable))
                 {
@@ -294,7 +294,7 @@ public class callable extends script.base_script
         {
             utils.setScriptVar(cd, OBJVAR_CALLABLE_CALLED, objCallable);
         }
-        else 
+        else
         {
             utils.removeScriptVar(cd, OBJVAR_CALLABLE_CALLED);
         }
@@ -366,7 +366,7 @@ public class callable extends script.base_script
         {
             beast_lib.storeBeast(beast_lib.getBeastBCD(objCallable));
         }
-        else 
+        else
         {
             int callableType = getCallableType(objCallable);
             clog("callableType: " + callableType + " pet_lib.isVehiclePet(objCallable): " + pet_lib.isVehiclePet(objCallable));
@@ -374,7 +374,7 @@ public class callable extends script.base_script
             {
                 vehicle.storeVehicle(getCallableCD(objCallable), master, false);
             }
-            else 
+            else
             {
                 pet_lib.storePet(objCallable, master);
             }
@@ -387,7 +387,7 @@ public class callable extends script.base_script
         {
             return;
         }
-        int[] callableTypes = 
+        int[] callableTypes =
         {
             CALLABLE_TYPE_COMBAT_OTHER,
             CALLABLE_TYPE_COMBAT_PET,
@@ -429,7 +429,7 @@ public class callable extends script.base_script
                 beast_lib.killBeast(objCallable, killer);
             }
         }
-        else 
+        else
         {
             if (objCallable.isLoaded() && ai_lib.aiIsDead(objCallable) && !isDead(objCallable))
             {
@@ -444,7 +444,7 @@ public class callable extends script.base_script
         {
             return;
         }
-        int[] callableTypes = 
+        int[] callableTypes =
         {
             CALLABLE_TYPE_COMBAT_OTHER,
             CALLABLE_TYPE_COMBAT_PET,
