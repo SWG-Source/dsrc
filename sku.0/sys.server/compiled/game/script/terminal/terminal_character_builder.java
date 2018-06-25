@@ -84,7 +84,7 @@ public class terminal_character_builder extends script.base_script
     public static final String RLS_EFFECT = "appearance/pt_blackhole_01.prt";
     public static final String RLS_SOUND = "sound/item_ding.snd";
     public static final String[] CHARACTER_BUILDER_OPTIONS = {
-        "SWGsource Development Testing",
+        "Development Testing",
         "Weapons",
         "Armor",
         "Skills",
@@ -116,7 +116,14 @@ public class terminal_character_builder extends script.base_script
     public static final String[] DEV_TESTING_OPTIONS = {
         "Halloween tokens",
         "Lifeday rebel tokens",
-        "Lifeday imperial tokens"
+        "Lifeday imperial tokens",
+        "Loveday hearts",
+        "Empire day imperial tokens",
+        "Empire day rebel tokens",
+        "Heroic Box of Achievements",
+        "Tusken, Axkva Min, Echo Base, IG-88 Tokens",
+        "Exar Kun, Black Sun, Marauder, Space Duty Tokens",
+        "Holoshrouds for costume testing"
     };
     public static final String[] RESOURCE_TYPES = {
         "Creature Resources",
@@ -5088,7 +5095,35 @@ public class terminal_character_builder extends script.base_script
             case 2:
                 static_item.createNewItemFunction("item_event_lifeday_imperial_token", pInv, 500);
                 break;
-            default:
+            case 3:
+                static_item.createNewItemFunction("item_event_loveday_chak_heart", pInv, 100);
+                break;
+            case 4:
+                static_item.createNewItemFunction("item_empire_day_imperial_token", pInv, 25);
+                break;
+            case 5:
+                static_item.createNewItemFunction("item_empire_day_rebel_token", pInv, 25);
+                break;
+            case 6:
+                static_item.createNewItemFunction("item_heroic_token_box_01_01", pInv);
+                break;
+            case 7:
+                static_item.createNewItemFunction("item_heroic_token_tusken_01_01", pInv, 25);
+                static_item.createNewItemFunction("item_heroic_token_axkva_01_01", pInv, 25);
+                static_item.createNewItemFunction("item_heroic_token_echo_base_01_01", pInv, 25);
+                static_item.createNewItemFunction("item_heroic_token_ig88_01_01", pInv, 25);
+                break;
+            case 8:
+                static_item.createNewItemFunction("item_heroic_token_exar_01_01", pInv, 25);
+                static_item.createNewItemFunction("item_heroic_token_black_sun_01_01", pInv, 25);
+                static_item.createNewItemFunction("item_heroic_token_marauder_01_01", pInv, 25);
+                static_item.createNewItemFunction("item_token_duty_space_01_01", pInv, 25);
+                break;
+            case 9:
+                static_item.createNewItemFunction("item_costume_kit_holiday", pInv, 25);
+                static_item.createNewItemFunction("item_costume_kit", pInv, 25); 
+                break;
+                default:
                 cleanScriptVars(player);
                 break;
         }
