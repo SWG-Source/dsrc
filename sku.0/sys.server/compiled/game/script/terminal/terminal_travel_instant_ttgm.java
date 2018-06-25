@@ -86,7 +86,7 @@ public class terminal_travel_instant_ttgm extends script.base_script
                 {
                     sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_not_in_group"));
                 }
-                else 
+                else
                 {
                     obj_id[] groupIds = getGroupMemberIds(groupId);
                     String[] fullGroupNames = getGroupMemberNames(groupId);
@@ -116,14 +116,14 @@ public class terminal_travel_instant_ttgm extends script.base_script
                             utils.setScriptVar(player, PID_VAR, pid);
                             utils.setScriptVar(player, GROUP_NAMES_LIST_VAR, validGroupNames);
                         }
-                        else 
+                        else
                         {
                             sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_no_players_in_group"));
                         }
                     }
                 }
             }
-            else 
+            else
             {
                 int timeDiff = buffTime - getGameTime();
                 prose_package pp = prose.getPackage(new string_id("reward_sys", "not_yet"), utils.formatTimeVerboseNoSpaces(timeDiff));
@@ -172,7 +172,7 @@ public class terminal_travel_instant_ttgm extends script.base_script
                         webster.put("requester", player);
                         messageTo(groupieTarget, "groupMemberLocationRequestHandler", webster, 0, false);
                     }
-                    else 
+                    else
                     {
                         sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_unable_to_process"));
                     }
@@ -258,16 +258,16 @@ public class terminal_travel_instant_ttgm extends script.base_script
             sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_not_to_space"));
             return false;
         }
-        if (planet.startsWith("kashyyyk"))
-        {
-            sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_not_to_kashyyyk"));
-            return false;
-        }
-        if (planet.startsWith("mustafar"))
-        {
-            sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_not_to_mustafar"));
-            return false;
-        }
+        //if (planet.startsWith("kashyyyk"))
+        //{
+        //    sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_not_to_kashyyyk"));
+        //    return false;
+        //}
+        //if (planet.startsWith("mustafar"))
+        //{
+        //    sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_not_to_mustafar"));
+        //    return false;
+        //}
         if (planet.equals("adventure1") || planet.equals("adventure2") || planet.equals("dungeon1"))
         {
             sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_invalid_scene"));
