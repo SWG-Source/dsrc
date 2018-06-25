@@ -122,7 +122,8 @@ public class terminal_character_builder extends script.base_script
         "Empire day rebel tokens",
         "Heroic Box of Achievements",
         "Tusken, Axkva Min, Echo Base, IG-88 Tokens",
-        "Exar Kun, Black Sun, Marauder, Space Duty Tokens"
+        "Exar Kun, Black Sun, Marauder, Space Duty Tokens",
+        "Holoshrouds for costume testing"
     };
     public static final String[] RESOURCE_TYPES = {
         "Creature Resources",
@@ -5117,6 +5118,10 @@ public class terminal_character_builder extends script.base_script
                 static_item.createNewItemFunction("item_heroic_token_black_sun_01_01", pInv, 25);
                 static_item.createNewItemFunction("item_heroic_token_marauder_01_01", pInv, 25);
                 static_item.createNewItemFunction("item_token_duty_space_01_01", pInv, 25);
+                break;
+            case 9:
+                static_item.createNewItemFunction("item_costume_kit_holiday", pInv, 25);
+                static_item.createNewItemFunction("item_costume_kit", pInv, 25); 
                 break;
                 default:
                 cleanScriptVars(player);
