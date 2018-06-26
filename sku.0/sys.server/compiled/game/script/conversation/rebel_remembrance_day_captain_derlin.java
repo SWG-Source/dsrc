@@ -3884,7 +3884,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
         {
             doAnimationAction(npc, "salute2");
             doAnimationAction(player, "salute2");
-            string_id message = new string_id(c_stringFile, "s_65");
+            string_id message = new string_id(c_stringFile, "s_132");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
