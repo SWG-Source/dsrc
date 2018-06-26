@@ -4771,3 +4771,5 @@ item_ugnaught_costume					costume_ugnaught
 item_wampa_costume					costume_wampa						
 item_zozpheratu_costume					costume_zozpheratu						
 item_ponda_halloween_hand					scary_halloween_hand	itemBuffClick	39600				
+item_deed_atst_walker			"string:vehicle_attribs.object_ref=atst_walker,float:hit_points=15000"
+item_deed_atxt_walker			"string:vehicle_attribs.object_ref=atxt_walker,float:hit_points=15000"
