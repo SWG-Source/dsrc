@@ -3962,6 +3962,8 @@ item_lifeday_painting_2010_01	object/tangible/furniture/lifeday/lifeday_painting
 item_lifeday_painting_2010_02	object/tangible/furniture/lifeday/lifeday_painting_2010_s02.iff							1				1	Life Day Painting	A decorative painting that you can place in your house to celebrate Life Day.	
 item_lifeday_painting_2010_03	object/tangible/furniture/lifeday/lifeday_painting_2010_s03.iff							1				1	Life Day Painting	A decorative painting that you can place in your house to celebrate Life Day.	
 item_lifeday_painting_2010_04	object/tangible/furniture/lifeday/lifeday_painting_2010_s04.iff							1				1	Life Day Painting	A decorative painting that you can place in your house to celebrate Life Day.	
+item_lifeday_ornament_2010	object/tangible/furniture/lifeday/lifeday_ornament_2010.iff							1				1	Life Day Ornament	A Life Day ornament you can place in your house to celebrate Life Day.	
+item_lifeday_10_figrin_dan_jacket	object/tangible/wearables/jacket/jacket_lifeday_figrin_dan.iff							4		item.special.nomove			A Jacket worn by Figrin Dan	A jacket celebrating Life Day similar to that worn by musician Figrin Dan.	
 item_lifeday_wreath_01_01	object/tangible/furniture/lifeday/lifeday_wreath.iff							1				1	Life Day Wreath	A decorative wreath that you can place in your house to celebrate Life Day.	
 item_lifeday_mini_tree_01_01	object/tangible/furniture/lifeday/lifeday_mini_tree.iff							1				1	Miniature Life Day Tree	A miniature tree that you can place in your house to celebrate Life Day.	
 item_lifeday_gift_self_01_02	object/tangible/npe/npe_generic_uniform_box.iff							1		event.lifeday.lifeday_gift,item.special.nomove		1	Life Day Gift Box	This Gift Box contains a Life Day gift just for you!	
