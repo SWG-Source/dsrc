@@ -1123,8 +1123,8 @@ item_color_crystal_02_28			int:jedi.crystal.stats.color=28,int:jedi.crystal.stat
 item_color_crystal_02_29			int:jedi.crystal.stats.color=29,int:jedi.crystal.stats.level=-1	index_color_1=29							
 item_color_crystal_02_30			int:jedi.crystal.stats.color=30,int:jedi.crystal.stats.level=-1	index_color_1=30							
 item_crystal_tyranus_cunning_01			int:jedi.crystal.stats.color=31,int:jedi.crystal.stats.level=-1	index_color_1=1							
-item_crystal_allyas_exile_01			"int:jedi.crystal.stats.color=12,int:jedi.crystal.stats.level=-1"	index_color_1=0							
-item_crystal_allyas_redemption_01			"int:jedi.crystal.stats.color=27,int:jedi.crystal.stats.level=-1"	index_color_1=27							
+item_crystal_allyas_exile_01			int:jedi.crystal.stats.color=12,int:jedi.crystal.stats.level=-1	index_color_1=0							
+item_crystal_allyas_redemption_01			int:jedi.crystal.stats.color=27,int:jedi.crystal.stats.level=-1	index_color_1=27							
 item_power_crystal_04_01			int:jedi.crystal.stats.min_dmg=1,int:jedi.crystal.stats.max_dmg=2,int:jedi.crystal.stats.quality=0,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_02			int:jedi.crystal.stats.min_dmg=2,int:jedi.crystal.stats.max_dmg=3,int:jedi.crystal.stats.quality=0,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_03			int:jedi.crystal.stats.min_dmg=3,int:jedi.crystal.stats.max_dmg=4,int:jedi.crystal.stats.quality=1,int:jedi.crystal.stats.level=-1	index_color_1=31							

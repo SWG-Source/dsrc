@@ -92,3 +92,8 @@ windu_statue	veteran_new:windu_statue	item_vet_reward_72month_mace_windu	0	0		0
 maul_statue	veteran_new:maul_statue	item_vet_reward_72month_darth_maul	0	0		0		
 75month_houseplant	veteran_new:vet_75month_houseplant	item_vet_reward_75month_houseplant_02	0	0		0		
 78month_ttgm_terminal	veteran_new:vet_78month_ttgm_terminal	item_vet_reward_78month_ttgm_itt	0	0		0		
+81month_lockout_remover	veteran_new:vet_81month_lockout_remover	item_vet_reward_lockout_remover	0	0		0		
+84month_isd_console	veteran_new:vet_84month_isd_console	item_vet_reward_sd_console_01	0	0		0		
+84month_isd_console_row	veteran_new:vet_84month_isd_console_row	item_vet_reward_sd_console_02	0	0		0		
+87month_respec_reset	veteran_new:vet_87month_respec_reset	vet_reward_respec_reset	0	0		0		
+90month_resource_crate	veteran_new:vet_90month_resource_crate	vet_reward_resource_crate	0	0		0		
