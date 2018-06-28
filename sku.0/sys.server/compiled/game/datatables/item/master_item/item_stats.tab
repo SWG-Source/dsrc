@@ -4451,6 +4451,10 @@ item_lifeday_09_fruitcake_decorative
 item_lifeday_costume_lifeday_monkeylizard					costume_lifeday_monkey_lizard						
 item_lifeday_gift_self_01_04			string:year=2009								
 item_lifeday_gift_other_01_04			string:year=2009								
+item_lifeday_gift_self_01_05			string:year=2010								
+item_lifeday_gift_other_01_05			string:year=2010								
+item_lifeday_gift_self_01_06			string:year=2011								
+item_lifeday_gift_other_01_06			string:year=2011								
 item_gcw_schematic_barricades_tool			string:loot_schematic.schematic=object/draft_schematic/item/gcw_barricade_tool.iff,int:loot_schematic.uses=1								
 item_gcw_schematic_reinforcement_tool			string:loot_schematic.schematic=object/draft_schematic/item/gcw_spawner_tool.iff,int:loot_schematic.uses=1								
 item_gcw_schematic_tower_tool			string:loot_schematic.schematic=object/draft_schematic/item/gcw_tower_tool.iff,int:loot_schematic.uses=1								
