@@ -16,9 +16,9 @@ public class lifeday_tree extends script.base_script
     private static final string_id TREE_USE = new string_id("spam", "tree_use");
     private static final string_id NOT_OLD_ENOUGH = new string_id("spam", "not_old_enough");
     private static final string_id GIFT_GRANTED = new string_id("spam", "gift_granted");
-    private static final String GIFT_SELF = "item_lifeday_gift_self_01_04";
-    private static final String GIFT_OTHER = "item_lifeday_gift_other_01_04";
-    private static final String LIFEDAY_BADGE = "lifeday_badge_09";
+    private static final String GIFT_SELF = "item_lifeday_gift_self_01_06";
+    private static final String GIFT_OTHER = "item_lifeday_gift_other_01_06";
+    private static final String LIFEDAY_BADGE = "lifeday_badge_11";
     private static final string_id TREE_BADGE = new string_id("spam", "tree_badge");
 
     private String currentYearObjVar() throws InterruptedException
@@ -51,7 +51,7 @@ public class lifeday_tree extends script.base_script
         {
             if (!isGod(player))
             {
-                if ((getCurrentBirthDate() - getPlayerBirthDate(player)) < 10)
+                if ((getCurrentBirthDate() - getPlayerBirthDate(player)) < 5)
                 {
                     sendSystemMessage(player, NOT_OLD_ENOUGH);
                     return SCRIPT_CONTINUE;
@@ -81,7 +81,7 @@ public class lifeday_tree extends script.base_script
         utils.sendMail(utils.GIFT_GRANTED_SUB, utils.GIFT_GRANTED, player, "System");
         setObjVar(player, currentYearObjVar(), 1);
         sendSystemMessage(player, GIFT_GRANTED);
-        CustomerServiceLog("grantGift", getFirstName(player) + "(" + player + ") has received his Christmas '09 gift.");
+        CustomerServiceLog("grantGift", getFirstName(player) + "(" + player + ") has received his Christmas '11 gift.");
         return true;
     }
 }
