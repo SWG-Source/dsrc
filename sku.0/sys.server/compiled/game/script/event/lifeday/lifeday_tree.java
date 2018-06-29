@@ -16,8 +16,8 @@ public class lifeday_tree extends script.base_script
     private static final string_id TREE_USE = new string_id("spam", "tree_use");
     private static final string_id NOT_OLD_ENOUGH = new string_id("spam", "not_old_enough");
     private static final string_id GIFT_GRANTED = new string_id("spam", "gift_granted");
-    private static final String GIFT_SELF = "item_lifeday_gift_self_01_06";
-    private static final String GIFT_OTHER = "item_lifeday_gift_other_01_06";
+    private static final String GIFT_SELF = "item_lifeday_gift_self_01_0";
+    private static final String GIFT_OTHER = "item_lifeday_gift_other_01_0";
     private static final String LIFEDAY_BADGE = "lifeday_badge_11";
     private static final string_id TREE_BADGE = new string_id("spam", "tree_badge");
 
@@ -75,8 +75,9 @@ public class lifeday_tree extends script.base_script
             return false;
         }
         obj_id inv = utils.getInventoryContainer(player);
-        static_item.createNewItemFunction(GIFT_SELF, inv);
-        obj_id giftOther = static_item.createNewItemFunction(GIFT_OTHER, inv);
+        int year = rand(1, 6);
+        static_item.createNewItemFunction(GIFT_SELF + year, inv);
+        obj_id giftOther = static_item.createNewItemFunction(GIFT_OTHER + year, inv);
         setObjVar(giftOther, utils.LIFEDAY_OWNER, player);
         utils.sendMail(utils.GIFT_GRANTED_SUB, utils.GIFT_GRANTED, player, "System");
         setObjVar(player, currentYearObjVar(), 1);
