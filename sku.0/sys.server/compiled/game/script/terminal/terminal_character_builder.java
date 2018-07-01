@@ -4843,7 +4843,8 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Tatooine City Pack Created");
             break;
             case 18:
-            static_item.createNewItemFunction("item_tcg_loot_reward_series1_diner", pInv);
+            static_item.createNewItemFunction("item_tcg_loot_reward_series2_diner", pInv);
+            static_item.createNewItemFunction("item_tcg_loot_reward_series2_barn", pInv);
             static_item.createNewItemFunction("item_tcg_loot_reward_series3_sith_meditation_room_deed", pInv);
             static_item.createNewItemFunction("item_tcg_loot_reward_series3_jedi_meditation_room_deed", pInv);
             static_item.createNewItemFunction("item_tcg_loot_reward_series4_relaxation_pool_deed_02_01", pInv);
@@ -4853,8 +4854,9 @@ public class terminal_character_builder extends script.base_script
             static_item.createNewItemFunction("item_tcg_loot_reward_series6_deed_rebel_spire", pInv);
             static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_commando_bunker", pInv);
             static_item.createNewItemFunction("item_tcg_loot_reward_series7_deed_vip_bunker", pInv);
-            //static_item.createNewItemFunction("item_tcg_loot_reward_series8_bespin_house_deed", pInv);
-            //static_item.createNewItemFunction("item_tcg_loot_reward_series8_yoda_house_deed", pInv);
+            static_item.createNewItemFunction("item_tcg_loot_reward_series8_bespin_house_deed", pInv);
+            static_item.createNewItemFunction("item_tcg_loot_reward_series8_yoda_house_deed", pInv);
+            static_item.createNewItemFunction("item_player_house_deed_jabbas_sail_barge", pInv);
             sendSystemMessageTestingOnly(player, "TCG House Pack Created");
             default:
             cleanScriptVars(player);
