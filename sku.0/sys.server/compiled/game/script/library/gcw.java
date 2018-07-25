@@ -1701,78 +1701,19 @@ public class gcw extends script.base_script
         }
         return true;
     }
-    public static int getSpaceKillCredit(int player_level, String targetTier) throws InterruptedException
+    public static int getSpaceKillCredit(int player_level, String targetTier)
     {
-        double pointGrant = 0.0;
-        double pointIncriment = SPACE_GCW_VALUE;
-        switch (player_level)
-        {
-            case 1:
-            if (targetTier.equals("tier1"))
-            {
-                pointGrant = pointIncriment;
+        if(targetTier.startsWith("tier")) {
+            int target_level = Integer.parseInt(targetTier.replace("tier", ""));
+            if (player_level - target_level == 1) {
+                return new Double(SPACE_GCW_VALUE * (player_level / 2)).intValue();
+            } else if (player_level == target_level) {
+                return new Double(SPACE_GCW_VALUE * player_level).intValue();
+            } else if (player_level < target_level) {
+                return new Double(SPACE_GCW_VALUE * (player_level + .5)).intValue();
             }
-            if (targetTier.equals("tier2") || targetTier.equals("tier3") || targetTier.equals("tier4") || targetTier.equals("tier5"))
-            {
-                pointGrant = pointIncriment * 1.5;
-            }
-            break;
-            case 2:
-            if (targetTier.equals("tier1"))
-            {
-                pointGrant = (pointIncriment * 2) / 2;
-            }
-            if (targetTier.equals("tier2"))
-            {
-                pointGrant = pointIncriment * 2;
-            }
-            if (targetTier.equals("tier3") || targetTier.equals("tier4") || targetTier.equals("tier5"))
-            {
-                pointGrant = pointIncriment * 2.5;
-            }
-            break;
-            case 3:
-            if (targetTier.equals("tier2"))
-            {
-                pointGrant = (pointIncriment * 3) / 2;
-            }
-            if (targetTier.equals("tier3"))
-            {
-                pointGrant = pointIncriment * 3;
-            }
-            if (targetTier.equals("tier4") || targetTier.equals("tier5"))
-            {
-                pointGrant = pointIncriment * 3.5;
-            }
-            break;
-            case 4:
-            if (targetTier.equals("tier3"))
-            {
-                pointGrant = (pointIncriment * 4) / 2;
-            }
-            if (targetTier.equals("tier4"))
-            {
-                pointGrant = pointIncriment * 4;
-            }
-            if (targetTier.equals("tier5"))
-            {
-                pointGrant = pointIncriment * 4.5;
-            }
-            break;
-            case 5:
-            if (targetTier.equals("tier4"))
-            {
-                pointGrant = (pointIncriment * 5) / 2;
-            }
-            if (targetTier.equals("tier5"))
-            {
-                pointGrant = pointIncriment * 5;
-            }
-            break;
-            default:
-            break;
         }
-        return (int)pointGrant;
+        return 0;
     }
     public static void grantBaseDestructionPoints(obj_id base) throws InterruptedException
     {
