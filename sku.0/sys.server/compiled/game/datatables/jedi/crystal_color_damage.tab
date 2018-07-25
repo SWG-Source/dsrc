@@ -12,23 +12,23 @@ i	"e(none=0,cold=64,heat=32,acid=128,electric=256)[none]"	f	c
 9	electric	0.02	
 10	heat	0.02	
 11	heat	0.02	
-12	heat	0.04	
-13	heat	0.04	
-14	acid	0.04
-15	acid	0.04
-16	electric	0.04
-17	electric	0.04
-18	electric	0.04
-19	acid	0.05
-20	cold	0.06
-21	cold	0.04
-22	cold	0.04
-23	cold	0.04
-24	electric	0.04
-25	acid	0.04
-26	electric	0.04
-27	heat	0.04
-28	cold	0.05
-29	heat	0.04
-30	acid	0.04
-31	heat	0.04
+12	heat	0.05	Maul's Vengence
+13	heat	0.04	Kun's Blood
+14	acid	0.06	Bondara's Folly
+15	acid	0.04	Ulric's Redemption
+16	electric	0.05	Bane's Heart
+17	electric	0.04	Gallia's Intuition
+18	electric	0.04	Prowess of Plo Koon
+19	acid	0.06	B'nar's Sacrifice
+20	cold	0.06	Windu's Guile
+21	cold	0.04	Mundi's Response
+22	cold	0.04	Strength of Luminaria
+23	cold	0.04	Baas's Wisdom
+24	electric	0.04	Quintessence of the Force
+25	acid	0.04	Dawn of Dagobah
+26	electric	0.04	Horn's Future
+27	heat	0.06	Qui-gon's Devotion
+28	cold	0.06	Kenobi's Legacy
+29	heat	0.06	Sunrider's Destiny
+30	acid	0.04	Kit's Ferocity
+31	heat	0.06	Cunning of Tyranus

@@ -1,0 +1,10 @@
+@base object/mobile/skeleton/shared_bm_cat_predatory.iff
+@class creature_object_template 9
+@class tangible_object_template 3
+@class object_template 4
+
+objectName = "monster_name" "tanray"
+detailedDescription = "" ""
+
+appearanceFilename = "appearance/katarn.sat"
+clientDataFile = "clientdata/creature/client_shared_cr_katarn.cdf"

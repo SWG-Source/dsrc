@@ -121,7 +121,7 @@ public class trick_or_treater extends script.base_script
                         return SCRIPT_CONTINUE;
                     }
                     String targetName = getCreatureName(target);
-                    if (targetName.equals("halloween_vendor"))
+                    if (targetName != null && targetName.equals("halloween_vendor"))
                     {
                         sendSystemMessage(self, event_perk.ZOZ);
                         return SCRIPT_CONTINUE;

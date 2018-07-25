@@ -210,11 +210,11 @@ public class terminal_space extends script.terminal.base.base_terminal
         {
             return;
         }
-        if (planet.equals("mustafar"))
+        /*if (planet.equals("mustafar"))
         {
             sendSystemMessage(player, SID_MUSTAFAR);
             return;
-        }
+        }*/
         if (planet.equals("kashyyyk_main"))
         {
             if (!features.hasEpisode3Expansion(player))

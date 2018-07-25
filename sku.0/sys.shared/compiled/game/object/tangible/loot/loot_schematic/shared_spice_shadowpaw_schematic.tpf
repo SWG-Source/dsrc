@@ -1,0 +1,9 @@
+// Template Editor -SWG Source
+@base object/tangible/base/shared_tangible_base.iff
+@class tangible_object_template 6
+@class object_template 5
+
+objectName = "static_item_n"  "item_schematic_spice_shadowpaw"
+detailedDescription = "static_item_d"  "item_schematic_spice_shadowpaw"
+
+appearanceFilename = "appearance/eqp_comp_dna_data_disc.apt"

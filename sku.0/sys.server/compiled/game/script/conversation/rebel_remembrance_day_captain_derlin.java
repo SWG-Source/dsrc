@@ -1478,7 +1478,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
     }
     public int rebel_remembrance_day_captain_derlin_handleBranch27(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_69"))
+        if (response.equals("s_70"))
         {
             if (rebel_remembrance_day_captain_derlin_condition__defaultCondition(player, npc))
             {
@@ -1900,7 +1900,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
     }
     public int rebel_remembrance_day_captain_derlin_handleBranch35(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {
-        if (response.equals("s_69"))
+        if (response.equals("s_70"))
         {
             if (rebel_remembrance_day_captain_derlin_condition__defaultCondition(player, npc))
             {
@@ -3799,7 +3799,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_69");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_70");
                 }
                 utils.setScriptVar(player, "conversation.rebel_remembrance_day_captain_derlin.branchId", 35);
                 prose_package pp = new prose_package();
@@ -3884,7 +3884,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
         {
             doAnimationAction(npc, "salute2");
             doAnimationAction(player, "salute2");
-            string_id message = new string_id(c_stringFile, "s_65");
+            string_id message = new string_id(c_stringFile, "s_132");
             int numberOfResponses = 0;
             boolean hasResponse = false;
             boolean hasResponse0 = false;
@@ -3900,7 +3900,7 @@ public class rebel_remembrance_day_captain_derlin extends script.base_script
                 string_id responses[] = new string_id[numberOfResponses];
                 if (hasResponse0)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_69");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_70");
                 }
                 utils.setScriptVar(player, "conversation.rebel_remembrance_day_captain_derlin.branchId", 35);
                 prose_package pp = new prose_package();

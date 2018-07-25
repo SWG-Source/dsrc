@@ -2706,6 +2706,29 @@ costume_burning_ewok	costume		0	0	0	0	0	0						0							costume_burning_ewok				0
 costume_chiss_01	costume		0	0	0	0	0	0						0							costume_chiss_01				0	0
 costume_exar_kun_cultist	costume		0	0	0	0	0	0						0							costume_exar_kun_cultist				0	0
 costume_lifeday_monkey_lizard	costume		0	0	0	0	0	0						0							costume_lifeday_monkey_lizard				0	0
+costume_axkva_min	costume		0	0	0	0	0	0						0							costume_axkva_min				0	0
+costume_blackwing_rancor	costume		0	0	0	0	0	0						0							costume_blackwing_rancor				0	0
+costume_dug	costume		0	0	0	0	0	0						0							costume_dug				0	0
+costume_esb_boba_fett	costume		0	0	0	0	0	0						0							costume_esb_boba_fett				0	0
+costume_esb_darth_vader	costume		0	0	0	0	0	0						0							costume_esb_darth_vader				0	0
+costume_esb_han_solo	costume		0	0	0	0	0	0						0							costume_esb_han_solo				0	0
+costume_esb_lando	costume		0	0	0	0	0	0						0							costume_esb_lando				0	0
+costume_esb_leia	costume		0	0	0	0	0	0						0							costume_esb_leia				0	0
+costume_esb_luke	costume		0	0	0	0	0	0						0							costume_esb_luke				0	0
+costume_esb_yoda	costume		0	0	0	0	0	0						0							costume_esb_yoda				0	0
+costume_geonosian	costume		0	0	0	0	0	0						0							costume_geonosian				0	0
+costume_hutt_female	costume		0	0	0	0	0	0						0							costume_hutt_female				0	0
+costume_meatlump_king	costume		0	0	0	0	0	0						0							costume_meatlump_king				0	0
+costume_mutant_rancor	costume		0	0	0	0	0	0						0							costume_mutant_rancor				0	0
+costume_mynock	costume		0	0	0	0	0	0						0							costume_mynock				0	0
+costume_rancor	costume		0	0	0	0	0	0						0							costume_rancor				0	0
+costume_seven_obi_wan_ghost	costume		0	0	0	0	0	0						0							costume_seven_obi_wan_ghost				0	0
+costume_skeleton	costume		0	0	0	0	0	0						0							costume_skeleton				0	0
+costume_tauntaun	costume		0	0	0	0	0	0						0							costume_tauntaun				0	0
+costume_tusken_king	costume		0	0	0	0	0	0						0							costume_tusken_king				0	0
+costume_ugnaught	costume		0	0	0	0	0	0						0							costume_ugnaught				0	0
+costume_wampa	costume		0	0	0	0	0	0						0							costume_wampa				0	0
+costume_zozpheratu	costume		0	0	0	0	0	0						0							costume_zozpheratu				0	0
 class_chronicles	class																									
 class_chronicles_novice	class_chronicles		0	1	1	0	0	0				chronicles	0	50000								"chronicles_max_tasks=6,chronicles_relic_quality=1"			1	0
 class_chronicles_1	class_chronicles_novice		0	0	0	0	0	0		class_chronicles_novice		chronicles	30000	120000								chronicles_max_quest_shared=5			1	0

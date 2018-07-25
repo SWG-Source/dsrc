@@ -102,7 +102,7 @@ public class halloween_vendor extends script.base_script
     }
     public boolean halloween_vendor_condition_noBadge(obj_id player, obj_id npc) throws InterruptedException
     {
-        if (!hasCompletedCollectionSlot(player, "halloween_badge_09"))
+        if (!hasCompletedCollectionSlot(player, "halloween_badge_11"))
         {
             return true;
         }
@@ -119,7 +119,7 @@ public class halloween_vendor extends script.base_script
             int numberOfCoins = utils.countOfStackedItemsInArray(coins);
             if (numberOfCoins != 0)
             {
-                if (numberOfCoins >= 900 && !hasCompletedCollectionSlot(player, "halloween_badge_09"))
+                if (numberOfCoins >= 900 && !hasCompletedCollectionSlot(player, "halloween_badge_11"))
                 {
                     return true;
                 }
@@ -343,7 +343,7 @@ public class halloween_vendor extends script.base_script
                                 setCount(inventoryContents[i], getCount(inventoryContents[i]) - 1);
                                 if (tokenCostForReals <= 0)
                                 {
-                                    badge.grantBadge(player, "halloween_badge_09");
+                                    badge.grantBadge(player, "halloween_badge_11");
                                 }
                             }
                         }
@@ -354,7 +354,7 @@ public class halloween_vendor extends script.base_script
                         tokenCostForReals--;
                         if (tokenCostForReals <= 0)
                         {
-                            badge.grantBadge(player, "halloween_badge_09");
+                            badge.grantBadge(player, "halloween_badge_11");
                         }
                     }
                 }
@@ -542,13 +542,13 @@ public class halloween_vendor extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        if (response.equals("s_47"))
+        if (response.equals("s_48"))
         {
             doAnimationAction(player, "celebrate1");
             if (halloween_vendor_condition__defaultCondition(player, npc))
             {
                 doAnimationAction(npc, "laugh_cackle");
-                string_id message = new string_id(c_stringFile, "s_49");
+                string_id message = new string_id(c_stringFile, "s_51");
                 utils.removeScriptVar(player, "conversation.halloween_vendor.branchId");
                 prose_package pp = new prose_package();
                 pp.stringId = message;
@@ -916,7 +916,7 @@ public class halloween_vendor extends script.base_script
                 }
                 if (hasResponse5)
                 {
-                    responses[responseIndex++] = new string_id(c_stringFile, "s_47");
+                    responses[responseIndex++] = new string_id(c_stringFile, "s_48");
                 }
                 if (hasResponse6)
                 {

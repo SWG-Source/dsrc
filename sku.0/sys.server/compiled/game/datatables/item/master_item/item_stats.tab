@@ -1122,6 +1122,9 @@ item_color_crystal_02_27			int:jedi.crystal.stats.color=27,int:jedi.crystal.stat
 item_color_crystal_02_28			int:jedi.crystal.stats.color=28,int:jedi.crystal.stats.level=-1	index_color_1=28							
 item_color_crystal_02_29			int:jedi.crystal.stats.color=29,int:jedi.crystal.stats.level=-1	index_color_1=29							
 item_color_crystal_02_30			int:jedi.crystal.stats.color=30,int:jedi.crystal.stats.level=-1	index_color_1=30							
+item_crystal_tyranus_cunning_01			int:jedi.crystal.stats.color=31,int:jedi.crystal.stats.level=-1	index_color_1=1							
+item_crystal_allyas_exile_01			int:jedi.crystal.stats.color=12,int:jedi.crystal.stats.level=-1	index_color_1=0							
+item_crystal_allyas_redemption_01			int:jedi.crystal.stats.color=27,int:jedi.crystal.stats.level=-1	index_color_1=27							
 item_power_crystal_04_01			int:jedi.crystal.stats.min_dmg=1,int:jedi.crystal.stats.max_dmg=2,int:jedi.crystal.stats.quality=0,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_02			int:jedi.crystal.stats.min_dmg=2,int:jedi.crystal.stats.max_dmg=3,int:jedi.crystal.stats.quality=0,int:jedi.crystal.stats.level=-1	index_color_1=31							
 item_power_crystal_04_03			int:jedi.crystal.stats.min_dmg=3,int:jedi.crystal.stats.max_dmg=4,int:jedi.crystal.stats.quality=1,int:jedi.crystal.stats.level=-1	index_color_1=31							
@@ -2114,12 +2117,12 @@ item_jedi_robe_light_04_01			int:armor.general_protection_clothing=5000,int:item
 item_jedi_robe_light_04_02			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_light_04_03			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_light_04_04	constitution_modified=250,agility_modified=250,strength_modified=250		int:armor.general_protection_clothing=6500,int:item.set.set_id=90001		proc_old_light_jedi_gift					appearance/pt_heal.prt	
-item_jedi_robe_light_04_05			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
+item_jedi_robe_light_04_05	constitution_modified=250,agility_modified=250,strength_modified=250		int:armor.general_protection_clothing=6500,int:item.set.set_id=90001								
 item_jedi_robe_dark_04_01			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_dark_04_02			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_dark_04_03			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
 item_jedi_robe_dark_04_04	constitution_modified=250,luck_modified=250,precision_modified=250		int:armor.general_protection_clothing=6500,int:item.set.set_id=90001		proc_old_dark_jedi_gift					appearance/pt_heal.prt	
-item_jedi_robe_dark_04_05			int:armor.general_protection_clothing=5000,int:item.set.set_id=90001								
+item_jedi_robe_dark_04_05	constitution_modified=250,luck_modified=250,precision_modified=250		int:armor.general_protection_clothing=6500,int:item.set.set_id=90001								
 item_junk_imitation_pearl_01_01											
 item_junk_imitation_pearl_01_02											
 item_deed_landspeeder_x38_02_01			string:vehicle_attribs.object_ref=xp38								
@@ -2460,6 +2463,7 @@ item_cs_dna_condor_dragon			string:beast.dna.creature_template=object/mobile/bea
 item_cs_dna_corellian_butterfly			string:beast.dna.creature_template=object/mobile/beast_master/bm_corellian_butterfly.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_corellian_sand_panther			string:beast.dna.creature_template=object/mobile/beast_master/bm_corellian_sand_panther.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_corellian_slice_hound			string:beast.dna.creature_template=object/mobile/beast_master/bm_corellian_slice_hound.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_crystal_snake			string:beast.dna.creature_template=object/mobile/beast_master/bm_crystal_snake.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_cu_pa			string:beast.dna.creature_template=object/mobile/beast_master/bm_cu_pa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_dalyrake			string:beast.dna.creature_template=object/mobile/beast_master/bm_dalyrake.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_dewback			string:beast.dna.creature_template=object/mobile/beast_master/bm_dewback.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
@@ -2469,6 +2473,7 @@ item_cs_dna_dwarf_nuna			string:beast.dna.creature_template=object/mobile/beast_
 item_cs_dna_eopie			string:beast.dna.creature_template=object/mobile/beast_master/bm_eopie.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_falumpaset			string:beast.dna.creature_template=object/mobile/beast_master/bm_falumpaset.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_fambaa			string:beast.dna.creature_template=object/mobile/beast_master/bm_fambaa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_fanned_rawl			string:beast.dna.creature_template=object/mobile/beast_master/bm_fanned_rawl.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_flewt			string:beast.dna.creature_template=object/mobile/beast_master/bm_flewt.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_flit			string:beast.dna.creature_template=object/mobile/beast_master/bm_flit.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_fynock			string:beast.dna.creature_template=object/mobile/beast_master/bm_fynock.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
@@ -2526,6 +2531,7 @@ item_cs_dna_shear_mite			string:beast.dna.creature_template=object/mobile/beast_
 item_cs_dna_skreeg			string:beast.dna.creature_template=object/mobile/beast_master/bm_skreeg.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_snorbal			string:beast.dna.creature_template=object/mobile/beast_master/bm_snorbal.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_spined_puc			string:beast.dna.creature_template=object/mobile/beast_master/bm_spined_puc.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_spined_snake			string:beast.dna.creature_template=object/mobile/beast_master/bm_spined_snake.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_squall			string:beast.dna.creature_template=object/mobile/beast_master/bm_squall.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_squill			string:beast.dna.creature_template=object/mobile/beast_master/bm_squill.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 item_cs_dna_stintaril			string:beast.dna.creature_template=object/mobile/beast_master/bm_stintaril.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
@@ -2774,7 +2780,7 @@ item_ring_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_freesho
 item_ring_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_ring_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_ring_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_ring_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_ring_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_ring_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_ring_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_ring_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -2796,7 +2802,7 @@ item_band_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_freesho
 item_band_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_band_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_band_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_band_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_band_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_band_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_band_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_band_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -2818,7 +2824,7 @@ item_necklace_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_fre
 item_necklace_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_necklace_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_necklace_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_necklace_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_necklace_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_necklace_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_necklace_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_necklace_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -2840,7 +2846,7 @@ item_bracelet_r_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_f
 item_bracelet_r_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_bracelet_r_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_bracelet_r_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_bracelet_r_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_bracelet_r_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_bracelet_r_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_bracelet_r_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_bracelet_r_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -2862,7 +2868,7 @@ item_bracelet_l_set_medic_utility_a_01_01	fast_attack_line_me_heal=2,expertise_f
 item_bracelet_l_set_medic_utility_b_01_01	expertise_cooldown_line_me_dot=2,fast_attack_line_me_debuff=1,expertise_freeshot_line_me_debuff=1		int:item.set.set_id=20003								
 item_bracelet_l_set_jedi_dps_01_01	expertise_action_line_fs_dm=1,expertise_action_line_fs_sweep=1,expertise_cooldown_line_fs_dm=1,expertise_cooldown_line_fs_sweep=2		int:item.set.set_id=30001								
 item_bracelet_l_set_jedi_utility_a_01_01	expertise_action_line_fs_cc_crit=2,expertise_action_line_fs_ae_dm_cc=2,expertise_cooldown_line_fs_cc_crit=3,expertise_cooldown_line_fs_ae_dm_cc=3		int:item.set.set_id=30002								
-item_bracelet_l_set_jedi_utility_b_01_01	constitution_modified=20,combat_block_chance=2,expertise_action_all=1		int:item.set.set_id=30003								
+item_bracelet_l_set_jedi_utility_b_01_01	constitution_modified=20,expertise_glancing_blow_all=1,expertise_action_all=1		int:item.set.set_id=30003								
 item_bracelet_l_set_commando_dps_01_01	expertise_freeshot_co_grenade=2,expertise_action_line_co_grenade=2,fast_attack_line_co_grenade=3		int:item.set.set_id=40001								
 item_bracelet_l_set_commando_utility_a_01_01	constitution_modified=20,combat_block_chance=2,combat_block_value=50		int:item.set.set_id=40002								
 item_bracelet_l_set_commando_utility_b_01_01	constitution_modified=10,strength_modified=15,expertise_devastation_bonus=5		int:item.set.set_id=40003								
@@ -3418,7 +3424,7 @@ col_pristine_meat_02_01			string:collection.slotName=col_resource_harvest_meat:c
 col_reward_resource_harvest_02_01											
 col_reward_resource_harvest_bone_02_01											
 col_reward_resource_harvest_meat_02_01											
-item_dna_worm			string:beast.dna.creature_template=object/mobile/beast_master/bm_walluga.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_dna_worm			string:beast.dna.creature_template=object/mobile/beast_master/bm_forage_worm.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 col_pristine_egg_02_01			string:collection.slotName=col_resource_harvest_egg:col_resource_harvest_egg_01								
 col_pristine_milk_02_01			string:collection.slotName=col_resource_harvest_milk:col_resource_harvest_milk_01	index_color_1=31							
 col_photo_durni_reward_01											
@@ -3732,67 +3738,67 @@ item_event_halloween_trick_device_01_01			int:item.lifespan=1814400,int:item.pro
 item_event_halloween_trick_device_02_01			int:item.lifespan=1814400,int:item.projector=2								
 item_event_halloween_trick_device_03_01			int:item.projector=3								
 item_event_halloween_coin											
-item_tcg_loot_reward_series1_diner			string:player_structure.deed.template=object/building/player/city/diner_no_planet_restriction.iff,int:player_structure.deed.buildtime=90								
-item_tcg_loot_reward_series1_barn			string:player_structure.deed.template=object/building/player/city/barn_no_planet_restriction.iff,int:player_structure.deed.buildtime=90								
+item_tcg_loot_reward_series2_diner			string:player_structure.deed.template=object/building/player/city/diner_no_planet_restriction.iff,int:player_structure.deed.buildtime=90								
+item_tcg_loot_reward_series2_barn			string:player_structure.deed.template=object/building/player/city/barn_no_planet_restriction.iff,int:player_structure.deed.buildtime=90								
 item_tcg_loot_reward_series1_housecleaning_kit			int:increaseAmount=50,int:nonGenericStorageItem=1							clienteffect/tcg_add_storage_house_cleaning.cef	
 item_tcg_loot_reward_series1_beru_whitesuns_cookbook			int:increaseAmount=100,int:nonGenericStorageItem=1							clienteffect/tcg_add_storage_cookbook.cef	
 item_tcg_loot_reward_series1_organizational_datapad			int:increaseAmount=100,int:nonGenericStorageItem=1							clienteffect/tcg_add_storage_datapad.cef	
 item_tcg_loot_reward_series1_gorax_ear					tcg_series1_gorax_ear	long_reuse_4	3600			clienteffect/tcg_gorax_ear.cef	
 item_tcg_loot_reward_series1_morgukai_shadow_scroll					tcg_series1_morgukai_shadow_scroll	long_reuse_4	3600			clienteffect/tcg_shadow_scroll.cef	
-item_tcg_loot_reward_series1_sanyassan_skull					tcg_series1_sanyassan_skull	long_reuse_4	3600			clienteffect/tcg_sanyassan_skull.cef	
+item_tcg_loot_reward_series2_sanyassan_skull					tcg_series2_sanyassan_skull	long_reuse_4	3600			clienteffect/tcg_sanyassan_skull.cef	
 item_tcg_loot_reward_series1_tusken_talisman					tcg_series1_tusken_talisman	long_reuse_4	3600			clienteffect/tcg_talisman.cef	
 item_tcg_loot_reward_series1_hans_hydrospanner					tcg_series1_hans_hydrospanner					clienteffect/tcg_xp.cef	
-item_tcg_loot_reward_series1_keelkana_tooth					tcg_series1_keelkana_tooth					clienteffect/tcg_xp_keelkana_tooth.cef	
-item_tcg_loot_reward_series1_lepese_dictionary					tcg_series1_lepese_dictionary					clienteffect/tcg_xp_instant.cef	
-item_tcg_loot_reward_series1_mandalorian_strongbox					tcg_series1_mandalorian_strongbox					clienteffect/tcg_xp.cef	
+item_tcg_loot_reward_series2_keelkana_tooth					tcg_series2_keelkana_tooth					clienteffect/tcg_xp_keelkana_tooth.cef	
+item_tcg_loot_reward_series9_lepese_dictionary					tcg_series9_lepese_dictionary					clienteffect/tcg_xp_instant.cef	
+item_tcg_loot_reward_series2_mandalorian_strongbox					tcg_series2_mandalorian_strongbox					clienteffect/tcg_xp.cef	
 item_tcg_loot_reward_series1_nuna_ball_advertisement					tcg_series1_nuna_ball_advertisement					clienteffect/tcg_xp_instant_nuna_ball.cef	
 item_tcg_loot_reward_series1_radtrooper_badge					tcg_series1_radtrooper_badge					clienteffect/tcg_xp.cef	
-item_tcg_loot_reward_series1_versafunction88_datapad					tcg_series1_versafunction88_datapad					clienteffect/tcg_xp_instant.cef	
-item_tcg_loot_reward_series1_chon_bust											
+item_tcg_loot_reward_series2_versafunction88_datapad					tcg_series2_versafunction88_datapad					clienteffect/tcg_xp_instant.cef	
+item_tcg_loot_reward_series2_chon_bust											
 item_tcg_loot_reward_series1_computer_console_01											
-item_tcg_loot_reward_series1_computer_console_02											
-item_tcg_loot_reward_series1_darth_vader_statuette											
+item_tcg_loot_reward_series2_computer_console_02											
+item_tcg_loot_reward_series2_darth_vader_statuette											
 item_tcg_loot_reward_series1_display_case_01											
-item_tcg_loot_reward_series1_display_case_02											
+item_tcg_loot_reward_series2_display_case_02											
 item_tcg_loot_reward_series1_dooku_bust											
-item_tcg_loot_reward_series1_drink_dispenser											
-item_tcg_loot_reward_series1_fish_tank											
+item_tcg_loot_reward_series2_drink_dispenser											
+item_tcg_loot_reward_series9_fish_tank											
 item_tcg_loot_reward_series1_indoor_fountain_01											
 item_tcg_loot_reward_series1_indoor_fountain_02											
 item_tcg_loot_reward_series1_indoor_garden_01											
-item_tcg_loot_reward_series1_indoor_garden_02											
-item_tcg_loot_reward_series1_jedi_library_bookshelf											
+item_tcg_loot_reward_series2_indoor_garden_02											
+item_tcg_loot_reward_series9_jedi_library_bookshelf											
 item_tcg_loot_reward_series1_bas_relief											
 item_tcg_loot_reward_series1_painting_jedi_crest											
 item_tcg_loot_reward_series1_painting_trooper											
 item_tcg_loot_reward_series1_painting_imperial_propaganda											
-item_tcg_loot_reward_series1_painting_alliance_propaganda											
-item_tcg_loot_reward_series1_painting_darth_vader											
-item_tcg_loot_reward_series1_princess_leia_statuette											
+item_tcg_loot_reward_series2_painting_alliance_propaganda											
+item_tcg_loot_reward_series2_painting_darth_vader											
+item_tcg_loot_reward_series2_princess_leia_statuette											
 item_tcg_loot_reward_series1_vendor_ewok	special_vendor_tcg_series1_ewok=1		string:nonvendor.give_nontrader=nonvendor_ewok								
 item_tcg_loot_reward_series1_vendor_gungan	special_vendor_tcg_series1_gungan=1		string:nonvendor.give_nontrader=nonvendor_gungan								
 item_tcg_loot_reward_series1_vendor_jawa	special_vendor_tcg_series1_jawa=1		string:nonvendor.give_nontrader=nonvendor_jawa								
-item_tcg_loot_reward_series1_vendor_meatlump	special_vendor_tcg_series1_meatlump=1		string:nonvendor.give_nontrader=nonvendor_meatlump								
-item_tcg_loot_reward_series1_vendor_bomarr_monk	special_vendor_tcg_series1_bomarr_monk=1		string:nonvendor.give_nontrader=nonvendor_bomarr_monk								
-item_tcg_loot_reward_series1_vendor_serving_droid	special_vendor_tcg_series1_serving_droid=1		string:nonvendor.give_nontrader=nonvendor_serving_droid								
+item_tcg_loot_reward_series2_vendor_meatlump	special_vendor_tcg_series2_meatlump=1		string:nonvendor.give_nontrader=nonvendor_meatlump								
+item_tcg_loot_reward_series2_vendor_bomarr_monk	special_vendor_tcg_series2_bomarr_monk=1		string:nonvendor.give_nontrader=nonvendor_bomarr_monk								
+item_tcg_loot_reward_series9_vendor_serving_droid	special_vendor_tcg_series9_serving_droid=1		string:nonvendor.give_nontrader=nonvendor_serving_droid								
 item_tcg_loot_reward_series1_target_creature			string:targetDummyCreatureName=tcg_target_creature_acklay								
 item_tcg_loot_reward_series1_video_game_table											
-item_tcg_loot_reward_series1_v_wing			boolean:ship_chassis.tcg_ship=true,boolean:ship_chassis.multifactional=true,string:ship_chassis.type=vwing,float:ship_chassis.hp=1850.0,float:ship_chassis.mass=66625.0								
-item_tcg_loot_reward_series1_podracer_mawhonic			string:vehicle_attribs.object_ref=pod_racer_two,float:hit_points=15000								
+item_tcg_loot_reward_series2_v_wing			boolean:ship_chassis.tcg_ship=true,boolean:ship_chassis.multifactional=true,string:ship_chassis.type=vwing,float:ship_chassis.hp=1850.0,float:ship_chassis.mass=66625.0								
+item_tcg_loot_reward_series2_podracer_mawhonic			string:vehicle_attribs.object_ref=pod_racer_two,float:hit_points=15000								
 item_tcg_loot_reward_series1_podracer_gasgano			string:vehicle_attribs.object_ref=pod_racer_one,float:hit_points=15000								
 item_tcg_loot_reward_series1_mechno_chair			string:vehicle_attribs.object_ref=mechno_chair,float:hit_points=15000								
 item_tcg_loot_reward_series1_organa_speeder			string:vehicle_attribs.object_ref=organa_speeder,float:hit_points=15000								
 item_tcg_loot_reward_series1_sith_speeder			string:vehicle_attribs.object_ref=sith_speeder,float:hit_points=15000								
-item_tcg_loot_reward_series1_greeter_ewok			string:greeter.give_greeter=greeter_ewok								
-item_tcg_loot_reward_series1_greeter_gungan			string:greeter.give_greeter=greeter_gungan								
-item_tcg_loot_reward_series1_greeter_jawa			string:greeter.give_greeter=greeter_jawa								
+item_tcg_loot_reward_series2_greeter_ewok			string:greeter.give_greeter=greeter_ewok								
+item_tcg_loot_reward_series9_greeter_gungan			string:greeter.give_greeter=greeter_gungan								
+item_tcg_loot_reward_series2_greeter_jawa			string:greeter.give_greeter=greeter_jawa								
 item_tcg_loot_reward_series1_greeter_meatlump			string:greeter.give_greeter=greeter_meatlump								
 item_tcg_loot_reward_series1_greeter_bomarr_monk			string:greeter.give_greeter=greeter_bomarr_monk								
-item_tcg_loot_reward_series1_greeter_serving_droid			string:greeter.give_greeter=greeter_serving_droid								
-item_tcg_loot_reward_series1_arc170_flightsuit											
+item_tcg_loot_reward_series2_greeter_serving_droid			string:greeter.give_greeter=greeter_serving_droid								
+item_tcg_loot_reward_series2_arc170_flightsuit											
 item_tcg_loot_reward_series1_orange_flightsuit											
 item_tcg_loot_reward_series1_naboo_jacket											
-item_tcg_loot_reward_series1_snow_jacket											
+item_tcg_loot_reward_series6_snow_jacket											
 item_tcg_loot_reward_series1_glowing_red_eyes											
 item_tcg_loot_reward_series1_glowing_blue_eyes											
 item_tcg_loot_reward_series1_black_corset_dress											
@@ -3866,8 +3872,6 @@ heroic_echo_wampa_junk_02_03
 heroic_echo_wampa_junk_02_04											
 armor_snowtrooper_backpack	strength_modified=35,constitution_modified=30,stamina_modified=30,agility_modified=25,luck_modified=25,precision_modified=35		string:faction_recruiter.faction=Imperial,int:item.set.set_id=110001								
 armor_rebel_snow_backpack	strength_modified=35,constitution_modified=30,stamina_modified=30,agility_modified=25,luck_modified=25,precision_modified=35		string:faction_recruiter.faction=Rebel,int:item.set.set_id=100001								
-item_wampa_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_wampa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
-item_tauntaun_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
 publish_gift_chapter_11_snow_balls_02_01											
 publish_gift_chapter_11_snow_machine_02_01											
 recapture_gift_chapter_11_hoth_hologram_02_01											
@@ -3900,11 +3904,11 @@ item_event_lifeday_stap_speeder			string:vehicle_attribs.object_ref=stap_speeder
 item_vet_66_month_jedi_temple											
 item_vet_66_month_jedi_temple_burning											
 item_event_lifeday_bantha_surprise			string:buff_name=lifeday_bantha_surprise		lifeday_bantha_surprise						
-item_tcg_loot_reward_series1_diner_package			string:tcg.object=item_tcg_loot_reward_series1_diner:item_tcg_loot_reward_series1_diner_booth:item_tcg_loot_reward_series1_diner_table:item_tcg_loot_reward_series1_diner_counter_corner:item_tcg_loot_reward_series1_diner_counter_center:item_tcg_loot_reward_series1_diner_counter_corner_s02								
-item_tcg_loot_reward_series1_diner_booth											
-item_tcg_loot_reward_series1_diner_table											
-item_tcg_loot_reward_series1_diner_counter_corner											
-item_tcg_loot_reward_series1_diner_counter_center											
+item_tcg_loot_reward_series2_diner_package			string:tcg.object=item_tcg_loot_reward_series2_diner:item_tcg_loot_reward_series2_diner_booth:item_tcg_loot_reward_series2_diner_table:item_tcg_loot_reward_series2_diner_counter_corner:item_tcg_loot_reward_series2_diner_counter_center:item_tcg_loot_reward_series2_diner_counter_corner_s02								
+item_tcg_loot_reward_series2_diner_booth											
+item_tcg_loot_reward_series2_diner_table											
+item_tcg_loot_reward_series2_diner_counter_corner											
+item_tcg_loot_reward_series2_diner_counter_center											
 item_cts_sarlacc_non_functional											
 item_cts_sarlacc_mini_game											
 item_housepack_emperor_chair_01_01											
@@ -4447,6 +4451,10 @@ item_lifeday_09_fruitcake_decorative
 item_lifeday_costume_lifeday_monkeylizard					costume_lifeday_monkey_lizard						
 item_lifeday_gift_self_01_04			string:year=2009								
 item_lifeday_gift_other_01_04			string:year=2009								
+item_lifeday_gift_self_01_05			string:year=2010								
+item_lifeday_gift_other_01_05			string:year=2010								
+item_lifeday_gift_self_01_06			string:year=2011								
+item_lifeday_gift_other_01_06			string:year=2011								
 item_gcw_schematic_barricades_tool			string:loot_schematic.schematic=object/draft_schematic/item/gcw_barricade_tool.iff,int:loot_schematic.uses=1								
 item_gcw_schematic_reinforcement_tool			string:loot_schematic.schematic=object/draft_schematic/item/gcw_spawner_tool.iff,int:loot_schematic.uses=1								
 item_gcw_schematic_tower_tool			string:loot_schematic.schematic=object/draft_schematic/item/gcw_tower_tool.iff,int:loot_schematic.uses=1								
@@ -4515,6 +4523,8 @@ item_gcw_set_bracelet_l_imperial_01	constitution_modified=40,stamina_modified=10
 item_gcw_invasion_binoculars					gcw_invasion_binoculars	gcw_binoculars	180				
 item_event_loveday_flowers_2010			int:nocert=1,int:allProfs=1								
 item_event_loveday_painting_2010											
+item_event_loveday_flowers_2011			int:nocert=1,int:allProfs=1								
+item_event_loveday_painting_2011											
 item_event_flower_from_2009			int:nocert=1,int:allProfs=1								
 item_event_loveday_wings_pink											
 item_event_loveday_wings_blue											
@@ -4637,7 +4647,7 @@ item_helmet_ace_reb			string:loot_schematic.schematic=object/draft_schematic/clo
 item_jacket_ace_imp			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_imperial_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
 item_jacket_ace_neut			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_privateer_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
 item_jacket_ace_reb			string:loot_schematic.schematic=object/draft_schematic/clothing/clothing_jacket_ace_rebel_craft.iff,string:loot_schematic.skill_req=class_domestics_phase1_novice,int:loot_schematic.uses=1								
-item_kimogila_s01_texture_kit			string:loot_schematic.schematic=object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.iff,string:loot_schematic.skill_req=class_structures_phase1_novice,int:loot_schematic.uses=3
+item_kimogila_s01_texture_kit			string:loot_schematic.schematic=object/draft_schematic/space/chassis/texture_kit_hutt_heavy_s01_s07.iff,string:loot_schematic.skill_req=class_structures_phase1_novice,int:loot_schematic.uses=3								
 item_schematic_gcw2_survey_tool_all			string:loot_schematic.schematic=object/draft_schematic/item/item_survey_tool_all.iff,string:loot_schematic.skill_req=class_engineering_phase1_novice,int:loot_schematic.uses=3								
 item_player_house_deed_jabbas_sail_barge											
 item_tcg_loot_reward_series8_single_pod_airspeeder			string:vehicle_attribs.object_ref=single_pod_airspeeder,float:hit_points=15000								
@@ -4648,6 +4658,124 @@ item_tcg_loot_reward_series8_bespin_lamp_on			string:type=lamp,string:status=off
 item_tcg_loot_reward_series8_bespin_shelves			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
 item_tcg_loot_reward_series8_glowly_sculpture			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
 item_tcg_loot_reward_series8_torture_table			string:tcg.combineItemTemplatePattern=object/tangible/tcg/series8/combine_decorative_,string:tcg.setName=set8_cloud_house								
-item_tcg_loot_reward_series8_armored_tauntaun_statue			string:armored_creature_type=tcg8_armored_tauntaun
-item_imperial_station_token_01_01
-item_rebel_station_token_01_01
+item_tcg_loot_reward_series8_armored_tauntaun_statue			string:armored_creature_type=tcg8_armored_tauntaun								
+item_imperial_station_token_01_01											
+item_rebel_station_token_01_01											
+item_schematic_spice_yarrock			string:loot_schematic.schematic=object/draft_schematic/spices/spice_yarrock.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_pyrepenol			string:loot_schematic.schematic=object/draft_schematic/spices/spice_pyrepenol.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_giggledust			string:loot_schematic.schematic=object/draft_schematic/spices/spice_giggledust.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_scramjet			string:loot_schematic.schematic=object/draft_schematic/spices/spice_scramjet.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_gunjack			string:loot_schematic.schematic=object/draft_schematic/spices/spice_gunjack.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_h4b			string:loot_schematic.schematic=object/draft_schematic/spices/spice_sedative_h4b.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_droid_lube			string:loot_schematic.schematic=object/draft_schematic/spices/spice_droid_lube.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_shadowpaw			string:loot_schematic.schematic=object/draft_schematic/spices/spice_shadowpaw.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_muon_gold			string:loot_schematic.schematic=object/draft_schematic/spices/spice_muon_gold.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_sweetblossom			string:loot_schematic.schematic=object/draft_schematic/spices/spice_sweetblossoom.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_crash_n_burn			string:loot_schematic.schematic=object/draft_schematic/spices/spice_crash_n_burn.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_thruster_head			string:loot_schematic.schematic=object/draft_schematic/spices/spice_thruster_head.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_grey_gabaki			string:loot_schematic.schematic=object/draft_schematic/spices/spice_grey_gabaki.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_neutron_pixey			string:loot_schematic.schematic=object/draft_schematic/spices/spice_neutron_pixey.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_schematic_spice_booster_blue			string:loot_schematic.schematic=object/draft_schematic/spices/spice_booster_blue.iff,string:loot_schematic.skill_req=class_smuggler_phase4_master,int:loot_schematic.uses=10								
+item_cs_dna_mutated_narglatch			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_narglatch.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_nexu			string:beast.dna.creature_template=object/mobile/beast_master/bm_nexu.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_reek			string:beast.dna.creature_template=object/mobile/beast_master/bm_reek.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_hawk_bat			string:beast.dna.creature_template=object/mobile/beast_master/bm_hawk_bat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_monkey_lizard_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_monkey_lizard.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_bane_back_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_bane_back.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_finned_blaggart_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_finned_blaggart.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_mutated_malkloc_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_malkloc.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_pangrack_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_pangrack.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_bol			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_bol.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_kimogila			string:beast.dna.creature_template=object/mobile/beast_master/bm_kimogila.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_kimogila			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_kimogila.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_bolle_bol			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_bolle_bol.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_thune			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_thune.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_hermit_spider			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_hermit_spider.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_barbed_quenker_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_barbed_quenker.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_razor_angler_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_razor_angler.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_spiderclan_consort_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_spiderclan_consort.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_spiderclan_queen_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_spiderclan_queen.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_blackwing_rancor_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_blackwing_rancor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_vorpal_durni_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_durni.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_scorpion_kliknik_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_scorpion_kliknik.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_binjiinphant_dna			string:beast.dna.creature_template=object/mobile/beast_master/bm_binjinphant.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_painted_spat			string:beast.dna.creature_template=object/mobile/beast_master/bm_painted_spat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_murra_blanca			string:beast.dna.creature_template=object/mobile/beast_master/bm_murra_blanca.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_spiketail_blurrg			string:beast.dna.creature_template=object/mobile/beast_master/bm_spiketail_blurrg.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_vog_eel			string:beast.dna.creature_template=object/mobile/beast_master/bm_vog_eel.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_gualaar			string:beast.dna.creature_template=object/mobile/beast_master/bm_gualaar.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_katarn			string:beast.dna.creature_template=object/mobile/beast_master/bm_katarn.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_krayt			string:beast.dna.creature_template=object/mobile/beast_master/bm_krayt.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_kkorrwrot			string:beast.dna.creature_template=object/mobile/beast_master/bm_kkorrwrot.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_gorax			string:beast.dna.creature_template=object/mobile/beast_master/bm_gorax.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_tauntaun_armor			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun_armor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_dewback_armor			string:beast.dna.creature_template=object/mobile/beast_master/bm_dewback_armor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_bantha_armor			string:beast.dna.creature_template=object/mobile/beast_master/bm_bantha_armor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_reek			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_reek.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_pikobi			string:beast.dna.creature_template=object/mobile/beast_master/bm_pikobi.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_scurrier			string:beast.dna.creature_template=object/mobile/beast_master/bm_scurrier.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_massiff			string:beast.dna.creature_template=object/mobile/beast_master/bm_massiff.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_carax			string:beast.dna.creature_template=object/mobile/beast_master/bm_carax.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_acklay			string:beast.dna.creature_template=object/mobile/beast_master/bm_acklay.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_vesp			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_vesp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_baz_nitch			string:beast.dna.creature_template=object/mobile/beast_master/bm_baz_nitch.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_blistmok			string:beast.dna.creature_template=object/mobile/beast_master/bm_blistmok.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_boar			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_boar.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_bolotaur			string:beast.dna.creature_template=object/mobile/beast_master/bm_bolotaur.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_borgax			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_borgax.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_chuba_fly			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_chuba_fly.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_cu_pa			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_cu_pa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_cat			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_cat.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_slice_hound			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_slice_hound.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_graul			string:beast.dna.creature_template=object/mobile/beast_master/bm_graul.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_dewback			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_dewback.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_griffon			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_griffon.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_horned_rasp			string:beast.dna.creature_template=object/mobile/beast_master/bm_horned_rasp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_jundak			string:beast.dna.creature_template=object/mobile/beast_master/bm_jundak.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_kubaza_beetle			string:beast.dna.creature_template=object/mobile/beast_master/bm_kubaza_beetle.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mooc			string:beast.dna.creature_template=object/mobile/beast_master/bm_mooc.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_acklay			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_acklay.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_pharple			string:beast.dna.creature_template=object/mobile/beast_master/bm_pharple.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_plumed_rasp			string:beast.dna.creature_template=object/mobile/beast_master/bm_plumed_rasp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_jax			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_jax.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_rancor			string:beast.dna.creature_template=object/mobile/beast_master/bm_rancor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_remmer			string:beast.dna.creature_template=object/mobile/beast_master/bm_remmer.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_rancor			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_rancor.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_tanray			string:beast.dna.creature_template=object/mobile/beast_master/bm_tanray.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_urnsoris			string:beast.dna.creature_template=object/mobile/beast_master/bm_urnsoris.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_uwari_beetle			string:beast.dna.creature_template=object/mobile/beast_master/bm_uwari_beetle.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_varasquactyl			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_varasquactyl.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_whisper_bird			string:beast.dna.creature_template=object/mobile/beast_master/bm_whisper_bird.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_mutated_quenker			string:beast.dna.creature_template=object/mobile/beast_master/bm_mutated_quenker.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_xandank			string:beast.dna.creature_template=object/mobile/beast_master/bm_xandank.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_crowned_rasp			string:beast.dna.creature_template=object/mobile/beast_master/bm_crowned_rasp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_flite_rasp			string:beast.dna.creature_template=object/mobile/beast_master/bm_flite_rasp.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_wampa			string:beast.dna.creature_template=object/mobile/beast_master/bm_wampa.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_tauntaun			string:beast.dna.creature_template=object/mobile/beast_master/bm_tauntaun.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_cs_dna_sher_kar			string:beast.dna.creature_template=object/mobile/beast_master/bm_sher_kar.iff,float:beast.dna.quality=90.000000,int:beast.dna.cs_item=1								
+item_axkva_min_costume					costume_axkva_min						
+item_blackwing_rancor_costume					costume_blackwing_rancor						
+item_dug_costume					costume_dug						
+item_esb_boba_fett_costume					costume_esb_boba_fett						
+item_esb_darth_vader_costume					costume_esb_darth_vader						
+item_esb_han_solo_costume					costume_esb_han_solo						
+item_esb_lando_costume					costume_esb_lando						
+item_esb_leia_costume					costume_esb_leia						
+item_esb_luke_costume					costume_esb_luke						
+item_esb_yoda_costume					costume_esb_yoda						
+item_geonosian_costume					costume_geonosian						
+item_costume_hutt_female					costume_hutt_female						
+item_meatlump_king_costume					costume_meatlump_king						
+item_mutant_rancor_costume					costume_mutant_rancor						
+item_mynock_costume					costume_mynock						
+item_rancor_costume					costume_rancor						
+item_seven_obi_wan_ghost_costume					costume_seven_obi_wan_ghost						
+item_skeleton_costume					costume_skeleton						
+item_tauntaun_costume					costume_tauntaun						
+item_tusken_king_costume					costume_tusken_king						
+item_ugnaught_costume					costume_ugnaught						
+item_wampa_costume					costume_wampa						
+item_zozpheratu_costume					costume_zozpheratu						
+item_ponda_halloween_hand					scary_halloween_hand	itemBuffClick	39600				
+item_deed_atst_walker			"string:vehicle_attribs.object_ref=atst_walker,float:hit_points=15000"
+item_deed_atxt_walker			"string:vehicle_attribs.object_ref=atxt_walker,float:hit_points=15000"

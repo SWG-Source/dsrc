@@ -18,7 +18,7 @@ public class tcg extends script.base_script
     public static final String RANCHHAND_CELL = RANCHHAND_PREFIX + ".ranchhandcell";
     public static final String RANCHHAND_STRUCTURE = RANCHHAND_PREFIX + ".structure";
     public static final String RANCHHAND_OBJECT = RANCHHAND_PREFIX + ".ranchhand_object";
-    public static final String RANCH_HAND_TEMPLATE = "object/tangible/tcg/series1/structure_barn_ranchhand.iff";
+    public static final String RANCH_HAND_TEMPLATE = "object/tangible/tcg/series2/structure_barn_ranchhand.iff";
     public static final String CELL_NAME = "entry";
     public static final String BEAST_ROAMING = "beast_roaming";
     public static final float RANCH_HAND_X = 4.2f;
@@ -30,7 +30,7 @@ public class tcg extends script.base_script
     public static final String BARN_BEAST_SCRIPT = "systems.tcg.barn_beast";
     public static final int MAX_NUM_BARN_PETS = 40;
     public static final int DEFAULT_NUM_BARN_LITE_PETS = 5;
-    public static final String[] BEAST_OBJVARS = 
+    public static final String[] BEAST_OBJVARS =
     {
         "beast",
         "beastmood",
@@ -40,7 +40,7 @@ public class tcg extends script.base_script
     public static final int EST_MAX_SCORE = 626;
     public static final String TABLE_OBJVAR_PREFIX = "minigame_table";
     public static final String TABLE_HIGHSCORE_SLOTS = TABLE_OBJVAR_PREFIX + ".highscores";
-    public static final float[] DEFAULT_HIGH_SCORE_MODIFIER = 
+    public static final float[] DEFAULT_HIGH_SCORE_MODIFIER =
     {
         0.30f,
         0.31f,
@@ -50,7 +50,7 @@ public class tcg extends script.base_script
         0.35f,
         0.36f
     };
-    public static final String[] DEFAULT_HIGH_SCORE_LIST = 
+    public static final String[] DEFAULT_HIGH_SCORE_LIST =
     {
         "Valara",
         "DevH",
@@ -108,7 +108,7 @@ public class tcg extends script.base_script
         {
             sendSystemMessage(player, new string_id("tcg", "barn_no_beast_control_devices_found"));
         }
-        else 
+        else
         {
             Vector vectorBcdsList = new Vector();
             vectorBcdsList.setSize(0);
@@ -134,7 +134,7 @@ public class tcg extends script.base_script
                     promptRef = "barn_lite_beast_selection_storage_prompt";
                     promptExtra += "Number of Beasts in the Beast Storage Device: " + currentNumStored + " of " + getMaxBarnLiteBeasts(ranchhand);
                 }
-                else 
+                else
                 {
                     promptRef = "barn_beast_selection_storage_prompt";
                     promptExtra += "Number of Beasts in the Barn: " + currentNumStored + " of " + MAX_NUM_BARN_PETS;
@@ -187,7 +187,7 @@ public class tcg extends script.base_script
         {
             sendSystemMessage(player, new string_id("tcg", "barn_no_beast_control_devices_found"));
         }
-        else 
+        else
         {
             Vector vectorBcdsList = new Vector();
             vectorBcdsList.setSize(0);
@@ -215,7 +215,7 @@ public class tcg extends script.base_script
                 {
                     promptExtra += "Number of Beasts in the Beast Storage Device: " + getTotalBarnStoredBeasts(barn) + " of " + getMaxBarnLiteBeasts(barn);
                 }
-                else 
+                else
                 {
                     promptExtra += "Number of Beasts in the Barn: " + getTotalBarnStoredBeasts(barn) + " of " + MAX_NUM_BARN_PETS;
                 }
@@ -230,7 +230,7 @@ public class tcg extends script.base_script
         {
             sendSystemMessage(player, new string_id("tcg", "barn_no_beast_control_devices_found"));
         }
-        else 
+        else
         {
             Vector vectorBcdsList = new Vector();
             vectorBcdsList.setSize(0);
@@ -332,7 +332,7 @@ public class tcg extends script.base_script
                     }
                 }
             }
-            else 
+            else
             {
                 if (hasObjVar(barn, nextAvailableStorageSlot))
                 {
@@ -342,7 +342,7 @@ public class tcg extends script.base_script
                 return false;
             }
         }
-        else 
+        else
         {
             CustomerServiceLog("playerStructure", "Player: " + player + " " + getPlayerName(player) + " could not store a beast in the barn. The BCD was not destroyed. Reason: Barn slot came back null or the Barn was full. Barn: " + barn);
             return false;
@@ -394,17 +394,17 @@ public class tcg extends script.base_script
                     }
                     removeObjVar(barn, "barnStorage." + selectedStorageSlot);
                 }
-                else 
+                else
                 {
                     CustomerServiceLog("playerStructure", "Player: " + player + " " + getPlayerName(player) + " did not claim beast BCD from barn. Resason: BCD creation failed.");
                 }
             }
-            else 
+            else
             {
                 CustomerServiceLog("playerStructure", "Player: " + player + " " + getPlayerName(player) + " did not claim beast BCD from barn. Resason: BCD template was invalid.");
             }
         }
-        else 
+        else
         {
             CustomerServiceLog("playerStructure", "Player: " + player + " " + getPlayerName(player) + " did not claim beast BCD from barn. Resason: Player's datapad was invalid.");
         }
@@ -458,7 +458,7 @@ public class tcg extends script.base_script
             {
                 setObjVar(target, objvarNamePrefix + dataObjvarName, data.getBooleanObjVar(dataObjvarName));
             }
-            else 
+            else
             {
                 if (isGod(player))
                 {
@@ -497,20 +497,20 @@ public class tcg extends script.base_script
                         }
                     }
                 }
-                else 
+                else
                 {
                     if (isBarnLiteDevice(barn))
                     {
                         sendSystemMessage(player, new string_id("tcg", "barn_is_full"));
                     }
-                    else 
+                    else
                     {
                         sendSystemMessage(player, new string_id("tcg", "barn_lite_device_full"));
                     }
                 }
             }
         }
-        else 
+        else
         {
             storageSlot = "barnStorage.slot_00";
         }
@@ -640,7 +640,7 @@ public class tcg extends script.base_script
         {
             incubationBonuses = getIntArrayObjVar(barn, "barnStorage." + storageSlot + "." + beast_lib.OBJVAR_BEAST_INCUBATION_BONUSES);
         }
-        else 
+        else
         {
             for (int i = 0; i < beast_lib.ARRAY_BEAST_INCUBATION_STATS.length; ++i)
             {
@@ -709,7 +709,7 @@ public class tcg extends script.base_script
         {
             setAttrib(beast, HEALTH, getMaxAttrib(beast, HEALTH));
         }
-        else 
+        else
         {
             if (utils.hasScriptVar(beast, "beast.creationInProgress"))
             {
@@ -777,7 +777,7 @@ public class tcg extends script.base_script
         {
             buff.applyBuff(getMaster(beast), beast_lib.ATTENTION_PENALTY_DEBUFF + hackeyWorkAroundValue);
         }
-        else 
+        else
         {
             beast_lib.removeAttentionPenaltyDebuff(getMaster(beast));
         }
@@ -880,7 +880,7 @@ public class tcg extends script.base_script
         {
             setRoamingBeastHue(beast, "/private/index_color_1", primaryHue);
         }
-        else 
+        else
         {
             if (!useBeastLibraryHue)
             {
@@ -897,7 +897,7 @@ public class tcg extends script.base_script
                     setRoamingBeastHue(beast, thirdPalette, thirdHue);
                 }
             }
-            else 
+            else
             {
                 if (primaryPalette != null && primaryPalette.length() > 0)
                 {
@@ -968,7 +968,7 @@ public class tcg extends script.base_script
                 location spawnLoc = spawning.getRandomLocationAtDistance(getLocation(barn), 2.0f);
                 tcg.barnDisplayBeast(ranchhand, bcdSlot, barn, spawnLoc);
             }
-            else 
+            else
             {
                 barnDisplayBeast(ranchhand, bcdSlot, barn);
             }

@@ -3903,7 +3903,7 @@ public class imperial_empire_day_kaythree extends script.base_script
         }
         if (imperial_empire_day_kaythree_condition_isChampion(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_309");
+            string_id message = new string_id(c_stringFile, "s_310");
             prose_package pp = new prose_package();
             pp.stringId = message;
             pp.actor.set(player);
@@ -3913,7 +3913,7 @@ public class imperial_empire_day_kaythree extends script.base_script
         }
         if (imperial_empire_day_kaythree_condition__defaultCondition(player, npc))
         {
-            string_id message = new string_id(c_stringFile, "s_310");
+            string_id message = new string_id(c_stringFile, "s_314");
             prose_package pp = new prose_package();
             pp.stringId = message;
             pp.actor.set(player);

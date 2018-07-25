@@ -1,9 +1,9 @@
 objid	container	server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 i	i	h	i	f	f	f	f	f	f	f	s	p
-5165352	0	object/building/endor/endor_village_tree.iff	0	105	9	72.5	-3.20013e-008	0	1	0		$|
+5165352	0	object/building/endor/endor_village_tree.iff	0	105	9	72.5	-3.20013E-08	0	1	0		$|
 5165354	0	object/building/endor/endor_catwalk.iff	0	105	29	56.5	1	0	0	0		$|
 5165356	0	object/building/endor/endor_catwalk.iff	0	89	29.072	40.5	0.707108	0	-0.707105	0		$|
-5165358	0	object/building/endor/endor_village_tree.iff	0	105	9	40.5	-3.20013e-008	0	1	0		$|
+5165358	0	object/building/endor/endor_village_tree.iff	0	105	9	40.5	-3.20013E-08	0	1	0		$|
 5165359	0	object/building/endor/endor_forest_hut.iff	0	110.107	28.9998	69.1935	0.466208	0	0.884675	0		$|
 5165360	0	object/building/endor/endor_forest_hut.iff	0	100.663	9	62.8935	-0.115538	0	0.993303	0		$|
 5165361	0	object/building/endor/endor_forest_hut.iff	0	101.19	19.0786	67.5467	-0.328769	0	0.94441	0		$|
@@ -12,7 +12,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5165368	0	object/building/endor/endor_catwalk_cap.iff	0	93.75	29	72.5	0.707108	0	-0.707106	0		$|
 5165369	0	object/building/endor/endor_catwalk_cap.iff	0	93.75	18.9258	72.5	-0.707107	0	0.707107	0		$|
 5165370	0	object/building/endor/endor_village_tree_viewpoint.iff	0	104.5	29	84	1	0	0	0		$|
-5165371	0	object/building/endor/endor_village_tree_viewpoint.iff	0	82.4032	29	61.0031	3.20013e-008	0	1	0		$|
+5165371	0	object/building/endor/endor_village_tree_viewpoint.iff	0	82.4032	29	61.0031	3.20013E-08	0	1	0		$|
 5165372	0	object/building/endor/endor_catwalk.iff	0	82.5	19	56.5	1	0	0	0		$|
 5165373	0	object/building/endor/endor_catwalk_cap.iff	0	82.5	19	51.5	1	0	0	0		$|
 5165374	0	object/building/endor/endor_catwalk.iff	0	82.5	19	46.5	1	0	0	0		$|
@@ -26,7 +26,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5165382	0	object/building/endor/endor_catwalk.iff	0	79	29.072	40.5	-0.707107	0	0.707107	0		$|
 5165383	0	object/building/endor/endor_catwalk_cap.iff	0	84	29.072	40.5	-0.707107	0	0.707107	0		$|
 5165386	0	object/building/endor/endor_village_tree.iff	0	63	9.07185	40.5	-0.707103	0	0.70711	0		$|
-5165388	0	object/building/endor/endor_village_tree_viewpoint.iff	0	105	19	61	3.20013e-008	0	1	0		$|
+5165388	0	object/building/endor/endor_village_tree_viewpoint.iff	0	105	19	61	3.20013E-08	0	1	0		$|
 5165389	0	object/building/endor/endor_village_tree_viewpoint.iff	0	105	19	29	0	0	1	0		$|
 5165390	0	object/building/endor/endor_village_tree_viewpoint.iff	0	93.5	19	40.5	0.707108	0	-0.707106	0		$|
 5165391	0	object/building/endor/endor_village_tree_viewpoint.iff	0	105	29	29	0	0	1	0		$|
@@ -51,7 +51,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 5165426	0	object/building/endor/endor_forest_hut.iff	0	90.3737	9	16.4936	0.879969	0	0.475031	0		$|
 5165427	0	object/building/endor/endor_forest_hut.iff	0	84.7768	9	20.7502	0.998988	0	0.044984	0		$|
 5165428	0	object/building/endor/endor_forest_hut.iff	0	78.7327	9	20.0266	0.967663	0	-0.252246	0		$|
-5165429	0	object/building/endor/endor_forest_hut.iff	0	73.5514	9	35.7331	0.522009	0	0.85294	0		$|
+5165429	0	object/building/endor/endor_forest_hut.iff	0	73.5514	9	35.7331	0.522009	0	0.85294	0	theme_park.dungeon.generic_spawner	spawn_table|4|datatables/spawning/poi_spawner/endor/ewok_tree_village_1.iff|$|
 5165430	0	object/building/endor/endor_forest_hut.iff	0	101.458	29.0676	77.6123	0.953847	0	-0.300294	0		$|
 5165431	0	object/building/endor/endor_forest_hut.iff	0	86.0961	19.0571	67.6135	0.304301	0	0.952576	0		$|
 5165432	0	object/building/endor/endor_forest_hut.iff	0	78.8688	29.0647	67.2775	-0.291501	0	0.956571	0		$|

@@ -1,0 +1,11 @@
+@base object/tangible/wearables/base/shared_base_backpack.iff
+@class tangible_object_template 5
+@class object_template 5
+
+objectName = "wearables_name"  "backpack_mando"
+detailedDescription = "wearables_detail"  "backpack_mando"
+lookAtText = "wearables_lookat"  "backpack_mando"
+
+appearanceFilename = "appearance/jetpack_mandalorian_s01.apt"
+portalLayoutFilename = ""
+containerVolumeLimit = 65

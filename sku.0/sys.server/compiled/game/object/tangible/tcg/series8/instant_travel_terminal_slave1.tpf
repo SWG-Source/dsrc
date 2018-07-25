@@ -8,6 +8,8 @@ sharedTemplate = "object/tangible/tcg/series8/shared_instant_travel_terminal_sla
 
 scripts = ["systems.veteran_reward.instant_travel_terminal_deed", "item.special.nomove"]
 
-objvars = +[ "noTrade" = 1, "itv_slave_1" =1]
+objvars = +["itv_slave_1" =1]
 
 persistByDefault = true
+
+moveFlags = +[ MF_player ]

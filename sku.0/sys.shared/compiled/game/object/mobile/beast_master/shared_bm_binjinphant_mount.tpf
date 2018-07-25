@@ -1,0 +1,12 @@
+@base object/mobile/skeleton/shared_bm_bird_giant.iff
+@class creature_object_template 13
+species = SP_tesselatedArborealBinjinphant
+cameraHeight=1.3
+@class tangible_object_template 5
+@class object_template 5
+objectName = "" "bm_binjnphant_mount_n"
+detailedDescription = "" "bm_binjinphant_mount_d"
+lookAtText = "monster_lookat"  "binjinphant"
+appearanceFilename = "appearance/binjinphant_mount.sat"
+slotDescriptorFilename = "abstract/slot/descriptor/mount_rider.iff"
+clientDataFile = "clientdata/creature/client_shared_binjinphant.cdf"
