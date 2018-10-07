@@ -106,11 +106,12 @@ public class space_content extends script.base_script
                 obj_id objOwner = getOwner(objShip);
                 space_combat.clearHyperspace(objShip);
                 space_transition.clearOvertStatus(objShip);
-                obj_id objControlDevice = space_transition.findEmptyShipControlDeviceForPlayer(objOwner);
             }
             String groundScene = getStringObjVar(objPlayer, "homingBeacon.planet");
             location houseLoc = getLocationObjVar(objPlayer, "homingBeacon.houseLoc");
             location landingSpot = locations.getGoodLocationAroundLocation(houseLoc, 30f, 30f, 30f, 30f);
+            // Note: The Y location cannot be accurately calculated due to issue with the server code (see
+            landingSpot.y = houseLoc.y - 5;
             obj_id house = getObjIdObjVar(objPlayer, "homingBeacon.houseId");
             utils.warpPlayer(objPlayer, groundScene, landingSpot);
             dictionary params = new dictionary();
