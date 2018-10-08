@@ -33,4 +33,4 @@ f	s	s	s	s	s	c
 437	drunk	setanimationmood		npc_standing_drinking		
 438	drunk	faceto	friend			
 441	friend	say		welcome		"""welcome back"""
-1041	drunk	goto		0		
+1041	drunk	goto		6		
