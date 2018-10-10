@@ -1201,7 +1201,7 @@ public class space_utils extends script.base_script
                 return "@skl_n:pilot_imperial_navy_novice";
             case "tiefighter":
                 return "@skl_n:pilot_imperial_navy_starships_01";
-            case "ti_in":
+            case "tie_in":
                 return "@skl_n:pilot_imperial_navy_starships_02";
             case "tieinterceptor":
             case "tiebomber":
