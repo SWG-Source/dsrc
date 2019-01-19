@@ -53,5 +53,6 @@ objectName = "" ""
 detailedDescription = "" ""
 lookAtText = "" ""
 appearanceFilename = "appearance/hum_m_zombie.sat"
-clientDataFile = "clientdata/npc/client_shared_outbreak_undead_deathtrooper_19_m.cdf"scale = 1.00..1.12
+clientDataFile = "clientdata/npc/client_shared_outbreak_undead_deathtrooper_19_m.cdf"
+scale = 1.00..1.12
 

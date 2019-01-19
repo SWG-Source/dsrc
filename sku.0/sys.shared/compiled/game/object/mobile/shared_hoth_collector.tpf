@@ -53,5 +53,6 @@ objectName = "" ""
 detailedDescription = "" ""
 lookAtText = "" ""
 appearanceFilename = "appearance/hum_m.sat"
-clientDataFile = "clientdata/npc/client_shared_npc_dressed_hoth_collector.cdf"scale = 1.00..1.12
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_hoth_collector.cdf"
+scale = 1.00..1.12
 

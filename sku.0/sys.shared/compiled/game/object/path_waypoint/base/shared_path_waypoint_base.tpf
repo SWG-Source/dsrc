@@ -23,14 +23,14 @@ containerVolumeLimit = 0
 
 appearanceFilename = "appearance/defaultappearance.apt"
 
-collisionMaterialFlags = 1
+//collisionMaterialFlags = 1
 
-collisionMaterialPassFlags = 0
+//collisionMaterialPassFlags = 0
 
-collisionMaterialBlockFlags = 0
+//collisionMaterialBlockFlags = 0
 
-collisionActionFlags = 51
+//collisionActionFlags = 51
 
-collisionActionPassFlags = 1
+//collisionActionPassFlags = 1
 
-collisionActionBlockFlags = 0
+//collisionActionBlockFlags = 0

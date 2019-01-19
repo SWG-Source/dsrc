@@ -16,4 +16,5 @@ objectName = "npc_name" "zabrak_base_female"
 detailedDescription = "" ""
 lookAtText = "npc_lookat" "zabrak_base_female"
 appearanceFilename = "appearance/zab_f.sat"
-clientDataFile = "clientdata/npc/client_shared_npc_dressed_spice_collective_eliteguard_zabrak_female_01.cdf"scale = 0.94..1.06
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_spice_collective_eliteguard_zabrak_female_01.cdf"
+scale = 0.94..1.06

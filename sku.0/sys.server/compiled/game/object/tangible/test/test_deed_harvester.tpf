@@ -10,7 +10,7 @@
 //            Category:                   TEST
 //            Sub-Category:               Null
 //            Classification:             Null
-//            
+//
 
 @base object/tangible/base/tangible_base.iff
 
@@ -29,7 +29,7 @@ tintIndex = 0
 invulnerable = true
 
 
-decay = 0
+//decay = 0
 
 
 

@@ -46,5 +46,6 @@ objectName = "npc_name" "rodian_base_male"
 detailedDescription = "" ""
 lookAtText = "npc_lookat" "rodian_base_male"
 appearanceFilename = "appearance/rod_m_zombie.sat"
-clientDataFile = "clientdata/npc/client_shared_outbreak_undead_deathtrooper_22_m.cdf"scale = 0.88..1.00
+clientDataFile = "clientdata/npc/client_shared_outbreak_undead_deathtrooper_22_m.cdf"
+scale = 0.88..1.00
 

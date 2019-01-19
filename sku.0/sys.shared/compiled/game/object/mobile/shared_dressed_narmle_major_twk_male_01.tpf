@@ -16,5 +16,5 @@ objectName = "npc_name" "twilek_base_male"
 detailedDescription = "" ""
 lookAtText = "npc_lookat" "twilek_base_male"
 appearanceFilename = "appearance/twk_m.sat"
-clientDataFile = "clientdata/npc/client_shared_npc_dressed_narmle_major_twk_male_01.cdf"scale = 1.00..1.12
-
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_narmle_major_twk_male_01.cdf"
+scale = 1.00..1.12

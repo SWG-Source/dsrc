@@ -16,5 +16,6 @@ objectName = "npc_name" "trandoshan_base_male"
 detailedDescription = "" ""
 lookAtText = "npc_lookat" "trandoshan_base_male"
 appearanceFilename = "appearance/trn_m_zombie.sat"
-clientDataFile = "clientdata/npc/client_shared_outbreak_undead_deathtrooper_18_m.cdf"scale = 1.12..1.24
+clientDataFile = "clientdata/npc/client_shared_outbreak_undead_deathtrooper_18_m.cdf"
+scale = 1.12..1.24
 

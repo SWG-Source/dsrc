@@ -17,7 +17,6 @@ tintIndex = 0
 
 invulnerable = true
 
-decay = 0
+//decay = 0
 
 scripts = +[ "item.camp.camp_improved" ]
-

@@ -33,16 +33,16 @@ portalLayoutFilename = ""
 
 clientDataFile = ""
 
-collisionMaterialFlags = 0
+//collisionMaterialFlags = 0
 
-collisionMaterialPassFlags = 0
+//collisionMaterialPassFlags = 0
 
-collisionMaterialBlockFlags = 0
+//collisionMaterialBlockFlags = 0
 
-collisionActionFlags = 0
+//collisionActionFlags = 0
 
-collisionActionPassFlags = 0
+//collisionActionPassFlags = 0
 
-collisionActionBlockFlags = 0
+//collisionActionBlockFlags = 0
 
 gameObjectType = GOT_data_manufacturing_schematic

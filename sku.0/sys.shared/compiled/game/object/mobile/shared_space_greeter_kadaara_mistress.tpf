@@ -16,5 +16,6 @@ objectName = "npc_name" "twilek_base_female"
 detailedDescription = "" ""
 lookAtText = "npc_lookat" "twilek_base_female"
 appearanceFilename = "appearance/twk_f.sat"
-clientDataFile = "clientdata/npc/client_shared_space_greeter_kadaara_mistress.cdf"scale = 1.00..1.12
+clientDataFile = "clientdata/npc/client_shared_space_greeter_kadaara_mistress.cdf"
+scale = 1.00..1.12
 

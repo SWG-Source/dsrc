@@ -16,7 +16,7 @@ tintIndex = 0
 
 invulnerable = true
 
-decay = 0
+//decay = 0
 
 scripts = +[ "space.characters.transfer_auth", "item.special.nomove" ]
 

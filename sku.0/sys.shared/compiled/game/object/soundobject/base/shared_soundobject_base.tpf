@@ -31,17 +31,17 @@ portalLayoutFilename = ""
 
 clientDataFile = ""
 
-collisionMaterialFlags = 1
+//collisionMaterialFlags = 1
 
-collisionMaterialPassFlags = 0
+//collisionMaterialPassFlags = 0
 
-collisionMaterialBlockFlags = 1
+//collisionMaterialBlockFlags = 1
 
-collisionActionFlags = 1
+//collisionActionFlags = 1
 
-collisionActionPassFlags = 0
+//collisionActionPassFlags = 0
 
-collisionActionBlockFlags = 255
+//collisionActionBlockFlags = 255
 
 gameObjectType = GOT_static
 

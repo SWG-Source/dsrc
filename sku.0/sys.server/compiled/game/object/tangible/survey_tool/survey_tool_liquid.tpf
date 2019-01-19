@@ -21,7 +21,7 @@
 
 sharedTemplate = "object/tangible/survey_tool/shared_survey_tool_liquid.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
 
 objvars = +["survey" = ["resource_class" = "chemical"]]

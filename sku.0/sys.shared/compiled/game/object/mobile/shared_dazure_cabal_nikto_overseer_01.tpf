@@ -16,5 +16,6 @@ objectName = "npc_name" "nikto_base_male"
 detailedDescription = "" ""
 lookAtText = "npc_lookat" "nikto_base_male"
 appearanceFilename = "appearance/nikto_m.sat"
-clientDataFile = "clientdata/npc/client_shared_azure_cabal_nikto_overseer_01.cdf"scale = 0.8..0.95
+clientDataFile = "clientdata/npc/client_shared_azure_cabal_nikto_overseer_01.cdf"
+scale = 0.8..0.95
 

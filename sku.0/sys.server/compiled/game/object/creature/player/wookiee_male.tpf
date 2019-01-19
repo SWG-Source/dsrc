@@ -10,7 +10,7 @@
 //            Category:                   Creature
 //            Sub-Category:               Player
 //            Classification:             Wookiee Male Player
-//            
+//
 
 @base object/creature/player/wookiee.iff
 
@@ -21,10 +21,4 @@
 @class object_template 0
 
 sharedTemplate = "object/creature/player/shared_wookiee_male.iff"
-scale = 1.00
-
-
-
-
-
-
+//scale = 1.00

@@ -17,4 +17,5 @@ detailedDescription = "" ""
 lookAtText = "npc_lookat" "bith_base_male"
 appearanceFilename = "appearance/bith_m.sat"
 
-clientDataFile = "clientdata/npc/client_shared_npc_dressed_cobral_bandit_bith_male_01.cdf"scale = 0.75..0.875
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_cobral_bandit_bith_male_01.cdf"
+scale = 0.75..0.875

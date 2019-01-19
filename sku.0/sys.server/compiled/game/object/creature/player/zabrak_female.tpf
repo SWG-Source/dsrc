@@ -10,7 +10,7 @@
 //            Category:                   Creature
 //            Sub-Category:               Player
 //            Classification:             Zabrak Female Player
-//            
+//
 
 @base object/creature/player/zabrak.iff
 
@@ -21,10 +21,4 @@
 @class object_template 0
 
 sharedTemplate = "object/creature/player/shared_zabrak_female.iff"
-scale = 1.00..1.25
-
-
-
-
-
-
+//scale = 1.00..1.25

@@ -10,7 +10,7 @@
 //            Category:                   Building
 //            Sub-Category:               Base
 //            Classification:             Aircar
-//            
+//
 
 @base object/building/base/base_building.iff
 
@@ -33,7 +33,7 @@ tintIndex = 0
 invulnerable = false
 
 
-decay = 20000
+//decay = 20000
 
 
 visibleFlags = [ VF_gm, VF_player ]

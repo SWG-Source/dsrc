@@ -6,8 +6,8 @@
 
 @class object_template 6
 
-collisionMaterialBlockFlags = 0
-collisionActionBlockFlags = 0
+//collisionMaterialBlockFlags = 0
+//collisionActionBlockFlags = 0
 
 clearFloraRadius = 25
 

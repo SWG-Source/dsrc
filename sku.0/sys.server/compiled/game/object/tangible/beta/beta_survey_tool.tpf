@@ -21,7 +21,7 @@
 
 sharedTemplate = "object/tangible/survey_tool/shared_survey_tool_mineral.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
 
 scripts = +["beta.uber_survey_tool"]
