@@ -24,13 +24,9 @@ public class commando_11 extends script.base_script
             {
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groundquests.hasCompletedTask(groupie, "prof_commando_11", "killdoor") && groundquests.isQuestActive(groupie, "prof_commando_11"))
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groundquests.hasCompletedTask(groupie, "prof_commando_11", "killdoor") && groundquests.isQuestActive(groupie, "prof_commando_11")) {
                             return SCRIPT_CONTINUE;
                         }
                     }

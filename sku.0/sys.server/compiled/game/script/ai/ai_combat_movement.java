@@ -184,8 +184,8 @@ public class ai_combat_movement extends script.base_script
     {
         float rslt = max;
         float difference = max - min;
-        float maxHealth = (float)getMaxHealth(ai);
-        float curHealth = (float)getHealth(ai);
+        float maxHealth = getMaxHealth(ai);
+        float curHealth = getHealth(ai);
         rslt -= (difference * (curHealth / maxHealth));
         return rslt;
     }
@@ -214,7 +214,7 @@ public class ai_combat_movement extends script.base_script
             final range_info secondaryWeaponRange = aiGetWeaponRangeInfo(secondaryWeapon);
             secondaryRange = secondaryWeaponRange.maxRange;
         }
-        if (primaryRange <= 10f && secondaryRange <= 10f)
+        if (primaryRange <= 10.0f && secondaryRange <= 10.0f)
         {
             return false;
         }
@@ -225,16 +225,16 @@ public class ai_combat_movement extends script.base_script
             return false;
         }
         float minDistance = 0;
-        float maxDistance = 1f;
+        float maxDistance = 1.0f;
         if (getTopMostContainer(ai) == ai)
         {
-            minDistance = 15f;
-            maxDistance = 20f;
+            minDistance = 15.0f;
+            maxDistance = 20.0f;
         }
         else 
         {
-            minDistance = 4f;
-            maxDistance = 10f;
+            minDistance = 4.0f;
+            maxDistance = 10.0f;
         }
         if (isPlayer(target))
         {
@@ -242,7 +242,7 @@ public class ai_combat_movement extends script.base_script
             range_info playerRange = getWeaponRangeInfo(getCurrentWeapon(target));
             if (playerRange != null && playerRange.maxRange < 10)
             {
-                if (minChance == 1f)
+                if (minChance == 1.0f)
                 {
                     mod = 0.985f;
                 }
@@ -250,7 +250,7 @@ public class ai_combat_movement extends script.base_script
                 {
                     mod = 0.9f;
                 }
-                minDistance = 5f;
+                minDistance = 5.0f;
                 if (rand(1, 100) < 30)
                 {
                     maxDistance = playerRange.maxRange + 5;
@@ -271,7 +271,7 @@ public class ai_combat_movement extends script.base_script
             }
         }
         float chance = getActualEvadeChance(ai, minChance, maxChance);
-        if (chance < 1f && rand(0.0f, 1.0f) > chance)
+        if (chance < 1.0f && rand(0.0f, 1.0f) > chance)
         {
             return false;
         }

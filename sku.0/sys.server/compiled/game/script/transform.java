@@ -284,8 +284,8 @@ public final class transform implements Comparable, Serializable
 	 */
 	public transform yaw_l(float radians)
 	{
-		float sine   = (float)Math.sin(radians);
-		float cosine = (float)Math.cos(radians);
+		float sine   = (float) StrictMath.sin(radians);
+		float cosine = (float) StrictMath.cos(radians);
 
 		return new transform(
 			matrix[0][0]*cosine + matrix[0][2]*(-sine), matrix[0][1], matrix[0][0]*sine  + matrix[0][2]*cosine, matrix[0][3],
@@ -305,8 +305,8 @@ public final class transform implements Comparable, Serializable
 	 */
 	public transform pitch_l(float radians)
 	{
-		float sine   = (float)Math.sin(radians);
-		float cosine = (float)Math.cos(radians);
+		float sine   = (float) StrictMath.sin(radians);
+		float cosine = (float) StrictMath.cos(radians);
 
 		return new transform(
 			matrix[0][0], matrix[0][1]*cosine + matrix[0][2]*sine, matrix[0][1]*(-sine) + matrix[0][2]*cosine, matrix[0][3],
@@ -326,8 +326,8 @@ public final class transform implements Comparable, Serializable
 	 */
 	public transform roll_l(float radians)
 	{
-		float sine   = (float)Math.sin(radians);
-		float cosine = (float)Math.cos(radians);
+		float sine   = (float) StrictMath.sin(radians);
+		float cosine = (float) StrictMath.cos(radians);
 
 		return new transform(
 			matrix[0][0]*cosine + matrix[0][1]*sine, matrix[0][0]*(-sine) + matrix[0][1]*cosine, matrix[0][2], matrix[0][3],

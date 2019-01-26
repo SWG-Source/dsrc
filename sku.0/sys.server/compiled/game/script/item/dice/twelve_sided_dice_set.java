@@ -36,9 +36,8 @@ public class twelve_sided_dice_set extends script.item.dice.base.base_dice
             int roll = rand(1, faceCount, 0);
             rollValues[i] = roll;
         }
-        for (int i = 0; i < rollValues.length; ++i)
-        {
-            debug.debugAllMsg("DEBUG", self, "#############Roll Values: " + rollValues[i] + "############");
+        for (int rollValue : rollValues) {
+            debug.debugAllMsg("DEBUG", self, "#############Roll Values: " + rollValue + "############");
         }
         setObjVar(self, VAR_ROLL_RESULT, rollValues);
         informGroupOfResults(rollValues, player, self, null);

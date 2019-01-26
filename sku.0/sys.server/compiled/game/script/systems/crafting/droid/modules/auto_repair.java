@@ -154,40 +154,30 @@ public class auto_repair extends script.base_script
         obj_id[] creatures = getCreaturesInRange(loc, healing.VAR_STIMPACK_DROID_RADIUS);
         if (creatures != null)
         {
-            for (int i = 0; i < creatures.length; i++)
-            {
-                if (pet_lib.isDroidPet(creatures[i]))
-                {
-                    obj_id target_master = getMaster(creatures[i]);
-                    if (isIdValid(target_master))
-                    {
-                        if (master != target_master && !group.inSameGroup(master, target_master))
-                        {
+            for (obj_id creature : creatures) {
+                if (pet_lib.isDroidPet(creature)) {
+                    obj_id target_master = getMaster(creature);
+                    if (isIdValid(target_master)) {
+                        if (master != target_master && !group.inSameGroup(master, target_master)) {
                             continue;
                         }
-                    }
-                    else 
-                    {
+                    } else {
                         continue;
                     }
-                    if (ai_lib.aiIsDead(creatures[i]))
-                    {
+                    if (ai_lib.aiIsDead(creature)) {
                         continue;
                     }
                     int last_repair = 0;
-                    if (utils.hasScriptVar(creatures[i], SCRIPT_VAR_LAST_REPAIR))
-                    {
-                        last_repair = utils.getIntScriptVar(creatures[i], SCRIPT_VAR_LAST_REPAIR);
+                    if (utils.hasScriptVar(creature, SCRIPT_VAR_LAST_REPAIR)) {
+                        last_repair = utils.getIntScriptVar(creature, SCRIPT_VAR_LAST_REPAIR);
                     }
                     int interval = getGameTime() - last_repair;
-                    if (interval > healing.VAR_AUTO_REPAIR_MIN_INTERVAL)
-                    {
-                        if (healing.isDamaged(creatures[i]))
-                        {
+                    if (interval > healing.VAR_AUTO_REPAIR_MIN_INTERVAL) {
+                        if (healing.isDamaged(creature)) {
                             attrib_mod am = utils.createHealDamageAttribMod(HEALTH, repair_power);
-                            utils.addAttribMod(creatures[i], am);
+                            utils.addAttribMod(creature, am);
                             repair_pulses += 1;
-                            healing.playHealDamageEffect(getLocation(creatures[i]));
+                            healing.playHealDamageEffect(getLocation(creature));
                         }
                     }
                 }

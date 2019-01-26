@@ -58,12 +58,10 @@ public class texture_kit extends script.base_script
             }
             Vector validControlDevices = new Vector();
             validControlDevices.setSize(0);
-            for (int i = 0; i < shipControlDevices.length; i++)
-            {
-                obj_id objShip = space_transition.getShipFromShipControlDevice(shipControlDevices[i]);
-                if (space_utils.isShipTextureable(objShip))
-                {
-                    validControlDevices = utils.addElement(validControlDevices, shipControlDevices[i]);
+            for (obj_id shipControlDevice : shipControlDevices) {
+                obj_id objShip = space_transition.getShipFromShipControlDevice(shipControlDevice);
+                if (space_utils.isShipTextureable(objShip)) {
+                    validControlDevices = utils.addElement(validControlDevices, shipControlDevice);
                 }
             }
             String entries[] = new String[validControlDevices.size()];

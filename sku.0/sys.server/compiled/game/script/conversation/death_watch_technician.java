@@ -160,7 +160,7 @@ public class death_watch_technician extends script.base_script
         }
         setObjVar(structure, "death_watch.missionTaker", player);
         float xCoord = -20.25f;
-        float yCoord = -52f;
+        float yCoord = -52.0f;
         float zCoord = -162.3f;
         location myself = getLocation(npc);
         String planet = myself.area;

@@ -13,7 +13,7 @@ public class avatar_boss_clean_up extends script.base_script
     {
         if (!ai_lib.isAiDead(self))
         {
-            messageTo(self, "checkForReset", null, 60f, false);
+            messageTo(self, "checkForReset", null, 60.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -32,11 +32,9 @@ public class avatar_boss_clean_up extends script.base_script
         int numItems = items.length;
         if (numItems > 0)
         {
-            for (int i = 0; i < numItems; i++)
-            {
-                if (isPlayer(items[i]))
-                {
-                    messageTo(self, "checkForReset", null, 60f, false);
+            for (obj_id item : items) {
+                if (isPlayer(item)) {
+                    messageTo(self, "checkForReset", null, 60.0f, false);
                     return SCRIPT_CONTINUE;
                 }
             }

@@ -250,12 +250,12 @@ public class player_corpse extends script.base_script
         {
             spot = params.getLocation("senderLoc");
             location locLowerLeft = spot;
-            locLowerLeft.x -= 20f;
-            locLowerLeft.z -= 20f;
+            locLowerLeft.x -= 20.0f;
+            locLowerLeft.z -= 20.0f;
             location locUpperRight = spot;
-            locUpperRight.x += 20f;
-            locUpperRight.z += 20f;
-            spot = getGoodLocation(2f, 2f, locLowerLeft, locUpperRight, false, true);
+            locUpperRight.x += 20.0f;
+            locUpperRight.z += 20.0f;
+            spot = getGoodLocation(2.0f, 2.0f, locLowerLeft, locUpperRight, false, true);
             if (spot == null)
             {
                 return SCRIPT_CONTINUE;

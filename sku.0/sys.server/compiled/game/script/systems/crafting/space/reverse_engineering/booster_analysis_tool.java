@@ -100,20 +100,16 @@ public class booster_analysis_tool extends script.base_script
             {
                 temp = getTemplateName(x[0]);
             }
-            for (int i = 0; i < x.length; i++)
-            {
-                if (space_crafting.getShipComponentStringType(x[i]) != "booster")
-                {
+            for (obj_id x2 : x) {
+                if (space_crafting.getShipComponentStringType(x2) != "booster") {
                     string_id errormessage2 = new string_id(TOOL, "wrong_component_type");
                     sendSystemMessage(player, errormessage2);
                     return SCRIPT_CONTINUE;
                 }
-                if ((getTemplateName(x[i])).equals(temp))
-                {
+                if ((getTemplateName(x2)).equals(temp)) {
                     countX++;
                 }
-                if (getBooleanObjVar(x[i], "cannotReverseEngineer") == true)
-                {
+                if (getBooleanObjVar(x2, "cannotReverseEngineer") == true) {
                     string_id errormessage = new string_id(TOOL, "already_engineered");
                     sendSystemMessage(player, errormessage);
                     return SCRIPT_CONTINUE;
@@ -182,9 +178,8 @@ public class booster_analysis_tool extends script.base_script
                 setObjVar(self, "reverse_engineering.charges", charges);
                 if (charges > 0)
                 {
-                    for (int i = 0; i < x.length; i++)
-                    {
-                        destroyObject(x[i]);
+                    for (obj_id x1 : x) {
+                        destroyObject(x1);
                     }
                 }
                 if (charges <= 0)
@@ -267,11 +262,11 @@ public class booster_analysis_tool extends script.base_script
         float energyMaintenance = dataTableGetFloat(TABLE, template, "fltEnergyMaintenance");
         float energyMaintenanceModifier = dataTableGetFloat(TABLE, template, "fltEnergyMaintenanceModifier");
         energyMaintenance = energyMaintenance - energyMaintenanceModifier;
-        energyMaintenance = energyMaintenance - ((.05f) * energyMaintenance);
+        energyMaintenance = energyMaintenance - ((0.05f) * energyMaintenance);
         float mass = dataTableGetFloat(TABLE, template, "fltMass");
         float massModifier = dataTableGetFloat(TABLE, template, "fltMassModifier");
         mass = mass - massModifier;
-        mass = mass - ((.05f) * mass);
+        mass = mass - ((0.05f) * mass);
         space_crafting.setComponentMass(newWeapon, mass);
         space_crafting.setComponentEnergyMaintenance(newWeapon, energyMaintenance);
         float armorHp = dataTableGetFloat(TABLE, template, "fltMaximumArmorHitpoints");
@@ -282,28 +277,28 @@ public class booster_analysis_tool extends script.base_script
         float maxEnergyMod = dataTableGetFloat(TABLE, template, "fltMaximumEnergyModifier");
         float maxEnergy = dataTableGetFloat(TABLE, template, "fltMaximumEnergy");
         maxEnergy = maxEnergy + maxEnergyMod;
-        maxEnergy = maxEnergy + ((.05f) * maxEnergy);
+        maxEnergy = maxEnergy + ((0.05f) * maxEnergy);
         space_crafting.setBoosterMaximumEnergy(newWeapon, maxEnergy);
         space_crafting.setBoosterCurrentEnergy(newWeapon, maxEnergy);
         float rechargeRateMod = dataTableGetFloat(TABLE, template, "fltRechargeRateModifier");
         float rechargeRate = dataTableGetFloat(TABLE, template, "fltRechargeRate");
         rechargeRate = rechargeRate + rechargeRateMod;
-        rechargeRate = rechargeRate + ((.05f) * rechargeRate);
+        rechargeRate = rechargeRate + ((0.05f) * rechargeRate);
         space_crafting.setBoosterEnergyRechargeRate(newWeapon, rechargeRate);
         float consumptionRateModifier = dataTableGetFloat(TABLE, template, "fltConsumptionRateModifier");
         float consumptionRate = dataTableGetFloat(TABLE, template, "fltConsumptionRate");
         consumptionRate = consumptionRate - consumptionRateModifier;
-        consumptionRate = consumptionRate - ((.05f) * consumptionRate);
+        consumptionRate = consumptionRate - ((0.05f) * consumptionRate);
         space_crafting.setBoosterEnergyConsumptionRate(newWeapon, consumptionRate);
         float accelMod = dataTableGetFloat(TABLE, template, "fltAccelerationModifier");
         float accel = dataTableGetFloat(TABLE, template, "fltAcceleration");
         accel = accel + accelMod;
-        accel = accel + ((.05f) * accel);
+        accel = accel + ((0.05f) * accel);
         space_crafting.setBoosterAcceleration(newWeapon, accel);
         float maxSpeedMod = dataTableGetFloat(TABLE, template, "fltMaxSpeedModifier");
         float maxSpeed = dataTableGetFloat(TABLE, template, "fltMaxSpeed");
         maxSpeed = maxSpeed + maxSpeedMod;
-        maxSpeed = maxSpeed + ((.05f) * maxSpeed);
+        maxSpeed = maxSpeed + ((0.05f) * maxSpeed);
         space_crafting.setBoosterMaximumSpeed(newWeapon, maxSpeed);
         setObjVar(newWeapon, "cannotReverseEngineer", true);
         return newWeapon;

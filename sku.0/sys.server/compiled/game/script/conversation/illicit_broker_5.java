@@ -150,7 +150,7 @@ public class illicit_broker_5 extends script.base_script
     }
     public float illicit_broker_5_tokenDF_tokenDF0001(obj_id player, obj_id npc) throws InterruptedException
     {
-        return 0.f;
+        return 0.0f;
     }
     public int illicit_broker_5_handleBranch5(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {

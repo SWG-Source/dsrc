@@ -30,8 +30,8 @@ public class privateer_broker extends script.base_script
         location targetLoc = new location();
         targetLoc.area = "naboo";
         String waypName = utils.packStringId(new string_id("npc_spawner_n", "landau"));
-        targetLoc.x = -5516f;
-        targetLoc.z = 4403f;
+        targetLoc.x = -5516.0f;
+        targetLoc.z = 4403.0f;
         obj_id wayp = createWaypointInDatapad(player, targetLoc);
         setWaypointName(wayp, waypName);
     }
@@ -52,8 +52,8 @@ public class privateer_broker extends script.base_script
         location targetLoc = new location();
         targetLoc.area = "corellia";
         String waypName = utils.packStringId(new string_id("npc_spawner_n", "j_pai_brek"));
-        targetLoc.x = -5072f;
-        targetLoc.z = -2343f;
+        targetLoc.x = -5072.0f;
+        targetLoc.z = -2343.0f;
         obj_id wayp = createWaypointInDatapad(player, targetLoc);
         setWaypointName(wayp, waypName);
     }

@@ -13,7 +13,7 @@ public class station_experience_manager extends script.base_script
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         obj_id droidCell = getCellId(self, "dockingbay2");
-        location droidLoc = new location(92.0f, .8f, -11.4f, "thm_spc_nebula_orion_station", droidCell);
+        location droidLoc = new location(92.0f, 0.8f, -11.4f, "thm_spc_nebula_orion_station", droidCell);
         obj_id droidInvis = create.object("object/tangible/npe/npe_node.iff", droidLoc);
         setName(droidInvis, "C-3P0");
         setObjVar(droidInvis, "convo.appearance", "object/mobile/c_3po.iff");

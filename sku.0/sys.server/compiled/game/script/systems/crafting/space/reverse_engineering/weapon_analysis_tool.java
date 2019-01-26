@@ -100,20 +100,16 @@ public class weapon_analysis_tool extends script.base_script
             {
                 temp = getTemplateName(x[0]);
             }
-            for (int i = 0; i < x.length; i++)
-            {
-                if (space_crafting.getShipComponentStringType(x[i]) != "weapon")
-                {
+            for (obj_id x2 : x) {
+                if (space_crafting.getShipComponentStringType(x2) != "weapon") {
                     string_id errormessage2 = new string_id(TOOL, "wrong_component_type");
                     sendSystemMessage(player, errormessage2);
                     return SCRIPT_CONTINUE;
                 }
-                if ((getTemplateName(x[i])).equals(temp))
-                {
+                if ((getTemplateName(x2)).equals(temp)) {
                     countX++;
                 }
-                if (getBooleanObjVar(x[i], "cannotReverseEngineer") == true)
-                {
+                if (getBooleanObjVar(x2, "cannotReverseEngineer") == true) {
                     string_id errormessage = new string_id(TOOL, "already_engineered");
                     sendSystemMessage(player, errormessage);
                     return SCRIPT_CONTINUE;
@@ -182,9 +178,8 @@ public class weapon_analysis_tool extends script.base_script
                 setObjVar(self, "reverse_engineering.charges", charges);
                 if (charges > 0)
                 {
-                    for (int i = 0; i < x.length; i++)
-                    {
-                        destroyObject(x[i]);
+                    for (obj_id x1 : x) {
+                        destroyObject(x1);
                     }
                 }
                 if (charges <= 0)
@@ -270,11 +265,11 @@ public class weapon_analysis_tool extends script.base_script
         float energyMaintenance = dataTableGetFloat(TABLE, template, "fltEnergyMaintenance");
         float energyMaintenanceModifier = dataTableGetFloat(TABLE, template, "fltEnergyMaintenanceModifier");
         energyMaintenance = energyMaintenance - energyMaintenanceModifier;
-        energyMaintenance = energyMaintenance - ((.05f) * energyMaintenance);
+        energyMaintenance = energyMaintenance - ((0.05f) * energyMaintenance);
         float mass = dataTableGetFloat(TABLE, template, "fltMass");
         float massModifier = dataTableGetFloat(TABLE, template, "fltMassModifier");
         mass = mass - massModifier;
-        mass = mass - ((.05f) * mass);
+        mass = mass - ((0.05f) * mass);
         space_crafting.setComponentMass(newWeapon, mass);
         space_crafting.setComponentEnergyMaintenance(newWeapon, energyMaintenance);
         float armorHp = dataTableGetFloat(TABLE, template, "fltMaximumArmorHitpoints");
@@ -285,31 +280,31 @@ public class weapon_analysis_tool extends script.base_script
         float minDamage = (dataTableGetFloat(TABLE, template, "fltMinDamage"));
         float minDamageModifier = (dataTableGetFloat(TABLE, template, "fltMinDamageModifier"));
         minDamage = minDamage + minDamageModifier;
-        minDamage = minDamage + ((.05f) * minDamage);
+        minDamage = minDamage + ((0.05f) * minDamage);
         float maxDamage = (dataTableGetFloat(TABLE, template, "fltMaxDamage"));
         float maxDamageModifier = (dataTableGetFloat(TABLE, template, "fltMaxDamageModifier"));
         maxDamage = maxDamage + maxDamageModifier;
-        maxDamage = maxDamage + ((.05f) * maxDamage);
+        maxDamage = maxDamage + ((0.05f) * maxDamage);
         space_crafting.setWeaponMaximumDamage(newWeapon, maxDamage);
         space_crafting.setWeaponMinimumDamage(newWeapon, minDamage);
         float shieldEffectiveness = (dataTableGetFloat(TABLE, template, "fltShieldEffectiveness"));
         float shieldEffectivenessModifier = (dataTableGetFloat(TABLE, template, "fltShieldEffectivenessModifier"));
         shieldEffectiveness = shieldEffectiveness + shieldEffectivenessModifier;
-        shieldEffectiveness = shieldEffectiveness + ((.05f) * shieldEffectiveness);
+        shieldEffectiveness = shieldEffectiveness + ((0.05f) * shieldEffectiveness);
         float armorEffectiveness = (dataTableGetFloat(TABLE, template, "fltArmorEffectiveness"));
         float armorEffectivenessModifier = (dataTableGetFloat(TABLE, template, "fltArmorEffectivenessModifier"));
         armorEffectiveness = armorEffectiveness + armorEffectivenessModifier;
-        armorEffectiveness = armorEffectiveness + ((.05f) * armorEffectiveness);
+        armorEffectiveness = armorEffectiveness + ((0.05f) * armorEffectiveness);
         space_crafting.setWeaponShieldEffectiveness(newWeapon, shieldEffectiveness);
         space_crafting.setWeaponArmorEffectiveness(newWeapon, armorEffectiveness);
         float energyPerShot = dataTableGetFloat(TABLE, template, "fltEnergyPerShot");
         float energyPerShotModifier = dataTableGetFloat(TABLE, template, "fltEnergyPerShotModifier");
         energyPerShot = energyPerShot - energyPerShotModifier;
-        energyPerShot = energyPerShot - ((.05f) * energyPerShot);
+        energyPerShot = energyPerShot - ((0.05f) * energyPerShot);
         float refireRate = dataTableGetFloat(TABLE, template, "fltRefireRate");
         float refireRateModifier = dataTableGetFloat(TABLE, template, "fltRefireRateModifier");
         refireRate = refireRate + refireRateModifier;
-        refireRate = refireRate + ((.05f) * refireRate);
+        refireRate = refireRate + ((0.05f) * refireRate);
         space_crafting.setWeaponEnergyPerShot(newWeapon, energyPerShot);
         space_crafting.setWeaponRefireRate(newWeapon, refireRate);
         setObjVar(newWeapon, "cannotReverseEngineer", true);

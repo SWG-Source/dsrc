@@ -357,19 +357,19 @@ public class terminal extends script.terminal.base.base_terminal
         }
         abortCountdown(self);
         hq.activateHackAlarms(structure, false);
-        messageTo(self, "handleFacilityReboot", null, 30f, false);
+        messageTo(self, "handleFacilityReboot", null, 30.0f, false);
     }
     private void startCountdown(obj_id self, obj_id player) throws InterruptedException
     {
         int meleemod = getSkillStatMod(player, "group_melee_defense");
         int rangemod = getSkillStatMod(player, "group_range_defense");
-        float mod = (100f - (float)(meleemod + rangemod)) / 100f;
-        if (mod < 0f)
+        float mod = (100.0f - (meleemod + rangemod)) / 100.0f;
+        if (mod < 0.0f)
         {
-            mod = 0f;
+            mod = 0.0f;
         }
-        float delay = 300f + 300f * mod;
-        int minutes = Math.round(delay / 60f);
+        float delay = 300.0f + 300.0f * mod;
+        int minutes = Math.round(delay / 60.0f);
         if (isGod(player) && getGodLevel(player) >= 15)
         {
             delay = 60;
@@ -386,7 +386,7 @@ public class terminal extends script.terminal.base.base_terminal
         dictionary d = new dictionary();
         d.put("player", player);
         d.put("cnt", minutes);
-        messageTo(self, "handleCountdown", d, 10f, false);
+        messageTo(self, "handleCountdown", d, 10.0f, false);
     }
     private void abortCountdown(obj_id self) throws InterruptedException
     {
@@ -441,7 +441,7 @@ public class terminal extends script.terminal.base.base_terminal
         int now = getGameTime();
         LOG("hqObjective", "now = " + now);
         int timeLeft = stamp - now;
-        int minutes = Math.round(timeLeft / 60f);
+        int minutes = Math.round(timeLeft / 60.0f);
         obj_id structure = player_structure.getStructure(self);
         if (!isIdValid(structure))
         {
@@ -472,7 +472,7 @@ public class terminal extends script.terminal.base.base_terminal
 			}
         }
         hq.activateDestructAlarms(structure, true);
-        messageTo(self, "handleCountdown", params, 10f, false);
+        messageTo(self, "handleCountdown", params, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleDonateDeed(obj_id self, dictionary params) throws InterruptedException
@@ -1102,7 +1102,7 @@ public class terminal extends script.terminal.base.base_terminal
         {
             params.put("cellName", currentCell);
         }
-        messageTo(terminal, "handleShutdownCountdownComplete", params, 60f, false);
+        messageTo(terminal, "handleShutdownCountdownComplete", params, 60.0f, false);
     }
     public int handleShutdownCountdownComplete(obj_id self, dictionary params) throws InterruptedException
     {

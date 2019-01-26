@@ -15,7 +15,7 @@ public class tat_sm_ply_house_elevators extends script.base_script
         if (isIdValid(elevator))
         {
             here.x = -1.01f;
-            here.y = .26f;
+            here.y = 0.26f;
             here.z = 1.37f;
             here.cell = elevator;
             obj_id elevatorTerminalA = createObject("object/tangible/terminal/terminal_elevator.iff", here);

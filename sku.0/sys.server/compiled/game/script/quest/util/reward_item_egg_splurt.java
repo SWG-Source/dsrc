@@ -61,7 +61,7 @@ public class reward_item_egg_splurt extends script.base_script
                 {
                     if (loc.cell == container)
                     {
-                        playClientEffectLoc(player, "clienteffect/item_egg_splurt.cef", loc, 1f);
+                        playClientEffectLoc(player, "clienteffect/item_egg_splurt.cef", loc, 1.0f);
                     }
                 }
             }

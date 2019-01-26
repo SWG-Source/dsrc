@@ -141,11 +141,9 @@ public class callable extends script.base_script
         };
         Vector callables = new Vector();
         callables.setSize(0);
-        for (int i = 0; i < callableTypes.length; i++)
-        {
-            obj_id objCallable = getCallable(master, callableTypes[i]);
-            if (isIdValid(objCallable) && exists(objCallable))
-            {
+        for (int callableType : callableTypes) {
+            obj_id objCallable = getCallable(master, callableType);
+            if (isIdValid(objCallable) && exists(objCallable)) {
                 callables = utils.addElement(callables, objCallable);
             }
         }
@@ -167,11 +165,9 @@ public class callable extends script.base_script
             return null;
         }
         obj_id[] dataItems = getContents(datapad);
-        for (int i = 0; i < dataItems.length; i++)
-        {
-            if (getControlDeviceType(dataItems[i]) == callableType)
-            {
-                callables = utils.addElement(callables, dataItems[i]);
+        for (obj_id dataItem : dataItems) {
+            if (getControlDeviceType(dataItem) == callableType) {
+                callables = utils.addElement(callables, dataItem);
             }
         }
         obj_id[] _callables = new obj_id[0];
@@ -394,11 +390,9 @@ public class callable extends script.base_script
             CALLABLE_TYPE_FAMILIAR,
             CALLABLE_TYPE_RIDEABLE
         };
-        for (int i = 0; i < callableTypes.length; i++)
-        {
-            obj_id objCallable = getCallable(master, callableTypes[i]);
-            if (isIdValid(objCallable) && exists(objCallable))
-            {
+        for (int callableType : callableTypes) {
+            obj_id objCallable = getCallable(master, callableType);
+            if (isIdValid(objCallable) && exists(objCallable)) {
                 storeCallable(master, objCallable);
             }
         }
@@ -451,11 +445,9 @@ public class callable extends script.base_script
             CALLABLE_TYPE_FAMILIAR,
             CALLABLE_TYPE_RIDEABLE
         };
-        for (int i = 0; i < callableTypes.length; i++)
-        {
-            obj_id objCallable = getCallable(master, callableTypes[i]);
-            if (isIdValid(objCallable) && exists(objCallable))
-            {
+        for (int callableType : callableTypes) {
+            obj_id objCallable = getCallable(master, callableType);
+            if (isIdValid(objCallable) && exists(objCallable)) {
                 killCallable(objCallable, killer);
             }
         }
@@ -477,10 +469,8 @@ public class callable extends script.base_script
             return 0;
         }
         int numStored = 0;
-        for (int i = 0; i < dataItems.length; i++)
-        {
-            if (getControlDeviceType(dataItems[i]) == CDType)
-            {
+        for (obj_id dataItem : dataItems) {
+            if (getControlDeviceType(dataItem) == CDType) {
                 numStored++;
             }
         }

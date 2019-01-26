@@ -339,16 +339,11 @@ public class ai_corpse extends script.base_script
         int numWindowsOpen = getIntObjVar(self, "numWindowsOpen");
         numWindowsOpen = numWindowsOpen - 1;
         setObjVar(self, "numWindowsOpen", numWindowsOpen);
-        for (int i = 0; i < selection_ids.length; ++i)
-        {
-            obj_id thisObject = selection_ids[i];
-            if (!hasObjVar(thisObject, "numLotteryPlayers"))
-            {
+        for (obj_id thisObject : selection_ids) {
+            if (!hasObjVar(thisObject, "numLotteryPlayers")) {
                 setObjVar(thisObject, "numLotteryPlayers", 1);
                 setObjVar(thisObject, "lotteryPlayer1", player);
-            }
-            else 
-            {
+            } else {
                 int numLotteryPlayers = getIntObjVar(thisObject, "numLotteryPlayers");
                 numLotteryPlayers = numLotteryPlayers + 1;
                 setObjVar(thisObject, "lotteryPlayer" + numLotteryPlayers, player);
@@ -373,44 +368,34 @@ public class ai_corpse extends script.base_script
         {
             boolean allTransfersComplete = true;
             obj_id[] corpseContents = getContents(corpseInv);
-            for (int i = 0; i < corpseContents.length; ++i)
-            {
-                obj_id item = corpseContents[i];
+            for (obj_id item : corpseContents) {
                 int numLotteryPlayers = getIntObjVar(item, "numLotteryPlayers");
                 int lotteryNumber = rand(1, numLotteryPlayers);
                 obj_id lottoWinner = getObjIdObjVar(item, "lotteryPlayer" + lotteryNumber);
-                if (numWindowsOpen > 0)
-                {
+                if (numWindowsOpen > 0) {
                     setObjVar(item, "pickupable", lottoWinner);
                 }
                 obj_id winventory = utils.getInventoryContainer(lottoWinner);
                 utils.setScriptVar(lottoWinner, "autostack.ignoreitems", 1);
-                if (loot.isCashLootItem(item))
-                {
-                    if (isIdNull(winventory))
-                    {
+                if (loot.isCashLootItem(item)) {
+                    if (isIdNull(winventory)) {
                         winventory = utils.getObjIdScriptVar(self, "default_money_recipient_inventory");
                     }
                     putIn(item, winventory);
                     continue;
                 }
-                if (!putIn(item, winventory))
-                {
-                    if (!loot.isCashLootItem(item))
-                    {
+                if (!putIn(item, winventory)) {
+                    if (!loot.isCashLootItem(item)) {
                         String transferProblem = "full_inventory_free_for_all";
                         boolean inventoryHasRoom = (getVolumeFree(winventory) > 0);
-                        if (inventoryHasRoom)
-                        {
+                        if (inventoryHasRoom) {
                             transferProblem = "unable_to_transfer";
                             setObjVar(corpseId, "allowedToOpenFromFailedTransfer_" + lottoWinner, 1);
                             setObjVar(item, "pickupable", lottoWinner);
-                        }
-                        else 
-                        {
+                        } else {
                             loot.setAutoLootComplete(lottoWinner, corpseId, item);
                         }
-                        if(isValidId(lottoWinner)) {
+                        if (isValidId(lottoWinner)) {
                             dictionary proseParameters = new dictionary();
                             proseParameters.put("stf", group.GROUP_STF);
                             proseParameters.put("message", transferProblem);
@@ -419,16 +404,14 @@ public class ai_corpse extends script.base_script
                             obj_id gid = getGroupObject(lottoWinner);
                             obj_id[] members = utils.getLocalGroupMemberIds(gid);
                             if (members != null) {
-                                for (int x = 0; x < members.length; ++x) {
-                                    messageTo(members[x], "sendSystemMessageProseAuthoritative", proseParameters, 1, true);
+                                for (obj_id member : members) {
+                                    messageTo(member, "sendSystemMessageProseAuthoritative", proseParameters, 1, true);
                                 }
                             }
                         }
                         allTransfersComplete = false;
                     }
-                }
-                else 
-                {
+                } else {
                     loot.sendGroupLootSystemMessage(item, lottoWinner, "loot_n", "group_looted");
                     messageTo(item, "msgStackItem", null, 1, false);
                 }
@@ -436,7 +419,7 @@ public class ai_corpse extends script.base_script
             }
             if (allTransfersComplete)
             {
-                messageTo(corpseId, "handleCorpseEmpty", null, 1f, isObjectPersisted(corpseId));
+                messageTo(corpseId, "handleCorpseEmpty", null, 1.0f, isObjectPersisted(corpseId));
             }
             return SCRIPT_CONTINUE;
         }

@@ -32,11 +32,11 @@ public class jukebox extends script.base_script
         {
             if (!hasTriggerVolume(self, "storytellerJukebox"))
             {
-                float jukebox_range = 100f;
+                float jukebox_range = 100.0f;
                 obj_id myBuilding = getTopMostContainer(self);
                 if (isIdValid(myBuilding) && myBuilding != self)
                 {
-                    jukebox_range = 30f;
+                    jukebox_range = 30.0f;
                 }
                 setObjVar(self, JUKBOX_RANGE_OBJVAR, jukebox_range);
                 createTriggerVolume("storytellerJukebox", jukebox_range, true);
@@ -261,13 +261,9 @@ public class jukebox extends script.base_script
         location here = getLocation(self);
         float jukebox_range = getFloatObjVar(self, JUKBOX_RANGE_OBJVAR) + 10;
         obj_id[] players = getPlayerCreaturesInRange(here, jukebox_range);
-        for (int i = 0; i < players.length; i++)
-        {
-            obj_id player = players[i];
-            if (isIdValid(player))
-            {
-                if (allowedToListen(self, player))
-                {
+        for (obj_id player : players) {
+            if (isIdValid(player)) {
+                if (allowedToListen(self, player)) {
                     playMusic(player, "sound/music_silence.snd");
                 }
             }
@@ -297,11 +293,8 @@ public class jukebox extends script.base_script
         location here = getLocation(self);
         float jukebox_range = getFloatObjVar(self, JUKBOX_RANGE_OBJVAR);
         obj_id[] players = getPlayerCreaturesInRange(here, jukebox_range);
-        for (int i = 0; i < players.length; i++)
-        {
-            obj_id player = players[i];
-            if (allowedToListen(self, player))
-            {
+        for (obj_id player : players) {
+            if (allowedToListen(self, player)) {
                 playMusic(player, "sound/music_silence.snd");
             }
         }
@@ -334,11 +327,8 @@ public class jukebox extends script.base_script
             location here = getLocation(self);
             float jukebox_range = getFloatObjVar(self, JUKBOX_RANGE_OBJVAR);
             obj_id[] players = getPlayerCreaturesInRange(here, jukebox_range);
-            for (int i = 0; i < players.length; i++)
-            {
-                obj_id player = players[i];
-                if (allowedToListen(self, player))
-                {
+            for (obj_id player : players) {
+                if (allowedToListen(self, player)) {
                     playMusic(player, song);
                 }
             }

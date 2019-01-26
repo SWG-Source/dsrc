@@ -38,27 +38,25 @@ public class combat_simulator_actor extends script.base_script
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException
     {
-        if (text.equals("actorsDumpInfo"))
-        {
-            obj_id owner = getObjIdObjVar(self, "combat_simulator.owner");
-            obj_id enemy = getObjIdObjVar(self, "combat_simulator.enemy");
-            String[] queueCommands = getStringArrayObjVar(self, "combat_simulator.queue_commands");
-            if (queueCommands == null)
-            {
-                queueCommands = new String[0];
-            }
-            int queueCommandIndex = getIntObjVar(self, "combat_simulator.queue_command_index");
-            int numberOfAttacks = getIntObjVar(self, "combat_simulator.number_of_attacks");
-            boolean hasCombatActions = checkForCombatActions(self);
-            debugSpeakMsg(self, "Self: " + self + ", Enemy: " + enemy + ", Owner: " + owner + ", NumCommands: " + queueCommands.length + ", Index: " + queueCommandIndex + ", numAttacks " + numberOfAttacks + ", hasCombatActions " + hasCombatActions);
-        }
-        else if (text.equals("debug on"))
-        {
-            debug = true;
-        }
-        else if (text.equals("debug off"))
-        {
-            debug = false;
+        switch (text) {
+            case "actorsDumpInfo":
+                obj_id owner = getObjIdObjVar(self, "combat_simulator.owner");
+                obj_id enemy = getObjIdObjVar(self, "combat_simulator.enemy");
+                String[] queueCommands = getStringArrayObjVar(self, "combat_simulator.queue_commands");
+                if (queueCommands == null) {
+                    queueCommands = new String[0];
+                }
+                int queueCommandIndex = getIntObjVar(self, "combat_simulator.queue_command_index");
+                int numberOfAttacks = getIntObjVar(self, "combat_simulator.number_of_attacks");
+                boolean hasCombatActions = checkForCombatActions(self);
+                debugSpeakMsg(self, "Self: " + self + ", Enemy: " + enemy + ", Owner: " + owner + ", NumCommands: " + queueCommands.length + ", Index: " + queueCommandIndex + ", numAttacks " + numberOfAttacks + ", hasCombatActions " + hasCombatActions);
+                break;
+            case "debug on":
+                debug = true;
+                break;
+            case "debug off":
+                debug = false;
+                break;
         }
         return SCRIPT_CONTINUE;
     }

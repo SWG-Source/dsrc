@@ -36,27 +36,21 @@ public class death_watch_poison_player extends script.base_script
         obj_id[] objContents = utils.getContents(self, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff"))
-                {
-                    obj_id mask = objContents[intI];
-                    if (hasObjVar(mask, "death_watch_ready"))
-                    {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff")) {
+                    obj_id mask = objContent;
+                    if (hasObjVar(mask, "death_watch_ready")) {
                         obj_id holder = getContainedBy(mask);
-                        if (holder == self)
-                        {
+                        if (holder == self) {
                             return true;
                         }
                     }
                 }
-                if (strItemTemplate.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_helmet.iff"))
-                {
-                    obj_id mandHelm = objContents[intI];
+                if (strItemTemplate.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_helmet.iff")) {
+                    obj_id mandHelm = objContent;
                     obj_id holder = getContainedBy(mandHelm);
-                    if (holder == self)
-                    {
+                    if (holder == self) {
                         return true;
                     }
                 }
@@ -66,12 +60,12 @@ public class death_watch_poison_player extends script.base_script
     }
     public void poisonAirLogIn(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handlePoisonAir", null, 30f, false);
+        messageTo(self, "handlePoisonAir", null, 30.0f, false);
         return;
     }
     public void poisonAir(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handlePoisonAir", null, 10f, false);
+        messageTo(self, "handlePoisonAir", null, 10.0f, false);
         return;
     }
     public boolean validateRoom(obj_id self) throws InterruptedException
@@ -143,7 +137,7 @@ public class death_watch_poison_player extends script.base_script
         healthcost = healthcost * -1;
         addToHealth(self, healthcost);
         drainAttributes(self, actioncost, 0);
-        messageTo(self, "handlePoisonAir", null, 30f, false);
+        messageTo(self, "handlePoisonAir", null, 30.0f, false);
         return SCRIPT_CONTINUE;
     }
 }

@@ -71,7 +71,7 @@ public class destroy_duty extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -128,7 +128,7 @@ public class destroy_duty extends script.base_script
         obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
         transform tloc = getTransform_o2w(space_transition.getContainingShip(player));
         location sloc = getLocation(space_transition.getContainingShip(player));
-        location o = new location(0.f, 0.f, 0.f);
+        location o = new location(0.0f, 0.0f, 0.0f);
         location loc = null;
         transform strans = null;
         if (hasObjVar(self, "moredist"))
@@ -217,12 +217,12 @@ public class destroy_duty extends script.base_script
             for (int i = 0; i < basecount; i++)
             {
                 transform gloc = getTransform_o2w(space_transition.getContainingShip(player));
-                float dist = rand(1200.f, 1500.f);
+                float dist = rand(1200.0f, 1500.0f);
                 vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
                 gloc = gloc.move_p(n);
                 gloc = gloc.yaw_l(3.14f);
-                vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-                vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+                vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+                vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
                 vector vd = vi.add(vj);
                 gloc = gloc.move_p(vd);
                 obj_id newship = space_create.createShipHyperspace(bossType, gloc);
@@ -258,12 +258,12 @@ public class destroy_duty extends script.base_script
             for (int i = 0; i < basecount; i++)
             {
                 transform gloc = getTransform_o2w(space_transition.getContainingShip(player));
-                float dist = rand(1200.f, 1500.f);
+                float dist = rand(1200.0f, 1500.0f);
                 vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
                 gloc = gloc.move_p(n);
                 gloc = gloc.yaw_l(3.14f);
-                vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-                vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+                vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+                vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
                 vector vd = vi.add(vj);
                 gloc = gloc.move_p(vd);
                 String shipString = bossType;
@@ -316,22 +316,22 @@ public class destroy_duty extends script.base_script
                 transform gloc = getTransform_o2w(space_transition.getContainingShip(player));
                 if (!behind)
                 {
-                    float dist = rand(600.f, 700.f);
+                    float dist = rand(600.0f, 700.0f);
                     vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
                     gloc = gloc.move_p(n);
                     gloc = gloc.yaw_l(3.14f);
-                    vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-                    vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+                    vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+                    vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
                     vector vd = vi.add(vj);
                     gloc = gloc.move_p(vd);
                 }
                 else 
                 {
-                    float dist = rand(250.f, 300.f) * -1.f;
+                    float dist = rand(250.0f, 300.0f) * -1.0f;
                     vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
                     gloc = gloc.move_p(n);
-                    vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-75.f, 75.f));
-                    vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-75.f, 75.f));
+                    vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-75.0f, 75.0f));
+                    vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-75.0f, 75.0f));
                     vector vd = vi.add(vj);
                     gloc = gloc.move_p(vd);
                 }
@@ -393,26 +393,20 @@ public class destroy_duty extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (deadship == targets[i])
-            {
+        for (obj_id target : targets) {
+            if (deadship == target) {
                 deadships++;
                 setObjVar(self, "deadships", deadships);
                 space_quest._removeMissionCriticalShip(player, self, deadship);
-                if (deadships == targets.length)
-                {
+                if (deadships == targets.length) {
                     int wavescomplete = getIntObjVar(self, "wavescomplete");
                     wavescomplete++;
                     setObjVar(self, "wavescomplete", wavescomplete);
-                    if (hasObjVar(self, "currentBossLevel"))
-                    {
+                    if (hasObjVar(self, "currentBossLevel")) {
                         space_quest.sendQuestMessage(player, SID_BOSS_DEAD);
                         playClientEffectObj(player, SOUND_DESTROYED_ALL, player, "");
                         play2dNonLoopingMusic(player, MUSIC_LEVEL_WON);
-                    }
-                    else 
-                    {
+                    } else {
                         space_quest.sendQuestMessage(player, SID_ALL_TARGETS_DEAD);
                         playClientEffectObj(player, SOUND_DESTROYED_WAVE, player, "");
                         play2dNonLoopingMusic(player, MUSIC_ROUND_WON);
@@ -455,18 +449,18 @@ public class destroy_duty extends script.base_script
                     int credits = rounddeadships * reward;
                     outparams.put("type", 1);
                     outparams.put("reward", credits);
-                    messageTo(self, "grantReward", outparams, 1.f, false);
+                    messageTo(self, "grantReward", outparams, 1.0f, false);
                     removeObjVar(self, "rounddeadships");
                     setObjVar(self, "currentBossLevel", 1);
                     outparams.put("type", 1);
-                    messageTo(self, "notifyNextWave", outparams, 3.f, false);
+                    messageTo(self, "notifyNextWave", outparams, 3.0f, false);
                 }
                 else 
                 {
                     int credits = 3 * reward;
                     outparams.put("type", 3);
                     outparams.put("reward", credits);
-                    messageTo(self, "grantReward", outparams, 2.f, false);
+                    messageTo(self, "grantReward", outparams, 2.0f, false);
                     removeObjVar(self, "rounddeadships");
                     int basecount = getIntObjVar(self, "difficulty.basecount");
                     basecount++;
@@ -487,12 +481,12 @@ public class destroy_duty extends script.base_script
                         credits = 25 * reward;
                         outparams.put("type", 2);
                         outparams.put("reward", credits);
-                        messageTo(self, "grantReward", outparams, 2.f, false);
-                        messageTo(self, "completeDuty", null, 3.f, false);
+                        messageTo(self, "grantReward", outparams, 2.0f, false);
+                        messageTo(self, "completeDuty", null, 3.0f, false);
                         return SCRIPT_CONTINUE;
                     }
                     outparams.put("type", 2);
-                    messageTo(self, "notifyNextWave", outparams, 3.f, false);
+                    messageTo(self, "notifyNextWave", outparams, 3.0f, false);
                 }
             }
             else 
@@ -500,7 +494,7 @@ public class destroy_duty extends script.base_script
                 int credits = rounddeadships * reward;
                 outparams.put("type", 1);
                 outparams.put("reward", credits);
-                messageTo(self, "grantReward", outparams, 1.f, false);
+                messageTo(self, "grantReward", outparams, 1.0f, false);
                 removeObjVar(self, "rounddeadships");
                 setObjVar(self, "difficulty.count", getIntObjVar(self, "difficulty.basecount"));
                 String[] ships = getStringArrayObjVar(self, "shipType1");
@@ -512,16 +506,16 @@ public class destroy_duty extends script.base_script
                 }
                 setObjVar(self, "difficulty.ship", ship);
                 outparams.put("type", 3);
-                messageTo(self, "notifyNextWave", outparams, 3.f, false);
+                messageTo(self, "notifyNextWave", outparams, 3.0f, false);
             }
-            messageTo(self, "findDutyLocation", null, 6.f, false);
+            messageTo(self, "findDutyLocation", null, 6.0f, false);
         }
         else 
         {
             int count = getIntObjVar(self, "difficulty.count");
             count++;
             setObjVar(self, "difficulty.count", count);
-            messageTo(self, "spawnDutyShips", null, 6.f, false);
+            messageTo(self, "spawnDutyShips", null, 6.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -675,11 +669,9 @@ public class destroy_duty extends script.base_script
         obj_id[] targets = getObjIdArrayObjVar(self, "targets");
         if (targets != null)
         {
-            for (int i = 0; i < targets.length; i++)
-            {
-                if (isIdValid(targets[i]) && exists(targets[i]))
-                {
-                    destroyObjectHyperspace(targets[i]);
+            for (obj_id target : targets) {
+                if (isIdValid(target) && exists(target)) {
+                    destroyObjectHyperspace(target);
                 }
             }
         }

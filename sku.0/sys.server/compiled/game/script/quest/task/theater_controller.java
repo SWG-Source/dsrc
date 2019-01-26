@@ -11,9 +11,8 @@ public class theater_controller extends script.base_script
     {
         if (objects != null)
         {
-            for (int i = 0; i < objects.length; i++)
-            {
-                setObjVar(objects[i], "quest.owner", player);
+            for (obj_id object : objects) {
+                setObjVar(object, "quest.owner", player);
             }
         }
         return SCRIPT_CONTINUE;

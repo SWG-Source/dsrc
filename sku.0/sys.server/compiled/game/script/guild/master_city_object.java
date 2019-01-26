@@ -135,7 +135,7 @@ public class master_city_object extends script.base_script
         setObjVar(self, "vote_interval." + city_id, cityVoteInterval);
         dictionary outparams = new dictionary();
         outparams.put("cityVoteInterval", cityVoteInterval);
-        if (!messageTo(cityHall, "setVoteInterval", outparams, 0.f, true))
+        if (!messageTo(cityHall, "setVoteInterval", outparams, 0.0f, true))
         {
             CustomerServiceLog("player_city", "Updating City: Vote Interval not Updated - Should have been set to " + cityVoteInterval + ". City: " + name + " (" + city_id + "/" + cityHall + ")");
         }
@@ -174,34 +174,26 @@ public class master_city_object extends script.base_script
         {
             CustomerServiceLog("player_city", "Election Cycle for City: " + city_name + " (" + city_id + "/" + cityHall + ") INVALID Citizen Array - Allowing to continue momentarily");
         }
-        for (int i = 0; i < citizens.length; i++)
-        {
-            if (!isIdValid(citizens[i]))
-            {
-                CustomerServiceLog("player_city", "Election Cycle for City: " + city_name + " (" + city_id + "/" + cityHall + ").  Citizen: (" + citizens[i] + ") is Invalid.");
+        for (obj_id citizen2 : citizens) {
+            if (!isIdValid(citizen2)) {
+                CustomerServiceLog("player_city", "Election Cycle for City: " + city_name + " (" + city_id + "/" + cityHall + ").  Citizen: (" + citizen2 + ") is Invalid.");
             }
             boolean found = false;
-            obj_id vote = cityGetCitizenAllegiance(city_id, citizens[i]);
-            if (isIdValid(vote) && city.isCitizenOfCity(vote, city_id))
-            {
-                for (int j = 0; (j < vote_ids.size()); j++)
-                {
-                    if (((obj_id)vote_ids.get(j)) == vote)
-                    {
-                        vote_counts.set(j, new Integer(((Integer)vote_counts.get(j)).intValue() + 1));
+            obj_id vote = cityGetCitizenAllegiance(city_id, citizen2);
+            if (isIdValid(vote) && city.isCitizenOfCity(vote, city_id)) {
+                for (int j = 0; (j < vote_ids.size()); j++) {
+                    if (((obj_id) vote_ids.get(j)) == vote) {
+                        vote_counts.set(j, (Integer) vote_counts.get(j) + 1);
                         found = true;
                         break;
                     }
                 }
-                if (!found)
-                {
+                if (!found) {
                     utils.addElement(vote_ids, vote);
                     utils.addElement(vote_counts, 1);
                 }
-            }
-            else 
-            {
-                CustomerServiceLog("player_city", "Election Cycle for City: " + city_name + " (" + city_id + "/" + cityHall + ").  Citizen: (" + citizens[i] + ") has 'Voted for/allegience to' an Invalid ID(" + vote + ")  This vote won't count.");
+            } else {
+                CustomerServiceLog("player_city", "Election Cycle for City: " + city_name + " (" + city_id + "/" + cityHall + ").  Citizen: (" + citizen2 + ") has 'Voted for/allegience to' an Invalid ID(" + vote + ")  This vote won't count.");
             }
         }
         obj_id incumbent_mayor = cityGetLeader(city_id);
@@ -218,24 +210,24 @@ public class master_city_object extends script.base_script
         {
             if (isIdValid(((obj_id)vote_ids.get(i))))
             {
-                CustomerServiceLog("player_city", "Election Cycle: Player has recieved " + ((Integer)vote_counts.get(i)).intValue() + " votes granting " + ((Integer)vote_counts.get(i)).intValue() * 100 + " points of " + xp.POLITICAL + " XP for running in the " + city_name + " (" + city_id + "/" + cityHall + ") election. " + ((obj_id)vote_ids.get(i)));
-                grantExperiencePoints(((obj_id)vote_ids.get(i)), xp.POLITICAL, ((Integer)vote_counts.get(i)).intValue() * 300);
+                CustomerServiceLog("player_city", "Election Cycle: Player has recieved " + (Integer) vote_counts.get(i) + " votes granting " + (Integer) vote_counts.get(i) * 100 + " points of " + xp.POLITICAL + " XP for running in the " + city_name + " (" + city_id + "/" + cityHall + ") election. " + ((obj_id)vote_ids.get(i)));
+                grantExperiencePoints(((obj_id)vote_ids.get(i)), xp.POLITICAL, (Integer) vote_counts.get(i) * 300);
                 xp_granted++;
             }
             else 
             {
-                CustomerServiceLog("player_city", "Election Cycle: Invalid ID (" + ((obj_id)vote_ids.get(i)) + ") has recieved " + ((Integer)vote_counts.get(i)).intValue() + " votes in the City Election: " + city_name + " (" + city_id + "/" + cityHall + "). No Experience was granted due to Invalid ID.");
+                CustomerServiceLog("player_city", "Election Cycle: Invalid ID (" + ((obj_id)vote_ids.get(i)) + ") has recieved " + (Integer) vote_counts.get(i) + " votes in the City Election: " + city_name + " (" + city_id + "/" + cityHall + "). No Experience was granted due to Invalid ID.");
             }
             if (((obj_id)vote_ids.get(i)) == incumbent_mayor)
             {
-                incumbent_votes = ((Integer)vote_counts.get(i)).intValue();
+                incumbent_votes = (Integer) vote_counts.get(i);
             }
-            if (((Integer)vote_counts.get(i)).intValue() > max_votes)
+            if ((Integer) vote_counts.get(i) > max_votes)
             {
-                max_votes = ((Integer)vote_counts.get(i)).intValue();
+                max_votes = (Integer) vote_counts.get(i);
                 new_mayor = ((obj_id)vote_ids.get(i));
             }
-            csTotal += ((Integer)vote_counts.get(i)).intValue();
+            csTotal += (Integer) vote_counts.get(i);
         }
         if (new_mayor == null)
         {
@@ -263,28 +255,23 @@ public class master_city_object extends script.base_script
             utils.sendMail(ELECTION_INCUMBENT_LOST_SUBJECT, bodypp, imayor_name, "City Hall");
             city.doMayoralStructureTransfer(new_mayor, incumbent_mayor, city_id);
         }
-        for (int i = 0; i < citizens.length; i++)
-        {
-            city.setCitizenAllegiance(city_id, citizens[i], null);
+        for (obj_id citizen1 : citizens) {
+            city.setCitizenAllegiance(city_id, citizen1, null);
         }
         dictionary outparams = new dictionary();
         outparams.put("lastUpdateTime", getGameTime());
         outparams.put("currentInterval", interval);
-        if (!messageTo(cityGetCityHall(city_id), "resetVoteTerminal", outparams, 0.f, true))
+        if (!messageTo(cityGetCityHall(city_id), "resetVoteTerminal", outparams, 0.0f, true))
         {
             CustomerServiceLog("player_city_transfer", "ResetVotingTerminal for City (" + city_id + ") " + cityGetName(city_id) + " FAILED - MessageTo Failed to send: Candidate List has not been removed properly.");
         }
         String nmayor_name = cityGetCitizenName(city_id, new_mayor);
-        for (int i = 0; i < citizens.length; i++)
-        {
-            String citizen_name = cityGetCitizenName(city_id, citizens[i]);
-            if (incumbent_win)
-            {
+        for (obj_id citizen : citizens) {
+            String citizen_name = cityGetCitizenName(city_id, citizen);
+            if (incumbent_win) {
                 prose_package bodypp = prose.getPackage(PUBLIC_ELECTION_INC_BODY, city_name, nmayor_name);
                 utils.sendMail(PUBLIC_ELECTION_INC_SUBJECT, bodypp, citizen_name, "City Hall");
-            }
-            else 
-            {
+            } else {
                 prose_package bodypp = prose.getPackage(PUBLIC_ELECTION_BODY, city_name, nmayor_name);
                 utils.sendMail(PUBLIC_ELECTION_SUBJECT, bodypp, citizen_name, "City Hall");
             }
@@ -324,10 +311,10 @@ public class master_city_object extends script.base_script
             dictionary params = new dictionary();
             params.put("rank", rank);
             params.put("radius", newRadius);
-            messageTo(cityHall, "contractCity", params, 0.f, true);
+            messageTo(cityHall, "contractCity", params, 0.0f, true);
             prose_package bodypp = prose.getPackage(CITY_INVALID_BODY, city_name, rank + 1);
             utils.sendMail(CITY_INVALID_SUBJECT, bodypp, mayor_name, "City Hall");
-            messageTo(cityHall, "validateCity", null, 259200.f, true);
+            messageTo(cityHall, "validateCity", null, 259200.0f, true);
             CustomerServiceLog("player_city", "City Below Min Citizen Requirement!  Population: " + citizens.length + " City: " + city_name + " (" + city_id + "/" + cityHall + ")");
         }
         else if (citizens.length < currentPopReq)
@@ -368,7 +355,7 @@ public class master_city_object extends script.base_script
         dictionary params = new dictionary();
         params.put("rank", rank);
         params.put("radius", newRadius);
-        messageTo(cityHall, "contractCity", params, 0.f, true);
+        messageTo(cityHall, "contractCity", params, 0.0f, true);
         prose_package bodypp = prose.getPackage(CITY_CONTRACT_BODY, city_name, rank + 1);
         utils.sendMail(CITY_CONTRACT_SUBJECT, bodypp, mayor_name, "City Hall");
     }
@@ -404,11 +391,9 @@ public class master_city_object extends script.base_script
         {
             int mid_size_cities = 0;
             int[] city_ids = getAllCityIds();
-            for (int i = 0; i < city_ids.length; i++)
-            {
-                location city_loc = cityGetLocation(city_ids[i]);
-                if (city_loc.area.equals(planet_name) && (city.getCityRank(city_ids[i]) >= 3))
-                {
+            for (int city_id1 : city_ids) {
+                location city_loc = cityGetLocation(city_id1);
+                if (city_loc.area.equals(planet_name) && (city.getCityRank(city_id1) >= 3)) {
                     mid_size_cities++;
                 }
             }
@@ -426,11 +411,9 @@ public class master_city_object extends script.base_script
         {
             int large_size_cities = 0;
             int[] city_ids = getAllCityIds();
-            for (int i = 0; i < city_ids.length; i++)
-            {
-                location city_loc = cityGetLocation(city_ids[i]);
-                if (city_loc.area.equals(planet_name) && (city.getCityRank(city_ids[i]) >= 4))
-                {
+            for (int city_id1 : city_ids) {
+                location city_loc = cityGetLocation(city_id1);
+                if (city_loc.area.equals(planet_name) && (city.getCityRank(city_id1) >= 4)) {
                     large_size_cities++;
                 }
             }
@@ -448,7 +431,7 @@ public class master_city_object extends script.base_script
         dictionary params = new dictionary();
         params.put("rank", rank);
         params.put("radius", newRadius);
-        messageTo(cityHall, "expandCity", params, 0.f, true);
+        messageTo(cityHall, "expandCity", params, 0.0f, true);
         prose_package bodypp = prose.getPackage(CITY_EXPAND_BODY, city_name, rank + 1);
         utils.sendMail(CITY_EXPAND_SUBJECT, bodypp, mayor_name, "City Hall");
     }
@@ -464,7 +447,7 @@ public class master_city_object extends script.base_script
         obj_id city_hall = cityGetCityHall(city_id);
         String city_name = cityGetName(city_id);
         CustomerServiceLog("player_city", "City Maintenance: " + city_name + " (" + city_id + "/" + city_hall + ")");
-        messageTo(city_hall, "payMaintenance", null, 0.f, true);
+        messageTo(city_hall, "payMaintenance", null, 0.0f, true);
     }
     public int findIntOffsetInTable(int[] from, int find) throws InterruptedException
     {
@@ -521,7 +504,7 @@ public class master_city_object extends script.base_script
                     }
                     dictionary outparams = new dictionary();
                     outparams.put("time_remaining", time_remaining);
-                    messageTo(player, "displayCityUpdateTime", outparams, 0.f, false);
+                    messageTo(player, "displayCityUpdateTime", outparams, 0.0f, false);
                     return SCRIPT_CONTINUE;
                 }
             }
@@ -531,53 +514,40 @@ public class master_city_object extends script.base_script
     public void checkCivicCap(int city_id, obj_id self) throws InterruptedException
     {
         obj_id city_hall = cityGetCityHall(city_id);
-        messageTo(city_hall, "checkCivicCap", null, 0.f, true);
+        messageTo(city_hall, "checkCivicCap", null, 0.0f, true);
     }
     public void cleanupCitizens(int city_id, obj_id self) throws InterruptedException
     {
         obj_id mayor = cityGetLeader(city_id);
         obj_id[] citizens = cityGetCitizenIds(city_id);
-        for (int i = 0; i < citizens.length; i++)
-        {
-            if (citizens[i] == mayor)
-            {
+        for (obj_id citizen : citizens) {
+            if (citizen == mayor) {
                 continue;
             }
-            int flags = cityGetCitizenPermissions(city_id, citizens[i]);
-            if ((flags & city.CP_ABSENT_WEEK_5) != 0)
-            {
+            int flags = cityGetCitizenPermissions(city_id, citizen);
+            if ((flags & city.CP_ABSENT_WEEK_5) != 0) {
                 String mayor_name = cityGetCitizenName(city_id, mayor);
-                prose_package bodypp = prose.getPackage(city.LOST_INACTIVE_CITIZEN_BODY, cityGetCitizenName(city_id, citizens[i]));
+                prose_package bodypp = prose.getPackage(city.LOST_INACTIVE_CITIZEN_BODY, cityGetCitizenName(city_id, citizen));
                 utils.sendMail(city.LOST_INACTIVE_CITIZEN_SUBJECT, bodypp, mayor_name, "City Hall");
                 String city_name = cityGetName(city_id);
                 obj_id city_hall = cityGetCityHall(city_id);
-                cityRemoveCitizen(city_id, citizens[i]);
-                CustomerServiceLog("player_city", "Removed citizen due to inactivity.  City: " + city_name + " (" + city_id + "/" + city_hall + ")" + " Citizen: " + citizens[i]);
+                cityRemoveCitizen(city_id, citizen);
+                CustomerServiceLog("player_city", "Removed citizen due to inactivity.  City: " + city_name + " (" + city_id + "/" + city_hall + ")" + " Citizen: " + citizen);
                 continue;
-            }
-            else if ((flags & city.CP_ABSENT_WEEK_4) != 0)
-            {
+            } else if ((flags & city.CP_ABSENT_WEEK_4) != 0) {
                 flags = flags | city.CP_ABSENT_WEEK_5;
-            }
-            else if ((flags & city.CP_ABSENT_WEEK_3) != 0)
-            {
+            } else if ((flags & city.CP_ABSENT_WEEK_3) != 0) {
                 flags = flags | city.CP_ABSENT_WEEK_4;
-            }
-            else if ((flags & city.CP_ABSENT_WEEK_2) != 0)
-            {
+            } else if ((flags & city.CP_ABSENT_WEEK_2) != 0) {
                 flags = flags | city.CP_ABSENT_WEEK_3;
-            }
-            else if ((flags & city.CP_ABSENT_WEEK_1) != 0)
-            {
+            } else if ((flags & city.CP_ABSENT_WEEK_1) != 0) {
                 flags = flags | city.CP_ABSENT_WEEK_2;
-            }
-            else 
-            {
+            } else {
                 flags = flags | city.CP_ABSENT_WEEK_1;
             }
-            String citname = cityGetCitizenName(city_id, citizens[i]);
-            obj_id citall = cityGetCitizenAllegiance(city_id, citizens[i]);
-            citySetCitizenInfo(city_id, citizens[i], citname, citall, flags);
+            String citname = cityGetCitizenName(city_id, citizen);
+            obj_id citall = cityGetCitizenAllegiance(city_id, citizen);
+            citySetCitizenInfo(city_id, citizen, citname, citall, flags);
         }
     }
 }

@@ -286,21 +286,13 @@ public class terminal_travel_instant_ttgm extends script.base_script
         if (groupieRegions != null && groupieRegions.length > 0)
         {
             String[] restrictedRegions = dataTableGetStringColumn("datatables/item/instant_travel_restricted_regions.iff", "region_name");
-            for (int k = 0; k < groupieRegions.length; k++)
-            {
-                String regionTheyAreIn = groupieRegions[k];
-                for (int q = 0; q < restrictedRegions.length; q++)
-                {
-                    String restrictedRegion = restrictedRegions[q];
-                    if (regionTheyAreIn.startsWith(restrictedRegion))
-                    {
+            for (String regionTheyAreIn : groupieRegions) {
+                for (String restrictedRegion : restrictedRegions) {
+                    if (regionTheyAreIn.startsWith(restrictedRegion)) {
                         sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_invalid_scene"));
                         return false;
-                    }
-                    else if (regionTheyAreIn.equals("dathomir_fs_village_unpassable"))
-                    {
-                        if (!township.isTownshipEligible(player))
-                        {
+                    } else if (regionTheyAreIn.equals("dathomir_fs_village_unpassable")) {
+                        if (!township.isTownshipEligible(player)) {
                             sendSystemMessage(player, new string_id("reward_sys", "vet_ttgm_ineligible_aurilia"));
                             return false;
                         }

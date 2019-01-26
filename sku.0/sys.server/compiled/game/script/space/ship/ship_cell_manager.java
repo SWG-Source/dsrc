@@ -24,21 +24,16 @@ public class ship_cell_manager extends script.base_script
         utils.setScriptVar(self, "intDamage", intDamage);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                if (isPlayer(objContents[intI]))
-                {
-                    if (dot.hasDotId(objContents[intI], "plasma_conduit"))
-                    {
-                        int intStrength = dot.getDotStrength(objContents[intI], "plasma_conduit");
+            for (obj_id objContent : objContents) {
+                if (isPlayer(objContent)) {
+                    if (dot.hasDotId(objContent, "plasma_conduit")) {
+                        int intStrength = dot.getDotStrength(objContent, "plasma_conduit");
                         intStrength = intDamage;
-                        dot.applyDotEffect(objContents[intI], self, dot.DOT_FIRE, "plasma_conduit", HEALTH, -1, intDamage, 10000000, false, null);
-                    }
-                    else 
-                    {
+                        dot.applyDotEffect(objContent, self, dot.DOT_FIRE, "plasma_conduit", HEALTH, -1, intDamage, 10000000, false, null);
+                    } else {
                         string_id strSpam = new string_id("space/space_interaction", "plasma_leak_begin");
-                        sendSystemMessage(objContents[intI], strSpam);
-                        dot.applyDotEffect(objContents[intI], self, dot.DOT_FIRE, "plasma_conduit", HEALTH, -1, intDamage, 10000000, true, null);
+                        sendSystemMessage(objContent, strSpam);
+                        dot.applyDotEffect(objContent, self, dot.DOT_FIRE, "plasma_conduit", HEALTH, -1, intDamage, 10000000, true, null);
                     }
                 }
             }
@@ -55,30 +50,22 @@ public class ship_cell_manager extends script.base_script
         utils.setScriptVar(self, "intDamage", intDamage);
         if ((objContents != null) && (objContents.length > 0))
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                if (isPlayer(objContents[intI]))
-                {
-                    if (intDamage > 0)
-                    {
-                        if (dot.hasDotId(objContents[intI], "plasma_conduit"))
-                        {
-                            int intStrength = dot.getDotStrength(objContents[intI], "plasma_conduit");
+            for (obj_id objContent : objContents) {
+                if (isPlayer(objContent)) {
+                    if (intDamage > 0) {
+                        if (dot.hasDotId(objContent, "plasma_conduit")) {
+                            int intStrength = dot.getDotStrength(objContent, "plasma_conduit");
                             intStrength = intDamage;
-                            dot.applyDotEffect(objContents[intI], null, dot.DOT_FIRE, "plasma_conduit", HEALTH, -1, intDamage, 10000000, false, null);
+                            dot.applyDotEffect(objContent, null, dot.DOT_FIRE, "plasma_conduit", HEALTH, -1, intDamage, 10000000, false, null);
+                        } else {
+                            dot.applyDotEffect(objContent, null, dot.DOT_FIRE, "plasma_conduit", HEALTH, -1, intDamage, 10000000, true, null);
                         }
-                        else 
-                        {
-                            dot.applyDotEffect(objContents[intI], null, dot.DOT_FIRE, "plasma_conduit", HEALTH, -1, intDamage, 10000000, true, null);
-                        }
-                    }
-                    else 
-                    {
+                    } else {
                         string_id strSpam = new string_id("space/space_interaction", "plasma_leak_end");
-                        sendSystemMessage(objContents[intI], strSpam);
-                        dot.removeDotEffect(objContents[intI], "plasma_conduit", true);
+                        sendSystemMessage(objContent, strSpam);
+                        dot.removeDotEffect(objContent, "plasma_conduit", true);
                         detachScript(self, "space.ship.ship_cell_manager");
-                        setState(objContents[intI], STATE_ON_FIRE, false);
+                        setState(objContent, STATE_ON_FIRE, false);
                         LOG("space", "Detaching script");
                     }
                 }
@@ -95,15 +82,12 @@ public class ship_cell_manager extends script.base_script
         obj_id[] objContents = getContents(self);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                if (isPlayer(objContents[intI]))
-                {
-                    if (dot.hasDotId(objContents[intI], "plasma_conduit"))
-                    {
+            for (obj_id objContent : objContents) {
+                if (isPlayer(objContent)) {
+                    if (dot.hasDotId(objContent, "plasma_conduit")) {
                         string_id strSpam = new string_id("space/space_interaction", "plasma_leak_end");
-                        sendSystemMessage(objContents[intI], strSpam);
-                        dot.removeDotEffect(objContents[intI], "plasma_conduit", true);
+                        sendSystemMessage(objContent, strSpam);
+                        dot.removeDotEffect(objContent, "plasma_conduit", true);
                     }
                 }
             }

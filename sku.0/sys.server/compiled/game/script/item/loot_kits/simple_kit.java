@@ -244,11 +244,9 @@ public class simple_kit extends script.base_script
         }
         int numNeeded = itemsNeeded.size();
         boolean useful = false;
-        for (int x = 0; x < numNeeded; x++)
-        {
-            String thisItem = ((String)itemsNeeded.get(x));
-            if (thisItem.equals(itemTemplate))
-            {
+        for (Object o : itemsNeeded) {
+            String thisItem = ((String) o);
+            if (thisItem.equals(itemTemplate)) {
                 useful = true;
                 return SCRIPT_CONTINUE;
             }
@@ -358,11 +356,9 @@ public class simple_kit extends script.base_script
             LOG("DESIGNER_FATAL", "Simple Kit script failed to find a Needed objvar (that's actually an objvar named 'needs') on a kit it was making.");
             return SCRIPT_CONTINUE;
         }
-        for (int x = 0; x < totalItems; x++)
-        {
-            String thisItem = ((String)overview.get(x));
-            if (itemTemplate.equals(thisItem) && itemsNeeded.indexOf(thisItem) < 0)
-            {
+        for (Object o : overview) {
+            String thisItem = ((String) o);
+            if (itemTemplate.equals(thisItem) && itemsNeeded.indexOf(thisItem) < 0) {
                 itemsNeeded = utils.addElement(itemsNeeded, thisItem);
             }
         }

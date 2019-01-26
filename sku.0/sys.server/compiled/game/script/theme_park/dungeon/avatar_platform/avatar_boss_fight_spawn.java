@@ -79,12 +79,11 @@ public class avatar_boss_fight_spawn extends script.base_script
         int numPlayers = players.length;
         if (numPlayers > 0)
         {
-            for (int i = 0; i < numPlayers; i++)
-            {
-                groundquests.grantQuest(players[i], "ep3_avatar_boss_taunt");
+            for (obj_id player1 : players) {
+                groundquests.grantQuest(player1, "ep3_avatar_boss_taunt");
             }
         }
-        messageTo(self, "handleOpenDoor", null, 10f, false);
+        messageTo(self, "handleOpenDoor", null, 10.0f, false);
         return;
     }
     public int handleOpenDoor(obj_id self, dictionary params) throws InterruptedException

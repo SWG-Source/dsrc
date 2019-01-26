@@ -184,11 +184,8 @@ public class pgc_quests extends script.base_script
         obj_id[] questItems = getContents(questControlDevice);
         if (questItems != null && questItems.length > 0)
         {
-            for (int i = 0; i < questItems.length; i++)
-            {
-                obj_id questItem = questItems[i];
-                if (isPgcQuestObject(questItem))
-                {
+            for (obj_id questItem : questItems) {
+                if (isPgcQuestObject(questItem)) {
                     return questItem;
                 }
             }
@@ -243,61 +240,57 @@ public class pgc_quests extends script.base_script
                         String relicType = pgc_quests.getTaskType(questHolocron, phaseString, taskString);
                         String[] relicData = getCollectionSlotCategoryInfo(relicName);
                         String taskData = "";
-                        if (relicType.equals(pgc_quests.SAGA_DESTROY_MULTIPLE))
-                        {
-                            int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
-                            taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + count;
-                        }
-                        else if (relicType.equals(pgc_quests.SAGA_DESTROY_MULTIPLE_LOOT))
-                        {
-                            int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
-                            String message = pgc_quests.getStringPgcTaskData(questHolocron, baseObjVar, "message", relicData);
-                            int dropRate = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "drop_rate", relicData);
-                            taskData += "7~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + count + "~" + message + "~" + dropRate;
-                        }
-                        else if (relicType.equals(pgc_quests.SAGA_PERFORM))
-                        {
-                            taskData += "6~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~unneededDummyData~unneededDummyData";
-                        }
-                        else if (relicType.equals(pgc_quests.SAGA_CRAFT_ITEM))
-                        {
-                            int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
-                            taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + count;
-                        }
-                        else if (relicType.equals(pgc_quests.SAGA_COMM_MESSAGE))
-                        {
-                            String message = pgc_quests.getStringPgcTaskData(questHolocron, baseObjVar, "message", relicData);
-                            taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + message;
-                        }
-                        else if (relicType.equals(pgc_quests.SAGA_GOTO_LOCATION))
-                        {
-                            dictionary waypointData = getWaypointObjVarTaskData(questHolocron, baseObjVar, "waypoint");
-                            if (waypointData == null || waypointData.isEmpty())
-                            {
-                                waypointData = getWaypointRelicData("waypoint", relicData);
+                        switch (relicType) {
+                            case pgc_quests.SAGA_DESTROY_MULTIPLE: {
+                                int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
+                                taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + count;
+                                break;
                             }
-                            String waypointDataString = "";
-                            if (waypointData == null || waypointData.isEmpty())
-                            {
-                                waypointDataString += "0:0:0:tatooine:Unknown";
+                            case pgc_quests.SAGA_DESTROY_MULTIPLE_LOOT: {
+                                int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
+                                String message = pgc_quests.getStringPgcTaskData(questHolocron, baseObjVar, "message", relicData);
+                                int dropRate = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "drop_rate", relicData);
+                                taskData += "7~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + count + "~" + message + "~" + dropRate;
+                                break;
                             }
-                            else 
-                            {
-                                location waypointLoc = waypointData.getLocation("waypointLoc");
-                                String waypointName = waypointData.getString("waypointName");
-                                waypointDataString += waypointLoc.x + ":" + waypointLoc.y + ":" + waypointLoc.z + ":" + waypointLoc.area + ":" + waypointName;
+                            case pgc_quests.SAGA_PERFORM:
+                                taskData += "6~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~unneededDummyData~unneededDummyData";
+                                break;
+                            case pgc_quests.SAGA_CRAFT_ITEM: {
+                                int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
+                                taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + count;
+                                break;
                             }
-                            taskData += "4~" + relicName + "~" + taskTitle + "~" + taskDescription + "~" + waypointDataString;
-                        }
-                        else if (relicType.equals(pgc_quests.SAGA_RETRIEVE_ITEM))
-                        {
-                            int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
-                            taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + count;
-                        }
-                        else if (relicType.equals(pgc_quests.SAGA_PVP_OBJECTIVE))
-                        {
-                            int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
-                            taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~" + count + "~unneededDummyData";
+                            case pgc_quests.SAGA_COMM_MESSAGE: {
+                                String message = pgc_quests.getStringPgcTaskData(questHolocron, baseObjVar, "message", relicData);
+                                taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + message;
+                                break;
+                            }
+                            case pgc_quests.SAGA_GOTO_LOCATION:
+                                dictionary waypointData = getWaypointObjVarTaskData(questHolocron, baseObjVar, "waypoint");
+                                if (waypointData == null || waypointData.isEmpty()) {
+                                    waypointData = getWaypointRelicData("waypoint", relicData);
+                                }
+                                String waypointDataString = "";
+                                if (waypointData == null || waypointData.isEmpty()) {
+                                    waypointDataString += "0:0:0:tatooine:Unknown";
+                                } else {
+                                    location waypointLoc = waypointData.getLocation("waypointLoc");
+                                    String waypointName = waypointData.getString("waypointName");
+                                    waypointDataString += waypointLoc.x + ":" + waypointLoc.y + ":" + waypointLoc.z + ":" + waypointLoc.area + ":" + waypointName;
+                                }
+                                taskData += "4~" + relicName + "~" + taskTitle + "~" + taskDescription + "~" + waypointDataString;
+                                break;
+                            case pgc_quests.SAGA_RETRIEVE_ITEM: {
+                                int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
+                                taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~unneededDummyData~" + count;
+                                break;
+                            }
+                            case pgc_quests.SAGA_PVP_OBJECTIVE: {
+                                int count = pgc_quests.getIntPgcTaskData(questHolocron, baseObjVar, "count", relicData);
+                                taskData += "5~" + relicName + "~" + taskTitle + "~" + taskDescription + "~" + count + "~unneededDummyData";
+                                break;
+                            }
                         }
                         webster.put("" + i, taskData);
                     }
@@ -453,11 +446,8 @@ public class pgc_quests extends script.base_script
         int level = 1;
         if (relicData != null && relicData.length > 0)
         {
-            for (int i = 0; i < relicData.length; i++)
-            {
-                String relicCategory = relicData[i];
-                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA))
-                {
+            for (String relicCategory : relicData) {
+                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA)) {
                     String[] parse = split(relicCategory, ':');
                     level = utils.stringToInt(parse[CATERGORY_RELIC_DATA_LEVEL_INDEX]);
                 }
@@ -470,15 +460,11 @@ public class pgc_quests extends script.base_script
         String groupSetting = "solo";
         if (relicData != null && relicData.length > 0)
         {
-            for (int i = 0; i < relicData.length; i++)
-            {
-                String relicCategory = relicData[i];
-                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA))
-                {
+            for (String relicCategory : relicData) {
+                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA)) {
                     String[] parse = split(relicCategory, ':');
                     int data = utils.stringToInt(parse[CATERGORY_RELIC_DATA_GROUP_INDEX]);
-                    if (data >= 1)
-                    {
+                    if (data >= 1) {
                         groupSetting = "group";
                     }
                 }
@@ -491,15 +477,11 @@ public class pgc_quests extends script.base_script
         int difficultySetting = 0;
         if (relicData != null && relicData.length > 0)
         {
-            for (int i = 0; i < relicData.length; i++)
-            {
-                String relicCategory = relicData[i];
-                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA))
-                {
+            for (String relicCategory : relicData) {
+                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA)) {
                     String[] parse = split(relicCategory, ':');
                     int data = utils.stringToInt(parse[CATERGORY_RELIC_DATA_GROUP_INDEX]);
-                    if (data > -1)
-                    {
+                    if (data > -1) {
                         difficultySetting = data;
                     }
                 }
@@ -512,15 +494,11 @@ public class pgc_quests extends script.base_script
         boolean requiresKashyyyk = false;
         if (relicData != null && relicData.length > 0)
         {
-            for (int i = 0; i < relicData.length; i++)
-            {
-                String relicCategory = relicData[i];
-                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA))
-                {
+            for (String relicCategory : relicData) {
+                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA)) {
                     String[] parse = split(relicCategory, ':');
                     int data = utils.stringToInt(parse[CATERGORY_RELIC_DATA_KASHYYYK_INDEX]);
-                    if (data == 1)
-                    {
+                    if (data == 1) {
                         requiresKashyyyk = true;
                     }
                 }
@@ -533,15 +511,11 @@ public class pgc_quests extends script.base_script
         boolean requiresMustafar = false;
         if (relicData != null && relicData.length > 0)
         {
-            for (int i = 0; i < relicData.length; i++)
-            {
-                String relicCategory = relicData[i];
-                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA))
-                {
+            for (String relicCategory : relicData) {
+                if (relicCategory.startsWith(CATEGORY_NAME_RELIC_DATA)) {
                     String[] parse = split(relicCategory, ':');
                     int data = utils.stringToInt(parse[CATERGORY_RELIC_DATA_MUSTAFAR_INDEX]);
-                    if (data == 1)
-                    {
+                    if (data == 1) {
                         requiresMustafar = true;
                     }
                 }
@@ -576,19 +550,12 @@ public class pgc_quests extends script.base_script
             obj_id[] dataItems = getContents(datapad);
             if (dataItems != null && dataItems.length > 0)
             {
-                for (int i = 0; i < dataItems.length; i++)
-                {
-                    obj_id dataItem = dataItems[i];
-                    if (isIdValid(dataItem) && (getTemplateName(dataItem)).equals(PGC_QUEST_CONTROL_DEVICE_TEMPLATE))
-                    {
+                for (obj_id dataItem : dataItems) {
+                    if (isIdValid(dataItem) && (getTemplateName(dataItem)).equals(PGC_QUEST_CONTROL_DEVICE_TEMPLATE)) {
                         obj_id[] questObjects = getContents(dataItem);
-                        for (int j = 0; j < questObjects.length; j++)
-                        {
-                            obj_id questObject = questObjects[j];
-                            if (isIdValid(questObject))
-                            {
-                                if (isPgcQuestObject(questObject))
-                                {
+                        for (obj_id questObject : questObjects) {
+                            if (isIdValid(questObject)) {
+                                if (isPgcQuestObject(questObject)) {
                                     utils.addElement(dynamicQuestHolocronList, questObject);
                                 }
                             }
@@ -1227,31 +1194,21 @@ public class pgc_quests extends script.base_script
                 }
                 Vector allNewObjectsResizable = new Vector();
                 allNewObjectsResizable.setSize(0);
-                for (int i = 0; i < items.length; i++)
-                {
+                for (String item : items) {
                     obj_id newItem = null;
-                    if (items[i].endsWith(".iff"))
-                    {
-                        newItem = createObjectInInventoryAllowOverload(items[i], player);
+                    if (item.endsWith(".iff")) {
+                        newItem = createObjectInInventoryAllowOverload(item, player);
+                    } else {
+                        newItem = static_item.createNewItemFunction(item, player);
                     }
-                    else 
-                    {
-                        newItem = static_item.createNewItemFunction(items[i], player);
-                    }
-                    if (!isIdValid(newItem))
-                    {
-                        LOG("roadmap", "ERROR - Could not create roadmap item (" + items[i] + ")");
-                    }
-                    else 
-                    {
+                    if (!isIdValid(newItem)) {
+                        LOG("roadmap", "ERROR - Could not create roadmap item (" + item + ")");
+                    } else {
                         utils.addElement(allNewObjectsResizable, newItem);
                         String newItemName = "";
-                        if (static_item.isStaticItem(newItem))
-                        {
+                        if (static_item.isStaticItem(newItem)) {
                             newItemName = getStaticItemName(newItem);
-                        }
-                        else 
-                        {
+                        } else {
                             newItemName = getTemplateName(newItem);
                         }
                         pgc_quests.logProgression(player, obj_id.NULL_ID, "Chronicles Roadmap Reward Granted! Item granted to " + player + ": " + newItem + " (" + newItemName + ").");
@@ -1412,7 +1369,7 @@ public class pgc_quests extends script.base_script
     }
     public static void showPgcXpGrantedMessage(obj_id player, String xpType, int xpAmount) throws InterruptedException
     {
-        float grpMod = 1f;
+        float grpMod = 1.0f;
         if (utils.hasScriptVar(player, "combat.xp.groupBonus"))
         {
             grpMod = utils.getFloatScriptVar(player, "combat.xp.groupBonus");
@@ -1532,7 +1489,7 @@ public class pgc_quests extends script.base_script
     }
     public static float getCurrentPgcRating(int ratingTotal, int ratingCount) throws InterruptedException
     {
-        return getCurrentPgcRating((float)ratingTotal, (float)ratingCount);
+        return getCurrentPgcRating((float)ratingTotal, ratingCount);
     }
     public static float getCurrentPgcRating(float ratingTotal, float ratingCount) throws InterruptedException
     {
@@ -1891,18 +1848,13 @@ public class pgc_quests extends script.base_script
     {
         if (relicData != null && relicData.length > 0)
         {
-            for (int i = 0; i < relicData.length; i++)
-            {
-                String relicCategory = relicData[i];
-                if (relicCategory.startsWith(category))
-                {
+            for (String relicCategory : relicData) {
+                if (relicCategory.startsWith(category)) {
                     String[] parse = split(relicCategory, ':');
                     String baseData = parse[1];
-                    if (baseData != null && baseData.length() > 0)
-                    {
+                    if (baseData != null && baseData.length() > 0) {
                         String[] waypointParse = split(baseData, ',');
-                        if (waypointParse.length == 6)
-                        {
+                        if (waypointParse.length == 6) {
                             String planet = waypointParse[0];
                             float x = utils.stringToFloat(waypointParse[1]);
                             float y = utils.stringToFloat(waypointParse[2]);
@@ -1936,15 +1888,11 @@ public class pgc_quests extends script.base_script
         String data = "";
         if (relicData != null && relicData.length > 0)
         {
-            for (int i = 0; i < relicData.length; i++)
-            {
-                String relicCategory = relicData[i];
-                if (relicCategory.startsWith(category))
-                {
+            for (String relicCategory : relicData) {
+                if (relicCategory.startsWith(category)) {
                     String[] parse = split(relicCategory, ':');
                     data = parse[1];
-                    if (parse.length > 2)
-                    {
+                    if (parse.length > 2) {
                         data += "," + parse[2];
                     }
                     break;
@@ -1980,11 +1928,8 @@ public class pgc_quests extends script.base_script
             String[] targetCreatureNamesArray = split(targetCreatureNamesList, ',');
             if (targetCreatureNamesArray != null && targetCreatureNamesArray.length > 0)
             {
-                for (int i = 0; i < targetCreatureNamesArray.length; i++)
-                {
-                    String targetCreatureName = targetCreatureNamesArray[i];
-                    if (killedCreatureType.equals(targetCreatureName))
-                    {
+                for (String targetCreatureName : targetCreatureNamesArray) {
+                    if (killedCreatureType.equals(targetCreatureName)) {
                         creatureAcceptable = true;
                     }
                 }
@@ -1995,11 +1940,8 @@ public class pgc_quests extends script.base_script
             String[] socialGroupsNamesArray = split(targetSocialGroupList, ',');
             if (socialGroupsNamesArray != null && socialGroupsNamesArray.length > 0)
             {
-                for (int i = 0; i < socialGroupsNamesArray.length; i++)
-                {
-                    String targetSocialGroup = socialGroupsNamesArray[i];
-                    if (killedCreatureSocialGroup.equals(targetSocialGroup))
-                    {
+                for (String targetSocialGroup : socialGroupsNamesArray) {
+                    if (killedCreatureSocialGroup.equals(targetSocialGroup)) {
                         creatureAcceptable = true;
                     }
                 }

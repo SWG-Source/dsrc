@@ -34,7 +34,7 @@ public class civic_skillteacher extends script.base_script
         {
             obj_id spawner = getObjIdObjVar(self, "spawner");
             sendSystemMessage(player, SID_MT_REMOVED);
-            messageTo(spawner, "requestDestroy", null, 0.f, false);
+            messageTo(spawner, "requestDestroy", null, 0.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

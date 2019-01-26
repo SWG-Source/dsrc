@@ -88,9 +88,8 @@ public class poison extends script.base_script
             destroyObject(invisible);
         }
         obj_id[] players = getAllPlayers(getLocation(self), 40.0f);
-        for (int i = 0; i < players.length; i++)
-        {
-            playClientEffectObj(players[i], "clienteffect/item_gas_leak_trap_off.cef", self, "");
+        for (obj_id player : players) {
+            playClientEffectObj(player, "clienteffect/item_gas_leak_trap_off.cef", self, "");
         }
         invisible = createObject("object/tangible/theme_park/invisible_object.iff", getLocation(self));
         setObjVar(self, "invisible", invisible);
@@ -105,9 +104,8 @@ public class poison extends script.base_script
             removeObjVar(self, "trap_off");
         }
         obj_id[] players = getAllPlayers(getLocation(self), 40.0f);
-        for (int i = 0; i < players.length; i++)
-        {
-            playClientEffectObj(players[i], "clienteffect/item_gas_leak_trap_on.cef", self, "");
+        for (obj_id player : players) {
+            playClientEffectObj(player, "clienteffect/item_gas_leak_trap_on.cef", self, "");
         }
         messageTo(self, "showGas", null, 2, true);
         return SCRIPT_CONTINUE;
@@ -143,9 +141,8 @@ public class poison extends script.base_script
             if (isIdValid(invisible))
             {
                 obj_id[] players = getAllPlayers(getLocation(self), 40.0f);
-                for (int i = 0; i < players.length; i++)
-                {
-                    playClientEffectObj(players[i], "clienteffect/item_gas_leak_trap_lp.cef", invisible, "");
+                for (obj_id player : players) {
+                    playClientEffectObj(player, "clienteffect/item_gas_leak_trap_lp.cef", invisible, "");
                 }
             }
             setObjVar(self, "trap", trap);
@@ -157,15 +154,12 @@ public class poison extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff"))
-                {
-                    obj_id mask = objContents[intI];
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff")) {
+                    obj_id mask = objContent;
                     obj_id holder = getContainedBy(mask);
-                    if (holder == player)
-                    {
+                    if (holder == player) {
                         return true;
                     }
                 }

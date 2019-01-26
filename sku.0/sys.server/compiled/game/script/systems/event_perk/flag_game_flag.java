@@ -130,10 +130,8 @@ public class flag_game_flag extends script.base_script
         int playerFactionId = pvpGetAlignedFaction(player);
         String playerFaction = factions.getFactionNameByHashCode(playerFactionId);
         int pvpType = pvpGetType(player);
-        for (int i = 0; i < RESTRICTED_BUFFS.length; i++)
-        {
-            if (buff.hasBuff(player, RESTRICTED_BUFFS[i]))
-            {
+        for (String restrictedBuff : RESTRICTED_BUFFS) {
+            if (buff.hasBuff(player, restrictedBuff)) {
                 return false;
             }
         }

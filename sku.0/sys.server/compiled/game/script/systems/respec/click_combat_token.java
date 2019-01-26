@@ -81,7 +81,7 @@ public class click_combat_token extends script.base_script
                     return SCRIPT_CONTINUE;
                 }
                 String template = getTemplateName(self);
-                if (template.indexOf("ball_of_peace") > -1)
+                if (template.contains("ball_of_peace"))
                 {
                     obj_id[] me = new obj_id[1];
                     me[0] = player;
@@ -105,10 +105,8 @@ public class click_combat_token extends script.base_script
         {
             "dathomir_fs_village_unpassable"
         };
-        for (int i = 0; i < restrictedRegions.length; i++)
-        {
-            if (groundquests.isInNamedRegion(player, restrictedRegions[i]))
-            {
+        for (String restrictedRegion : restrictedRegions) {
+            if (groundquests.isInNamedRegion(player, restrictedRegion)) {
                 return true;
             }
         }

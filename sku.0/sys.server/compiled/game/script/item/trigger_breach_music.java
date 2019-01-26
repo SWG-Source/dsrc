@@ -21,7 +21,7 @@ public class trigger_breach_music extends script.base_script
         }
         if (!hasTriggerVolume(self, "itemBreach"))
         {
-            createTriggerVolume("itemBreach", 5.f, true);
+            createTriggerVolume("itemBreach", 5.0f, true);
         }
         return SCRIPT_CONTINUE;
     }
@@ -126,7 +126,7 @@ public class trigger_breach_music extends script.base_script
             setObjVar(item, OBJVAR_IS_TURNED_ON, true);
             if (!hasTriggerVolume(item, "itemBreach"))
             {
-                createTriggerVolume("itemBreach", 5.f, true);
+                createTriggerVolume("itemBreach", 5.0f, true);
             }
         }
         else 
@@ -138,11 +138,8 @@ public class trigger_breach_music extends script.base_script
             }
         }
         obj_id[] players = getPlayerCreaturesInRange(getLocation(item), 25.0f);
-        for (int i = 0; i < players.length; i++)
-        {
-            obj_id temp = players[i];
-            if (isIdValid(temp))
-            {
+        for (obj_id temp : players) {
+            if (isIdValid(temp)) {
                 playMusic(temp, "sound/music_silence.snd");
             }
         }

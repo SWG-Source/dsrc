@@ -14,7 +14,7 @@ public class avatar_boss_fight_room extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        messageTo(self, "handleDoorLock", null, 10f, false);
+        messageTo(self, "handleDoorLock", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleDoorLock(obj_id self, dictionary params) throws InterruptedException

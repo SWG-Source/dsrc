@@ -97,13 +97,10 @@ public class observation_droid extends script.base_script
         location[] patrolPoints = new location[parse.length];
         for (int i = 0; i < parse.length; i++)
         {
-            for (int k = 0; k < objects.length; k++)
-            {
-                if (hasObjVar(objects[k], "patrol_wp"))
-                {
-                    if (parse[i].equals(getStringObjVar(objects[k], "patrol_wp")))
-                    {
-                        patrolPoints[i] = getLocation(objects[k]);
+            for (obj_id object : objects) {
+                if (hasObjVar(object, "patrol_wp")) {
+                    if (parse[i].equals(getStringObjVar(object, "patrol_wp"))) {
+                        patrolPoints[i] = getLocation(object);
                     }
                 }
             }

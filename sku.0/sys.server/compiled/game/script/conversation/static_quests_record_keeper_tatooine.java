@@ -18,10 +18,8 @@ public class static_quests_record_keeper_tatooine extends script.base_script
     {
         String datatable = "datatables/npc/static_quest/static_quest_records_tatooine.iff";
         String[] static_quest = dataTableGetStringColumn(datatable, "static_quest");
-        for (int i = 0; i < static_quest.length; i++)
-        {
-            if (hasObjVar(player, "static." + static_quest[i]))
-            {
+        for (String s : static_quest) {
+            if (hasObjVar(player, "static." + s)) {
                 return true;
             }
         }
@@ -43,11 +41,9 @@ public class static_quests_record_keeper_tatooine extends script.base_script
         setObjVar(player, "static_quests_reset.tatooine", true);
         String datatable = "datatables/npc/static_quest/static_quest_records_tatooine.iff";
         String[] static_quest = dataTableGetStringColumn(datatable, "static_quest");
-        for (int i = 0; i < static_quest.length; i++)
-        {
-            if (hasObjVar(player, "static." + static_quest[i]))
-            {
-                removeObjVar(player, "static." + static_quest[i]);
+        for (String s : static_quest) {
+            if (hasObjVar(player, "static." + s)) {
+                removeObjVar(player, "static." + s);
             }
         }
         int gating = getIntObjVar(player, "static_quests_reset.tatooine");

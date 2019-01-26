@@ -173,7 +173,7 @@ public class greeter extends script.terminal.base.base_terminal
     public static final int GREETER_CONVERSATION_LOOP_TIME = 3;
     public static final int GREETER_CONVERSATION_PAUSE_TIME = 10;
     public static final int GREETER_DELAY_AT_ONINITIALIZE = 3;
-    public static final float MAX_GREETER_CONV_RANGE_FLOAT = 2.f;
+    public static final float MAX_GREETER_CONV_RANGE_FLOAT = 2.0f;
     public static final String CATEGORY_ANIM_COL_NAMES_SCRVAR = vendor_lib.GREETER_VAR_PREFIX + ".greeterAnimCategories";
     public static final String CATEGORY_ANIM_COL_STRINGS_SCRVAR = vendor_lib.GREETER_VAR_PREFIX + ".greeterAnimCategoriesStrings";
     public static final String SELECTED_CAT_ANIM_SCRVAR = vendor_lib.GREETER_VAR_PREFIX + ".greeterAnimCategorySelected";
@@ -1945,12 +1945,10 @@ public class greeter extends script.terminal.base.base_terminal
             greeterAnimCategoriesRaw.setSize(0);
             Vector greeterAnimCategoriesStrings = new Vector();
             greeterAnimCategoriesStrings.setSize(0);
-            for (int i = 0; i < greeterAnimCategoriesLen; i++)
-            {
-                if (greeterAnimCategories[i].startsWith("greeter_"))
-                {
-                    utils.addElement(greeterAnimCategoriesRaw, greeterAnimCategories[i]);
-                    utils.addElement(greeterAnimCategoriesStrings, "@player_structure:" + greeterAnimCategories[i]);
+            for (String greeterAnimCategory : greeterAnimCategories) {
+                if (greeterAnimCategory.startsWith("greeter_")) {
+                    utils.addElement(greeterAnimCategoriesRaw, greeterAnimCategory);
+                    utils.addElement(greeterAnimCategoriesStrings, "@player_structure:" + greeterAnimCategory);
                 }
             }
             if (greeterAnimCategoriesRaw.isEmpty() || greeterAnimCategoriesStrings.isEmpty())
@@ -2597,28 +2595,24 @@ public class greeter extends script.terminal.base.base_terminal
         Vector allNamesVector = new Vector();
         Vector allDataVector = new Vector();
         Vector combinedDataVector = new Vector();
-        for (int i = 0; i < allSaves.length; i++)
-        {
-            blog("vendor.greeter.getSavedGreetings: Loop found: " + allSaves[i]);
-            if (allSaves[i] == null || allSaves[i].length() == 0)
-            {
+        for (String allSave : allSaves) {
+            blog("vendor.greeter.getSavedGreetings: Loop found: " + allSave);
+            if (allSave == null || allSave.length() == 0) {
                 continue;
             }
-            blog("vendor.greeter.getSavedGreetings: allSaves[i].length(): " + allSaves[i].length());
-            String[] data = split(allSaves[i], '-');
-            if (data == null)
-            {
+            blog("vendor.greeter.getSavedGreetings: allSaves[i].length(): " + allSave.length());
+            String[] data = split(allSave, '-');
+            if (data == null) {
                 break;
             }
-            if (data[0] == null || data[1] == null)
-            {
+            if (data[0] == null || data[1] == null) {
                 continue;
             }
             blog("vendor.greeter.getSavedGreetings: Split [0] found: " + data[0]);
             blog("vendor.greeter.getSavedGreetings: Split [1] found: " + data[1]);
             allNamesVector.add(data[0]);
             allDataVector.add(data[1]);
-            combinedDataVector.add(allSaves[i]);
+            combinedDataVector.add(allSave);
         }
         blog("vendor.greeter.getSavedGreetings: Name List Length: " + allNamesVector.size());
         blog("vendor.greeter.getSavedGreetings: Data List Length: " + allDataVector.size());
@@ -3009,18 +3003,14 @@ public class greeter extends script.terminal.base.base_terminal
         removeObjVar(controller, vendor_lib.GREETER_SOUNDS_OBJVAR);
         removeObjVar(controller, vendor_lib.GREETER_ANIMATING_OBJVAR);
         removeObjVar(controller, vendor_lib.GREETER_CURRENTLY_RANDOMIZED_GREET);
-        for (int i = 0; i < data.length; i++)
-        {
-            if (data[i] == null || data[i].length() == 0)
-            {
+        for (String datum : data) {
+            if (datum == null || datum.length() == 0) {
                 continue;
             }
-            if (data[i].startsWith(SAVE_SAY_CHAT))
-            {
+            if (datum.startsWith(SAVE_SAY_CHAT)) {
                 blog("terminal.greeter.loadSavedData: SAVE_SAY_CHAT");
-                String[] sayChatData = split(data[i], '=');
-                if (sayChatData == null || sayChatData.length <= 0)
-                {
+                String[] sayChatData = split(datum, '=');
+                if (sayChatData == null || sayChatData.length <= 0) {
                     continue;
                 }
                 blog("terminal.greeter.loadSavedData: sayChatData: " + sayChatData[1]);
@@ -3028,18 +3018,15 @@ public class greeter extends script.terminal.base.base_terminal
                 setObjVar(controller, vendor_lib.GREETER_HAS_STATEMENT_OBJVAR, true);
                 continue;
             }
-            if (data[i].startsWith(SAVE_VOICE))
-            {
+            if (datum.startsWith(SAVE_VOICE)) {
                 blog("terminal.greeter.loadSavedData: SAVE_VOICE");
-                String[] voiceData = split(data[i], '=');
-                if (voiceData == null || voiceData.length <= 0)
-                {
+                String[] voiceData = split(datum, '=');
+                if (voiceData == null || voiceData.length <= 0) {
                     continue;
                 }
                 blog("terminal.greeter.loadSavedData: voiceData: " + voiceData[1]);
                 String[] voiceAndStringData = split(voiceData[1], '|');
-                if (voiceAndStringData == null || voiceAndStringData.length <= 0)
-                {
+                if (voiceAndStringData == null || voiceAndStringData.length <= 0) {
                     continue;
                 }
                 setObjVar(controller, vendor_lib.GREETER_VOICES_OBJVAR, voiceAndStringData[0]);
@@ -3047,12 +3034,10 @@ public class greeter extends script.terminal.base.base_terminal
                 setObjVar(controller, vendor_lib.GREETER_VOICING_OBJVAR, true);
                 continue;
             }
-            if (data[i].startsWith(SAVE_MOOD))
-            {
+            if (datum.startsWith(SAVE_MOOD)) {
                 blog("terminal.greeter.loadSavedData: SAVE_MOOD");
-                String[] moodData = split(data[i], '=');
-                if (moodData == null || moodData.length <= 0)
-                {
+                String[] moodData = split(datum, '=');
+                if (moodData == null || moodData.length <= 0) {
                     continue;
                 }
                 blog("terminal.greeter.loadSavedData: moodData: " + moodData[1]);
@@ -3061,18 +3046,15 @@ public class greeter extends script.terminal.base.base_terminal
                 setObjVar(controller, vendor_lib.GREETER_HAS_MOOD_OBJVAR, true);
                 continue;
             }
-            if (data[i].startsWith(SAVE_SOUND))
-            {
+            if (datum.startsWith(SAVE_SOUND)) {
                 blog("terminal.greeter.loadSavedData: SAVE_SOUND");
-                String[] soundData = split(data[i], '=');
-                if (soundData == null || soundData.length <= 0)
-                {
+                String[] soundData = split(datum, '=');
+                if (soundData == null || soundData.length <= 0) {
                     continue;
                 }
                 blog("terminal.greeter.loadSavedData: soundData: " + soundData[1]);
                 String[] soundAndStringData = split(soundData[1], '|');
-                if (soundAndStringData == null || soundAndStringData.length <= 0)
-                {
+                if (soundAndStringData == null || soundAndStringData.length <= 0) {
                     continue;
                 }
                 blog("terminal.greeter.loadSavedData: soundData: " + soundAndStringData[0]);
@@ -3081,12 +3063,10 @@ public class greeter extends script.terminal.base.base_terminal
                 setObjVar(controller, vendor_lib.GREETER_SOUNDING_OBJVAR, true);
                 continue;
             }
-            if (data[i].startsWith(SAVE_ANIM))
-            {
+            if (datum.startsWith(SAVE_ANIM)) {
                 blog("terminal.greeter.loadSavedData: SAVE_ANIM");
-                String[] animData = split(data[i], '=');
-                if (animData == null || animData.length <= 0)
-                {
+                String[] animData = split(datum, '=');
+                if (animData == null || animData.length <= 0) {
                     continue;
                 }
                 blog("terminal.greeter.loadSavedData: animData: " + animData[1]);
@@ -3369,11 +3349,9 @@ public class greeter extends script.terminal.base.base_terminal
         }
         blog("terminal.greeter.getConversableGreeter: At least one other greeters found! #: " + allGreeters.length);
         Vector greeterList = new Vector();
-        for (int i = 0; i < allGreeters.length; i++)
-        {
-            if (allGreeters[i] != self && isValidId(allGreeters[i]) && exists(allGreeters[i]))
-            {
-                greeterList.add(allGreeters[i]);
+        for (obj_id allGreeter : allGreeters) {
+            if (allGreeter != self && isValidId(allGreeter) && exists(allGreeter)) {
+                greeterList.add(allGreeter);
             }
         }
         if (greeterList.size() < 0)

@@ -62,9 +62,8 @@ public class crafting_creature_kima extends script.systems.crafting.bio_engineer
             return null;
         }
         float playerCustomizationMod = 255;
-        for (int i = 0; i < customizations.length; ++i)
-        {
-            customizations[i].maxValue = (int)(playerCustomizationMod);
+        for (draft_schematic.custom customization : customizations) {
+            customization.maxValue = (int) (playerCustomizationMod);
         }
         return customizations;
     }

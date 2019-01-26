@@ -84,7 +84,7 @@ public class random
 
 			if ( w != 0 )
 			{
-				w = (float)(Math.sqrt( (-2.0 * Math.log( w ) ) / w ));
+				w = (float)(Math.sqrt( (-2.0 * StrictMath.log( w ) ) / w ));
 				gaussY1 = x1 * w;
 				gaussY2 = x2 * w;
 			}

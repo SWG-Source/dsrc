@@ -51,7 +51,7 @@ public class gcw_banner_click extends script.base_script
             }
             createBannerItem(player, faction);
             utils.setScriptVar(self, "flagCoolDown", 1);
-            messageTo(self, "handleRemoveTimer", null, 180f, false);
+            messageTo(self, "handleRemoveTimer", null, 180.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

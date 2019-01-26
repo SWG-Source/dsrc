@@ -64,19 +64,15 @@ public class boss_terminal_mining_cave_foreman extends script.base_script
         if (isValidId(myGroup))
         {
             obj_id[] members = getGroupMemberIds(myGroup);
-            for (int i = 0; i < members.length; i++)
-            {
-                if (!isIdValid(members[i]) || !exists(members[i]))
-                {
+            for (obj_id member : members) {
+                if (!isIdValid(member) || !exists(member)) {
                     continue;
                 }
-                if (getDistance(members[i], npc) > 200)
-                {
+                if (getDistance(member, npc) > 200) {
                     continue;
                 }
-                if (boss_terminal_mining_cave_foreman_condition_hasBossTask(members[i], npc))
-                {
-                    groundquests.sendSignal(members[i], "hasFoundForemanMine");
+                if (boss_terminal_mining_cave_foreman_condition_hasBossTask(member, npc)) {
+                    groundquests.sendSignal(member, "hasFoundForemanMine");
                 }
             }
         }

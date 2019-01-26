@@ -14,7 +14,7 @@ public class avatar_destruction extends script.base_script
         obj_id player = params.getObjId("player");
         dictionary who = new dictionary();
         who.put("player", player);
-        messageTo(self, "handleEffectScript", who, 1f, false);
+        messageTo(self, "handleEffectScript", who, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleEffectScript(obj_id self, dictionary params) throws InterruptedException
@@ -29,9 +29,8 @@ public class avatar_destruction extends script.base_script
         int numPlayers = players.length;
         if (numPlayers > 0)
         {
-            for (int i = 0; i < numPlayers; i++)
-            {
-                attachScript(players[i], "theme_park.dungeon.avatar_platform.avatar_destruction_player");
+            for (obj_id player1 : players) {
+                attachScript(player1, "theme_park.dungeon.avatar_platform.avatar_destruction_player");
             }
         }
         return SCRIPT_CONTINUE;

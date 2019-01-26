@@ -12,19 +12,15 @@ public class crafting_base_shields_component extends script.systems.crafting.cra
     }
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("mass") || ((itemAttributes[i].name).getAsciiId()).equals("energy_maintenance"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("mass") || ((itemAttribute.name).getAsciiId()).equals("energy_maintenance")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("shield_recharge"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].currentValue * 0.001f);
+            if (((itemAttribute.name).getAsciiId()).equals("shield_recharge")) {
+                itemAttribute.currentValue = (itemAttribute.currentValue * 0.001f);
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -33,37 +29,27 @@ public class crafting_base_shields_component extends script.systems.crafting.cra
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
         attachScript(prototype, "space.crafting.subcomponent");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("shield_max_front_hp"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".shield_max_front_hp", itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("shield_max_front_hp")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".shield_max_front_hp", itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("shield_max_back_hp"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".shield_max_back_hp", itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("shield_max_back_hp")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".shield_max_back_hp", itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("shield_recharge"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".shield_recharge", itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("shield_recharge")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".shield_recharge", itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("energy_maintenance"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".energy_maintenance", itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("energy_maintenance")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".energy_maintenance", itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("mass"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".mass", itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("mass")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".mass", itemAttribute.currentValue);
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 }
             }
         }

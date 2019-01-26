@@ -140,9 +140,8 @@ public class destroy_weapon_cache extends script.base_script
             setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "IsCancelButton", "false");
         }
         setSUIProperty(pid, "bg.mmc.close", "IsCancelButton", "true");
-        for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-        {
-            subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "configProcessorPuzzleCallback");
+        for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+            subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "configProcessorPuzzleCallback");
         }
         subscribeToSUIEvent(pid, sui_event_type.SET_onClosedCancel, "%button0%", "closeSui");
         setSUIAssociatedObject(pid, player);
@@ -353,7 +352,7 @@ public class destroy_weapon_cache extends script.base_script
             }
         }
         tries--;
-        int integrity = (int)(((float)tries / (float)max_tries) * 100);
+        int integrity = (int)(((float)tries / max_tries) * 100);
         blog("configProcessorPuzzleCallback integrity: " + integrity);
         boolean win = true;
         for (int i = 0; i < current.length; i++)
@@ -368,10 +367,9 @@ public class destroy_weapon_cache extends script.base_script
         {
             blog("configProcessorPuzzleCallback THE WIN ");
             setSUIProperty(pid, "top.description.desc", "Text", CALIBRATION_SUCCESS);
-            for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-            {
-                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "noCallback");
-                setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "GetsInput", "false");
+            for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "noCallback");
+                setSUIProperty(pid, configPlayerButton, "GetsInput", "false");
             }
             rewardPlayer(self, player);
         }
@@ -388,10 +386,9 @@ public class destroy_weapon_cache extends script.base_script
             blog("configProcessorPuzzleCallback YOU LOSE ");
             setSUIProperty(pid, "top.description.attempts", "Text", CALIBRATION_ATTEMPTS_REMAINING + " " + integrity + "%");
             setSUIProperty(pid, "top.description.desc", "Text", CALIBRATION_FAILURE);
-            for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-            {
-                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "noCallback");
-                setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "GetsInput", "false");
+            for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "noCallback");
+                setSUIProperty(pid, configPlayerButton, "GetsInput", "false");
             }
             closeOldWindow(player);
             removePlayerVars(player);

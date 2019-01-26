@@ -12,9 +12,9 @@ public class probot_egg extends script.base_script
     public probot_egg()
     {
     }
-    public static final float VOL_SPAWN_RANGE = 80f;
+    public static final float VOL_SPAWN_RANGE = 80.0f;
     public static final String VOL_SPAWN = "volSpawnProbot";
-    public static final float VOL_EFFECT_RANGE = 100f;
+    public static final float VOL_EFFECT_RANGE = 100.0f;
     public static final String VOL_EFFECT = "volEffect";
     public int OnAttach(obj_id self) throws InterruptedException
     {
@@ -42,15 +42,15 @@ public class probot_egg extends script.base_script
             if (volName.equals(VOL_EFFECT) && !utils.hasScriptVar(self, "playedEffect"))
             {
                 utils.setScriptVar(self, "playedEffect", true);
-                playClientEffectLoc(who, "clienteffect/probot_delivery.cef", getLocation(self), 0f);
+                playClientEffectLoc(who, "clienteffect/probot_delivery.cef", getLocation(self), 0.0f);
                 removeTriggerVolume(VOL_EFFECT);
-                messageTo(self, "handleSpawnDebris", null, 3f, false);
+                messageTo(self, "handleSpawnDebris", null, 3.0f, false);
             }
             else if (volName.equals(VOL_SPAWN))
             {
                 dictionary params = new dictionary();
                 params.put("target", who);
-                messageTo(self, "handleSpawnProbot", params, 1f, false);
+                messageTo(self, "handleSpawnProbot", params, 1.0f, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -66,14 +66,14 @@ public class probot_egg extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             params.put("cycle", ++numCycle);
-            messageTo(self, "handleSpawnProbot", params, 1f, false);
+            messageTo(self, "handleSpawnProbot", params, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         obj_id probot = create.object("imperial_probot_drone", getLocation(self));
         if (isIdValid(probot))
 		{
 			attachScript(probot, "ai.override_behavior.scout");
-			messageTo(probot, "handleTargetAssignment", params, 1f, false);
+			messageTo(probot, "handleTargetAssignment", params, 1.0f, false);
 		}
         destroyObject(self);
         return SCRIPT_CONTINUE;

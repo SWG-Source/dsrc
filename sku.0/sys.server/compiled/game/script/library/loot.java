@@ -60,10 +60,10 @@ public class loot extends script.base_script
     public static final int DEFAULT_WORM_CHANCE = 40;
     public static final int DEFAULT_TREASURE_CHANCE = 0;
     public static final int DEFAULT_COMPONENT_CHANCE = 40;
-    public static final float ENZYME_MODIFIER = 0.f;
-    public static final float TREASURE_MODIFIER = 0.f;
-    public static final float PLAYER_DEFAULT_FIND_MODIFIER = 0.f;
-    public static final float LUCKY_FIND_MODIFIER = 6.f;
+    public static final float ENZYME_MODIFIER = 0.0f;
+    public static final float TREASURE_MODIFIER = 0.0f;
+    public static final float PLAYER_DEFAULT_FIND_MODIFIER = 0.0f;
+    public static final float LUCKY_FIND_MODIFIER = 6.0f;
     public static final String FORAGING_RARE_TABLE = "datatables/foraging/forage_global_rare.iff";
     public static final String FORAGING_ENEMY_TABLE = "datatables/foraging/forage_enemy.iff";
     public static final String FORAGING_LOOT_ROLL_TABLE = "datatables/foraging/foraging_loot_roll.iff";
@@ -278,11 +278,11 @@ public class loot extends script.base_script
     }
     public static int getCalculatedAttribute(int minVal, int maxVal, int creatureLevel, int minDropLevel, int maxDropLevel) throws InterruptedException
     {
-        return Math.round(getCalculatedAttribute((float)minVal, (float)maxVal, creatureLevel, minDropLevel, maxDropLevel));
+        return Math.round(getCalculatedAttribute((float)minVal, maxVal, creatureLevel, minDropLevel, maxDropLevel));
     }
     public static float getCalculatedAttribute(float minVal, float maxVal, int creatureLevel, int minDropLevel, int maxDropLevel) throws InterruptedException
     {
-        float rank = (float)(creatureLevel - minDropLevel) / (float)(maxDropLevel - minDropLevel);
+        float rank = (float)(creatureLevel - minDropLevel) / (maxDropLevel - minDropLevel);
         if (rank < -1.0f)
         {
             rank = -1.0f;
@@ -429,22 +429,14 @@ public class loot extends script.base_script
             }
             else 
             {
-                for (int i = 0; i < contents.length; i++)
-                {
-                    obj_id item = contents[i];
-                    if (isFactionalDataItem(item))
-                    {
-                        if (faction.equals(""))
-                        {
+                for (obj_id item : contents) {
+                    if (isFactionalDataItem(item)) {
+                        if (faction.equals("")) {
                             ret = utils.addElement(ret, item);
-                        }
-                        else 
-                        {
+                        } else {
                             String ifac = getStringObjVar(item, DATA_ITEM_FACTION);
-                            if (ifac != null)
-                            {
-                                if (ifac.equals(faction))
-                                {
+                            if (ifac != null) {
+                                if (ifac.equals(faction)) {
                                     ret = utils.addElement(ret, item);
                                 }
                             }
@@ -2668,8 +2660,8 @@ public class loot extends script.base_script
         setObjVar(player, "loot.rls.lastLootedChest", chest);
         setObjVar(player, "loot.rls.lastLootedLocation", targetLocation);
 
-        playClientEffectLoc(target, RLS_EFFECT, targetLocation, 1f);
-        playClientEffectLoc(target, RLS_SOUND, targetLocation, 1f);
+        playClientEffectLoc(target, RLS_EFFECT, targetLocation, 1.0f);
+        playClientEffectLoc(target, RLS_SOUND, targetLocation, 1.0f);
 
         return true;
     }

@@ -53,7 +53,7 @@ public class trap_state_def_1 extends script.item.trap.trap_base
         outparams.put("stun_defense", 25);
         outparams.put("dizzy_defense", 20);
         outparams.put("prefix", "state_def_1");
-        messageTo(target, "applyModTrap", outparams, 0.f, false);
+        messageTo(target, "applyModTrap", outparams, 0.0f, false);
         prose_package pp = prose.getPackage(SID_SYS_EFFECT, target);
         sendSystemMessageProse(player, pp);
         if (!hasObjVar(self, "droid_trap"))

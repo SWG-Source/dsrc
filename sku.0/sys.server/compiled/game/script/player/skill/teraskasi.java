@@ -71,7 +71,7 @@ public class teraskasi extends script.systems.combat.combat_base
             combat.sendCombatSpamMessage(self, meditation.SID_POWERBOOST_ACTIVE);
             return SCRIPT_OVERRIDE;
         }
-        float duration = 300.0f + ((float)(modval) * 3.0f);
+        float duration = 300.0f + ((modval) * 3.0f);
         if (!combatStandardAction("powerBoost", self, self, null, "", ""))
         {
             return SCRIPT_OVERRIDE;

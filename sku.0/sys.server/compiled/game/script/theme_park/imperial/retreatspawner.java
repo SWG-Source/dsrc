@@ -66,7 +66,7 @@ public class retreatspawner extends script.base_script
     public void spawnKaja(obj_id self) throws InterruptedException
     {
         obj_id foyer = getCellId(self, "foyer");
-        location kajaLocation = new location(2.06f, .2f, -13.74f, "naboo", foyer);
+        location kajaLocation = new location(2.06f, 0.2f, -13.74f, "naboo", foyer);
         obj_id kaja = create.staticObject("kaja_orzee", kajaLocation);
         int kaja_yaw = -18;
         setYaw(kaja, kaja_yaw);
@@ -77,7 +77,7 @@ public class retreatspawner extends script.base_script
     public void spawnRecordKeeper(obj_id self) throws InterruptedException
     {
         obj_id hall1 = getCellId(self, "hall1");
-        location rkLocation = new location(33.3f, .2f, -36.9f, "naboo", hall1);
+        location rkLocation = new location(33.3f, 0.2f, -36.9f, "naboo", hall1);
         obj_id recordKeeper = create.staticObject("record_keeper_imperial", rkLocation);
         int rk_yaw = -7;
         setYaw(recordKeeper, rk_yaw);
@@ -114,7 +114,7 @@ public class retreatspawner extends script.base_script
     public void spawnLoam(obj_id self) throws InterruptedException
     {
         obj_id meetingroom = getCellId(self, "meetingroom");
-        location loamLocation = new location(19.29f, .2f, -41.96f, "naboo", meetingroom);
+        location loamLocation = new location(19.29f, 0.2f, -41.96f, "naboo", meetingroom);
         obj_id loam = create.staticObject("loam_redge", loamLocation);
         int loam_yaw = 120;
         setYaw(loam, loam_yaw);
@@ -125,7 +125,7 @@ public class retreatspawner extends script.base_script
     public void spawnHethrir(obj_id self) throws InterruptedException
     {
         obj_id library = getCellId(self, "library");
-        location hethrirLocation = new location(4.98f, .2f, -41.82f, "naboo", library);
+        location hethrirLocation = new location(4.98f, 0.2f, -41.82f, "naboo", library);
         obj_id hethrir = create.staticObject("lord_hethrir", hethrirLocation);
         int hethrir_yaw = 0;
         setYaw(hethrir, hethrir_yaw);
@@ -136,7 +136,7 @@ public class retreatspawner extends script.base_script
     public void spawnDarth(obj_id self) throws InterruptedException
     {
         obj_id vader = getCellId(self, "vader");
-        location darthLocation = new location(-57.25f, .2f, -24.06f, "naboo", vader);
+        location darthLocation = new location(-57.25f, 0.2f, -24.06f, "naboo", vader);
         obj_id darth = create.staticObject("darth_vader", darthLocation);
         int darth_yaw = 90;
         setYaw(darth, darth_yaw);
@@ -147,7 +147,7 @@ public class retreatspawner extends script.base_script
     public void spawnEmperor(obj_id self) throws InterruptedException
     {
         obj_id emperor = getCellId(self, "emperor");
-        location emperorLocation = new location(13.05f, 21f, -26.07f, "naboo", emperor);
+        location emperorLocation = new location(13.05f, 21.0f, -26.07f, "naboo", emperor);
         obj_id palpatine = create.staticObject("palpatine", emperorLocation);
         int palpatine_yaw = 180;
         setYaw(palpatine, palpatine_yaw);
@@ -158,7 +158,7 @@ public class retreatspawner extends script.base_script
     public void spawnCrimson1(obj_id self) throws InterruptedException
     {
         obj_id mainhall = getCellId(self, "mainhall");
-        location c1Location = new location(17.0f, .2f, -31.0f, "naboo", mainhall);
+        location c1Location = new location(17.0f, 0.2f, -31.0f, "naboo", mainhall);
         obj_id c1 = create.staticObject("emperor_royal_guard", c1Location);
         int c1_yaw = 0;
         setYaw(c1, c1_yaw);
@@ -169,7 +169,7 @@ public class retreatspawner extends script.base_script
     public void spawnCrimson2(obj_id self) throws InterruptedException
     {
         obj_id mainhall = getCellId(self, "mainhall");
-        location c2Location = new location(9.0f, .2f, -31.0f, "naboo", mainhall);
+        location c2Location = new location(9.0f, 0.2f, -31.0f, "naboo", mainhall);
         obj_id c2 = create.staticObject("emperor_royal_guard", c2Location);
         int c2_yaw = 0;
         setYaw(c2, c2_yaw);
@@ -202,7 +202,7 @@ public class retreatspawner extends script.base_script
     public obj_id spawnStormtrooper1(obj_id self) throws InterruptedException
     {
         obj_id mainhall = getCellId(self, "mainhall");
-        location st1Location = new location(1.58f, .2f, -23.35f, "naboo", mainhall);
+        location st1Location = new location(1.58f, 0.2f, -23.35f, "naboo", mainhall);
         obj_id st1 = create.staticObject("stormtrooper", st1Location);
         setObjVar(self, "RetreatInhabitants.st1", st1);
         setObjVar(st1, "Retreat", self);
@@ -211,7 +211,7 @@ public class retreatspawner extends script.base_script
     public void spawnStormtrooper2(obj_id self, obj_id st1) throws InterruptedException
     {
         obj_id mainhall = getCellId(self, "mainhall");
-        location st2Location = new location(3.58f, .2f, -23.35f, "naboo", mainhall);
+        location st2Location = new location(3.58f, 0.2f, -23.35f, "naboo", mainhall);
         obj_id st2 = create.staticObject("stormtrooper", st2Location);
         setObjVar(self, "RetreatInhabitants.st2", st2);
         setObjVar(st2, "Retreat", self);
@@ -226,7 +226,7 @@ public class retreatspawner extends script.base_script
     public void spawnVelso(obj_id self) throws InterruptedException
     {
         obj_id mainhall = getCellId(self, "mainhall");
-        location ltvLocation = new location(23.4f, .2f, -19.4f, "naboo", mainhall);
+        location ltvLocation = new location(23.4f, 0.2f, -19.4f, "naboo", mainhall);
         obj_id ltv = create.staticObject("lt_velso", ltvLocation);
         int ltv_yaw = -150;
         setYaw(ltv, ltv_yaw);
@@ -260,7 +260,7 @@ public class retreatspawner extends script.base_script
     public void spawnMouse1(obj_id self) throws InterruptedException
     {
         obj_id mainhall = getCellId(self, "mainhall");
-        location mouse1Location = new location(12.25f, .2f, -24.38f, "naboo", mainhall);
+        location mouse1Location = new location(12.25f, 0.2f, -24.38f, "naboo", mainhall);
         obj_id mouse1 = create.staticObject("mouse_droid", mouse1Location);
         setObjVar(self, "RetreatInhabitants.mouse1", mouse1);
         setObjVar(mouse1, "Retreat", self);
@@ -272,7 +272,7 @@ public class retreatspawner extends script.base_script
     public void spawnMouse2(obj_id self) throws InterruptedException
     {
         obj_id hall3 = getCellId(self, "hall3");
-        location mouse2Location = new location(-8.91f, .2f, -12.67f, "naboo", hall3);
+        location mouse2Location = new location(-8.91f, 0.2f, -12.67f, "naboo", hall3);
         obj_id mouse2 = create.staticObject("mouse_droid", mouse2Location);
         setObjVar(self, "RetreatInhabitants.mouse2", mouse2);
         setObjVar(mouse2, "Retreat", self);
@@ -284,7 +284,7 @@ public class retreatspawner extends script.base_script
     public void spawnMouse3(obj_id self) throws InterruptedException
     {
         obj_id library = getCellId(self, "library");
-        location mouse3Location = new location(11.63f, .2f, -51.12f, "naboo", library);
+        location mouse3Location = new location(11.63f, 0.2f, -51.12f, "naboo", library);
         obj_id mouse3 = create.staticObject("mouse_droid", mouse3Location);
         setObjVar(self, "RetreatInhabitants.mouse3", mouse3);
         setObjVar(mouse3, "Retreat", self);
@@ -296,7 +296,7 @@ public class retreatspawner extends script.base_script
     public void spawnRa7(obj_id self) throws InterruptedException
     {
         obj_id library = getCellId(self, "library");
-        location ra7Location = new location(4.0f, .2f, -45.3f, "naboo", library);
+        location ra7Location = new location(4.0f, 0.2f, -45.3f, "naboo", library);
         obj_id ra7 = create.staticObject("ra7_bug_droid", ra7Location);
         int ra7_yaw = -6;
         setYaw(ra7, ra7_yaw);

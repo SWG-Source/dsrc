@@ -112,7 +112,7 @@ public class planet_base extends script.base_script
                 areaIdList.set(pos, areaId);
                 locList.set(pos, facilityLoc);
                 respawnList.set(pos, facilityRespawn);
-                cloneTypeList.set(pos, new Integer(cloneType));
+                cloneTypeList.set(pos, cloneType);
             }
             else 
             {

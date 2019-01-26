@@ -124,7 +124,7 @@ public class string_id implements Comparable, Serializable
 	 */
 	public String toString()
 	{
-		StringBuffer sbuf = new StringBuffer(m_table);
+		StringBuilder sbuf = new StringBuilder(m_table);
 		sbuf.append (':');
 
 		if (m_asciiId != null)

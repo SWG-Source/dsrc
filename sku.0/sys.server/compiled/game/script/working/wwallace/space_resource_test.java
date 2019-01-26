@@ -1,14 +1,7 @@
 package script.working.wwallace;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.utils;
+import script.obj_id;
 
 public class space_resource_test extends script.base_script
 {
@@ -67,9 +60,8 @@ public class space_resource_test extends script.base_script
         else if (strCommands[0].equals("allSpaceResources"))
         {
             String[] resourceList = SPACE_RESOURCE_CONST;
-            for (int i = 0; i < resourceList.length; i++)
-            {
-                makeResource(self, resourceList[i]);
+            for (String s : resourceList) {
+                makeResource(self, s);
             }
         }
         return SCRIPT_CONTINUE;

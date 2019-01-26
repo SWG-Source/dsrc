@@ -25,7 +25,7 @@ public class camp_module_attribute extends script.base_script
             float attrib = getFloatObjVar(self, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".armor_module");
             if (attrib == 0.0f)
             {
-                attrib = (float)getIntObjVar(self, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".armor_module");
+                attrib = getIntObjVar(self, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".armor_module");
                 String objvarName = craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".armor_module";
                 setObjVar(self, objvarName, attrib);
             }
@@ -267,7 +267,7 @@ public class camp_module_attribute extends script.base_script
                 available_effects.setSize(0);
                 while (i <= pet_lib.LIGHTING_EFFECTS.length)
                 {
-                    int result = (int)((raw_effects % Math.pow(10, i)) / Math.pow(10, i - 1));
+                    int result = (int)((raw_effects % StrictMath.pow(10, i)) / StrictMath.pow(10, i - 1));
                     if (result >= 1)
                     {
                         available_effects = utils.addElement(available_effects, pet_lib.LIGHTING_EFFECTS[i - 1]);
@@ -276,13 +276,11 @@ public class camp_module_attribute extends script.base_script
                 }
                 if (available_effects.size() > 0)
                 {
-                    for (int j = 0; j < available_effects.size(); j++)
-                    {
-                        names[idx] = (String)available_effects.get(j);
+                    for (Object available_effect : available_effects) {
+                        names[idx] = (String) available_effect;
                         attribs[idx] = " installed";
                         idx++;
-                        if (idx >= names.length)
-                        {
+                        if (idx >= names.length) {
                             return SCRIPT_CONTINUE;
                         }
                     }

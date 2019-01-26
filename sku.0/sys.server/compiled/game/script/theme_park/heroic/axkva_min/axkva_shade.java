@@ -19,9 +19,8 @@ public class axkva_shade extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            addPassiveReveal(self, players[i], 1);
+        for (obj_id player : players) {
+            addPassiveReveal(self, player, 1);
         }
         return SCRIPT_CONTINUE;
     }

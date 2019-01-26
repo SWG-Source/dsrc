@@ -44,25 +44,23 @@ public class player_structure_deed extends script.base_script
         String deed_scene = getStringObjVar(self, "player_structure.deed.scene");
         if (deed_scene != null && deed_scene.length() > 0)
         {
-            if (deed_scene.equals("tatooine"))
-            {
-                deed_scene = "tatooine,lok,dantooine";
-                setObjVar(self, "player_structure.deed.scene", deed_scene);
-            }
-            else if (deed_scene.equals("naboo"))
-            {
-                deed_scene = "naboo,rori,dantooine";
-                setObjVar(self, "player_structure.deed.scene", deed_scene);
-            }
-            else if (deed_scene.equals("corellia"))
-            {
-                deed_scene = "corellia,talus";
-                setObjVar(self, "player_structure.deed.scene", deed_scene);
-            }
-            else if (deed_scene.equals("tatooine,lok,naboo,rori,dantooine,corellia,talus"))
-            {
-                CustomerServiceLog("playerStructure", "Deed " + self + " has had all invalid/old objvars removed.");
-                removeObjVar(self, "player_structure.deed.scene");
+            switch (deed_scene) {
+                case "tatooine":
+                    deed_scene = "tatooine,lok,dantooine";
+                    setObjVar(self, "player_structure.deed.scene", deed_scene);
+                    break;
+                case "naboo":
+                    deed_scene = "naboo,rori,dantooine";
+                    setObjVar(self, "player_structure.deed.scene", deed_scene);
+                    break;
+                case "corellia":
+                    deed_scene = "corellia,talus";
+                    setObjVar(self, "player_structure.deed.scene", deed_scene);
+                    break;
+                case "tatooine,lok,naboo,rori,dantooine,corellia,talus":
+                    CustomerServiceLog("playerStructure", "Deed " + self + " has had all invalid/old objvars removed.");
+                    removeObjVar(self, "player_structure.deed.scene");
+                    break;
             }
         }
         else 

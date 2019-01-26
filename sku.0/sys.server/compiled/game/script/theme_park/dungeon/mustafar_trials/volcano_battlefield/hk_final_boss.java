@@ -89,8 +89,8 @@ public class hk_final_boss extends script.base_script
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id weapon, int[] damage) throws InterruptedException
     {
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         if (ratio <= 0.8)
         {
@@ -172,9 +172,8 @@ public class hk_final_boss extends script.base_script
             doLogging("clearAllAdds", "There are no objects in range");
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            trial.cleanupNpc(objects[i]);
+        for (obj_id object : objects) {
+            trial.cleanupNpc(object);
         }
     }
     public void summonAdd(obj_id self, int value) throws InterruptedException
@@ -212,27 +211,22 @@ public class hk_final_boss extends script.base_script
             doLogging("summonAdd", "Could not find a valid spawn location");
             return SCRIPT_CONTINUE;
         }
-        for (int k = 0; k < spawnLocs.length; k++)
-        {
-            obj_id spawned = create.object(toSpawn, spawnLocs[k]);
-            if (!isIdValid(spawned))
-            {
+        for (location spawnLoc : spawnLocs) {
+            obj_id spawned = create.object(toSpawn, spawnLoc);
+            if (!isIdValid(spawned)) {
                 doLogging("summonAdd", "Attemplted to create " + toSpawn + " but failed");
                 return SCRIPT_CONTINUE;
             }
             messageTo(spawned, "beginAttack", null, 2, false);
             setYaw(spawned, rand(0, 360));
             trial.setParent(self, spawned, false);
-            if (toSpawn.equals(KUBAZA))
-            {
+            if (toSpawn.equals(KUBAZA)) {
                 attachScript(spawned, "theme_park.dungeon.mustafar_trials.volcano_battlefield.hk_beetle");
             }
-            if (toSpawn.equals(AKBOT))
-            {
+            if (toSpawn.equals(AKBOT)) {
                 attachScript(spawned, "theme_park.dungeon.mustafar_trials.volcano_battlefield.hk_ak_guardian");
             }
-            if (toSpawn.equals(GKBOT))
-            {
+            if (toSpawn.equals(GKBOT)) {
                 attachScript(spawned, "theme_park.dungeon.mustafar_trials.volcano_battlefield.hk_gk_septipod");
             }
         }
@@ -251,9 +245,8 @@ public class hk_final_boss extends script.base_script
             {
                 pp = prose.getPackage(trial.VOLCANO_OPP_ADD_NOTIFY, self);
             }
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageProse(players[i], pp);
+            for (obj_id player : players) {
+                sendSystemMessageProse(player, pp);
             }
         }
         return SCRIPT_CONTINUE;
@@ -268,11 +261,9 @@ public class hk_final_boss extends script.base_script
         }
         Vector validLoc = new Vector();
         validLoc.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], type))
-            {
-                utils.addElement(validLoc, getLocation(objects[i]));
+        for (obj_id object : objects) {
+            if (hasObjVar(object, type)) {
+                utils.addElement(validLoc, getLocation(object));
             }
         }
         if (validLoc == null || validLoc.size() == 0)
@@ -405,11 +396,9 @@ public class hk_final_boss extends script.base_script
             doLogging("applyAEDebuffs", "Could find no valid players to afflict");
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            for (int k = 0; k < effects.length; k++)
-            {
-                buff.applyBuff(players[i], effects[k]);
+        for (obj_id player : players) {
+            for (String effect : effects) {
+                buff.applyBuff(player, effect);
             }
         }
     }
@@ -469,31 +458,27 @@ public class hk_final_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectObj(self, trial.PRT_VOLCANO_WAVE_EXE, self, "");
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (targets[i] == getTarget(self))
-            {
+        for (obj_id target : targets) {
+            if (target == getTarget(self)) {
                 int tankDamage = 400;
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "blast_wave_hit");
                 pp.actor.set(self);
-                pp.target.set(targets[i]);
+                pp.target.set(target);
                 pp.digitInteger = tankDamage;
-                combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-                damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 1500);
-            }
-            else 
-            {
-                float distance = getDistance(self, targets[i]);
+                combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+                damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 1500);
+            } else {
+                float distance = getDistance(self, target);
                 int damage = Math.round(15000.0f / distance);
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "blast_wave_hit");
                 pp.actor.set(self);
-                pp.target.set(targets[i]);
+                pp.target.set(target);
                 pp.digitInteger = damage;
-                combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-                dot.applyDotEffect(targets[i], self, dot.DOT_FIRE, "blast_wave_dot", HEALTH, -1, damage / 10, 60, true, null);
-                damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
+                combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+                dot.applyDotEffect(target, self, dot.DOT_FIRE, "blast_wave_dot", HEALTH, -1, damage / 10, 60, true, null);
+                damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
             }
         }
         cycleNextAE(self);
@@ -522,22 +507,20 @@ public class hk_final_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectLoc(self, trial.PRT_VOLCANO_AIR_EXE, getLocation(self), 4.0f);
-        for (int i = 0; i < targets.length; i++)
-        {
-            float distance = getDistance(self, targets[i]);
+        for (obj_id target : targets) {
+            float distance = getDistance(self, target);
             float modDistance = (distance / 20);
-            if (modDistance == 0)
-            {
+            if (modDistance == 0) {
                 modDistance = 0.1f;
             }
-            int damage = (int)(modDistance * 3000.0f);
+            int damage = (int) (modDistance * 3000.0f);
             prose_package pp = new prose_package();
             pp.stringId = new string_id("cbt_spam", "airburst_hit");
             pp.actor.set(self);
-            pp.target.set(targets[i]);
+            pp.target.set(target);
             pp.digitInteger = damage;
-            combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-            damage(targets[i], DAMAGE_ELEMENTAL_ELECTRICAL, HIT_LOCATION_BODY, damage);
+            combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+            damage(target, DAMAGE_ELEMENTAL_ELECTRICAL, HIT_LOCATION_BODY, damage);
         }
         cycleNextAE(self);
         return SCRIPT_CONTINUE;
@@ -560,10 +543,9 @@ public class hk_final_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectObj(self, trial.PRT_CYM_POISON, self, "");
-        for (int i = 0; i < targets.length; i++)
-        {
-            dot.applyDotEffect(targets[i], self, dot.DOT_POISON, "volcano_boss_poison_cloud", HEALTH, 125, 235, 30, true, null);
-            playClientEffectObj(targets[i], trial.PRT_CYM_POISON, targets[i], "");
+        for (obj_id target : targets) {
+            dot.applyDotEffect(target, self, dot.DOT_POISON, "volcano_boss_poison_cloud", HEALTH, 125, 235, 30, true, null);
+            playClientEffectObj(target, trial.PRT_CYM_POISON, target, "");
         }
         messageTo(self, "performPoisonAe", trial.getSessionDict(self), POISON_RECAST, false);
         return SCRIPT_CONTINUE;
@@ -582,10 +564,9 @@ public class hk_final_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectObj(self, trial.PRT_CYM_DISEASE, self, "");
-        for (int i = 0; i < targets.length; i++)
-        {
-            dot.applyDotEffect(targets[i], self, dot.DOT_DISEASE, "volcano_boss_disease_cloud", HEALTH, -1, 1200, 54, true, null);
-            playClientEffectObj(targets[i], trial.PRT_CYM_DISEASE, targets[i], "");
+        for (obj_id target : targets) {
+            dot.applyDotEffect(target, self, dot.DOT_DISEASE, "volcano_boss_disease_cloud", HEALTH, -1, 1200, 54, true, null);
+            playClientEffectObj(target, trial.PRT_CYM_DISEASE, target, "");
         }
         messageTo(self, "performDiseaseAe", trial.getSessionDict(self), DISEASE_RECAST, false);
         return SCRIPT_CONTINUE;
@@ -603,25 +584,22 @@ public class hk_final_boss extends script.base_script
             messageTo(self, "performForceDrainAe", trial.getSessionDict(self), FORCE_DRAIN_RECAST, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (isJedi(targets[i]))
-            {
+        for (obj_id target : targets) {
+            if (isJedi(target)) {
                 int forceDamage = 210;
-                int currentForce = getForcePower(targets[i]);
-                if (forceDamage > currentForce)
-                {
+                int currentForce = getForcePower(target);
+                if (forceDamage > currentForce) {
                     forceDamage = currentForce;
                 }
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "forcedrain_hit");
                 pp.actor.set(self);
-                pp.target.set(targets[i]);
+                pp.target.set(target);
                 pp.digitInteger = forceDamage;
-                combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-                alterForcePower(targets[i], (-1 * forceDamage));
+                combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+                alterForcePower(target, (-1 * forceDamage));
                 String effect = "clienteffect/pl_force_channel_self.cef";
-                playClientEffectObj(self, effect, targets[i], "");
+                playClientEffectObj(self, effect, target, "");
             }
         }
         messageTo(self, "performForceDrainAe", trial.getSessionDict(self), FORCE_DRAIN_RECAST, false);

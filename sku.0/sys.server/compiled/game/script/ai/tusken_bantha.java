@@ -12,7 +12,7 @@ public class tusken_bantha extends script.base_script
     {
     }
     public static final String SOCIAL_VOLUME = "npc_socialization";
-    public static final float SOCIAL_RANGE = 15f;
+    public static final float SOCIAL_RANGE = 15.0f;
     public int OnAttach(obj_id self) throws InterruptedException
     {
         if (!utils.hasScriptVar(self, "ai.tusken"))
@@ -66,7 +66,7 @@ public class tusken_bantha extends script.base_script
         if (isFollowedBy == null || isFollowedBy == bantha)
         {
             setMovementWalk(bantha);
-            follow(bantha, target, 2f, 5f);
+            follow(bantha, target, 2.0f, 5.0f);
             setObjVar(target, "ai.isFollowedBy", bantha);
             utils.setScriptVar(bantha, "ai.tusken", target);
             setObjVar(bantha, "ai.isFollowing", target);

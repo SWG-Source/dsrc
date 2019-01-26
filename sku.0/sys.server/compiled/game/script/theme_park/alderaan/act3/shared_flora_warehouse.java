@@ -97,7 +97,7 @@ public class shared_flora_warehouse extends script.base_script
     };
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        createTriggerVolume("guards", 20f, true);
+        createTriggerVolume("guards", 20.0f, true);
         dictionary params = new dictionary();
         params.put("index", 0);
         messageTo(self, "spawnNextObject", params, 1, false);
@@ -197,11 +197,9 @@ public class shared_flora_warehouse extends script.base_script
             if (breacher == player)
             {
                 Vector objectList = getResizeableObjIdArrayObjVar(self, "coa3.shared.obj_list");
-                for (int i = 0; i < objectList.size(); i++)
-                {
-                    if (isIdValid(((obj_id)objectList.get(i))) && ai_lib.isNpc(((obj_id)objectList.get(i))))
-                    {
-                        startCombat(((obj_id)objectList.get(i)), breacher);
+                for (Object o : objectList) {
+                    if (isIdValid(((obj_id) o)) && ai_lib.isNpc(((obj_id) o))) {
+                        startCombat(((obj_id) o), breacher);
                     }
                 }
             }
@@ -231,11 +229,9 @@ public class shared_flora_warehouse extends script.base_script
     public int OnDestroy(obj_id self) throws InterruptedException
     {
         Vector objectList = getResizeableObjIdArrayObjVar(self, "coa3.shared.obj_list");
-        for (int i = 0; i < objectList.size(); i++)
-        {
-            if (isIdValid(((obj_id)objectList.get(i))))
-            {
-                destroyObject(((obj_id)objectList.get(i)));
+        for (Object o : objectList) {
+            if (isIdValid(((obj_id) o))) {
+                destroyObject(((obj_id) o));
             }
         }
         return SCRIPT_CONTINUE;

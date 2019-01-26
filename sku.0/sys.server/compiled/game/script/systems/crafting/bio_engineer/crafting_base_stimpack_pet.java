@@ -18,25 +18,17 @@ public class crafting_base_stimpack_pet extends script.systems.crafting.crafting
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("power"))
-                {
-                    setObjVar(prototype, "healing.power", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("charges"))
-                {
-                    setCount(prototype, (int)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("power")) {
+                    setObjVar(prototype, "healing.power", (int) itemAttribute.currentValue);
+                } else if (((itemAttribute.name).getAsciiId()).equals("charges")) {
+                    setCount(prototype, (int) itemAttribute.currentValue);
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 }
             }
         }

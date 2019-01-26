@@ -35,7 +35,7 @@ public class obj_var implements Comparable, Serializable
 	public obj_var(String name, int data)
 	{
 		m_name = name;
-		m_data = new Integer(data);
+		m_data = data;
 	}	// obj_var(String, int)
 
 	/**
@@ -50,7 +50,7 @@ public class obj_var implements Comparable, Serializable
 //		m_data = Array.newInstance(Class.forName("java.lang.Integer"), data.length);
 		m_data = new int[data.length];
 		for ( int i = 0; i < data.length; ++i )
-			Array.set(m_data, i, new Integer(data[i]));
+			Array.set(m_data, i, data[i]);
 	}	// obj_var(String, int[])
 
 	/**
@@ -62,7 +62,7 @@ public class obj_var implements Comparable, Serializable
 	public obj_var(String name, float data)
 	{
 		m_name = name;
-		m_data = new Float(data);
+		m_data = data;
 	}	// obj_var(String, float)
 
 	/**
@@ -77,7 +77,7 @@ public class obj_var implements Comparable, Serializable
 //		m_data = Array.newInstance(Class.forName("java.lang.Float"), data.length);
 		m_data = new float[data.length];
 		for ( int i = 0; i < data.length; ++i )
-			Array.set(m_data, i, new Float(data[i]));
+			Array.set(m_data, i, data[i]);
 	}	// obj_var(String, float[])
 
 	/**
@@ -320,7 +320,7 @@ public class obj_var implements Comparable, Serializable
 	{
 		try
 		{
-			return ((Integer)m_data).intValue();
+			return (Integer) m_data;
 		}
 		catch( ClassCastException err )
 		{
@@ -352,7 +352,7 @@ public class obj_var implements Comparable, Serializable
 	{
 		try
 		{
-			return ((Float)m_data).floatValue();
+			return (Float) m_data;
 		}
 		catch( ClassCastException err )
 		{
@@ -388,7 +388,7 @@ public class obj_var implements Comparable, Serializable
 	{
 		try
 		{
-			return ((Integer)m_data).intValue() != 0;
+			return (Integer) m_data != 0;
 		}
 		catch( ClassCastException err )
 		{

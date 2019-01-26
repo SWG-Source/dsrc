@@ -42,7 +42,7 @@ public class player_sui extends script.base_script
             return SCRIPT_CONTINUE;
         }
         float range = params.getFloat("range");
-        if (range < 0f)
+        if (range < 0.0f)
         {
             return SCRIPT_CONTINUE;
         }

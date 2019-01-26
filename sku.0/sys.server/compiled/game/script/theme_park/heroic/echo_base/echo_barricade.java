@@ -26,13 +26,9 @@ public class echo_barricade extends script.base_script
         obj_id[] objects = getObjectsInRange(self, 5.0f);
         if (objects != null && objects.length > 0)
         {
-            for (int i = 0; i < objects.length; i++)
-            {
-                obj_id object = objects[i];
-                if (isIdValid(object))
-                {
-                    if (factions.isRebel(object) && isMob(object))
-                    {
+            for (obj_id object : objects) {
+                if (isIdValid(object)) {
+                    if (factions.isRebel(object) && isMob(object)) {
                         buff.applyBuff(object, self, "barricade_defender");
                     }
                 }
@@ -139,7 +135,7 @@ public class echo_barricade extends script.base_script
         playClientEffectObj(killer, "clienteffect/combat_explosion_lair_large.cef", self, "");
         playClientEffectLoc(killer, "clienteffect/combat_explosion_lair_large.cef", death, 0);
         setInvulnerable(self, true);
-        messageTo(self, "destroyHothBarricade", null, 1f, false);
+        messageTo(self, "destroyHothBarricade", null, 1.0f, false);
         return;
     }
 }

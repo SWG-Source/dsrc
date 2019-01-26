@@ -13,7 +13,7 @@ public class candle_decay extends script.base_script
         removeObjVar(self, "timeStamp");
         removeObjVar(self, "decayTime");
         String templateName = getTemplateName(self);
-        if (isLit(self) || templateName.indexOf("candlestick") >= 0)
+        if (isLit(self) || templateName.contains("candlestick"))
         {
             return SCRIPT_CONTINUE;
         }

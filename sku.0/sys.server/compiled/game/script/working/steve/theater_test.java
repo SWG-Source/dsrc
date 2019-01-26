@@ -33,11 +33,9 @@ public class theater_test extends script.base_script
             {
                 debugServerConsoleMsg(self, "OnTheaterCreated no objects");
             }
-            for (int i = 0; i < objects.length; ++i)
-            {
-                if (isIdValid(objects[i]))
-                {
-                    messageTo(objects[i], "startHandler", null, 1, false);
+            for (obj_id object : objects) {
+                if (isIdValid(object)) {
+                    messageTo(object, "startHandler", null, 1, false);
                 }
             }
         }

@@ -52,27 +52,18 @@ public class volcano_event_manager extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (objects[i] != self)
-            {
-                if (!isPlayer(objects[i]))
-                {
-                    if (!isMob(objects[i]))
-                    {
-                        if (trial.isTempObject(objects[i]))
-                        {
-                            destroyObject(objects[i]);
+        for (obj_id object : objects) {
+            if (object != self) {
+                if (!isPlayer(object)) {
+                    if (!isMob(object)) {
+                        if (trial.isTempObject(object)) {
+                            destroyObject(object);
                         }
+                    } else {
+                        kill(object);
+                        destroyObject(object);
                     }
-                    else 
-                    {
-                        kill(objects[i]);
-                        destroyObject(objects[i]);
-                    }
-                }
-                else 
-                {
+                } else {
                 }
             }
         }
@@ -170,13 +161,10 @@ public class volcano_event_manager extends script.base_script
             doLogging("getWaypointId", "Object list was null or empty, return null");
             return null;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], "battlePoint"))
-            {
-                if ((getStringObjVar(objects[i], "battlePoint")).equals(wpName))
-                {
-                    return objects[i];
+        for (obj_id object : objects) {
+            if (hasObjVar(object, "battlePoint")) {
+                if ((getStringObjVar(object, "battlePoint")).equals(wpName)) {
+                    return object;
                 }
             }
         }

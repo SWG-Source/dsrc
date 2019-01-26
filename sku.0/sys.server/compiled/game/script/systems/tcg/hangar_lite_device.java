@@ -74,13 +74,9 @@ public class hangar_lite_device extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < shipsStored.length; ++i)
-            {
-                obj_id storedShip = shipsStored[i];
-                if (isIdValid(storedShip))
-                {
-                    if (hasObjVar(storedShip, player_structure.OBJVAR_STORED_HANGAR_LITE))
-                    {
+            for (obj_id storedShip : shipsStored) {
+                if (isIdValid(storedShip)) {
+                    if (hasObjVar(storedShip, player_structure.OBJVAR_STORED_HANGAR_LITE)) {
                         utils.addElement(storedShipNames, getEncodedName(storedShip));
                     }
                 }
@@ -93,10 +89,9 @@ public class hangar_lite_device extends script.base_script
             }
             else 
             {
-                for (int j = 0; j < storedShipNames.size(); ++j)
-                {
+                for (Object storedShipName : storedShipNames) {
                     names[idx] = "ship_in_hangar_lite";
-                    attribs[idx] = ((String)storedShipNames.get(j));
+                    attribs[idx] = ((String) storedShipName);
                     idx++;
                 }
             }
@@ -129,13 +124,9 @@ public class hangar_lite_device extends script.base_script
                 obj_id[] shipControlDevices = space_transition.findShipControlDevicesInHangarSlot(player);
                 if (shipControlDevices != null && shipControlDevices.length > 0)
                 {
-                    for (int i = 0; i < shipControlDevices.length; ++i)
-                    {
-                        obj_id storedShip = shipControlDevices[i];
-                        if (isIdValid(storedShip))
-                        {
-                            if (hasObjVar(storedShip, player_structure.OBJVAR_STORED_HANGAR_LITE))
-                            {
+                    for (obj_id storedShip : shipControlDevices) {
+                        if (isIdValid(storedShip)) {
+                            if (hasObjVar(storedShip, player_structure.OBJVAR_STORED_HANGAR_LITE)) {
                                 canRecallShips = true;
                                 break;
                             }
@@ -476,13 +467,9 @@ public class hangar_lite_device extends script.base_script
         hangarLiteStoredShips.setSize(0);
         if (shipsInHangar != null && shipsInHangar.length > 0)
         {
-            for (int i = 0; i < shipsInHangar.length; ++i)
-            {
-                obj_id storedShip = shipsInHangar[i];
-                if (isIdValid(storedShip))
-                {
-                    if (hasObjVar(storedShip, player_structure.OBJVAR_STORED_HANGAR_LITE))
-                    {
+            for (obj_id storedShip : shipsInHangar) {
+                if (isIdValid(storedShip)) {
+                    if (hasObjVar(storedShip, player_structure.OBJVAR_STORED_HANGAR_LITE)) {
                         utils.addElement(hangarLiteStoredShips, storedShip);
                     }
                 }
@@ -531,13 +518,9 @@ public class hangar_lite_device extends script.base_script
             sendSystemMessage(player, SID_NO_SHIPS);
             return false;
         }
-        for (int i = 0; i < shipControlDevices.length; ++i)
-        {
-            obj_id storedShip = shipControlDevices[i];
-            if (isIdValid(storedShip))
-            {
-                if (hasObjVar(storedShip, player_structure.OBJVAR_STORED_HANGAR_LITE))
-                {
+        for (obj_id storedShip : shipControlDevices) {
+            if (isIdValid(storedShip)) {
+                if (hasObjVar(storedShip, player_structure.OBJVAR_STORED_HANGAR_LITE)) {
                     utils.addElement(hangarLiteStoredShips, storedShip);
                 }
             }

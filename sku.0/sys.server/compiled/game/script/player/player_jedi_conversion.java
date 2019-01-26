@@ -282,11 +282,8 @@ public class player_jedi_conversion extends script.base_script
                         int hadIt = 0;
                         if (requiredLength > 0)
                         {
-                            for (int z = 0; z < requiredLength; z++)
-                            {
-                                String checkSkill = skills[z];
-                                if (hasSkill(player, checkSkill))
-                                {
+                            for (String checkSkill : skills) {
+                                if (hasSkill(player, checkSkill)) {
                                     hadIt = hadIt + 1;
                                 }
                             }
@@ -523,21 +520,15 @@ public class player_jedi_conversion extends script.base_script
         }
         Vector skillList = new Vector();
         skillList.setSize(0);
-        for (int i = 0; i < masterSkillList.length; i++)
-        {
-            skillList = utils.addElement(skillList, masterSkillList[i]);
-            String[] tmp = skill.getAllRequiredSkills(masterSkillList[i]);
-            if ((tmp == null) || (tmp.length == 0))
-            {
-            }
-            else 
-            {
-                for (int n = 0; n < tmp.length; n++)
-                {
-                    int pos = utils.getElementPositionInArray(skillList, tmp[n]);
-                    if (pos == -1)
-                    {
-                        skillList = utils.addElement(skillList, tmp[n]);
+        for (String s1 : masterSkillList) {
+            skillList = utils.addElement(skillList, s1);
+            String[] tmp = skill.getAllRequiredSkills(s1);
+            if ((tmp == null) || (tmp.length == 0)) {
+            } else {
+                for (String s : tmp) {
+                    int pos = utils.getElementPositionInArray(skillList, s);
+                    if (pos == -1) {
+                        skillList = utils.addElement(skillList, s);
                     }
                 }
             }
@@ -559,19 +550,15 @@ public class player_jedi_conversion extends script.base_script
         }
         Vector skillList = new Vector();
         skillList.setSize(0);
-        for (int i = 0; i < learnableSkillList.length; i++)
-        {
-            if (hasSkill(player, learnableSkillList[i]))
-            {
+        for (String s : learnableSkillList) {
+            if (hasSkill(player, s)) {
                 continue;
             }
-            if (skill.hasRequiredSkillsForSkillPurchase(player, learnableSkillList[i]))
-            {
+            if (skill.hasRequiredSkillsForSkillPurchase(player, s)) {
                 int cost = 0;
                 int pointsToSpend = getIntObjVar(player, "jedi.nonJediPoints");
-                if (cost <= pointsToSpend)
-                {
-                    skillList = utils.addElement(skillList, learnableSkillList[i]);
+                if (cost <= pointsToSpend) {
+                    skillList = utils.addElement(skillList, s);
                 }
             }
         }
@@ -717,9 +704,8 @@ public class player_jedi_conversion extends script.base_script
             skillList = player_version.orderSkillListForRevoke(skillList);
             if ((skillList != null) && (skillList.length > 0))
             {
-                for (int x = 0; x < skillList.length; x++)
-                {
-                    revokeSkill(objPlayer, skillList[x]);
+                for (String s : skillList) {
+                    revokeSkill(objPlayer, s);
                 }
             }
             skillList = getSkillListingForPlayer(objPlayer);
@@ -745,45 +731,51 @@ public class player_jedi_conversion extends script.base_script
         String second = dataTableGetString(datatable, thisSkill, "skill_two");
         String third = dataTableGetString(datatable, thisSkill, "skill_three");
         String fourth = dataTableGetString(datatable, thisSkill, "skill_four");
-        if (fourth.equals("force_sensitive_combat_prowess_ranged_accuracy_04") || fourth.equals("force_sensitive_combat_prowess_ranged_speed_04") || fourth.equals("force_sensitive_combat_prowess_melee_accuracy_04") || fourth.equals("force_sensitive_combat_prowess_melee_speed_04"))
-        {
-            if (hasSkill(player, "force_sensitive_combat_prowess_master"))
-            {
-                setObjVar(player, "jedi.revokeAllowed", 1);
-            }
-            revokeSkill(player, "force_sensitive_combat_prowess_master");
-            removeObjVar(player, "jedi.revokeAllowed");
-            CustomerServiceLog("JediConversion", "%TU revoked force_sensitive_combat_prowess_master.", self);
-        }
-        else if (fourth.equals("force_sensitive_enhanced_reflexes_ranged_defense_04") || fourth.equals("force_sensitive_enhanced_reflexes_melee_defense_04") || fourth.equals("force_sensitive_enhanced_reflexes_vehicle_control_04") || fourth.equals("force_sensitive_enhanced_reflexes_survival_04"))
-        {
-            if (hasSkill(player, "force_sensitive_enhanced_reflexes_master"))
-            {
-                setObjVar(player, "jedi.revokeAllowed", 1);
-            }
-            revokeSkill(player, "force_sensitive_enhanced_reflexes_master");
-            removeObjVar(player, "jedi.revokeAllowed");
-            CustomerServiceLog("JediConversion", "%TU revoked force_sensitive_enhanced_reflexes_master.", self);
-        }
-        else if (fourth.equals("force_sensitive_crafting_mastery_experimentation_04") || fourth.equals("force_sensitive_crafting_mastery_assembly_04") || fourth.equals("force_sensitive_crafting_mastery_repair_04") || fourth.equals("force_sensitive_crafting_mastery_technique_04"))
-        {
-            if (hasSkill(player, "force_sensitive_crafting_mastery_master"))
-            {
-                setObjVar(player, "jedi.revokeAllowed", 1);
-            }
-            revokeSkill(player, "force_sensitive_crafting_mastery_master");
-            removeObjVar(player, "jedi.revokeAllowed");
-            CustomerServiceLog("JediConversion", "%TU revoked force_sensitive_crafting_mastery_master.", self);
-        }
-        else if (fourth.equals("force_sensitive_heightened_senses_healing_04") || fourth.equals("force_sensitive_heightened_senses_surveying_04") || fourth.equals("force_sensitive_heightened_senses_persuasion_04") || fourth.equals("force_sensitive_heightened_senses_luck_04"))
-        {
-            if (hasSkill(player, "force_sensitive_heightened_senses_master"))
-            {
-                setObjVar(player, "jedi.revokeAllowed", 1);
-            }
-            revokeSkill(player, "force_sensitive_heightened_senses_master");
-            removeObjVar(player, "jedi.revokeAllowed");
-            CustomerServiceLog("JediConversion", "%TU revoked force_sensitive_heightened_senses_master.", self);
+        switch (fourth) {
+            case "force_sensitive_combat_prowess_ranged_accuracy_04":
+            case "force_sensitive_combat_prowess_ranged_speed_04":
+            case "force_sensitive_combat_prowess_melee_accuracy_04":
+            case "force_sensitive_combat_prowess_melee_speed_04":
+                if (hasSkill(player, "force_sensitive_combat_prowess_master")) {
+                    setObjVar(player, "jedi.revokeAllowed", 1);
+                }
+                revokeSkill(player, "force_sensitive_combat_prowess_master");
+                removeObjVar(player, "jedi.revokeAllowed");
+                CustomerServiceLog("JediConversion", "%TU revoked force_sensitive_combat_prowess_master.", self);
+                break;
+            case "force_sensitive_enhanced_reflexes_ranged_defense_04":
+            case "force_sensitive_enhanced_reflexes_melee_defense_04":
+            case "force_sensitive_enhanced_reflexes_vehicle_control_04":
+            case "force_sensitive_enhanced_reflexes_survival_04":
+                if (hasSkill(player, "force_sensitive_enhanced_reflexes_master")) {
+                    setObjVar(player, "jedi.revokeAllowed", 1);
+                }
+                revokeSkill(player, "force_sensitive_enhanced_reflexes_master");
+                removeObjVar(player, "jedi.revokeAllowed");
+                CustomerServiceLog("JediConversion", "%TU revoked force_sensitive_enhanced_reflexes_master.", self);
+                break;
+            case "force_sensitive_crafting_mastery_experimentation_04":
+            case "force_sensitive_crafting_mastery_assembly_04":
+            case "force_sensitive_crafting_mastery_repair_04":
+            case "force_sensitive_crafting_mastery_technique_04":
+                if (hasSkill(player, "force_sensitive_crafting_mastery_master")) {
+                    setObjVar(player, "jedi.revokeAllowed", 1);
+                }
+                revokeSkill(player, "force_sensitive_crafting_mastery_master");
+                removeObjVar(player, "jedi.revokeAllowed");
+                CustomerServiceLog("JediConversion", "%TU revoked force_sensitive_crafting_mastery_master.", self);
+                break;
+            case "force_sensitive_heightened_senses_healing_04":
+            case "force_sensitive_heightened_senses_surveying_04":
+            case "force_sensitive_heightened_senses_persuasion_04":
+            case "force_sensitive_heightened_senses_luck_04":
+                if (hasSkill(player, "force_sensitive_heightened_senses_master")) {
+                    setObjVar(player, "jedi.revokeAllowed", 1);
+                }
+                revokeSkill(player, "force_sensitive_heightened_senses_master");
+                removeObjVar(player, "jedi.revokeAllowed");
+                CustomerServiceLog("JediConversion", "%TU revoked force_sensitive_heightened_senses_master.", self);
+                break;
         }
         if (hasSkill(player, fourth))
         {

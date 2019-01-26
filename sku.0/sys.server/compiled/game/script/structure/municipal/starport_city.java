@@ -13,7 +13,7 @@ public class starport_city extends script.structure.municipal.starport
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "setupStartport", null, 1.f, false);
+        messageTo(self, "setupStartport", null, 1.0f, false);
         return super.OnAttach(self);
     }
     public int OnInitialize(obj_id self) throws InterruptedException
@@ -49,9 +49,8 @@ public class starport_city extends script.structure.municipal.starport
     {
         boolean initd = false;
         obj_id[] objects = getObjIdArrayObjVar(self, "travel.base_object");
-        for (int i = 0; i < objects.length; i++)
-        {
-            destroyObject(objects[i]);
+        for (obj_id object : objects) {
+            destroyObject(object);
             initd = true;
         }
         if (initd)

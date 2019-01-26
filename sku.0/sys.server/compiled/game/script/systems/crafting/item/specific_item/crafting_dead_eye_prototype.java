@@ -101,29 +101,24 @@ public class crafting_dead_eye_prototype extends script.systems.crafting.craftin
         int charges = 0;
         float duration = 0;
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("power"))
-                {
-                    power = (int)(itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("charges"))
-                {
-                    charges = (int)(itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("duration"))
-                {
-                    duration = (float)(itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "power":
+                        power = (int) (itemAttribute.currentValue);
+                        break;
+                    case "charges":
+                        charges = (int) (itemAttribute.currentValue);
+                        break;
+                    case "duration":
+                        duration = (float) (itemAttribute.currentValue);
+                        break;
+                    default:
+                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
+                        break;
                 }
             }
         }

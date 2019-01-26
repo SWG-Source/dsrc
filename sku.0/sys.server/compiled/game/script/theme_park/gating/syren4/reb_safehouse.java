@@ -24,13 +24,9 @@ public class reb_safehouse extends script.base_script
             {
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groundquests.isQuestActive(item, "c_story1_4b_rebel") && !groundquests.hasCompletedTask(groupie, "c_story1_4b_rebel", "reb_choice"))
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groundquests.isQuestActive(item, "c_story1_4b_rebel") && !groundquests.hasCompletedTask(groupie, "c_story1_4b_rebel", "reb_choice")) {
                             return SCRIPT_CONTINUE;
                         }
                     }

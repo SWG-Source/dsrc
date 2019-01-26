@@ -66,14 +66,11 @@ public class event_three_boss extends script.base_script
             doLogging("clearAllAdds", "There are no objects in range");
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], "boss"))
-            {
-                obj_id parent = getObjIdObjVar(objects[i], "boss");
-                if (parent == self)
-                {
-                    trial.cleanupNpc(objects[i]);
+        for (obj_id object : objects) {
+            if (hasObjVar(object, "boss")) {
+                obj_id parent = getObjIdObjVar(object, "boss");
+                if (parent == self) {
+                    trial.cleanupNpc(object);
                 }
             }
         }

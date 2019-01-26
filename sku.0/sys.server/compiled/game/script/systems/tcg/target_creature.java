@@ -421,15 +421,11 @@ public class target_creature extends script.base_script
         if (enemies != null && enemies.length > 0)
         {
             messageTo(self, "handleTargetDummyCombatTick", null, 3, false);
-            for (int i = 0; i < enemies.length; i++)
-            {
-                obj_id enemy = enemies[i];
-                if (isIdValid(enemy))
-                {
+            for (obj_id enemy : enemies) {
+                if (isIdValid(enemy)) {
                     location there = getLocation(enemy);
                     location here = getLocation(self);
-                    if (!isValidLocation(there) || !isValidLocation(here) || there.cell != here.cell || utils.getDistance2D(here, there) > 60)
-                    {
+                    if (!isValidLocation(there) || !isValidLocation(here) || there.cell != here.cell || utils.getDistance2D(here, there) > 60) {
                         target_dummy.removeAttackerFromCombat(self, enemy);
                     }
                 }
@@ -458,9 +454,8 @@ public class target_creature extends script.base_script
             playTargetDummySound(self, attacker);
         }
         int currentHealth = getAttrib(self, HEALTH);
-        for (int i = 0; i < damage.length; i++)
-        {
-            currentHealth = currentHealth - damage[i];
+        for (int i1 : damage) {
+            currentHealth = currentHealth - i1;
         }
         blog("OnCreatureDamaged - currentHealth: " + currentHealth);
         if (currentHealth <= 0)

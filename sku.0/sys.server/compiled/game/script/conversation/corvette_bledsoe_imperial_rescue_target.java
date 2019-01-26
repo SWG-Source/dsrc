@@ -49,16 +49,11 @@ public class corvette_bledsoe_imperial_rescue_target extends script.base_script
                 obj_id groupObj = getGroupObject(player);
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groupie != player)
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groupie != player) {
                             factions.addFactionStanding(groupie, "Imperial", factionRewardGroup);
-                            if (isRescueMission)
-                            {
+                            if (isRescueMission) {
                                 messageTo(groupie, "youWin", null, 1, false);
                             }
                         }
@@ -90,16 +85,11 @@ public class corvette_bledsoe_imperial_rescue_target extends script.base_script
                 obj_id groupObj = getGroupObject(player);
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groupie != player)
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groupie != player) {
                             factions.addFactionStanding(groupie, "Imperial", factionRewardGroup);
-                            if (isRescueMission)
-                            {
+                            if (isRescueMission) {
                                 messageTo(groupie, "youWin", null, 1, false);
                             }
                         }

@@ -162,8 +162,8 @@ public class trap_base extends script.base_script
         }
         if (!hasObjVar(self, "droid_trap"))
         {
-            float targetLevel = (float)getLevel(target);
-            int pseudoDamage = (int)(Math.pow(targetLevel, 1.5f) * 2.2f + 66.f);
+            float targetLevel = getLevel(target);
+            int pseudoDamage = (int)(StrictMath.pow(targetLevel, 1.5f) * 2.2f + 66.0f);
             if (pseudoDamage > 2000)
             {
                 pseudoDamage = 2000;
@@ -174,8 +174,8 @@ public class trap_base extends script.base_script
         }
         else 
         {
-            float targetLevel = (float)getLevel(target);
-            int pseudoDamage = (int)(Math.pow(targetLevel, 1.5f) * 1f + 66.f);
+            float targetLevel = getLevel(target);
+            int pseudoDamage = (int)(StrictMath.pow(targetLevel, 1.5f) * 1.0f + 66.0f);
             if (pseudoDamage > 1000)
             {
                 pseudoDamage = 1000;

@@ -203,7 +203,7 @@ public class boba_fett extends script.base_script
     }
     public float boba_fett_tokenDF_tokenDF0001(obj_id player, obj_id npc) throws InterruptedException
     {
-        return 0.f;
+        return 0.0f;
     }
     public int boba_fett_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {

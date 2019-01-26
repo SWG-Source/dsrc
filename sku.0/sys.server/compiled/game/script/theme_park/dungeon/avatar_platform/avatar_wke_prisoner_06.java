@@ -33,7 +33,7 @@ public class avatar_wke_prisoner_06 extends script.base_script
     public int handleDeathByJawa(obj_id self, dictionary params) throws InterruptedException
     {
         setPosture(self, POSTURE_INCAPACITATED);
-        messageTo(self, "handleCleanUp", null, 10f, false);
+        messageTo(self, "handleCleanUp", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleFreedom(obj_id self, dictionary params) throws InterruptedException

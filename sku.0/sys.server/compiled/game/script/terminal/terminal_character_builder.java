@@ -1,51 +1,11 @@
 package script.terminal;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import java.lang.String;
-import script.base_script;
+import script.library.*;
 
-import script.library.ai_lib;
-import script.library.armor;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.callable;
-import script.library.chat;
-import script.library.consumable;
-import script.library.craftinglib;
-import script.library.create;
-import script.library.expertise;
-import script.library.factions;
-import script.library.gm;
-import script.library.groundquests;
-import script.library.healing;
-import script.library.incubator;
-import script.library.instance;
-import script.library.jedi;
-import script.library.loot;
-import script.library.money;
-import script.library.pet_lib;
-import script.library.player_stomach;
-import script.library.prose;
-import script.library.resource;
-import script.library.respec;
-import script.library.skill;
-import script.library.skill_template;
-import script.library.space_crafting;
-import script.library.space_flags;
-import script.library.space_skill;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.sui;
-import script.library.utils;
-import script.library.weapons;
-import script.library.performance;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.Vector;
 
 public class terminal_character_builder extends script.base_script
 {
@@ -2403,8 +2363,8 @@ public class terminal_character_builder extends script.base_script
             case 24:
                 String allHelpData = "";
                 Arrays.sort(CBTABOUT);
-                for (int i = 0; i < CBTABOUT.length; i++) {
-                    allHelpData = allHelpData + CBTABOUT[i] + "\r\n\t";
+                for (String s : CBTABOUT) {
+                    allHelpData = allHelpData + s + "\r\n\t";
                 }
                 sui.msgbox(self, player, allHelpData);
                 break;
@@ -2536,11 +2496,9 @@ public class terminal_character_builder extends script.base_script
             inventoryArray = new obj_id[0];
         }
         java.util.HashSet inventoryLookup = new java.util.HashSet(inventoryArray.length > 8 ? inventoryArray.length * 2 : 16);
-        for (int i = 0; i < inventoryArray.length; ++i)
-        {
-            String itemTemplate = getTemplateName(inventoryArray[i]);
-            if (itemTemplate != null)
-            {
+        for (script.obj_id obj_id : inventoryArray) {
+            String itemTemplate = getTemplateName(obj_id);
+            if (itemTemplate != null) {
                 inventoryLookup.add(itemTemplate);
             }
         }
@@ -2549,136 +2507,97 @@ public class terminal_character_builder extends script.base_script
         String[] skills = getSkillListingForPlayer(player);
         if (skills != null)
         {
-            for (int i = 0; i < skills.length; ++i)
-            {
-                if (space_transition.isPlayerBelowShipLimit(player))
-                {
+            for (String skill : skills) {
+                if (space_transition.isPlayerBelowShipLimit(player)) {
                     obj_id shipId = null;
-                    if (skills[i].equals("pilot_rebel_navy_master"))
-                    {
-                        shipId = space_utils.createShipControlDevice(player, "advanced_xwing", false);
+                    switch (skill) {
+                        case "pilot_rebel_navy_master":
+                            shipId = space_utils.createShipControlDevice(player, "advanced_xwing", false);
+                            break;
+                        case "pilot_imperial_navy_master":
+                            shipId = space_utils.createShipControlDevice(player, "tieinterceptor_imperial_guard", false);
+                            break;
+                        case "pilot_neutral_master":
+                            shipId = space_utils.createShipControlDevice(player, "yt1300", false);
+                            break;
+                        case "pilot_rebel_navy_novice":
+                            shipId = space_utils.createShipControlDevice(player, "z95", false);
+                            break;
+                        case "pilot_imperial_navy_novice":
+                            shipId = space_utils.createShipControlDevice(player, "tie_light_duty", false);
+                            break;
+                        case "pilot_neutral_novice":
+                            shipId = space_utils.createShipControlDevice(player, "basic_hutt_light", false);
+                            break;
                     }
-                    else if (skills[i].equals("pilot_imperial_navy_master"))
-                    {
-                        shipId = space_utils.createShipControlDevice(player, "tieinterceptor_imperial_guard", false);
-                    }
-                    else if (skills[i].equals("pilot_neutral_master"))
-                    {
-                        shipId = space_utils.createShipControlDevice(player, "yt1300", false);
-                    }
-                    else if (skills[i].equals("pilot_rebel_navy_novice"))
-                    {
-                        shipId = space_utils.createShipControlDevice(player, "z95", false);
-                    }
-                    else if (skills[i].equals("pilot_imperial_navy_novice"))
-                    {
-                        shipId = space_utils.createShipControlDevice(player, "tie_light_duty", false);
-                    }
-                    else if (skills[i].equals("pilot_neutral_novice"))
-                    {
-                        shipId = space_utils.createShipControlDevice(player, "basic_hutt_light", false);
-                    }
-                    if (isValidId(shipId))
-                    {
+                    if (isValidId(shipId)) {
                         ++shipCount;
                     }
                 }
-                dictionary items = dataTableGetRow(SKILL_LOADOUT_TBL, skills[i]);
-                if (items != null)
-                {
-                    java.util.Enumeration keys = items.keys();
-                    while (keys.hasMoreElements())
-                    {
-                        String key = (String)(keys.nextElement());
-                        if (key.equals("skill"))
-                        {
+                dictionary items = dataTableGetRow(SKILL_LOADOUT_TBL, skill);
+                if (items != null) {
+                    Enumeration keys = items.keys();
+                    while (keys.hasMoreElements()) {
+                        String key = (String) (keys.nextElement());
+                        if (key.equals("skill")) {
                             continue;
                         }
                         Object value = items.get(key);
-                        if (value != null && value instanceof String && (((String)value)).length() > 0)
-                        {
-                            if (key.equals("armor"))
-                            {
-                                String armorSetName = (String)(value);
+                        if (value != null && value instanceof String && (((String) value)).length() > 0) {
+                            if (key.equals("armor")) {
+                                String armorSetName = (String) (value);
                                 String armorCategoryName = armorSetName.substring(0, armorSetName.length() - 1);
                                 String armorLevelName = armorSetName.substring(armorSetName.length() - 1, armorSetName.length());
-                                if (!armorCategoryName.equals("assault") && !armorCategoryName.equals("battle") && !armorCategoryName.equals("recon"))
-                                {
-                                    sendSystemMessageTestingOnly(player, "Invalid armor category " + armorCategoryName + " for skill entry " + skills[i]);
+                                if (!armorCategoryName.equals("assault") && !armorCategoryName.equals("battle") && !armorCategoryName.equals("recon")) {
+                                    sendSystemMessageTestingOnly(player, "Invalid armor category " + armorCategoryName + " for skill entry " + skill);
                                     continue;
                                 }
-                                if (!armorLevelName.equals("1") && !armorLevelName.equals("2") && !armorLevelName.equals("3"))
-                                {
-                                    sendSystemMessageTestingOnly(player, "Invalid armor level " + armorLevelName + " for skill entry " + skills[i]);
+                                if (!armorLevelName.equals("1") && !armorLevelName.equals("2") && !armorLevelName.equals("3")) {
+                                    sendSystemMessageTestingOnly(player, "Invalid armor level " + armorLevelName + " for skill entry " + skill);
                                     continue;
                                 }
                                 int armorCategory = AC_none;
                                 int armorLevel = Integer.parseInt(armorLevelName) - 1;
                                 int playerSpecies = getSpecies(player);
                                 String[] armorSet = null;
-                                if (armorCategoryName.equals("assault"))
-                                {
+                                if (armorCategoryName.equals("assault")) {
                                     armorCategory = AC_assault;
-                                    if (playerSpecies == SPECIES_WOOKIEE)
-                                    {
+                                    if (playerSpecies == SPECIES_WOOKIEE) {
                                         armorSet = ARMOR_SET_ASSAULT_WOOKIEE;
-                                    }
-                                    else if (playerSpecies == SPECIES_ITHORIAN)
-                                    {
+                                    } else if (playerSpecies == SPECIES_ITHORIAN) {
                                         armorSet = ARMOR_SET_ASSAULT_ITHORIAN;
-                                    }
-                                    else 
-                                    {
+                                    } else {
                                         armorSet = ARMOR_SETS_ASSAULT[rand(0, ARMOR_SETS_ASSAULT.length - 1)];
                                     }
-                                }
-                                else if (armorCategoryName.equals("battle"))
-                                {
+                                } else if (armorCategoryName.equals("battle")) {
                                     armorCategory = AC_battle;
-                                    if (playerSpecies == SPECIES_WOOKIEE)
-                                    {
+                                    if (playerSpecies == SPECIES_WOOKIEE) {
                                         armorSet = ARMOR_SET_BATTLE_WOOKIEE;
-                                    }
-                                    else if (playerSpecies == SPECIES_ITHORIAN)
-                                    {
+                                    } else if (playerSpecies == SPECIES_ITHORIAN) {
                                         armorSet = ARMOR_SET_BATTLE_ITHORIAN;
-                                    }
-                                    else 
-                                    {
+                                    } else {
                                         armorSet = ARMOR_SETS_BATTLE[rand(0, ARMOR_SETS_BATTLE.length - 1)];
                                     }
-                                }
-                                else 
-                                {
+                                } else {
                                     armorCategory = AC_reconnaissance;
-                                    if (playerSpecies == SPECIES_WOOKIEE)
-                                    {
+                                    if (playerSpecies == SPECIES_WOOKIEE) {
                                         armorSet = ARMOR_SET_RECON_WOOKIEE;
-                                    }
-                                    else if (playerSpecies == SPECIES_ITHORIAN)
-                                    {
+                                    } else if (playerSpecies == SPECIES_ITHORIAN) {
                                         armorSet = ARMOR_SET_RECON_ITHORIAN;
-                                    }
-                                    else 
-                                    {
+                                    } else {
                                         armorSet = ARMOR_SETS_RECON[rand(0, ARMOR_SETS_RECON.length - 1)];
                                     }
                                 }
-                                if (armorSet == null)
-                                {
+                                if (armorSet == null) {
                                     sendSystemMessageTestingOnly(player, "Unable to get armor set for armor category " + armorCategoryName);
                                     continue;
                                 }
-                                for (int j = 0; j < armorSet.length; ++j)
-                                {
-                                    String armorTemplate = ARMOR_SET_PREFIX + armorSet[j];
-                                    if (!inventoryLookup.contains(armorTemplate))
-                                    {
+                                for (String s : armorSet) {
+                                    String armorTemplate = ARMOR_SET_PREFIX + s;
+                                    if (!inventoryLookup.contains(armorTemplate)) {
                                         obj_id newItem = createObject(armorTemplate, inventoryId, "");
-                                        if (isIdValid(newItem))
-                                        {
-                                            if (!isGameObjectTypeOf(newItem, GOT_armor_foot) && !isGameObjectTypeOf(newItem, GOT_armor_hand))
-                                            {
+                                        if (isIdValid(newItem)) {
+                                            if (!isGameObjectTypeOf(newItem, GOT_armor_foot) && !isGameObjectTypeOf(newItem, GOT_armor_hand)) {
                                                 armor.setArmorDataPercent(newItem, armorLevel, armorCategory, GENERAL_PROTECTION, CONDITION);
                                             }
                                             inventoryLookup.add(armorTemplate);
@@ -2686,24 +2605,17 @@ public class terminal_character_builder extends script.base_script
                                         }
                                     }
                                 }
-                            }
-                            else 
-                            {
-                                if (!inventoryLookup.contains(value))
-                                {
-                                    String itemTemplate = (String)(value);
+                            } else {
+                                if (!inventoryLookup.contains(value)) {
+                                    String itemTemplate = (String) (value);
                                     obj_id newItem = null;
                                     int itemGot = getGameObjectTypeFromTemplate(itemTemplate);
-                                    if (isGameObjectTypeOf(itemGot, GOT_weapon))
-                                    {
+                                    if (isGameObjectTypeOf(itemGot, GOT_weapon)) {
                                         newItem = weapons.createWeapon(itemTemplate, inventoryId, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
-                                    }
-                                    else 
-                                    {
+                                    } else {
                                         newItem = createObject(itemTemplate, inventoryId, "");
                                     }
-                                    if (isIdValid(newItem))
-                                    {
+                                    if (isIdValid(newItem)) {
                                         inventoryLookup.add(itemTemplate);
                                         ++itemCount;
                                     }
@@ -2911,22 +2823,19 @@ public class terminal_character_builder extends script.base_script
                 "talus",
                 "tatooine"
             };
-            for (int i = 0; i < planetNames.length; i++)
-            {
-                loc.area = planetNames[i];
+            for (String planetName : planetNames) {
+                loc.area = planetName;
                 resource_density[] resources = requestResourceList(loc, 0.0f, 1.0f, topParent);
-                for (int j = 0; j < resources.length; j++)
-                {
-                    allResources.add(resources[j]);
+                for (resource_density resource : resources) {
+                    allResources.add(resource);
                 }
             }
         }
         else 
         {
             resource_density[] resources = requestResourceList(loc, 0.0f, 1.0f, topParent);
-            for (int j = 0; j < resources.length; j++)
-            {
-                allResources.add(resources[j]);
+            for (resource_density resource : resources) {
+                allResources.add(resource);
             }
         }
         String[] resourceTree = buildSortedResourceTree(allResources, topParent, 0);
@@ -2938,33 +2847,26 @@ public class terminal_character_builder extends script.base_script
         resourceTree.setSize(0);
         if (resources != null)
         {
-            for (int i = 0; i < resources.size(); i++)
-            {
-                if (!isResourceDerivedFrom(((resource_density)resources.get(i)).getResourceType(), topParent))
-                {
+            for (Object resource : resources) {
+                if (!isResourceDerivedFrom(((resource_density) resource).getResourceType(), topParent)) {
                     continue;
                 }
-                String parent = getResourceClass(((resource_density)resources.get(i)).getResourceType());
+                String parent = getResourceClass(((resource_density) resource).getResourceType());
                 String child = null;
-                if (parent == null)
-                {
+                if (parent == null) {
                     continue;
                 }
-                while (!parent.equals(topParent))
-                {
+                while (!parent.equals(topParent)) {
                     child = parent;
                     parent = getResourceParentClass(child);
                 }
-                if (child == null)
-                {
-                    child = "\\#pcontrast1 " + getResourceName(((resource_density)resources.get(i)).getResourceType()) + "\\#.";
+                if (child == null) {
+                    child = "\\#pcontrast1 " + getResourceName(((resource_density) resource).getResourceType()) + "\\#.";
                 }
-                for (int j = 0; j < branchLevel; j++)
-                {
+                for (int j = 0; j < branchLevel; j++) {
                     child = "    " + child;
                 }
-                if (resourceTree.indexOf(child) == -1)
-                {
+                if (resourceTree.indexOf(child) == -1) {
                     resourceTree.add(child);
                 }
             }
@@ -2973,9 +2875,8 @@ public class terminal_character_builder extends script.base_script
         {
             String parent = ((String)resourceTree.get(i)).trim();
             String[] childBranch = buildSortedResourceTree(resources, parent, branchLevel + 1);
-            for (int j = 0; j < childBranch.length; j++)
-            {
-                resourceTree.add(++i, childBranch[j]);
+            for (String childBranch1 : childBranch) {
+                resourceTree.add(++i, childBranch1);
             }
         }
         String[] _resourceTree = new String[0];
@@ -3053,11 +2954,9 @@ public class terminal_character_builder extends script.base_script
         }
         String[] temp = new String[goodResources];
         goodResources = 0;
-        for (int i = 0; i < resourceList.length; ++i)
-        {
-            if (resourceList[i] != null)
-            {
-                temp[goodResources++] = resourceList[i];
+        for (String s : resourceList) {
+            if (s != null) {
+                temp[goodResources++] = s;
             }
         }
         resourceList = temp;
@@ -3221,7 +3120,7 @@ public class terminal_character_builder extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            beast_lib.setBeastLoyalty(playerBeast, 300000f);
+            beast_lib.setBeastLoyalty(playerBeast, 300000.0f);
             beast_lib.setBCDBeastLoyaltyLevel(beastBcd, 5);
             refreshMenu(player, "Select the desired vehicle or mount option", "Test Center Terminal", VEHICLE_MOUNT_OPTIONS, "handleVehicleOptions", false);
             break;
@@ -6908,33 +6807,25 @@ public class terminal_character_builder extends script.base_script
     public void issuePvPSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int i = 0; i < armorPieces.length; i++)
-        {
-            static_item.createNewItemFunction(armorPieces[i], pInv);
+        for (String armorPiece : armorPieces) {
+            static_item.createNewItemFunction(armorPiece, pInv);
         }
     }
     public void issueAssaultArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            if (static_item.isStaticItem(armorPieces[j]))
-            {
-                obj_id armorItem = static_item.createNewItemFunction(armorPieces[j], pInv);
-                if (hasScript(armorItem, "npc.faction_recruiter.biolink_item"))
-                {
+        for (String armorPiece : armorPieces) {
+            if (static_item.isStaticItem(armorPiece)) {
+                obj_id armorItem = static_item.createNewItemFunction(armorPiece, pInv);
+                if (hasScript(armorItem, "npc.faction_recruiter.biolink_item")) {
                     setBioLink(armorItem, player);
                 }
-            }
-            else 
-            {
-                String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+            } else {
+                String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
                 obj_id armorItem = createObject(armorTemplate, pInv, "");
-                if (isIdValid(armorItem))
-                {
-                    if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                    {
-                        armor.setArmorDataPercent(armorItem, 2, 2, utils.getIntScriptVar(player, "character_builder.armorLevel") * .33f, CONDITION);
+                if (isIdValid(armorItem)) {
+                    if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
+                        armor.setArmorDataPercent(armorItem, 2, 2, utils.getIntScriptVar(player, "character_builder.armorLevel") * 0.33f, CONDITION);
                         armor.setArmorSpecialProtectionPercent(armorItem, armor.DATATABLE_ASSAULT_LAYER, 1.0f);
                     }
                     setSocketsUp(armorItem);
@@ -6945,23 +6836,18 @@ public class terminal_character_builder extends script.base_script
     public void issueBattleArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            if (static_item.isStaticItem(armorPieces[j]))
-            {
-                obj_id armorItem = static_item.createNewItemFunction(armorPieces[j], pInv);
-                if (hasScript(armorItem, "npc.faction_recruiter.biolink_item"))
-                {
+        for (String armorPiece : armorPieces) {
+            if (static_item.isStaticItem(armorPiece)) {
+                obj_id armorItem = static_item.createNewItemFunction(armorPiece, pInv);
+                if (hasScript(armorItem, "npc.faction_recruiter.biolink_item")) {
                     setBioLink(armorItem, player);
                 }
             } else {
-                String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+                String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
                 obj_id armorItem = createObject(armorTemplate, pInv, "");
-                if (isIdValid(armorItem))
-                {
-                    if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                    {
-                        armor.setArmorDataPercent(armorItem, 2, 1, utils.getIntScriptVar(player, "character_builder.armorLevel") * .33f, CONDITION);
+                if (isIdValid(armorItem)) {
+                    if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
+                        armor.setArmorDataPercent(armorItem, 2, 1, utils.getIntScriptVar(player, "character_builder.armorLevel") * 0.33f, CONDITION);
                     }
                     setSocketsUp(armorItem);
                 }
@@ -6971,25 +6857,18 @@ public class terminal_character_builder extends script.base_script
     public void issueReconArmorSet(obj_id player, String[] armorPieces) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            if (static_item.isStaticItem(armorPieces[j]))
-            {
-                obj_id armorItem = static_item.createNewItemFunction(armorPieces[j], pInv);
-                if (hasScript(armorItem, "npc.faction_recruiter.biolink_item"))
-                {
+        for (String armorPiece : armorPieces) {
+            if (static_item.isStaticItem(armorPiece)) {
+                obj_id armorItem = static_item.createNewItemFunction(armorPiece, pInv);
+                if (hasScript(armorItem, "npc.faction_recruiter.biolink_item")) {
                     setBioLink(armorItem, player);
                 }
-            }
-            else 
-            {
-                String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+            } else {
+                String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
                 obj_id armorItem = createObject(armorTemplate, pInv, "");
-                if (isIdValid(armorItem))
-                {
-                    if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                    {
-                        armor.setArmorDataPercent(armorItem, 2, 0, utils.getIntScriptVar(player, "character_builder.armorLevel") * .33f, CONDITION);
+                if (isIdValid(armorItem)) {
+                    if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
+                        armor.setArmorDataPercent(armorItem, 2, 0, utils.getIntScriptVar(player, "character_builder.armorLevel") * 0.33f, CONDITION);
                         armor.setArmorSpecialProtectionPercent(armorItem, armor.DATATABLE_RECON_LAYER, 1.0f);
                     }
                     setSocketsUp(armorItem);
@@ -7189,9 +7068,8 @@ public class terminal_character_builder extends script.base_script
             String[] itemSet = dataTableGetStringColumn(HEROIC_JEWELRY_SETS, column);
             if ((itemSet != null) && (itemSet.length != 0))
             {
-                for (int i = 0; i < itemSet.length; i++)
-                {
-                    static_item.createNewItemFunction(itemSet[i], pInv);
+                for (String s : itemSet) {
+                    static_item.createNewItemFunction(s, pInv);
                 }
             }
         }
@@ -7696,7 +7574,7 @@ public class terminal_character_builder extends script.base_script
                 String column = "name";
                 int num_items = dataTableGetNumRows(DATATABLE_INVENTORY);
                 String[] inventory = new String[num_items];
-                for (int i = 0 + 1; i < num_items; i++)
+                for (int i = 1; i < num_items; i++)
                 {
                     inventory[i] = dataTableGetString(DATATABLE_INVENTORY, i, "name");
                     static_item.createNewItemFunction(inventory[i], pInv);
@@ -7713,7 +7591,7 @@ public class terminal_character_builder extends script.base_script
         {
             createObject(message5, pInv, "");
             sendSystemMessageTestingOnly(player, "Object: " + message5 + " issued. If you did not recieve this item please check object/to/path.iff!");
-            playClientEffectLoc(player, RLS_SOUND, getLocation(player), 1f);
+            playClientEffectLoc(player, RLS_SOUND, getLocation(player), 1.0f);
             return SCRIPT_CONTINUE;
         }
         else if (message5.endsWith("attachscript"))
@@ -7761,7 +7639,7 @@ public class terminal_character_builder extends script.base_script
             static_item.createNewItemFunction("item_heroic_ig_88_head_01_01", pInv);
             static_item.createNewItemFunction("item_tow_cystal_buff_drained_05_01", pInv);
             sendSystemMessageTestingOnly(player, "Buff Items issued.");
-            playClientEffectLoc(player, RLS_SOUND, getLocation(player), 1f);
+            playClientEffectLoc(player, RLS_SOUND, getLocation(player), 1.0f);
             return SCRIPT_CONTINUE;
         }
         else if (message5.equals("frog"))
@@ -7786,7 +7664,7 @@ public class terminal_character_builder extends script.base_script
             static_item.createNewItemFunction(message5, pInv);
             sendSystemMessageTestingOnly(player, "Item: " + message5 + " issued. If you did not recieve an item, please check spelling.");
             setObjVar(player, "character_builder.used_item_giver", 1);
-            playClientEffectLoc(player, RLS_SOUND, getLocation(player), 1f);
+            playClientEffectLoc(player, RLS_SOUND, getLocation(player), 1.0f);
             return SCRIPT_CONTINUE;
         }
         return SCRIPT_CONTINUE;
@@ -10190,11 +10068,8 @@ public class terminal_character_builder extends script.base_script
         {
             while (skillList.length > 0 && attempts > 0)
             {
-                for (int i = 0; i < skillList.length; i++)
-                {
-                    String skillName = skillList[i];
-                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("internal_expertise_") && !skillName.startsWith("class_chronicles_") && !skillName.startsWith("combat_ranged_weapon_basic"))
-                    {
+                for (String skillName : skillList) {
+                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("internal_expertise_") && !skillName.startsWith("class_chronicles_") && !skillName.startsWith("combat_ranged_weapon_basic")) {
                         skill.revokeSkillSilent(player, skillName);
                     }
                 }
@@ -10456,19 +10331,19 @@ public class terminal_character_builder extends script.base_script
             {
                 float[] weaponMinDamage = 
                 {
-                    145f
+                        145.0f
                 };
                 float[] weaponMaxDamage = 
                 {
-                    300f
+                        300.0f
                 };
                 float[] weaponAttackSpeed = 
                 {
-                    1f
+                        1.0f
                 };
                 float weaponWoundChance = 1.0f;
                 float weaponForceCost = 0.0f;
-                float weaponAttackCost = 100f;
+                float weaponAttackCost = 100.0f;
                 generateGenerationSabers(0, player, pInv, weaponMinDamage, weaponMaxDamage, weaponAttackSpeed, weaponWoundChance, weaponForceCost, weaponAttackCost);
                 jedi.createColorCrystal(pInv, rand(0, 31));
                 sendSystemMessageTestingOnly(player, "Training Saber Issued!");
@@ -10479,25 +10354,25 @@ public class terminal_character_builder extends script.base_script
             {
                 float[] weaponMinDamage = 
                 {
-                    300f,
-                    300f,
-                    300f
+                        300.0f,
+                        300.0f,
+                        300.0f
                 };
                 float[] weaponMaxDamage = 
                 {
-                    611f,
-                    611f,
-                    611f
+                        611.0f,
+                        611.0f,
+                        611.0f
                 };
                 float[] weaponAttackSpeed = 
                 {
-                    1f,
-                    1f,
-                    1f
+                        1.0f,
+                        1.0f,
+                        1.0f
                 };
                 float weaponWoundChance = 1.0f;
                 float weaponForceCost = 0.0f;
-                float weaponAttackCost = 1f;
+                float weaponAttackCost = 1.0f;
                 generateGenerationSabers(1, player, pInv, weaponMinDamage, weaponMaxDamage, weaponAttackSpeed, weaponWoundChance, weaponForceCost, weaponAttackCost);
                 jedi.createColorCrystal(pInv, rand(0, 31));
                 sendSystemMessageTestingOnly(player, "Generation One Sabers Issued!");
@@ -10508,25 +10383,25 @@ public class terminal_character_builder extends script.base_script
             {
                 float[] weaponMinDamage = 
                 {
-                    360f,
-                    360f,
-                    360f
+                        360.0f,
+                        360.0f,
+                        360.0f
                 };
                 float[] weaponMaxDamage = 
                 {
-                    740f,
-                    740f,
-                    740f
+                        740.0f,
+                        740.0f,
+                        740.0f
                 };
                 float[] weaponAttackSpeed = 
                 {
-                    1f,
-                    1f,
-                    1f
+                        1.0f,
+                        1.0f,
+                        1.0f
                 };
                 float weaponWoundChance = 1.0f;
                 float weaponForceCost = 0.0f;
-                float weaponAttackCost = 1f;
+                float weaponAttackCost = 1.0f;
                 generateGenerationSabers(2, player, pInv, weaponMinDamage, weaponMaxDamage, weaponAttackSpeed, weaponWoundChance, weaponForceCost, weaponAttackCost);
                 jedi.createColorCrystal(pInv, rand(0, 31));
                 sendSystemMessageTestingOnly(player, "Generation Two Sabers Issued!");
@@ -10537,25 +10412,25 @@ public class terminal_character_builder extends script.base_script
             {
                 float[] weaponMinDamage = 
                 {
-                    500f,
-                    500f,
-                    500f
+                        500.0f,
+                        500.0f,
+                        500.0f
                 };
                 float[] weaponMaxDamage = 
                 {
-                    1000f,
-                    1000f,
-                    1000f
+                        1000.0f,
+                        1000.0f,
+                        1000.0f
                 };
                 float[] weaponAttackSpeed = 
                 {
-                    1f,
-                    1f,
-                    1f
+                        1.0f,
+                        1.0f,
+                        1.0f
                 };
                 float weaponWoundChance = 1.0f;
                 float weaponForceCost = 0.0f;
-                float weaponAttackCost = 1f;
+                float weaponAttackCost = 1.0f;
                 generateGenerationSabers(3, player, pInv, weaponMinDamage, weaponMaxDamage, weaponAttackSpeed, weaponWoundChance, weaponForceCost, weaponAttackCost);
                 jedi.createColorCrystal(pInv, rand(0, 31));
                 sendSystemMessageTestingOnly(player, "Generation Three Sabers Issued!");
@@ -10566,25 +10441,25 @@ public class terminal_character_builder extends script.base_script
             {
                 float[] weaponMinDamage = 
                 {
-                    597f,
-                    597f,
-                    597f
+                        597.0f,
+                        597.0f,
+                        597.0f
                 };
                 float[] weaponMaxDamage = 
                 {
-                    1193f,
-                    1193f,
-                    1193f
+                        1193.0f,
+                        1193.0f,
+                        1193.0f
                 };
                 float[] weaponAttackSpeed = 
                 {
-                    1f,
-                    1f,
-                    1f
+                        1.0f,
+                        1.0f,
+                        1.0f
                 };
                 float weaponWoundChance = 1.0f;
                 float weaponForceCost = 0.0f;
-                float weaponAttackCost = 1f;
+                float weaponAttackCost = 1.0f;
                 generateGenerationSabers(4, player, pInv, weaponMinDamage, weaponMaxDamage, weaponAttackSpeed, weaponWoundChance, weaponForceCost, weaponAttackCost);
                 jedi.createColorCrystal(pInv, rand(0, 31));
                 sendSystemMessageTestingOnly(player, "Generation Four Sabers Issued!");
@@ -10595,15 +10470,15 @@ public class terminal_character_builder extends script.base_script
             {
                 float[] weaponMinDamage = 
                 {
-                    700f,
-                    700f,
-                    700f
+                        700.0f,
+                        700.0f,
+                        700.0f
                 };
                 float[] weaponMaxDamage = 
                 {
-                    1500f,
-                    1500f,
-                    1500f
+                        1500.0f,
+                        1500.0f,
+                        1500.0f
                 };
                 float[] weaponAttackSpeed = 
                 {
@@ -10613,7 +10488,7 @@ public class terminal_character_builder extends script.base_script
                 };
                 float weaponWoundChance = 1.0f;
                 float weaponForceCost = 0.0f;
-                float weaponAttackCost = 1f;
+                float weaponAttackCost = 1.0f;
                 generateGenerationSabers(5, player, pInv, weaponMinDamage, weaponMaxDamage, weaponAttackSpeed, weaponWoundChance, weaponForceCost, weaponAttackCost);
                 sendSystemMessageTestingOnly(player, "Generation Five Sabers Issued!");
             }
@@ -10807,20 +10682,15 @@ public class terminal_character_builder extends script.base_script
                 if (isIdValid(group))
                 {
                     obj_id[] groupMembers = getGroupMemberIds(group);
-                    for (int i = 0; i < groupMembers.length; ++i)
-                    {
-                        if (groupMembers[i] != player && exists(groupMembers[i]) && getLocation(groupMembers[i]).cell == playerLoc.cell && groupMemberApproved(membersApprovedByShipOwner, groupMembers[i]))
-                        {
+                    for (obj_id groupMember : groupMembers) {
+                        if (groupMember != player && exists(groupMember) && getLocation(groupMember).cell == playerLoc.cell && groupMemberApproved(membersApprovedByShipOwner, groupMember)) {
                             startIndex = getNextStartIndex(shipStartLocations, startIndex);
-                            if (startIndex <= shipStartLocations.size())
-                            {
-                                groupMembersToWarp = utils.addElement(groupMembersToWarp, groupMembers[i]);
+                            if (startIndex <= shipStartLocations.size()) {
+                                groupMembersToWarp = utils.addElement(groupMembersToWarp, groupMember);
                                 groupMemberStartIndex = utils.addElement(groupMemberStartIndex, startIndex);
-                            }
-                            else 
-                            {
+                            } else {
                                 string_id strSpam = new string_id("space/space_interaction", "no_space_expansion");
-                                sendSystemMessage(groupMembers[i], strSpam);
+                                sendSystemMessage(groupMember, strSpam);
                             }
                         }
                     }
@@ -10829,7 +10699,7 @@ public class terminal_character_builder extends script.base_script
         }
         for (int i = 0; i < groupMembersToWarp.size(); ++i)
         {
-            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, ((Integer)groupMemberStartIndex.get(i)).intValue(), groundLoc);
+            space_transition.setLaunchInfo(((obj_id)groupMembersToWarp.get(i)), ship, (Integer) groupMemberStartIndex.get(i), groundLoc);
             warpPlayer(((obj_id)groupMembersToWarp.get(i)), warpLocation.area, warpLocation.x, warpLocation.y, warpLocation.z, null, warpLocation.x, warpLocation.y, warpLocation.z);
         }
     }
@@ -10850,10 +10720,8 @@ public class terminal_character_builder extends script.base_script
     }
     public boolean groupMemberApproved(obj_id[] membersApprovedByShipOwner, obj_id memberToTest) throws InterruptedException
     {
-        for (int i = 0; i < membersApprovedByShipOwner.length; ++i)
-        {
-            if (membersApprovedByShipOwner[i] == memberToTest)
-            {
+        for (script.obj_id obj_id : membersApprovedByShipOwner) {
+            if (obj_id == memberToTest) {
                 return true;
             }
         }
@@ -10866,17 +10734,16 @@ public class terminal_character_builder extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < CYBERNETIC_ITEMS.length; ++i)
-        {
-            createObject(CYBERNETIC_ITEMS[i], inv, "");
+        for (String cyberneticItem : CYBERNETIC_ITEMS) {
+            createObject(cyberneticItem, inv, "");
         }
         sendSystemMessageTestingOnly(player, "Cybernetics issued. Pay a cybernetic Engineer to install the items");
         sendSystemMessageTestingOnly(player, "Locate the cybernetic engineer on the 2nd floor of a medical center");
         location warpLocation = getLocation(player);
         warpLocation.area = "tatooine";
-        warpLocation.x = 1305f;
-        warpLocation.y = 7f;
-        warpLocation.z = 3261f;
+        warpLocation.x = 1305.0f;
+        warpLocation.y = 7.0f;
+        warpLocation.z = 3261.0f;
         warpPlayer(player, warpLocation.area, warpLocation.x, warpLocation.y, warpLocation.z, null, 0.0f, 0.0f, 0.0f);
     }
     public void refreshMenu(obj_id player, String prompt, String title, String[] options, String myHandler, boolean draw) throws InterruptedException
@@ -10960,15 +10827,11 @@ public class terminal_character_builder extends script.base_script
             case 0:
             
             {
-                for (int i = 0; i < PUB27_HEAVYPACK.length; i++)
-                {
-                    if (PUB27_HEAVYPACK[i].startsWith("object"))
-                    {
-                        weapons.createWeapon(PUB27_HEAVYPACK[i], pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
-                    }
-                    else 
-                    {
-                        static_item.createNewItemFunction(PUB27_HEAVYPACK[i], pInv);
+                for (String s : PUB27_HEAVYPACK) {
+                    if (s.startsWith("object")) {
+                        weapons.createWeapon(s, pInv, weapons.VIA_TEMPLATE, WEAPON_SPEED, WEAPON_DAMAGE, WEAPON_EFFECIENCY, WEAPON_ELEMENTAL);
+                    } else {
+                        static_item.createNewItemFunction(s, pInv);
                     }
                 }
                 String template = getSkillTemplate(player);
@@ -10987,25 +10850,25 @@ public class terminal_character_builder extends script.base_script
             {
                 float[] weaponMinDamage = 
                 {
-                    239f,
-                    239f,
-                    239f
+                        239.0f,
+                        239.0f,
+                        239.0f
                 };
                 float[] weaponMaxDamage = 
                 {
-                    477f,
-                    477f,
-                    477f
+                        477.0f,
+                        477.0f,
+                        477.0f
                 };
                 float[] weaponAttackSpeed = 
                 {
-                    .5f,
-                    .5f,
-                    .5f
+                        0.5f,
+                        0.5f,
+                        0.5f
                 };
                 float weaponWoundChance = 1.0f;
                 float weaponForceCost = 0.0f;
-                float weaponAttackCost = 1f;
+                float weaponAttackCost = 1.0f;
                 generateGenerationSabers(4, player, pInv, weaponMinDamage, weaponMaxDamage, weaponAttackSpeed, weaponWoundChance, weaponForceCost, weaponAttackCost);
                 jedi.createColorCrystal(pInv, rand(0, 11));
                 for (int i = 0; i < 4; i++)
@@ -11029,9 +10892,8 @@ public class terminal_character_builder extends script.base_script
             case 2:
             
             {
-                for (int i = 0; i < PUB27_TRAPS.length; i++)
-                {
-                    stealth.createRangerLoot(100, PUB27_TRAPS[i], pInv, 100);
+                for (String pub27Trap : PUB27_TRAPS) {
+                    stealth.createRangerLoot(100, pub27Trap, pInv, 100);
                 }
                 sendSystemMessageTestingOnly(player, "Traps Issued!");
             }
@@ -11044,10 +10906,9 @@ public class terminal_character_builder extends script.base_script
             }
             break;
             case 4:
-            for (int i = 0; i < PUB27_CAMOSTUFF.length; i++)
-            {
-                static_item.createNewItemFunction(PUB27_CAMOSTUFF[i], pInv);
-            }
+                for (String s : PUB27_CAMOSTUFF) {
+                    static_item.createNewItemFunction(s, pInv);
+                }
             sendSystemMessageTestingOnly(player, "Spy Gear Issued!");
             break;
             default:
@@ -11062,11 +10923,8 @@ public class terminal_character_builder extends script.base_script
         String[] instanceFlags = dataTableGetStringColumn(instance.INSTANCE_DATATABLE, "key_required");
         if (instanceFlags != null && instanceFlags.length > 0)
         {
-            for (int i = 0; i < instanceFlags.length; i++)
-            {
-                String flag = instanceFlags[i];
-                if (flag != null && flag.length() > 0)
-                {
+            for (String flag : instanceFlags) {
+                if (flag != null && flag.length() > 0) {
                     instance.flagPlayerForInstance(player, flag);
                 }
             }
@@ -11095,192 +10953,194 @@ public class terminal_character_builder extends script.base_script
                 LOG("tweakSpaceShipComponent", "TEMPLATE OF TYPE " + getTemplateName(objComponent) + " HAS BEEN PASSED TO SETUP SPACE COMPONENT. THIS DOES NOT EXIST IN THE DATATBLE of " + "datatables/ship/components/" + strComponentType + ".iff");
                 return null;
             }
-            if (strComponentType.equals("armor"))
-            {
-                float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
-                space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
-                space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMass = dctParams.getFloat("fltMass");
-                space_crafting.setComponentMass(objComponent, fltMass);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
-            }
-            else if (strComponentType.equals("booster"))
-            {
-                LOG("tweakSpaceShipComponent", "BOOSTER" + getTemplateName(objComponent));
-                float fltMaximumEnergy = dctParams.getFloat("fltMaximumEnergy");
-                space_crafting.setBoosterMaximumEnergy(objComponent, fltMaximumEnergy);
-                space_crafting.setBoosterCurrentEnergy(objComponent, fltMaximumEnergy);
-                float fltRechargeRate = dctParams.getFloat("fltRechargeRate");
-                space_crafting.setBoosterEnergyRechargeRate(objComponent, fltRechargeRate);
-                float fltConsumptionRate = dctParams.getFloat("fltConsumptionRate");
-                space_crafting.setBoosterEnergyConsumptionRate(objComponent, fltConsumptionRate);
-                float fltAcceleration = dctParams.getFloat("fltAcceleration");
-                space_crafting.setBoosterAcceleration(objComponent, fltAcceleration);
-                float fltMaxSpeed = dctParams.getFloat("fltMaxSpeed");
-                space_crafting.setBoosterMaximumSpeed(objComponent, fltMaxSpeed);
-                float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
-                space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
-                space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
-                float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
-                space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
-                float fltMass = dctParams.getFloat("fltMass");
-                space_crafting.setComponentMass(objComponent, fltMass);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
-            }
-            else if (strComponentType.equals("cargo_hold"))
-            {
-                LOG("tweakSpaceShipComponent", "CARGO HOLD" + getTemplateName(objComponent));
-                int intCargoHoldCapacity = dctParams.getInt("intCargoHoldCapacity");
-                space_crafting.setCargoHoldMaxCapacity(objComponent, intCargoHoldCapacity);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
-            }
-            else if (strComponentType.equals("droid_interface"))
-            {
-                LOG("tweakSpaceShipComponent", "DROID INTERFACE" + getTemplateName(objComponent));
-                float fltCommandSpeed = dctParams.getFloat("fltCommandSpeed");
-                space_crafting.setDroidInterfaceCommandSpeed(objComponent, fltCommandSpeed);
-                float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
-                space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
-                space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
-                float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
-                space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
-                float fltMass = dctParams.getFloat("fltMass");
-                space_crafting.setComponentMass(objComponent, fltMass);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
-            }
-            else if (strComponentType.equals("engine"))
-            {
-                LOG("tweakSpaceShipComponent", "ENGINE" + getTemplateName(objComponent));
-                float fltMaxSpeed = dctParams.getFloat("fltMaxSpeed");
-                space_crafting.setEngineMaximumSpeed(objComponent, fltMaxSpeed);
-                float fltMaxPitch = dctParams.getFloat("fltMaxPitch");
-                space_crafting.setEngineMaximumPitch(objComponent, fltMaxPitch);
-                float fltMaxRoll = dctParams.getFloat("fltMaxRoll");
-                space_crafting.setEngineMaximumRoll(objComponent, fltMaxRoll);
-                float fltMaxYaw = dctParams.getFloat("fltMaxYaw");
-                space_crafting.setEngineMaximumYaw(objComponent, fltMaxYaw);
-                float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
-                space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
-                space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
-                float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
-                space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
-                float fltMass = dctParams.getFloat("fltMass");
-                space_crafting.setComponentMass(objComponent, fltMass);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
-            }
-            else if (strComponentType.equals("reactor"))
-            {
-                LOG("tweakSpaceShipComponent", "REACTOR" + getTemplateName(objComponent));
-                float fltEnergyGeneration = dctParams.getFloat("fltEnergyGeneration");
-                space_crafting.setReactorEnergyGeneration(objComponent, fltEnergyGeneration);
-                float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
-                space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
-                space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMass = dctParams.getFloat("fltMass");
-                space_crafting.setComponentMass(objComponent, fltMass);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
-            }
-            else if (strComponentType.equals("shield"))
-            {
-                LOG("tweakSpaceShipComponent", "SHIELD" + getTemplateName(objComponent));
-                float fltShieldHitpointsMaximumFront = dctParams.getFloat("fltShieldHitpointsMaximumFront");
-                float fltShieldHitpointsMaximumBack = dctParams.getFloat("fltShieldHitpointsMaximumFront");
-                space_crafting.setShieldGeneratorCurrentFrontHitpoints(objComponent, 0f);
-                space_crafting.setShieldGeneratorCurrentBackHitpoints(objComponent, 0f);
-                space_crafting.setShieldGeneratorMaximumFrontHitpoints(objComponent, fltShieldHitpointsMaximumFront);
-                space_crafting.setShieldGeneratorMaximumBackHitpoints(objComponent, fltShieldHitpointsMaximumBack);
-                float fltShieldRechargeRate = dctParams.getFloat("fltShieldRechargeRate");
-                space_crafting.setShieldGeneratorRechargeRate(objComponent, fltShieldRechargeRate);
-                float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
-                space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
-                space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
-                float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
-                space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
-                float fltMass = dctParams.getFloat("fltMass");
-                space_crafting.setComponentMass(objComponent, fltMass);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
-            }
-            else if (strComponentType.equals("weapon"))
-            {
-                float fltMinDamage = dctParams.getFloat("fltMinDamage");
-                space_crafting.setWeaponMinimumDamage(objComponent, fltMinDamage);
-                float fltMaxDamage = dctParams.getFloat("fltMaxDamage");
-                space_crafting.setWeaponMaximumDamage(objComponent, fltMaxDamage);
-                float fltShieldEffectiveness = dctParams.getFloat("fltShieldEffectiveness");
-                space_crafting.setWeaponShieldEffectiveness(objComponent, fltShieldEffectiveness);
-                float fltArmorEffectiveness = dctParams.getFloat("fltArmorEffectiveness");
-                space_crafting.setWeaponArmorEffectiveness(objComponent, fltArmorEffectiveness);
-                float fltEnergyPerShot = dctParams.getFloat("fltEnergyPerShot");
-                space_crafting.setWeaponEnergyPerShot(objComponent, fltEnergyPerShot);
-                float fltRefireRate = dctParams.getFloat("fltRefireRate");
-                space_crafting.setWeaponRefireRate(objComponent, fltRefireRate);
-                float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
-                space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
-                space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
-                float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
-                space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
-                float fltMass = dctParams.getFloat("fltMass");
-                space_crafting.setComponentMass(objComponent, fltMass);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
-            }
-            else if (strComponentType.equals("capacitor"))
-            {
-                LOG("tweakSpaceShipComponent", "CAPACITOR" + getTemplateName(objComponent));
-                float fltMaxEnergy = dctParams.getFloat("fltMaxEnergy");
-                space_crafting.setWeaponCapacitorMaximumEnergy(objComponent, fltMaxEnergy);
-                space_crafting.setWeaponCapacitorCurrentEnergy(objComponent, fltMaxEnergy);
-                float fltRechargeRate = dctParams.getFloat("fltRechargeRate");
-                space_crafting.setWeaponCapacitorRechargeRate(objComponent, fltRechargeRate);
-                float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
-                space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
-                float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
-                space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
-                space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
-                float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
-                space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
-                float fltMass = dctParams.getFloat("fltMass");
-                space_crafting.setComponentMass(objComponent, fltMass);
-                setComponentObjVar(objComponent, "character.builder", 1);
-                String newName = dctParams.getString("strName");
-                setName(objComponent, newName);
+            switch (strComponentType) {
+                case "armor": {
+                    float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
+                    space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
+                    space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMass = dctParams.getFloat("fltMass");
+                    space_crafting.setComponentMass(objComponent, fltMass);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
+                case "booster": {
+                    LOG("tweakSpaceShipComponent", "BOOSTER" + getTemplateName(objComponent));
+                    float fltMaximumEnergy = dctParams.getFloat("fltMaximumEnergy");
+                    space_crafting.setBoosterMaximumEnergy(objComponent, fltMaximumEnergy);
+                    space_crafting.setBoosterCurrentEnergy(objComponent, fltMaximumEnergy);
+                    float fltRechargeRate = dctParams.getFloat("fltRechargeRate");
+                    space_crafting.setBoosterEnergyRechargeRate(objComponent, fltRechargeRate);
+                    float fltConsumptionRate = dctParams.getFloat("fltConsumptionRate");
+                    space_crafting.setBoosterEnergyConsumptionRate(objComponent, fltConsumptionRate);
+                    float fltAcceleration = dctParams.getFloat("fltAcceleration");
+                    space_crafting.setBoosterAcceleration(objComponent, fltAcceleration);
+                    float fltMaxSpeed = dctParams.getFloat("fltMaxSpeed");
+                    space_crafting.setBoosterMaximumSpeed(objComponent, fltMaxSpeed);
+                    float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
+                    space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
+                    space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
+                    space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
+                    float fltMass = dctParams.getFloat("fltMass");
+                    space_crafting.setComponentMass(objComponent, fltMass);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
+                case "cargo_hold": {
+                    LOG("tweakSpaceShipComponent", "CARGO HOLD" + getTemplateName(objComponent));
+                    int intCargoHoldCapacity = dctParams.getInt("intCargoHoldCapacity");
+                    space_crafting.setCargoHoldMaxCapacity(objComponent, intCargoHoldCapacity);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
+                case "droid_interface": {
+                    LOG("tweakSpaceShipComponent", "DROID INTERFACE" + getTemplateName(objComponent));
+                    float fltCommandSpeed = dctParams.getFloat("fltCommandSpeed");
+                    space_crafting.setDroidInterfaceCommandSpeed(objComponent, fltCommandSpeed);
+                    float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
+                    space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
+                    space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
+                    space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
+                    float fltMass = dctParams.getFloat("fltMass");
+                    space_crafting.setComponentMass(objComponent, fltMass);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
+                case "engine": {
+                    LOG("tweakSpaceShipComponent", "ENGINE" + getTemplateName(objComponent));
+                    float fltMaxSpeed = dctParams.getFloat("fltMaxSpeed");
+                    space_crafting.setEngineMaximumSpeed(objComponent, fltMaxSpeed);
+                    float fltMaxPitch = dctParams.getFloat("fltMaxPitch");
+                    space_crafting.setEngineMaximumPitch(objComponent, fltMaxPitch);
+                    float fltMaxRoll = dctParams.getFloat("fltMaxRoll");
+                    space_crafting.setEngineMaximumRoll(objComponent, fltMaxRoll);
+                    float fltMaxYaw = dctParams.getFloat("fltMaxYaw");
+                    space_crafting.setEngineMaximumYaw(objComponent, fltMaxYaw);
+                    float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
+                    space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
+                    space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
+                    space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
+                    float fltMass = dctParams.getFloat("fltMass");
+                    space_crafting.setComponentMass(objComponent, fltMass);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
+                case "reactor": {
+                    LOG("tweakSpaceShipComponent", "REACTOR" + getTemplateName(objComponent));
+                    float fltEnergyGeneration = dctParams.getFloat("fltEnergyGeneration");
+                    space_crafting.setReactorEnergyGeneration(objComponent, fltEnergyGeneration);
+                    float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
+                    space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
+                    space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMass = dctParams.getFloat("fltMass");
+                    space_crafting.setComponentMass(objComponent, fltMass);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
+                case "shield": {
+                    LOG("tweakSpaceShipComponent", "SHIELD" + getTemplateName(objComponent));
+                    float fltShieldHitpointsMaximumFront = dctParams.getFloat("fltShieldHitpointsMaximumFront");
+                    float fltShieldHitpointsMaximumBack = dctParams.getFloat("fltShieldHitpointsMaximumFront");
+                    space_crafting.setShieldGeneratorCurrentFrontHitpoints(objComponent, 0.0f);
+                    space_crafting.setShieldGeneratorCurrentBackHitpoints(objComponent, 0.0f);
+                    space_crafting.setShieldGeneratorMaximumFrontHitpoints(objComponent, fltShieldHitpointsMaximumFront);
+                    space_crafting.setShieldGeneratorMaximumBackHitpoints(objComponent, fltShieldHitpointsMaximumBack);
+                    float fltShieldRechargeRate = dctParams.getFloat("fltShieldRechargeRate");
+                    space_crafting.setShieldGeneratorRechargeRate(objComponent, fltShieldRechargeRate);
+                    float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
+                    space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
+                    space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
+                    space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
+                    float fltMass = dctParams.getFloat("fltMass");
+                    space_crafting.setComponentMass(objComponent, fltMass);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
+                case "weapon": {
+                    float fltMinDamage = dctParams.getFloat("fltMinDamage");
+                    space_crafting.setWeaponMinimumDamage(objComponent, fltMinDamage);
+                    float fltMaxDamage = dctParams.getFloat("fltMaxDamage");
+                    space_crafting.setWeaponMaximumDamage(objComponent, fltMaxDamage);
+                    float fltShieldEffectiveness = dctParams.getFloat("fltShieldEffectiveness");
+                    space_crafting.setWeaponShieldEffectiveness(objComponent, fltShieldEffectiveness);
+                    float fltArmorEffectiveness = dctParams.getFloat("fltArmorEffectiveness");
+                    space_crafting.setWeaponArmorEffectiveness(objComponent, fltArmorEffectiveness);
+                    float fltEnergyPerShot = dctParams.getFloat("fltEnergyPerShot");
+                    space_crafting.setWeaponEnergyPerShot(objComponent, fltEnergyPerShot);
+                    float fltRefireRate = dctParams.getFloat("fltRefireRate");
+                    space_crafting.setWeaponRefireRate(objComponent, fltRefireRate);
+                    float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
+                    space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
+                    space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
+                    space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
+                    float fltMass = dctParams.getFloat("fltMass");
+                    space_crafting.setComponentMass(objComponent, fltMass);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
+                case "capacitor": {
+                    LOG("tweakSpaceShipComponent", "CAPACITOR" + getTemplateName(objComponent));
+                    float fltMaxEnergy = dctParams.getFloat("fltMaxEnergy");
+                    space_crafting.setWeaponCapacitorMaximumEnergy(objComponent, fltMaxEnergy);
+                    space_crafting.setWeaponCapacitorCurrentEnergy(objComponent, fltMaxEnergy);
+                    float fltRechargeRate = dctParams.getFloat("fltRechargeRate");
+                    space_crafting.setWeaponCapacitorRechargeRate(objComponent, fltRechargeRate);
+                    float fltMaximumHitpoints = dctParams.getFloat("fltMaximumHitpoints");
+                    space_crafting.setComponentCurrentHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltMaximumArmorHitpoints = dctParams.getFloat("fltMaximumArmorHitpoints");
+                    space_crafting.setComponentCurrentArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    space_crafting.setComponentMaximumArmorHitpoints(objComponent, fltMaximumHitpoints);
+                    float fltEnergyMaintenance = dctParams.getFloat("fltEnergyMaintenance");
+                    space_crafting.setComponentEnergyMaintenance(objComponent, fltEnergyMaintenance);
+                    float fltMass = dctParams.getFloat("fltMass");
+                    space_crafting.setComponentMass(objComponent, fltMass);
+                    setComponentObjVar(objComponent, "character.builder", 1);
+                    String newName = dctParams.getString("strName");
+                    setName(objComponent, newName);
+                    break;
+                }
             }
             return objComponent;
         }

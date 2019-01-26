@@ -41,7 +41,7 @@ public class qawearables extends script.base_script
             {
                 if (firstColumnArray[y].equals(choice))
                 {
-                    rowNumVector.addElement(new Integer(y));
+                    rowNumVector.addElement(y);
                     listCounter++;
                 }
             }
@@ -50,22 +50,19 @@ public class qawearables extends script.base_script
         int arrayLength = rowNumArray.length;
         if (!filtered)
         {
-            String previousString = secondColumnArray[rowNumArray[0].intValue()];
+            String previousString = secondColumnArray[rowNumArray[0]];
             wearablesListVector.addElement(previousString);
-            for (int i = 0; i < arrayLength; i++)
-            {
-                if (!secondColumnArray[rowNumArray[i].intValue()].equals(previousString))
-                {
-                    wearablesListVector.addElement(secondColumnArray[rowNumArray[i].intValue()]);
-                    previousString = secondColumnArray[rowNumArray[i].intValue()];
+            for (Integer integer : rowNumArray) {
+                if (!secondColumnArray[integer].equals(previousString)) {
+                    wearablesListVector.addElement(secondColumnArray[integer]);
+                    previousString = secondColumnArray[integer];
                 }
             }
         }
         else 
         {
-            for (int i = 0; i < arrayLength; i++)
-            {
-                wearablesListVector.addElement(secondColumnArray[rowNumArray[i].intValue()] + " Ref.# " + rowNumArray[i]);
+            for (Integer integer : rowNumArray) {
+                wearablesListVector.addElement(secondColumnArray[integer] + " Ref.# " + integer);
             }
             if (!allFunction)
             {
@@ -94,9 +91,8 @@ public class qawearables extends script.base_script
         else 
         {
             HashSet theSet = new HashSet();
-            for (int y = 0; y < listingLength; y++)
-            {
-                theSet.add(columnArray[y]);
+            for (String s : columnArray) {
+                theSet.add(s);
             }
             String[] menuArray = new String[theSet.size()];
             theSet.toArray(menuArray);

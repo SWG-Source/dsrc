@@ -10,7 +10,7 @@ public class dynamic_ship extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "pendingWarp", null, 600.f, false);
+        messageTo(self, "pendingWarp", null, 600.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int pendingWarp(obj_id self, dictionary params) throws InterruptedException

@@ -378,7 +378,7 @@ public class slicing extends script.base_script
         outp.put("success", 1);
         outp.put("row", row);
         outp.put("player", player);
-        messageTo(item, callback, outp, 0.f, true);
+        messageTo(item, callback, outp, 0.0f, true);
         clearSlicing(player);
     }
     public static void failSlicing(obj_id player, obj_id item) throws InterruptedException
@@ -387,7 +387,7 @@ public class slicing extends script.base_script
         dictionary outp = new dictionary();
         outp.put("success", 0);
         outp.put("player", player);
-        messageTo(item, callback, outp, 0.f, true);
+        messageTo(item, callback, outp, 0.0f, true);
         clearSlicing(player);
     }
     public static void consumeComponent(obj_id item) throws InterruptedException

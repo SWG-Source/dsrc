@@ -164,7 +164,7 @@ public class fs_quests_sad2_conv extends script.base_script
     }
     public float fs_quests_sad2_conv_tokenDF_tokenDF0001(obj_id player, obj_id npc) throws InterruptedException
     {
-        return 0.f;
+        return 0.0f;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -54,7 +54,7 @@ public class space_battle extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -360,26 +360,20 @@ public class space_battle extends script.base_script
             targets = getObjIdArrayObjVar(self, "allies");
         }
         int deadships = getIntObjVar(self, "dead_" + name);
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (deadship == targets[i])
-            {
+        for (obj_id target : targets) {
+            if (deadship == target) {
                 deadships++;
                 setObjVar(self, "dead_" + name, deadships);
                 space_quest._removeMissionCriticalShip(player, self, deadship);
-                if (deadships == targets.length)
-                {
-                    if (name.equals("enemies"))
-                    {
+                if (deadships == targets.length) {
+                    if (name.equals("enemies")) {
                         string_id noto = new string_id("spacequest/" + questType + "/" + questName, "allies_win");
                         questUpdate(self, noto);
-                        messageTo(self, "winMission", null, 2.f, false);
-                    }
-                    else 
-                    {
+                        messageTo(self, "winMission", null, 2.0f, false);
+                    } else {
                         string_id noto = new string_id("spacequest/" + questType + "/" + questName, "enemies_win");
                         questUpdate(self, noto);
-                        messageTo(self, "loseMission", null, 2.f, false);
+                        messageTo(self, "loseMission", null, 2.0f, false);
                     }
                     return SCRIPT_CONTINUE;
                 }
@@ -461,22 +455,18 @@ public class space_battle extends script.base_script
         obj_id[] allies = getObjIdArrayObjVar(self, "allies");
         if (allies != null)
         {
-            for (int i = 0; i < allies.length; i++)
-            {
-                if (isIdValid(allies[i]) && exists(allies[i]))
-                {
-                    messageTo(allies[i], "warpOut", null, 60.f, false);
+            for (obj_id ally : allies) {
+                if (isIdValid(ally) && exists(ally)) {
+                    messageTo(ally, "warpOut", null, 60.0f, false);
                 }
             }
         }
         obj_id[] enemies = getObjIdArrayObjVar(self, "enemies");
         if (enemies != null)
         {
-            for (int i = 0; i < enemies.length; i++)
-            {
-                if (isIdValid(enemies[i]) && exists(enemies[i]))
-                {
-                    messageTo(enemies[i], "warpOut", null, 60.f, false);
+            for (obj_id enemy : enemies) {
+                if (isIdValid(enemy) && exists(enemy)) {
+                    messageTo(enemy, "warpOut", null, 60.0f, false);
                 }
             }
         }

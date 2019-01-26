@@ -28,21 +28,15 @@ public class space_battlefield extends script.base_script
     {
         CustomerServiceLog("battlefield", "Battlefield Completed and resetting with id " + intCompletionId);
         obj_id[] objShips = getObjectsInRange(getLocation(objManager), 320000);
-        for (int intI = 0; intI < objShips.length; intI++)
-        {
-            if (!space_utils.isPlayerControlledShip(objShips[intI]))
-            {
-                if (hasObjVar(objShips[intI], "ship.shipName"))
-                {
-                    if (!hasObjVar(objShips[intI], "intNoCleanup"))
-                    {
+        for (obj_id objShip : objShips) {
+            if (!space_utils.isPlayerControlledShip(objShip)) {
+                if (hasObjVar(objShip, "ship.shipName")) {
+                    if (!hasObjVar(objShip, "intNoCleanup")) {
                         float fltTime = rand(1, 120);
-                        messageTo(objShips[intI], "destroySelf", null, fltTime, false);
+                        messageTo(objShip, "destroySelf", null, fltTime, false);
                     }
                 }
-            }
-            else 
-            {
+            } else {
             }
         }
         return;
@@ -54,62 +48,53 @@ public class space_battlefield extends script.base_script
         obj_id objSpaceStations[] = getAllObjectsWithScript(getLocation(objManager), 320000, "space.battlefields.battlefield_station");
         if (objSpaceStations != null)
         {
-            for (int intI = 0; intI < objSpaceStations.length; intI++)
-            {
-                setObjVar(objSpaceStations[intI], "intCleaningUp", 1);
-                detachScript(objSpaceStations[intI], "space.battlefields.battlefield_spawner");
-                detachScript(objSpaceStations[intI], "space.content_tools.spawner");
-                destroyObject(objSpaceStations[intI]);
+            for (obj_id objSpaceStation : objSpaceStations) {
+                setObjVar(objSpaceStation, "intCleaningUp", 1);
+                detachScript(objSpaceStation, "space.battlefields.battlefield_spawner");
+                detachScript(objSpaceStation, "space.content_tools.spawner");
+                destroyObject(objSpaceStation);
             }
         }
         obj_id objDestroyers[] = getAllObjectsWithScript(getLocation(objManager), 320000, "space.battlefields.battlefield_star_destroyer");
         if (objDestroyers != null)
         {
-            for (int intI = 0; intI < objDestroyers.length; intI++)
-            {
-                setObjVar(objDestroyers[intI], "intCleaningUp", 1);
-                destroyObject(objDestroyers[intI]);
+            for (obj_id objDestroyer : objDestroyers) {
+                setObjVar(objDestroyer, "intCleaningUp", 1);
+                destroyObject(objDestroyer);
             }
         }
         obj_id objStationEggs[] = getAllObjectsWithObjVar(getLocation(objManager), 320000, "intStationRespawner");
         if (objStationEggs != null)
         {
-            for (int intI = 0; intI < objStationEggs.length; intI++)
-            {
-                String strObjVars = utils.getStringLocalVar(objStationEggs[intI], "strObjVars");
-                String strScripts = utils.getStringLocalVar(objStationEggs[intI], "strScripts");
-                String strTemplate = utils.getStringLocalVar(objStationEggs[intI], "strTemplate");
-                LOG("space", "making " + strTemplate + " from object " + objStationEggs[intI]);
-                transform trTest = getTransform_o2p(objStationEggs[intI]);
+            for (obj_id objStationEgg : objStationEggs) {
+                String strObjVars = utils.getStringLocalVar(objStationEgg, "strObjVars");
+                String strScripts = utils.getStringLocalVar(objStationEgg, "strScripts");
+                String strTemplate = utils.getStringLocalVar(objStationEgg, "strTemplate");
+                LOG("space", "making " + strTemplate + " from object " + objStationEgg);
+                transform trTest = getTransform_o2p(objStationEgg);
                 obj_id objStation = createObject(strTemplate, trTest, null);
                 LOG("space", "MADE STATION " + objStation);
                 setPackedObjvars(objStation, strObjVars);
                 space_create.setupShipFromObjVars(objStation);
-                if (hasObjVar(objStation, "intCleaningUp"))
-                {
+                if (hasObjVar(objStation, "intCleaningUp")) {
                     removeObjVar(objStation, "intCleaningUp");
                 }
-                if (!strScripts.equals(""))
-                {
+                if (!strScripts.equals("")) {
                     String[] strScriptArray = split(strScripts, ',');
-                    for (int intJ = 0; intJ < strScriptArray.length; intJ++)
-                    {
-                        String script = strScriptArray[intJ];
-                        if (script.indexOf("script.") > -1)
-                        {
+                    for (String s : strScriptArray) {
+                        String script = s;
+                        if (script.contains("script.")) {
                             script = script.substring(7);
                         }
-                        if (!script.equals(""))
-                        {
-                            if (!hasScript(objStation, script))
-                            {
+                        if (!script.equals("")) {
+                            if (!hasScript(objStation, script)) {
                                 attachScript(objStation, script);
                             }
                         }
                         setObjVar(objStation, "intNoCleanup", 1);
                     }
                 }
-                destroyObject(objStationEggs[intI]);
+                destroyObject(objStationEgg);
             }
         }
         else 

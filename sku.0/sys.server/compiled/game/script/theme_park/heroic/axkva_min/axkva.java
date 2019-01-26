@@ -24,9 +24,8 @@ public class axkva extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            addHate(self, players[i], 1);
+        for (obj_id player : players) {
+            addHate(self, player, 1);
         }
         return SCRIPT_CONTINUE;
     }
@@ -45,15 +44,12 @@ public class axkva extends script.base_script
         }
         obj_id wp = null;
         obj_id warden = null;
-        for (int i = 0; i < objects.length; i++)
-        {
-            if ((getStringObjVar(objects[i], "spawn_id")).equals("axkva_warpTo"))
-            {
-                wp = objects[i];
+        for (obj_id object : objects) {
+            if ((getStringObjVar(object, "spawn_id")).equals("axkva_warpTo")) {
+                wp = object;
             }
-            if ((getStringObjVar(objects[i], "spawn_id")).equals("warden"))
-            {
-                warden = objects[i];
+            if ((getStringObjVar(object, "spawn_id")).equals("warden")) {
+                warden = object;
             }
         }
         if (!isIdValid(warden) || !isIdValid(wp))
@@ -80,9 +76,8 @@ public class axkva extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            queueCommand(self, (-645052268), players[i], "", COMMAND_PRIORITY_DEFAULT);
+        for (obj_id player : players) {
+            queueCommand(self, (-645052268), player, "", COMMAND_PRIORITY_DEFAULT);
         }
         chat.chat(self, "Leaving so soon?");
         return SCRIPT_CONTINUE;
@@ -91,7 +86,7 @@ public class axkva extends script.base_script
     {
         location loc1 = new location(-63.6f, 14.4f, 36.4f, "dungeon1", getCellId(trial.getTop(self), "r2"));
         location loc2 = new location(-69.8f, 13.6f, 9.6f, "dungeon1", getCellId(trial.getTop(self), "r2"));
-        location loc3 = new location(-44.4f, 7f, 1.5f, "dungeon1", getCellId(trial.getTop(self), "r2"));
+        location loc3 = new location(-44.4f, 7.0f, 1.5f, "dungeon1", getCellId(trial.getTop(self), "r2"));
         location loc4 = new location(-42.7f, 8.3f, 20.9f, "dungeon1", getCellId(trial.getTop(self), "r2"));
         location loc5 = new location(-55.0f, 10.0f, 18.0f, "dungeon1", getCellId(trial.getTop(self), "r2"));
         location loc6 = new location(-49.0f, 10.0f, 13.0f, "dungeon1", getCellId(trial.getTop(self), "r2"));

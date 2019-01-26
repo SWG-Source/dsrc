@@ -388,8 +388,8 @@ public class buff extends script.base_script
             return true;
         }
         buff_data bdata;
-        for (int buff : buffs) {
-            bdata = combat_engine.getBuffData(buff);
+        for (int b : buffs) {
+            bdata = combat_engine.getBuffData(b);
             if (bdata == null) {
                 LOG("buff.scriptlib", "removeAllBuffs bdata is null");
                 continue;
@@ -408,7 +408,7 @@ public class buff extends script.base_script
                     continue;
                 }
             }
-            _removeBuff(target, buff);
+            _removeBuff(target, b);
         }
         return true;
     }
@@ -427,10 +427,10 @@ public class buff extends script.base_script
         {
             return true;
         }
-        for (int buff : buffs) {
-            buff_data bdata = combat_engine.getBuffData(buff);
-            if (bdata.debuff == 1 && getBuffOwner(target, buff) == owner) {
-                removeBuff(target, buff);
+        for (int b : buffs) {
+            buff_data bdata = combat_engine.getBuffData(b);
+            if (bdata.debuff == 1 && getBuffOwner(target, b) == owner) {
+                removeBuff(target, b);
             }
         }
         return true;
@@ -450,14 +450,14 @@ public class buff extends script.base_script
         matchedBuffs.setSize(0);
         buff_data bdata;
         String tempEffect;
-        for (int buff : buffs) {
+        for (int b : buffs) {
             int j = 1;
-            bdata = combat_engine.getBuffData(buff);
+            bdata = combat_engine.getBuffData(b);
             tempEffect = getEffectParam(bdata, 1);
             boolean matched = false;
             while (!matched && j < 6 && tempEffect != null && tempEffect.length() > 0) {
                 if (tempEffect.equals(effect)) {
-                    utils.addElement(matchedBuffs, buff);
+                    utils.addElement(matchedBuffs, b);
                     matched = true;
                 }
                 j++;
@@ -697,14 +697,14 @@ public class buff extends script.base_script
         {
             return 0;
         }
-        for (int buff : buffs) {
-            int[] groups = getGroups(buff);
+        for (int b : buffs) {
+            int[] groups = getGroups(b);
             if (groups == null || groups.length == 0) {
                 continue;
             }
             for (int group : groups) {
                 if (group == groupCrc) {
-                    return buff;
+                    return b;
                 }
             }
         }
@@ -720,10 +720,10 @@ public class buff extends script.base_script
         Vector allGroupBuffs = new Vector();
         allGroupBuffs.setSize(0);
         String tempGroupName;
-        for (int buff : buffs) {
-            tempGroupName = getStringGroupTwo(buff);
+        for (int b : buffs) {
+            tempGroupName = getStringGroupTwo(b);
             if (tempGroupName.startsWith(groupName)) {
-                utils.addElement(allGroupBuffs, buff);
+                utils.addElement(allGroupBuffs, b);
             }
         }
         int[] _allGroupBuffs = new int[0];
@@ -756,7 +756,7 @@ public class buff extends script.base_script
         buff_data bdata = combat_engine.getBuffData(nameCrc);
         if (bdata == null)
         {
-            return 0f;
+            return 0.0f;
         }
         return bdata.duration;
     }
@@ -999,12 +999,12 @@ public class buff extends script.base_script
             int priority = bdata.priority;
             buff_data oldBuffData;
             obj_id effectOwner;
-            for (int buff : buffs) {
-                oldBuffData = combat_engine.getBuffData(buff);
+            for (int b : buffs) {
+                oldBuffData = combat_engine.getBuffData(b);
                 if (oldBuffData == null) {
                     continue;
                 }
-                effectOwner = getBuffOwner(target, buff);
+                effectOwner = getBuffOwner(target, b);
                 if (isIdValid(effectOwner) && effectOwner != target) {
                     continue;
                 }
@@ -1017,7 +1017,7 @@ public class buff extends script.base_script
                     int oldGroupOne = oldGroups[0];
                     int oldGroupTwo = oldGroups[1];
                     if ((groupOne != 0 && (groupOne == oldGroupOne || groupOne == oldGroupTwo)) || (groupTwo != 0 && (groupTwo == oldGroupOne || groupTwo == oldGroupTwo))) {
-                        discarded[discardCount++] = buff;
+                        discarded[discardCount++] = b;
                     }
                 }
             }
@@ -1205,9 +1205,9 @@ public class buff extends script.base_script
         {
             return true;
         }
-        for (int buff : buffs) {
-            if (isDebuff(buff) && getState(buff) == stateType) {
-                _removeBuff(target, buff);
+        for (int b : buffs) {
+            if (isDebuff(b) && getState(b) == stateType) {
+                _removeBuff(target, b);
                 removed = true;
             }
         }
@@ -1229,8 +1229,8 @@ public class buff extends script.base_script
         buff_data bdata;
         String curBuff;
         String groupCur;
-        for (int buff : buffs) {
-            bdata = combat_engine.getBuffData(buff);
+        for (int b : buffs) {
+            bdata = combat_engine.getBuffData(b);
             if (bdata == null) {
                 continue;
             }
@@ -1419,7 +1419,7 @@ public class buff extends script.base_script
             if (stackCount <= 1) {
                 removeBuff(target, anAllBuffsOfType);
             } else {
-                reduction = Math.round((float) stackCount * ((float) reduction / 100.0f));
+                reduction = Math.round(stackCount * (reduction / 100.0f));
                 reduction = reduction < 1 ? 1 : reduction;
                 if (stackCount <= reduction) {
                     removeBuff(target, anAllBuffsOfType);
@@ -1542,8 +1542,8 @@ public class buff extends script.base_script
             return true;
         }
         buff_data bdata;
-        for (int buff : buffs) {
-            bdata = combat_engine.getBuffData(buff);
+        for (int b : buffs) {
+            bdata = combat_engine.getBuffData(b);
             if (bdata == null) {
                 LOG("buff.scriptlib", "decayAllBuffsFromPvpDeath bdata is null");
                 continue;
@@ -1553,12 +1553,12 @@ public class buff extends script.base_script
             if (decayOnPvpDeath == 0 && removalOnDeath == 0) {
                 continue;
             } else if (decayOnPvpDeath == 0 && removalOnDeath == 1) {
-                _removeBuff(target, buff);
+                _removeBuff(target, b);
                 continue;
             } else if (removalOnDeath == 0) {
                 continue;
             }
-            _decayBuff(target, buff, percent);
+            _decayBuff(target, b, percent);
         }
         return true;
     }

@@ -87,17 +87,14 @@ public class ig88_super_battle_droid extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            String checkSpawn = getStringObjVar(targets[i], "spawn_id");
-            if (firstSuperDroid && checkSpawn.equals("mouse_droid1"))
-            {
-                target = targets[i];
+        for (obj_id target1 : targets) {
+            String checkSpawn = getStringObjVar(target1, "spawn_id");
+            if (firstSuperDroid && checkSpawn.equals("mouse_droid1")) {
+                target = target1;
                 break;
             }
-            if (!firstSuperDroid && checkSpawn.equals("mouse_droid2"))
-            {
-                target = targets[i];
+            if (!firstSuperDroid && checkSpawn.equals("mouse_droid2")) {
+                target = target1;
                 break;
             }
         }
@@ -105,7 +102,7 @@ public class ig88_super_battle_droid extends script.base_script
         {
             return;
         }
-        if ((float)getAttrib(self, ACTION) / (float)getMaxAttrib(self, ACTION) < 0.1f)
+        if ((float)getAttrib(self, ACTION) / getMaxAttrib(self, ACTION) < 0.1f)
         {
             destroyMouseDroids(dungeon);
             return;
@@ -119,12 +116,10 @@ public class ig88_super_battle_droid extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            String checkSpawn = getStringObjVar(targets[i], "spawn_id");
-            if (checkSpawn.equals("mouse_droid1") || checkSpawn.equals("mouse_droid2"))
-            {
-                destroyObject(targets[i]);
+        for (obj_id target : targets) {
+            String checkSpawn = getStringObjVar(target, "spawn_id");
+            if (checkSpawn.equals("mouse_droid1") || checkSpawn.equals("mouse_droid2")) {
+                destroyObject(target);
             }
         }
     }

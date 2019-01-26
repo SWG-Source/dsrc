@@ -92,13 +92,9 @@ public class jukebox_room extends script.base_script
     public int prepareToPlaySelectedSong(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] contents = getContents(self);
-        for (int i = 0; i < contents.length; i++)
-        {
-            obj_id item = contents[i];
-            if (isPlayer(item))
-            {
-                if (allowedToListen(self, item))
-                {
+        for (obj_id item : contents) {
+            if (isPlayer(item)) {
+                if (allowedToListen(self, item)) {
                     playMusic(item, "sound/music_silence.snd");
                 }
             }
@@ -112,13 +108,9 @@ public class jukebox_room extends script.base_script
         if (!song.equals("none") && song.length() > 0)
         {
             obj_id[] contents = getContents(self);
-            for (int i = 0; i < contents.length; i++)
-            {
-                obj_id item = contents[i];
-                if (isPlayer(item))
-                {
-                    if (allowedToListen(self, item))
-                    {
+            for (obj_id item : contents) {
+                if (isPlayer(item)) {
+                    if (allowedToListen(self, item)) {
                         playMusic(item, song);
                     }
                 }
@@ -129,13 +121,9 @@ public class jukebox_room extends script.base_script
     public int stopSong(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] contents = getContents(self);
-        for (int i = 0; i < contents.length; i++)
-        {
-            obj_id item = contents[i];
-            if (isPlayer(item))
-            {
-                if (allowedToListen(self, item))
-                {
+        for (obj_id item : contents) {
+            if (isPlayer(item)) {
+                if (allowedToListen(self, item)) {
                     playMusic(item, "sound/music_silence.snd");
                 }
             }
@@ -145,13 +133,9 @@ public class jukebox_room extends script.base_script
     public int stopAndCleanUp(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] contents = getContents(self);
-        for (int i = 0; i < contents.length; i++)
-        {
-            obj_id item = contents[i];
-            if (isPlayer(item))
-            {
-                if (allowedToListen(self, item))
-                {
+        for (obj_id item : contents) {
+            if (isPlayer(item)) {
+                if (allowedToListen(self, item)) {
                     playMusic(item, "sound/music_silence.snd");
                 }
             }

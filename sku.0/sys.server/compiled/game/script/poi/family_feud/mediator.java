@@ -108,9 +108,8 @@ public class mediator extends script.poi.base.scenario_actor
                     else 
                     {
                         scenario.sayNoAct(self, convo, "m_cadence");
-                        for (int i = 0; i < members.length; i++)
-                        {
-                            messageTo(members[i], HANDLER_CADENCE, null, 1, false);
+                        for (obj_id member : members) {
+                            messageTo(member, HANDLER_CADENCE, null, 1, false);
                         }
                     }
                     break;
@@ -234,7 +233,7 @@ public class mediator extends script.poi.base.scenario_actor
                 return SCRIPT_CONTINUE;
             }
             obj_id target = obj_id.NULL_ID;
-            obj_id[] npcsInRange = getNPCsInRange(getLocation(self), 50f);
+            obj_id[] npcsInRange = getNPCsInRange(getLocation(self), 50.0f);
             if ((npcsInRange == null) || (npcsInRange.length == 0))
             {
             }
@@ -264,15 +263,11 @@ public class mediator extends script.poi.base.scenario_actor
                 }
                 else 
                 {
-                    for (int i = 0; i < enemies.length; i++)
-                    {
-                        if (target == obj_id.NULL_ID)
-                        {
-                            if (utils.getElementPositionInArray(npcsInRange, enemies[i]) > -1)
-                            {
-                                if (!isIncapacitated(enemies[i]) && !isDead(enemies[i]))
-                                {
-                                    target = enemies[i];
+                    for (obj_id enemy : enemies) {
+                        if (target == obj_id.NULL_ID) {
+                            if (utils.getElementPositionInArray(npcsInRange, enemy) > -1) {
+                                if (!isIncapacitated(enemy) && !isDead(enemy)) {
+                                    target = enemy;
                                 }
                             }
                         }
@@ -360,7 +355,7 @@ public class mediator extends script.poi.base.scenario_actor
         }
         else 
         {
-            addLocationTarget(MY_TARGET_LOCATION, loc, 25f);
+            addLocationTarget(MY_TARGET_LOCATION, loc, 25.0f);
         }
         messageTo(self, scenario.HANDLER_FOLLOW_TIMER, params, rand(600, 800), true);
         obj_id wp = createWaypointInDatapad(player, loc);
@@ -384,9 +379,8 @@ public class mediator extends script.poi.base.scenario_actor
         }
         else 
         {
-            for (int i = 0; i < members.length; i++)
-            {
-                ai_lib.aiStopFollowing(members[i]);
+            for (obj_id member : members) {
+                ai_lib.aiStopFollowing(member);
             }
         }
         String convo = getStringObjVar(poiMaster, scenario.VAR_SCENARIO_CONVO);

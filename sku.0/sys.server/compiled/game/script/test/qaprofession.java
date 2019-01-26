@@ -343,7 +343,7 @@ public class qaprofession extends script.base_script
                     int skillLevel = -1;
                     for (int i = 0; i < ABILITY_TO_SKILL_FORMULA.length; i++)
                     {
-                        if (skillSelectionCode.indexOf(ABILITY_TO_SKILL_FORMULA[i]) > -1)
+                        if (skillSelectionCode.contains(ABILITY_TO_SKILL_FORMULA[i]))
                         {
                             skillLevel = HARD_CODED_LEVELS[i];
                         }
@@ -650,9 +650,8 @@ public class qaprofession extends script.base_script
                         {
                             qa.revokeAllSkills(self);
                             setSkillTemplate(self, templateName);
-                            for (int i = 0; i < arrayLength; i++)
-                            {
-                                skill.grantSkillToPlayer(self, professionSkillCodes[i]);
+                            for (String professionSkillCode : professionSkillCodes) {
+                                skill.grantSkillToPlayer(self, professionSkillCode);
                             }
                             setWorkingSkill(self, professionSkillCodes[arrayLength - 1]);
                             CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has attained a Master Profession (" + templateName + ") using the QA Profession Tool.");
@@ -827,7 +826,7 @@ public class qaprofession extends script.base_script
         {
             for (int i = 0; i < arrayLength; i++)
             {
-                if (!abilityCodes[i].startsWith("private_") && !abilityCodes[i].equals(NONE_STRING) && abilityCodes[i].indexOf("_") > -1)
+                if (!abilityCodes[i].startsWith("private_") && !abilityCodes[i].equals(NONE_STRING) && abilityCodes[i].contains("_"))
                 {
                     arrayOfAbilityNames[i] = localize(new string_id("cmd_n", abilityCodes[i]));
                 }
@@ -911,9 +910,8 @@ public class qaprofession extends script.base_script
             prompt = professionStringSelection;
         }
         prompt = prompt + "\t ( " + professionCodeSelection + " )\r\n\t" + skillSelectionString + " \t ( " + skillSelectionCode + " )\r\n\t\t" + skillXPCodeData;
-        for (int x = 0; x < skillMods.length; x++)
-        {
-            prompt = prompt + "\r\n\t\tSkill Mod:\t" + skillMods[x];
+        for (String skillMod : skillMods) {
+            prompt = prompt + "\r\n\t\tSkill Mod:\t" + skillMod;
         }
         prompt = prompt + "\r\n\r\n\t\tRoad Map Item:\t\t" + roadMapString;
         prompt = prompt + roadMapSpawnStrings;
@@ -925,7 +923,7 @@ public class qaprofession extends script.base_script
                 for (int i = 0; i < abilityString.length; i++)
                 {
                     prompt = prompt + "\r\n\t\t\t" + abilityString[i] + "\t ( " + abilityCodes[i] + " )";
-                    if (abilityString[i].indexOf("Mitigation") == -1 && !professionCodeSelection.equals("entertainer") && !professionCodeSelection.startsWith("trader"))
+                    if (!abilityString[i].contains("Mitigation") && !professionCodeSelection.equals("entertainer") && !professionCodeSelection.startsWith("trader"))
                     {
                         String abilityData = getAbilityData(self, abilityCodes[i]);
                         if (!abilityData.equals(""))
@@ -994,12 +992,11 @@ public class qaprofession extends script.base_script
                 String itemDefault = dictionaryRow.getString("itemDefault");
                 if (!itemDefault.equals(""))
                 {
-                    if (itemDefault.indexOf(",") > -1)
+                    if (itemDefault.contains(","))
                     {
                         String arrayOfCodes[] = split(dictionaryRow.getString("itemDefault"), ',');
-                        for (int i = 0; i < arrayOfCodes.length; i++)
-                        {
-                            roadmapData = roadmapData + "\r\n\t\tSpawn String:\t\t" + arrayOfCodes[i];
+                        for (String arrayOfCode : arrayOfCodes) {
+                            roadmapData = roadmapData + "\r\n\t\tSpawn String:\t\t" + arrayOfCode;
                         }
                         return roadmapData;
                     }
@@ -1073,17 +1070,14 @@ public class qaprofession extends script.base_script
             Vector allSkills = new Vector();
             Vector allAbilities = new Vector();
             Vector filteredAbilities = new Vector();
-            for (int i = 0; i < professionMenuLength; i++)
-            {
-                int rowNum = dataTableSearchColumnForString(professionMenuCodeStrings[i], "startingTemplateName", SKILL_TEMPLATE);
+            for (String professionMenuCodeString : professionMenuCodeStrings) {
+                int rowNum = dataTableSearchColumnForString(professionMenuCodeString, "startingTemplateName", SKILL_TEMPLATE);
                 dictionary dictionaryRow = dataTableGetRow(SKILL_TEMPLATE, rowNum);
-                if (dictionaryRow != null)
-                {
+                if (dictionaryRow != null) {
                     String arrayOfSkills[] = split(dictionaryRow.getString("template"), ',');
                     int arrayLength = arrayOfSkills.length;
-                    for (int x = 0; x < arrayLength; x++)
-                    {
-                        allSkills.add(arrayOfSkills[x]);
+                    for (String arrayOfSkill : arrayOfSkills) {
+                        allSkills.add(arrayOfSkill);
                     }
                 }
             }
@@ -1095,11 +1089,9 @@ public class qaprofession extends script.base_script
                 dictionary eachSkillRow = getEntireSkillRow(self, allSkillCodeStrings[y]);
                 String[] arrayOfAbilities = getAbilityCodes(self, eachSkillRow);
                 int abilityArrayLength = arrayOfAbilities.length;
-                for (int z = 0; z < abilityArrayLength; z++)
-                {
-                    if (!arrayOfAbilities[z].equals("None"))
-                    {
-                        allAbilities.add(arrayOfAbilities[z]);
+                for (String arrayOfAbility : arrayOfAbilities) {
+                    if (!arrayOfAbility.equals("None")) {
+                        allAbilities.add(arrayOfAbility);
                     }
                 }
             }
@@ -1196,10 +1188,8 @@ public class qaprofession extends script.base_script
             {
                 String arrayOfCommands[] = split(entireCommandCol[i], ',');
                 int commandArrayLength = arrayOfCommands.length;
-                for (int x = 0; x < commandArrayLength; x++)
-                {
-                    if (arrayOfCommands[x].equals(abilityCode))
-                    {
+                for (String arrayOfCommand : arrayOfCommands) {
+                    if (arrayOfCommand.equals(abilityCode)) {
                         rowNum = i;
                         break;
                     }
@@ -1229,10 +1219,8 @@ public class qaprofession extends script.base_script
             {
                 String arrayOfSkills[] = split(entireSkillCol[i], ',');
                 int skillArrayLength = arrayOfSkills.length;
-                for (int x = 0; x < skillArrayLength; x++)
-                {
-                    if (arrayOfSkills[x].equals(skillCode))
-                    {
+                for (String arrayOfSkill : arrayOfSkills) {
+                    if (arrayOfSkill.equals(skillCode)) {
                         rowNum = i;
                         break;
                     }
@@ -1263,9 +1251,8 @@ public class qaprofession extends script.base_script
         {
             Vector allTemplates = new Vector();
             String professionTemplateName = "";
-            for (int i = 0; i < professionMenuLength; i++)
-            {
-                int rowNum = dataTableSearchColumnForString(professionMenuCodeStrings[i], "startingTemplateName", SKILL_TEMPLATE);
+            for (String professionMenuCodeString : professionMenuCodeStrings) {
+                int rowNum = dataTableSearchColumnForString(professionMenuCodeString, "startingTemplateName", SKILL_TEMPLATE);
                 professionTemplateName = dataTableGetString(SKILL_TEMPLATE, rowNum, "templateName");
                 allTemplates.add(professionTemplateName);
             }
@@ -1300,11 +1287,9 @@ public class qaprofession extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < professionListLength; i++)
-            {
-                if (professionTemplateNames[i].startsWith(professionCodeSelection))
-                {
-                    templateName = professionTemplateNames[i];
+            for (String professionTemplateName : professionTemplateNames) {
+                if (professionTemplateName.startsWith(professionCodeSelection)) {
+                    templateName = professionTemplateName;
                     break;
                 }
             }

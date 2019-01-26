@@ -2,6 +2,7 @@ package script.library;
 
 import script.*;
 
+import java.util.StringTokenizer;
 import java.util.Vector;
 
 public class dump extends script.base_script
@@ -174,9 +175,8 @@ public class dump extends script.base_script
             }
             strTest += "=====================SHIP STATS BELOW====================\r\n";
             int[] intSlots = space_crafting.getShipInstalledSlots(objTarget);
-            for (int intI = 0; intI < intSlots.length; intI++)
-            {
-                strTest += getShipComponentDebugString(objTarget, intSlots[intI]) + "\r\n";
+            for (int intSlot : intSlots) {
+                strTest += getShipComponentDebugString(objTarget, intSlot) + "\r\n";
             }
         }
         if (utils.hasScriptVar(objTarget, "spawnedBy"))
@@ -212,11 +212,9 @@ public class dump extends script.base_script
     {
         String[] strScriptArray = getScriptList(objTarget);
         String strScripts = "";
-        for (int intJ = 0; intJ < strScriptArray.length; intJ++)
-        {
-            String script = strScriptArray[intJ];
-            if (script.indexOf("script.") > -1)
-            {
+        for (String s : strScriptArray) {
+            String script = s;
+            if (script.contains("script.")) {
                 script = script.substring(7);
                 strScripts += script + "\r\n";
             }
@@ -276,52 +274,32 @@ public class dump extends script.base_script
         String[] enemies = pvpGetEnemyFlags(objTarget);
         if (enemies != null)
         {
-            for (int i = 0; i < enemies.length; ++i)
-            {
-                java.util.StringTokenizer st = new java.util.StringTokenizer(enemies[i]);
+            for (String enemy : enemies) {
+                StringTokenizer st = new StringTokenizer(enemy);
                 String sTarget = st.nextToken();
                 String sTargetName = getPlayerName(utils.stringToObjId(sTarget));
                 String sTefFac = st.nextToken();
                 int iTefFac = utils.stringToInt(sTefFac);
                 String sTefFacName = "<unknown>";
-                if (iTefFac == (-526735576))
-                {
+                if (iTefFac == (-526735576)) {
                     sTefFacName = "battlefield";
-                }
-                else if (iTefFac == (1183528962))
-                {
+                } else if (iTefFac == (1183528962)) {
                     sTefFacName = "duel";
-                }
-                else if (iTefFac == (-429740311))
-                {
+                } else if (iTefFac == (-429740311)) {
                     sTefFacName = "bountyduel";
-                }
-                else if (iTefFac == (221551254))
-                {
+                } else if (iTefFac == (221551254)) {
                     sTefFacName = "nonaggressive";
-                }
-                else if (iTefFac == (-160237431))
-                {
+                } else if (iTefFac == (-160237431)) {
                     sTefFacName = "unattackable";
-                }
-                else if (iTefFac == (84709322))
-                {
+                } else if (iTefFac == (84709322)) {
                     sTefFacName = "bountytarget";
-                }
-                else if (iTefFac == (-1526926610))
-                {
+                } else if (iTefFac == (-1526926610)) {
                     sTefFacName = "guildwarcooldownperiod";
-                }
-                else if (iTefFac == (-615855020))
-                {
+                } else if (iTefFac == (-615855020)) {
                     sTefFacName = "imperial";
-                }
-                else if (iTefFac == (370444368))
-                {
+                } else if (iTefFac == (370444368)) {
                     sTefFacName = "rebel";
-                }
-                else if (iTefFac == (-377582139))
-                {
+                } else if (iTefFac == (-377582139)) {
                     sTefFacName = "bubblecombat";
                 }
                 String sExpiration = st.nextToken();
@@ -350,29 +328,21 @@ public class dump extends script.base_script
         obj_id[] objMissions = getMissionObjects(objTarget);
         if (objMissions != null)
         {
-            for (int i = 0; i < objMissions.length; ++i)
-            {
-                String missionType = getMissionType(objMissions[i]);
-                if (missionType.equals("bounty"))
-                {
+            for (obj_id objMission : objMissions) {
+                String missionType = getMissionType(objMission);
+                if (missionType.equals("bounty")) {
                     readableBountyMissions += "mission id: ";
-                    readableBountyMissions += objMissions[i];
+                    readableBountyMissions += objMission;
                     readableBountyMissions += ", target id: ";
-                    if (hasObjVar(objMissions[i], "objTarget"))
-                    {
-                        readableBountyMissions += getObjIdObjVar(objMissions[i], "objTarget");
-                    }
-                    else 
-                    {
+                    if (hasObjVar(objMission, "objTarget")) {
+                        readableBountyMissions += getObjIdObjVar(objMission, "objTarget");
+                    } else {
                         readableBountyMissions += "NPC";
                     }
                     readableBountyMissions += ", target name: ";
-                    if (hasObjVar(objMissions[i], "strTargetName"))
-                    {
-                        readableBountyMissions += getStringObjVar(objMissions[i], "strTargetName");
-                    }
-                    else 
-                    {
+                    if (hasObjVar(objMission, "strTargetName")) {
+                        readableBountyMissions += getStringObjVar(objMission, "strTargetName");
+                    } else {
                         readableBountyMissions += "<unset>";
                     }
                     readableBountyMissions += "\r\n";
@@ -391,11 +361,10 @@ public class dump extends script.base_script
         obj_id[] bounties = getBountyHunterBounties(objTarget);
         if (bounties != null)
         {
-            for (int i = 0; i < bounties.length; ++i)
-            {
-                readableBounties += bounties[i];
+            for (obj_id bounty : bounties) {
+                readableBounties += bounty;
                 readableBounties += " (";
-                readableBounties += getPlayerName(bounties[i]);
+                readableBounties += getPlayerName(bounty);
                 readableBounties += ")";
                 readableBounties += "\r\n";
             }
@@ -412,11 +381,10 @@ public class dump extends script.base_script
         obj_id[] hunters = getJediBounties(objTarget);
         if (hunters != null)
         {
-            for (int i = 0; i < hunters.length; ++i)
-            {
-                readableBountyHunters += hunters[i];
+            for (obj_id hunter : hunters) {
+                readableBountyHunters += hunter;
                 readableBountyHunters += " (";
-                readableBountyHunters += getPlayerName(hunters[i]);
+                readableBountyHunters += getPlayerName(hunter);
                 readableBountyHunters += ")";
                 readableBountyHunters += "\r\n";
             }
@@ -509,10 +477,9 @@ public class dump extends script.base_script
         String[] childQuests = d.getStringArray("childQuests");
         if (childQuests != null)
         {
-            for (int i = 0; i < childQuests.length; i++)
-            {
-                readableFsQuestChildren += getReadableFsQuest(questMap, childQuests[i], indentLevel);
-                readableFsQuestChildren += getReadableFsQuestChildren(questMap, childQuests[i], indentLevel + 1);
+            for (String childQuest : childQuests) {
+                readableFsQuestChildren += getReadableFsQuest(questMap, childQuest, indentLevel);
+                readableFsQuestChildren += getReadableFsQuestChildren(questMap, childQuest, indentLevel + 1);
             }
         }
         return readableFsQuestChildren;
@@ -728,13 +695,11 @@ public class dump extends script.base_script
                 {
                     if (arrayLength > 0)
                     {
-                        for (int x = 0; x < arrayLength; x++)
-                        {
-                            if (allSkillModsList[x].indexOf("_modified") > 0)
-                            {
-                                int underscoreIdx = allSkillModsList[x].indexOf("_");
-                                String nonModifiedSkillname = allSkillModsList[x].substring(0, underscoreIdx);
-                                strTest += localize(new string_id("stat_n", allSkillModsList[x])) + ": " + getSkillStatisticModifier(objTarget, nonModifiedSkillname) + "\r\n";
+                        for (String s : allSkillModsList) {
+                            if (s.indexOf("_modified") > 0) {
+                                int underscoreIdx = s.indexOf("_");
+                                String nonModifiedSkillname = s.substring(0, underscoreIdx);
+                                strTest += localize(new string_id("stat_n", s)) + ": " + getSkillStatisticModifier(objTarget, nonModifiedSkillname) + "\r\n";
                             }
                         }
                     }
@@ -744,13 +709,10 @@ public class dump extends script.base_script
                 {
                     if (arrayLength > 0)
                     {
-                        for (int x = 0; x < arrayLength; x++)
-                        {
-                            if (allSkillModsList[x].indexOf("expertise_") == 0)
-                            {
-                                if (getSkillStatisticModifier(objTarget, allSkillModsList[x]) > 0)
-                                {
-                                    strTest += localize(new string_id("stat_n", allSkillModsList[x])) + ": " + getSkillStatisticModifier(objTarget, allSkillModsList[x]) + "\r\n";
+                        for (String s : allSkillModsList) {
+                            if (s.indexOf("expertise_") == 0) {
+                                if (getSkillStatisticModifier(objTarget, s) > 0) {
+                                    strTest += localize(new string_id("stat_n", s)) + ": " + getSkillStatisticModifier(objTarget, s) + "\r\n";
                                 }
                             }
                         }
@@ -761,11 +723,9 @@ public class dump extends script.base_script
                 {
                     if (arrayLength > 0)
                     {
-                        for (int x = 0; x < arrayLength; x++)
-                        {
-                            if (getEnhancedSkillStatisticModifierUncapped(objTarget, allSkillModsList[x]) > 0)
-                            {
-                                strTest += localize(new string_id("stat_n", allSkillModsList[x])) + " ( " + allSkillModsList[x] + " ): " + getEnhancedSkillStatisticModifierUncapped(objTarget, allSkillModsList[x]) + "\r\n";
+                        for (String s : allSkillModsList) {
+                            if (getEnhancedSkillStatisticModifierUncapped(objTarget, s) > 0) {
+                                strTest += localize(new string_id("stat_n", s)) + " ( " + s + " ): " + getEnhancedSkillStatisticModifierUncapped(objTarget, s) + "\r\n";
                             }
                         }
                     }
@@ -799,32 +759,26 @@ public class dump extends script.base_script
                 int[] buffs = _getAllBuffs(objTarget);
                 if (buffs != null && buffs.length != 0)
                 {
-                    for (int i = 0; i < buffs.length; i++)
-                    {
+                    for (int b : buffs) {
                         obj_id buffOwner = null;
-                        String buffName = buff.getBuffNameFromCrc(buffs[i]);
+                        String buffName = buff.getBuffNameFromCrc(b);
                         float duration = buff.getDuration(buffName);
                         boolean debuff = buff.isDebuff(buffName);
                         boolean groupBuff = buff.isGroupBuff(buffName);
                         boolean ownedBuff = buff.isOwnedBuff(buffName);
-                        if (ownedBuff)
-                        {
+                        if (ownedBuff) {
                             buffOwner = buff.getBuffOwner(objTarget, buffName);
                         }
                         strTest += buffName + "\r\nDuration: " + duration + "\r\n";
-                        if (debuff)
-                        {
+                        if (debuff) {
                             strTest += "Debuff: " + debuff + "\r\n";
                         }
-                        if (groupBuff)
-                        {
+                        if (groupBuff) {
                             strTest += "Group buff: " + debuff + "\r\n";
                         }
-                        if (ownedBuff)
-                        {
+                        if (ownedBuff) {
                             strTest += "Owned buff: " + ownedBuff + "\r\n";
-                            if (isIdValid(buffOwner))
-                            {
+                            if (isIdValid(buffOwner)) {
                                 strTest += "Buff Owner: " + getName(buffOwner) + "\r\n";
                             }
                             strTest += "Owner OID: " + buffOwner + "\r\n";
@@ -888,9 +842,8 @@ public class dump extends script.base_script
             if (skillList != null && skillList.length > 0)
             {
                 strTest += "\r\nSKILLS:\r\n";
-                for (int i = 0; i < skillList.length; i++)
-                {
-                    strTest += skillList[i] + "\r\n";
+                for (String s : skillList) {
+                    strTest += s + "\r\n";
                 }
             }
             else 
@@ -902,9 +855,8 @@ public class dump extends script.base_script
             if (allQuests != null && allQuests.length > 0)
             {
                 strTest += "\r\nGROUND AND SPACE QUESTS:\r\n";
-                for (int i = 0; i < allQuests.length; i++)
-                {
-                    strTest += allQuests[i] + "\r\n";
+                for (String allQuest : allQuests) {
+                    strTest += allQuest + "\r\n";
                 }
             }
             else 
@@ -967,15 +919,12 @@ public class dump extends script.base_script
                 obj_id[] objContents = utils.getContents(targetDatapad, true);
                 if (objContents != null && objContents.length > 0)
                 {
-                    for (int i = 0; i < objContents.length; i++)
-                    {
-                        if (isIdValid(objContents[i]))
-                        {
-                            if (getTemplateName(objContents[i]) != null)
-                            {
-                                strTest += "\tTemplate: " + getTemplateName(objContents[i]) + "\r\n";
-                                strTest += "\tOID: " + objContents[i] + "\r\n";
-                                strTest += getObjectVariables(self, objContents[i]);
+                    for (obj_id objContent : objContents) {
+                        if (isIdValid(objContent)) {
+                            if (getTemplateName(objContent) != null) {
+                                strTest += "\tTemplate: " + getTemplateName(objContent) + "\r\n";
+                                strTest += "\tOID: " + objContent + "\r\n";
+                                strTest += getObjectVariables(self, objContent);
                                 strTest += "\r\n";
                             }
                         }
@@ -1147,9 +1096,8 @@ public class dump extends script.base_script
             }
             strTest += "SHIP STATS BELOW\r\n";
             int[] intSlots = space_crafting.getShipInstalledSlots(objTarget);
-            for (int intI = 0; intI < intSlots.length; intI++)
-            {
-                strTest += getShipComponentDebugString(objTarget, intSlots[intI]);
+            for (int intSlot : intSlots) {
+                strTest += getShipComponentDebugString(objTarget, intSlot);
                 strTest += "\n\r";
             }
         }
@@ -1217,20 +1165,15 @@ public class dump extends script.base_script
             return null;
         }
         String retrunString = "";
-        for (int i = 0; i < collectionBooks.length; i++)
-        {
-            String[] completedCollections = getCompletedCollectionsInBook(player, collectionBooks[i]);
-            if (completedCollections == null || completedCollections.length <= 0)
-            {
+        for (String collectionBook : collectionBooks) {
+            String[] completedCollections = getCompletedCollectionsInBook(player, collectionBook);
+            if (completedCollections == null || completedCollections.length <= 0) {
                 continue;
-            }
-            else 
-            {
-                retrunString += "\t" + collectionBooks[i] + "\r\n";
-                for (int j = 0; j < completedCollections.length; j++)
-                {
-                    int sizeOf = completedCollections[j].length();
-                    retrunString += "\t\t" + completedCollections[j] + "\r\n";
+            } else {
+                retrunString += "\t" + collectionBook + "\r\n";
+                for (String completedCollection : completedCollections) {
+                    int sizeOf = completedCollection.length();
+                    retrunString += "\t\t" + completedCollection + "\r\n";
                 }
             }
         }
@@ -1247,47 +1190,37 @@ public class dump extends script.base_script
             return null;
         }
         String returnString = "";
-        for (int i = 0; i < collectionBooks.length; i++)
-        {
-            returnString += "\t" + collectionBooks[i] + "\r\n";
-            String[] allCollections = getAllCollectionsInBook(collectionBooks[i]);
-            if (allCollections == null || allCollections.length <= 0)
-            {
+        for (String collectionBook : collectionBooks) {
+            returnString += "\t" + collectionBook + "\r\n";
+            String[] allCollections = getAllCollectionsInBook(collectionBook);
+            if (allCollections == null || allCollections.length <= 0) {
                 continue;
             }
             boolean hasCollectionDataForBook = false;
-            for (int j = 0; j < allCollections.length; j++)
-            {
-                if (hasCompletedCollection(player, allCollections[j]))
-                {
+            for (String allCollection : allCollections) {
+                if (hasCompletedCollection(player, allCollection)) {
                     continue;
                 }
-                String[] allSlots = getAllCollectionSlotsInCollection(allCollections[j]);
-                if (allSlots == null || allSlots.length <= 0)
-                {
+                String[] allSlots = getAllCollectionSlotsInCollection(allCollection);
+                if (allSlots == null || allSlots.length <= 0) {
                     continue;
                 }
                 boolean startedNotFinished = false;
-                for (int l = 0; l < allSlots.length; l++)
-                {
-                    if (getCollectionSlotValue(player, allSlots[l]) > 0)
-                    {
+                for (String allSlot1 : allSlots) {
+                    if (getCollectionSlotValue(player, allSlot1) > 0) {
                         startedNotFinished = true;
                         break;
                     }
                 }
-                if (startedNotFinished)
-                {
-                    returnString += "\t\t" + allCollections[j] + "\r\n";
+                if (startedNotFinished) {
+                    returnString += "\t\t" + allCollection + "\r\n";
                     hasCollectionDataForBook = true;
-                    for (int k = 0; k < allSlots.length; k++)
-                    {
-                        returnString += "\t\t\t" + allSlots[k] + ": " + getCollectionSlotValue(player, allSlots[k]) + "\r\n";
+                    for (String allSlot : allSlots) {
+                        returnString += "\t\t\t" + allSlot + ": " + getCollectionSlotValue(player, allSlot) + "\r\n";
                     }
                 }
             }
-            if (!hasCollectionDataForBook)
-            {
+            if (!hasCollectionDataForBook) {
                 returnString += "\t\tNone\r\n";
             }
         }

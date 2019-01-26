@@ -12,7 +12,7 @@ public class recovery_target extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "pendingWarp", null, 3600.f, false);
+        messageTo(self, "pendingWarp", null, 3600.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int pendingWarp(obj_id self, dictionary params) throws InterruptedException
@@ -93,7 +93,7 @@ public class recovery_target extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("ship", self);
-            messageTo(quest, "warpoutFailureRecovery", null, 2.f, false);
+            messageTo(quest, "warpoutFailureRecovery", null, 2.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

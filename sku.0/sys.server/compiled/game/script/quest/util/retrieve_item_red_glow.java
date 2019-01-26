@@ -25,7 +25,7 @@ public class retrieve_item_red_glow extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    playClientEffectLoc(player, "clienteffect/item_ring_hero_mark.cef", getLocation(self), 1f);
+                    playClientEffectLoc(player, "clienteffect/item_ring_hero_mark.cef", getLocation(self), 1.0f);
                 }
             }
         }

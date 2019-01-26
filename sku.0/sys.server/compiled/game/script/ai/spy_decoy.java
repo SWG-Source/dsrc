@@ -70,9 +70,8 @@ public class spy_decoy extends script.base_script
         obj_id[] haters = getHateList(self);
         if (haters.length > 0)
         {
-            for (int i = 0; i < haters.length; i++)
-            {
-                removeHateTarget(haters[i], self);
+            for (obj_id hater : haters) {
+                removeHateTarget(hater, self);
             }
         }
         trial.cleanupObject(self);

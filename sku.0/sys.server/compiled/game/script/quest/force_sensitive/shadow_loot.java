@@ -96,32 +96,29 @@ public class shadow_loot extends script.base_script
             return;
         }
         final int average = 500;
-        if (special.equals("object/tangible/loot/quest/ardanium_ii.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_potential_energy", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
-        }
-        else if (special.equals("object/tangible/loot/quest/wind_crystal.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_potential_energy", getResourceValue(average));
-        }
-        else if (special.equals("object/tangible/loot/quest/ostrine.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_malleability", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
-        }
-        else if (special.equals("object/tangible/loot/quest/endrine.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_malleability", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_toughness", getResourceValue(average));
-        }
-        else if (special.equals("object/tangible/loot/quest/rudic.iff"))
-        {
-            setObjVar(resource, "crafting_components.res_conductivity", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_decay_resist", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
-            setObjVar(resource, "crafting_components.res_shock_resistance", getResourceValue(average));
+        switch (special) {
+            case "object/tangible/loot/quest/ardanium_ii.iff":
+                setObjVar(resource, "crafting_components.res_potential_energy", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
+                break;
+            case "object/tangible/loot/quest/wind_crystal.iff":
+                setObjVar(resource, "crafting_components.res_potential_energy", getResourceValue(average));
+                break;
+            case "object/tangible/loot/quest/ostrine.iff":
+                setObjVar(resource, "crafting_components.res_malleability", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
+                break;
+            case "object/tangible/loot/quest/endrine.iff":
+                setObjVar(resource, "crafting_components.res_malleability", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_toughness", getResourceValue(average));
+                break;
+            case "object/tangible/loot/quest/rudic.iff":
+                setObjVar(resource, "crafting_components.res_conductivity", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_decay_resist", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_quality", getResourceValue(average));
+                setObjVar(resource, "crafting_components.res_shock_resistance", getResourceValue(average));
+                break;
         }
     }
     public int getResourceValue(int average) throws InterruptedException

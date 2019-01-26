@@ -21,11 +21,9 @@ public class millennium_falcon_manager extends script.base_script
         obj_id[] contents = getBuildingContents(bldg);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; ++i)
-            {
-                if (isPlayer(contents[i]))
-                {
-                    return contents[i];
+            for (obj_id content : contents) {
+                if (isPlayer(content)) {
+                    return content;
                 }
             }
         }
@@ -78,12 +76,12 @@ public class millennium_falcon_manager extends script.base_script
         obj_id objPoint2 = create.object("object/tangible/npe/npe_node.iff", point2);
         utils.setScriptVar(self, "objPoint2", objPoint2);
         location point3 = (location)locSelf.clone();
-        point3.x += -200;
+        point3.x -= 200;
         point3.y += 40;
         obj_id objPoint3 = create.object("object/tangible/npe/npe_node.iff", point3);
         utils.setScriptVar(self, "objPoint3", objPoint3);
         location point4 = (location)locSelf.clone();
-        point4.z += -200;
+        point4.z -= 200;
         point4.y += 40;
         obj_id objPoint4 = create.object("object/tangible/npe/npe_node.iff", point4);
         utils.setScriptVar(self, "objPoint4", objPoint4);
@@ -209,11 +207,9 @@ public class millennium_falcon_manager extends script.base_script
         utils.removeScriptVar(self, "intSecondIndex");
         if (contents != null)
         {
-            for (int intI = 0; intI < contents.length; intI++)
-            {
-                if (!isPlayer(contents[intI]) && isMob(contents[intI]))
-                {
-                    destroyObject(contents[intI]);
+            for (obj_id content : contents) {
+                if (!isPlayer(content) && isMob(content)) {
+                    destroyObject(content);
                 }
             }
         }
@@ -224,11 +220,9 @@ public class millennium_falcon_manager extends script.base_script
         obj_id[] contents = getBuildingContents(self);
         if (contents != null)
         {
-            for (int intI = 0; intI < contents.length; intI++)
-            {
-                if (!isPlayer(contents[intI]) && isMob(contents[intI]))
-                {
-                    destroyObject(contents[intI]);
+            for (obj_id content : contents) {
+                if (!isPlayer(content) && isMob(content)) {
+                    destroyObject(content);
                 }
             }
         }
@@ -435,14 +429,11 @@ public class millennium_falcon_manager extends script.base_script
         Vector objContents = new Vector();
         objContents.setSize(0);
         obj_id[] objCells = getContents(objObject);
-        for (int intI = 0; intI < objCells.length; intI++)
-        {
-            obj_id[] objTestContents = getContents(objCells[intI]);
-            if ((objTestContents != null) && (objTestContents.length > 0))
-            {
-                for (int intJ = 0; intJ < objTestContents.length; intJ++)
-                {
-                    objContents = utils.addElement(objContents, objTestContents[intJ]);
+        for (obj_id objCell : objCells) {
+            obj_id[] objTestContents = getContents(objCell);
+            if ((objTestContents != null) && (objTestContents.length > 0)) {
+                for (obj_id objTestContent : objTestContents) {
+                    objContents = utils.addElement(objContents, objTestContent);
                 }
             }
         }

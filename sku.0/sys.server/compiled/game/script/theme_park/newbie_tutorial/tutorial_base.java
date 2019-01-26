@@ -74,7 +74,7 @@ public class tutorial_base extends script.base_script
     public static final String ROOM1_GREETER_LOC_CELL = "r1";
     public static final String ROOM1_GREETER_TYPE = "imperial_private";
     public static final String ROOM1_GREETER_SCRIPT = "theme_park.newbie_tutorial.greeter_one";
-    public static final float ROOM1_GREETER_MID_X = .91f;
+    public static final float ROOM1_GREETER_MID_X = 0.91f;
     public static final float ROOM1_GREETER_MID_Y = 0.00f;
     public static final float ROOM1_GREETER_MID_Z = -31.76f;
     public static final String ROOM1_GREETER_MID_CELL = "r2";
@@ -312,7 +312,7 @@ public class tutorial_base extends script.base_script
     {
         -7.0f,
         -7.0f,
-        -7f
+        -7.0f
     };
     public static final float[] NERVOUS_GUY_Z = 
     {
@@ -322,9 +322,9 @@ public class tutorial_base extends script.base_script
     };
     public static final float[] NERVOUS_GUY_YAW = 
     {
-        -163f,
-        108f,
-        15f
+        -163.0f,
+            108.0f,
+            15.0f
     };
     public static final String NERVOUS_GUY_CELL = "r7";
     public static final String NERVOUS_GUY_SCRIPT = "theme_park.newbie_tutorial.nervous_guy";
@@ -347,8 +347,8 @@ public class tutorial_base extends script.base_script
     };
     public static final float[] CELEB_GUY_YAW = 
     {
-        -173f,
-        134f
+        -173.0f,
+            134.0f
     };
     public static final String CELEB_GUY_CELL = "r9";
     public static final String CELEB_GUY_SCRIPT = "theme_park.newbie_tutorial.celeb_guy";
@@ -357,7 +357,7 @@ public class tutorial_base extends script.base_script
     public static final float TRAPPED_GUY_X = 17.75f;
     public static final float TRAPPED_GUY_Y = -4.2f;
     public static final float TRAPPED_GUY_Z = -144.64f;
-    public static final float TRAPPED_GUY_YAW = 110f;
+    public static final float TRAPPED_GUY_YAW = 110.0f;
     public static final String TRAPPED_GUY_CELL = "r10";
     public static final String TRAPPED_GUY_SCRIPT = "theme_park.newbie_tutorial.trapped_guy";
     public static final String NEW_PLAYER_QUESTS_SCRIPT = "theme_park.new_player.new_player";
@@ -453,11 +453,9 @@ public class tutorial_base extends script.base_script
             }
             int startingSkillIndex = skillList.length - 1;
             String skillName = null;
-            for (int i = 0; i < skillList.length; i++)
-            {
-                if (skillList[i].endsWith("_novice"))
-                {
-                    skillName = skillList[i];
+            for (String s : skillList) {
+                if (s.endsWith("_novice")) {
+                    skillName = s;
                 }
             }
             if (skillName == null || skillName.equals(""))
@@ -649,33 +647,23 @@ public class tutorial_base extends script.base_script
         {
             LOG("newbie", "no items");
         }
-        for (int i = 0; i < items.length; i++)
-        {
-            LOG("newbie", "NEWBIE STARTING EQUIP MAKING: " + items[i]);
+        for (String item : items) {
+            LOG("newbie", "NEWBIE STARTING EQUIP MAKING: " + item);
             obj_id newItem = null;
-            if (items[i].startsWith("object/weapon/"))
-            {
-                newItem = weapons.createWeapon(items[i], bank, 0.75f);
-            }
-            else if (items[i].startsWith("object/tangible/medicine"))
-            {
+            if (item.startsWith("object/weapon/")) {
+                newItem = weapons.createWeapon(item, bank, 0.75f);
+            } else if (item.startsWith("object/tangible/medicine")) {
                 newItem = createObject("object/tangible/medicine/instant_stimpack/stimpack_noob.iff", bank, "");
-                if (isIdValid(newItem))
-                {
+                if (isIdValid(newItem)) {
                     setCount(newItem, 5);
                     setObjVar(newItem, "healing.power", 250);
                 }
+            } else {
+                newItem = createObject(item, bank, "");
             }
-            else 
-            {
-                newItem = createObject(items[i], bank, "");
-            }
-            if (!isIdValid(newItem))
-            {
-                LOG("newbie", "BAD: could not create newbie equipment item " + items[i]);
-            }
-            else 
-            {
+            if (!isIdValid(newItem)) {
+                LOG("newbie", "BAD: could not create newbie equipment item " + item);
+            } else {
                 pclib.autoInsureItem(newItem);
             }
         }
@@ -687,34 +675,26 @@ public class tutorial_base extends script.base_script
         obj_id[] invContents = getContents(playerInv);
         if (invContents != null && invContents.length > 0)
         {
-            for (int i = 0; i < invContents.length; i++)
-            {
-                if (hasObjVar(invContents[i], "newbie.item"))
-                {
-                    if (hasScript(invContents[i], BOX_ITEM_SCRIPT))
-                    {
-                        detachScript(invContents[i], BOX_ITEM_SCRIPT);
+            for (obj_id invContent : invContents) {
+                if (hasObjVar(invContent, "newbie.item")) {
+                    if (hasScript(invContent, BOX_ITEM_SCRIPT)) {
+                        detachScript(invContent, BOX_ITEM_SCRIPT);
                     }
-                    destroyObject(invContents[i]);
+                    destroyObject(invContent);
                 }
             }
         }
         obj_id[] contents = getContents(bank);
         if (contents != null && contents.length > 0)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (!hasObjVar(contents[i], "newbie.item"))
-                {
-                    putIn(contents[i], playerInv);
-                }
-                else 
-                {
-                    if (hasScript(contents[i], BOX_ITEM_SCRIPT))
-                    {
-                        detachScript(contents[i], BOX_ITEM_SCRIPT);
+            for (obj_id content : contents) {
+                if (!hasObjVar(content, "newbie.item")) {
+                    putIn(content, playerInv);
+                } else {
+                    if (hasScript(content, BOX_ITEM_SCRIPT)) {
+                        detachScript(content, BOX_ITEM_SCRIPT);
                     }
-                    destroyObject(contents[i]);
+                    destroyObject(content);
                 }
             }
         }
@@ -724,10 +704,8 @@ public class tutorial_base extends script.base_script
         obj_id[] contents = getContents(bldg);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; ++i)
-            {
-                if (isPlayer(contents[i]) || containsPlayer(contents[i]))
-                {
+            for (obj_id content : contents) {
+                if (isPlayer(content) || containsPlayer(content)) {
                     return true;
                 }
             }
@@ -786,15 +764,11 @@ public class tutorial_base extends script.base_script
             subject = new string_id("newbie_tutorial/newbie_mail", "collector_subject");
             body = new string_id("newbie_tutorial/newbie_mail", "collector_body");
             utils.sendMail(subject, body, player, "system");
-            for (int i = 0; i < COLLECTOR_EDITION_ITEMS.length; i++)
-            {
-                obj_id newItem = createObject(COLLECTOR_EDITION_ITEMS[i], playerInv, "");
-                if (!isIdValid(newItem))
-                {
-                    LOG("newbie", "WARNING: PLAYER " + player + " did not receive his collector's edition item: " + COLLECTOR_EDITION_ITEMS[i]);
-                }
-                else 
-                {
+            for (String collectorEditionItem : COLLECTOR_EDITION_ITEMS) {
+                obj_id newItem = createObject(collectorEditionItem, playerInv, "");
+                if (!isIdValid(newItem)) {
+                    LOG("newbie", "WARNING: PLAYER " + player + " did not receive his collector's edition item: " + collectorEditionItem);
+                } else {
                     setObjVar(newItem, "notrade", true);
                 }
             }
@@ -829,9 +803,8 @@ public class tutorial_base extends script.base_script
             }
             setObjVar(player, "newbie.itemsHosed", true);
             obj_id[] contents = getContents(playerInv);
-            for (int i = 0; i < contents.length; i++)
-            {
-                destroyObject(contents[i]);
+            for (obj_id content : contents) {
+                destroyObject(content);
             }
         }
     }

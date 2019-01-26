@@ -167,13 +167,13 @@ public class masterspawner extends script.base_script
 		// will spawn.  A script method was used to spawn them instead
 		// of datatable as I couldn't figure out how to make them unattackable
 		// in the datatable.  Lame, I know.
-		float[][] coords = {{-4260.1f, 3.0f, -2425.0f, rand(1f,180f)},
-				{-4225.7f, 3.0f, -2424.2f, rand(1f,180f)},
-				{-4181.3f, 3.0f, -2422.7f, rand(1f,180f)},
-				{-4271.8f, 3.0f, -2390.8f, rand(1f,180f)},
-				{-4236.2f, 3.0f, -2379.6f, rand(1f,180f)},
-				{-4245.2f, 3.0f, -2371.8f, rand(1f,180f)},
-				{-4222.4f, 3.0f, -2365.2f, rand(1f,180f)}
+		float[][] coords = {{-4260.1f, 3.0f, -2425.0f, rand(1.0f, 180.0f)},
+				{-4225.7f, 3.0f, -2424.2f, rand(1.0f, 180.0f)},
+				{-4181.3f, 3.0f, -2422.7f, rand(1.0f, 180.0f)},
+				{-4271.8f, 3.0f, -2390.8f, rand(1.0f, 180.0f)},
+				{-4236.2f, 3.0f, -2379.6f, rand(1.0f, 180.0f)},
+				{-4245.2f, 3.0f, -2371.8f, rand(1.0f, 180.0f)},
+				{-4222.4f, 3.0f, -2365.2f, rand(1.0f, 180.0f)}
 		};
 
 		for (float[] coord : coords) {

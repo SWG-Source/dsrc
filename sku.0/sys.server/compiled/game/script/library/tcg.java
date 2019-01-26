@@ -665,13 +665,13 @@ public class tcg extends script.base_script
         float incubationHealthBonus = utils.getFloatScriptVar(beast, beast_lib.OBJVAR_INCREASE_HEALTH);
         int intMinDamage = (int)beastStatsDict.getInt("MinDmg");
         int intMaxDamage = (int)beastStatsDict.getInt("MaxDmg");
-        intMinDamage = beast_lib.getExpertiseStat(intMinDamage, expertiseDamage, .5f);
-        intMaxDamage = beast_lib.getExpertiseStat(intMaxDamage, expertiseDamage, .5f);
-        float floatMinDamage = (float)intMinDamage * (1.0f + incubationDamageBonus / 100.0f);
-        float floatMaxDamage = (float)intMaxDamage * (1.0f + incubationDamageBonus / 100.0f);
+        intMinDamage = beast_lib.getExpertiseStat(intMinDamage, expertiseDamage, 0.5f);
+        intMaxDamage = beast_lib.getExpertiseStat(intMaxDamage, expertiseDamage, 0.5f);
+        float floatMinDamage = intMinDamage * (1.0f + incubationDamageBonus / 100.0f);
+        float floatMaxDamage = intMaxDamage * (1.0f + incubationDamageBonus / 100.0f);
         intMinDamage = (int)floatMinDamage;
         intMaxDamage = (int)floatMaxDamage;
-        int specialDamagePercent = beast_lib.getExpertiseStat(100, expertiseDamage, .5f) - 100;
+        int specialDamagePercent = beast_lib.getExpertiseStat(100, expertiseDamage, 0.5f) - 100;
         if (!hasSkillModModifier(beast, "expertise_damage_line_beast_only"))
         {
             addSkillModModifier(beast, "expertise_damage_line_beast_only", "expertise_damage_line_beast_only", specialDamagePercent, -1, false, false);
@@ -695,7 +695,7 @@ public class tcg extends script.base_script
             weapons.setWeaponData(defaultWeapon);
             utils.setScriptVar(defaultWeapon, "isCreatureWeapon", 1);
         }
-        int beastHealth = (int)(beast_lib.getExpertiseStat(beastStatsDict.getInt("HP"), expertiseHealth, .5f) * (1.0f + (incubationHealthBonus * 0.2f) / 100.0f));
+        int beastHealth = (int)(beast_lib.getExpertiseStat(beastStatsDict.getInt("HP"), expertiseHealth, 0.5f) * (1.0f + (incubationHealthBonus * 0.2f) / 100.0f));
         int constitutionBonus = getEnhancedSkillStatisticModifierUncapped(beast, "constitution_modified");
         int staminaBonus = getEnhancedSkillStatisticModifierUncapped(beast, "stamina_modified");
         beastHealth += (constitutionBonus * 8) + (staminaBonus * 2);
@@ -729,8 +729,8 @@ public class tcg extends script.base_script
         setMaxAttrib(beast, ACTION, 100);
         if (!combat.isInCombat(beast))
         {
-            int healthRegen = beast_lib.getExpertiseStat(beastStatsDict.getInt("HealthRegen"), expertiseRegen, .5f);
-            int actionRegen = beast_lib.getExpertiseStat(beastStatsDict.getInt("ActionRegen"), expertiseRegen, .5f);
+            int healthRegen = beast_lib.getExpertiseStat(beastStatsDict.getInt("HealthRegen"), expertiseRegen, 0.5f);
+            int actionRegen = beast_lib.getExpertiseStat(beastStatsDict.getInt("ActionRegen"), expertiseRegen, 0.5f);
             setRegenRate(beast, HEALTH, healthRegen);
             setRegenRate(beast, ACTION, actionRegen);
         }
@@ -741,7 +741,7 @@ public class tcg extends script.base_script
             setBaseWalkSpeed(beast, runSpeed);
         }
         armor.removeAllArmorData(beast);
-        int intArmor = (int)(beast_lib.getExpertiseStat(beastStatsDict.getInt("Armor"), expertiseArmor, .5f) * (1.0f + incubationArmorBonus / 100.0f));
+        int intArmor = (int)(beast_lib.getExpertiseStat(beastStatsDict.getInt("Armor"), expertiseArmor, 0.5f) * (1.0f + incubationArmorBonus / 100.0f));
         intArmor += (int)getSkillStatisticModifier(beast, "expertise_innate_protection_all");
         utils.setScriptVar(beast, "beast.display.armor", intArmor);
         if (intArmor >= 0)

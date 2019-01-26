@@ -100,12 +100,9 @@ public class static_item_base extends script.base_script
             obj_id[] destContents = getContents(destContainer);
             if (destContents != null && destContents.length > 0)
             {
-                for (int i = 0; i < destContents.length; i++)
-                {
-                    if (static_item.isStaticItem(destContents[i]))
-                    {
-                        if ((getStaticItemName(destContents[i])).equals(getStaticItemName(self)))
-                        {
+                for (obj_id destContent : destContents) {
+                    if (static_item.isStaticItem(destContent)) {
+                        if ((getStaticItemName(destContent)).equals(getStaticItemName(self))) {
                             canTransfer = false;
                         }
                     }
@@ -285,16 +282,12 @@ public class static_item_base extends script.base_script
                 "armor_eff_elemental_acid",
                 "armor_eff_elemental_electrical"
             };
-            for (int i = 0; i < entries.length; ++i)
-            {
-                for (int j = 0; j < entries[i].length; ++j)
-                {
-                    if (free < names.length)
-                    {
-                        if (hasObjVar(self, "armor.fake_armor." + entries[i][j]))
-                        {
-                            int displayedProtections = getIntObjVar(self, "armor.fake_armor." + entries[i][j]);
-                            names[free] = (String)(armor.SPECIAL_PROTECTION_MAP.get(entries[i][j]));
+            for (String[] entry : entries) {
+                for (String s : entry) {
+                    if (free < names.length) {
+                        if (hasObjVar(self, "armor.fake_armor." + s)) {
+                            int displayedProtections = getIntObjVar(self, "armor.fake_armor." + s);
+                            names[free] = (String) (armor.SPECIAL_PROTECTION_MAP.get(s));
                             attribs[free++] = Integer.toString(displayedProtections);
                         }
                     }

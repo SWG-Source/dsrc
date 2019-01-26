@@ -88,22 +88,16 @@ public class qainventory extends script.base_script
                 {
                     case 0:
                     obj_id[] items = getContents(inventory);
-                    for (int i = 0; i < items.length; i++)
-                    {
-                        String templateName = getTemplateName(items[i]);
-                        if (templateName.equals(FROG_STRING))
-                        {
-                            sendSystemMessageTestingOnly(player, "The Frog will not be destroyed");
+                        for (obj_id item : items) {
+                            String templateName = getTemplateName(item);
+                            if (templateName.equals(FROG_STRING)) {
+                                sendSystemMessageTestingOnly(player, "The Frog will not be destroyed");
+                            } else if (templateName.equals(KASHYYYK_FROG_STRING)) {
+                                sendSystemMessageTestingOnly(player, "The Kashyyyk Frog will not be destroyed");
+                            } else {
+                                destroyObject(item);
+                            }
                         }
-                        else if (templateName.equals(KASHYYYK_FROG_STRING))
-                        {
-                            sendSystemMessageTestingOnly(player, "The Kashyyyk Frog will not be destroyed");
-                        }
-                        else 
-                        {
-                            destroyObject(items[i]);
-                        }
-                    }
                     CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has deleted the entire contents of their inventory (less any Character Builder Terminals) using the QA Inventory Tool.");
                     qa.refreshMenu(player, PROMPT, TITLE, MAIN_MENU, "mainMenuOptions", SCRIPT_VAR + ".pid", sui.OK_CANCEL_REFRESH);
                     break;

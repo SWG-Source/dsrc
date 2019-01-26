@@ -317,37 +317,28 @@ public class blueprint extends script.base_script
             return;
         }
         boolean creationAllowed = true;
-        for (int i = 0; i < blueprintObjects.length; i++)
-        {
-            String objectData = blueprintObjects[i];
-            if (storyteller.validateBlueprintData(objectData))
-            {
+        for (String objectData : blueprintObjects) {
+            if (storyteller.validateBlueprintData(objectData)) {
                 String tokenName = storyteller.getBlueprintItemName(objectData);
                 location atLoc = storyteller.getBlueprintObjectLocation(objectData, targetLoc);
                 float yaw = storyteller.getBlueprintItemYaw(objectData);
-                if (targetYaw != 0)
-                {
+                if (targetYaw != 0) {
                     atLoc = storyteller.rotateLocationXZ(targetLoc, atLoc, targetYaw);
                     yaw -= (0 - targetYaw);
                 }
-                if (!storyteller.isBlueprintTokenLoaded(objectData))
-                {
+                if (!storyteller.isBlueprintTokenLoaded(objectData)) {
                     sendSystemMessage(player, new string_id("storyteller", "blueprint_not_fully_loaded"));
                     creationAllowed = false;
                     break;
                 }
-                if (!storyteller.canDeployStorytellerToken(player, atLoc, tokenName))
-                {
+                if (!storyteller.canDeployStorytellerToken(player, atLoc, tokenName)) {
                     creationAllowed = false;
-                    if (isGod(player))
-                    {
+                    if (isGod(player)) {
                         utils.setScriptVar(player, "storyteller.godModeStopOverrideMessages", true);
                     }
                     break;
                 }
-            }
-            else 
-            {
+            } else {
                 creationAllowed = false;
                 sendSystemMessage(player, new string_id("storyteller", "blueprint_invalid_data"));
                 break;
@@ -539,28 +530,20 @@ public class blueprint extends script.base_script
         numTokensNeeded.setSize(0);
         Vector numTokensLoaded = new Vector();
         numTokensLoaded.setSize(0);
-        for (int i = 0; i < storytellerObjects.length; i++)
-        {
-            String objectData = storytellerObjects[i];
-            if (storyteller.validateBlueprintData(objectData))
-            {
+        for (String objectData : storytellerObjects) {
+            if (storyteller.validateBlueprintData(objectData)) {
                 String tokenStaticName = storyteller.getBlueprintItemName(objectData);
-                if (tokensNeeded.contains(tokenStaticName))
-                {
+                if (tokensNeeded.contains(tokenStaticName)) {
                     int position = tokensNeeded.indexOf(tokenStaticName);
-                    numTokensNeeded.set(position, new Integer(((Integer)numTokensNeeded.get(position)).intValue() + 1));
-                    if (storyteller.isBlueprintTokenLoaded(objectData))
-                    {
-                        numTokensLoaded.set(position, new Integer(((Integer)numTokensLoaded.get(position)).intValue() + 1));
+                    numTokensNeeded.set(position, (Integer) numTokensNeeded.get(position) + 1);
+                    if (storyteller.isBlueprintTokenLoaded(objectData)) {
+                        numTokensLoaded.set(position, (Integer) numTokensLoaded.get(position) + 1);
                     }
-                }
-                else 
-                {
+                } else {
                     utils.addElement(tokensNeeded, tokenStaticName);
                     utils.addElement(numTokensNeeded, 1);
                     int numLoaded = 0;
-                    if (storyteller.isBlueprintTokenLoaded(objectData))
-                    {
+                    if (storyteller.isBlueprintTokenLoaded(objectData)) {
                         numLoaded = 1;
                     }
                     utils.addElement(numTokensLoaded, numLoaded);
@@ -573,8 +556,8 @@ public class blueprint extends script.base_script
             for (int j = 0; j < tokensNeeded.size(); j++)
             {
                 String tokenName = getString(new string_id("static_item_n", ((String)tokensNeeded.get(j))));
-                int needed = ((Integer)numTokensNeeded.get(j)).intValue();
-                int loaded = ((Integer)numTokensLoaded.get(j)).intValue();
+                int needed = (Integer) numTokensNeeded.get(j);
+                int loaded = (Integer) numTokensLoaded.get(j);
                 String tokenNumTxt = "\\" + colors_hex.RED + " " + loaded + "/" + needed + " \\#.";
                 if (needed == loaded)
                 {

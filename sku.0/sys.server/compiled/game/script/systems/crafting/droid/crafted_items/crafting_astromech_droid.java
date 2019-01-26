@@ -168,18 +168,16 @@ public class crafting_astromech_droid extends script.systems.crafting.droid.craf
         if (skills != null)
         {
             int[] mods = getSkillStatisticModifiers(player, skills);
-            for (int i = 0; i < mods.length; ++i)
-            {
-                playerCustomizationMod += mods[i];
+            for (int mod : mods) {
+                playerCustomizationMod += mod;
             }
         }
         if (playerCustomizationMod > 63)
         {
             playerCustomizationMod = 63;
         }
-        for (int i = 0; i < customizations.length; ++i)
-        {
-            customizations[i].maxValue = (int)(playerCustomizationMod);
+        for (draft_schematic.custom customization : customizations) {
+            customization.maxValue = (int) (playerCustomizationMod);
         }
         if (customizations.length > 0 && playerCustomizationMod < 32)
         {

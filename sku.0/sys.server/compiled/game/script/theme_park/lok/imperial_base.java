@@ -33,7 +33,7 @@ public class imperial_base extends script.base_script
         obj_id office = getCellId(self, "meeting2");
         location ottoLocation = new location(19.18f, 1.01f, 21.65f, "lok", office);
         obj_id ottoSpawner = createSpawnerObject("rtp_hansolo_general_otto", ottoLocation, ai_lib.BEHAVIOR_SENTINEL, 210, 309);
-        setYaw(ottoSpawner, 174f);
+        setYaw(ottoSpawner, 174.0f);
         setObjVar(self, "StrongholdInhabitants.otto", ottoSpawner);
         setObjVar(ottoSpawner, "Stronghold", self);
         return ottoSpawner;
@@ -43,7 +43,7 @@ public class imperial_base extends script.base_script
         obj_id hall = getCellId(self, "mainhall");
         location tech1Location = new location(-2.47f, 2.01f, 3.93f, "lok", hall);
         obj_id tech1 = createSpawnerObject("rtp_imperial_lieutenant", tech1Location, ai_lib.BEHAVIOR_SENTINEL, 210, 309);
-        setYaw(tech1, -42f);
+        setYaw(tech1, -42.0f);
         setObjVar(self, "StrongholdInhabitants.tech1", tech1);
         setObjVar(tech1, "Stronghold", self);
         return;

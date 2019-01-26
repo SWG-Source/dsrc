@@ -132,11 +132,8 @@ public class keypad extends script.base_script
         {
             return code;
         }
-        for (int i = 0; i < numInGroup; i++)
-        {
-            obj_id thisMember = members[i];
-            if (hasObjVar(thisMember, totalName))
-            {
+        for (obj_id thisMember : members) {
+            if (hasObjVar(thisMember, totalName)) {
                 return totalName;
             }
         }

@@ -16,14 +16,14 @@ public class newsnet_terminal extends script.base_script
         callAttentionBarker(self);
         return SCRIPT_CONTINUE;
     }
-    public static final float MIN_BARK_TIME = 30f;
-    public static final float MAX_BARK_TIME = 240f;
+    public static final float MIN_BARK_TIME = 30.0f;
+    public static final float MAX_BARK_TIME = 240.0f;
     public static final float[] RATINGS = 
     {
-        .10f,
-        .25f,
-        .50f,
-        .75f,
+            0.10f,
+            0.25f,
+            0.50f,
+            0.75f,
         1.0f,
         1.25f,
         1.5f,

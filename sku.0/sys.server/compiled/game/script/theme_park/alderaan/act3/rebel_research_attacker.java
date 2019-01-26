@@ -32,7 +32,7 @@ public class rebel_research_attacker extends script.base_script
     {
         obj_id facility = getObjIdObjVar(self, "coa3.rebel.facility");
         location loc = getLocation(facility);
-        loc.x += -10.0f;
+        loc.x -= 10.0f;
         ai_lib.aiPathTo(self, loc);
         setMovementRun(self);
         return SCRIPT_CONTINUE;

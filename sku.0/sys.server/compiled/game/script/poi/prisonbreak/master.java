@@ -170,32 +170,22 @@ public class master extends script.theme_park.poi.base
         else 
         {
             int j = 0;
-            for (int i = 0; i < children.length; i++)
-            {
-                obj_id child = children[i];
-                if ((child == null) || (child == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
+            for (obj_id child : children) {
+                if ((child == null) || (child == obj_id.NULL_ID)) {
+                } else {
                     String childname = getName(child);
                     LOG(LOG_NAME, "Child found:  Name = " + childname);
-                    if (childname.equals("battlefield:barbed_wall"))
-                    {
-                        if (j == 0)
-                        {
+                    if (childname.equals("battlefield:barbed_wall")) {
+                        if (j == 0) {
                             String convo = getStringObjVar(self, scenario.VAR_SCENARIO_CONVO);
-                            if (convo.equals(""))
-                            {
+                            if (convo.equals("")) {
                                 return;
                             }
                             attachScript(child, "poi.prisonbreak.bombed_wall");
                             location loc = getLocation(child);
                             setObjVar(self, "weakwallLoc", loc);
                             setObjVar(self, "weakwall", child);
-                        }
-                        else 
-                        {
+                        } else {
                             attachScript(child, "poi.factoryliberation.invulnerable_wall");
                         }
                         setObjVar(child, POI_BASE_OBJECT, self);
@@ -232,15 +222,15 @@ public class master extends script.theme_park.poi.base
             for (int i = 0; i < 4; i++)
             {
                 String ident = "antagonist_" + (i + 1);
-                float xdelta = rand(2f, 5f);
+                float xdelta = rand(2.0f, 5.0f);
                 if (i % 2 == 1)
                 {
-                    xdelta *= -1f;
+                    xdelta *= -1.0f;
                 }
-                float zdelta = rand(2f, 5f);
+                float zdelta = rand(2.0f, 5.0f);
                 if (i % 2 == 0)
                 {
-                    zdelta *= -1f;
+                    zdelta *= -1.0f;
                 }
                 location loiterloc = new location(baseloc);
                 loiterloc.x += xdelta - 2;
@@ -352,7 +342,7 @@ public class master extends script.theme_park.poi.base
         {
             return SCRIPT_CONTINUE;
         }
-        bombloc.z += -1.5f;
+        bombloc.z -= 1.5f;
         detachScript(a, SCRIPT_CONVERSE);
         setMovementRun(a);
         ai_lib.aiPathTo(a, bombloc);
@@ -361,13 +351,11 @@ public class master extends script.theme_park.poi.base
     public int blowBomb(obj_id self, dictionary params) throws InterruptedException
     {
         location bombloc = getLocationObjVar(self, "weakwallLoc");
-        bombloc.z += -1.5;
+        bombloc.z -= 1.5;
         obj_id players[] = getPlayerCreaturesInRange(bombloc, 40);
-        for (int i = 0; i < players.length; i++)
-        {
-            if ((players[i] != null) && (players[i] != obj_id.NULL_ID))
-            {
-                playClientEffectLoc(players[i], "clienteffect/combat_grenade_large_01.cef", bombloc, 0);
+        for (obj_id player : players) {
+            if ((player != null) && (player != obj_id.NULL_ID)) {
+                playClientEffectLoc(player, "clienteffect/combat_grenade_large_01.cef", bombloc, 0);
             }
         }
         messageTo(self, "destroyBombedWall", null, 0.25f, false);
@@ -379,11 +367,9 @@ public class master extends script.theme_park.poi.base
         location bombloc = getLocationObjVar(self, "weakwallLoc");
         bombloc.x += 5;
         obj_id players[] = getPlayerCreaturesInRange(bombloc, 40);
-        for (int i = 0; i < players.length; i++)
-        {
-            if ((players[i] != null) && (players[i] != obj_id.NULL_ID))
-            {
-                playClientEffectLoc(players[i], "clienteffect/combat_grenade_large_01.cef", bombloc, 0);
+        for (obj_id player : players) {
+            if ((player != null) && (player != obj_id.NULL_ID)) {
+                playClientEffectLoc(player, "clienteffect/combat_grenade_large_01.cef", bombloc, 0);
             }
         }
         messageTo(self, "destroyBombedWallDeath", null, 0.25f, false);
@@ -496,19 +482,12 @@ public class master extends script.theme_park.poi.base
         else 
         {
             int j = 0;
-            for (int i = 0; i < children.length; i++)
-            {
-                obj_id child = children[i];
-                if ((child == null) || (child == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
+            for (obj_id child : children) {
+                if ((child == null) || (child == obj_id.NULL_ID)) {
+                } else {
                     String childname = getName(child);
-                    if (childname.equals("battlefield:barbed_wall"))
-                    {
-                        if (j == 0)
-                        {
+                    if (childname.equals("battlefield:barbed_wall")) {
+                        if (j == 0) {
                             return child;
                         }
                         j++;

@@ -96,7 +96,7 @@ public class locked_slicable extends script.base_script
         {
             removeObjVar(self, "slicing.locked");
             sendSystemMessage(player, SID_SUCCESS);
-            messageTo(self, "handleSlicingSuccess", null, 0.f, true);
+            messageTo(self, "handleSlicingSuccess", null, 0.0f, true);
         }
         else 
         {

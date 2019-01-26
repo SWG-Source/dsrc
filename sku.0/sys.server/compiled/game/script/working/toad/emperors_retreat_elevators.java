@@ -16,14 +16,14 @@ public class emperors_retreat_elevators extends script.base_script
             obj_id elevator = getCellId(self, "empelevator");
             obj_id backelevator = getCellId(self, "backelevator");
             here.x = 12.88f;
-            here.y = .6f;
+            here.y = 0.6f;
             here.z = -35.47f;
             here.cell = elevator;
             obj_id elevatorTerminalA = createObject("object/tangible/terminal/terminal_elevator.iff", here);
-            here.y = 20f;
+            here.y = 20.0f;
             obj_id elevatorTerminalB = createObject("object/tangible/terminal/terminal_elevator.iff", here);
             here.x = -52.49f;
-            here.y = .2f;
+            here.y = 0.2f;
             here.z = -12.33f;
             here.cell = backelevator;
             obj_id elevatorTerminalC = createObject("object/tangible/terminal/terminal_elevator.iff", here);

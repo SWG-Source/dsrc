@@ -34,7 +34,7 @@ public class mtp_complaint_department extends script.base_script
         String mtp_complaint_particle = "appearance/pt_mtp_lightning.prt";
         playClientEffectObj(player, mtp_complaint_particle, player, "root");
         int playerHealth = getHealth(player);
-        float fltPlayerHealth = (float)playerHealth;
+        float fltPlayerHealth = playerHealth;
         fltPlayerHealth *= 0.8;
         playerHealth = (int)fltPlayerHealth;
         setHealth(player, playerHealth);

@@ -412,7 +412,7 @@ public class resource extends script.base_script
             return SAMPLE_STOP_LOOP;
         }
         int modVal = getSkillStatMod(user, "surveying");
-        float threshold = SAMPLE_DENSITY_THRESHOLD * ((100f - modVal) / 100f);
+        float threshold = SAMPLE_DENSITY_THRESHOLD * ((100.0f - modVal) / 100.0f);
         if (density > threshold)
         {
             float deltaDensity = density - threshold;
@@ -455,7 +455,7 @@ public class resource extends script.base_script
                 }
             }
             int city_id = city.checkCity(user, false);
-            float chance = 50f + 20f * ((modVal - 15f) / 85f);
+            float chance = 50.0f + 20.0f * ((modVal - 15.0f) / 85.0f);
             if (chance > 70)
             {
                 chance = 70;
@@ -995,15 +995,15 @@ public class resource extends script.base_script
         int potential = getResourceAttribute(rType, "res_potential_energy");
         if (potential < 1)
         {
-            return 1f;
+            return 1.0f;
         }
         if (potential <= 500)
         {
-            return 1f;
+            return 1.0f;
         }
         else 
         {
-            return 1f + (potential - 500f) / 500f;
+            return 1.0f + (potential - 500.0f) / 500.0f;
         }
     }
     public static int getResourceAttribute(String resourceName, String attribName) throws InterruptedException

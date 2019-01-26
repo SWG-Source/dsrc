@@ -100,20 +100,16 @@ public class engine_analysis_tool extends script.base_script
             {
                 temp = getTemplateName(x[0]);
             }
-            for (int i = 0; i < x.length; i++)
-            {
-                if (space_crafting.getShipComponentStringType(x[i]) != "engine")
-                {
+            for (obj_id x2 : x) {
+                if (space_crafting.getShipComponentStringType(x2) != "engine") {
                     string_id errormessage2 = new string_id(TOOL, "wrong_component_type");
                     sendSystemMessage(player, errormessage2);
                     return SCRIPT_CONTINUE;
                 }
-                if ((getTemplateName(x[i])).equals(temp))
-                {
+                if ((getTemplateName(x2)).equals(temp)) {
                     countX++;
                 }
-                if (getBooleanObjVar(x[i], "cannotReverseEngineer") == true)
-                {
+                if (getBooleanObjVar(x2, "cannotReverseEngineer") == true) {
                     string_id errormessage = new string_id(TOOL, "already_engineered");
                     sendSystemMessage(player, errormessage);
                     return SCRIPT_CONTINUE;
@@ -182,9 +178,8 @@ public class engine_analysis_tool extends script.base_script
                 setObjVar(self, "reverse_engineering.charges", charges);
                 if (charges > 0)
                 {
-                    for (int i = 0; i < x.length; i++)
-                    {
-                        destroyObject(x[i]);
+                    for (obj_id x1 : x) {
+                        destroyObject(x1);
                     }
                 }
                 if (charges <= 0)
@@ -282,11 +277,11 @@ public class engine_analysis_tool extends script.base_script
         float energyMaintenance = dataTableGetFloat(TABLE, template, "fltEnergyMaintenance");
         float energyMaintenanceModifier = dataTableGetFloat(TABLE, template, "fltEnergyMaintenanceModifier");
         energyMaintenance = energyMaintenance - energyMaintenanceModifier;
-        energyMaintenance = energyMaintenance - ((.05f) * energyMaintenance);
+        energyMaintenance = energyMaintenance - ((0.05f) * energyMaintenance);
         float mass = dataTableGetFloat(TABLE, template, "fltMass");
         float massModifier = dataTableGetFloat(TABLE, template, "fltMassModifier");
         mass = mass - massModifier;
-        mass = mass - ((.05f) * mass);
+        mass = mass - ((0.05f) * mass);
         space_crafting.setComponentMass(newWeapon, mass);
         space_crafting.setComponentEnergyMaintenance(newWeapon, energyMaintenance);
         float armorHp = dataTableGetFloat(TABLE, template, "fltMaximumArmorHitpoints");
@@ -297,47 +292,47 @@ public class engine_analysis_tool extends script.base_script
         float fltAccelerationModifier = dataTableGetFloat(TABLE, template, "fltAccelerationModifier");
         float fltAcceleration = dataTableGetFloat(TABLE, template, "fltAcceleration");
         fltAcceleration = fltAcceleration + fltAccelerationModifier;
-        fltAcceleration = fltAcceleration + ((.05f) * fltAcceleration);
+        fltAcceleration = fltAcceleration + ((0.05f) * fltAcceleration);
         space_crafting.setEngineAcceleration(newWeapon, fltAcceleration);
         float fltDecelerationModifier = dataTableGetFloat(TABLE, template, "fltDecelerationModifier");
         float fltDeceleration = dataTableGetFloat(TABLE, template, "fltDeceleration");
         fltDeceleration = fltDeceleration + fltDecelerationModifier;
-        fltDeceleration = fltDeceleration + ((.05f) * fltDeceleration);
+        fltDeceleration = fltDeceleration + ((0.05f) * fltDeceleration);
         space_crafting.setEngineDeceleration(newWeapon, fltDeceleration);
         float fltPitchModifier = dataTableGetFloat(TABLE, template, "fltPitchModifier");
         float fltPitch = dataTableGetFloat(TABLE, template, "fltPitch");
         fltPitch = fltPitch + fltPitchModifier;
-        fltPitch = fltPitch + ((.05f) * fltPitch);
+        fltPitch = fltPitch + ((0.05f) * fltPitch);
         space_crafting.setEnginePitch(newWeapon, fltPitch);
         float fltYawModifier = dataTableGetFloat(TABLE, template, "fltYawModifier");
         float fltYaw = dataTableGetFloat(TABLE, template, "fltYaw");
         fltYaw = fltYaw + fltYawModifier;
-        fltYaw = fltYaw + ((.05f) * fltYaw);
+        fltYaw = fltYaw + ((0.05f) * fltYaw);
         space_crafting.setEngineYaw(newWeapon, fltYaw);
         float fltRollModifier = dataTableGetFloat(TABLE, template, "fltRollModifier");
         float fltRoll = dataTableGetFloat(TABLE, template, "fltRoll");
         fltRoll = fltRoll + fltRollModifier;
-        fltRoll = fltRoll + ((.05f) * fltRoll);
+        fltRoll = fltRoll + ((0.05f) * fltRoll);
         space_crafting.setEngineRoll(newWeapon, fltRoll);
         float fltMaxSpeedModifier = dataTableGetFloat(TABLE, template, "fltMaxSpeedModifier");
         float fltMaxSpeed = dataTableGetFloat(TABLE, template, "fltMaxSpeed");
         fltMaxSpeed = fltMaxSpeed + fltMaxSpeedModifier;
-        fltMaxSpeed = fltMaxSpeed + ((.05f) * fltMaxSpeed);
+        fltMaxSpeed = fltMaxSpeed + ((0.05f) * fltMaxSpeed);
         space_crafting.setEngineMaximumSpeed(newWeapon, fltMaxSpeed);
         float fltMaxPitchModifier = dataTableGetFloat(TABLE, template, "fltMaxPitchModifier");
         float fltMaxPitch = dataTableGetFloat(TABLE, template, "fltMaxPitch");
         fltMaxPitch = fltMaxPitch + fltMaxPitchModifier;
-        fltMaxPitch = fltMaxPitch + ((.05f) * fltMaxSpeed);
+        fltMaxPitch = fltMaxPitch + ((0.05f) * fltMaxSpeed);
         space_crafting.setEngineMaximumPitch(newWeapon, fltMaxPitch);
         float fltMaxRollModifier = dataTableGetFloat(TABLE, template, "fltMaxRollModifier");
         float fltMaxRoll = dataTableGetFloat(TABLE, template, "fltMaxRoll");
         fltMaxRoll = fltMaxRoll + fltMaxRollModifier;
-        fltMaxRoll = fltMaxRoll + ((.05f) * fltMaxRoll);
+        fltMaxRoll = fltMaxRoll + ((0.05f) * fltMaxRoll);
         space_crafting.setEngineMaximumRoll(newWeapon, fltMaxRoll);
         float fltMaxYawModifier = dataTableGetFloat(TABLE, template, "fltMaxYawModifier");
         float fltMaxYaw = dataTableGetFloat(TABLE, template, "fltMaxYaw");
         fltMaxYaw = fltMaxYaw + fltMaxYawModifier;
-        fltMaxYaw = fltMaxYaw + ((.05f) * fltMaxYaw);
+        fltMaxYaw = fltMaxYaw + ((0.05f) * fltMaxYaw);
         space_crafting.setEngineMaximumYaw(newWeapon, fltMaxYaw);
         setObjVar(newWeapon, "cannotReverseEngineer", true);
         return newWeapon;

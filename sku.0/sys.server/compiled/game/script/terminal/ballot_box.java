@@ -328,7 +328,7 @@ public class ballot_box extends script.base_script
                 }
                 else 
                 {
-                    percentValue = (float)100 * ((float)votes[i] / (float)totalVotes);
+                    percentValue = 100 * ((float)votes[i] / totalVotes);
                 }
             }
             int count = i + 1;
@@ -555,9 +555,8 @@ public class ballot_box extends script.base_script
         if (!getBooleanObjVar(self, VAR_IS_SECRET_MSG))
         {
             obj_id[] participants = getObjIdArrayObjVar(self, VAR_PARTICIPANTS);
-            for (int i = 0; i < participants.length; ++i)
-            {
-                chatSendPersistentMessage(participants[i], "@" + SID_CHAT_TITLE.toString(), resultSet, null);
+            for (obj_id participant : participants) {
+                chatSendPersistentMessage(participant, "@" + SID_CHAT_TITLE.toString(), resultSet, null);
             }
         }
         else 

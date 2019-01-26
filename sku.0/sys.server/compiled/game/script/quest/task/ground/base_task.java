@@ -43,7 +43,7 @@ public class base_task extends script.base.remote_object_requester
         if (timerLength > 0)
         {
             groundquests.questOutputDebugInfo(self, questCrc, taskId, taskType, "OnTaskActivated", "Setting timer for " + timerLength + " seconds.");
-            final float playerPlayedTimeWhenTimerEnds = (float)getPlayerPlayedTime(self) + (float)timerLength;
+            final float playerPlayedTimeWhenTimerEnds = (float)getPlayerPlayedTime(self) + timerLength;
             final String objVar = groundquests.setBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId) + dot + groundquests.timeObjVar;
             setObjVar(self, objVar, playerPlayedTimeWhenTimerEnds);
             dictionary params = new dictionary();
@@ -74,7 +74,7 @@ public class base_task extends script.base.remote_object_requester
                     return SCRIPT_CONTINUE;
                 }
             }
-            final float timeLeft = playerPlayedTimeWhenTimerEnds - (float)getPlayerPlayedTime(self);
+            final float timeLeft = playerPlayedTimeWhenTimerEnds - getPlayerPlayedTime(self);
             if (timeLeft <= 0)
             {
                 questFailTask(questCrc, taskId, self);
@@ -173,25 +173,18 @@ public class base_task extends script.base.remote_object_requester
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
-                    if (hasObjVar(self, baseObjVar + dot + groundquests.objvarWaypointInActive))
-                    {
-                        if (hasObjVar(self, baseObjVar + dot + groundquests.objvarEntranceWaypoint))
-                        {
+                    if (hasObjVar(self, baseObjVar + dot + groundquests.objvarWaypointInActive)) {
+                        if (hasObjVar(self, baseObjVar + dot + groundquests.objvarEntranceWaypoint)) {
                             obj_id entranceWaypoint = getObjIdObjVar(self, baseObjVar + dot + groundquests.objvarEntranceWaypoint);
-                            if (isIdValid(entranceWaypoint))
-                            {
+                            if (isIdValid(entranceWaypoint)) {
                                 groundquests.setQuestWaypointActive(entranceWaypoint, self, baseObjVar);
                             }
                         }
-                        if (hasObjVar(self, baseObjVar + dot + groundquests.objvarWaypoint))
-                        {
+                        if (hasObjVar(self, baseObjVar + dot + groundquests.objvarWaypoint)) {
                             obj_id waypoint = getObjIdObjVar(self, baseObjVar + dot + groundquests.objvarWaypoint);
-                            if (isIdValid(waypoint))
-                            {
+                            if (isIdValid(waypoint)) {
                                 groundquests.setQuestWaypointActive(waypoint, self, baseObjVar);
                             }
                         }

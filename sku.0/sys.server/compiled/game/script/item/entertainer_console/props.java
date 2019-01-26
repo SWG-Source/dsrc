@@ -119,9 +119,8 @@ public class props extends script.base_script
             if (utils.hasScriptVar(topContainer, template))
             {
                 Vector list = utils.getResizeableObjIdArrayScriptVar(topContainer, template);
-                for (int i = 0; i < list.size(); i++)
-                {
-                    objectList.addElement(((obj_id)list.get(i)));
+                for (Object o : list) {
+                    objectList.addElement(((obj_id) o));
                 }
             }
             objectList.addElement(self);
@@ -165,10 +164,8 @@ public class props extends script.base_script
         if (isIdValid(topContainer) && utils.hasScriptVar(topContainer, item))
         {
             Vector objectList = utils.getResizeableObjIdArrayScriptVar(topContainer, item);
-            for (int i = 0; i < objectList.size(); i++)
-            {
-                if (((obj_id)objectList.get(i)) == self)
-                {
+            for (Object o : objectList) {
+                if (((obj_id) o) == self) {
                     return true;
                 }
             }

@@ -10,7 +10,7 @@ public class planetary_map extends script.base_script
     {
     }
     public static final byte NO_FLAG = 0;
-    public static final float MAX_CLUMP_DISTANCE = 32f;
+    public static final float MAX_CLUMP_DISTANCE = 32.0f;
     public static final String TBL = "datatables/planet_map/map_locations.iff";
     public static final String COL_TEMPLATE = "TEMPLATE";
     public static final String COL_NAME = "PM_NAME";
@@ -335,8 +335,8 @@ public class planetary_map extends script.base_script
 
         for (int n = 0; n < map_locs.length; n++)
         {
-            x = (float)(map_locs[n].getX());
-            z = (float)(map_locs[n].getY());
+            x = (map_locs[n].getX());
+            z = (map_locs[n].getY());
             there = new location(x, 0, z);
             dist = utils.getDistance2D(here, there);
             if (dist < min)

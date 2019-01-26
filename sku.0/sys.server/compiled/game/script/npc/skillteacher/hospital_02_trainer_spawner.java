@@ -32,7 +32,7 @@ public class hospital_02_trainer_spawner extends script.base_script
         location combatmedicloc = new location(3.13f, 0.18f, 3.42f, "tatooine", room);
         obj_id combatmedic = create.object("trainer_combatmedic", combatmedicloc);
         setCreatureStatic(combatmedic, true);
-        create.addDestroyMessage(combatmedic, "combatMedicDied", 10f, self);
+        create.addDestroyMessage(combatmedic, "combatMedicDied", 10.0f, self);
         setInvulnerable(combatmedic, true);
         return;
     }
@@ -42,7 +42,7 @@ public class hospital_02_trainer_spawner extends script.base_script
         location medicloc = new location(3.64f, 0.18f, -8.19f, "tatooine", room);
         obj_id medic = create.object("trainer_1hsword", medicloc);
         setCreatureStatic(medic, true);
-        create.addDestroyMessage(medic, "medicDied", 10f, self);
+        create.addDestroyMessage(medic, "medicDied", 10.0f, self);
         setInvulnerable(medic, true);
         return;
     }
@@ -57,7 +57,7 @@ public class hospital_02_trainer_spawner extends script.base_script
         obj_id doctor = create.object("surgical_droid_21b", doctorloc);
         attachScript(doctor, "conversation.doctor");
         setCreatureStatic(doctor, true);
-        create.addDestroyMessage(doctor, "doctorDied", 10f, self);
+        create.addDestroyMessage(doctor, "doctorDied", 10.0f, self);
         setInvulnerable(doctor, true);
         return;
     }

@@ -56,10 +56,8 @@ public class trainer_beast_master extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < knownSkills.length; i++)
-        {
-            if (knownSkills[i].startsWith("bm_provoke"))
-            {
+        for (String knownSkill : knownSkills) {
+            if (knownSkill.startsWith("bm_provoke")) {
                 return true;
             }
         }
@@ -71,10 +69,8 @@ public class trainer_beast_master extends script.base_script
         if (isIdValid(activePet) && beast_lib.isBeast(activePet))
         {
             String[] trainedSkills = beast_lib.getTrainedSkills(activePet);
-            for (int i = 0; i < trainedSkills.length; i++)
-            {
-                if (!trainedSkills[i].equals("") && !trainedSkills[i].equals("empty"))
-                {
+            for (String trainedSkill : trainedSkills) {
+                if (!trainedSkill.equals("") && !trainedSkill.equals("empty")) {
                     return true;
                 }
             }

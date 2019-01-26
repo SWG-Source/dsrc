@@ -95,7 +95,7 @@ public class electric_trap extends script.base_script
         obj_id room = getCellId(top, "operatingroom2");
         location here = getLocation(self);
         String planet = here.area;
-        location valve = new location(-122.5f, -34f, -182.8f, planet, room);
+        location valve = new location(-122.5f, -34.0f, -182.8f, planet, room);
         obj_id shutoff = createObject("object/tangible/dungeon/wall_terminal_s1.iff", valve);
         attachScript(shutoff, "theme_park.dungeon.geonosian_madbio_bunker.electric_trap_shutoff");
         setObjVar(shutoff, "trap", self);

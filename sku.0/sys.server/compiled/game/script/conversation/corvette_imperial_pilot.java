@@ -56,14 +56,10 @@ public class corvette_imperial_pilot extends script.base_script
             {
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
                         String groupieFaction = factions.getFaction(groupie);
-                        if (groupieFaction == null || !groupieFaction.equals("Imperial"))
-                        {
+                        if (groupieFaction == null || !groupieFaction.equals("Imperial")) {
                             return true;
                         }
                     }

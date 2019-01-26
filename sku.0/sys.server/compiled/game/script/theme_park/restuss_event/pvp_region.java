@@ -35,13 +35,11 @@ public class pvp_region extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            if (factions.isImperial(players[i]) || factions.isRebel(players[i]))
-            {
+        for (obj_id player : players) {
+            if (factions.isImperial(player) || factions.isRebel(player)) {
                 continue;
             }
-            warpPlayer(players[i], "rori", 5305, 80, 6188, null, 0, 0, 0);
+            warpPlayer(player, "rori", 5305, 80, 6188, null, 0, 0, 0);
         }
     }
     public int OnDestroy(obj_id self) throws InterruptedException

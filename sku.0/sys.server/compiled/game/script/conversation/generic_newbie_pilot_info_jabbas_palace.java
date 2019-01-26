@@ -29,12 +29,10 @@ public class generic_newbie_pilot_info_jabbas_palace extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < items.length; i++)
-        {
-            String name = getTemplateName(items[i]);
-            if (name.equals("object/tangible/space/mission_objects/palace_access_doc.iff"))
-            {
-                utils.setScriptVar(player, "auth", items[i]);
+        for (obj_id item : items) {
+            String name = getTemplateName(item);
+            if (name.equals("object/tangible/space/mission_objects/palace_access_doc.iff")) {
+                utils.setScriptVar(player, "auth", item);
                 return true;
             }
         }
@@ -122,14 +120,11 @@ public class generic_newbie_pilot_info_jabbas_palace extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < items.length; i++)
-        {
-            String name = getTemplateName(items[i]);
-            if (name.equals("object/tangible/space/mission_objects/palace_access_doc.iff"))
-            {
-                obj_id transferauth = items[i];
-                if (destroyObject(transferauth))
-                {
+        for (obj_id item : items) {
+            String name = getTemplateName(item);
+            if (name.equals("object/tangible/space/mission_objects/palace_access_doc.iff")) {
+                obj_id transferauth = item;
+                if (destroyObject(transferauth)) {
                     setObjVar(player, "space_access_jabba", 30);
                 }
             }

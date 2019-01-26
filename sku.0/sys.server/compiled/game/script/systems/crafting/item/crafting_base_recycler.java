@@ -17,14 +17,11 @@ public class crafting_base_recycler extends script.systems.crafting.crafting_bas
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
             }
         }
     }

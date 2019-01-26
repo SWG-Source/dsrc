@@ -118,15 +118,13 @@ public class hk_final extends script.base_script
             "-1:32",
             "32:25"
         };
-        for (int i = 0; i < guardOffset.length; i++)
-        {
-            String[] parse = split(guardOffset[i], ':');
+        for (String s : guardOffset) {
+            String[] parse = split(s, ':');
             float guardX = here.x + utils.stringToFloat(parse[0]);
             float guardZ = here.z + utils.stringToFloat(parse[1]);
             location guardLoc = new location(guardX, here.y, guardZ, here.area, here.cell);
             obj_id eventGuard = create.object(SQUAD_LEADER, guardLoc);
-            if (!isIdValid(eventGuard))
-            {
+            if (!isIdValid(eventGuard)) {
                 doLogging("spawnEvent", "Tried to create invalid item(" + SQUAD_LEADER + ")");
                 return SCRIPT_CONTINUE;
             }

@@ -132,36 +132,31 @@ public class qa_resources extends script.base_script
                 {
                     String[] previousMainMenuArray = utils.getStringArrayScriptVar(self, "resource.mainMenu");
                     String previousSelection = previousMainMenuArray[idx];
-                    if (previousSelection.equals("Recycled Resources"))
-                    {
-                        qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_MAIN, "recycledMenuOptions", false, "resource.pid", "resource.recycledMain");
-                        return SCRIPT_OVERRIDE;
-                    }
-                    else if (previousSelection.equals("Space Resources"))
-                    {
-                        qa.refreshMenu(player, "Select a Resource Type", TITLE, SPACE_RESOURCE_CONST, "spaceResourceHandler", false, "resource.pid", "resource.spaceResource");
-                    }
-                    else if (previousSelection.equals("Common Resources"))
-                    {
-                        craftinglib.makeBestResource(self, "steel", 1000000);
-                        craftinglib.makeBestResource(self, "iron", 1000000);
-                        craftinglib.makeBestResource(self, "copper", 1000000);
-                        craftinglib.makeBestResource(self, "fuel_petrochem_solid", 1000000);
-                        craftinglib.makeBestResource(self, "radioactive", 1000000);
-                        craftinglib.makeBestResource(self, "aluminum", 1000000);
-                        craftinglib.makeBestResource(self, "ore_extrusive", 1000000);
-                        craftinglib.makeBestResource(self, "petrochem_inert", 1000000);
-                        craftinglib.makeBestResource(self, "fiberplast", 1000000);
-                        craftinglib.makeBestResource(self, "gas_inert", 1000000);
-                        craftinglib.makeBestResource(self, "gas_reactive", 1000000);
-                        debugSpeakMsg(self, "Completed.");
-                        return SCRIPT_CONTINUE;
-                    }
-                    else 
-                    {
-                        sendSystemMessageTestingOnly(player, "Tool Failed.");
-                        qa.removePlayer(player, SCRIPTVAR, "");
-                        return SCRIPT_CONTINUE;
+                    switch (previousSelection) {
+                        case "Recycled Resources":
+                            qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_MAIN, "recycledMenuOptions", false, "resource.pid", "resource.recycledMain");
+                            return SCRIPT_OVERRIDE;
+                        case "Space Resources":
+                            qa.refreshMenu(player, "Select a Resource Type", TITLE, SPACE_RESOURCE_CONST, "spaceResourceHandler", false, "resource.pid", "resource.spaceResource");
+                            break;
+                        case "Common Resources":
+                            craftinglib.makeBestResource(self, "steel", 1000000);
+                            craftinglib.makeBestResource(self, "iron", 1000000);
+                            craftinglib.makeBestResource(self, "copper", 1000000);
+                            craftinglib.makeBestResource(self, "fuel_petrochem_solid", 1000000);
+                            craftinglib.makeBestResource(self, "radioactive", 1000000);
+                            craftinglib.makeBestResource(self, "aluminum", 1000000);
+                            craftinglib.makeBestResource(self, "ore_extrusive", 1000000);
+                            craftinglib.makeBestResource(self, "petrochem_inert", 1000000);
+                            craftinglib.makeBestResource(self, "fiberplast", 1000000);
+                            craftinglib.makeBestResource(self, "gas_inert", 1000000);
+                            craftinglib.makeBestResource(self, "gas_reactive", 1000000);
+                            debugSpeakMsg(self, "Completed.");
+                            return SCRIPT_CONTINUE;
+                        default:
+                            sendSystemMessageTestingOnly(player, "Tool Failed.");
+                            qa.removePlayer(player, SCRIPTVAR, "");
+                            return SCRIPT_CONTINUE;
                     }
                 }
             }
@@ -187,36 +182,26 @@ public class qa_resources extends script.base_script
                 {
                     String[] previousMainMenuArray = utils.getStringArrayScriptVar(self, "resource.recycledMain");
                     String previousSelection = previousMainMenuArray[idx];
-                    if (previousSelection.equals("Chemical"))
-                    {
-                        qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_CHEMICAL, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
-                        return SCRIPT_OVERRIDE;
-                    }
-                    else if (previousSelection.equals("Creature"))
-                    {
-                        qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_CREATURE, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
-                        return SCRIPT_OVERRIDE;
-                    }
-                    else if (previousSelection.equals("Flora"))
-                    {
-                        qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_FLORA, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
-                        return SCRIPT_OVERRIDE;
-                    }
-                    else if (previousSelection.equals("Metal"))
-                    {
-                        qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_METAL, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
-                        return SCRIPT_OVERRIDE;
-                    }
-                    else if (previousSelection.equals("Ore"))
-                    {
-                        qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_ORE, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
-                        return SCRIPT_OVERRIDE;
-                    }
-                    else 
-                    {
-                        sendSystemMessageTestingOnly(player, "Tool Failed.");
-                        qa.removePlayer(player, SCRIPTVAR, "");
-                        return SCRIPT_CONTINUE;
+                    switch (previousSelection) {
+                        case "Chemical":
+                            qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_CHEMICAL, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
+                            return SCRIPT_OVERRIDE;
+                        case "Creature":
+                            qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_CREATURE, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
+                            return SCRIPT_OVERRIDE;
+                        case "Flora":
+                            qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_FLORA, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
+                            return SCRIPT_OVERRIDE;
+                        case "Metal":
+                            qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_METAL, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
+                            return SCRIPT_OVERRIDE;
+                        case "Ore":
+                            qa.refreshMenu(self, "Select a Resource Type", TITLE, RECYCLED_ORE, "allRecycledMenuOptions", false, "resource.pid", "resource.allRecycled");
+                            return SCRIPT_OVERRIDE;
+                        default:
+                            sendSystemMessageTestingOnly(player, "Tool Failed.");
+                            qa.removePlayer(player, SCRIPTVAR, "");
+                            return SCRIPT_CONTINUE;
                     }
                 }
             }

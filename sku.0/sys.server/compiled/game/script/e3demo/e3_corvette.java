@@ -25,15 +25,13 @@ public class e3_corvette extends script.base_script
     {
         String strSquad = "squad_tie_bomberwithguard_ace";
         Vector objMembers = space_create.createSquadHyperspace(self, strSquad, getTransform_o2p(self), rand(200, 300), null);
-        for (int intI = 0; intI < objMembers.size(); intI++)
-        {
-            ship_ai.unitAddDamageTaken(((obj_id)objMembers.get(intI)), self, 100f);
+        for (Object objMember1 : objMembers) {
+            ship_ai.unitAddDamageTaken(((obj_id) objMember1), self, 100.0f);
         }
         strSquad = "squad_tie_bomberwithguard_ace";
         objMembers = space_create.createSquadHyperspace(self, strSquad, getTransform_o2p(self), rand(200, 300), null);
-        for (int intI = 0; intI < objMembers.size(); intI++)
-        {
-            ship_ai.unitAddDamageTaken(((obj_id)objMembers.get(intI)), self, 100f);
+        for (Object objMember : objMembers) {
+            ship_ai.unitAddDamageTaken(((obj_id) objMember), self, 100.0f);
         }
         return SCRIPT_CONTINUE;
     }

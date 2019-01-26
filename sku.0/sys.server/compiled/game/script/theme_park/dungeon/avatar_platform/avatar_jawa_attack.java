@@ -25,17 +25,17 @@ public class avatar_jawa_attack extends script.base_script
             obj_id structure = getTopMostContainer(self);
             obj_id target = getObjIdObjVar(structure, "avatar_platform.wke_prisoner_06");
             addHate(self, target, 1000);
-            messageTo(target, "handleDeathByJawa", null, 5f, false);
-            messageTo(self, "handleReturnHome", null, 10f, false);
+            messageTo(target, "handleDeathByJawa", null, 5.0f, false);
+            messageTo(self, "handleReturnHome", null, 10.0f, false);
         }
         if (name.equals("chatterPoint"))
         {
             obj_id player = getObjIdObjVar(self, "summoner");
-            playClientEffectLoc(player, "clienteffect/jawa_chatter_01.cef", getLocation(self), 0f);
+            playClientEffectLoc(player, "clienteffect/jawa_chatter_01.cef", getLocation(self), 0.0f);
             obj_id structure = getTopMostContainer(self);
             obj_id cellDoor = getObjIdObjVar(structure, "avatar_platform.cell_door_06");
             destroyObject(cellDoor);
-            messageTo(self, "handleJawaDeath", null, 5f, false);
+            messageTo(self, "handleJawaDeath", null, 5.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

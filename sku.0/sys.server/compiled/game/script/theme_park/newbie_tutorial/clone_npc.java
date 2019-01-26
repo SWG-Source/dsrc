@@ -67,51 +67,53 @@ public class clone_npc extends script.theme_park.newbie_tutorial.tutorial_base
     public int OnNpcConversationResponse(obj_id self, String convo, obj_id player, string_id response) throws InterruptedException
     {
         npcRemoveConversationResponse(player, response);
-        if ((response.getAsciiId()).equals("convo_2_reply_1"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "convo_2_cloning");
-            npcSpeak(player, message);
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_3"));
-        }
-        else if ((response.getAsciiId()).equals("convo_2_reply_2"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance");
-            npcSpeak(player, message);
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_4"));
-        }
-        else if ((response.getAsciiId()).equals("convo_2_reply_3"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "convo_2_cloning_2");
-            npcSpeak(player, message);
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_5"));
-        }
-        else if ((response.getAsciiId()).equals("convo_2_reply_4"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance_2");
-            npcSpeak(player, message);
-            npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_8"));
-        }
-        else if ((response.getAsciiId()).equals("convo_2_reply_5"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "convo_2_cloning_3");
-            npcSpeak(player, message);
-        }
-        else if ((response.getAsciiId()).equals("convo_2_reply_6"))
-        {
-            npcRemoveConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_7"));
-            string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance_3");
-            npcSpeak(player, message);
-        }
-        else if ((response.getAsciiId()).equals("convo_2_reply_7"))
-        {
-            npcRemoveConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_6"));
-            string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance_4");
-            npcSpeak(player, message);
-        }
-        else if ((response.getAsciiId()).equals("convo_2_reply_8"))
-        {
-            string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance_5");
-            npcSpeak(player, message);
+        switch ((response.getAsciiId())) {
+            case "convo_2_reply_1": {
+                string_id message = new string_id(NEWBIE_CONVO, "convo_2_cloning");
+                npcSpeak(player, message);
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_3"));
+                break;
+            }
+            case "convo_2_reply_2": {
+                string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance");
+                npcSpeak(player, message);
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_4"));
+                break;
+            }
+            case "convo_2_reply_3": {
+                string_id message = new string_id(NEWBIE_CONVO, "convo_2_cloning_2");
+                npcSpeak(player, message);
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_5"));
+                break;
+            }
+            case "convo_2_reply_4": {
+                string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance_2");
+                npcSpeak(player, message);
+                npcAddConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_8"));
+                break;
+            }
+            case "convo_2_reply_5": {
+                string_id message = new string_id(NEWBIE_CONVO, "convo_2_cloning_3");
+                npcSpeak(player, message);
+                break;
+            }
+            case "convo_2_reply_6": {
+                npcRemoveConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_7"));
+                string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance_3");
+                npcSpeak(player, message);
+                break;
+            }
+            case "convo_2_reply_7": {
+                npcRemoveConversationResponse(player, new string_id(NEWBIE_CONVO, "convo_2_reply_6"));
+                string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance_4");
+                npcSpeak(player, message);
+                break;
+            }
+            case "convo_2_reply_8": {
+                string_id message = new string_id(NEWBIE_CONVO, "convo_2_insurance_5");
+                npcSpeak(player, message);
+                break;
+            }
         }
         return SCRIPT_CONTINUE;
     }

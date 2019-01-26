@@ -37,7 +37,7 @@ public class base_incubator extends script.base_script
     {
         if (utils.isInHouseCellSpace(self))
         {
-            createTriggerVolume("particle", 15f, true);
+            createTriggerVolume("particle", 15.0f, true);
             messageTo(self, "refreshCurrentParticle", null, 5, false);
         }
         return SCRIPT_CONTINUE;
@@ -261,7 +261,7 @@ public class base_incubator extends script.base_script
         {
             utils.setScriptVar(station, incubator.PARTICLE_LABEL_SCRIPT_VAR, incubator.PARTICLE_LABEL_DEFAULT);
             playClientEffectObj(station, incubator.PARTICLE_DEFAULT, station, incubator.PARTICLE_HARDPOINT_TWO, null, incubator.PARTICLE_LABEL_DEFAULT);
-            createTriggerVolume("particle", 15f, true);
+            createTriggerVolume("particle", 15.0f, true);
         }
         if (utils.isNestedWithinAPlayer(station))
         {
@@ -764,7 +764,7 @@ public class base_incubator extends script.base_script
         {
             sendSystemMessageTestingOnly(player, "Your stationPowerQuality is " + stationPowerQuality);
         }
-        float powerPercentToMax = (float)stationPowerQuality / (float)incubator.MAX_POWER_QUALITY;
+        float powerPercentToMax = (float)stationPowerQuality / incubator.MAX_POWER_QUALITY;
         if (isGod(player))
         {
             sendSystemMessageTestingOnly(player, "Your powerPercentToMax is " + powerPercentToMax);
@@ -788,12 +788,12 @@ public class base_incubator extends script.base_script
         {
             sendSystemMessageTestingOnly(player, "Your modified exoticDpsArmorBonus is " + exoticDpsArmorBonus);
         }
-        float expertiseAndStationQualityBonus = (float)expertiseBonuse + stationBonus + powerBonus + exoticDpsArmorBonus;
+        float expertiseAndStationQualityBonus = expertiseBonuse + stationBonus + powerBonus + exoticDpsArmorBonus;
         incubator.blog("INCUBATOR", "session(" + sessionNumber + ") expertiseAndStationQualityBonus = " + expertiseAndStationQualityBonus);
         float expertiseQualityBonusPercent = 1.0f;
         if (expertiseAndStationQualityBonus > 0)
         {
-            expertiseQualityBonusPercent = 1 + (.01f * expertiseAndStationQualityBonus);
+            expertiseQualityBonusPercent = 1 + (0.01f * expertiseAndStationQualityBonus);
         }
         incubator.blog("INCUBATOR", "session(" + sessionNumber + ") expertiseQualityBonusPercent = " + expertiseQualityBonusPercent);
         if (isGod(player))
@@ -810,7 +810,7 @@ public class base_incubator extends script.base_script
         {
             sendSystemMessageTestingOnly(player, "Your slotOneQualityWithBonuses is " + slotOneQualityWithBonuses);
         }
-        float pointsToArmorOrDps = (slotOneQualityWithBonuses * .01f) * incubator.MAX_POINTS_PER_SESSION_DPS_ARMOR;
+        float pointsToArmorOrDps = (slotOneQualityWithBonuses * 0.01f) * incubator.MAX_POINTS_PER_SESSION_DPS_ARMOR;
         incubator.blog("INCUBATOR", "session(" + sessionNumber + ") pointsToArmorOrDps = " + pointsToArmorOrDps);
         if (isGod(player))
         {
@@ -863,12 +863,12 @@ public class base_incubator extends script.base_script
         expertiseQualityBonusPercent = 1.0f;
         if (expertiseAndStationQualityBonus > 0)
         {
-            expertiseQualityBonusPercent = 1 + (.01f * expertiseAndStationQualityBonus);
+            expertiseQualityBonusPercent = 1 + (0.01f * expertiseAndStationQualityBonus);
         }
         incubator.blog("INCUBATOR", "session(" + sessionNumber + ") expertiseQualityBonusPercent = " + expertiseQualityBonusPercent);
         float slotThreeQualityWithBonuses = slotThreeQuality * expertiseQualityBonusPercent;
         incubator.blog("INCUBATOR", "session(" + sessionNumber + ") slotThreeQualityWithBonuses = " + slotThreeQualityWithBonuses);
-        float pointsTowardAttrib = (slotThreeQualityWithBonuses * .01f) * incubator.MAX_POINTS_PER_SESSION_ATTRIBUTES;
+        float pointsTowardAttrib = (slotThreeQualityWithBonuses * 0.01f) * incubator.MAX_POINTS_PER_SESSION_ATTRIBUTES;
         incubator.blog("INCUBATOR", "session(" + sessionNumber + ") pointsTowardAttrib = " + pointsTowardAttrib);
         if (pointsTowardAttrib > incubator.MAX_ADJUSTED_POINTS_PER_SESSION_ATTRIBUTES)
         {
@@ -919,12 +919,9 @@ public class base_incubator extends script.base_script
                     }
                 }
             }
-            for (int k = 0; k < attribUpdated.length; ++k)
-            {
-                for (int m = 0; m < attributes.length; ++m)
-                {
-                    if (attribUpdated[k].equals(attributes[m]))
-                    {
+            for (String s : attribUpdated) {
+                for (int m = 0; m < attributes.length; ++m) {
+                    if (s.equals(attributes[m])) {
                         attributesUpdateAmount[m] += pointsTowardAttrib;
                         incubator.blog("INCUBATOR", "session(" + sessionNumber + ") " + attributes[m] + " increasing by " + attributesUpdateAmount[m]);
                     }

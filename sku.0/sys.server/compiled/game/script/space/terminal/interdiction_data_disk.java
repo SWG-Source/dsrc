@@ -84,16 +84,13 @@ public class interdiction_data_disk extends script.base_script
         }
         obj_id inventory = utils.getInventoryContainer(player);
         obj_id[] inventoryContents = getContents(inventory);
-        for (int i = 0; i < inventoryContents.length; i++)
-        {
-            String strItemTemplate = getTemplateName(inventoryContents[i]);
-            
+        for (obj_id inventoryContent : inventoryContents) {
+            String strItemTemplate = getTemplateName(inventoryContent);
+
             {
-                if (strItemTemplate.equals("object/tangible/space/mission_objects/interdiction_terminal.iff"))
-                {
-                    if (!hasObjVar(inventoryContents[i], "difficulty"))
-                    {
-                        return inventoryContents[i];
+                if (strItemTemplate.equals("object/tangible/space/mission_objects/interdiction_terminal.iff")) {
+                    if (!hasObjVar(inventoryContent, "difficulty")) {
+                        return inventoryContent;
                     }
                 }
             }
@@ -110,9 +107,9 @@ public class interdiction_data_disk extends script.base_script
         int i = rand(0, VALID_REGIONS.length - 1);
         String zone = VALID_REGIONS[i];
         setObjVar(terminal, "region", zone);
-        float x = rand(-5000.f, 5000.f);
-        float y = rand(-5000.f, 5000.f);
-        float z = rand(-5000.f, 5000.f);
+        float x = rand(-5000.0f, 5000.0f);
+        float y = rand(-5000.0f, 5000.0f);
+        float z = rand(-5000.0f, 5000.0f);
         location loc = new location(x, y, z, zone);
         setObjVar(terminal, "location", loc);
         int dif = getIntObjVar(self, "difficulty");

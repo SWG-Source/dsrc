@@ -18,7 +18,7 @@ public class obiwan_exit_object extends script.base_script
     public static final string_id SID_EJECT = new string_id(mustafar.STF_OBI_MSGS, "obiwan_finale_eject");
     public static final string_id SID_LEAVE_YOUR_GROUP = new string_id(mustafar.STF_OBI_MSGS, "obi_leave_your_group");
     public static final String TRIGGER_VOLUME_OBI = "obiwan_interest_volume";
-    public static final float OBI_INTEREST_RADIUS = 8f;
+    public static final float OBI_INTEREST_RADIUS = 8.0f;
     public static final string_id SID_SLAVER_CAMP = new string_id("som/som_item", "obiwan_finale_exit_stone");
     public static final string_id SID_LAIR_CRYSTAL = new string_id("travel/zone_transition", "lair_of_the_crystal");
     public static final string_id SID_NO_PERMISSION = new string_id("travel/zone_transition", "default_no_access");

@@ -1,14 +1,10 @@
 package script.working.jcarpenter;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
+import script.dictionary;
 import script.library.datatable;
+import script.location;
+import script.obj_id;
+
 import java.util.StringTokenizer;
 
 public class spawn_recorder extends script.base_script
@@ -81,12 +77,9 @@ public class spawn_recorder extends script.base_script
     {
         String[] allCells = getCellNames(building);
         int numberOfCells = allCells.length;
-        for (int i = 0; i < numberOfCells; i++)
-        {
-            String cellName = allCells[i];
+        for (String cellName : allCells) {
             obj_id thisCell = getCellId(building, cellName);
-            if (thisCell == cell)
-            {
+            if (thisCell == cell) {
                 return cellName;
             }
         }

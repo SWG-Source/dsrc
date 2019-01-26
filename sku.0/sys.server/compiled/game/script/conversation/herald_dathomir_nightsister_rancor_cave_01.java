@@ -18,11 +18,9 @@ public class herald_dathomir_nightsister_rancor_cave_01 extends script.base_scri
     {
         location loc;
         obj_id[] waypoints = getWaypointsInDatapad(player);
-        for (int x = 0; x < waypoints.length; x++)
-        {
-            loc = getWaypointLocation(waypoints[x]);
-            if (loc.x == 609f && loc.z == 3072f)
-            {
+        for (obj_id waypoint : waypoints) {
+            loc = getWaypointLocation(waypoint);
+            if (loc.x == 609.0f && loc.z == 3072.0f) {
                 return true;
             }
         }

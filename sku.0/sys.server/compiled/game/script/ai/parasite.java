@@ -56,15 +56,15 @@ public class parasite extends script.base_script
             location here = getLocation(self);
             int randX = rand(-10, 10);
             int randZ = rand(-10, 10);
-            float rX = ((float)randX) / 10f;
-            float rZ = ((float)randZ) / 10f;
+            float rX = randX / 10.0f;
+            float rZ = randZ / 10.0f;
             here.x += rX;
             here.z += rZ;
             obj_id critter = create.object(parasite, here);
             if (isIdValid(critter) && isIdValid(killer))
             {
-                addHate(critter, killer, 100f);
-                addHate(killer, critter, 0f);
+                addHate(critter, killer, 100.0f);
+                addHate(killer, critter, 0.0f);
             }
         }
         return SCRIPT_CONTINUE;

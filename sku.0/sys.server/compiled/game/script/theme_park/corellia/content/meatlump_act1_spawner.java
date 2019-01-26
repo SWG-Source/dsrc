@@ -35,9 +35,8 @@ public class meatlump_act1_spawner extends script.base_script
             if (utils.hasScriptVar(self, "myCreations"))
             {
                 Vector theList = utils.getResizeableObjIdArrayScriptVar(self, "myCreations");
-                for (int i = 0; i < theList.size(); ++i)
-                {
-                    destroyObject(((obj_id)theList.get(i)));
+                for (Object o : theList) {
+                    destroyObject(((obj_id) o));
                 }
                 utils.removeScriptVar(self, "myCreations");
             }

@@ -58,22 +58,19 @@ public class game_assault extends script.base_script
                 return SCRIPT_CONTINUE;
             }
         }
-        for (int i = 0; i < ai_factions.length; i++)
-        {
-            int ai_faction_id = battlefield.getFactionId(ai_factions[i]);
+        for (String ai_faction : ai_factions) {
+            int ai_faction_id = battlefield.getFactionId(ai_faction);
             Vector faction_list = new Vector();
             faction_list.setSize(0);
-            for (int j = 0; j < crit_objs.length; j++)
-            {
-                int obj_faction_id = pvpBattlefieldGetFaction(crit_objs[j], bf);
-                if (obj_faction_id == ai_faction_id)
-                {
-                    faction_list = utils.addElement(faction_list, crit_objs[j]);
-                    String obj_name = ai_factions[i] + " Power Generator #" + faction_list.size();
-                    setName(crit_objs[j], obj_name);
+            for (obj_id crit_obj : crit_objs) {
+                int obj_faction_id = pvpBattlefieldGetFaction(crit_obj, bf);
+                if (obj_faction_id == ai_faction_id) {
+                    faction_list = utils.addElement(faction_list, crit_obj);
+                    String obj_name = ai_faction + " Power Generator #" + faction_list.size();
+                    setName(crit_obj, obj_name);
                 }
             }
-            String objVar_name = battlefield.VAR_GAME + "." + ai_factions[i] + "_destroy";
+            String objVar_name = battlefield.VAR_GAME + "." + ai_faction + "_destroy";
             setObjVar(self, objVar_name, faction_list);
         }
         return SCRIPT_CONTINUE;
@@ -115,17 +112,13 @@ public class game_assault extends script.base_script
             LOG("LOG_CHANNEL", "game_assault::msgAddPlayerToBattlefield -- player: " + player + " faction: " + faction);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < allowed_factions.length; i++)
-        {
-            String objVar_name = battlefield.VAR_GAME + "." + allowed_factions[i] + "_destroy";
-            if (hasObjVar(self, objVar_name))
-            {
+        for (String allowed_faction : allowed_factions) {
+            String objVar_name = battlefield.VAR_GAME + "." + allowed_faction + "_destroy";
+            if (hasObjVar(self, objVar_name)) {
                 obj_id[] destroy_objs = getObjIdArrayObjVar(self, objVar_name);
-                for (int j = 0; j < destroy_objs.length; j++)
-                {
-                    if (destroy_objs[j].isLoaded())
-                    {
-                        battlefield.addBattlefieldWaypoint(player, destroy_objs[j]);
+                for (obj_id destroy_obj : destroy_objs) {
+                    if (destroy_obj.isLoaded()) {
+                        battlefield.addBattlefieldWaypoint(player, destroy_obj);
                     }
                 }
             }
@@ -177,19 +170,16 @@ public class game_assault extends script.base_script
         if (factions_remaining != null)
         {
             dsrc = utils.addElement(dsrc, "Objectives Remaining");
-            for (int i = 0; i < factions_remaining.length; i++)
-            {
-                String objVar_name = battlefield.VAR_GAME + "." + factions_remaining[i] + "_destroy";
+            for (String s : factions_remaining) {
+                String objVar_name = battlefield.VAR_GAME + "." + s + "_destroy";
                 obj_id[] destroy_objs = getObjIdArrayObjVar(self, objVar_name);
-                if (destroy_objs != null)
-                {
-                    dsrc = utils.addElement(dsrc, "   " + factions_remaining[i]);
-                    for (int j = 0; j < destroy_objs.length; j++)
-                    {
-                        float hitpoints = (float)getHitpoints(destroy_objs[j]);
-                        float maxHitpoints = (float)getMaxHitpoints(destroy_objs[j]);
-                        int percent = (int)((hitpoints / maxHitpoints) * 100.0f);
-                        String name = getName(destroy_objs[j]);
+                if (destroy_objs != null) {
+                    dsrc = utils.addElement(dsrc, "   " + s);
+                    for (obj_id destroy_obj : destroy_objs) {
+                        float hitpoints = getHitpoints(destroy_obj);
+                        float maxHitpoints = getMaxHitpoints(destroy_obj);
+                        int percent = (int) ((hitpoints / maxHitpoints) * 100.0f);
+                        String name = getName(destroy_obj);
                         dsrc = utils.addElement(dsrc, "      " + name + " at " + percent + "%");
                     }
                 }
@@ -197,11 +187,10 @@ public class game_assault extends script.base_script
         }
         dsrc = utils.addElement(dsrc, "Kills/Deaths");
         String[] factions_allowed = battlefield.getAllFactionsAllowed(self);
-        for (int i = 0; i < factions_allowed.length; i++)
-        {
-            dsrc = utils.addElement(dsrc, "   " + factions_allowed[i]);
-            int kills = battlefield.getFactionKills(self, factions_allowed[i]);
-            int deaths = battlefield.getFactionDeaths(self, factions_allowed[i]);
+        for (String s : factions_allowed) {
+            dsrc = utils.addElement(dsrc, "   " + s);
+            int kills = battlefield.getFactionKills(self, s);
+            int deaths = battlefield.getFactionDeaths(self, s);
             dsrc = utils.addElement(dsrc, "      " + "Kills: " + kills);
             dsrc = utils.addElement(dsrc, "      " + "Deaths: " + deaths);
         }
@@ -232,12 +221,11 @@ public class game_assault extends script.base_script
         String[] factions_allowed = battlefield.getAllFactionsAllowed(master_object);
         if (factions_allowed != null)
         {
-            for (int i = 0; i < factions_allowed.length; i++)
-            {
-                int kills = battlefield.getFactionKills(master_object, factions_allowed[i]);
-                int deaths = battlefield.getFactionDeaths(master_object, factions_allowed[i]);
-                setObjVar(master_object, battlefield.VAR_STAT_KILLS + factions_allowed[i], kills);
-                setObjVar(master_object, battlefield.VAR_STAT_DEATHS + factions_allowed[i], deaths);
+            for (String s : factions_allowed) {
+                int kills = battlefield.getFactionKills(master_object, s);
+                int deaths = battlefield.getFactionDeaths(master_object, s);
+                setObjVar(master_object, battlefield.VAR_STAT_KILLS + s, kills);
+                setObjVar(master_object, battlefield.VAR_STAT_DEATHS + s, deaths);
             }
         }
         if (faction.equals("AI"))
@@ -263,18 +251,16 @@ public class game_assault extends script.base_script
             }
             if (participants != null)
             {
-                for (int i = 0; i < participants.length; i++)
-                {
-                    int time_spent = battlefield.getTimeSpentInBattlefield(participants[i]);
-                    float percent_time = (float)time_spent / (float)game_duration;
-                    LOG("LOG_CHANNEL", "battlefield.game_destroy::declareWinner -- " + participants[i] + " at " + percent_time + "%");
-                    if (percent_time > .1)
-                    {
+                for (obj_id participant : participants) {
+                    int time_spent = battlefield.getTimeSpentInBattlefield(participant);
+                    float percent_time = (float) time_spent / game_duration;
+                    LOG("LOG_CHANNEL", "battlefield.game_destroy::declareWinner -- " + participant + " at " + percent_time + "%");
+                    if (percent_time > 0.1) {
                         dictionary params = new dictionary();
                         params.put("faction", faction);
                         params.put("battlefield", master_object);
                         params.put("standing", 25.0f);
-                        messageTo(participants[i], "msgGrantFactionStanding", params, 0.0f, true);
+                        messageTo(participant, "msgGrantFactionStanding", params, 0.0f, true);
                     }
                 }
             }

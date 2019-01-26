@@ -33,7 +33,7 @@ public class tcg_self_destruct extends script.base_script
                 timer = 25;
             }
         }
-        messageTo(self, "selfDestruct", null, (float)timer, false);
+        messageTo(self, "selfDestruct", null, timer, false);
         return SCRIPT_CONTINUE;
     }
     public int selfDestruct(obj_id self, dictionary params) throws InterruptedException

@@ -409,7 +409,7 @@ public class battle_spawner extends script.base_class {
         else{
             spaceLog( "In endBattle... reason - " + params.getString("losingFaction") + " " + params.getString("losingRole") + " capital ship destroyed.");
         }
-        setObjVar(self, "last_battle_type", getObjVar(self, "battle_type"));
+        setObjVar(self, "last_battle_type", getStringObjVar(self, "battle_type"));
         distributeAwards(self, params);
         cleanup(params);
         return SCRIPT_CONTINUE;
@@ -479,7 +479,7 @@ public class battle_spawner extends script.base_class {
         spaceLog( "In processShip... now checking ship participants.");
         if(qualifiedShips == null || qualifiedShips.getNumItems() == 0){
             spaceLog( "In processShip... no participating ships of this type were found.");
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         int numQualifiedShips = qualifiedShips.getNumItems();
         spaceLog( "In processShip... processing " + numQualifiedShips + " ships.");
@@ -536,7 +536,7 @@ public class battle_spawner extends script.base_class {
                 (!playerIsImperial && !imperialsWon);
 
         // distribute points to player
-        int awardedPoints = new Float(calculateAwardedPoints(playerWon, battleType) * pointAdjustmentValue).intValue();
+        int awardedPoints = Float.valueOf(calculateAwardedPoints(playerWon, battleType) * pointAdjustmentValue).intValue();
         spaceLog( "In handlePlayerAwards... giving " + awardedPoints + " GCW points to player \"" + getPlayerName(player) + "\" (" + player + ").");
         gcw.grantModifiedGcwPoints(
                 player,
@@ -621,18 +621,18 @@ public class battle_spawner extends script.base_class {
     public int calculateAwardedPoints(boolean wonBattle, String battleType) {
         if(!wonBattle){
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return new Float(customPointAward * customPvePointModifier * customLossPointModifier).intValue();
+                return Float.valueOf(customPointAward * customPvePointModifier * customLossPointModifier).intValue();
             }
             else{
-                return new Float(customPointAward * customPvpPointModifier * customLossPointModifier).intValue();
+                return Float.valueOf(customPointAward * customPvpPointModifier * customLossPointModifier).intValue();
             }
         }
         else{
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return new Float(customPointAward * customPvePointModifier * customWinPointModifier).intValue();
+                return Float.valueOf(customPointAward * customPvePointModifier * customWinPointModifier).intValue();
             }
             else{
-                return new Float(customPointAward * customPvpPointModifier * customWinPointModifier).intValue();
+                return Float.valueOf(customPointAward * customPvpPointModifier * customWinPointModifier).intValue();
             }
         }
 
@@ -640,18 +640,18 @@ public class battle_spawner extends script.base_class {
     public int calculateAwardedTokens(boolean wonBattle, String battleType, String faction) {
         if(!wonBattle){
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return new Float(customTokenAward * customPveBattleModifier * customLossTokenModifier).intValue();
+                return Float.valueOf(customTokenAward * customPveBattleModifier * customLossTokenModifier).intValue();
             }
             else{
-                return new Float(customTokenAward * customPvpBattleModifier * customLossTokenModifier).intValue();
+                return Float.valueOf(customTokenAward * customPvpBattleModifier * customLossTokenModifier).intValue();
             }
         }
         else{
             if(battleType.equals(BATTLE_TYPE_PVE)){
-                return new Float(customTokenAward * customPveBattleModifier * customWinTokenModifier).intValue();
+                return Float.valueOf(customTokenAward * customPveBattleModifier * customWinTokenModifier).intValue();
             }
             else{
-                return new Float(customTokenAward * customPvpBattleModifier * customWinTokenModifier).intValue();
+                return Float.valueOf(customTokenAward * customPvpBattleModifier * customWinTokenModifier).intValue();
             }
         }
 

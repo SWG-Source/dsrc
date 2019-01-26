@@ -58,7 +58,7 @@ public class space_create extends script.base_script
         setObjVar(objShip, "xp.intXP", intXP);
         String strShipt = dctShipInfo.getString("strShip");
         setShipTypeName(objShip, strShipt);
-        if (strShipt.indexOf("tier") > -1)
+        if (strShipt.contains("tier"))
         {
             int index = strShipt.lastIndexOf("_");
             if (index > -1)
@@ -126,9 +126,8 @@ public class space_create extends script.base_script
         if (script != null && script.length() > 0)
         {
             String[] scriptArray = split(script, ',');
-            for (int i = 0; i < scriptArray.length; i++)
-            {
-                attachScript(objShip, scriptArray[i]);
+            for (String s : scriptArray) {
+                attachScript(objShip, s);
             }
         }
         String cargo_type = dctShipInfo.getString("cargo");
@@ -244,11 +243,9 @@ public class space_create extends script.base_script
         {
             return null;
         }
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            if (hasObjVar(objContents[intI], "loot.intCredits"))
-            {
-                return objContents[intI];
+        for (obj_id objContent : objContents) {
+            if (hasObjVar(objContent, "loot.intCredits")) {
+                return objContent;
             }
         }
         return null;
@@ -286,7 +283,7 @@ public class space_create extends script.base_script
                 }
                 else 
                 {
-                    transform trTest = space_utils.getRandomPositionInSphere(trSpawnLocation, 0f, fltDistance, true);
+                    transform trTest = space_utils.getRandomPositionInSphere(trSpawnLocation, 0.0f, fltDistance, true);
                     objShip = space_create._createShip(strShipType, trTest, objCell, hyperspace);
                 }
                 if (!isIdValid(objShip))
@@ -364,7 +361,7 @@ public class space_create extends script.base_script
             }
             setObjVar(objShip, "ship.pilotType", strPilot);
         }
-        if (strPilot.indexOf("tier") > -1)
+        if (strPilot.contains("tier"))
         {
             int index = strPilot.lastIndexOf("_");
             if (index > -1)

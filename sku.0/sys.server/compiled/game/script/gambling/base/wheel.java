@@ -211,7 +211,7 @@ public class wheel extends script.gambling.base.default_interface
         int payout = params.getInt("payout");
         CustomerServiceLog("gambling", getGameTime() + ": (" + player + ") " + getName(player) + " receives wheel payout for " + payout + " from (" + self + ") " + utils.getStringName(self));
         sendSystemMessageProse(player, prose.getPackage(gambling.PROSE_PAYOUT, payout));
-        showFlyText(player, gambling.FLY_WINNER, 1f, colors.RED);
+        showFlyText(player, gambling.FLY_WINNER, 1.0f, colors.RED);
         return SCRIPT_CONTINUE;
     }
     public int handleDelayedRestart(obj_id self, dictionary params) throws InterruptedException
@@ -298,7 +298,7 @@ public class wheel extends script.gambling.base.default_interface
         }
         dictionary d = new dictionary();
         d.put("stamp", stampTime);
-        messageTo(self, "handleBetTimer", d, 30f, false);
+        messageTo(self, "handleBetTimer", d, 30.0f, false);
     }
     public void stopWheelGame(obj_id self) throws InterruptedException
     {
@@ -322,6 +322,6 @@ public class wheel extends script.gambling.base.default_interface
         }
         dictionary d = new dictionary();
         d.put("cnt", 3);
-        messageTo(self, "handleWheelSpinning", d, 10f, false);
+        messageTo(self, "handleWheelSpinning", d, 10.0f, false);
     }
 }

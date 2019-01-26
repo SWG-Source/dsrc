@@ -62,13 +62,13 @@ public class fs_medic_puzzle_sick01 extends script.base_script
         Vector symptomListVector = new Vector();
         for (int j = 0; j < 12; j++)
         {
-            symptomListVector.add(new Integer(j));
+            symptomListVector.add(j);
         }
         while (numberOfSymptoms > 0)
         {
             int index = rand(0, symptomListVector.size() - 1);
             Integer symptom = (Integer)symptomListVector.get(index);
-            symptomList[symptom.intValue()] = true;
+            symptomList[symptom] = true;
             symptomListVector.remove(index);
             numberOfSymptoms--;
         }

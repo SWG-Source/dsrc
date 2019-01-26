@@ -1,17 +1,12 @@
 package script.working.jcarpenter;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.combat;
+import script.attribute;
+import script.library.create;
 import script.library.healing;
 import script.library.utils;
-import script.library.create;
+import script.location;
+import script.obj_id;
+
 import java.util.StringTokenizer;
 
 public class util extends script.base_script
@@ -131,9 +126,8 @@ public class util extends script.base_script
         }
         else if ((toLower(text)).equals("help"))
         {
-            for (int i = 0; i < HELP_TEXT.length; i++)
-            {
-                sendSystemMessageTestingOnly(self, HELP_TEXT[i]);
+            for (String s : HELP_TEXT) {
+                sendSystemMessageTestingOnly(self, s);
             }
             return SCRIPT_CONTINUE;
         }
@@ -182,7 +176,7 @@ public class util extends script.base_script
             warp += 0.05f;
             warp *= 10.0f;
             int chop = (int)warp;
-            warp = ((float)chop) / 10.0f;
+            warp = chop / 10.0f;
             if (warp <= 0.0f)
             {
                 return SCRIPT_CONTINUE;
@@ -247,9 +241,8 @@ public class util extends script.base_script
             if (profession.equals("help"))
             {
                 sendSystemMessageTestingOnly(self, "These are the professions that can be used with the grant utility:");
-                for (int j = 0; j < PROFESSIONS.length; j++)
-                {
-                    sendSystemMessageTestingOnly(self, PROFESSIONS[j]);
+                for (String profession1 : PROFESSIONS) {
+                    sendSystemMessageTestingOnly(self, profession1);
                 }
                 return SCRIPT_CONTINUE;
             }
@@ -259,11 +252,9 @@ public class util extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             boolean result = true;
-            for (int i = 0; i < skills.length; i++)
-            {
-                if (!hasSkill(self, skills[i]))
-                {
-                    result &= grantSkill(self, skills[i]);
+            for (String skill : skills) {
+                if (!hasSkill(self, skill)) {
+                    result &= grantSkill(self, skill);
                 }
             }
             if (result)
@@ -284,9 +275,8 @@ public class util extends script.base_script
             if (profession.equals("help"))
             {
                 sendSystemMessageTestingOnly(self, "These are the professions that can be used with the revoke utility:");
-                for (int j = 0; j < PROFESSIONS.length; j++)
-                {
-                    sendSystemMessageTestingOnly(self, PROFESSIONS[j]);
+                for (String profession1 : PROFESSIONS) {
+                    sendSystemMessageTestingOnly(self, profession1);
                 }
                 return SCRIPT_CONTINUE;
             }
@@ -329,40 +319,32 @@ public class util extends script.base_script
                 0
             };
             int amount = utils.stringToInt(amountStr);
-            if (attribStr.equals("health"))
-            {
-                attrib[HEALTH] = amount;
-            }
-            else if (attribStr.equals("constitution"))
-            {
-                attrib[CONSTITUTION] = amount;
-            }
-            else if (attribStr.equals("action"))
-            {
-                attrib[ACTION] = amount;
-            }
-            else if (attribStr.equals("stamina"))
-            {
-                attrib[STAMINA] = amount;
-            }
-            else if (attribStr.equals("mind"))
-            {
-                attrib[MIND] = amount;
-            }
-            else if (attribStr.equals("willpower"))
-            {
-                attrib[WILLPOWER] = amount;
-            }
-            else if (attribStr.equals("all"))
-            {
-                for (int i = 0; i < attrib.length; i++)
-                {
-                    attrib[i] = amount;
-                }
-            }
-            else 
-            {
-                return SCRIPT_CONTINUE;
+            switch (attribStr) {
+                case "health":
+                    attrib[HEALTH] = amount;
+                    break;
+                case "constitution":
+                    attrib[CONSTITUTION] = amount;
+                    break;
+                case "action":
+                    attrib[ACTION] = amount;
+                    break;
+                case "stamina":
+                    attrib[STAMINA] = amount;
+                    break;
+                case "mind":
+                    attrib[MIND] = amount;
+                    break;
+                case "willpower":
+                    attrib[WILLPOWER] = amount;
+                    break;
+                case "all":
+                    for (int i = 0; i < attrib.length; i++) {
+                        attrib[i] = amount;
+                    }
+                    break;
+                default:
+                    return SCRIPT_CONTINUE;
             }
             int inc = 1;
             if (!isPlayer(target))
@@ -397,28 +379,23 @@ public class util extends script.base_script
             String amountStr = st.nextToken();
             attribute[] attrib = getAttribs(target);
             int amount = utils.stringToInt(amountStr);
-            if (attribStr.equals("health"))
-            {
-                attrib[HEALTH] = new attribute(attrib[HEALTH].getType(), (attrib[HEALTH].getValue() - amount));
-            }
-            else if (attribStr.equals("action"))
-            {
-                attrib[ACTION] = new attribute(attrib[ACTION].getType(), (attrib[ACTION].getValue() - amount));
-            }
-            else if (attribStr.equals("mind"))
-            {
-                attrib[MIND] = new attribute(attrib[MIND].getType(), (attrib[MIND].getValue() - amount));
-            }
-            else if (attribStr.equals("all"))
-            {
-                for (int i = 0; i < attrib.length; i += NUM_ATTRIBUTES_PER_GROUP)
-                {
-                    attrib[i] = new attribute(attrib[i].getType(), (attrib[i].getValue() - amount));
-                }
-            }
-            else 
-            {
-                return SCRIPT_CONTINUE;
+            switch (attribStr) {
+                case "health":
+                    attrib[HEALTH] = new attribute(attrib[HEALTH].getType(), (attrib[HEALTH].getValue() - amount));
+                    break;
+                case "action":
+                    attrib[ACTION] = new attribute(attrib[ACTION].getType(), (attrib[ACTION].getValue() - amount));
+                    break;
+                case "mind":
+                    attrib[MIND] = new attribute(attrib[MIND].getType(), (attrib[MIND].getValue() - amount));
+                    break;
+                case "all":
+                    for (int i = 0; i < attrib.length; i += NUM_ATTRIBUTES_PER_GROUP) {
+                        attrib[i] = new attribute(attrib[i].getType(), (attrib[i].getValue() - amount));
+                    }
+                    break;
+                default:
+                    return SCRIPT_CONTINUE;
             }
             for (int j = 0; j < attrib.length; j += NUM_ATTRIBUTES_PER_GROUP)
             {
@@ -446,7 +423,7 @@ public class util extends script.base_script
             attribute[] currentAttribs = getAttribs(self);
             for (int i = 0; i < maxAttribs.length; i += 2)
             {
-                if (((float)currentAttribs[i].getValue() / (float)maxAttribs[i].getValue()) < 0.25f)
+                if (((float)currentAttribs[i].getValue() / maxAttribs[i].getValue()) < 0.25f)
                 {
                     healing.fullHeal(self);
                     sendSystemMessageTestingOnly(self, "...you have been auto-healed...");

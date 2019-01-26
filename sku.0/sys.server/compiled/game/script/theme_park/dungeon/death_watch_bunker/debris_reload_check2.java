@@ -18,10 +18,8 @@ public class debris_reload_check2 extends script.base_script
         int numInCell = cell_contents.length;
         if (cell_contents != null && numInCell > 0)
         {
-            for (int i = 0; i < numInCell; i++)
-            {
-                if (isIdValid(cell_contents[i]) && isPlayer(cell_contents[i]))
-                {
+            for (obj_id cell_content : cell_contents) {
+                if (isIdValid(cell_content) && isPlayer(cell_content)) {
                     empty = false;
                 }
             }

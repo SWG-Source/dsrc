@@ -32,9 +32,8 @@ public class volleytarget extends script.base_script
         obj_id self = getSelf();
         Vector groups = utils.getResizeableObjIdBatchScriptVar(self, combat.VAR_VOLLEY_GROUPS);
         utils.removeScriptVar(self, combat.VAR_VOLLEY_GROUPS);
-        for (int i = 0; i < groups.size(); i++)
-        {
-            notifyVolleyTargetDone((obj_id)groups.get(i));
+        for (Object group : groups) {
+            notifyVolleyTargetDone((obj_id) group);
         }
     }
     public void notifyVolleyTargetDone(obj_id group) throws InterruptedException

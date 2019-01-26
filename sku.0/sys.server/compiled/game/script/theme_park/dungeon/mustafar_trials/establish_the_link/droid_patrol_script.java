@@ -86,15 +86,11 @@ public class droid_patrol_script extends script.base_script
         }
         Vector waypoints = new Vector();
         waypoints.setSize(0);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (utils.hasScriptVar(contents[i], trial.WP_NAME))
-            {
-                for (int k = 0; k < pathList.length; k++)
-                {
-                    if (pathList[k].equals(utils.getStringScriptVar(contents[i], trial.WP_NAME)))
-                    {
-                        utils.addElement(waypoints, getLocation(contents[i]));
+        for (obj_id content : contents) {
+            if (utils.hasScriptVar(content, trial.WP_NAME)) {
+                for (String s : pathList) {
+                    if (s.equals(utils.getStringScriptVar(content, trial.WP_NAME))) {
+                        utils.addElement(waypoints, getLocation(content));
                     }
                 }
             }
@@ -119,17 +115,15 @@ public class droid_patrol_script extends script.base_script
     }
     public int OnMovePathComplete(obj_id self) throws InterruptedException
     {
-        obj_id[] objects = getObjectsInRange(self, 1f);
+        obj_id[] objects = getObjectsInRange(self, 1.0f);
         
         {
             if (objects == null || objects.length == 0)
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < objects.length; i++)
-            {
-                if ((getTemplateName(objects[i])).equals(trial.WP_OBJECT))
-                {
+            for (obj_id object : objects) {
+                if ((getTemplateName(object)).equals(trial.WP_OBJECT)) {
                     createNewRelay(self);
                     messageTo(self, "pathToNextPoint", null, 0, false);
                 }
@@ -139,7 +133,7 @@ public class droid_patrol_script extends script.base_script
     }
     public void createNewRelay(obj_id self) throws InterruptedException
     {
-        obj_id[] objects = getObjectsInRange(self, 5f);
+        obj_id[] objects = getObjectsInRange(self, 5.0f);
         obj_id top = trial.getTop(self);
         if (objects == null || objects.length == 0)
         {
@@ -154,10 +148,8 @@ public class droid_patrol_script extends script.base_script
             messageTo(top, "validateRelays", null, 0, false);
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if ((getTemplateName(objects[i])).equals(trial.RELAY_OBJECT))
-            {
+        for (obj_id object : objects) {
+            if ((getTemplateName(object)).equals(trial.RELAY_OBJECT)) {
                 messageTo(top, "validateRelays", null, 0, false);
                 return;
             }

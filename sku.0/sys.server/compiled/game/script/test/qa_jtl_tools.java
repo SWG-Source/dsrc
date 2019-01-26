@@ -605,47 +605,34 @@ public class qa_jtl_tools extends script.base_script
                         Vector tempComponentList = new Vector();
                         tempComponentList.setSize(0);
                         obj_id testerInventory = utils.getInventoryContainer(player);
-                        for (int i = 0; i < VALID_SHIPS_COMPONENTS_LIST.length; i++)
-                        {
-                            if (componentListName.equals("VALID_IMP_TIE_FIGHTER_PREDEFINED"))
-                            {
-                                for (int a = 0; a < VALID_IMP_TIE_FIGHTER_PREDEFINED.length; a++)
-                                {
-                                    qa.templateObjectSpawner(player, VALID_IMP_TIE_FIGHTER_PREDEFINED[a]);
-                                }
-                                break;
-                            }
-                            else if (componentListName.equals("VALID_IMP_TIE_INTERCEPTOR_PREDEFINED"))
-                            {
-                                for (int a = 0; a < VALID_IMP_TIE_INTERCEPTOR_PREDEFINED.length; a++)
-                                {
-                                    qa.templateObjectSpawner(player, VALID_IMP_TIE_INTERCEPTOR_PREDEFINED[a]);
-                                }
-                                break;
-                            }
-                            else if (componentListName.equals("VALID_REB_YWING_PREDEFINED"))
-                            {
-                                for (int a = 0; a < VALID_REB_YWING_PREDEFINED.length; a++)
-                                {
-                                    qa.templateObjectSpawner(player, VALID_REB_YWING_PREDEFINED[a]);
-                                }
-                                break;
-                            }
-                            else if (componentListName.equals("VALID_REB_XWING_PREDEFINED"))
-                            {
-                                for (int a = 0; a < VALID_REB_XWING_PREDEFINED.length; a++)
-                                {
-                                    qa.templateObjectSpawner(player, VALID_REB_XWING_PREDEFINED[a]);
-                                }
-                                break;
-                            }
-                            else if (componentListName.equals("VALID_NEU_KIMO_PREDEFINED"))
-                            {
-                                for (int a = 0; a < VALID_NEU_KIMO_PREDEFINED.length; a++)
-                                {
-                                    qa.templateObjectSpawner(player, VALID_NEU_KIMO_PREDEFINED[a]);
-                                }
-                                break;
+                        label:
+                        for (int i = 0; i < VALID_SHIPS_COMPONENTS_LIST.length; i++) {
+                            switch (componentListName) {
+                                case "VALID_IMP_TIE_FIGHTER_PREDEFINED":
+                                    for (String s : VALID_IMP_TIE_FIGHTER_PREDEFINED) {
+                                        qa.templateObjectSpawner(player, s);
+                                    }
+                                    break label;
+                                case "VALID_IMP_TIE_INTERCEPTOR_PREDEFINED":
+                                    for (String s : VALID_IMP_TIE_INTERCEPTOR_PREDEFINED) {
+                                        qa.templateObjectSpawner(player, s);
+                                    }
+                                    break label;
+                                case "VALID_REB_YWING_PREDEFINED":
+                                    for (String s : VALID_REB_YWING_PREDEFINED) {
+                                        qa.templateObjectSpawner(player, s);
+                                    }
+                                    break label;
+                                case "VALID_REB_XWING_PREDEFINED":
+                                    for (String s : VALID_REB_XWING_PREDEFINED) {
+                                        qa.templateObjectSpawner(player, s);
+                                    }
+                                    break label;
+                                case "VALID_NEU_KIMO_PREDEFINED":
+                                    for (String s : VALID_NEU_KIMO_PREDEFINED) {
+                                        qa.templateObjectSpawner(player, s);
+                                    }
+                                    break label;
                             }
                         }
                     }
@@ -1247,17 +1234,15 @@ public class qa_jtl_tools extends script.base_script
         Vector shipComponentVector = new Vector();
         Vector specificComponentVector = new Vector();
         String preAppend = "object/tangible/ship/components/";
-        if (categoryString.indexOf("all ") > -1)
+        if (categoryString.contains("all "))
         {
             sendSystemMessageTestingOnly(player, "Please wait. Component list is long!");
         }
         int totalColumnsInDataTable = dataTableGetNumColumns(LOOT_DATATABLE);
         String[] allCellsInTable = returnListOfCellsInTable(player, totalColumnsInDataTable, LOOT_DATATABLE);
-        for (int i = 0; i < allCellsInTable.length; i++)
-        {
-            if (allCellsInTable[i].indexOf("/ship/") > -1)
-            {
-                shipComponentVector.add(allCellsInTable[i]);
+        for (String s : allCellsInTable) {
+            if (s.contains("/ship/")) {
+                shipComponentVector.add(s);
             }
         }
         if (shipComponentVector.size() > 0)
@@ -1265,17 +1250,15 @@ public class qa_jtl_tools extends script.base_script
             String[] allComponents = new String[shipComponentVector.size()];
             shipComponentVector.toArray(allComponents);
             Arrays.sort(allComponents);
-            if (categoryString.indexOf("all ") > -1)
+            if (categoryString.contains("all "))
             {
                 return allComponents;
             }
             else 
             {
-                for (int x = 0; x < allComponents.length; x++)
-                {
-                    if (allComponents[x].startsWith(preAppend + categoryString + "/") == true)
-                    {
-                        specificComponentVector.add(allComponents[x]);
+                for (String allComponent : allComponents) {
+                    if (allComponent.startsWith(preAppend + categoryString + "/") == true) {
+                        specificComponentVector.add(allComponent);
                     }
                 }
                 if (specificComponentVector.size() > 0)
@@ -1301,11 +1284,9 @@ public class qa_jtl_tools extends script.base_script
                 return null;
             }
             int listingLength = arrayList.length;
-            for (int y = 0; y < listingLength; y++)
-            {
-                if (!arrayList[y].equals("") && arrayList[y] != null)
-                {
-                    theList.add(arrayList[y]);
+            for (String s : arrayList) {
+                if (!s.equals("") && s != null) {
+                    theList.add(s);
                 }
             }
         }
@@ -1333,10 +1314,8 @@ public class qa_jtl_tools extends script.base_script
         String[] allWaypointNames = getWaypointNames(self);
         if ((allWaypointNames != null) && (allWaypointNames.length > 0))
         {
-            for (int i = 0; i < allWaypointNames.length; i++)
-            {
-                if (allWaypointNames[i].equals(waypointSearchName))
-                {
+            for (String allWaypointName : allWaypointNames) {
+                if (allWaypointName.equals(waypointSearchName)) {
                     return true;
                 }
             }
@@ -1352,9 +1331,9 @@ public class qa_jtl_tools extends script.base_script
             {
                 location locColzet = new location();
                 locColzet.area = "tatooine";
-                locColzet.x = -1132f;
+                locColzet.x = -1132.0f;
                 locColzet.y = 13.32f;
-                locColzet.z = -3542f;
+                locColzet.z = -3542.0f;
                 waypName = "Lt. Akal Colzet (Imperial Pilot Trainer)";
                 qa.createAQaWaypointInDataPad(self, locColzet, waypName);
             }
@@ -1362,9 +1341,9 @@ public class qa_jtl_tools extends script.base_script
             {
                 location locOberhaur = new location();
                 locOberhaur.area = "tatooine";
-                locOberhaur.x = -1127f;
-                locOberhaur.y = 15f;
-                locOberhaur.z = -3589f;
+                locOberhaur.x = -1127.0f;
+                locOberhaur.y = 15.0f;
+                locOberhaur.z = -3589.0f;
                 waypName = "Commander Oberhaur";
                 qa.createAQaWaypointInDataPad(self, locOberhaur, waypName);
             }
@@ -1372,9 +1351,9 @@ public class qa_jtl_tools extends script.base_script
             {
                 location locAlozen = new location();
                 locAlozen.area = "yavin4";
-                locAlozen.x = 3998f;
-                locAlozen.y = 37f;
-                locAlozen.z = -6195f;
+                locAlozen.x = 3998.0f;
+                locAlozen.y = 37.0f;
+                locAlozen.z = -6195.0f;
                 waypName = "Field Commander Alozen";
                 qa.createAQaWaypointInDataPad(self, locAlozen, waypName);
             }
@@ -1382,9 +1361,9 @@ public class qa_jtl_tools extends script.base_script
             {
                 location locDenner = new location();
                 locDenner.area = "yavin4";
-                locDenner.x = 4000f;
-                locDenner.y = 37f;
-                locDenner.z = -6196f;
+                locDenner.x = 4000.0f;
+                locDenner.y = 37.0f;
+                locDenner.z = -6196.0f;
                 waypName = "Captain Denner";
                 qa.createAQaWaypointInDataPad(self, locDenner, waypName);
             }
@@ -1393,9 +1372,9 @@ public class qa_jtl_tools extends script.base_script
                 location locKilnstrider = new location();
                 locKilnstrider.area = "endor";
                 
-                locKilnstrider.x = 3227f;
-                locKilnstrider.y = 24f;
-                locKilnstrider.z = -3436f;
+                locKilnstrider.x = 3227.0f;
+                locKilnstrider.y = 24.0f;
+                locKilnstrider.z = -3436.0f;
                 waypName = "Admiral Kilnstrider";
                 qa.createAQaWaypointInDataPad(self, locKilnstrider, waypName);
             }
@@ -1403,9 +1382,9 @@ public class qa_jtl_tools extends script.base_script
             {
                 location locDeclann = new location();
                 locDeclann.area = "naboo";
-                locDeclann.x = -5524f;
-                locDeclann.y = 29f;
-                locDeclann.z = 4618f;
+                locDeclann.x = -5524.0f;
+                locDeclann.y = 29.0f;
+                locDeclann.z = 4618.0f;
                 waypName = "Grand Admiral Nial Declann";
                 qa.createAQaWaypointInDataPad(self, locDeclann, waypName);
             }
@@ -1416,9 +1395,9 @@ public class qa_jtl_tools extends script.base_script
             {
                 location locSocuna = new location();
                 locSocuna.area = "tatooine";
-                locSocuna.x = -3002f;
-                locSocuna.y = 4f;
-                locSocuna.z = 2201f;
+                locSocuna.x = -3002.0f;
+                locSocuna.y = 4.0f;
+                locSocuna.z = 2201.0f;
                 waypName = "Commander Da'la Socuna";
                 qa.createAQaWaypointInDataPad(self, locSocuna, waypName);
             }
@@ -1426,9 +1405,9 @@ public class qa_jtl_tools extends script.base_script
             {
                 location locEker = new location();
                 locEker.area = "yavin4";
-                locEker.x = -6966f;
-                locEker.y = 73f;
-                locEker.z = -5660f;
+                locEker.x = -6966.0f;
+                locEker.y = 73.0f;
+                locEker.z = -5660.0f;
                 waypName = "Major Eker";
                 qa.createAQaWaypointInDataPad(self, locEker, waypName);
             }
@@ -1436,9 +1415,9 @@ public class qa_jtl_tools extends script.base_script
             {
                 location locArnecio = new location();
                 locArnecio.area = "dathomir";
-                locArnecio.x = -115f;
-                locArnecio.y = 18f;
-                locArnecio.z = -1579f;
+                locArnecio.x = -115.0f;
+                locArnecio.y = 18.0f;
+                locArnecio.z = -1579.0f;
                 waypName = "Arnecio Ulvaw'op";
                 qa.createAQaWaypointInDataPad(self, locArnecio, waypName);
             }
@@ -1447,9 +1426,9 @@ public class qa_jtl_tools extends script.base_script
                 location locUfwol = new location();
                 locUfwol.area = "rori";
                 
-                locUfwol.x = 3690f;
-                locUfwol.y = 96f;
-                locUfwol.z = -6463f;
+                locUfwol.x = 3690.0f;
+                locUfwol.y = 96.0f;
+                locUfwol.z = -6463.0f;
                 waypName = "General Ufwol";
                 qa.createAQaWaypointInDataPad(self, locUfwol, waypName);
             }
@@ -1458,9 +1437,9 @@ public class qa_jtl_tools extends script.base_script
                 location locBurke = new location();
                 locBurke.area = "corellia";
                 
-                locBurke.x = 3082f;
-                locBurke.y = 301f;
-                locBurke.z = -5203f;
+                locBurke.x = 3082.0f;
+                locBurke.y = 301.0f;
+                locBurke.z = -5203.0f;
                 waypName = "Admiral Wilham Burke";
                 qa.createAQaWaypointInDataPad(self, locBurke, waypName);
             }

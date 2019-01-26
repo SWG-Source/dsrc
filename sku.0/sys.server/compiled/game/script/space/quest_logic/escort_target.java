@@ -41,7 +41,7 @@ public class escort_target extends script.base_script
         setObjVar(self, "player", player);
         dictionary outparams = new dictionary();
         outparams.put("player", player);
-        messageTo(self, "checkPlayerLocation", outparams, 60.f, false);
+        messageTo(self, "checkPlayerLocation", outparams, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException
@@ -73,7 +73,7 @@ public class escort_target extends script.base_script
             dictionary outparams = new dictionary();
             outparams.put("ship", self);
             outparams.put("reason", 0);
-            messageTo(quest, "escortFailed", outparams, 0.f, true);
+            messageTo(quest, "escortFailed", outparams, 0.0f, true);
             destroyObjectHyperspace(self);
             return SCRIPT_CONTINUE;
         }
@@ -100,7 +100,7 @@ public class escort_target extends script.base_script
         }
         if (!closeenough)
         {
-            space_utils.matchEngineSpeed(player, self, .2f, true);
+            space_utils.matchEngineSpeed(player, self, 0.2f, true);
             int too_far = getIntObjVar(self, "too_far");
             switch (too_far)
             {
@@ -152,10 +152,10 @@ public class escort_target extends script.base_script
         }
         else 
         {
-            space_utils.matchEngineSpeed(player, self, .5f, true);
+            space_utils.matchEngineSpeed(player, self, 0.5f, true);
             removeObjVar(self, "too_far");
         }
-        messageTo(self, "checkPlayerLocation", params, 60.f, false);
+        messageTo(self, "checkPlayerLocation", params, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int missionAbort(obj_id self, dictionary params) throws InterruptedException

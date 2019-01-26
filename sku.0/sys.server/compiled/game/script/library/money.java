@@ -689,6 +689,6 @@ public class money extends script.base_script
         }
         dictionary d = new dictionary();
         d.put("acct", acct);
-        messageTo(player, "handleCovertDepositReturn", d, 1f, false);
+        messageTo(player, "handleCovertDepositReturn", d, 1.0f, false);
     }
 }

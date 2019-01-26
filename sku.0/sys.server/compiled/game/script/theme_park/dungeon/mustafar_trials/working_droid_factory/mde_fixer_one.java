@@ -37,19 +37,13 @@ public class mde_fixer_one extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id prefered = obj_id.NULL_ID;
-        for (int i = 0; i < players.length; i++)
-        {
-            if (!isDead(players[i]))
-            {
-                if (prefered == obj_id.NULL_ID)
-                {
-                    prefered = players[i];
-                }
-                else 
-                {
-                    if (getDistance(self, players[i]) < getDistance(self, prefered))
-                    {
-                        prefered = players[i];
+        for (obj_id player : players) {
+            if (!isDead(player)) {
+                if (prefered == obj_id.NULL_ID) {
+                    prefered = player;
+                } else {
+                    if (getDistance(self, player) < getDistance(self, prefered)) {
+                        prefered = player;
                     }
                 }
             }

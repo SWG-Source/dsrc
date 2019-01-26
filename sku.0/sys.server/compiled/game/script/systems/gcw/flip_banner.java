@@ -12,12 +12,12 @@ public class flip_banner extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        messageTo(self, "checkBannerImpulse", null, 1.f, false);
+        messageTo(self, "checkBannerImpulse", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "checkBannerImpulse", null, 1.f, false);
+        messageTo(self, "checkBannerImpulse", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnDestroy(obj_id self) throws InterruptedException
@@ -68,7 +68,7 @@ public class flip_banner extends script.base_script
             }
             spawnBanner(self, "rebel");
         }
-        messageTo(self, "checkBannerImpulse", null, 3600.f, false);
+        messageTo(self, "checkBannerImpulse", null, 3600.0f, false);
         return SCRIPT_CONTINUE;
     }
     public void spawnBanner(obj_id self, String faction) throws InterruptedException

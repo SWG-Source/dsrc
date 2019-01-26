@@ -12,7 +12,7 @@ public class ai_lib extends script.base_script
     public ai_lib()
     {
     }
-    public static final float PLAYER_RUN_SPEED = 8f;
+    public static final float PLAYER_RUN_SPEED = 8.0f;
     public static final float AI_MAX_MOVEMENT_SPEED = PLAYER_RUN_SPEED;
     public static final String ALERT_VOLUME_NAME = "alertTriggerVolume";
     public static final String AGGRO_VOLUME_NAME = "aggroTriggerVolume";
@@ -35,8 +35,8 @@ public class ai_lib extends script.base_script
     public static final String ACTION_THREATEN = "threaten";
     public static final string_id SMUGGLER_SCAN_SUCCESS = new string_id("base_player", "smuggler_scan_success");
     public static final string_id SMUGGLER_SCAN_FAIL = new string_id("base_player", "smuggler_scan_fail");
-    public static final float DEFAULT_FOLLOW_MIN = 4f;
-    public static final float DEFAULT_FOLLOW_MAX = 8f;
+    public static final float DEFAULT_FOLLOW_MIN = 4.0f;
+    public static final float DEFAULT_FOLLOW_MAX = 8.0f;
     public static final String OBJVAR_ATTACKABLE_OVERRIDE = "ai_combat.attackable";
     public static final String SCRIPTVAR_CACHED_PATROL_PATH = "ai.patrolPath";
     public static final String SCRIPTVAR_CACHED_PATROL_NAMED_PATH = "ai.patrolNamedPath";
@@ -681,17 +681,17 @@ public class ai_lib extends script.base_script
             posture.stand(npc);
         }
         setObjVar(npc, "ai.persistantFollowing.target", target);
-        if (min_dist < 1f)
+        if (min_dist < 1.0f)
         {
-            min_dist = 1f;
+            min_dist = 1.0f;
         }
-        if (max_dist < 1f)
+        if (max_dist < 1.0f)
         {
-            max_dist = 1f;
+            max_dist = 1.0f;
         }
         if (max_dist <= min_dist)
         {
-            max_dist = min_dist + 1f;
+            max_dist = min_dist + 1.0f;
         }
         setObjVar(npc, "ai.persistantFollowing.min_dist", min_dist);
         setObjVar(npc, "ai.persistantFollowing.max_dist", max_dist);
@@ -920,14 +920,14 @@ public class ai_lib extends script.base_script
         location targetLoc = getLocation(target);
         if(isValidLocation(myLoc) && isValidLocation(targetLoc)) {
             if (myLoc.x < targetLoc.x) {
-                myLoc.x -= rand(20f, 40f);
+                myLoc.x -= rand(20.0f, 40.0f);
             } else {
-                myLoc.x += rand(20f, 40f);
+                myLoc.x += rand(20.0f, 40.0f);
             }
             if (myLoc.z < targetLoc.z) {
-                myLoc.z -= rand(20f, 40f);
+                myLoc.z -= rand(20.0f, 40.0f);
             } else {
-                myLoc.z += rand(20f, 40f);
+                myLoc.z += rand(20.0f, 40.0f);
             }
             setObjVar(npc, "ai.pathingAwayFrom", target);
             pathTo(npc, myLoc);
@@ -935,7 +935,7 @@ public class ai_lib extends script.base_script
         else{
             LOG("debug_ai","Unable to get a valid location for myLoc (" + myLoc + ") or targetLoc (" + targetLoc + ") to make vendor path away.");
         }
-        messageTo(npc, "handleClearPathingFlag", null, 30f, isObjectPersisted(npc));
+        messageTo(npc, "handleClearPathingFlag", null, 30.0f, isObjectPersisted(npc));
     }
     public static void setLoiterRanges(obj_id npc, float minRange, float maxRange) throws InterruptedException
     {
@@ -1612,7 +1612,7 @@ public class ai_lib extends script.base_script
             {
                 return totalDamage;
             }
-            int split = Math.round((float) totalDamage / (float) validList.size());
+            int split = Math.round((float) totalDamage / validList.size());
             for (Object aValidList : validList) {
                 if (aValidList == self) {
                     continue;

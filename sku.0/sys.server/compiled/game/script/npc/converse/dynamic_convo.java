@@ -621,14 +621,11 @@ public class dynamic_convo extends script.base_script
     {
         obj_id playerInv = utils.getInventoryContainer(player);
         obj_id[] contents = utils.getContents(playerInv, true);
-        for (int i = 0; i < contents.length; i++)
-        {
-            String itemInInventory = getTemplateName(contents[i]);
-            if (itemInInventory.equals(template))
-            {
-                if (destroyItem)
-                {
-                    destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            String itemInInventory = getTemplateName(content);
+            if (itemInInventory.equals(template)) {
+                if (destroyItem) {
+                    destroyObject(content);
                 }
                 return true;
             }

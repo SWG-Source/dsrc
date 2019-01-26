@@ -151,7 +151,7 @@ public class missions extends script.base_script
         int missionsCompleted = getPlayerDailyCount(player);
         if (missionsCompleted > DAILY_MISSION_CASH_REWARD)
         {
-            divisor += (float)missionsCompleted;
+            divisor += missionsCompleted;
         }
         return divisor;
     }

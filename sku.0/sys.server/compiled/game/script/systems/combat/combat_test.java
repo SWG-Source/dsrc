@@ -154,19 +154,16 @@ public class combat_test extends script.base_script
         int damIntType = 0;
         String damType = "unknown";
         String damageReport = "Damage Report: ";
-        for (int i = 0; i < attackEffects.length; ++i)
-        {
-            if (attackEffects[i] == null)
-            {
+        for (attrib_mod attackEffect : attackEffects) {
+            if (attackEffect == null) {
                 break;
             }
-            int attribute = attackEffects[i].getAttribute();
-            damPoints = attackEffects[i].getValue();
-            float duration = attackEffects[i].getDuration();
-            float attack = attackEffects[i].getAttack();
-            float decay = attackEffects[i].getDecay();
-            if (damPoints != 0)
-            {
+            int attribute = attackEffect.getAttribute();
+            damPoints = attackEffect.getValue();
+            float duration = attackEffect.getDuration();
+            float attack = attackEffect.getAttack();
+            float decay = attackEffect.getDecay();
+            if (damPoints != 0) {
                 int curAttributeLevel;
                 int maxAttributeLevel;
                 int newAttributeLevel;
@@ -174,8 +171,7 @@ public class combat_test extends script.base_script
                 curAttributeLevel = getAttrib(self, attribute);
                 maxAttributeLevel = getMaxAttrib(self, attribute);
                 newAttributeLevel = (curAttributeLevel - damPoints);
-                if (!damType.equals("none"))
-                {
+                if (!damType.equals("none")) {
                     String damageElement = "" + damPoints + " of " + damType + " (" + newAttributeLevel + "/" + maxAttributeLevel + "), ";
                     damageReport = join(damageReport, damageElement);
                 }

@@ -42,7 +42,7 @@ public class barn_ranchhand extends script.base_script
     {
         obj_id destContainerContainer = getContainedBy(destContainer);
         String destContainerContainerTemplate = getTemplateName(destContainerContainer);
-        if (destContainerContainerTemplate.indexOf("barn_no_planet_restriction") > -1)
+        if (destContainerContainerTemplate.contains("barn_no_planet_restriction"))
         {
             return SCRIPT_CONTINUE;
         }

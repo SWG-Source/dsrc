@@ -49,53 +49,41 @@ public class smuggler_spawn_enemy extends script.base_script
     {
         location here = getLocation(npc);
         obj_id[] objects = getObjectsInRange(here, 32);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], "quest.owner"))
-            {
-                if ((getObjIdObjVar(objects[i], "quest.owner") == playerSmuggler) && (npc != objects[i]))
-                {
-                    switch (flag)
-                    {
+        for (obj_id object : objects) {
+            if (hasObjVar(object, "quest.owner")) {
+                if ((getObjIdObjVar(object, "quest.owner") == playerSmuggler) && (npc != object)) {
+                    switch (flag) {
                         case FLAG_CLEAN_UP:
-                        messageTo(objects[i], "handleCleanUp", null, 1.0f, false);
-                        break;
-                        case FLAG_ATTACK:
-                        if (isIncapacitated(playerSmuggler))
-                        {
+                            messageTo(object, "handleCleanUp", null, 1.0f, false);
                             break;
-                        }
-                        if (!ai_lib.isInCombat(objects[i]))
-                        {
-                            if (!utils.hasScriptVar(objects[i], "fastTalked"))
-                            {
-                                startCombat(objects[i], playerSmuggler);
-                            }
-                        }
-                        else 
-                        {
-                            obj_id enemyTarget = getHateTarget(objects[i]);
-                            if (!isIdValid(enemyTarget))
-                            {
+                        case FLAG_ATTACK:
+                            if (isIncapacitated(playerSmuggler)) {
                                 break;
                             }
-                            if (enemyTarget != playerSmuggler)
-                            {
-                                if (!utils.hasScriptVar(objects[i], "fastTalked"))
-                                {
-                                    float hate = getMaxHate(objects[i]);
-                                    addHate(objects[i], playerSmuggler, (hate + 1000f));
+                            if (!ai_lib.isInCombat(object)) {
+                                if (!utils.hasScriptVar(object, "fastTalked")) {
+                                    startCombat(object, playerSmuggler);
+                                }
+                            } else {
+                                obj_id enemyTarget = getHateTarget(object);
+                                if (!isIdValid(enemyTarget)) {
+                                    break;
+                                }
+                                if (enemyTarget != playerSmuggler) {
+                                    if (!utils.hasScriptVar(object, "fastTalked")) {
+                                        float hate = getMaxHate(object);
+                                        addHate(object, playerSmuggler, (hate + 1000.0f));
+                                    }
                                 }
                             }
-                        }
-                        messageTo(objects[i], "combatLoop", null, 11.0f, false);
-                        break;
+                            messageTo(object, "combatLoop", null, 11.0f, false);
+                            break;
                         case FLAG_FOLLOW:
-                        ai_lib.aiFollow(objects[i], npc, 3f, 6f);
-                        messageTo(objects[i], "handleCleanUp", null, 9.0f, false);
-                        break;
+                            ai_lib.aiFollow(object, npc, 3.0f, 6.0f);
+                            messageTo(object, "handleCleanUp", null, 9.0f, false);
+                            break;
                         default:
-                        break;
+                            break;
                     }
                 }
             }
@@ -143,21 +131,15 @@ public class smuggler_spawn_enemy extends script.base_script
         obj_id[] objects = getObjectsInRange(here, 25);
         obj_id victimEnemy = null;
         obj_id enemyTarget = null;
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasScript(objects[i], "ai.smuggler_spawn_enemy"))
-            {
-                if (objects[i] != npc)
-                {
-                    victimEnemy = objects[i];
-                    if (ai_lib.isInCombat(objects[i]))
-                    {
-                        enemyTarget = getHateTarget(objects[i]);
-                        if (isIdValid(enemyTarget))
-                        {
-                            if (enemyTarget == playerSmuggler)
-                            {
-                                enemyPickFight(npc, objects[i], playerSmuggler);
+        for (obj_id object : objects) {
+            if (hasScript(object, "ai.smuggler_spawn_enemy")) {
+                if (object != npc) {
+                    victimEnemy = object;
+                    if (ai_lib.isInCombat(object)) {
+                        enemyTarget = getHateTarget(object);
+                        if (isIdValid(enemyTarget)) {
+                            if (enemyTarget == playerSmuggler) {
+                                enemyPickFight(npc, object, playerSmuggler);
                                 return;
                             }
                         }
@@ -308,7 +290,7 @@ public class smuggler_spawn_enemy extends script.base_script
             {
                 faceTo(self, playerSmuggler);
                 chat.chat(self, barkString);
-                ai_lib.aiFollow(self, playerSmuggler, 3f, 6f);
+                ai_lib.aiFollow(self, playerSmuggler, 3.0f, 6.0f);
             }
             if (hasObjVar(self, "quest.count"))
             {
@@ -381,7 +363,7 @@ public class smuggler_spawn_enemy extends script.base_script
                     if (enemyTarget != playerSmuggler)
                     {
                         float hate = getMaxHate(self);
-                        addHate(self, playerSmuggler, (hate + 1000f));
+                        addHate(self, playerSmuggler, (hate + 1000.0f));
                     }
                 }
                 messageTo(self, "combatLoop", null, 11.0f, false);
@@ -411,7 +393,7 @@ public class smuggler_spawn_enemy extends script.base_script
                         if (enemyTarget != playerSmuggler)
                         {
                             float hate = getMaxHate(self);
-                            addHate(self, playerSmuggler, (hate + 1000f));
+                            addHate(self, playerSmuggler, (hate + 1000.0f));
                         }
                         broadcastCondition(playerSmuggler, self, FLAG_ATTACK);
                     }
@@ -472,7 +454,7 @@ public class smuggler_spawn_enemy extends script.base_script
             if (enemyTarget != playerSmuggler)
             {
                 float hate = getMaxHate(self);
-                addHate(self, playerSmuggler, (hate + 1000f));
+                addHate(self, playerSmuggler, (hate + 1000.0f));
             }
         }
         messageTo(self, "combatLoop", null, 1.0f, false);

@@ -165,14 +165,11 @@ public class event_perk extends script.base_script
         }
         obj_id[] allContents = utils.getAllItemsInBankAndInventory(player);
         int perkCount = 0;
-        for (int i = 0; i < allContents.length; i++)
-        {
-            if (hasObjVar(allContents[i], "event_perk"))
-            {
+        for (obj_id allContent : allContents) {
+            if (hasObjVar(allContent, "event_perk")) {
                 perkCount++;
             }
-            if (perkCount >= 5)
-            {
+            if (perkCount >= 5) {
                 sendSystemMessage(player, new string_id("event_perk", "redeed_too_many_deeds"));
                 return;
             }

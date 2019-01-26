@@ -205,10 +205,9 @@ public class resource extends script.base_script
                     testMsg += target_dummy.addLineBreaks(2);
                     testMsg += target_dummy.ORANGE + "@" + SID_RESOURCE_NAME + " = " + target_dummy.YELLOW + getResourceName(resourceChosen);
                     testMsg += target_dummy.addLineBreaks(1);
-                    for (int i = 0; i < resourceAttribs.length; ++i)
-                    {
-                        string_id temp = new string_id("obj_attr_n", resourceAttribs[i].getName());
-                        testMsg += target_dummy.GREEN + "@" + temp + " = " + target_dummy.WHITE + resourceAttribs[i].getValue();
+                    for (resource_attribute resourceAttrib : resourceAttribs) {
+                        string_id temp = new string_id("obj_attr_n", resourceAttrib.getName());
+                        testMsg += target_dummy.GREEN + "@" + temp + " = " + target_dummy.WHITE + resourceAttrib.getValue();
                         testMsg += target_dummy.addLineBreaks(1);
                     }
                     int pid = sui.createSUIPage(sui.SUI_MSGBOX, self, sui.getPlayerId(params), "handleCreateChosenResourceConfirm");
@@ -320,10 +319,9 @@ public class resource extends script.base_script
             return;
         }
         attribStrings = utils.addElement(attribStrings, "@" + SID_RESOURCE_NAME + " = " + getResourceName(resource));
-        for (int i = 0; i < resourceAttribs.length; ++i)
-        {
-            string_id temp = new string_id("obj_attr_n", resourceAttribs[i].getName());
-            attribStrings = utils.addElement(attribStrings, "@" + temp + " = " + resourceAttribs[i].getValue());
+        for (resource_attribute resourceAttrib : resourceAttribs) {
+            string_id temp = new string_id("obj_attr_n", resourceAttrib.getName());
+            attribStrings = utils.addElement(attribStrings, "@" + temp + " = " + resourceAttrib.getValue());
         }
         int pid = sui.listbox(self, player, "@" + SID_CONFIRM_RESOURCE_SELECTION, sui.OK_CANCEL, "@" + SID_RESOURCE_TITLE, attribStrings, "handleChooseResourceTypeStats", false, false);
         if (pid >= 0)
@@ -381,11 +379,9 @@ public class resource extends script.base_script
         }
         String[] temp = new String[goodResources];
         goodResources = 0;
-        for (int i = 0; i < resourceClasses.length; ++i)
-        {
-            if (resourceClasses[i] != null)
-            {
-                temp[goodResources++] = resourceClasses[i];
+        for (String resourceClass : resourceClasses) {
+            if (resourceClass != null) {
+                temp[goodResources++] = resourceClass;
             }
         }
         resourceClasses = temp;
@@ -466,11 +462,9 @@ public class resource extends script.base_script
         String[] resourceClasses = null;
         String[] tempResourceClass = getImmediateResourceChildClasses(parentClass);
         Vector tempResourceClassTwo = null;
-        for (int x = 0; x < tempResourceClass.length; ++x)
-        {
-            if (!tempResourceClass[x].equals("energy") && !tempResourceClass[x].equals("space_resource"))
-            {
-                tempResourceClassTwo = utils.addElement(tempResourceClassTwo, tempResourceClass[x]);
+        for (String tempResourceClass1 : tempResourceClass) {
+            if (!tempResourceClass1.equals("energy") && !tempResourceClass1.equals("space_resource")) {
+                tempResourceClassTwo = utils.addElement(tempResourceClassTwo, tempResourceClass1);
             }
         }
         resourceClasses = new String[tempResourceClassTwo.size()];

@@ -37,7 +37,7 @@ public class cantina extends script.base_script
         location hanLoc = new location(-30.20f, -0.57f, 7.24f, "lok", room);
         obj_id han = create.staticObject("han_solo", hanLoc);
         setObjVar(self, "cantinaInhabitants.han", han);
-        setYaw(han, 45f);
+        setYaw(han, 45.0f);
         setObjVar(han, "cantina", self);
         return han;
     }
@@ -47,7 +47,7 @@ public class cantina extends script.base_script
         location chewieLoc = new location(-28.48f, -0.57f, 5.87f, "lok", room);
         obj_id chewie = create.staticObject("chewbacca", chewieLoc);
         setObjVar(self, "cantinaInhabitants.chewie", chewie);
-        setYaw(chewie, 12f);
+        setYaw(chewie, 12.0f);
         setObjVar(chewie, "cantina", self);
         return chewie;
     }
@@ -57,7 +57,7 @@ public class cantina extends script.base_script
         location npcLoc = new location(-13.19f, -0.89f, -20.28f, "lok", room);
         obj_id npc = create.object("noren_krast", npcLoc);
         ai_lib.setDefaultCalmMood(npc, "npc_sitting_chair");
-        setYaw(npc, 12f);
+        setYaw(npc, 12.0f);
         setInvulnerable(npc, true);
         setCreatureStatic(npc, true);
         setName(npc, "Vixur Webb (a musician)");
@@ -73,7 +73,7 @@ public class cantina extends script.base_script
         obj_id nien = create.staticObject("nien_nunb", nienLoc);
         setObjVar(self, "cantinaInhabitants.nien", nien);
         setAnimationMood(nien, "npc_sitting_chair");
-        setYaw(nien, 80f);
+        setYaw(nien, 80.0f);
         setObjVar(nien, "cantina", self);
         return nien;
     }
@@ -85,7 +85,7 @@ public class cantina extends script.base_script
         attachScript(gamblor, "theme_park.nym.nym_contact");
         setObjVar(self, "cantinaInhabitants.gamblor", gamblor);
         setAnimationMood(gamblor, "npc_sitting_chair");
-        setYaw(gamblor, 89f);
+        setYaw(gamblor, 89.0f);
         setObjVar(gamblor, "cantina", self);
         return gamblor;
     }
@@ -95,7 +95,7 @@ public class cantina extends script.base_script
         location engineerLoc = new location(11.63f, -0.89f, -16.56f, "lok", room);
         obj_id engineer = create.staticObject("nym_themepark_choster_cantina", engineerLoc);
         setObjVar(self, "cantinaInhabitants.engineer", engineer);
-        setYaw(engineer, -83f);
+        setYaw(engineer, -83.0f);
         setObjVar(engineer, "cantina", self);
         return engineer;
     }
@@ -105,7 +105,7 @@ public class cantina extends script.base_script
         location initiateLoc = new location(-36.21f, 0.11f, -13.93f, "lok", room);
         obj_id retired = create.staticObject("nym_themepark_sergeant_moore_cantina", initiateLoc);
         setObjVar(self, "cantinaInhabitants.retired", retired);
-        setYaw(retired, 87f);
+        setYaw(retired, 87.0f);
         setObjVar(retired, "cantina", self);
         return retired;
     }

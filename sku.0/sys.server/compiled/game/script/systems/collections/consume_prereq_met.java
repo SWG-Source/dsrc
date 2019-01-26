@@ -61,14 +61,12 @@ public class consume_prereq_met extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             boolean hasCompletedAll = true;
-            for (int i = 0; i < slotNames.length; ++i)
-            {
-                if (hasCompletedCollectionSlotPrereq(player, slotNames[i]) && !hasCompletedCollectionSlot(player, slotNames[i]))
-                {
+            for (String slotName : slotNames) {
+                if (hasCompletedCollectionSlotPrereq(player, slotName) && !hasCompletedCollectionSlot(player, slotName)) {
                     hasCompletedAll = false;
                     int pid = sui.msgbox(self, player, "@" + SID_CONSUME_PROMPT, sui.YES_NO, "@" + SID_CONSUME_TITLE, "handlerSuiAddToCollection");
                     sui.setPid(player, pid, PID_NAME);
-                    utils.setScriptVar(player, "collection.slotName", slotNames[i]);
+                    utils.setScriptVar(player, "collection.slotName", slotName);
                     return SCRIPT_CONTINUE;
                 }
             }

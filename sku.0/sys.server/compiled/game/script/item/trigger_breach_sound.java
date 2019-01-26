@@ -20,7 +20,7 @@ public class trigger_breach_sound extends script.base_script
         }
         if (!hasTriggerVolume(self, "itemBreach"))
         {
-            createTriggerVolume("itemBreach", 5.f, true);
+            createTriggerVolume("itemBreach", 5.0f, true);
         }
         return SCRIPT_CONTINUE;
     }
@@ -92,7 +92,7 @@ public class trigger_breach_sound extends script.base_script
             setObjVar(item, OBJVAR_IS_TURNED_ON, true);
             if (!hasTriggerVolume(item, "itemBreach"))
             {
-                createTriggerVolume("itemBreach", 5.f, true);
+                createTriggerVolume("itemBreach", 5.0f, true);
             }
         }
         else 

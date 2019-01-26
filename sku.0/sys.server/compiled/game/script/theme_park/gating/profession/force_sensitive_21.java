@@ -24,13 +24,9 @@ public class force_sensitive_21 extends script.base_script
             {
                 obj_id[] groupMembers = getGroupMemberIds(groupObj);
                 int numGroupMembers = groupMembers.length;
-                for (int f = 0; f < numGroupMembers; f++)
-                {
-                    obj_id groupie = groupMembers[f];
-                    if (isIdValid(groupie))
-                    {
-                        if (groundquests.isQuestActive(groupie, "prof_force_sensitive_21_1"))
-                        {
+                for (obj_id groupie : groupMembers) {
+                    if (isIdValid(groupie)) {
+                        if (groundquests.isQuestActive(groupie, "prof_force_sensitive_21_1")) {
                             return SCRIPT_CONTINUE;
                         }
                     }

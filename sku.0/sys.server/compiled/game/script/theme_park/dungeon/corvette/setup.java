@@ -62,11 +62,9 @@ public class setup extends script.base_script
         int numPlayers = players.length;
         if (numPlayers > 0)
         {
-            for (int i = 0; i < numPlayers; i++)
-            {
-                if (!hasScript(players[i], "theme_park.dungeon.corvette.timer"))
-                {
-                    attachScript(players[i], "theme_park.dungeon.corvette.timer");
+            for (obj_id player : players) {
+                if (!hasScript(player, "theme_park.dungeon.corvette.timer")) {
+                    attachScript(player, "theme_park.dungeon.corvette.timer");
                 }
             }
         }

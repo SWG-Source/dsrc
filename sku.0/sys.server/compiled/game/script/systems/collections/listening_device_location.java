@@ -9,7 +9,7 @@ public class listening_device_location extends script.base_script
     public listening_device_location()
     {
     }
-    public static final float UPDATE_RADIUS = 5f;
+    public static final float UPDATE_RADIUS = 5.0f;
     public static final string_id SID_ENTERED_GOOD_LOCATION = new string_id("collection", "entered_good_location");
     public int OnInitialize(obj_id self) throws InterruptedException
     {

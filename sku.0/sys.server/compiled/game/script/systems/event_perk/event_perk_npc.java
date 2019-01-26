@@ -101,7 +101,7 @@ public class event_perk_npc extends script.base_script
             doAnimationAction(self, "slow_down");
             return SCRIPT_CONTINUE;
         }
-        else if (templateName.indexOf("wookiee") == -1 && itemName.indexOf("wke_") > 0)
+        else if (!templateName.contains("wookiee") && itemName.indexOf("wke_") > 0)
         {
             chat._chat(self, null, chat.CHAT_SAY, chat.MOOD_STUBBORN, null, new string_id("event_perk_npc_actor", "wear_no"), null);
             doAnimationAction(self, "wave_on_dismissing");

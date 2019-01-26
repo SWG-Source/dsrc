@@ -1677,7 +1677,7 @@ public class sui extends script.base_script
             LOG("sui", "sui.setAssociateRange: pid < 0");
             return;
         }
-        if (range <= 0f)
+        if (range <= 0.0f)
         {
             LOG("sui", "sui.setAssociateRange: invalid range <= 0f");
             return;
@@ -1687,13 +1687,13 @@ public class sui extends script.base_script
     }
     public static void setAssociateRange(obj_id player, int pid, obj_id target) throws InterruptedException
     {
-        setAssociateRange(player, pid, target, 16f);
+        setAssociateRange(player, pid, target, 16.0f);
     }
     public static void setAssociateRange(obj_id player, int pid, obj_id target, String key) throws InterruptedException
     {
-        float range = 16f;
+        float range = 16.0f;
         float dta = dataTableGetFloat("datatables/sui/associate_range.iff", key, "RANGE");
-        if (dta > 0f)
+        if (dta > 0.0f)
         {
             range = dta;
         }

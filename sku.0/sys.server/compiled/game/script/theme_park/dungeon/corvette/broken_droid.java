@@ -72,11 +72,11 @@ public class broken_droid extends script.base_script
         String planet = here.area;
         obj_id ship = getTopMostContainer(self);
         obj_id room = getCellId(ship, "thrustersubroom28");
-        location trapLoc1 = new location(0, -14, -32f, planet, room);
-        location trapLoc2 = new location(0, -14, -34f, planet, room);
-        location trapLoc3 = new location(0, -14, -36f, planet, room);
-        location trapLoc4 = new location(0, -14, -38f, planet, room);
-        location trapLoc5 = new location(0, -14, -40f, planet, room);
+        location trapLoc1 = new location(0, -14, -32.0f, planet, room);
+        location trapLoc2 = new location(0, -14, -34.0f, planet, room);
+        location trapLoc3 = new location(0, -14, -36.0f, planet, room);
+        location trapLoc4 = new location(0, -14, -38.0f, planet, room);
+        location trapLoc5 = new location(0, -14, -40.0f, planet, room);
         if (!hasObjVar(self, "trap_off"))
         {
             obj_id trap1 = createObject("object/static/particle/pt_poi_electricity_2x2.iff", trapLoc1);
@@ -138,7 +138,7 @@ public class broken_droid extends script.base_script
         String planet = here.area;
         obj_id ship = getTopMostContainer(self);
         obj_id room = getCellId(ship, "thrustersubroom28");
-        location broken = new location(-3f, -14, -36.35f, planet, room);
+        location broken = new location(-3.0f, -14, -36.35f, planet, room);
         ai_lib.aiPathTo(self, broken);
         addLocationTarget("repair", broken, 1);
         return SCRIPT_CONTINUE;

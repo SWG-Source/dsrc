@@ -12,7 +12,7 @@ public class harvest_module extends script.base_script
     }
     public static final String STF = "pet/droid_modules";
     public static final String AUTO_HARVEST = "droidAutoHarvest";
-    public static final float MAX_HARVEST_DISTANCE = 256f;
+    public static final float MAX_HARVEST_DISTANCE = 256.0f;
     public static final String DATATABLE = "datatables/mob/creatures.iff";
     public static final String HARVEST_INTEREST = "droid.harvestInterest";
     public static final int INTEREST_MEAT = corpse.CCR_MEAT;
@@ -444,7 +444,7 @@ public class harvest_module extends script.base_script
         int playerSklMod = getSkillStatMod(player, "creature_harvesting");
         int sklMod = playerSklMod + droidSklMod;
         float bonusHarvest = sklMod / 100.0f;
-        float skillEfficiency = ((sklMod * 10f) + 500f) / 2000f;
+        float skillEfficiency = ((sklMod * 10.0f) + 500.0f) / 2000.0f;
         doLogging("xx", "droid skill mod: " + droidSklMod + " player skill mod: " + playerSklMod + " calculated sklMod: " + sklMod);
         if (sklMod < 1)
         {
@@ -492,7 +492,7 @@ public class harvest_module extends script.base_script
         {
             return false;
         }
-        amt = (int)(Math.pow(ai_lib.getLevel(target), 1.69) * 0.4f + 2.f);
+        amt = (int)(StrictMath.pow(ai_lib.getLevel(target), 1.69) * 0.4f + 2.0f);
         if (amt < 1)
         {
             amt = 1;
@@ -511,10 +511,8 @@ public class harvest_module extends script.base_script
         {
             boolean petsOnly = true;
             obj_id[] groupMembers = getGroupMemberIds(getGroupObject(player));
-            for (int i = 0; i < groupMembers.length; i++)
-            {
-                if (!hasScript(groupMembers[i], "ai.pet") && groupMembers[i] != player)
-                {
+            for (obj_id groupMember : groupMembers) {
+                if (!hasScript(groupMember, "ai.pet") && groupMember != player) {
                     petsOnly = false;
                 }
             }
@@ -551,17 +549,17 @@ public class harvest_module extends script.base_script
             type = resource.getResourceName(type);
             String msg = null;
             prose_package pp = null;
-            pp = prose.getPackage(SID_DROID_HARVEST_MESSAGE, null, type, null, null, null, null, null, null, null, actualAmount, 0.f);
+            pp = prose.getPackage(SID_DROID_HARVEST_MESSAGE, null, type, null, null, null, null, null, null, null, actualAmount, 0.0f);
             sendSystemMessageProse(player, pp);
         }
-        messageTo(target, corpse.HANDLER_CORPSE_EMPTY, null, 1f, isObjectPersisted(target));
+        messageTo(target, corpse.HANDLER_CORPSE_EMPTY, null, 1.0f, isObjectPersisted(target));
         return true;
     }
     public int calculateDroidBonus(int droidSkillMod) throws InterruptedException
     {
         double remainder = 0;
         double bonusSkill = 0.0f;
-        double mod = (double)droidSkillMod;
+        double mod = droidSkillMod;
         double tier1 = 33;
         double tier2 = 47;
         double tier3 = 50;

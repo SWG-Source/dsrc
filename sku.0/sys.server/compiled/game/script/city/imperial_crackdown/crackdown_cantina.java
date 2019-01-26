@@ -92,13 +92,13 @@ public class crackdown_cantina extends script.base_script
         {
             if ((city.equals("bestine")) || (city.equals("bela_vistal")) || (city.equals("deeja_peak")))
             {
-                imp_r = 1.f;
-                reb_r = 0.f;
+                imp_r = 1.0f;
+                reb_r = 0.0f;
             }
             else if ((city.equals("anchorhead")) || (city.equals("vreni_island")) || (city.equals("moenia")))
             {
-                imp_r = 0.f;
-                reb_r = 1.f;
+                imp_r = 0.0f;
+                reb_r = 1.0f;
             }
         }
         String troublemaker;
@@ -113,7 +113,7 @@ public class crackdown_cantina extends script.base_script
             troublemaker = "crackdown_rebel_command_security_guard";
             faction = "rebel";
         }
-        obj_id trooper = create.object(troublemaker, new location(48.13f, .1f, 2.47f, planet, foyer));
+        obj_id trooper = create.object(troublemaker, new location(48.13f, 0.1f, 2.47f, planet, foyer));
         setObjVar(trooper, "string_faction", faction);
         string_id call = new string_id(CONVO, "call_in_" + faction);
         chat.chat(trooper, call);
@@ -126,7 +126,7 @@ public class crackdown_cantina extends script.base_script
     {
         obj_id foyer = getCellId(self, "foyer1");
         obj_id cantina = getCellId(self, "cantina");
-        location impLoc = new location(48.13f, .1f, 2.47f, "naboo", foyer);
+        location impLoc = new location(48.13f, 0.1f, 2.47f, "naboo", foyer);
         location fight = new location(22.37f, -0.89f, 0.98f, "naboo", cantina);
         obj_id trooper = create.object("crackdown_stormtrooper", impLoc);
         string_id call = new string_id(CONVO, "call_in");
@@ -155,7 +155,7 @@ public class crackdown_cantina extends script.base_script
         }
         String planet = where.area;
         location[] impLocs = new location[3];
-        impLocs[0] = new location(48.13f, .1f, 2.47f, planet, getCellId(self, "foyer1"));
+        impLocs[0] = new location(48.13f, 0.1f, 2.47f, planet, getCellId(self, "foyer1"));
         impLocs[1] = new location(-14.38f, 0, 14.29f, planet, getCellId(self, "cantina"));
         impLocs[2] = new location(-17.8f, 0, -11.53f, planet, getCellId(self, "back_hallway"));
 

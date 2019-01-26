@@ -244,7 +244,7 @@ public class group_member extends script.base_script
         }
         if (target != self)
         {
-            messageTo(target, group.HANDLER_SPLIT_SUCCESS, params, 0f, false);
+            messageTo(target, group.HANDLER_SPLIT_SUCCESS, params, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         sendSystemMessage(self, SID_GROUP_CREDIT_SPLIT_FAILED);

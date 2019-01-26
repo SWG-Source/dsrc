@@ -96,20 +96,14 @@ public class launch extends script.theme_park.poi.base
         {
             launchPoi(self);
         }
-        for (int i = 0; i < otherObjects.length; i++)
-        {
-            if (otherObjects[i] != self)
-            {
-                if (hasScript(self, "systems.spawning.spawn_template"))
-                {
+        for (obj_id otherObject : otherObjects) {
+            if (otherObject != self) {
+                if (hasScript(self, "systems.spawning.spawn_template")) {
                     destroyObject(self);
                     return SCRIPT_CONTINUE;
-                }
-                else 
-                {
-                    if (hasScript(otherObjects[i], "systems.spawning.spawn_template"))
-                    {
-                        destroyObject(otherObjects[i]);
+                } else {
+                    if (hasScript(otherObject, "systems.spawning.spawn_template")) {
+                        destroyObject(otherObject);
                     }
                 }
             }

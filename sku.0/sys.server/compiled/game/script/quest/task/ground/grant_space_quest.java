@@ -87,26 +87,17 @@ public class grant_space_quest extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                     String spaceQuestIdentifierVariableName = baseObjVar + spaceQuestIdentifier;
-                    if (hasObjVar(self, spaceQuestIdentifierVariableName))
-                    {
+                    if (hasObjVar(self, spaceQuestIdentifierVariableName)) {
                         String spaceQuest = getStringObjVar(self, spaceQuestIdentifierVariableName);
-                        if (spaceQuest.equals(spaceQuestName))
-                        {
-                            if (spaceQuestValue == winner)
-                            {
+                        if (spaceQuest.equals(spaceQuestName)) {
+                            if (spaceQuestValue == winner) {
                                 questCompleteTask(questCrc, taskId, self);
-                            }
-                            else if (spaceQuestValue == failure)
-                            {
+                            } else if (spaceQuestValue == failure) {
                                 questFailTask(questCrc, taskId, self);
-                            }
-                            else if (spaceQuestValue == split)
-                            {
+                            } else if (spaceQuestValue == split) {
                                 setObjVar(self, spaceQuestIdentifierVariableName, splitQuestName);
                             }
                             groundquests.questOutputDebugLog(taskType, "grantSpaceQuest", "start");

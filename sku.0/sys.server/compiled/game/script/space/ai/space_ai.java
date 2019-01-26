@@ -80,7 +80,7 @@ public class space_ai extends script.base_script
             else if (hasObjVar(self, "objAttackTarget"))
             {
                 obj_id objAttackTarget = getObjIdObjVar(self, "objAttackTarget");
-                ship_ai.unitAddDamageTaken(self, objAttackTarget, 100f);
+                ship_ai.unitAddDamageTaken(self, objAttackTarget, 100.0f);
             }
             else 
             {
@@ -94,20 +94,17 @@ public class space_ai extends script.base_script
             if (hasObjVar(self, "objAttackTarget"))
             {
                 obj_id objAttackTarget = getObjIdObjVar(self, "objAttackTarget");
-                for (int intI = 0; intI < objMembers.length; intI++)
-                {
-                    ship_ai.unitAddDamageTaken(objMembers[intI], objAttackTarget, 100f);
+                for (obj_id objMember : objMembers) {
+                    ship_ai.unitAddDamageTaken(objMember, objAttackTarget, 100.0f);
                 }
             }
             else 
             {
-                for (int intI = 0; intI < objMembers.length; intI++)
-                {
-                    if (objMembers[intI] != self)
-                    {
-                        setObjVar(objMembers[intI], "intCleaningUp", 1);
-                        setObjVar(objMembers[intI], "intHyperspacing", 1);
-                        destroyObjectHyperspace(objMembers[intI]);
+                for (obj_id objMember : objMembers) {
+                    if (objMember != self) {
+                        setObjVar(objMember, "intCleaningUp", 1);
+                        setObjVar(objMember, "intHyperspacing", 1);
+                        destroyObjectHyperspace(objMember);
                     }
                 }
                 setObjVar(self, "intHyperspacing", 1);

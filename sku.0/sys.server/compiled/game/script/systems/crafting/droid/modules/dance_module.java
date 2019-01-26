@@ -35,21 +35,16 @@ public class dance_module extends script.base_script
                 Vector resizAbleDroidIds = new Vector(Arrays.asList(droidIds));
                 Vector droidNames = new Vector();
                 droidNames.setSize(0);
-                for (int i = 0; i < droidIds.length; ++i)
-                {
-                    if (hasObjVar(droidIds[i], "module_data.dancing_droid"))
-                    {
-                        utils.removeElement(resizAbleDroidIds, droidIds[i]);
+                for (obj_id droidId : droidIds) {
+                    if (hasObjVar(droidId, "module_data.dancing_droid")) {
+                        utils.removeElement(resizAbleDroidIds, droidId);
                         continue;
                     }
-                    String droidName = getName(droidIds[i]);
+                    String droidName = getName(droidId);
                     String[] splitName = split(droidName, '/');
-                    if (splitName.length > 1)
-                    {
+                    if (splitName.length > 1) {
                         utils.addElement(droidNames, "@" + droidName);
-                    }
-                    else 
-                    {
+                    } else {
                         utils.addElement(droidNames, droidName);
                     }
                 }

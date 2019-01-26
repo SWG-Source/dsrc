@@ -10,7 +10,7 @@ public class filler extends script.base_script
     {
     }
     public static final String SCRIPT_ME = "structure.filler.filler";
-    public static final float DELAY_TIME = 5f;
+    public static final float DELAY_TIME = 5.0f;
     public static final String HANDLER_INIT_FILLER_SPAWN = "handleInitFillerSpawn";
     public static final String HANDLER_CLEANUP_FILLER_SPAWN = "handleCleanupFillerSpawn";
     public int OnInitialize(obj_id self) throws InterruptedException

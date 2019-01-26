@@ -249,10 +249,8 @@ public class qaitem extends script.base_script
                 {
                     boolean filterSelectionFurther = false;
                     String selection = "/" + previousSelection + "/";
-                    for (int i = 0; i < LENGTHY_CATEGORY_LIST.length; i++)
-                    {
-                        if (previousSelection.equals(LENGTHY_CATEGORY_LIST[i]))
-                        {
+                    for (String s : LENGTHY_CATEGORY_LIST) {
+                        if (previousSelection.equals(s)) {
                             filterSelectionFurther = true;
                             break;
                         }
@@ -515,11 +513,9 @@ public class qaitem extends script.base_script
         }
         String[] allRoadmapItems = new String[foundRows.size()];
         foundRows.toArray(allRoadmapItems);
-        for (int a = 0; a < allRoadmapItems.length; a++)
-        {
-            if (!allRoadmapItems[a].equals(""))
-            {
-                qa.spawnStaticItemInInventory(self, allRoadmapItems[a], "none");
+        for (String allRoadmapItem : allRoadmapItems) {
+            if (!allRoadmapItem.equals("")) {
+                qa.spawnStaticItemInInventory(self, allRoadmapItem, "none");
             }
         }
     }
@@ -527,9 +523,8 @@ public class qaitem extends script.base_script
     {
         HashSet professionNames = new HashSet();
         String[] datatableProfessionNames = dataTableGetStringColumn(ITEM_REWARD_TABLE, "roadmapTemplateName");
-        for (int i = 0; i < datatableProfessionNames.length; i++)
-        {
-            professionNames.add(datatableProfessionNames[i]);
+        for (String datatableProfessionName : datatableProfessionNames) {
+            professionNames.add(datatableProfessionName);
         }
         String[] oneOfEachProfession = new String[professionNames.size()];
         professionNames.toArray(oneOfEachProfession);
@@ -593,9 +588,8 @@ public class qaitem extends script.base_script
     {
         Vector codeStrings = new Vector();
         Vector comboStrings = new Vector();
-        for (int a = 0; a < allRows.length; a++)
-        {
-            codeStrings.add(allRows[a].getString("name"));
+        for (dictionary allRow : allRows) {
+            codeStrings.add(allRow.getString("name"));
         }
         String[] allCodeStrings = new String[codeStrings.size()];
         codeStrings.toArray(allCodeStrings);
@@ -626,7 +620,7 @@ public class qaitem extends script.base_script
         for (int i = 0; i < allRows.length; i++)
         {
             armorCodeString = allRows[i].getString("name");
-            if (armorCodeString.indexOf(speciesSearch) > -1)
+            if (armorCodeString.contains(speciesSearch))
             {
                 armorCodeString = allRows[i].getString("loops");
                 foundRows.add("" + i);
@@ -648,7 +642,7 @@ public class qaitem extends script.base_script
         for (int i = 0; i < allRows.length; i++)
         {
             armorCodeString = allRows[i].getString("name");
-            if (armorCodeString.indexOf(armorType) > -1)
+            if (armorCodeString.contains(armorType))
             {
                 foundRows.add("" + i);
             }
@@ -752,11 +746,9 @@ public class qaitem extends script.base_script
         int tempTier = 0;
         if (listOfItems.length > -1)
         {
-            for (int i = 0; i < listOfItems.length; i++)
-            {
-                if (listOfItems[i].getInt("tier") > getHighest)
-                {
-                    getHighest = listOfItems[i].getInt("tier");
+            for (dictionary listOfItem : listOfItems) {
+                if (listOfItem.getInt("tier") > getHighest) {
+                    getHighest = listOfItem.getInt("tier");
                 }
             }
         }
@@ -784,27 +776,21 @@ public class qaitem extends script.base_script
         HashSet allCategories = new HashSet();
         String[] entireTemplateColumn = dataTableGetStringColumn(STATIC_LOOT_TABLE, "template_name");
         utils.setScriptVar(self, SCRIPTVAR + ".template_name", entireTemplateColumn);
-        for (int i = 0; i < entireTemplateColumn.length; i++)
-        {
+        for (String s : entireTemplateColumn) {
             String armorSearch = "object/tangible/wearables/armor/";
             String tangibleSearch = "object/tangible/";
             String objectString = "object/";
-            int stringLength = entireTemplateColumn[i].length();
-            if (entireTemplateColumn[i].indexOf(armorSearch) == 0)
-            {
+            int stringLength = s.length();
+            if (s.indexOf(armorSearch) == 0) {
                 allCategories.add("armor");
-            }
-            else if (entireTemplateColumn[i].indexOf(tangibleSearch) == 0)
-            {
+            } else if (s.indexOf(tangibleSearch) == 0) {
                 int tangibleSearchLength = tangibleSearch.length();
-                String preParsedCategory = entireTemplateColumn[i].substring(tangibleSearchLength, stringLength);
+                String preParsedCategory = s.substring(tangibleSearchLength, stringLength);
                 int nextSlash = preParsedCategory.indexOf("/");
                 allCategories.add(preParsedCategory.substring(0, nextSlash));
-            }
-            else 
-            {
+            } else {
                 int objectStringLength = objectString.length();
-                String preParsedCategory = entireTemplateColumn[i].substring(objectStringLength, stringLength);
+                String preParsedCategory = s.substring(objectStringLength, stringLength);
                 int nextSlash = preParsedCategory.indexOf("/");
                 allCategories.add(preParsedCategory.substring(0, nextSlash));
             }
@@ -828,7 +814,7 @@ public class qaitem extends script.base_script
         {
             for (int i = 0; i < arrayOfTemplates.length; i++)
             {
-                if (arrayOfTemplates[i].indexOf(searchString) > -1)
+                if (arrayOfTemplates[i].contains(searchString))
                 {
                     staticNameList.add(localize(new string_id("static_item_n", entireStaticNameColumn[i])) + "  { " + entireStaticNameColumn[i] + " }");
                 }
@@ -858,17 +844,14 @@ public class qaitem extends script.base_script
         String[] arrayOfTemplates = utils.getStringArrayScriptVar(self, SCRIPTVAR + ".template_name");
         if (arrayOfTemplates.length > 0)
         {
-            for (int i = 0; i < arrayOfTemplates.length; i++)
-            {
-                int indexNumber = arrayOfTemplates[i].indexOf(searchString);
-                if (indexNumber > -1)
-                {
-                    int stringLength = arrayOfTemplates[i].length();
+            for (String arrayOfTemplate : arrayOfTemplates) {
+                int indexNumber = arrayOfTemplate.indexOf(searchString);
+                if (indexNumber > -1) {
+                    int stringLength = arrayOfTemplate.length();
                     int subStringStart = indexNumber + searchStringLength;
-                    String preParsedCategory = arrayOfTemplates[i].substring(subStringStart, stringLength);
+                    String preParsedCategory = arrayOfTemplate.substring(subStringStart, stringLength);
                     int newCategoryEnd = preParsedCategory.indexOf("/");
-                    if (newCategoryEnd > -1)
-                    {
+                    if (newCategoryEnd > -1) {
                         String newCategory = preParsedCategory.substring(0, newCategoryEnd);
                         templatesFound.add(newCategory);
                     }
@@ -948,9 +931,8 @@ public class qaitem extends script.base_script
             }
         }
         HashSet armorSets = new HashSet();
-        for (int a = 0; a < idxName.length; a++)
-        {
-            armorSets.add(idxName[a]);
+        for (String s : idxName) {
+            armorSets.add(s);
         }
         String[] displayArray = new String[armorSets.size()];
         armorSets.toArray(displayArray);
@@ -964,11 +946,9 @@ public class qaitem extends script.base_script
         String spawnString = armorChoice + "_" + idxString;
         obj_id inventory = utils.getInventoryContainer(player);
         qa.findOrCreateAndEquipQABag(player, inventory, true);
-        for (int i = 0; i < ArmorNameArray.length; i++)
-        {
-            if (ArmorNameArray[i].startsWith(spawnString))
-            {
-                qa.spawnStaticItemInInventory(player, ArmorNameArray[i], "Your selection");
+        for (String s : ArmorNameArray) {
+            if (s.startsWith(spawnString)) {
+                qa.spawnStaticItemInInventory(player, s, "Your selection");
             }
         }
         qa.removePlayer(player, SCRIPTVAR, "");

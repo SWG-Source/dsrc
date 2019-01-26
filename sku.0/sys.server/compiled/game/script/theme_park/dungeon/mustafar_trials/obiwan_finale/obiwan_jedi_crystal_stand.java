@@ -10,7 +10,7 @@ public class obiwan_jedi_crystal_stand extends script.base_script
     {
     }
     public static final String TRIGGER_VOLUME_CRYSTAL_STAND = "obiwan_crystal_stand_volume";
-    public static final float OBI_INTEREST_RADIUS = 8f;
+    public static final float OBI_INTEREST_RADIUS = 8.0f;
     public static final boolean CONST_FLAG_DO_LOGGING = false;
     public int OnAttach(obj_id self) throws InterruptedException
     {
@@ -70,12 +70,10 @@ public class obiwan_jedi_crystal_stand extends script.base_script
             {
                 obj_id[] denizens = getTriggerVolumeContents(self, TRIGGER_VOLUME_CRYSTAL_STAND);
                 debugLogging("//***// crystalStandObjectTriggerVolumeInitializer: ", "////>>>> got trigger volume contents. There are: " + denizens.length + " things in the trigger volume");
-                for (int i = 0; i < denizens.length; i++)
-                {
-                    if (isPlayer(denizens[i]) && !isIncapacitated(denizens[i]))
-                    {
+                for (obj_id denizen : denizens) {
+                    if (isPlayer(denizen) && !isIncapacitated(denizen)) {
                         debugLogging("//***// crystalStandObjectTriggerVolumeInitializer: ", "////>>>> Found a player who also isn't incapped. Going to spawn Obi.");
-                        spawnObi(denizens[i], dungeon, self);
+                        spawnObi(denizen, dungeon, self);
                         return;
                     }
                 }

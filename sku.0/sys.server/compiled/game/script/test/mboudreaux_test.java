@@ -64,8 +64,8 @@ public class mboudreaux_test extends script.base.remote_object_requester
                                 localDict.put("cachedCanSee", cache);
                             }
                             long endTimeLocalCache = queryPerformanceCounter();
-                            totalCanSee += (float)(endTimeCanSee - startTimeCanSee) / (float)frequency;
-                            totalCached += (float)(endTimeLocalCache - startTimeLocalCache) / (float)frequency;
+                            totalCanSee += (float)(endTimeCanSee - startTimeCanSee) / frequency;
+                            totalCached += (float)(endTimeLocalCache - startTimeLocalCache) / frequency;
                         }
                         debugConsoleMsg(self, "Average Times for " + rounds + " of " + iterations + " iterations each were: canSee (" + totalCanSee + "), Java Cache (" + totalCached + ")");
                     }
@@ -520,9 +520,8 @@ public class mboudreaux_test extends script.base.remote_object_requester
                     obj_id[] items = getUserAccessList(getIntendedTarget(self));
                     if (items != null && items.length > 0)
                     {
-                        for (int i = 0; i < items.length; ++i)
-                        {
-                            debugConsoleMsg(self, "User: " + items[i]);
+                        for (obj_id item : items) {
+                            debugConsoleMsg(self, "User: " + item);
                         }
                     }
                 }
@@ -531,9 +530,8 @@ public class mboudreaux_test extends script.base.remote_object_requester
                     int[] items = getGuildAccessList(getIntendedTarget(self));
                     if (items != null && items.length > 0)
                     {
-                        for (int i = 0; i < items.length; ++i)
-                        {
-                            debugConsoleMsg(self, "Guild: " + items[i]);
+                        for (int item : items) {
+                            debugConsoleMsg(self, "Guild: " + item);
                         }
                     }
                 }
@@ -542,9 +540,8 @@ public class mboudreaux_test extends script.base.remote_object_requester
                     obj_id[] items = getObjectsInRange(self, 64.0f);
                     if (items != null && items.length > 0)
                     {
-                        for (int i = 0; i < items.length; ++i)
-                        {
-                            debugConsoleMsg(self, "Object in range: " + items[i]);
+                        for (obj_id item : items) {
+                            debugConsoleMsg(self, "Object in range: " + item);
                         }
                     }
                 }
@@ -553,9 +550,8 @@ public class mboudreaux_test extends script.base.remote_object_requester
                     obj_id[] items = getCreaturesInRange(self, 64.0f);
                     if (items != null && items.length > 0)
                     {
-                        for (int i = 0; i < items.length; ++i)
-                        {
-                            debugConsoleMsg(self, "Creature Object in range: " + items[i]);
+                        for (obj_id item : items) {
+                            debugConsoleMsg(self, "Creature Object in range: " + item);
                         }
                     }
                 }
@@ -583,12 +579,9 @@ public class mboudreaux_test extends script.base.remote_object_requester
                     region[] regionsHere = getRegionsAtPoint(getLocation(self));
                     if (regionsHere != null && regionsHere.length > 0)
                     {
-                        for (int i = 0; i < regionsHere.length; i++)
-                        {
-                            region currentRegion = regionsHere[i];
+                        for (region currentRegion : regionsHere) {
                             String regionName = currentRegion.getName();
-                            if (regionName.equals("mboudreaux2"))
-                            {
+                            if (regionName.equals("mboudreaux2")) {
                                 debugConsoleMsg(self, "Found region, removing it");
                                 deleteRegion(currentRegion);
                             }

@@ -271,9 +271,8 @@ public class guard_spawner extends script.base_script
         if (hasObjVar(self, "myCreations"))
         {
             Vector theList = getResizeableObjIdArrayObjVar(self, "myCreations");
-            for (int i = 0; i < theList.size(); ++i)
-            {
-                destroyObject(((obj_id)theList.get(i)));
+            for (Object o : theList) {
+                destroyObject(((obj_id) o));
             }
             removeObjVar(self, "myCreations");
         }
@@ -317,7 +316,7 @@ public class guard_spawner extends script.base_script
             if (imp_r >= reb_r)
             {
                 float delta = imp_r - reb_r;
-                if (delta > 2.f)
+                if (delta > 2.0f)
                 {
                     test_city = test_city + "_imperial_hard";
                 }
@@ -329,7 +328,7 @@ public class guard_spawner extends script.base_script
             else 
             {
                 float delta = reb_r - imp_r;
-                if (delta > 2.f)
+                if (delta > 2.0f)
                 {
                     test_city = test_city + "_rebel_hard";
                 }

@@ -130,7 +130,7 @@ public class debugger extends script.base_script
                 }
                 else 
                 {
-                    factions.setFactionStanding(target, factionName, (float)value);
+                    factions.setFactionStanding(target, factionName, value);
                     sendSystemMessageTestingOnly(self, "[DEBUGGER] attempting to setfaction: faction = " + factionName + " val = " + value);
                 }
             }
@@ -192,7 +192,7 @@ public class debugger extends script.base_script
                         fxs[i] = fx_opt[rand(1, fx_opt.length - 1)];
                         if (i == 0)
                         {
-                            delays[i] = 10f;
+                            delays[i] = 10.0f;
                         }
                         else 
                         {
@@ -288,7 +288,7 @@ public class debugger extends script.base_script
             if (tpf != null && tpf.length > 0)
             {
                 location there = getLocation(self);
-                there.x = there.x - 60f;
+                there.x = there.x - 60.0f;
                 dictionary d = new dictionary();
                 d.put("template", tpf);
                 d.put("loc", there);
@@ -1076,9 +1076,8 @@ public class debugger extends script.base_script
                 }
                 else 
                 {
-                    for (int i = 0; i < items.length; i++)
-                    {
-                        destroyObject(items[i]);
+                    for (obj_id item : items) {
+                        destroyObject(item);
                     }
                 }
                 foundTrigger = true;
@@ -1377,9 +1376,8 @@ public class debugger extends script.base_script
             }
             else 
             {
-                for (int i = 0; i < skill_names.length; i++)
-                {
-                    revokeSkill(target, skill_names[i]);
+                for (String skill_name : skill_names) {
+                    revokeSkill(target, skill_name);
                 }
             }
             foundTrigger = true;
@@ -1397,9 +1395,8 @@ public class debugger extends script.base_script
             {
                 debugConsoleMsg(self, "SKILLS REQUIRED FOR: " + skill_name);
                 debugConsoleMsg(self, "****************************************");
-                for (int i = 0; i < skills.length; i++)
-                {
-                    debugConsoleMsg(self, " * " + skills[i]);
+                for (String s : skills) {
+                    debugConsoleMsg(self, " * " + s);
                 }
             }
             sendSystemMessageTestingOnly(self, "Check console for output...");
@@ -1462,7 +1459,7 @@ public class debugger extends script.base_script
                 dictionary d = new dictionary();
                 d.put("skills", skillList);
                 d.put("idx", 0);
-                messageTo(self, "handleGrantAllSkills", d, 3f, false);
+                messageTo(self, "handleGrantAllSkills", d, 3.0f, false);
             }
             foundTrigger = true;
         }
@@ -1555,21 +1552,19 @@ public class debugger extends script.base_script
             {
                 int behavior = -1;
                 String sBehavior = st.nextToken();
-                if (sBehavior.equals("sentinel"))
-                {
-                    behavior = ai_lib.BEHAVIOR_SENTINEL;
-                }
-                else if (sBehavior.equals("wander"))
-                {
-                    behavior = ai_lib.BEHAVIOR_WANDER;
-                }
-                else if (sBehavior.equals("loiter"))
-                {
-                    behavior = ai_lib.BEHAVIOR_LOITER;
-                }
-                else 
-                {
-                    behavior = utils.stringToInt(sBehavior);
+                switch (sBehavior) {
+                    case "sentinel":
+                        behavior = ai_lib.BEHAVIOR_SENTINEL;
+                        break;
+                    case "wander":
+                        behavior = ai_lib.BEHAVIOR_WANDER;
+                        break;
+                    case "loiter":
+                        behavior = ai_lib.BEHAVIOR_LOITER;
+                        break;
+                    default:
+                        behavior = utils.stringToInt(sBehavior);
+                        break;
                 }
                 if (behavior > -1)
                 {
@@ -1688,29 +1683,24 @@ public class debugger extends script.base_script
                 }
                 if (isMob(target))
                 {
-                    if (param.equals("self"))
-                    {
-                        queueCommand(target, (1780871594), target, social, COMMAND_PRIORITY_DEFAULT);
-                    }
-                    else if (param.equals("me"))
-                    {
-                        queueCommand(target, (1780871594), self, social, COMMAND_PRIORITY_DEFAULT);
-                    }
-                    else if (param.equals("other"))
-                    {
-                        obj_id tId = getObjIdObjVar(self, DEBUG_EMOTE_TARGET);
-                        if ((tId != null) && (tId != obj_id.NULL_ID) && (exists(tId)) && (isInWorld(tId)) && (tId.isLoaded()))
-                        {
-                            queueCommand(target, (1780871594), tId, social, COMMAND_PRIORITY_DEFAULT);
-                        }
-                        else 
-                        {
-                            sendSystemMessageTestingOnly(self, "invalid DEBUG_EMOTE_TARGET! set it using 'emote target <oid>'");
-                        }
-                    }
-                    else 
-                    {
-                        queueCommand(target, (1780871594), null, social, COMMAND_PRIORITY_DEFAULT);
+                    switch (param) {
+                        case "self":
+                            queueCommand(target, (1780871594), target, social, COMMAND_PRIORITY_DEFAULT);
+                            break;
+                        case "me":
+                            queueCommand(target, (1780871594), self, social, COMMAND_PRIORITY_DEFAULT);
+                            break;
+                        case "other":
+                            obj_id tId = getObjIdObjVar(self, DEBUG_EMOTE_TARGET);
+                            if ((tId != null) && (tId != obj_id.NULL_ID) && (exists(tId)) && (isInWorld(tId)) && (tId.isLoaded())) {
+                                queueCommand(target, (1780871594), tId, social, COMMAND_PRIORITY_DEFAULT);
+                            } else {
+                                sendSystemMessageTestingOnly(self, "invalid DEBUG_EMOTE_TARGET! set it using 'emote target <oid>'");
+                            }
+                            break;
+                        default:
+                            queueCommand(target, (1780871594), null, social, COMMAND_PRIORITY_DEFAULT);
+                            break;
                     }
                 }
                 else 
@@ -1829,7 +1819,7 @@ public class debugger extends script.base_script
                 else 
                 {
                     location there = getLocation(other);
-                    float dist = 0f;
+                    float dist = 0.0f;
                     switch (cnt)
                     {
                         case 1:
@@ -1913,14 +1903,10 @@ public class debugger extends script.base_script
     public void hueClothes(obj_id newClothes, int col) throws InterruptedException
     {
         custom_var[] allVars = getAllCustomVars(newClothes);
-        for (int i = 0; i < allVars.length; i++)
-        {
-            custom_var cv = allVars[i];
-            ranged_int_custom_var ri = (ranged_int_custom_var)cv;
-            if (cv != null)
-            {
-                if (cv.isPalColor())
-                {
+        for (custom_var cv : allVars) {
+            ranged_int_custom_var ri = (ranged_int_custom_var) cv;
+            if (cv != null) {
+                if (cv.isPalColor()) {
                     ri.setValue(col);
                 }
             }
@@ -1953,12 +1939,12 @@ public class debugger extends script.base_script
             params.put("template", tpf);
             if (cnt / 5 > 0)
             {
-                there.x = there.x + 300f;
-                there.z = there.z + 60f;
+                there.x = there.x + 300.0f;
+                there.z = there.z + 60.0f;
             }
             else 
             {
-                there.x = there.x - 60f;
+                there.x = there.x - 60.0f;
                 params.put("loc", there);
             }
             cnt++;
@@ -1989,7 +1975,7 @@ public class debugger extends script.base_script
             }
         }
         params.put("idx", idx + 5);
-        messageTo(self, "handleGrantAllSkills", params, 3f, false);
+        messageTo(self, "handleGrantAllSkills", params, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
 }

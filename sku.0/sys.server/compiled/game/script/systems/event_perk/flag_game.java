@@ -72,14 +72,11 @@ public class flag_game extends script.base_script
         obj_id player = params.getObjId("player");
         obj_id[] allContents = utils.getAllItemsInBankAndInventory(player);
         int perkCount = 0;
-        for (int i = 0; i < allContents.length; i++)
-        {
-            if (hasObjVar(allContents[i], "event_perk"))
-            {
+        for (obj_id allContent : allContents) {
+            if (hasObjVar(allContent, "event_perk")) {
                 perkCount++;
             }
-            if (perkCount >= 5)
-            {
+            if (perkCount >= 5) {
                 sendSystemMessage(player, new string_id("event_perk", "redeed_too_many_deeds"));
                 return SCRIPT_CONTINUE;
             }
@@ -273,9 +270,8 @@ public class flag_game extends script.base_script
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, 256.0f);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                sendSystemMessage(objPlayers[i], new string_id("event_perk", messageId));
+            for (obj_id objPlayer : objPlayers) {
+                sendSystemMessage(objPlayer, new string_id("event_perk", messageId));
             }
         }
     }
@@ -284,17 +280,14 @@ public class flag_game extends script.base_script
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, 256.0f);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                int playerFactionId = pvpGetAlignedFaction(objPlayers[i]);
+            for (obj_id objPlayer : objPlayers) {
+                int playerFactionId = pvpGetAlignedFaction(objPlayer);
                 String playerFaction = factions.getFactionNameByHashCode(playerFactionId);
-                if (playerFaction.equals("Rebel") && faction.equals("Rebel"))
-                {
-                    playClientEffectObj(objPlayers[i], "clienteffect/holoemote_rebel.cef", objPlayers[i], "head");
+                if (playerFaction.equals("Rebel") && faction.equals("Rebel")) {
+                    playClientEffectObj(objPlayer, "clienteffect/holoemote_rebel.cef", objPlayer, "head");
                 }
-                if (playerFaction.equals("Imperial") && faction.equals("Imperial"))
-                {
-                    playClientEffectObj(objPlayers[i], "clienteffect/holoemote_imperial.cef", objPlayers[i], "head");
+                if (playerFaction.equals("Imperial") && faction.equals("Imperial")) {
+                    playClientEffectObj(objPlayer, "clienteffect/holoemote_imperial.cef", objPlayer, "head");
                 }
             }
         }

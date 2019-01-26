@@ -34,7 +34,7 @@ public class avatar_opening_chat extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        messageTo(self, "handleStartChatting", null, 3f, false);
+        messageTo(self, "handleStartChatting", null, 3.0f, false);
         setObjVar(structure, "avatar_platform.trando_chat", 1);
         return SCRIPT_CONTINUE;
     }
@@ -43,7 +43,7 @@ public class avatar_opening_chat extends script.base_script
         obj_id structure = getTopMostContainer(self);
         obj_id trando1 = getObjIdObjVar(structure, "avatar_platform.trando1");
         chat.chat(trando1, OPENING);
-        messageTo(self, "handleResponse", null, 5f, false);
+        messageTo(self, "handleResponse", null, 5.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleResponse(obj_id self, dictionary params) throws InterruptedException
@@ -59,10 +59,8 @@ public class avatar_opening_chat extends script.base_script
         obj_id[] items = getContents(self);
         if (items != null && items.length > 0)
         {
-            for (int i = 0; i < items.length; i++)
-            {
-                if (isPlayer(items[i]))
-                {
+            for (obj_id item : items) {
+                if (isPlayer(item)) {
                     startExplosionSequence(player, self);
                     setObjVar(structure, "avatar_platform.explosion_sequence", 1);
                     return;
@@ -88,63 +86,63 @@ public class avatar_opening_chat extends script.base_script
         {
             location explosionPnt = new location(33.9f, 0.0f, 6.7f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         if (explosion == 2)
         {
             location explosionPnt = new location(48.5f, 0.0f, 8.8f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         if (explosion == 3)
         {
             location explosionPnt = new location(62.5f, 0.0f, 8.5f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         if (explosion == 4)
         {
             location explosionPnt = new location(77.5f, 0.0f, 7.2f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         if (explosion == 5)
         {
             location explosionPnt = new location(76.7f, 0.0f, 37.1f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         if (explosion == 6)
         {
             location explosionPnt = new location(61.6f, 0.0f, 35.6f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         if (explosion == 7)
         {
             location explosionPnt = new location(35.9f, 0.0f, 37.1f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         if (explosion == 8)
         {
             location explosionPnt = new location(27.4f, 0.0f, 21.6f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         if (explosion == 9)
         {
             location explosionPnt = new location(57.5f, 0.0f, 22.5f, planet, hangar);
             playClientEffectLoc(player, "clienteffect/avatar_room_explosion.cef", explosionPnt, 0.0f);
-            messageTo(self, "handleMoreExplosions", info, 3f, false);
+            messageTo(self, "handleMoreExplosions", info, 3.0f, false);
             return;
         }
         return;

@@ -55,13 +55,9 @@ public class corvette_yondalla_neutral_rescue extends script.base_script
         obj_id[] spaceTickets = utils.getAllItemsPlayerHasByTemplateInBankAndInventory(player, ticketTemplate);
         if (spaceTickets != null && spaceTickets.length > 0)
         {
-            for (int i = 0; i < spaceTickets.length; i++)
-            {
-                obj_id ticket = spaceTickets[i];
-                if (isIdValid(ticket))
-                {
-                    if ((getStringObjVar(ticket, "space_dungeon.ticket.dungeon")).equals("corvette_neutral"))
-                    {
+            for (obj_id ticket : spaceTickets) {
+                if (isIdValid(ticket)) {
+                    if ((getStringObjVar(ticket, "space_dungeon.ticket.dungeon")).equals("corvette_neutral")) {
                         return true;
                     }
                 }
@@ -192,11 +188,9 @@ public class corvette_yondalla_neutral_rescue extends script.base_script
         obj_id[] intelDocuments = utils.getAllItemsPlayerHasByTemplateInBankAndInventory(player, intelTemplate);
         if (intelDocuments != null && intelDocuments.length > 0)
         {
-            for (int i = 0; i < intelDocuments.length; i++)
-            {
-                document = intelDocuments[i];
-                if (isIdValid(document))
-                {
+            for (obj_id intelDocument : intelDocuments) {
+                document = intelDocument;
+                if (isIdValid(document)) {
                     destroyObject(document);
                 }
             }
@@ -205,11 +199,9 @@ public class corvette_yondalla_neutral_rescue extends script.base_script
         obj_id[] filler01Documents = utils.getAllItemsPlayerHasByTemplateInBankAndInventory(player, filler01Template);
         if (filler01Documents != null && filler01Documents.length > 0)
         {
-            for (int i = 0; i < filler01Documents.length; i++)
-            {
-                document = filler01Documents[i];
-                if (isIdValid(document))
-                {
+            for (obj_id filler01Document : filler01Documents) {
+                document = filler01Document;
+                if (isIdValid(document)) {
                     destroyObject(document);
                 }
             }
@@ -218,11 +210,9 @@ public class corvette_yondalla_neutral_rescue extends script.base_script
         obj_id[] filler02Documents = utils.getAllItemsPlayerHasByTemplateInBankAndInventory(player, filler02Template);
         if (filler02Documents != null && filler02Documents.length > 0)
         {
-            for (int i = 0; i < filler02Documents.length; i++)
-            {
-                document = filler02Documents[i];
-                if (isIdValid(document))
-                {
+            for (obj_id filler02Document : filler02Documents) {
+                document = filler02Document;
+                if (isIdValid(document)) {
                     destroyObject(document);
                 }
             }
@@ -236,13 +226,9 @@ public class corvette_yondalla_neutral_rescue extends script.base_script
         obj_id[] spaceTickets = utils.getAllItemsPlayerHasByTemplateInBankAndInventory(player, ticketTemplate);
         if (spaceTickets != null && spaceTickets.length > 0)
         {
-            for (int i = 0; i < spaceTickets.length; i++)
-            {
-                obj_id ticket = spaceTickets[i];
-                if (isIdValid(ticket))
-                {
-                    if ((getStringObjVar(ticket, "space_dungeon.ticket.dungeon")).equals("corvette_neutral"))
-                    {
+            for (obj_id ticket : spaceTickets) {
+                if (isIdValid(ticket)) {
+                    if ((getStringObjVar(ticket, "space_dungeon.ticket.dungeon")).equals("corvette_neutral")) {
                         destroyObject(ticket);
                         String custLogMsg = "*Corvette Ground Quest: Player %TU aborted the neutral rescue quest and the neutal corvette ticket was revoked.";
                         CustomerServiceLog("DUNGEON_CorellianCorvette", custLogMsg, player);

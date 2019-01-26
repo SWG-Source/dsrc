@@ -57,12 +57,10 @@ public class mcr_terminal extends script.base_script
             debugSpeakMsg(self, "I AM SUPPOSED TO HAVE A warren.passkeyNumber OBJVAR BUT I DON'T");
             return false;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            int passKeyNumber = getIntObjVar(contents[i], "warren.passkeyNumber");
-            if (passKeyNumber == keyNum)
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            int passKeyNumber = getIntObjVar(content, "warren.passkeyNumber");
+            if (passKeyNumber == keyNum) {
+                destroyObject(content);
                 return true;
             }
         }

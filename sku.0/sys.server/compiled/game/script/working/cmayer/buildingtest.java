@@ -11,9 +11,9 @@ public class buildingtest extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        createTriggerVolume("guards", 20f, true);
+        createTriggerVolume("guards", 20.0f, true);
         obj_id room = getCellId(self, "mainhall");
-        location termLoc = new location(0.1f, .13f, -5.46f, "tatooine", room);
+        location termLoc = new location(0.1f, 0.13f, -5.46f, "tatooine", room);
         obj_id destructor = createObject("object/tangible/furniture/imperial/data_terminal_s1.iff", termLoc);
         setObjVar(self, "DESTRUCTOR", destructor);
         setObjVar(destructor, "bldg", self);
@@ -22,9 +22,9 @@ public class buildingtest extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        createTriggerVolume("guards", 20f, true);
+        createTriggerVolume("guards", 20.0f, true);
         obj_id room = getCellId(self, "mainhall");
-        location termLoc = new location(0.1f, .13f, -5.46f, "tatooine", room);
+        location termLoc = new location(0.1f, 0.13f, -5.46f, "tatooine", room);
         obj_id destructor = createObject("object/tangible/furniture/imperial/data_terminal_s1.iff", termLoc);
         setObjVar(self, "DESTRUCTOR", destructor);
         setObjVar(destructor, "bldg", self);
@@ -53,7 +53,7 @@ public class buildingtest extends script.base_script
     public int spawnTerminal(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id room = getCellId(self, "mainhall");
-        location termLoc = new location(0.1f, .13f, -5.46f, "tatooine", room);
+        location termLoc = new location(0.1f, 0.13f, -5.46f, "tatooine", room);
         obj_id destructor = createObject("object/tangible/furniture/imperial/data_terminal_s1.iff", termLoc);
         setObjVar(self, "DESTRUCTOR", destructor);
         setObjVar(destructor, "bldg", self);

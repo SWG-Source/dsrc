@@ -61,45 +61,37 @@ public class armor_mand extends script.base_script
         }
         else 
         {
-            if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_helmet.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_helmet_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_chest_plate.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_chest_plate_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_leggings.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_leggings_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_bicep_l.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_bicep_l_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_bicep_r.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_bicep_r_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_bracer_l.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_bracer_l_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_bracer_r.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_bracer_r_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_gloves.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_gloves_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_shoes.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_boots_schematic.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/mandalorian/armor_mandalorian_belt.iff"))
-            {
-                schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_belt_schematic.iff";
+            switch (templatename) {
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_helmet.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_helmet_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_chest_plate.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_chest_plate_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_leggings.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_leggings_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_bicep_l.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_bicep_l_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_bicep_r.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_bicep_r_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_bracer_l.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_bracer_l_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_bracer_r.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_bracer_r_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_gloves.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_gloves_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_shoes.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_boots_schematic.iff";
+                    break;
+                case "object/tangible/wearables/armor/mandalorian/armor_mandalorian_belt.iff":
+                    schematicTemplate = "object/tangible/loot/loot_schematic/death_watch_mandalorian_belt_schematic.iff";
+                    break;
             }
             if (schematicTemplate.length() < 1)
             {

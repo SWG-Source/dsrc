@@ -52,7 +52,7 @@ public class trap_melee_ranged_def_1 extends script.item.trap.trap_base
         outparams.put("ranged_defense", 40);
         outparams.put("melee_defense", 40);
         outparams.put("prefix", "melee_ranged_def_1");
-        messageTo(target, "applyModTrap", outparams, 0.f, false);
+        messageTo(target, "applyModTrap", outparams, 0.0f, false);
         prose_package pp = prose.getPackage(SID_SYS_EFFECT, target);
         sendSystemMessageProse(player, pp);
         if (!hasObjVar(self, "droid_trap"))

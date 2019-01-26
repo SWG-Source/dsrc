@@ -202,10 +202,8 @@ public class qaxp extends script.base_script
         else 
         {
             String templateType = "";
-            for (int i = 0; i < NON_COMBAT_PRFESSIONS.length; i++)
-            {
-                if (template.startsWith(NON_COMBAT_PRFESSIONS[i]))
-                {
+            for (String nonCombatPrfession : NON_COMBAT_PRFESSIONS) {
+                if (template.startsWith(nonCombatPrfession)) {
                     templateType = "noncombat";
                 }
             }

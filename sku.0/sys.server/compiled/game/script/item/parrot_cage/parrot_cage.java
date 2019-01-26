@@ -36,7 +36,7 @@ public class parrot_cage extends script.base_script
     public static final int SOUND_CHANCE = 60;
     public static final int NO_REPLY_PERCENT = 50;
     public static final String VAR_SPECIAL_MESSAGE = "bird_special_message";
-    public static final float SPECIAL_LOC_RADIUS = 3f;
+    public static final float SPECIAL_LOC_RADIUS = 3.0f;
     public static final int LOOT_RADIUS_MAX = 50;
     public static final int MATCH_COUNT = 50;
     public static final String PARROT_TREASURE_SCRIPT = "item.parrot_cage.parrot_treasure";

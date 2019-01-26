@@ -57,7 +57,7 @@ public class forest_outcast_barker extends script.base_script
             {
                 beginChatting(self, who);
                 utils.setScriptVar(self, "already_chatting", 1);
-                messageTo(self, "handleReset", null, 60f, false);
+                messageTo(self, "handleReset", null, 60.0f, false);
             }
         }
         return SCRIPT_CONTINUE;

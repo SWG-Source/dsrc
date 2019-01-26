@@ -2,6 +2,7 @@ package script.library;
 
 import script.*;
 
+import java.util.Objects;
 import java.util.Vector;
 
 public class space_utils extends script.base_script
@@ -148,14 +149,7 @@ public class space_utils extends script.base_script
                 }
             }
         }
-        if (failReason == null)
-        {
-            sendSystemMessage(player, SID_NO_SHIP);
-        }
-        else 
-        {
-            sendSystemMessage(player, failReason);
-        }
+        sendSystemMessage(player, Objects.requireNonNullElse(failReason, SID_NO_SHIP));
         return null;
     }
     public static boolean hasShipControlDeviceCertification(obj_id player, obj_id shipControlDevice) throws InterruptedException
@@ -242,9 +236,9 @@ public class space_utils extends script.base_script
         transform_w = transform_w.move_p(vctOffset);
         if (boolRandomizeOrientation)
         {
-            float randomYaw = rand(0f, (float)Math.PI * 2);
-            float randomPitch = rand(0f, (float)Math.PI * 2);
-            float randomRoll = rand(0f, (float)Math.PI * 2);
+            float randomYaw = rand(0.0f, (float)Math.PI * 2);
+            float randomPitch = rand(0.0f, (float)Math.PI * 2);
+            float randomRoll = rand(0.0f, (float)Math.PI * 2);
             transform_w = transform_w.yaw_l(randomYaw);
             transform_w = transform_w.pitch_l(randomPitch);
             transform_w = transform_w.roll_l(randomRoll);

@@ -31,10 +31,8 @@ public class mtp_hideout_col_eavesdrop extends script.base_script
     }
     public boolean mtp_hideout_col_eavesdrop_condition_readyForTurnIn(obj_id player, obj_id npc) throws InterruptedException
     {
-        for (int k = 0; k < BUG_LOCATIONS.length; k++)
-        {
-            if (!hasCompletedCollectionSlot(player, BUG_LOCATIONS[k]))
-            {
+        for (String bugLocation : BUG_LOCATIONS) {
+            if (!hasCompletedCollectionSlot(player, bugLocation)) {
                 return false;
             }
         }
@@ -81,10 +79,8 @@ public class mtp_hideout_col_eavesdrop extends script.base_script
         {
             return;
         }
-        for (int j = 0; j < BUG_LOCATIONS.length; j++)
-        {
-            if (!hasCompletedCollectionSlot(player, BUG_LOCATIONS[j]))
-            {
+        for (String bugLocation : BUG_LOCATIONS) {
+            if (!hasCompletedCollectionSlot(player, bugLocation)) {
                 return;
             }
         }
@@ -100,10 +96,9 @@ public class mtp_hideout_col_eavesdrop extends script.base_script
     public void mtp_hideout_col_eavesdrop_action_clearCollectionGrantNew(obj_id player, obj_id npc) throws InterruptedException
     {
         String[] completedSlots = getCompletedCollectionSlotsInCollection(player, "col_meatlump_eavesdrop");
-        for (int q = 0; q < completedSlots.length; q++)
-        {
-            long value = getCollectionSlotValue(player, completedSlots[q]);
-            modifyCollectionSlotValue(player, completedSlots[q], value * -1);
+        for (String completedSlot : completedSlots) {
+            long value = getCollectionSlotValue(player, completedSlot);
+            modifyCollectionSlotValue(player, completedSlot, value * -1);
         }
         obj_id pInv = utils.getInventoryContainer(player);
         obj_id bug_jar = static_item.createNewItemFunction("col_listening_device_02_01", pInv);

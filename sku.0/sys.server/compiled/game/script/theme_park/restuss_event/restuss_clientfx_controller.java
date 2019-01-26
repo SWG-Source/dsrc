@@ -67,34 +67,26 @@ public class restuss_clientfx_controller extends script.base_script
             boolean npc = false;
             String faction = "";
             float range = 0.0f;
-            for (int i = 0; i < fullParse.length; i++)
-            {
-                if (fullParse[i].startsWith("restriction"))
-                {
-                    String[] restParse = split(fullParse[i], '_');
-                    for (int q = 0; q < restParse.length; q++)
-                    {
-                        if (q == 0)
-                        {
+            for (String s : fullParse) {
+                if (s.startsWith("restriction")) {
+                    String[] restParse = split(s, '_');
+                    for (int q = 0; q < restParse.length; q++) {
+                        if (q == 0) {
                             continue;
                         }
-                        if (restParse[q].startsWith("player"))
-                        {
+                        if (restParse[q].startsWith("player")) {
                             player = true;
                         }
-                        if (restParse[q].startsWith("npc"))
-                        {
+                        if (restParse[q].startsWith("npc")) {
                             npc = true;
                         }
-                        if (restParse[q].startsWith("faction"))
-                        {
+                        if (restParse[q].startsWith("faction")) {
                             faction = restParse[q].substring(8, restParse[q].length() - 2);
                         }
                     }
                 }
-                if (fullParse[i].startsWith("range"))
-                {
-                    String[] rangeParse = split(fullParse[i], '_');
+                if (s.startsWith("range")) {
+                    String[] rangeParse = split(s, '_');
                     range = utils.stringToFloat(rangeParse[1]);
                 }
             }
@@ -105,68 +97,47 @@ public class restuss_clientfx_controller extends script.base_script
             }
             Vector validatedTargets = new Vector();
             validatedTargets.setSize(0);
-            for (int x = 0; x < targets.length; x++)
-            {
-                if (player)
-                {
-                    if (isPlayer(targets[x]))
-                    {
-                        if (!faction.equals(""))
-                        {
-                            if (faction.equals("imperial"))
-                            {
-                                if (factions.isImperial(targets[x]) && !factions.isOnLeave(targets[x]))
-                                {
-                                    utils.addElement(validatedTargets, targets[x]);
+            for (obj_id target : targets) {
+                if (player) {
+                    if (isPlayer(target)) {
+                        if (!faction.equals("")) {
+                            if (faction.equals("imperial")) {
+                                if (factions.isImperial(target) && !factions.isOnLeave(target)) {
+                                    utils.addElement(validatedTargets, target);
+                                }
+                            } else if (faction.equals("rebel")) {
+                                if (factions.isRebel(target) && !factions.isOnLeave(target)) {
+                                    utils.addElement(validatedTargets, target);
                                 }
                             }
-                            else if (faction.equals("rebel"))
-                            {
-                                if (factions.isRebel(targets[x]) && !factions.isOnLeave(targets[x]))
-                                {
-                                    utils.addElement(validatedTargets, targets[x]);
-                                }
-                            }
-                        }
-                        else 
-                        {
-                            utils.addElement(validatedTargets, targets[x]);
+                        } else {
+                            utils.addElement(validatedTargets, target);
                         }
                     }
                 }
-                if (npc)
-                {
-                    if (!isPlayer(targets[x]))
-                    {
-                        if (!faction.equals(""))
-                        {
-                            String creature = getStringObjVar(targets[x], "ai.creatureBaseName");
+                if (npc) {
+                    if (!isPlayer(target)) {
+                        if (!faction.equals("")) {
+                            String creature = getStringObjVar(target, "ai.creatureBaseName");
                             String socialGroup = dataTableGetString("datatables/mob/creatures.iff", creature, "socialGroup");
-                            if (faction.equals(socialGroup))
-                            {
-                                utils.addElement(validatedTargets, targets[x]);
+                            if (faction.equals(socialGroup)) {
+                                utils.addElement(validatedTargets, target);
                             }
-                        }
-                        else 
-                        {
-                            utils.addElement(validatedTargets, targets[x]);
+                        } else {
+                            utils.addElement(validatedTargets, target);
                         }
                     }
                 }
             }
             if (validatedTargets != null && validatedTargets.size() > 0)
             {
-                for (int y = 0; y < validatedTargets.size(); y++)
-                {
-                    if (isPlayer(((obj_id)validatedTargets.get(y))))
-                    {
-                        setPosture(((obj_id)validatedTargets.get(y)), POSTURE_DEAD);
-                        setObjVar(((obj_id)validatedTargets.get(y)), pclib.VAR_BEEN_COUPDEGRACED, 1);
-                        messageTo(((obj_id)validatedTargets.get(y)), "handlePlayerDeath", null, 10, false);
-                    }
-                    else 
-                    {
-                        kill(((obj_id)validatedTargets.get(y)));
+                for (Object validatedTarget : validatedTargets) {
+                    if (isPlayer(((obj_id) validatedTarget))) {
+                        setPosture(((obj_id) validatedTarget), POSTURE_DEAD);
+                        setObjVar(((obj_id) validatedTarget), pclib.VAR_BEEN_COUPDEGRACED, 1);
+                        messageTo(((obj_id) validatedTarget), "handlePlayerDeath", null, 10, false);
+                    } else {
+                        kill(((obj_id) validatedTarget));
                     }
                 }
             }

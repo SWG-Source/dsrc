@@ -219,7 +219,7 @@ public class masterspawner extends script.base_script
     }
     public obj_id spawnBib(obj_id self, obj_id oola) throws InterruptedException
     {
-        obj_id bib = create.staticObject("bib_fortuna", new location(-12.09f, 2f, 49.41f, "tatooine", getCellId(self, "throneroom")));
+        obj_id bib = create.staticObject("bib_fortuna", new location(-12.09f, 2.0f, 49.41f, "tatooine", getCellId(self, "throneroom")));
         faceTo(bib, oola);
         attachScript(bib, "theme_park.tatooine.jabbaspawner.bib");
         setObjVar(self, "PalaceInhabitants.bib", bib);
@@ -236,7 +236,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnReeYees(obj_id self, obj_id reelo) throws InterruptedException
     {
-        obj_id ReeYees = create.staticObject("ree_yees", new location(5.97f, .3f, 116.1f, "tatooine", getCellId(self, "foyer")));
+        obj_id ReeYees = create.staticObject("ree_yees", new location(5.97f, 0.3f, 116.1f, "tatooine", getCellId(self, "foyer")));
         faceTo(ReeYees, reelo);
         attachScript(ReeYees, "theme_park.tatooine.jabbaspawner.reeyees");
         setObjVar(self, "PalaceInhabitants.reeyees", ReeYees);
@@ -320,12 +320,12 @@ public class masterspawner extends script.base_script
     public void spawnBarada(obj_id self) throws InterruptedException
     {
         obj_id garage1 = getCellId(self, "garage1");
-        obj_id barada = create.staticObject("barada", new location(30.57f, .2f, -1.05f, "tatooine", garage1));
+        obj_id barada = create.staticObject("barada", new location(30.57f, 0.2f, -1.05f, "tatooine", garage1));
         attachScript(barada, "theme_park.tatooine.jabbaspawner.barada");
         setObjVar(self, "PalaceInhabitants.barada", barada);
         setObjVar(barada, "palace", self);
         // Barada is meant to face the toolbox.
-        faceTo(barada, new location(28, .2f, -1.05f, "tatooine", garage1));
+        faceTo(barada, new location(28, 0.2f, -1.05f, "tatooine", garage1));
     }
     public void spawnKlaatu(obj_id self) throws InterruptedException
     {
@@ -425,7 +425,7 @@ public class masterspawner extends script.base_script
     }
     public obj_id spawnGamGuard6(obj_id self) throws InterruptedException
     {
-        obj_id gamGuard6 = create.object("gamorrean_guard", new location(-30.78f, .2f, 82.64f, "tatooine", getCellId(self, "hall5")));
+        obj_id gamGuard6 = create.object("gamorrean_guard", new location(-30.78f, 0.2f, 82.64f, "tatooine", getCellId(self, "hall5")));
         attachScript(gamGuard6, "theme_park.tatooine.jabbaspawner.gamguard6");
         setObjVar(self, "PalaceInhabitants.gamGuard6", gamGuard6);
         attachScript(gamGuard6, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -435,7 +435,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnGamGuard7(obj_id self, obj_id gamGuard6) throws InterruptedException
     {
-        obj_id gamGuard7 = create.object("gamorrean_guard", new location(-2.04f, .2f, 82.61f, "tatooine", getCellId(self, "hall7")));
+        obj_id gamGuard7 = create.object("gamorrean_guard", new location(-2.04f, 0.2f, 82.61f, "tatooine", getCellId(self, "hall7")));
         faceTo(gamGuard7, gamGuard6);
         attachScript(gamGuard7, "theme_park.tatooine.jabbaspawner.gamguard7");
         attachScript(gamGuard7, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -491,7 +491,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnGamGuard13(obj_id self) throws InterruptedException
     {
-        obj_id gamGuard13 = create.object("gamorrean_guard", new location(.14f, 2f, 53.1f, "tatooine", getCellId(self, "throneroom")));
+        obj_id gamGuard13 = create.object("gamorrean_guard", new location(0.14f, 2.0f, 53.1f, "tatooine", getCellId(self, "throneroom")));
         attachScript(gamGuard13, "theme_park.tatooine.jabbaspawner.gamguard13");
         attachScript(gamGuard13, "theme_park.tatooine.jabbaspawner.palace_path");
         setObjVar(self, "PalaceInhabitants.gamGuard13", gamGuard13);
@@ -617,7 +617,7 @@ public class masterspawner extends script.base_script
     }
     public obj_id spawnJawa7(obj_id self) throws InterruptedException
     {
-        obj_id jawa7 = create.staticObject("jawa", new location(8.73f, 2f, 23.58f, "tatooine", getCellId(self, "throneroom")));
+        obj_id jawa7 = create.staticObject("jawa", new location(8.73f, 2.0f, 23.58f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(jawa7, "ai.defaultCalmBehavior", 1);
         attachScript(jawa7, "theme_park.tatooine.jabbaspawner.jawa7");
         setObjVar(self, "PalaceInhabitants.jawa7", jawa7);
@@ -627,7 +627,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnJawa8(obj_id self, obj_id jawa7) throws InterruptedException
     {
-        obj_id jawa8 = create.staticObject("jawa", new location(9.22f, 2f, 25.22f, "tatooine", getCellId(self, "throneroom")));
+        obj_id jawa8 = create.staticObject("jawa", new location(9.22f, 2.0f, 25.22f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(jawa8, "ai.defaultCalmBehavior", 1);
         setObjVar(jawa8, "facer", jawa7);
         setObjVar(jawa7, "facer", jawa8);
@@ -640,7 +640,7 @@ public class masterspawner extends script.base_script
     }
     public obj_id spawnJawa9(obj_id self) throws InterruptedException
     {
-        obj_id jawa9 = create.staticObject("jawa", new location(29.42f, .2f, 46.58f, "tatooine", getCellId(self, "hall3")));
+        obj_id jawa9 = create.staticObject("jawa", new location(29.42f, 0.2f, 46.58f, "tatooine", getCellId(self, "hall3")));
         setObjVar(jawa9, "ai.defaultCalmBehavior", 1);
         attachScript(jawa9, "theme_park.tatooine.jabbaspawner.jawa9");
         setObjVar(self, "PalaceInhabitants.jawa9", jawa9);
@@ -650,7 +650,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnJawa10(obj_id self, obj_id jawa9) throws InterruptedException
     {
-        obj_id jawa10 = create.staticObject("jawa", new location(29.44f, .2f, 45.39f, "tatooine", getCellId(self, "hall3")));
+        obj_id jawa10 = create.staticObject("jawa", new location(29.44f, 0.2f, 45.39f, "tatooine", getCellId(self, "hall3")));
         setObjVar(jawa10, "ai.defaultCalmBehavior", 1);
         setObjVar(jawa9, "facer", jawa10);
         setObjVar(jawa10, "facer", jawa9);
@@ -728,7 +728,7 @@ public class masterspawner extends script.base_script
     }
     public obj_id spawnRandom6(obj_id self) throws InterruptedException
     {
-        obj_id random6 = create.staticObject("thug", new location(1.08f, 2f, 36.7f, "tatooine", getCellId(self, "throneroom")));
+        obj_id random6 = create.staticObject("thug", new location(1.08f, 2.0f, 36.7f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(random6, "ai.defaultCalmBehavior", 1);
         attachScript(random6, "theme_park.tatooine.jabbaspawner.random6");
         setObjVar(self, "PalaceInhabitants.random6", random6);
@@ -752,7 +752,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnRandom8(obj_id self, obj_id random7) throws InterruptedException
     {
-        obj_id random8 = create.staticObject("fringer", new location(-8.69f, 4f, 49.57f, "tatooine", getCellId(self, "throneroom")));
+        obj_id random8 = create.staticObject("fringer", new location(-8.69f, 4.0f, 49.57f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(random8, "ai.defaultCalmBehavior", 1);
         attachScript(random8, "theme_park.tatooine.jabbaspawner.random8");
         setObjVar(self, "PalaceInhabitants.random8", random8);
@@ -793,7 +793,7 @@ public class masterspawner extends script.base_script
     }
     public obj_id spawnRandom11(obj_id self) throws InterruptedException
     {
-        obj_id random11 = create.staticObject("scoundrel", new location(-14.32f, 2f, 52.08f, "tatooine", getCellId(self, "throneroom")));
+        obj_id random11 = create.staticObject("scoundrel", new location(-14.32f, 2.0f, 52.08f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(random11, "ai.defaultCalmBehavior", 1);
         attachScript(random11, "theme_park.tatooine.jabbaspawner.random11");
         setObjVar(self, "PalaceInhabitants.random11", random11);
@@ -804,7 +804,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnRandom12(obj_id self, obj_id random11) throws InterruptedException
     {
-        obj_id random12 = create.staticObject("thug", new location(-15.83f, 2f, 51.94f, "tatooine", getCellId(self, "throneroom")));
+        obj_id random12 = create.staticObject("thug", new location(-15.83f, 2.0f, 51.94f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(random12, "ai.defaultCalmBehavior", 1);
         attachScript(random12, "theme_park.tatooine.jabbaspawner.random12");
         setObjVar(self, "PalaceInhabitants.random12", random12);
@@ -818,7 +818,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnRandom13(obj_id self, obj_id jawa3) throws InterruptedException
     {
-        obj_id random13 = create.staticObject("thug", new location(-1.64f, 3f, 26.17f, "tatooine", getCellId(self, "throneroom")));
+        obj_id random13 = create.staticObject("thug", new location(-1.64f, 3.0f, 26.17f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(random13, "ai.defaultCalmBehavior", 1);
         attachScript(random13, "theme_park.tatooine.jabbaspawner.random13");
         setObjVar(self, "PalaceInhabitants.random13", random13);
@@ -832,7 +832,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnRandom14(obj_id self, obj_id jawa4) throws InterruptedException
     {
-        obj_id random14 = create.staticObject("thug", new location(-8.44f, 3f, 21.23f, "tatooine", getCellId(self, "throneroom")));
+        obj_id random14 = create.staticObject("thug", new location(-8.44f, 3.0f, 21.23f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(random14, "ai.defaultCalmBehavior", 1);
         attachScript(random14, "theme_park.tatooine.jabbaspawner.random14");
         setObjVar(self, "PalaceInhabitants.random14", random14);
@@ -846,7 +846,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnRandom15(obj_id self, obj_id random5) throws InterruptedException
     {
-        obj_id random15 = create.staticObject("thug", new location(-9.9f, 3f, 25.6f, "tatooine", getCellId(self, "throneroom")));
+        obj_id random15 = create.staticObject("thug", new location(-9.9f, 3.0f, 25.6f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(random15, "ai.defaultCalmBehavior", 1);
         attachScript(random15, "theme_park.tatooine.jabbaspawner.random15");
         setObjVar(self, "PalaceInhabitants.random15", random15);
@@ -860,7 +860,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnRandom16(obj_id self, obj_id random6) throws InterruptedException
     {
-        obj_id random16 = create.staticObject("thug", new location(1.08f, 2f, 35.07f, "tatooine", getCellId(self, "throneroom")));
+        obj_id random16 = create.staticObject("thug", new location(1.08f, 2.0f, 35.07f, "tatooine", getCellId(self, "throneroom")));
         setObjVar(random16, "ai.defaultCalmBehavior", 1);
         attachScript(random16, "theme_park.tatooine.jabbaspawner.random16");
         setObjVar(self, "PalaceInhabitants.random16", random16);
@@ -929,7 +929,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnDroid6(obj_id self) throws InterruptedException
     {
-        obj_id droid6 = create.object("eg6_power_droid", new location(43.29f, .2f, 7.14f, "tatooine", getCellId(self, "garage1")));
+        obj_id droid6 = create.object("eg6_power_droid", new location(43.29f, 0.2f, 7.14f, "tatooine", getCellId(self, "garage1")));
         setObjVar(droid6, "ai.defaultCalmBehavior", 1);
         attachScript(droid6, "theme_park.tatooine.jabbaspawner.droid6");
         attachScript(droid6, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -939,7 +939,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnPrisoner1(obj_id self) throws InterruptedException
     {
-        obj_id prisoner1 = create.staticObject("commoner", new location(-33.83f, .2f, 76.58f, "tatooine", getCellId(self, "jail1")));
+        obj_id prisoner1 = create.staticObject("commoner", new location(-33.83f, 0.2f, 76.58f, "tatooine", getCellId(self, "jail1")));
         setObjVar(prisoner1, "ai.defaultCalmBehavior", 1);
         attachScript(prisoner1, "theme_park.tatooine.jabbaspawner.prisoner1");
         attachScript(prisoner1, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -949,7 +949,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnPrisoner2(obj_id self) throws InterruptedException
     {
-        obj_id prisoner2 = create.staticObject("commoner", new location(-37.43f, .2f, 76.85f, "tatooine", getCellId(self, "jail2")));
+        obj_id prisoner2 = create.staticObject("commoner", new location(-37.43f, 0.2f, 76.85f, "tatooine", getCellId(self, "jail2")));
         setObjVar(prisoner2, "ai.defaultCalmBehavior", 1);
         attachScript(prisoner2, "theme_park.tatooine.jabbaspawner.prisoner2");
         attachScript(prisoner2, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -959,7 +959,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnPrisoner3(obj_id self) throws InterruptedException
     {
-        obj_id prisoner3 = create.staticObject("commoner", new location(-34.48f, .2f, 88.22f, "tatooine", getCellId(self, "jail3")));
+        obj_id prisoner3 = create.staticObject("commoner", new location(-34.48f, 0.2f, 88.22f, "tatooine", getCellId(self, "jail3")));
         setObjVar(prisoner3, "ai.defaultCalmBehavior", 1);
         attachScript(prisoner3, "theme_park.tatooine.jabbaspawner.prisoner3");
         attachScript(prisoner3, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -969,7 +969,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnPrisoner4(obj_id self) throws InterruptedException
     {
-        obj_id prisoner4 = create.staticObject("commoner", new location(-38.7f, .2f, 88.24f, "tatooine", getCellId(self, "jail4")));
+        obj_id prisoner4 = create.staticObject("commoner", new location(-38.7f, 0.2f, 88.24f, "tatooine", getCellId(self, "jail4")));
         setObjVar(prisoner4, "ai.defaultCalmBehavior", 1);
         attachScript(prisoner4, "theme_park.tatooine.jabbaspawner.prisoner4");
         attachScript(prisoner4, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -979,7 +979,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnPrisoner5(obj_id self) throws InterruptedException
     {
-        obj_id prisoner5 = create.staticObject("commoner", new location(-10.07f, .2f, 77.54f, "tatooine", getCellId(self, "jail5")));
+        obj_id prisoner5 = create.staticObject("commoner", new location(-10.07f, 0.2f, 77.54f, "tatooine", getCellId(self, "jail5")));
         setObjVar(prisoner5, "ai.defaultCalmBehavior", 1);
         attachScript(prisoner5, "theme_park.tatooine.jabbaspawner.prisoner5");
         attachScript(prisoner5, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -989,7 +989,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnPrisoner6(obj_id self) throws InterruptedException
     {
-        obj_id prisoner6 = create.staticObject("commoner", new location(-13.62f, .2f, 77.52f, "tatooine", getCellId(self, "jail6")));
+        obj_id prisoner6 = create.staticObject("commoner", new location(-13.62f, 0.2f, 77.52f, "tatooine", getCellId(self, "jail6")));
         setObjVar(prisoner6, "ai.defaultCalmBehavior", 1);
         attachScript(prisoner6, "theme_park.tatooine.jabbaspawner.prisoner6");
         attachScript(prisoner6, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -999,7 +999,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnPrisoner7(obj_id self) throws InterruptedException
     {
-        obj_id prisoner7 = create.staticObject("commoner", new location(-10.88f, .2f, 87.49f, "tatooine", getCellId(self, "jail7")));
+        obj_id prisoner7 = create.staticObject("commoner", new location(-10.88f, 0.2f, 87.49f, "tatooine", getCellId(self, "jail7")));
         setObjVar(prisoner7, "ai.defaultCalmBehavior", 1);
         attachScript(prisoner7, "theme_park.tatooine.jabbaspawner.prisoner7");
         attachScript(prisoner7, "theme_park.tatooine.jabbaspawner.palace_path");
@@ -1009,7 +1009,7 @@ public class masterspawner extends script.base_script
     }
     public void spawnPrisoner8(obj_id self) throws InterruptedException
     {
-        obj_id prisoner8 = create.staticObject("commoner", new location(-15.43f, .2f, 87.68f, "tatooine", getCellId(self, "jail8")));
+        obj_id prisoner8 = create.staticObject("commoner", new location(-15.43f, 0.2f, 87.68f, "tatooine", getCellId(self, "jail8")));
         setObjVar(prisoner8, "ai.defaultCalmBehavior", 1);
         attachScript(prisoner8, "theme_park.tatooine.jabbaspawner.prisoner8");
         attachScript(prisoner8, "theme_park.tatooine.jabbaspawner.palace_path");

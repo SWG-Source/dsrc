@@ -12,19 +12,19 @@ public class machine extends script.base_script
         obj_id contentManager = getObjIdObjVar(self, "grievous_encounter.contentManager");
         int mhp = getMaxHitpoints(self);
         int hp = getHitpoints(self);
-        if (hp > (.75 * mhp))
+        if (hp > (0.75 * mhp))
         {
             messageTo(contentManager, "handleSpawnSpeedFast", null, 1.0f, false);
         }
-        if (hp > (.50 * mhp) && hp < (.75 * mhp))
+        if (hp > (0.50 * mhp) && hp < (0.75 * mhp))
         {
             messageTo(contentManager, "handleSpawnSpeedMed", null, 1.0f, false);
         }
-        if (hp > (.25 * mhp) && hp < (.50 * mhp))
+        if (hp > (0.25 * mhp) && hp < (0.50 * mhp))
         {
             messageTo(contentManager, "handleSpawnSpeedSlow", null, 1.0f, false);
         }
-        if (hp > (0) && hp < (.25 * mhp))
+        if (hp > (0) && hp < (0.25 * mhp))
         {
             messageTo(contentManager, "handleSpawnSpeedReallySlow", null, 1.0f, false);
         }

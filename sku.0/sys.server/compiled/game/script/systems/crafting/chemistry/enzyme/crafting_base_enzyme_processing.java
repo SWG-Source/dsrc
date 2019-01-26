@@ -18,25 +18,18 @@ public class crafting_base_enzyme_processing extends script.systems.crafting.cra
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("enzyme_purity"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".enzyme_purity", itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("enzyme_purity")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".enzyme_purity", itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("enzyme_mutagen"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".enzyme_mutagen", itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("charges"))
-                {
-                    setCount(prototype, (int)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("enzyme_mutagen")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".enzyme_mutagen", itemAttribute.currentValue);
+                } else if (((itemAttribute.name).getAsciiId()).equals("charges")) {
+                    setCount(prototype, (int) itemAttribute.currentValue);
                 }
             }
         }

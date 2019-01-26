@@ -525,41 +525,31 @@ public class new_player extends script.base_script
         {
             case sui.BP_OK:
             setObjVar(self, QUEST_OBJVAR_BASE + profession, 1);
-            if (profession.equals(BRAWLER))
-            {
-                if (!hasObjVar(self, BRAWLER_REWARD_OBJVAR) || getIntObjVar(self, BRAWLER_REWARD_OBJVAR) < 1)
-                {
-                    giveBrawlerWeaponChoice(self);
+                switch (profession) {
+                    case BRAWLER:
+                        if (!hasObjVar(self, BRAWLER_REWARD_OBJVAR) || getIntObjVar(self, BRAWLER_REWARD_OBJVAR) < 1) {
+                            giveBrawlerWeaponChoice(self);
+                        } else {
+                            setObjVar(self, BRAWLER_QUEST_OBJVAR, 2);
+                            giveQuestMessage(self);
+                        }
+                        return SCRIPT_CONTINUE;
+                    case MARKSMAN:
+                        if (!hasObjVar(self, MARKSMAN_REWARD_OBJVAR) || getIntObjVar(self, MARKSMAN_REWARD_OBJVAR) < 1) {
+                            giveMarksmanWeaponChoice(self);
+                        } else {
+                            setObjVar(self, MARKSMAN_QUEST_OBJVAR, 2);
+                            giveQuestMessage(self);
+                        }
+                        return SCRIPT_CONTINUE;
+                    case SCOUT:
+                    case MEDIC:
+                        giveStartingRecommendation(self);
+                        return SCRIPT_CONTINUE;
+                    default:
+                        giveQuestMessage(self);
+                        break;
                 }
-                else 
-                {
-                    setObjVar(self, BRAWLER_QUEST_OBJVAR, 2);
-                    giveQuestMessage(self);
-                }
-                return SCRIPT_CONTINUE;
-            }
-            else if (profession.equals(MARKSMAN))
-            {
-                if (!hasObjVar(self, MARKSMAN_REWARD_OBJVAR) || getIntObjVar(self, MARKSMAN_REWARD_OBJVAR) < 1)
-                {
-                    giveMarksmanWeaponChoice(self);
-                }
-                else 
-                {
-                    setObjVar(self, MARKSMAN_QUEST_OBJVAR, 2);
-                    giveQuestMessage(self);
-                }
-                return SCRIPT_CONTINUE;
-            }
-            else if (profession.equals(SCOUT) || profession.equals(MEDIC))
-            {
-                giveStartingRecommendation(self);
-                return SCRIPT_CONTINUE;
-            }
-            else 
-            {
-                giveQuestMessage(self);
-            }
             break;
             case sui.BP_CANCEL:
             showDelayedAcceptingQuestMessage(self);
@@ -661,41 +651,31 @@ public class new_player extends script.base_script
         {
             case sui.BP_OK:
             setObjVar(self, QUEST_OBJVAR_BASE + profession, 1);
-            if (profession.equals(BRAWLER))
-            {
-                if (!hasObjVar(self, BRAWLER_REWARD_OBJVAR) || getIntObjVar(self, BRAWLER_REWARD_OBJVAR) < 1)
-                {
-                    giveBrawlerWeaponChoice(self);
+                switch (profession) {
+                    case BRAWLER:
+                        if (!hasObjVar(self, BRAWLER_REWARD_OBJVAR) || getIntObjVar(self, BRAWLER_REWARD_OBJVAR) < 1) {
+                            giveBrawlerWeaponChoice(self);
+                        } else {
+                            setObjVar(self, BRAWLER_QUEST_OBJVAR, 2);
+                            giveQuestMessage(self);
+                        }
+                        return SCRIPT_CONTINUE;
+                    case MARKSMAN:
+                        if (!hasObjVar(self, MARKSMAN_REWARD_OBJVAR) || getIntObjVar(self, MARKSMAN_REWARD_OBJVAR) < 1) {
+                            giveMarksmanWeaponChoice(self);
+                        } else {
+                            setObjVar(self, MARKSMAN_QUEST_OBJVAR, 2);
+                            giveQuestMessage(self);
+                        }
+                        return SCRIPT_CONTINUE;
+                    case SCOUT:
+                    case MEDIC:
+                        giveStartingRecommendation(self);
+                        return SCRIPT_CONTINUE;
+                    default:
+                        giveQuestMessage(self);
+                        break;
                 }
-                else 
-                {
-                    setObjVar(self, BRAWLER_QUEST_OBJVAR, 2);
-                    giveQuestMessage(self);
-                }
-                return SCRIPT_CONTINUE;
-            }
-            else if (profession.equals(MARKSMAN))
-            {
-                if (!hasObjVar(self, MARKSMAN_REWARD_OBJVAR) || getIntObjVar(self, MARKSMAN_REWARD_OBJVAR) < 1)
-                {
-                    giveMarksmanWeaponChoice(self);
-                }
-                else 
-                {
-                    setObjVar(self, MARKSMAN_QUEST_OBJVAR, 2);
-                    giveQuestMessage(self);
-                }
-                return SCRIPT_CONTINUE;
-            }
-            else if (profession.equals(SCOUT) || profession.equals(MEDIC))
-            {
-                giveStartingRecommendation(self);
-                return SCRIPT_CONTINUE;
-            }
-            else 
-            {
-                giveQuestMessage(self);
-            }
             break;
             case sui.BP_CANCEL:
             break;
@@ -735,13 +715,9 @@ public class new_player extends script.base_script
         obj_id[] survivalKnives = utils.getAllItemsPlayerHasByTemplateInBankAndInventory(self, SURVIVAL_KNIFE_TEMPLATE);
         if (survivalKnives != null && survivalKnives.length > 0)
         {
-            for (int i = 0; i < survivalKnives.length; i++)
-            {
-                obj_id knife = survivalKnives[i];
-                if (isIdValid(knife))
-                {
-                    if (!isCrafted(knife))
-                    {
+            for (obj_id knife : survivalKnives) {
+                if (isIdValid(knife)) {
+                    if (!isCrafted(knife)) {
                         destroyObject(knife);
                         break;
                     }
@@ -811,13 +787,9 @@ public class new_player extends script.base_script
         obj_id[] cdefPistols = utils.getAllItemsPlayerHasByTemplateInBankAndInventory(self, CDEF_PISTOL_TEMPLATE);
         if (cdefPistols != null && cdefPistols.length > 0)
         {
-            for (int i = 0; i < cdefPistols.length; i++)
-            {
-                obj_id pistol = cdefPistols[i];
-                if (isIdValid(pistol))
-                {
-                    if (!isCrafted(pistol))
-                    {
+            for (obj_id pistol : cdefPistols) {
+                if (isIdValid(pistol)) {
+                    if (!isCrafted(pistol)) {
                         destroyObject(pistol);
                         break;
                     }
@@ -993,17 +965,13 @@ public class new_player extends script.base_script
                     int numXpTypes = xpTypes.length;
                     int meleeCount = 0;
                     int rangedCount = 0;
-                    for (int i = 0; i < xpTypes.length; i++)
-                    {
-                        String xpType = xpTypes[i];
+                    for (String xpType : xpTypes) {
                         int stringCheck = xpType.indexOf("melee");
-                        if (stringCheck > -1)
-                        {
+                        if (stringCheck > -1) {
                             meleeCount++;
                         }
                         stringCheck = xpType.indexOf("ranged");
-                        if (stringCheck > -1)
-                        {
+                        if (stringCheck > -1) {
                             rangedCount++;
                         }
                     }
@@ -1698,22 +1666,17 @@ public class new_player extends script.base_script
                     obj_id[] minerals = utils.getAllItemsPlayerHasByTemplate(self, MINERAL_RESOURCE_CONTAINER);
                     if (minerals != null && minerals.length > 0)
                     {
-                        for (int i = 0; i < minerals.length; i++)
-                        {
-                            obj_id containerId = minerals[i];
+                        for (obj_id containerId : minerals) {
                             obj_id resTypeId = getResourceContainerResourceType(containerId);
                             boolean isMineral = isResourceDerivedFrom(resTypeId, "mineral");
-                            if (isMineral)
-                            {
-                                int amt = getResourceContainerQuantity(minerals[i]);
-                                if (amt >= 8)
-                                {
+                            if (isMineral) {
+                                int amt = getResourceContainerQuantity(containerId);
+                                if (amt >= 8) {
                                     String resName = getResourceName(resTypeId);
                                     setObjVar(self, "new_player.temp.artisan_resource", resName);
                                     String custLogMsg = "New Player Quests: %TU finished artisan task 2 - sample some minerals.";
                                     CustomerServiceLog(NEW_PLAYER_LOG, custLogMsg, self);
-                                    if (getIntObjVar(self, ARTISAN_REWARD_OBJVAR) < 2)
-                                    {
+                                    if (getIntObjVar(self, ARTISAN_REWARD_OBJVAR) < 2) {
                                         xpReward = "crafting_general";
                                         xpAmount = 25;
                                         creditsReward = 100;
@@ -1722,9 +1685,7 @@ public class new_player extends script.base_script
                                         giveTaskCompleteRewardMessage(self, SID_ARTISAN, creditsReward);
                                         checkForSpecialReward(self, false);
                                         setObjVar(self, ARTISAN_REWARD_OBJVAR, 2);
-                                    }
-                                    else 
-                                    {
+                                    } else {
                                         giveTaskCompleteNoRewardMessage(self, SID_ARTISAN);
                                     }
                                     setObjVar(self, ARTISAN_QUEST_OBJVAR, 3);
@@ -1744,27 +1705,21 @@ public class new_player extends script.base_script
                     obj_id[] minerals = utils.getAllItemsPlayerHasByTemplate(self, MINERAL_RESOURCE_CONTAINER);
                     if (minerals != null && minerals.length > 0)
                     {
-                        for (int i = 0; i < minerals.length; i++)
-                        {
-                            obj_id containerId = minerals[i];
+                        for (obj_id containerId : minerals) {
                             obj_id resTypeId = getResourceContainerResourceType(containerId);
                             boolean isMetal = isResourceDerivedFrom(resTypeId, "metal");
-                            if (isMetal)
-                            {
-                                int amt = getResourceContainerQuantity(minerals[i]);
+                            if (isMetal) {
+                                int amt = getResourceContainerQuantity(containerId);
                                 int requiredResource = 19;
                                 String resName = getResourceName(resTypeId);
                                 String mineralName = getStringObjVar(self, "new_player.temp.artisan_resource");
-                                if (resName.equals(mineralName))
-                                {
+                                if (resName.equals(mineralName)) {
                                     requiredResource = 27;
                                 }
-                                if (amt >= requiredResource)
-                                {
+                                if (amt >= requiredResource) {
                                     String custLogMsg = "New Player Quests: %TU finished artisan task 3 - sample 19 units of metal.";
                                     CustomerServiceLog(NEW_PLAYER_LOG, custLogMsg, self);
-                                    if (getIntObjVar(self, ARTISAN_REWARD_OBJVAR) < 3)
-                                    {
+                                    if (getIntObjVar(self, ARTISAN_REWARD_OBJVAR) < 3) {
                                         xpReward = "crafting_general";
                                         xpAmount = 25;
                                         creditsReward = 100;
@@ -1773,9 +1728,7 @@ public class new_player extends script.base_script
                                         giveTaskCompleteRewardMessage(self, SID_ARTISAN, creditsReward);
                                         checkForSpecialReward(self, false);
                                         setObjVar(self, ARTISAN_REWARD_OBJVAR, 3);
-                                    }
-                                    else 
-                                    {
+                                    } else {
                                         giveTaskCompleteNoRewardMessage(self, SID_ARTISAN);
                                     }
                                     setObjVar(self, ARTISAN_QUEST_OBJVAR, 4);
@@ -2457,11 +2410,8 @@ public class new_player extends script.base_script
                 "sullustan",
                 "ithorian"
             };
-            for (int q = 0; q < speciesThatSkipImageDesignTask.length; q++)
-            {
-                String speciesToCheckFor = speciesThatSkipImageDesignTask[q];
-                if (speciesName.equals(speciesToCheckFor))
-                {
+            for (String speciesToCheckFor : speciesThatSkipImageDesignTask) {
+                if (speciesName.equals(speciesToCheckFor)) {
                     skipImageDesign(player);
                     return;
                 }
@@ -2768,16 +2718,11 @@ public class new_player extends script.base_script
         obj_id[] dataContents = getContents(datapad);
         if (dataContents != null && dataContents.length > 0)
         {
-            for (int i = 0; i < dataContents.length; i++)
-            {
-                obj_id data = dataContents[i];
-                if (hasObjVar(data, "pet.creatureName"))
-                {
-                    if (isIdValid(data))
-                    {
+            for (obj_id data : dataContents) {
+                if (hasObjVar(data, "pet.creatureName")) {
+                    if (isIdValid(data)) {
                         String creatureName = getStringObjVar(data, "pet.creatureName");
-                        if (creatureName != null && creatureName.equals("nhelper_droid"))
-                        {
+                        if (creatureName != null && creatureName.equals("nhelper_droid")) {
                             return data;
                         }
                     }
@@ -3300,175 +3245,171 @@ public class new_player extends script.base_script
         string_id textMsg = new string_id("new_player", "default_text");
         string_id okButton = new string_id("new_player", "okay_button");
         string_id cancelButton = new string_id("new_player", "thank_you_button");
-        if (profession.equals(BRAWLER))
-        {
-            int questNum = getIntObjVar(player, BRAWLER_QUEST_OBJVAR);
-            switch (questNum)
-            {
-                case 0:
-                break;
-                case 1:
-                break;
-                case 2:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingBrawler.MeleeTactics");
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingBrawler");
-                break;
-                case 3:
-                textMsg = new string_id("new_player", "brawler_berserk");
-                okButton = new string_id("new_player", "general_combat_button");
-                twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
-                break;
-                case 4:
-                textMsg = new string_id("new_player", "brawler_lunge");
-                okButton = new string_id("new_player", "general_combat_button");
-                twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
-                break;
-                case 5:
-                textMsg = new string_id("new_player", "brawler_center_of_being");
-                okButton = new string_id("new_player", "general_combat_button");
-                twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
-                break;
-                case 6:
-                openHolocronToPage(player, "Combat");
-                break;
-            }
-        }
-        else if (profession.equals(MARKSMAN))
-        {
-            int questNum = getIntObjVar(player, MARKSMAN_QUEST_OBJVAR);
-            switch (questNum)
-            {
-                case 0:
-                break;
-                case 1:
-                break;
-                case 2:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingMarksman.RangedTactics");
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingMarksman");
-                break;
-                case 3:
-                textMsg = new string_id("new_player", "marksman_point_blank_single");
-                okButton = new string_id("new_player", "general_combat_button");
-                twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
-                break;
-                case 4:
-                textMsg = new string_id("new_player", "marksman_overcharge_shot");
-                okButton = new string_id("new_player", "general_combat_button");
-                twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
-                break;
-                case 5:
-                openHolocronToPage(player, "Combat");
+        switch (profession) {
+            case BRAWLER: {
+                int questNum = getIntObjVar(player, BRAWLER_QUEST_OBJVAR);
+                switch (questNum) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingBrawler.MeleeTactics");
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingBrawler");
+                        break;
+                    case 3:
+                        textMsg = new string_id("new_player", "brawler_berserk");
+                        okButton = new string_id("new_player", "general_combat_button");
+                        twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
+                        break;
+                    case 4:
+                        textMsg = new string_id("new_player", "brawler_lunge");
+                        okButton = new string_id("new_player", "general_combat_button");
+                        twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
+                        break;
+                    case 5:
+                        textMsg = new string_id("new_player", "brawler_center_of_being");
+                        okButton = new string_id("new_player", "general_combat_button");
+                        twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
+                        break;
+                    case 6:
+                        openHolocronToPage(player, "Combat");
+                        break;
+                }
                 break;
             }
-        }
-        else if (profession.equals(SCOUT))
-        {
-            int questNum = getIntObjVar(player, SCOUT_QUEST_OBJVAR);
-            switch (questNum)
-            {
-                case 0:
-                break;
-                case 1:
-                break;
-                case 2:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Harvesting");
-                break;
-                case 3:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Harvesting");
-                break;
-                case 4:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Crafting");
-                break;
-                case 5:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Camps");
-                break;
-                case 6:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Camps");
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout");
-                break;
-            }
-        }
-        else if (profession.equals(ENTERTAINER))
-        {
-            int questNum = getIntObjVar(player, ENTERTAINER_QUEST_OBJVAR);
-            switch (questNum)
-            {
-                case 0:
-                break;
-                case 1:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingEntertainer.Instruments");
-                break;
-                case 2:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingEntertainer.Instruments");
-                break;
-                case 3:
-                textMsg = new string_id("new_player", "entertainer_image_design");
-                okButton = new string_id("new_player", "general_entertainer_button");
-                twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
-                break;
-                case 4:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingEntertainer.Instruments");
-                break;
-                case 5:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Exploring.FindCantina");
-                break;
-                case 6:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingEntertainer");
+            case MARKSMAN: {
+                int questNum = getIntObjVar(player, MARKSMAN_QUEST_OBJVAR);
+                switch (questNum) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingMarksman.RangedTactics");
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingMarksman");
+                        break;
+                    case 3:
+                        textMsg = new string_id("new_player", "marksman_point_blank_single");
+                        okButton = new string_id("new_player", "general_combat_button");
+                        twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
+                        break;
+                    case 4:
+                        textMsg = new string_id("new_player", "marksman_overcharge_shot");
+                        okButton = new string_id("new_player", "general_combat_button");
+                        twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
+                        break;
+                    case 5:
+                        openHolocronToPage(player, "Combat");
+                        break;
+                }
                 break;
             }
-        }
-        else if (profession.equals(ARTISAN))
-        {
-            int questNum = getIntObjVar(player, ARTISAN_QUEST_OBJVAR);
-            switch (questNum)
-            {
-                case 0:
-                break;
-                case 1:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingArtisan.Resources");
-                break;
-                case 2:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingArtisan.Resources");
-                break;
-                case 3:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingArtisan.Resources");
-                break;
-                case 4:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingArtisan.Crafting");
-                break;
-                case 5:
-                openHolocronToPage(player, "Crafting.FindingResources");
-                openHolocronToPage(player, "Crafting");
+            case SCOUT: {
+                int questNum = getIntObjVar(player, SCOUT_QUEST_OBJVAR);
+                switch (questNum) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Harvesting");
+                        break;
+                    case 3:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Harvesting");
+                        break;
+                    case 4:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Crafting");
+                        break;
+                    case 5:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Camps");
+                        break;
+                    case 6:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout.Camps");
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingScout");
+                        break;
+                }
                 break;
             }
-        }
-        else if (profession.equals(MEDIC))
-        {
-            int questNum = getIntObjVar(player, MEDIC_QUEST_OBJVAR);
-            switch (questNum)
-            {
-                case 0:
+            case ENTERTAINER: {
+                int questNum = getIntObjVar(player, ENTERTAINER_QUEST_OBJVAR);
+                switch (questNum) {
+                    case 0:
+                        break;
+                    case 1:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingEntertainer.Instruments");
+                        break;
+                    case 2:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingEntertainer.Instruments");
+                        break;
+                    case 3:
+                        textMsg = new string_id("new_player", "entertainer_image_design");
+                        okButton = new string_id("new_player", "general_entertainer_button");
+                        twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
+                        break;
+                    case 4:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingEntertainer.Instruments");
+                        break;
+                    case 5:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Exploring.FindCantina");
+                        break;
+                    case 6:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingEntertainer");
+                        break;
+                }
                 break;
-                case 1:
+            }
+            case ARTISAN: {
+                int questNum = getIntObjVar(player, ARTISAN_QUEST_OBJVAR);
+                switch (questNum) {
+                    case 0:
+                        break;
+                    case 1:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingArtisan.Resources");
+                        break;
+                    case 2:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingArtisan.Resources");
+                        break;
+                    case 3:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingArtisan.Resources");
+                        break;
+                    case 4:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingArtisan.Crafting");
+                        break;
+                    case 5:
+                        openHolocronToPage(player, "Crafting.FindingResources");
+                        openHolocronToPage(player, "Crafting");
+                        break;
+                }
                 break;
-                case 2:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Exploring.FindHospital");
-                break;
-                case 3:
-                textMsg = new string_id("new_player", "medic_diagnose");
-                okButton = new string_id("new_player", "general_medic_button");
-                twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
-                break;
-                case 4:
-                textMsg = new string_id("new_player", "medic_tend_wounds");
-                okButton = new string_id("new_player", "general_medic_button");
-                twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
-                break;
-                case 5:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingMedic.DraftSchematics");
-                break;
-                case 6:
-                openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingMedic.Damage");
+            }
+            case MEDIC: {
+                int questNum = getIntObjVar(player, MEDIC_QUEST_OBJVAR);
+                switch (questNum) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Exploring.FindHospital");
+                        break;
+                    case 3:
+                        textMsg = new string_id("new_player", "medic_diagnose");
+                        okButton = new string_id("new_player", "general_medic_button");
+                        twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
+                        break;
+                    case 4:
+                        textMsg = new string_id("new_player", "medic_tend_wounds");
+                        okButton = new string_id("new_player", "general_medic_button");
+                        twoButtonSui(player, player, "handleShowHolocronGeneralInfo", droidName, textMsg, okButton, cancelButton);
+                        break;
+                    case 5:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingMedic.DraftSchematics");
+                        break;
+                    case 6:
+                        openHolocronToPage(player, "WelcomeToSWG.WhereDoIBegin.Professions.PlayingMedic.Damage");
+                        break;
+                }
                 break;
             }
         }

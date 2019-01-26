@@ -42,8 +42,8 @@ public class heavyweapons extends script.base_script
     public static final int LIGHTNING_BEAM_VEHICLE_SLOW_CHANCE = 100;
     public static final float LIGHTNING_BEAM_VEHICLE_SLOW_DURATION = 20.0f;
     public static final float LIGHTNING_BEAM_VEHICLE_SLOW_FACTOR = 0.1f;
-    public static final float FOCUS_FIRE_CONE_REDUCTION = .75f;
-    public static final float DEAD_BANG_RANGE_REDUCTION = .85f;
+    public static final float FOCUS_FIRE_CONE_REDUCTION = 0.75f;
+    public static final float DEAD_BANG_RANGE_REDUCTION = 0.85f;
     public static final float DEMOLITION_DAM_MULTIPLIER = 1.4f;
     public static final float DEMOLITION_1_DAM_MULTIPLIER = 1.6f;
     public static final float DEMOLITION_2_DAM_MULTIPLIER = 1.8f;
@@ -102,24 +102,23 @@ public class heavyweapons extends script.base_script
             return mult;
         }
         actionName = toLower(actionName);
-        if (actionName.equals("demolitionshot_2"))
-        {
-            mult = DEMOLITION_2_DAM_MULTIPLIER;
-        }
-        else if (actionName.equals("demolitionshot"))
-        {
-            mult = DEMOLITION_DAM_MULTIPLIER;
-        }
-        else if (actionName.equals("demolitionshot_1"))
-        {
-            mult = DEMOLITION_1_DAM_MULTIPLIER;
+        switch (actionName) {
+            case "demolitionshot_2":
+                mult = DEMOLITION_2_DAM_MULTIPLIER;
+                break;
+            case "demolitionshot":
+                mult = DEMOLITION_DAM_MULTIPLIER;
+                break;
+            case "demolitionshot_1":
+                mult = DEMOLITION_1_DAM_MULTIPLIER;
+                break;
         }
         return mult;
     }
     public static obj_id[] getAllHeavyWeaponTargets(obj_id attacker, obj_id defender, weapon_data weapon, dictionary actionData) throws InterruptedException
     {
-        float rangeModifier = 1f;
-        float areaModifier = 1f;
+        float rangeModifier = 1.0f;
+        float areaModifier = 1.0f;
         String actionName = toLower(actionData.getString("actionName"));
         if (actionName != null && actionName.length() > 0)
         {

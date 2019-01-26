@@ -8,6 +8,7 @@ import script.obj_id;
 
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.StringTokenizer;
 import java.util.Vector;
 
 public class combat_simulator_user extends script.base_script
@@ -133,11 +134,9 @@ public class combat_simulator_user extends script.base_script
         utils.setScriptVar(self, "combat_simulator.weapons", allWeapons);
         String[] allArmorInitial = dataTableGetStringColumnNoDefaults(armor.DATATABLE_MASTER_ARMOR, "crafted_object_template");
         Vector allArmor = new Vector();
-        for (int i = 0; i < allArmorInitial.length; ++i)
-        {
-            if (allArmorInitial[i].startsWith("object/tangible/wearables/armor/"))
-            {
-                allArmor.add(allArmorInitial[i]);
+        for (String s : allArmorInitial) {
+            if (s.startsWith("object/tangible/wearables/armor/")) {
+                allArmor.add(s);
             }
         }
         utils.setScriptVar(self, "combat_simulator.armor", allArmor);
@@ -477,17 +476,14 @@ public class combat_simulator_user extends script.base_script
         {
             label += "\nCurrent professions are: ";
             String[] professions = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".professions");
-            for (int i = 0; i < professions.length; ++i)
-            {
-                java.util.StringTokenizer st = new java.util.StringTokenizer(professions[i]);
+            for (String profession : professions) {
+                StringTokenizer st = new StringTokenizer(profession);
                 int professionIndex = utils.stringToInt(st.nextToken());
                 String professionLevel = st.nextToken();
-                if (professionLevel.equals("0"))
-                {
+                if (professionLevel.equals("0")) {
                     professionLevel = "novice";
                 }
-                if (professionLevel.equals("5"))
-                {
+                if (professionLevel.equals("5")) {
                     professionLevel = "master";
                 }
                 label += "\n";
@@ -527,19 +523,15 @@ public class combat_simulator_user extends script.base_script
         {
             label += "\nCurrent profession level is: ";
             String[] professions = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".professions");
-            for (int i = 0; i < professions.length; ++i)
-            {
-                java.util.StringTokenizer st = new java.util.StringTokenizer(professions[i]);
+            for (String profession : professions) {
+                StringTokenizer st = new StringTokenizer(profession);
                 int professionIndex = utils.stringToInt(st.nextToken());
                 String professionLevel = st.nextToken();
-                if (currentProfessionIndex == professionIndex)
-                {
-                    if (professionLevel.equals("0"))
-                    {
+                if (currentProfessionIndex == professionIndex) {
+                    if (professionLevel.equals("0")) {
                         professionLevel = "novice";
                     }
-                    if (professionLevel.equals("5"))
-                    {
+                    if (professionLevel.equals("5")) {
                         professionLevel = "master";
                     }
                     label += "\n";
@@ -705,9 +697,8 @@ public class combat_simulator_user extends script.base_script
         {
             label += "\nCurrent armor is: ";
             String[] currentArmor = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".armor");
-            for (int i = 0; i < currentArmor.length; ++i)
-            {
-                label += ("\n" + currentArmor[i]);
+            for (String s : currentArmor) {
+                label += ("\n" + s);
             }
         }
         if (utils.hasScriptVar(self, "combat_simulator.armor_depth"))
@@ -813,10 +804,9 @@ public class combat_simulator_user extends script.base_script
         {
             label += "\nCurrent buffs are: ";
             String[] buffs = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".buffs");
-            for (int i = 0; i < buffs.length; ++i)
-            {
+            for (String buff : buffs) {
                 label += "\n";
-                label += buffs[i];
+                label += buff;
             }
         }
         int pid = sui.listbox(self, self, label, sui.OK_CANCEL, "Buffs selection", COMBAT_SIMULATOR_ACTOR_ATTRIBUTES, "setBuffsOk", true, false);
@@ -850,10 +840,8 @@ public class combat_simulator_user extends script.base_script
             buffs = utils.getResizeableStringArrayScriptVar(self, "combat_simulator." + actor + ".buffs");
         }
         boolean foundBuff = false;
-        for (int i = 0; i < buffs.size(); ++i)
-        {
-            if ((((String)buffs.get(i))).indexOf(buffToAdd) == 0)
-            {
+        for (Object buff : buffs) {
+            if ((((String) buff)).indexOf(buffToAdd) == 0) {
                 foundBuff = true;
             }
         }
@@ -889,10 +877,9 @@ public class combat_simulator_user extends script.base_script
         {
             label += "\nCurrent wound levels are: ";
             String[] wounds = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".wounds");
-            for (int i = 0; i < wounds.length; ++i)
-            {
+            for (String wound : wounds) {
                 label += "\n";
-                label += wounds[i];
+                label += wound;
             }
         }
         int pid = sui.listbox(self, self, label, sui.OK_CANCEL, "Wounds levels", COMBAT_SIMULATOR_ACTOR_ATTRIBUTES, "setWoundsOk", true, false);
@@ -933,12 +920,10 @@ public class combat_simulator_user extends script.base_script
         if (utils.hasScriptVar(self, "combat_simulator." + actor + ".wounds"))
         {
             String[] wounds = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".wounds");
-            for (int i = 0; i < wounds.length; ++i)
-            {
-                if ((((String)wounds[i])).indexOf(wound) == 0)
-                {
+            for (String wound1 : wounds) {
+                if ((((String) wound1)).indexOf(wound) == 0) {
                     label += "\nCurrent wound level is: \n";
-                    label += wounds[i];
+                    label += wound1;
                 }
             }
         }
@@ -997,10 +982,9 @@ public class combat_simulator_user extends script.base_script
         {
             label += "\nCurrent commands are: ";
             String[] commands = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".commands");
-            for (int i = 0; i < commands.length; ++i)
-            {
+            for (String command : commands) {
                 label += "\n";
-                label += commands[i];
+                label += command;
             }
         }
         String[] validCommands;
@@ -1059,10 +1043,8 @@ public class combat_simulator_user extends script.base_script
             commands = utils.getResizeableStringArrayScriptVar(self, "combat_simulator." + actor + ".commands");
         }
         boolean foundCommand = false;
-        for (int i = 0; i < commands.size(); ++i)
-        {
-            if (((String)commands.get(i)) == commandToAdd)
-            {
+        for (Object command : commands) {
+            if (((String) command) == commandToAdd) {
                 foundCommand = true;
             }
         }
@@ -1138,7 +1120,7 @@ public class combat_simulator_user extends script.base_script
         }
         label += "\n(Only buffs and wound level selections are taken into account when you make a creature actor)";
         Vector alphabet = new Vector();
-        for (int i = (int)'a'; i <= (int)'z'; ++i)
+        for (int i = 'a'; i <= 'z'; ++i)
         {
             alphabet.add("" + (char)i);
         }
@@ -1164,7 +1146,7 @@ public class combat_simulator_user extends script.base_script
                 customizeActor();
                 return SCRIPT_CONTINUE;
             }
-            utils.setScriptVar(self, "combat_simulator." + actor + ".creature_letter", ("" + (char)((int)'a' + idx)));
+            utils.setScriptVar(self, "combat_simulator." + actor + ".creature_letter", ("" + (char)('a' + idx)));
             setCreature();
             return SCRIPT_CONTINUE;
         }
@@ -1186,11 +1168,9 @@ public class combat_simulator_user extends script.base_script
         label += "\n(Only buffs and wound level selections are taken into account when you make a creature actor)";
         String[] allCreatures = utils.getStringArrayScriptVar(self, "combat_simulator.creature_list");
         Vector availableCreatures = new Vector();
-        for (int i = 0; i < allCreatures.length; ++i)
-        {
-            if (allCreatures[i].startsWith(creatureLetter))
-            {
-                availableCreatures.add(allCreatures[i]);
+        for (String allCreature : allCreatures) {
+            if (allCreature.startsWith(creatureLetter)) {
+                availableCreatures.add(allCreature);
             }
         }
         availableCreatures.add("reset");
@@ -1309,7 +1289,7 @@ public class combat_simulator_user extends script.base_script
         setObjVar(combatMaster, "combat_simulator.current_round", 1);
         messageTo(combatMaster, "runSimulation", null, 0, false);
         String label = utils.getStringScriptVar(self, "combat_simulator.label");
-        if (label.indexOf(".") != -1)
+        if (label.contains("."))
         {
             int splitIndex = -1;
             if (utils.stringToInt(label.substring(label.length() - 4)) != -1)
@@ -1373,17 +1353,16 @@ public class combat_simulator_user extends script.base_script
         utils.setScriptVar(self, "combat_simulator.reset_tag", tag);
         closeOldWindowPid();
         String prompt = "Are you sure you want to reset ";
-        if (tag.equals("combat_simulator"))
-        {
-            prompt += "all combat simulator settings?";
-        }
-        else if (tag.equals("combat_simulator.A"))
-        {
-            prompt += "all actor A customizations?";
-        }
-        else if (tag.equals("combat_simulator.B"))
-        {
-            prompt += "all actor B customizations?";
+        switch (tag) {
+            case "combat_simulator":
+                prompt += "all combat simulator settings?";
+                break;
+            case "combat_simulator.A":
+                prompt += "all actor A customizations?";
+                break;
+            case "combat_simulator.B":
+                prompt += "all actor B customizations?";
+                break;
         }
         int pid = sui.msgbox(self, self, prompt, sui.OK_CANCEL, "Reset alert!", sui.MSG_EXCLAMATION, "resetOk");
         setWindowPid(pid);
@@ -1397,19 +1376,18 @@ public class combat_simulator_user extends script.base_script
         {
             utils.removeScriptVarTree(self, resetTag);
         }
-        if (resetTag.equals("combat_simulator"))
-        {
-            combatSimulatorMain();
-        }
-        else if (resetTag.equals("combat_simulator.A"))
-        {
-            utils.setScriptVar(self, "combat_simulator.current_actor", "A");
-            customizeActor();
-        }
-        else if (resetTag.equals("combat_simulator.B"))
-        {
-            utils.setScriptVar(self, "combat_simulator.current_actor", "B");
-            customizeActor();
+        switch (resetTag) {
+            case "combat_simulator":
+                combatSimulatorMain();
+                break;
+            case "combat_simulator.A":
+                utils.setScriptVar(self, "combat_simulator.current_actor", "A");
+                customizeActor();
+                break;
+            case "combat_simulator.B":
+                utils.setScriptVar(self, "combat_simulator.current_actor", "B");
+                customizeActor();
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -1450,76 +1428,58 @@ public class combat_simulator_user extends script.base_script
         {
             return professions;
         }
-        for (int i = 0; i < professions.length; ++i)
-        {
-            java.util.StringTokenizer st = new java.util.StringTokenizer(professions[i]);
+        for (String profession : professions) {
+            StringTokenizer st = new StringTokenizer(profession);
             int professionIndex = utils.stringToInt(st.nextToken());
             int professionLevel = utils.stringToInt(st.nextToken());
             Vector skills = new Vector();
-            for (int j = 0; j < PROFESSION_SKILLS[professionIndex].length; ++j)
-            {
-                if (getSkillLevel(PROFESSION_SKILLS[professionIndex][j]) <= professionLevel)
-                {
+            for (int j = 0; j < PROFESSION_SKILLS[professionIndex].length; ++j) {
+                if (getSkillLevel(PROFESSION_SKILLS[professionIndex][j]) <= professionLevel) {
                     skills.add(PROFESSION_SKILLS[professionIndex][j]);
                 }
             }
-            for (int j = 0; j < skills.size(); ++j)
-            {
-                String[] prereqSkills = getSkillPrerequisiteSkills((String)skills.get(j));
-                for (int m = 0; m < prereqSkills.length; ++m)
-                {
-                    if (!skills.contains(prereqSkills[m]))
-                    {
-                        skills.add(prereqSkills[m]);
+            for (int j = 0; j < skills.size(); ++j) {
+                String[] prereqSkills = getSkillPrerequisiteSkills((String) skills.get(j));
+                for (String prereqSkill : prereqSkills) {
+                    if (!skills.contains(prereqSkill)) {
+                        skills.add(prereqSkill);
                     }
                 }
-                String[] skillCommands = getSkillCommandsProvided((String)skills.get(j));
-                for (int k = 0; k < skillCommands.length; ++k)
-                {
-                    String displayCommand = skillCommands[k];
-                    java.util.StringTokenizer commandTok = new java.util.StringTokenizer(displayCommand, "_");
+                String[] skillCommands = getSkillCommandsProvided((String) skills.get(j));
+                for (String displayCommand : skillCommands) {
+                    StringTokenizer commandTok = new StringTokenizer(displayCommand, "_");
                     String initialCommand = commandTok.nextToken();
-                    if (displayCommand.indexOf('+') != -1)
-                    {
+                    if (displayCommand.indexOf('+') != -1) {
                         continue;
                     }
                     String additionalCommand = "";
                     int level = 0;
-                    if (commandTok.countTokens() == 1)
-                    {
+                    if (commandTok.countTokens() == 1) {
                         level = utils.stringToInt(commandTok.nextToken());
-                        if (level == -1)
-                        {
+                        if (level == -1) {
                             continue;
                         }
                         additionalCommand = (" (improved x" + level + ")");
-                    }
-                    else if (commandTok.countTokens() > 1)
-                    {
+                    } else if (commandTok.countTokens() > 1) {
                         continue;
                     }
                     boolean foundCommand = false;
-                    for (int l = 0; l < commands.size(); ++l)
-                    {
+                    for (int l = 0; l < commands.size(); ++l) {
                         String com = (commands.get(l)).toString();
-                        if (com.startsWith(initialCommand))
-                        {
+                        if (com.startsWith(initialCommand)) {
                             foundCommand = true;
                             int ind = com.indexOf(" (improved x");
                             int comLevel = 0;
-                            if (ind != -1)
-                            {
+                            if (ind != -1) {
                                 ind += 12;
                                 comLevel = utils.stringToInt(com.substring(ind, ind + 1));
                             }
-                            if (level > comLevel)
-                            {
+                            if (level > comLevel) {
                                 commands.set(l, (initialCommand + additionalCommand));
                             }
                         }
                     }
-                    if (!foundCommand)
-                    {
+                    if (!foundCommand) {
                         commands.add(initialCommand + additionalCommand);
                     }
                 }
@@ -1588,17 +1548,14 @@ public class combat_simulator_user extends script.base_script
         {
             output += "\nProfessions: ";
             String[] professions = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".professions");
-            for (int i = 0; i < professions.length; ++i)
-            {
-                java.util.StringTokenizer st = new java.util.StringTokenizer(professions[i]);
+            for (String profession : professions) {
+                StringTokenizer st = new StringTokenizer(profession);
                 int professionIndex = utils.stringToInt(st.nextToken());
                 String professionLevel = st.nextToken();
-                if (professionLevel.equals("0"))
-                {
+                if (professionLevel.equals("0")) {
                     professionLevel = "novice";
                 }
-                if (professionLevel.equals("5"))
-                {
+                if (professionLevel.equals("5")) {
                     professionLevel = "master";
                 }
                 output += ("\n   " + COMBAT_SIMULATOR_ACTOR_PROFESSION_OPTIONS[professionIndex] + " " + professionLevel);
@@ -1612,36 +1569,32 @@ public class combat_simulator_user extends script.base_script
         {
             output += "\nArmor: ";
             String[] armor = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".armor");
-            for (int i = 0; i < armor.length; ++i)
-            {
-                output += ("\n   " + armor[i]);
+            for (String s : armor) {
+                output += ("\n   " + s);
             }
         }
         if (utils.hasScriptVar(self, "combat_simulator." + actor + ".buffs"))
         {
             output += "\nBuffs: ";
             String[] buffs = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".buffs");
-            for (int i = 0; i < buffs.length; ++i)
-            {
-                output += ("\n   " + buffs[i]);
+            for (String buff : buffs) {
+                output += ("\n   " + buff);
             }
         }
         if (utils.hasScriptVar(self, "combat_simulator." + actor + ".wounds"))
         {
             output += "\nWound levels: ";
             String[] wounds = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".wounds");
-            for (int i = 0; i < wounds.length; ++i)
-            {
-                output += ("\n   " + wounds[i]);
+            for (String wound : wounds) {
+                output += ("\n   " + wound);
             }
         }
         if (utils.hasScriptVar(self, "combat_simulator." + actor + ".commands") && !isCreature)
         {
             output += "\nCommands: ";
             String[] commands = utils.getStringArrayScriptVar(self, "combat_simulator." + actor + ".commands");
-            for (int i = 0; i < commands.length; ++i)
-            {
-                output += ("\n   " + commands[i]);
+            for (String command : commands) {
+                output += ("\n   " + command);
             }
         }
         return output;
@@ -1651,19 +1604,15 @@ public class combat_simulator_user extends script.base_script
         obj_id self = getSelf();
         Vector newElements = new Vector();
         String[] totalElements = utils.getStringArrayScriptVar(self, scriptVar);
-        for (int i = 0; i < totalElements.length; ++i)
-        {
-            String currentElement = totalElements[i];
-            if (currentElement.startsWith(depth))
-            {
+        for (String totalElement : totalElements) {
+            String currentElement = totalElement;
+            if (currentElement.startsWith(depth)) {
                 currentElement = currentElement.substring(depth.length(), currentElement.length());
                 int firstSlash = currentElement.indexOf('/');
-                if (firstSlash != -1)
-                {
+                if (firstSlash != -1) {
                     currentElement = currentElement.substring(0, firstSlash + 1);
                 }
-                if (!newElements.contains(currentElement))
-                {
+                if (!newElements.contains(currentElement)) {
                     newElements.add(currentElement);
                 }
             }
@@ -1705,9 +1654,8 @@ public class combat_simulator_user extends script.base_script
         {
             professions = new String[0];
         }
-        for (int i = 0; i < professions.length; ++i)
-        {
-            java.util.StringTokenizer st = new java.util.StringTokenizer(professions[i]);
+        for (String profession : professions) {
+            StringTokenizer st = new StringTokenizer(profession);
             int professionIndex = utils.stringToInt(st.nextToken());
             String professionLevel = st.nextToken();
             commands.add("giveProfession " + actor + " " + COMBAT_SIMULATOR_ACTOR_PROFESSION_OPTIONS[professionIndex] + " " + professionLevel);
@@ -1723,9 +1671,8 @@ public class combat_simulator_user extends script.base_script
         {
             wounds = new String[0];
         }
-        for (int i = 0; i < wounds.length; ++i)
-        {
-            java.util.StringTokenizer st = new java.util.StringTokenizer(wounds[i]);
+        for (String wound : wounds) {
+            StringTokenizer st = new StringTokenizer(wound);
             String attrib = st.nextToken();
             String value = st.nextToken();
             commands.add("setAttribWound " + actor + " " + attrib + " " + value);
@@ -1741,9 +1688,8 @@ public class combat_simulator_user extends script.base_script
         {
             buffs = new String[0];
         }
-        for (int i = 0; i < buffs.length; ++i)
-        {
-            commands.add("giveBuff " + actor + " " + buffs[i]);
+        for (String buff : buffs) {
+            commands.add("giveBuff " + actor + " " + buff);
         }
         return commands;
     }
@@ -1772,9 +1718,8 @@ public class combat_simulator_user extends script.base_script
         {
             armor = new String[0];
         }
-        for (int i = 0; i < armor.length; ++i)
-        {
-            commands.add("giveEquipment " + actor + " object/tangible/wearables/armor/" + armor[i]);
+        for (String s : armor) {
+            commands.add("giveEquipment " + actor + " object/tangible/wearables/armor/" + s);
         }
         return commands;
     }
@@ -1791,12 +1736,10 @@ public class combat_simulator_user extends script.base_script
         {
             actions = new String[0];
         }
-        for (int i = 0; i < actions.length; ++i)
-        {
-            String action = actions[i];
+        for (String action1 : actions) {
+            String action = action1;
             int improvedIndex = action.indexOf("(improved x");
-            if (improvedIndex != -1)
-            {
+            if (improvedIndex != -1) {
                 action = action.substring(0, improvedIndex);
             }
             commands.add("addCommand " + actor + " " + action);
@@ -1808,11 +1751,8 @@ public class combat_simulator_user extends script.base_script
         int commandListNumber = 0;
         Vector newCommands = new Vector();
         int sizeOfNewCommands = 0;
-        for (int i = 0; i < commands.length; ++i)
-        {
-            String nextCommand = commands[i];
-            if (nextCommand.length() + sizeOfNewCommands > 900)
-            {
+        for (String nextCommand : commands) {
+            if (nextCommand.length() + sizeOfNewCommands > 900) {
                 setObjVar(combatMaster, "combat_simulator.command_list." + commandListNumber, newCommands);
                 ++commandListNumber;
                 sizeOfNewCommands = 0;
@@ -1828,63 +1768,63 @@ public class combat_simulator_user extends script.base_script
     }
     public int getArmorType(String armorPiece) throws InterruptedException
     {
-        if (armorPiece.indexOf("backpack") != -1)
+        if (armorPiece.contains("backpack"))
         {
             return 0;
         }
-        else if (armorPiece.indexOf("bandolier") != -1)
+        else if (armorPiece.contains("bandolier"))
         {
             return 1;
         }
-        else if (armorPiece.indexOf("belt") != -1)
+        else if (armorPiece.contains("belt"))
         {
             return 2;
         }
-        else if (armorPiece.indexOf("bicep_l") != -1)
+        else if (armorPiece.contains("bicep_l"))
         {
             return 3;
         }
-        else if (armorPiece.indexOf("bicep_r") != -1)
+        else if (armorPiece.contains("bicep_r"))
         {
             return 4;
         }
-        else if (armorPiece.indexOf("bracer_l") != -1)
+        else if (armorPiece.contains("bracer_l"))
         {
             return 5;
         }
-        else if (armorPiece.indexOf("bracer_r") != -1)
+        else if (armorPiece.contains("bracer_r"))
         {
             return 6;
         }
-        else if (armorPiece.indexOf("chest_plate") != -1)
+        else if (armorPiece.contains("chest_plate"))
         {
             return 7;
         }
-        else if (armorPiece.indexOf("gloves") != -1)
+        else if (armorPiece.contains("gloves"))
         {
             return 8;
         }
-        else if (armorPiece.indexOf("helmet") != -1)
+        else if (armorPiece.contains("helmet"))
         {
             return 9;
         }
-        else if (armorPiece.indexOf("leggings") != -1)
+        else if (armorPiece.contains("leggings"))
         {
             return 10;
         }
-        else if (armorPiece.indexOf("pants") != -1)
+        else if (armorPiece.contains("pants"))
         {
             return 11;
         }
-        else if (armorPiece.indexOf("shirt") != -1)
+        else if (armorPiece.contains("shirt"))
         {
             return 12;
         }
-        else if (armorPiece.indexOf("shoes") != -1)
+        else if (armorPiece.contains("shoes"))
         {
             return 13;
         }
-        else if (armorPiece.indexOf("utility_belt") != -1)
+        else if (armorPiece.contains("utility_belt"))
         {
             return 14;
         }

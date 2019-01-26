@@ -73,7 +73,7 @@ public class base extends script.base_script
         Vector children = new Vector();
         children.setSize(0);
         location myLoc = getLocation(self);
-        location loc = locations.getGoodLocationAroundLocation(myLoc, 2f, 2f, 10f, 10f);
+        location loc = locations.getGoodLocationAroundLocation(myLoc, 2.0f, 2.0f, 10.0f, 10.0f);
         if (loc != null)
         {
             obj_id door = createObject(POD_DOOR, loc);
@@ -90,7 +90,7 @@ public class base extends script.base_script
         for (int i = 0; i < roll; i++)
         {
             int idx = rand(0, DEBRIS.length - 1);
-            loc = locations.getGoodLocationAroundLocation(myLoc, 2f, 2f, 10f, 10f);
+            loc = locations.getGoodLocationAroundLocation(myLoc, 2.0f, 2.0f, 10.0f, 10.0f);
             if (loc != null)
             {
                 loc.y = getHeightAtLocation(loc.x, loc.z);
@@ -109,7 +109,7 @@ public class base extends script.base_script
         for (int i = 0; i < roll; i++)
         {
             int idx = rand(0, MISC.length - 1);
-            loc = locations.getGoodLocationAroundLocation(myLoc, 2f, 2f, 10f, 10f);
+            loc = locations.getGoodLocationAroundLocation(myLoc, 2.0f, 2.0f, 10.0f, 10.0f);
             if (loc != null)
             {
                 obj_id debrisId = createObject(MISC[idx], loc);
@@ -147,14 +147,9 @@ public class base extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < children.length; i++)
-            {
-                obj_id child = children[i];
-                if ((child == null) || (child == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
+            for (obj_id child : children) {
+                if ((child == null) || (child == obj_id.NULL_ID)) {
+                } else {
                     destroyObject(child);
                 }
             }

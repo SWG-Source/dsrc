@@ -80,7 +80,7 @@ public class restuss_rebel_ground_destroy_1 extends script.base_script
         if (phase == 0)
         {
             float ratio = restuss_event.getCompletedQuestRatio(npc, "restuss_rebel_stormtrooper_1");
-            if (ratio > .5)
+            if (ratio > 0.5)
             {
                 restuss_event.incrimentPhase(npc);
                 return;

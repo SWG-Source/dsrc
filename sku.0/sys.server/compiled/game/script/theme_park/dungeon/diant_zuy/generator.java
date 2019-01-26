@@ -36,9 +36,9 @@ public class generator extends script.base_script
                 location loc = getLocation(self);
                 if (loc != null)
                 {
-                    playClientEffectLoc(player, "clienteffect/droid_effect_fog_machine.cef", loc, 0.f);
+                    playClientEffectLoc(player, "clienteffect/droid_effect_fog_machine.cef", loc, 0.0f);
                 }
-                playClientEffectLoc(player, "clienteffect/door_open_hydraulic_style_01.cef", loc, 0.f);
+                playClientEffectLoc(player, "clienteffect/door_open_hydraulic_style_01.cef", loc, 0.0f);
             }
             if (genState == 0)
             {
@@ -48,7 +48,7 @@ public class generator extends script.base_script
                 location loc = getLocation(self);
                 if (loc != null)
                 {
-                    playClientEffectLoc(player, "clienteffect/door_open_hydraulic_style_01.cef", loc, 0.f);
+                    playClientEffectLoc(player, "clienteffect/door_open_hydraulic_style_01.cef", loc, 0.0f);
                 }
                 playMusic(player, "sound/amb_biogenics_reactor_bootup.snd");
             }

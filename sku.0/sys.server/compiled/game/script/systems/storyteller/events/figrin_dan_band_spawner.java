@@ -185,8 +185,8 @@ public class figrin_dan_band_spawner extends script.base_script
         float dx = locPoint.x - locOrigin.x;
         float dz = locPoint.z - locOrigin.z;
         float fltRadians = (float)Math.toRadians(fltAngle);
-        float fltC = (float)Math.cos(fltRadians);
-        float fltS = (float)Math.sin(fltRadians);
+        float fltC = (float) StrictMath.cos(fltRadians);
+        float fltS = (float) StrictMath.sin(fltRadians);
         location locNewOffset = (location)locOrigin.clone();
         locNewOffset.x += (dx * fltC) + (dz * fltS);
         locNewOffset.y = locPoint.y;
@@ -248,7 +248,7 @@ public class figrin_dan_band_spawner extends script.base_script
     }
     public int spawnFigrinDanBand(obj_id self, dictionary params) throws InterruptedException
     {
-        createTriggerVolume("figrin_dan_band_badge", 10f, true);
+        createTriggerVolume("figrin_dan_band_badge", 10.0f, true);
         destroyTheBand(self);
         spawnEveryone(self);
         return SCRIPT_CONTINUE;

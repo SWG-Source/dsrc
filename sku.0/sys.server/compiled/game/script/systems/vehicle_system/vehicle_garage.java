@@ -24,7 +24,7 @@ public class vehicle_garage extends script.base_script
         {
             attachScript(self, "planet_map.map_loc_both");
         }
-        createTriggerVolume(VOL_GARAGE, 64f, true);
+        createTriggerVolume(VOL_GARAGE, 64.0f, true);
         setAttributeInterested(self, attrib.VEHICLE);
         return SCRIPT_CONTINUE;
     }
@@ -165,7 +165,7 @@ public class vehicle_garage extends script.base_script
     public boolean isGarageInRange(obj_id vehicle) throws InterruptedException
     {
         location loc = getLocation(vehicle);
-        float range = 64f;
+        float range = 64.0f;
         obj_id localGarage = null;
         String script = "systems.vehicle_system.vehicle_garage";
         localGarage = getFirstObjectWithScript(loc, range, script);

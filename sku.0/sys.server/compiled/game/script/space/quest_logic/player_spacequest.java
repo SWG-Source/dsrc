@@ -124,9 +124,8 @@ public class player_spacequest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    space_quest.notifyMissions(members[i], "handleShipDestroyed", params);
+                for (obj_id member : members) {
+                    space_quest.notifyMissions(member, "handleShipDestroyed", params);
                 }
             }
         }
@@ -148,9 +147,8 @@ public class player_spacequest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    space_quest.notifyMissions(members[i], "asteroidMined", params);
+                for (obj_id member : members) {
+                    space_quest.notifyMissions(member, "asteroidMined", params);
                 }
             }
         }
@@ -172,9 +170,8 @@ public class player_spacequest extends script.base_script
             obj_id[] members = space_utils.getSpaceGroupMemberIds(gid);
             if (members != null)
             {
-                for (int i = 0; i < members.length; i++)
-                {
-                    space_quest.notifyMissions(members[i], "asteroidMined", params);
+                for (obj_id member : members) {
+                    space_quest.notifyMissions(member, "asteroidMined", params);
                 }
             }
         }
@@ -349,13 +346,11 @@ public class player_spacequest extends script.base_script
         }
         String[] newTriggers = new String[delayedTriggers.length - 1];
         int j = 0;
-        for (int i = 0; i < delayedTriggers.length; i++)
-        {
-            if (delayedTriggers[i].equals(questType + ":" + questName))
-            {
+        for (String delayedTrigger : delayedTriggers) {
+            if (delayedTrigger.equals(questType + ":" + questName)) {
                 continue;
             }
-            newTriggers[j++] = delayedTriggers[i];
+            newTriggers[j++] = delayedTrigger;
         }
         setObjVar(self, "delayedTriggers", newTriggers);
         return SCRIPT_CONTINUE;
@@ -403,7 +398,7 @@ public class player_spacequest extends script.base_script
         }
         sendQuestSystemMessage(self, SID_INSPECTING);
         utils.setScriptVar(self, "inspecting", target);
-        messageTo(self, "finishInspection", null, 5.f, false);
+        messageTo(self, "finishInspection", null, 5.0f, false);
         playClientEffectObj(self, INSPECTION_BEGIN, self, "");
         return SCRIPT_CONTINUE;
     }
@@ -474,10 +469,8 @@ public class player_spacequest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             obj_id[] escortShips = getObjIdArrayObjVar(target, "escortIdArray");
-            for (int i = 0; i < escortShips.length; i++)
-            {
-                if (isIdValid(escortShips[i]) && exists(escortShips[i]))
-                {
+            for (obj_id escortShip : escortShips) {
+                if (isIdValid(escortShip) && exists(escortShip)) {
                     sendSystemMessage(self, "You must destroy all escort ships before you can dock.", null);
                     return SCRIPT_CONTINUE;
                 }
@@ -523,7 +516,7 @@ public class player_spacequest extends script.base_script
         playClientEffectObj(self, DOCK_START, self, "");
         sendQuestSystemMessage(self, SID_DOCKING);
         space_quest._groupNotify(self, SID_DOCKING_GROUP, null);
-        ship_ai.unitDock(space_transition.getContainingShip(self), target, 15.f);
+        ship_ai.unitDock(space_transition.getContainingShip(self), target, 15.0f);
         dictionary outp = new dictionary();
         outp.put("target", target);
         space_quest.notifyMissions(self, "dockingStarted", outp);
@@ -589,7 +582,7 @@ public class player_spacequest extends script.base_script
                         setObjVar(item, "difficulty", difficulty);
                         if (utils.isProfession(self, utils.SMUGGLER))
                         {
-                            float underworldBonus = 10.f + ((float)difficulty * 10.f);
+                            float underworldBonus = 10.0f + (difficulty * 10.0f);
                             factions.addFactionStanding(self, "underworld", underworldBonus);
                         }
                         CustomerServiceLog("space_piracy", "Created 'Crate of Componenets in player " + self + "'s inventory (inventory OID: " + pInv);

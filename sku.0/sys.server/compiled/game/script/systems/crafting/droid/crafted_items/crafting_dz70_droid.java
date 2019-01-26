@@ -193,9 +193,8 @@ public class crafting_dz70_droid extends script.systems.crafting.droid.crafting_
         if (skills != null)
         {
             int[] mods = getSkillStatisticModifiers(player, skills);
-            for (int i = 0; i < mods.length; ++i)
-            {
-                playerCustomizationMod += mods[i];
+            for (int mod : mods) {
+                playerCustomizationMod += mod;
             }
         }
         if (playerCustomizationMod < 32)
@@ -206,9 +205,8 @@ public class crafting_dz70_droid extends script.systems.crafting.droid.crafting_
         {
             playerCustomizationMod = 64;
         }
-        for (int i = 0; i < customizations.length; ++i)
-        {
-            customizations[i].maxValue = (int)(playerCustomizationMod);
+        for (draft_schematic.custom customization : customizations) {
+            customization.maxValue = (int) (playerCustomizationMod);
         }
         return customizations;
     }

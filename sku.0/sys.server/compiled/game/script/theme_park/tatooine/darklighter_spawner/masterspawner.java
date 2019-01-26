@@ -72,7 +72,7 @@ public class masterspawner extends script.base_script
 		// will spawn.  A script method was used to spawn them instead
 		// of datatable as I couldn't figure out how to make them unattackable
 		// in the datatable.  Lame, I know.
-		float[][] coords = {{-688.7f, 8.0f, -6724f, -163},
+		float[][] coords = {{-688.7f, 8.0f, -6724.0f, -163},
 							{-672.0f, 8.0f, -6728.8f, -144},
 							{-706.9f, 8.0f, -6724.2f, 154},
 							{-722.9f, 8.0f, -6728.2f, 138}
@@ -88,13 +88,13 @@ public class masterspawner extends script.base_script
 	}
 	public void spawnHuff(obj_id self) throws InterruptedException
 	{
-		spawn("huff_darklighter", 0f, 1.0f, 4.2f, 0, getCellId(self, "lobby"), "npc_imperial");
+		spawn("huff_darklighter", 0.0f, 1.0f, 4.2f, 0, getCellId(self, "lobby"), "npc_imperial");
 	}
 	public void spawnConversations(obj_id self) throws InterruptedException{
-		spawn("object/tangible/poi/tatooine/poi_city_convo.iff", 0f, 0.5f, -8.2f, 0, getCellId(self, "lobby"), "npc_imperial");
+		spawn("object/tangible/poi/tatooine/poi_city_convo.iff", 0.0f, 0.5f, -8.2f, 0, getCellId(self, "lobby"), "npc_imperial");
 		spawn("object/tangible/poi/tatooine/poi_city_convo.iff", 6.4f, 0.5f, -7.4f, 0, getCellId(self, "lobby"), "npc_imperial");
 		spawn("object/tangible/poi/tatooine/poi_city_convo.iff", -16.5f, 0.2f, 7.2f, 0, getCellId(self, "livingroom1"), "npc_imperial");
-		spawn("object/tangible/poi/tatooine/poi_city_convo.iff", -22.9f, 1f, -8.9f, 0, getCellId(self, "kitchen"), "npc_imperial");
+		spawn("object/tangible/poi/tatooine/poi_city_convo.iff", -22.9f, 1.0f, -8.9f, 0, getCellId(self, "kitchen"), "npc_imperial");
 	}
 	public int spawnDroidPatrol(obj_id self, dictionary params) throws InterruptedException{
 		obj_id droidSpawn;
@@ -121,7 +121,7 @@ public class masterspawner extends script.base_script
 		return SCRIPT_CONTINUE;
 	}
 	public void spawnGuardPatrol(obj_id self) throws InterruptedException{
-		obj_id guardSpawn = spawn(npcToSpawn(getGuardArea(self)),-646.0f, 13.0f, -6850.0f, 0f, null, null);
+		obj_id guardSpawn = spawn(npcToSpawn(getGuardArea(self)),-646.0f, 13.0f, -6850.0f, 0.0f, null, null);
 		ai_lib.setPatrolFlipPath(guardSpawn, patrolPoints);
 		int currentPop = getIntObjVar(self, "current.guards");
 		currentPop++;

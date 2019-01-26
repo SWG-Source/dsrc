@@ -35,12 +35,9 @@ public class coloring extends script.base_script
     public void hueClothes(obj_id newClothes, int col) throws InterruptedException
     {
         custom_var[] allVars = getAllCustomVars(newClothes);
-        for (int i = 0; i < allVars.length; i++)
-        {
-            custom_var cv = allVars[i];
-            ranged_int_custom_var ri = (ranged_int_custom_var)cv;
-            if (cv.isPalColor())
-            {
+        for (custom_var cv : allVars) {
+            ranged_int_custom_var ri = (ranged_int_custom_var) cv;
+            if (cv.isPalColor()) {
                 ri.setValue(col);
             }
         }

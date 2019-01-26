@@ -123,7 +123,7 @@ public class custom_sign extends script.base_script
             int signType = getIntObjVar(self, SIGN_TYPE);
             if (signType == 1)
             {
-                if (structureName.indexOf("merchant_tent") > -1)
+                if (structureName.contains("merchant_tent"))
                 {
                     return false;
                 }

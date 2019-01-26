@@ -170,21 +170,19 @@ public class fs_crafting1_player extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (text.equals("config"))
-        {
-            configProcessorPuzzle(self, self);
-        }
-        else if (text.equals("gyro"))
-        {
-            gyroReceiverPuzzle(self, self);
-        }
-        else if (text.equals("amp"))
-        {
-            signalAmpPuzzle(self, self);
-        }
-        else if (text.equals("ssa"))
-        {
-            solidStateArrayPuzzle(self, self);
+        switch (text) {
+            case "config":
+                configProcessorPuzzle(self, self);
+                break;
+            case "gyro":
+                gyroReceiverPuzzle(self, self);
+                break;
+            case "amp":
+                signalAmpPuzzle(self, self);
+                break;
+            case "ssa":
+                solidStateArrayPuzzle(self, self);
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -230,10 +228,8 @@ public class fs_crafting1_player extends script.base_script
         }
         boolean win = true;
         String arrayStatus = SUI_ONLINE;
-        for (int i = 0; i < status.length; i++)
-        {
-            if (status[i] != 1)
-            {
+        for (int status1 : status) {
+            if (status1 != 1) {
                 arrayStatus = SUI_OFFLINE;
                 win = false;
             }
@@ -525,13 +521,10 @@ public class fs_crafting1_player extends script.base_script
             obj_id[] contents = utils.getAllItemsPlayerHasByTemplate(self, TEMPLATES[i]);
             if (contents != null && contents.length > 0)
             {
-                for (int j = 0; j < contents.length; j++)
-                {
-                    if (!hasObjVar(contents[j], STATUS_OBJVAR))
-                    {
-                        obj_id crafter = getCrafter(contents[j]);
-                        if (!isIdValid(crafter) || crafter != self)
-                        {
+                for (obj_id content : contents) {
+                    if (!hasObjVar(content, STATUS_OBJVAR)) {
+                        obj_id crafter = getCrafter(content);
+                        if (!isIdValid(crafter) || crafter != self) {
                             continue;
                         }
                         tempData = utils.addElement(tempData, COMPONENTS[i]);
@@ -609,11 +602,9 @@ public class fs_crafting1_player extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (!hasObjVar(contents[i], STATUS_OBJVAR))
-            {
-                component = contents[i];
+        for (obj_id content : contents) {
+            if (!hasObjVar(content, STATUS_OBJVAR)) {
+                component = content;
                 break;
             }
         }
@@ -689,7 +680,7 @@ public class fs_crafting1_player extends script.base_script
             }
         }
         tries--;
-        int integrity = (int)(((float)tries / (float)max_tries) * 100);
+        int integrity = (int)(((float)tries / max_tries) * 100);
         boolean win = true;
         for (int i = 0; i < current.length; i++)
         {
@@ -703,10 +694,9 @@ public class fs_crafting1_player extends script.base_script
             obj_id component = utils.getObjIdScriptVar(self, COMPONENT_OBJVAR);
             setObjVar(component, STATUS_OBJVAR, 1);
             setSUIProperty(pid, "top.description.desc", "Text", SUI_CALIBRATION_SUCCESS);
-            for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-            {
-                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "noCallback");
-                setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "GetsInput", "false");
+            for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "noCallback");
+                setSUIProperty(pid, configPlayerButton, "GetsInput", "false");
             }
             utils.removeScriptVar(self, SUI_OBJVAR + ".pid");
         }
@@ -716,10 +706,9 @@ public class fs_crafting1_player extends script.base_script
             setObjVar(component, STATUS_OBJVAR, -1);
             setSUIProperty(pid, "top.description.attempts", "Text", SUI_ATTEMPTS_REMAINING + " " + integrity + "%");
             setSUIProperty(pid, "top.description.desc", "Text", SUI_CALIBRATION_FAILURE);
-            for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-            {
-                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "noCallback");
-                setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "GetsInput", "false");
+            for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+                subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "noCallback");
+                setSUIProperty(pid, configPlayerButton, "GetsInput", "false");
             }
             utils.removeScriptVar(self, SUI_OBJVAR + ".pid");
         }
@@ -768,7 +757,7 @@ public class fs_crafting1_player extends script.base_script
                 {
                     win = false;
                 }
-                float pct = (float)current[i] / 100.0f;
+                float pct = current[i] / 100.0f;
                 int dec = (int)(255 * pct);
                 String hex = Integer.toHexString(dec);
                 if (hex.length() == 1)
@@ -779,7 +768,7 @@ public class fs_crafting1_player extends script.base_script
                 setSUIProperty(pid, "top.bars.player." + (i + 1), "Color", hexValue);
             }
             tries--;
-            int integrity = (int)(((float)tries / (float)max_tries) * 100);
+            int integrity = (int)(((float)tries / max_tries) * 100);
             if (win)
             {
                 obj_id component = utils.getObjIdScriptVar(self, COMPONENT_OBJVAR);
@@ -791,7 +780,7 @@ public class fs_crafting1_player extends script.base_script
                 setSUIProperty(pid, "top.sliders.3.slider", "GetsInput", "false");
                 for (int i = 0; i < current.length; i++)
                 {
-                    float pct = (float)current[i] / 100.0f;
+                    float pct = current[i] / 100.0f;
                     int dec = (int)(255 * pct);
                     String hex = Integer.toHexString(dec);
                     if (hex.length() == 1)
@@ -817,7 +806,7 @@ public class fs_crafting1_player extends script.base_script
                 setSUIProperty(pid, "description.desc", "Text", SUI_CALIBRATION_FAILURE);
                 for (int i = 0; i < current.length; i++)
                 {
-                    float pct = (float)current[i] / 100.0f;
+                    float pct = current[i] / 100.0f;
                     int dec = (int)(255 * pct);
                     String hex = Integer.toHexString(dec);
                     if (hex.length() == 1)
@@ -829,7 +818,7 @@ public class fs_crafting1_player extends script.base_script
                 }
                 for (int i = 0; i < current.length; i++)
                 {
-                    float pct = (float)goal[i] / 100.0f;
+                    float pct = goal[i] / 100.0f;
                     int dec = (int)(255 * pct);
                     String hex = Integer.toHexString(dec);
                     if (hex.length() == 1)
@@ -912,7 +901,7 @@ public class fs_crafting1_player extends script.base_script
             int tries = utils.getIntScriptVar(self, SUI_OBJVAR + ".tries");
             int max_tries = utils.getIntScriptVar(self, SUI_OBJVAR + ".max_tries");
             tries--;
-            int integrity = (int)(((float)tries / (float)max_tries) * 100);
+            int integrity = (int)(((float)tries / max_tries) * 100);
             if (win)
             {
                 obj_id component = utils.getObjIdScriptVar(self, COMPONENT_OBJVAR);
@@ -1003,7 +992,7 @@ public class fs_crafting1_player extends script.base_script
                 setSUIProperty(pid, "comp.bars.bar" + (i + 1) + ".right", "RunScript", "");
             }
             tries--;
-            int integrity = (int)(((float)tries / (float)max_tries) * 100);
+            int integrity = (int)(((float)tries / max_tries) * 100);
             if (win)
             {
                 obj_id component = utils.getObjIdScriptVar(self, COMPONENT_OBJVAR);
@@ -1158,24 +1147,19 @@ public class fs_crafting1_player extends script.base_script
                 return;
             }
             int compStatus = -1;
-            for (int i = 0; i < contents.length; i++)
-            {
-                if (hasObjVar(contents[i], STATUS_OBJVAR))
-                {
-                    compStatus = getIntObjVar(contents[i], STATUS_OBJVAR);
+            for (obj_id content1 : contents) {
+                if (hasObjVar(content1, STATUS_OBJVAR)) {
+                    compStatus = getIntObjVar(content1, STATUS_OBJVAR);
                 }
-                if (compStatus == 1)
-                {
-                    component = contents[i];
+                if (compStatus == 1) {
+                    component = content1;
                 }
             }
             if (!isIdValid(component))
             {
-                for (int j = 0; j < contents.length; j++)
-                {
-                    if (!hasObjVar(contents[j], STATUS_OBJVAR))
-                    {
-                        component = contents[j];
+                for (obj_id content : contents) {
+                    if (!hasObjVar(content, STATUS_OBJVAR)) {
+                        component = content;
                     }
                 }
                 if (!isIdValid(component))
@@ -1396,9 +1380,8 @@ public class fs_crafting1_player extends script.base_script
             setSUIProperty(pid, CONFIG_PLAYER_BUTTONS[i], "IsCancelButton", "false");
         }
         setSUIProperty(pid, "bg.mmc.close", "IsCancelButton", "true");
-        for (int i = 0; i < CONFIG_PLAYER_BUTTONS.length; i++)
-        {
-            subscribeToSUIEvent(pid, sui_event_type.SET_onButton, CONFIG_PLAYER_BUTTONS[i], "configProcessorPuzzleCallback");
+        for (String configPlayerButton : CONFIG_PLAYER_BUTTONS) {
+            subscribeToSUIEvent(pid, sui_event_type.SET_onButton, configPlayerButton, "configProcessorPuzzleCallback");
         }
         setSUIAssociatedObject(pid, calibrator);
         setSUIMaxRangeToObject(pid, 10.0f);
@@ -1504,7 +1487,7 @@ public class fs_crafting1_player extends script.base_script
         setSUIProperty(pid, "description.attempts", "Text", SUI_ATTEMPTS_REMAINING + " 100%");
         for (int i = 0; i < goal.length; i++)
         {
-            float pct = (float)goal[i] / 100.0f;
+            float pct = goal[i] / 100.0f;
             int dec = (int)(255 * pct);
             String hex = Integer.toHexString(dec);
             if (hex.length() == 1)
@@ -1674,9 +1657,9 @@ public class fs_crafting1_player extends script.base_script
         setSUIProperty(pid, "comp.sliders.3.title", "Text", SUI_SSA_SLIDER3);
         setSUIProperty(pid, "comp.sliders.4.title", "Text", SUI_SSA_SLIDER4);
         setSUIProperty(pid, "comp.sliders.5.title", "Text", SUI_SSA_SLIDER5);
-        float g0 = (float)goal / 100.0f;
-        float g1 = (float)SUI_SSA_LINE_RANGE * g0;
-        float g2 = (float)SUI_SSA_LINE_MIN + g1;
+        float g0 = goal / 100.0f;
+        float g1 = SUI_SSA_LINE_RANGE * g0;
+        float g2 = SUI_SSA_LINE_MIN + g1;
         int g = (int)g2;
         setSUIProperty(pid, "line", "OnRunScript", "locationX = Value");
         setSUIProperty(pid, "line", "Value", "" + g);

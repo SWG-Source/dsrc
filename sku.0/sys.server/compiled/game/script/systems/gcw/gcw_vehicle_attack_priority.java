@@ -39,20 +39,16 @@ public class gcw_vehicle_attack_priority extends script.systems.combat.combat_ba
                 messageTo(self, "findTarget", null, rand(2.0f, 4.0f), false);
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < targets.length; i++)
-            {
-                if (!isIdValid(targets[i]))
-                {
+            for (obj_id target1 : targets) {
+                if (!isIdValid(target1)) {
                     continue;
                 }
-                if (targets[i] == self)
-                {
+                if (target1 == self) {
                     continue;
                 }
-                String templateName = getTemplateName(targets[i]);
-                if (templateName.equals("object/tangible/destructible/gcw_imperial_tower.iff") || templateName.equals("object/tangible/destructible/gcw_rebel_tower.iff"))
-                {
-                    validTargets.add(targets[i]);
+                String templateName = getTemplateName(target1);
+                if (templateName.equals("object/tangible/destructible/gcw_imperial_tower.iff") || templateName.equals("object/tangible/destructible/gcw_rebel_tower.iff")) {
+                    validTargets.add(target1);
                 }
             }
             if (validTargets == null || validTargets.size() <= 0)

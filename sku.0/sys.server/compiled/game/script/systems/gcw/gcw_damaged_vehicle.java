@@ -32,7 +32,7 @@ public class gcw_damaged_vehicle extends script.base_script
         }
         else 
         {
-            suffix = " (" + (int)(((float)questsCompleted / 4.0f) * 100.0f) + "% Repaired)";
+            suffix = " (" + (int)((questsCompleted / 4.0f) * 100.0f) + "% Repaired)";
         }
         setName(self, name + suffix);
     }

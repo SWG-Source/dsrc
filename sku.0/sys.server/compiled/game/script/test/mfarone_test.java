@@ -30,9 +30,8 @@ public class mfarone_test extends script.base_script
         obj_id[] players = getAllPlayers(getLocation(getTopMostContainer(self)), 35.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessage(players[i], message, "");
+            for (obj_id player : players) {
+                sendSystemMessage(player, message, "");
             }
         }
     }
@@ -60,9 +59,8 @@ public class mfarone_test extends script.base_script
         stringCheck = text.indexOf("idiot_pgc_list");
         if (stringCheck > -1)
         {
-            for (int i = 0; i < commands.length; i++)
-            {
-                sendSystemMessage(self, commands[i], "");
+            for (String command1 : commands) {
+                sendSystemMessage(self, command1, "");
             }
         }
         stringCheck = text.indexOf("idiot_pgc_grant_all_tasks");
@@ -74,13 +72,9 @@ public class mfarone_test extends script.base_script
                 String[] collctionSlots = getAllCollectionSlotsInCollection(collectionName);
                 if (collctionSlots != null && collctionSlots.length > 0)
                 {
-                    for (int j = 0; j < collctionSlots.length; j++)
-                    {
-                        String slotName = collctionSlots[j];
-                        if (slotName != null && slotName.length() > 0)
-                        {
-                            if (getCollectionSlotValue(self, slotName) <= 0)
-                            {
+                    for (String slotName : collctionSlots) {
+                        if (slotName != null && slotName.length() > 0) {
+                            if (getCollectionSlotValue(self, slotName) <= 0) {
                                 modifyCollectionSlotValue(self, slotName, 1);
                             }
                         }
@@ -98,13 +92,9 @@ public class mfarone_test extends script.base_script
                 String[] collctionSlots = getAllCollectionSlotsInCollection(collectionName);
                 if (collctionSlots != null && collctionSlots.length > 0)
                 {
-                    for (int j = 0; j < collctionSlots.length; j++)
-                    {
-                        String slotName = collctionSlots[j];
-                        if (slotName != null && slotName.length() > 0)
-                        {
-                            while (getCollectionSlotValue(self, slotName) > 0)
-                            {
+                    for (String slotName : collctionSlots) {
+                        if (slotName != null && slotName.length() > 0) {
+                            while (getCollectionSlotValue(self, slotName) > 0) {
                                 modifyCollectionSlotValue(self, slotName, -1);
                             }
                         }

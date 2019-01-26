@@ -21,7 +21,7 @@ public class lair_destruct extends script.base_script
     {
         if (hasObjVar(self, "lairDestroyed"))
         {
-            messageTo(self, "destroyDisabledLair", null, .5f, false);
+            messageTo(self, "destroyDisabledLair", null, 0.5f, false);
         }
         attachScript(self, "systems.npc_lair.lair_interactivity");
         return SCRIPT_CONTINUE;
@@ -37,7 +37,7 @@ public class lair_destruct extends script.base_script
         }
         setInvulnerable(self, true);
         setObjVar(self, "lairDestroyed", true);
-        messageTo(self, "destroyDisabledLair", null, .5f, false);
+        messageTo(self, "destroyDisabledLair", null, 0.5f, false);
         obj_id[] enemies = getWhoIsTargetingMe(self);
         if (enemies != null && enemies.length > 1)
         {
@@ -152,25 +152,22 @@ public class lair_destruct extends script.base_script
         {
             String diff = getStringObjVar(poiBaseObject, "spawning.lairDifficulty");
             int multiplier = 2;
-            if (diff.equals("veryEasy"))
-            {
-                multiplier = 1;
-            }
-            else if (diff.equals("easy"))
-            {
-                multiplier = 2;
-            }
-            else if (diff.equals("medium"))
-            {
-                multiplier = 3;
-            }
-            else if (diff.equals("hard"))
-            {
-                multiplier = 4;
-            }
-            else if (diff.equals("veryHard"))
-            {
-                multiplier = 5;
+            switch (diff) {
+                case "veryEasy":
+                    multiplier = 1;
+                    break;
+                case "easy":
+                    multiplier = 2;
+                    break;
+                case "medium":
+                    multiplier = 3;
+                    break;
+                case "hard":
+                    multiplier = 4;
+                    break;
+                case "veryHard":
+                    multiplier = 5;
+                    break;
             }
             if (curHP > ((maxHP / 5) * multiplier))
             {

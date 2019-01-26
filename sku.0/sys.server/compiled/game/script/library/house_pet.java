@@ -256,7 +256,7 @@ public class house_pet extends script.base_script
         setObjVar(controller, CHILD_OBJ_ID, housePetObj);
         setObjVar(housePetObj, PARENT_OBJ_ID, controller);
         setInvulnerable(housePetObj, true);
-        if (mobileTemplate.indexOf("s02.iff") > -1)
+        if (mobileTemplate.contains("s02.iff"))
         {
             attachScript(housePetObj, "event.housepackup.sarlacc_mini_game");
         }
@@ -311,7 +311,7 @@ public class house_pet extends script.base_script
         setObjVar(controller, CHILD_OBJ_ID, housePetObj);
         setObjVar(housePetObj, PARENT_OBJ_ID, controller);
         setInvulnerable(housePetObj, true);
-        if (mobileTemplate.indexOf("s02.iff") > -1)
+        if (mobileTemplate.contains("s02.iff"))
         {
             attachScript(housePetObj, "event.housepackup.sarlacc_mini_game");
         }
@@ -431,11 +431,8 @@ public class house_pet extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < playersList.length; i++)
-        {
-            obj_id player = playersList[i];
-            if (!isIdValid(player))
-            {
+        for (obj_id player : playersList) {
+            if (!isIdValid(player)) {
                 continue;
             }
             stopClientEffectObjByLabel(player, self, PET_SOUND_LABEL);

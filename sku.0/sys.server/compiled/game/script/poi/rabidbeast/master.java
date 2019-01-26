@@ -102,7 +102,7 @@ public class master extends script.theme_park.poi.base
         int i = indexstart + 1;
         while (i != indexstart)
         {
-            if (creature_where[i].equals(planet) && (creature_level[i] <= difficultyLevel) && (creature_level[i] >= minDifficultyLevel) && (creature_tamable[i] >= .25f))
+            if (creature_where[i].equals(planet) && (creature_level[i] <= difficultyLevel) && (creature_level[i] >= minDifficultyLevel) && (creature_tamable[i] >= 0.25f))
             {
                 setObjVar(self, "creatureName", creature_name[i]);
                 setObjVar(self, "creatureLevel", creature_level[i]);
@@ -171,8 +171,8 @@ public class master extends script.theme_park.poi.base
     public obj_id spawnMobile(obj_id self, int index, String name) throws InterruptedException
     {
         location loiterloc = new location(getLocation(self));
-        loiterloc.x += rand(-20f, 20f);
-        loiterloc.z += rand(-20f, 20f);
+        loiterloc.x += rand(-20.0f, 20.0f);
+        loiterloc.z += rand(-20.0f, 20.0f);
         obj_id mobile = scenario.createTeamNpc(self, "antagonist", name, "antagonist_" + index, loiterloc);
         if (mobile != null)
         {

@@ -11,12 +11,12 @@ public class npc_dead extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "makeNpcDead", null, 10f, false);
+        messageTo(self, "makeNpcDead", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        messageTo(self, "makeNpcDead", null, 10f, false);
+        messageTo(self, "makeNpcDead", null, 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int makeNpcDead(obj_id self, dictionary params) throws InterruptedException

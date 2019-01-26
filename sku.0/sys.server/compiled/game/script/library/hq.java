@@ -2,6 +2,7 @@ package script.library;
 
 import script.*;
 
+import java.util.StringTokenizer;
 import java.util.Vector;
 
 public class hq extends script.base_script
@@ -9,8 +10,8 @@ public class hq extends script.base_script
     public hq()
     {
     }
-    public static final float VULNERABILITY_CYCLE = 172800f;
-    public static final float VULNERABILITY_LENGTH = 10800f;
+    public static final float VULNERABILITY_CYCLE = 172800.0f;
+    public static final float VULNERABILITY_LENGTH = 10800.0f;
     public static final String SCRIPT_CLONING_OVERRIDE = "faction_perk.hq.terminal_cloning_override";
     public static final String SCRIPT_INSURANCE_OVERRIDE = "faction_perk.hq.terminal_insurance_override";
     public static final String SCRIPT_TERMINAL_DISABLE = "faction_perk.hq.terminal_disable";
@@ -68,7 +69,7 @@ public class hq extends script.base_script
     public static final String VAR_SPAWN_COUNT = VAR_SPAWN_BASE + ".cnt";
     public static final String SCRIPT_SPAWN_CHILD = "faction_perk.hq.spawn_child";
     public static final String VAR_SPAWN_LEADER = VAR_SPAWN_BASE + ".leader";
-    public static final float FACTION_BASE_REFUND_AMOUNT = 60000f;
+    public static final float FACTION_BASE_REFUND_AMOUNT = 60000.0f;
     public static final int MAX_MINE_TYPES = 3;
     public static void loadHqTheater(obj_id hq) throws InterruptedException
     {
@@ -79,7 +80,7 @@ public class hq extends script.base_script
         if (children != null && children.length > 0)
         {
             utils.setBatchScriptVar(hq, SCRIPTVAR_THEATER_OBJECTS, children);
-            messageTo(hq, "handleTheaterComplete", null, 5f, false);
+            messageTo(hq, "handleTheaterComplete", null, 5.0f, false);
         }
     }
     public static void cleanupHqTheater(obj_id hq) throws InterruptedException
@@ -101,16 +102,12 @@ public class hq extends script.base_script
             if (terminals != null && terminals.length > 0)
             {
                 utils.setBatchScriptVar(hq, SCRIPTVAR_TERMINALS, terminals);
-                for (int i = 0; i < terminals.length; i++)
-                {
-                    int tGot = getGameObjectType(terminals[i]);
-                    if (tGot == GOT_terminal_cloning)
-                    {
-                        attachScript(terminals[i], SCRIPT_CLONING_OVERRIDE);
-                    }
-                    else if (tGot == GOT_terminal_insurance)
-                    {
-                        attachScript(terminals[i], SCRIPT_INSURANCE_OVERRIDE);
+                for (obj_id terminal : terminals) {
+                    int tGot = getGameObjectType(terminal);
+                    if (tGot == GOT_terminal_cloning) {
+                        attachScript(terminal, SCRIPT_CLONING_OVERRIDE);
+                    } else if (tGot == GOT_terminal_insurance) {
+                        attachScript(terminal, SCRIPT_INSURANCE_OVERRIDE);
                     }
                 }
             }
@@ -210,7 +207,7 @@ public class hq extends script.base_script
                         if (spawnType.startsWith("egg"))
                         {
                             spawn = createInteriorEgg(hq, there, myFac, yaw);
-                            if (spawnType.indexOf(":") > -1)
+                            if (spawnType.contains(":"))
                             {
                                 String[] tmpSplit = split(spawnType, ':');
                                 if (tmpSplit.length > 1)
@@ -277,7 +274,7 @@ public class hq extends script.base_script
         String filename = utils.getTemplateFilenameNoPath(hq);
         if (filename != null && !filename.equals(""))
         {
-            if (filename.indexOf("_pvp") == -1)
+            if (!filename.contains("_pvp"))
             {
                 obj_id[] exteriorSpawns = spawnExterior(hq, TBL_SPAWN_EXTERIOR_PATH + filename);
                 if (exteriorSpawns != null && exteriorSpawns.length > 0)
@@ -310,32 +307,22 @@ public class hq extends script.base_script
             String[] locs = dataTableGetStringColumnNoDefaults(tbl, i);
             if (locs != null)
             {
-                for (int n = 0; n < locs.length; n++)
-                {
-                    java.util.StringTokenizer st = new java.util.StringTokenizer(locs[n], ",");
-                    if (st.countTokens() == 2)
-                    {
+                for (String loc : locs) {
+                    StringTokenizer st = new StringTokenizer(loc, ",");
+                    if (st.countTokens() == 2) {
                         float dx = utils.stringToFloat(st.nextToken());
                         float dz = utils.stringToFloat(st.nextToken());
-                        if (dx != Float.NEGATIVE_INFINITY && dz != Float.NEGATIVE_INFINITY)
-                        {
+                        if (dx != Float.NEGATIVE_INFINITY && dz != Float.NEGATIVE_INFINITY) {
                             location spawnLoc = player_structure.transformDeltaWorldCoord(here, dx, dz, yaw);
-                            if (spawnLoc != null)
-                            {
+                            if (spawnLoc != null) {
                                 obj_id spawn = create.object(TEMPLATE_SPAWN_EGG, spawnLoc);
                                 LOG("hq", "spawnExterior: spawn egg id = " + spawn);
-                                if (isIdValid(spawn))
-                                {
-                                    if (colName.equalsIgnoreCase("small"))
-                                    {
+                                if (isIdValid(spawn)) {
+                                    if (colName.equalsIgnoreCase("small")) {
                                         setObjVar(spawn, VAR_SPAWN_TYPE, ST_SMALL);
-                                    }
-                                    else if (colName.equalsIgnoreCase("med"))
-                                    {
+                                    } else if (colName.equalsIgnoreCase("med")) {
                                         setObjVar(spawn, VAR_SPAWN_TYPE, ST_MEDIUM);
-                                    }
-                                    else if (colName.equalsIgnoreCase("large"))
-                                    {
+                                    } else if (colName.equalsIgnoreCase("large")) {
                                         setObjVar(spawn, VAR_SPAWN_TYPE, ST_LARGE);
                                     }
                                     setObjVar(spawn, VAR_SPAWN_PARENT, hq);
@@ -424,7 +411,7 @@ public class hq extends script.base_script
                     setObjVar(hq, VAR_DEFENSE_BASE + "." + colName, tmp);
                 }
             }
-            messageTo(hq, "handleCreateMinefield", null, 5f, false);
+            messageTo(hq, "handleCreateMinefield", null, 5.0f, false);
             int[] mines = new int[MAX_MINE_TYPES];
             setObjVar(hq, "mines", mines);
         }
@@ -449,11 +436,9 @@ public class hq extends script.base_script
                 obj_id[] defenses = ov.getObjIdArrayData();
                 if (defenses != null && defenses.length > 0)
                 {
-                    for (int x = 0; x < defenses.length; x++)
-                    {
-                        if (isIdValid(defenses[x]))
-                        {
-                            destroyObject(defenses[x]);
+                    for (obj_id defens : defenses) {
+                        if (isIdValid(defens)) {
+                            destroyObject(defens);
                         }
                     }
                 }
@@ -466,11 +451,9 @@ public class hq extends script.base_script
         obj_id[] terminals = utils.getObjIdBatchScriptVar(hq, SCRIPTVAR_TERMINALS);
         if (terminals != null && terminals.length > 0)
         {
-            for (int i = 0; i < terminals.length; i++)
-            {
-                if (!hasScript(terminals[i], SCRIPT_TERMINAL_DISABLE))
-                {
-                    attachScript(terminals[i], SCRIPT_TERMINAL_DISABLE);
+            for (obj_id terminal : terminals) {
+                if (!hasScript(terminal, SCRIPT_TERMINAL_DISABLE)) {
+                    attachScript(terminal, SCRIPT_TERMINAL_DISABLE);
                 }
             }
         }
@@ -484,15 +467,12 @@ public class hq extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasScript(objects[i], SCRIPT_TERMINAL_DISABLE))
-            {
-                detachScript(objects[i], SCRIPT_TERMINAL_DISABLE);
+        for (obj_id object : objects) {
+            if (hasScript(object, SCRIPT_TERMINAL_DISABLE)) {
+                detachScript(object, SCRIPT_TERMINAL_DISABLE);
             }
-            if (hasObjVar(objects[i], VAR_IS_DISABLED))
-            {
-                removeObjVar(objects[i], VAR_IS_DISABLED);
+            if (hasObjVar(object, VAR_IS_DISABLED)) {
+                removeObjVar(object, VAR_IS_DISABLED);
             }
         }
     }
@@ -581,10 +561,9 @@ public class hq extends script.base_script
         float yaw = getYaw(hq);
         Vector objectives = new Vector();
         objectives.setSize(0);
-        for (int i = 0; i < OBJECTIVE_TEMPLATE.length; i++)
-        {
+        for (String s : OBJECTIVE_TEMPLATE) {
             int idx = rand(0, opt.size() - 1);
-            int rowIdx = ((Integer)opt.get(idx)).intValue();
+            int rowIdx = (Integer) opt.get(idx);
             opt = utils.removeElementAt(opt, idx);
             dictionary row = dataTableGetRow(tbl, rowIdx);
             String cellName = row.getString("CELL");
@@ -593,25 +572,19 @@ public class hq extends script.base_script
             float dz = row.getFloat("Z");
             float dyaw = row.getFloat("YAW");
             obj_id objective = null;
-            if (cellName == null || cellName.equals("") || cellName.equals("WORLD_DELTA"))
-            {
+            if (cellName == null || cellName.equals("") || cellName.equals("WORLD_DELTA")) {
                 location there = player_structure.transformDeltaWorldCoord(here, dx, dz, yaw);
-                objective = createObject(OBJECTIVE_TEMPLATE[i], there);
-                if (isIdValid(objective))
-                {
+                objective = createObject(s, there);
+                if (isIdValid(objective)) {
                     setYaw(objective, yaw + dyaw);
                     utils.addElement(objectives, objective);
                 }
-            }
-            else 
-            {
+            } else {
                 obj_id cellId = getCellId(hq, cellName);
-                if (isIdValid(cellId))
-                {
+                if (isIdValid(cellId)) {
                     location iSpot = new location(dx, dy, dz, here.area, cellId);
-                    objective = createObjectInCell(OBJECTIVE_TEMPLATE[i], hq, cellName, iSpot);
-                    if (isIdValid(objective))
-                    {
+                    objective = createObjectInCell(s, hq, cellName, iSpot);
+                    if (isIdValid(objective)) {
                         setYaw(objective, dyaw);
                         utils.addElement(objectives, objective);
                     }
@@ -652,9 +625,8 @@ public class hq extends script.base_script
         removeObjVar(hq, VAR_OBJECTIVE_TRACKING);
         if (objectives != null && objectives.length > 0)
         {
-            for (int i = 0; i < objectives.length; i++)
-            {
-                destroyObject(objectives[i]);
+            for (obj_id objective : objectives) {
+                destroyObject(objective);
             }
         }
         activateHackAlarms(hq, false);
@@ -671,9 +643,8 @@ public class hq extends script.base_script
         removeObjVar(hq, VAR_OBJECTIVE_TRACKING);
         if (objectives != null && objectives.length > 0)
         {
-            for (int i = 0; i < objectives.length; i++)
-            {
-                destroyObject(objectives[i]);
+            for (obj_id objective : objectives) {
+                destroyObject(objective);
             }
         }
         int currentTime = getCurrentTimeInSecsNormalized();
@@ -793,31 +764,30 @@ public class hq extends script.base_script
     }
     public static void detonateHq(obj_id hq) throws InterruptedException
     {
-        float maxDist = getFloatObjVar(hq, "poi.fltSize") - 20f;
+        float maxDist = getFloatObjVar(hq, "poi.fltSize") - 20.0f;
         location here = getLocation(hq);
         obj_id[] players = player_structure.getPlayersInBuilding(hq);
         if (players != null && players.length > 0)
         {
             location ejectLoc = getBuildingEjectLocation(hq);
             location worldLoc = getWorldLocation(hq);
-            for (int i = 0; i < players.length; i++)
-            {
-                pclib.sendToAnyLocation(players[i], ejectLoc, worldLoc);
+            for (obj_id player : players) {
+                pclib.sendToAnyLocation(player, ejectLoc, worldLoc);
             }
         }
         location[] locs = new location[rand(5, 9)];
         for (int i = 0; i < locs.length; i++)
         {
-            location tmpLoc = utils.getRandomLocationInRing(here, 5f, maxDist);
+            location tmpLoc = utils.getRandomLocationInRing(here, 5.0f, maxDist);
             if (tmpLoc != null)
             {
-                tmpLoc.y = getHeightAtLocation(tmpLoc.x, tmpLoc.z) + rand(0f, 5f);
+                tmpLoc.y = getHeightAtLocation(tmpLoc.x, tmpLoc.z) + rand(0.0f, 5.0f);
                 locs[i] = tmpLoc;
             }
         }
         dictionary d = new dictionary();
         d.put("locs", locs);
-        messageTo(hq, "handleHqDetonation", d, rand(0.1f, 1f), true);
+        messageTo(hq, "handleHqDetonation", d, rand(0.1f, 1.0f), true);
     }
     public static void validateDefenseTracking(obj_id hq) throws InterruptedException
     {
@@ -864,21 +834,16 @@ public class hq extends script.base_script
             obj_id[] defenses = ov.getObjIdArrayData();
             if (defenses != null && defenses.length > 0)
             {
-                for (int x = 0; x < defenses.length; x++)
-                {
-                    if (isIdValid(defenses[x]))
-                    {
-                        if (!exists(defenses[x]) || (getHitpoints(defenses[x]) < 1))
-                        {
+                for (obj_id defens : defenses) {
+                    if (isIdValid(defens)) {
+                        if (!exists(defens) || (getHitpoints(defens) < 1)) {
                             dictionary d = new dictionary();
-                            d.put("sender", defenses[x]);
-                            messageTo(hq, "handleRemoveDefense", d, 1f, false);
-                        }
-                        else if (hasScript(defenses[x], "systems.turret.turret_ai"))
-                        {
+                            d.put("sender", defens);
+                            messageTo(hq, "handleRemoveDefense", d, 1.0f, false);
+                        } else if (hasScript(defens, "systems.turret.turret_ai")) {
                             dictionary d = new dictionary();
-                            d.put("sender", defenses[x]);
-                            messageTo(hq, "handleResetTurretControl", d, 1f, false);
+                            d.put("sender", defens);
+                            messageTo(hq, "handleResetTurretControl", d, 1.0f, false);
                         }
                     }
                 }
@@ -899,12 +864,12 @@ public class hq extends script.base_script
             int[] mines = getIntArrayObjVar(hq, "mines");
             if (mines.length < MAX_MINE_TYPES)
             {
-                messageTo(hq, "handleMinefieldValidation", null, 10f, false);
+                messageTo(hq, "handleMinefieldValidation", null, 10.0f, false);
             }
         }
         else 
         {
-            messageTo(hq, "handleMinefieldValidation", null, 10f, false);
+            messageTo(hq, "handleMinefieldValidation", null, 10.0f, false);
         }
     }
     public static void sealEntrance(obj_id hq) throws InterruptedException
@@ -948,7 +913,7 @@ public class hq extends script.base_script
                     dictionary params = new dictionary();
                     params.put("player", player);
                     params.put("loc", there);
-                    messageTo(structure, "ejectPlayer", params, 1f, false);
+                    messageTo(structure, "ejectPlayer", params, 1.0f, false);
                 }
             }
             return;
@@ -962,11 +927,9 @@ public class hq extends script.base_script
             removeObjVar(hq, VAR_OBJECTIVE_TRACKING);
             if (oldObjectives != null && oldObjectives.length > 0)
             {
-                for (int i = 0; i < oldObjectives.length; i++)
-                {
-                    if (isIdValid(oldObjectives[i]))
-                    {
-                        destroyObject(oldObjectives[i]);
+                for (obj_id oldObjective : oldObjectives) {
+                    if (isIdValid(oldObjective)) {
+                        destroyObject(oldObjective);
                     }
                 }
             }
@@ -1010,23 +973,23 @@ public class hq extends script.base_script
         int base_lot_refund = base_lot_cost;
         dictionary outparams = new dictionary();
         outparams.put("baseLotRefund", base_lot_refund);
-        float faction_point_refund = 60000f;
+        float faction_point_refund = 60000.0f;
         if (hasObjVar(base, "lotsRefunded"))
         {
-            faction_point_refund = 0f;
+            faction_point_refund = 0.0f;
         }
         outparams.put("baseFactionRefund", faction_point_refund);
         int baseFaction = pvpGetAlignedFaction(base);
         outparams.put("baseFaction", baseFaction);
         gcw.incrementGCWScore(base);
         setObjVar(base, "lotsRefunded2", 1);
-        messageTo(baseOwner, "factionBaseLotRefund", outparams, 1f, true);
+        messageTo(baseOwner, "factionBaseLotRefund", outparams, 1.0f, true);
         return;
     }
     public static void refundBaseUnit(obj_id base) throws InterruptedException
     {
         obj_id baseOwner = getOwner(base);
-        messageTo(baseOwner, "factionBaseUnitRefund", null, 1f, true);
+        messageTo(baseOwner, "factionBaseUnitRefund", null, 1.0f, true);
         return;
     }
     public static boolean isPvpFactionBase(obj_id base) throws InterruptedException
@@ -1062,19 +1025,19 @@ public class hq extends script.base_script
         {
             return;
         }
-        if (filename.indexOf("hq_s01") != -1)
+        if (filename.contains("hq_s01"))
         {
             filename = "hq_s01.iff";
         }
-        else if (filename.indexOf("hq_s02") != -1)
+        else if (filename.contains("hq_s02"))
         {
             filename = "hq_s02.iff";
         }
-        else if (filename.indexOf("hq_s03") != -1)
+        else if (filename.contains("hq_s03"))
         {
             filename = "hq_s03.iff";
         }
-        else if (filename.indexOf("hq_s04") != -1)
+        else if (filename.contains("hq_s04"))
         {
             filename = "hq_s04.iff";
         }
@@ -1108,7 +1071,7 @@ public class hq extends script.base_script
                         setLocation(alarmUnit, loc);
                         setYaw(alarmUnit, yaw);
                         transform alarmTransform = getTransform_o2p(alarmUnit);
-                        if (alarmType.indexOf("alarm_hack") != -1)
+                        if (alarmType.contains("alarm_hack"))
                         {
                             alarmTransform = alarmTransform.pitch_l((float)((Math.PI) / 2));
                         }
@@ -1119,11 +1082,11 @@ public class hq extends script.base_script
                         setTransform_o2p(alarmUnit, alarmTransform);
                         if (isIdValid(alarmUnit))
                         {
-                            if (alarmType.indexOf("hack") != -1)
+                            if (alarmType.contains("hack"))
                             {
                                 utils.addElement(hackAlarms, alarmUnit);
                             }
-                            else if (alarmType.indexOf("destruct") != -1)
+                            else if (alarmType.contains("destruct"))
                             {
                                 utils.addElement(destructAlarms, alarmUnit);
                             }
@@ -1151,16 +1114,12 @@ public class hq extends script.base_script
         if (hasObjVar(hq, "hq.alarm.hack"))
         {
             Vector hackAlarmList = getResizeableObjIdArrayObjVar(hq, "hq.alarm.hack");
-            for (int i = 0; i < hackAlarmList.size(); i++)
-            {
-                if (activate == true)
-                {
-                    setCondition(((obj_id)hackAlarmList.get(i)), CONDITION_ON);
+            for (Object o : hackAlarmList) {
+                if (activate == true) {
+                    setCondition(((obj_id) o), CONDITION_ON);
                     messageTo(hq, "handleAlarmMute", null, 600, false);
-                }
-                else 
-                {
-                    clearCondition(((obj_id)hackAlarmList.get(i)), CONDITION_ON);
+                } else {
+                    clearCondition(((obj_id) o), CONDITION_ON);
                 }
             }
         }
@@ -1171,15 +1130,11 @@ public class hq extends script.base_script
         if (hasObjVar(hq, "hq.alarm.destruct"))
         {
             Vector destructAlarmList = getResizeableObjIdArrayObjVar(hq, "hq.alarm.destruct");
-            for (int i = 0; i < destructAlarmList.size(); i++)
-            {
-                if (activate == true)
-                {
-                    setCondition(((obj_id)destructAlarmList.get(i)), CONDITION_ON);
-                }
-                else 
-                {
-                    clearCondition(((obj_id)destructAlarmList.get(i)), CONDITION_ON);
+            for (Object o : destructAlarmList) {
+                if (activate == true) {
+                    setCondition(((obj_id) o), CONDITION_ON);
+                } else {
+                    clearCondition(((obj_id) o), CONDITION_ON);
                     cleanUpHackAlarms(hq);
                 }
             }
@@ -1215,15 +1170,15 @@ public class hq extends script.base_script
     {
         String hqTemplate = utils.getTemplateFilenameNoPath(hq);
         int sizeOfBase = 1;
-        if (hqTemplate.indexOf("hq_s02") != -1)
+        if (hqTemplate.contains("hq_s02"))
         {
             sizeOfBase = 2;
         }
-        else if (hqTemplate.indexOf("hq_s03") != -1)
+        else if (hqTemplate.contains("hq_s03"))
         {
             sizeOfBase = 3;
         }
-        else if (hqTemplate.indexOf("hq_s04") != -1)
+        else if (hqTemplate.contains("hq_s04"))
         {
             sizeOfBase = 4;
         }
@@ -1312,7 +1267,7 @@ public class hq extends script.base_script
         String filename = utils.getTemplateFilenameNoPath(hq);
         if (filename != null && !filename.equals(""))
         {
-            if (filename.indexOf("_pvp") != -1)
+            if (filename.contains("_pvp"))
             {
                 int idx = filename.indexOf("_pvp");
                 if (idx >= 0)
@@ -1393,9 +1348,8 @@ public class hq extends script.base_script
         {
             return 0;
         }
-        for (int i = 0; i < mines.length; i++)
-        {
-            total += mines[i];
+        for (int mine : mines) {
+            total += mine;
         }
         return total;
     }
@@ -1439,7 +1393,7 @@ public class hq extends script.base_script
             }
             else 
             {
-                int chance = (int)(((float)mines[type_counter] / (float)max) * 100f);
+                int chance = (int)(((float)mines[type_counter] / max) * 100.0f);
                 base_chance += chance;
                 if (roll <= base_chance)
                 {

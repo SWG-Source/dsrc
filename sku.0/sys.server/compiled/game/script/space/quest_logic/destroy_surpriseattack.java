@@ -38,7 +38,7 @@ public class destroy_surpriseattack extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -92,12 +92,12 @@ public class destroy_surpriseattack extends script.base_script
         for (int i = 0; i < count; i++)
         {
             transform gloc = getTransform_o2w(space_transition.getContainingShip(player));
-            float dist = rand(700.f, 800.f);
+            float dist = rand(700.0f, 800.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             gloc = gloc.yaw_l(3.14f);
-            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
             vector vd = vi.add(vj);
             gloc = gloc.move_p(vd);
             obj_id newship = space_create.createShipHyperspace(ships[j], gloc);
@@ -150,9 +150,8 @@ public class destroy_surpriseattack extends script.base_script
         String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
         obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
         obj_id[] targets = getObjIdArrayObjVar(self, "targets");
-        for (int i = 0; i < targets.length; i++)
-        {
-            space_quest._removeMissionCriticalShip(player, self, targets[i]);
+        for (obj_id target : targets) {
+            space_quest._removeMissionCriticalShip(player, self, target);
         }
         setObjVar(self, "leaveEarly", 1);
         cleanupShips(self);
@@ -183,10 +182,8 @@ public class destroy_surpriseattack extends script.base_script
         obj_id[] targets = getObjIdArrayObjVar(self, "targets");
         int killcount = getIntObjVar(self, "killcount");
         int count = getIntObjVar(self, "count");
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (ship == targets[i])
-            {
+        for (obj_id target : targets) {
+            if (ship == target) {
                 space_quest._removeMissionCriticalShip(player, self, ship);
                 killcount--;
                 setObjVar(self, "killcount", killcount);
@@ -266,11 +263,9 @@ public class destroy_surpriseattack extends script.base_script
         obj_id[] targets = getObjIdArrayObjVar(self, "targets");
         if (targets != null)
         {
-            for (int i = 0; i < targets.length; i++)
-            {
-                if (isIdValid(targets[i]) && exists(targets[i]))
-                {
-                    destroyObjectHyperspace(targets[i]);
+            for (obj_id target : targets) {
+                if (isIdValid(target) && exists(target)) {
+                    destroyObjectHyperspace(target);
                 }
             }
         }

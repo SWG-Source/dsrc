@@ -14,19 +14,16 @@ public class crafting_new_weapon_final extends script.systems.crafting.crafting_
     {
         obj_var_list componentData = getObjVarList(getSelf(), craftinglib.COMPONENT_ATTRIBUTE_INTERNAL_OBJVAR_NAME);
         String[] componentDataNames = componentData.getAllObjVarNames();
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (((itemAttributes[i].name).getAsciiId()).equals("appearanceBonusLow"))
-            {
-                float appBonus = itemAttributes[i].currentValue;
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (((itemAttribute.name).getAsciiId()).equals("appearanceBonusLow")) {
+                float appBonus = itemAttribute.currentValue;
                 CustomerServiceLog("new_weapon_crafting", "appearanceBonusLow pre-division on prototype " + prototype + "(" + getTemplateName(prototype) + ") is " + appBonus);
                 appBonus /= weapons.NEW_COMPONENT_MODIFIER;
                 CustomerServiceLog("new_weapon_crafting", "setting appearanceBonusLow on prototype " + prototype + "(" + getTemplateName(prototype) + ") to " + appBonus);
                 setObjVar(prototype, weapons.OBJVAR_MODIFIER_APPEARANCE_BONUS_MIN, appBonus);
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("appearanceBonusHigh"))
-            {
-                float appBonus = itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("appearanceBonusHigh")) {
+                float appBonus = itemAttribute.currentValue;
                 CustomerServiceLog("new_weapon_crafting", "appearanceBonusHigh pre-division on prototype " + prototype + "(" + getTemplateName(prototype) + ") is " + appBonus);
                 appBonus /= weapons.NEW_COMPONENT_MODIFIER;
                 CustomerServiceLog("new_weapon_crafting", "setting appearanceBonusHigh on prototype " + prototype + "(" + getTemplateName(prototype) + ") to " + appBonus);
@@ -53,105 +50,91 @@ public class crafting_new_weapon_final extends script.systems.crafting.crafting_
         int elementalValue = 0;
         int accuracy = 0;
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("minDamage"))
-                {
-                    float craftedBonus = weapons.getWeaponCoreQualityMin(prototype);
-                    CustomerServiceLog("new_weapon_crafting", "craftedBonus preComponentBonusMin on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
-                    craftedBonus += weapons.getWeaponComponentBonusesMinDamage(prototype);
-                    CustomerServiceLog("new_weapon_crafting", "craftedBonus postComponentBonusMin on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
-                    int tableMin = weapons.getCoreMinDamage(prototype, weaponCoreDat);
-                    CustomerServiceLog("new_weapon_crafting", "tableMinDamage on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + tableMin);
-                    float minDamage = tableMin * craftedBonus;
-                    CustomerServiceLog("new_weapon_crafting", "minDamage pre-VerifyDamageRangeMin on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + minDamage);
-                    minDamage = weapons.verifyDamageRangeMin(prototype, minDamage, weaponCoreDat);
-                    CustomerServiceLog("new_weapon_crafting", "minDamage post-VerifyDamageRangeMin on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + minDamage);
-                    setWeaponMinDamage(prototype, (int)minDamage);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("maxDamage"))
-                {
-                    float craftedBonus = weapons.getWeaponCoreQualityMax(prototype);
-                    CustomerServiceLog("new_weapon_crafting", "craftedBonus preComponentBonusMax on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
-                    craftedBonus += weapons.getWeaponComponentBonusesMaxDamage(prototype);
-                    CustomerServiceLog("new_weapon_crafting", "craftedBonus postComponentBonusMax on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
-                    int tableMax = weapons.getCoreMaxDamage(prototype, weaponCoreDat);
-                    CustomerServiceLog("new_weapon_crafting", "tableMaxDamage on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + tableMax);
-                    float maxDamage = tableMax * craftedBonus;
-                    CustomerServiceLog("new_weapon_crafting", "maxDamage  pre-VerifyDamageRangeMax on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + maxDamage);
-                    maxDamage = weapons.verifyDamageRangeMax(prototype, maxDamage, weaponCoreDat);
-                    CustomerServiceLog("new_weapon_crafting", "minDamage post-VerifyDamageRangeMax on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + maxDamage);
-                    setWeaponMaxDamage(prototype, (int)maxDamage);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("attackSpeed"))
-                {
-                    setWeaponAttackSpeed(prototype, weapons.getWeaponSpeed(prototype) / 100.0f);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("woundChance"))
-                {
-                    setWeaponWoundChance(prototype, weapons.getNewWeaponWoundChance(prototype));
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("accuracy"))
-                {
-                    accuracy = weapons.getNewWeaponAccuracy(prototype);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("charges"))
-                {
-                    setCount(prototype, (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("attackCost"))
-                {
-                    setWeaponAttackCost(prototype, weapons.getNewWeaponAttackCost(prototype));
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("damageType"))
-                {
-                    damageType = weapons.getNewWeaponDamageType(prototype);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("elementalType"))
-                {
-                    int tableElementalType = weapons.getNewWeaponTableElementType(prototype);
-                    CustomerServiceLog("new_weapon_crafting", "tableElementalType for prototype " + prototype + "(" + getTemplateName(prototype) + ") " + tableElementalType);
-                    elementalType = (int)weapons.getNewWeaponElementalType(prototype);
-                    CustomerServiceLog("new_weapon_crafting", "elementalType on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + elementalType);
-                    if (tableElementalType != -1)
-                    {
-                        CustomerServiceLog("new_weapon_crafting", "tableElementalType is defiened, so we take it over what is passed in from components on prototype " + prototype + "(" + getTemplateName(prototype) + ")");
-                        elementalType = tableElementalType;
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                switch (((itemAttribute.name).getAsciiId())) {
+                    case "minDamage": {
+                        float craftedBonus = weapons.getWeaponCoreQualityMin(prototype);
+                        CustomerServiceLog("new_weapon_crafting", "craftedBonus preComponentBonusMin on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
+                        craftedBonus += weapons.getWeaponComponentBonusesMinDamage(prototype);
+                        CustomerServiceLog("new_weapon_crafting", "craftedBonus postComponentBonusMin on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
+                        int tableMin = weapons.getCoreMinDamage(prototype, weaponCoreDat);
+                        CustomerServiceLog("new_weapon_crafting", "tableMinDamage on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + tableMin);
+                        float minDamage = tableMin * craftedBonus;
+                        CustomerServiceLog("new_weapon_crafting", "minDamage pre-VerifyDamageRangeMin on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + minDamage);
+                        minDamage = weapons.verifyDamageRangeMin(prototype, minDamage, weaponCoreDat);
+                        CustomerServiceLog("new_weapon_crafting", "minDamage post-VerifyDamageRangeMin on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + minDamage);
+                        setWeaponMinDamage(prototype, (int) minDamage);
+                        break;
                     }
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("elementalValue"))
-                {
-                    float craftedBonus = weapons.getNewWeaponElementalValue(prototype);
-                    CustomerServiceLog("new_weapon_crafting", "craftedBonus for elementalValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
-                    int tableValue = weapons.getNewWeaponTableElementalValue(prototype, weaponCoreDat);
-                    CustomerServiceLog("new_weapon_crafting", "tableElementalValue for prototype " + prototype + "(" + getTemplateName(prototype) + ") " + tableValue);
-                    elementalValue = (int)(tableValue * craftedBonus);
-                    if (elementalValue > 0)
-                    {
-                        CustomerServiceLog("new_weapon_crafting", "elementalValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") before Appearance bonus " + elementalValue);
-                        int elementalAppearanceBonusValue = weapons.getElementalAppearanceBonus(prototype);
-                        CustomerServiceLog("new_weapon_crafting", "elementalAppearanceBonusValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") is " + elementalAppearanceBonusValue);
-                        if (elementalAppearanceBonusValue < 0)
-                        {
-                            elementalValue -= elementalValue * elementalAppearanceBonusValue * -1 / 100;
-                            CustomerServiceLog("new_weapon_crafting", "elementalAppearanceBonusValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") was a negative number. So we now reduce the elementalValue (" + elementalValue + ") by that number(" + elementalAppearanceBonusValue + ") in percentage form. This results in elementalValue being " + elementalValue);
-                        }
-                        else 
-                        {
-                            elementalValue += elementalAppearanceBonusValue;
-                            CustomerServiceLog("new_weapon_crafting", "elementalAppearanceBonusValue was a postive number so elementalValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") after Appearance bonus is " + elementalValue);
-                        }
+                    case "maxDamage": {
+                        float craftedBonus = weapons.getWeaponCoreQualityMax(prototype);
+                        CustomerServiceLog("new_weapon_crafting", "craftedBonus preComponentBonusMax on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
+                        craftedBonus += weapons.getWeaponComponentBonusesMaxDamage(prototype);
+                        CustomerServiceLog("new_weapon_crafting", "craftedBonus postComponentBonusMax on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
+                        int tableMax = weapons.getCoreMaxDamage(prototype, weaponCoreDat);
+                        CustomerServiceLog("new_weapon_crafting", "tableMaxDamage on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + tableMax);
+                        float maxDamage = tableMax * craftedBonus;
+                        CustomerServiceLog("new_weapon_crafting", "maxDamage  pre-VerifyDamageRangeMax on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + maxDamage);
+                        maxDamage = weapons.verifyDamageRangeMax(prototype, maxDamage, weaponCoreDat);
+                        CustomerServiceLog("new_weapon_crafting", "minDamage post-VerifyDamageRangeMax on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + maxDamage);
+                        setWeaponMaxDamage(prototype, (int) maxDamage);
+                        break;
                     }
-                }
-                else 
-                {
-                    debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttributes[i].name + ".");
+                    case "attackSpeed":
+                        setWeaponAttackSpeed(prototype, weapons.getWeaponSpeed(prototype) / 100.0f);
+                        break;
+                    case "woundChance":
+                        setWeaponWoundChance(prototype, weapons.getNewWeaponWoundChance(prototype));
+                        break;
+                    case "accuracy":
+                        accuracy = weapons.getNewWeaponAccuracy(prototype);
+                        break;
+                    case "charges":
+                        setCount(prototype, (int) itemAttribute.currentValue);
+                        break;
+                    case "attackCost":
+                        setWeaponAttackCost(prototype, weapons.getNewWeaponAttackCost(prototype));
+                        break;
+                    case "damageType":
+                        damageType = weapons.getNewWeaponDamageType(prototype);
+                        break;
+                    case "elementalType":
+                        int tableElementalType = weapons.getNewWeaponTableElementType(prototype);
+                        CustomerServiceLog("new_weapon_crafting", "tableElementalType for prototype " + prototype + "(" + getTemplateName(prototype) + ") " + tableElementalType);
+                        elementalType = (int) weapons.getNewWeaponElementalType(prototype);
+                        CustomerServiceLog("new_weapon_crafting", "elementalType on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + elementalType);
+                        if (tableElementalType != -1) {
+                            CustomerServiceLog("new_weapon_crafting", "tableElementalType is defiened, so we take it over what is passed in from components on prototype " + prototype + "(" + getTemplateName(prototype) + ")");
+                            elementalType = tableElementalType;
+                        }
+                        break;
+                    case "elementalValue": {
+                        float craftedBonus = weapons.getNewWeaponElementalValue(prototype);
+                        CustomerServiceLog("new_weapon_crafting", "craftedBonus for elementalValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") " + craftedBonus);
+                        int tableValue = weapons.getNewWeaponTableElementalValue(prototype, weaponCoreDat);
+                        CustomerServiceLog("new_weapon_crafting", "tableElementalValue for prototype " + prototype + "(" + getTemplateName(prototype) + ") " + tableValue);
+                        elementalValue = (int) (tableValue * craftedBonus);
+                        if (elementalValue > 0) {
+                            CustomerServiceLog("new_weapon_crafting", "elementalValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") before Appearance bonus " + elementalValue);
+                            int elementalAppearanceBonusValue = weapons.getElementalAppearanceBonus(prototype);
+                            CustomerServiceLog("new_weapon_crafting", "elementalAppearanceBonusValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") is " + elementalAppearanceBonusValue);
+                            if (elementalAppearanceBonusValue < 0) {
+                                elementalValue -= elementalValue * elementalAppearanceBonusValue * -1 / 100;
+                                CustomerServiceLog("new_weapon_crafting", "elementalAppearanceBonusValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") was a negative number. So we now reduce the elementalValue (" + elementalValue + ") by that number(" + elementalAppearanceBonusValue + ") in percentage form. This results in elementalValue being " + elementalValue);
+                            } else {
+                                elementalValue += elementalAppearanceBonusValue;
+                                CustomerServiceLog("new_weapon_crafting", "elementalAppearanceBonusValue was a postive number so elementalValue on prototype " + prototype + "(" + getTemplateName(prototype) + ") after Appearance bonus is " + elementalValue);
+                            }
+                        }
+                        break;
+                    }
+                    default:
+                        debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttribute.name + ".");
+                        break;
                 }
             }
         }

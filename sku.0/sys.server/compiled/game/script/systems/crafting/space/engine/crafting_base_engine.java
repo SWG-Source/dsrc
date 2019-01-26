@@ -13,15 +13,12 @@ public class crafting_base_engine extends script.systems.crafting.crafting_base
     }
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("mass") || ((itemAttributes[i].name).getAsciiId()).equals("energy_maintenance"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("mass") || ((itemAttribute.name).getAsciiId()).equals("energy_maintenance")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -29,59 +26,44 @@ public class crafting_base_engine extends script.systems.crafting.crafting_base
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("hitPointsMax"))
-                {
-                    space_crafting.setComponentMaximumHitpoints(prototype, (float)itemAttributes[i].currentValue);
-                    space_crafting.setComponentCurrentHitpoints(prototype, (float)itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("hitPointsMax")) {
+                    space_crafting.setComponentMaximumHitpoints(prototype, (float) itemAttribute.currentValue);
+                    space_crafting.setComponentCurrentHitpoints(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("efficiency"))
-                {
-                    space_crafting.setComponentGeneralEfficiency(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("efficiency")) {
+                    space_crafting.setComponentGeneralEfficiency(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("mass"))
-                {
-                    space_crafting.setComponentMass(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("mass")) {
+                    space_crafting.setComponentMass(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("armorHpMax"))
-                {
-                    space_crafting.setComponentMaximumArmorHitpoints(prototype, (float)itemAttributes[i].currentValue);
-                    space_crafting.setComponentCurrentArmorHitpoints(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("armorHpMax")) {
+                    space_crafting.setComponentMaximumArmorHitpoints(prototype, (float) itemAttribute.currentValue);
+                    space_crafting.setComponentCurrentArmorHitpoints(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("energy_efficiency"))
-                {
-                    space_crafting.setComponentEnergyEfficiency(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("energy_efficiency")) {
+                    space_crafting.setComponentEnergyEfficiency(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("energy_maintenance"))
-                {
-                    space_crafting.setComponentEnergyMaintenance(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("energy_maintenance")) {
+                    space_crafting.setComponentEnergyMaintenance(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("engine_pitch"))
-                {
-                    space_crafting.setEngineMaximumPitch(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("engine_pitch")) {
+                    space_crafting.setEngineMaximumPitch(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("engine_yaw"))
-                {
-                    space_crafting.setEngineMaximumYaw(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("engine_yaw")) {
+                    space_crafting.setEngineMaximumYaw(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("engine_roll"))
-                {
-                    space_crafting.setEngineMaximumRoll(prototype, (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("engine_roll")) {
+                    space_crafting.setEngineMaximumRoll(prototype, (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("engine_speed"))
-                {
-                    space_crafting.setEngineMaximumSpeed(prototype, (float)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("engine_speed")) {
+                    space_crafting.setEngineMaximumSpeed(prototype, (float) itemAttribute.currentValue);
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 }
             }
         }

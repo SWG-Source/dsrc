@@ -198,11 +198,9 @@ public class hracca_spawner extends script.base_script
             return SCRIPT_CONTINUE;
         }
         Vector spawnedList = getResizeableObjIdArrayObjVar(self, "myCreations");
-        for (int i = 0; i < spawnedList.size(); i++)
-        {
-            obj_id spawnedNpc = ((obj_id)spawnedList.get(i));
-            if (isIdValid(spawnedNpc))
-            {
+        for (Object o : spawnedList) {
+            obj_id spawnedNpc = ((obj_id) o);
+            if (isIdValid(spawnedNpc)) {
                 setObjVar(spawnedNpc, "cleaningUp", true);
                 destroyObject(spawnedNpc);
             }

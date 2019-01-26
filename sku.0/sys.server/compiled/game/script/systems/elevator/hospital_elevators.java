@@ -14,8 +14,8 @@ public class hospital_elevators extends script.base_script
         obj_id elevatora = getCellId(self, "elevatora");
         if (isIdValid(elevatora))
         {
-            here.x = .122f;
-            here.y = .25f;
+            here.x = 0.122f;
+            here.y = 0.25f;
             here.z = -2.16f;
             here.cell = elevatora;
             obj_id elevatorTerminalA1 = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);
@@ -44,8 +44,8 @@ public class hospital_elevators extends script.base_script
         obj_id elevatorb = getCellId(self, "elevatorb");
         if (isIdValid(elevatorb))
         {
-            here.x = -.14f;
-            here.y = .25f;
+            here.x = -0.14f;
+            here.y = 0.25f;
             here.z = 2.24f;
             here.cell = elevatorb;
             obj_id elevatorTerminalB1 = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);

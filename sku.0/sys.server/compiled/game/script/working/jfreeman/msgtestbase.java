@@ -1,12 +1,7 @@
 package script.working.jfreeman;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.obj_id;
 
 public class msgtestbase extends script.base_script
 {

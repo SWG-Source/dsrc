@@ -50,7 +50,7 @@ public class patrol extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)

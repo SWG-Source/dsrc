@@ -25,14 +25,14 @@ public class luck extends script.base_script
         }
         int level = getLevel(player);
         int cap = level * 5;
-        float chance = (float)rand(1, (cap * 1000));
+        float chance = rand(1, (cap * 1000));
         chance /= 1000.0f;
-        float luck = (float)getSkillStatisticModifier(player, "luck");
-        float luckBonus = (float)getEnhancedSkillStatisticModifierUncapped(player, "luck_modified");
+        float luck = getSkillStatisticModifier(player, "luck");
+        float luckBonus = getEnhancedSkillStatisticModifierUncapped(player, "luck_modified");
         luck += luckBonus;
         if (luck > cap)
         {
-            luck = (float)cap;
+            luck = cap;
         }
         luck *= mod;
         if (chance < luck)

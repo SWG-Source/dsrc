@@ -19,7 +19,7 @@ public class meatlump_guard_trigger_volume extends script.base_script
     public static final String PHRASE_STRING_FILE = "phrase_string_file";
     public static final String SPAM_STRING_FILE = "spam";
     public static final String MEATLUMP_LOG = "meatlump_trigger";
-    public static final float MEATLUMP_TRIGGER_RADIUS = 8f;
+    public static final float MEATLUMP_TRIGGER_RADIUS = 8.0f;
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         createTriggerVolume(MEATLUMP_TRIGGER_NAME_PREFIX + self, MEATLUMP_TRIGGER_RADIUS, true);

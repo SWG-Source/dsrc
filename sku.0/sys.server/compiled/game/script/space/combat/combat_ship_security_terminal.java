@@ -48,7 +48,7 @@ public class combat_ship_security_terminal extends script.base_script
     {
         if (hasObjVar(self, "lairDestroyed"))
         {
-            messageTo(self, "destroyDisabledLair", null, .5f, false);
+            messageTo(self, "destroyDisabledLair", null, 0.5f, false);
         }
         attachScript(self, "systems.npc_lair.lair_interactivity");
         return SCRIPT_CONTINUE;

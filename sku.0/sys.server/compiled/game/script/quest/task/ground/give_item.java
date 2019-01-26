@@ -81,18 +81,14 @@ public class give_item extends script.quest.task.ground.base_task
             {
                 String[] itemsNeeded = split(item, ',');
                 int textType = Math.max(0, groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableTextType));
-                for (int i = 0; i < itemsNeeded.length; ++i)
-                {
-                    if (itemsNeeded[i] != null && itemsNeeded[i].equals(itemName))
-                    {
+                for (String s : itemsNeeded) {
+                    if (s != null && s.equals(itemName)) {
                         String baseObjVar = groundquests.getBaseObjVar(self, taskType, questGetQuestName(questCrc), taskId);
                         String objvarNameCount = baseObjVar + "." + objVarCount;
-                        if (hasObjVar(self, objvarNameCount))
-                        {
+                        if (hasObjVar(self, objvarNameCount)) {
                             int giveCount = getIntObjVar(self, objvarNameCount);
                             --giveCount;
-                            if (giveCount < 0)
-                            {
+                            if (giveCount < 0) {
                                 giveCount = 0;
                             }
                             int countMax = groundquests.getTaskIntDataEntry(questCrc, taskId, dataTableNumToGive);
@@ -100,12 +96,9 @@ public class give_item extends script.quest.task.ground.base_task
                             prose_package pp = prose.getPackage(message, self, self);
                             prose.setDI(pp, giveCount);
                             sendSystemMessageProse(self, pp);
-                            if (giveCount <= 0)
-                            {
+                            if (giveCount <= 0) {
                                 questCompleteTask(questCrc, taskId, self);
-                            }
-                            else 
-                            {
+                            } else {
                                 setObjVar(self, objvarNameCount, giveCount);
                                 questSetQuestTaskCounter(self, questGetQuestName(questCrc), taskId, getCounterText(textType), countMax - giveCount, countMax);
                                 play2dNonLoopingSound(self, groundquests.MUSIC_QUEST_INCREMENT_COUNTER);
@@ -186,12 +179,9 @@ public class give_item extends script.quest.task.ground.base_task
                 String questCrcString = (String)keys.nextElement();
                 int questCrc = utils.stringToInt(questCrcString);
                 int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                {
-                    int taskId = tasksForCurrentQuest[i];
+                for (int taskId : tasksForCurrentQuest) {
                     boolean shouldFailOnLogout = groundquests.getTaskBoolDataEntry(questCrc, taskId, dataTableFailOnLogout, false);
-                    if (shouldFailOnLogout)
-                    {
+                    if (shouldFailOnLogout) {
                         LOG("QUEST_LOG", "Quest task failed due to log out.");
                         questFailTask(questCrc, taskId, player);
                     }

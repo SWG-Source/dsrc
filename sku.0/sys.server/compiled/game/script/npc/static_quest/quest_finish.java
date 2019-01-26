@@ -48,38 +48,40 @@ public class quest_finish extends script.base_script
                         messageTo(speaker, "finishStaticQuest", null, 0, true);
                         giveReward(self, speaker, questNum);
                     }
-                    if (convoType.equals("normal"))
-                    {
-                        String npcGreet = "npc_smuggle_" + questNum;
-                        String response1 = "player_more_1_" + questNum;
-                        string_id greeting = new string_id(CONVO, npcGreet);
-                        string_id response[] = new string_id[1];
-                        response[0] = new string_id(CONVO, response1);
-                        npcStartConversation(speaker, self, "questConvo", greeting, response);
-                    }
-                    else if (convoType.equals("extended"))
-                    {
-                        String npcGreet = "npc_smuggle_" + questNum;
-                        String response1 = "player_more_1_" + questNum;
-                        String response2 = "player_more_2_" + questNum;
-                        string_id greeting = new string_id(CONVO, npcGreet);
-                        string_id response[] = new string_id[2];
-                        response[0] = new string_id(CONVO, response1);
-                        response[1] = new string_id(CONVO, response2);
-                        npcStartConversation(speaker, self, "questConvo", greeting, response);
-                    }
-                    else if (convoType.equals("verbose"))
-                    {
-                        String npcGreet = "npc_smuggle_" + questNum;
-                        String response1 = "player_more_1_" + questNum;
-                        String response2 = "player_more_2_" + questNum;
-                        String response3 = "player_more_3_" + questNum;
-                        string_id greeting = new string_id(CONVO, npcGreet);
-                        string_id response[] = new string_id[3];
-                        response[0] = new string_id(CONVO, response1);
-                        response[1] = new string_id(CONVO, response2);
-                        response[2] = new string_id(CONVO, response3);
-                        npcStartConversation(speaker, self, "questConvo", greeting, response);
+                    switch (convoType) {
+                        case "normal": {
+                            String npcGreet = "npc_smuggle_" + questNum;
+                            String response1 = "player_more_1_" + questNum;
+                            string_id greeting = new string_id(CONVO, npcGreet);
+                            string_id response[] = new string_id[1];
+                            response[0] = new string_id(CONVO, response1);
+                            npcStartConversation(speaker, self, "questConvo", greeting, response);
+                            break;
+                        }
+                        case "extended": {
+                            String npcGreet = "npc_smuggle_" + questNum;
+                            String response1 = "player_more_1_" + questNum;
+                            String response2 = "player_more_2_" + questNum;
+                            string_id greeting = new string_id(CONVO, npcGreet);
+                            string_id response[] = new string_id[2];
+                            response[0] = new string_id(CONVO, response1);
+                            response[1] = new string_id(CONVO, response2);
+                            npcStartConversation(speaker, self, "questConvo", greeting, response);
+                            break;
+                        }
+                        case "verbose": {
+                            String npcGreet = "npc_smuggle_" + questNum;
+                            String response1 = "player_more_1_" + questNum;
+                            String response2 = "player_more_2_" + questNum;
+                            String response3 = "player_more_3_" + questNum;
+                            string_id greeting = new string_id(CONVO, npcGreet);
+                            string_id response[] = new string_id[3];
+                            response[0] = new string_id(CONVO, response1);
+                            response[1] = new string_id(CONVO, response2);
+                            response[2] = new string_id(CONVO, response3);
+                            npcStartConversation(speaker, self, "questConvo", greeting, response);
+                            break;
+                        }
                     }
                 }
                 else 
@@ -257,12 +259,10 @@ public class quest_finish extends script.base_script
         String giveMe = dataTableGetString(datatable, questNum, "deliver_object");
         boolean hadIt = false;
         obj_id[] contents = getContents(inv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            String itemInInventory = getTemplateName(contents[i]);
-            if (itemInInventory.equals(giveMe))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            String itemInInventory = getTemplateName(content);
+            if (itemInInventory.equals(giveMe)) {
+                destroyObject(content);
                 hadIt = true;
             }
         }

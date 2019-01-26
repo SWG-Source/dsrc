@@ -255,12 +255,12 @@ public class event_tool extends script.base_script
         if (numArgs > 1)
         {
             String durationStr = st.nextToken();
-            duration = (float)utils.stringToInt(durationStr);
+            duration = utils.stringToInt(durationStr);
         }
         if (numArgs > 2)
         {
             String valueStr = st.nextToken();
-            value = (float)utils.stringToInt(valueStr);
+            value = utils.stringToInt(valueStr);
         }
         if (numArgs == 1)
         {
@@ -304,12 +304,12 @@ public class event_tool extends script.base_script
         if (numArgs > 1)
         {
             String durationStr = st.nextToken();
-            duration = (float)utils.stringToInt(durationStr);
+            duration = utils.stringToInt(durationStr);
         }
         if (numArgs > 2)
         {
             String valueStr = st.nextToken();
-            value = (float)utils.stringToInt(valueStr);
+            value = utils.stringToInt(valueStr);
         }
         if (numArgs == 1)
         {
@@ -345,7 +345,7 @@ public class event_tool extends script.base_script
         String buffName = st.nextToken();
         String commandType = st.nextToken();
         String rangeStr = st.nextToken();
-        float range = (float)utils.stringToInt(rangeStr);
+        float range = utils.stringToInt(rangeStr);
         if (!commandType.equals("player") && !commandType.equals("npc") && !commandType.equals("all"))
         {
             sendSystemMessage(self, "Target for eventBuffArea must be player, npc or all.[Syntax] /eventBuffArea <buff name> <player/npc/all> <range> <optional duration> <optional value>.", null);
@@ -361,12 +361,12 @@ public class event_tool extends script.base_script
         if (numArgs > 3)
         {
             String durationStr = st.nextToken();
-            duration = (float)utils.stringToInt(durationStr);
+            duration = utils.stringToInt(durationStr);
         }
         if (numArgs > 4)
         {
             String valueStr = st.nextToken();
-            value = (float)utils.stringToInt(valueStr);
+            value = utils.stringToInt(valueStr);
         }
         if (commandType.equals("player"))
         {
@@ -448,7 +448,7 @@ public class event_tool extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String rangeStr = st.nextToken();
-        float range = (float)utils.stringToInt(rangeStr);
+        float range = utils.stringToInt(rangeStr);
         if (range < 1 || range > 256)
         {
             sendSystemMessage(self, "Invalid range. Range must be between 1 and 256.", null);
@@ -508,7 +508,7 @@ public class event_tool extends script.base_script
         }
         String rangeStr = st.nextToken();
         String badgeNumStr = st.nextToken();
-        float range = (float)utils.stringToInt(rangeStr);
+        float range = utils.stringToInt(rangeStr);
         int badgeNumber = utils.stringToInt(badgeNumStr);
         if (range < 1 || range > 256)
         {

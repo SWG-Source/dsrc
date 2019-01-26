@@ -104,7 +104,7 @@ public class mustafar extends script.base_script
     {
         debugLogging("obiwanAlreadyPresent: ", " entered.");
         location currentLoc = getLocation(player);
-        obj_id obiwanObject = getFirstObjectWithObjVar(currentLoc, 100f, "mustafar_obiwan");
+        obj_id obiwanObject = getFirstObjectWithObjVar(currentLoc, 100.0f, "mustafar_obiwan");
         if (isIdValid(obiwanObject))
         {
             if (giveFailureFeedback)
@@ -141,19 +141,19 @@ public class mustafar extends script.base_script
     {
         debugLogging("//***// callObiwan: ", "////>>>> entered.");
         location currentLoc = getLocation(player);
-        float landmarkDistanceOffset = 0f;
+        float landmarkDistanceOffset = 0.0f;
         if (isIdValid(landmark))
         {
             location landmarkLoc = getLocation(landmark);
             landmarkDistanceOffset = getDistance(player, landmark);
             debugLogging("callObiwan: ", "landmark location is valid.");
         }
-        float distance = landmarkDistanceOffset + 6f;
+        float distance = landmarkDistanceOffset + 6.0f;
         if (timeout)
         {
-            if (distance < 11f)
+            if (distance < 11.0f)
             {
-                distance = 11f;
+                distance = 11.0f;
             }
         }
         location spawnLoc = utils.findLocInFrontOfTarget(player, distance);
@@ -245,7 +245,7 @@ public class mustafar extends script.base_script
                         }
                         if (creatureName.startsWith("som_kenobi_finale_minion"))
                         {
-                            addHate(creature, players[i], 1000f);
+                            addHate(creature, players[i], 1000.0f);
                         }
                         utils.setScriptVar(creature, "dungeon", dungeon);
                         debugLogging("spawnContents: ", "Created object(" + object + "/" + creature + ") with script(" + script);
@@ -284,10 +284,8 @@ public class mustafar extends script.base_script
     }
     public static boolean hasCompletedTrials(obj_id player) throws InterruptedException
     {
-        for (int i = 0; i < REQUIRED_QUEST_NAMES.length; i++)
-        {
-            if (!groundquests.hasCompletedQuest(player, REQUIRED_QUEST_NAMES[i]))
-            {
+        for (String requiredQuestName : REQUIRED_QUEST_NAMES) {
+            if (!groundquests.hasCompletedQuest(player, requiredQuestName)) {
                 return false;
             }
         }

@@ -37,7 +37,7 @@ public class smuggler_medic extends script.base_script
         obj_id master = getMaster(self);
         if (isIdValid(master))
         {
-            float healthPercent = (float)getAttrib(master, HEALTH) / (float)getMaxAttrib(master, HEALTH);
+            float healthPercent = (float)getAttrib(master, HEALTH) / getMaxAttrib(master, HEALTH);
             int myLevel = getLevel(self);
             if (healthPercent < 0.50f)
             {
@@ -166,9 +166,8 @@ public class smuggler_medic extends script.base_script
             obj_id[] haters = getHateList(self);
             if (haters.length > 0)
             {
-                for (int i = 0; i < haters.length; i++)
-                {
-                    removeHateTarget(haters[i], self);
+                for (obj_id hater : haters) {
+                    removeHateTarget(hater, self);
                 }
             }
             destroyObject(self);

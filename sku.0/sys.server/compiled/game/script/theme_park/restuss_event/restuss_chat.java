@@ -14,7 +14,7 @@ public class restuss_chat extends script.base_script
     public static final string_id OPENING = new string_id(STF, "opening");
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleOpeningChat", null, 3f, false);
+        messageTo(self, "handleOpeningChat", null, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleOpeningChat(obj_id self, dictionary params) throws InterruptedException

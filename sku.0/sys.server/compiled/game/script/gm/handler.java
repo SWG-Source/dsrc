@@ -287,9 +287,8 @@ public class handler extends script.base_script
         if (containers != null && containers.length > 0)
         {
             text = text + " contained by:";
-            for (int i = 0; i < containers.length; ++i)
-            {
-                text = text + " " + containers[i];
+            for (obj_id container : containers) {
+                text = text + " " + container;
             }
         }
         sendSystemMessageTestingOnly(self, text);

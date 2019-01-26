@@ -115,7 +115,7 @@ public class imperial_relay_station extends script.base_script
         attachScript(cell, "theme_park.alderaan.act2.relay_station_access");
         location loc = new location(0.0f, 0.0f, 0.0f, planet, cell);
         obj_id terminal = create.staticObject("object/tangible/theme_park/alderaan/act2/relay_station_terminal.iff", loc);
-        setYaw(terminal, 180f);
+        setYaw(terminal, 180.0f);
         attachScript(terminal, "theme_park.alderaan.act2.relay_station_terminal");
         permissionsMakePrivate(cell);
         dictionary params = new dictionary();
@@ -193,11 +193,9 @@ public class imperial_relay_station extends script.base_script
     public int cleanup(obj_id self, dictionary params) throws InterruptedException
     {
         Vector objectList = getResizeableObjIdArrayObjVar(self, "coa2.rebel.obj_list");
-        for (int i = 0; i < objectList.size(); i++)
-        {
-            if (isIdValid(((obj_id)objectList.get(i))))
-            {
-                destroyObject(((obj_id)objectList.get(i)));
+        for (Object o : objectList) {
+            if (isIdValid(((obj_id) o))) {
+                destroyObject(((obj_id) o));
             }
         }
         destroyObject(self);

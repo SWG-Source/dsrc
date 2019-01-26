@@ -132,15 +132,12 @@ public class mining_salvage_hulk extends script.base_script
         {
             return null;
         }
-        for (int intI = 0; intI < objContents.length; intI++)
-        {
-            obj_id objType = getResourceContainerResourceType(objContents[intI]);
-            if (objType == objResource)
-            {
-                int intCount = getResourceContainerQuantity(objContents[intI]);
-                if (intCount < MAX_RESOURCE)
-                {
-                    return objContents[intI];
+        for (obj_id objContent : objContents) {
+            obj_id objType = getResourceContainerResourceType(objContent);
+            if (objType == objResource) {
+                int intCount = getResourceContainerQuantity(objContent);
+                if (intCount < MAX_RESOURCE) {
+                    return objContent;
                 }
             }
         }
@@ -148,57 +145,33 @@ public class mining_salvage_hulk extends script.base_script
     }
     public String getResourceType(String strAsteroidType) throws InterruptedException
     {
-        if (strAsteroidType.equals("iron"))
-        {
-            return "space_metal_iron";
-        }
-        else if (strAsteroidType.equals("carbonaceous"))
-        {
-            return "space_metal_carbonaceous";
-        }
-        else if (strAsteroidType.equals("silicaceous"))
-        {
-            return "space_metal_silicaceous";
-        }
-        else if (strAsteroidType.equals("ice"))
-        {
-            return "space_metal_ice";
-        }
-        else if (strAsteroidType.equals("obsidian"))
-        {
-            return "space_metal_obsidian";
-        }
-        else if (strAsteroidType.equals("diamond"))
-        {
-            return "space_gem_diamond";
-        }
-        else if (strAsteroidType.equals("crystal"))
-        {
-            return "space_gem_crystal";
-        }
-        else if (strAsteroidType.equals("petrochem"))
-        {
-            return "space_chemical_petrochem";
-        }
-        else if (strAsteroidType.equals("acid"))
-        {
-            return "space_chemical_acid";
-        }
-        else if (strAsteroidType.equals("cyanomethanic"))
-        {
-            return "space_chemical_cyanomethanic";
-        }
-        else if (strAsteroidType.equals("sulfuric"))
-        {
-            return "space_chemical_sulfuric";
-        }
-        else if (strAsteroidType.equals("methane"))
-        {
-            return "space_gas_methane";
-        }
-        else if (strAsteroidType.equals("organometallic"))
-        {
-            return "space_gas_organometallic";
+        switch (strAsteroidType) {
+            case "iron":
+                return "space_metal_iron";
+            case "carbonaceous":
+                return "space_metal_carbonaceous";
+            case "silicaceous":
+                return "space_metal_silicaceous";
+            case "ice":
+                return "space_metal_ice";
+            case "obsidian":
+                return "space_metal_obsidian";
+            case "diamond":
+                return "space_gem_diamond";
+            case "crystal":
+                return "space_gem_crystal";
+            case "petrochem":
+                return "space_chemical_petrochem";
+            case "acid":
+                return "space_chemical_acid";
+            case "cyanomethanic":
+                return "space_chemical_cyanomethanic";
+            case "sulfuric":
+                return "space_chemical_sulfuric";
+            case "methane":
+                return "space_gas_methane";
+            case "organometallic":
+                return "space_gas_organometallic";
         }
         return null;
     }

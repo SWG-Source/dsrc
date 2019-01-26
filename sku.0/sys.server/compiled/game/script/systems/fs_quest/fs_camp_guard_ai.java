@@ -44,9 +44,9 @@ public class fs_camp_guard_ai extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "msgSpoutOff", null, (float)rand(10, 30), false);
+        messageTo(self, "msgSpoutOff", null, rand(10, 30), false);
         setObjVar(self, turret.OBJVAR_TURRET_FRIEND, 1);
-        messageTo(self, "msgSelfDestruct", null, (float)rand(110, 130), false);
+        messageTo(self, "msgSelfDestruct", null, rand(110, 130), false);
         if (hasObjVar(self, VAR_SPAWNED_BY))
         {
             obj_id parent = getObjIdObjVar(self, VAR_SPAWNED_BY);

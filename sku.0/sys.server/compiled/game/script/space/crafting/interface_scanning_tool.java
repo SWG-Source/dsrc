@@ -130,68 +130,55 @@ public class interface_scanning_tool extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < toolContents.length; i++)
-            {
-                int level = space_crafting.getReverseEngineeringLevel(toolContents[i]);
-                String componentType = space_crafting.getShipComponentStringType(toolContents[i]);
-                if (!componentType.equals("droid_interface"))
-                {
+            for (obj_id toolContent : toolContents) {
+                int level = space_crafting.getReverseEngineeringLevel(toolContent);
+                String componentType = space_crafting.getShipComponentStringType(toolContent);
+                if (!componentType.equals("droid_interface")) {
                     return SCRIPT_CONTINUE;
                 }
-                string_id compName = getNameStringId(toolContents[i]);
+                string_id compName = getNameStringId(toolContent);
                 sendSystemMessage(player, "The tool start scanning the " + localize(compName) + "...", null);
                 int lootChance = 5 + (level / 2);
                 int lootRoll = rand(1, 100);
-                destroyObject(toolContents[i]);
-                if (lootChance >= lootRoll)
-                {
+                destroyObject(toolContent);
+                if (lootChance >= lootRoll) {
                     int roll = rand(1, 6);
-                    if (roll < 6)
-                    {
+                    if (roll < 6) {
                         sendSystemMessage(player, "You find a detailed flight plan for a transport convoy, stored in the droid interface memory.", null);
                     }
-                    if (roll == 1)
-                    {
+                    if (roll == 1) {
                         static_item.createNewItemFunction("item_interdiction_data_disk_01", playerInv);
                     }
-                    if (roll == 2)
-                    {
+                    if (roll == 2) {
                         static_item.createNewItemFunction("item_interdiction_data_disk_02", playerInv);
                     }
-                    if (roll == 3)
-                    {
+                    if (roll == 3) {
                         static_item.createNewItemFunction("item_interdiction_data_disk_03", playerInv);
                     }
-                    if (roll == 4)
-                    {
+                    if (roll == 4) {
                         static_item.createNewItemFunction("item_interdiction_data_disk_04", playerInv);
                     }
-                    if (roll == 5)
-                    {
+                    if (roll == 5) {
                         static_item.createNewItemFunction("item_interdiction_data_disk_05", playerInv);
                     }
-                    if (roll == 6)
-                    {
+                    if (roll == 6) {
                         sendSystemMessage(player, "You find a rare droid command stored in the memory of the droid interface.", null);
                         int rollChip = rand(1, 3);
-                        if (rollChip == 1)
-                        {
+                        if (rollChip == 1) {
                             obj_id moduleImpDS = createObject("object/tangible/droid/droid_space_memory_module_1.iff", playerInv, "");
                             setObjVar(moduleImpDS, "programSize", 1);
                             setObjVar(moduleImpDS, "strDroidCommand", "droidcommand_zonetoimperialdeepspace");
                             setName(moduleImpDS, "");
                             setName(moduleImpDS, new string_id("space/droid_commands", "droidcommand_zonetoimperialdeepspace_chipname"));
                         }
-                        if (rollChip == 2)
-                        {
+                        if (rollChip == 2) {
                             obj_id moduleRebDS = createObject("object/tangible/droid/droid_space_memory_module_1.iff", playerInv, "");
                             setObjVar(moduleRebDS, "programSize", 1);
                             setObjVar(moduleRebDS, "strDroidCommand", "droidcommand_zonetorebeldeepspace");
                             setName(moduleRebDS, "");
                             setName(moduleRebDS, new string_id("space/droid_commands", "droidcommand_zonetorebeldeepspace_chipname"));
                         }
-                        if (rollChip == 3)
-                        {
+                        if (rollChip == 3) {
                             obj_id moduleKessel = createObject("object/tangible/droid/droid_space_memory_module_1.iff", playerInv, "");
                             setObjVar(moduleKessel, "programSize", 1);
                             setObjVar(moduleKessel, "strDroidCommand", "droidcommand_zonetokessel");
@@ -199,9 +186,7 @@ public class interface_scanning_tool extends script.base_script
                             setName(moduleKessel, new string_id("space/droid_commands", "droidcommand_zonetokessel_chipname"));
                         }
                     }
-                }
-                else 
-                {
+                } else {
                     sendSystemMessage(player, "You find no useable data traces in the memory of the droid interface.", null);
                 }
             }

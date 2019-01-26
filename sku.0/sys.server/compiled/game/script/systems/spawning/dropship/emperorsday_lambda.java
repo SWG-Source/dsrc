@@ -14,7 +14,7 @@ public class emperorsday_lambda extends script.systems.spawning.dropship.base
     public int OnAttach(obj_id self) throws InterruptedException
     {
         blog("emperorsday_lambda.OnAttach: Init");
-        messageTo(self, "handleAttachDelay", null, 2f, false);
+        messageTo(self, "handleAttachDelay", null, 2.0f, false);
         setHibernationDelay(self, 600.0f);
         return super.OnAttach(self);
     }
@@ -23,7 +23,7 @@ public class emperorsday_lambda extends script.systems.spawning.dropship.base
         blog("emperorsday_lambda.handleAttachDelay: Init");
         stop(self);
         setPosture(self, POSTURE_PRONE);
-        messageTo(self, "takeOff", null, 600f, true);
+        messageTo(self, "takeOff", null, 600.0f, true);
         queueCommand(self, (-1465754503), self, "", COMMAND_PRIORITY_FRONT);
         return SCRIPT_CONTINUE;
     }
@@ -34,7 +34,7 @@ public class emperorsday_lambda extends script.systems.spawning.dropship.base
         location ownLocation = getLocation(self);
         ownLocation.z = ownLocation.z - 20.0f;
         faceTo(self, ownLocation);
-        messageTo(self, "selfCleanUp", null, 60f, false);
+        messageTo(self, "selfCleanUp", null, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int takeOff(obj_id self, dictionary params) throws InterruptedException
@@ -71,7 +71,7 @@ public class emperorsday_lambda extends script.systems.spawning.dropship.base
         blog("emperorsday_lambda.correctTakeOffThenCleanUp init");
         setPosture(self, POSTURE_UPRIGHT);
         blog("emperorsday_lambda.correctTakeOffThenCleanUp changePosture");
-        messageTo(self, "selfCleanUp", null, 60f, false);
+        messageTo(self, "selfCleanUp", null, 60.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int selfCleanUp(obj_id self, dictionary params) throws InterruptedException

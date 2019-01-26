@@ -137,14 +137,14 @@ public class magic_item extends script.base_script
             for (int i = 0; i < numMods; i++)
             {
                 LOG("magic_item", "*** WEIGHTING: " + i + " ******");
-                float pivot = 100f - spent;
-                float cntLeft = (float)(numMods - i);
+                float pivot = 100.0f - spent;
+                float cntLeft = (numMods - i);
                 LOG("magic_item", "pivot = " + pivot + " cntLeft = " + cntLeft);
                 int wt = (int)pivot;
                 if (cntLeft > 1)
                 {
                     float min = pivot / cntLeft;
-                    float max = pivot * 2f / 3f;
+                    float max = pivot * 2.0f / 3.0f;
                     LOG("magic_item", "min = " + min + " max = " + max);
                     wt = rand((int)min, (int)max);
                 }
@@ -174,15 +174,15 @@ public class magic_item extends script.base_script
                         myMod = myMod.substring(1);
                         applyNegative = true;
                     }
-                    int tmp = ((Integer)pts.get(i)).intValue();
+                    int tmp = (Integer) pts.get(i);
                     int cost = getMagicModCost(myMod);
                     LOG("magic_item", "mod cost = " + cost);
                     if (cost > 0)
                     {
                         LOG("magic_item", "wt = " + tmp);
-                        float perc = (float)(tmp) / 100f;
+                        float perc = (tmp) / 100.0f;
                         LOG("magic_item", "perc = " + perc);
-                        int buyPts = (int)(perc * (float)total);
+                        int buyPts = (int)(perc * total);
                         LOG("magic_item", "buyPts = " + buyPts);
                         int modVal = buyPts / cost;
                         LOG("magic_item", "resulting mod value = " + modVal);
@@ -226,7 +226,7 @@ public class magic_item extends script.base_script
         {
             return -1;
         }
-        int ret = (int)((float)mobLevel * rand(1f - PT_DELTA, 1f + PT_DELTA));
+        int ret = (int)(mobLevel * rand(1.0f - PT_DELTA, 1.0f + PT_DELTA));
         return ret;
     }
     public static int getNumMods(int pivot) throws InterruptedException
@@ -274,11 +274,9 @@ public class magic_item extends script.base_script
             return null;
         }
         String[] mods = new String[0];
-        for (int i = 0; i < cols.length; i++)
-        {
-            if (apr.startsWith(cols[i]))
-            {
-                mods = dataTableGetStringColumnNoDefaults(tbl, cols[i]);
+        for (String col : cols) {
+            if (apr.startsWith(col)) {
+                mods = dataTableGetStringColumnNoDefaults(tbl, col);
             }
         }
         if ((mods == null) || (mods.length == 0))
@@ -352,14 +350,14 @@ public class magic_item extends script.base_script
             for (int i = 0; i < numMods; i++)
             {
                 LOG("magic_item", "*** WEIGHTING: " + i + " ******");
-                float pivot = 100f - spent;
-                float cntLeft = (float)(numMods - i);
+                float pivot = 100.0f - spent;
+                float cntLeft = (numMods - i);
                 LOG("magic_item", "pivot = " + pivot + " cntLeft = " + cntLeft);
                 int wt = (int)pivot;
                 if (cntLeft > 1)
                 {
                     float min = pivot / cntLeft;
-                    float max = pivot * 2f / 3f;
+                    float max = pivot * 2.0f / 3.0f;
                     LOG("magic_item", "min = " + min + " max = " + max);
                     wt = rand((int)min, (int)max);
                 }
@@ -383,15 +381,15 @@ public class magic_item extends script.base_script
                 if ((myMod != null) && (!myMod.equals("")))
                 {
                     LOG("magic_item", "attempting to apply mod: " + myMod);
-                    int tmp = ((Integer)pts.get(i)).intValue();
+                    int tmp = (Integer) pts.get(i);
                     int cost = getMagicModCost(myMod);
                     LOG("magic_item", "mod cost = " + cost);
                     if (cost > 0)
                     {
                         LOG("magic_item", "wt = " + tmp);
-                        float perc = (float)(tmp) / 100f;
+                        float perc = (tmp) / 100.0f;
                         LOG("magic_item", "perc = " + perc);
-                        int buyPts = (int)(perc * (float)total);
+                        int buyPts = (int)(perc * total);
                         LOG("magic_item", "buyPts = " + buyPts);
                         int modVal = buyPts / cost;
                         LOG("magic_item", "resulting mod value = " + modVal);
@@ -449,11 +447,9 @@ public class magic_item extends script.base_script
         {
             Vector armorMods = new Vector();
             armorMods.setSize(0);
-            for (int i = 0; i < allMods.length; i++)
-            {
-                if (dataTableGetInt(TBL_COST, allMods[i], "ARMOR_ATTACHMENT_MODS") != 0)
-                {
-                    armorMods = utils.addElement(armorMods, allMods[i]);
+            for (String allMod : allMods) {
+                if (dataTableGetInt(TBL_COST, allMod, "ARMOR_ATTACHMENT_MODS") != 0) {
+                    armorMods = utils.addElement(armorMods, allMod);
                 }
             }
             if (armorMods != null && armorMods.size() > 0)

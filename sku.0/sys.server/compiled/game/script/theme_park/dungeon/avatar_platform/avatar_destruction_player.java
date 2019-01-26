@@ -22,8 +22,8 @@ public class avatar_destruction_player extends script.base_script
             detachScript(self, "theme_park.dungeon.avatar_platform.avatar_destruction_player");
             return SCRIPT_CONTINUE;
         }
-        messageTo(self, "handleExplosionEffect", null, 20f, false);
-        messageTo(self, "handleAvatarDestructionPlayer", null, 300f, false);
+        messageTo(self, "handleExplosionEffect", null, 20.0f, false);
+        messageTo(self, "handleAvatarDestructionPlayer", null, 300.0f, false);
         playClientEffectObj(self, "clienteffect/avatar_overload_alarm.cef", self, "");
         return SCRIPT_CONTINUE;
     }
@@ -37,8 +37,8 @@ public class avatar_destruction_player extends script.base_script
             detachScript(self, "theme_park.dungeon.avatar_platform.avatar_destruction_player");
             return SCRIPT_CONTINUE;
         }
-        messageTo(self, "handleExplosionEffect", null, 20f, false);
-        messageTo(self, "handleAvatarDestructionPlayer", null, 300f, false);
+        messageTo(self, "handleExplosionEffect", null, 20.0f, false);
+        messageTo(self, "handleAvatarDestructionPlayer", null, 300.0f, false);
         playClientEffectObj(self, "clienteffect/avatar_overload_alarm.cef", self, "");
         return SCRIPT_CONTINUE;
     }
@@ -53,8 +53,8 @@ public class avatar_destruction_player extends script.base_script
             detachScript(self, "theme_park.dungeon.avatar_platform.avatar_destruction_player");
             return SCRIPT_CONTINUE;
         }
-        messageTo(self, "handleExplosionEffect", null, 20f, false);
-        messageTo(self, "handleAvatarDestructionPlayer", null, 300f, false);
+        messageTo(self, "handleExplosionEffect", null, 20.0f, false);
+        messageTo(self, "handleAvatarDestructionPlayer", null, 300.0f, false);
         playClientEffectObj(self, "clienteffect/avatar_overload_alarm.cef", self, "");
         return SCRIPT_CONTINUE;
     }
@@ -70,7 +70,7 @@ public class avatar_destruction_player extends script.base_script
         }
         playClientEffectLoc(self, "clienteffect/avatar_explosion_01.cef", getLocation(self), 0.0f);
         playClientEffectObj(self, "clienteffect/avatar_overload_alarm.cef", self, "");
-        messageTo(self, "handleExplosionEffect", null, 15f, false);
+        messageTo(self, "handleExplosionEffect", null, 15.0f, false);
         obj_id currentCell = getContainedBy(self);
         obj_id[] items = getContents(currentCell);
         if (items == null)
@@ -80,14 +80,11 @@ public class avatar_destruction_player extends script.base_script
         int numItems = items.length;
         if (numItems > 0)
         {
-            for (int i = 0; i < numItems; i++)
-            {
-                if (isNpcCreature(items[i]))
-                {
+            for (obj_id item : items) {
+                if (isNpcCreature(item)) {
                     int deathRoll = rand(1, 10);
-                    if (deathRoll < 6)
-                    {
-                        kill(items[i]);
+                    if (deathRoll < 6) {
+                        kill(item);
                     }
                 }
             }
@@ -117,7 +114,7 @@ public class avatar_destruction_player extends script.base_script
         
         {
             int dam = -(getAttrib(player, HEALTH) + 50);
-            addAttribModifier(player, HEALTH, dam, 0f, 0f, MOD_POOL);
+            addAttribModifier(player, HEALTH, dam, 0.0f, 0.0f, MOD_POOL);
         }
         pclib.coupDeGrace(player, killer, false);
         ejectPlayerFromAvatar(player);

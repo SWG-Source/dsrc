@@ -62,41 +62,29 @@ public class crafting_new_armor_final extends script.systems.crafting.crafting_b
         int finalRow = dataTableSearchColumnForInt(getStringCrc(armor.DATATABLE_FINAL_ROW + armorLevel), armor.DATATABLE_TYPE_COL, armor.DATATABLE_ARMOR);
         setObjVar(prototype, armor.OBJVAR_ARMOR_BASE + "." + armor.OBJVAR_ARMOR_LEVEL, armorLevel);
         setObjVar(prototype, armor.OBJVAR_ARMOR_BASE + "." + armor.OBJVAR_ARMOR_CATEGORY, armorCategory);
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (itemAttributes[i].currentValue < itemAttributes[i].minValue)
-                {
-                    itemAttributes[i].currentValue = itemAttributes[i].minValue;
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (itemAttribute.currentValue < itemAttribute.minValue) {
+                    itemAttribute.currentValue = itemAttribute.minValue;
+                } else if (itemAttribute.currentValue > itemAttribute.maxValue) {
+                    itemAttribute.currentValue = itemAttribute.maxValue;
                 }
-                else if (itemAttributes[i].currentValue > itemAttributes[i].maxValue)
-                {
-                    itemAttributes[i].currentValue = itemAttributes[i].maxValue;
-                }
-                setObjVar(prototype, armor.OBJVAR_ARMOR_BASE + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
-                if ((itemAttributes[i].name).equals(armor.OBJVAR_CONDITION))
-                {
-                    float hp = armor.getAbsoluteArmorAttribute(itemAttributes[i].currentValue, finalRow, armor.DATATABLE_MIN_CONDITION_COL);
-                    if (hp != Float.MIN_VALUE)
-                    {
-                        if (hasObjVar(getSelf(), armor.OBJVAR_CONDITION_MULTIPLIER))
-                        {
+                setObjVar(prototype, armor.OBJVAR_ARMOR_BASE + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
+                if ((itemAttribute.name).equals(armor.OBJVAR_CONDITION)) {
+                    float hp = armor.getAbsoluteArmorAttribute(itemAttribute.currentValue, finalRow, armor.DATATABLE_MIN_CONDITION_COL);
+                    if (hp != Float.MIN_VALUE) {
+                        if (hasObjVar(getSelf(), armor.OBJVAR_CONDITION_MULTIPLIER)) {
                             float multiplier = getFloatObjVar(getSelf(), armor.OBJVAR_CONDITION_MULTIPLIER);
-                            if (multiplier > 0)
-                            {
+                            if (multiplier > 0) {
                                 hp *= multiplier;
-                            }
-                            else 
-                            {
+                            } else {
                                 CustomerServiceLog("crafting", "Armor schematic " + getDraftSchematic(getSelf()) + " has an invalid condition multiplier " + multiplier);
                             }
                         }
-                        setMaxHitpoints(prototype, (int)hp);
+                        setMaxHitpoints(prototype, (int) hp);
                     }
                 }
             }

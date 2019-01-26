@@ -264,10 +264,8 @@ public class stormtrooper_respect extends script.base_script
                 String stSpeech = utils.getStringScriptVar(speakerTarget, "stFilterSpeech");
                 String[] keyphrases = dataTableGetStringColumn(KEYPHRASES, "keyphrase");
                 String stSayFaction = factions.getFaction(speakerTarget);
-                for (int i = 0; i < keyphrases.length; i++)
-                {
-                    if ((toLower(stSpeech)).indexOf(toLower(keyphrases[i])) > -1)
-                    {
+                for (String keyphrase : keyphrases) {
+                    if ((toLower(stSpeech)).contains(toLower(keyphrase))) {
                         randQuip = 40;
                         chat.publicChat(self, null, null, null, getTroopQuip(speakerTarget, randQuip));
                         faceTo(self, speakerTarget);
@@ -277,13 +275,10 @@ public class stormtrooper_respect extends script.base_script
                         utils.setScriptVar(self, "coming_to_kill_u", speakerTarget);
                         setMovementRun(self);
                         pathTo(self, pcAttackLoc);
-                        if (!utils.hasObjVar(speakerTarget, "trooper_fine"))
-                        {
+                        if (!utils.hasObjVar(speakerTarget, "trooper_fine")) {
                             utils.setObjVar(speakerTarget, "trooper_fine", 10000);
                             sui.msgbox(self, speakerTarget, "@stormtrooper_attitude/st_response:imperial_fine_10000", sui.OK_ONLY, "@stormtrooper_attitude/st_response:imperial_fine_t", "handleFine");
-                        }
-                        else 
-                        {
+                        } else {
                             int previousDebt = utils.getIntObjVar(speakerTarget, "trooper_fine");
                             utils.removeObjVar(speakerTarget, "trooper_fine");
                             previousDebt += 10000;

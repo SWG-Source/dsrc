@@ -50,7 +50,7 @@ public class junk_dealer_summon extends script.base_script
         }
         if (group.isGrouped(player))
         {
-            Vector party = group.getPCMembersInRange(player, 32f);
+            Vector party = group.getPCMembersInRange(player, 32.0f);
             if (party != null)
             {
                 for (int i = 0; i < party.size(); i++)

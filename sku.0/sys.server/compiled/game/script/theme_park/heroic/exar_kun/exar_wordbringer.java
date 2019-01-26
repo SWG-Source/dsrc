@@ -38,8 +38,8 @@ public class exar_wordbringer extends script.base_script
         location rightLoc = getLocation(getRandomHateTarget(self));
         int timeSlice = 5;
         location blastLoc = leftLoc;
-        float xInterval = ((rightLoc.x - leftLoc.x) / (float)timeSlice);
-        float zInterval = ((rightLoc.z - leftLoc.z) / (float)timeSlice);
+        float xInterval = ((rightLoc.x - leftLoc.x) / timeSlice);
+        float zInterval = ((rightLoc.z - leftLoc.z) / timeSlice);
         dictionary dict = trial.getSessionDict(self, "tesla");
         dict.put("side", 0);
         for (int i = 0; i < timeSlice; i++)
@@ -49,7 +49,7 @@ public class exar_wordbringer extends script.base_script
             dict.put("blastLoc", blastLoc);
             messageTo(self, "execute_blast", dict, i, false);
         }
-        messageTo(self, "left_zap", trial.getSessionDict(self, "tesla"), (float)timeSlice, false);
+        messageTo(self, "left_zap", trial.getSessionDict(self, "tesla"), timeSlice, false);
         return SCRIPT_CONTINUE;
     }
     public int right_zap(obj_id self, dictionary params) throws InterruptedException
@@ -62,8 +62,8 @@ public class exar_wordbringer extends script.base_script
         location rightLoc = getLocation(getRandomHateTarget(self));
         int timeSlice = 5;
         location blastLoc = leftLoc;
-        float xInterval = ((rightLoc.x - leftLoc.x) / (float)timeSlice);
-        float zInterval = ((rightLoc.z - leftLoc.z) / (float)timeSlice);
+        float xInterval = ((rightLoc.x - leftLoc.x) / timeSlice);
+        float zInterval = ((rightLoc.z - leftLoc.z) / timeSlice);
         dictionary dict = trial.getSessionDict(self, "tesla");
         dict.put("side", 1);
         for (int i = 0; i < timeSlice; i++)
@@ -73,7 +73,7 @@ public class exar_wordbringer extends script.base_script
             dict.put("blastLoc", blastLoc);
             messageTo(self, "execute_blast", dict, i, false);
         }
-        messageTo(self, "right_zap", dict, (float)timeSlice, false);
+        messageTo(self, "right_zap", dict, timeSlice, false);
         return SCRIPT_CONTINUE;
     }
     public location getRandomLeftLocation() throws InterruptedException
@@ -130,8 +130,8 @@ public class exar_wordbringer extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         if (ratio <= 0.1)
         {

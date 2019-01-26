@@ -12,9 +12,8 @@ public class box_of_stuff extends script.theme_park.newbie_tutorial.tutorial_bas
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        for (int i = 0; i < BOX_CONTENTS.length; i++)
-        {
-            obj_id item = createObject(BOX_CONTENTS[i], self, "");
+        for (String boxContent : BOX_CONTENTS) {
+            obj_id item = createObject(boxContent, self, "");
             attachScript(item, BOX_ITEM_SCRIPT);
             setObjVar(item, "newbie.item", true);
         }

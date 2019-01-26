@@ -108,12 +108,12 @@ public class gm extends script.base_script
         obj_id self = getSelf();
         String tmpParams = params;
         obj_id tmpTarget = target;
-        if (tmpParams.indexOf(KEYWORD_SELF) > -1)
+        if (tmpParams.contains(KEYWORD_SELF))
         {
             tmpParams = removeKeyword(tmpParams, KEYWORD_SELF);
             tmpTarget = self;
         }
-        else if (tmpParams.indexOf(KEYWORD_TARGET) > -1)
+        else if (tmpParams.contains(KEYWORD_TARGET))
         {
             tmpParams = removeKeyword(tmpParams, KEYWORD_TARGET);
             if (!isIdValid(tmpTarget))
@@ -123,7 +123,7 @@ public class gm extends script.base_script
         }
         else 
         {
-            if (tmpParams.indexOf(KEYWORD_ID) > -1)
+            if (tmpParams.contains(KEYWORD_ID))
             {
                 dictionary d = parseObjId(tmpParams);
                 obj_id oid = d.getObjId("oid");
@@ -460,9 +460,8 @@ public class gm extends script.base_script
         else 
         {
             entries = utils.addElement(entries, "ENEMY FLAGS:");
-            for (int i = 0; i < enemyFlags.length; i++)
-            {
-                String[] efData = split(enemyFlags[i], ' ');
+            for (String enemyFlag : enemyFlags) {
+                String[] efData = split(enemyFlag, ' ');
                 String efaction = factions.getFactionNameByHashCode(utils.stringToInt(efData[1]));
                 entries = utils.addElement(entries, " - id:" + efData[0] + " f:" + efaction + " expires: " + efData[2]);
             }
@@ -624,17 +623,15 @@ public class gm extends script.base_script
             if (allActive != null)
             {
                 allQuestStringsCombined.add("All Active Quests");
-                for (int i = 0; i < allActive.length; i++)
-                {
-                    allQuestStringsCombined.add(allActive[i]);
+                for (String s : allActive) {
+                    allQuestStringsCombined.add(s);
                 }
             }
             if (allComplete != null)
             {
                 allQuestStringsCombined.add("\nAll Completed Quests");
-                for (int i = 0; i < allComplete.length; i++)
-                {
-                    allQuestStringsCombined.add("*" + allComplete[i]);
+                for (String s : allComplete) {
+                    allQuestStringsCombined.add("*" + s);
                 }
             }
             if (allActive == null && allComplete == null)
@@ -660,18 +657,13 @@ public class gm extends script.base_script
         {
             HashSet allQuestStringsFound = new HashSet();
             String activeQuestString = "";
-            for (int i = 0; i < activeQuestIds.length; i++)
-            {
-                activeQuestString = questGetQuestName(activeQuestIds[i]);
-                if (!activeQuestString.equals(""))
-                {
-                    if (activeQuestString.indexOf("quest/") == 0)
-                    {
+            for (int activeQuestId : activeQuestIds) {
+                activeQuestString = questGetQuestName(activeQuestId);
+                if (!activeQuestString.equals("")) {
+                    if (activeQuestString.indexOf("quest/") == 0) {
                         String groundCodeAndTitle = getGroundQuestStringAndTitle(player, activeQuestString);
                         allQuestStringsFound.add(groundCodeAndTitle);
-                    }
-                    else if (activeQuestString.indexOf("spacequest/") == 0)
-                    {
+                    } else if (activeQuestString.indexOf("spacequest/") == 0) {
                         String spaceCodeAndTitle = getSpaceQuestStringAndTitle(player, activeQuestString);
                         allQuestStringsFound.add(spaceCodeAndTitle);
                     }
@@ -694,18 +686,13 @@ public class gm extends script.base_script
         {
             HashSet allQuestStringsFound = new HashSet();
             String completedQuestString = "";
-            for (int i = 0; i < completedQuestIds.length; i++)
-            {
-                completedQuestString = questGetQuestName(completedQuestIds[i]);
-                if (!completedQuestString.equals(""))
-                {
-                    if (completedQuestString.indexOf("quest/") == 0)
-                    {
+            for (int completedQuestId : completedQuestIds) {
+                completedQuestString = questGetQuestName(completedQuestId);
+                if (!completedQuestString.equals("")) {
+                    if (completedQuestString.indexOf("quest/") == 0) {
                         String groundCodeAndTitle = getGroundQuestStringAndTitle(player, completedQuestString);
                         allQuestStringsFound.add(groundCodeAndTitle);
-                    }
-                    else if (completedQuestString.indexOf("spacequest/") == 0)
-                    {
+                    } else if (completedQuestString.indexOf("spacequest/") == 0) {
                         String spaceCodeAndTitle = getSpaceQuestStringAndTitle(player, completedQuestString);
                         allQuestStringsFound.add(spaceCodeAndTitle);
                     }

@@ -31,149 +31,119 @@ public class utilities extends script.base_script
             java.util.StringTokenizer st = new java.util.StringTokenizer(text);
             st.nextToken();
             String cmd = st.nextToken();
-            if (cmd.equals("grantSkills"))
-            {
-                grantSkill(self, "combat_unarmed_master");
-                obj_id pInv = utils.getInventoryContainer(self);
-                if (isIdValid(pInv))
-                {
-                    createObject("object/tangible/terminal/terminal_character_builder.iff", pInv, "");
+            switch (cmd) {
+                case "grantSkills":
+                    grantSkill(self, "combat_unarmed_master");
+                    obj_id pInv = utils.getInventoryContainer(self);
+                    if (isIdValid(pInv)) {
+                        createObject("object/tangible/terminal/terminal_character_builder.iff", pInv, "");
+                    }
+                    break;
+                case "completed": {
+                    String arg1 = st.nextToken();
+                    if (arg1 != null) {
+                        Object[] params = new Object[3];
+                        params[0] = self;
+                        params[1] = arg1;
+                        params[2] = Boolean.TRUE;
+                        script_entry.runScripts("OnForceSensitiveQuestCompleted", params);
+                    }
+                    break;
                 }
-            }
-            else if (cmd.equals("completed"))
-            {
-                String arg1 = st.nextToken();
-                if (arg1 != null)
-                {
-                    Object[] params = new Object[3];
-                    params[0] = self;
-                    params[1] = arg1;
-                    params[2] = new Boolean(true);
-                    script_entry.runScripts("OnForceSensitiveQuestCompleted", params);
-                }
-            }
-            else if (cmd.equals("showOff"))
-            {
-                chat.chat(self, "Hi there BANDIT!!!");
-            }
-            else if (cmd.equals("quest"))
-            {
-                String arg1 = st.nextToken();
-                if (arg1 != null)
-                {
-                    if (arg1.equals("activate"))
-                    {
-                        String arg2 = st.nextToken();
-                        if (arg2 != null)
-                        {
-                            int questId = questGetQuestId(arg2);
-                            questActivateQuest(questId, self, null);
+                case "showOff":
+                    chat.chat(self, "Hi there BANDIT!!!");
+                    break;
+                case "quest": {
+                    String arg1 = st.nextToken();
+                    if (arg1 != null) {
+                        if (arg1.equals("activate")) {
+                            String arg2 = st.nextToken();
+                            if (arg2 != null) {
+                                int questId = questGetQuestId(arg2);
+                                questActivateQuest(questId, self, null);
+                            }
+                        } else if (arg1.equals("clear")) {
+                            String arg2 = st.nextToken();
+                            if (arg2 != null) {
+                                int questId = questGetQuestId(arg2);
+                                questClearQuest(questId, self);
+                            }
                         }
                     }
-                    else if (arg1.equals("clear"))
-                    {
-                        String arg2 = st.nextToken();
-                        if (arg2 != null)
-                        {
-                            int questId = questGetQuestId(arg2);
-                            questClearQuest(questId, self);
-                        }
-                    }
+                    break;
                 }
-            }
-            else if (cmd.equals("faction"))
-            {
-                String arg1 = st.nextToken();
-                if (arg1 != null)
-                {
-                    String arg2 = st.nextToken();
-                    if (arg2 != null)
-                    {
-                        int points = utils.stringToInt(arg2);
-                        factions.setFactionStanding(self, arg1, points);
-                        chat.chat(self, "set faction standing for " + arg1 + " to " + points);
-                    }
-                    else 
-                    {
+                case "faction": {
+                    String arg1 = st.nextToken();
+                    if (arg1 != null) {
+                        String arg2 = st.nextToken();
+                        if (arg2 != null) {
+                            int points = utils.stringToInt(arg2);
+                            factions.setFactionStanding(self, arg1, points);
+                            chat.chat(self, "set faction standing for " + arg1 + " to " + points);
+                        } else {
+                            usage(self);
+                        }
+                    } else {
                         usage(self);
                     }
+                    break;
                 }
-                else 
-                {
+                case "requestLocation":
+                    requestLocation(self, "testrequest", getLocation(self), 512.0f, 128.0f, true, true);
+                    break;
+                case "spawn": {
+                    String arg1 = st.nextToken();
+                    if (arg1 != null) {
+                        location l = getLocation(self);
+                        l.x += 2;
+                        obj_id creature = create.createCreature(arg1, l, true);
+                    }
+                    break;
+                }
+                case "makeFsVillageEligible":
+                    fs_quests.makeVillageEligible(self);
+                    break;
+                case "makeFsVillageIneligible":
+                    removeObjVar(self, fs_quests.VAR_VILLAGE_ELIGIBLE);
+                    break;
+                case "unlock": {
+                    String arg1 = st.nextToken();
+                    if (arg1 != null) {
+                        boolean success = fs_quests.unlockBranch(self, arg1);
+                        if (!success) {
+                            chat.chat(self, "could not unlock " + arg1);
+                        } else {
+                            chat.chat(self, arg1 + " has been unlocked");
+                        }
+                    }
+                    break;
+                }
+                case "rad2deg": {
+                    String arg1 = st.nextToken();
+                    if (arg1 != null) {
+                        float rads = utils.stringToFloat(arg1);
+                        float degs = (float) Math.toDegrees(rads);
+                        chat.chat(self, "" + degs);
+                    }
+                    break;
+                }
+                case "cover":
+                    chat.chat(self, "calling setCreatureCoverVisibility(" + self + ", true)");
+                    setCreatureCoverVisibility(self, false);
+                    break;
+                case "uncover":
+                    setCreatureCoverVisibility(self, true);
+                    break;
+                case "getcover":
+                    if (getCreatureCoverVisibility(self)) {
+                        chat.chat(self, "I am visible");
+                    } else {
+                        chat.chat(self, "I am not visible");
+                    }
+                    break;
+                default:
                     usage(self);
-                }
-            }
-            else if (cmd.equals("requestLocation"))
-            {
-                requestLocation(self, "testrequest", getLocation(self), 512.0f, 128.0f, true, true);
-            }
-            else if (cmd.equals("spawn"))
-            {
-                String arg1 = st.nextToken();
-                if (arg1 != null)
-                {
-                    location l = getLocation(self);
-                    l.x += 2;
-                    obj_id creature = create.createCreature(arg1, l, true);
-                }
-            }
-            else if (cmd.equals("makeFsVillageEligible"))
-            {
-                fs_quests.makeVillageEligible(self);
-            }
-            else if (cmd.equals("makeFsVillageIneligible"))
-            {
-                removeObjVar(self, fs_quests.VAR_VILLAGE_ELIGIBLE);
-            }
-            else if (cmd.equals("unlock"))
-            {
-                String arg1 = st.nextToken();
-                if (arg1 != null)
-                {
-                    boolean success = fs_quests.unlockBranch(self, arg1);
-                    if (!success)
-                    {
-                        chat.chat(self, "could not unlock " + arg1);
-                    }
-                    else 
-                    {
-                        chat.chat(self, arg1 + " has been unlocked");
-                    }
-                }
-            }
-            else if (cmd.equals("rad2deg"))
-            {
-                String arg1 = st.nextToken();
-                if (arg1 != null)
-                {
-                    float rads = utils.stringToFloat(arg1);
-                    float degs = (float)Math.toDegrees(rads);
-                    chat.chat(self, "" + degs);
-                }
-            }
-            else if (cmd.equals("cover"))
-            {
-                chat.chat(self, "calling setCreatureCoverVisibility(" + self + ", true)");
-                setCreatureCoverVisibility(self, false);
-            }
-            else if (cmd.equals("uncover"))
-            {
-                setCreatureCoverVisibility(self, true);
-            }
-            else if (cmd.equals("getcover"))
-            {
-                if (getCreatureCoverVisibility(self))
-                {
-                    chat.chat(self, "I am visible");
-                }
-                else 
-                {
-                    chat.chat(self, "I am not visible");
-                }
-            }
-            else 
-            {
-                usage(self);
+                    break;
             }
         }
         return SCRIPT_CONTINUE;

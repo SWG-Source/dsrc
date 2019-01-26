@@ -202,31 +202,24 @@ public class quest_hero_of_tatooine_hermit extends script.base_script
                 obj_id[] objContents = utils.getContents(objInventory);
                 if (objContents != null)
                 {
-                    for (int intI = 0; intI < objContents.length; intI++)
-                    {
-                        if (isIdValid(objContents[intI]))
-                        {
-                            obj_id inventoryItem = objContents[intI];
+                    for (obj_id objContent : objContents) {
+                        if (isIdValid(objContent)) {
+                            obj_id inventoryItem = objContent;
                             String strItemTemplate = getTemplateName(inventoryItem);
-                            if (strItemTemplate.equals("object/tangible/loot/quest/hero_of_tatooine/squill_skull.iff"))
-                            {
+                            if (strItemTemplate.equals("object/tangible/loot/quest/hero_of_tatooine/squill_skull.iff")) {
                                 setObjVar(inventoryItem, "hero_of_tatooine_skull_to_hermit", true);
                                 destroyObject(inventoryItem);
                                 groundquests.sendSignal(player, "hero_of_tatooine_main_02");
-                                if (badge.hasBadge(player, "poi_factoryliberation"))
-                                {
+                                if (badge.hasBadge(player, "poi_factoryliberation")) {
                                     groundquests.sendSignal(player, "hero_of_tatooine_main_altruism");
                                 }
-                                if (badge.hasBadge(player, "poi_rabidbeast"))
-                                {
+                                if (badge.hasBadge(player, "poi_rabidbeast")) {
                                     groundquests.sendSignal(player, "hero_of_tatooine_main_courage");
                                 }
-                                if (badge.hasBadge(player, "poi_prisonbreak"))
-                                {
+                                if (badge.hasBadge(player, "poi_prisonbreak")) {
                                     groundquests.sendSignal(player, "hero_of_tatooine_main_honor");
                                 }
-                                if (badge.hasBadge(player, "poi_twoliars"))
-                                {
+                                if (badge.hasBadge(player, "poi_twoliars")) {
                                     groundquests.sendSignal(player, "hero_of_tatooine_main_intellect");
                                 }
                                 removeObjVar(player, "quest.hero_of_tatooine.task");

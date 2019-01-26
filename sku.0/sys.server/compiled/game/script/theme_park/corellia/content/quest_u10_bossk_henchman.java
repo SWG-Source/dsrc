@@ -63,11 +63,8 @@ public class quest_u10_bossk_henchman extends script.base_script
         obj_id[] players = getAllPlayers(getLocation(self), 25.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                obj_id player = players[i];
-                if (isIdValid(player) && groundquests.isTaskActive(player, "quest_u10_03", "quest_u10_03_04"))
-                {
+            for (obj_id player : players) {
+                if (isIdValid(player) && groundquests.isTaskActive(player, "quest_u10_03", "quest_u10_03_04")) {
                     groundquests.sendSignal(player, "quest_u10_03_04");
                 }
             }
@@ -89,12 +86,11 @@ public class quest_u10_bossk_henchman extends script.base_script
     {
         stopCombat(self);
         clearHateList(self);
-        obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20f);
+        obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                npcEndConversation(players[i]);
+            for (obj_id player : players) {
+                npcEndConversation(player);
             }
         }
         destroyObject(self);

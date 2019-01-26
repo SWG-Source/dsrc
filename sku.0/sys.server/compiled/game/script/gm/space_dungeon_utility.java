@@ -249,60 +249,51 @@ public class space_dungeon_utility extends script.base_script
         }
         if (dungeon_data != null && dungeon_data.length > 0)
         {
-            for (int i = 0; i < dungeon_data.length; i++)
-            {
-                dictionary dungeon = dungeon_data[i];
+            for (dictionary dungeon : dungeon_data) {
                 obj_id dungeon_id = dungeon.getObjId("dungeon_id");
                 int session_id = dungeon.getInt("session_id");
-                float[] dungeon_position = 
-                {
-                    dungeon.getFloat("position_x"),
-                    dungeon.getFloat("position_y"),
-                    dungeon.getFloat("position_z")
-                };
-                switch (data_mode)
-                {
+                float[] dungeon_position =
+                        {
+                                dungeon.getFloat("position_x"),
+                                dungeon.getFloat("position_y"),
+                                dungeon.getFloat("position_z")
+                        };
+                switch (data_mode) {
                     case 1:
-                    sendSystemMessageTestingOnly(self, "Dungeon -> " + dungeon_id + " session_id ->" + session_id);
-                    break;
+                        sendSystemMessageTestingOnly(self, "Dungeon -> " + dungeon_id + " session_id ->" + session_id);
+                        break;
                     case 2:
-                    sendSystemMessageTestingOnly(self, "Resetting dungeon " + dungeon_id);
-                    messageTo(dungeon_id, "msgManualDungeonReset", null, 0.0f, false);
-                    break;
+                        sendSystemMessageTestingOnly(self, "Resetting dungeon " + dungeon_id);
+                        messageTo(dungeon_id, "msgManualDungeonReset", null, 0.0f, false);
+                        break;
                     case 3:
-                    String dungeon_name;
-                    if (utils.hasScriptVar(self, SCRIPT_VAR_MOVE_DUNGEON))
-                    {
-                        dungeon_name = utils.getStringScriptVar(self, SCRIPT_VAR_MOVE_DUNGEON);
-                        utils.removeScriptVar(self, SCRIPT_VAR_MOVE_DUNGEON);
-                    }
-                    else 
-                    {
-                        sendSystemMessageTestingOnly(self, "Unable to find dungeon name. Move failed.");
-                        return SCRIPT_CONTINUE;
-                    }
-                    if (dungeon_data.length > 1)
-                    {
-                        sendSystemMessageTestingOnly(self, "More than one dungeon was returned.  This should not have happened. Aborting movement.");
-                        return SCRIPT_CONTINUE;
-                    }
-                    location start_loc = space_dungeon_data.getDungeonStartLocation(dungeon_name);
-                    if (start_loc == null)
-                    {
-                        sendSystemMessageTestingOnly(self, "Unable to find a start location for " + dungeon_name + ". Movement failed.");
-                        return SCRIPT_CONTINUE;
-                    }
-                    String start_cell = space_dungeon_data.getDungeonStartCellName(dungeon_name);
-                    if (start_cell == null)
-                    {
-                        sendSystemMessageTestingOnly(self, "Unable to find a start cell for " + dungeon_name + ". Movement failed.");
-                        return SCRIPT_CONTINUE;
-                    }
-                    warpPlayer(self, start_loc.area, dungeon_position[0], dungeon_position[1], dungeon_position[2], dungeon_id, start_cell, start_loc.x, start_loc.y, start_loc.z);
-                    break;
+                        String dungeon_name;
+                        if (utils.hasScriptVar(self, SCRIPT_VAR_MOVE_DUNGEON)) {
+                            dungeon_name = utils.getStringScriptVar(self, SCRIPT_VAR_MOVE_DUNGEON);
+                            utils.removeScriptVar(self, SCRIPT_VAR_MOVE_DUNGEON);
+                        } else {
+                            sendSystemMessageTestingOnly(self, "Unable to find dungeon name. Move failed.");
+                            return SCRIPT_CONTINUE;
+                        }
+                        if (dungeon_data.length > 1) {
+                            sendSystemMessageTestingOnly(self, "More than one dungeon was returned.  This should not have happened. Aborting movement.");
+                            return SCRIPT_CONTINUE;
+                        }
+                        location start_loc = space_dungeon_data.getDungeonStartLocation(dungeon_name);
+                        if (start_loc == null) {
+                            sendSystemMessageTestingOnly(self, "Unable to find a start location for " + dungeon_name + ". Movement failed.");
+                            return SCRIPT_CONTINUE;
+                        }
+                        String start_cell = space_dungeon_data.getDungeonStartCellName(dungeon_name);
+                        if (start_cell == null) {
+                            sendSystemMessageTestingOnly(self, "Unable to find a start cell for " + dungeon_name + ". Movement failed.");
+                            return SCRIPT_CONTINUE;
+                        }
+                        warpPlayer(self, start_loc.area, dungeon_position[0], dungeon_position[1], dungeon_position[2], dungeon_id, start_cell, start_loc.x, start_loc.y, start_loc.z);
+                        break;
                     default:
-                    sendSystemMessageTestingOnly(self, "Unknown data mode.");
-                    break;
+                        sendSystemMessageTestingOnly(self, "Unknown data mode.");
+                        break;
                 }
             }
         }

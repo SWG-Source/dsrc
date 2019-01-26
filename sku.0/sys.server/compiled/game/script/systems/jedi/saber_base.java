@@ -137,14 +137,10 @@ public class saber_base extends script.base_script
             }
         }
         int idx = -1;
-        for (int i = 0; i < saberList.size(); i++)
-        {
-            if (minDamage >= ((dictionary)saberList.get(i)).getInt("minDamage") && maxDamage >= ((dictionary)saberList.get(i)).getInt("maxDamage"))
-            {
+        for (Object o : saberList) {
+            if (minDamage >= ((dictionary) o).getInt("minDamage") && maxDamage >= ((dictionary) o).getInt("maxDamage")) {
                 idx++;
-            }
-            else 
-            {
+            } else {
                 break;
             }
         }

@@ -83,25 +83,20 @@ public class promoter extends script.base_script
         }
         obj_id[] allContents = utils.getAllItemsInBankAndInventory(player);
         int perkCount = 0;
-        for (int i = 0; i < allContents.length; i++)
-        {
-            if (hasObjVar(allContents[i], "event_perk"))
-            {
+        for (obj_id allContent1 : allContents) {
+            if (hasObjVar(allContent1, "event_perk")) {
                 perkCount++;
             }
-            if (perkCount >= 5)
-            {
+            if (perkCount >= 5) {
                 sendSystemMessage(player, new string_id("event_perk", "pro_too_many_perks"));
                 return SCRIPT_CONTINUE;
             }
         }
         String template = templateTable[idx];
         int cost = costTable[idx];
-        for (int i = 0; i < allContents.length; i++)
-        {
-            String whatsThis = getTemplateName(allContents[i]);
-            if (whatsThis.equals("object/tangible/deed/event_perk/shuttle_beacon.iff") && whatsThis.equals(template))
-            {
+        for (obj_id allContent : allContents) {
+            String whatsThis = getTemplateName(allContent);
+            if (whatsThis.equals("object/tangible/deed/event_perk/shuttle_beacon.iff") && whatsThis.equals(template)) {
                 sendSystemMessage(player, new string_id("event_perk", "promoter_only_one"));
                 return SCRIPT_CONTINUE;
             }

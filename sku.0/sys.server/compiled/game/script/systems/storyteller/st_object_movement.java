@@ -84,7 +84,7 @@ public class st_object_movement extends script.base_script
             rotation = rotation * -1;
         }
         float obj_rot = getYaw(target);
-        obj_rot = obj_rot + (float)rotation;
+        obj_rot = obj_rot + rotation;
         if (obj_rot >= 360)
         {
             obj_rot = obj_rot - 360;
@@ -178,10 +178,10 @@ public class st_object_movement extends script.base_script
         {
             location loc = getLocation(target);
             float facing = getYaw(self);
-            float dist_scaled = (float)distance / 100.0f;
+            float dist_scaled = distance / 100.0f;
             float facing_rad = (float)Math.toRadians(facing);
-            float x = dist_scaled * (float)Math.sin(facing_rad);
-            float z = dist_scaled * (float)Math.cos(facing_rad);
+            float x = dist_scaled * (float) StrictMath.sin(facing_rad);
+            float z = dist_scaled * (float) StrictMath.cos(facing_rad);
             if (direction.equals("BACK"))
             {
                 x = x * -1;
@@ -219,7 +219,7 @@ public class st_object_movement extends script.base_script
         {
             location loc = getLocation(target);
             float facing = getYaw(self);
-            float dist_scaled = (float)distance / 100.0f;
+            float dist_scaled = distance / 100.0f;
             float y = dist_scaled;
             if (direction.equals("DOWN"))
             {

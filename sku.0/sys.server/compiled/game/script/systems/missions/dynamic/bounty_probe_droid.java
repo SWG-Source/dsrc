@@ -275,7 +275,7 @@ public class bounty_probe_droid extends script.systems.missions.base.mission_dyn
         }
         attachScript(objDroid, "systems.missions.dynamic.bounty_probot");
         setMovementRun(objDroid);
-        follow(objDroid, objPlayer, 3.f, 5.f);
+        follow(objDroid, objPlayer, 3.0f, 5.0f);
         dictionary dctParams = new dictionary();
         dctParams.put("objPlayer", objPlayer);
         dctParams.put("intTrackType", intTrackType);

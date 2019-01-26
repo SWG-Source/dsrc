@@ -29,9 +29,7 @@ public class hracca_controller extends script.base_script
         obj_id[] spawners = space_dungeon.getRegisteredObjects(self);
         if (spawners != null && spawners.length > 0)
         {
-            for (int i = 0; i < spawners.length; i++)
-            {
-                obj_id spawner = spawners[i];
+            for (obj_id spawner : spawners) {
                 dictionary webster = new dictionary();
                 webster.put("controllerObject", self);
                 webster.put("spawnChissOnly", true);
@@ -121,9 +119,7 @@ public class hracca_controller extends script.base_script
                             obj_id[] spawners = space_dungeon.getRegisteredObjects(self);
                             if (spawners != null && spawners.length > 0)
                             {
-                                for (int i = 0; i < spawners.length; i++)
-                                {
-                                    obj_id spawner = spawners[i];
+                                for (obj_id spawner : spawners) {
                                     dictionary webster = new dictionary();
                                     webster.put("controllerObject", self);
                                     webster.put("spawnKkorrwrot", true);
@@ -133,9 +129,7 @@ public class hracca_controller extends script.base_script
                             obj_id[] playersInInstance = space_dungeon.getPlayersInInstance(self);
                             if (playersInInstance != null && playersInInstance.length > 0)
                             {
-                                for (int i = 0; i < playersInInstance.length; i++)
-                                {
-                                    obj_id player = playersInInstance[i];
+                                for (obj_id player : playersInInstance) {
                                     play2dNonLoopingSound(player, "sound/quest_hracca_kkorrwrot_roar.snd");
                                 }
                             }
@@ -151,9 +145,7 @@ public class hracca_controller extends script.base_script
         obj_id[] playersInInstance = space_dungeon.getPlayersInInstance(controller);
         if (playersInInstance != null && playersInInstance.length > 0)
         {
-            for (int i = 0; i < playersInInstance.length; i++)
-            {
-                obj_id player = playersInInstance[i];
+            for (obj_id player : playersInInstance) {
                 sendSystemMessage(player, message);
             }
         }
@@ -164,9 +156,7 @@ public class hracca_controller extends script.base_script
         obj_id[] spawners = space_dungeon.getRegisteredObjects(self);
         if (spawners != null && spawners.length > 0)
         {
-            for (int i = 0; i < spawners.length; i++)
-            {
-                obj_id spawner = spawners[i];
+            for (obj_id spawner : spawners) {
                 messageTo(spawner, "doCleanupEvent", null, 1, false);
             }
         }

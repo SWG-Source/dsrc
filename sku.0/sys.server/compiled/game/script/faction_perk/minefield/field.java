@@ -159,13 +159,11 @@ public class field extends script.systems.combat.combat_base_old
                 }
                 Vector entries = new Vector();
                 entries.setSize(0);
-                for (int i = 0; i < mines.length; i++)
-                {
-                    obj_id container = getContainedBy(mines[i]);
+                for (obj_id mine : mines) {
+                    obj_id container = getContainedBy(mine);
                     String containerName = getTemplateName(container);
-                    if (!containerName.equals("object/factory/factory_crate_weapon.iff"))
-                    {
-                        prose_package ppElement = prose.getPackage(SID_MINE_COUNT, mines[i], getCount(mines[i]));
+                    if (!containerName.equals("object/factory/factory_crate_weapon.iff")) {
+                        prose_package ppElement = prose.getPackage(SID_MINE_COUNT, mine, getCount(mine));
                         entries = utils.addElement(entries, " \0" + packOutOfBandProsePackage(null, ppElement));
                     }
                 }
@@ -336,9 +334,8 @@ public class field extends script.systems.combat.combat_base_old
         }
         if ((toRemove != null) && (toRemove.size() > 0))
         {
-            for (int i = 0; i < toRemove.size(); i++)
-            {
-                removeMinefieldTarget(self, ((obj_id)toRemove.get(i)));
+            for (Object o : toRemove) {
+                removeMinefieldTarget(self, ((obj_id) o));
             }
         }
         messageTo(self, HANDLER_MINEFIELD_TICK, null, faction_perk.BASE_MINEFIELD_TICK, false);
@@ -510,7 +507,7 @@ public class field extends script.systems.combat.combat_base_old
         {
             return false;
         }
-        float range = (float)size * 8f * 1.5f;
+        float range = size * 8.0f * 1.5f;
         createTriggerVolume(VOL_MINEFIELD, range, true);
         return true;
     }
@@ -566,23 +563,17 @@ public class field extends script.systems.combat.combat_base_old
         obj_id[] creatures = getCreaturesInRange(detonation, damageRadius);
         if ((creatures != null) && (creatures.length > 0))
         {
-            for (int i = 0; i < creatures.length; i++)
-            {
-                int cFac = pvpGetAlignedFaction(creatures[i]);
-                if (pvpGetType(creatures[i]) == PVPTYPE_NEUTRAL)
-                {
+            for (obj_id creature : creatures) {
+                int cFac = pvpGetAlignedFaction(creature);
+                if (pvpGetType(creature) == PVPTYPE_NEUTRAL) {
                     cFac = 0;
                 }
-                if (pvpAreFactionsOpposed(fieldFac, cFac))
-                {
-                    if (isPlayer(creatures[i]) && getPosture(creatures[i]) == POSTURE_INCAPACITATED)
-                    {
-                        pclib.coupDeGrace(creatures[i], minefield);
-                    }
-                    else 
-                    {
-                        pvpSetFactionEnemyFlag(creatures[i], fieldFac);
-                        combatTargets = utils.addElement(combatTargets, creatures[i]);
+                if (pvpAreFactionsOpposed(fieldFac, cFac)) {
+                    if (isPlayer(creature) && getPosture(creature) == POSTURE_INCAPACITATED) {
+                        pclib.coupDeGrace(creature, minefield);
+                    } else {
+                        pvpSetFactionEnemyFlag(creature, fieldFac);
+                        combatTargets = utils.addElement(combatTargets, creature);
                     }
                 }
             }
@@ -641,8 +632,8 @@ public class field extends script.systems.combat.combat_base_old
         {
             location fieldLoc = getLocation(minefield);
             location tarLoc = getLocation(target);
-            float range = rand(0f, 0.75f);
-            location loc = utils.getRandomLocationInRing(getLocation(target), 0f, 0.75f);
+            float range = rand(0.0f, 0.75f);
+            location loc = utils.getRandomLocationInRing(getLocation(target), 0.0f, 0.75f);
             explodeMine(minefield, mine, target, loc);
             CustomerServiceLog("minefields", "Minefield:" + "(" + minefield + ")" + " is located at " + fieldLoc + " and exploded on " + target + " at location " + tarLoc);
             return true;
@@ -686,10 +677,10 @@ public class field extends script.systems.combat.combat_base_old
             return;
         }
         location here = getLocation(self);
-        setObjVar(self, faction_perk.VAR_MINEFIELD_MIN_X, here.x - 4f);
-        setObjVar(self, faction_perk.VAR_MINEFIELD_MIN_Z, here.z - 4f);
-        setObjVar(self, faction_perk.VAR_MINEFIELD_MAX_X, here.x + 4f);
-        setObjVar(self, faction_perk.VAR_MINEFIELD_MAX_Z, here.z + 4f);
+        setObjVar(self, faction_perk.VAR_MINEFIELD_MIN_X, here.x - 4.0f);
+        setObjVar(self, faction_perk.VAR_MINEFIELD_MIN_Z, here.z - 4.0f);
+        setObjVar(self, faction_perk.VAR_MINEFIELD_MAX_X, here.x + 4.0f);
+        setObjVar(self, faction_perk.VAR_MINEFIELD_MAX_Z, here.z + 4.0f);
     }
     public boolean isInMinefield(location here, float minx, float minz, float maxx, float maxz) throws InterruptedException
     {
@@ -873,10 +864,10 @@ public class field extends script.systems.combat.combat_base_old
         float travel = getDistance(here, there);
         location minefield = getLocation(self);
         float range = getDistance(here, minefield);
-        float magicRatio = 3f / 2f;
+        float magicRatio = 3.0f / 2.0f;
         int chance = (int)(travel * faction_perk.CHANCE_PER_METER * magicRatio) + 10 - (int)range;
         int roll = rand(0, 100);
-        float delay = 5f;
+        float delay = 5.0f;
         boolean locatedMine = false;
         if (roll == 100)
         {
@@ -891,7 +882,7 @@ public class field extends script.systems.combat.combat_base_old
                 if (avoidBadLocate < trapping / 2)
                 {
                     sendSystemMessage(target, SID_TRAPPING_AVOID_MINE);
-                    delay += 1f;
+                    delay += 1.0f;
                     locatedMine = true;
                 }
             }

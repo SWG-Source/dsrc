@@ -1,12 +1,10 @@
 package script.working.rdelashmit;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
+import script.dictionary;
+import script.location;
+import script.obj_id;
+
+import java.util.StringTokenizer;
 
 public class city_test extends script.base_script
 {
@@ -20,13 +18,11 @@ public class city_test extends script.base_script
         obj_id[] players = getPlayerCreaturesInRange(actor, 128.0f);
         if (players != null)
         {
-            for (int i = 0; i < players.length; ++i)
-            {
-                java.util.StringTokenizer st2 = new java.util.StringTokenizer(getName(players[i]));
+            for (obj_id player : players) {
+                StringTokenizer st2 = new StringTokenizer(getName(player));
                 String playerName = toLower(st2.nextToken());
-                if (compareName.equals(playerName))
-                {
-                    return players[i];
+                if (compareName.equals(playerName)) {
+                    return player;
                 }
             }
         }
@@ -52,18 +48,14 @@ public class city_test extends script.base_script
     public void registerCloningFacilities() throws InterruptedException
     {
         int[] cityIds = getAllCityIds();
-        for (int i = 0; i < cityIds.length; ++i)
-        {
-            int cityId = cityIds[i];
+        for (int cityId : cityIds) {
             location cityLoc = cityGetLocation(cityId);
             location cloneLoc = cityGetCloneLoc(cityId);
             location cloneRespawn = cityGetCloneRespawn(cityId);
             obj_id cloneId = cityGetCloneId(cityId);
-            if (isIdValid(cloneId))
-            {
+            if (isIdValid(cloneId)) {
                 obj_id planet = getPlanetByName(cityLoc.area);
-                if (isIdValid(planet))
-                {
+                if (isIdValid(planet)) {
                     dictionary params = new dictionary();
                     params.put("id", cloneId);
                     params.put("loc", cloneLoc);
@@ -89,29 +81,25 @@ public class city_test extends script.base_script
             st.nextToken();
             int cityId = getCityAtLocation(getLocation(speaker), 0);
             String tok = st.nextToken();
-            if (tok.equals("create"))
-            {
-                createCity(st.nextToken(), speaker, getLocation(speaker), 128, speaker, 1, 2, 3, new location(), 0, false, new location(), new location(), obj_id.NULL_ID);
-            }
-            else if (tok.equals("destroy"))
-            {
-                removeCity(cityId);
-            }
-            else if (tok.equals("info"))
-            {
-                dumpInfo(speaker, getCityAtLocation(getLocation(speaker), 0));
-            }
-            else if (tok.equals("militia"))
-            {
-                citySetCitizenInfo(cityId, speaker, getName(speaker), speaker, 1);
-            }
-            else if (tok.equals("citizen"))
-            {
-                citySetCitizenInfo(cityId, speaker, getName(speaker), speaker, 0);
-            }
-            else if (tok.equals("register"))
-            {
-                registerCloningFacilities();
+            switch (tok) {
+                case "create":
+                    createCity(st.nextToken(), speaker, getLocation(speaker), 128, speaker, 1, 2, 3, new location(), 0, false, new location(), new location(), obj_id.NULL_ID);
+                    break;
+                case "destroy":
+                    removeCity(cityId);
+                    break;
+                case "info":
+                    dumpInfo(speaker, getCityAtLocation(getLocation(speaker), 0));
+                    break;
+                case "militia":
+                    citySetCitizenInfo(cityId, speaker, getName(speaker), speaker, 1);
+                    break;
+                case "citizen":
+                    citySetCitizenInfo(cityId, speaker, getName(speaker), speaker, 0);
+                    break;
+                case "register":
+                    registerCloningFacilities();
+                    break;
             }
         }
         return SCRIPT_CONTINUE;

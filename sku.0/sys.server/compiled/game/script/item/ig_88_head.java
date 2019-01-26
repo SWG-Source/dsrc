@@ -99,7 +99,7 @@ public class ig_88_head extends script.base_script
         {
             prose_package pp = new prose_package();
             prose.setStringId(pp, new string_id("set_bonus", "ig_head_message_" + messageNum));
-            commPlayers(player, "object/mobile/ig_88.iff", "sound/sys_comm_other.snd", 5f, player, pp);
+            commPlayers(player, "object/mobile/ig_88.iff", "sound/sys_comm_other.snd", 5.0f, player, pp);
         }
         else 
         {
@@ -113,7 +113,7 @@ public class ig_88_head extends script.base_script
         {
             prose_package pp = new prose_package();
             prose.setStringId(pp, new string_id("set_bonus", "ig_head_message_" + messageNum));
-            commPlayers(player, "object/mobile/ig_88.iff", "sound/sys_comm_other.snd", 5f, player, pp);
+            commPlayers(player, "object/mobile/ig_88.iff", "sound/sys_comm_other.snd", 5.0f, player, pp);
         }
         return;
     }

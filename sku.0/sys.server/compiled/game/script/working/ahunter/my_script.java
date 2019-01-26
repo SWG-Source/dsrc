@@ -384,7 +384,7 @@ public class my_script extends script.base_script
         else if (text.equals("sp"))
         {
             debugSpeakMsg(self, "setting pants in bar");
-            newbieTutorialSetToolbarElement(self, 8, obj_id.getObjId(new Long(10000720)));
+            newbieTutorialSetToolbarElement(self, 8, obj_id.getObjId(Long.valueOf(10000720)));
         }
         else if (text.equals("cb"))
         {
@@ -548,7 +548,7 @@ public class my_script extends script.base_script
                 {
                     int maxhp = getMaxHitpoints(house);
                     int current = getHitpoints(house);
-                    int hp = current - (int)(maxhp * .1f);
+                    int hp = current - (int)(maxhp * 0.1f);
                     if (hp < 0)
                     {
                         hp = 0;
@@ -571,9 +571,8 @@ public class my_script extends script.base_script
             String[] skills = getStringArrayObjVar(self, pclib.OBJVAR_JEDI_SKILL_REQUIREMENTS);
             if (skills != null)
             {
-                for (int i = 0; i < skills.length; ++i)
-                {
-                    skill.grantSkillToPlayer(self, skills[i]);
+                for (String s : skills) {
+                    skill.grantSkillToPlayer(self, s);
                 }
             }
         }

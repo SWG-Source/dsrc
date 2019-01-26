@@ -1142,11 +1142,8 @@ public class qasetup extends script.base_script
         {
             while (skillList.length > 0 && attempts > 0)
             {
-                for (int i = 0; i < skillList.length; i++)
-                {
-                    String skillName = skillList[i];
-                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("internal_expertise_") && !skillName.startsWith("class_chronicles_") && !skillName.startsWith("combat_ranged_weapon_basic"))
-                    {
+                for (String skillName : skillList) {
+                    if (!skillName.startsWith("species_") && !skillName.startsWith("social_language_") && !skillName.startsWith("utility_") && !skillName.startsWith("common_") && !skillName.startsWith("demo_") && !skillName.startsWith("force_title_") && !skillName.startsWith("force_sensitive_") && !skillName.startsWith("combat_melee_basic") && !skillName.startsWith("pilot_") && !skillName.startsWith("internal_expertise_") && !skillName.startsWith("class_chronicles_") && !skillName.startsWith("combat_ranged_weapon_basic")) {
                         skill.revokeSkillSilent(player, skillName);
                     }
                 }
@@ -1160,31 +1157,23 @@ public class qasetup extends script.base_script
     {
         handleProfessionLevelToNinety(player, baseClass);
         utils.fullExpertiseReset(player, false);
-        for (int j = 0; j < skillList.length; j++)
-        {
-            String expertiseSkill = skillList[j];
+        for (String expertiseSkill : skillList) {
             skill.grantSkillToPlayer(player, expertiseSkill);
         }
     }
     public void issueAssaultArmorSet(obj_id player, String[] armorPieces, String modType, String specialModType) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_body))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_body)) {
                     attachMods(armorItem, modType);
-                }
-                else 
-                {
+                } else {
                     attachMods(armorItem, specialModType);
                 }
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 2, GENERAL_PROTECTION, CONDITION);
                     armor.setArmorSpecialProtectionPercent(armorItem, armor.DATATABLE_ASSAULT_LAYER, 1.0f);
                 }
@@ -1194,22 +1183,16 @@ public class qasetup extends script.base_script
     public void issueBattleArmorSet(obj_id player, String[] armorPieces, String modType, String specialModType) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_body))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_body)) {
                     attachMods(armorItem, modType);
-                }
-                else 
-                {
+                } else {
                     attachMods(armorItem, specialModType);
                 }
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 1, GENERAL_PROTECTION, CONDITION);
                 }
             }
@@ -1218,22 +1201,16 @@ public class qasetup extends script.base_script
     public void issueReconArmorSet(obj_id player, String[] armorPieces, String modType, String specialModType) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < armorPieces.length; ++j)
-        {
-            String armorTemplate = ARMOR_SET_PREFIX + armorPieces[j];
+        for (String armorPiece : armorPieces) {
+            String armorTemplate = ARMOR_SET_PREFIX + armorPiece;
             obj_id armorItem = createObject(armorTemplate, pInv, "");
-            if (isIdValid(armorItem))
-            {
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_body))
-                {
+            if (isIdValid(armorItem)) {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_body)) {
                     attachMods(armorItem, modType);
-                }
-                else 
-                {
+                } else {
                     attachMods(armorItem, specialModType);
                 }
-                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand))
-                {
+                if (!isGameObjectTypeOf(armorItem, GOT_armor_foot) && !isGameObjectTypeOf(armorItem, GOT_armor_hand)) {
                     armor.setArmorDataPercent(armorItem, 2, 0, GENERAL_PROTECTION, CONDITION);
                     armor.setArmorSpecialProtectionPercent(armorItem, armor.DATATABLE_RECON_LAYER, 1.0f);
                 }
@@ -1248,16 +1225,11 @@ public class qasetup extends script.base_script
         obj_id PSGitem = createObject("object/tangible/component/armor/shield_generator_personal_c.iff", pInv, "");
         armor.initializePsg(PSGitem, 2.5f, 2500, 10000);
         static_item.createNewItemFunction("weapon_tow_carbine_05_01", pInv);
-        for (int j = 0; j < clothesPieces.length; ++j)
-        {
-            String clothesTemplate = clothesPieces[j];
+        for (String clothesTemplate : clothesPieces) {
             obj_id clothesItem = createObject(clothesTemplate, pInv, "");
-            if (!isGameObjectTypeOf(clothesItem, GOT_clothing_shirt))
-            {
+            if (!isGameObjectTypeOf(clothesItem, GOT_clothing_shirt)) {
                 attachMods(clothesItem, modType);
-            }
-            else 
-            {
+            } else {
                 attachMods(clothesItem, specialModType);
             }
         }
@@ -1270,88 +1242,77 @@ public class qasetup extends script.base_script
             setObjVar(item, "skillmod.bonus.luck_modified", 35);
             setObjVar(item, "skillmod.bonus.stamina_modified", 35);
         }
-        if (template.equals("rangedTank"))
-        {
-            setObjVar(item, "skillmod.bonus.precision_modified", 35);
-            setObjVar(item, "skillmod.bonus.agility_modified", 35);
-            setObjVar(item, "skillmod.bonus.luck_modified", 35);
-        }
-        else if (template.equals("meleeDps"))
-        {
-            setObjVar(item, "skillmod.bonus.strength_modified", 35);
-            setObjVar(item, "skillmod.bonus.agility_modified", 35);
-            setObjVar(item, "skillmod.bonus.stamina_modified", 35);
-        }
-        else if (template.equals("healer"))
-        {
-            setObjVar(item, "skillmod.bonus.constitution_modified", 35);
-            setObjVar(item, "skillmod.bonus.agility_modified", 35);
-            setObjVar(item, "skillmod.bonus.stamina_modified", 35);
-        }
-        else if (template.equals("tank"))
-        {
-            setObjVar(item, "skillmod.bonus.constitution_modified", 35);
-            setObjVar(item, "skillmod.bonus.agility_modified", 35);
-            setObjVar(item, "skillmod.bonus.strength_modified", 35);
-        }
-        else if (template.equals("rangedSpy"))
-        {
-            setObjVar(item, "skillmod.bonus.camouflage", 35);
-            setObjVar(item, "skillmod.bonus.precision_modified", 35);
-            setObjVar(item, "skillmod.bonus.stamina_modified", 35);
-        }
-        else if (template.equals("meleeSpy"))
-        {
-            setObjVar(item, "skillmod.bonus.camouflage", 35);
-            setObjVar(item, "skillmod.bonus.strength_modified", 35);
-            setObjVar(item, "skillmod.bonus.stamina_modified", 35);
-        }
-        else if (template.equals("shirtTank"))
-        {
-            setObjVar(item, "skillmod.bonus.combat_dodge", 4);
-            setObjVar(item, "skillmod.bonus.combat_parry", 5);
-            setObjVar(item, "skillmod.bonus.combat_critical_hit_reduction", 8);
-        }
-        else if (template.equals("shirtRifle"))
-        {
-            setObjVar(item, "skillmod.bonus.expertise_action_weapon_0", 3);
-            setObjVar(item, "skillmod.bonus.expertise_critical_rifle", 3);
-            setObjVar(item, "skillmod.bonus.combat_strikethrough_chance", 6);
-        }
-        else if (template.equals("shirtCarbine"))
-        {
-            setObjVar(item, "skillmod.bonus.expertise_action_weapon_1", 3);
-            setObjVar(item, "skillmod.bonus.expertise_critical_carbine", 3);
-            setObjVar(item, "skillmod.bonus.combat_strikethrough_chance", 6);
-        }
-        else if (template.equals("shirtPistol"))
-        {
-            setObjVar(item, "skillmod.bonus.expertise_action_weapon_2", 3);
-            setObjVar(item, "skillmod.bonus.expertise_critical_pistol", 3);
-            setObjVar(item, "skillmod.bonus.combat_strikethrough_chance", 6);
-        }
-        else if (template.equals("shirt1h"))
-        {
-            setObjVar(item, "skillmod.bonus.expertise_action_weapon_4", 3);
-            setObjVar(item, "skillmod.bonus.expertise_critical_1h", 3);
-            setObjVar(item, "skillmod.bonus.combat_strikethrough_chance", 6);
-        }
-        else if (template.equals("shirtHealer"))
-        {
-            setObjVar(item, "skillmod.bonus.expertise_healing_all", 4);
-            setObjVar(item, "skillmod.bonus.combat_parry", 5);
-            setObjVar(item, "skillmod.bonus.combat_critical_hit_reduction", 8);
+        switch (template) {
+            case "rangedTank":
+                setObjVar(item, "skillmod.bonus.precision_modified", 35);
+                setObjVar(item, "skillmod.bonus.agility_modified", 35);
+                setObjVar(item, "skillmod.bonus.luck_modified", 35);
+                break;
+            case "meleeDps":
+                setObjVar(item, "skillmod.bonus.strength_modified", 35);
+                setObjVar(item, "skillmod.bonus.agility_modified", 35);
+                setObjVar(item, "skillmod.bonus.stamina_modified", 35);
+                break;
+            case "healer":
+                setObjVar(item, "skillmod.bonus.constitution_modified", 35);
+                setObjVar(item, "skillmod.bonus.agility_modified", 35);
+                setObjVar(item, "skillmod.bonus.stamina_modified", 35);
+                break;
+            case "tank":
+                setObjVar(item, "skillmod.bonus.constitution_modified", 35);
+                setObjVar(item, "skillmod.bonus.agility_modified", 35);
+                setObjVar(item, "skillmod.bonus.strength_modified", 35);
+                break;
+            case "rangedSpy":
+                setObjVar(item, "skillmod.bonus.camouflage", 35);
+                setObjVar(item, "skillmod.bonus.precision_modified", 35);
+                setObjVar(item, "skillmod.bonus.stamina_modified", 35);
+                break;
+            case "meleeSpy":
+                setObjVar(item, "skillmod.bonus.camouflage", 35);
+                setObjVar(item, "skillmod.bonus.strength_modified", 35);
+                setObjVar(item, "skillmod.bonus.stamina_modified", 35);
+                break;
+            case "shirtTank":
+                setObjVar(item, "skillmod.bonus.combat_dodge", 4);
+                setObjVar(item, "skillmod.bonus.combat_parry", 5);
+                setObjVar(item, "skillmod.bonus.combat_critical_hit_reduction", 8);
+                break;
+            case "shirtRifle":
+                setObjVar(item, "skillmod.bonus.expertise_action_weapon_0", 3);
+                setObjVar(item, "skillmod.bonus.expertise_critical_rifle", 3);
+                setObjVar(item, "skillmod.bonus.combat_strikethrough_chance", 6);
+                break;
+            case "shirtCarbine":
+                setObjVar(item, "skillmod.bonus.expertise_action_weapon_1", 3);
+                setObjVar(item, "skillmod.bonus.expertise_critical_carbine", 3);
+                setObjVar(item, "skillmod.bonus.combat_strikethrough_chance", 6);
+                break;
+            case "shirtPistol":
+                setObjVar(item, "skillmod.bonus.expertise_action_weapon_2", 3);
+                setObjVar(item, "skillmod.bonus.expertise_critical_pistol", 3);
+                setObjVar(item, "skillmod.bonus.combat_strikethrough_chance", 6);
+                break;
+            case "shirt1h":
+                setObjVar(item, "skillmod.bonus.expertise_action_weapon_4", 3);
+                setObjVar(item, "skillmod.bonus.expertise_critical_1h", 3);
+                setObjVar(item, "skillmod.bonus.combat_strikethrough_chance", 6);
+                break;
+            case "shirtHealer":
+                setObjVar(item, "skillmod.bonus.expertise_healing_all", 4);
+                setObjVar(item, "skillmod.bonus.combat_parry", 5);
+                setObjVar(item, "skillmod.bonus.combat_critical_hit_reduction", 8);
+                break;
         }
     }
     public void createPup(obj_id player, String mod, String[] pup_items, int r) throws InterruptedException
     {
         obj_id pInv = utils.getInventoryContainer(player);
-        for (int j = 0; j < pup_items.length; ++j)
-        {
+        for (String pup_item : pup_items) {
             int numPupCharges = 100;
             int power = 90;
             int ratio = r;
-            String pupString = pup_items[j];
+            String pupString = pup_item;
             obj_id powerup = static_item.createNewItemFunction(pupString, pInv);
             setObjVar(powerup, "reverse_engineering.reverse_engineering_power", power);
             setObjVar(powerup, "reverse_engineering.reverse_engineering_modifier", mod);

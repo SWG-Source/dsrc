@@ -149,17 +149,14 @@ public class echo_quest_tracker extends script.base_script
         setObjVar(self, PHASE, 1);
         setObjVar(self, P1_DEAD_AT, 0);
         setObjVar(self, P1_GENERATOR_DESTROYED, 0);
-        for (int i = 0; i < P2_IMPERIAL_SIGNALS.length; i++)
-        {
-            setObjVar(self, P2_IMPERIAL_SIGNALS[i], 0);
+        for (String p2ImperialSignal : P2_IMPERIAL_SIGNALS) {
+            setObjVar(self, p2ImperialSignal, 0);
         }
-        for (int i = 0; i < P2_REBEL_SIGNALS.length; i++)
-        {
-            setObjVar(self, P2_REBEL_SIGNALS[i], 0);
+        for (String p2RebelSignal : P2_REBEL_SIGNALS) {
+            setObjVar(self, p2RebelSignal, 0);
         }
-        for (int i = 0; i < P3_IMPERIAL.length; i++)
-        {
-            setObjVar(self, P3_IMPERIAL[i], 0);
+        for (String s : P3_IMPERIAL) {
+            setObjVar(self, s, 0);
         }
         return;
     }
@@ -331,11 +328,9 @@ public class echo_quest_tracker extends script.base_script
         {
             if (phase == 2)
             {
-                for (int i = 0; i < P2_REBEL_FAIL_TASKS.length; i++)
-                {
-                    if (hasObjVar(self, P2_REBEL_FAIL_TASKS[i]))
-                    {
-                        failEchoTask(players, questName, P2_REBEL_FAIL_TASKS[i], true);
+                for (String p2RebelFailTask : P2_REBEL_FAIL_TASKS) {
+                    if (hasObjVar(self, p2RebelFailTask)) {
+                        failEchoTask(players, questName, p2RebelFailTask, true);
                     }
                 }
             }
@@ -344,11 +339,9 @@ public class echo_quest_tracker extends script.base_script
         {
             if (phase == 2)
             {
-                for (int i = 0; i < P2_IMPERIAL_FAIL_TASKS.length; i++)
-                {
-                    if (hasObjVar(self, P2_IMPERIAL_FAIL_TASKS[i]))
-                    {
-                        failEchoTask(players, questName, P2_IMPERIAL_FAIL_TASKS[i], true);
+                for (String p2ImperialFailTask : P2_IMPERIAL_FAIL_TASKS) {
+                    if (hasObjVar(self, p2ImperialFailTask)) {
+                        failEchoTask(players, questName, p2ImperialFailTask, true);
                     }
                 }
             }
@@ -365,9 +358,8 @@ public class echo_quest_tracker extends script.base_script
     {
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                failEchoTask(players[i], questName, failTask, showMessage);
+            for (obj_id player : players) {
+                failEchoTask(player, questName, failTask, showMessage);
             }
         }
         return;
@@ -390,25 +382,22 @@ public class echo_quest_tracker extends script.base_script
                 if (getPhase() == 2 && getIntObjVar(self, "isRebel") == 1)
                 {
                     String precedingTask = "";
-                    if (failTask.equals("reb_phase2_command_center_task"))
-                    {
-                        precedingTask = "fake_command_center_destruction";
-                    }
-                    else if (failTask.equals("reb_phase2_command_personnel_task"))
-                    {
-                        precedingTask = "fake_command_center_personnel";
-                    }
-                    else if (failTask.equals("reb_phase2_thermal_personnel_task"))
-                    {
-                        precedingTask = "p2_rebel_secure_thermal_power";
-                    }
-                    else if (failTask.equals("reb_phase2_medical_personnel_task"))
-                    {
-                        precedingTask = "p2_rebel_secure_med_bay";
-                    }
-                    else if (failTask.equals("reb_phase2_equipment_personnel_task"))
-                    {
-                        precedingTask = "p2_rebel_secure_lower_hangar";
+                    switch (failTask) {
+                        case "reb_phase2_command_center_task":
+                            precedingTask = "fake_command_center_destruction";
+                            break;
+                        case "reb_phase2_command_personnel_task":
+                            precedingTask = "fake_command_center_personnel";
+                            break;
+                        case "reb_phase2_thermal_personnel_task":
+                            precedingTask = "p2_rebel_secure_thermal_power";
+                            break;
+                        case "reb_phase2_medical_personnel_task":
+                            precedingTask = "p2_rebel_secure_med_bay";
+                            break;
+                        case "reb_phase2_equipment_personnel_task":
+                            precedingTask = "p2_rebel_secure_lower_hangar";
+                            break;
                     }
                     if (precedingTask != null && precedingTask.length() > 0)
                     {
@@ -477,31 +466,25 @@ public class echo_quest_tracker extends script.base_script
                 groundquests.requestGrantQuest(player, activeQuest);
             }
             String[] phaseTwoSignals = isRebel == 1 ? P2_REBEL_SIGNALS : P2_IMPERIAL_SIGNALS;
-            for (int i = 0; i < phaseTwoSignals.length; i++)
-            {
-                int count = getIntObjVar(self, phaseTwoSignals[i]);
-                if (count == 1)
-                {
-                    groundquests.sendSignal(player, phaseTwoSignals[i]);
-                }
-                if (count >= 1)
-                {
-                    for (int j = 0, k = COUNTED_UPDATES.length; j < k; j++)
-                    {
-                        if (phaseTwoSignals[i].equals(COUNTED_UPDATES[j]))
-                        {
-                            dictionary dict = new dictionary();
-                            for (int l = 0; l < count; l++)
-                            {
-                                dict.put("creatureName", COUNTED_TASK_NAMES[j]);
-                                dict.put("location", getLocation(player));
-                                dict.put("socialGroup", "atat");
-                                messageTo(player, "receiveCreditForKill", dict, 1.0f, false);
+                for (String phaseTwoSignal : phaseTwoSignals) {
+                    int count = getIntObjVar(self, phaseTwoSignal);
+                    if (count == 1) {
+                        groundquests.sendSignal(player, phaseTwoSignal);
+                    }
+                    if (count >= 1) {
+                        for (int j = 0, k = COUNTED_UPDATES.length; j < k; j++) {
+                            if (phaseTwoSignal.equals(COUNTED_UPDATES[j])) {
+                                dictionary dict = new dictionary();
+                                for (int l = 0; l < count; l++) {
+                                    dict.put("creatureName", COUNTED_TASK_NAMES[j]);
+                                    dict.put("location", getLocation(player));
+                                    dict.put("socialGroup", "atat");
+                                    messageTo(player, "receiveCreditForKill", dict, 1.0f, false);
+                                }
                             }
                         }
                     }
                 }
-            }
             obj_id[] players = 
             {
                 player
@@ -525,31 +508,25 @@ public class echo_quest_tracker extends script.base_script
                 groundquests.requestGrantQuest(player, activeQuest);
             }
             String[] phaseThreeSignals = isRebel == 1 ? P3_REBEL : P3_IMPERIAL;
-            for (int i = 0; i < phaseThreeSignals.length; i++)
-            {
-                int count = getIntObjVar(self, phaseThreeSignals[i]);
-                if (count == 1)
-                {
-                    groundquests.sendSignal(player, phaseThreeSignals[i]);
-                }
-                if (count >= 1)
-                {
-                    for (int j = 0, k = COUNTED_UPDATES.length; j < k; j++)
-                    {
-                        if (phaseThreeSignals[i].equals(COUNTED_UPDATES[j]))
-                        {
-                            dictionary dict = new dictionary();
-                            for (int l = 0; l < count; l++)
-                            {
-                                dict.put("creatureName", COUNTED_TASK_NAMES[j]);
-                                dict.put("location", getLocation(player));
-                                dict.put("socialGroup", "atat");
-                                messageTo(player, "receiveCreditForKill", dict, 1.0f, false);
+                for (String phaseThreeSignal : phaseThreeSignals) {
+                    int count = getIntObjVar(self, phaseThreeSignal);
+                    if (count == 1) {
+                        groundquests.sendSignal(player, phaseThreeSignal);
+                    }
+                    if (count >= 1) {
+                        for (int j = 0, k = COUNTED_UPDATES.length; j < k; j++) {
+                            if (phaseThreeSignal.equals(COUNTED_UPDATES[j])) {
+                                dictionary dict = new dictionary();
+                                for (int l = 0; l < count; l++) {
+                                    dict.put("creatureName", COUNTED_TASK_NAMES[j]);
+                                    dict.put("location", getLocation(player));
+                                    dict.put("socialGroup", "atat");
+                                    messageTo(player, "receiveCreditForKill", dict, 1.0f, false);
+                                }
                             }
                         }
                     }
                 }
-            }
             break;
             case -1:
             break;
@@ -621,12 +598,11 @@ public class echo_quest_tracker extends script.base_script
         dictionary dict = new dictionary();
         if (doBroadcast)
         {
-            for (int i = 0; i < players.length; i++)
-            {
+            for (obj_id player : players) {
                 dict.put("creatureName", creatureName);
-                dict.put("location", getLocation(players[i]));
+                dict.put("location", getLocation(player));
                 dict.put("socialGroup", "atat");
-                messageTo(players[i], "receiveCreditForKill", dict, 0.0f, false);
+                messageTo(player, "receiveCreditForKill", dict, 0.0f, false);
             }
         }
     }

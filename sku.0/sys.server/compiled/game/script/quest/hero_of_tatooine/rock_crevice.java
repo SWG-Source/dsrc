@@ -126,14 +126,12 @@ public class rock_crevice extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (!isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (!isPlayer(content)) {
                 continue;
             }
-            playClientEffectLoc(contents[i], "clienteffect/lair_damage_heavy_shake.cef", loc, 0.0f);
-            playClientEffectLoc(contents[i], "clienteffect/lair_damage_heavy_shake.cef", other_loc, 0.0f);
+            playClientEffectLoc(content, "clienteffect/lair_damage_heavy_shake.cef", loc, 0.0f);
+            playClientEffectLoc(content, "clienteffect/lair_damage_heavy_shake.cef", other_loc, 0.0f);
             break;
         }
         return SCRIPT_CONTINUE;

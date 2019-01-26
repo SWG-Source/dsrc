@@ -22,12 +22,12 @@ public class base_spawner extends script.base_script
     public static final int REBEL_CONTROL = 2;
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleBeginSpawnRequest", null, 20f, false);
+        messageTo(self, "handleBeginSpawnRequest", null, 20.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleBeginSpawnRequest", null, 20f, false);
+        messageTo(self, "handleBeginSpawnRequest", null, 20.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleBeginSpawnRequest(obj_id self, dictionary params) throws InterruptedException
@@ -72,19 +72,14 @@ public class base_spawner extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (!isIdValid(objects[i]))
-            {
+        for (obj_id object : objects) {
+            if (!isIdValid(object)) {
                 continue;
             }
-            if (objects[i].isLoaded())
-            {
-                destroyObject(objects[i]);
-            }
-            else 
-            {
-                messageTo(objects[i], "handleDestroyRequest", null, 0.0f, false);
+            if (object.isLoaded()) {
+                destroyObject(object);
+            } else {
+                messageTo(object, "handleDestroyRequest", null, 0.0f, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -162,9 +157,8 @@ public class base_spawner extends script.base_script
             if (scriptList != null && !scriptList.equals(""))
             {
                 String[] scriptArray = split(scriptList, ',');
-                for (int i = 0; i < scriptArray.length; i++)
-                {
-                    attachScript(spawnedObject, scriptArray[i]);
+                for (String s : scriptArray) {
+                    attachScript(spawnedObject, s);
                 }
             }
         }
@@ -201,32 +195,29 @@ public class base_spawner extends script.base_script
             return;
         }
         String[] pairs = split(objVarList, ',');
-        for (int i = 0; i < pairs.length; i++)
-        {
-            String[] objVarToSet = split(pairs[i], '=');
+        for (String pair : pairs) {
+            String[] objVarToSet = split(pair, '=');
             String objVarValue = objVarToSet[1];
             String[] objVarNameAndType = split(objVarToSet[0], ':');
             String objVarType = objVarNameAndType[0];
             String objVarName = objVarNameAndType[1];
-            if (objVarType.equals("string"))
-            {
-                setObjVar(obj, objVarName, objVarValue);
-            }
-            else if (objVarType.equals("int"))
-            {
-                setObjVar(obj, objVarName, utils.stringToInt(objVarValue));
-            }
-            else if (objVarType.equals("float"))
-            {
-                setObjVar(obj, objVarName, utils.stringToFloat(objVarValue));
-            }
-            else if (objVarType.equals("boolean") || objVarType.equals("bool"))
-            {
-                setObjVar(obj, objVarName, utils.stringToInt(objVarValue));
-            }
-            else 
-            {
-                setObjVar(obj, objVarName, objVarValue);
+            switch (objVarType) {
+                case "string":
+                    setObjVar(obj, objVarName, objVarValue);
+                    break;
+                case "int":
+                    setObjVar(obj, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                case "float":
+                    setObjVar(obj, objVarName, utils.stringToFloat(objVarValue));
+                    break;
+                case "boolean":
+                case "bool":
+                    setObjVar(obj, objVarName, utils.stringToInt(objVarValue));
+                    break;
+                default:
+                    setObjVar(obj, objVarName, objVarValue);
+                    break;
             }
         }
     }

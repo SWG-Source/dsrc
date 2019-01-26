@@ -32,7 +32,7 @@ public class palace_masterspawner extends script.base_script
         spawnLoc.cell = getCellId(bldg, "r3");
         obj_id imperialOfficer = create.createNpc("imperial_army_captain", "dressed_imperial_captain_m.iff", spawnLoc);
         setInvulnerable(imperialOfficer, true);
-        setYaw(imperialOfficer, -177f);
+        setYaw(imperialOfficer, -177.0f);
         detachScript(imperialOfficer, "npc.faction_recruiter.faction_recruiter");
         detachScript(imperialOfficer, "npc.faction_recruiter.recruiter_setup");
         detachScript(imperialOfficer, "conversation.faction_recruiter_imperial");
@@ -48,7 +48,7 @@ public class palace_masterspawner extends script.base_script
     public void spawnQueen(obj_id self) throws InterruptedException
     {
         obj_id fountain = getCellId(self, "r32");
-        location queensloc = new location(36.5f, 27f, -192.9f, "naboo", fountain);
+        location queensloc = new location(36.5f, 27.0f, -192.9f, "naboo", fountain);
         int yaw = -53;
         obj_id queen = create.object("clone_relics_queen_kylantha", queensloc);
         setYaw(queen, yaw);
@@ -57,7 +57,7 @@ public class palace_masterspawner extends script.base_script
     public void spawnComputer(obj_id self) throws InterruptedException
     {
         obj_id lib = getCellId(self, "r8");
-        location library = new location(38.6f, 12f, 44.9f, "naboo", lib);
+        location library = new location(38.6f, 12.0f, 44.9f, "naboo", lib);
         obj_id computer = create.object("object/tangible/quest/rsf_computer.iff", library);
         attachScript(computer, "conversation.rsf_computer");
         return;

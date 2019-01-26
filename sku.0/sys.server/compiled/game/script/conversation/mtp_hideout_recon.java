@@ -47,10 +47,8 @@ public class mtp_hideout_recon extends script.base_script
     }
     public boolean mtp_hideout_recon_condition_planetsNotComplete(obj_id player, obj_id npc) throws InterruptedException
     {
-        for (int j = 0; j < PHOTO_PLANETS.length; j++)
-        {
-            if (!hasCompletedCollectionSlot(player, PHOTO_PLANETS[j]))
-            {
+        for (String photoPlanet : PHOTO_PLANETS) {
+            if (!hasCompletedCollectionSlot(player, photoPlanet)) {
                 return false;
             }
         }
@@ -76,10 +74,8 @@ public class mtp_hideout_recon extends script.base_script
         {
             return;
         }
-        for (int j = 0; j < PHOTO_PLANETS.length; j++)
-        {
-            if (!hasCompletedCollectionSlot(player, PHOTO_PLANETS[j]))
-            {
+        for (String photoPlanet : PHOTO_PLANETS) {
+            if (!hasCompletedCollectionSlot(player, photoPlanet)) {
                 return;
             }
         }

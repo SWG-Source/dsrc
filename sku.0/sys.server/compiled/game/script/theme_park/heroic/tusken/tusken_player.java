@@ -53,9 +53,8 @@ public class tusken_player extends script.base_script
             "heroic_tusken_tracking_02a",
             "heroic_tusken_tracking_03"
         };
-        for (int i = 0; i < questToClear.length; i++)
-        {
-            groundquests.clearQuest(self, questToClear[i]);
+        for (String s : questToClear) {
+            groundquests.clearQuest(self, s);
         }
     }
 }

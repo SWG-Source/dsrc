@@ -13,9 +13,8 @@ public class ct_random_add extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         obj_id[] players = trial.getValidTargetsInCell(trial.getTop(self), "r4");
-        for (int i = 0; i < players.length; i++)
-        {
-            startCombat(self, players[i]);
+        for (obj_id player : players) {
+            startCombat(self, player);
         }
         messageTo(self, "checkRestartCombat", null, 10.0f, false);
         return SCRIPT_CONTINUE;
@@ -28,9 +27,8 @@ public class ct_random_add extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id[] players = trial.getValidTargetsInCell(trial.getTop(self), "r4");
-        for (int i = 0; i < players.length; i++)
-        {
-            startCombat(self, players[i]);
+        for (obj_id player : players) {
+            startCombat(self, player);
         }
         messageTo(self, "checkRestartCombat", null, 10.0f, false);
         return SCRIPT_CONTINUE;

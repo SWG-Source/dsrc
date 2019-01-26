@@ -81,11 +81,9 @@ public class active_juggle extends script.base_script
         if (isIdValid(group))
         {
             obj_id[] members = getGroupMemberIds(group);
-            for (int i = 0; i < members.length; ++i)
-            {
-                if (members[i] != actor && (hasScript(members[i], performance.JUGGLE_HEARTBEAT_SCRIPT) || hasScript(members[i], performance.MUSIC_HEARTBEAT_SCRIPT)))
-                {
-                    band_members[band_size] = members[i];
+            for (obj_id member : members) {
+                if (member != actor && (hasScript(member, performance.JUGGLE_HEARTBEAT_SCRIPT) || hasScript(member, performance.MUSIC_HEARTBEAT_SCRIPT))) {
+                    band_members[band_size] = member;
                     ++band_size;
                 }
             }
@@ -145,7 +143,7 @@ public class active_juggle extends script.base_script
             int entXpAmt = 0;
             if (flourishNum > 0)
             {
-                entXpAmt = (int)((float)xpAmt * 0.5f);
+                entXpAmt = (int)(xpAmt * 0.5f);
             }
             xp.grantSocialStyleXp(self, xp.JUGGLING, xpAmt);
             ++sequence;

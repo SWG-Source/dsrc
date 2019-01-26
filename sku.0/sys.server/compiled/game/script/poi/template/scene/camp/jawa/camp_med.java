@@ -43,8 +43,8 @@ public class camp_med extends script.poi.template.scene.camp.jawa.base
                     if ((template != null) && (!template.equals("")))
                     {
                         location myLoc = getLocation(self);
-                        float min = 6f * (n + 1);
-                        float max = 12f * (n + 1);
+                        float min = 6.0f * (n + 1);
+                        float max = 12.0f * (n + 1);
                         location c = utils.getRandomLocationInRing(myLoc, min, max);
                         float iSize = n * n;
                         float aSize = 3 * iSize;

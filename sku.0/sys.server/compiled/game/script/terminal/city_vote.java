@@ -44,7 +44,7 @@ public class city_vote extends script.terminal.base.base_terminal
         dictionary outparams = new dictionary();
         outparams.put("terminal", self);
         obj_id city_hall = getTopMostContainer(self);
-        messageTo(city_hall, "registerVoteTerminal", outparams, 0.f, true);
+        messageTo(city_hall, "registerVoteTerminal", outparams, 0.0f, true);
         return super.OnInitialize(self);
     }
     public int OnGetAttributes(obj_id self, obj_id player, String[] names, String[] attribs) throws InterruptedException
@@ -93,18 +93,14 @@ public class city_vote extends script.terminal.base.base_terminal
                     obj_id[] candidates = getObjIdArrayObjVar(city_hall, "candidate_list");
                     if (candidates != null)
                     {
-                        for (int i = 0; i < candidates.length; i++)
-                        {
-                            if (candidates[i] == mayor)
-                            {
+                        for (obj_id candidate : candidates) {
+                            if (candidate == mayor) {
                                 names[idx] = "incumbent";
                                 attribs[idx] = cityGetCitizenName(city_id, mayor);
                                 idx++;
-                            }
-                            else 
-                            {
+                            } else {
                                 names[idx] = "candidate";
-                                attribs[idx] = cityGetCitizenName(city_id, candidates[i]);
+                                attribs[idx] = cityGetCitizenName(city_id, candidate);
                                 idx++;
                             }
                         }
@@ -161,9 +157,8 @@ public class city_vote extends script.terminal.base.base_terminal
                 obj_id city_hall = getTopMostContainer(self);
                 int city_id = findCityByCityHall(city_hall);
                 obj_id[] citizens = cityGetCitizenIds(city_id);
-                for (int i = 0; i < citizens.length; i++)
-                {
-                    city.setCitizenAllegiance(city_id, citizens[i], null);
+                for (obj_id citizen : citizens) {
+                    city.setCitizenAllegiance(city_id, citizen, null);
                 }
                 removeObjVar(city_hall, "candidate_list");
                 sendSystemMessage(self, new string_id(STF_FILE, "voting_reset_request"));
@@ -182,20 +177,16 @@ public class city_vote extends script.terminal.base.base_terminal
         Vector vote_counts = new Vector();
         vote_counts.setSize(0);
         obj_id[] citizens = cityGetCitizenIds(city_id);
-        for (int i = 0; i < citizens.length; i++)
-        {
-            obj_id vote = cityGetCitizenAllegiance(city_id, citizens[i]);
+        for (obj_id citizen : citizens) {
+            obj_id vote = cityGetCitizenAllegiance(city_id, citizen);
             int found = 0;
-            for (int j = 0; (j < vote_ids.size()) && (found == 0); j++)
-            {
-                if (((obj_id)vote_ids.get(j)) == vote)
-                {
+            for (int j = 0; (j < vote_ids.size()) && (found == 0); j++) {
+                if (((obj_id) vote_ids.get(j)) == vote) {
                     found = 1;
-                    vote_counts.set(j, new Integer(((Integer)vote_counts.get(j)).intValue() + 1));
+                    vote_counts.set(j, (Integer) vote_counts.get(j) + 1);
                 }
             }
-            if (found == 0)
-            {
+            if (found == 0) {
                 utils.addElement(vote_ids, vote);
                 utils.addElement(vote_counts, 1);
             }
@@ -354,9 +345,8 @@ public class city_vote extends script.terminal.base.base_terminal
         if (citizens != null)
         {
             String pname = cityGetCitizenName(city_id, player);
-            for (int i = 0; i < citizens.length; i++)
-            {
-                String cname = cityGetCitizenName(city_id, citizens[i]);
+            for (obj_id citizen : citizens) {
+                String cname = cityGetCitizenName(city_id, citizen);
                 prose_package bodypp = prose.getPackage(REGISTERED_CITIZEN_EMAIL_BODY, pname);
                 utils.sendMail(REGISTERED_CITIZEN_EMAIL_SUBJECT, bodypp, cname, "Planetary Civic Authority");
             }
@@ -370,10 +360,8 @@ public class city_vote extends script.terminal.base.base_terminal
         {
             candidates = new obj_id[0];
         }
-        for (int i = 0; i < candidates.length; i++)
-        {
-            if (candidates[i] == player)
-            {
+        for (obj_id candidate : candidates) {
+            if (candidate == player) {
                 return true;
             }
         }
@@ -408,11 +396,9 @@ public class city_vote extends script.terminal.base.base_terminal
         {
             int j = 0;
             obj_id[] new_candidates = new obj_id[candidates.length - 1];
-            for (int i = 0; i < candidates.length; i++)
-            {
-                if (candidates[i] != player)
-                {
-                    new_candidates[j++] = candidates[i];
+            for (obj_id candidate : candidates) {
+                if (candidate != player) {
+                    new_candidates[j++] = candidate;
                 }
             }
             setObjVar(city_hall, "candidate_list", new_candidates);
@@ -421,14 +407,12 @@ public class city_vote extends script.terminal.base.base_terminal
         if (citizens != null)
         {
             String pname = cityGetCitizenName(city_id, player);
-            for (int i = 0; i < citizens.length; i++)
-            {
-                obj_id vote = cityGetCitizenAllegiance(city_id, citizens[i]);
-                if (vote == player)
-                {
-                    city.setCitizenAllegiance(city_id, citizens[i], null);
+            for (obj_id citizen : citizens) {
+                obj_id vote = cityGetCitizenAllegiance(city_id, citizen);
+                if (vote == player) {
+                    city.setCitizenAllegiance(city_id, citizen, null);
                 }
-                String cname = cityGetCitizenName(city_id, citizens[i]);
+                String cname = cityGetCitizenName(city_id, citizen);
                 prose_package bodypp = prose.getPackage(UNREGISTERED_CITIZEN_EMAIL_BODY, pname);
                 utils.sendMail(UNREGISTERED_CITIZEN_EMAIL_SUBJECT, bodypp, cname, "Planetary Civic Authority");
             }

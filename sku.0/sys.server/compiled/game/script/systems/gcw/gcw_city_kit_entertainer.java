@@ -85,7 +85,7 @@ public class gcw_city_kit_entertainer extends script.systems.gcw.gcw_city_kit
                 setObjVar(kit, "spawn_id", getStringObjVar(self, "spawn_id"));
                 attachScript(kit, "systems.gcw.gcw_entertainer_faction_quest");
                 setHibernationDelay(kit, 3600.0f);
-                ai_lib.setLoiterRanges(kit, 1f, 3f);
+                ai_lib.setLoiterRanges(kit, 1.0f, 3.0f);
             }
         }
         messageTo(self, "createDemoralizedNpc", params, (float)rand(0, 30) + 60, false);

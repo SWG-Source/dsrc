@@ -83,15 +83,11 @@ public class forward_commander extends script.base_script
         }
         Vector waypoints = new Vector();
         waypoints.setSize(0);
-        for (int i = 0; i < pathList.length; i++)
-        {
-            for (int k = 0; k < objects.length; k++)
-            {
-                if (hasObjVar(objects[k], "wp_name"))
-                {
-                    if (pathList[i].equals(getStringObjVar(objects[k], "wp_name")))
-                    {
-                        utils.addElement(waypoints, getLocation(objects[k]));
+        for (String s : pathList) {
+            for (obj_id object : objects) {
+                if (hasObjVar(object, "wp_name")) {
+                    if (s.equals(getStringObjVar(object, "wp_name"))) {
+                        utils.addElement(waypoints, getLocation(object));
                     }
                 }
             }
@@ -126,7 +122,7 @@ public class forward_commander extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        obj_id[] corpses = trial.getObjectsInRangeWithScriptVar(self, trial.BATTLEFIELD_DROID_CORPSE, 22f);
+        obj_id[] corpses = trial.getObjectsInRangeWithScriptVar(self, trial.BATTLEFIELD_DROID_CORPSE, 22.0f);
         if (corpses == null || corpses.length == 0)
         {
             messageTo(self, "performRez", trial.getSessionDict(self), trial.BATTLEFIELD_COMM_REZ_DELAY, false);
@@ -145,11 +141,11 @@ public class forward_commander extends script.base_script
         String template = getTemplateName(corpse);
         location[] patrolPoints = utils.getLocationArrayScriptVar(getSelf(), "patrolPoints");
         int type = 0;
-        if (template.indexOf("cww") > -1)
+        if (template.contains("cww"))
         {
             type = 1;
         }
-        if (template.indexOf("union") > -1)
+        if (template.contains("union"))
         {
             type = 2;
         }

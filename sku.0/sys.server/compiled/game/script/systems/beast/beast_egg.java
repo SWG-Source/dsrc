@@ -145,12 +145,12 @@ public class beast_egg extends script.base_script
                 {
                     String name = beast_lib.DISPLAY_NAMES[i];
                     int stat = getIntObjVar(self, beast_lib.ARRAY_BEAST_INCUBATION_STATS[i]);
-                    if (name.indexOf("_skill") < 0)
+                    if (!name.contains("_skill"))
                     {
                         if (!name.equals("block_value_bonus"))
                         {
                             names[idx] = beast_lib.DISPLAY_NAMES[i];
-                            attribs[idx] = "" + utils.roundFloatByDecimal((float)stat * beast_lib.DISPLAY_OBJVAR_CONVERSION_RATES[i]) + "%";
+                            attribs[idx] = "" + utils.roundFloatByDecimal(stat * beast_lib.DISPLAY_OBJVAR_CONVERSION_RATES[i]) + "%";
                             idx++;
                         }
                         else 

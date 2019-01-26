@@ -13,15 +13,12 @@ public class crafting_base_ingredient extends script.systems.crafting.crafting_b
     public static final String VERSION = "v1.00.00";
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("filling"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("filling")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -29,27 +26,18 @@ public class crafting_base_ingredient extends script.systems.crafting.crafting_b
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         int filling = 0;
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("filling"))
-                {
-                    filling = (int)(itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    if (itemAttributes[i].minValue == itemAttributes[i].maxValue)
-                    {
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), (int)itemAttributes[i].currentValue);
-                    }
-                    else 
-                    {
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), (float)itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("filling")) {
+                    filling = (int) (itemAttribute.currentValue);
+                } else {
+                    if (itemAttribute.minValue == itemAttribute.maxValue) {
+                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), (int) itemAttribute.currentValue);
+                    } else {
+                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), (float) itemAttribute.currentValue);
                     }
                 }
             }

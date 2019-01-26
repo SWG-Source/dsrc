@@ -69,11 +69,9 @@ public class mtp_instance_entrance_cell extends script.base_script
         obj_id[] myContents = getContents(self);
         if (myContents != null && myContents.length > 0)
         {
-            for (int i = 0; i < myContents.length; i++)
-            {
-                if ((getTemplateName(myContents[i])).equals(LEVEL_CONTROL_TEMPLATE))
-                {
-                    return myContents[i];
+            for (obj_id myContent : myContents) {
+                if ((getTemplateName(myContent)).equals(LEVEL_CONTROL_TEMPLATE)) {
+                    return myContent;
                 }
             }
         }

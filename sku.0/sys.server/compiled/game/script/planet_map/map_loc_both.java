@@ -14,7 +14,7 @@ public class map_loc_both extends script.planet_map.map_loc
         String template = getTemplateName(self);
         if ((template != null) || (!template.equals("")))
         {
-            if (template.indexOf("object/building/player/city/garden_") != -1)
+            if (template.contains("object/building/player/city/garden_"))
             {
                 detachScript(self, "planet_map.map_loc_both");
                 return SCRIPT_CONTINUE;

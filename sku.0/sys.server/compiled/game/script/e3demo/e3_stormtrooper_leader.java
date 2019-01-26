@@ -124,9 +124,8 @@ public class e3_stormtrooper_leader extends script.base_script
         dictionary dctParams = new dictionary();
         dctParams.put("strEmote", anims.PLAYER_SALUTE2);
         obj_id[] objObjects = getAllObjectsWithScript(getLocation(self), 2000, "e3demo.e3_stormtrooper");
-        for (int intI = 0; intI < objObjects.length; intI++)
-        {
-            space_utils.notifyObject(objObjects[intI], "doEmote", dctParams);
+        for (obj_id objObject : objObjects) {
+            space_utils.notifyObject(objObject, "doEmote", dctParams);
         }
         float fltWait = rand(1, 5);
         int intRoll = rand(1, 2);

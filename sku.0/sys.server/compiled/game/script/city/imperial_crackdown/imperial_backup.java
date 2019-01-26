@@ -39,7 +39,7 @@ public class imperial_backup extends script.base_script
     }
     public int cleanUp(obj_id self, dictionary params) throws InterruptedException
     {
-        location impLoc = new location(47.02f, .1f, -2.93f, getLocation(self).area, getCellId(getTopMostContainer(self), "foyer1"));
+        location impLoc = new location(47.02f, 0.1f, -2.93f, getLocation(self).area, getCellId(getTopMostContainer(self), "foyer1"));
         ai_lib.aiPathTo(self, impLoc);
         addLocationTarget("done", impLoc, 1);
         messageTo(self, "handleBadLeaving", null, 60, false);

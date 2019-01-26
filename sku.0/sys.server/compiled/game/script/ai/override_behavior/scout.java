@@ -106,7 +106,7 @@ public class scout extends script.base_script
         {
             return;
         }
-        ai_lib.aiFollow(npc, target, 32f, 74f);
+        ai_lib.aiFollow(npc, target, 32.0f, 74.0f);
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id wpn, int[] damage) throws InterruptedException
     {
@@ -120,7 +120,7 @@ public class scout extends script.base_script
         dictionary d1 = new dictionary();
         d1.put("actionCode", actionCode);
         d1.put("target", attacker);
-        messageTo(self, "callLambdaSupport", d1, 30f, false);
+        messageTo(self, "callLambdaSupport", d1, 30.0f, false);
         utils.setScriptVar(self, SCRIPTVAR_ATTACKED, 1);
         acquireNewTarget(self);
         return SCRIPT_CONTINUE;
@@ -137,7 +137,7 @@ public class scout extends script.base_script
         dictionary d1 = new dictionary();
         d1.put("actionCode", actionCode);
         d1.put("target", attacker);
-        messageTo(self, "callLambdaSupport", d1, 30f, false);
+        messageTo(self, "callLambdaSupport", d1, 30.0f, false);
         messageTo(self, "reportActivities", d1, 35, false);
         utils.setScriptVar(self, SCRIPTVAR_ATTACKED, 1);
         acquireNewTarget(self);
@@ -167,7 +167,7 @@ public class scout extends script.base_script
             utils.setScriptVar(self, SCRIPTVAR_SCAN_STATUS, target);
             dictionary d = new dictionary();
             d.put("target", target);
-            messageTo(self, "handleScanComplete", d, 60f, false);
+            messageTo(self, "handleScanComplete", d, 60.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -211,7 +211,7 @@ public class scout extends script.base_script
                 dictionary d1 = new dictionary();
                 d1.put("actionCode", actionCode);
                 d1.put("target", target);
-                messageTo(self, "callLambdaSupport", d1, 10f, false);
+                messageTo(self, "callLambdaSupport", d1, 10.0f, false);
                 acquireNewTarget(self);
                 return SCRIPT_CONTINUE;
             }
@@ -223,14 +223,14 @@ public class scout extends script.base_script
         {
             utils.setScriptVar(self, SCRIPTVAR_SCANNED, scanned);
         }
-        if (rating > 15f)
+        if (rating > 15.0f)
         {
             sendSystemMessage(target, new string_id(CONTRABAND_SEARCH_STF, "probe_scan_positive"));
             int actionCode = gcw.AC_SCAN;
             dictionary d1 = new dictionary();
             d1.put("actionCode", actionCode);
             d1.put("target", target);
-            messageTo(self, "callLambdaSupport", d1, 10f, false);
+            messageTo(self, "callLambdaSupport", d1, 10.0f, false);
             acquireNewTarget(self);
         }
         else 
@@ -269,10 +269,10 @@ public class scout extends script.base_script
         utils.removeScriptVar(self, SCRIPTVAR_SCOUT_TARGET);
         if (ai_lib.isInCombat(self))
         {
-            messageTo(self, "handleNeedTarget", null, 10f, false);
+            messageTo(self, "handleNeedTarget", null, 10.0f, false);
             return;
         }
-        obj_id[] players = getPlayerCreaturesInRange(self, 100f);
+        obj_id[] players = getPlayerCreaturesInRange(self, 100.0f);
         if (players == null || players.length == 0)
         {
             destroyObject(self);
@@ -291,7 +291,7 @@ public class scout extends script.base_script
             }
         }
         ai_lib.wander(self);
-        messageTo(self, "handleNeedTarget", null, 15f, false);
+        messageTo(self, "handleNeedTarget", null, 15.0f, false);
     }
     public int handleNeedTarget(obj_id self, dictionary params) throws InterruptedException
     {
@@ -329,7 +329,7 @@ public class scout extends script.base_script
             utils.removeScriptVar(self, SCRIPTVAR_CALLED_SUPPORT);
             return SCRIPT_CONTINUE;
         }
-        location tmp = utils.getRandomLocationInRing(there, 5f, 10f);
+        location tmp = utils.getRandomLocationInRing(there, 5.0f, 10.0f);
         if (tmp != null)
         {
             there = (location)tmp.clone();
@@ -338,7 +338,7 @@ public class scout extends script.base_script
         {
             gcw.spawnViaLambdaPerGeo(there, d);
         }
-        messageTo(self, "handleClearSupportCall", null, 180f, false);
+        messageTo(self, "handleClearSupportCall", null, 180.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleClearSupportCall(obj_id self, dictionary params) throws InterruptedException

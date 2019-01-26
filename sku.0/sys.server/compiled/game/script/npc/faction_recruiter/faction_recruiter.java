@@ -259,11 +259,11 @@ public class faction_recruiter extends script.base_script
             chat.chat(self, chat.CHAT_SAY, chat.MOOD_HAPPY, SID_BRIBE_SUCCESS);
             if (amt == 20000)
             {
-                factions.addFactionStanding(player, rec_faction, 250.f);
+                factions.addFactionStanding(player, rec_faction, 250.0f);
             }
             else 
             {
-                factions.addFactionStanding(player, rec_faction, 1250.f);
+                factions.addFactionStanding(player, rec_faction, 1250.0f);
             }
         }
         obj_id topMost = getTopMostContainer(self);
@@ -498,9 +498,8 @@ public class faction_recruiter extends script.base_script
         }
         Vector names = new Vector();
         names.setSize(0);
-        for (int i = 0; i < xp_types.length; i++)
-        {
-            names = utils.addElement(names, "@exp_n:" + xp_types[i]);
+        for (String xp_type : xp_types) {
+            names = utils.addElement(names, "@exp_n:" + xp_type);
         }
         if (names == null || names.size() == 0)
         {

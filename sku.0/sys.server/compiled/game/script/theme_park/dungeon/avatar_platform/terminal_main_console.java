@@ -87,21 +87,19 @@ public class terminal_main_console extends script.base_script
                 int numPlayers = players.length;
                 if (numPlayers > 0)
                 {
-                    for (int i = 0; i < numPlayers; i++)
-                    {
-                        if (groundquests.isTaskActive(players[i], "ep3_avatar_self_destruct", "selfDestruct"))
-                        {
-                            groundquests.sendSignal(players[i], "destructSequenceStarted");
-                            groundquests.sendSignal(players[i], "avatarDestructSequence");
+                    for (obj_id player1 : players) {
+                        if (groundquests.isTaskActive(player1, "ep3_avatar_self_destruct", "selfDestruct")) {
+                            groundquests.sendSignal(player1, "destructSequenceStarted");
+                            groundquests.sendSignal(player1, "avatarDestructSequence");
                         }
-                        sendSystemMessage(players[i], WARNING_DESTRUCT);
+                        sendSystemMessage(player1, WARNING_DESTRUCT);
                     }
                     badge.grantBadge(players, "bdg_kash_avatar_zssik");
                 }
                 setObjVar(structure, "avatar_platform.avatar_destruct_sequence", 1);
                 dictionary who = new dictionary();
                 who.put("player", player);
-                messageTo(structure, "handleDestruct", who, 1f, false);
+                messageTo(structure, "handleDestruct", who, 1.0f, false);
                 return SCRIPT_CONTINUE;
             }
             else 

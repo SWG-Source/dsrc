@@ -29,7 +29,7 @@ public class trainer_spawner extends script.base_script
         {
             city.validateSpecialStructure(self);
         }
-        messageTo(self, "spawnTrainer", null, 1.f, false);
+        messageTo(self, "spawnTrainer", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnDestroy(obj_id self) throws InterruptedException
@@ -108,11 +108,8 @@ public class trainer_spawner extends script.base_script
                 "trainer_medic",
                 "trainer_scout"
             };
-            for (int intI = 0; intI < strAllowedTrainers.length; intI++)
-            {
-                String strTest = strAllowedTrainers[intI];
-                if (strTrainer.equals(strTest))
-                {
+            for (String strTest : strAllowedTrainers) {
+                if (strTrainer.equals(strTest)) {
                     return true;
                 }
             }

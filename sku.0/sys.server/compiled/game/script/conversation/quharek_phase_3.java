@@ -398,11 +398,9 @@ public class quharek_phase_3 extends script.base_script
         String[] scripts = community_crafting.getSchematicScripts(craftingTracker);
         if (scripts != null)
         {
-            for (int i = 0; i < scripts.length; ++i)
-            {
-                if (scripts[i] != null && !hasScript(craftingTracker, scripts[i]))
-                {
-                    attachScript(craftingTracker, scripts[i]);
+            for (String script : scripts) {
+                if (script != null && !hasScript(craftingTracker, script)) {
+                    attachScript(craftingTracker, script);
                 }
             }
         }

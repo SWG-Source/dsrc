@@ -233,10 +233,9 @@ public class qa_resource_reward extends script.base_script
             return;
         }
         attribStrings = utils.addElement(attribStrings, "@" + SID_RESOURCE_NAME + " = " + getResourceName(resource));
-        for (int i = 0; i < resourceAttribs.length; ++i)
-        {
-            string_id temp = new string_id("obj_attr_n", resourceAttribs[i].getName());
-            attribStrings = utils.addElement(attribStrings, "@" + temp + " = " + resourceAttribs[i].getValue());
+        for (resource_attribute resourceAttrib : resourceAttribs) {
+            string_id temp = new string_id("obj_attr_n", resourceAttrib.getName());
+            attribStrings = utils.addElement(attribStrings, "@" + temp + " = " + resourceAttrib.getValue());
         }
         int pid = sui.listbox(getSelf(), player, "Selecting this resource will create 100k units in your inventory.", sui.OK_CANCEL, getResourceName(resource), attribStrings, "handleChooseResourceTypeStats", false, false);
         if (pid >= 0)
@@ -291,11 +290,9 @@ public class qa_resource_reward extends script.base_script
         }
         String[] temp = new String[goodResources];
         goodResources = 0;
-        for (int i = 0; i < resourceClasses.length; ++i)
-        {
-            if (resourceClasses[i] != null)
-            {
-                temp[goodResources++] = resourceClasses[i];
+        for (String resourceClass : resourceClasses) {
+            if (resourceClass != null) {
+                temp[goodResources++] = resourceClass;
             }
         }
         resourceClasses = temp;
@@ -380,11 +377,9 @@ public class qa_resource_reward extends script.base_script
         String[] resourceClasses = null;
         String[] tempResourceClass = getImmediateResourceChildClasses(parentClass);
         Vector tempResourceClassTwo = null;
-        for (int x = 0; x < tempResourceClass.length; ++x)
-        {
-            if (!tempResourceClass[x].equals("energy") && !tempResourceClass[x].equals("space_resource"))
-            {
-                tempResourceClassTwo = utils.addElement(tempResourceClassTwo, tempResourceClass[x]);
+        for (String tempResourceClass1 : tempResourceClass) {
+            if (!tempResourceClass1.equals("energy") && !tempResourceClass1.equals("space_resource")) {
+                tempResourceClassTwo = utils.addElement(tempResourceClassTwo, tempResourceClass1);
             }
         }
         resourceClasses = new String[tempResourceClassTwo.size()];

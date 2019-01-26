@@ -168,7 +168,7 @@ public class pclib extends script.base_script
             minCost = MIN_CLONING_SICKNESS_COST / 2;
             maxCost = MAX_CLONING_SICKNESS_COST / 2;
         }
-        return (int) (minCost + ((maxCost - minCost) * (getLevel(player) / 90f)));
+        return (int) (minCost + ((maxCost - minCost) * (getLevel(player) / 90.0f)));
     }
     public static boolean canAffordCloningSicknessCure(obj_id player) throws InterruptedException
     {
@@ -247,7 +247,7 @@ public class pclib extends script.base_script
         if (useCash)
         {
             float dist = getDistance(getLocation(player), getLocation(target));
-            if (dist > 15f)
+            if (dist > 15.0f)
             {
                 CustomerServiceLog("Trade", "  Tip -- Player: " + player + " " + getName(player) + " -- Tip changing to bank transfer due to distance.  Distance: " + dist);
                 prose_package tooFar = prose.getPackage(PROSE_TIP_RANGE, target);
@@ -569,7 +569,7 @@ public class pclib extends script.base_script
         {
             return;
         }
-        addAttribModifier(player, HEALTH, -(getAttrib(player, HEALTH) + 50), 0f, 0f, MOD_POOL);
+        addAttribModifier(player, HEALTH, -(getAttrib(player, HEALTH) + 50), 0.0f, 0.0f, MOD_POOL);
         coupDeGrace(player, killer, false, usePVPRules);
     }
     public static void coupDeGrace(obj_id victim, obj_id killer, boolean playAnim) throws InterruptedException
@@ -1296,7 +1296,7 @@ public class pclib extends script.base_script
         }
         dictionary params = new dictionary();
         params.put("wp", wp);
-        messageTo(target, "handleWaypointDestroyRequest", params, 1f, true);
+        messageTo(target, "handleWaypointDestroyRequest", params, 1.0f, true);
     }
     public static void requestWaypointRename(obj_id target, obj_id wp, String name) throws InterruptedException
     {
@@ -1307,7 +1307,7 @@ public class pclib extends script.base_script
         dictionary params = new dictionary();
         params.put("wp", wp);
         params.put("name", name);
-        messageTo(target, "handleWaypointRenameRequest", params, 1f, true);
+        messageTo(target, "handleWaypointRenameRequest", params, 1.0f, true);
     }
     public static void requestWaypointRename(obj_id target, obj_id wp, string_id sid_name) throws InterruptedException
     {

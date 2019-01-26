@@ -31,11 +31,8 @@ public class wampa_boss extends script.base_script
         obj_id[] players = getPlayerCreaturesInRange(self, 250.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                obj_id player = players[i];
-                if (isIdValid(player) && exists(player) && !isIncapacitated(player) && !isDead(player))
-                {
+            for (obj_id player : players) {
+                if (isIdValid(player) && exists(player) && !isIncapacitated(player) && !isDead(player)) {
                     addHate(self, player, 1000.0f);
                     startCombat(self, player);
                 }
@@ -129,11 +126,8 @@ public class wampa_boss extends script.base_script
         obj_id[] players = getPlayerCreaturesInRange(self, 250.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                obj_id player = players[i];
-                if (isGod(player) && hasObjVar(player, "uncleJoeHateTesting"))
-                {
+            for (obj_id player : players) {
+                if (isGod(player) && hasObjVar(player, "uncleJoeHateTesting")) {
                     sendSystemMessage(player, hateReport, "");
                 }
             }
@@ -210,11 +204,8 @@ public class wampa_boss extends script.base_script
         obj_id[] children = trial.getChildArray(self);
         if (children != null && children.length > 0)
         {
-            for (int i = 0; i < children.length; i++)
-            {
-                obj_id child = children[i];
-                if (isIdValid(child) && exists(child))
-                {
+            for (obj_id child : children) {
+                if (isIdValid(child) && exists(child)) {
                     trial.cleanupObject(child);
                 }
             }

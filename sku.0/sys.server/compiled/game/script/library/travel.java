@@ -1249,8 +1249,8 @@ public class travel extends script.base_script
         }
         float yaw = getYaw(object);
         float yaw_radians = (float)Math.toRadians(yaw);
-        float X = (x * (float)Math.cos(yaw_radians)) + (z * (float)Math.sin(yaw_radians));
-        float Z = (z * (float)Math.cos(yaw_radians)) - (x * (float)Math.sin(yaw_radians));
+        float X = (x * (float) StrictMath.cos(yaw_radians)) + (z * (float) StrictMath.sin(yaw_radians));
+        float Z = (z * (float) StrictMath.cos(yaw_radians)) - (x * (float) StrictMath.sin(yaw_radians));
         return new float[]{
             X,
             Z

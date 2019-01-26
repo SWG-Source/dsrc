@@ -229,11 +229,9 @@ public class requestloctest extends script.base_script
             removeObjVar(self, "locTest.objects");
             if (locObjects != null && locObjects.size() > 0)
             {
-                for (int i = 0; i < locObjects.size(); i++)
-                {
-                    obj_id locObject = ((obj_id)locObjects.get(i));
-                    if (isIdValid(locObject))
-                    {
+                for (Object locObject1 : locObjects) {
+                    obj_id locObject = ((obj_id) locObject1);
+                    if (isIdValid(locObject)) {
                         locations.destroyLocationObject(locObject);
                     }
                 }
@@ -245,11 +243,9 @@ public class requestloctest extends script.base_script
             removeObjVar(self, "locTest.waypoints");
             if (locWaypoints != null && locWaypoints.size() > 0)
             {
-                for (int i = 0; i < locWaypoints.size(); i++)
-                {
-                    obj_id locWaypoint = ((obj_id)locWaypoints.get(i));
-                    if (isIdValid(locWaypoint))
-                    {
+                for (Object locWaypoint1 : locWaypoints) {
+                    obj_id locWaypoint = ((obj_id) locWaypoint1);
+                    if (isIdValid(locWaypoint)) {
                         destroyWaypointInDatapad(locWaypoint, self);
                     }
                 }

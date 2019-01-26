@@ -2130,8 +2130,10 @@ public class base_class
     {
         return _hasObjVar(getLongWithNull(object), name);
     }
-    /** @deprecated You should use the data-specific set methods.  */
+    /* deprecated You should use the data-specific set methods.  */
     private static native boolean _setObjVar(long object, String name, obj_var data);
+    /** @deprecated You should use the data-specific set methods. */
+    @Deprecated
     public static boolean setObjVar(obj_id object, String name, obj_var data)
     {
         return _setObjVar(getLongWithNull(object), name, data);
@@ -2964,9 +2966,8 @@ public class base_class
         obj_id[] listeners = getMessageListeners(messageHandlerName);
         if (listeners != null && listeners.length > 0)
         {
-            for (int i = 0; i < listeners.length; ++i)
-            {
-                messageTo(listeners[i], messageHandlerName, params, 0, false);
+            for (obj_id listener : listeners) {
+                messageTo(listener, messageHandlerName, params, 0, false);
             }
         }
     }
@@ -3204,9 +3205,8 @@ public class base_class
             return true;
 
         boolean result = true;
-        for (int i = 0; i < objects.length; ++i)
-        {
-            if (!messageTo(objects[i], messageName, params, time, false))
+        for (obj_id object : objects) {
+            if (!messageTo(object, messageName, params, time, false))
                 result = false;
         }
         return result;
@@ -7013,7 +7013,7 @@ public class base_class
 
     /*@}*/
 
-    /** @deprecated Do not use.*/
+    /* deprecated Do not use.*/
 //  public static native boolean addObjectToWorld(obj_id target);
 /*@}*/
 
@@ -17655,7 +17655,7 @@ public class base_class
     public static native boolean isValidLocation(location loc, float radius);
     public static boolean isValidLocation(location loc){
         if(loc != null)
-            return isValidLocation(loc, 0f);
+            return isValidLocation(loc, 0.0f);
         return false;
     }
     /**

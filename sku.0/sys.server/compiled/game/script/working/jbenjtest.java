@@ -270,9 +270,8 @@ public class jbenjtest extends script.base_script
                     debugSpeakMsg(self, "No Expertise Skills");
                     return SCRIPT_CONTINUE;
                 }
-                for (int i = 0; i < skills.length; ++i)
-                {
-                    debugSpeakMsg(self, "" + skills[i]);
+                for (String skill : skills) {
+                    debugSpeakMsg(self, "" + skill);
                 }
                 return SCRIPT_CONTINUE;
             }
@@ -345,21 +344,16 @@ public class jbenjtest extends script.base_script
                 Vector resizAbleDroidIds = new Vector(Arrays.asList(droidIds));
                 Vector droidNames = new Vector();
                 droidNames.setSize(0);
-                for (int i = 0; i < droidIds.length; ++i)
-                {
-                    if (hasObjVar(droidIds[i], "module_data.dancing_droid"))
-                    {
-                        utils.removeElement(resizAbleDroidIds, droidIds[i]);
+                for (obj_id droidId : droidIds) {
+                    if (hasObjVar(droidId, "module_data.dancing_droid")) {
+                        utils.removeElement(resizAbleDroidIds, droidId);
                         continue;
                     }
-                    String droidName = getName(droidIds[i]);
+                    String droidName = getName(droidId);
                     String[] splitName = split(droidName, '/');
-                    if (splitName.length > 1)
-                    {
+                    if (splitName.length > 1) {
                         utils.addElement(droidNames, "@" + droidName);
-                    }
-                    else 
-                    {
+                    } else {
                         utils.addElement(droidNames, droidName);
                     }
                 }
@@ -510,12 +504,10 @@ public class jbenjtest extends script.base_script
             {
                 obj_id[] objObjects = getObjectsInRange(self, 32000);
                 sendSystemMessageTestingOnly(self, "Destroying world");
-                for (int intI = 0; intI < objObjects.length; intI++)
-                {
-                    if (!isPlayer(objObjects[intI]))
-                    {
-                        setObjVar(objObjects[intI], "intCleaningUp", 1);
-                        destroyObject(objObjects[intI]);
+                for (obj_id objObject : objObjects) {
+                    if (!isPlayer(objObject)) {
+                        setObjVar(objObject, "intCleaningUp", 1);
+                        destroyObject(objObject);
                     }
                 }
                 return SCRIPT_CONTINUE;
@@ -569,7 +561,7 @@ public class jbenjtest extends script.base_script
             if (command.equals("getResistance"))
             {
                 int resistance_mod = getEnhancedSkillStatisticModifier(self, "resistance_poison");
-                float resist_scale = (0.4f / ((100f + resistance_mod) / 200f));
+                float resist_scale = (0.4f / ((100.0f + resistance_mod) / 200.0f));
                 float to_hit_chance = 100 * resist_scale;
                 debugSpeakMsg(self, "My resistance mod is " + resistance_mod);
                 debugSpeakMsg(self, "My resist_scale is " + resist_scale);
@@ -776,18 +768,14 @@ public class jbenjtest extends script.base_script
             return null;
         }
         String enemyNames = "\n";
-        for (int i = 0; i < enemies.length; ++i)
-        {
+        for (obj_id enemy : enemies) {
             String enemyStringName = "";
-            if (!isPlayer(enemies[i]))
-            {
-                enemyStringName = "NotAPlayer ObjID(" + enemies[i] + ")";
+            if (!isPlayer(enemy)) {
+                enemyStringName = "NotAPlayer ObjID(" + enemy + ")";
+            } else {
+                enemyStringName = getPlayerName(enemy);
             }
-            else 
-            {
-                enemyStringName = getPlayerName(enemies[i]);
-            }
-            enemyNames += enemyStringName + "\t\t" + (int)getHate(target, enemies[i]) + "\n";
+            enemyNames += enemyStringName + "\t\t" + (int) getHate(target, enemy) + "\n";
         }
         return enemyNames;
     }

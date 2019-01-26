@@ -73,21 +73,19 @@ public class slicing_armor extends script.base_script
             int slice_cost = effect.getInt("COST");
             int slice_amount = effect.getInt("AMOUNT");
             boolean asuccess = false;
-            if (stat.equals("resilience"))
-            {
-                asuccess = applyResilienceChange(self, player, slice_amount);
-            }
-            else if (stat.equals("deflect"))
-            {
-                asuccess = applyDeflectChange(self, player, slice_amount);
-            }
-            else if (stat.equals("crit_chance"))
-            {
-                asuccess = applyCritChange(self, player, slice_amount);
-            }
-            else if (stat.equals("armor_break"))
-            {
-                asuccess = applyArmorBreakChange(self, player, slice_amount);
+            switch (stat) {
+                case "resilience":
+                    asuccess = applyResilienceChange(self, player, slice_amount);
+                    break;
+                case "deflect":
+                    asuccess = applyDeflectChange(self, player, slice_amount);
+                    break;
+                case "crit_chance":
+                    asuccess = applyCritChange(self, player, slice_amount);
+                    break;
+                case "armor_break":
+                    asuccess = applyArmorBreakChange(self, player, slice_amount);
+                    break;
             }
             if (asuccess)
             {

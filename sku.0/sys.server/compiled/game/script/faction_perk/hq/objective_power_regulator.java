@@ -102,7 +102,7 @@ public class objective_power_regulator extends script.faction_perk.hq.objective_
             sendSystemMessage(player, new string_id(STF, "power_not_in_room"));
             return;
         }
-        if (getDistance(getLocation(self), getLocation(player)) > 15f)
+        if (getDistance(getLocation(self), getLocation(player)) > 15.0f)
         {
             sendSystemMessage(player, new string_id(STF, "power_too_far"));
             return;

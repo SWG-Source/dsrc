@@ -56,7 +56,7 @@ public class effect_controller extends script.base_script
             {
                 playClientEffectObj(playersInStory, effectName, self, "", null, "storyteller_persisted_effect");
                 setObjVar(self, storyteller.EFFECT_ACTIVE_OBJVAR, effectName);
-                createTriggerVolume("storytellerPersistedEffect_far", 100f, true);
+                createTriggerVolume("storytellerPersistedEffect_far", 100.0f, true);
             }
         }
         return;
@@ -117,11 +117,8 @@ public class effect_controller extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            obj_id player = players[i];
-            if (storyteller.allowedToSeeStorytellerObject(self, player))
-            {
+        for (obj_id player : players) {
+            if (storyteller.allowedToSeeStorytellerObject(self, player)) {
                 utils.addElement(playerInStory, player);
             }
         }

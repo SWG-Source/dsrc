@@ -25,7 +25,7 @@ public class retrieve_item_egg_splurt extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    playClientEffectLoc(player, "clienteffect/item_egg_splurt.cef", getLocation(self), 1f);
+                    playClientEffectLoc(player, "clienteffect/item_egg_splurt.cef", getLocation(self), 1.0f);
                 }
             }
         }

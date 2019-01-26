@@ -399,7 +399,7 @@ public class entertainer_effect extends script.base_script
         available_effects.setSize(0);
         while (i <= pet_lib.LIGHTING_EFFECTS.length)
         {
-            int result = (int)((raw_effects % Math.pow(10, i)) / Math.pow(10, i - 1));
+            int result = (int)((raw_effects % StrictMath.pow(10, i)) / StrictMath.pow(10, i - 1));
             if (result >= 1)
             {
                 available_effects = utils.addElement(available_effects, pet_lib.LIGHTING_EFFECTS[i - 1]);

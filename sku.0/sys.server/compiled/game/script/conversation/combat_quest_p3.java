@@ -22,10 +22,8 @@ public class combat_quest_p3 extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < disks.length; i++)
-        {
-            if (fs_counterstrike.getPhaseItemPercentDecay(disks[i], 3) < 100)
-            {
+        for (obj_id disk : disks) {
+            if (fs_counterstrike.getPhaseItemPercentDecay(disk, 3) < 100) {
                 return quests.isActive("fs_cs_intro", player);
             }
         }
@@ -42,10 +40,8 @@ public class combat_quest_p3 extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < disks.length; i++)
-        {
-            if (fs_counterstrike.getPhaseItemPercentDecay(disks[i], 3) < 100)
-            {
+        for (obj_id disk : disks) {
+            if (fs_counterstrike.getPhaseItemPercentDecay(disk, 3) < 100) {
                 return quests.isActive("fs_cs_intro", player);
             }
         }
@@ -95,13 +91,10 @@ public class combat_quest_p3 extends script.base_script
         {
             obj_id[] objects = utils.getContents(inv, false);
             boolean foundDisk = false;
-            for (int i = 0; i < objects.length; i++)
-            {
-                if ((getTemplateName(objects[i])).equals("object/tangible/loot/quest/force_sensitive/camp_frequency_datapad.iff"))
-                {
-                    if (fs_counterstrike.getPhaseItemPercentDecay(objects[i], 3) < 100)
-                    {
-                        destroyObject(objects[i]);
+            for (obj_id object : objects) {
+                if ((getTemplateName(object)).equals("object/tangible/loot/quest/force_sensitive/camp_frequency_datapad.iff")) {
+                    if (fs_counterstrike.getPhaseItemPercentDecay(object, 3) < 100) {
+                        destroyObject(object);
                         foundDisk = true;
                         break;
                     }
@@ -140,13 +133,10 @@ public class combat_quest_p3 extends script.base_script
         {
             obj_id[] objects = utils.getContents(inv, false);
             boolean foundDisk = false;
-            for (int i = 0; i < objects.length; i++)
-            {
-                if ((getTemplateName(objects[i])).equals("object/tangible/loot/quest/force_sensitive/camp_waypoint_datapad.iff"))
-                {
-                    if (fs_counterstrike.getPhaseItemPercentDecay(objects[i], 3) < 100)
-                    {
-                        destroyObject(objects[i]);
+            for (obj_id object : objects) {
+                if ((getTemplateName(object)).equals("object/tangible/loot/quest/force_sensitive/camp_waypoint_datapad.iff")) {
+                    if (fs_counterstrike.getPhaseItemPercentDecay(object, 3) < 100) {
+                        destroyObject(object);
                         foundDisk = true;
                         break;
                     }

@@ -47,7 +47,7 @@ public class ep3_trando_herald extends script.base_script
         while (x < 10)
         {
             location loc = utils.getRandomLocationInRing(here, 1000, 2500);
-            spawnLoc = locations.getGoodLocationAroundLocation(loc, 5f, 5f, 50f, 50f);
+            spawnLoc = locations.getGoodLocationAroundLocation(loc, 5.0f, 5.0f, 50.0f, 50.0f);
             if (spawnLoc != null)
             {
                 break;

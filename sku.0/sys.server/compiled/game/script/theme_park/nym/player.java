@@ -66,7 +66,7 @@ public class player extends script.base_script
         obj_id waypointToGuy = getObjIdObjVar(self, "nym.jinkins.guypoint");
         if (waypointToGuy == null)
         {
-            location guy = new location(540.4f, 12f, 5091.18f, "lok", null);
+            location guy = new location(540.4f, 12.0f, 5091.18f, "lok", null);
             String questID = "jinkinsQuest";
             String target = "The Guy";
             String CONVO = "convo";
@@ -96,7 +96,7 @@ public class player extends script.base_script
         obj_id waypointToGuy = getObjIdObjVar(self, "nym.kole.officerPoint");
         if (waypointToGuy == null)
         {
-            location guy = new location(469.3f, 12f, 5020.83f, "lok", null);
+            location guy = new location(469.3f, 12.0f, 5020.83f, "lok", null);
             String questID = "koleQuest";
             String target = "Target Officer";
             String CONVO = "convoOfficer";
@@ -160,7 +160,7 @@ public class player extends script.base_script
         obj_id waypointToGuy = getObjIdObjVar(self, "nym.nym.retiredGuy");
         if (waypointToGuy == null)
         {
-            location guy = new location(540.4f, 12f, 5091.18f, "lok", null);
+            location guy = new location(540.4f, 12.0f, 5091.18f, "lok", null);
             String questID = "nymQuest";
             String target = "Retired Imperial Officer";
             String CONVO = "convoOfficer";

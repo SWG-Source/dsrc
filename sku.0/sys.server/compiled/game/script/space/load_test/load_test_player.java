@@ -22,11 +22,9 @@ public class load_test_player extends script.base_script
             obj_id[] aiShips = d.getObjIdArray(load_test.VAR_AI_SHIPS);
             if (aiShips != null)
             {
-                for (int i = 0; i < aiShips.length; ++i)
-                {
-                    if (isIdValid(aiShips[i]) && aiShips[i].isLoaded())
-                    {
-                        destroyObject(aiShips[i]);
+                for (obj_id aiShip : aiShips) {
+                    if (isIdValid(aiShip) && aiShip.isLoaded()) {
+                        destroyObject(aiShip);
                     }
                 }
                 d.remove(load_test.VAR_AI_SHIPS);

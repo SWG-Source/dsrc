@@ -35,7 +35,7 @@ public class e3_hangar_worker_2 extends script.base_script
     public void pathToLocationTwo(obj_id self) throws InterruptedException
     {
         location destLoc = new location(getLocation(self));
-        destLoc.x = -5f;
+        destLoc.x = -5.0f;
         destLoc.y = 206.5f;
         destLoc.z = 294.1f;
         setObjVar(self, "intIndex", 2);

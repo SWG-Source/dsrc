@@ -117,15 +117,11 @@ public class ai_controller extends script.base_script
         }
         Vector myPath = new Vector();
         myPath.setSize(0);
-        for (int i = 0; i < pathList.length; i++)
-        {
-            for (int k = 0; k < wayPoints.size(); k++)
-            {
-                if (hasObjVar(((obj_id)wayPoints.get(k)), "wp_name"))
-                {
-                    if (pathList[i].equals(getStringObjVar(((obj_id)wayPoints.get(k)), "wp_name")))
-                    {
-                        utils.addElement(myPath, getLocation(((obj_id)wayPoints.get(k))));
+        for (String s : pathList) {
+            for (Object wayPoint : wayPoints) {
+                if (hasObjVar(((obj_id) wayPoint), "wp_name")) {
+                    if (s.equals(getStringObjVar(((obj_id) wayPoint), "wp_name"))) {
+                        utils.addElement(myPath, getLocation(((obj_id) wayPoint)));
                     }
                 }
             }

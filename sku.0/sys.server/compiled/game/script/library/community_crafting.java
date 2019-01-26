@@ -2,6 +2,7 @@ package script.library;
 
 import script.*;
 
+import java.lang.reflect.Method;
 import java.util.*;
 
 public class community_crafting extends script.base_script
@@ -134,11 +135,9 @@ public class community_crafting extends script.base_script
         String[] scripts = schematicData.getScripts();
         if (scripts != null)
         {
-            for (int i = 0; i < scripts.length; ++i)
-            {
-                if (scripts[i] != null)
-                {
-                    attachScript(craftingTracker, scripts[i]);
+            for (String script : scripts) {
+                if (script != null) {
+                    attachScript(craftingTracker, script);
                 }
             }
         }
@@ -214,10 +213,8 @@ public class community_crafting extends script.base_script
             CustomerServiceLog("community_crafting", "WARNING community_crafting.scriptlib: grantSchematicToPlayer craftingTracker " + craftingTracker + "has bad a schematics objvar");
             return false;
         }
-        for (int i = 0; i < schematics.length; ++i)
-        {
-            if (!grantSchematicToPlayer(craftingTracker, player, schematics[i]))
-            {
+        for (int schematic : schematics) {
+            if (!grantSchematicToPlayer(craftingTracker, player, schematic)) {
                 return false;
             }
         }
@@ -282,7 +279,7 @@ public class community_crafting extends script.base_script
             CustomerServiceLog("community_crafting", "WARNING community_crafting.scriptlib: grantSchematicToPlayer(crc) failed " + "to add schematic " + schematicCrc + " to player %TU", player);
             return false;
         }
-        playerSchematics.add(new Integer(schematicCrc));
+        playerSchematics.add(schematicCrc);
         setObjVar(player, OBJVAR_COMMUNITY_CRAFTING_PLAYER_SCHEMATICS, playerSchematics);
         return true;
     }
@@ -634,11 +631,9 @@ public class community_crafting extends script.base_script
             {
                 emailBody += "\0@" + schematicAttribs[i].name + "\0\\>200" + (int)objectAttributes[i] + "\\>000\n";
             }
-            for (int i = 0; i < players.length; ++i)
-            {
-                if (isIdValid(players[i]))
-                {
-                    chatSendPersistentMessage("@" + SID_RESULTS_FROM, getPlayerName(players[i]), "@" + SID_RESULTS_SUBJECT, emailBody, null);
+            for (obj_id player : players) {
+                if (isIdValid(player)) {
+                    chatSendPersistentMessage("@" + SID_RESULTS_FROM, getPlayerName(player), "@" + SID_RESULTS_SUBJECT, emailBody, null);
                 }
             }
         }
@@ -763,11 +758,9 @@ public class community_crafting extends script.base_script
         }
         if (players != null)
         {
-            for (int i = 0; i < players.length; ++i)
-            {
-                if (isIdValid(players[i]))
-                {
-                    messageTo(players[i], MSG_HANDLER_END_CRAFTING, null, 1.0f, true);
+            for (obj_id player : players) {
+                if (isIdValid(player)) {
+                    messageTo(player, MSG_HANDLER_END_CRAFTING, null, 1.0f, true);
                 }
             }
         }
@@ -795,11 +788,9 @@ public class community_crafting extends script.base_script
             String[] scripts = schematicData.getScripts();
             if (scripts != null)
             {
-                for (int i = 0; i < scripts.length; ++i)
-                {
-                    if (scripts[i] != null)
-                    {
-                        detachScript(craftingTracker, scripts[i]);
+                for (String script : scripts) {
+                    if (script != null) {
+                        detachScript(craftingTracker, script);
                     }
                 }
             }
@@ -1088,7 +1079,7 @@ public class community_crafting extends script.base_script
         for (int i = 0; i < schematicAttribs.length; ++i)
         {
             names.add(schematicAttribs[i].name);
-            values.add(new Float(objectAttributes[i]));
+            values.add(objectAttributes[i]);
         }
         return true;
     }
@@ -1156,7 +1147,7 @@ public class community_crafting extends script.base_script
             for (int i = 0; i < rankings.length; ++i)
             {
                 playerIds.add(players[i]);
-                values.add(new Integer(rankings[i]));
+                values.add(rankings[i]);
             }
             PROFILER_STOP("SORT_FS_VILLAGE_CRAFTERS_QUANTITY");
         }
@@ -1195,7 +1186,7 @@ public class community_crafting extends script.base_script
             for (int i = 0; i < rankings.length; ++i)
             {
                 playerIds.add(players[i]);
-                values.add(new Float(rankings[i] * 100.0f));
+                values.add(rankings[i] * 100.0f);
             }
             PROFILER_STOP("SORT_FS_VILLAGE_CRAFTERS_QUALITY");
         }
@@ -1252,12 +1243,9 @@ public class community_crafting extends script.base_script
             CustomerServiceLog("community_crafting", "WARNING community_crafting.scriptlib: getSchematics could " + "not find slot info for schematic " + schematic);
             return false;
         }
-        for (int i = 0; i < slots.length; ++i)
-        {
-            if ((slots[i].ingredientType == draft_schematic.IT_schematic || slots[i].ingredientType == draft_schematic.IT_schematicGeneric) && slots[i].ingredientName != null && !schematics.contains(slots[i].ingredientName))
-            {
-                if (!getSchematics(schematics, slots[i].ingredientName))
-                {
+        for (draft_schematic.slot slot : slots) {
+            if ((slot.ingredientType == draft_schematic.IT_schematic || slot.ingredientType == draft_schematic.IT_schematicGeneric) && slot.ingredientName != null && !schematics.contains(slot.ingredientName)) {
+                if (!getSchematics(schematics, slot.ingredientName)) {
                     return false;
                 }
             }
@@ -1449,26 +1437,20 @@ public class community_crafting extends script.base_script
                 continue;
             }
             String attribName = (attribs[i].name).getAsciiId();
-            for (int j = 0; j < resourceWeights.length; ++j)
-            {
-                if (attribName.equals(resourceWeights[j].attribName))
-                {
+            for (resource_weight resourceWeight : resourceWeights) {
+                if (attribName.equals(resourceWeight.attribName)) {
                     float totalWeight = 0;
                     int weightCount = 0;
-                    resource_weight.weight[] weights = resourceWeights[j].weights;
-                    for (int k = 0; k < weights.length; ++k)
-                    {
-                        for (int m = 0; m < resourceAttribs.length; ++m)
-                        {
-                            if (resourceAttribs[m] != null && (resourceAttribs[m].getName()).equals(craftinglib.RESOURCE_OBJVAR_NAMES[weights[k].resource]))
-                            {
-                                totalWeight += resourceAttribs[m].getValue() * weights[k].weight;
-                                weightCount += weights[k].weight;
+                    resource_weight.weight[] weights = resourceWeight.weights;
+                    for (resource_weight.weight weight : weights) {
+                        for (resource_attribute resourceAttrib : resourceAttribs) {
+                            if (resourceAttrib != null && (resourceAttrib.getName()).equals(craftinglib.RESOURCE_OBJVAR_NAMES[weight.resource])) {
+                                totalWeight += resourceAttrib.getValue() * weight.weight;
+                                weightCount += weight.weight;
                             }
                         }
                     }
-                    if (weightCount > 0)
-                    {
+                    if (weightCount > 0) {
                         totalWeight /= weightCount;
                         totalWeight /= 1000.0f;
                         totalWeight = totalWeight * totalWeight;
@@ -1542,14 +1524,11 @@ public class community_crafting extends script.base_script
                 float maxValue = 1000.0f;
                 if (componentSchematicAttribs != null)
                 {
-                    for (int j = 0; j < componentSchematicAttribs.length; ++j)
-                    {
-                        if (((attribs[i].name).getAsciiId()).equals((componentSchematicAttribs[j].name).getAsciiId()))
-                        {
-                            if (componentSchematicAttribs[j].maxValue > componentSchematicAttribs[j].minValue)
-                            {
-                                minValue = componentSchematicAttribs[j].minValue;
-                                maxValue = componentSchematicAttribs[j].maxValue;
+                    for (draft_schematic.attribute componentSchematicAttrib : componentSchematicAttribs) {
+                        if (((attribs[i].name).getAsciiId()).equals((componentSchematicAttrib.name).getAsciiId())) {
+                            if (componentSchematicAttrib.maxValue > componentSchematicAttrib.minValue) {
+                                minValue = componentSchematicAttrib.minValue;
+                                maxValue = componentSchematicAttrib.maxValue;
                             }
                         }
                     }
@@ -1574,6 +1553,7 @@ public class community_crafting extends script.base_script
         }
         return -1;
     }
+    @SuppressWarnings("deprecation")
     public static resource_weight[] getResourceWeightsFromScripts(obj_id object) throws InterruptedException
     {
         final String FUNCTION_NAME = "getAssemblyResourceWeights";
@@ -1588,58 +1568,44 @@ public class community_crafting extends script.base_script
         }
         try
         {
-            for (int i = 0; i < scripts.length; ++i)
-            {
-                script_class_loader loader = script_class_loader.getClassLoader(scripts[i]);
-                if (loader == null)
-                {
+            for (String script : scripts) {
+                script_class_loader loader = script_class_loader.getClassLoader(script);
+                if (loader == null) {
                     return null;
                 }
                 Class cls = loader.getMyClass();
-                if (cls == null)
-                {
+                if (cls == null) {
                     return null;
                 }
                 Object obj = loader.getMyObject();
-                if (obj == null)
-                {
+                if (obj == null) {
                     return null;
                 }
                 Hashtable methods = loader.getMyMethods();
-                if (methods == null)
-                {
+                if (methods == null) {
                     return null;
                 }
-                java.lang.reflect.Method method = (java.lang.reflect.Method)methods.get(FUNCTION_NAME);
-                if (method == null)
-                {
-                    try
-                    {
+                Method method = (Method) methods.get(FUNCTION_NAME);
+                if (method == null) {
+                    try {
                         method = cls.getDeclaredMethod(FUNCTION_NAME);
-                        if (method != null)
-                        {
-                            if (!method.isAccessible())
-                            {
+                        if (method != null) {
+                            if (!method.isAccessible()) {
                                 method.setAccessible(true);
                             }
                         }
-                    }
-                    catch(NoSuchMethodException err)
-                    {
+                    } catch (NoSuchMethodException err) {
                         method = script_class_loader.NO_METHOD;
                     }
-                    if (method != null)
-                    {
+                    if (method != null) {
                         methods.put(method, method);
                     }
                 }
-                if (method != null && method != script_class_loader.NO_METHOD)
-                {
+                if (method != null && method != script_class_loader.NO_METHOD) {
                     Object[] args = new Object[0];
                     Object result = method.invoke(obj, args);
-                    if (result != null && result instanceof resource_weight[])
-                    {
-                        return (resource_weight[])result;
+                    if (result != null && result instanceof resource_weight[]) {
+                        return (resource_weight[]) result;
                     }
                 }
             }

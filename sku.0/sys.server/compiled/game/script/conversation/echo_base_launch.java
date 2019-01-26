@@ -63,10 +63,8 @@ public class echo_base_launch extends script.base_script
                     if (groupies != null && groupies.length > 0)
                     {
                         int playerCount = 0;
-                        for (int i = 0; i < groupies.length; i++)
-                        {
-                            if (isPlayer(groupies[i]))
-                            {
+                        for (obj_id groupie : groupies) {
+                            if (isPlayer(groupie)) {
                                 playerCount = playerCount + 1;
                             }
                         }

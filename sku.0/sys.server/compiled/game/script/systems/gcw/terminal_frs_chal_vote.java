@@ -121,14 +121,11 @@ public class terminal_frs_chal_vote extends script.base_script
             {
                 Vector dsrc = new Vector();
                 dsrc.setSize(0);
-                for (int i = 0; i < names.length; i++)
-                {
-                    int rank = force_rank.getChallengeVoteRank(self, names[i]);
-                    if (rank > 0)
-                    {
-                        if (force_rank.getChallengeVoteWeight(player_rank, rank) > 0)
-                        {
-                            dsrc.add(names[i]);
+                for (String name : names) {
+                    int rank = force_rank.getChallengeVoteRank(self, name);
+                    if (rank > 0) {
+                        if (force_rank.getChallengeVoteWeight(player_rank, rank) > 0) {
+                            dsrc.add(name);
                         }
                     }
                 }

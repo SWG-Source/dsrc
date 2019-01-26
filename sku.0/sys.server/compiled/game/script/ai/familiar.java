@@ -173,7 +173,7 @@ public class familiar extends script.base_script
     public void removePetBuff(obj_id master) throws InterruptedException
     {
         int numbuff = buff.getBuffOnTargetFromGroup(master, "vr_familiar");
-        buff.applyBuff(master, numbuff, 3600f);
+        buff.applyBuff(master, numbuff, 3600.0f);
         return;
     }
     public void repackPet(obj_id master, obj_id pet) throws InterruptedException
@@ -224,7 +224,7 @@ public class familiar extends script.base_script
         createTriggerVolume(ai_lib.ALERT_VOLUME_NAME, alertRadius, promiscuous);
         messageTo(self, "cleanupCheck", null, 300, false);
         applyBuff(self);
-        ai_lib.aiFollow(self, master, 3f, 6f);
+        ai_lib.aiFollow(self, master, 3.0f, 6.0f);
         int whichTrick = rand(1, 2);
         dictionary trickData = new dictionary();
         switch (whichTrick)

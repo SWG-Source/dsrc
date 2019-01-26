@@ -38,10 +38,8 @@ public class space_duty_vendor extends script.base_script
             return;
         }
         int realLength = 0;
-        for (int i = 0; i < compList.length; i++)
-        {
-            if (compList[i] != null && compList[i].length() > 0)
-            {
+        for (String s : compList) {
+            if (s != null && s.length() > 0) {
                 realLength++;
             }
         }

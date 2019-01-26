@@ -14,10 +14,8 @@ public class crafting_base_clothing extends script.systems.crafting.crafting_bas
     public static final String VERSION = "v1.00.00";
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
         }
@@ -31,41 +29,35 @@ public class crafting_base_clothing extends script.systems.crafting.crafting_bas
         int[] mod_idx = getIntArrayObjVar(self, root + craftinglib.TISSUE_SKILL_INDEX);
         int[] mod_val = getIntArrayObjVar(self, root + craftinglib.TISSUE_SKILL_VALUE);
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).startsWith("mod_idx") || ((itemAttributes[i].name).getAsciiId()).startsWith("mod_val"))
-                {
-                }
-                else 
-                {
-                    if (((itemAttributes[i].name).getAsciiId()).equals("armor_rating"))
-                    {
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), (int)itemAttributes[i].currentValue);
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).equals("armor_health_encumbrance"))
-                    {
-                        float encum_value = (itemAttributes[i].maxValue + itemAttributes[i].minValue) - itemAttributes[i].currentValue;
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), encum_value);
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).equals("armor_action_encumbrance"))
-                    {
-                        float encum_value = (itemAttributes[i].maxValue + itemAttributes[i].minValue) - itemAttributes[i].currentValue;
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), encum_value);
-                    }
-                    else if (((itemAttributes[i].name).getAsciiId()).equals("armor_mind_encumbrance"))
-                    {
-                        float encum_value = (itemAttributes[i].maxValue + itemAttributes[i].minValue) - itemAttributes[i].currentValue;
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), encum_value);
-                    }
-                    else 
-                    {
-                        setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).startsWith("mod_idx") || ((itemAttribute.name).getAsciiId()).startsWith("mod_val")) {
+                } else {
+                    switch (((itemAttribute.name).getAsciiId())) {
+                        case "armor_rating":
+                            setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), (int) itemAttribute.currentValue);
+                            break;
+                        case "armor_health_encumbrance": {
+                            float encum_value = (itemAttribute.maxValue + itemAttribute.minValue) - itemAttribute.currentValue;
+                            setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), encum_value);
+                            break;
+                        }
+                        case "armor_action_encumbrance": {
+                            float encum_value = (itemAttribute.maxValue + itemAttribute.minValue) - itemAttribute.currentValue;
+                            setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), encum_value);
+                            break;
+                        }
+                        case "armor_mind_encumbrance": {
+                            float encum_value = (itemAttribute.maxValue + itemAttribute.minValue) - itemAttribute.currentValue;
+                            setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), encum_value);
+                            break;
+                        }
+                        default:
+                            setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
+                            break;
                     }
                 }
             }

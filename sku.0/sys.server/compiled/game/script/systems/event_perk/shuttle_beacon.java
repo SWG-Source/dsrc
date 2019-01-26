@@ -63,14 +63,11 @@ public class shuttle_beacon extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.equals(shuttleBeacon))
-                    {
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals(shuttleBeacon)) {
                         max++;
-                        if (max > 1)
-                        {
+                        if (max > 1) {
                             sendSystemMessage(transferer, new string_id(STF_FILE, "only_one_shuttle_beacon"));
                             destroyObject(self);
                             return SCRIPT_CONTINUE;
@@ -205,7 +202,7 @@ public class shuttle_beacon extends script.base_script
             }
             attachScript(shuttle, "systems.event_perk.shuttle");
             messageTo(self, "toggleShuttleStatus", null, 0, false);
-            messageTo(shuttle, "landShuttle", null, .25f, false);
+            messageTo(shuttle, "landShuttle", null, 0.25f, false);
         }
         else 
         {

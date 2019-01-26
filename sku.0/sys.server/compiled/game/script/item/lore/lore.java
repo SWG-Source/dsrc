@@ -18,13 +18,10 @@ public class lore extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            String _template = getTemplateName(contents[i]);
-            if ((contents[i] != self) && template.equals(_template))
-            {
-                if (isPlayer(transferer))
-                {
+        for (obj_id content : contents) {
+            String _template = getTemplateName(content);
+            if ((content != self) && template.equals(_template)) {
+                if (isPlayer(transferer)) {
                     sendSystemMessage(transferer, ITEM_LORE);
                 }
                 return SCRIPT_OVERRIDE;

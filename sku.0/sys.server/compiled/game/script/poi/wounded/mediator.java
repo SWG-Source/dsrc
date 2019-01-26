@@ -156,24 +156,23 @@ public class mediator extends script.poi.base.scenario_actor
         int progress = scenario.getPlayerProgress(speaker);
         String aId = response.getAsciiId();
         string_id msg = new string_id();
-        if ((aId.equals("response_yes")))
-        {
-            scenario.say(self, convo, "m_yes");
-            openInventories(speaker, self);
-            npcEndConversation(speaker);
-            scenario.setPlayerProgress(speaker, ANSWERED_YES);
-        }
-        else if ((aId.equals("response_no")))
-        {
-            scenario.say(self, convo, "m_no");
-            npcEndConversation(speaker);
-            scenario.setPlayerProgress(speaker, ANSWERED_NO);
-        }
-        else if ((aId.equals("response_no_again")))
-        {
-            scenario.say(self, convo, "m_enraged");
-            npcEndConversation(speaker);
-            scenario.setPlayerProgress(speaker, ANSWERED_NO_AGAIN);
+        switch (aId) {
+            case "response_yes":
+                scenario.say(self, convo, "m_yes");
+                openInventories(speaker, self);
+                npcEndConversation(speaker);
+                scenario.setPlayerProgress(speaker, ANSWERED_YES);
+                break;
+            case "response_no":
+                scenario.say(self, convo, "m_no");
+                npcEndConversation(speaker);
+                scenario.setPlayerProgress(speaker, ANSWERED_NO);
+                break;
+            case "response_no_again":
+                scenario.say(self, convo, "m_enraged");
+                npcEndConversation(speaker);
+                scenario.setPlayerProgress(speaker, ANSWERED_NO_AGAIN);
+                break;
         }
         return SCRIPT_CONTINUE;
     }

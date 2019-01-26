@@ -13,15 +13,12 @@ public class crafting_base_food_new extends script.systems.crafting.crafting_bas
     public static final String FOOD_DATA = "datatables/food/food_data.iff";
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("filling"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("filling")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -40,70 +37,59 @@ public class crafting_base_food_new extends script.systems.crafting.crafting_bas
             }
         }
         int quantity = 0;
-        float quantity_bonus = 1.f;
+        float quantity_bonus = 1.0f;
         int filling = 0;
         float effectiveness = 1;
         float duration = 1;
         int race_restriction = -1;
         int stomach = 0;
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("quantity"))
-                {
-                    int quantity_base = (int)itemAttributes[i].currentValue;
-                    float quantity_mod = quantity_base / 100.f;
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("quantity")) {
+                    int quantity_base = (int) itemAttribute.currentValue;
+                    float quantity_mod = quantity_base / 100.0f;
                     int quantity_food = dataTableGetInt(FOOD_DATA, food_index, "QUANTITY");
-                    quantity = (int)(quantity_mod * quantity_food);
+                    quantity = (int) (quantity_mod * quantity_food);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("quantity_bonus"))
-                {
-                    int quantity_bonus_base = (int)itemAttributes[i].currentValue;
-                    switch (quantity_bonus_base)
-                    {
+                if (((itemAttribute.name).getAsciiId()).equals("quantity_bonus")) {
+                    int quantity_bonus_base = (int) itemAttribute.currentValue;
+                    switch (quantity_bonus_base) {
                         case 1:
-                        quantity_bonus = 1.f;
-                        break;
+                            quantity_bonus = 1.0f;
+                            break;
                         case 2:
-                        quantity_bonus = 1.5f;
-                        break;
+                            quantity_bonus = 1.5f;
+                            break;
                         case 3:
-                        quantity_bonus = 2.25f;
-                        break;
+                            quantity_bonus = 2.25f;
+                            break;
                         case 4:
-                        quantity_bonus = 3.f;
-                        break;
+                            quantity_bonus = 3.0f;
+                            break;
                     }
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("filling"))
-                {
-                    int filling_base = (int)itemAttributes[i].currentValue;
-                    float filling_mod = filling_base / 100.f;
+                if (((itemAttribute.name).getAsciiId()).equals("filling")) {
+                    int filling_base = (int) itemAttribute.currentValue;
+                    float filling_mod = filling_base / 100.0f;
                     int filling_food = dataTableGetInt(FOOD_DATA, food_index, "FILLING");
-                    filling = (int)(filling_mod * filling_food);
+                    filling = (int) (filling_mod * filling_food);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("nutrition"))
-                {
-                    int effectiveness_base = (int)itemAttributes[i].currentValue;
-                    effectiveness = effectiveness_base / 100.f;
+                if (((itemAttribute.name).getAsciiId()).equals("nutrition")) {
+                    int effectiveness_base = (int) itemAttribute.currentValue;
+                    effectiveness = effectiveness_base / 100.0f;
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("flavor"))
-                {
-                    int duration_base = (int)itemAttributes[i].currentValue;
-                    duration = duration_base / 100.f;
+                if (((itemAttribute.name).getAsciiId()).equals("flavor")) {
+                    int duration_base = (int) itemAttribute.currentValue;
+                    duration = duration_base / 100.0f;
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("race_restriction"))
-                {
-                    race_restriction = (int)itemAttributes[i].currentValue;
+                if (((itemAttribute.name).getAsciiId()).equals("race_restriction")) {
+                    race_restriction = (int) itemAttribute.currentValue;
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("stomach"))
-                {
-                    stomach = (int)itemAttributes[i].currentValue;
+                if (((itemAttribute.name).getAsciiId()).equals("stomach")) {
+                    stomach = (int) itemAttribute.currentValue;
                 }
             }
         }
@@ -115,14 +101,14 @@ public class crafting_base_food_new extends script.systems.crafting.crafting_bas
         }
         if (hasObjVar(self, "crafting_components.additive.add_quantity"))
         {
-            float quantity_additive_mod = getIntObjVar(self, "crafting_components.additive.add_quantity") / 100.f;
+            float quantity_additive_mod = getIntObjVar(self, "crafting_components.additive.add_quantity") / 100.0f;
             int new_quantity = (int)(quantity + quantity * quantity_additive_mod);
             quantity = new_quantity;
         }
         if (hasObjVar(self, "crafting_components.additive.add_filling"))
         {
             int filling_additive_mod = getIntObjVar(self, "crafting_components.additive.add_filling");
-            filling = (int)(filling - filling * (filling_additive_mod / 100.f));
+            filling = (int)(filling - filling * (filling_additive_mod / 100.0f));
             if (filling <= 0)
             {
                 filling = 1;
@@ -131,12 +117,12 @@ public class crafting_base_food_new extends script.systems.crafting.crafting_bas
         if (hasObjVar(self, "crafting_components.additive.add_nutrition"))
         {
             int nutrition_additive_mod = getIntObjVar(self, "crafting_components.additive.add_nutrition");
-            effectiveness = effectiveness + effectiveness * (nutrition_additive_mod / 100.f);
+            effectiveness = effectiveness + effectiveness * (nutrition_additive_mod / 100.0f);
         }
         if (hasObjVar(self, "crafting_components.additive.add_flavor"))
         {
             int flavor_additive_mod = getIntObjVar(self, "crafting_components.additive.add_flavor");
-            duration = duration + duration * (flavor_additive_mod / 100.f);
+            duration = duration + duration * (flavor_additive_mod / 100.0f);
         }
         setCount(prototype, quantity);
         if (filling > 100)

@@ -227,10 +227,8 @@ public class interdiction_terminal extends script.base_script
         }
         String region = getStringObjVar(self, "region");
         boolean isRegionValid = false;
-        for (int i = 0; i < VALID_REGIONS.length; i++)
-        {
-            if (region.equals(VALID_REGIONS[i]))
-            {
+        for (String validRegion : VALID_REGIONS) {
+            if (region.equals(validRegion)) {
                 return true;
             }
         }
@@ -268,11 +266,11 @@ public class interdiction_terminal extends script.base_script
             return;
         }
         transform gloc = getTransform_o2w(space_transition.getContainingShip(player));
-        float dist = rand(50.f, 100.f);
+        float dist = rand(50.0f, 100.0f);
         vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
         gloc = gloc.move_p(n);
-        vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-20.f, 20.f));
-        vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-20.f, 20.f));
+        vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-20.0f, 20.0f));
+        vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-20.0f, 20.0f));
         vector vd = vi.add(vj);
         gloc = gloc.move_p(vd);
         obj_id spaceBeacon = createObject("object/tangible/space/mission_objects/interdiction_beacon.iff", gloc, null);
@@ -281,7 +279,7 @@ public class interdiction_terminal extends script.base_script
         attachScript(spaceBeacon, "space.quest_logic.piracy");
         LOG("mikkel-space", "created bacon, OID is: " + spaceBeacon);
         utils.setScriptVar(player, "interdiction_beacon", spaceBeacon);
-        messageTo(spaceBeacon, "startBeacon", null, 1.f, false);
+        messageTo(spaceBeacon, "startBeacon", null, 1.0f, false);
         destroyObject(self);
     }
 }

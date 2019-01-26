@@ -21,11 +21,11 @@ public class pirate_base extends script.theme_park.poi.base
             obj_id room3 = getCellId(base, "room3");
             obj_id foyer = getCellId(base, "foyer");
             obj_id mainh = getCellId(base, "mainhall");
-            location pirate1 = new location(4f, 2f, 1.87f, "tatooine", room1);
-            location pirate2 = new location(4.23f, 2f, -3.65f, "tatooine", room2);
-            location pirate3 = new location(-3.72f, 2f, -3.68f, "tatooine", room3);
-            location pirate4 = new location(-3.78f, 2f, 1.37f, "tatooine", foyer);
-            location pirate5 = new location(-0.05f, 2f, -5.6f, "tatooine", mainh);
+            location pirate1 = new location(4.0f, 2.0f, 1.87f, "tatooine", room1);
+            location pirate2 = new location(4.23f, 2.0f, -3.65f, "tatooine", room2);
+            location pirate3 = new location(-3.72f, 2.0f, -3.68f, "tatooine", room3);
+            location pirate4 = new location(-3.78f, 2.0f, 1.37f, "tatooine", foyer);
+            location pirate5 = new location(-0.05f, 2.0f, -5.6f, "tatooine", mainh);
             poiSetDestroyMessage(self, "imDead");
             obj_id p1 = create.object("pirate", pirate1);
             setObjVar(self, "p1", p1);

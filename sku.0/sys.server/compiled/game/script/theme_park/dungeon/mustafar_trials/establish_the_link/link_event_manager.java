@@ -38,17 +38,12 @@ public class link_event_manager extends script.base_script
             doLogging("clearEventArea", "Dungeon was empty, return");
             return;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
-            }
-            else 
-            {
-                if (isMob(contents[i]) || trial.isTempObject(contents[i]))
-                {
-                    doLogging("xx", "Cleanup performed on " + getName(contents[i]));
-                    trial.cleanupNpc(contents[i]);
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
+            } else {
+                if (isMob(content) || trial.isTempObject(content)) {
+                    doLogging("xx", "Cleanup performed on " + getName(content));
+                    trial.cleanupNpc(content);
                 }
             }
         }
@@ -136,14 +131,11 @@ public class link_event_manager extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int relayCount = 0;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if ((getTemplateName(contents[i])).equals(trial.RELAY_OBJECT))
-            {
+        for (obj_id content : contents) {
+            if ((getTemplateName(content)).equals(trial.RELAY_OBJECT)) {
                 relayCount++;
             }
-            if (relayCount >= 11)
-            {
+            if (relayCount >= 11) {
                 doLogging("validateRelays", "Target relay count reached, spawning foreman");
                 spawnActors(self, 3);
                 deactivateDroid(self);
@@ -162,17 +154,14 @@ public class link_event_manager extends script.base_script
             return;
         }
         int relayCount = 0;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasScript(contents[i], "theme_park.dungeon.mustafar_trials.establish_the_link.droid_patrol_script"))
-            {
-                stop(contents[i]);
-                setInvulnerable(contents[i], true);
+        for (obj_id content : contents) {
+            if (hasScript(content, "theme_park.dungeon.mustafar_trials.establish_the_link.droid_patrol_script")) {
+                stop(content);
+                setInvulnerable(content, true);
             }
-            if ((getTemplateName(contents[i])).equals(trial.RELAY_OBJECT))
-            {
-                location playLoc = getLocation(contents[i]);
-                playClientEffectLoc(contents[i], trial.PRT_RELAY_ACTIVATE, playLoc, 3f);
+            if ((getTemplateName(content)).equals(trial.RELAY_OBJECT)) {
+                location playLoc = getLocation(content);
+                playClientEffectLoc(content, trial.PRT_RELAY_ACTIVATE, playLoc, 3.0f);
             }
         }
     }
@@ -185,11 +174,9 @@ public class link_event_manager extends script.base_script
             return;
         }
         int relayCount = 0;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasScript(contents[i], "theme_park.dungeon.mustafar_trials.establish_the_link.soldier_spawner"))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (hasScript(content, "theme_park.dungeon.mustafar_trials.establish_the_link.soldier_spawner")) {
+                destroyObject(content);
             }
         }
     }
@@ -202,15 +189,12 @@ public class link_event_manager extends script.base_script
             return;
         }
         int relayCount = 0;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasScript(contents[i], "theme_park.dungeon.mustafar_trials.establish_the_link.foreman_drone_spawner"))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (hasScript(content, "theme_park.dungeon.mustafar_trials.establish_the_link.foreman_drone_spawner")) {
+                destroyObject(content);
             }
-            if (hasScript(contents[i], "theme_park.dungeon.mustafar_trials.establish_the_link.foreman_drone_spawner_tracker"))
-            {
-                destroyObject(contents[i]);
+            if (hasScript(content, "theme_park.dungeon.mustafar_trials.establish_the_link.foreman_drone_spawner_tracker")) {
+                destroyObject(content);
             }
         }
         return;

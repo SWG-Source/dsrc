@@ -307,111 +307,97 @@ public class mediator extends script.poi.base.scenario_actor
         npcSetConversationResponses(speaker, responses);
         if (isGuard)
         {
-            if ((aId.equals("r_toldtocheckyou")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_guard_allsquiet"));
-                responses = utils.addElement(responses, new string_id(convo, "r_gotellmaster"));
-                npcSetConversationResponses(speaker, responses);
-            }
-            else if ((aId.equals("r_gotellmaster")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_guard_needtopee"));
-                responses = utils.addElement(responses, new string_id(convo, "r_pee_goodidea"));
-                responses = utils.addElement(responses, new string_id(convo, "r_pee_badidea"));
-                npcSetConversationResponses(speaker, responses);
-            }
-            else if ((aId.equals("r_pee_goodidea")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_guard_pee_goodidea"));
-                if (progress == CONV_CHECKGUARD)
-                {
-                    scenario.setPlayerProgress(speaker, CONV_GUARDPEEING);
-                }
-                messageTo(self, "goPee", null, 2, false);
-                setObjVar(self, "peeing", true);
-            }
-            else if ((aId.equals("r_pee_badidea")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_guard_pee_badidea"));
-                if (progress == CONV_CHECKGUARD)
-                {
-                    scenario.setPlayerProgress(speaker, CONV_GUARDHOLDINGIT);
-                }
-                messageTo(self, "goPee", null, 20, false);
-                setObjVar(self, "peeing", true);
-            }
-            else if ((aId.equals("r_whatshappening")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_guard_needtopee"));
-                responses = utils.addElement(responses, new string_id(convo, "r_pee_goodidea"));
-                responses = utils.addElement(responses, new string_id(convo, "r_pee_badidea"));
-                npcSetConversationResponses(speaker, responses);
+            switch (aId) {
+                case "r_toldtocheckyou":
+                    npcSpeak(speaker, new string_id(convo, "m_guard_allsquiet"));
+                    responses = utils.addElement(responses, new string_id(convo, "r_gotellmaster"));
+                    npcSetConversationResponses(speaker, responses);
+                    break;
+                case "r_gotellmaster":
+                    npcSpeak(speaker, new string_id(convo, "m_guard_needtopee"));
+                    responses = utils.addElement(responses, new string_id(convo, "r_pee_goodidea"));
+                    responses = utils.addElement(responses, new string_id(convo, "r_pee_badidea"));
+                    npcSetConversationResponses(speaker, responses);
+                    break;
+                case "r_pee_goodidea":
+                    npcSpeak(speaker, new string_id(convo, "m_guard_pee_goodidea"));
+                    if (progress == CONV_CHECKGUARD) {
+                        scenario.setPlayerProgress(speaker, CONV_GUARDPEEING);
+                    }
+                    messageTo(self, "goPee", null, 2, false);
+                    setObjVar(self, "peeing", true);
+                    break;
+                case "r_pee_badidea":
+                    npcSpeak(speaker, new string_id(convo, "m_guard_pee_badidea"));
+                    if (progress == CONV_CHECKGUARD) {
+                        scenario.setPlayerProgress(speaker, CONV_GUARDHOLDINGIT);
+                    }
+                    messageTo(self, "goPee", null, 20, false);
+                    setObjVar(self, "peeing", true);
+                    break;
+                case "r_whatshappening":
+                    npcSpeak(speaker, new string_id(convo, "m_guard_needtopee"));
+                    responses = utils.addElement(responses, new string_id(convo, "r_pee_goodidea"));
+                    responses = utils.addElement(responses, new string_id(convo, "r_pee_badidea"));
+                    npcSetConversationResponses(speaker, responses);
+                    break;
             }
         }
         else if (isLeader)
         {
-            if ((aId.equals("r_m_greet_whatprisoners")))
-            {
-                scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
-                npcSpeak(speaker, new string_id(convo, "m_tellprisoners"));
-                responses = utils.addElement(responses, new string_id(convo, "r_tp_whynotkillthem"));
-                responses = utils.addElement(responses, new string_id(convo, "r_tp_bettermovethem"));
-                npcSetConversationResponses(speaker, responses);
-            }
-            else if ((aId.equals("r_tp_whynotkillthem")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_nokillthem"));
-                scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
-                responses = utils.addElement(responses, new string_id(convo, "r_anywork"));
-                npcSetConversationResponses(speaker, responses);
-            }
-            else if ((aId.equals("r_tp_bettermovethem")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_cantmovethem"));
-                scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
-                responses = utils.addElement(responses, new string_id(convo, "r_anywork"));
-                npcSetConversationResponses(speaker, responses);
-            }
-            else if ((aId.equals("r_anywork")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_checktheguard"));
-                scenario.setPlayerProgress(speaker, CONV_CHECKGUARD);
-            }
-            else if ((aId.equals("r_noillcheck")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_yeahyoudothat"));
-            }
-            else if ((aId.equals("r_hesdoingfine")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_excellent"));
-            }
-            else if ((aId.equals("r_hesonbreak")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_whatbreak"));
-            }
-            else if ((aId.equals("r_heneedsabreak")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_nobreak"));
-            }
-            else if ((aId.equals("r_prisonersplanning")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_whatbreakout"));
-                scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
-                responses = utils.addElement(responses, new string_id(convo, "r_prisonershavebomb"));
-                npcSetConversationResponses(speaker, responses);
-            }
-            else if ((aId.equals("r_prisonershavebomb")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_abomb"));
-                scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
-                responses = utils.addElement(responses, new string_id(convo, "r_distractanyway"));
-                npcSetConversationResponses(speaker, responses);
-            }
-            else if ((aId.equals("r_distractanyway")))
-            {
-                npcSpeak(speaker, new string_id(convo, "m_theplan"));
-                setObjVar(poiMaster, "sabotage", true);
-                scenario.setPlayerProgress(speaker, CONV_SABOTAGEPLAN);
+            switch (aId) {
+                case "r_m_greet_whatprisoners":
+                    scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
+                    npcSpeak(speaker, new string_id(convo, "m_tellprisoners"));
+                    responses = utils.addElement(responses, new string_id(convo, "r_tp_whynotkillthem"));
+                    responses = utils.addElement(responses, new string_id(convo, "r_tp_bettermovethem"));
+                    npcSetConversationResponses(speaker, responses);
+                    break;
+                case "r_tp_whynotkillthem":
+                    npcSpeak(speaker, new string_id(convo, "m_nokillthem"));
+                    scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
+                    responses = utils.addElement(responses, new string_id(convo, "r_anywork"));
+                    npcSetConversationResponses(speaker, responses);
+                    break;
+                case "r_tp_bettermovethem":
+                    npcSpeak(speaker, new string_id(convo, "m_cantmovethem"));
+                    scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
+                    responses = utils.addElement(responses, new string_id(convo, "r_anywork"));
+                    npcSetConversationResponses(speaker, responses);
+                    break;
+                case "r_anywork":
+                    npcSpeak(speaker, new string_id(convo, "m_checktheguard"));
+                    scenario.setPlayerProgress(speaker, CONV_CHECKGUARD);
+                    break;
+                case "r_noillcheck":
+                    npcSpeak(speaker, new string_id(convo, "m_yeahyoudothat"));
+                    break;
+                case "r_hesdoingfine":
+                    npcSpeak(speaker, new string_id(convo, "m_excellent"));
+                    break;
+                case "r_hesonbreak":
+                    npcSpeak(speaker, new string_id(convo, "m_whatbreak"));
+                    break;
+                case "r_heneedsabreak":
+                    npcSpeak(speaker, new string_id(convo, "m_nobreak"));
+                    break;
+                case "r_prisonersplanning":
+                    npcSpeak(speaker, new string_id(convo, "m_whatbreakout"));
+                    scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
+                    responses = utils.addElement(responses, new string_id(convo, "r_prisonershavebomb"));
+                    npcSetConversationResponses(speaker, responses);
+                    break;
+                case "r_prisonershavebomb":
+                    npcSpeak(speaker, new string_id(convo, "m_abomb"));
+                    scenario.setPlayerProgress(speaker, CONV_TALKMEDIATOR);
+                    responses = utils.addElement(responses, new string_id(convo, "r_distractanyway"));
+                    npcSetConversationResponses(speaker, responses);
+                    break;
+                case "r_distractanyway":
+                    npcSpeak(speaker, new string_id(convo, "m_theplan"));
+                    setObjVar(poiMaster, "sabotage", true);
+                    scenario.setPlayerProgress(speaker, CONV_SABOTAGEPLAN);
+                    break;
             }
         }
         return SCRIPT_CONTINUE;
@@ -431,15 +417,11 @@ public class mediator extends script.poi.base.scenario_actor
                 }
                 else 
                 {
-                    for (int n = 0; n < members.length; n++)
-                    {
-                        if (!badge.hasBadge(members[n], "poi_prisonbreak"))
-                        {
-                            badge.grantBadge(members[n], "poi_prisonbreak");
-                        }
-                        else 
-                        {
-                            badge.notifyHasBadge(members[n], "poi_prisonbreak");
+                    for (obj_id member : members) {
+                        if (!badge.hasBadge(member, "poi_prisonbreak")) {
+                            badge.grantBadge(member, "poi_prisonbreak");
+                        } else {
+                            badge.notifyHasBadge(member, "poi_prisonbreak");
                         }
                     }
                 }
@@ -460,11 +442,8 @@ public class mediator extends script.poi.base.scenario_actor
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < mediators.length; i++)
-            {
-                obj_id a = mediators[i];
-                if ((a == null) || (a == obj_id.NULL_ID))
-                {
+            for (obj_id a : mediators) {
+                if ((a == null) || (a == obj_id.NULL_ID)) {
                     continue;
                 }
                 messageTo(a, "celebrateVictory", null, 0, false);

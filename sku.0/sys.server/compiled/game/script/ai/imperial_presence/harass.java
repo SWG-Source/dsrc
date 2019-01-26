@@ -16,11 +16,11 @@ public class harass extends script.base_script
     public static final String SCRIPTVAR_STATUS = "harass.status";
     public static final String SCRIPTVAR_RATING = "harass.rating";
     public static final String VOL_CHECKPOINT = "volCheckPoint";
-    public static final float VOL_CHECKPOINT_RANGE = 64f;
+    public static final float VOL_CHECKPOINT_RANGE = 64.0f;
     public static final String VOL_CITY_CHECKPOINT = "volCityCheckPoint";
-    public static final float VOL_CITY_CHECKPOINT_RANGE = 25f;
+    public static final float VOL_CITY_CHECKPOINT_RANGE = 25.0f;
     public static final String VOL_DETAIN = "volDetain";
-    public static final float VOL_DETAIN_RANGE = 10f;
+    public static final float VOL_DETAIN_RANGE = 10.0f;
     public static final String STF = "imperial_presence/contraband_search";
     public static final String TBL_RANK = "datatables/faction/rank.iff";
     public static final string_id IMP_FINE_TITLE = new string_id(STF, "imp_fine_title");
@@ -180,7 +180,7 @@ public class harass extends script.base_script
             {
                 if (ai_lib.isInCombat(self))
                 {
-                    messageTo(self, "handleHarassTarget", null, 10f, false);
+                    messageTo(self, "handleHarassTarget", null, 10.0f, false);
                     return SCRIPT_CONTINUE;
                 }
                 utils.setScriptVar(self, SCRIPTVAR_TARGET, who);
@@ -197,7 +197,7 @@ public class harass extends script.base_script
                 {
                     if (ai_lib.isInCombat(self))
                     {
-                        messageTo(self, "handleHarassTarget", null, 10f, false);
+                        messageTo(self, "handleHarassTarget", null, 10.0f, false);
                         return SCRIPT_CONTINUE;
                     }
                     utils.setScriptVar(self, SCRIPTVAR_TARGET, who);
@@ -229,14 +229,14 @@ public class harass extends script.base_script
                 utils.setScriptVar(self, SCRIPTVAR_STATUS, 2);
                 dictionary d = new dictionary();
                 d.put("target", who);
-                messageTo(self, "handleReturnRequest", d, 10f, false);
+                messageTo(self, "handleReturnRequest", d, 10.0f, false);
                 break;
                 case 3:
                 chat.publicChat(self, who, new string_id(STF, "return_false_" + getFactionName(self)));
                 utils.setScriptVar(self, SCRIPTVAR_STATUS, 2);
                 dictionary d3 = new dictionary();
                 d3.put("target", who);
-                messageTo(self, "handleReturnRequest", d3, 10f, false);
+                messageTo(self, "handleReturnRequest", d3, 10.0f, false);
             }
         }
         return SCRIPT_CONTINUE;
@@ -285,7 +285,7 @@ public class harass extends script.base_script
         }
         if (ai_lib.isInCombat(self))
         {
-            messageTo(self, "handleHarassTarget", null, 10f, false);
+            messageTo(self, "handleHarassTarget", null, 10.0f, false);
             return SCRIPT_CONTINUE;
         }
         if (isIdValid(target) && target.isLoaded() && !isIncapacitated(target))
@@ -306,7 +306,7 @@ public class harass extends script.base_script
         {
             dictionary d6 = new dictionary();
             d6.put("harassTarget", target);
-            messageTo(self, "handleNewHarassTarget", d6, 10f, false);
+            messageTo(self, "handleNewHarassTarget", d6, 10.0f, false);
             return SCRIPT_CONTINUE;
         }
         enterHarassMode(self, params);
@@ -360,7 +360,7 @@ public class harass extends script.base_script
                     utils.dismountRiderJetpackCheck(target);
                 }
             }
-            messageTo(self, "followHarass", null, 1f, false);
+            messageTo(self, "followHarass", null, 1.0f, false);
             return true;
         }
         return false;
@@ -399,7 +399,7 @@ public class harass extends script.base_script
         }
         if (utils.hasScriptVar(who, "breach_protect"))
         {
-            messageTo(self, "handleCheckpointMode", null, 3f, false);
+            messageTo(self, "handleCheckpointMode", null, 3.0f, false);
             return;
         }
         int rank = pvpGetCurrentGcwRank(who);
@@ -432,7 +432,7 @@ public class harass extends script.base_script
                 utils.setScriptVar(who, "scan_successful", 1);
                 utils.setScriptVar(who, "scan_successful_2", 1);
                 utils.setScriptVar(who, "breach_protect", 1);
-                messageTo(self, "handleCheckpointMode", null, 3f, false);
+                messageTo(self, "handleCheckpointMode", null, 3.0f, false);
                 return;
             }
             else if (rand(1, 2) == 2)
@@ -441,7 +441,7 @@ public class harass extends script.base_script
                 utils.setScriptVar(who, "scan_successful", 1);
                 utils.setScriptVar(who, "scan_successful_2", 1);
                 utils.setScriptVar(who, "breach_protect", 1);
-                messageTo(self, "handleCheckpointMode", null, 3f, false);
+                messageTo(self, "handleCheckpointMode", null, 3.0f, false);
                 return;
             }
         }
@@ -457,7 +457,7 @@ public class harass extends script.base_script
             dictionary d1 = new dictionary();
             d1.put("status", 1);
             d1.put("target", who);
-            messageTo(self, "handleScanComplete", d1, 15f, false);
+            messageTo(self, "handleScanComplete", d1, 15.0f, false);
             break;
             case 2:
             chat.publicChat(self, who, new string_id(STF, "return_thank_" + getFactionName(self)));
@@ -466,7 +466,7 @@ public class harass extends script.base_script
             dictionary d2 = new dictionary();
             d2.put("status", 3);
             d2.put("target", who);
-            messageTo(self, "handleScanComplete", d2, 15f, false);
+            messageTo(self, "handleScanComplete", d2, 15.0f, false);
             break;
         }
     }
@@ -479,7 +479,7 @@ public class harass extends script.base_script
         }
         if (ai_lib.isInCombat(target))
         {
-            messageTo(self, "handleScanComplete", params, 5f, false);
+            messageTo(self, "handleScanComplete", params, 5.0f, false);
             return SCRIPT_CONTINUE;
         }
         if (isDead(self) || isIncapacitated(self))
@@ -492,7 +492,7 @@ public class harass extends script.base_script
         }
         if (isIncapacitated(target) || isDead(target))
         {
-            messageTo(self, "handleCheckpointMode", null, 3f, false);
+            messageTo(self, "handleCheckpointMode", null, 3.0f, false);
             return SCRIPT_CONTINUE;
         }
         if (utils.hasScriptVar(target, "breach_protect"))
@@ -521,7 +521,7 @@ public class harass extends script.base_script
                 chat.think(self, new string_id(STF, "not_search_you"));
                 dictionary jedi = new dictionary();
                 jedi.put("target", target);
-                messageTo(self, "handleJediMindTrick", jedi, 5f, false);
+                messageTo(self, "handleJediMindTrick", jedi, 5.0f, false);
                 return SCRIPT_CONTINUE;
             }
             else 
@@ -532,13 +532,13 @@ public class harass extends script.base_script
                 doAnimationAction(self, anims.PLAYER_SCRATCH_HEAD);
                 dictionary jedi = new dictionary();
                 jedi.put("target", target);
-                messageTo(self, "handleJediMindTrickNovice", jedi, 5f, false);
+                messageTo(self, "handleJediMindTrickNovice", jedi, 5.0f, false);
                 return SCRIPT_CONTINUE;
             }
         }
         if (group.isGrouped(target))
         {
-            Vector members = group.getPCMembersInRange(target, 35f);
+            Vector members = group.getPCMembersInRange(target, 35.0f);
             if (members != null && members.size() > 0)
             {
                 int numInGroup = members.size();
@@ -546,17 +546,13 @@ public class harass extends script.base_script
                 {
                     return SCRIPT_CONTINUE;
                 }
-                for (int i = 0; i < numInGroup; i++)
-                {
-                    obj_id thisMember = ((obj_id)members.get(i));
-                    if (hasSkill(thisMember, "class_smuggler_phase1_novice") && thisMember != (target))
-                    {
-                        if (ai_lib.checkForSmuggler(thisMember))
-                        {
+                for (Object member : members) {
+                    obj_id thisMember = ((obj_id) member);
+                    if (hasSkill(thisMember, "class_smuggler_phase1_novice") && thisMember != (target)) {
+                        if (ai_lib.checkForSmuggler(thisMember)) {
                             chat.publicChat(self, target, new string_id(STF, "clean_target_" + getFactionName(self)));
-                            if (getGender(self) == GENDER_MALE)
-                            {
-                                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0f);
+                            if (getGender(self) == GENDER_MALE) {
+                                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
                             }
                             removeTriggerVolume(VOL_DETAIN);
                             enterCheckpointMode(self);
@@ -571,7 +567,7 @@ public class harass extends script.base_script
             chat.publicChat(self, target, new string_id(STF, "clean_target_" + getFactionName(self)));
             if (getGender(self) == GENDER_MALE)
             {
-                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0f);
+                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
             }
             removeTriggerVolume(VOL_DETAIN);
             enterCheckpointMode(self);
@@ -594,7 +590,7 @@ public class harass extends script.base_script
         else 
         {
             float rating = utils.getFloatScriptVar(self, SCRIPTVAR_RATING);
-            if (rating > rand(10f, 15f))
+            if (rating > rand(10.0f, 15.0f))
             {
                 invokePenaltyAction(self, target);
                 return SCRIPT_CONTINUE;
@@ -604,7 +600,7 @@ public class harass extends script.base_script
                 chat.publicChat(self, target, new string_id(STF, "clean_target_" + getFactionName(self)));
                 if (getGender(self) == GENDER_MALE)
                 {
-                    playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0f);
+                    playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
                 }
             }
         }
@@ -649,7 +645,7 @@ public class harass extends script.base_script
             String tFac = factions.getFaction(target);
             if (isInEnemyFaction(self, target))
             {
-                penaltyAction(self, target, 50f);
+                penaltyAction(self, target, 50.0f);
                 sendSystemMessage(target, new string_id(STF, "discovered_" + getFactionName(self)));
                 attackFactionViolator(self, target, false);
                 removeTriggerVolume(VOL_DETAIN);
@@ -659,7 +655,7 @@ public class harass extends script.base_script
             else 
             {
                 sendSystemMessage(target, new string_id(STF, "ran_away_" + getFactionName(self)));
-                penaltyAction(self, target, 50f);
+                penaltyAction(self, target, 50.0f);
                 CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " lost 50 faction by running from a scan");
                 removeTriggerVolume(VOL_DETAIN);
                 enterCheckpointMode(self);
@@ -742,7 +738,7 @@ public class harass extends script.base_script
     }
     public void invokePenaltyAction(obj_id self, obj_id target, float rating) throws InterruptedException
     {
-        if (!isIdValid(self) || !isIdValid(target) || !target.isLoaded() || rating <= 0f)
+        if (!isIdValid(self) || !isIdValid(target) || !target.isLoaded() || rating <= 0.0f)
         {
             enterCheckpointMode(self);
             return;
@@ -760,7 +756,7 @@ public class harass extends script.base_script
             sendSystemMessage(target, new string_id(STF, "discovered_" + getFactionName(self)));
             chat.publicChat(self, null, null, null, reboff);
             attackFactionViolator(self, target, false);
-            messageTo(self, "handleCheckpointMode", null, 5f, false);
+            messageTo(self, "handleCheckpointMode", null, 5.0f, false);
         }
         else if (isInFriendlyFaction(self, target))
         {
@@ -768,7 +764,7 @@ public class harass extends script.base_script
             dictionary params = new dictionary();
             params.put("target", target);
             params.put("rating", rating);
-            messageTo(self, "fineImperial", params, 5f, false);
+            messageTo(self, "fineImperial", params, 5.0f, false);
             return;
         }
         else 
@@ -781,9 +777,9 @@ public class harass extends script.base_script
                 utils.moneyOutMetric(self, money.ACCT_FINES, FINE);
                 if (getGender(self) == GENDER_MALE)
                 {
-                    playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0f);
+                    playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
                 }
-                messageTo(self, "handleCheckpointMode", null, 5f, false);
+                messageTo(self, "handleCheckpointMode", null, 5.0f, false);
                 return;
             }
             else 
@@ -793,17 +789,17 @@ public class harass extends script.base_script
                 CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " was fined " + rating * 2 + " Imperial Faction Points");
                 if (getGender(self) == GENDER_MALE)
                 {
-                    playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0f);
+                    playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
                 }
-                messageTo(self, "handleCheckpointMode", null, 5f, false);
+                messageTo(self, "handleCheckpointMode", null, 5.0f, false);
                 return;
             }
         }
-        messageTo(self, "handleCheckpointMode", null, 30f, false);
+        messageTo(self, "handleCheckpointMode", null, 30.0f, false);
     }
     public void penaltyAction(obj_id self, obj_id target, float lostFaction) throws InterruptedException
     {
-        if (!isIdValid(self) || !isIdValid(target) || !target.isLoaded() || lostFaction <= 0f)
+        if (!isIdValid(self) || !isIdValid(target) || !target.isLoaded() || lostFaction <= 0.0f)
         {
             return;
         }
@@ -881,7 +877,7 @@ public class harass extends script.base_script
         {
             chat.publicChat(target, self, new string_id(STF, "failure_to_pay_" + getFactionName(self)));
             penaltyAction(target, self, rating * 2);
-            messageTo(target, "handleCheckpointMode", null, 5f, false);
+            messageTo(target, "handleCheckpointMode", null, 5.0f, false);
             return;
         }
     }
@@ -904,12 +900,12 @@ public class harass extends script.base_script
             utils.moneyOutMetric(self, money.ACCT_FINES, FINE);
             if (getGender(self) == GENDER_MALE)
             {
-                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0f);
+                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
             }
             int pidClose = utils.getIntScriptVar(target, SCRIPTVAR_FINE);
             cleanupImperialFine(target);
             sui.closeSUI(target, pidClose);
-            messageTo(self, "handleCheckpointMode", null, 5f, false);
+            messageTo(self, "handleCheckpointMode", null, 5.0f, false);
             return SCRIPT_CONTINUE;
         }
         if (bp == sui.BP_CANCEL)
@@ -919,12 +915,12 @@ public class harass extends script.base_script
             CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " was fined " + rating * 2 + " Imperial Faction Points");
             if (getGender(self) == GENDER_MALE)
             {
-                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0f);
+                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
             }
             int pidClose = utils.getIntScriptVar(target, SCRIPTVAR_FINE);
             cleanupImperialFine(target);
             sui.closeSUI(target, pidClose);
-            messageTo(self, "handleCheckpointMode", null, 5f, false);
+            messageTo(self, "handleCheckpointMode", null, 5.0f, false);
             return SCRIPT_CONTINUE;
         }
         else 
@@ -934,12 +930,12 @@ public class harass extends script.base_script
             CustomerServiceLog("CONTRABAND_SCANNING: ", "(" + target + ")" + getFirstName(target) + " was fined " + rating * 2 + " Imperial Faction Points");
             if (getGender(self) == GENDER_MALE)
             {
-                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0f);
+                playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 0.0f);
             }
             int pidClose = utils.getIntScriptVar(target, SCRIPTVAR_FINE);
             cleanupImperialFine(target);
             sui.closeSUI(target, pidClose);
-            messageTo(self, "handleCheckpointMode", null, 5f, false);
+            messageTo(self, "handleCheckpointMode", null, 5.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -950,7 +946,7 @@ public class harass extends script.base_script
         chat.publicChat(self, target, new string_id(STF, "dont_search"));
         if (getGender(self) == GENDER_MALE)
         {
-            playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2f);
+            playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2.0f);
         }
         removeTriggerVolume(VOL_DETAIN);
         enterCheckpointMode(self);
@@ -963,7 +959,7 @@ public class harass extends script.base_script
         chat.publicChat(self, target, new string_id(STF, "dont_search_dark"));
         if (getGender(self) == GENDER_MALE)
         {
-            playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2f);
+            playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2.0f);
         }
         removeTriggerVolume(VOL_DETAIN);
         enterCheckpointMode(self);
@@ -975,7 +971,7 @@ public class harass extends script.base_script
         chat.publicChat(self, target, new string_id(STF, "dont_search_novice"));
         if (getGender(self) == GENDER_MALE)
         {
-            playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2f);
+            playClientEffectLoc(target, "clienteffect/stormtrp_movealng.cef", getLocation(self), 2.0f);
         }
         removeTriggerVolume(VOL_DETAIN);
         enterCheckpointMode(self);

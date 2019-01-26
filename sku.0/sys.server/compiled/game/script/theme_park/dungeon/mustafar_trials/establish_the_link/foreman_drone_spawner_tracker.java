@@ -40,11 +40,9 @@ public class foreman_drone_spawner_tracker extends script.base_script
             doLogging("locateForeman", "Contents list was empty, exiting");
             return obj_id.NULL_ID;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasScript(contents[i], "theme_park.dungeon.mustafar_trials.establish_the_link.foreman"))
-            {
-                return contents[i];
+        for (obj_id content : contents) {
+            if (hasScript(content, "theme_park.dungeon.mustafar_trials.establish_the_link.foreman")) {
+                return content;
             }
         }
         doLogging("getForeman", "Unable to locate foreman");
@@ -73,7 +71,7 @@ public class foreman_drone_spawner_tracker extends script.base_script
             return SCRIPT_CONTINUE;
         }
         float distance = getDistance(self, foreman);
-        if (distance < 7f)
+        if (distance < 7.0f)
         {
             healForeman(self, foreman);
             return SCRIPT_CONTINUE;
@@ -103,9 +101,8 @@ public class foreman_drone_spawner_tracker extends script.base_script
             doLogging("nukeSelf", "No valid targets in blast radius");
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 2500);
+        for (obj_id target : targets) {
+            damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, 2500);
         }
         return SCRIPT_CONTINUE;
     }

@@ -142,7 +142,7 @@ public class cantina_deliver extends script.base_script
         {
             location here = getLocation(self);
             region quest = locations.getCityRegion(here);
-            location questLoc = locations.getGoodLocationOutsideOfRegion(quest, 100f, 100f, 100f);
+            location questLoc = locations.getGoodLocationOutsideOfRegion(quest, 100.0f, 100.0f, 100.0f);
             if (questLoc != null)
             {
                 target = questLoc;

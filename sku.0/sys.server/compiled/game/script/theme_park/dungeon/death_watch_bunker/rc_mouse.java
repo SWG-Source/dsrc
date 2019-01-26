@@ -84,7 +84,7 @@ public class rc_mouse extends script.base_script
         obj_id viewer = params.getObjId("player");
         location loc = getLocation(self);
         playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", loc, 0);
-        obj_id[] objects = getObjectsInRange(self, 3f);
+        obj_id[] objects = getObjectsInRange(self, 3.0f);
         if (objects == null)
         {
             destroyObject(self);
@@ -96,16 +96,12 @@ public class rc_mouse extends script.base_script
             destroyObject(self);
             return SCRIPT_CONTINUE;
         }
-        for (int x = 0; x < numObjects; x++)
-        {
-            obj_id thing = objects[x];
+        for (obj_id thing : objects) {
             String name = getTemplateName(thing);
-            if (name.equals("object/tangible/dungeon/death_watch_bunker/invulnerable_debris.iff"))
-            {
+            if (name.equals("object/tangible/dungeon/death_watch_bunker/invulnerable_debris.iff")) {
                 int spawnNum = getIntObjVar(thing, "spawn_number");
                 obj_id mom = getObjIdObjVar(thing, "mom");
-                if (mom != null && spawnNum != 0)
-                {
+                if (mom != null && spawnNum != 0) {
                     dictionary info = new dictionary();
                     info.put("spawnNumber", spawnNum);
                     info.put("spawnMob", thing);

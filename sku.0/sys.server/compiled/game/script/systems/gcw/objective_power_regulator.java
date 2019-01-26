@@ -86,7 +86,7 @@ public class objective_power_regulator extends script.faction_perk.hq.objective_
             sendSystemMessageTestingOnly(player, "You cannot align the power flow if you are not even in the same room!");
             return;
         }
-        if (getDistance(here, there) > 15f)
+        if (getDistance(here, there) > 15.0f)
         {
             sendSystemMessageTestingOnly(player, "You are too far away from the power regulator to continue the setup!");
             return;
@@ -176,9 +176,8 @@ public class objective_power_regulator extends script.faction_perk.hq.objective_
         }
         utils.setScriptVar(self, scriptvar_state, states);
         boolean litmus = true;
-        for (int i = 0; i < states.length; i++)
-        {
-            litmus &= states[i];
+        for (boolean state : states) {
+            litmus &= state;
         }
         if (litmus)
         {

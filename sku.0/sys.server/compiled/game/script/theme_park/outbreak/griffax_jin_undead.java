@@ -54,10 +54,8 @@ public class griffax_jin_undead extends script.base_script
                 obj_id[] haters = getHateList(self);
                 if (haters != null || haters.length > 0)
                 {
-                    for (int i = 0; i < haters.length; i++)
-                    {
-                        if (owner == haters[i])
-                        {
+                    for (obj_id hater : haters) {
+                        if (owner == hater) {
                             return SCRIPT_CONTINUE;
                         }
                     }

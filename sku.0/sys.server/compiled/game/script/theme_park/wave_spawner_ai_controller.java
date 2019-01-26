@@ -125,15 +125,11 @@ public class wave_spawner_ai_controller extends script.base_script
         }
         Vector myPath = new Vector();
         myPath.setSize(0);
-        for (int i = 0; i < pathList.length; i++)
-        {
-            for (int k = 0; k < wayPoints.size(); k++)
-            {
-                if (hasObjVar(((obj_id)wayPoints.get(k)), "wp_name"))
-                {
-                    if (pathList[i].equals(getStringObjVar(((obj_id)wayPoints.get(k)), "wp_name")))
-                    {
-                        utils.addElement(myPath, getLocation(((obj_id)wayPoints.get(k))));
+        for (String s : pathList) {
+            for (Object wayPoint : wayPoints) {
+                if (hasObjVar(((obj_id) wayPoint), "wp_name")) {
+                    if (s.equals(getStringObjVar(((obj_id) wayPoint), "wp_name"))) {
+                        utils.addElement(myPath, getLocation(((obj_id) wayPoint)));
                     }
                 }
             }
@@ -225,11 +221,9 @@ public class wave_spawner_ai_controller extends script.base_script
             Vector customTrigger = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_CUSTOMSIGNAL);
             if (customTrigger != null && customTrigger.size() > 0)
             {
-                for (int i = 0; i < customTrigger.size(); i++)
-                {
-                    if (((String)customTrigger.get(i)).startsWith(signalName))
-                    {
-                        executeTriggerData(self, ((String)customTrigger.get(i)).substring(signalName.length() + 1, ((String)customTrigger.get(i)).length()));
+                for (Object o : customTrigger) {
+                    if (((String) o).startsWith(signalName)) {
+                        executeTriggerData(self, ((String) o).substring(signalName.length() + 1, ((String) o).length()));
                     }
                 }
             }
@@ -243,9 +237,8 @@ public class wave_spawner_ai_controller extends script.base_script
             Vector deathTriggers = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_ONDEATH);
             if (deathTriggers != null && deathTriggers.size() > 0)
             {
-                for (int i = 0; i < deathTriggers.size(); i++)
-                {
-                    executeTriggerData(self, ((String)deathTriggers.get(i)).concat(":" + killer));
+                for (Object deathTrigger : deathTriggers) {
+                    executeTriggerData(self, ((String) deathTrigger).concat(":" + killer));
                 }
             }
         }
@@ -258,9 +251,8 @@ public class wave_spawner_ai_controller extends script.base_script
             Vector combatTriggers = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_ENTERCOMBAT);
             if (combatTriggers != null && combatTriggers.size() > 0)
             {
-                for (int i = 0; i < combatTriggers.size(); i++)
-                {
-                    executeTriggerData(self, ((String)combatTriggers.get(i)));
+                for (Object combatTrigger : combatTriggers) {
+                    executeTriggerData(self, ((String) combatTrigger));
                 }
             }
         }
@@ -277,9 +269,8 @@ public class wave_spawner_ai_controller extends script.base_script
             Vector combatTriggers = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_EXITCOMBAT);
             if (combatTriggers != null && combatTriggers.size() > 0)
             {
-                for (int i = 0; i < combatTriggers.size(); i++)
-                {
-                    executeTriggerData(self, ((String)combatTriggers.get(i)));
+                for (Object combatTrigger : combatTriggers) {
+                    executeTriggerData(self, ((String) combatTrigger));
                 }
             }
         }
@@ -292,9 +283,8 @@ public class wave_spawner_ai_controller extends script.base_script
             Vector moveTriggers = utils.getResizeableStringArrayScriptVar(self, restuss_event.TRIG_ARRIVELOCATION);
             if (moveTriggers != null && moveTriggers.size() > 0)
             {
-                for (int i = 0; i < moveTriggers.size(); i++)
-                {
-                    executeTriggerData(self, ((String)moveTriggers.get(i)));
+                for (Object moveTrigger : moveTriggers) {
+                    executeTriggerData(self, ((String) moveTrigger));
                 }
             }
         }

@@ -89,19 +89,14 @@ public class content_manager extends script.base.remote_object_creator
                     if (!strScripts[intI].equals(""))
                     {
                         String[] strScriptArray = split(strScripts[intI], ',');
-                        for (int intJ = 0; intJ < strScriptArray.length; intJ++)
-                        {
-                            if ((isIdValid(objTest)) && (objTest.isLoaded()))
-                            {
-                                String script = strScriptArray[intJ];
-                                if (script.indexOf("script.") > -1)
-                                {
+                        for (String s : strScriptArray) {
+                            if ((isIdValid(objTest)) && (objTest.isLoaded())) {
+                                String script = s;
+                                if (script.contains("script.")) {
                                     script = script.substring(7);
                                 }
-                                if (!script.equals(""))
-                                {
-                                    if (!hasScript(objTest, script))
-                                    {
+                                if (!script.equals("")) {
+                                    if (!hasScript(objTest, script)) {
                                         attachScript(objTest, script);
                                     }
                                 }

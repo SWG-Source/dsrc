@@ -31,7 +31,7 @@ public class hospital_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "rooma");
         location combatmedicloc = new location(-17.97f, 0.26f, 10.77f, "tatooine", room);
         obj_id combatmedic = create.object("trainer_combatmedic", combatmedicloc);
-        create.addDestroyMessage(combatmedic, "combatmedicDied", 10f, self);
+        create.addDestroyMessage(combatmedic, "combatmedicDied", 10.0f, self);
         setCreatureStatic(combatmedic, true);
         setInvulnerable(combatmedic, true);
         return;
@@ -41,7 +41,7 @@ public class hospital_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "rooma");
         location medicloc = new location(-16.92f, 0.26f, -0.14f, "tatooine", room);
         obj_id medic = create.object("trainer_medic", medicloc);
-        create.addDestroyMessage(medic, "medicDied", 10f, self);
+        create.addDestroyMessage(medic, "medicDied", 10.0f, self);
         setCreatureStatic(medic, true);
         setInvulnerable(medic, true);
         return;
@@ -55,7 +55,7 @@ public class hospital_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "rooma");
         location doctorloc = new location(-25.52f, 0.26f, -3.48f, "tatooine", room);
         obj_id doctor = create.object("surgical_droid_21b", doctorloc);
-        create.addDestroyMessage(doctor, "doctorDied", 10f, self);
+        create.addDestroyMessage(doctor, "doctorDied", 10.0f, self);
         attachScript(doctor, "conversation.doctor");
         setCreatureStatic(doctor, true);
         setInvulnerable(doctor, true);
@@ -70,7 +70,7 @@ public class hospital_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "roomb");
         location marksLoc = new location(27.82f, 0.26f, 6.8f, "tatooine", room);
         obj_id combatmedic = create.object("trainer_combatmedic", marksLoc);
-        create.addDestroyMessage(combatmedic, "combatmedic2Died", 10f, self);
+        create.addDestroyMessage(combatmedic, "combatmedic2Died", 10.0f, self);
         setCreatureStatic(combatmedic, true);
         setInvulnerable(combatmedic, true);
         return;
@@ -80,7 +80,7 @@ public class hospital_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "roomb");
         location medic2loc = new location(13.95f, 0.26f, 5.08f, "tatooine", room);
         obj_id medic2 = create.object("trainer_medic", medic2loc);
-        create.addDestroyMessage(medic2, "medic2Died", 10f, self);
+        create.addDestroyMessage(medic2, "medic2Died", 10.0f, self);
         setCreatureStatic(medic2, true);
         setInvulnerable(medic2, true);
         return;
@@ -94,7 +94,7 @@ public class hospital_trainer_spawner extends script.base_script
         obj_id room = getCellId(self, "roomb");
         location doctor2loc = new location(20.48f, 0.26f, -5.8f, "tatooine", room);
         obj_id doctor2 = create.object("trainer_doctor", doctor2loc);
-        create.addDestroyMessage(doctor2, "doctor2Died", 10f, self);
+        create.addDestroyMessage(doctor2, "doctor2Died", 10.0f, self);
         setCreatureStatic(doctor2, true);
         setInvulnerable(doctor2, true);
         return;

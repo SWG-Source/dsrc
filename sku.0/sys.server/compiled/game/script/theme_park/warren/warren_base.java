@@ -158,7 +158,7 @@ public class warren_base extends script.base_script
     {
         location spawnLoc = getLocation(bldg);
         spawnLoc.x = -58.56f;
-        spawnLoc.y = -76f;
+        spawnLoc.y = -76.0f;
         spawnLoc.z = -35.24f;
         spawnLoc.cell = getCellId(bldg, "smallroom54");
         obj_id escapee = create.createNpc(MIRLA_CREATURENAME, "warren_mirla.iff", spawnLoc);
@@ -272,18 +272,16 @@ public class warren_base extends script.base_script
         location spawnLoc = getLocation(bldg);
         spawnLoc.x = -54.55f;
         spawnLoc.y = -68.0f;
-        spawnLoc.z = .63f;
+        spawnLoc.z = 0.63f;
         spawnLoc.cell = getCellId(bldg, "smallroom52");
         obj_id oldDebrises[] = getContents(spawnLoc.cell);
         if (oldDebrises != null)
         {
-            for (int i = 0; i < oldDebrises.length; i++)
-            {
-                if (hasScript(oldDebrises[i], "object.destroy_message"))
-                {
-                    detachScript(oldDebrises[i], "object.destroy_message");
+            for (obj_id oldDebris : oldDebrises) {
+                if (hasScript(oldDebris, "object.destroy_message")) {
+                    detachScript(oldDebris, "object.destroy_message");
                 }
-                destroyObject(oldDebrises[i]);
+                destroyObject(oldDebris);
             }
         }
         obj_id debris = create.object("object/tangible/newbie_tutorial/debris.iff", spawnLoc);
@@ -332,11 +330,9 @@ public class warren_base extends script.base_script
         {
             return SCRIPT_OVERRIDE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "warren.keycode"))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "warren.keycode")) {
+                destroyObject(content);
                 addAllowed(self, item);
                 return SCRIPT_CONTINUE;
             }
@@ -349,10 +345,8 @@ public class warren_base extends script.base_script
         obj_id[] contents = getContents(bldg);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; ++i)
-            {
-                if (isPlayer(contents[i]) || containsPlayer(contents[i]))
-                {
+            for (obj_id content : contents) {
+                if (isPlayer(content) || containsPlayer(content)) {
                     return true;
                 }
             }

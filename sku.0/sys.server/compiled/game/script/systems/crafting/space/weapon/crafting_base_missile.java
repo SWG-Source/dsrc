@@ -12,19 +12,15 @@ public class crafting_base_missile extends script.systems.crafting.crafting_base
     }
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("fltRefireRate"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].minValue + itemAttributes[i].maxValue) - itemAttributes[i].currentValue;
+            if (((itemAttribute.name).getAsciiId()).equals("fltRefireRate")) {
+                itemAttribute.currentValue = (itemAttribute.minValue + itemAttribute.maxValue) - itemAttribute.currentValue;
             }
-            if (((itemAttributes[i].name).getAsciiId()).equals("fltRefireRate") || ((itemAttributes[i].name).getAsciiId()).equals("fltShieldEffectiveness") || ((itemAttributes[i].name).getAsciiId()).equals("fltArmorEffectiveness"))
-            {
-                itemAttributes[i].currentValue = (itemAttributes[i].currentValue * 0.001f);
+            if (((itemAttribute.name).getAsciiId()).equals("fltRefireRate") || ((itemAttribute.name).getAsciiId()).equals("fltShieldEffectiveness") || ((itemAttribute.name).getAsciiId()).equals("fltArmorEffectiveness")) {
+                itemAttribute.currentValue = (itemAttribute.currentValue * 0.001f);
             }
         }
         super.calcAndSetPrototypeProperties(prototype, itemAttributes, craftingValuesDictionary);
@@ -32,41 +28,30 @@ public class crafting_base_missile extends script.systems.crafting.crafting_base
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("fltMinDamage") || ((itemAttributes[i].name).getAsciiId()).equals("fltMinEffectiveness"))
-                {
-                    setObjVar(prototype, "fltMinDamage", (float)itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("fltMinDamage") || ((itemAttribute.name).getAsciiId()).equals("fltMinEffectiveness")) {
+                    setObjVar(prototype, "fltMinDamage", (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("fltMaxDamage") || ((itemAttributes[i].name).getAsciiId()).equals("fltMaxEffectiveness"))
-                {
-                    setObjVar(prototype, "fltMaxDamage", (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("fltMaxDamage") || ((itemAttribute.name).getAsciiId()).equals("fltMaxEffectiveness")) {
+                    setObjVar(prototype, "fltMaxDamage", (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("fltRefireRate"))
-                {
-                    setObjVar(prototype, "fltRefireRate", (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("fltRefireRate")) {
+                    setObjVar(prototype, "fltRefireRate", (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("fltShieldEffectiveness"))
-                {
-                    setObjVar(prototype, "fltShieldEffectiveness", (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("fltShieldEffectiveness")) {
+                    setObjVar(prototype, "fltShieldEffectiveness", (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("fltArmorEffectiveness"))
-                {
-                    setObjVar(prototype, "fltArmorEffectiveness", (float)itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("fltArmorEffectiveness")) {
+                    setObjVar(prototype, "fltArmorEffectiveness", (float) itemAttribute.currentValue);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("fltMaxAmmo"))
-                {
-                    setCount(prototype, (int)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+                if (((itemAttribute.name).getAsciiId()).equals("fltMaxAmmo")) {
+                    setCount(prototype, (int) itemAttribute.currentValue);
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 }
             }
         }

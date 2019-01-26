@@ -149,7 +149,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
         sendSystemMessage(player, NEW_DNA_SAMPLE);
         dictionary d = new dictionary();
         d.put("player", player);
-        messageTo(self, "handleSequenceDelay", d, 3f, false);
+        messageTo(self, "handleSequenceDelay", d, 3.0f, false);
     }
     private void doSequencing(obj_id self, obj_id player) throws InterruptedException
     {
@@ -169,7 +169,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
             sendSystemMessage(player, NOT_SAME_ROOM);
             return;
         }
-        if (getDistance(here, there) > 15f)
+        if (getDistance(here, there) > 15.0f)
         {
             sendSystemMessage(player, OVERRIDE_TOO_FAR);
             return;
@@ -321,7 +321,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
         sendSystemMessage(player, NEW_DNA_SAMPLE);
         dictionary d = new dictionary();
         d.put("player", player);
-        messageTo(self, "handleSequenceDelay", d, 3f, false);
+        messageTo(self, "handleSequenceDelay", d, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleSequenceDelay(obj_id self, dictionary params) throws InterruptedException

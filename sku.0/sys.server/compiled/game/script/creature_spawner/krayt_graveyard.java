@@ -20,7 +20,7 @@ public class krayt_graveyard extends script.base_script
         obj_id self = getSelf();
         if (!hasObjVar(self, "Krayt"))
         {
-            obj_id kd = create.object("canyon_krayt_dragon", locations.getGoodLocationAroundLocation(getLocation(self), 100f, 100f, 100f, 100f));
+            obj_id kd = create.object("canyon_krayt_dragon", locations.getGoodLocationAroundLocation(getLocation(self), 100.0f, 100.0f, 100.0f, 100.0f));
             setObjVar(kd, "creater", self);
             setObjVar(self, "Krayt", kd);
             attachScript(kd, "creature_spawner.death_msg");

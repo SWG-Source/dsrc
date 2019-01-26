@@ -162,11 +162,9 @@ public class rebel_lyda extends script.base_script
     public int cleanup(obj_id self, dictionary params) throws InterruptedException
     {
         Vector objectList = getResizeableObjIdArrayObjVar(self, "coa2.rebel.obj_list");
-        for (int i = 0; i < objectList.size(); i++)
-        {
-            if (isIdValid(((obj_id)objectList.get(i))))
-            {
-                destroyObject(((obj_id)objectList.get(i)));
+        for (Object o : objectList) {
+            if (isIdValid(((obj_id) o))) {
+                destroyObject(((obj_id) o));
             }
         }
         destroyObject(self);

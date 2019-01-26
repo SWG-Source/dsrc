@@ -80,32 +80,26 @@ public class pvp_spec_ops_imperial_armor_dye_kit extends script.base_script
         obj_id[] equippedItems = metrics.getWornItems(player);
         if (equippedItems != null && equippedItems.length > 0)
         {
-            for (int i = 0; i < equippedItems.length; i++)
-            {
-                String name = getStaticItemName(equippedItems[i]);
-                if (name == null || name.equals(""))
-                {
+            for (obj_id equippedItem : equippedItems) {
+                String name = getStaticItemName(equippedItem);
+                if (name == null || name.equals("")) {
                     continue;
                 }
-                if (name.startsWith("armor_pvp_spec_ops_imperial"))
-                {
-                    wornItems.addElement(equippedItems[i]);
+                if (name.startsWith("armor_pvp_spec_ops_imperial")) {
+                    wornItems.addElement(equippedItem);
                 }
             }
         }
         obj_id[] invItems = utils.getContents(utils.getInventoryContainer(player), true);
         if (invItems != null && invItems.length > 0)
         {
-            for (int i = 0; i < invItems.length; i++)
-            {
-                String name = getStaticItemName(invItems[i]);
-                if (name == null || name.equals(""))
-                {
+            for (obj_id invItem : invItems) {
+                String name = getStaticItemName(invItem);
+                if (name == null || name.equals("")) {
                     continue;
                 }
-                if (name.startsWith("armor_pvp_spec_ops_imperial"))
-                {
-                    items.addElement(invItems[i]);
+                if (name.startsWith("armor_pvp_spec_ops_imperial")) {
+                    items.addElement(invItem);
                 }
             }
         }
@@ -120,9 +114,8 @@ public class pvp_spec_ops_imperial_armor_dye_kit extends script.base_script
         Vector armorNames = new Vector();
         if (!wornItems.isEmpty())
         {
-            for (int i = 0; i < wornItems.size(); i++)
-            {
-                obj_id piece = (obj_id)wornItems.get(i);
+            for (Object wornItem : wornItems) {
+                obj_id piece = (obj_id) wornItem;
                 utils.setScriptVar(piece, "imppvp_worn", 1);
                 armor.addElement(piece);
                 String name = "@" + getName(piece) + "  ( @tool/customizer:imppvp_worn )";
@@ -131,9 +124,8 @@ public class pvp_spec_ops_imperial_armor_dye_kit extends script.base_script
         }
         if (!items.isEmpty())
         {
-            for (int i = 0; i < items.size(); i++)
-            {
-                obj_id piece = (obj_id)items.get(i);
+            for (Object item : items) {
+                obj_id piece = (obj_id) item;
                 armor.addElement(piece);
                 String name = "@" + getName(piece);
                 armorNames.addElement(name);
@@ -277,9 +269,8 @@ public class pvp_spec_ops_imperial_armor_dye_kit extends script.base_script
         obj_id[] equippedItems = metrics.getWornItems(player);
         if (equippedItems != null && equippedItems.length > 0)
         {
-            for (int i = 0; i < equippedItems.length; i++)
-            {
-                utils.removeScriptVar(equippedItems[i], "imppvp_worn");
+            for (obj_id equippedItem : equippedItems) {
+                utils.removeScriptVar(equippedItem, "imppvp_worn");
             }
         }
     }
@@ -290,11 +281,9 @@ public class pvp_spec_ops_imperial_armor_dye_kit extends script.base_script
         String color = null;
         if (name.startsWith("armor_pvp_spec_ops_imperial_black_chest") || name.startsWith("armor_pvp_spec_ops_imperial_white_chest"))
         {
-            for (int i = 0; i < ARMOR_TYPES.length; i++)
-            {
-                if (name.indexOf(ARMOR_TYPES[i]) > -1)
-                {
-                    type = ARMOR_TYPES[i];
+            for (String armorType : ARMOR_TYPES) {
+                if (name.contains(armorType)) {
+                    type = armorType;
                 }
             }
             switch (idx)
@@ -344,11 +333,9 @@ public class pvp_spec_ops_imperial_armor_dye_kit extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < ARMOR_TYPES.length; i++)
-            {
-                if (name.indexOf(ARMOR_TYPES[i]) > -1)
-                {
-                    type = ARMOR_TYPES[i];
+            for (String armorType : ARMOR_TYPES) {
+                if (name.contains(armorType)) {
+                    type = armorType;
                 }
             }
             switch (idx)

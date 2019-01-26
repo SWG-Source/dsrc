@@ -43,7 +43,7 @@ public class launcher extends script.base_script
             return SCRIPT_CONTINUE;
         }
         location here = getLocation(self);
-        location there = utils.getRandomLocationInRing(here, 0.5f, 1f);
+        location there = utils.getRandomLocationInRing(here, 0.5f, 1.0f);
         if (there == null)
         {
             there = (location)here.clone();

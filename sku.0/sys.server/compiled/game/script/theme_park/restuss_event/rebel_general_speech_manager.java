@@ -21,10 +21,8 @@ public class rebel_general_speech_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 messageTo(self, "speechOne", null, 20, false);
             }
         }
@@ -38,10 +36,8 @@ public class rebel_general_speech_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 messageTo(self, "speechOne", null, 20, false);
             }
         }
@@ -56,10 +52,8 @@ public class rebel_general_speech_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 chat.chat(self, strSpeech1);
                 doAnimationAction(self, "explain");
                 messageTo(self, "speechTwo", null, 10, false);
@@ -76,10 +70,8 @@ public class rebel_general_speech_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 chat.chat(self, strSpeech2);
                 messageTo(self, "speechThree", null, 10, false);
             }
@@ -95,10 +87,8 @@ public class rebel_general_speech_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 chat.chat(self, strSpeech3);
                 messageTo(self, "speechFour", null, 10, false);
             }
@@ -114,10 +104,8 @@ public class rebel_general_speech_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 chat.chat(self, strSpeech4);
                 messageTo(self, "speechFive", null, 10, false);
             }
@@ -133,10 +121,8 @@ public class rebel_general_speech_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 chat.chat(self, strSpeech5);
                 doAnimationAction(self, "pound_fist_palm");
                 messageTo(self, "speechSix", null, 7, false);
@@ -153,19 +139,15 @@ public class rebel_general_speech_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (isPlayer(contents[i]))
-            {
+        for (obj_id content : contents) {
+            if (isPlayer(content)) {
                 chat.chat(self, strSpeech6);
                 doAnimationAction(self, "salute1");
-                buff.applyBuff(contents[i], "restuss_rebel_general_speech");
+                buff.applyBuff(content, "restuss_rebel_general_speech");
                 messageTo(self, "speechOne", null, 240, false);
-                if (!groundquests.hasCompletedQuest(contents[i], "restuss_rebel_atst"))
-                {
-                    if (!groundquests.isQuestActive(contents[i], "restuss_rebel_atst"))
-                    {
-                        groundquests.grantQuest(contents[i], "restuss_rebel_atst");
+                if (!groundquests.hasCompletedQuest(content, "restuss_rebel_atst")) {
+                    if (!groundquests.isQuestActive(content, "restuss_rebel_atst")) {
+                        groundquests.grantQuest(content, "restuss_rebel_atst");
                     }
                 }
             }

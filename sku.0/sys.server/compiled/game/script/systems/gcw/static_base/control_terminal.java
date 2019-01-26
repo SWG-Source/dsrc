@@ -246,12 +246,12 @@ public class control_terminal extends script.base_script
             }
             if ((getGameTime() - lastMessageTime) > 1800)
             {
-                sendFactionalSystemMessagePlanet(message, null, -1f, true, true);
+                sendFactionalSystemMessagePlanet(message, null, -1.0f, true, true);
                 setObjVar(master, VAR_LAST_MESSAGE, getGameTime());
             }
             pp = prose.setTT(pp, player);
             pp = prose.setTU(pp, self);
-            sendFactionalSystemMessagePlanet(pp, masterLoc, 200f, true, true);
+            sendFactionalSystemMessagePlanet(pp, masterLoc, 200.0f, true, true);
         }
         else 
         {

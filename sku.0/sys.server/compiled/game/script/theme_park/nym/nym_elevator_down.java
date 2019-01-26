@@ -52,7 +52,7 @@ public class nym_elevator_down extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        warpPlayer(player, "lok", 0f, 0f, 0f, strongHoldLobby, 0f, 8.9f, -32.0f);
+        warpPlayer(player, "lok", 0.0f, 0.0f, 0.0f, strongHoldLobby, 0.0f, 8.9f, -32.0f);
         return SCRIPT_CONTINUE;
     }
     public int makeElevatorWork(obj_id self, dictionary params) throws InterruptedException

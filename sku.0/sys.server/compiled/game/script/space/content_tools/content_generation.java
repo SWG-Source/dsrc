@@ -85,16 +85,14 @@ public class content_generation extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id[] objObjects = getObjectsInRange(self, 32000);
-        for (int intI = 0; intI < objObjects.length; intI++)
-        {
-            if (isDumpable(objObjects[intI], false))
-            {
-                transform vctTest = getTransform_o2p(objObjects[intI]);
+        for (obj_id objObject : objObjects) {
+            if (isDumpable(objObject, false)) {
+                transform vctTest = getTransform_o2p(objObject);
                 vector vctJ = vctTest.getLocalFrameJ_p();
                 vector vctK = vctTest.getLocalFrameK_p();
                 vector vctP = vctTest.getPosition_p();
                 dictionary dctRow = new dictionary();
-                dctRow.put("strObject", getTemplateName(objObjects[intI]));
+                dctRow.put("strObject", getTemplateName(objObject));
                 dctRow.put("fltJX", vctJ.x);
                 dctRow.put("fltJY", vctJ.y);
                 dctRow.put("fltJZ", vctJ.z);
@@ -104,9 +102,9 @@ public class content_generation extends script.base_script
                 dctRow.put("fltPX", vctP.x);
                 dctRow.put("fltPY", vctP.y);
                 dctRow.put("fltPZ", vctP.z);
-                String strObjVars = getPackedObjvars(objObjects[intI]);
+                String strObjVars = getPackedObjvars(objObject);
                 dctRow.put("strObjVars", strObjVars);
-                String strScripts = utils.getPackedScripts(objObjects[intI]);
+                String strScripts = utils.getPackedScripts(objObject);
                 dctRow.put("strScripts", strScripts);
                 datatable.serverDataTableAddRow(strDataTable, dctRow);
             }
@@ -122,26 +120,17 @@ public class content_generation extends script.base_script
             obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/tangible/space/content_infrastructure/basic_spawner.iff");
             if (objTestObjects != null)
             {
-                for (int intI = 0; intI < objTestObjects.length; intI++)
-                {
-                    if (!hasObjVar(objTestObjects[intI], "strSpawns_mangled"))
-                    {
-                        sendSystemMessageTestingOnly(self, "Fucked spawner at " + objTestObjects[intI] + " no spawn list");
-                    }
-                    else 
-                    {
-                        String[] strSpawns = objvar_mangle.getMangledStringArrayObjVar(objTestObjects[intI], "strSpawns");
-                        if (strSpawns == null)
-                        {
-                            sendSystemMessageTestingOnly(self, "strSpawns is null on " + objTestObjects[intI]);
-                        }
-                        else 
-                        {
-                            for (int intJ = 0; intJ < strSpawns.length; intJ++)
-                            {
-                                if (!isValidMobString(strSpawns[intJ]))
-                                {
-                                    sendSystemMessageTestingOnly(self, objTestObjects[intI] + " is a bad spawner. Type is " + strSpawns[intJ]);
+                for (obj_id objTestObject : objTestObjects) {
+                    if (!hasObjVar(objTestObject, "strSpawns_mangled")) {
+                        sendSystemMessageTestingOnly(self, "Fucked spawner at " + objTestObject + " no spawn list");
+                    } else {
+                        String[] strSpawns = objvar_mangle.getMangledStringArrayObjVar(objTestObject, "strSpawns");
+                        if (strSpawns == null) {
+                            sendSystemMessageTestingOnly(self, "strSpawns is null on " + objTestObject);
+                        } else {
+                            for (String strSpawn : strSpawns) {
+                                if (!isValidMobString(strSpawn)) {
+                                    sendSystemMessageTestingOnly(self, objTestObject + " is a bad spawner. Type is " + strSpawn);
                                 }
                             }
                         }
@@ -158,13 +147,11 @@ public class content_generation extends script.base_script
         if (strCommands[0].equals("checkPatrol"))
         {
             obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/tangible/space/content_infrastructure/basic_spawner.iff");
-            for (int intI = 0; intI < objTestObjects.length; intI++)
-            {
-                transform[] trPatrolPoints = utils.getTransformArrayScriptVar(objTestObjects[intI], "trPatrolPoints");
-                if (trPatrolPoints == null)
-                {
-                    sendSystemMessageTestingOnly(self, "" + objTestObjects[intI]);
-                    deltadictionary foo = objTestObjects[intI].getScriptVars();
+            for (obj_id objTestObject : objTestObjects) {
+                transform[] trPatrolPoints = utils.getTransformArrayScriptVar(objTestObject, "trPatrolPoints");
+                if (trPatrolPoints == null) {
+                    sendSystemMessageTestingOnly(self, "" + objTestObject);
+                    deltadictionary foo = objTestObject.getScriptVars();
                     LOG("space", "foo is " + foo.toString());
                 }
             }
@@ -182,24 +169,18 @@ public class content_generation extends script.base_script
             strZones[7] = "space_naboo";
             strZones[8] = "space_tatooine";
             strZones[9] = "space_yavin4";
-            for (int intM = 0; intM < strZones.length; intM++)
-            {
-                String strFileName = "datatables/space_zones/buildout/" + strZones[intM] + ".iff";
+            for (String strZone : strZones) {
+                String strFileName = "datatables/space_zones/buildout/" + strZone + ".iff";
                 String[] strObject = dataTableGetStringColumn(strFileName, "strObject");
                 String[] strObjVars = dataTableGetStringColumn(strFileName, "strObjVars");
-                for (int intI = 0; intI < strObject.length; intI++)
-                {
-                    if (strObject[intI].equals("object/tangible/space/content_infrastructure/basic_spawner.iff"))
-                    {
+                for (int intI = 0; intI < strObject.length; intI++) {
+                    if (strObject[intI].equals("object/tangible/space/content_infrastructure/basic_spawner.iff")) {
                         obj_id objTest = createObject(strObject[intI], getLocation(self));
                         setPackedObjvars(objTest, strObjVars[intI]);
                         String[] strSpawns = objvar_mangle.getMangledStringArrayObjVar(objTest, "strSpawns");
-                        if (strSpawns == null)
-                        {
-                            LOG("space", "For zone " + strZones[intM] + " entry " + intI + " spawner " + getStringObjVar(objTest, "strName") + " bad spawns");
-                        }
-                        else 
-                        {
+                        if (strSpawns == null) {
+                            LOG("space", "For zone " + strZone + " entry " + intI + " spawner " + getStringObjVar(objTest, "strName") + " bad spawns");
+                        } else {
                             LOG("space", "aokay!");
                         }
                         destroyObject(objTest);
@@ -404,11 +385,9 @@ public class content_generation extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             obj_id[] objTestObjects = getAllObjectsWithScript(getLocation(self), 320000, "space.combat.combat_ship");
-            for (int intI = 0; intI < objTestObjects.length; intI++)
-            {
-                if (!space_utils.isPlayerControlledShip(objTestObjects[intI]))
-                {
-                    obj_id objShip = objTestObjects[intI];
+            for (obj_id objTestObject : objTestObjects) {
+                if (!space_utils.isPlayerControlledShip(objTestObject)) {
+                    obj_id objShip = objTestObject;
                     ship_ai.unitSetPilotType(objShip, dctShipInfo.getString("strPilotType"));
                     setShipEngineAccelerationRate(objShip, dctShipInfo.getFloat("engine_accel"));
                     setShipEngineDecelerationRate(objShip, dctShipInfo.getFloat("engine_decel"));
@@ -423,8 +402,7 @@ public class content_generation extends script.base_script
                     setShipEngineSpeedRotationFactorMinimum(objShip, dctShipInfo.getFloat("speed_rotation_factor_min"));
                     setShipEngineSpeedRotationFactorOptimal(objShip, dctShipInfo.getFloat("speed_rotation_factor_optimal"));
                     setShipSlideDampener(objShip, dctShipInfo.getFloat("slideDamp"));
-                    if (isShipSlotInstalled(objShip, space_crafting.BOOSTER))
-                    {
+                    if (isShipSlotInstalled(objShip, space_crafting.BOOSTER)) {
                         setShipBoosterEnergyCurrent(objShip, dctShipInfo.getFloat("booster_energy"));
                         setShipBoosterEnergyMaximum(objShip, dctShipInfo.getFloat("booster_energy"));
                         setShipBoosterEnergyRechargeRate(objShip, dctShipInfo.getFloat("booster_recharge"));
@@ -462,15 +440,12 @@ public class content_generation extends script.base_script
                 {
                     obj_id[] objObjects = getObjectsInRange(self, 32000);
                     sendSystemMessageTestingOnly(self, "Destroying world");
-                    for (int intI = 0; intI < objObjects.length; intI++)
-                    {
-                        if (!isPlayer(objObjects[intI]))
-                        {
-                            if (hasObjVar(objObjects[intI], "objParent"))
-                            {
-                                setObjVar(objObjects[intI], "intCleaningUp", 1);
-                                removeObjVar(objObjects[intI], "objParent");
-                                destroyObject(objObjects[intI]);
+                    for (obj_id objObject : objObjects) {
+                        if (!isPlayer(objObject)) {
+                            if (hasObjVar(objObject, "objParent")) {
+                                setObjVar(objObject, "intCleaningUp", 1);
+                                removeObjVar(objObject, "objParent");
+                                destroyObject(objObject);
                             }
                         }
                     }
@@ -481,13 +456,11 @@ public class content_generation extends script.base_script
         {
             String strFileName = "datatables/space_loot/loot_items.iff";
             String[] strColumns = dataTableGetColumnNames(strFileName);
-            for (int intI = 0; intI < strColumns.length; intI++)
-            {
-                String[] strItems = dataTableGetStringColumnNoDefaults(strFileName, strColumns[intI]);
-                for (int intJ = 0; intJ < strItems.length; intJ++)
-                {
-                    obj_id objItem = createObject(strItems[intJ], getLocation(self));
-                    checkComponentValidity(objItem, strItems[intJ], strColumns[intI], self);
+            for (String strColumn : strColumns) {
+                String[] strItems = dataTableGetStringColumnNoDefaults(strFileName, strColumn);
+                for (String strItem : strItems) {
+                    obj_id objItem = createObject(strItem, getLocation(self));
+                    checkComponentValidity(objItem, strItem, strColumn, self);
                 }
             }
         }
@@ -720,9 +693,8 @@ public class content_generation extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             String[] strTypes = dataTableGetStringColumnNoDefaults("datatables/space_crafting/interior_component_lookup.iff", "strManagerName");
-            for (int intI = 0; intI < strTypes.length; intI++)
-            {
-                strData = strData + strTypes[intI] + "\n";
+            for (String strType : strTypes) {
+                strData = strData + strType + "\n";
             }
             sui.inputbox(self, self, "What type of interior component would you like? Valid types are :\n" + strData, sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "createInteriorComponent", null);
         }
@@ -741,9 +713,8 @@ public class content_generation extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             String[] strCells = getCellNames(objShip);
-            for (int intI = 0; intI < strCells.length; intI++)
-            {
-                strData = strData + strCells[intI] + "\n";
+            for (String strCell : strCells) {
+                strData = strData + strCell + "\n";
             }
             sui.inputbox(self, self, "What cell should this panel lock? Valid Cell names are :\n" + strData, sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "specifyCellToLock", null);
         }
@@ -902,31 +873,27 @@ public class content_generation extends script.base_script
             }
             obj_id[] objObjects = getShipContents(objShip);
             sendSystemMessageTestingOnly(self, "dumping contents of " + objShip);
-            for (int intI = 0; intI < objObjects.length; intI++)
-            {
+            for (obj_id objObject : objObjects) {
                 LOG("space", "dumping " + objObjects);
-                if (isDumpable(objObjects[intI], true))
-                {
+                if (isDumpable(objObject, true)) {
                     dictionary dctRow = new dictionary();
                     int intNoCreate = 0;
-                    locTest = getLocation(objObjects[intI]);
-                    String strTemplate = getTemplateName(objObjects[intI]);
+                    locTest = getLocation(objObject);
+                    String strTemplate = getTemplateName(objObject);
                     float fltX = locTest.x;
                     float fltY = locTest.y;
                     float fltZ = locTest.z;
                     String strCellName = space_utils.getCellName(objShip, locTest.cell);
-                    if (hasObjVar(objObjects[intI], "intNoCreate"))
-                    {
+                    if (hasObjVar(objObject, "intNoCreate")) {
                         intNoCreate = 1;
                     }
                     String strLocationList = "";
-                    if (hasObjVar(objObjects[intI], "strLocationList"))
-                    {
-                        strLocationList = getStringObjVar(objObjects[intI], "strLocationList");
+                    if (hasObjVar(objObject, "strLocationList")) {
+                        strLocationList = getStringObjVar(objObject, "strLocationList");
                     }
                     dctRow.put("strLocationList", strLocationList);
                     dctRow.put("intNoCreate", intNoCreate);
-                    transform vctTest = getTransform_o2p(objObjects[intI]);
+                    transform vctTest = getTransform_o2p(objObject);
                     vector vctJ = vctTest.getLocalFrameJ_p();
                     vector vctK = vctTest.getLocalFrameK_p();
                     vector vctP = vctTest.getPosition_p();
@@ -941,9 +908,9 @@ public class content_generation extends script.base_script
                     dctRow.put("fltPZ", vctP.z);
                     dctRow.put("strCellName", strCellName);
                     dctRow.put("strTemplate", strTemplate);
-                    String strObjVars = getPackedObjvars(objObjects[intI]);
+                    String strObjVars = getPackedObjvars(objObject);
                     dctRow.put("strObjVars", strObjVars);
-                    String strScripts = utils.getPackedScripts(objObjects[intI]);
+                    String strScripts = utils.getPackedScripts(objObject);
                     dctRow.put("strScripts", strScripts);
                     datatable.serverDataTableAddRow(strDataTable, dctRow);
                 }
@@ -1058,17 +1025,15 @@ public class content_generation extends script.base_script
             }
             sendSystemMessageTestingOnly(self, "Datatable is " + strDataTable);
             obj_id[] objObjects = getObjectsInRange(self, 32000);
-            for (int intI = 0; intI < objObjects.length; intI++)
-            {
-                if (isGroundDumpable(objObjects[intI], false))
-                {
-                    transform trTest = getTransform_o2p(objObjects[intI]);
+            for (obj_id objObject : objObjects) {
+                if (isGroundDumpable(objObject, false)) {
+                    transform trTest = getTransform_o2p(objObject);
                     trTest = trTest.reorthonormalize();
                     vector vctJ = trTest.getLocalFrameJ_p();
                     vector vctK = trTest.getLocalFrameK_p();
                     vector vctP = trTest.getPosition_p();
                     dictionary dctRow = new dictionary();
-                    dctRow.put("strObject", getTemplateName(objObjects[intI]));
+                    dctRow.put("strObject", getTemplateName(objObject));
                     dctRow.put("fltJX", vctJ.x);
                     dctRow.put("fltJY", vctJ.y);
                     dctRow.put("fltJZ", vctJ.z);
@@ -1078,9 +1043,9 @@ public class content_generation extends script.base_script
                     dctRow.put("fltPX", vctP.x);
                     dctRow.put("fltPY", vctP.y);
                     dctRow.put("fltPZ", vctP.z);
-                    String strObjVars = getPackedObjvars(objObjects[intI]);
+                    String strObjVars = getPackedObjvars(objObject);
                     dctRow.put("strObjVars", strObjVars);
-                    String strScripts = utils.getPackedScripts(objObjects[intI]);
+                    String strScripts = utils.getPackedScripts(objObject);
                     dctRow.put("strScripts", strScripts);
                     datatable.serverDataTableAddRow(strDataTable, dctRow);
                 }
@@ -1145,17 +1110,15 @@ public class content_generation extends script.base_script
             }
             sendSystemMessageTestingOnly(self, "Datatable is " + strDataTable);
             obj_id[] objObjects = getObjectsInRange(self, 32000);
-            for (int intI = 0; intI < objObjects.length; intI++)
-            {
-                if (isDumpable(objObjects[intI], false))
-                {
-                    transform trTest = getTransform_o2p(objObjects[intI]);
+            for (obj_id objObject : objObjects) {
+                if (isDumpable(objObject, false)) {
+                    transform trTest = getTransform_o2p(objObject);
                     trTest = trTest.reorthonormalize();
                     vector vctJ = trTest.getLocalFrameJ_p();
                     vector vctK = trTest.getLocalFrameK_p();
                     vector vctP = trTest.getPosition_p();
                     dictionary dctRow = new dictionary();
-                    dctRow.put("strObject", getTemplateName(objObjects[intI]));
+                    dctRow.put("strObject", getTemplateName(objObject));
                     dctRow.put("fltJX", vctJ.x);
                     dctRow.put("fltJY", vctJ.y);
                     dctRow.put("fltJZ", vctJ.z);
@@ -1165,9 +1128,9 @@ public class content_generation extends script.base_script
                     dctRow.put("fltPX", vctP.x);
                     dctRow.put("fltPY", vctP.y);
                     dctRow.put("fltPZ", vctP.z);
-                    String strObjVars = getPackedObjvars(objObjects[intI]);
+                    String strObjVars = getPackedObjvars(objObject);
                     dctRow.put("strObjVars", strObjVars);
-                    String strScripts = utils.getPackedScripts(objObjects[intI]);
+                    String strScripts = utils.getPackedScripts(objObject);
                     dctRow.put("strScripts", strScripts);
                     datatable.serverDataTableAddRow(strDataTable, dctRow);
                 }
@@ -1269,22 +1232,18 @@ public class content_generation extends script.base_script
             if (strCommands[1].equals("manglor"))
             {
                 obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/tangible/space/content_infrastructure/basic_spawner.iff");
-                for (int intI = 0; intI < objTestObjects.length; intI++)
-                {
-                    if (hasObjVar(objTestObjects[intI], "strPatrolPoints"))
-                    {
-                        String[] strTest = getStringArrayObjVar(objTestObjects[intI], "strPatrolPoints");
-                        objvar_mangle.setMangledStringArrayObjVar(objTestObjects[intI], "strPatrolPoints", strTest);
+                for (obj_id objTestObject : objTestObjects) {
+                    if (hasObjVar(objTestObject, "strPatrolPoints")) {
+                        String[] strTest = getStringArrayObjVar(objTestObject, "strPatrolPoints");
+                        objvar_mangle.setMangledStringArrayObjVar(objTestObject, "strPatrolPoints", strTest);
                     }
-                    if (hasObjVar(objTestObjects[intI], "strWaves"))
-                    {
-                        String[] strTest = getStringArrayObjVar(objTestObjects[intI], "strWaves");
-                        objvar_mangle.setMangledStringArrayObjVar(objTestObjects[intI], "strWaves", strTest);
+                    if (hasObjVar(objTestObject, "strWaves")) {
+                        String[] strTest = getStringArrayObjVar(objTestObject, "strWaves");
+                        objvar_mangle.setMangledStringArrayObjVar(objTestObject, "strWaves", strTest);
                     }
-                    if (hasObjVar(objTestObjects[intI], "strSpawns"))
-                    {
-                        String[] strTest = getStringArrayObjVar(objTestObjects[intI], "strSpawns");
-                        objvar_mangle.setMangledStringArrayObjVar(objTestObjects[intI], "strSpawns", strTest);
+                    if (hasObjVar(objTestObject, "strSpawns")) {
+                        String[] strTest = getStringArrayObjVar(objTestObject, "strSpawns");
+                        objvar_mangle.setMangledStringArrayObjVar(objTestObject, "strSpawns", strTest);
                     }
                 }
             }
@@ -1293,14 +1252,11 @@ public class content_generation extends script.base_script
         if (strCommands[0].equals("findBadPatrolSpawners"))
         {
             obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/tangible/space/content_infrastructure/basic_spawner.iff");
-            for (int intI = 0; intI < objTestObjects.length; intI++)
-            {
-                String strDefaultBehavior = getStringObjVar(objTestObjects[intI], "strDefaultBehavior");
-                if ((strDefaultBehavior.equals("patrol")) || (strDefaultBehavior.equals("patrolNoRecycle")))
-                {
-                    if (!hasObjVar(objTestObjects[intI], "strPatrolPoints_mangled"))
-                    {
-                        sendSystemMessageTestingOnly(self, "Object " + objTestObjects[intI] + " at " + getLocation(objTestObjects[intI]) + " is fucked up");
+            for (obj_id objTestObject : objTestObjects) {
+                String strDefaultBehavior = getStringObjVar(objTestObject, "strDefaultBehavior");
+                if ((strDefaultBehavior.equals("patrol")) || (strDefaultBehavior.equals("patrolNoRecycle"))) {
+                    if (!hasObjVar(objTestObject, "strPatrolPoints_mangled")) {
+                        sendSystemMessageTestingOnly(self, "Object " + objTestObject + " at " + getLocation(objTestObject) + " is fucked up");
                     }
                 }
             }
@@ -1320,10 +1276,9 @@ public class content_generation extends script.base_script
         {
             obj_id[] objTestObjects = getObjectsInRange(getLocation(self), 320000);
             sendSystemMessageTestingOnly(self, "Notifying " + objTestObjects.length);
-            for (int intI = 0; intI < objTestObjects.length; intI++)
-            {
+            for (obj_id objTestObject : objTestObjects) {
                 Object[] newParams = new Object[1];
-                newParams[0] = objTestObjects[intI];
+                newParams[0] = objTestObject;
                 space_utils.callTrigger("OnPreloadComplete", newParams);
             }
             sendSystemMessageTestingOnly(self, "Reset zone");
@@ -1345,15 +1300,12 @@ public class content_generation extends script.base_script
             String strSpawnerNames = strCommands[1];
             obj_id[] objTestObjects = getAllObjectsWithTemplate(getLocation(self), 320000, "object/tangible/space/content_infrastructure/basic_patrol_point.iff");
             int intCount = 0;
-            for (int intI = 0; intI < objTestObjects.length; intI++)
-            {
-                if (hasObjVar(objTestObjects[intI], "strName"))
-                {
-                    String strName = getStringObjVar(objTestObjects[intI], "strName");
+            for (obj_id objTestObject : objTestObjects) {
+                if (hasObjVar(objTestObject, "strName")) {
+                    String strName = getStringObjVar(objTestObject, "strName");
                     int intIndex = strName.indexOf(strSpawnerNames);
                     LOG("space", "strName is " + strName + " and Index is " + intIndex);
-                    if (intIndex > -1)
-                    {
+                    if (intIndex > -1) {
                         intCount = intCount + 1;
                     }
                 }
@@ -1368,9 +1320,8 @@ public class content_generation extends script.base_script
                     strPatrolPoints[intI] = strSpawnerNames + "_" + intFoo;
                     LOG("space", "adding " + strSpawnerNames + "_" + intFoo);
                 }
-                for (int intI = 0; intI < strPatrolPoints.length; intI++)
-                {
-                    sendSystemMessageTestingOnly(self, "Grabbed " + strPatrolPoints[intI]);
+                for (String strPatrolPoint : strPatrolPoints) {
+                    sendSystemMessageTestingOnly(self, "Grabbed " + strPatrolPoint);
                 }
                 if ((strCommands.length > 2) && (strCommands[2].equals("set")))
                 {
@@ -1435,9 +1386,8 @@ public class content_generation extends script.base_script
             String[] strStations = dataTableGetStringColumn("datatables/space_content/spacestations.iff", "strName");
             String strStationString = "";
             utils.setScriptVar(self, "strStations", strStations);
-            for (int intI = 0; intI < strStations.length; intI++)
-            {
-                strStationString = strStationString + strStations[intI] + "\n";
+            for (String strStation : strStations) {
+                strStationString = strStationString + strStation + "\n";
             }
             sui.inputbox(self, self, "What type of spaceStation is this? valid names are " + strStationString, sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "makeSpaceStation", null);
         }
@@ -1452,9 +1402,8 @@ public class content_generation extends script.base_script
             String[] strStations = dataTableGetStringColumn("datatables/space_content/battlefields/entry_stations.iff", "strName");
             String strStationString = "";
             utils.setScriptVar(self, "strStations", strStations);
-            for (int intI = 0; intI < strStations.length; intI++)
-            {
-                strStationString = strStationString + strStations[intI] + "\n";
+            for (String strStation : strStations) {
+                strStationString = strStationString + strStation + "\n";
             }
             sui.inputbox(self, self, "What type of entry station is this? valid names are " + strStationString, sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "makeEntrySpaceStation", null);
         }
@@ -1472,13 +1421,11 @@ public class content_generation extends script.base_script
         String strData = "";
         String[] strTypes = dataTableGetStringColumnNoDefaults("datatables/space_crafting/interior_component_lookup.iff", "strManagerName");
         boolean boolValid = false;
-        for (int intI = 0; intI < strTypes.length; intI++)
-        {
-            if (strTypes[intI].equals(strTypeToCreate))
-            {
+        for (String strType : strTypes) {
+            if (strType.equals(strTypeToCreate)) {
                 boolValid = true;
             }
-            strData = strData + strTypes[intI] + "\n";
+            strData = strData + strType + "\n";
         }
         if (!boolValid)
         {
@@ -1521,13 +1468,11 @@ public class content_generation extends script.base_script
         }
         String[] strCells = getCellNames(objShip);
         boolean boolValid = false;
-        for (int intI = 0; intI < strCells.length; intI++)
-        {
-            if (strCells[intI].equals(strCellToLock))
-            {
+        for (String strCell : strCells) {
+            if (strCell.equals(strCellToLock)) {
                 boolValid = true;
             }
-            strData = strData + strCells[intI] + "\n";
+            strData = strData + strCell + "\n";
         }
         if (!boolValid)
         {
@@ -1617,11 +1562,8 @@ public class content_generation extends script.base_script
         String[] strStations = utils.getStringArrayScriptVar(self, "strStations");
         utils.removeScriptVar(self, "strStations");
         boolean boolTest = false;
-        for (int intI = 0; intI < strStations.length; intI++)
-        {
-            String strTest = strStations[intI];
-            if (strTest.equals(strStationType))
-            {
+        for (String strTest : strStations) {
+            if (strTest.equals(strStationType)) {
                 boolTest = true;
             }
         }
@@ -1629,9 +1571,8 @@ public class content_generation extends script.base_script
         {
             String strStationString = "";
             utils.setScriptVar(self, "strStations", strStations);
-            for (int intI = 0; intI < strStations.length; intI++)
-            {
-                strStationString = strStationString + strStations[intI] + "\n";
+            for (String strStation : strStations) {
+                strStationString = strStationString + strStation + "\n";
             }
             sui.inputbox(self, self, "INVALID STATION TYPE! What type of spaceStation is this? valid names are " + strStationString, sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "makeSpaceStation", null);
             return SCRIPT_CONTINUE;
@@ -1668,11 +1609,9 @@ public class content_generation extends script.base_script
         }
         if (strAdditionalScripts != null)
         {
-            for (int intI = 0; intI < strAdditionalScripts.length; intI++)
-            {
-                if (!strAdditionalScripts[intI].equals(""))
-                {
-                    attachScript(objStation, strAdditionalScripts[intI]);
+            for (String strAdditionalScript : strAdditionalScripts) {
+                if (!strAdditionalScript.equals("")) {
+                    attachScript(objStation, strAdditionalScript);
                 }
             }
         }
@@ -1701,11 +1640,8 @@ public class content_generation extends script.base_script
         String[] strStations = utils.getStringArrayScriptVar(self, "strStations");
         utils.removeScriptVar(self, "strStations");
         boolean boolTest = false;
-        for (int intI = 0; intI < strStations.length; intI++)
-        {
-            String strTest = strStations[intI];
-            if (strTest.equals(strStationType))
-            {
+        for (String strTest : strStations) {
+            if (strTest.equals(strStationType)) {
                 boolTest = true;
             }
         }
@@ -1713,9 +1649,8 @@ public class content_generation extends script.base_script
         {
             String strStationString = "";
             utils.setScriptVar(self, "strStations", strStations);
-            for (int intI = 0; intI < strStations.length; intI++)
-            {
-                strStationString = strStationString + strStations[intI] + "\n";
+            for (String strStation : strStations) {
+                strStationString = strStationString + strStation + "\n";
             }
             sui.inputbox(self, self, "INVALID STATION TYPE! What type of entry station is this? valid names are " + strStationString, sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "makeEntrySpaceStation", null);
             return SCRIPT_CONTINUE;
@@ -2149,9 +2084,8 @@ public class content_generation extends script.base_script
             strWaves = utils.getResizeableStringArrayScriptVar(self, "strWaves");
         }
         String strData = "";
-        for (int intI = 0; intI < strWaves.size(); intI++)
-        {
-            strData = strData + ((String)strWaves.get(intI)) + "\n";
+        for (Object strWave1 : strWaves) {
+            strData = strData + ((String) strWave1) + "\n";
         }
         if (isValidWave(strWave))
         {
@@ -2190,9 +2124,8 @@ public class content_generation extends script.base_script
             strSpawns = utils.getResizeableStringArrayScriptVar(self, "strSpawns");
         }
         String strData = "";
-        for (int intI = 0; intI < strSpawns.size(); intI++)
-        {
-            strData = strData + ((String)strSpawns.get(intI)) + "\n";
+        for (Object strSpawn : strSpawns) {
+            strData = strData + ((String) strSpawn) + "\n";
         }
         if (isValidMobString(strSpawnToAdd))
         {
@@ -2382,57 +2315,33 @@ public class content_generation extends script.base_script
     }
     public boolean isValidAsteroidType(String strAsteroidType) throws InterruptedException
     {
-        if (strAsteroidType.equals("iron"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("silicaceous"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("carbonaceous"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("ice"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("obsidian"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("diamond"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("crystal"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("petrochem"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("acid"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("cyanomethanic"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("sulfuric"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("methane"))
-        {
-            return true;
-        }
-        else if (strAsteroidType.equals("organometallic"))
-        {
-            return true;
+        switch (strAsteroidType) {
+            case "iron":
+                return true;
+            case "silicaceous":
+                return true;
+            case "carbonaceous":
+                return true;
+            case "ice":
+                return true;
+            case "obsidian":
+                return true;
+            case "diamond":
+                return true;
+            case "crystal":
+                return true;
+            case "petrochem":
+                return true;
+            case "acid":
+                return true;
+            case "cyanomethanic":
+                return true;
+            case "sulfuric":
+                return true;
+            case "methane":
+                return true;
+            case "organometallic":
+                return true;
         }
         return false;
     }
@@ -2479,10 +2388,9 @@ public class content_generation extends script.base_script
             {
                 String[] strNames = dctReturnInfo.getStringArray("strNames");
                 String strData = "";
-                for (int intI = 0; intI < strNames.length; intI++)
-                {
+                for (String strName : strNames) {
                     LOG("space", "strData is " + strData);
-                    strData = strData + strNames[intI] + "\n";
+                    strData = strData + strName + "\n";
                 }
                 sui.inputbox(self, self, "What patrol point batches do you want to use? Valid points are: \n " + strData, sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "useExistingPatrolPoint", null);
             }
@@ -2514,9 +2422,8 @@ public class content_generation extends script.base_script
         if (intIndex < 0)
         {
             String strData = "";
-            for (int intI = 0; intI < strNames.length; intI++)
-            {
-                strData = strData + strNames[intI] + "\n";
+            for (String strName : strNames) {
+                strData = strData + strName + "\n";
             }
             sui.inputbox(self, self, "INVALID PATROL POINT NAME\n What patrol point batches do you want to use? Valid points are: \n " + strData, sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "useExistingPatrolPoint", null);
         }
@@ -2590,21 +2497,16 @@ public class content_generation extends script.base_script
         strNames.setSize(0);
         Vector intCount = new Vector();
         intCount.setSize(0);
-        for (int intI = 0; intI < objObjects.length; intI++)
-        {
-            String strPatrolPointName = getStringObjVar(objObjects[intI], "strName");
-            if (strPatrolPointName != null)
-            {
+        for (obj_id objObject : objObjects) {
+            String strPatrolPointName = getStringObjVar(objObject, "strName");
+            if (strPatrolPointName != null) {
                 String strRawName = getRawPatrolPointName(strPatrolPointName);
                 int intIndex = utils.getElementPositionInArray(strNames, strRawName);
-                if (intIndex < 0)
-                {
+                if (intIndex < 0) {
                     strNames = utils.addElement(strNames, strRawName);
                     intCount = utils.addElement(intCount, 1);
-                }
-                else 
-                {
-                    intCount.set(intIndex, new Integer(((Integer)intCount.get(intIndex)).intValue() + 1));
+                } else {
+                    intCount.set(intIndex, (Integer) intCount.get(intIndex) + 1);
                 }
                 LOG("space", "strNames length is " + strNames.size());
             }
@@ -2711,22 +2613,19 @@ public class content_generation extends script.base_script
         }
         String strString = sui.getInputBoxText(params);
         int intPhase = -1;
-        if (strString.equals("ALL"))
-        {
-            intPhase = -1;
-        }
-        else if (strString.equals("IMPERIAL"))
-        {
-            intPhase = space_battlefield.STATE_IMPERIAL;
-        }
-        else if (strString.equals("REBEL"))
-        {
-            intPhase = space_battlefield.STATE_REBEL;
-        }
-        else 
-        {
-            sui.inputbox(self, self, "INVALID STRING " + strString + "What Phase do you want these spawners to be activated in? Valid options are ALL, IMPERIAL and REBEL.\nIMPERIAL means that the empire won the battlezone and REBEL treasure boats spawn here.", sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "setActivationPhase", null);
-            return SCRIPT_CONTINUE;
+        switch (strString) {
+            case "ALL":
+                intPhase = -1;
+                break;
+            case "IMPERIAL":
+                intPhase = space_battlefield.STATE_IMPERIAL;
+                break;
+            case "REBEL":
+                intPhase = space_battlefield.STATE_REBEL;
+                break;
+            default:
+                sui.inputbox(self, self, "INVALID STRING " + strString + "What Phase do you want these spawners to be activated in? Valid options are ALL, IMPERIAL and REBEL.\nIMPERIAL means that the empire won the battlezone and REBEL treasure boats spawn here.", sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "setActivationPhase", null);
+                return SCRIPT_CONTINUE;
         }
         utils.setScriptVar(self, "intActivationPhase", intPhase);
         sendSystemMessageTestingOnly(self, "DoNE");
@@ -2771,9 +2670,8 @@ public class content_generation extends script.base_script
             obj_id[] objPatrolPoints = utils.getObjIdArrayScriptVar(self, "objPatrolPoints");
             if (objPatrolPoints != null)
             {
-                for (int intI = 0; intI < objPatrolPoints.length; intI++)
-                {
-                    destroyObject(objPatrolPoints[intI]);
+                for (obj_id objPatrolPoint : objPatrolPoints) {
+                    destroyObject(objPatrolPoint);
                 }
             }
         }
@@ -2928,11 +2826,9 @@ public class content_generation extends script.base_script
             LOG("space", "Bad column name of " + strColumn);
             return false;
         }
-        for (int intI = 0; intI < strColumn.length; intI++)
-        {
-            if (!isValidMobString(strColumn[intI]))
-            {
-                sendSystemMessageTestingOnly(getSelf(), "BAD DATA IN WAVE FILE, COLUMN " + strWave + " entry is " + strColumn[intI]);
+        for (String s : strColumn) {
+            if (!isValidMobString(s)) {
+                sendSystemMessageTestingOnly(getSelf(), "BAD DATA IN WAVE FILE, COLUMN " + strWave + " entry is " + s);
                 return false;
             }
         }
@@ -3093,14 +2989,11 @@ public class content_generation extends script.base_script
         Vector objContents = new Vector();
         objContents.setSize(0);
         obj_id[] objCells = getContents(objObject);
-        for (int intI = 0; intI < objCells.length; intI++)
-        {
-            obj_id[] objTestContents = getContents(objCells[intI]);
-            if ((objTestContents != null) && (objTestContents.length > 0))
-            {
-                for (int intJ = 0; intJ < objTestContents.length; intJ++)
-                {
-                    objContents = utils.addElement(objContents, objTestContents[intJ]);
+        for (obj_id objCell : objCells) {
+            obj_id[] objTestContents = getContents(objCell);
+            if ((objTestContents != null) && (objTestContents.length > 0)) {
+                for (obj_id objTestContent : objTestContents) {
+                    objContents = utils.addElement(objContents, objTestContent);
                 }
             }
         }

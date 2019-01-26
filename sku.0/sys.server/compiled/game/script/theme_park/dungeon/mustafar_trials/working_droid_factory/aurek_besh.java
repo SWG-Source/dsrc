@@ -57,8 +57,8 @@ public class aurek_besh extends script.base_script
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id weapon, int[] damage) throws InterruptedException
     {
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         String name = utils.getStringScriptVar(self, "name");
         if (name.equals("aurek"))
@@ -137,11 +137,9 @@ public class aurek_besh extends script.base_script
         }
         Vector beshPlayers = new Vector();
         beshPlayers.setSize(0);
-        for (int i = 0; i < players.length; i++)
-        {
-            if (buff.hasBuff(players[i], "beshDuality"))
-            {
-                utils.addElement(beshPlayers, players[i]);
+        for (obj_id player : players) {
+            if (buff.hasBuff(player, "beshDuality")) {
+                utils.addElement(beshPlayers, player);
             }
         }
         if (beshPlayers == null || beshPlayers.size() == 0)
@@ -156,9 +154,8 @@ public class aurek_besh extends script.base_script
             pp.stringId = new string_id("cbt_spam", "duality_detonate_twin");
             pp.target.set(self);
             pp.digitInteger = damage;
-            for (int k = 0; k < beshPlayers.size(); k++)
-            {
-                combat.sendCombatSpamMessageProse(((obj_id)beshPlayers.get(k)), self, pp, true, true, false, COMBAT_RESULT_HIT);
+            for (Object beshPlayer : beshPlayers) {
+                combat.sendCombatSpamMessageProse(((obj_id) beshPlayer), self, pp, true, true, false, COMBAT_RESULT_HIT);
                 damage(self, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
             }
         }
@@ -178,11 +175,9 @@ public class aurek_besh extends script.base_script
         }
         Vector aurekPlayers = new Vector();
         aurekPlayers.setSize(0);
-        for (int i = 0; i < players.length; i++)
-        {
-            if (buff.hasBuff(players[i], "aurekDuality"))
-            {
-                utils.addElement(aurekPlayers, players[i]);
+        for (obj_id player : players) {
+            if (buff.hasBuff(player, "aurekDuality")) {
+                utils.addElement(aurekPlayers, player);
             }
         }
         if (aurekPlayers == null || aurekPlayers.size() == 0)
@@ -197,9 +192,8 @@ public class aurek_besh extends script.base_script
             pp.stringId = new string_id("cbt_spam", "duality_detonate_twin");
             pp.target.set(self);
             pp.digitInteger = damage;
-            for (int k = 0; k < aurekPlayers.size(); k++)
-            {
-                combat.sendCombatSpamMessageProse(((obj_id)aurekPlayers.get(k)), self, pp, true, true, false, COMBAT_RESULT_HIT);
+            for (Object aurekPlayer : aurekPlayers) {
+                combat.sendCombatSpamMessageProse(((obj_id) aurekPlayer), self, pp, true, true, false, COMBAT_RESULT_HIT);
                 damage(self, DAMAGE_ELEMENTAL_HEAT, DAMAGE_ELEMENTAL_ELECTRICAL, damage);
             }
         }

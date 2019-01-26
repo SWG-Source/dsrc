@@ -402,9 +402,8 @@ public class echo_controller extends script.base_script
             {
                 message += " \\#FF6103You did your best to get as many transports away as you could.";
             }
-            for (int i = 0; i < players.length; ++i)
-            {
-                sui.msgbox(self, players[i], message, sui.OK_ONLY, "Alliance: Echo Base", "noHandler");
+            for (obj_id player : players) {
+                sui.msgbox(self, player, message, sui.OK_ONLY, "Alliance: Echo Base", "noHandler");
             }
         }
         else 
@@ -597,9 +596,8 @@ public class echo_controller extends script.base_script
             {
                 message += " \\#FF6103You destroyed many of the transports before they could take off.";
             }
-            for (int i = 0; i < players.length; ++i)
-            {
-                sui.msgbox(self, players[i], message, sui.OK_ONLY, "Imperial: Echo Base", "noHandler");
+            for (obj_id player : players) {
+                sui.msgbox(self, player, message, sui.OK_ONLY, "Imperial: Echo Base", "noHandler");
             }
         }
     }
@@ -740,17 +738,14 @@ public class echo_controller extends script.base_script
             "xport_minor",
             "xport_major"
         };
-        for (int i = 0; i < p1_obj.length; i++)
-        {
-            p1_eval += utils.getIntScriptVar(self, "quest_tracker.rebel." + p1_obj[i]);
+        for (String s2 : p1_obj) {
+            p1_eval += utils.getIntScriptVar(self, "quest_tracker.rebel." + s2);
         }
-        for (int i = 0; i < p2_obj.length; i++)
-        {
-            p2_eval += utils.getIntScriptVar(self, "quest_tracker.rebel." + p2_obj[i]);
+        for (String s1 : p2_obj) {
+            p2_eval += utils.getIntScriptVar(self, "quest_tracker.rebel." + s1);
         }
-        for (int i = 0; i < p3_obj.length; i++)
-        {
-            p3_eval += utils.getIntScriptVar(self, "quest_tracker.rebel." + p3_obj[i]);
+        for (String s : p3_obj) {
+            p3_eval += utils.getIntScriptVar(self, "quest_tracker.rebel." + s);
         }
         if (p1_eval > 0)
         {
@@ -794,17 +789,14 @@ public class echo_controller extends script.base_script
             "p3_minor",
             "p3_major"
         };
-        for (int i = 0; i < p1_obj.length; i++)
-        {
-            p1_eval += utils.getIntScriptVar(self, "quest_tracker.imperial." + p1_obj[i]);
+        for (String s2 : p1_obj) {
+            p1_eval += utils.getIntScriptVar(self, "quest_tracker.imperial." + s2);
         }
-        for (int i = 0; i < p2_obj.length; i++)
-        {
-            p2_eval += utils.getIntScriptVar(self, "quest_tracker.imperial." + p2_obj[i]);
+        for (String s1 : p2_obj) {
+            p2_eval += utils.getIntScriptVar(self, "quest_tracker.imperial." + s1);
         }
-        for (int i = 0; i < p3_obj.length; i++)
-        {
-            p3_eval += utils.getIntScriptVar(self, "quest_tracker.imperial." + p3_obj[i]);
+        for (String s : p3_obj) {
+            p3_eval += utils.getIntScriptVar(self, "quest_tracker.imperial." + s);
         }
         if (p1_eval > 0)
         {
@@ -836,9 +828,8 @@ public class echo_controller extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            obj_id waypoint = createWaypointInDatapad(players[i], wpLoc);
+        for (obj_id player : players) {
+            obj_id waypoint = createWaypointInDatapad(player, wpLoc);
             setWaypointName(waypoint, "Echo Base");
             setWaypointColor(waypoint, "blue");
             setWaypointVisible(waypoint, true);
@@ -849,18 +840,17 @@ public class echo_controller extends script.base_script
     public int make_p3_end_wp(obj_id self, dictionary params) throws InterruptedException
     {
         location myLoc = getLocation(self);
-        myLoc.x += -466;
+        myLoc.x -= 466;
         myLoc.y += 93;
-        myLoc.z += -844;
+        myLoc.z -= 844;
         location wpLoc = new location(myLoc.x, myLoc.y, myLoc.z);
         obj_id[] players = instance.getPlayersInInstanceArea(self);
         if (players == null || players.length == 0)
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            obj_id waypoint = createWaypointInDatapad(players[i], wpLoc);
+        for (obj_id player : players) {
+            obj_id waypoint = createWaypointInDatapad(player, wpLoc);
             setWaypointName(waypoint, "Extraction Point");
             setWaypointColor(waypoint, "orange");
             setWaypointVisible(waypoint, true);
@@ -876,11 +866,9 @@ public class echo_controller extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < crates.length; i++)
-        {
-            if (exists(crates[i]))
-            {
-                trial.cleanupObject(crates[i]);
+        for (obj_id crate : crates) {
+            if (exists(crate)) {
+                trial.cleanupObject(crate);
                 break;
             }
         }

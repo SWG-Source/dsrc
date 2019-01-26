@@ -17,26 +17,18 @@ public class crafting_base_harvester extends script.systems.crafting.crafting_ba
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("extractRate"))
-                {
-                    setObjVar(prototype, "player_structure.deed.maxExtractionRate", (int)itemAttributes[i].currentValue);
-                    setObjVar(prototype, "player_structure.deed.currentExtractionRate", (int)itemAttributes[i].currentValue);
-                }
-                else if (((itemAttributes[i].name).getAsciiId()).equals("hopperSize"))
-                {
-                    setObjVar(prototype, "player_structure.deed.maxHopperSize", (int)itemAttributes[i].currentValue);
-                }
-                else 
-                {
-                    debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttributes[i].name + ".");
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("extractRate")) {
+                    setObjVar(prototype, "player_structure.deed.maxExtractionRate", (int) itemAttribute.currentValue);
+                    setObjVar(prototype, "player_structure.deed.currentExtractionRate", (int) itemAttribute.currentValue);
+                } else if (((itemAttribute.name).getAsciiId()).equals("hopperSize")) {
+                    setObjVar(prototype, "player_structure.deed.maxHopperSize", (int) itemAttribute.currentValue);
+                } else {
+                    debugServerConsoleMsg(null, "Error. Unknown Attribute Read in. Attribute was " + itemAttribute.name + ".");
                 }
             }
         }

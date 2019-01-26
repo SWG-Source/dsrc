@@ -98,13 +98,11 @@ public class stimpack_dispensor extends script.base_script
             dsrc.setSize(0);
             if (items != null)
             {
-                for (int i = 0; i < items.length; i++)
-                {
-                    if ((getTemplateName(items[i])).equals("object/tangible/medicine/instant_stimpack/stimpack_a.iff"))
-                    {
-                        stim_a = utils.addElement(stim_a, items[i]);
-                        int power = getIntObjVar(items[i], "healing.power");
-                        int charges = getCount(items[i]);
+                for (obj_id item1 : items) {
+                    if ((getTemplateName(item1)).equals("object/tangible/medicine/instant_stimpack/stimpack_a.iff")) {
+                        stim_a = utils.addElement(stim_a, item1);
+                        int power = getIntObjVar(item1, "healing.power");
+                        int charges = getCount(item1);
                         String text = "Power :" + power + "   Charges :" + charges;
                         dsrc = utils.addElement(dsrc, text);
                     }

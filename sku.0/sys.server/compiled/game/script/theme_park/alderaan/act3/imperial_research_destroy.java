@@ -152,7 +152,7 @@ public class imperial_research_destroy extends script.base_script
         obj_id player = getObjIdObjVar(self, "coa3.imperial.playerId");
         setObjVar(self, "coa3.imperial.numGuards", 8);
         location termLoc = getLocation(self);
-        termLoc.x += -8;
+        termLoc.x -= 8;
         termLoc.z += 3.4;
         obj_id terminal = createObject("object/tangible/furniture/imperial/data_terminal_s1.iff", termLoc);
         setYaw(terminal, -90);
@@ -180,11 +180,9 @@ public class imperial_research_destroy extends script.base_script
     public int OnDestroy(obj_id self) throws InterruptedException
     {
         Vector objectList = getResizeableObjIdArrayObjVar(self, "coa3.imperial.obj_list");
-        for (int i = 0; i < objectList.size(); i++)
-        {
-            if (isIdValid(((obj_id)objectList.get(i))))
-            {
-                destroyObject(((obj_id)objectList.get(i)));
+        for (Object o : objectList) {
+            if (isIdValid(((obj_id) o))) {
+                destroyObject(((obj_id) o));
             }
         }
         obj_id terminal = getObjIdObjVar(self, "coa3.imperial.terminalId");

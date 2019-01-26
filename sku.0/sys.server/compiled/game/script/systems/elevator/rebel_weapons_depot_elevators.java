@@ -15,12 +15,12 @@ public class rebel_weapons_depot_elevators extends script.base_script
         if (isIdValid(elevator))
         {
             here.x = -8.4f;
-            here.y = -12f;
-            here.z = 59f;
+            here.y = -12.0f;
+            here.z = 59.0f;
             here.cell = elevator;
             obj_id elevatorTerminalA = createObject("object/tangible/terminal/terminal_elevator_down.iff", here);
             setYaw(elevatorTerminalA, 90);
-            here.y = -20f;
+            here.y = -20.0f;
             obj_id elevatorTerminalB = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);
             setYaw(elevatorTerminalB, 90);
             setObjVar(self, "terminal1", elevatorTerminalA);

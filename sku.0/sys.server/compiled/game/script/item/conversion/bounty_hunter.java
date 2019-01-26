@@ -54,45 +54,37 @@ public class bounty_hunter extends script.base_script
         }
         else 
         {
-            if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_helmet.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_helmet.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_chest_plate.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_chest_plate.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_leggings.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_leggings.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_bicep_l.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bicep_l.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_bicep_r.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bicep_r.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_bracer_l.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bracer_l.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_bracer_r.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bracer_r.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_gloves.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_gloves.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_boots.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_boots.iff";
-            }
-            else if (templatename.equals("object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_belt.iff"))
-            {
-                schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_belt.iff";
+            switch (templatename) {
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_helmet.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_helmet.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_chest_plate.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_chest_plate.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_leggings.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_leggings.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_bicep_l.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bicep_l.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_bicep_r.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bicep_r.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_bracer_l.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bracer_l.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_bracer_r.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_bracer_r.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_gloves.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_gloves.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_boots.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_boots.iff";
+                    break;
+                case "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_crafted_belt.iff":
+                    schematicTemplate = "object/tangible/wearables/armor/bounty_hunter/armor_bounty_hunter_belt.iff";
+                    break;
             }
             if (schematicTemplate.length() < 1)
             {

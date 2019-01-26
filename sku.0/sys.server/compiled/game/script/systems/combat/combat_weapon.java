@@ -112,7 +112,7 @@ public class combat_weapon extends script.base_script
         }
         if (!hasObjVar(self, "weapon.original_max_range"))
         {
-            float weaponRange = 0f;
+            float weaponRange = 0.0f;
             if (!static_item.isStaticItem(self))
             {
                 if (!hasObjVar(self, "dynamic_item.intLevelRequired"))
@@ -122,7 +122,7 @@ public class combat_weapon extends script.base_script
                     {
                         return;
                     }
-                    weaponRange = (float)weapons.getMaxRangeDistance(weaponDat);
+                    weaponRange = weapons.getMaxRangeDistance(weaponDat);
                 }
                 else 
                 {
@@ -132,7 +132,7 @@ public class combat_weapon extends script.base_script
             else 
             {
                 String staticItemName = static_item.getStaticItemName(self);
-                weaponRange = (float)dataTableGetInt("datatables/item/master_item/weapon_stats.iff", staticItemName, "max_range_distance");
+                weaponRange = dataTableGetInt("datatables/item/master_item/weapon_stats.iff", staticItemName, "max_range_distance");
             }
             if (weaponRange > 0)
             {

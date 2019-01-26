@@ -92,11 +92,9 @@ public class death_watch_foreman extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff"))
-                {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff")) {
                     return false;
                 }
             }
@@ -121,11 +119,9 @@ public class death_watch_foreman extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff"))
-                {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff")) {
                     return true;
                 }
             }
@@ -171,11 +167,9 @@ public class death_watch_foreman extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff"))
-                {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff")) {
                     return true;
                 }
             }
@@ -327,7 +321,7 @@ public class death_watch_foreman extends script.base_script
         setObjVar(player, "death_watch.drill_01", 1);
         dictionary params = new dictionary();
         params.put("player", player);
-        messageTo(npc, "handleSpawnHaldo", params, 1f, false);
+        messageTo(npc, "handleSpawnHaldo", params, 1.0f, false);
     }
     public void death_watch_foreman_action_cleanBattery(obj_id player, obj_id npc) throws InterruptedException
     {
@@ -340,12 +334,10 @@ public class death_watch_foreman extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff"))
-                {
-                    obj_id battery = objContents[intI];
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff")) {
+                    obj_id battery = objContent;
                     destroyObject(battery);
                 }
             }
@@ -364,7 +356,7 @@ public class death_watch_foreman extends script.base_script
             return;
         }
         setObjVar(structure, "death_watch.water_pressure_mission", player);
-        messageTo(structure, "handleWaterPumpReset", null, 1f, false);
+        messageTo(structure, "handleWaterPumpReset", null, 1.0f, false);
         return;
     }
     public void death_watch_foreman_action_finishMission(obj_id player, obj_id npc) throws InterruptedException
@@ -414,7 +406,7 @@ public class death_watch_foreman extends script.base_script
     {
         obj_id structure = getTopMostContainer(npc);
         obj_id haldo = getObjIdObjVar(structure, "death_watch.haldo");
-        messageTo(haldo, "handleCrazedCleanup", null, 1f, false);
+        messageTo(haldo, "handleCrazedCleanup", null, 1.0f, false);
         return;
     }
     public void death_watch_foreman_action_declineWater(obj_id player, obj_id npc) throws InterruptedException

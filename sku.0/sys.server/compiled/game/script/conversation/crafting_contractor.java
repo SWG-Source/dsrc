@@ -48,54 +48,42 @@ public class crafting_contractor extends script.base_script
         {
             return false;
         }
-        if (prof.equals("weaponsmith"))
-        {
-            if (hasSkill(player, "crafting_weaponsmith_firearms_02") || hasSkill(player, "crafting_weaponsmith_melee_02") || hasSkill(player, "crafting_weaponsmith_munitions_02"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("tailor"))
-        {
-            if (hasSkill(player, "crafting_tailor_casual_02") || hasSkill(player, "crafting_tailor_field_02") || hasSkill(player, "crafting_tailor_formal_02"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("droidengineer"))
-        {
-            if (hasSkill(player, "crafting_droidengineer_production_02") || hasSkill(player, "crafting_droidengineer_techniques_02") || hasSkill(player, "crafting_droidengineer_refinement_02") || hasSkill(player, "crafting_droidengineer_blueprints_02"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("chef"))
-        {
-            if (hasSkill(player, "crafting_chef_dish_02") || hasSkill(player, "crafting_chef_dessert_02") || hasSkill(player, "crafting_chef_drink_02"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("artisan"))
-        {
-            if (hasSkill(player, "crafting_artisan_engineering_02") || hasSkill(player, "crafting_artisan_domestic_02"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("armorsmith"))
-        {
-            if (hasSkill(player, "crafting_armorsmith_personal_02") || hasSkill(player, "crafting_armorsmith_heavy_02") || hasSkill(player, "crafting_armorsmith_deflectors_02"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("architect"))
-        {
-            if (hasSkill(player, "crafting_architect_production_02") || hasSkill(player, "crafting_architect_techniques_02") || hasSkill(player, "crafting_architect_harvesting_02") || hasSkill(player, "crafting_architect_blueprints_02"))
-            {
-                return true;
-            }
+        switch (prof) {
+            case "weaponsmith":
+                if (hasSkill(player, "crafting_weaponsmith_firearms_02") || hasSkill(player, "crafting_weaponsmith_melee_02") || hasSkill(player, "crafting_weaponsmith_munitions_02")) {
+                    return true;
+                }
+                break;
+            case "tailor":
+                if (hasSkill(player, "crafting_tailor_casual_02") || hasSkill(player, "crafting_tailor_field_02") || hasSkill(player, "crafting_tailor_formal_02")) {
+                    return true;
+                }
+                break;
+            case "droidengineer":
+                if (hasSkill(player, "crafting_droidengineer_production_02") || hasSkill(player, "crafting_droidengineer_techniques_02") || hasSkill(player, "crafting_droidengineer_refinement_02") || hasSkill(player, "crafting_droidengineer_blueprints_02")) {
+                    return true;
+                }
+                break;
+            case "chef":
+                if (hasSkill(player, "crafting_chef_dish_02") || hasSkill(player, "crafting_chef_dessert_02") || hasSkill(player, "crafting_chef_drink_02")) {
+                    return true;
+                }
+                break;
+            case "artisan":
+                if (hasSkill(player, "crafting_artisan_engineering_02") || hasSkill(player, "crafting_artisan_domestic_02")) {
+                    return true;
+                }
+                break;
+            case "armorsmith":
+                if (hasSkill(player, "crafting_armorsmith_personal_02") || hasSkill(player, "crafting_armorsmith_heavy_02") || hasSkill(player, "crafting_armorsmith_deflectors_02")) {
+                    return true;
+                }
+                break;
+            case "architect":
+                if (hasSkill(player, "crafting_architect_production_02") || hasSkill(player, "crafting_architect_techniques_02") || hasSkill(player, "crafting_architect_harvesting_02") || hasSkill(player, "crafting_architect_blueprints_02")) {
+                    return true;
+                }
+                break;
         }
         return false;
     }
@@ -106,54 +94,42 @@ public class crafting_contractor extends script.base_script
         {
             return false;
         }
-        if (prof.equals("weaponsmith"))
-        {
-            if (hasSkill(player, "crafting_weaponsmith_firearms_04") || hasSkill(player, "crafting_weaponsmith_melee_04") || hasSkill(player, "crafting_weaponsmith_munitions_04"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("tailor"))
-        {
-            if (hasSkill(player, "crafting_tailor_casual_04") || hasSkill(player, "crafting_tailor_field_04") || hasSkill(player, "crafting_tailor_formal_04"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("droidengineer"))
-        {
-            if (hasSkill(player, "crafting_droidengineer_production_04") || hasSkill(player, "crafting_droidengineer_techniques_04") || hasSkill(player, "crafting_droidengineer_refinement_04") || hasSkill(player, "crafting_droidengineer_blueprints_04"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("chef"))
-        {
-            if (hasSkill(player, "crafting_chef_dish_04") || hasSkill(player, "crafting_chef_dessert_04") || hasSkill(player, "crafting_chef_drink_04"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("artisan"))
-        {
-            if (hasSkill(player, "crafting_artisan_engineering_04") || hasSkill(player, "crafting_artisan_domestic_04"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("armorsmith"))
-        {
-            if (hasSkill(player, "crafting_armorsmith_personal_04") || hasSkill(player, "crafting_armorsmith_heavy_04") || hasSkill(player, "crafting_armorsmith_deflectors_04"))
-            {
-                return true;
-            }
-        }
-        else if (prof.equals("architect"))
-        {
-            if (hasSkill(player, "crafting_architect_production_04") || hasSkill(player, "crafting_architect_techniques_04") || hasSkill(player, "crafting_architect_harvesting_04") || hasSkill(player, "crafting_architect_blueprints_04"))
-            {
-                return true;
-            }
+        switch (prof) {
+            case "weaponsmith":
+                if (hasSkill(player, "crafting_weaponsmith_firearms_04") || hasSkill(player, "crafting_weaponsmith_melee_04") || hasSkill(player, "crafting_weaponsmith_munitions_04")) {
+                    return true;
+                }
+                break;
+            case "tailor":
+                if (hasSkill(player, "crafting_tailor_casual_04") || hasSkill(player, "crafting_tailor_field_04") || hasSkill(player, "crafting_tailor_formal_04")) {
+                    return true;
+                }
+                break;
+            case "droidengineer":
+                if (hasSkill(player, "crafting_droidengineer_production_04") || hasSkill(player, "crafting_droidengineer_techniques_04") || hasSkill(player, "crafting_droidengineer_refinement_04") || hasSkill(player, "crafting_droidengineer_blueprints_04")) {
+                    return true;
+                }
+                break;
+            case "chef":
+                if (hasSkill(player, "crafting_chef_dish_04") || hasSkill(player, "crafting_chef_dessert_04") || hasSkill(player, "crafting_chef_drink_04")) {
+                    return true;
+                }
+                break;
+            case "artisan":
+                if (hasSkill(player, "crafting_artisan_engineering_04") || hasSkill(player, "crafting_artisan_domestic_04")) {
+                    return true;
+                }
+                break;
+            case "armorsmith":
+                if (hasSkill(player, "crafting_armorsmith_personal_04") || hasSkill(player, "crafting_armorsmith_heavy_04") || hasSkill(player, "crafting_armorsmith_deflectors_04")) {
+                    return true;
+                }
+                break;
+            case "architect":
+                if (hasSkill(player, "crafting_architect_production_04") || hasSkill(player, "crafting_architect_techniques_04") || hasSkill(player, "crafting_architect_harvesting_04") || hasSkill(player, "crafting_architect_blueprints_04")) {
+                    return true;
+                }
+                break;
         }
         return false;
     }
@@ -179,11 +155,9 @@ public class crafting_contractor extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.startsWith("object/tangible/container/quest/crafting_contract"))
-                    {
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.startsWith("object/tangible/container/quest/crafting_contract")) {
                         return true;
                     }
                 }
@@ -199,13 +173,10 @@ public class crafting_contractor extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.startsWith("object/tangible/container/quest/crafting_contract"))
-                    {
-                        if (hasObjVar(objContents[i], "contract.complete"))
-                        {
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.startsWith("object/tangible/container/quest/crafting_contract")) {
+                        if (hasObjVar(objContent, "contract.complete")) {
                             return true;
                         }
                     }
@@ -391,37 +362,30 @@ public class crafting_contractor extends script.base_script
         }
         String prof = utils.getStringScriptVar(player, "contract.profession");
         String crate_template = "";
-        if (prof.equals("artisan"))
-        {
-            crate_template = "object/tangible/container/quest/crafting_contract/generic_crate.iff";
-        }
-        else if (prof.equals("droidengineer"))
-        {
-            crate_template = "object/tangible/container/quest/crafting_contract/droid_crate.iff";
-        }
-        else if (prof.equals("architect"))
-        {
-            crate_template = "object/tangible/container/quest/crafting_contract/furniture_crate.iff";
-        }
-        else if (prof.equals("tailor"))
-        {
-            crate_template = "object/tangible/container/quest/crafting_contract/clothing_crate.iff";
-        }
-        else if (prof.equals("chef"))
-        {
-            crate_template = "object/tangible/container/quest/crafting_contract/food_crate.iff";
-        }
-        else if (prof.equals("weaponsmith"))
-        {
-            crate_template = "object/tangible/container/quest/crafting_contract/weapon_crate.iff";
-        }
-        else if (prof.equals("armorsmith"))
-        {
-            crate_template = "object/tangible/container/quest/crafting_contract/armor_crate.iff";
-        }
-        else 
-        {
-            return;
+        switch (prof) {
+            case "artisan":
+                crate_template = "object/tangible/container/quest/crafting_contract/generic_crate.iff";
+                break;
+            case "droidengineer":
+                crate_template = "object/tangible/container/quest/crafting_contract/droid_crate.iff";
+                break;
+            case "architect":
+                crate_template = "object/tangible/container/quest/crafting_contract/furniture_crate.iff";
+                break;
+            case "tailor":
+                crate_template = "object/tangible/container/quest/crafting_contract/clothing_crate.iff";
+                break;
+            case "chef":
+                crate_template = "object/tangible/container/quest/crafting_contract/food_crate.iff";
+                break;
+            case "weaponsmith":
+                crate_template = "object/tangible/container/quest/crafting_contract/weapon_crate.iff";
+                break;
+            case "armorsmith":
+                crate_template = "object/tangible/container/quest/crafting_contract/armor_crate.iff";
+                break;
+            default:
+                return;
         }
         obj_id playerInv = utils.getInventoryContainer(player);
         if (!isIdValid(playerInv))
@@ -434,33 +398,28 @@ public class crafting_contractor extends script.base_script
             return;
         }
         String xp_type = "";
-        if (prof.equals("artisan"))
-        {
-            xp_type = "crafting_general";
-        }
-        else if (prof.equals("droidengineer"))
-        {
-            xp_type = "crafting_droid_general";
-        }
-        else if (prof.equals("architect"))
-        {
-            xp_type = "crafting_structure_general";
-        }
-        else if (prof.equals("tailor"))
-        {
-            xp_type = "crafting_clothing_general";
-        }
-        else if (prof.equals("chef"))
-        {
-            xp_type = "crafting_food_general";
-        }
-        else if (prof.equals("weaponsmith"))
-        {
-            xp_type = "crafting_weapons_general";
-        }
-        else if (prof.equals("armorsmith"))
-        {
-            xp_type = "crafting_clothing_armor";
+        switch (prof) {
+            case "artisan":
+                xp_type = "crafting_general";
+                break;
+            case "droidengineer":
+                xp_type = "crafting_droid_general";
+                break;
+            case "architect":
+                xp_type = "crafting_structure_general";
+                break;
+            case "tailor":
+                xp_type = "crafting_clothing_general";
+                break;
+            case "chef":
+                xp_type = "crafting_food_general";
+                break;
+            case "weaponsmith":
+                xp_type = "crafting_weapons_general";
+                break;
+            case "armorsmith":
+                xp_type = "crafting_clothing_armor";
+                break;
         }
         attachScript(crate, "quest.crafting_contract.crate");
         int row = utils.getIntScriptVar(player, "contract.row");
@@ -489,12 +448,10 @@ public class crafting_contractor extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.startsWith("object/tangible/container/quest/crafting_contract"))
-                    {
-                        destroyObject(objContents[i]);
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.startsWith("object/tangible/container/quest/crafting_contract")) {
+                        destroyObject(objContent);
                     }
                 }
             }
@@ -508,26 +465,21 @@ public class crafting_contractor extends script.base_script
             obj_id[] objContents = utils.getContents(objInventory, true);
             if (objContents != null)
             {
-                for (int i = 0; i < objContents.length; i++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[i]);
-                    if (strItemTemplate.startsWith("object/tangible/container/quest/crafting_contract"))
-                    {
-                        obj_id item = objContents[i];
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.startsWith("object/tangible/container/quest/crafting_contract")) {
+                        obj_id item = objContent;
                         int exp = getIntObjVar(item, "contract.xp");
                         int num = getIntObjVar(item, "contract.max");
                         String xp_type = getStringObjVar(item, "contract.xp_type");
                         String diff = getStringObjVar(item, "contract.difficulty");
-                        exp = (int)(exp * 0.20f);
+                        exp = (int) (exp * 0.20f);
                         exp *= num;
                         xp.grantCraftingStyleXp(player, xp_type, exp);
                         int pay = 15;
-                        if (diff.equals("medium"))
-                        {
+                        if (diff.equals("medium")) {
                             pay = 25;
-                        }
-                        else if (diff.equals("hard"))
-                        {
+                        } else if (diff.equals("hard")) {
                             pay = 35;
                         }
                         pay *= num;

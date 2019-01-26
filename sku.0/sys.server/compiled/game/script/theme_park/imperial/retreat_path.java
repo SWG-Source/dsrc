@@ -30,9 +30,9 @@ public class retreat_path extends script.base_script
         obj_id vader = getCellId(bldg, "vader");
         obj_id meetingroom = getCellId(bldg, "meetingroom");
         obj_id hall3 = getCellId(bldg, "hall3");
-        location mouse1 = new location(-52.15f, .2f, -23.82f, "naboo", vader);
+        location mouse1 = new location(-52.15f, 0.2f, -23.82f, "naboo", vader);
         location mouse2 = new location(23.83f, 0.2f, -40.42f, "naboo", meetingroom);
-        location mouse3 = new location(-45.79f, .2f, -12.5f, "naboo", hall3);
+        location mouse3 = new location(-45.79f, 0.2f, -12.5f, "naboo", hall3);
         if (hasObjVar(self, "mouse1"))
         {
             ai_lib.aiPathTo(self, mouse1);

@@ -3,6 +3,8 @@ package script.theme_park.npc_died;
 import script.dictionary;
 import script.obj_id;
 
+import java.util.Objects;
+
 public class npc_died extends script.base_script
 {
     public npc_died()
@@ -15,14 +17,7 @@ public class npc_died extends script.base_script
             obj_id spawner = getObjIdObjVar(self, "spawner");
             final String npc_type = getCreatureName(self);
             dictionary npcParams = new dictionary();
-            if (npc_type == null)
-            {
-                npcParams.put("npc_type", "nothing");
-            }
-            else 
-            {
-                npcParams.put("npc_type", npc_type);
-            }
+            npcParams.put("npc_type", Objects.requireNonNullElse(npc_type, "nothing"));
             messageTo(spawner, "npcDied", npcParams, 5, false);
         }
         return SCRIPT_CONTINUE;
@@ -36,14 +31,7 @@ public class npc_died extends script.base_script
         obj_id spawner = getObjIdObjVar(self, "spawner");
         String npc_type = getCreatureName(self);
         dictionary npcParams = new dictionary();
-        if (npc_type == null)
-        {
-            npcParams.put("npc_type", "nothing");
-        }
-        else 
-        {
-            npcParams.put("npc_type", npc_type);
-        }
+        npcParams.put("npc_type", Objects.requireNonNullElse(npc_type, "nothing"));
         messageTo(spawner, "npcDied", npcParams, 5, false);
         return SCRIPT_CONTINUE;
     }

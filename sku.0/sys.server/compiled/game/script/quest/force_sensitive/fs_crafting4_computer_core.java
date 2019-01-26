@@ -594,9 +594,7 @@ public class fs_crafting4_computer_core extends script.base_script
     }
     public void printBooleanArray(boolean[] stuff, obj_id player, String msg) throws InterruptedException
     {
-        for (int i = 0; i < stuff.length; i++)
-        {
-            boolean one = stuff[i];
+        for (boolean one : stuff) {
             msg = msg + one + " ";
         }
         sendSystemMessage(player, msg, "");
@@ -604,9 +602,7 @@ public class fs_crafting4_computer_core extends script.base_script
     }
     public void printIntArray(int[] stuff, obj_id player, String msg) throws InterruptedException
     {
-        for (int i = 0; i < stuff.length; i++)
-        {
-            int one = stuff[i];
+        for (int one : stuff) {
             msg = msg + one + " ";
         }
         sendSystemMessage(player, msg, "");

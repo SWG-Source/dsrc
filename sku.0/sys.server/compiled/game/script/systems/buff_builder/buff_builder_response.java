@@ -68,7 +68,7 @@ public class buff_builder_response extends script.base_script
             utils.setScriptVar(recipientId, "performance.buildabuff.buffComponentKeys", buffComponentKeys);
             utils.setScriptVar(recipientId, "performance.buildabuff.buffComponentValues", buffComponentValues);
             utils.setScriptVar(recipientId, "performance.buildabuff.bufferId", bufferId);
-            float currentBuffTime = 30f;
+            float currentBuffTime = 30.0f;
             if (utils.hasScriptVar(recipientId, performance.VAR_PERFORM_INSPIRATION))
             {
                 currentBuffTime = utils.getFloatScriptVar(recipientId, performance.VAR_PERFORM_INSPIRATION);

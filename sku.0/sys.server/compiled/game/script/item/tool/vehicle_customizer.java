@@ -234,7 +234,7 @@ public class vehicle_customizer extends script.base_script
             dictionary dc = new dictionary();
             dc.put(var, idx);
             d.put("dc", dc);
-            messageTo(target, "handleSetCustomization", d, 0f, false);
+            messageTo(target, "handleSetCustomization", d, 0.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

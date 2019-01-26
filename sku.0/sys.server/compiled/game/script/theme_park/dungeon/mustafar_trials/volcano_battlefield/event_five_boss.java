@@ -74,8 +74,8 @@ public class event_five_boss extends script.base_script
     }
     public int OnCreatureDamaged(obj_id self, obj_id attacker, obj_id weapon, int[] damage) throws InterruptedException
     {
-        float max = (float)getMaxHealth(self);
-        float current = (float)getHealth(self);
+        float max = getMaxHealth(self);
+        float current = getHealth(self);
         float ratio = current / max;
         if (ratio <= 0.8)
         {
@@ -178,9 +178,8 @@ public class event_five_boss extends script.base_script
             doLogging("clearAllAdds", "There are no objects in range");
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            trial.cleanupNpc(objects[i]);
+        for (obj_id object : objects) {
+            trial.cleanupNpc(object);
         }
     }
     public void spawnTrioAdd(obj_id self, int value) throws InterruptedException
@@ -230,11 +229,9 @@ public class event_five_boss extends script.base_script
             doLogging("spawnTrioAdd", "Could not find a valid spawn location");
             return SCRIPT_CONTINUE;
         }
-        for (int k = 0; k < spawnLocs.length; k++)
-        {
-            obj_id beetle = create.object(GUARD, spawnLocs[k]);
-            if (!isIdValid(beetle))
-            {
+        for (location spawnLoc : spawnLocs) {
+            obj_id beetle = create.object(GUARD, spawnLoc);
+            if (!isIdValid(beetle)) {
                 doLogging("spawnTrioAdd", "Attemplted to create beetle but failed");
                 return SCRIPT_CONTINUE;
             }
@@ -245,9 +242,8 @@ public class event_five_boss extends script.base_script
         if (notify)
         {
             prose_package pp = prose.getPackage(trial.VOLCANO_OPP_ADD_NOTIFY, self);
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageProse(players[i], pp);
+            for (obj_id player : players) {
+                sendSystemMessageProse(player, pp);
             }
         }
         return SCRIPT_CONTINUE;
@@ -266,11 +262,9 @@ public class event_five_boss extends script.base_script
             doLogging("spawnTrioAdd", "Could not find a valid spawn location");
             return SCRIPT_CONTINUE;
         }
-        for (int k = 0; k < spawnLocs.length; k++)
-        {
-            obj_id beetle = create.object(MIDGUARD, spawnLocs[k]);
-            if (!isIdValid(beetle))
-            {
+        for (location spawnLoc : spawnLocs) {
+            obj_id beetle = create.object(MIDGUARD, spawnLoc);
+            if (!isIdValid(beetle)) {
                 doLogging("spawnTrioAdd", "Attemplted to create beetle but failed");
                 return SCRIPT_CONTINUE;
             }
@@ -281,9 +275,8 @@ public class event_five_boss extends script.base_script
         if (notify)
         {
             prose_package pp = prose.getPackage(trial.VOLCANO_OPP_MIDGUARD, self);
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageProse(players[i], pp);
+            for (obj_id player : players) {
+                sendSystemMessageProse(player, pp);
             }
         }
         return SCRIPT_CONTINUE;
@@ -298,11 +291,9 @@ public class event_five_boss extends script.base_script
         }
         Vector validLoc = new Vector();
         validLoc.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], type))
-            {
-                utils.addElement(validLoc, getLocation(objects[i]));
+        for (obj_id object : objects) {
+            if (hasObjVar(object, type)) {
+                utils.addElement(validLoc, getLocation(object));
             }
         }
         if (validLoc == null || validLoc.size() == 0)
@@ -384,11 +375,9 @@ public class event_five_boss extends script.base_script
             doLogging("applyAEDebuffs", "Could find no valid players to afflict");
             return;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            for (int k = 0; k < effects.length; k++)
-            {
-                buff.applyBuff(players[i], effects[k]);
+        for (obj_id player : players) {
+            for (String effect : effects) {
+                buff.applyBuff(player, effect);
             }
         }
     }
@@ -411,7 +400,7 @@ public class event_five_boss extends script.base_script
         }
         obj_id target = getTarget(self);
         buff.applyBuff(target, "enfeeble");
-        setHate(self, target, 1f);
+        setHate(self, target, 1.0f);
         messageTo(self, "switchTarget", trial.getSessionDict(self), SWITCH_RECAST, false);
         return SCRIPT_CONTINUE;
     }

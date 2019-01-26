@@ -123,13 +123,10 @@ public class retrieve_item_on_item_spawned extends script.base_script
                             String questCrcString = (String)keys.nextElement();
                             int questCrc = utils.stringToInt(questCrcString);
                             int[] tasksForCurrentQuest = tasks.getIntArray(questCrcString);
-                            for (int i = 0; i < tasksForCurrentQuest.length; ++i)
-                            {
-                                int taskId = tasksForCurrentQuest[i];
+                            for (int taskId : tasksForCurrentQuest) {
                                 String baseObjVar = groundquests.getBaseObjVar(player, "retrieve_item", questGetQuestName(questCrc), taskId);
                                 String retrieveTemplateName = groundquests.getTaskStringDataEntry(questCrc, taskId, "SERVER_TEMPLATE");
-                                if (itemTemplateName.equals(retrieveTemplateName))
-                                {
+                                if (itemTemplateName.equals(retrieveTemplateName)) {
                                     sendSystemMessage(player, new string_id("quest/groundquests", "retrieve_item_already_used"));
                                     return SCRIPT_CONTINUE;
                                 }

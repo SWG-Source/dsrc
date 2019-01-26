@@ -33,11 +33,8 @@ public class fs_cs_player extends script.base_script
                 gang = getGroupMemberIds(getGroupObject(self));
                 if ((gang != null) && (gang.length > 0))
                 {
-                    for (int g = 0; g < gang.length; g++)
-                    {
-                        obj_id thisGuy = gang[g];
-                        if (isIdValid(thisGuy) && exists(thisGuy) && thisGuy != self && quests.isActive("fs_cs_intro", thisGuy))
-                        {
+                    for (obj_id thisGuy : gang) {
+                        if (isIdValid(thisGuy) && exists(thisGuy) && thisGuy != self && quests.isActive("fs_cs_intro", thisGuy)) {
                             sendSystemMessage(thisGuy, new string_id("fs_quest_village", "groupmate_powered_down"));
                         }
                     }

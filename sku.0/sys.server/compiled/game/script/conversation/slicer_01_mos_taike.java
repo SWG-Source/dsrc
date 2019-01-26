@@ -99,7 +99,7 @@ public class slicer_01_mos_taike extends script.base_script
     {
         prose_package pp = new prose_package();
         prose.setStringId(pp, new string_id("theme_park/outbreak/outbreak", "derg_pratis"));
-        commPlayers(player, "object/mobile/dressed_biologist_04.iff", "", 10f, player, pp);
+        commPlayers(player, "object/mobile/dressed_biologist_04.iff", "", 10.0f, player, pp);
     }
     public void slicer_01_mos_taike_action_grantFrameValarainQuest(obj_id player, obj_id npc) throws InterruptedException
     {

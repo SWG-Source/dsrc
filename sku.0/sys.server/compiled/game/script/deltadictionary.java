@@ -66,49 +66,49 @@ public final class deltadictionary
 			{
 				int[] newValue = new int[v.size()];
 				for ( int i = 0; i < newValue.length; ++i )
-					newValue[i] = ((Integer)v.get(i)).intValue();
+					newValue[i] = (Integer) v.get(i);
 				value = newValue;
 			}
 			else if (test instanceof Long)
 			{
 				long[] newValue = new long[v.size()];
 				for ( int i = 0; i < newValue.length; ++i )
-					newValue[i] = ((Long)v.get(i)).longValue();
+					newValue[i] = (Long) v.get(i);
 				value = newValue;
 			}
 			else if (test instanceof Float)
 			{
 				float[] newValue = new float[v.size()];
 				for ( int i = 0; i < newValue.length; ++i )
-					newValue[i] = ((Float)v.get(i)).floatValue();
+					newValue[i] = (Float) v.get(i);
 				value = newValue;
 			}
 			else if (test instanceof Double)
 			{
 				double[] newValue = new double[v.size()];
 				for ( int i = 0; i < newValue.length; ++i )
-					newValue[i] = ((Double)v.get(i)).doubleValue();
+					newValue[i] = (Double) v.get(i);
 				value = newValue;
 			}
 			else if (test instanceof Boolean)
 			{
 				boolean[] newValue = new boolean[v.size()];
 				for ( int i = 0; i < newValue.length; ++i )
-					newValue[i] = ((Boolean)v.get(i)).booleanValue();
+					newValue[i] = (Boolean) v.get(i);
 				value = newValue;
 			}
 			else if (test instanceof Character)
 			{
 				char[] newValue = new char[v.size()];
 				for ( int i = 0; i < newValue.length; ++i )
-					newValue[i] = ((Character)v.get(i)).charValue();
+					newValue[i] = (Character) v.get(i);
 				value = newValue;
 			}
 			else if (test instanceof Byte)
 			{
 				byte[] newValue = new byte[v.size()];
 				for ( int i = 0; i < newValue.length; ++i )
-					newValue[i] = ((Byte)v.get(i)).byteValue();
+					newValue[i] = (Byte) v.get(i);
 				value = newValue;
 			}
 			else if (test instanceof String)
@@ -163,7 +163,7 @@ public final class deltadictionary
 	public Object put(Object key, int value)
 	{
 		potentiallyDirty.add(key);
-		return currentValue.put(key, new Integer(value));
+		return currentValue.put(key, Integer.valueOf(value));
 	}	// put(Object, int)
 
 	/**
@@ -172,7 +172,7 @@ public final class deltadictionary
 	public Object put(Object key, long value)
 	{
 		potentiallyDirty.add(key);
-		return currentValue.put(key, new Long(value));
+		return currentValue.put(key, Long.valueOf(value));
 	}	// put(Object, long)
 
 	/**
@@ -181,7 +181,7 @@ public final class deltadictionary
 	public Object put(Object key, float value)
 	{
 		potentiallyDirty.add(key);
-		return currentValue.put(key, new Float(value));
+		return currentValue.put(key, Float.valueOf(value));
 	}	// put(Object, float)
 
 	/**
@@ -190,7 +190,7 @@ public final class deltadictionary
 	public Object put(Object key, double value)
 	{
 		potentiallyDirty.add(key);
-		return currentValue.put(key, new Double(value));
+		return currentValue.put(key, Double.valueOf(value));
 	}	// put(Object, double)
 
 	/**
@@ -199,7 +199,7 @@ public final class deltadictionary
 	public Object put(Object key, boolean value)
 	{
 		potentiallyDirty.add(key);
-		return currentValue.put(key, new Boolean(value));
+		return currentValue.put(key, Boolean.valueOf(value));
 	}	// put(Object, boolean)
 
 	/**
@@ -208,7 +208,7 @@ public final class deltadictionary
 	public Object put(Object key, char value)
 	{
 		potentiallyDirty.add(key);
-		return currentValue.put(key, new Character(value));
+		return currentValue.put(key, Character.valueOf(value));
 	}	// put(Object, char)
 
 	/**
@@ -217,7 +217,7 @@ public final class deltadictionary
 	public Object put(Object key, byte value)
 	{
 		potentiallyDirty.add(key);
-		return currentValue.put(key, new Byte(value));
+		return currentValue.put(key, Byte.valueOf(value));
 	}	// put(Object, byte)
 
 	/**
@@ -226,7 +226,7 @@ public final class deltadictionary
 	public Object put(Object key, String value)
 	{
 		potentiallyDirty.add(key);
-		return currentValue.put(key, new String(value));
+		return currentValue.put(key, value);
 	}	// put(Object, String)
 
 	public Object getObject(Object key)
@@ -242,7 +242,7 @@ public final class deltadictionary
 		Object value = currentValue.get(key);
 		potentiallyDirty.add(key);
 		if (value != null && value instanceof Integer)
-			return ((Integer)value).intValue();
+			return (Integer) value;
 		return 0;
 	}	// getInt()
 
@@ -267,8 +267,7 @@ public final class deltadictionary
 			potentiallyDirty.add(key);
 			int[] array = (int[])value;
 			Vector resizeableArray = new Vector(array.length + 10);
-			for ( int i = 0; i < array.length; ++i )
-				resizeableArray.add(new Integer(array[i]));
+			for (int i1 : array) resizeableArray.add(i1);
 			return resizeableArray;
 		}
 		return null;
@@ -282,7 +281,7 @@ public final class deltadictionary
 		Object value = currentValue.get(key);
 		potentiallyDirty.add(key);
 		if (value != null && value instanceof Long)
-			return ((Long)value).longValue();
+			return (Long) value;
 		return 0;
 	}	// getLong()
 
@@ -304,7 +303,7 @@ public final class deltadictionary
 		Object value = currentValue.get(key);
 		potentiallyDirty.add(key);
 		if (value != null && value instanceof Float)
-			return ((Float)value).floatValue();
+			return (Float) value;
 		return 0;
 	}	// getFloat()
 
@@ -330,8 +329,7 @@ public final class deltadictionary
 			potentiallyDirty.add(key);
 			float[] array = (float[])value;
 			Vector resizeableArray = new Vector(array.length + 10);
-			for ( int i = 0; i < array.length; ++i )
-				resizeableArray.add(new Float(array[i]));
+			for (float v : array) resizeableArray.add(v);
 			return resizeableArray;
 		}
 		return null;
@@ -345,7 +343,7 @@ public final class deltadictionary
 		Object value = currentValue.get(key);
 		potentiallyDirty.add(key);
 		if (value != null && value instanceof Double)
-			return ((Double)value).doubleValue();
+			return (Double) value;
 		return 0;
 	}	// getDouble()
 
@@ -367,7 +365,7 @@ public final class deltadictionary
 		Object value = currentValue.get(key);
 		potentiallyDirty.add(key);
 		if (value != null && value instanceof Boolean)
-			return ((Boolean)value).booleanValue();
+			return (Boolean) value;
 		return false;
 	}	// getBoolean()
 
@@ -389,7 +387,7 @@ public final class deltadictionary
 		Object value = currentValue.get(key);
 		potentiallyDirty.add(key);
 		if (value != null && value instanceof Character)
-			return ((Character)value).charValue();
+			return (Character) value;
 		return 0;
 	}	// getChar()
 
@@ -411,7 +409,7 @@ public final class deltadictionary
 		Object value = currentValue.get(key);
 		potentiallyDirty.add(key);
 		if (value != null && value instanceof Byte)
-			return ((Byte)value).byteValue();
+			return (Byte) value;
 		return 0;
 	}	// getByte()
 

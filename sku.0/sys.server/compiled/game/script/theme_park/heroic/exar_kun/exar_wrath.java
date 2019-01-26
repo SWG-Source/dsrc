@@ -119,11 +119,9 @@ public class exar_wrath extends script.base_script
             wards.remove("kun_wrath_ward_electrical");
         }
         String newWard = ((String)wards.get(rand(0, wards.size() - 1)));
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isPlayer(objects[i]) || isMob(objects[i]))
-            {
-                buff.applyBuff(objects[i], newWard);
+        for (obj_id object : objects) {
+            if (isPlayer(object) || isMob(object)) {
+                buff.applyBuff(object, newWard);
             }
         }
         messageTo(self, "applyWard", trial.getSessionDict(self, "ward"), 8.0f, false);

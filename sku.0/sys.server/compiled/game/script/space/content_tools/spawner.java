@@ -39,16 +39,12 @@ public class spawner extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int intI = 0; intI < strPatrolPoints.length; intI++)
-            {
-                for (int intJ = 0; intJ < objTestObjects.length; intJ++)
-                {
-                    if (isIdValid(objTestObjects[intJ]) && hasObjVar(objTestObjects[intJ], "strName"))
-                    {
+            for (String strPatrolPoint : strPatrolPoints) {
+                for (int intJ = 0; intJ < objTestObjects.length; intJ++) {
+                    if (isIdValid(objTestObjects[intJ]) && hasObjVar(objTestObjects[intJ], "strName")) {
                         String strName = getStringObjVar(objTestObjects[intJ], "strName");
-                        String strTest = strPatrolPoints[intI];
-                        if (strName.equals(strTest))
-                        {
+                        String strTest = strPatrolPoint;
+                        if (strName.equals(strTest)) {
                             trPatrolPoints = utils.addElement(trPatrolPoints, getTransform_o2w(objTestObjects[intJ]));
                             intJ = objTestObjects.length + 10;
                         }
@@ -143,98 +139,89 @@ public class spawner extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        if (strSpawnerType.equals("generic"))
-        {
-            String[] strSpawns = objvar_mangle.getMangledStringArrayObjVar(self, "strSpawns");
-            if (strSpawns == null)
-            {
-                return SCRIPT_CONTINUE;
-            }
-            int intSpawnCount = getIntObjVar(self, "intSpawnCount");
-            float fltMinSpawnDistance = getFloatObjVar(self, "fltMinSpawnDistance");
-            float fltMaxSpawnDistance = getFloatObjVar(self, "fltMaxSpawnDistance");
-            float fltMinSpawnTime = getFloatObjVar(self, "fltMinSpawnTime");
-            float fltMaxSpawnTime = getFloatObjVar(self, "fltMaxSpawnTime");
-            transform trMyLocation = getTransform_o2w(self);
-            for (int intI = 0; intI < intSpawnCount; intI++)
-            {
-                String strSpawn = strSpawns[rand(0, strSpawns.length - 1)];
-                float fltDelay = 1.0f;
-                fltDelay = rand(fltMinSpawnTime, fltMaxSpawnTime);
-                String[] strLoopSpawns = new String[1];
-                strLoopSpawns[0] = strSpawn;
-                dictionary dctParams = new dictionary();
-                dctParams.put("strSpawns", strLoopSpawns);
-                messageTo(self, "createSpawns", dctParams, fltDelay * intI, false);
-            }
-        }
-        else if (strSpawnerType.equals("asteroid"))
-        {
-            String strAsteroidType = getStringObjVar(self, "strAsteroidType");
-            int intMinResourcePool = getIntObjVar(self, "intMinResourcePool");
-            int intMaxResourcePool = getIntObjVar(self, "intMaxResourcePool");
-            int intDangerLevel = getIntObjVar(self, "intDangerLevel");
-            int intDangerPct = getIntObjVar(self, "intDangerPct");
-            if (strAsteroidType.equals(""))
-            {
-                return SCRIPT_CONTINUE;
-            }
-            transform trMyLocation = getTransform_o2w(self);
-            float fltDelay = 1.0f;
-            dictionary dctParams = new dictionary();
-            dctParams.put("strAsteroidType", strAsteroidType);
-            dctParams.put("intMinResourcePool", intMinResourcePool);
-            dctParams.put("intMaxResourcePool", intMaxResourcePool);
-            dctParams.put("intDangerLevel", intDangerLevel);
-            dctParams.put("intDangerPct", intDangerPct);
-            messageTo(self, "createAsteroidSpawn", dctParams, fltDelay, false);
-        }
-        else if (strSpawnerType.equals("wave"))
-        {
-            int intWave = 0;
-            utils.setScriptVar(self, "intWave", 0);
-            float fltMinSpawnDistance = getFloatObjVar(self, "fltMinSpawnDistance");
-            float fltMaxSpawnDistance = getFloatObjVar(self, "fltMaxSpawnDistance");
-            String[] strWaves = objvar_mangle.getMangledStringArrayObjVar(self, "strWaves");
-            String strFileName = "datatables/space_content/spawners/waves.iff";
-            String[] strSpawns = dataTableGetStringColumnNoDefaults(strFileName, strWaves[0]);
-            float fltMinSpawnTime = getFloatObjVar(self, "fltMinSpawnTime");
-            float fltMaxSpawnTime = getFloatObjVar(self, "fltMaxSpawnTime");
-            if (strSpawns == null)
-            {
-                return SCRIPT_CONTINUE;
-            }
-            String strSpawn = strSpawns[0];
-            if (!isSquad(strSpawn))
-            {
-                obj_id objShip = createGenericSpawn(self, strSpawn, fltMinSpawnDistance, fltMaxSpawnDistance, false);
-                if (isIdValid(objShip))
-                {
-                    setupSpawnerSpawn(objShip, self);
+        switch (strSpawnerType) {
+            case "generic": {
+                String[] strSpawns = objvar_mangle.getMangledStringArrayObjVar(self, "strSpawns");
+                if (strSpawns == null) {
+                    return SCRIPT_CONTINUE;
                 }
-            }
-            else 
-            {
-                Vector objMembers = space_create.createSquadHyperspace(self, strSpawn, getTransform_o2p(self), 100, null);
-                if (objMembers != null)
-                {
-                    setupSpawnerSpawn(objMembers, self);
+                int intSpawnCount = getIntObjVar(self, "intSpawnCount");
+                float fltMinSpawnDistance = getFloatObjVar(self, "fltMinSpawnDistance");
+                float fltMaxSpawnDistance = getFloatObjVar(self, "fltMaxSpawnDistance");
+                float fltMinSpawnTime = getFloatObjVar(self, "fltMinSpawnTime");
+                float fltMaxSpawnTime = getFloatObjVar(self, "fltMaxSpawnTime");
+                transform trMyLocation = getTransform_o2w(self);
+                for (int intI = 0; intI < intSpawnCount; intI++) {
+                    String strSpawn = strSpawns[rand(0, strSpawns.length - 1)];
+                    float fltDelay = 1.0f;
+                    fltDelay = rand(fltMinSpawnTime, fltMaxSpawnTime);
+                    String[] strLoopSpawns = new String[1];
+                    strLoopSpawns[0] = strSpawn;
+                    dictionary dctParams = new dictionary();
+                    dctParams.put("strSpawns", strLoopSpawns);
+                    messageTo(self, "createSpawns", dctParams, fltDelay * intI, false);
                 }
+                break;
             }
-            for (int intI = 1; intI < strSpawns.length; intI++)
-            {
+            case "asteroid": {
+                String strAsteroidType = getStringObjVar(self, "strAsteroidType");
+                int intMinResourcePool = getIntObjVar(self, "intMinResourcePool");
+                int intMaxResourcePool = getIntObjVar(self, "intMaxResourcePool");
+                int intDangerLevel = getIntObjVar(self, "intDangerLevel");
+                int intDangerPct = getIntObjVar(self, "intDangerPct");
+                if (strAsteroidType.equals("")) {
+                    return SCRIPT_CONTINUE;
+                }
+                transform trMyLocation = getTransform_o2w(self);
                 float fltDelay = 1.0f;
-                fltDelay = rand(fltMinSpawnTime, fltMaxSpawnTime);
-                String[] strLoopSpawns = new String[1];
-                strLoopSpawns[0] = strSpawns[intI];
                 dictionary dctParams = new dictionary();
-                dctParams.put("strSpawns", strLoopSpawns);
-                messageTo(self, "createSpawns", dctParams, fltDelay * intI, false);
+                dctParams.put("strAsteroidType", strAsteroidType);
+                dctParams.put("intMinResourcePool", intMinResourcePool);
+                dctParams.put("intMaxResourcePool", intMaxResourcePool);
+                dctParams.put("intDangerLevel", intDangerLevel);
+                dctParams.put("intDangerPct", intDangerPct);
+                messageTo(self, "createAsteroidSpawn", dctParams, fltDelay, false);
+                break;
             }
-            utils.setScriptVar(self, "intWavePopulation", strSpawns.length);
-        }
-        else 
-        {
+            case "wave": {
+                int intWave = 0;
+                utils.setScriptVar(self, "intWave", 0);
+                float fltMinSpawnDistance = getFloatObjVar(self, "fltMinSpawnDistance");
+                float fltMaxSpawnDistance = getFloatObjVar(self, "fltMaxSpawnDistance");
+                String[] strWaves = objvar_mangle.getMangledStringArrayObjVar(self, "strWaves");
+                String strFileName = "datatables/space_content/spawners/waves.iff";
+                String[] strSpawns = dataTableGetStringColumnNoDefaults(strFileName, strWaves[0]);
+                float fltMinSpawnTime = getFloatObjVar(self, "fltMinSpawnTime");
+                float fltMaxSpawnTime = getFloatObjVar(self, "fltMaxSpawnTime");
+                if (strSpawns == null) {
+                    return SCRIPT_CONTINUE;
+                }
+                String strSpawn = strSpawns[0];
+                if (!isSquad(strSpawn)) {
+                    obj_id objShip = createGenericSpawn(self, strSpawn, fltMinSpawnDistance, fltMaxSpawnDistance, false);
+                    if (isIdValid(objShip)) {
+                        setupSpawnerSpawn(objShip, self);
+                    }
+                } else {
+                    Vector objMembers = space_create.createSquadHyperspace(self, strSpawn, getTransform_o2p(self), 100, null);
+                    if (objMembers != null) {
+                        setupSpawnerSpawn(objMembers, self);
+                    }
+                }
+                for (int intI = 1; intI < strSpawns.length; intI++) {
+                    float fltDelay = 1.0f;
+                    fltDelay = rand(fltMinSpawnTime, fltMaxSpawnTime);
+                    String[] strLoopSpawns = new String[1];
+                    strLoopSpawns[0] = strSpawns[intI];
+                    dictionary dctParams = new dictionary();
+                    dctParams.put("strSpawns", strLoopSpawns);
+                    messageTo(self, "createSpawns", dctParams, fltDelay * intI, false);
+                }
+                utils.setScriptVar(self, "intWavePopulation", strSpawns.length);
+                break;
+            }
+            default:
+                break;
         }
         return SCRIPT_CONTINUE;
     }
@@ -291,22 +278,15 @@ public class spawner extends script.base_script
         float fltMinSpawnDistance = getFloatObjVar(self, "fltMinSpawnDistance");
         float fltMaxSpawnDistance = getFloatObjVar(self, "fltMaxSpawnDistance");
         String[] strSpawns = params.getStringArray("strSpawns");
-        for (int intI = 0; intI < strSpawns.length; intI++)
-        {
-            String strSpawn = strSpawns[intI];
-            if (!isSquad(strSpawn))
-            {
+        for (String strSpawn : strSpawns) {
+            if (!isSquad(strSpawn)) {
                 obj_id objShip = createGenericSpawn(self, strSpawn, fltMinSpawnDistance, fltMaxSpawnDistance, false);
-                if (isIdValid(objShip))
-                {
+                if (isIdValid(objShip)) {
                     setupSpawnerSpawn(objShip, self);
                 }
-            }
-            else 
-            {
+            } else {
                 Vector objMembers = space_create.createSquadHyperspace(self, strSpawn, getTransform_o2p(self), 100, null);
-                if (objMembers != null)
-                {
+                if (objMembers != null) {
                     setupSpawnerSpawn(objMembers, self);
                 }
             }
@@ -342,52 +322,50 @@ public class spawner extends script.base_script
         String strDefaultBehavior = getStringObjVar(self, "strDefaultBehavior");
         setObjVar(objShip, "objParent", self);
         transform trMyLocation = getTransform_o2w(self);
-        if (strDefaultBehavior.equals("loiter"))
-        {
-            float fltMinLoiterDistance = getFloatObjVar(self, "fltMinLoiterDistance");
-            float fltMaxLoiterDistance = getFloatObjVar(self, "fltMaxLoiterDistance");
-            ship_ai.spaceLoiter(objShip, trMyLocation, fltMinLoiterDistance, fltMaxLoiterDistance);
-        }
-        else if (strDefaultBehavior.equals("patrol"))
-        {
-            transform[] trPatrolPoints = utils.getTransformArrayScriptVar(self, "trPatrolPoints");
-            ship_ai.spacePatrol(objShip, trPatrolPoints);
-        }
-        else if (strDefaultBehavior.equals("patrolNoRecycle"))
-        {
-            transform[] trPatrolPoints = utils.getTransformArrayScriptVar(self, "trPatrolPoints");
-            transform trTest = trPatrolPoints[trPatrolPoints.length - 1];
-            location locTest = utils.getLocationFromTransform(trTest);
-            addLocationTarget3d(objShip, "spawnerArrival", locTest, 64);
-            if (utils.hasLocalVar(self, "objDockingStation"))
-            {
-                setObjVar(objShip, "objDockingStation", utils.getObjIdLocalVar(self, "objDockingStation"));
+        switch (strDefaultBehavior) {
+            case "loiter":
+                float fltMinLoiterDistance = getFloatObjVar(self, "fltMinLoiterDistance");
+                float fltMaxLoiterDistance = getFloatObjVar(self, "fltMaxLoiterDistance");
+                ship_ai.spaceLoiter(objShip, trMyLocation, fltMinLoiterDistance, fltMaxLoiterDistance);
+                break;
+            case "patrol": {
+                transform[] trPatrolPoints = utils.getTransformArrayScriptVar(self, "trPatrolPoints");
+                ship_ai.spacePatrol(objShip, trPatrolPoints);
+                break;
             }
-            for (int intI = 0; intI < trPatrolPoints.length; intI++)
-            {
+            case "patrolNoRecycle": {
+                transform[] trPatrolPoints = utils.getTransformArrayScriptVar(self, "trPatrolPoints");
+                transform trTest = trPatrolPoints[trPatrolPoints.length - 1];
+                location locTest = utils.getLocationFromTransform(trTest);
+                addLocationTarget3d(objShip, "spawnerArrival", locTest, 64);
+                if (utils.hasLocalVar(self, "objDockingStation")) {
+                    setObjVar(objShip, "objDockingStation", utils.getObjIdLocalVar(self, "objDockingStation"));
+                }
+                for (int intI = 0; intI < trPatrolPoints.length; intI++) {
+                }
+                ship_ai.spaceMoveTo(objShip, trPatrolPoints);
+                break;
             }
-            ship_ai.spaceMoveTo(objShip, trPatrolPoints);
-        }
-        else if (strDefaultBehavior.equals("patrolFixedCircle"))
-        {
-            float fltMinCircleDistance = getFloatObjVar(self, "fltMinCircleDistance");
-            float fltMaxCircleDistance = getFloatObjVar(self, "fltMaxCircleDistance");
-            float fltCircleDistance = rand(fltMinCircleDistance, fltMaxCircleDistance);
-            transform trTest = getTransform_o2p(self);
-            transform[] trPatrolPoints = ship_ai.createPatrolPathCircle(trTest.getPosition_p(), fltCircleDistance);
-            ship_ai.spacePatrol(objShip, trPatrolPoints);
-        }
-        else if (strDefaultBehavior.equals("patrolRandomPath"))
-        {
-            float fltMinCircleDistance = getFloatObjVar(self, "fltMinCircleDistance");
-            float fltMaxCircleDistance = getFloatObjVar(self, "fltMaxCircleDistance");
-            float fltCircleDistance = rand(fltMinCircleDistance, fltMaxCircleDistance);
-            transform trTest = getTransform_o2p(self);
-            transform[] trPatrolPoints = ship_ai.createPatrolPathLoiter(trTest, fltMinCircleDistance, fltMaxCircleDistance);
-            ship_ai.spacePatrol(objShip, trPatrolPoints);
-        }
-        else 
-        {
+            case "patrolFixedCircle": {
+                float fltMinCircleDistance = getFloatObjVar(self, "fltMinCircleDistance");
+                float fltMaxCircleDistance = getFloatObjVar(self, "fltMaxCircleDistance");
+                float fltCircleDistance = rand(fltMinCircleDistance, fltMaxCircleDistance);
+                transform trTest = getTransform_o2p(self);
+                transform[] trPatrolPoints = ship_ai.createPatrolPathCircle(trTest.getPosition_p(), fltCircleDistance);
+                ship_ai.spacePatrol(objShip, trPatrolPoints);
+                break;
+            }
+            case "patrolRandomPath": {
+                float fltMinCircleDistance = getFloatObjVar(self, "fltMinCircleDistance");
+                float fltMaxCircleDistance = getFloatObjVar(self, "fltMaxCircleDistance");
+                float fltCircleDistance = rand(fltMinCircleDistance, fltMaxCircleDistance);
+                transform trTest = getTransform_o2p(self);
+                transform[] trPatrolPoints = ship_ai.createPatrolPathLoiter(trTest, fltMinCircleDistance, fltMaxCircleDistance);
+                ship_ai.spacePatrol(objShip, trPatrolPoints);
+                break;
+            }
+            default:
+                break;
         }
         if (hasObjVar(self, "objAttackTarget"))
         {
@@ -399,9 +377,8 @@ public class spawner extends script.base_script
     }
     public void setupSpawnerSpawn(Vector objMembers, obj_id self) throws InterruptedException
     {
-        for (int i = 0; i < objMembers.size(); i++)
-        {
-            setObjVar(((obj_id)objMembers.get(i)), "objParent", self);
+        for (Object objMember : objMembers) {
+            setObjVar(((obj_id) objMember), "objParent", self);
         }
         if (hasObjVar(self, "intSpawnsAllowed"))
         {
@@ -416,45 +393,45 @@ public class spawner extends script.base_script
         String strDefaultBehavior = getStringObjVar(self, "strDefaultBehavior");
         transform trMyLocation = getTransform_o2w(self);
         int intSquadId = ship_ai.unitGetSquadId(((obj_id)objMembers.get(0)));
-        if (strDefaultBehavior.equals("loiter"))
-        {
-            float fltMinLoiterDistance = getFloatObjVar(self, "fltMinLoiterDistance");
-            float fltMaxLoiterDistance = getFloatObjVar(self, "fltMaxLoiterDistance");
-            ship_ai.squadLoiter(intSquadId, trMyLocation, fltMinLoiterDistance, fltMaxLoiterDistance);
-        }
-        else if (strDefaultBehavior.equals("patrol"))
-        {
-            transform[] trPatrolPoints = utils.getTransformArrayScriptVar(self, "trPatrolPoints");
-            ship_ai.squadAddPatrolPath(intSquadId, trPatrolPoints);
-        }
-        else if (strDefaultBehavior.equals("patrolNoRecycle"))
-        {
-            transform[] trPatrolPoints = utils.getTransformArrayScriptVar(self, "trPatrolPoints");
-            transform trTest = trPatrolPoints[trPatrolPoints.length - 1];
-            location locTest = utils.getLocationFromTransform(trTest);
-            addLocationTarget3d(((obj_id)objMembers.get(0)), "leaderSpawnerArrival", locTest, 16);
-            ship_ai.squadMoveTo(intSquadId, trPatrolPoints);
-        }
-        else if (strDefaultBehavior.equals("patrolFixedCircle"))
-        {
-            float fltMinCircleDistance = getFloatObjVar(self, "fltMinCircleDistance");
-            float fltMaxCircleDistance = getFloatObjVar(self, "fltMaxCircleDistance");
-            float fltCircleDistance = rand(fltMinCircleDistance, fltMaxCircleDistance);
-            transform trTest = getTransform_o2p(self);
-            transform[] trPatrolPoints = ship_ai.createPatrolPathCircle(trTest.getPosition_p(), fltCircleDistance);
-            ship_ai.squadAddPatrolPath(intSquadId, trPatrolPoints);
-        }
-        else if (strDefaultBehavior.equals("patrolRandomPath"))
-        {
-            float fltMinCircleDistance = getFloatObjVar(self, "fltMinCircleDistance");
-            float fltMaxCircleDistance = getFloatObjVar(self, "fltMaxCircleDistance");
-            float fltCircleDistance = rand(fltMinCircleDistance, fltMaxCircleDistance);
-            transform trTest = getTransform_o2p(self);
-            transform[] trPatrolPoints = ship_ai.createPatrolPathLoiter(trTest, fltMinCircleDistance, fltMaxCircleDistance);
-            ship_ai.squadAddPatrolPath(intSquadId, trPatrolPoints);
-        }
-        else 
-        {
+        switch (strDefaultBehavior) {
+            case "loiter":
+                float fltMinLoiterDistance = getFloatObjVar(self, "fltMinLoiterDistance");
+                float fltMaxLoiterDistance = getFloatObjVar(self, "fltMaxLoiterDistance");
+                ship_ai.squadLoiter(intSquadId, trMyLocation, fltMinLoiterDistance, fltMaxLoiterDistance);
+                break;
+            case "patrol": {
+                transform[] trPatrolPoints = utils.getTransformArrayScriptVar(self, "trPatrolPoints");
+                ship_ai.squadAddPatrolPath(intSquadId, trPatrolPoints);
+                break;
+            }
+            case "patrolNoRecycle": {
+                transform[] trPatrolPoints = utils.getTransformArrayScriptVar(self, "trPatrolPoints");
+                transform trTest = trPatrolPoints[trPatrolPoints.length - 1];
+                location locTest = utils.getLocationFromTransform(trTest);
+                addLocationTarget3d(((obj_id) objMembers.get(0)), "leaderSpawnerArrival", locTest, 16);
+                ship_ai.squadMoveTo(intSquadId, trPatrolPoints);
+                break;
+            }
+            case "patrolFixedCircle": {
+                float fltMinCircleDistance = getFloatObjVar(self, "fltMinCircleDistance");
+                float fltMaxCircleDistance = getFloatObjVar(self, "fltMaxCircleDistance");
+                float fltCircleDistance = rand(fltMinCircleDistance, fltMaxCircleDistance);
+                transform trTest = getTransform_o2p(self);
+                transform[] trPatrolPoints = ship_ai.createPatrolPathCircle(trTest.getPosition_p(), fltCircleDistance);
+                ship_ai.squadAddPatrolPath(intSquadId, trPatrolPoints);
+                break;
+            }
+            case "patrolRandomPath": {
+                float fltMinCircleDistance = getFloatObjVar(self, "fltMinCircleDistance");
+                float fltMaxCircleDistance = getFloatObjVar(self, "fltMaxCircleDistance");
+                float fltCircleDistance = rand(fltMinCircleDistance, fltMaxCircleDistance);
+                transform trTest = getTransform_o2p(self);
+                transform[] trPatrolPoints = ship_ai.createPatrolPathLoiter(trTest, fltMinCircleDistance, fltMaxCircleDistance);
+                ship_ai.squadAddPatrolPath(intSquadId, trPatrolPoints);
+                break;
+            }
+            default:
+                break;
         }
         if (hasObjVar(self, "objAttackTarget"))
         {
@@ -586,87 +563,88 @@ public class spawner extends script.base_script
         String strAsteroidTable = "datatables/space_mining/mining_asteroids.iff";
         transform trSpawnLocation = space_utils.getRandomPositionInSphere(getTransform_o2w(objSpawner), 0, 1, true);
         obj_id objAsteroid = null;
-        if (strAsteroidType.equals("iron"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "iron", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("silicaceous"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "silicaceous", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("carbonaceous"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "carbonaceous", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("ice"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "ice", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("obsidian"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "obsidian", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("diamond"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "diamond", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("crystal"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "crystal", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("petrochem"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "petrochem", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("acid"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "acid", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("cyanomethanic"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "cyanomethanic", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("sulfuric"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "sulfuric", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("methane"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "methane", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else if (strAsteroidType.equals("organometallic"))
-        {
-            int choice = rand(1, 2);
-            String template = dataTableGetString(strAsteroidTable, "organometallic", choice);
-            objAsteroid = createObject(template, trSpawnLocation, null);
-        }
-        else 
-        {
-            objAsteroid = null;
+        switch (strAsteroidType) {
+            case "iron": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "iron", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "silicaceous": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "silicaceous", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "carbonaceous": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "carbonaceous", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "ice": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "ice", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "obsidian": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "obsidian", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "diamond": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "diamond", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "crystal": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "crystal", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "petrochem": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "petrochem", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "acid": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "acid", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "cyanomethanic": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "cyanomethanic", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "sulfuric": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "sulfuric", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "methane": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "methane", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            case "organometallic": {
+                int choice = rand(1, 2);
+                String template = dataTableGetString(strAsteroidTable, "organometallic", choice);
+                objAsteroid = createObject(template, trSpawnLocation, null);
+                break;
+            }
+            default:
+                objAsteroid = null;
+                break;
         }
         setObjVar(objAsteroid, "objParent", objSpawner);
         setObjVar(objAsteroid, "strAsteroidType", strAsteroidType);

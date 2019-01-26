@@ -69,7 +69,7 @@ public class pet_test extends script.base_script
             return;
         }
         pet_lib.removeFromPetList(pet);
-        messageTo(self, "destroyPet", null, 2.f, true);
+        messageTo(self, "destroyPet", null, 2.0f, true);
     }
     public int destroyPet(obj_id self, dictionary params) throws InterruptedException
     {

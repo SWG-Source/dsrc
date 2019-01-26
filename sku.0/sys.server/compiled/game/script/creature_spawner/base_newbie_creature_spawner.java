@@ -61,7 +61,7 @@ public class base_newbie_creature_spawner extends script.base_script
         location here = getLocation(getSelf());
         here.x = here.x + rand(-5, 5);
         here.z = here.z + rand(-5, 5);
-        return locations.getGoodLocationAroundLocation(here, 10f, 10f, 10f, 10f);
+        return locations.getGoodLocationAroundLocation(here, 10.0f, 10.0f, 10.0f, 10.0f);
     }
     public int creatureDied(obj_id self, dictionary params) throws InterruptedException
     {

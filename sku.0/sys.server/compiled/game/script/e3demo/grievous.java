@@ -12,7 +12,7 @@ public class grievous extends script.base_script
     public int OnAttach(obj_id self) throws InterruptedException
     {
         setScale(self, 1.5f);
-        createTriggerVolume("playerEnter", 28f, true);
+        createTriggerVolume("playerEnter", 28.0f, true);
         return SCRIPT_CONTINUE;
     }
     public int OnIncapacitated(obj_id self, obj_id player) throws InterruptedException

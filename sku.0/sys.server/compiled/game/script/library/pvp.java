@@ -479,7 +479,7 @@ public class pvp extends script.base_script
             disparity = MAX_RATING_DISPARITY;
         }
         trace.log("pvp_rating", "Target " + utils.getRealPlayerFirstName(targetPlayer) + "'s PvP rating is " + targetRat + "; Opponent " + utils.getRealPlayerFirstName(opponent) + "'s rating is " + opponentRat + " for a final disparity of " + disparity, opponent, trace.TL_DEBUG);
-        float pvpRatingXPAdjustment = ((float)disparity / (float)MAX_RATING_DISPARITY) * MAX_RATING_AFFECT_ON_XP;
+        float pvpRatingXPAdjustment = ((float)disparity / MAX_RATING_DISPARITY) * MAX_RATING_AFFECT_ON_XP;
         trace.log("pvp_rating", "Rating Disparity is " + disparity + ", creating an XP mod of " + (pvpRatingXPAdjustment * 100) + "% (" + pvpRatingXPAdjustment + ")", null, trace.TL_DEBUG);
         int targetDelta = getRawForceRankXPDelta(targetPlayer, !gettingVictimsDelta, opponent);
         trace.log("pvp_rating", utils.getRealPlayerFirstName(targetPlayer) + "'s raw target player XP Delta for " + wonlost + " opponent " + utils.getRealPlayerFirstName(opponent) + " is " + targetDelta, targetPlayer, trace.TL_DEBUG);
@@ -489,11 +489,11 @@ public class pvp extends script.base_script
             trace.log("pvp_rating", "After modifying the XP delta with the % contribution the adjusted XP delta for " + utils.getRealPlayerFirstName(targetPlayer) + " is " + targetDelta, null, trace.TL_DEBUG);
             if ((targetRat < opponentRat && gettingVictimsDelta) || (targetRat > opponentRat && !gettingVictimsDelta))
             {
-                targetDelta -= (int)((float)targetDelta * pvpRatingXPAdjustment);
+                targetDelta -= (int)(targetDelta * pvpRatingXPAdjustment);
             }
             else 
             {
-                targetDelta += (int)((float)targetDelta * pvpRatingXPAdjustment);
+                targetDelta += (int)(targetDelta * pvpRatingXPAdjustment);
             }
             trace.log("pvp_rating", "After adjusting target " + utils.getRealPlayerFirstName(targetPlayer) + "'s XP delta against the RatingDisparity adjustment of " + pvpRatingXPAdjustment + ", the **FINAL** adjusted XP Delta is " + targetDelta, targetPlayer, trace.TL_DEBUG);
         }

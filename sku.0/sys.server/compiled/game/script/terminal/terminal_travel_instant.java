@@ -1,8 +1,8 @@
 package script.terminal;
 
 import script.*;
-import script.library.*;
 import script.library.travel;
+import script.library.*;
 
 public class terminal_travel_instant extends script.base_script
 {
@@ -13,7 +13,7 @@ public class terminal_travel_instant extends script.base_script
     public static final string_id SID_LEFT_ME = new string_id("travel", "left_pickup_zone");
     public static final string_id SID_NOT_YOUR_SHIP = new string_id("travel", "not_your_ship");
     public static final String TRIGGER_VOLUME_PICKUP_SHIP = "travel_instant_pickup_interest_range";
-    public static final float PICKUP_INTEREST_RADIUS = 64f;
+    public static final float PICKUP_INTEREST_RADIUS = 64.0f;
     public static final boolean CONST_FLAG_DO_LOGGING = false;
     public static final String ITV_PICKUP_BUFF = "call_for_pickup";
     public static final String PID_VAR = "home_itv_pid";

@@ -22,12 +22,10 @@ public class heraldlok extends script.base_script
         obj_id[] playerWaypoints = getWaypointsInDatapad(player);
         if (playerWaypoints != null && playerWaypoints.length > 0)
         {
-            for (int i = 0; i < playerWaypoints.length; i++)
-            {
-                String waypointName = getWaypointName(playerWaypoints[i]);
-                location waypointLoc = getWaypointLocation(playerWaypoints[i]);
-                if (waypointName.equals(kimogilaName) || waypointLoc.equals(kimogilaLoc))
-                {
+            for (obj_id playerWaypoint : playerWaypoints) {
+                String waypointName = getWaypointName(playerWaypoint);
+                location waypointLoc = getWaypointLocation(playerWaypoint);
+                if (waypointName.equals(kimogilaName) || waypointLoc.equals(kimogilaLoc)) {
                     return true;
                 }
             }
@@ -41,12 +39,10 @@ public class heraldlok extends script.base_script
         obj_id[] playerWaypoints = getWaypointsInDatapad(player);
         if (playerWaypoints != null && playerWaypoints.length > 0)
         {
-            for (int i = 0; i < playerWaypoints.length; i++)
-            {
-                String waypointName = getWaypointName(playerWaypoints[i]);
-                location waypointLoc = getWaypointLocation(playerWaypoints[i]);
-                if (waypointName.equals(corsairName) || waypointLoc.equals(corsairLoc))
-                {
+            for (obj_id playerWaypoint : playerWaypoints) {
+                String waypointName = getWaypointName(playerWaypoint);
+                location waypointLoc = getWaypointLocation(playerWaypoint);
+                if (waypointName.equals(corsairName) || waypointLoc.equals(corsairLoc)) {
                     return true;
                 }
             }

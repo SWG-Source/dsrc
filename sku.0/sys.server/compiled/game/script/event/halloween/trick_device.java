@@ -36,7 +36,7 @@ public class trick_device extends script.base_script
             {
                 if (hasObjVar(self, "fogOn"))
                 {
-                    createTriggerVolume("fogTrigger", 80f, true);
+                    createTriggerVolume("fogTrigger", 80.0f, true);
                     startFog(self);
                 }
                 createTriggerVolume("trickAura", 5, true);

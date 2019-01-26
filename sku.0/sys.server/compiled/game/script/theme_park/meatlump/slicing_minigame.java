@@ -537,11 +537,9 @@ public class slicing_minigame extends script.base_script
         }
         int listLength = splitAnagramList.length;
         blog("checkGuessList listLength: " + listLength);
-        for (int i = 0; i < listLength; i++)
-        {
-            blog("checkGuessList splitAnagramList:" + splitAnagramList[i].trim() + "* anagram:" + anagram);
-            if ((splitAnagramList[i].trim()).equals(anagram))
-            {
+        for (String s : splitAnagramList) {
+            blog("checkGuessList splitAnagramList:" + s.trim() + "* anagram:" + anagram);
+            if ((s.trim()).equals(anagram)) {
                 return false;
             }
         }

@@ -51,30 +51,20 @@ public class heroic_token extends script.base_script
             sendSystemMessage(player, new string_id("set_bonus", "heroic_token_token_error"));
             return;
         }
-        for (int i = 0; i < inventoryContents.length; i++)
-        {
-            obj_id inventoryItem = inventoryContents[i];
-            if (!isIdValid(inventoryItem))
-            {
+        for (obj_id inventoryItem : inventoryContents) {
+            if (!isIdValid(inventoryItem)) {
                 continue;
             }
             String itemName = getStaticItemName(inventoryItem);
-            if (itemName != null && !itemName.equals("") && itemName.equals("item_heroic_token_box_01_01"))
-            {
-                if (hasObjVar(inventoryItem, "item.set.tokens_held"))
-                {
+            if (itemName != null && !itemName.equals("") && itemName.equals("item_heroic_token_box_01_01")) {
+                if (hasObjVar(inventoryItem, "item.set.tokens_held")) {
                     updateTokenBox(myId, inventoryItem, self, player, amount);
                     break;
-                }
-                else 
-                {
+                } else {
                     trial.initializeBox(self);
-                    if (hasObjVar(inventoryItem, "item.set.tokens_held"))
-                    {
+                    if (hasObjVar(inventoryItem, "item.set.tokens_held")) {
                         updateTokenBox(myId, inventoryItem, self, player, amount);
-                    }
-                    else 
-                    {
+                    } else {
                         sendSystemMessage(player, new string_id("spam", "heroic_token_box_error"));
                     }
                 }

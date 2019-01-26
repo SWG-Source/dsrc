@@ -97,9 +97,8 @@ public class storyteller_commands extends script.base_script
         };
         Vector storytellerHelpTypes = new Vector();
         storytellerHelpTypes.setSize(0);
-        for (int i = 0; i < sid_storyteller_help_options.length; i++)
-        {
-            String tokenType = utils.packStringId(sid_storyteller_help_options[i]);
+        for (string_id sid_storyteller_help_option : sid_storyteller_help_options) {
+            String tokenType = utils.packStringId(sid_storyteller_help_option);
             storytellerHelpTypes = utils.addElement(storytellerHelpTypes, tokenType);
         }
         String[] _storytellerHelpTypes = new String[0];
@@ -353,14 +352,11 @@ public class storyteller_commands extends script.base_script
             }
             else if (invitee.equals("area_invite") && isGod(self))
             {
-                obj_id[] playersInRange = getAllPlayers(getLocation(self), 120f);
+                obj_id[] playersInRange = getAllPlayers(getLocation(self), 120.0f);
                 if (playersInRange != null && playersInRange.length > 0)
                 {
-                    for (int i = 0; i < playersInRange.length; i++)
-                    {
-                        obj_id playerToInvite = playersInRange[i];
-                        if (isIdValid(playerToInvite) && playerToInvite != self)
-                        {
+                    for (obj_id playerToInvite : playersInRange) {
+                        if (isIdValid(playerToInvite) && playerToInvite != self) {
                             dictionary webster = new dictionary();
                             webster.put("storytellerPlayer", storytellerId);
                             webster.put("storytellerName", storytellerName);
@@ -410,11 +406,8 @@ public class storyteller_commands extends script.base_script
                     obj_id[] guildMembers = guild.getMemberIds(guildId, false, true);
                     if (guildMembers != null && guildMembers.length > 0)
                     {
-                        for (int i = 0; i < guildMembers.length; i++)
-                        {
-                            obj_id guildMember = guildMembers[i];
-                            if (isIdValid(guildMember) && guildMember != self)
-                            {
+                        for (obj_id guildMember : guildMembers) {
+                            if (isIdValid(guildMember) && guildMember != self) {
                                 dictionary webster = new dictionary();
                                 webster.put("storytellerPlayer", storytellerId);
                                 webster.put("storytellerName", storytellerName);
@@ -655,13 +648,10 @@ public class storyteller_commands extends script.base_script
         Vector elligibleStorytellerObjects = getElligibleStorytellerObjectsInRange(self, storytellerId, storytellerName);
         if (elligibleStorytellerObjects != null && elligibleStorytellerObjects.size() > 0)
         {
-            for (int i = 0; i < elligibleStorytellerObjects.size(); i++)
-            {
-                obj_id elligibleStorytellerObject = ((obj_id)elligibleStorytellerObjects.get(i));
-                if (isIdValid(elligibleStorytellerObject))
-                {
-                    if (isMob(elligibleStorytellerObject))
-                    {
+            for (Object elligibleStorytellerObject1 : elligibleStorytellerObjects) {
+                obj_id elligibleStorytellerObject = ((obj_id) elligibleStorytellerObject1);
+                if (isIdValid(elligibleStorytellerObject)) {
+                    if (isMob(elligibleStorytellerObject)) {
                         destroyObject(elligibleStorytellerObject);
                         npcDestroyed = true;
                     }
@@ -709,13 +699,10 @@ public class storyteller_commands extends script.base_script
         Vector elligibleStorytellerObjects = getElligibleStorytellerObjectsInRange(self, storytellerId, storytellerName);
         if (elligibleStorytellerObjects != null && elligibleStorytellerObjects.size() > 0)
         {
-            for (int i = 0; i < elligibleStorytellerObjects.size(); i++)
-            {
-                obj_id elligibleStorytellerObject = ((obj_id)elligibleStorytellerObjects.get(i));
-                if (isIdValid(elligibleStorytellerObject))
-                {
-                    if (!isMob(elligibleStorytellerObject))
-                    {
+            for (Object elligibleStorytellerObject1 : elligibleStorytellerObjects) {
+                obj_id elligibleStorytellerObject = ((obj_id) elligibleStorytellerObject1);
+                if (isIdValid(elligibleStorytellerObject)) {
+                    if (!isMob(elligibleStorytellerObject)) {
                         destroyObject(elligibleStorytellerObject);
                         propDestroyed = true;
                     }
@@ -763,13 +750,10 @@ public class storyteller_commands extends script.base_script
         Vector elligibleStorytellerObjects = getElligibleStorytellerObjectsInRange(self, storytellerId, storytellerName);
         if (elligibleStorytellerObjects != null && elligibleStorytellerObjects.size() > 0)
         {
-            for (int i = 0; i < elligibleStorytellerObjects.size(); i++)
-            {
-                obj_id elligibleStorytellerObject = ((obj_id)elligibleStorytellerObjects.get(i));
-                if (isIdValid(elligibleStorytellerObject))
-                {
-                    if (hasObjVar(elligibleStorytellerObject, "storytellerPersistedEffectActive"))
-                    {
+            for (Object elligibleStorytellerObject1 : elligibleStorytellerObjects) {
+                obj_id elligibleStorytellerObject = ((obj_id) elligibleStorytellerObject1);
+                if (isIdValid(elligibleStorytellerObject)) {
+                    if (hasObjVar(elligibleStorytellerObject, "storytellerPersistedEffectActive")) {
                         messageTo(elligibleStorytellerObject, "handleRemoveStorytellerPersistedEffect", null, 1, false);
                         particleDestroyed = true;
                     }
@@ -816,11 +800,9 @@ public class storyteller_commands extends script.base_script
         Vector elligibleStorytellerObjects = getElligibleStorytellerObjectsInRange(self, storytellerId, storytellerName);
         if (elligibleStorytellerObjects != null && elligibleStorytellerObjects.size() > 0)
         {
-            for (int i = 0; i < elligibleStorytellerObjects.size(); i++)
-            {
-                obj_id elligibleStorytellerObject = ((obj_id)elligibleStorytellerObjects.get(i));
-                if (isIdValid(elligibleStorytellerObject))
-                {
+            for (Object elligibleStorytellerObject1 : elligibleStorytellerObjects) {
+                obj_id elligibleStorytellerObject = ((obj_id) elligibleStorytellerObject1);
+                if (isIdValid(elligibleStorytellerObject)) {
                     destroyObject(elligibleStorytellerObject);
                 }
             }
@@ -863,33 +845,22 @@ public class storyteller_commands extends script.base_script
     {
         Vector elligibleObjects = new Vector();
         elligibleObjects.setSize(0);
-        obj_id[] storytellerObjects = getAllObjectsWithObjVar(getLocation(self), 250f, "storytellerid");
+        obj_id[] storytellerObjects = getAllObjectsWithObjVar(getLocation(self), 250.0f, "storytellerid");
         if (storytellerObjects != null && storytellerObjects.length > 0)
         {
-            for (int i = 0; i < storytellerObjects.length; i++)
-            {
-                obj_id storytellerObject = storytellerObjects[i];
-                if (isIdValid(storytellerObject))
-                {
-                    if (storytellerName.equals(INCLUDE_ALL_STORYTELLERS))
-                    {
+            for (obj_id storytellerObject : storytellerObjects) {
+                if (isIdValid(storytellerObject)) {
+                    if (storytellerName.equals(INCLUDE_ALL_STORYTELLERS)) {
                         utils.addElement(elligibleObjects, storytellerObject);
-                    }
-                    else 
-                    {
+                    } else {
                         obj_id storytellerObjectOwner = getObjIdObjVar(storytellerObject, "storytellerid");
                         String storytellerObjectOwnerName = getStringObjVar(storytellerObject, "storytellerName");
-                        if (isIdValid(storytellerId))
-                        {
-                            if (isIdValid(storytellerObjectOwner) && storytellerId == storytellerObjectOwner)
-                            {
+                        if (isIdValid(storytellerId)) {
+                            if (isIdValid(storytellerObjectOwner) && storytellerId == storytellerObjectOwner) {
                                 utils.addElement(elligibleObjects, storytellerObject);
                             }
-                        }
-                        else 
-                        {
-                            if (storytellerObjectOwnerName.length() > 0 && storytellerName.equals(storytellerObjectOwnerName.toLowerCase()))
-                            {
+                        } else {
+                            if (storytellerObjectOwnerName.length() > 0 && storytellerName.equals(storytellerObjectOwnerName.toLowerCase())) {
                                 utils.addElement(elligibleObjects, storytellerObject);
                             }
                         }

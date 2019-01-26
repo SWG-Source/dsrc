@@ -92,43 +92,32 @@ public class jedi extends script.base_script
     public static final float NEUTRAL_VISIBILITY_MULTIPLIER = 0.5f;
     public static int getJediActionVisibilityValue(obj_id objPlayer, int intActionVisibility, int intActionRange) throws InterruptedException
     {
-        float fltActionRange = (float)intActionRange;
-        float fltBaseVisibility = (float)intActionVisibility;
+        float fltActionRange = intActionRange;
+        float fltBaseVisibility = intActionVisibility;
         float fltActualVisibility = 0;
         obj_id[] objNPCs = getNPCsInRange(objPlayer, fltActionRange);
         obj_id[] objPlayers = getPlayerCreaturesInRange(objPlayer, fltActionRange);
         if ((objNPCs != null) && (objNPCs.length > 0))
         {
-            for (int intI = 0; intI < objNPCs.length; intI++)
-            {
-                if (ai_lib.isNpc(objNPCs[intI]) || ai_lib.isAndroid(objNPCs[intI]))
-                {
-                    String strFaction = factions.getFaction(objNPCs[intI]);
-                    if (strFaction != null)
-                    {
+            for (obj_id objNPC : objNPCs) {
+                if (ai_lib.isNpc(objNPC) || ai_lib.isAndroid(objNPC)) {
+                    String strFaction = factions.getFaction(objNPC);
+                    if (strFaction != null) {
                         int intIndex = utils.getElementPositionInArray(JEDI_ENEMY_FACTIONS, strFaction);
-                        if (intIndex > -1)
-                        {
+                        if (intIndex > -1) {
                             float fltTempVisibility = fltBaseVisibility * ENEMY_VISIBILITY_MULTIPLIER;
-                            if (fltTempVisibility > fltActualVisibility)
-                            {
+                            if (fltTempVisibility > fltActualVisibility) {
                                 fltActualVisibility = fltTempVisibility;
                             }
-                        }
-                        else 
-                        {
+                        } else {
                             float fltTempVisibility = fltBaseVisibility * NEUTRAL_VISIBILITY_MULTIPLIER;
-                            if (fltTempVisibility > fltActualVisibility)
-                            {
+                            if (fltTempVisibility > fltActualVisibility) {
                                 fltActualVisibility = fltTempVisibility;
                             }
                         }
-                    }
-                    else 
-                    {
+                    } else {
                         float fltTempVisibility = fltBaseVisibility * 0.25f;
-                        if (fltTempVisibility > fltActualVisibility)
-                        {
+                        if (fltTempVisibility > fltActualVisibility) {
                             fltActualVisibility = fltTempVisibility;
                         }
                     }
@@ -140,20 +129,13 @@ public class jedi extends script.base_script
         }
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int intI = 0; intI < objPlayers.length; intI++)
-            {
-                if ((!group.inSameGroup(objPlayer, objPlayers[intI])) && (objPlayers[intI] != objPlayer) && (!isGod(objPlayers[intI])))
-                {
-                    if (factions.pvpDoAllowedAttackCheck(objPlayer, objPlayers[intI]))
-                    {
+            for (obj_id objPlayer1 : objPlayers) {
+                if ((!group.inSameGroup(objPlayer, objPlayer1)) && (objPlayer1 != objPlayer) && (!isGod(objPlayer1))) {
+                    if (factions.pvpDoAllowedAttackCheck(objPlayer, objPlayer1)) {
                         fltActualVisibility += (fltBaseVisibility * ENEMY_VISIBILITY_MULTIPLIER);
-                    }
-                    else if (factions.isNeutral(objPlayers[intI]))
-                    {
+                    } else if (factions.isNeutral(objPlayer1)) {
                         fltActualVisibility += (fltBaseVisibility * NEUTRAL_VISIBILITY_MULTIPLIER);
-                    }
-                    else 
-                    {
+                    } else {
                         fltActualVisibility += (fltBaseVisibility * 0.25f);
                     }
                 }
@@ -213,11 +195,9 @@ public class jedi extends script.base_script
         {
             dictionary params = new dictionary();
             params.put("target", objPlayer);
-            for (int i = 0; i < hunters.length; i++)
-            {
-                if (isIdValid(hunters[i]))
-                {
-                    messageTo(hunters[i], "bountyIncomplete", params, 1.0f, true);
+            for (obj_id hunter : hunters) {
+                if (isIdValid(hunter)) {
+                    messageTo(hunter, "bountyIncomplete", params, 1.0f, true);
                 }
             }
             removeAllJediBounties(objPlayer);
@@ -334,7 +314,7 @@ public class jedi extends script.base_script
     public static int modifyForcePower(obj_id objPlayer, int intForcePowerToDrain, dictionary dctJediInfo) throws InterruptedException
     {
         float fltAlignmentModifier = getJediAlignmentModifier(objPlayer, dctJediInfo);
-        float fltForcePower = (float)intForcePowerToDrain;
+        float fltForcePower = intForcePowerToDrain;
         fltForcePower = fltForcePower - (fltForcePower * (1.0f - fltAlignmentModifier));
         intForcePowerToDrain = (int)fltForcePower;
         return intForcePowerToDrain;
@@ -385,15 +365,15 @@ public class jedi extends script.base_script
             modRegenRate = 15;
         }
         baseRegenRate = baseRegenRate + modRegenRate;
-        float regenRate = (float)baseRegenRate;
-        regenRate = regenRate / 10f;
+        float regenRate = baseRegenRate;
+        regenRate = regenRate / 10.0f;
         if (hasSkill(player, "force_rank_light_novice"))
         {
             int force_power = getSkillStatisticModifier(player, "force_power_light");
             int force_control = getSkillStatisticModifier(player, "force_control_light");
             int force_manipulation = getSkillStatisticModifier(player, "force_manipulation_light");
             maxPower += (force_power + force_control) * 10;
-            regenRate += (force_control + force_manipulation) / 100f;
+            regenRate += (force_control + force_manipulation) / 100.0f;
         }
         else if (hasSkill(player, "force_rank_dark_novice"))
         {
@@ -401,7 +381,7 @@ public class jedi extends script.base_script
             int force_control = getSkillStatisticModifier(player, "force_control_dark");
             int force_manipulation = getSkillStatisticModifier(player, "force_manipulation_dark");
             maxPower += (force_power + force_control) * 10;
-            regenRate += (force_control + force_manipulation) / 100f;
+            regenRate += (force_control + force_manipulation) / 100.0f;
         }
         int meditateRate = 1;
         if (hasObjVar(player, "jedi.meditate"))
@@ -414,7 +394,7 @@ public class jedi extends script.base_script
         {
             regenPenalty = 1;
         }
-        regenRate /= (float)regenPenalty;
+        regenRate /= regenPenalty;
         setMaxForcePower(player, maxPower);
         setForcePowerRegenRate(player, regenRate);
         return;
@@ -549,7 +529,7 @@ public class jedi extends script.base_script
                 dctParams.put("strEffect", clientEffect);
                 dctParams.put("objTarget", objTarget);
                 dctParams.put("labelEffect", labelEffect);
-                messageTo(objTarget, "playDelayedClientEffect", dctParams, 8f, false);
+                messageTo(objTarget, "playDelayedClientEffect", dctParams, 8.0f, false);
             }
         }
         return;
@@ -881,8 +861,8 @@ public class jedi extends script.base_script
         }
         int minHealth = actionData.getInt("intMinHealthHeal");
         int maxHealth = actionData.getInt("intMaxHealthHeal");
-        int minAction = (int)(getMaxAttrib(self, ACTION) * (actionData.getInt("intMinActionHeal") / 100f));
-        int maxAction = (int)(getMaxAttrib(self, ACTION) * (actionData.getInt("intMaxActionHeal") / 100f));
+        int minAction = (int)(getMaxAttrib(self, ACTION) * (actionData.getInt("intMinActionHeal") / 100.0f));
+        int maxAction = (int)(getMaxAttrib(self, ACTION) * (actionData.getInt("intMaxActionHeal") / 100.0f));
         attribute[] curAttribs = getAttribs(self);
         if (curAttribs[HEALTH].getValue() < maxHealth || !combat.canDrainCombatActionAttributes(self, new int[]
         {
@@ -998,13 +978,13 @@ public class jedi extends script.base_script
         int defense = getEnhancedSkillStatisticModifier(target, "force_defense");
         if (defense > 0)
         {
-            damage = damage * (1f / (1f + (defense / 100f)));
+            damage = damage * (1.0f / (1.0f + (defense / 100.0f)));
         }
         if (damage < 1)
         {
             return;
         }
-        addAttribModifier(target, HEALTH, (int)damage * -1, 0f, 0f, MOD_POOL);
+        addAttribModifier(target, HEALTH, (int)damage * -1, 0.0f, 0.0f, MOD_POOL);
         prose_package pp = new prose_package();
         pp.stringId = new string_id("cbt_spam", "forcefeedback_hit");
         pp.actor.set(player);
@@ -1035,7 +1015,7 @@ public class jedi extends script.base_script
         float forceShield = 0;
         if (actionData != null)
         {
-            forceShield = getEnhancedSkillStatisticModifier(defender, "force_shield") * 100f;
+            forceShield = getEnhancedSkillStatisticModifier(defender, "force_shield") * 100.0f;
             int forceCost = (int)(damage * getModifiedExtraForceCost(defender, actionData.getFloat("extraForceCost"), actionData.getString("actionName")));
             if (!jedi.drainForcePower(defender, forceCost))
             {
@@ -1071,7 +1051,7 @@ public class jedi extends script.base_script
         float forceArmor = 0;
         if (actionData != null)
         {
-            forceArmor = getEnhancedSkillStatisticModifier(defender, "force_armor") * 100f;
+            forceArmor = getEnhancedSkillStatisticModifier(defender, "force_armor") * 100.0f;
             int forceCost = (int)(damage * getModifiedExtraForceCost(defender, actionData.getFloat("extraForceCost"), actionData.getString("actionName")));
             if (!jedi.drainForcePower(defender, forceCost))
             {
@@ -1088,7 +1068,7 @@ public class jedi extends script.base_script
     {
         if (weaponData.weaponType == combat.WEAPON_TYPE_FORCE_POWER && getEnhancedSkillStatisticModifier(defender, "force_absorb") > 0)
         {
-            float forceAbsorb = 0f;
+            float forceAbsorb = 0.0f;
             if (buff.hasBuff(defender, "forceAbsorb"))
             {
                 forceAbsorb = getModifiedExtraForceCost(defender, dataTableGetFloat(JEDI_ACTIONS_FILE, "forceAbsorb", "extraForceCost"), "forceAbsorb");
@@ -1112,7 +1092,7 @@ public class jedi extends script.base_script
         }
         if (weaponData.weaponType == combat.WEAPON_TYPE_FORCE_POWER && getEnhancedSkillStatisticModifier(defender, "force_feedback") > 0)
         {
-            float forceFeedback = getEnhancedSkillStatisticModifier(defender, "force_feedback") / 100f;
+            float forceFeedback = getEnhancedSkillStatisticModifier(defender, "force_feedback") / 100.0f;
             float feedbackDamage = forceFeedback * hitData.damage;
             jedi.applyFeedbackDamage(defender, attacker, feedbackDamage);
             dictionary data = new dictionary();
@@ -1286,7 +1266,7 @@ public class jedi extends script.base_script
     }
     public static void jediDeathExperienceLoss(obj_id player) throws InterruptedException
     {
-        jediDeathExperienceLoss(player, 1f);
+        jediDeathExperienceLoss(player, 1.0f);
     }
     public static void jediDeathExperienceLoss(obj_id player, float modifier) throws InterruptedException
     {
@@ -1296,16 +1276,14 @@ public class jedi extends script.base_script
         {
             "jedi_general"
         };
-        for (int i = 0; i < JEDI_XP_TYPES.length; i++)
-        {
-            int xpCap = getExperienceCap(player, JEDI_XP_TYPES[i]);
-            int xpLoss = (int)(xpCap * XP_LOSS_PERCENTAGE * modifier);
+        for (String jedi_xp_type : JEDI_XP_TYPES) {
+            int xpCap = getExperienceCap(player, jedi_xp_type);
+            int xpLoss = (int) (xpCap * XP_LOSS_PERCENTAGE * modifier);
             int curXp = getExperiencePoints(player, "jedi_general");
-            if (curXp + xpLoss < JEDI_MIN_XP_CAP)
-            {
+            if (curXp + xpLoss < JEDI_MIN_XP_CAP) {
                 xpLoss = JEDI_MIN_XP_CAP - curXp;
             }
-            grantExperiencePoints(player, JEDI_XP_TYPES[i], xpLoss);
+            grantExperiencePoints(player, jedi_xp_type, xpLoss);
             prose_package ppLostXP = prose.getPackage(SID_LOST_JEDI_XP);
             prose.setDI(ppLostXP, xpLoss);
             sendSystemMessageProse(player, ppLostXP);
@@ -1385,11 +1363,9 @@ public class jedi extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (!isDisabled(contents[i]))
-            {
-                addCrystalStats(saber, contents[i]);
+        for (obj_id content : contents) {
+            if (!isDisabled(content)) {
+                addCrystalStats(saber, content);
             }
         }
     }
@@ -1463,58 +1439,51 @@ public class jedi extends script.base_script
                 obj_var ov = ovl.getObjVar(i);
                 String name = ov.getName();
                 LOG("saber_test", "Processing Crystal Stat: " + name);
-                if (name.equals(VAR_MIN_DMG))
-                {
-                    int minDmg = getWeaponMinDamage(saber);
-                    LOG("saber_test", "Old Min Damage = " + minDmg);
-                    minDmg += getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_MIN_DMG);
-                    LOG("saber_test", "New Min Damage = " + minDmg);
-                    if (!setWeaponMinDamage(saber, minDmg))
-                    {
-                        LOG("saber_test", "ERROR: Failed Setting Min Damage");
-                    }
-                }
-                else if (name.equals(VAR_MAX_DMG))
-                {
-                    int maxDmg = getWeaponMaxDamage(saber);
-                    maxDmg += getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_MAX_DMG);
-                    setWeaponMaxDamage(saber, maxDmg);
-                }
-                else if (name.equals(VAR_SPEED))
-                {
-                    float speed = getWeaponAttackSpeed(saber);
-                    speed += getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_SPEED);
-                    setWeaponAttackSpeed(saber, speed);
-                }
-                else if (name.equals(VAR_WOUND))
-                {
-                    float wound = getWeaponWoundChance(saber);
-                    wound += getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_WOUND);
-                    setWeaponWoundChance(saber, wound);
-                }
-                else if (name.equals(VAR_RADIUS))
-                {
-                    float radius = getWeaponDamageRadius(saber);
-                    radius += getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_RADIUS);
-                    setWeaponDamageRadius(saber, radius);
-                }
-                else if (name.equals(VAR_ATTACK_COST))
-                {
-                    int cost = getWeaponAttackCost(saber);
-                    cost += getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_ATTACK_COST);
-                    setWeaponAttackCost(saber, cost);
-                }
-                else if (name.equals(VAR_FORCE))
-                {
-                    float force = getFloatObjVar(saber, VAR_SABER_BASE + "." + VAR_FORCE);
-                    force += getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_FORCE);
-                    setObjVar(saber, VAR_SABER_BASE + "." + VAR_FORCE, force);
-                }
-                else if (name.equals(VAR_COLOR))
-                {
-                    int color = getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_COLOR);
-                    int shader = getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_SHADER);
-                    setSaberColor(saber, color, shader);
+                switch (name) {
+                    case VAR_MIN_DMG:
+                        int minDmg = getWeaponMinDamage(saber);
+                        LOG("saber_test", "Old Min Damage = " + minDmg);
+                        minDmg += getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_MIN_DMG);
+                        LOG("saber_test", "New Min Damage = " + minDmg);
+                        if (!setWeaponMinDamage(saber, minDmg)) {
+                            LOG("saber_test", "ERROR: Failed Setting Min Damage");
+                        }
+                        break;
+                    case VAR_MAX_DMG:
+                        int maxDmg = getWeaponMaxDamage(saber);
+                        maxDmg += getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_MAX_DMG);
+                        setWeaponMaxDamage(saber, maxDmg);
+                        break;
+                    case VAR_SPEED:
+                        float speed = getWeaponAttackSpeed(saber);
+                        speed += getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_SPEED);
+                        setWeaponAttackSpeed(saber, speed);
+                        break;
+                    case VAR_WOUND:
+                        float wound = getWeaponWoundChance(saber);
+                        wound += getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_WOUND);
+                        setWeaponWoundChance(saber, wound);
+                        break;
+                    case VAR_RADIUS:
+                        float radius = getWeaponDamageRadius(saber);
+                        radius += getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_RADIUS);
+                        setWeaponDamageRadius(saber, radius);
+                        break;
+                    case VAR_ATTACK_COST:
+                        int cost = getWeaponAttackCost(saber);
+                        cost += getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_ATTACK_COST);
+                        setWeaponAttackCost(saber, cost);
+                        break;
+                    case VAR_FORCE:
+                        float force = getFloatObjVar(saber, VAR_SABER_BASE + "." + VAR_FORCE);
+                        force += getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_FORCE);
+                        setObjVar(saber, VAR_SABER_BASE + "." + VAR_FORCE, force);
+                        break;
+                    case VAR_COLOR:
+                        int color = getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_COLOR);
+                        int shader = getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_SHADER);
+                        setSaberColor(saber, color, shader);
+                        break;
                 }
             }
         }
@@ -1539,85 +1508,73 @@ public class jedi extends script.base_script
                 obj_var ov = ovl.getObjVar(i);
                 String name = ov.getName();
                 LOG("saber_test", "Processing Crystal Stat: " + name);
-                if (name.equals(VAR_MIN_DMG))
-                {
-                    int minDmg = getWeaponMinDamage(saber);
-                    LOG("saber_test", "Old Min Damage = " + minDmg);
-                    minDmg -= getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_MIN_DMG);
-                    LOG("saber_test", "New Min Damage = " + minDmg);
-                    if (!setWeaponMinDamage(saber, minDmg))
-                    {
-                        LOG("saber_test", "ERROR: Failed Setting Min Damage");
-                    }
-                }
-                else if (name.equals(VAR_MAX_DMG))
-                {
-                    int maxDmg = getWeaponMaxDamage(saber);
-                    LOG("saber_test", "Old Max Damage = " + maxDmg);
-                    maxDmg -= getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_MAX_DMG);
-                    LOG("saber_test", "New Max Damage = " + maxDmg);
-                    if (!setWeaponMaxDamage(saber, maxDmg))
-                    {
-                        LOG("saber_test", "ERROR: Failed Setting Max Damage");
-                    }
-                }
-                else if (name.equals(VAR_SPEED))
-                {
-                    float speed = getWeaponAttackSpeed(saber);
-                    LOG("saber_test", "Old Speed = " + speed);
-                    speed -= getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_SPEED);
-                    LOG("saber_test", "New Speed = " + speed);
-                    if (!setWeaponAttackSpeed(saber, speed))
-                    {
-                        LOG("saber_test", "ERROR: Failed Setting Speed");
-                    }
-                }
-                else if (name.equals(VAR_WOUND))
-                {
-                    float wound = getWeaponWoundChance(saber);
-                    LOG("saber_test", "Old Wound = " + wound);
-                    wound -= getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_WOUND);
-                    LOG("saber_test", "New Wound = " + wound);
-                    if (!setWeaponWoundChance(saber, wound))
-                    {
-                        LOG("saber_test", "ERROR: Failed Setting Wound");
-                    }
-                }
-                else if (name.equals(VAR_RADIUS))
-                {
-                    float radius = getWeaponDamageRadius(saber);
-                    LOG("saber_test", "Old Radius = " + radius);
-                    radius -= getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_RADIUS);
-                    LOG("saber_test", "New Radius = " + radius);
-                    if (!setWeaponDamageRadius(saber, radius))
-                    {
-                        LOG("saber_test", "ERROR: Failed Setting Radius");
-                    }
-                }
-                else if (name.equals(VAR_ATTACK_COST))
-                {
-                    int cost = getWeaponAttackCost(saber);
-                    LOG("saber_test", "Old Attack Cost = " + cost);
-                    cost -= getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_ATTACK_COST);
-                    LOG("saber_test", "New Attack Cost = " + cost);
-                    if (!setWeaponAttackCost(saber, cost))
-                    {
-                        LOG("saber_test", "ERROR: Failed Setting Attack Cost");
-                    }
-                }
-                else if (name.equals(VAR_FORCE))
-                {
-                    float force = getFloatObjVar(saber, VAR_SABER_BASE + "." + VAR_FORCE);
-                    force -= getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_FORCE);
-                    setObjVar(saber, VAR_SABER_BASE + "." + VAR_FORCE, force);
-                }
-                else if (name.equals(VAR_COLOR))
-                {
-                    int color = getIntObjVar(saber, VAR_SABER_DEFAULT_STATS + "." + VAR_COLOR);
-                    int shader = getIntObjVar(saber, VAR_SABER_DEFAULT_STATS + "." + VAR_SHADER);
-                    setSaberColor(saber, color, shader);
-                    removeObjVar(saber, VAR_SABER_BASE + "." + VAR_COLOR);
-                    removeObjVar(saber, VAR_SABER_BASE + "." + VAR_SHADER);
+                switch (name) {
+                    case VAR_MIN_DMG:
+                        int minDmg = getWeaponMinDamage(saber);
+                        LOG("saber_test", "Old Min Damage = " + minDmg);
+                        minDmg -= getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_MIN_DMG);
+                        LOG("saber_test", "New Min Damage = " + minDmg);
+                        if (!setWeaponMinDamage(saber, minDmg)) {
+                            LOG("saber_test", "ERROR: Failed Setting Min Damage");
+                        }
+                        break;
+                    case VAR_MAX_DMG:
+                        int maxDmg = getWeaponMaxDamage(saber);
+                        LOG("saber_test", "Old Max Damage = " + maxDmg);
+                        maxDmg -= getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_MAX_DMG);
+                        LOG("saber_test", "New Max Damage = " + maxDmg);
+                        if (!setWeaponMaxDamage(saber, maxDmg)) {
+                            LOG("saber_test", "ERROR: Failed Setting Max Damage");
+                        }
+                        break;
+                    case VAR_SPEED:
+                        float speed = getWeaponAttackSpeed(saber);
+                        LOG("saber_test", "Old Speed = " + speed);
+                        speed -= getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_SPEED);
+                        LOG("saber_test", "New Speed = " + speed);
+                        if (!setWeaponAttackSpeed(saber, speed)) {
+                            LOG("saber_test", "ERROR: Failed Setting Speed");
+                        }
+                        break;
+                    case VAR_WOUND:
+                        float wound = getWeaponWoundChance(saber);
+                        LOG("saber_test", "Old Wound = " + wound);
+                        wound -= getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_WOUND);
+                        LOG("saber_test", "New Wound = " + wound);
+                        if (!setWeaponWoundChance(saber, wound)) {
+                            LOG("saber_test", "ERROR: Failed Setting Wound");
+                        }
+                        break;
+                    case VAR_RADIUS:
+                        float radius = getWeaponDamageRadius(saber);
+                        LOG("saber_test", "Old Radius = " + radius);
+                        radius -= getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_RADIUS);
+                        LOG("saber_test", "New Radius = " + radius);
+                        if (!setWeaponDamageRadius(saber, radius)) {
+                            LOG("saber_test", "ERROR: Failed Setting Radius");
+                        }
+                        break;
+                    case VAR_ATTACK_COST:
+                        int cost = getWeaponAttackCost(saber);
+                        LOG("saber_test", "Old Attack Cost = " + cost);
+                        cost -= getIntObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_ATTACK_COST);
+                        LOG("saber_test", "New Attack Cost = " + cost);
+                        if (!setWeaponAttackCost(saber, cost)) {
+                            LOG("saber_test", "ERROR: Failed Setting Attack Cost");
+                        }
+                        break;
+                    case VAR_FORCE:
+                        float force = getFloatObjVar(saber, VAR_SABER_BASE + "." + VAR_FORCE);
+                        force -= getFloatObjVar(crystal, VAR_CRYSTAL_STATS + "." + VAR_FORCE);
+                        setObjVar(saber, VAR_SABER_BASE + "." + VAR_FORCE, force);
+                        break;
+                    case VAR_COLOR:
+                        int color = getIntObjVar(saber, VAR_SABER_DEFAULT_STATS + "." + VAR_COLOR);
+                        int shader = getIntObjVar(saber, VAR_SABER_DEFAULT_STATS + "." + VAR_SHADER);
+                        setSaberColor(saber, color, shader);
+                        removeObjVar(saber, VAR_SABER_BASE + "." + VAR_COLOR);
+                        removeObjVar(saber, VAR_SABER_BASE + "." + VAR_SHADER);
+                        break;
                 }
             }
         }
@@ -1767,15 +1724,12 @@ public class jedi extends script.base_script
             LOG("jedi", "library.jedi.robeRemove -- " + player + "'s contents are null.");
             return false;
         }
-        for (int i = 0; i < items.length; i++)
-        {
-            if (hasObjVar(items[i], VAR_JEDI_SKILL))
-            {
-                String jediSkill = getStringObjVar(items[i], VAR_JEDI_SKILL);
-                if (!hasSkill(player, jediSkill))
-                {
+        for (obj_id item : items) {
+            if (hasObjVar(item, VAR_JEDI_SKILL)) {
+                String jediSkill = getStringObjVar(item, VAR_JEDI_SKILL);
+                if (!hasSkill(player, jediSkill)) {
                     obj_id inv = getObjectInSlot(player, "inventory");
-                    putInOverloaded(items[i], inv);
+                    putInOverloaded(item, inv);
                 }
             }
         }
@@ -1803,16 +1757,14 @@ public class jedi extends script.base_script
         Vector mapLocations = new Vector();
         mapLocations.setSize(0);
         location testloc = new location();
-        for (int i = 0; i < rawMapLocations.length; i++)
-        {
-            testloc.x = rawMapLocations[i].getX();
-            testloc.z = rawMapLocations[i].getY();
+        for (map_location rawMapLocation : rawMapLocations) {
+            testloc.x = rawMapLocation.getX();
+            testloc.z = rawMapLocation.getY();
             testloc.area = getLocation(self).area;
-            if (getCityAtLocation(testloc, 0) > 0)
-            {
+            if (getCityAtLocation(testloc, 0) > 0) {
                 continue;
             }
-            mapLocations = utils.addElement(mapLocations, rawMapLocations[i]);
+            mapLocations = utils.addElement(mapLocations, rawMapLocation);
         }
         if ((mapLocations == null) || (mapLocations.size() == 0))
         {

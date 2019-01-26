@@ -62,12 +62,11 @@ public class mtp_quest_strilath_farles_combat extends script.base_script
     {
         stopCombat(self);
         clearHateList(self);
-        obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20f);
+        obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 20.0f);
         if (players != null && players.length > 0)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                npcEndConversation(players[i]);
+            for (obj_id player : players) {
+                npcEndConversation(player);
             }
         }
         destroyObject(self);

@@ -73,12 +73,10 @@ public class quest_manager extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < navs.length; i++)
-        {
-            String curSpawnName = getStringObjVar(navs[i], "strSpawnerName");
-            if ((curSpawnName != null) && curSpawnName.equals(spawner))
-            {
-                location loc = getLocation(navs[i]);
+        for (obj_id nav : navs) {
+            String curSpawnName = getStringObjVar(nav, "strSpawnerName");
+            if ((curSpawnName != null) && curSpawnName.equals(spawner)) {
+                location loc = getLocation(nav);
                 obj_id waypoint = createWaypointInDatapad(player, loc);
                 setWaypointVisible(waypoint, true);
                 setWaypointActive(waypoint, true);
@@ -88,7 +86,7 @@ public class quest_manager extends script.base_script
                 questSetQuestTaskLocation(player, questName, taskId, loc);
                 dictionary outparams = new dictionary();
                 outparams.put("waypoint", waypoint);
-                messageTo(quest, "createdWaypointToSpawner", outparams, 1.f, false);
+                messageTo(quest, "createdWaypointToSpawner", outparams, 1.0f, false);
                 return SCRIPT_CONTINUE;
             }
         }

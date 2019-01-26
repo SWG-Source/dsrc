@@ -17,7 +17,7 @@ public class auth_02 extends script.base_script
     {
         detachScript(self, "ai.ai_combat");
         setInvulnerable(self, true);
-        messageTo(self, "action01", null, 7f, false);
+        messageTo(self, "action01", null, 7.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException
@@ -26,7 +26,7 @@ public class auth_02 extends script.base_script
         {
             setObjVar(self, "pirateReached", 1);
             chat.chat(self, new string_id(STF_FILE, "auth_02"));
-            messageTo(self, "action02", null, 6f, false);
+            messageTo(self, "action02", null, 6.0f, false);
         }
         if (name.equals("door") && !hasObjVar(self, "doorReached"))
         {

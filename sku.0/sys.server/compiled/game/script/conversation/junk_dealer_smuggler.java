@@ -55,7 +55,7 @@ public class junk_dealer_smuggler extends script.base_script
         }
         if (group.isGrouped(master))
         {
-            Vector party = group.getPCMembersInRange(master, 32f);
+            Vector party = group.getPCMembersInRange(master, 32.0f);
             if (party != null)
             {
                 for (int i = 0; i < party.size(); i++)

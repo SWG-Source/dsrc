@@ -169,9 +169,8 @@ public class intellect_spawner extends script.base_script
             return false;
         }
         boolean success = true;
-        for (int i = 0; i < liars.size(); i++)
-        {
-            success &= isIdValid(((obj_id)liars.get(i)));
+        for (Object liar : liars) {
+            success &= isIdValid(((obj_id) liar));
         }
         success &= isIdValid(bh);
         setObjVar(self, SPAWNER_CONTROLLER, controller);
@@ -214,14 +213,12 @@ public class intellect_spawner extends script.base_script
         obj_id bh = getObjIdObjVar(self, SPAWNER_BH);
         boolean validSuccess = true;
         boolean existSuccess = true;
-        for (int i = 0; i < liars.length; i++)
-        {
-            validSuccess &= isIdValid(liars[i]);
+        for (obj_id liar1 : liars) {
+            validSuccess &= isIdValid(liar1);
         }
         validSuccess &= isIdValid(bh);
-        for (int i = 0; i < liars.length; i++)
-        {
-            existSuccess &= exists(liars[i]);
+        for (obj_id liar : liars) {
+            existSuccess &= exists(liar);
         }
         existSuccess &= exists(bh);
         validSuccess &= existSuccess;
@@ -235,11 +232,9 @@ public class intellect_spawner extends script.base_script
         {
             cleanupStaleObjects(self);
         }
-        for (int i = 0; i < liars.length; i++)
-        {
-            if (isIdValid(liars[i]) && exists(liars[i]))
-            {
-                destroyObject(liars[i]);
+        for (obj_id liar : liars) {
+            if (isIdValid(liar) && exists(liar)) {
+                destroyObject(liar);
             }
         }
         if (isIdValid(bh) && exists(bh))
@@ -254,9 +249,8 @@ public class intellect_spawner extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < npcs.length; i++)
-        {
-            destroyObject(npcs[i]);
+        for (obj_id npc : npcs) {
+            destroyObject(npc);
         }
     }
     public Vector shuffleList(Vector list) throws InterruptedException

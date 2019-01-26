@@ -23,11 +23,9 @@ public class door_lock extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int numInList = permList.size();
-        for (int i = 0; i < numInList; i++)
-        {
-            obj_id thisPlayer = ((obj_id)permList.get(i));
-            if (isIdValid(thisPlayer))
-            {
+        for (Object o : permList) {
+            obj_id thisPlayer = ((obj_id) o);
+            if (isIdValid(thisPlayer)) {
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
             }
@@ -43,11 +41,9 @@ public class door_lock extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int numInList = permList.size();
-        for (int i = 0; i < numInList; i++)
-        {
-            obj_id thisPlayer = ((obj_id)permList.get(i));
-            if (isIdValid(thisPlayer))
-            {
+        for (Object o : permList) {
+            obj_id thisPlayer = ((obj_id) o);
+            if (isIdValid(thisPlayer)) {
                 String fname = getFirstName(thisPlayer);
                 permissionsAddAllowed(self, fname);
             }
@@ -133,16 +129,12 @@ public class door_lock extends script.base_script
         }
         Vector obj_id_list = new Vector();
         obj_id_list.setSize(0);
-        for (int i = 0; i < name_list.length; i++)
-        {
-            obj_id new_obj_id = getPlayerIdFromFirstName(name_list[i]);
-            if (isIdValid(new_obj_id))
-            {
+        for (String s : name_list) {
+            obj_id new_obj_id = getPlayerIdFromFirstName(s);
+            if (isIdValid(new_obj_id)) {
                 obj_id_list.add(new_obj_id);
-            }
-            else 
-            {
-                LOG("door_lock", "door_lock.nameListToObjId -- couldn't find obj_id for " + name_list[i]);
+            } else {
+                LOG("door_lock", "door_lock.nameListToObjId -- couldn't find obj_id for " + s);
             }
         }
         if (obj_id_list.size() > 0)

@@ -301,7 +301,7 @@ public class battlefield_region extends script.base_script
                 int restart_max = battlefield.getGameRestartMaximum(self);
                 int start_time = rand(restart_min, restart_max);
                 setObjVar(self, battlefield.VAR_NEXT_GAME, getGameTime() + start_time);
-                messageTo(self, "msgStartGame", null, (float)start_time, false);
+                messageTo(self, "msgStartGame", null, start_time, false);
             }
             else 
             {
@@ -325,9 +325,8 @@ public class battlefield_region extends script.base_script
         {
             if (allowed_factions.length > 1)
             {
-                for (int i = 0; i < allowed_factions.length; i++)
-                {
-                    chatCreateRoom(true, battlefield.getChatRoomNameFaction(self, allowed_factions[i]), name + "-" + allowed_factions[i]);
+                for (String allowed_faction : allowed_factions) {
+                    chatCreateRoom(true, battlefield.getChatRoomNameFaction(self, allowed_faction), name + "-" + allowed_faction);
                 }
             }
         }
@@ -352,9 +351,8 @@ public class battlefield_region extends script.base_script
             String[] factions_allowed = battlefield.getFactionsAllowed(self);
             if (factions_allowed != null)
             {
-                for (int i = 0; i < factions_allowed.length; i++)
-                {
-                    battlefield.incrementFactionBuildPoints(self, factions_allowed[i], 2);
+                for (String s : factions_allowed) {
+                    battlefield.incrementFactionBuildPoints(self, s, 2);
                 }
             }
             int warning_level = 0;
@@ -426,9 +424,8 @@ public class battlefield_region extends script.base_script
         {
             if (allowed_factions.length > 1)
             {
-                for (int i = 0; i < allowed_factions.length; i++)
-                {
-                    chatCreateRoom(true, battlefield.getChatRoomNameFaction(self, allowed_factions[i]), name + "-" + allowed_factions[i]);
+                for (String allowed_faction : allowed_factions) {
+                    chatCreateRoom(true, battlefield.getChatRoomNameFaction(self, allowed_faction), name + "-" + allowed_faction);
                 }
             }
         }
@@ -479,11 +476,10 @@ public class battlefield_region extends script.base_script
                 String[] factions_allowed = battlefield.getAllFactionsAllowed(self);
                 if (factions_allowed != null)
                 {
-                    for (int i = 0; i < factions_allowed.length; i++)
-                    {
-                        dsrc = utils.addElement(dsrc, "   " + factions_allowed[i]);
-                        int kills = getIntObjVar(self, battlefield.VAR_STAT_KILLS + factions_allowed[i]);
-                        int deaths = getIntObjVar(self, battlefield.VAR_STAT_DEATHS + factions_allowed[i]);
+                    for (String s : factions_allowed) {
+                        dsrc = utils.addElement(dsrc, "   " + s);
+                        int kills = getIntObjVar(self, battlefield.VAR_STAT_KILLS + s);
+                        int deaths = getIntObjVar(self, battlefield.VAR_STAT_DEATHS + s);
                         dsrc = utils.addElement(dsrc, "      " + "Kills: " + kills);
                         dsrc = utils.addElement(dsrc, "      " + "Deaths: " + deaths);
                     }
@@ -511,11 +507,10 @@ public class battlefield_region extends script.base_script
                 String[] factions_allowed = battlefield.getAllFactionsAllowed(self);
                 if (factions_allowed != null)
                 {
-                    for (int i = 0; i < factions_allowed.length; i++)
-                    {
-                        dsrc = utils.addElement(dsrc, "   " + factions_allowed[i]);
-                        int kills = getIntObjVar(self, battlefield.VAR_STAT_KILLS + factions_allowed[i]);
-                        int deaths = getIntObjVar(self, battlefield.VAR_STAT_DEATHS + factions_allowed[i]);
+                    for (String s : factions_allowed) {
+                        dsrc = utils.addElement(dsrc, "   " + s);
+                        int kills = getIntObjVar(self, battlefield.VAR_STAT_KILLS + s);
+                        int deaths = getIntObjVar(self, battlefield.VAR_STAT_DEATHS + s);
                         dsrc = utils.addElement(dsrc, "      " + "Kills: " + kills);
                         dsrc = utils.addElement(dsrc, "      " + "Deaths: " + deaths);
                     }

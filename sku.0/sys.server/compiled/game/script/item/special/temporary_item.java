@@ -59,7 +59,7 @@ public class temporary_item extends script.base_script
         float lifeSpan = LIFESPAN;
         if (hasObjVar(self, "item.lifespan"))
         {
-            lifeSpan = (float)getIntObjVar(self, "item.lifespan");
+            lifeSpan = getIntObjVar(self, "item.lifespan");
         }
         return lifeSpan;
     }
@@ -85,7 +85,7 @@ public class temporary_item extends script.base_script
         float lifeSpan = LIFESPAN;
         if (hasObjVar(self, "item.lifespan"))
         {
-            lifeSpan = (float)getIntObjVar(self, "item.lifespan");
+            lifeSpan = getIntObjVar(self, "item.lifespan");
         }
         float dieTime = getDieTime(lifeSpan, self);
         if (dieTime < 1)

@@ -46,9 +46,8 @@ public class praetorian extends script.base_script
             messageTo(self, "doShockWave", trial.getSessionDict(self), RECAST, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            buff.applyBuff(players[i], "sk_shockWave");
+        for (obj_id player : players) {
+            buff.applyBuff(player, "sk_shockWave");
         }
         messageTo(self, "doShockWave", trial.getSessionDict(self), RECAST, false);
         return SCRIPT_CONTINUE;

@@ -31,36 +31,26 @@ public class factional_dungeon_parent extends script.base_script
         Vector fltYaw = new Vector();
         fltYaw.setSize(0);
         obj_id[] objSpawners = getFactionalDungeonSpawners(self);
-        for (int intI = 0; intI < objSpawners.length; intI++)
-        {
-            if (hasObjVar(objSpawners[intI], "intBanner"))
-            {
-                String strOldFaction = getStringObjVar(objSpawners[intI], "type");
-                if (!strOldFaction.equals(strFaction))
-                {
-                    messageTo(objSpawners[intI], "swapFlag", null, 0, true);
+        for (obj_id objSpawner : objSpawners) {
+            if (hasObjVar(objSpawner, "intBanner")) {
+                String strOldFaction = getStringObjVar(objSpawner, "type");
+                if (!strOldFaction.equals(strFaction)) {
+                    messageTo(objSpawner, "swapFlag", null, 0, true);
                 }
-            }
-            else if (hasObjVar(objSpawners[intI], "intTerminal"))
-            {
-                if (hasObjVar(self, "intCompleted"))
-                {
-                    destroyObject(objSpawners[intI]);
+            } else if (hasObjVar(objSpawner, "intTerminal")) {
+                if (hasObjVar(self, "intCompleted")) {
+                    destroyObject(objSpawner);
+                } else {
+                    objTerminals = utils.addElement(objTerminals, objSpawner);
+                    strTerminals = utils.addElement(strTerminals, getTemplateName(objSpawner));
+                    locTerminals = utils.addElement(locTerminals, getLocation(objSpawner));
+                    fltYaw = utils.addElement(fltYaw, getYaw(objSpawner));
+                    removeObjVar(objSpawner, "hq");
+                    setObjVar(objSpawner, "objParent", self);
+                    factions.setFaction(objSpawner, strFaction, false);
                 }
-                else 
-                {
-                    objTerminals = utils.addElement(objTerminals, objSpawners[intI]);
-                    strTerminals = utils.addElement(strTerminals, getTemplateName(objSpawners[intI]));
-                    locTerminals = utils.addElement(locTerminals, getLocation(objSpawners[intI]));
-                    fltYaw = utils.addElement(fltYaw, getYaw(objSpawners[intI]));
-                    removeObjVar(objSpawners[intI], "hq");
-                    setObjVar(objSpawners[intI], "objParent", self);
-                    factions.setFaction(objSpawners[intI], strFaction, false);
-                }
-            }
-            else 
-            {
-                changeMobs(objSpawners[intI], strFaction);
+            } else {
+                changeMobs(objSpawner, strFaction);
             }
         }
         if (!hasObjVar(self, "intCompleted"))
@@ -88,21 +78,19 @@ public class factional_dungeon_parent extends script.base_script
         for (int intI = 0; intI < objTerminals.length; intI++)
         {
             String strTest = strTerminals[intI];
-            if (strTest.equals("object/tangible/gcw/uplink_terminal.iff"))
-            {
-                objChildTerminals[0] = objTerminals[intI];
-            }
-            else if (strTest.equals("object/tangible/gcw/security_terminal.iff"))
-            {
-                objChildTerminals[1] = objTerminals[intI];
-            }
-            else if (strTest.equals("object/tangible/gcw/override_terminal.iff"))
-            {
-                objChildTerminals[2] = objTerminals[intI];
-            }
-            else if (strTest.equals("object/tangible/gcw/power_regulator.iff"))
-            {
-                objChildTerminals[3] = objTerminals[intI];
+            switch (strTest) {
+                case "object/tangible/gcw/uplink_terminal.iff":
+                    objChildTerminals[0] = objTerminals[intI];
+                    break;
+                case "object/tangible/gcw/security_terminal.iff":
+                    objChildTerminals[1] = objTerminals[intI];
+                    break;
+                case "object/tangible/gcw/override_terminal.iff":
+                    objChildTerminals[2] = objTerminals[intI];
+                    break;
+                case "object/tangible/gcw/power_regulator.iff":
+                    objChildTerminals[3] = objTerminals[intI];
+                    break;
             }
         }
         setObjVar(self, hq.VAR_OBJECTIVE_ID, objChildTerminals);
@@ -133,24 +121,17 @@ public class factional_dungeon_parent extends script.base_script
                 factions.setFaction(self, factions.FACTION_IMPERIAL, false);
             }
             obj_id[] objSpawners = getFactionalDungeonSpawners(self);
-            for (int intI = 0; intI < objSpawners.length; intI++)
-            {
-                if (hasObjVar(objSpawners[intI], "intBanner"))
-                {
-                    messageTo(objSpawners[intI], "swapFlag", null, 0, true);
-                }
-                else if (hasObjVar(objSpawners[intI], "intTerminal"))
-                {
-                }
-                else 
-                {
-                    swapMobs(objSpawners[intI], strFaction);
+            for (obj_id objSpawner : objSpawners) {
+                if (hasObjVar(objSpawner, "intBanner")) {
+                    messageTo(objSpawner, "swapFlag", null, 0, true);
+                } else if (hasObjVar(objSpawner, "intTerminal")) {
+                } else {
+                    swapMobs(objSpawner, strFaction);
                 }
             }
             obj_id[] objTerminals = getObjIdArrayObjVar(self, "objTerminals");
-            for (int intI = 0; intI < objTerminals.length; intI++)
-            {
-                destroyObject(objTerminals[intI]);
+            for (obj_id objTerminal : objTerminals) {
+                destroyObject(objTerminal);
             }
             messageTo(self, "respawnObjective", null, OBJECTIVE_RESPAWN_TIME, true);
         }
@@ -185,22 +166,16 @@ public class factional_dungeon_parent extends script.base_script
         Vector objSpawners = new Vector();
         objSpawners.setSize(0);
         obj_id[] objObjects = getAllObjectsWithObjVar(getLocation(objParent), 250, "type");
-        for (int intI = 0; intI < objObjects.length; intI++)
-        {
-            obj_id[] objContents = getContents(objObjects[intI]);
-            if (objContents != null)
-            {
-                for (int intM = 0; intM < objContents.length; intM++)
-                {
-                    if (hasObjVar(objContents[intM], "type"))
-                    {
-                        objSpawners = utils.addElement(objSpawners, objContents[intM]);
+        for (obj_id objObject : objObjects) {
+            obj_id[] objContents = getContents(objObject);
+            if (objContents != null) {
+                for (obj_id objContent : objContents) {
+                    if (hasObjVar(objContent, "type")) {
+                        objSpawners = utils.addElement(objSpawners, objContent);
                     }
                 }
-            }
-            else 
-            {
-                objSpawners = utils.addElement(objSpawners, objObjects[intI]);
+            } else {
+                objSpawners = utils.addElement(objSpawners, objObject);
             }
         }
         obj_id[] _objSpawners = new obj_id[0];

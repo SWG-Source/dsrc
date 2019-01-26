@@ -82,7 +82,7 @@ public class space_crafting extends script.base_script
             v2 = 2.0 * rand() - 1.0;
             r = v1 * v1 + v2 * v2;
         } while (r >= 1.0 || r == 0.0);
-        double fac = Math.sqrt(-2.0 * Math.log(r) / r);
+        double fac = Math.sqrt(-2.0 * StrictMath.log(r) / r);
         double value = (avg + (v1 * fac) * (avg * var));
         if (value < 0)
         {
@@ -364,8 +364,8 @@ public class space_crafting extends script.base_script
                         float fltShieldHitpointsMaximumBackModifier = dctParams.getFloat("fltShieldHitpointsMaximumBackModifier");
                         float fltShieldHitpointsMaximumBack = dctParams.getFloat("fltShieldHitpointsMaximumFront");
                         fltShieldHitpointsMaximumBack = getBellValue(fltShieldHitpointsMaximumBack, fltShieldHitpointsMaximumBackModifier);
-                        setShieldGeneratorCurrentFrontHitpoints(objComponent, 0f);
-                        setShieldGeneratorCurrentBackHitpoints(objComponent, 0f);
+                        setShieldGeneratorCurrentFrontHitpoints(objComponent, 0.0f);
+                        setShieldGeneratorCurrentBackHitpoints(objComponent, 0.0f);
                         setShieldGeneratorMaximumFrontHitpoints(objComponent, fltShieldHitpointsMaximumFront);
                         setShieldGeneratorMaximumBackHitpoints(objComponent, fltShieldHitpointsMaximumBack);
                         float fltShieldRechargeRateModifier = dctParams.getFloat("fltShieldRechargeRateModifier");
@@ -865,7 +865,7 @@ public class space_crafting extends script.base_script
             else 
             {
                 float fltDifference = fltMaximumHitpoints - fltCurrentHitpoints;
-                float fltRemainingRepairPoints = (float)getCount(objRepairKit);
+                float fltRemainingRepairPoints = getCount(objRepairKit);
                 if (fltDifference > fltRemainingRepairPoints)
                 {
                     fltCurrentHitpoints = fltCurrentHitpoints + fltRemainingRepairPoints;
@@ -913,7 +913,7 @@ public class space_crafting extends script.base_script
             sendSystemMessage(objPlayer, strSpam);
             return false;
         }
-        float fltRemainingRepairPoints = (float)getCount(objRepairKit);
+        float fltRemainingRepairPoints = getCount(objRepairKit);
         float fltDifference = fltMaximumHitpoints - fltCurrentHitpoints;
         if (fltDifference > fltRemainingRepairPoints)
         {
@@ -1012,7 +1012,7 @@ public class space_crafting extends script.base_script
             sendSystemMessage(objPlayer, strSpam);
             return false;
         }
-        float fltRemainingRepairPoints = (float)getCount(objRepairKit);
+        float fltRemainingRepairPoints = getCount(objRepairKit);
         float fltDifference = fltMaximumHitpoints - fltCurrentHitpoints;
         if (fltDifference > fltRemainingRepairPoints)
         {
@@ -1516,12 +1516,12 @@ public class space_crafting extends script.base_script
         // protect against less than zero.
         if (fltCurrentHitpoints <= 0 || fltMaximumHitpoints <= 0)
         {
-            return 0f;
+            return 0.0f;
         }
         // protect against more than one.
         if(fltCurrentHitpoints > fltMaximumHitpoints)
         {
-            return 1f;
+            return 1.0f;
         }
         return fltCurrentHitpoints / fltMaximumHitpoints;
     }

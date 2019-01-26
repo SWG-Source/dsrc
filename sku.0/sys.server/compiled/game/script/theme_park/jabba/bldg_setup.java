@@ -11,7 +11,7 @@ public class bldg_setup extends script.base_script
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        createTriggerVolume("guards", 20f, true);
+        createTriggerVolume("guards", 20.0f, true);
         messageTo(self, "spawnTerminal", null, 3, true);
         return SCRIPT_CONTINUE;
     }

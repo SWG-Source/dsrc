@@ -67,9 +67,8 @@ public class invasion_target extends script.base_script
                 obj_id[] objPlayers = getPlayerCreaturesInRange(self, 255);
                 if (objPlayers != null && objPlayers.length > 0)
                 {
-                    for (int i = 0; i < objPlayers.length; i++)
-                    {
-                        badge.grantBadge(objPlayers[i], "bdg_accolade_live_event");
+                    for (obj_id objPlayer : objPlayers) {
+                        badge.grantBadge(objPlayer, "bdg_accolade_live_event");
                     }
                 }
             }
@@ -115,7 +114,7 @@ public class invasion_target extends script.base_script
             while (x < 10)
             {
                 location loc = utils.getRandomLocationInRing(center, minRadius, maxRadius);
-                spawnLoc = locations.getGoodLocationAroundLocation(loc, 5f, 5f, 50f, 50f);
+                spawnLoc = locations.getGoodLocationAroundLocation(loc, 5.0f, 5.0f, 50.0f, 50.0f);
                 if (spawnLoc != null)
                 {
                     break;
@@ -152,9 +151,8 @@ public class invasion_target extends script.base_script
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, 255);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
-                sendSystemMessage(objPlayers[i], areaBroadcast, null);
+            for (obj_id objPlayer : objPlayers) {
+                sendSystemMessage(objPlayer, areaBroadcast, null);
             }
         }
         return SCRIPT_CONTINUE;

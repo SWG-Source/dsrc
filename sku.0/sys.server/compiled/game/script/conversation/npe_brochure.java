@@ -72,11 +72,9 @@ public class npe_brochure extends script.base_script
         }
         obj_id[] waypoints = getWaypointsInDatapad(player);
         boolean theyHave = false;
-        for (int i = 0; i < waypoints.length; i++)
-        {
-            String myName = getWaypointName(waypoints[i]);
-            if (myName.equals("Station Gamma"))
-            {
+        for (obj_id waypoint1 : waypoints) {
+            String myName = getWaypointName(waypoint1);
+            if (myName.equals("Station Gamma")) {
                 theyHave = true;
             }
         }

@@ -36,11 +36,9 @@ public class kusak extends script.base_script
             LOG("kusak", "hasWeed player has slot");
             return false;
         }
-        for (int i = 0; i < ALL_WEED_TEMPLATES.length; i++)
-        {
-            obj_id object = utils.getItemByTemplateInInventoryOrEquipped(player, ALL_WEED_TEMPLATES[i]);
-            if (isValidId(object))
-            {
+        for (String allWeedTemplate : ALL_WEED_TEMPLATES) {
+            obj_id object = utils.getItemByTemplateInInventoryOrEquipped(player, allWeedTemplate);
+            if (isValidId(object)) {
                 return true;
             }
         }

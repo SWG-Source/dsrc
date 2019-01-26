@@ -19,7 +19,7 @@ public class cloning_facility extends script.structure.municipal.cloning_base
     public static final String DATATABLE_TERMINAL_LIST = "datatables/structure/municipal/cloning_facility_terminal.iff";
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleTerminalSpawning", null, 5f, false);
+        messageTo(self, "handleTerminalSpawning", null, 5.0f, false);
         return super.OnInitialize(self);
     }
     public int OnDetach(obj_id self) throws InterruptedException

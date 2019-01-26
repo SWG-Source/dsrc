@@ -182,28 +182,23 @@ public class camp_controlpanel extends script.base_script
         location point = getLocation(self);
         obj_id group = getGroupObject(player);
         obj_id[] members = getGroupMemberIds(group);
-        for (int i = 0; i < members.length; i++)
-        {
-            if (isIdValid(members[i]))
-            {
-                if (members[i] == player)
-                {
+        for (obj_id member : members) {
+            if (isIdValid(member)) {
+                if (member == player) {
                     sendSystemMessage(player, SID_WAYPOINT_SENT);
                     continue;
                 }
-                obj_id waypoint = getCampWaypoint(members[i]);
-                if (!isIdValid(waypoint))
-                {
-                    waypoint = createWaypointInDatapad(members[i], point);
+                obj_id waypoint = getCampWaypoint(member);
+                if (!isIdValid(waypoint)) {
+                    waypoint = createWaypointInDatapad(member, point);
                 }
-                if (isIdValid(waypoint))
-                {
+                if (isIdValid(waypoint)) {
                     setWaypointActive(waypoint, true);
                     setWaypointLocation(waypoint, point);
                     setName(waypoint, "Camp Location");
                     setWaypointColor(waypoint, "white");
                 }
-                sendSystemMessage(members[i], SID_CAMP_UP);
+                sendSystemMessage(member, SID_CAMP_UP);
             }
         }
     }
@@ -213,12 +208,10 @@ public class camp_controlpanel extends script.base_script
         obj_id[] data = getContents(datapad);
         if (data != null)
         {
-            for (int i = 0; i < data.length; i++)
-            {
-                String waypointName = getName(data[i]);
-                if (waypointName.equals("Camp Location"))
-                {
-                    return data[i];
+            for (obj_id datum : data) {
+                String waypointName = getName(datum);
+                if (waypointName.equals("Camp Location")) {
+                    return datum;
                 }
             }
         }

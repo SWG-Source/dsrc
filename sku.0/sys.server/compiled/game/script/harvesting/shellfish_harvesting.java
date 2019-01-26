@@ -99,7 +99,7 @@ public class shellfish_harvesting extends script.base_script
         utils.setScriptVar(player, "shellfish_harvesting", 1);
         dictionary harvester = new dictionary();
         harvester.put("player", player);
-        messageTo(self, "harvest", harvester, 5f, false);
+        messageTo(self, "harvest", harvester, 5.0f, false);
     }
     public int harvest(obj_id self, dictionary params) throws InterruptedException
     {

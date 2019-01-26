@@ -34,8 +34,8 @@ public class healing_base extends script.base_script
         int[] cost = new int[2];
         float healthCost;
         float actionCost;
-        healthCost = actionData.getFloat("healthCost") / 100f;
-        actionCost = actionData.getFloat("actionCost") / 100f;
+        healthCost = actionData.getFloat("healthCost") / 100.0f;
+        actionCost = actionData.getFloat("actionCost") / 100.0f;
         combat.combatLog(self, null, "getActionCost", "Base Action cost = [" + healthCost + ", " + actionCost + "]");
         int maxHealth = getMaxAttrib(self, HEALTH);
         int maxAction = getMaxAttrib(self, ACTION);
@@ -60,7 +60,7 @@ public class healing_base extends script.base_script
                 playbackName += "other";
             }
         }
-        else if (playbackName.indexOf("&") != -1)
+        else if (playbackName.contains("&"))
         {
             int index = playbackName.indexOf("&");
             String remain = playbackName.substring(index + 1, playbackName.length());

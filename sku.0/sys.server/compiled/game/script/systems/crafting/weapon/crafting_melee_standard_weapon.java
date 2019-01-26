@@ -121,12 +121,12 @@ public class crafting_melee_standard_weapon extends script.systems.crafting.weap
             messageTo(self, "verifyCraftedVersion", null, 0.1f, false);
         }
         String templateName = getTemplateName(self);
-        if (templateName != null && templateName.indexOf("factory_crate") >= 0)
+        if (templateName != null && templateName.contains("factory_crate"))
         {
             String schematicName = getDraftSchematic(self);
             if (schematicName != null)
             {
-                if (schematicName.indexOf("/razor_knuckler.iff") >= 0)
+                if (schematicName.contains("/razor_knuckler.iff"))
                 {
                     destroyObject(self);
                 }

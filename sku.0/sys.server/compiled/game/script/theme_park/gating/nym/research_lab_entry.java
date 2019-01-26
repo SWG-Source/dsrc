@@ -32,11 +32,9 @@ public class research_lab_entry extends script.base_script
         String giveMe = "";
         boolean hadIt = false;
         obj_id[] contents = getContents(inv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            String itemInInventory = getTemplateName(contents[i]);
-            if (itemInInventory.equals(giveMe))
-            {
+        for (obj_id content : contents) {
+            String itemInInventory = getTemplateName(content);
+            if (itemInInventory.equals(giveMe)) {
                 hadIt = true;
             }
         }

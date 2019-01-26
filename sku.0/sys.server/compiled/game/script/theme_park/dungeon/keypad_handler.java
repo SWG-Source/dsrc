@@ -146,12 +146,10 @@ public class keypad_handler extends script.base_script
             obj_id[] objContents = getContents(objInventory);
             if (objContents != null)
             {
-                for (int intI = 0; intI < objContents.length; intI++)
-                {
-                    String strItemTemplate = getTemplateName(objContents[intI]);
-                    if (strItemTemplate.equals(strTemplate))
-                    {
-                        obj_id keycard = objContents[intI];
+                for (obj_id objContent : objContents) {
+                    String strItemTemplate = getTemplateName(objContent);
+                    if (strItemTemplate.equals(strTemplate)) {
+                        obj_id keycard = objContent;
                         return keycard;
                     }
                 }

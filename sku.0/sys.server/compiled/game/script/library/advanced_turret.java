@@ -13,7 +13,7 @@ public class advanced_turret extends script.base_script
     }
     public static final String ALERT_VOLUME_NAME = "turretAggroVolume";
     public static final float DEFAULT_TURRET_RANGE = 64.0f;
-    public static final float RANGE_TOO_CLOSE = 10f;
+    public static final float RANGE_TOO_CLOSE = 10.0f;
     public static final String VAR_TURRET_BASE = "turret";
     public static final String IS_ACTIVE = VAR_TURRET_BASE + ".isActive";
     public static final String TARGETS = VAR_TURRET_BASE + ".targetList";
@@ -226,7 +226,7 @@ public class advanced_turret extends script.base_script
         boolean isOutdoors = getTopMostContainer(turret) == turret;
         setObjVar(turret, IS_OUTDOORS, isOutdoors);
         setObjVar(turret, FACTION, faction.equals("") ? "renegade" : faction);
-        setObjVar(turret, RANGE, range == -1f ? DEFAULT_TURRET_RANGE : range);
+        setObjVar(turret, RANGE, range == -1.0f ? DEFAULT_TURRET_RANGE : range);
         factions.setFaction(turret, faction);
         setMaxHitpoints(turret, hitpoints);
         setHitpoints(turret, hitpoints);
@@ -240,7 +240,7 @@ public class advanced_turret extends script.base_script
             return;
         }
         setObjVar(turret, MY_WEAPON, objWeapon);
-        setWeaponAttackSpeed(objWeapon, attackSpeed < 1f ? 1f : attackSpeed);
+        setWeaponAttackSpeed(objWeapon, attackSpeed < 1.0f ? 1.0f : attackSpeed);
         int primaryType = DAMAGE_ENERGY;
         int secondaryType = DAMAGE_ELEMENTAL_HEAT;
         int primaryMinDamage = 0;
@@ -256,7 +256,7 @@ public class advanced_turret extends script.base_script
             secondaryType = damageType;
             primaryMinDamage = 1;
             primaryMaxDamage = 1;
-            secondaryDamage = (int)((float)minDamage + (float)maxDamage / 2.0f);
+            secondaryDamage = (int)(minDamage + maxDamage / 2.0f);
             break;
             case DAMAGE_KINETIC:
             case DAMAGE_ENERGY:
@@ -404,14 +404,12 @@ public class advanced_turret extends script.base_script
         {
             targets = utils.getResizeableObjIdBatchScriptVar(turret, TARGETS);
         }
-        for (int i = 0; i < newTargets.length; i++)
-        {
-            if (!isValidTarget(turret, newTargets[i]) || targets.indexOf(newTargets[i]) != -1)
-            {
-                doLogging("addTargets", "" + getName(newTargets[i]) + "/" + newTargets[i] + " was invalid or already in my target array");
+        for (obj_id newTarget : newTargets) {
+            if (!isValidTarget(turret, newTarget) || targets.indexOf(newTarget) != -1) {
+                doLogging("addTargets", "" + getName(newTarget) + "/" + newTarget + " was invalid or already in my target array");
                 continue;
             }
-            targets.add(newTargets[i]);
+            targets.add(newTarget);
         }
         if (targets.size() > 0)
         {

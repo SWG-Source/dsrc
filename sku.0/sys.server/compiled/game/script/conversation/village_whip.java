@@ -38,10 +38,8 @@ public class village_whip extends script.base_script
                 boolean match = false;
                 if (wps != null && wps.length > 0)
                 {
-                    for (int i = 0; i < wps.length; i++)
-                    {
-                        if (waypoint == wps[i])
-                        {
+                    for (obj_id wp : wps) {
+                        if (waypoint == wp) {
                             match = true;
                         }
                     }
@@ -64,8 +62,8 @@ public class village_whip extends script.base_script
                         {
                             z_rand *= -1;
                         }
-                        loc.x += (float)x_rand;
-                        loc.z += (float)z_rand;
+                        loc.x += x_rand;
+                        loc.z += z_rand;
                         obj_id wp = createWaypointInDatapad(player, loc);
                         String summary = quests.getDataEntry(questName, "JOURNAL_ENTRY_SUMMARY");
                         if (summary != null && summary.length() > 0)

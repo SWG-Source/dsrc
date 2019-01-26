@@ -117,7 +117,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
         sendSystemMessageTestingOnly(player, "Retrieving new DNA sample...");
         dictionary d = new dictionary();
         d.put("player", player);
-        messageTo(self, "handleSequenceDelay", d, 3f, false);
+        messageTo(self, "handleSequenceDelay", d, 3.0f, false);
     }
     public void doSequencing(obj_id self, obj_id player) throws InterruptedException
     {
@@ -137,7 +137,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
             sendSystemMessageTestingOnly(player, "You cannot sequences DNA from the terminal if you are not even in the same room!");
             return;
         }
-        if (getDistance(here, there) > 15f)
+        if (getDistance(here, there) > 15.0f)
         {
             sendSystemMessageTestingOnly(player, "You are too far away from the override terminal to continue sequencing!");
             return;
@@ -164,11 +164,9 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
             else 
             {
                 numLocks++;
-                for (int n = 0; n < PAIRS.length; n++)
-                {
-                    if (PAIRS[n].startsWith(dna[i]))
-                    {
-                        entries = utils.addElement(entries, PAIRS[n]);
+                for (String pair : PAIRS) {
+                    if (pair.startsWith(dna[i])) {
+                        entries = utils.addElement(entries, pair);
                         break;
                     }
                 }
@@ -183,7 +181,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
                 chain = "";
             }
             int harvestmod = getSkillStatMod(player, "dna_harvesting");
-            int maxlength = 3 + Math.round(rand(0.25f, 1.25f) * harvestmod / 20f);
+            int maxlength = 3 + Math.round(rand(0.25f, 1.25f) * harvestmod / 20.0f);
             int chainlength = rand(3, 3 + harvestmod / 20);
             if (chainlength > 8)
             {
@@ -271,10 +269,8 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
         }
         sendSystemMessageTestingOnly(player, "You match " + newLocks + " new sets of nucleotides.");
         int totalLocks = 0;
-        for (int i = 0; i < locks.length; i++)
-        {
-            if (locks[i] != 0)
-            {
+        for (int lock : locks) {
+            if (lock != 0) {
                 totalLocks++;
             }
         }
@@ -289,7 +285,7 @@ public class objective_terminal_override extends script.faction_perk.hq.objectiv
         sendSystemMessageTestingOnly(player, "Retrieving new DNA sample...");
         dictionary d = new dictionary();
         d.put("player", player);
-        messageTo(self, "handleSequenceDelay", d, 3f, false);
+        messageTo(self, "handleSequenceDelay", d, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleSequenceDelay(obj_id self, dictionary params) throws InterruptedException

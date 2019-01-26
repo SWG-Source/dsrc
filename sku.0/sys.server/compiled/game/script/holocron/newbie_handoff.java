@@ -3,6 +3,7 @@ package script.holocron;
 import script.*;
 import script.library.*;
 
+import java.util.Objects;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -236,7 +237,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.tour.bank"))
         {
             clearHolocronDatapadEntry(self, "tour.bank");
-            messageTo(self, "tourBank", null, 1f, false);
+            messageTo(self, "tourBank", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         map_location destination = planetary_map.findClosestLocation(self, "bank", "");
@@ -251,7 +252,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.tour.cloning_center"))
         {
             clearHolocronDatapadEntry(self, "tour.cloning_center");
-            messageTo(self, "tourCloningCenter", null, 1f, false);
+            messageTo(self, "tourCloningCenter", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         clearHolocronDatapadEntry(self, "tour.cloning_center");
@@ -267,7 +268,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.tour.hospital"))
         {
             clearHolocronDatapadEntry(self, "tour.hospital");
-            messageTo(self, "tourHospital", null, 1f, false);
+            messageTo(self, "tourHospital", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         String[] priSearchList = 
@@ -290,7 +291,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.tour.cantina"))
         {
             clearHolocronDatapadEntry(self, "tour.cantina");
-            messageTo(self, "tourCantina", null, 1f, false);
+            messageTo(self, "tourCantina", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         String[] priSearchList = 
@@ -314,7 +315,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.tour.skill_trainer"))
         {
             clearHolocronDatapadEntry(self, "tour.skill_trainer");
-            messageTo(self, "tourSkillTrainer", null, 1f, false);
+            messageTo(self, "tourSkillTrainer", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         String profession = getStartingProfession(self);
@@ -342,7 +343,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.mission.survey"))
         {
             clearHolocronDatapadEntry(self, "mission.survey");
-            messageTo(self, "missionArtisanSurvey", null, 1f, false);
+            messageTo(self, "missionArtisanSurvey", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         final int MAX_RESOURCES = 10;
@@ -394,7 +395,7 @@ public class newbie_handoff extends script.base_script
         String resourceName = "INSERT NAME HERE";
         String resourceClass = "INSERT CLASS HERE";
         int resourceEfficiency = (int)(targetEfficiency * 100);
-        prose_package pp = prose.getPackage(PROSE_NEWBIE_MISSION_SURVEY_START, null, null, null, null, resourceName, null, null, resourceClass, null, resourceEfficiency, 0f);
+        prose_package pp = prose.getPackage(PROSE_NEWBIE_MISSION_SURVEY_START, null, null, null, null, resourceName, null, null, resourceClass, null, resourceEfficiency, 0.0f);
         sendSystemMessageProse(self, pp);
         return SCRIPT_CONTINUE;
     }
@@ -403,7 +404,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.mission.gig"))
         {
             clearHolocronDatapadEntry(self, "mission.gig");
-            messageTo(self, "missionEntertainerDanceGig", null, 1f, false);
+            messageTo(self, "missionEntertainerDanceGig", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         map_location destination = planetary_map.findClosestLocation(self, "cantina", "");
@@ -422,7 +423,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.mission.gig"))
         {
             clearHolocronDatapadEntry(self, "mission.gig");
-            messageTo(self, "missionEntertainerMusicGig", null, 1f, false);
+            messageTo(self, "missionEntertainerMusicGig", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         map_location destination = planetary_map.findClosestLocation(self, "cantina", "");
@@ -441,7 +442,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.mission.heal"))
         {
             clearHolocronDatapadEntry(self, "mission.heal");
-            messageTo(self, "missionMedicHeal", null, 1f, false);
+            messageTo(self, "missionMedicHeal", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         String planet = getCurrentSceneName();
@@ -489,7 +490,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.mission.destroy"))
         {
             clearHolocronDatapadEntry(self, "mission.destroy");
-            messageTo(self, "missionBrawlerDestroy", null, 1f, false);
+            messageTo(self, "missionBrawlerDestroy", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         region city = locations.getCityRegion(getLocation(self));
@@ -502,7 +503,7 @@ public class newbie_handoff extends script.base_script
         while (x < 10)
         {
             LOG("newbie_handoff", "Brawler Mission Create:  Attepmt #" + (x + 1) + "; Distance=" + (10 + (x * 10)));
-            destination = locations.getGoodLocationOutsideOfRegion(city, 30f, 30f, 10 + (x * 10), false, true);
+            destination = locations.getGoodLocationOutsideOfRegion(city, 30.0f, 30.0f, 10 + (x * 10), false, true);
             if (destination != null)
             {
                 break;
@@ -528,7 +529,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.mission.destroy"))
         {
             clearHolocronDatapadEntry(self, "mission.destroy");
-            messageTo(self, "missionMarksmanDestroy", null, 1f, false);
+            messageTo(self, "missionMarksmanDestroy", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         region city = locations.getCityRegion(getLocation(self));
@@ -541,7 +542,7 @@ public class newbie_handoff extends script.base_script
         while (x < 10)
         {
             LOG("newbie_handoff", "Marksman Mission Create:  Attepmt #" + (x + 1) + "; Distance=" + (10 + (x * 10)));
-            destination = locations.getGoodLocationOutsideOfRegion(city, 30f, 30f, 10 + (x * 10), false, true);
+            destination = locations.getGoodLocationOutsideOfRegion(city, 30.0f, 30.0f, 10 + (x * 10), false, true);
             if (destination != null)
             {
                 break;
@@ -567,7 +568,7 @@ public class newbie_handoff extends script.base_script
         if (hasObjVar(self, "newbie_handoff.mission.harvest"))
         {
             clearHolocronDatapadEntry(self, "mission.harvest");
-            messageTo(self, "missionScoutHarvest", null, 1f, false);
+            messageTo(self, "missionScoutHarvest", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
         region city = locations.getCityRegion(getLocation(self));
@@ -580,7 +581,7 @@ public class newbie_handoff extends script.base_script
         while (x < 10)
         {
             LOG("newbie_handoff", "Scout Mission Create:  Attepmt #" + (x + 1) + "; Distance=" + (10 + (x * 10)));
-            destination = locations.getGoodLocationOutsideOfRegion(city, 30f, 30f, 10 + (x * 10), false, true);
+            destination = locations.getGoodLocationOutsideOfRegion(city, 30.0f, 30.0f, 10 + (x * 10), false, true);
             if (destination != null)
             {
                 break;
@@ -1083,11 +1084,7 @@ public class newbie_handoff extends script.base_script
             return ("");
         }
         String profession = getSkillProfession(skillName);
-        if (profession == null)
-        {
-            return ("");
-        }
-        return profession;
+        return Objects.requireNonNullElse(profession, (""));
     }
     private String getSimpleProfession(String profession) throws InterruptedException
     {

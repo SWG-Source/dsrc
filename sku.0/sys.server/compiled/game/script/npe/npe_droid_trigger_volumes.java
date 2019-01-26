@@ -30,51 +30,44 @@ public class npe_droid_trigger_volumes extends script.base_script
         if (myname != null && !myname.equals(""))
         {
             utils.setScriptVar(self, "droidVolumeBreach", 1);
-            if (myname.equals("mob/creature_names:npe_droid_rescind"))
-            {
-                playExplosionEffect(player, self, -400);
-            }
-            else if (myname.equals("mob/creature_names:npe_k3i_buzzer"))
-            {
-                playExplosionEffect(player, self, -250);
-            }
-            else if (myname.equals("mob/creature_names:npe_4warning"))
-            {
-                webster.put("guard", guard);
-                messageTo(self, "spawnGuards", webster, 5, false);
-            }
-            else if (myname.equals("mob/creature_names:npe_i10_probe"))
-            {
-                guard = "npe_rakqua_shaman";
-                webster.put("guard", guard);
-                messageTo(self, "spawnGuards", webster, 5, false);
-            }
-            else if (myname.equals("npc_name:typho"))
-            {
-                playExplosionEffect(player, self, -150);
-            }
-            else if (myname.equals("mob/creature_names:npe_smuggler_trap"))
-            {
-                if (groundquests.isTaskActive(player, "npe_smuggler_try", "droidAlert"))
-                {
-                    debugSpeakMsg(player, "You have the quest");
-                    groundquests.sendSignal(player, "gotYou");
-                    guard = "npe_rakqua_warrior";
+            switch (myname) {
+                case "mob/creature_names:npe_droid_rescind":
+                    playExplosionEffect(player, self, -400);
+                    break;
+                case "mob/creature_names:npe_k3i_buzzer":
+                    playExplosionEffect(player, self, -250);
+                    break;
+                case "mob/creature_names:npe_4warning":
                     webster.put("guard", guard);
                     messageTo(self, "spawnGuards", webster, 5, false);
-                }
-            }
-            else 
-            {
-                return SCRIPT_CONTINUE;
+                    break;
+                case "mob/creature_names:npe_i10_probe":
+                    guard = "npe_rakqua_shaman";
+                    webster.put("guard", guard);
+                    messageTo(self, "spawnGuards", webster, 5, false);
+                    break;
+                case "npc_name:typho":
+                    playExplosionEffect(player, self, -150);
+                    break;
+                case "mob/creature_names:npe_smuggler_trap":
+                    if (groundquests.isTaskActive(player, "npe_smuggler_try", "droidAlert")) {
+                        debugSpeakMsg(player, "You have the quest");
+                        groundquests.sendSignal(player, "gotYou");
+                        guard = "npe_rakqua_warrior";
+                        webster.put("guard", guard);
+                        messageTo(self, "spawnGuards", webster, 5, false);
+                    }
+                    break;
+                default:
+                    return SCRIPT_CONTINUE;
             }
         }
         return SCRIPT_CONTINUE;
     }
     public void playExplosionEffect(obj_id player, obj_id self, int damageAmount) throws InterruptedException
     {
-        playClientEffectLoc(player, "clienteffect/combat_grenade_small_01.cef", getLocation(self), 1f);
-        addAttribModifier(player, HEALTH, damageAmount, 0f, 0f, MOD_POOL);
+        playClientEffectLoc(player, "clienteffect/combat_grenade_small_01.cef", getLocation(self), 1.0f);
+        addAttribModifier(player, HEALTH, damageAmount, 0.0f, 0.0f, MOD_POOL);
         kill(self);
         messageTo(self, "getRidOfMe", null, 1, true);
         return;

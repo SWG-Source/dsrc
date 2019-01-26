@@ -36,7 +36,7 @@ public class c_tutorial_rm8 extends script.base_script
     {
         groundquests.sendSignal(player, "c_newbie_hall_end");
         location here = getLocation(npc);
-        location dark = new location(18.5f, -4.2f, -154f, here.area, here.cell);
+        location dark = new location(18.5f, -4.2f, -154.0f, here.area, here.cell);
         obj_id sith = create.object("tutorial_dark_jedi", dark);
         faceTo(npc, sith);
         faceTo(sith, npc);

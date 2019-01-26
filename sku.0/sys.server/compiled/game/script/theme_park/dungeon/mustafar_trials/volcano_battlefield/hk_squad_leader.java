@@ -41,9 +41,8 @@ public class hk_squad_leader extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id[] guards = getObjIdArrayObjVar(self, "guardList");
-        for (int i = 0; i < guards.length; i++)
-        {
-            messageTo(guards[i], "leaderDied", null, 0, false);
+        for (obj_id guard : guards) {
+            messageTo(guard, "leaderDied", null, 0, false);
         }
         return SCRIPT_CONTINUE;
     }

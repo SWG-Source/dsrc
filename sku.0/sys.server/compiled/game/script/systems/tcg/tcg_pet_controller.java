@@ -102,7 +102,7 @@ public class tcg_pet_controller extends script.base_script
             }
         }
         String petType = getTemplateName(self);
-        if ((petType.indexOf("scurrier") > -1) && (hasObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED)))
+        if ((petType.contains("scurrier")) && (hasObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED)))
         {
             names[idx] = "last_scurrier_snack";
             int lastSnack = getIntObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED);
@@ -191,7 +191,7 @@ public class tcg_pet_controller extends script.base_script
             if (player == owner && !hasObjVar(self, house_pet.PET_KNOCKED_OUT) && hasObjVar(self, house_pet.PET_FEEDABLE) && hasObjVar(self, house_pet.CHILD_OBJ_ID))
             {
                 String petType = getTemplateName(getObjIdObjVar(self, house_pet.CHILD_OBJ_ID));
-                if (petType.indexOf("scurrier") > -1)
+                if (petType.contains("scurrier"))
                 {
                     int lastFedTime = getIntObjVar(self, house_pet.SCURRIER_SNACK_LAST_FED);
                     int nextSnackTime = lastFedTime + house_pet.SCURRIER_SNACK_DELAY;
@@ -452,7 +452,7 @@ public class tcg_pet_controller extends script.base_script
         blog("spawnFoodAtLocation - about to create food.");
         obj_id food = obj_id.NULL_ID;
         String petType = getTemplateName(pet);
-        if (petType.indexOf("massif") > -1)
+        if (petType.contains("massif"))
         {
             food = create.object("object/static/item/item_massiff_food.iff", foodLoc);
             if (!isValidId(food))
@@ -461,7 +461,7 @@ public class tcg_pet_controller extends script.base_script
             }
             setObjVar(food, "timer", 10);
         }
-        if (petType.indexOf("nuna") > -1)
+        if (petType.contains("nuna"))
         {
             foodLoc.y = foodLoc.y + 0.05f;
             food = create.object("object/static/item/item_nuna_food.iff", foodLoc);
@@ -471,7 +471,7 @@ public class tcg_pet_controller extends script.base_script
             }
             setObjVar(food, "timer", 10);
         }
-        if (petType.indexOf("scurrier") > -1)
+        if (petType.contains("scurrier"))
         {
             foodLoc.y = foodLoc.y + 0.04f;
             food = create.object("object/static/item/item_scurrier_food.iff", foodLoc);
@@ -510,7 +510,7 @@ public class tcg_pet_controller extends script.base_script
         utils.setScriptVar(pet, house_pet.BEING_FED, true);
         obj_id food = obj_id.NULL_ID;
         String petType = getTemplateName(pet);
-        if (petType.indexOf("scurrier") > -1)
+        if (petType.contains("scurrier"))
         {
             foodLoc.y = foodLoc.y + 0.04f;
             food = create.object("object/static/item/item_scurrier_food.iff", foodLoc);

@@ -71,7 +71,7 @@ final class dictionary_byte_array_input_stream extends ByteArrayInputStream impl
 	{
 		for ( int i = start; i < start + count; ++i )
 		{
-			System.err.print((((int)buf[i]) & 0x00ff) + " ");
+			System.err.print((buf[i] & 0x00ff) + " ");
 		}
 		System.err.println();
 	}

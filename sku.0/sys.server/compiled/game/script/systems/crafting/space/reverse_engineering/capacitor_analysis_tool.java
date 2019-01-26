@@ -100,20 +100,16 @@ public class capacitor_analysis_tool extends script.base_script
             {
                 temp = getTemplateName(x[0]);
             }
-            for (int i = 0; i < x.length; i++)
-            {
-                if (space_crafting.getShipComponentStringType(x[i]) != "capacitor")
-                {
+            for (obj_id x2 : x) {
+                if (space_crafting.getShipComponentStringType(x2) != "capacitor") {
                     string_id errormessage2 = new string_id(TOOL, "wrong_component_type");
                     sendSystemMessage(player, errormessage2);
                     return SCRIPT_CONTINUE;
                 }
-                if ((getTemplateName(x[i])).equals(temp))
-                {
+                if ((getTemplateName(x2)).equals(temp)) {
                     countX++;
                 }
-                if (getBooleanObjVar(x[i], "cannotReverseEngineer") == true)
-                {
+                if (getBooleanObjVar(x2, "cannotReverseEngineer") == true) {
                     string_id errormessage = new string_id(TOOL, "already_engineered");
                     sendSystemMessage(player, errormessage);
                     return SCRIPT_CONTINUE;
@@ -182,9 +178,8 @@ public class capacitor_analysis_tool extends script.base_script
                 setObjVar(self, "reverse_engineering.charges", charges);
                 if (charges > 0)
                 {
-                    for (int i = 0; i < x.length; i++)
-                    {
-                        destroyObject(x[i]);
+                    for (obj_id x1 : x) {
+                        destroyObject(x1);
                     }
                 }
                 if (charges <= 0)
@@ -255,11 +250,11 @@ public class capacitor_analysis_tool extends script.base_script
         float energyMaintenance = dataTableGetFloat(TABLE, template, "fltEnergyMaintenance");
         float energyMaintenanceModifier = dataTableGetFloat(TABLE, template, "fltEnergyMaintenanceModifier");
         energyMaintenance = energyMaintenance - energyMaintenanceModifier;
-        energyMaintenance = energyMaintenance - ((.05f) * energyMaintenance);
+        energyMaintenance = energyMaintenance - ((0.05f) * energyMaintenance);
         float mass = dataTableGetFloat(TABLE, template, "fltMass");
         float massModifier = dataTableGetFloat(TABLE, template, "fltMassModifier");
         mass = mass - massModifier;
-        mass = mass - ((.05f) * mass);
+        mass = mass - ((0.05f) * mass);
         space_crafting.setComponentMass(newWeapon, mass);
         space_crafting.setComponentEnergyMaintenance(newWeapon, energyMaintenance);
         float armorHp = dataTableGetFloat(TABLE, template, "fltMaximumArmorHitpoints");
@@ -270,13 +265,13 @@ public class capacitor_analysis_tool extends script.base_script
         float fltMaxEnergyModifier = dataTableGetFloat(TABLE, template, "fltMaxEnergyModifier");
         float fltMaxEnergy = dataTableGetFloat(TABLE, template, "fltMaxEnergy");
         fltMaxEnergy = fltMaxEnergy + fltMaxEnergyModifier;
-        fltMaxEnergy = fltMaxEnergy + ((.05f) * fltMaxEnergy);
+        fltMaxEnergy = fltMaxEnergy + ((0.05f) * fltMaxEnergy);
         space_crafting.setWeaponCapacitorMaximumEnergy(newWeapon, fltMaxEnergy);
         space_crafting.setWeaponCapacitorCurrentEnergy(newWeapon, fltMaxEnergy);
         float fltRechargeRateModifier = dataTableGetFloat(TABLE, template, "fltRechargeRateModifier");
         float fltRechargeRate = dataTableGetFloat(TABLE, template, "fltRechargeRate");
         fltRechargeRate = fltRechargeRate + fltRechargeRateModifier;
-        fltRechargeRate = fltRechargeRate + ((.05f) * fltRechargeRate);
+        fltRechargeRate = fltRechargeRate + ((0.05f) * fltRechargeRate);
         space_crafting.setWeaponCapacitorRechargeRate(newWeapon, fltRechargeRate);
         setObjVar(newWeapon, "cannotReverseEngineer", true);
         return newWeapon;

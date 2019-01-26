@@ -10,7 +10,7 @@ public class rtp_wedge_imperial_meeting extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        createTriggerVolume("rtp_wedge_imperial_meeting", 10f, true);
+        createTriggerVolume("rtp_wedge_imperial_meeting", 10.0f, true);
         return SCRIPT_CONTINUE;
     }
     public int OnTriggerVolumeEntered(obj_id self, String volName, obj_id breecher) throws InterruptedException

@@ -232,18 +232,13 @@ public class no_consume_loot extends script.base_script
         utils.removeScriptVarTree(player, "collections");
         String slotName = "";
         String collectionName = availableCollections[idx];
-        for (int i = 0; i < baseSlotNames.length; ++i)
-        {
+        for (String baseSlotName : baseSlotNames) {
             boolean found = false;
-            String[] splitSlotNames = split(baseSlotNames[i], ':');
-            for (int j = 0; j < splitSlotNames.length; j += 2)
-            {
-                if (collectionName.equals(splitSlotNames[j]))
-                {
-                    if (!hasCompletedCollection(player, collectionName))
-                    {
-                        if (!hasCompletedCollectionSlot(player, splitSlotNames[j + 1]))
-                        {
+            String[] splitSlotNames = split(baseSlotName, ':');
+            for (int j = 0; j < splitSlotNames.length; j += 2) {
+                if (collectionName.equals(splitSlotNames[j])) {
+                    if (!hasCompletedCollection(player, collectionName)) {
+                        if (!hasCompletedCollectionSlot(player, splitSlotNames[j + 1])) {
                             slotName = splitSlotNames[j + 1];
                             found = true;
                             break;
@@ -251,8 +246,7 @@ public class no_consume_loot extends script.base_script
                     }
                 }
             }
-            if (found)
-            {
+            if (found) {
                 break;
             }
         }

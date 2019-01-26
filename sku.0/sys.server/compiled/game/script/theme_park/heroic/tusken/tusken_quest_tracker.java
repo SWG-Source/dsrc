@@ -58,13 +58,11 @@ public class tusken_quest_tracker extends script.base_script
         setObjVar(self, PHASE, 1);
         setObjVar(self, DEAD_CITIZEN, 0);
         setObjVar(self, P3_COMPLETE, 0);
-        for (int i = 0; i < P1.length; i++)
-        {
-            setObjVar(self, P1[i], 0);
+        for (String s1 : P1) {
+            setObjVar(self, s1, 0);
         }
-        for (int q = 0; q < P2.length; q++)
-        {
-            setObjVar(self, P2[q], 0);
+        for (String s : P2) {
+            setObjVar(self, s, 0);
         }
         return SCRIPT_CONTINUE;
     }
@@ -93,9 +91,8 @@ public class tusken_quest_tracker extends script.base_script
             if (doBroadcast)
             {
                 groundquests.sendSignal(players, P1_COMPLETE);
-                for (int k = 0; k < P2_GRANT.length; k++)
-                {
-                    groundquests.requestGrantQuest(players, P2_GRANT[k]);
+                for (String s : P2_GRANT) {
+                    groundquests.requestGrantQuest(players, s);
                 }
             }
         }
@@ -130,9 +127,8 @@ public class tusken_quest_tracker extends script.base_script
         }
         obj_id self = getSelf();
         int total = 0;
-        for (int i = 0; i < P1.length; i++)
-        {
-            total += getIntObjVar(self, P1[i]);
+        for (String s : P1) {
+            total += getIntObjVar(self, s);
         }
         return total == P1.length;
     }
@@ -144,9 +140,8 @@ public class tusken_quest_tracker extends script.base_script
         }
         obj_id self = getSelf();
         int total = 0;
-        for (int i = 0; i < P2.length; i++)
-        {
-            total += getIntObjVar(self, P2[i]);
+        for (String s : P2) {
+            total += getIntObjVar(self, s);
         }
         return total == P2.length;
     }
@@ -167,26 +162,21 @@ public class tusken_quest_tracker extends script.base_script
         {
             case 1:
             groundquests.requestGrantQuest(player, P1_GRANT);
-            for (int i = 0; i < P1.length; i++)
-            {
-                if (getIntObjVar(self, P1[i]) == 1)
-                {
-                    groundquests.sendSignal(player, P1[i]);
+                for (String s2 : P1) {
+                    if (getIntObjVar(self, s2) == 1) {
+                        groundquests.sendSignal(player, s2);
+                    }
                 }
-            }
             break;
             case 2:
-            for (int i = 0; i < P2_GRANT.length; i++)
-            {
-                groundquests.requestGrantQuest(player, P2_GRANT[i]);
-            }
-            for (int q = 0; q < P2.length; q++)
-            {
-                if (getIntObjVar(self, P2[q]) == 1)
-                {
-                    groundquests.sendSignal(player, P2[q]);
+                for (String s1 : P2_GRANT) {
+                    groundquests.requestGrantQuest(player, s1);
                 }
-            }
+                for (String s : P2) {
+                    if (getIntObjVar(self, s) == 1) {
+                        groundquests.sendSignal(player, s);
+                    }
+                }
             int dead_cit = getIntObjVar(self, DEAD_CITIZEN);
             dictionary dict = new dictionary();
             dict.put("creatureName", "heroic_tusken_mos_espa_citizen");
@@ -217,12 +207,11 @@ public class tusken_quest_tracker extends script.base_script
         dictionary dict = new dictionary();
         if (doBroadcast)
         {
-            for (int i = 0; i < players.length; i++)
-            {
+            for (obj_id player : players) {
                 dict.put("creatureName", "heroic_tusken_mos_espa_citizen");
-                dict.put("location", getLocation(players[i]));
+                dict.put("location", getLocation(player));
                 dict.put("socialGroup", "espa");
-                messageTo(players[i], "receiveCreditForKill", dict, 0.0f, false);
+                messageTo(player, "receiveCreditForKill", dict, 0.0f, false);
             }
         }
     }

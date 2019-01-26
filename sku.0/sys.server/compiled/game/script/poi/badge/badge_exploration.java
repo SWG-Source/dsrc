@@ -11,7 +11,7 @@ public class badge_exploration extends script.base_script
     }
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        createTriggerVolume("badge1", 10f, true);
+        createTriggerVolume("badge1", 10.0f, true);
         return SCRIPT_CONTINUE;
     }
     public int OnTriggerVolumeEntered(obj_id self, String volName, obj_id breecher) throws InterruptedException

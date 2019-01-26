@@ -32,61 +32,56 @@ public class test_sui extends script.base_script
     }
     public int OnSpeaking(obj_id self, String text) throws InterruptedException
     {
-        if (text.equals("msgbox"))
-        {
-            debugSpeakMsg(self, "about to load msgbox");
-            sui.msgbox(self, new string_id("ui", "ok"));
-        }
-        else if (text.equals("complex msgbox"))
-        {
-            debugSpeakMsg(self, "about to load msgbox");
-            sui.msgbox(self, self, "test test test", sui.YES_NO_CANCEL, "handleMsgBox", sui.MSG_NORMAL, "handleMsgBox");
-        }
-        else if (text.equals("inputbox"))
-        {
-            debugSpeakMsg(self, "about to load normal styled inputbox");
-            sui.inputbox(self, "test test test", "handleInputBox");
-        }
-        else if (text.equals("combobox"))
-        {
-            debugSpeakMsg(self, "about to load combo styled inputbox");
-            String[] d = new String[5];
-            for (int i = 0; i < d.length; i++)
-            {
-                d[i] = "test_" + i;
+        switch (text) {
+            case "msgbox":
+                debugSpeakMsg(self, "about to load msgbox");
+                sui.msgbox(self, new string_id("ui", "ok"));
+                break;
+            case "complex msgbox":
+                debugSpeakMsg(self, "about to load msgbox");
+                sui.msgbox(self, self, "test test test", sui.YES_NO_CANCEL, "handleMsgBox", sui.MSG_NORMAL, "handleMsgBox");
+                break;
+            case "inputbox":
+                debugSpeakMsg(self, "about to load normal styled inputbox");
+                sui.inputbox(self, "test test test", "handleInputBox");
+                break;
+            case "combobox": {
+                debugSpeakMsg(self, "about to load combo styled inputbox");
+                String[] d = new String[5];
+                for (int i = 0; i < d.length; i++) {
+                    d[i] = "test_" + i;
+                }
+                sui.combobox(self, "test test test", d, "handleInputBox");
+                break;
             }
-            sui.combobox(self, "test test test", d, "handleInputBox");
-        }
-        else if (text.equals("listbox"))
-        {
-            debugSpeakMsg(self, "about to load listbox");
-            Vector d = new Vector();
-            d.setSize(0);
-            for (int i = 0; i < sui.MAX_ARRAY_SIZE * 2; i++)
-            {
-                d = utils.addElement(d, "test_" + i);
+            case "listbox": {
+                debugSpeakMsg(self, "about to load listbox");
+                Vector d = new Vector();
+                d.setSize(0);
+                for (int i = 0; i < sui.MAX_ARRAY_SIZE * 2; i++) {
+                    d = utils.addElement(d, "test_" + i);
+                }
+                sui.listbox(self, "test test test", d, "handleListBox");
+                break;
             }
-            sui.listbox(self, "test test test", d, "handleListBox");
-        }
-        else if (text.equals("bank"))
-        {
-            debugSpeakMsg(self, "loading transfer sui");
-            int cash = getCashBalance(self);
-            int bank = getBankBalance(self);
-            sui.transfer(self, self, "BANK PROMPT", "BANK TITLE", "Cash", cash, "Bank", bank, "handleBankTest");
-        }
-        else if (text.equals("test forceClose"))
-        {
-            int time = 5;
-            sendSystemMessageTestingOnly(self, "Loading SUI to test force close...");
-            int box = sui.msgbox(self, "force close test... closing box in " + time + " seconds");
-            dictionary d = new dictionary();
-            d.put("sui", box);
-            messageTo(self, "testForceClose", d, time, false);
-        }
-        else if (text.equals("nuke sui"))
-        {
-            removeObjVar(self, "sui");
+            case "bank":
+                debugSpeakMsg(self, "loading transfer sui");
+                int cash = getCashBalance(self);
+                int bank = getBankBalance(self);
+                sui.transfer(self, self, "BANK PROMPT", "BANK TITLE", "Cash", cash, "Bank", bank, "handleBankTest");
+                break;
+            case "test forceClose": {
+                int time = 5;
+                sendSystemMessageTestingOnly(self, "Loading SUI to test force close...");
+                int box = sui.msgbox(self, "force close test... closing box in " + time + " seconds");
+                dictionary d = new dictionary();
+                d.put("sui", box);
+                messageTo(self, "testForceClose", d, time, false);
+                break;
+            }
+            case "nuke sui":
+                removeObjVar(self, "sui");
+                break;
         }
         return SCRIPT_CONTINUE;
     }

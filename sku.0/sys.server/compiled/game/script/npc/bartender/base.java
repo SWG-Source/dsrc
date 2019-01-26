@@ -143,66 +143,56 @@ public class base extends script.base_script
         if (tbl.equals(STF))
         {
             string_id msg = new string_id(STF, "greet");
-            if (response.equals("opt_buy"))
-            {
-                msg = new string_id(STF, "msg_buy");
-                npcSpeak(speaker, msg);
-                npcEndConversation(speaker);
-                showBuySui(speaker);
-            }
-            else if (response.equals("opt_rumor"))
-            {
-                if (hasObjVar(self, VAR_RUMOR_BASE))
-                {
-                    String rumorSource = getStringObjVar(self, VAR_RUMOR_SPEAKER);
-                    String rumorText = getStringObjVar(self, VAR_RUMOR_TEXT);
-                    string_id PROSE_RUMOR = new string_id(STF, "prose_rumor" + rand(1, 4));
-                    prose_package ppRumor = prose.getPackage(PROSE_RUMOR, rumorSource, rumorText);
-                    chat.publicChat(self, speaker, chat.CHAT_WHISPER, chat.getChatMood(self), ppRumor);
-                    msg = new string_id(STF, "query_buy");
+            switch (response) {
+                case "opt_buy":
+                    msg = new string_id(STF, "msg_buy");
                     npcSpeak(speaker, msg);
-                    npcSetConversationResponses(speaker, OPT_BUY);
-                }
-                else 
-                {
-                    msg = new string_id(STF, "no_rumor");
+                    npcEndConversation(speaker);
+                    showBuySui(speaker);
+                    break;
+                case "opt_rumor":
+                    if (hasObjVar(self, VAR_RUMOR_BASE)) {
+                        String rumorSource = getStringObjVar(self, VAR_RUMOR_SPEAKER);
+                        String rumorText = getStringObjVar(self, VAR_RUMOR_TEXT);
+                        string_id PROSE_RUMOR = new string_id(STF, "prose_rumor" + rand(1, 4));
+                        prose_package ppRumor = prose.getPackage(PROSE_RUMOR, rumorSource, rumorText);
+                        chat.publicChat(self, speaker, chat.CHAT_WHISPER, chat.getChatMood(self), ppRumor);
+                        msg = new string_id(STF, "query_buy");
+                        npcSpeak(speaker, msg);
+                        npcSetConversationResponses(speaker, OPT_BUY);
+                    } else {
+                        msg = new string_id(STF, "no_rumor");
+                        npcSpeak(speaker, msg);
+                        npcSetConversationResponses(speaker, OPT_DEFAULT);
+                    }
+                    break;
+                case "opt_yes":
+                    msg = new string_id(STF, "msg_yes");
                     npcSpeak(speaker, msg);
-                    npcSetConversationResponses(speaker, OPT_DEFAULT);
-                }
-            }
-            else if (response.equals("opt_yes"))
-            {
-                msg = new string_id(STF, "msg_yes");
-                npcSpeak(speaker, msg);
-                npcEndConversation(speaker);
-                showBuySui(speaker);
-            }
-            else if (response.equals("opt_no"))
-            {
-                msg = new string_id(STF, "msg_no");
-                npcSpeak(speaker, msg);
-                npcEndConversation(speaker);
-            }
-            else if (response.equals("talk_to_me"))
-            {
-                location here = getLocation(self);
-                obj_id container = getTopMostContainer(self);
-                if (isIdValid(container))
-                {
-                    here = getLocation(container);
-                }
-                String buildoutAreaName = getBuildoutAreaName(here.x, here.z);
-                if (buildoutAreaName != null && buildoutAreaName.equals("nova_orion_station"))
-                {
-                    msg = township.getNovaOrionRumor(speaker);
-                }
-                else 
-                {
-                    int fiction_rumor = rand(1, 9);
-                    msg = new string_id(STF, "monthly_fiction_" + fiction_rumor);
-                }
-                npcSpeak(speaker, msg);
-                npcEndConversation(speaker);
+                    npcEndConversation(speaker);
+                    showBuySui(speaker);
+                    break;
+                case "opt_no":
+                    msg = new string_id(STF, "msg_no");
+                    npcSpeak(speaker, msg);
+                    npcEndConversation(speaker);
+                    break;
+                case "talk_to_me":
+                    location here = getLocation(self);
+                    obj_id container = getTopMostContainer(self);
+                    if (isIdValid(container)) {
+                        here = getLocation(container);
+                    }
+                    String buildoutAreaName = getBuildoutAreaName(here.x, here.z);
+                    if (buildoutAreaName != null && buildoutAreaName.equals("nova_orion_station")) {
+                        msg = township.getNovaOrionRumor(speaker);
+                    } else {
+                        int fiction_rumor = rand(1, 9);
+                        msg = new string_id(STF, "monthly_fiction_" + fiction_rumor);
+                    }
+                    npcSpeak(speaker, msg);
+                    npcEndConversation(speaker);
+                    break;
             }
             return SCRIPT_CONTINUE;
         }
@@ -212,7 +202,7 @@ public class base extends script.base_script
     {
         dictionary d = new dictionary();
         d.put("locationName", locationName);
-        messageTo(self, "handlePlayAnimation", d, 2f, false);
+        messageTo(self, "handlePlayAnimation", d, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnMovePathNotFound(obj_id self) throws InterruptedException
@@ -233,7 +223,7 @@ public class base extends script.base_script
                 playBarAnimation(self);
             }
         }
-        messageTo(self, "handleTick", null, rand(15f, 30f), false);
+        messageTo(self, "handleTick", null, rand(15.0f, 30.0f), false);
         return SCRIPT_CONTINUE;
     }
     public int handleListen(obj_id self, dictionary params) throws InterruptedException
@@ -273,12 +263,12 @@ public class base extends script.base_script
                 switch (rand(1, 2))
                 {
                     case 1:
-                        float barYaw = yaw + rand(-10f, 10f);
+                        float barYaw = yaw + rand(-10.0f, 10.0f);
                         setYaw(self, barYaw);
                         break;
                     case 2:
                     default:
-                        float yawAway = yaw - 180f + rand(-10f, 10f);
+                        float yawAway = yaw - 180.0f + rand(-10.0f, 10.0f);
                         setYaw(self, yawAway);
                         faceBar = false;
                     break;
@@ -390,7 +380,7 @@ public class base extends script.base_script
                 if (there != null)
                 {
                     int now = getGameTime();
-                    float heading = (heading1 + heading2) / 2f;
+                    float heading = (heading1 + heading2) / 2.0f;
                     setObjVar(self, VAR_LOC_BASE + "." + now + ".location", there);
                     setObjVar(self, VAR_LOC_BASE + "." + now + ".heading", heading);
                     addLocationTarget("" + now, there, 0.25f);

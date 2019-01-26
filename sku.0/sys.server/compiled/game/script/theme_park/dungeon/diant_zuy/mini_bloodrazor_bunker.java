@@ -69,22 +69,21 @@ public class mini_bloodrazor_bunker extends script.base_script
     }
     public int selfDestruct(obj_id self, dictionary params) throws InterruptedException
     {
-        messageTo(self, "intensifyExplosions", null, 1f, false);
+        messageTo(self, "intensifyExplosions", null, 1.0f, false);
         obj_id[] objPlayers = getPlayerCreaturesInRange(self, 64.0f);
         if (objPlayers != null && objPlayers.length > 0)
         {
-            for (int i = 0; i < objPlayers.length; i++)
-            {
+            for (obj_id objPlayer : objPlayers) {
                 location myLoc = getLocation(self);
-                playClientEffectLoc(objPlayers[i], "clienteffect/combat_explosion_lair_large.cef", myLoc, 10f);
+                playClientEffectLoc(objPlayer, "clienteffect/combat_explosion_lair_large.cef", myLoc, 10.0f);
                 myLoc.x += 5.0f;
-                playClientEffectLoc(objPlayers[i], "clienteffect/combat_explosion_lair_large.cef", myLoc, 10f);
+                playClientEffectLoc(objPlayer, "clienteffect/combat_explosion_lair_large.cef", myLoc, 10.0f);
                 myLoc.z += 5.0f;
-                playClientEffectLoc(objPlayers[i], "clienteffect/combat_explosion_lair_large.cef", myLoc, 10f);
+                playClientEffectLoc(objPlayer, "clienteffect/combat_explosion_lair_large.cef", myLoc, 10.0f);
                 myLoc.x -= 10.0f;
-                playClientEffectLoc(objPlayers[i], "clienteffect/combat_explosion_lair_large.cef", myLoc, 10f);
+                playClientEffectLoc(objPlayer, "clienteffect/combat_explosion_lair_large.cef", myLoc, 10.0f);
                 myLoc.z -= 10.0f;
-                playClientEffectLoc(objPlayers[i], "clienteffect/combat_explosion_lair_large.cef", myLoc, 10f);
+                playClientEffectLoc(objPlayer, "clienteffect/combat_explosion_lair_large.cef", myLoc, 10.0f);
             }
         }
         destroyObject(self);
@@ -108,17 +107,17 @@ public class mini_bloodrazor_bunker extends script.base_script
         {
             intensifying = 1;
             setObjVar(self, "diant.intensifying", intensifying);
-            messageTo(self, "jackUpIntensity", null, 20f, false);
-            messageTo(self, "jackUpIntensity", null, 40f, false);
-            messageTo(self, "jackUpIntensity", null, 60f, false);
-            messageTo(self, "jackUpIntensity", null, 80f, false);
-            messageTo(self, "jackUpIntensity", null, 100f, false);
-            messageTo(self, "jackUpIntensity", null, 120f, false);
-            messageTo(self, "jackUpIntensity", null, 140f, false);
-            messageTo(self, "jackUpIntensity", null, 160f, false);
-            messageTo(self, "jackUpIntensity", null, 180f, false);
-            messageTo(self, "jackUpIntensity", null, 200f, false);
-            messageTo(self, "jackUpIntensity", null, 220f, false);
+            messageTo(self, "jackUpIntensity", null, 20.0f, false);
+            messageTo(self, "jackUpIntensity", null, 40.0f, false);
+            messageTo(self, "jackUpIntensity", null, 60.0f, false);
+            messageTo(self, "jackUpIntensity", null, 80.0f, false);
+            messageTo(self, "jackUpIntensity", null, 100.0f, false);
+            messageTo(self, "jackUpIntensity", null, 120.0f, false);
+            messageTo(self, "jackUpIntensity", null, 140.0f, false);
+            messageTo(self, "jackUpIntensity", null, 160.0f, false);
+            messageTo(self, "jackUpIntensity", null, 180.0f, false);
+            messageTo(self, "jackUpIntensity", null, 200.0f, false);
+            messageTo(self, "jackUpIntensity", null, 220.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

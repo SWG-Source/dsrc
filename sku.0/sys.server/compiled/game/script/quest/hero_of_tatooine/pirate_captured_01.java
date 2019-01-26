@@ -18,7 +18,7 @@ public class pirate_captured_01 extends script.base_script
         detachScript(self, "ai.ai_combat");
         setInvulnerable(self, true);
         setName(self, "Itr Fairla (a captured pirate)");
-        messageTo(self, "action01", null, 5f, false);
+        messageTo(self, "action01", null, 5.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnArrivedAtLocation(obj_id self, String name) throws InterruptedException
@@ -30,7 +30,7 @@ public class pirate_captured_01 extends script.base_script
             setObjVar(self, "wifeReached", 1);
             doAnimationAction(self, "wave_finger_warning");
             chat.chat(self, new string_id(STF_FILE, "ruin_life"));
-            messageTo(self, "action02", null, 1f, false);
+            messageTo(self, "action02", null, 1.0f, false);
             chat.chat(wife, "AHH! Keep him away from me!");
             obj_id auth01 = getObjIdObjVar(building, "auth01");
             chat.chat(auth01, "Keep going!");

@@ -185,16 +185,12 @@ public class dynamic_armor extends script.base_script
                     "armor_eff_elemental_acid",
                     "armor_eff_elemental_electrical"
                 };
-                for (int i = 0; i < entries.length; ++i)
-                {
-                    for (int j = 0; j < entries[i].length; ++j)
-                    {
-                        if (free < names.length)
-                        {
-                            if (hasObjVar(self, "armor.fake_armor." + entries[i][j]))
-                            {
-                                int displayedProtections = getIntObjVar(self, "armor.fake_armor." + entries[i][j]);
-                                names[free] = (String)(armor.SPECIAL_PROTECTION_MAP.get(entries[i][j]));
+                for (String[] entry : entries) {
+                    for (String s : entry) {
+                        if (free < names.length) {
+                            if (hasObjVar(self, "armor.fake_armor." + s)) {
+                                int displayedProtections = getIntObjVar(self, "armor.fake_armor." + s);
+                                names[free] = (String) (armor.SPECIAL_PROTECTION_MAP.get(s));
                                 attribs[free++] = Integer.toString(displayedProtections);
                             }
                         }

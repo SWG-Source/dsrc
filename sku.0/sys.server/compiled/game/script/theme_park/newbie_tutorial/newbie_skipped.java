@@ -38,21 +38,17 @@ public class newbie_skipped extends script.theme_park.newbie_tutorial.tutorial_b
         newbieTutorialEnableHudElement(self, "all", true, 0.0f);
         obj_id playerInv = utils.getInventoryContainer(self);
         obj_id[] contents = getContents(playerInv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "newbie.item"))
-            {
-                if (hasScript(contents[i], BOX_ITEM_SCRIPT))
-                {
-                    detachScript(contents[i], BOX_ITEM_SCRIPT);
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "newbie.item")) {
+                if (hasScript(content, BOX_ITEM_SCRIPT)) {
+                    detachScript(content, BOX_ITEM_SCRIPT);
                 }
-                destroyObject(contents[i]);
+                destroyObject(content);
             }
         }
         transferBankToInventory(self);
-        for (int i = 0; i < BOX_CONTENTS.length; i++)
-        {
-            createObject(BOX_CONTENTS[i], playerInv, "");
+        for (String boxContent : BOX_CONTENTS) {
+            createObject(boxContent, playerInv, "");
         }
         obj_id pInv = utils.getInventoryContainer(self);
         contents = getContents(pInv);

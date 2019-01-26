@@ -85,8 +85,8 @@ public class quest_shuttle_event extends script.base_script
             return SCRIPT_CONTINUE;
         }
         location loc = getLocation(self);
-        float treasureXdelta = -9f;
-        float treasureZdelta = 6f;
+        float treasureXdelta = -9.0f;
+        float treasureZdelta = 6.0f;
         location landingLoc = loc;
         landingLoc.x += treasureXdelta;
         landingLoc.z += treasureZdelta;

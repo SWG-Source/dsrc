@@ -103,8 +103,8 @@ public class ice_cream_nobuff extends script.base_script
         {
             return;
         }
-        float eff = 1f;
-        float dur = 1f;
+        float eff = 1.0f;
+        float dur = 1.0f;
         if (hasObjVar(self, "effectiveness"))
         {
             eff = getFloatObjVar(self, "effectiveness");

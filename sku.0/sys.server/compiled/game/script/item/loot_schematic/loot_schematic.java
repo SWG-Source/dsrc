@@ -71,7 +71,7 @@ public class loot_schematic extends script.base_script
             String schemGranted = getStringObjVar(self, VAR_SCHEMATIC);
             if (schemGranted.contains("weapon") && !schemGranted.contains("component"))
             {
-                if (schemGranted.indexOf("appearance") < 0)
+                if (!schemGranted.contains("appearance"))
                 {
                     String template = getTemplateName(self);
                     if (template.length() > 0)

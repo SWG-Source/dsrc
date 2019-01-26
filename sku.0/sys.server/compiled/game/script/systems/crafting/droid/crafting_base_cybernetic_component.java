@@ -18,62 +18,49 @@ public class crafting_base_cybernetic_component extends script.systems.crafting.
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         int[] attribBonus = new int[NUM_ATTRIBUTES];
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("cybernetic_health"))
-                {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("cybernetic_health")) {
                     obj_id self = getSelf();
-                    attribBonus[0] = (int)itemAttributes[i].currentValue;
+                    attribBonus[0] = (int) itemAttribute.currentValue;
                     setAttributeBonuses(prototype, attribBonus);
                     setAttributeBonuses(self, attribBonus);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("cybernetic_action"))
-                {
+                if (((itemAttribute.name).getAsciiId()).equals("cybernetic_action")) {
                     obj_id self = getSelf();
-                    attribBonus[2] = (int)itemAttributes[i].currentValue;
+                    attribBonus[2] = (int) itemAttribute.currentValue;
                     setAttributeBonuses(prototype, attribBonus);
                     setAttributeBonuses(self, attribBonus);
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("cybernetic_electrical_resist_module"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".cybernetic_electrical_resist_module", itemAttributes[i].currentValue);
-                    if (hasObjVar(prototype, "cybernetic.special_protection"))
-                    {
+                if (((itemAttribute.name).getAsciiId()).equals("cybernetic_electrical_resist_module")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".cybernetic_electrical_resist_module", itemAttribute.currentValue);
+                    if (hasObjVar(prototype, "cybernetic.special_protection")) {
                         setObjVar(prototype, "cybernetic.special_protection.type", getIntObjVar(prototype, "cybernetic.special_protection"));
-                        setObjVar(prototype, "cybernetic.special_protection.value", itemAttributes[i].currentValue);
+                        setObjVar(prototype, "cybernetic.special_protection.value", itemAttribute.currentValue);
                     }
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("cybernetic_acid_resist_module"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".cybernetic_electrical_resist_module", itemAttributes[i].currentValue);
-                    if (hasObjVar(prototype, "cybernetic.special_protection"))
-                    {
+                if (((itemAttribute.name).getAsciiId()).equals("cybernetic_acid_resist_module")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".cybernetic_electrical_resist_module", itemAttribute.currentValue);
+                    if (hasObjVar(prototype, "cybernetic.special_protection")) {
                         setObjVar(prototype, "cybernetic.special_protection.type", getIntObjVar(prototype, "cybernetic.special_protection"));
-                        setObjVar(prototype, "cybernetic.special_protection.value", itemAttributes[i].currentValue);
+                        setObjVar(prototype, "cybernetic.special_protection.value", itemAttribute.currentValue);
                     }
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("cybernetic_heat_resist_module"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".cybernetic_electrical_resist_module", itemAttributes[i].currentValue);
-                    if (hasObjVar(prototype, "cybernetic.special_protection"))
-                    {
+                if (((itemAttribute.name).getAsciiId()).equals("cybernetic_heat_resist_module")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".cybernetic_electrical_resist_module", itemAttribute.currentValue);
+                    if (hasObjVar(prototype, "cybernetic.special_protection")) {
                         setObjVar(prototype, "cybernetic.special_protection.type", getIntObjVar(prototype, "cybernetic.special_protection"));
-                        setObjVar(prototype, "cybernetic.special_protection.value", itemAttributes[i].currentValue);
+                        setObjVar(prototype, "cybernetic.special_protection.value", itemAttribute.currentValue);
                     }
                 }
-                if (((itemAttributes[i].name).getAsciiId()).equals("cybernetic_cold_resist_module"))
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".cybernetic_electrical_resist_module", itemAttributes[i].currentValue);
-                    if (hasObjVar(prototype, "cybernetic.special_protection"))
-                    {
+                if (((itemAttribute.name).getAsciiId()).equals("cybernetic_cold_resist_module")) {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + ".cybernetic_electrical_resist_module", itemAttribute.currentValue);
+                    if (hasObjVar(prototype, "cybernetic.special_protection")) {
                         setObjVar(prototype, "cybernetic.special_protection.type", getIntObjVar(prototype, "cybernetic.special_protection"));
-                        setObjVar(prototype, "cybernetic.special_protection.value", itemAttributes[i].currentValue);
+                        setObjVar(prototype, "cybernetic.special_protection.value", itemAttribute.currentValue);
                     }
                 }
             }

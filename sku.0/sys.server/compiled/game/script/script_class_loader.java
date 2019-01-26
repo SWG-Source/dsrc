@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -53,19 +54,17 @@ public class script_class_loader extends ClassLoader
 		{
 			try
 			{
-				myObject = myClass.newInstance();
+				myObject = myClass.getDeclaredConstructor().newInstance();
 				if (myObject == null)
 				{
 					System.err.println("WARNING: Java Error creating object for class " + name);
 				}
 			}
-			catch ( InstantiationException err )
+			catch ( InstantiationException | IllegalAccessException err )
 			{
 				System.err.println("WARNING: Java Error creating class instance " + name + " : " + err);
-			}
-			catch ( IllegalAccessException err )
-  			{
-				System.err.println("WARNING: Java Error creating class instance " + name + " : " + err);
+			} catch (NoSuchMethodException | InvocationTargetException e) {
+				e.printStackTrace();
 			}
 		}
 		else

@@ -982,7 +982,7 @@ public class chat extends script.base_script
     }
     public static void _chat(obj_id npc, obj_id target, String chatType, String moodType, int flags, String text, string_id textId, String oob) throws InterruptedException
     {
-        StringBuffer sbuf = new StringBuffer();
+        StringBuilder sbuf = new StringBuilder();
         if (chatType != null)
         {
             sbuf.append(chatType);

@@ -16,7 +16,7 @@ public class load_test_ai extends script.base_script
         obj_id followTarget = utils.getObjIdScriptVar(self, "followTarget");
         if (isIdValid(followTarget))
         {
-            ship_ai.spaceFollow(self, followTarget, 15.f);
+            ship_ai.spaceFollow(self, followTarget, 15.0f);
         }
         messageTo(self, "ping", null, 0, false);
         return SCRIPT_CONTINUE;

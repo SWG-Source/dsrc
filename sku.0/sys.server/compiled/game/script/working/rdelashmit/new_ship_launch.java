@@ -1,16 +1,11 @@
 package script.working.rdelashmit;
 
 import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
-import script.library.utils;
-import script.library.space_utils;
 import script.library.space_transition;
+import script.library.space_utils;
+import script.library.utils;
+
+import java.util.Vector;
 
 public class new_ship_launch extends script.base_script
 {
@@ -27,7 +22,7 @@ public class new_ship_launch extends script.base_script
                 obj_id ship = space_transition.getShipFromShipControlDevice(scd);
                 if (isIdValid(ship))
                 {
-                    beginLaunch(self, ship, new location(100.f, 0.f, 100.f, "space_tatooine"));
+                    beginLaunch(self, ship, new location(100.0f, 0.0f, 100.0f, "space_tatooine"));
                 }
             }
         }
@@ -52,11 +47,8 @@ public class new_ship_launch extends script.base_script
             if (isIdValid(group))
             {
                 obj_id[] groupMembers = getGroupMemberIds(group);
-                for (int i = 0; i < groupMembers.length; ++i)
-                {
-                    obj_id groupMember = groupMembers[i];
-                    if (groupMember != player && exists(groupMember) && getTopMostContainer(groupMember) == playerBuilding)
-                    {
+                for (obj_id groupMember : groupMembers) {
+                    if (groupMember != player && exists(groupMember) && getTopMostContainer(groupMember) == playerBuilding) {
                         potentialPassengers = utils.addElement(potentialPassengers, groupMember);
                     }
                 }
@@ -69,11 +61,10 @@ public class new_ship_launch extends script.base_script
         utils.setScriptVar(player, "launch.destination", destination);
         if (potentialPassengers != null)
         {
-            for (int i = 0; i < potentialPassengers.size(); ++i)
-            {
+            for (Object potentialPassenger : potentialPassengers) {
                 dictionary params = new dictionary();
                 params.put("launcher", player);
-                messageTo(((obj_id)potentialPassengers.get(i)), "inviteForPobShipLaunch", params, 0, false);
+                messageTo(((obj_id) potentialPassenger), "inviteForPobShipLaunch", params, 0, false);
             }
         }
         else 
@@ -138,10 +129,8 @@ public class new_ship_launch extends script.base_script
                 {
                     obj_id launchee = ((obj_id)launchees.get(i));
                     boolean ok = false;
-                    for (int j = 0; j < groupMembers.length; ++j)
-                    {
-                        if (groupMembers[j] == launchee && exists(launchee) && getTopMostContainer(launchee) == playerBuilding)
-                        {
+                    for (obj_id groupMember : groupMembers) {
+                        if (groupMember == launchee && exists(launchee) && getTopMostContainer(launchee) == playerBuilding) {
                             ok = true;
                         }
                     }
@@ -163,7 +152,7 @@ public class new_ship_launch extends script.base_script
     {
         for (int i = 0; i < players.size(); ++i)
         {
-            launch(((obj_id)players.get(i)), ((Integer)playerStartIndex.get(i)).intValue(), ship, destination, groundLoc);
+            launch(((obj_id)players.get(i)), (Integer) playerStartIndex.get(i), ship, destination, groundLoc);
         }
     }
     public void launch(obj_id player, int playerStartIndex, obj_id ship, location destination, location groundLoc) throws InterruptedException

@@ -62,9 +62,8 @@ public class crafting_creature_hermit_spider extends script.systems.crafting.bio
             return null;
         }
         float playerCustomizationMod = 255;
-        for (int i = 0; i < customizations.length; ++i)
-        {
-            customizations[i].maxValue = (int)(playerCustomizationMod);
+        for (draft_schematic.custom customization : customizations) {
+            customization.maxValue = (int) (playerCustomizationMod);
         }
         return customizations;
     }

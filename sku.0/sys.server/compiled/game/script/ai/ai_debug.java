@@ -48,14 +48,8 @@ public class ai_debug extends script.base_script
                     for (int i = 0; i < 5; ++i)
                     {
                         location spawnLocation = getLocation(self);
-                        if ((i % 1) == 0)
-                        {
-                            spawnLocation.x += 3.0f * i;
-                        }
-                        else 
-                        {
-                            spawnLocation.x += -3.0f * i;
-                        }
+                        spawnLocation.x += 3.0f * i;
+
                         final obj_id ai = create.object("tusken_warrior", spawnLocation);
                         ai_lib.setDefaultCalmBehavior(ai, ai_lib.BEHAVIOR_SENTINEL);
                     }
@@ -185,10 +179,10 @@ public class ai_debug extends script.base_script
                     for (int i = 0; i < points; ++i)
                     {
                         path[i] = new location();
-                        final float radian = (float)Math.PI * 2.0f * ((float)i / (float)points);
-                        path[i].x = anchorLocation.x + (float)Math.sin(radian) * radius;
+                        final float radian = (float)Math.PI * 2.0f * ((float)i / points);
+                        path[i].x = anchorLocation.x + (float) StrictMath.sin(radian) * radius;
                         path[i].y = anchorLocation.y;
-                        path[i].z = anchorLocation.z + (float)Math.cos(radian) * radius;
+                        path[i].z = anchorLocation.z + (float) StrictMath.cos(radian) * radius;
                     }
                     ai_lib.setPatrolPath(leader, path);
                     ai_lib.resumePatrol(leader);

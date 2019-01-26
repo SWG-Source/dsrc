@@ -1,14 +1,7 @@
 package script.working.rdelashmit;
 
-import script.*;
-import script.base_class.*;
-import script.combat_engine.*;
-import java.util.Arrays;
-import java.util.Hashtable;
-import java.util.Vector;
-import script.base_script;
-
 import script.library.space_transition;
+import script.obj_id;
 
 public class ship_faction_debug extends script.base_script
 {
@@ -59,16 +52,14 @@ public class ship_faction_debug extends script.base_script
                 sendSystemMessageTestingOnly(self, "Faction: " + faction + " (" + getFactionString(faction) + ")");
                 if (allies != null)
                 {
-                    for (int i = 0; i < allies.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, "AlliedFaction: " + allies[i] + " (" + getFactionString(allies[i]) + ")");
+                    for (int ally : allies) {
+                        sendSystemMessageTestingOnly(self, "AlliedFaction: " + ally + " (" + getFactionString(ally) + ")");
                     }
                 }
                 if (enemies != null)
                 {
-                    for (int i = 0; i < enemies.length; ++i)
-                    {
-                        sendSystemMessageTestingOnly(self, "EnemyFaction: " + enemies[i] + " (" + getFactionString(enemies[i]) + ")");
+                    for (int enemy : enemies) {
+                        sendSystemMessageTestingOnly(self, "EnemyFaction: " + enemy + " (" + getFactionString(enemy) + ")");
                     }
                 }
                 sendSystemMessageTestingOnly(self, "IsAggro: " + isAggro + " isEnemy: " + isEnemy);
@@ -79,11 +70,9 @@ public class ship_faction_debug extends script.base_script
     }
     public String getFactionString(int faction) throws InterruptedException
     {
-        for (int i = 0; i < factionStrings.length; ++i)
-        {
-            if (getStringCrc(factionStrings[i]) == faction)
-            {
-                return factionStrings[i];
+        for (String factionString : factionStrings) {
+            if (getStringCrc(factionString) == faction) {
+                return factionString;
             }
         }
         return "<< unknown >>";

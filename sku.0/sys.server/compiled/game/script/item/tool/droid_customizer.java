@@ -201,9 +201,8 @@ public class droid_customizer extends script.base_script
         }
         int playerCustomizationMod = 0;
         int[] mods = getSkillStatisticModifiers(player, CUSTOMIZATION_SKILL_MODS);
-        for (int i = 0; i < mods.length; ++i)
-        {
-            playerCustomizationMod += mods[i];
+        for (int mod : mods) {
+            playerCustomizationMod += mod;
         }
         if (playerCustomizationMod < 32)
         {
@@ -274,7 +273,7 @@ public class droid_customizer extends script.base_script
             dictionary dc = new dictionary();
             dc.put(var, idx);
             d.put("dc", dc);
-            messageTo(target, "handleSetCustomization", d, 0f, false);
+            messageTo(target, "handleSetCustomization", d, 0.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

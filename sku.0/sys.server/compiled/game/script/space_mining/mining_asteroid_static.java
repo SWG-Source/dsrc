@@ -122,12 +122,12 @@ public class mining_asteroid_static extends script.base_script
                                     return SCRIPT_CONTINUE;
                                 }
                                 transform playerLocation = getTransform_o2w(attacker);
-                                float dist = rand(700.f, 800.f);
+                                float dist = rand(700.0f, 800.0f);
                                 vector n = ((playerLocation.getLocalFrameK_p()).normalize()).multiply(dist);
                                 playerLocation = playerLocation.move_p(n);
                                 playerLocation = playerLocation.yaw_l(3.14f);
-                                vector vi = ((playerLocation.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-                                vector vj = ((playerLocation.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+                                vector vi = ((playerLocation.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+                                vector vj = ((playerLocation.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
                                 vector vd = vi.add(vj);
                                 playerLocation = playerLocation.move_p(vd);
                                 obj_id newship = space_create.createShipHyperspace(spawn, playerLocation);

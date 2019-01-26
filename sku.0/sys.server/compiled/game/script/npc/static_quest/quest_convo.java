@@ -28,10 +28,8 @@ public class quest_convo extends script.base_script
         }
         if (NPC_DEACTIVATE_LIST != null && NPC_DEACTIVATE_LIST.length > 0)
         {
-            for (int i = 0; i < NPC_DEACTIVATE_LIST.length; ++i)
-            {
-                if (exclusion.equals(NPC_DEACTIVATE_LIST[i]))
-                {
+            for (String s : NPC_DEACTIVATE_LIST) {
+                if (exclusion.equals(s)) {
                     detachScript(self, "npc.static_quest.quest_convo");
                     return SCRIPT_CONTINUE;
                 }
@@ -74,10 +72,8 @@ public class quest_convo extends script.base_script
             boolean noMatch = true;
             if (NPC_DEACTIVATE_LIST != null && NPC_DEACTIVATE_LIST.length > 0)
             {
-                for (int i = 0; i < NPC_DEACTIVATE_LIST.length; i++)
-                {
-                    if (exclusion.equals(NPC_DEACTIVATE_LIST[i]))
-                    {
+                for (String s : NPC_DEACTIVATE_LIST) {
+                    if (exclusion.equals(s)) {
                         noMatch = false;
                     }
                 }
@@ -697,47 +693,45 @@ public class quest_convo extends script.base_script
         if ((response.getAsciiId()).equals(response12))
         {
             String convoType = dataTableGetString(datatable, questNum, "quest_giver_convo");
-            if (convoType.equals("terse"))
-            {
-                string_id message = new string_id(CONVO, "npc_1_" + questNum);
-                npcSpeak(player, message);
-                npcRemoveConversationResponse(player, new string_id(ALT_CONVO, response12));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_1_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_2_" + questNum));
-                return SCRIPT_CONTINUE;
-            }
-            else if (convoType.equals("long"))
-            {
-                string_id message = new string_id(CONVO, "npc_1_" + questNum);
-                npcSpeak(player, message);
-                npcRemoveConversationResponse(player, new string_id(ALT_CONVO, response12));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_1_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_2_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_3_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_4_" + questNum));
-                return SCRIPT_CONTINUE;
-            }
-            else if (convoType.equals("verbose"))
-            {
-                string_id message = new string_id(CONVO, "npc_1_" + questNum);
-                npcSpeak(player, message);
-                npcRemoveConversationResponse(player, new string_id(ALT_CONVO, response12));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_1_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_2_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_3_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_4_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_5_" + questNum));
-                return SCRIPT_CONTINUE;
-            }
-            else 
-            {
-                string_id message = new string_id(CONVO, "npc_1_" + questNum);
-                npcSpeak(player, message);
-                npcRemoveConversationResponse(player, new string_id(ALT_CONVO, response12));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_1_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_2_" + questNum));
-                npcAddConversationResponse(player, new string_id(CONVO, "player_3_" + questNum));
-                return SCRIPT_CONTINUE;
+            switch (convoType) {
+                case "terse": {
+                    string_id message = new string_id(CONVO, "npc_1_" + questNum);
+                    npcSpeak(player, message);
+                    npcRemoveConversationResponse(player, new string_id(ALT_CONVO, response12));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_1_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_2_" + questNum));
+                    return SCRIPT_CONTINUE;
+                }
+                case "long": {
+                    string_id message = new string_id(CONVO, "npc_1_" + questNum);
+                    npcSpeak(player, message);
+                    npcRemoveConversationResponse(player, new string_id(ALT_CONVO, response12));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_1_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_2_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_3_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_4_" + questNum));
+                    return SCRIPT_CONTINUE;
+                }
+                case "verbose": {
+                    string_id message = new string_id(CONVO, "npc_1_" + questNum);
+                    npcSpeak(player, message);
+                    npcRemoveConversationResponse(player, new string_id(ALT_CONVO, response12));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_1_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_2_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_3_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_4_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_5_" + questNum));
+                    return SCRIPT_CONTINUE;
+                }
+                default: {
+                    string_id message = new string_id(CONVO, "npc_1_" + questNum);
+                    npcSpeak(player, message);
+                    npcRemoveConversationResponse(player, new string_id(ALT_CONVO, response12));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_1_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_2_" + questNum));
+                    npcAddConversationResponse(player, new string_id(CONVO, "player_3_" + questNum));
+                    return SCRIPT_CONTINUE;
+                }
             }
         }
         return SCRIPT_CONTINUE;
@@ -972,29 +966,23 @@ public class quest_convo extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < questIDs.length; ++i)
-        {
-            if (hasObjVar(player, questIDs[i] + ".waypoint"))
-            {
-                obj_id waypoint = getObjIdObjVar(player, questIDs[i] + ".waypoint");
-                if (waypoint != null)
-                {
+        for (String questID : questIDs) {
+            if (hasObjVar(player, questID + ".waypoint")) {
+                obj_id waypoint = getObjIdObjVar(player, questID + ".waypoint");
+                if (waypoint != null) {
                     destroyWaypointInDatapad(waypoint, player);
                 }
-                obj_id waypointhome = getObjIdObjVar(player, questIDs[i] + ".waypointhome");
-                if (waypointhome != null)
-                {
+                obj_id waypointhome = getObjIdObjVar(player, questID + ".waypointhome");
+                if (waypointhome != null) {
                     destroyWaypointInDatapad(waypointhome, player);
                 }
             }
-            if (hasObjVar(player, questIDs[i] + ".escort"))
-            {
-                obj_id vip = getObjIdObjVar(player, questIDs[i] + ".escort");
+            if (hasObjVar(player, questID + ".escort")) {
+                obj_id vip = getObjIdObjVar(player, questID + ".escort");
                 messageTo(vip, "stopFollowing", null, 2, true);
             }
-            if (hasObjVar(player, questIDs[i]))
-            {
-                removeObjVar(player, questIDs[i]);
+            if (hasObjVar(player, questID)) {
+                removeObjVar(player, questID);
             }
         }
         String[] questScripts = dataTableGetStringColumnNoDefaults(datatable, "quest_scripts");
@@ -1002,11 +990,9 @@ public class quest_convo extends script.base_script
         {
             return;
         }
-        for (int x = 0; x < questScripts.length; ++x)
-        {
-            if (hasScript(player, questScripts[x]))
-            {
-                detachScript(player, questScripts[x]);
+        for (String questScript : questScripts) {
+            if (hasScript(player, questScript)) {
+                detachScript(player, questScript);
             }
         }
         removeObjVar(player, "quest_table");

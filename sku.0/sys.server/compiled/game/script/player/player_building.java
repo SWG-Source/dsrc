@@ -420,70 +420,45 @@ public class player_building extends script.base_script
         boolean actionSave = false;
         boolean actionRestore = false;
         boolean actionSetQuaternion = false;
-        if (direction.equals("YAW"))
-        {
+        String internalOnly = "(^-,=+_)INTERNAL_USE_ONLY_" + self + "_QUATERNION(,+-=_^)";
+        if ("YAW".equals(direction)) {
             actionYaw = true;
-        }
-        else if (direction.equals("PITCH"))
-        {
-            if (!canRollAndPitch)
-            {
+        } else if ("PITCH".equals(direction)) {
+            if (!canRollAndPitch) {
                 sendSystemMessage(self, new string_id(STF, "formet_rotratefurniture_degrees"));
                 return SCRIPT_CONTINUE;
             }
             actionPitch = true;
-        }
-        else if (direction.equals("ROLL"))
-        {
-            if (!canRollAndPitch)
-            {
+        } else if ("ROLL".equals(direction)) {
+            if (!canRollAndPitch) {
                 sendSystemMessage(self, new string_id(STF, "formet_rotratefurniture_degrees"));
                 return SCRIPT_CONTINUE;
             }
             actionRoll = true;
-        }
-        else if (direction.equals("RANDOM"))
-        {
-            if (!canRollAndPitch)
-            {
+        } else if ("RANDOM".equals(direction)) {
+            if (!canRollAndPitch) {
                 sendSystemMessage(self, new string_id(STF, "formet_rotratefurniture_degrees"));
                 return SCRIPT_CONTINUE;
             }
             actionRandom = true;
-        }
-        else if (direction.equals("RESET"))
-        {
+        } else if ("RESET".equals(direction)) {
             actionReset = true;
-        }
-        else if (direction.equals("COPY"))
-        {
+        } else if ("COPY".equals(direction)) {
             actionCopy = true;
-        }
-        else if (direction.equals("SAVE"))
-        {
+        } else if ("SAVE".equals(direction)) {
             actionSave = true;
-        }
-        else if (direction.equals("RESTORE"))
-        {
+        } else if ("RESTORE".equals(direction)) {
             actionRestore = true;
-        }
-        else if (direction.equals("(^-,=+_)INTERNAL_USE_ONLY_" + self + "_QUATERNION(,+-=_^)"))
-        {
-            if (!canRollAndPitch)
-            {
+        } else if (("(^-,=+_)INTERNAL_USE_ONLY_" + self + "_QUATERNION(,+-=_^)").equals(direction)) {
+            if (!canRollAndPitch) {
                 sendSystemMessage(self, new string_id(STF, "formet_rotratefurniture_degrees"));
                 return SCRIPT_CONTINUE;
             }
             actionSetQuaternion = true;
-        }
-        else 
-        {
-            if (!canRollAndPitch)
-            {
+        } else {
+            if (!canRollAndPitch) {
                 sendSystemMessage(self, new string_id(STF, "formet_rotratefurniture_degrees"));
-            }
-            else 
-            {
+            } else {
                 sendSystemMessage(self, new string_id(STF, "formet_enhanced_rotratefurniture_degrees"));
             }
             return SCRIPT_CONTINUE;
@@ -933,10 +908,10 @@ public class player_building extends script.base_script
                 facing += 90;
                 direction = "FORWARD";
             }
-            float dist_scaled = (float)distance / 100.0f;
+            float dist_scaled = distance / 100.0f;
             float facing_rad = (float)Math.toRadians(facing);
-            float x = dist_scaled * (float)Math.sin(facing_rad);
-            float z = dist_scaled * (float)Math.cos(facing_rad);
+            float x = dist_scaled * (float) StrictMath.sin(facing_rad);
+            float z = dist_scaled * (float) StrictMath.cos(facing_rad);
             if (direction.equals("BACK"))
             {
                 x = x * -1;
@@ -955,7 +930,7 @@ public class player_building extends script.base_script
         {
             location loc = getLocation(target);
             float facing = getYaw(self);
-            float dist_scaled = (float)distance / 100.0f;
+            float dist_scaled = distance / 100.0f;
             float y = dist_scaled;
             if (direction.equals("DOWN"))
             {
@@ -1116,7 +1091,7 @@ public class player_building extends script.base_script
         String template = getTemplateName(structure);
         if (player_structure.isCivic(structure))
         {
-            if (!(template.indexOf("cloning_") > -1) && !(template.indexOf("garden_") > -1))
+            if (!(template.contains("cloning_")) && !(template.contains("garden_")))
             {
                 return SCRIPT_CONTINUE;
             }
@@ -1168,7 +1143,7 @@ public class player_building extends script.base_script
         String abandonedText = "";
         if (player_structure.isAbandoned(structure) || player_structure.isPreAbandoned(structure))
         {
-            if (params.indexOf(player_structure.ABANDONED_TEXT) == -1)
+            if (!params.contains(player_structure.ABANDONED_TEXT))
             {
                 if (params.length() > 100)
                 {
@@ -1439,19 +1414,14 @@ public class player_building extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int n = 0; n < contents.length; n++)
-        {
-            int got = getGameObjectType(contents[n]);
-            if (isGameObjectTypeOf(got, GOT_resource_container))
-            {
-                obj_id crate = contents[n];
-                if (isIdValid(crate))
-                {
+        for (obj_id content : contents) {
+            int got = getGameObjectType(content);
+            if (isGameObjectTypeOf(got, GOT_resource_container)) {
+                obj_id crate = content;
+                if (isIdValid(crate)) {
                     obj_id rId = getResourceContainerResourceType(crate);
-                    if (isIdValid(rId))
-                    {
-                        if (isResourceDerivedFrom(rId, "energy") || isResourceDerivedFrom(rId, "radioactive"))
-                        {
+                    if (isIdValid(rId)) {
+                        if (isResourceDerivedFrom(rId, "energy") || isResourceDerivedFrom(rId, "radioactive")) {
                             int inCrate = resource.getPotentialEnergyValue(crate);
                             inInv += inCrate;
                             d.put(crate.toString(), inCrate);
@@ -1506,7 +1476,7 @@ public class player_building extends script.base_script
             return SCRIPT_CONTINUE;
         }
         float cur = player_structure.powerInstallation(structure, amt);
-        if (cur > -1f)
+        if (cur > -1.0f)
         {
             sendSystemMessageProse(self, prose.getPackage(new string_id(STF, "deposit_successful"), amt));
             sendSystemMessageProse(self, prose.getPackage(new string_id(STF, "reserve_report"), (int)cur));
@@ -1648,22 +1618,16 @@ public class player_building extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int n = 0; n < contents.length; n++)
-        {
-            int got = getGameObjectType(contents[n]);
-            if (isGameObjectTypeOf(got, GOT_resource_container))
-            {
-                obj_id resourceCrate = contents[n];
-                if (isIdValid(resourceCrate))
-                {
+        for (obj_id content : contents) {
+            int got = getGameObjectType(content);
+            if (isGameObjectTypeOf(got, GOT_resource_container)) {
+                obj_id resourceCrate = content;
+                if (isIdValid(resourceCrate)) {
                     obj_id resourceId = getResourceContainerResourceType(resourceCrate);
-                    if (isIdValid(resourceId))
-                    {
-                        if (isResourceDerivedFrom(resourceId, "energy_renewable_site_limited_geothermal"))
-                        {
+                    if (isIdValid(resourceId)) {
+                        if (isResourceDerivedFrom(resourceId, "energy_renewable_site_limited_geothermal")) {
                             String tempResourceName = getResourceName(resourceId);
-                            if (tempList.contains(tempResourceName))
-                            {
+                            if (tempList.contains(tempResourceName)) {
                                 resourceQuality = getResourceAttribute(resourceId, "res_quality");
                                 int inCrate = getResourceContainerQuantity(resourceCrate);
                                 inInventory += inCrate;
@@ -1784,7 +1748,7 @@ public class player_building extends script.base_script
         String template = getTemplateName(structure);
         if (player_structure.isCivic(structure))
         {
-            if (!(template.indexOf("cityhall_") > -1))
+            if (!(template.contains("cityhall_")))
             {
                 return SCRIPT_CONTINUE;
             }
@@ -1951,13 +1915,11 @@ public class player_building extends script.base_script
             player_names.setSize(0);
             if (players != null)
             {
-                for (int i = 0; i < players.length; i++)
-                {
-                    String player_name = getFirstName(players[i]);
+                for (obj_id player : players) {
+                    String player_name = getFirstName(player);
                     LOG("LOG_CHANNEL", "Found " + player_name);
                     int idx = utils.getElementPositionInArray(dsrc, player_name);
-                    if (idx == -1)
-                    {
+                    if (idx == -1) {
                         LOG("LOG_CHANNEL", "   ...Adding " + player_name);
                         player_names = utils.addElement(player_names, player_name);
                     }
@@ -2128,7 +2090,7 @@ public class player_building extends script.base_script
                 int total_cost = (int)((max_condition - condition) * maint_rate / 3.0f);
                 string_id condition_prompt_text_damaged = new string_id(STF, "condition_prompt");
                 string_id credits_to_repair_suffix = new string_id(STF, "credits_to_repair");
-                if (buildingTemplateName.indexOf("object/building/faction_perk/hq/") == -1)
+                if (!buildingTemplateName.contains("object/building/faction_perk/hq/"))
                 {
                     dsrc = utils.addElement(dsrc, getString(condition_prompt_text_damaged) + perc_condition + "%" + "   (" + total_cost + getString(credits_to_repair_suffix));
                 }
@@ -2140,7 +2102,7 @@ public class player_building extends script.base_script
             int m_pool = player_structure.getMaintenancePool(structure);
             m_rate = player_structure.getMaintenanceRate(structure);
             m_rate_base = player_structure.getBaseMaintenanceRate(structure);
-            double time_remaining = (double)m_pool * (double)player_structure.getMaintenanceHeartbeat() / (double)m_rate;
+            double time_remaining = (double)m_pool * player_structure.getMaintenanceHeartbeat() / m_rate;
             if (time_remaining < 0 || time_remaining > Integer.MAX_VALUE)
             {
                 time_remaining = Integer.MAX_VALUE;
@@ -2155,7 +2117,7 @@ public class player_building extends script.base_script
                 }
                 else 
                 {
-                    if (buildingTemplateName.indexOf("object/building/faction_perk/hq/") == -1)
+                    if (!buildingTemplateName.contains("object/building/faction_perk/hq/"))
                     {
                         string_id maintenance_prompt_text = new string_id(STF, "maintenance_pool_prompt");
                         dsrc = utils.addElement(dsrc, getString(maintenance_prompt_text) + m_pool + "   (" + time_str + ")");
@@ -2171,7 +2133,7 @@ public class player_building extends script.base_script
                 }
                 else 
                 {
-                    if (buildingTemplateName.indexOf("object/building/faction_perk/hq/") == -1)
+                    if (!buildingTemplateName.contains("object/building/faction_perk/hq/"))
                     {
                         string_id maintenance_empty_text = new string_id(STF, "maintenance_pool_prompt");
                         dsrc = utils.addElement(dsrc, getString(maintenance_empty_text) + m_pool);
@@ -2185,7 +2147,7 @@ public class player_building extends script.base_script
         {
             hourly_m_rate = 0;
         }
-        if (buildingTemplateName.indexOf("object/building/faction_perk/hq/") == -1)
+        if (!buildingTemplateName.contains("object/building/faction_perk/hq/"))
         {
             if (m_rate == m_rate_base)
             {
@@ -2199,7 +2161,7 @@ public class player_building extends script.base_script
                 dsrc = utils.addElement(dsrc, getString(maintenance_rate_mod_text) + Integer.toString(hourly_m_rate) + " cr/hr (" + hourly_m_rate_base + ")");
             }
         }
-        if (buildingTemplateName.indexOf("object/building/faction_perk/hq/") == -1)
+        if (!buildingTemplateName.contains("object/building/faction_perk/hq/"))
         {
             int property_tax = city.getPropertyTax(structure);
             if (property_tax > 0)
@@ -2212,7 +2174,7 @@ public class player_building extends script.base_script
         {
             float p_pool = getPowerValue(structure);
             float p_rate = getPowerRate(structure);
-            int p_time = Math.round(p_pool / p_rate * 3600f);
+            int p_time = Math.round(p_pool / p_rate * 3600.0f);
             if (p_pool > 0)
             {
                 String p_time_string = utils.assembleTimeRemainToUse(p_time, false);
@@ -2322,12 +2284,12 @@ public class player_building extends script.base_script
             {
                 float merchant_mod = getFloatObjVar(structure, player_structure.VAR_MAINTENANCE_MOD_MERCHANT);
                 string_id merch_mod_text = new string_id(STF, "merch_mod_prompt");
-                maint_mods_string += "\n- " + getString(merch_mod_text) + Integer.toString((int)(merchant_mod * 100f)) + "%";
+                maint_mods_string += "\n- " + getString(merch_mod_text) + Integer.toString((int)(merchant_mod * 100.0f)) + "%";
             }
             int maint_property_tax = player_structure.getMaintenancePropertyTax(structure);
             if (maint_property_tax > 0)
             {
-                int hourly_tax = Math.round(maint_property_tax * (3600f / player_structure.getMaintenanceHeartbeat()));
+                int hourly_tax = Math.round(maint_property_tax * (3600.0f / player_structure.getMaintenanceHeartbeat()));
                 string_id property_tax_rate_text = new string_id(STF, "property_tax_rate_prompt");
                 maint_mods_string += "\n- " + getString(property_tax_rate_text) + Integer.toString(hourly_tax) + "cr/hr";
             }
@@ -2501,16 +2463,12 @@ public class player_building extends script.base_script
             String[] cells = getCellNames(structure);
             if (cells != null)
             {
-                for (int i = 0; i < cells.length; i++)
-                {
-                    obj_id cellid = getCellId(structure, cells[i]);
+                for (String cell : cells) {
+                    obj_id cellid = getCellId(structure, cell);
                     obj_id contents[] = getContents(cellid);
-                    if (contents != null)
-                    {
-                        for (int j = 0; j < contents.length; j++)
-                        {
-                            if (hasCondition(contents[j], CONDITION_VENDOR))
-                            {
+                    if (contents != null) {
+                        for (obj_id content : contents) {
+                            if (hasCondition(content, CONDITION_VENDOR)) {
                                 sendSystemMessage(self, new string_id(STF, "vendor_no_private"));
                                 return SCRIPT_CONTINUE;
                             }
@@ -2524,18 +2482,14 @@ public class player_building extends script.base_script
             String[] entry_list = player_structure.getCompleteEntryList(structure);
             if (objects != null)
             {
-                for (int i = 0; i < objects.length; i++)
-                {
-                    if (hasObjVar(objects[i], "noEject"))
-                    {
+                for (obj_id object : objects) {
+                    if (hasObjVar(object, "noEject")) {
                         continue;
                     }
-                    if (isPlayer(objects[i]) || (isMob(objects[i]) && isIdValid(getMaster(objects[i]))) || (isMob(objects[i]) && (getLevel(objects[i])) >= 10))
-                    {
-                        int idx = utils.getElementPositionInArray(entry_list, getFirstName(objects[i]));
-                        if (idx == -1)
-                        {
-                            expelFromBuilding(objects[i]);
+                    if (isPlayer(object) || (isMob(object) && isIdValid(getMaster(object))) || (isMob(object) && (getLevel(object)) >= 10)) {
+                        int idx = utils.getElementPositionInArray(entry_list, getFirstName(object));
+                        if (idx == -1) {
+                            expelFromBuilding(object);
                         }
                     }
                 }
@@ -2625,7 +2579,7 @@ public class player_building extends script.base_script
         setHouseId(self, structure);
         setObjVar(self, player_structure.VAR_RESIDENCE_CAN_DECLARE, current_time);
         setObjVar(structure, player_structure.VAR_RESIDENCE_BUILDING, self);
-        messageTo(oldresidence, "removeResidentVar", null, 0.f, true);
+        messageTo(oldresidence, "removeResidentVar", null, 0.0f, true);
         city.setCityResidence(self, structure);
         skill.grantAllPoliticianSkills(self);
         return SCRIPT_CONTINUE;
@@ -2654,7 +2608,7 @@ public class player_building extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String structureTemplateName = getTemplateName(structure);
-        if (structureTemplateName.indexOf("object/building/faction_perk/hq/") != -1)
+        if (structureTemplateName.contains("object/building/faction_perk/hq/"))
         {
             sendSystemMessage(self, new string_id(STF, "faction_base"));
             return SCRIPT_CONTINUE;
@@ -2726,10 +2680,8 @@ public class player_building extends script.base_script
             boolean found = false;
             if (buildingPlayers != null)
             {
-                for (int i = 0; i < buildingPlayers.length; ++i)
-                {
-                    if (buildingPlayers[i] == self)
-                    {
+                for (obj_id buildingPlayer : buildingPlayers) {
+                    if (buildingPlayer == self) {
                         found = true;
                         break;
                     }
@@ -2876,7 +2828,7 @@ public class player_building extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String template = getTemplateName(structure);
-        if (template.indexOf("cityhall_") > -1)
+        if (template.contains("cityhall_"))
         {
             if (hasObjVar(structure, "cityVoteInterval"))
             {
@@ -2998,16 +2950,12 @@ public class player_building extends script.base_script
             obj_id[] houseContents = trial.getAllObjectsInDungeon(structure);
             if (houseContents != null && houseContents.length > 0)
             {
-                for (int i = 0; i < houseContents.length; i++)
-                {
-                    if (isMob(houseContents[i]))
-                    {
-                        int callableType = callable.getCallableType(houseContents[i]);
-                        if (callableType > 0)
-                        {
+                for (obj_id houseContent : houseContents) {
+                    if (isMob(houseContent)) {
+                        int callableType = callable.getCallableType(houseContent);
+                        if (callableType > 0) {
                             prose_package pp = prose.getPackage(SID_STORE_PETS_FOR_DELETE, self);
-                            if (pp != null)
-                            {
+                            if (pp != null) {
                                 sendSystemMessageProse(self, pp);
                             }
                             return SCRIPT_CONTINUE;
@@ -3631,10 +3579,8 @@ public class player_building extends script.base_script
                 for (int i = 0; i < targetRooms.length; ++i)
                 {
                     boolean found = false;
-                    for (int j = 0; j < roomsOfCurrentPob.length; ++j)
-                    {
-                        if (targetRooms[i].equals(roomsOfCurrentPob[j]))
-                        {
+                    for (String s : roomsOfCurrentPob) {
+                        if (targetRooms[i].equals(s)) {
                             found = true;
                             break;
                         }
@@ -3651,10 +3597,8 @@ public class player_building extends script.base_script
                 for (int i = 0; i < savedRooms.length; ++i)
                 {
                     boolean found = false;
-                    for (int j = 0; j < roomsOfCurrentPob.length; ++j)
-                    {
-                        if (savedRooms[i].equals(roomsOfCurrentPob[j]))
-                        {
+                    for (String s : roomsOfCurrentPob) {
+                        if (savedRooms[i].equals(s)) {
                             targetRooms[i] = savedRooms[i];
                             found = true;
                             break;
@@ -3743,10 +3687,8 @@ public class player_building extends script.base_script
                         continue;
                     }
                     boolean found = false;
-                    for (int j = 0; j < roomsOfCurrentPob.length; ++j)
-                    {
-                        if (targetRooms[i].equals(roomsOfCurrentPob[j]))
-                        {
+                    for (String s : roomsOfCurrentPob) {
+                        if (targetRooms[i].equals(s)) {
                             hasValidTargetRoom = true;
                             found = true;
                             break;
@@ -3977,14 +3919,12 @@ public class player_building extends script.base_script
             int test = 10;
             Vector vendorTypes = new Vector();
             vendorTypes.setSize(0);
-            for (int i = 0; i < rawTerminalTypes.length; i++)
-            {
-                if (hiringMod >= test)
-                {
-                    vendorTypes = utils.addElement(vendorTypes, "@player_structure:terminal_" + rawTerminalTypes[i]);
+                for (String rawTerminalType : rawTerminalTypes) {
+                    if (hiringMod >= test) {
+                        vendorTypes = utils.addElement(vendorTypes, "@player_structure:terminal_" + rawTerminalType);
+                    }
+                    test += 20;
                 }
-                test += 20;
-            }
             sui.listbox(player, player, "@player_structure:terminal_type_d", sui.OK_CANCEL, "@player_structure:terminal_type_t", vendorTypes, "handleTerminalDesignSelect", true);
             break;
             case 1:
@@ -3992,14 +3932,12 @@ public class player_building extends script.base_script
             String[] rawDroidTypes = dataTableGetStringColumn(TBL_DROID_TYPES, 0);
             int dtest = 20;
             Vector droidTypes = null;
-            for (int i = 0; i < rawDroidTypes.length; i++)
-            {
-                if (hiringMod >= dtest)
-                {
-                    droidTypes = utils.addElement(droidTypes, "@player_structure:droid_" + rawDroidTypes[i]);
+                for (String rawDroidType : rawDroidTypes) {
+                    if (hiringMod >= dtest) {
+                        droidTypes = utils.addElement(droidTypes, "@player_structure:droid_" + rawDroidType);
+                    }
+                    dtest += 20;
                 }
-                dtest += 20;
-            }
             sui.listbox(player, player, "@player_structure:droid_type_d", sui.OK_CANCEL, "@player_structure:droid_type_t", droidTypes, "handleDroidModelSelect", true);
             break;
             case 2:
@@ -4027,10 +3965,9 @@ public class player_building extends script.base_script
                     {
                         break;
                     }
-                    for (int i = 0; i < rawRaceTypesHiLvl.length; i++)
-                    {
-                        utils.addElement(localizedRaceTypes, "@player_structure:race_" + rawRaceTypesHiLvl[i]);
-                        utils.addElement(modifiedRawRaceTypes, rawRaceTypesHiLvl[i]);
+                    for (String s : rawRaceTypesHiLvl) {
+                        utils.addElement(localizedRaceTypes, "@player_structure:race_" + s);
+                        utils.addElement(modifiedRawRaceTypes, s);
                     }
                     utils.setScriptVar(self, "vendor.checkGender", 1);
                 }
@@ -4041,18 +3978,16 @@ public class player_building extends script.base_script
                     {
                         break;
                     }
-                    for (int i = 0; i < rawRaceTypesLowLvl.length; i++)
-                    {
-                        utils.addElement(localizedRaceTypes, "@player_structure:race_" + rawRaceTypesLowLvl[i]);
-                        utils.addElement(modifiedRawRaceTypes, rawRaceTypesLowLvl[i]);
+                    for (String s : rawRaceTypesLowLvl) {
+                        utils.addElement(localizedRaceTypes, "@player_structure:race_" + s);
+                        utils.addElement(modifiedRawRaceTypes, s);
                     }
                 }
                 if (allSpecialVendors != null)
                 {
-                    for (int i = 0; i < allSpecialVendors.length; i++)
-                    {
-                        utils.addElement(localizedRaceTypes, "@player_structure:race_" + allSpecialVendors[i]);
-                        utils.addElement(modifiedRawRaceTypes, allSpecialVendors[i]);
+                    for (String allSpecialVendor : allSpecialVendors) {
+                        utils.addElement(localizedRaceTypes, "@player_structure:race_" + allSpecialVendor);
+                        utils.addElement(modifiedRawRaceTypes, allSpecialVendor);
                     }
                     utils.setScriptVar(self, "vendor.checkGender", 1);
                 }
@@ -4069,14 +4004,12 @@ public class player_building extends script.base_script
             int hireVar = 10;
             Vector defaultVendorTypes = new Vector();
             defaultVendorTypes.setSize(0);
-            for (int i = 0; i < defaultTerminalTypes.length; i++)
-            {
-                if (hiringMod >= hireVar)
-                {
-                    vendorTypes = utils.addElement(defaultVendorTypes, "@player_structure:terminal_" + defaultTerminalTypes[i]);
+                for (String defaultTerminalType : defaultTerminalTypes) {
+                    if (hiringMod >= hireVar) {
+                        vendorTypes = utils.addElement(defaultVendorTypes, "@player_structure:terminal_" + defaultTerminalType);
+                    }
+                    hireVar += 20;
                 }
-                hireVar += 20;
-            }
             sui.listbox(player, player, "@player_structure:terminal_type_d", sui.OK_CANCEL, "@player_structure:terminal_type_t", defaultVendorTypes, "handleTerminalDesignSelect", true);
             break;
         }
@@ -4479,7 +4412,7 @@ public class player_building extends script.base_script
                         CustomerServiceLog("vendor", " Vendor: " + self + " had skill mod: " + skillMod + " that was reimbursed to the Owner: " + player + ". Skill mod decremented by 1. Location created is player inventory");
                     }
                 }
-                else if (templateName.indexOf("ithorian") > -1)
+                else if (templateName.contains("ithorian"))
                 {
                     dressup.dressNpc(vendor, "random_ithorian", true);
                     setObjVar(vendor, "dressed", 1);
@@ -4621,7 +4554,7 @@ public class player_building extends script.base_script
             if (cont == building)
             {
                 params.put("sender", building);
-                messageTo(self, "handleEjection", params, 1.f, false);
+                messageTo(self, "handleEjection", params, 1.0f, false);
                 sendSystemMessage(self, SID_TURNSTILE_EXPIRE);
             }
         }
@@ -4860,28 +4793,23 @@ public class player_building extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0, j = callables.length; i < j; i++)
-        {
-            if (!isIdValid(callables[i]) || !exists(callables[i]))
-            {
+        for (obj_id c : callables) {
+            if (!isIdValid(c) || !exists(c)) {
                 continue;
             }
-            if (!hasObjVar(callables[i], "module_data.maint_list.ids"))
-            {
+            if (!hasObjVar(c, "module_data.maint_list.ids")) {
                 continue;
             }
-            obj_id[] struct_list = getObjIdArrayObjVar(callables[i], "module_data.maint_list.ids");
-            if (struct_list == null || struct_list.length <= 0)
-            {
+            obj_id[] struct_list = getObjIdArrayObjVar(c, "module_data.maint_list.ids");
+            if (struct_list == null || struct_list.length <= 0) {
                 continue;
             }
             int structureIndex = utils.getElementPositionInArray(struct_list, structure);
-            if (structureIndex < 0)
-            {
+            if (structureIndex < 0) {
                 continue;
             }
-            obj_id droid = callable.getCDCallable(callables[i]);
-            player_structure.removeStructureFromMaintenance(droid, callables[i], structureIndex);
+            obj_id droid = callable.getCDCallable(c);
+            player_structure.removeStructureFromMaintenance(droid, c, structureIndex);
         }
         return SCRIPT_CONTINUE;
     }
@@ -5125,7 +5053,7 @@ public class player_building extends script.base_script
         if (player_structure.canPackMoreToday(self))
         {
             prose_package p = prose.getPackage(new string_id("spam", "house_packup_airstrike"));
-            commPlayers(self, "object/mobile/dressed_hiddendagger_pilot_m_01.iff", "sound/sys_comm_other.snd", 5f, self, p);
+            commPlayers(self, "object/mobile/dressed_hiddendagger_pilot_m_01.iff", "sound/sys_comm_other.snd", 5.0f, self, p);
             playClientEffectLoc(self, "clienteffect/house_packup_airstrike.cef", where, 0);
         }
         params.put("player", self);
@@ -5444,10 +5372,8 @@ public class player_building extends script.base_script
         obj_id[] base_objects = player_structure.getStructureBaseObjects(structure);
         if (base_objects != null)
         {
-            for (int i = 0; i < base_objects.length; i++)
-            {
-                if (target == base_objects[i])
-                {
+            for (obj_id base_object : base_objects) {
+                if (target == base_object) {
                     LOG("LOG_CHANNEL", player + " -> You cannot move that object.");
                     sendSystemMessage(player, new string_id(STF, "cant_move_item"));
                     return false;
@@ -5459,12 +5385,9 @@ public class player_building extends script.base_script
     public String getCellName(obj_id building, obj_id cell) throws InterruptedException
     {
         String[] cellNames = getCellNames(building);
-        for (int i = 0; i < cellNames.length; i++)
-        {
-            String cellName = cellNames[i];
+        for (String cellName : cellNames) {
             obj_id thisCell = getCellId(building, cellName);
-            if (thisCell == cell)
-            {
+            if (thisCell == cell) {
                 return cellName;
             }
         }
@@ -5517,10 +5440,8 @@ public class player_building extends script.base_script
             if (isIdValid(clone))
             {
                 obj_id[] structures = cityGetStructureIds(city_id);
-                for (int i = 0; i < structures.length; i++)
-                {
-                    if ((structures[i] == clone) && (structures[i] != null))
-                    {
+                for (obj_id structure : structures) {
+                    if ((structure == clone) && (structure != null)) {
                         return false;
                     }
                 }

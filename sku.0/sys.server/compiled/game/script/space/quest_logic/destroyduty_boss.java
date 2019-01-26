@@ -14,7 +14,7 @@ public class destroyduty_boss extends script.space.quest_logic.destroyduty_ship
     }
     public int OnAttach(obj_id self) throws InterruptedException
     {
-        messageTo(self, "deliverTaunt", null, 3.f, false);
+        messageTo(self, "deliverTaunt", null, 3.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int deliverTaunt(obj_id self, dictionary params) throws InterruptedException

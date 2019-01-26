@@ -144,7 +144,7 @@ final class dictionary_byte_array_output_stream extends ByteArrayOutputStream im
 	{
 		for ( int i = start; i < start + count; ++i )
 		{
-			System.err.print((((int)buf[i]) & 0x00ff) + " ");
+			System.err.print((buf[i] & 0x00ff) + " ");
 		}
 		System.err.println();
 	}

@@ -103,24 +103,24 @@ public class snow_ball_throw extends script.base_script
         else 
         {
             float travelDistance = getDistance(target, player);
-            if (travelDistance > 30f)
+            if (travelDistance > 30.0f)
             {
                 sendSystemMessage(player, new string_id("spam", "out_of_snowball_range"));
                 return;
             }
-            if (travelDistance <= 30f && travelDistance > 20f)
+            if (travelDistance <= 30.0f && travelDistance > 20.0f)
             {
                 attacker_results cbtAttackerResults = makeDummyAttackerResults(player);
                 defender_results[] cbtDefenderResults = makeDummyDefenderResults(target);
                 doCombatResults("throw_snow_ball_long", cbtAttackerResults, cbtDefenderResults);
             }
-            if (travelDistance <= 20f && travelDistance > 10f)
+            if (travelDistance <= 20.0f && travelDistance > 10.0f)
             {
                 attacker_results cbtAttackerResults = makeDummyAttackerResults(player);
                 defender_results[] cbtDefenderResults = makeDummyDefenderResults(target);
                 doCombatResults("throw_snow_ball_medium", cbtAttackerResults, cbtDefenderResults);
             }
-            if (travelDistance <= 10f && travelDistance > 0.0f)
+            if (travelDistance <= 10.0f && travelDistance > 0.0f)
             {
                 attacker_results cbtAttackerResults = makeDummyAttackerResults(player);
                 defender_results[] cbtDefenderResults = makeDummyDefenderResults(target);

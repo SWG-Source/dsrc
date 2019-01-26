@@ -100,10 +100,8 @@ public class new_armor extends script.base_script
                 }
             }
             String speciesRequirements = "";
-            java.util.Iterator itSpecies = speciesRequirementsSet.iterator();
-            while (itSpecies.hasNext())
-            {
-                speciesRequirements += itSpecies.next();
+            for (Object o : speciesRequirementsSet) {
+                speciesRequirements += o;
                 speciesRequirements += " ";
             }
             utils.setScriptVar(self, armor.SCRIPTVAR_SPECIES_RESTRICTIONS, speciesRequirements);
@@ -199,7 +197,7 @@ public class new_armor extends script.base_script
         }
         if (armorCategory >= 0)
         {
-            Object catName = armor.ARMOR_CATEGORY_MAP.get(new Integer(armorCategory));
+            Object catName = armor.ARMOR_CATEGORY_MAP.get(armorCategory);
             if (catName != null && free < names.length)
             {
                 names[free] = armor.SID_ARMOR_CATEGORY;
@@ -234,19 +232,15 @@ public class new_armor extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < entries.length; ++i)
-        {
-            for (int j = 0; j < entries[i].length; ++j)
-            {
-                if (free < names.length)
-                {
+        for (String[] entry : entries) {
+            for (String s : entry) {
+                if (free < names.length) {
                     float value = general_protection + 0.5f;
-                    if (protections != null)
-                    {
-                        value += protections.getFloat(entries[i][j]);
+                    if (protections != null) {
+                        value += protections.getFloat(s);
                     }
-                    names[free] = (String)(armor.SPECIAL_PROTECTION_MAP.get(entries[i][j]));
-                    attribs[free++] = Integer.toString((int)value);
+                    names[free] = (String) (armor.SPECIAL_PROTECTION_MAP.get(s));
+                    attribs[free++] = Integer.toString((int) value);
                 }
             }
         }
@@ -360,10 +354,8 @@ public class new_armor extends script.base_script
                     "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bicep_l.iff"
                 };
                 final String objectTemplateName = getTemplateName(self);
-                for (int i = 0; i < ARMOR_SET.length; i++)
-                {
-                    if (objectTemplateName.equals(ARMOR_SET[i]))
-                    {
+                for (String s : ARMOR_SET) {
+                    if (objectTemplateName.equals(s)) {
                         armor.setArmorDataPercent(self, 2, 1, 0.94f, 0.95f);
                         break;
                     }

@@ -90,7 +90,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
         Integer intTestIndex;
         try
         {
-            intTestIndex = new Integer(strNumber);
+            intTestIndex = Integer.valueOf(strNumber);
         }
         catch(NumberFormatException err)
         {
@@ -161,7 +161,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
         Integer intTestIndex;
         try
         {
-            intTestIndex = new Integer(strNumber);
+            intTestIndex = Integer.valueOf(strNumber);
         }
         catch(NumberFormatException err)
         {
@@ -171,7 +171,7 @@ public class spawn_player extends script.systems.spawning.spawn_base
         intIndex = intTestIndex;
         try
         {
-            intTestIndex = new Integer(strDifficultyInt);
+            intTestIndex = Integer.valueOf(strDifficultyInt);
         }
         catch(NumberFormatException err)
         {

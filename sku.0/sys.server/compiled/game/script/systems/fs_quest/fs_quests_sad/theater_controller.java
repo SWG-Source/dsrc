@@ -14,9 +14,8 @@ public class theater_controller extends script.base_script
     {
         dictionary params = new dictionary();
         params.put("player", player);
-        for (int i = 0; i < objects.length; i++)
-        {
-            messageTo(objects[i], "OnTheaterCreated", params, 0, true);
+        for (obj_id object : objects) {
+            messageTo(object, "OnTheaterCreated", params, 0, true);
         }
         utils.setObjVar(player, fs_quests_sad.SAD_OBJVAR_MASTER_THEATER, self);
         return SCRIPT_CONTINUE;

@@ -46,7 +46,7 @@ public class stronghold extends script.base_script
         obj_id nym = create.staticObject("nym", nymLocation);
         setObjVar(self, "StrongholdInhabitants.nym", nym);
         setAnimationMood(nym, "npc_sitting_chair");
-        setYaw(nym, -4f);
+        setYaw(nym, -4.0f);
         setObjVar(nym, "Stronghold", self);
         return nym;
     }
@@ -160,7 +160,7 @@ public class stronghold extends script.base_script
         setObjVar(self, "StrongholdInhabitants.guard3", guard3);
         setObjVar(guard3, "Stronghold", self);
         aiEquipPrimaryWeapon(guard3);
-        setYaw(guard3, 0f);
+        setYaw(guard3, 0.0f);
         return;
     }
     public void spawnElite4(obj_id self) throws InterruptedException
@@ -171,7 +171,7 @@ public class stronghold extends script.base_script
         setObjVar(self, "StrongholdInhabitants.guard4", guard4);
         setObjVar(guard4, "Stronghold", self);
         aiEquipPrimaryWeapon(guard4);
-        setYaw(guard4, 0f);
+        setYaw(guard4, 0.0f);
         return;
     }
     public void spawnElite5(obj_id self) throws InterruptedException
@@ -182,7 +182,7 @@ public class stronghold extends script.base_script
         setObjVar(self, "StrongholdInhabitants.guard5", guard5);
         setObjVar(guard5, "Stronghold", self);
         aiEquipPrimaryWeapon(guard5);
-        setYaw(guard5, 178f);
+        setYaw(guard5, 178.0f);
         return;
     }
     public void spawnElite6(obj_id self) throws InterruptedException
@@ -193,7 +193,7 @@ public class stronghold extends script.base_script
         setObjVar(self, "StrongholdInhabitants.guard6", guard6);
         setObjVar(guard6, "Stronghold", self);
         aiEquipPrimaryWeapon(guard6);
-        setYaw(guard6, -179f);
+        setYaw(guard6, -179.0f);
         return;
     }
     public void spawnElite7(obj_id self) throws InterruptedException
@@ -204,7 +204,7 @@ public class stronghold extends script.base_script
         setObjVar(self, "StrongholdInhabitants.guard7", guard7);
         setObjVar(guard7, "Stronghold", self);
         aiEquipPrimaryWeapon(guard7);
-        setYaw(guard7, 3f);
+        setYaw(guard7, 3.0f);
         return;
     }
     public void spawnElite8(obj_id self) throws InterruptedException
@@ -257,7 +257,7 @@ public class stronghold extends script.base_script
         obj_id partygoer1 = create.staticObject("nym_brawler", partygoer1Location);
         setObjVar(self, "StrongholdInhabitants.partygoer1", partygoer1);
         ai_lib.setDefaultCalmMood(partygoer1, "conversation");
-        setYaw(partygoer1, 177f);
+        setYaw(partygoer1, 177.0f);
         setObjVar(partygoer1, "Stronghold", self);
         return partygoer1;
     }
@@ -268,7 +268,7 @@ public class stronghold extends script.base_script
         obj_id partygoer2 = create.staticObject("nym_surveyer", partygoer2Location);
         setObjVar(self, "StrongholdInhabitants.partygoer2", partygoer2);
         ai_lib.setDefaultCalmMood(partygoer2, "conversation");
-        setYaw(partygoer2, 7f);
+        setYaw(partygoer2, 7.0f);
         setObjVar(partygoer2, "Stronghold", self);
         return partygoer2;
     }
@@ -279,7 +279,7 @@ public class stronghold extends script.base_script
         obj_id partygoer3 = create.staticObject("nym_brawler", partygoer3Location);
         setObjVar(self, "StrongholdInhabitants.partygoer3", partygoer3);
         ai_lib.setDefaultCalmMood(partygoer3, "conversation");
-        setYaw(partygoer3, 33f);
+        setYaw(partygoer3, 33.0f);
         setObjVar(partygoer3, "Stronghold", self);
         return partygoer3;
     }
@@ -290,7 +290,7 @@ public class stronghold extends script.base_script
         obj_id partygoer4 = create.staticObject("nym_bodyguard", partygoer4Location);
         setObjVar(self, "StrongholdInhabitants.partygoer4", partygoer4);
         ai_lib.setDefaultCalmMood(partygoer4, "conversation");
-        setYaw(partygoer4, -77f);
+        setYaw(partygoer4, -77.0f);
         setObjVar(partygoer4, "Stronghold", self);
         return partygoer4;
     }
@@ -301,7 +301,7 @@ public class stronghold extends script.base_script
         obj_id partygoer5 = create.staticObject("nym_surveyer", partygoer5Location);
         setObjVar(self, "StrongholdInhabitants.partygoer5", partygoer5);
         ai_lib.setDefaultCalmMood(partygoer5, "conversation");
-        setYaw(partygoer5, 149f);
+        setYaw(partygoer5, 149.0f);
         setObjVar(partygoer5, "Stronghold", self);
         return partygoer5;
     }
@@ -312,7 +312,7 @@ public class stronghold extends script.base_script
         obj_id partygoer6 = create.staticObject("nym_bodyguard", partygoer6Location);
         setObjVar(self, "StrongholdInhabitants.partygoer6", partygoer6);
         ai_lib.setDefaultCalmMood(partygoer6, "conversation");
-        setYaw(partygoer6, 89f);
+        setYaw(partygoer6, 89.0f);
         setObjVar(partygoer6, "Stronghold", self);
         return partygoer6;
     }
@@ -323,7 +323,7 @@ public class stronghold extends script.base_script
         obj_id partygoer7 = create.staticObject("nym_destroyer", partygoer7Location);
         setObjVar(self, "StrongholdInhabitants.partygoer7", partygoer7);
         ai_lib.setDefaultCalmMood(partygoer7, "conversation");
-        setYaw(partygoer7, -93f);
+        setYaw(partygoer7, -93.0f);
         setObjVar(partygoer7, "Stronghold", self);
         return partygoer7;
     }
@@ -333,7 +333,7 @@ public class stronghold extends script.base_script
         location dog1Location = new location(-3.62f, 3.28f, -25.44f, "lok", lobby);
         obj_id dog1 = create.object("nym_kusak_guardian", dog1Location);
         setObjVar(self, "StrongholdInhabitants.dog1", dog1);
-        setYaw(dog1, 39f);
+        setYaw(dog1, 39.0f);
         ai_lib.setDefaultCalmBehavior(dog1, ai_lib.BEHAVIOR_SENTINEL);
         setName(dog1, "Scourge");
         dictionary dogs = new dictionary();
@@ -349,7 +349,7 @@ public class stronghold extends script.base_script
         location dog2Location = new location(3.62f, 3.28f, -25.44f, "lok", lobby);
         obj_id dog2 = create.object("nym_kusak_guardian", dog2Location);
         setObjVar(self, "StrongholdInhabitants.dog2", dog2);
-        setYaw(dog2, -35f);
+        setYaw(dog2, -35.0f);
         ai_lib.setDefaultCalmMood(dog2, "bored");
         ai_lib.setDefaultCalmBehavior(dog2, ai_lib.BEHAVIOR_SENTINEL);
         setName(dog2, "Razor");
@@ -386,8 +386,8 @@ public class stronghold extends script.base_script
             return false;
         }
         modifyPitch(hatchBase, -180.0f);
-        setYaw(elevatorOne, 180f);
-        setYaw(elevatorTwo, 180f);
+        setYaw(elevatorOne, 180.0f);
+        setYaw(elevatorTwo, 180.0f);
         return true;
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException

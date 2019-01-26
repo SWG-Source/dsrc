@@ -294,23 +294,20 @@ public class npc_lair_ai extends script.theme_park.poi.base
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int i = 0; i < allNpcs.length; i++)
-            {
-                if (allNpcs[i] != self)
-                {
-                    int yourNum = getIntObjVar(allNpcs[i], "npc_lair.mobileNumber");
-                    if (yourNum == 1)
-                    {
-                        faceToBehavior(self, allNpcs[i]);
-                        ai_lib.setDefaultCalmMood(self, "conversation");
-                        dictionary parms = new dictionary();
-                        parms.put("converseWith", self);
-                        setObjVar(self, "npc_lair.converseWith", allNpcs[i]);
-                        messageTo(allNpcs[i], "handleRequestToConverse", parms, 5, false);
-                        return SCRIPT_CONTINUE;
+                for (obj_id allNpc : allNpcs) {
+                    if (allNpc != self) {
+                        int yourNum = getIntObjVar(allNpc, "npc_lair.mobileNumber");
+                        if (yourNum == 1) {
+                            faceToBehavior(self, allNpc);
+                            ai_lib.setDefaultCalmMood(self, "conversation");
+                            dictionary parms = new dictionary();
+                            parms.put("converseWith", self);
+                            setObjVar(self, "npc_lair.converseWith", allNpc);
+                            messageTo(allNpc, "handleRequestToConverse", parms, 5, false);
+                            return SCRIPT_CONTINUE;
+                        }
                     }
                 }
-            }
             break;
             case JOB_DANCE:
             location danceLoc = getLocationObjVar(baseObj, "npc_lair.danceLoc");
@@ -441,13 +438,11 @@ public class npc_lair_ai extends script.theme_park.poi.base
                 obj_id[] creatures = getCreaturesInRange(getLocation(self), 6.0f);
                 if (creatures != null && creatures.length > 0)
                 {
-                    for (int i = 0; i < creatures.length; i++)
-                    {
-                        int yourJob = getIntObjVar(creatures[i], "npc_lair.job");
-                        if (yourJob == JOB_DANCE)
-                        {
-                            faceToBehavior(self, creatures[i]);
-                            faceToBehavior(creatures[i], self);
+                    for (obj_id creature : creatures) {
+                        int yourJob = getIntObjVar(creature, "npc_lair.job");
+                        if (yourJob == JOB_DANCE) {
+                            faceToBehavior(self, creature);
+                            faceToBehavior(creature, self);
                             return SCRIPT_CONTINUE;
                         }
                     }
@@ -469,12 +464,10 @@ public class npc_lair_ai extends script.theme_park.poi.base
                     obj_id[] creatures = getCreaturesInRange(getLocation(self), 6.0f);
                     if (creatures != null && creatures.length > 0)
                     {
-                        for (int i = 0; i < creatures.length; i++)
-                        {
-                            if (hasObjVar(creatures[i], "npc_lair.dancer"))
-                            {
-                                faceToBehavior(self, creatures[i]);
-                                faceToBehavior(creatures[i], self);
+                        for (obj_id creature : creatures) {
+                            if (hasObjVar(creature, "npc_lair.dancer")) {
+                                faceToBehavior(self, creature);
+                                faceToBehavior(creature, self);
                                 return SCRIPT_CONTINUE;
                             }
                         }
@@ -618,10 +611,9 @@ public class npc_lair_ai extends script.theme_park.poi.base
         obj_id[] players = getAllPlayers(baseLoc, healing.VAR_EFFECT_DISPLAY_RADIUS);
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                playClientEffectObj(players[i], "clienteffect/healing_healdamage.cef", lair, "");
-                playClientEffectObj(players[i], "clienteffect/healing_healdamage.cef", mobile, "");
+            for (obj_id player : players) {
+                playClientEffectObj(player, "clienteffect/healing_healdamage.cef", lair, "");
+                playClientEffectObj(player, "clienteffect/healing_healdamage.cef", mobile, "");
             }
         }
         curHP += amountToHeal;

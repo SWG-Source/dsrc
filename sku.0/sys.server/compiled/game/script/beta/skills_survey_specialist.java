@@ -17,9 +17,8 @@ public class skills_survey_specialist extends script.base_script
             debugSpeakMsg(self, "Unable to assign all skills related to " + SKILL_NAME);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < reqs.length; i++)
-        {
-            grantSkill(self, reqs[i]);
+        for (String req : reqs) {
+            grantSkill(self, req);
         }
         return SCRIPT_CONTINUE;
     }
@@ -31,9 +30,8 @@ public class skills_survey_specialist extends script.base_script
             debugSpeakMsg(self, "Unable to revoke all skills related to " + SKILL_NAME);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < reqs.length; i++)
-        {
-            revokeSkill(self, reqs[i]);
+        for (String req : reqs) {
+            revokeSkill(self, req);
         }
         return SCRIPT_CONTINUE;
     }

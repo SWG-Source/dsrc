@@ -95,7 +95,7 @@ public class objective_terminal_security extends script.faction_perk.hq.objectiv
                 dictionary d = new dictionary();
                 d.put("player", player);
                 d.put("cnt", 10);
-                messageTo(self, "handleSlicingRepair", d, 5f, false);
+                messageTo(self, "handleSlicingRepair", d, 5.0f, false);
                 utils.setScriptVar(self, "repairing", player);
                 return SCRIPT_CONTINUE;
             }
@@ -156,7 +156,7 @@ public class objective_terminal_security extends script.faction_perk.hq.objectiv
         {
             sendSystemMessageTestingOnly(player, "Security terminal repairs continue...");
             params.put("cnt", cnt);
-            messageTo(self, "handleSlicingRepair", params, 5f, false);
+            messageTo(self, "handleSlicingRepair", params, 5.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

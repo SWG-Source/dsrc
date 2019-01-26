@@ -20,7 +20,7 @@ public class association_hall_elevators extends script.base_script
             here.cell = elevator;
             obj_id elevatorTerminalA = createObject("object/tangible/terminal/terminal_elevator_down.iff", here);
             setYaw(elevatorTerminalA, 180);
-            here.y = -9f;
+            here.y = -9.0f;
             obj_id elevatorTerminalB = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);
             setYaw(elevatorTerminalB, 180);
             setObjVar(self, "terminal1", elevatorTerminalA);

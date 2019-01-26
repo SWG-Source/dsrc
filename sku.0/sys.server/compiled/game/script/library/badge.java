@@ -369,241 +369,178 @@ public class badge extends script.base_script
             return;
         }
         String badgeId = "";
-        if (skill.equals("class_forcesensitive_phase4_master"))
-        {
-            badgeId = "new_prof_jedi_master";
-        }
-        else if (skill.equals("class_smuggler_phase4_master"))
-        {
-            badgeId = "new_prof_smuggler_master";
-        }
-        else if (skill.equals("class_bountyhunter_phase4_master"))
-        {
-            badgeId = "new_prof_bountyhunter_master";
-        }
-        else if (skill.equals("class_commando_phase4_master"))
-        {
-            badgeId = "new_prof_commando_master";
-        }
-        else if (skill.equals("class_officer_phase4_master"))
-        {
-            badgeId = "new_prof_officer_master";
-        }
-        else if (skill.equals("class_medic_phase4_master"))
-        {
-            badgeId = "new_prof_medic_master";
-        }
-        else if (skill.equals("class_spy_phase4_master"))
-        {
-            badgeId = "new_prof_spy_master";
-        }
-        else if (skill.equals("class_entertainer_phase4_master"))
-        {
-            badgeId = "new_prof_entertainer_master";
-        }
-        else if (skill.equals("class_trader_phase4_master"))
-        {
-            badgeId = "new_prof_trader_master";
-        }
-        else if (skill.equals("combat_1hsword_master"))
-        {
-            badgeId = "combat_1hsword_master";
-        }
-        else if (skill.equals("combat_2hsword_master"))
-        {
-            badgeId = "combat_2hsword_master";
-        }
-        else if (skill.equals("combat_bountyhunter_master"))
-        {
-            badgeId = "combat_bountyhunter_master";
-        }
-        else if (skill.equals("combat_brawler_master"))
-        {
-            badgeId = "combat_brawler_master";
-        }
-        else if (skill.equals("combat_carbine_master"))
-        {
-            badgeId = "combat_carbine_master";
-        }
-        else if (skill.equals("combat_commando_master"))
-        {
-            badgeId = "combat_commando_master";
-        }
-        else if (skill.equals("combat_marksman_master"))
-        {
-            badgeId = "combat_marksman_master";
-        }
-        else if (skill.equals("combat_pistol_master"))
-        {
-            badgeId = "combat_pistol_master";
-        }
-        else if (skill.equals("combat_polearm_master"))
-        {
-            badgeId = "combat_polearm_master";
-        }
-        else if (skill.equals("combat_rifleman_master"))
-        {
-            badgeId = "combat_rifleman_master";
-        }
-        else if (skill.equals("combat_smuggler_master"))
-        {
-            badgeId = "combat_smuggler_master";
-        }
-        else if (skill.equals("combat_unarmed_master"))
-        {
-            badgeId = "combat_unarmed_master";
-        }
-        else if (skill.equals("class_structures_phase4_master"))
-        {
-            badgeId = "new_prof_crafting_architect_master";
-            if (!hasBadge(player, badgeId))
-            {
-                grantBadge(player, badgeId);
-            }
-            badgeId = "new_prof_crafting_merchant_master";
-            if (!hasBadge(player, badgeId))
-            {
-                grantBadge(player, badgeId);
-            }
-            badgeId = "new_prof_crafting_shipwright";
-        }
-        else if (skill.equals("class_munitions_phase4_master"))
-        {
-            badgeId = "new_prof_crafting_armorsmith_master";
-            if (!hasBadge(player, badgeId))
-            {
-                grantBadge(player, badgeId);
-            }
-            badgeId = "new_prof_crafting_merchant_master";
-            if (!hasBadge(player, badgeId))
-            {
-                grantBadge(player, badgeId);
-            }
-            badgeId = "new_prof_crafting_weaponsmith_master";
-        }
-        else if (skill.equals("class_domestics_phase4_master"))
-        {
-            badgeId = "new_prof_crafting_chef_master";
-            if (!hasBadge(player, badgeId))
-            {
-                grantBadge(player, badgeId);
-            }
-            badgeId = "new_prof_crafting_merchant_master";
-            if (!hasBadge(player, badgeId))
-            {
-                grantBadge(player, badgeId);
-            }
-            badgeId = "new_prof_crafting_tailor_master";
-        }
-        else if (skill.equals("class_engineering_phase4_master"))
-        {
-            badgeId = "new_prof_crafting_droidengineer_master";
-            if (!hasBadge(player, badgeId))
-            {
-                grantBadge(player, badgeId);
-            }
-            badgeId = "new_prof_crafting_merchant_master";
-        }
-        else if (skill.equals("class_engineering_phase1_master"))
-        {
-            badgeId = "new_prof_crafting_artisan_master";
-        }
-        else if (skill.equals("outdoors_bio_engineer_master"))
-        {
-            badgeId = "new_prof_outdoors_bio_engineer_master";
-        }
-        else if (skill.equals("outdoors_creaturehandler_master"))
-        {
-            badgeId = "outdoors_creaturehandler_master";
-        }
-        else if (skill.equals("outdoors_ranger_master"))
-        {
-            badgeId = "outdoors_ranger_master";
-        }
-        else if (skill.equals("outdoors_scout_master"))
-        {
-            badgeId = "outdoors_scout_master";
-        }
-        else if (skill.equals("outdoors_squadleader_master"))
-        {
-            badgeId = "outdoors_squadleader_master";
-        }
-        else if (skill.equals("science_combatmedic_master"))
-        {
-            badgeId = "science_combatmedic_master";
-        }
-        else if (skill.equals("science_doctor_master"))
-        {
-            badgeId = "science_doctor_master";
-        }
-        else if (skill.equals("science_medic_master"))
-        {
-            badgeId = "science_medic_master";
-        }
-        else if (skill.equals("social_dancer_master"))
-        {
-            badgeId = "new_prof_social_dancer_master";
-        }
-        else if (skill.equals("social_entertainer_master"))
-        {
-            badgeId = "new_prof_social_entertainer_master";
-        }
-        else if (skill.equals("social_imagedesigner_master"))
-        {
-            badgeId = "new_prof_social_imagedesigner_master";
-        }
-        else if (skill.equals("social_musician_master"))
-        {
-            badgeId = "new_prof_social_musician_master";
-        }
-        else if (skill.equals("pilot_neutral_master"))
-        {
-            if (space_flags.isSpaceTrack(player, space_flags.PRIVATEER_TATOOINE))
-            {
-                badgeId = "pilot_neutral_tatooine";
-            }
-            else if (space_flags.isSpaceTrack(player, space_flags.PRIVATEER_NABOO))
-            {
-                badgeId = "pilot_neutral_naboo";
-            }
-            else if (space_flags.isSpaceTrack(player, space_flags.PRIVATEER_CORELLIA))
-            {
-                badgeId = "pilot_neutral_corellia";
-            }
-        }
-        else if (skill.equals("pilot_rebel_navy_master"))
-        {
-            if (space_flags.isSpaceTrack(player, space_flags.REBEL_NABOO))
-            {
-                badgeId = "pilot_rebel_navy_naboo";
-            }
-            else if (space_flags.isSpaceTrack(player, space_flags.REBEL_TATOOINE))
-            {
-                badgeId = "pilot_rebel_navy_tatooine";
-            }
-            else if (space_flags.isSpaceTrack(player, space_flags.REBEL_CORELLIA))
-            {
-                badgeId = "pilot_rebel_navy_corellia";
-            }
-        }
-        else if (skill.equals("pilot_imperial_navy_master"))
-        {
-            if (space_flags.isSpaceTrack(player, space_flags.IMPERIAL_NABOO))
-            {
-                badgeId = "pilot_imperial_navy_naboo";
-            }
-            else if (space_flags.isSpaceTrack(player, space_flags.IMPERIAL_TATOOINE))
-            {
-                badgeId = "pilot_imperial_navy_tatooine";
-            }
-            else if (space_flags.isSpaceTrack(player, space_flags.IMPERIAL_CORELLIA))
-            {
-                badgeId = "pilot_imperial_navy_corellia";
-            }
-        }
-        else 
-        {
-            return;
+        switch (skill) {
+            case "class_forcesensitive_phase4_master":
+                badgeId = "new_prof_jedi_master";
+                break;
+            case "class_smuggler_phase4_master":
+                badgeId = "new_prof_smuggler_master";
+                break;
+            case "class_bountyhunter_phase4_master":
+                badgeId = "new_prof_bountyhunter_master";
+                break;
+            case "class_commando_phase4_master":
+                badgeId = "new_prof_commando_master";
+                break;
+            case "class_officer_phase4_master":
+                badgeId = "new_prof_officer_master";
+                break;
+            case "class_medic_phase4_master":
+                badgeId = "new_prof_medic_master";
+                break;
+            case "class_spy_phase4_master":
+                badgeId = "new_prof_spy_master";
+                break;
+            case "class_entertainer_phase4_master":
+                badgeId = "new_prof_entertainer_master";
+                break;
+            case "class_trader_phase4_master":
+                badgeId = "new_prof_trader_master";
+                break;
+            case "combat_1hsword_master":
+                badgeId = "combat_1hsword_master";
+                break;
+            case "combat_2hsword_master":
+                badgeId = "combat_2hsword_master";
+                break;
+            case "combat_bountyhunter_master":
+                badgeId = "combat_bountyhunter_master";
+                break;
+            case "combat_brawler_master":
+                badgeId = "combat_brawler_master";
+                break;
+            case "combat_carbine_master":
+                badgeId = "combat_carbine_master";
+                break;
+            case "combat_commando_master":
+                badgeId = "combat_commando_master";
+                break;
+            case "combat_marksman_master":
+                badgeId = "combat_marksman_master";
+                break;
+            case "combat_pistol_master":
+                badgeId = "combat_pistol_master";
+                break;
+            case "combat_polearm_master":
+                badgeId = "combat_polearm_master";
+                break;
+            case "combat_rifleman_master":
+                badgeId = "combat_rifleman_master";
+                break;
+            case "combat_smuggler_master":
+                badgeId = "combat_smuggler_master";
+                break;
+            case "combat_unarmed_master":
+                badgeId = "combat_unarmed_master";
+                break;
+            case "class_structures_phase4_master":
+                badgeId = "new_prof_crafting_architect_master";
+                if (!hasBadge(player, badgeId)) {
+                    grantBadge(player, badgeId);
+                }
+                badgeId = "new_prof_crafting_merchant_master";
+                if (!hasBadge(player, badgeId)) {
+                    grantBadge(player, badgeId);
+                }
+                badgeId = "new_prof_crafting_shipwright";
+                break;
+            case "class_munitions_phase4_master":
+                badgeId = "new_prof_crafting_armorsmith_master";
+                if (!hasBadge(player, badgeId)) {
+                    grantBadge(player, badgeId);
+                }
+                badgeId = "new_prof_crafting_merchant_master";
+                if (!hasBadge(player, badgeId)) {
+                    grantBadge(player, badgeId);
+                }
+                badgeId = "new_prof_crafting_weaponsmith_master";
+                break;
+            case "class_domestics_phase4_master":
+                badgeId = "new_prof_crafting_chef_master";
+                if (!hasBadge(player, badgeId)) {
+                    grantBadge(player, badgeId);
+                }
+                badgeId = "new_prof_crafting_merchant_master";
+                if (!hasBadge(player, badgeId)) {
+                    grantBadge(player, badgeId);
+                }
+                badgeId = "new_prof_crafting_tailor_master";
+                break;
+            case "class_engineering_phase4_master":
+                badgeId = "new_prof_crafting_droidengineer_master";
+                if (!hasBadge(player, badgeId)) {
+                    grantBadge(player, badgeId);
+                }
+                badgeId = "new_prof_crafting_merchant_master";
+                break;
+            case "class_engineering_phase1_master":
+                badgeId = "new_prof_crafting_artisan_master";
+                break;
+            case "outdoors_bio_engineer_master":
+                badgeId = "new_prof_outdoors_bio_engineer_master";
+                break;
+            case "outdoors_creaturehandler_master":
+                badgeId = "outdoors_creaturehandler_master";
+                break;
+            case "outdoors_ranger_master":
+                badgeId = "outdoors_ranger_master";
+                break;
+            case "outdoors_scout_master":
+                badgeId = "outdoors_scout_master";
+                break;
+            case "outdoors_squadleader_master":
+                badgeId = "outdoors_squadleader_master";
+                break;
+            case "science_combatmedic_master":
+                badgeId = "science_combatmedic_master";
+                break;
+            case "science_doctor_master":
+                badgeId = "science_doctor_master";
+                break;
+            case "science_medic_master":
+                badgeId = "science_medic_master";
+                break;
+            case "social_dancer_master":
+                badgeId = "new_prof_social_dancer_master";
+                break;
+            case "social_entertainer_master":
+                badgeId = "new_prof_social_entertainer_master";
+                break;
+            case "social_imagedesigner_master":
+                badgeId = "new_prof_social_imagedesigner_master";
+                break;
+            case "social_musician_master":
+                badgeId = "new_prof_social_musician_master";
+                break;
+            case "pilot_neutral_master":
+                if (space_flags.isSpaceTrack(player, space_flags.PRIVATEER_TATOOINE)) {
+                    badgeId = "pilot_neutral_tatooine";
+                } else if (space_flags.isSpaceTrack(player, space_flags.PRIVATEER_NABOO)) {
+                    badgeId = "pilot_neutral_naboo";
+                } else if (space_flags.isSpaceTrack(player, space_flags.PRIVATEER_CORELLIA)) {
+                    badgeId = "pilot_neutral_corellia";
+                }
+                break;
+            case "pilot_rebel_navy_master":
+                if (space_flags.isSpaceTrack(player, space_flags.REBEL_NABOO)) {
+                    badgeId = "pilot_rebel_navy_naboo";
+                } else if (space_flags.isSpaceTrack(player, space_flags.REBEL_TATOOINE)) {
+                    badgeId = "pilot_rebel_navy_tatooine";
+                } else if (space_flags.isSpaceTrack(player, space_flags.REBEL_CORELLIA)) {
+                    badgeId = "pilot_rebel_navy_corellia";
+                }
+                break;
+            case "pilot_imperial_navy_master":
+                if (space_flags.isSpaceTrack(player, space_flags.IMPERIAL_NABOO)) {
+                    badgeId = "pilot_imperial_navy_naboo";
+                } else if (space_flags.isSpaceTrack(player, space_flags.IMPERIAL_TATOOINE)) {
+                    badgeId = "pilot_imperial_navy_tatooine";
+                } else if (space_flags.isSpaceTrack(player, space_flags.IMPERIAL_CORELLIA)) {
+                    badgeId = "pilot_imperial_navy_corellia";
+                }
+                break;
+            default:
+                return;
         }
         if (!hasBadge(player, badgeId))
         {

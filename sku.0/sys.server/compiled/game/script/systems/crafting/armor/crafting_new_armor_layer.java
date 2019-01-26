@@ -14,10 +14,8 @@ public class crafting_new_armor_layer extends script.systems.crafting.crafting_b
     public static final String VERSION = "v0.00.00";
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
         }
@@ -40,34 +38,24 @@ public class crafting_new_armor_layer extends script.systems.crafting.crafting_b
             return;
         }
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (itemAttributes[i].currentValue < itemAttributes[i].minValue)
-                {
-                    itemAttributes[i].currentValue = itemAttributes[i].minValue;
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (itemAttribute.currentValue < itemAttribute.minValue) {
+                    itemAttribute.currentValue = itemAttribute.minValue;
+                } else if (itemAttribute.currentValue > itemAttribute.maxValue) {
+                    itemAttribute.currentValue = itemAttribute.maxValue;
                 }
-                else if (itemAttributes[i].currentValue > itemAttributes[i].maxValue)
-                {
-                    itemAttributes[i].currentValue = itemAttributes[i].maxValue;
+                float newValue = armor.rescaleArmorData((itemAttribute.name).getAsciiId(), layerRow, referenceRow, itemAttribute.currentValue);
+                if (newValue == Float.MIN_VALUE) {
+                    newValue = itemAttribute.currentValue;
                 }
-                float newValue = armor.rescaleArmorData((itemAttributes[i].name).getAsciiId(), layerRow, referenceRow, itemAttributes[i].currentValue);
-                if (newValue == Float.MIN_VALUE)
-                {
-                    newValue = itemAttributes[i].currentValue;
-                }
-                if ((itemAttributes[i].name).equals("special_protection"))
-                {
+                if ((itemAttribute.name).equals("special_protection")) {
                     setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + armor.OBJVAR_LAYER_PREFIX + layer, newValue);
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), newValue);
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), newValue);
                 }
             }
         }

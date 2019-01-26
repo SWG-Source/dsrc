@@ -92,17 +92,15 @@ public class stage_one_watcher extends script.base_script
         }
         if (hasObjVar(self, "sent_signal_one") && hasObjVar(self, "sent_signal_two"))
         {
-            for (int i = 0; i < dungeon_data.length; i++)
-            {
-                obj_id crier_id = dungeon_data[i].getObjId("dungeon_id");
+            for (dictionary dungeon_datum : dungeon_data) {
+                obj_id crier_id = dungeon_datum.getObjId("dungeon_id");
                 messageTo(crier_id, "beginMessage", null, 0, false);
             }
         }
         if (hasObjVar(self, "sent_signal_one") && !hasObjVar(self, "sent_signal_two"))
         {
-            for (int i = 0; i < dungeon_data.length; i++)
-            {
-                obj_id crier_id = dungeon_data[i].getObjId("dungeon_id");
+            for (dictionary dungeon_datum : dungeon_data) {
+                obj_id crier_id = dungeon_datum.getObjId("dungeon_id");
                 messageTo(crier_id, "beginSpawn", null, 0, false);
             }
         }

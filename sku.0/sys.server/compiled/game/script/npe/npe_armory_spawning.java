@@ -16,24 +16,24 @@ public class npe_armory_spawning extends script.base_script
         myLoc.cell = self;
         float[] locations = 
         {
-            -44f,
-            18f,
-            -47f,
-            21f,
-            -49f,
-            25f,
-            -50f,
-            30f,
-            -48f,
-            34f,
-            -45f,
-            38f,
-            -42f,
-            39f,
-            -37f,
-            39f,
-            -33f,
-            36f
+            -44.0f,
+                18.0f,
+            -47.0f,
+                21.0f,
+            -49.0f,
+                25.0f,
+            -50.0f,
+                30.0f,
+            -48.0f,
+                34.0f,
+            -45.0f,
+                38.0f,
+            -42.0f,
+                39.0f,
+            -37.0f,
+                39.0f,
+            -33.0f,
+                36.0f
         };
         boolean setting = utils.checkConfigFlag("ScriptFlags", "npeSequencersActive");
         if (setting == true)

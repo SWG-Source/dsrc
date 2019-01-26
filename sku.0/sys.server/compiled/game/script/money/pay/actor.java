@@ -83,7 +83,7 @@ public class actor extends script.base_script
                 String targetName = params.getString(money.DICT_TARGET_NAME);
                 if (targetName != null && !targetName.equals(""))
                 {
-                    prose_package pp = prose.getPackage(money.PROSE_PAY_FAIL, self, null, null, target, targetName, null, null, null, null, total, 0f);
+                    prose_package pp = prose.getPackage(money.PROSE_PAY_FAIL, self, null, null, target, targetName, null, null, null, null, total, 0.0f);
                     sendSystemMessageProse(self, pp);
                 }
                 else 
@@ -145,7 +145,7 @@ public class actor extends script.base_script
                 String targetName = params.getString(money.DICT_TARGET_NAME);
                 if (targetName != null && !targetName.equals(""))
                 {
-                    prose_package pp = prose.getPackage(money.PROSE_PAY_SUCCESS, self, null, null, target, targetName, null, null, null, null, total, 0f);
+                    prose_package pp = prose.getPackage(money.PROSE_PAY_SUCCESS, self, null, null, target, targetName, null, null, null, null, total, 0.0f);
                     sendSystemMessageProse(self, pp);
                 }
                 else 

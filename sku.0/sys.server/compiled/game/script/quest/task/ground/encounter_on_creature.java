@@ -62,9 +62,9 @@ public class encounter_on_creature extends script.base_script
         {
             location startLocation = getLocationObjVar(self, objvarOnCreatureStartLocation);
             float startDistanceToPlayer = getFloatObjVar(self, objvarOnCreatureStartDistanceToPlayer);
-            if (startDistanceToPlayer < .1f)
+            if (startDistanceToPlayer < 0.1f)
             {
-                startDistanceToPlayer = .1f;
+                startDistanceToPlayer = 0.1f;
             }
             float distanceTraveled = startLocation.distance(currentLocation);
             if (((distanceTraveled == 0) || (distanceToPlayer / startDistanceToPlayer) > 0.9) && combatDistance > distanceToPlayer)

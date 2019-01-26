@@ -133,11 +133,9 @@ public class species_innate extends script.base_script
             String[] skillMods = getSkillStatModListingForPlayer(self);
             if ((skillMods != null) && (skillMods.length > 0))
             {
-                for (int i = 0; i < skillMods.length; i++)
-                {
-                    if (skillMods[i].startsWith("private_innate_"))
-                    {
-                        String[] s = split(skillMods[i], '_');
+                for (String skillMod : skillMods) {
+                    if (skillMod.startsWith("private_innate_")) {
+                        String[] s = split(skillMod, '_');
                         msg += s[s.length - 1] + ", ";
                     }
                 }
@@ -169,25 +167,19 @@ public class species_innate extends script.base_script
             int modval = getSkillStatMod(self, "private_innate_" + cmd);
             if (modval > 0)
             {
-                if (cmd.equals(innate.REGEN))
-                {
-                    queueCommand(self, (1397846664), null, "", COMMAND_PRIORITY_DEFAULT);
-                    return SCRIPT_CONTINUE;
-                }
-                else if (cmd.equals(innate.ROAR))
-                {
-                    queueCommand(self, (-1223315403), null, "", COMMAND_PRIORITY_DEFAULT);
-                    return SCRIPT_CONTINUE;
-                }
-                else if (cmd.equals(innate.EQUIL))
-                {
-                    queueCommand(self, (136144656), null, "", COMMAND_PRIORITY_DEFAULT);
-                    return SCRIPT_CONTINUE;
-                }
-                else if (cmd.equals(innate.VIT))
-                {
-                    queueCommand(self, (1431834648), null, "", COMMAND_PRIORITY_DEFAULT);
-                    return SCRIPT_CONTINUE;
+                switch (cmd) {
+                    case innate.REGEN:
+                        queueCommand(self, (1397846664), null, "", COMMAND_PRIORITY_DEFAULT);
+                        return SCRIPT_CONTINUE;
+                    case innate.ROAR:
+                        queueCommand(self, (-1223315403), null, "", COMMAND_PRIORITY_DEFAULT);
+                        return SCRIPT_CONTINUE;
+                    case innate.EQUIL:
+                        queueCommand(self, (136144656), null, "", COMMAND_PRIORITY_DEFAULT);
+                        return SCRIPT_CONTINUE;
+                    case innate.VIT:
+                        queueCommand(self, (1431834648), null, "", COMMAND_PRIORITY_DEFAULT);
+                        return SCRIPT_CONTINUE;
                 }
             }
         }

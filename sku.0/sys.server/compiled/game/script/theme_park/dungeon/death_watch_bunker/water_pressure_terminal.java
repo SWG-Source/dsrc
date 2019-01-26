@@ -13,7 +13,7 @@ public class water_pressure_terminal extends script.base_script
     public static final string_id MNU_WATER_VALVE = new string_id("dungeon/death_watch", "mnu_water_valve");
     public int OnInitialize(obj_id self) throws InterruptedException
     {
-        messageTo(self, "handleTerminalObjVar", null, 1f, false);
+        messageTo(self, "handleTerminalObjVar", null, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
@@ -63,7 +63,7 @@ public class water_pressure_terminal extends script.base_script
             dictionary params = new dictionary();
             params.put("player", player);
             params.put("terminal", self);
-            messageTo(structure, "handleTerminalSwitch", params, 1f, false);
+            messageTo(structure, "handleTerminalSwitch", params, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

@@ -30,49 +30,44 @@ public class ss_setup extends script.base_script
     }
     public void setObjVarScript(obj_id self, String sSentObjVar) throws InterruptedException
     {
-        if (sSentObjVar.equals("static"))
-        {
-            if (hasObjVar(self, "spawn_objvar2"))
-            {
-                if ("customs" == getStringObjVar(self, "spawn_objvar2"))
-                {
-                    String script = "city.city_wander";
-                    attachScript(self, script);
-                    return;
+        switch (sSentObjVar) {
+            case "static":
+                if (hasObjVar(self, "spawn_objvar2")) {
+                    if ("customs" == getStringObjVar(self, "spawn_objvar2")) {
+                        String script = "city.city_wander";
+                        attachScript(self, script);
+                        return;
+                    }
                 }
+                if (!hasScript(self, "ai.ai")) {
+                    attachScript(self, "ai.ai");
+                }
+                stop(self);
+                ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_SENTINEL);
+                break;
+            case "default":
+                if (!hasScript(self, "ai.ai")) {
+                    attachScript(self, "ai.ai");
+                }
+                ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_WANDER);
+                break;
+            case "city_wander": {
+                String script = "city.city_wander";
+                attachScript(self, script);
+                break;
             }
-            if (!hasScript(self, "ai.ai"))
-            {
-                attachScript(self, "ai.ai");
+            case "covert_droid":
+                break;
+            case "customs": {
+                String script = "ai.imperial_presence.harass";
+                attachScript(self, script);
+                break;
             }
-            stop(self);
-            ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_SENTINEL);
-        }
-        else if (sSentObjVar.equals("default"))
-        {
-            if (!hasScript(self, "ai.ai"))
-            {
-                attachScript(self, "ai.ai");
+            case "scan_follow": {
+                String script = "city.imperial_crackdown.st_static";
+                attachScript(self, script);
+                break;
             }
-            ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_WANDER);
-        }
-        else if (sSentObjVar.equals("city_wander"))
-        {
-            String script = "city.city_wander";
-            attachScript(self, script);
-        }
-        else if (sSentObjVar.equals("covert_droid"))
-        {
-        }
-        else if (sSentObjVar.equals("customs"))
-        {
-            String script = "ai.imperial_presence.harass";
-            attachScript(self, script);
-        }
-        else if (sSentObjVar.equals("scan_follow"))
-        {
-            String script = "city.imperial_crackdown.st_static";
-            attachScript(self, script);
         }
         return;
     }

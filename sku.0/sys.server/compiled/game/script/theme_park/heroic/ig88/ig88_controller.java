@@ -49,11 +49,9 @@ public class ig88_controller extends script.base_script
         dictionary sessionDict = new dictionary();
         if (spawn_ids != null && spawn_ids.length > 0)
         {
-            for (int i = 0; i < spawn_ids.length; i++)
-            {
-                if (isIdValid(spawn_ids[i]))
-                {
-                    messageTo(spawn_ids[i], "shoutFailed", sessionDict, 1, false);
+            for (obj_id spawn_id : spawn_ids) {
+                if (isIdValid(spawn_id)) {
+                    messageTo(spawn_id, "shoutFailed", sessionDict, 1, false);
                 }
             }
         }

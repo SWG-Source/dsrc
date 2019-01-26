@@ -27,9 +27,7 @@ public class bocctyyy_bet_controller extends script.base_script
         obj_id[] spawners = space_dungeon.getRegisteredObjects(self);
         if (spawners != null && spawners.length > 0)
         {
-            for (int i = 0; i < spawners.length; i++)
-            {
-                obj_id spawner = spawners[i];
+            for (obj_id spawner : spawners) {
                 messageTo(spawner, "doBocctyyySpawnEvent", webster, 1, false);
             }
         }
@@ -40,9 +38,7 @@ public class bocctyyy_bet_controller extends script.base_script
         obj_id[] spawners = space_dungeon.getRegisteredObjects(self);
         if (spawners != null && spawners.length > 0)
         {
-            for (int i = 0; i < spawners.length; i++)
-            {
-                obj_id spawner = spawners[i];
+            for (obj_id spawner : spawners) {
                 messageTo(spawner, "doCleanupEvent", null, 1, false);
             }
         }

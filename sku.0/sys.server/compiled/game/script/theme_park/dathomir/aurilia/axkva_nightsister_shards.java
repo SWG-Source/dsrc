@@ -98,7 +98,7 @@ public class axkva_nightsister_shards extends script.base_script
                     float distanceCheck = -1;
                     if (groundquests.isTaskActive(player, "axkva_min_intro", "axkva_min_intro_07"))
                     {
-                        location mtChaoltLoc = new location(2983f, 290f, -4665f, "lok", obj_id.NULL_ID);
+                        location mtChaoltLoc = new location(2983.0f, 290.0f, -4665.0f, "lok", obj_id.NULL_ID);
                         distanceCheck = getDistance(here, mtChaoltLoc);
                         if (!planet.equals("lok") || distanceCheck > 50.0f || distanceCheck < 0)
                         {

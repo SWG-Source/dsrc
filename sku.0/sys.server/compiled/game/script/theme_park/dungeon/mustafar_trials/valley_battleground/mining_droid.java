@@ -39,9 +39,8 @@ public class mining_droid extends script.base_script
         if (isPlayer(attacker) || pet_lib.isPet(attacker))
         {
             int total = 0;
-            for (int x = 0; x < damage.length; x++)
-            {
-                total += damage[x];
+            for (int i : damage) {
+                total += i;
             }
             addToHealth(self, total);
         }
@@ -104,13 +103,10 @@ public class mining_droid extends script.base_script
         }
         Vector waypoints = new Vector();
         waypoints.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], "wp_name"))
-            {
-                if ((getStringObjVar(objects[i], "wp_name")).startsWith("droid"))
-                {
-                    utils.addElement(waypoints, getLocation(objects[i]));
+        for (obj_id object : objects) {
+            if (hasObjVar(object, "wp_name")) {
+                if ((getStringObjVar(object, "wp_name")).startsWith("droid")) {
+                    utils.addElement(waypoints, getLocation(object));
                 }
             }
         }

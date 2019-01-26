@@ -22,8 +22,8 @@ public class camp_master extends script.base_script
     };
     public static final float XP_MULT[] = 
     {
-        0.f,
-        1.f,
+            0.0f,
+            1.0f,
         1.1f,
         1.2f,
         1.3f,
@@ -92,14 +92,9 @@ public class camp_master extends script.base_script
         else 
         {
             int j = 0;
-            for (int i = 0; i < children.length; i++)
-            {
-                obj_id child = children[i];
-                if ((child == null) || (child == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
+            for (obj_id child : children) {
+                if ((child == null) || (child == obj_id.NULL_ID)) {
+                } else {
                     messageTo(child, msg, outparams, 0, false);
                 }
             }
@@ -198,16 +193,12 @@ public class camp_master extends script.base_script
         obj_id[] players = getPlayerCreaturesInRange(getLocation(self), camping.getCampSize(self));
         if (players != null)
         {
-            for (int i = 0; i < players.length; i++)
-            {
-                for (int j = 0; j < NUM_ATTRIBUTES; j++)
-                {
-                    if (healing.isWounded(players[i], j))
-                    {
+            for (obj_id player : players) {
+                for (int j = 0; j < NUM_ATTRIBUTES; j++) {
+                    if (healing.isWounded(player, j)) {
                         int xpAmt = getIntObjVar(self, camping.VAR_CAMP_XP);
                         int xpMax = XP_MAX[campPower];
-                        if (xpAmt < xpMax)
-                        {
+                        if (xpAmt < xpMax) {
                             int toGrant = CAMP_TICK_XP;
                             xpAmt += toGrant;
                             setObjVar(self, camping.VAR_CAMP_XP, xpAmt);

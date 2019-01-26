@@ -174,20 +174,16 @@ public class collection_use_object_on_object extends script.base_script
         if (collectonSlot != null && collectonSlot.length() > 0)
         {
             String[] allSlots = split(collectonSlot, ',');
-            for (int j = 0; j < allSlots.length; j++)
-            {
-                if (!hasCompletedCollectionSlotPrereq(player, allSlots[j]))
-                {
+            for (String allSlot : allSlots) {
+                if (!hasCompletedCollectionSlotPrereq(player, allSlot)) {
                     break;
                 }
-                if (hasCompletedCollectionSlot(player, allSlots[j]))
-                {
+                if (hasCompletedCollectionSlot(player, allSlot)) {
                     continue;
                 }
-                modifyCollectionSlotValue(player, allSlots[j], 1);
+                modifyCollectionSlotValue(player, allSlot, 1);
                 String handleTarget = collectionDataDict.getString("handleTarget");
-                if (handleTarget != null && handleTarget.length() > 0)
-                {
+                if (handleTarget != null && handleTarget.length() > 0) {
                     messageTo(target, handleTarget, null, 0, false);
                 }
                 break;

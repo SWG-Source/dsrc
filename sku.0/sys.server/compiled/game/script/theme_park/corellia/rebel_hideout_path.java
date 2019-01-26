@@ -47,7 +47,7 @@ public class rebel_hideout_path extends script.base_script
         location patroltech1 = new location(2.65f, 1.01f, 9.16f, "corellia", mainhall);
         location patroltech2 = new location(-0.55f, 1.01f, -19.07f, "corellia", storage1);
         location patroltech3 = new location(-17.95f, 1.01f, 14.48f, "corellia", meeting1);
-        location patroltech4 = new location(11.1f, 1.01f, .99f, "corellia", meeting3);
+        location patroltech4 = new location(11.1f, 1.01f, 0.99f, "corellia", meeting3);
         location patroldroid1 = new location(-3.47f, 1.01f, -19.22f, "corellia", storage1);
         location patroldroid2 = new location(18.4f, 1.01f, 13.7f, "corellia", meeting2);
         location patroldroid3 = new location(19.65f, 1.01f, 13.7f, "corellia", meeting2);
@@ -110,7 +110,7 @@ public class rebel_hideout_path extends script.base_script
         location patroltech1 = new location(2.65f, 1.01f, 9.16f, "corellia", mainhall);
         location patroltech2 = new location(-0.55f, 1.01f, -19.07f, "corellia", storage1);
         location patroltech3 = new location(-17.95f, 1.01f, 14.48f, "corellia", meeting1);
-        location patroltech4 = new location(11.1f, 1.01f, .99f, "corellia", meeting3);
+        location patroltech4 = new location(11.1f, 1.01f, 0.99f, "corellia", meeting3);
         location patroldroid1 = new location(-3.47f, 1.01f, -19.22f, "corellia", storage1);
         location patroldroid2 = new location(18.4f, 1.01f, 13.7f, "corellia", meeting2);
         location patroldroid3 = new location(19.65f, 1.01f, 13.7f, "corellia", meeting2);

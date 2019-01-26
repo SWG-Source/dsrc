@@ -87,33 +87,27 @@ public class mount_vendor extends script.base_script
         }
         String mountType = response.getAsciiId();
         String diction = "";
-        if (mountType.equals("carrion_spat"))
-        {
-            mountType = "carrion_spat";
-        }
-        else if (mountType.equals("kaadu"))
-        {
-            mountType = "kaadu_motley";
-        }
-        else if (mountType.equals("dewback"))
-        {
-            mountType = "lesser_dewback";
-        }
-        else if (mountType.equals("bol"))
-        {
-            mountType = "bol_lesser_plains";
-        }
-        else if (mountType.equals("falumpaset"))
-        {
-            mountType = "falumpaset_plodding";
-        }
-        else if (mountType.equals("brackaset"))
-        {
-            mountType = "brackaset_lowlands";
-        }
-        else 
-        {
-            return SCRIPT_CONTINUE;
+        switch (mountType) {
+            case "carrion_spat":
+                mountType = "carrion_spat";
+                break;
+            case "kaadu":
+                mountType = "kaadu_motley";
+                break;
+            case "dewback":
+                mountType = "lesser_dewback";
+                break;
+            case "bol":
+                mountType = "bol_lesser_plains";
+                break;
+            case "falumpaset":
+                mountType = "falumpaset_plodding";
+                break;
+            case "brackaset":
+                mountType = "brackaset_lowlands";
+                break;
+            default:
+                return SCRIPT_CONTINUE;
         }
         location spawnLoc = getLocation(self);
         spawnLoc.x += 2;

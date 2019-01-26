@@ -61,11 +61,9 @@ public class mde_bomb_droid extends script.base_script
         }
         Vector valid = new Vector();
         valid.setSize(0);
-        for (int i = 0; i < players.length; i++)
-        {
-            if (!isDead(players[i]))
-            {
-                utils.addElement(valid, players[i]);
+        for (obj_id player : players) {
+            if (!isDead(player)) {
+                utils.addElement(valid, player);
             }
         }
         if (valid == null || valid.size() == 0)
@@ -106,16 +104,15 @@ public class mde_bomb_droid extends script.base_script
         obj_id[] targets = trial.getValidTargetsInRadius(self, 7);
         if (targets != null && targets.length > 0)
         {
-            for (int i = 0; i < targets.length; i++)
-            {
+            for (obj_id target : targets) {
                 int damage = DROID_DAMAGE;
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "detonation_droid");
                 pp.actor.set(self);
-                pp.target.set(targets[i]);
+                pp.target.set(target);
                 pp.digitInteger = damage;
-                combat.sendCombatSpamMessageProse(targets[i], self, pp, true, true, false, COMBAT_RESULT_HIT);
-                damage(targets[i], DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
+                combat.sendCombatSpamMessageProse(target, self, pp, true, true, false, COMBAT_RESULT_HIT);
+                damage(target, DAMAGE_ELEMENTAL_HEAT, HIT_LOCATION_BODY, damage);
                 location playLoc = getLocation(self);
                 playClientEffectLoc(self, "clienteffect/combat_grenade_fragmentation.cef", playLoc, 0.4f);
             }

@@ -42,12 +42,9 @@ public class jedi_robe_jinsu_taker extends script.base_script
         obj_id[] contents = getInventoryAndEquipment(player);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; i++)
-            {
-                obj_id inventoryObject = contents[i];
-                String inventoryObjectTemplate = getTemplateName(contents[i]);
-                if (inventoryObjectTemplate.equals(desiredTemplate))
-                {
+            for (obj_id inventoryObject : contents) {
+                String inventoryObjectTemplate = getTemplateName(inventoryObject);
+                if (inventoryObjectTemplate.equals(desiredTemplate)) {
                     jinsuSaber = inventoryObject;
                     break;
                 }
@@ -63,11 +60,8 @@ public class jedi_robe_jinsu_taker extends script.base_script
                 obj_id[] jinsuCrystals = getContents(jinsuInv);
                 if (jinsuCrystals != null && jinsuCrystals.length > 0)
                 {
-                    for (int i = 0; i < jinsuCrystals.length; i++)
-                    {
-                        obj_id crystal = jinsuCrystals[i];
-                        if (isIdValid(crystal))
-                        {
+                    for (obj_id crystal : jinsuCrystals) {
+                        if (isIdValid(crystal)) {
                             putInOverloaded(crystal, playerInv);
                         }
                     }

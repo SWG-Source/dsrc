@@ -61,11 +61,9 @@ public class filter_dispenser extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/filter.iff"))
-                {
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/filter.iff")) {
                     return true;
                 }
             }

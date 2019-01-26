@@ -145,14 +145,12 @@ public class boss_nyms_girlfriend extends script.base_script
             messageTo(parent, "defaultEventReset", webster, 2, false);
             return false;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (!isIdValid(targets[i]))
-            {
+        for (obj_id target : targets) {
+            if (!isIdValid(target)) {
                 continue;
             }
-            startCombat(self, targets[i]);
-            CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.getRandomCombatTarget(): Player " + targets[i] + " was found as a valid target. Boss Mob: " + self + " attacking player.");
+            startCombat(self, target);
+            CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.getRandomCombatTarget(): Player " + target + " was found as a valid target. Boss Mob: " + self + " attacking player.");
             return true;
         }
         CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.OnIncapacitateTarget(): Boss Mob: " + self + " failed to find a player to attack.");

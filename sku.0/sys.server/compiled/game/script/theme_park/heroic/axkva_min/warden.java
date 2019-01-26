@@ -30,9 +30,8 @@ public class warden extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            addPassiveReveal(self, players[i], 1);
+        for (obj_id player : players) {
+            addPassiveReveal(self, player, 1);
         }
         return SCRIPT_CONTINUE;
     }
@@ -50,11 +49,10 @@ public class warden extends script.base_script
             messageTo(self, "burn", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < players.length; i++)
-        {
-            location loc = getLocation(players[i]);
+        for (obj_id player : players) {
+            location loc = getLocation(player);
             String locationData = "" + loc.x + " " + loc.y + " " + loc.z + " " + loc.cell + " " + loc.x + " " + loc.y + " " + loc.z;
-            queueCommand(self, (-1450748792), players[i], locationData, COMMAND_PRIORITY_DEFAULT);
+            queueCommand(self, (-1450748792), player, locationData, COMMAND_PRIORITY_DEFAULT);
         }
         messageTo(self, "burn", null, 1.0f, false);
         return SCRIPT_CONTINUE;

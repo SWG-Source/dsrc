@@ -26,9 +26,8 @@ public class dungeon_spawner_parent extends script.base_script
     {
         deltadictionary dctScriptVars = self.getScriptVars();
         obj_id[] objSpawners = getDungeonSpawners(self);
-        for (int intI = 0; intI < objSpawners.length; intI++)
-        {
-            detachScript(objSpawners[intI], "poi.interior_spawner.interior_spawner");
+        for (obj_id objSpawner : objSpawners) {
+            detachScript(objSpawner, "poi.interior_spawner.interior_spawner");
         }
         dctScriptVars.put("objSpawners", objSpawners);
         String strDataTable = getStringObjVar(self, "strDataTable");
@@ -175,9 +174,8 @@ public class dungeon_spawner_parent extends script.base_script
                 obj_id[] objPlayers = getAllPlayers(getLocation(objParent), 150);
                 if ((objPlayers != null) && (objPlayers.length != 0))
                 {
-                    for (int intI = 0; intI < objPlayers.length; intI++)
-                    {
-                        sendSystemMessage(objPlayers[intI], strSpam);
+                    for (obj_id objPlayer : objPlayers) {
+                        sendSystemMessage(objPlayer, strSpam);
                     }
                 }
             }
@@ -195,22 +193,16 @@ public class dungeon_spawner_parent extends script.base_script
         Vector objSpawners = new Vector();
         objSpawners.setSize(0);
         obj_id[] objObjects = getAllObjectsWithObjVar(getLocation(objParent), 250, "type");
-        for (int intI = 0; intI < objObjects.length; intI++)
-        {
-            obj_id[] objContents = getContents(objObjects[intI]);
-            if (objContents != null)
-            {
-                for (int intM = 0; intM < objContents.length; intM++)
-                {
-                    if (hasObjVar(objContents[intM], "type"))
-                    {
-                        objSpawners = utils.addElement(objSpawners, objContents[intM]);
+        for (obj_id objObject : objObjects) {
+            obj_id[] objContents = getContents(objObject);
+            if (objContents != null) {
+                for (obj_id objContent : objContents) {
+                    if (hasObjVar(objContent, "type")) {
+                        objSpawners = utils.addElement(objSpawners, objContent);
                     }
                 }
-            }
-            else 
-            {
-                objSpawners = utils.addElement(objSpawners, objObjects[intI]);
+            } else {
+                objSpawners = utils.addElement(objSpawners, objObject);
             }
         }
         obj_id[] _objSpawners = new obj_id[0];

@@ -91,7 +91,7 @@ public class mjensen_test extends script.base_script
         if (text.equals("spawnShip"))
         {
             transform gloc = getTransform_o2w(space_transition.getContainingShip(self));
-            float dist = rand(50.f, 100.f);
+            float dist = rand(50.0f, 100.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             String targetShipType = "experimental_ship";
@@ -101,7 +101,7 @@ public class mjensen_test extends script.base_script
         if (text.equals("spawnShip2"))
         {
             transform gloc = getTransform_o2w(space_transition.getContainingShip(self));
-            float dist = rand(50.f, 100.f);
+            float dist = rand(50.0f, 100.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             String targetShipType = "reb_gunboat_kessel_tier5";
@@ -111,7 +111,7 @@ public class mjensen_test extends script.base_script
         if (text.equals("cleanupPiracyEvent"))
         {
             obj_id beacon = utils.getObjIdScriptVar(self, "beacon");
-            messageTo(beacon, "cleanupPiracyEvent", null, 3.f, false);
+            messageTo(beacon, "cleanupPiracyEvent", null, 3.0f, false);
         }
         if (text.equals("rebelHelper"))
         {

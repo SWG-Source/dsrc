@@ -85,7 +85,7 @@ public class chemical_poison extends script.base_script
         obj_id room = getCellId(top, "grandcageroom");
         location here = getLocation(self);
         String planet = here.area;
-        location valve = new location(8.08f, -22f, -332f, planet, room);
+        location valve = new location(8.08f, -22.0f, -332.0f, planet, room);
         obj_id shutoff = createObject("object/tangible/dungeon/chemical_storage.iff", valve);
         attachScript(shutoff, "theme_park.dungeon.geonosian_madbio_bunker.chemical_poison_shutoff");
         setObjVar(shutoff, "trap", self);
@@ -113,15 +113,12 @@ public class chemical_poison extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff"))
-                {
-                    obj_id mask = objContents[intI];
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/wearables/goggles/rebreather.iff")) {
+                    obj_id mask = objContent;
                     obj_id holder = getContainedBy(mask);
-                    if (holder == player)
-                    {
+                    if (holder == player) {
                         return true;
                     }
                 }

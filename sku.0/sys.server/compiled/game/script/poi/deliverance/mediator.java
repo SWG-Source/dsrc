@@ -174,23 +174,22 @@ public class mediator extends script.theme_park.poi.base
         {
             String aId = response.getAsciiId();
             string_id msg = new string_id();
-            if ((aId.equals("response_yes")))
-            {
-                scenario.say(self, convo, "m_yes");
-                npcEndConversation(speaker);
-                scenario.setPlayerProgress(speaker, 2);
-            }
-            else if ((aId.equals("response_no")))
-            {
-                scenario.say(self, convo, "m_no");
-                npcEndConversation(speaker);
-                scenario.setPlayerProgress(speaker, 1);
-            }
-            else if ((aId.equals("response_maybe")))
-            {
-                scenario.say(self, convo, "m_maybe");
-                npcEndConversation(speaker);
-                scenario.setPlayerProgress(speaker, 3);
+            switch (aId) {
+                case "response_yes":
+                    scenario.say(self, convo, "m_yes");
+                    npcEndConversation(speaker);
+                    scenario.setPlayerProgress(speaker, 2);
+                    break;
+                case "response_no":
+                    scenario.say(self, convo, "m_no");
+                    npcEndConversation(speaker);
+                    scenario.setPlayerProgress(speaker, 1);
+                    break;
+                case "response_maybe":
+                    scenario.say(self, convo, "m_maybe");
+                    npcEndConversation(speaker);
+                    scenario.setPlayerProgress(speaker, 3);
+                    break;
             }
             int time = rand(0, 15);
             LOG("poiDeliverance", "OnObjectMenuSelect: messaging poiMaster to run scenario in " + time + " seconds!");
@@ -227,31 +226,19 @@ public class mediator extends script.theme_park.poi.base
         }
         else 
         {
-            for (int i = 0; i < killers.length; i++)
-            {
-                obj_id tmp = killers[i];
-                if ((tmp == null) || (tmp == obj_id.NULL_ID))
-                {
-                }
-                else 
-                {
-                    if (group.isGroupObject(tmp))
-                    {
+            for (obj_id tmp : killers) {
+                if ((tmp == null) || (tmp == obj_id.NULL_ID)) {
+                } else {
+                    if (group.isGroupObject(tmp)) {
                         obj_id[] members = getGroupMemberIds(tmp);
-                        if ((members == null) || (members.length == 0))
-                        {
-                        }
-                        else 
-                        {
-                            for (int n = 0; n < members.length; n++)
-                            {
-                                LOG("poiDeliverance", "granting poi credit to (" + members[n] + ") " + getName(members[n]));
-                                poiGrantCredit(members[n]);
+                        if ((members == null) || (members.length == 0)) {
+                        } else {
+                            for (obj_id member : members) {
+                                LOG("poiDeliverance", "granting poi credit to (" + member + ") " + getName(member));
+                                poiGrantCredit(member);
                             }
                         }
-                    }
-                    else 
-                    {
+                    } else {
                         LOG("poiDeliverance", "granting poi credit to (" + tmp + ") " + getName(tmp));
                         poiGrantCredit(tmp);
                     }

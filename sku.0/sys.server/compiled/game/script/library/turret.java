@@ -16,7 +16,7 @@ public class turret extends script.base_script
     public static final float FACTION_TURRET_RANGE = 96.0f;
     public static final float TURRET_RANGE = 80.0f;
     public static final String VOL_TOO_CLOSE = "volTooClose";
-    public static final float RANGE_TOO_CLOSE = 10f;
+    public static final float RANGE_TOO_CLOSE = 10.0f;
     public static final String VAR_TURRET_BASE = "turret";
     public static final String VAR_IS_ACTIVE = VAR_TURRET_BASE + ".isActive";
     public static final String VAR_IS_GENERIC = VAR_TURRET_BASE + ".isGeneric";

@@ -240,9 +240,8 @@ public class quest_test extends script.base_script
     }
     public void showHelp() throws InterruptedException
     {
-        for (int i = 0; i < OPTIONS.length; i++)
-        {
-            sendSystemMessageTestingOnly(getSelf(), OPTIONS[i]);
+        for (String option : OPTIONS) {
+            sendSystemMessageTestingOnly(getSelf(), option);
         }
         return;
     }

@@ -83,10 +83,8 @@ public class fs_defend_01_cleanup extends script.base_script
             }
             if (objvarsToRemove.size() > 0)
             {
-                java.util.Iterator i = objvarsToRemove.iterator();
-                while (i.hasNext())
-                {
-                    String name = (String)i.next();
+                for (Object o : objvarsToRemove) {
+                    String name = (String) o;
                     removeObjVar(self, name);
                 }
             }

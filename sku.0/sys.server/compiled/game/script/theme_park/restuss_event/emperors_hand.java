@@ -33,11 +33,9 @@ public class emperors_hand extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < scriptList.length; i++)
-        {
-            if (!scriptList[i].endsWith("emperors_hand"))
-            {
-                String script = scriptList[i].substring(7, scriptList[i].length());
+        for (String s : scriptList) {
+            if (!s.endsWith("emperors_hand")) {
+                String script = s.substring(7, s.length());
                 detachScript(self, script);
             }
         }
@@ -52,13 +50,13 @@ public class emperors_hand extends script.base_script
             if (!ai_lib.isInCombat(self))
             {
                 chat.chat(self, breacher, pp);
-                addHate(self, breacher, 1000f);
+                addHate(self, breacher, 1000.0f);
                 startCombat(self, breacher);
                 return SCRIPT_CONTINUE;
             }
             else 
             {
-                addHate(self, breacher, 500f);
+                addHate(self, breacher, 500.0f);
                 return SCRIPT_CONTINUE;
             }
         }
@@ -137,7 +135,7 @@ public class emperors_hand extends script.base_script
     public int setLoiter(obj_id self, dictionary params) throws InterruptedException
     {
         ai_lib.setDefaultCalmBehavior(self, ai_lib.BEHAVIOR_LOITER);
-        ai_lib.setLoiterRanges(self, 0f, 80.0f);
+        ai_lib.setLoiterRanges(self, 0.0f, 80.0f);
         return SCRIPT_CONTINUE;
     }
     public int cleanupCorpse(obj_id self, dictionary params) throws InterruptedException

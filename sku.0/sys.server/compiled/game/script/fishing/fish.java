@@ -86,7 +86,7 @@ public class fish extends script.base_script
                 }
             }
             float length = getFloatObjVar(self, minigame.VAR_FISH_LENGTH);
-            if (length > 0f)
+            if (length > 0.0f)
             {
                 names[line] = "length";
                 attribs[line] = "" + length + "m";

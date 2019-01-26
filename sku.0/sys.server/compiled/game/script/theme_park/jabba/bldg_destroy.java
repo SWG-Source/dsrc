@@ -63,15 +63,15 @@ public class bldg_destroy extends script.base_script
         location death = getLocation(bldg);
         if (death != null)
         {
-            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
             death.x += 5.0f;
-            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
             death.z += 5.0f;
-            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
             death.x -= 10.0f;
-            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
             death.z -= 10.0f;
-            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+            playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         }
         boolean blowUp = destroyObject(bldg);
         messageTo(self, "bldgCheck", destroyer, 1, true);
@@ -82,7 +82,7 @@ public class bldg_destroy extends script.base_script
         obj_id viewer = params.getObjId("player");
         obj_id bldg = getTopMostContainer(self);
         location death = getLocation(bldg);
-        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10f);
+        playClientEffectLoc(viewer, "clienteffect/combat_explosion_lair_large.cef", death, 10.0f);
         obj_id player = getObjIdObjVar(bldg, "player");
         return SCRIPT_CONTINUE;
     }

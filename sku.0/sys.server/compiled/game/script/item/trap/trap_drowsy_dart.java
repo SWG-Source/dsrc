@@ -64,7 +64,7 @@ public class trap_drowsy_dart extends script.item.trap.trap_base
             }
         }
         float chance = params.getFloat("chance");
-        grantTrapXP(player, target, 1.f);
+        grantTrapXP(player, target, 1.0f);
         return super.trapHit(self, params);
     }
 }

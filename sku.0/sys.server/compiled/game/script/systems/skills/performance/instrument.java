@@ -100,13 +100,11 @@ public class instrument extends script.base_script
                 custom_var[] customVars = getAllCustomVars(self);
                 if (customVars != null && customVars.length > 0)
                 {
-                    for (int i = 0; i < customVars.length; i++)
-                    {
-                        ranged_int_custom_var ricv = (ranged_int_custom_var)customVars[i];
+                    for (custom_var customVar : customVars) {
+                        ranged_int_custom_var ricv = (ranged_int_custom_var) customVar;
                         String var = ricv.getVarName();
                         int value = ricv.getValue();
-                        if (value != 0)
-                        {
+                        if (value != 0) {
                             setRangedIntCustomVarValue(newPlacedObj, var, value);
                         }
                     }

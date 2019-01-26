@@ -571,7 +571,7 @@ public class spawn_base extends script.base_script
             dctParams.put("intNumToSpawn", params.getInt("intNumToSpawn"));
             dctParams.put("strTemplateToSpawn", params.getString("strBuildingType"));
             dctParams.put("strTemplate", params.getString("strTemplate"));
-            float fltSize = getLocationSize((float)params.getInt("intSize"));
+            float fltSize = getLocationSize(params.getInt("intSize"));
             utils.setScriptVar(self, "dctSpawnInfo", dctParams);
             requestLocation(self, "spawnLocation", locSpawnLocation, 100.0f, fltSize, true, false);
         }
@@ -596,25 +596,25 @@ public class spawn_base extends script.base_script
     }
     public float getLocationSize(float fltLocation) throws InterruptedException
     {
-        if (fltLocation < 32f)
+        if (fltLocation < 32.0f)
         {
-            return 32f;
+            return 32.0f;
         }
         else if (fltLocation >= 32 && fltLocation <= 48)
         {
-            return 48f;
+            return 48.0f;
         }
         else if (fltLocation >= 48 && fltLocation <= 64)
         {
-            return 64f;
+            return 64.0f;
         }
         else if (fltLocation >= 64 && fltLocation <= 80)
         {
-            return 80f;
+            return 80.0f;
         }
         else 
         {
-            return 96f;
+            return 96.0f;
         }
     }
     public boolean isGalaticCivilWarWinner(int faction, int threshold, int imperialScore) throws InterruptedException

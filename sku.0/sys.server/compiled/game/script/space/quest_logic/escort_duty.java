@@ -3,6 +3,8 @@ package script.space.quest_logic;
 import script.*;
 import script.library.*;
 
+import java.util.StringTokenizer;
+
 public class escort_duty extends script.base_script
 {
     public escort_duty()
@@ -86,7 +88,7 @@ public class escort_duty extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 1.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 1.0f, false);
         }
         int questid = questGetQuestId("spacequest/" + questType + "/" + questName);
         if (questid != 0)
@@ -290,7 +292,7 @@ public class escort_duty extends script.base_script
             dmult = 1;
         }
         setObjVar(ship, "damageMultiplier", dmult);
-        space_utils.matchEngineSpeed(player, ship, .5f, true);
+        space_utils.matchEngineSpeed(player, ship, 0.5f, true);
         transform[] translist = getEscortTransforms(self);
         ship_ai.spacePatrol(ship, translist);
         ship_ai.unitSetAttackOrders(ship, ship_ai.ATTACK_ORDERS_HOLD_FIRE);
@@ -299,8 +301,8 @@ public class escort_duty extends script.base_script
         outparams.put("quest", self);
         outparams.put("loc", getLocationObjVar(self, "last_loc"));
         outparams.put("player", player);
-        messageTo(ship, "registerDestination", outparams, 1.f, false);
-        messageTo(self, "sayHello", null, 2.f, false);
+        messageTo(ship, "registerDestination", outparams, 1.0f, false);
+        messageTo(self, "sayHello", null, 2.0f, false);
         int attackPeriod = getIntObjVar(self, "attackPeriod");
         if (attackPeriod > 0)
         {
@@ -349,19 +351,16 @@ public class escort_duty extends script.base_script
         transform[] translist = new transform[escortPoints.length];
         for (int j = 0; j < escortPoints.length; j++)
         {
-            for (int i = 0; i < points.length; i++)
-            {
-                String pointName = getStringObjVar(points[i], "nav_name");
+            for (obj_id point : points) {
+                String pointName = getStringObjVar(point, "nav_name");
                 String eName = escortPoints[j];
-                java.util.StringTokenizer st = new java.util.StringTokenizer(eName, ":");
+                StringTokenizer st = new StringTokenizer(eName, ":");
                 String scene = st.nextToken();
                 eName = st.nextToken();
-                if ((pointName != null) && pointName.equals(eName))
-                {
-                    translist[j] = getTransform_o2w(points[i]);
-                    if (j + 1 == escortPoints.length)
-                    {
-                        setObjVar(self, "last_loc", getLocation(points[i]));
+                if ((pointName != null) && pointName.equals(eName)) {
+                    translist[j] = getTransform_o2w(point);
+                    if (j + 1 == escortPoints.length) {
+                        setObjVar(self, "last_loc", getLocation(point));
                     }
                     break;
                 }
@@ -377,7 +376,7 @@ public class escort_duty extends script.base_script
         }
         obj_id ship = params.getObjId("ship");
         obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
-        messageTo(ship, "missionAbort", null, 2.f, false);
+        messageTo(ship, "missionAbort", null, 2.0f, false);
         String questName = getStringObjVar(self, space_quest.QUEST_NAME);
         String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
         int reasons = getIntObjVar(self, "numResponses");
@@ -395,11 +394,9 @@ public class escort_duty extends script.base_script
         obj_id[] targets = getObjIdArrayObjVar(self, "targets");
         if (targets != null)
         {
-            for (int i = 0; i < targets.length; i++)
-            {
-                if (isIdValid(targets[i]))
-                {
-                    destroyObjectHyperspace(targets[i]);
+            for (obj_id target : targets) {
+                if (isIdValid(target)) {
+                    destroyObjectHyperspace(target);
                 }
             }
             removeObjVar(self, "targets");
@@ -430,7 +427,7 @@ public class escort_duty extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", player);
-            messageTo(self, "initializedQuestPlayer", outparams, 10.f, false);
+            messageTo(self, "initializedQuestPlayer", outparams, 10.0f, false);
         }
         return SCRIPT_OVERRIDE;
     }
@@ -511,7 +508,7 @@ public class escort_duty extends script.base_script
             string_id abort = new string_id("spacequest/" + questType + "/" + questName, "abort");
             prose_package pp = prose.getPackage(abort, 0);
             space_quest.groupTaunt(ship, player, pp);
-            messageTo(ship, "missionAbort", null, 2.f, false);
+            messageTo(ship, "missionAbort", null, 2.0f, false);
         }
         questAborted(self);
         return SCRIPT_CONTINUE;
@@ -592,12 +589,12 @@ public class escort_duty extends script.base_script
         for (int i = k; i < count + k; i++)
         {
             transform gloc = getTransform_o2w(ship);
-            float dist = rand(1000.f, 1200.f);
+            float dist = rand(1000.0f, 1200.0f);
             vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
             gloc = gloc.move_p(n);
             gloc = gloc.yaw_l(3.14f);
-            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.f, 150.f));
-            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.f, 150.f));
+            vector vi = ((gloc.getLocalFrameI_p()).normalize()).multiply(rand(-150.0f, 150.0f));
+            vector vj = ((gloc.getLocalFrameJ_p()).normalize()).multiply(rand(-150.0f, 150.0f));
             vector vd = vi.add(vj);
             gloc = gloc.move_p(vd);
             obj_id newship = space_create.createShipHyperspace(shipList[j], gloc);
@@ -605,7 +602,7 @@ public class escort_duty extends script.base_script
             if (hasObjVar(newship, "hateModifier"))
             {
                 int hateMod = getIntObjVar(newship, "hateModifier");
-                fltHateMod = (float)(hateMod);
+                fltHateMod = (hateMod);
                 if (fltHateMod <= 0)
                 {
                     fltHateMod = 500.0f;
@@ -664,27 +661,21 @@ public class escort_duty extends script.base_script
         obj_id targets[] = getObjIdArrayObjVar(self, "targets");
         int deadships = getIntObjVar(self, "deadships");
         boolean launchWave = false;
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (deadship == targets[i])
-            {
+        for (obj_id target : targets) {
+            if (deadship == target) {
                 deadships++;
                 setObjVar(self, "deadships", deadships);
                 space_quest._removeMissionCriticalShip(player, self, deadship);
                 int shipswave = getIntObjVar(deadship, "wave");
                 int wavecount = getIntObjVar(self, "wave" + shipswave);
                 wavecount--;
-                if (wavecount <= 0)
-                {
+                if (wavecount <= 0) {
                     removeObjVar(self, "wave" + shipswave);
                     launchWave = true;
-                }
-                else 
-                {
+                } else {
                     setObjVar(self, "wave" + shipswave, wavecount);
                 }
-                if (deadships == targets.length)
-                {
+                if (deadships == targets.length) {
                     playClientEffectObj(player, SOUND_DESTROYED_WAVE, player, "");
                     int rewardships = getIntObjVar(self, "rewardships");
                     rewardships += deadships;
@@ -761,11 +752,9 @@ public class escort_duty extends script.base_script
         obj_id[] targets = getObjIdArrayObjVar(self, "targets");
         if (targets != null)
         {
-            for (int i = 0; i < targets.length; i++)
-            {
-                if (isIdValid(targets[i]) && exists(targets[i]))
-                {
-                    destroyObjectHyperspace(targets[i]);
+            for (obj_id target : targets) {
+                if (isIdValid(target) && exists(target)) {
+                    destroyObjectHyperspace(target);
                 }
             }
         }

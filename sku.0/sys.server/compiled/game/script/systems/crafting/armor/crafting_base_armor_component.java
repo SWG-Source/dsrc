@@ -11,10 +11,8 @@ public class crafting_base_armor_component extends script.systems.crafting.craft
     public static final String VERSION = "v1.00.00";
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes, dictionary craftingValuesDictionary) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
         }
@@ -24,14 +22,11 @@ public class crafting_base_armor_component extends script.systems.crafting.craft
     {
         CustomerServiceLog("Crafting", "WARNING: Old crafting_base_armor_component script called for object " + prototype + ", one of the new armor crafting scripts should be used instead!!");
         debugServerConsoleMsg(null, "Beginning assembly-phase prototype property setting");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
             }
         }
         

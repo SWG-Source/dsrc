@@ -82,30 +82,26 @@ public class dump_ship_object_to_datatable extends script.base_script
             }
             obj_id[] objObjects = getBuildingContents(objBuilding);
             sendSystemMessageTestingOnly(self, "dumping contents of " + objBuilding);
-            for (int intI = 0; intI < objObjects.length; intI++)
-            {
-                if (isDumpable(objObjects[intI]))
-                {
+            for (obj_id objObject : objObjects) {
+                if (isDumpable(objObject)) {
                     dictionary dctRow = new dictionary();
                     int intNoCreate = 0;
-                    locTest = getLocation(objObjects[intI]);
-                    String strTemplate = getTemplateName(objObjects[intI]);
+                    locTest = getLocation(objObject);
+                    String strTemplate = getTemplateName(objObject);
                     float fltX = locTest.x;
                     float fltY = locTest.y;
                     float fltZ = locTest.z;
                     String strCellName = space_utils.getCellName(objBuilding, locTest.cell);
-                    if (hasObjVar(objObjects[intI], "intNoCreate"))
-                    {
+                    if (hasObjVar(objObject, "intNoCreate")) {
                         intNoCreate = 1;
                     }
                     String strLocationList = "";
-                    if (hasObjVar(objObjects[intI], "strLocationList"))
-                    {
-                        strLocationList = getStringObjVar(objObjects[intI], "strLocationList");
+                    if (hasObjVar(objObject, "strLocationList")) {
+                        strLocationList = getStringObjVar(objObject, "strLocationList");
                     }
                     dctRow.put("strLocationList", strLocationList);
                     dctRow.put("intNoCreate", intNoCreate);
-                    transform vctTest = getTransform_o2p(objObjects[intI]);
+                    transform vctTest = getTransform_o2p(objObject);
                     vector vctJ = vctTest.getLocalFrameJ_p();
                     vector vctK = vctTest.getLocalFrameK_p();
                     vector vctP = vctTest.getPosition_p();
@@ -120,9 +116,9 @@ public class dump_ship_object_to_datatable extends script.base_script
                     dctRow.put("fltPZ", vctP.z);
                     dctRow.put("strCellName", strCellName);
                     dctRow.put("strTemplate", strTemplate);
-                    String strObjVars = getPackedObjvars(objObjects[intI]);
+                    String strObjVars = getPackedObjvars(objObject);
                     dctRow.put("strObjVars", strObjVars);
-                    String strScripts = utils.getPackedScripts(objObjects[intI]);
+                    String strScripts = utils.getPackedScripts(objObject);
                     dctRow.put("strScripts", strScripts);
                     datatable.serverDataTableAddRow(strDataTable, dctRow);
                 }
@@ -158,14 +154,11 @@ public class dump_ship_object_to_datatable extends script.base_script
         Vector objContents = new Vector();
         objContents.setSize(0);
         obj_id[] objCells = getContents(objObject);
-        for (int intI = 0; intI < objCells.length; intI++)
-        {
-            obj_id[] objTestContents = getContents(objCells[intI]);
-            if ((objTestContents != null) && (objTestContents.length > 0))
-            {
-                for (int intJ = 0; intJ < objTestContents.length; intJ++)
-                {
-                    objContents = utils.addElement(objContents, objTestContents[intJ]);
+        for (obj_id objCell : objCells) {
+            obj_id[] objTestContents = getContents(objCell);
+            if ((objTestContents != null) && (objTestContents.length > 0)) {
+                for (obj_id objTestContent : objTestContents) {
+                    objContents = utils.addElement(objContents, objTestContent);
                 }
             }
         }

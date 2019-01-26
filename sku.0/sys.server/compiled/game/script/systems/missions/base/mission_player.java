@@ -28,31 +28,24 @@ public class mission_player extends script.systems.missions.base.mission_player_
             "object/draft_schematic/item/quest_item/output_governor.iff",
             "object/draft_schematic/item/quest_item/power_regulator.iff"
         };
-        for (int intI = 0; intI < strSchematics.length; intI++)
-        {
+        for (String strSchematic1 : strSchematics) {
             boolean boolHasMission = false;
-            if (hasSchematic(self, strSchematics[intI]))
-            {
+            if (hasSchematic(self, strSchematic1)) {
                 obj_id[] objMissions = getMissionObjects(self);
-                if ((objMissions != null) && (objMissions.length > 0))
-                {
-                    for (int intM = 0; intM < objMissions.length; intM++)
-                    {
-                        if (hasObjVar(objMissions[intM], "strSchematic"))
-                        {
+                if ((objMissions != null) && (objMissions.length > 0)) {
+                    for (int intM = 0; intM < objMissions.length; intM++) {
+                        if (hasObjVar(objMissions[intM], "strSchematic")) {
                             String strSchematic = getStringObjVar(objMissions[intM], "strSchematic");
-                            String strTest = strSchematics[intI];
-                            if (strSchematic.equals(strTest))
-                            {
+                            String strTest = strSchematic1;
+                            if (strSchematic.equals(strTest)) {
                                 intM = objMissions.length;
                                 boolHasMission = true;
                             }
                         }
                     }
                 }
-                if (!boolHasMission)
-                {
-                    revokeSchematic(self, strSchematics[intI]);
+                if (!boolHasMission) {
+                    revokeSchematic(self, strSchematic1);
                 }
             }
         }
@@ -157,52 +150,39 @@ public class mission_player extends script.systems.missions.base.mission_player_
             int intBountyDifficulty = getBountyDifficulty(objPlayer);
             int intPlayerDifficulty = getLevel(objPlayer);
             int pvpBountyCount = 0;
-            for (int intI = 0; intI < objMissionData.length; intI++)
-            {
-                cleanMissionObject(objMissionData[intI]);
+            for (obj_id objMissionDatum : objMissionData) {
+                cleanMissionObject(objMissionDatum);
                 obj_id objTest = null;
                 LOG("missions", "Making regular missions");
-                if (pvpBountyCount < 1)
-                {
-                    objTest = createJediBountyMission(objMissionData[intI], objMissionTerminal, strFaction, intPlayerDifficulty, objPlayer, missions.BOUNTY_FLAG_SMUGGLER);
-                    if (objTest == null)
-                    {
-                        objTest = createJediBountyMission(objMissionData[intI], objMissionTerminal, strFaction, intPlayerDifficulty, objPlayer, missions.BOUNTY_FLAG_NONE);
-                        if (objTest == null)
-                        {
-                            objTest = createDynamicBountyMission(objMissionData[intI], objMissionTerminal, intBountyDifficulty, intPlayerDifficulty, locTest.area, strFaction);
+                if (pvpBountyCount < 1) {
+                    objTest = createJediBountyMission(objMissionDatum, objMissionTerminal, strFaction, intPlayerDifficulty, objPlayer, missions.BOUNTY_FLAG_SMUGGLER);
+                    if (objTest == null) {
+                        objTest = createJediBountyMission(objMissionDatum, objMissionTerminal, strFaction, intPlayerDifficulty, objPlayer, missions.BOUNTY_FLAG_NONE);
+                        if (objTest == null) {
+                            objTest = createDynamicBountyMission(objMissionDatum, objMissionTerminal, intBountyDifficulty, intPlayerDifficulty, locTest.area, strFaction);
                         }
                     }
                 }
-                if (pvpBountyCount >= 1 && pvpBountyCount < 3)
-                {
-                    objTest = createJediBountyMission(objMissionData[intI], objMissionTerminal, opposingFaction, intPlayerDifficulty, objPlayer, missions.BOUNTY_FLAG_NONE);
-                    if (objTest == null)
-                    {
-                        objTest = createDynamicBountyMission(objMissionData[intI], objMissionTerminal, intBountyDifficulty, intPlayerDifficulty, locTest.area, strFaction);
+                if (pvpBountyCount >= 1 && pvpBountyCount < 3) {
+                    objTest = createJediBountyMission(objMissionDatum, objMissionTerminal, opposingFaction, intPlayerDifficulty, objPlayer, missions.BOUNTY_FLAG_NONE);
+                    if (objTest == null) {
+                        objTest = createDynamicBountyMission(objMissionDatum, objMissionTerminal, intBountyDifficulty, intPlayerDifficulty, locTest.area, strFaction);
                     }
                 }
-                if (pvpBountyCount >= 3 && pvpBountyCount < 5)
-                {
-                    objTest = createJediBountyMission(objMissionData[intI], objMissionTerminal, strFaction, intPlayerDifficulty, objPlayer, missions.BOUNTY_FLAG_NONE);
-                    if (objTest == null)
-                    {
-                        objTest = createDynamicBountyMission(objMissionData[intI], objMissionTerminal, intBountyDifficulty, intPlayerDifficulty, locTest.area, strFaction);
+                if (pvpBountyCount >= 3 && pvpBountyCount < 5) {
+                    objTest = createJediBountyMission(objMissionDatum, objMissionTerminal, strFaction, intPlayerDifficulty, objPlayer, missions.BOUNTY_FLAG_NONE);
+                    if (objTest == null) {
+                        objTest = createDynamicBountyMission(objMissionDatum, objMissionTerminal, intBountyDifficulty, intPlayerDifficulty, locTest.area, strFaction);
                     }
                 }
-                if (pvpBountyCount >= 5)
-                {
-                    objTest = createDynamicBountyMission(objMissionData[intI], objMissionTerminal, intBountyDifficulty, intPlayerDifficulty, locTest.area, strFaction);
+                if (pvpBountyCount >= 5) {
+                    objTest = createDynamicBountyMission(objMissionDatum, objMissionTerminal, intBountyDifficulty, intPlayerDifficulty, locTest.area, strFaction);
                 }
-                if (objTest == null)
-                {
-                    setMissionStatus(objMissionData[intI], 0);
-                }
-                else 
-                {
-                    setMissionStatus(objMissionData[intI], 1);
-                    if (isIdValid(objHq))
-                    {
+                if (objTest == null) {
+                    setMissionStatus(objMissionDatum, 0);
+                } else {
+                    setMissionStatus(objMissionDatum, 1);
+                    if (isIdValid(objHq)) {
                         setObjVar(objTest, "hq", objHq);
                     }
                 }
@@ -550,7 +530,7 @@ public class mission_player extends script.systems.missions.base.mission_player_
         Long lngId;
         try
         {
-            lngId = new Long(strName);
+            lngId = Long.valueOf(strName);
         }
         catch(NumberFormatException err)
         {
@@ -927,10 +907,8 @@ public class mission_player extends script.systems.missions.base.mission_player_
         {
             objListeners = getResizeableObjIdArrayObjVar(self, strObjVar);
         }
-        for (int intI = 0; intI < objListeners.size(); intI++)
-        {
-            if (((obj_id)objListeners.get(intI)) == objListener)
-            {
+        for (Object objListener1 : objListeners) {
+            if (((obj_id) objListener1) == objListener) {
                 LOG("DESIGNER_FATAL", "objListener of " + objListener + " is alread listening to " + self);
                 return SCRIPT_CONTINUE;
             }

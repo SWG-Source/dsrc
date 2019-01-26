@@ -86,29 +86,23 @@ public class newbie extends script.theme_park.newbie_tutorial.tutorial_base
         transferBankToInventory(self);
         obj_id playerInv = utils.getInventoryContainer(self);
         obj_id[] contents = getContents(playerInv);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "newbie.item"))
-            {
-                if (hasScript(contents[i], BOX_ITEM_SCRIPT))
-                {
-                    detachScript(contents[i], BOX_ITEM_SCRIPT);
+        for (obj_id content1 : contents) {
+            if (hasObjVar(content1, "newbie.item")) {
+                if (hasScript(content1, BOX_ITEM_SCRIPT)) {
+                    detachScript(content1, BOX_ITEM_SCRIPT);
                 }
-                destroyObject(contents[i]);
+                destroyObject(content1);
             }
         }
         contents = getContents(self);
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], "newbie.item"))
-            {
-                destroyObject(contents[i]);
+        for (obj_id content : contents) {
+            if (hasObjVar(content, "newbie.item")) {
+                destroyObject(content);
             }
         }
         removeObjVar(self, "banking_bankid");
-        for (int i = 0; i < BOX_CONTENTS.length; i++)
-        {
-            createObject(BOX_CONTENTS[i], playerInv, "");
+        for (String boxContent : BOX_CONTENTS) {
+            createObject(boxContent, playerInv, "");
         }
         removeObjVar(self, loot.VAR_DENY_LOOT);
         obj_id pInv = utils.getInventoryContainer(self);
@@ -224,67 +218,53 @@ public class newbie extends script.theme_park.newbie_tutorial.tutorial_base
     }
     public int OnNewbieTutorialResponse(obj_id self, String action) throws InterruptedException
     {
-        if (action.equals("clientReady"))
-        {
-            location loc = getLocation(self);
-            String area = loc.area;
-            if (area.equals("tutorial"))
-            {
-                beginTutorial(self);
-            }
-            else 
-            {
-                utils.setScriptVar(self, "newbie.hasExitedTutorial", true);
-            }
-        }
-        else if (action.equals("zoomCamera"))
-        {
-            if (utils.hasScriptVar(self, "newbie.waitingForCameraZoom"))
-            {
-                utils.removeScriptVar(self, "newbie.waitingForCameraZoom");
-                messageTo(self, "handleChatWindow", null, 10.0f, false);
-            }
-        }
-        else if (action.equals("openCharacterSheet"))
-        {
-            utils.removeScriptVar(self, "newbie.waitingForcharacterSheet");
-            messageTo(self, "handleStatusScreenInfo", null, 1, false);
-        }
-        else if (action.equals("closeCharacterSheet"))
-        {
-            utils.removeScriptVar(self, "newbie.waitingForcharacterSheetClose");
-        }
-        else if (action.equals("openInventory"))
-        {
-            if (utils.hasScriptVar(self, "newbie.waitingForInventoryOpen"))
-            {
-                if (isInRoom(self, "r2"))
-                {
-                    utils.removeScriptVar(self, "newbie.waitingForInventoryOpen");
-                    messageTo(self, "handleToolbarPrompt", null, 6, false);
-                    newbieTutorialRequest(self, "closeInventory");
+        switch (action) {
+            case "clientReady":
+                location loc = getLocation(self);
+                String area = loc.area;
+                if (area.equals("tutorial")) {
+                    beginTutorial(self);
+                } else {
+                    utils.setScriptVar(self, "newbie.hasExitedTutorial", true);
                 }
-                utils.removeScriptVar(self, "newbie.waitingForInventoryOpen");
-            }
-        }
-        else if (action.equals("closeInventory"))
-        {
-            utils.setScriptVar(self, "newbie.skipCloseInventory", true);
-            if (utils.hasScriptVar(self, "newbie.waitingForInventoryClose"))
-            {
-                messageTo(self, "handlePromptToCommerceRoom", null, 5, false);
-            }
-            utils.removeScriptVar(self, "newbie.waitingForInventoryClose");
-        }
-        else if (action.equals("changeMouseMode"))
-        {
-        }
-        else if (action.equals("openStatMigration"))
-        {
-        }
-        else if (action.equals("closeHolocron"))
-        {
-            messageTo(self, "handleMoveToItemRoomPrompt", null, 1, false);
+                break;
+            case "zoomCamera":
+                if (utils.hasScriptVar(self, "newbie.waitingForCameraZoom")) {
+                    utils.removeScriptVar(self, "newbie.waitingForCameraZoom");
+                    messageTo(self, "handleChatWindow", null, 10.0f, false);
+                }
+                break;
+            case "openCharacterSheet":
+                utils.removeScriptVar(self, "newbie.waitingForcharacterSheet");
+                messageTo(self, "handleStatusScreenInfo", null, 1, false);
+                break;
+            case "closeCharacterSheet":
+                utils.removeScriptVar(self, "newbie.waitingForcharacterSheetClose");
+                break;
+            case "openInventory":
+                if (utils.hasScriptVar(self, "newbie.waitingForInventoryOpen")) {
+                    if (isInRoom(self, "r2")) {
+                        utils.removeScriptVar(self, "newbie.waitingForInventoryOpen");
+                        messageTo(self, "handleToolbarPrompt", null, 6, false);
+                        newbieTutorialRequest(self, "closeInventory");
+                    }
+                    utils.removeScriptVar(self, "newbie.waitingForInventoryOpen");
+                }
+                break;
+            case "closeInventory":
+                utils.setScriptVar(self, "newbie.skipCloseInventory", true);
+                if (utils.hasScriptVar(self, "newbie.waitingForInventoryClose")) {
+                    messageTo(self, "handlePromptToCommerceRoom", null, 5, false);
+                }
+                utils.removeScriptVar(self, "newbie.waitingForInventoryClose");
+                break;
+            case "changeMouseMode":
+                break;
+            case "openStatMigration":
+                break;
+            case "closeHolocron":
+                messageTo(self, "handleMoveToItemRoomPrompt", null, 1, false);
+                break;
         }
         return SCRIPT_CONTINUE;
     }

@@ -216,18 +216,15 @@ public class locked_container extends script.base_script
             }
             if (guildsWithAccess != null && guildsWithAccess.length > 0)
             {
-                for (int i = 0, j = guildsWithAccess.length; i < j; i++)
-                {
-                    utils.addElement(accessList, "Guild: " + guildGetName(guildsWithAccess[i]));
+                for (int guildsWithAccess1 : guildsWithAccess) {
+                    utils.addElement(accessList, "Guild: " + guildGetName(guildsWithAccess1));
                 }
             }
             if (accessors != null && accessors.length > 0)
             {
-                for (int i = 0, j = accessors.length; i < j; i++)
-                {
-                    if (isIdValid(accessors[i]))
-                    {
-                        utils.addElement(accessList, "" + getPlayerFullName(accessors[i]));
+                for (obj_id accessor : accessors) {
+                    if (isIdValid(accessor)) {
+                        utils.addElement(accessList, "" + getPlayerFullName(accessor));
                     }
                 }
             }
@@ -306,10 +303,8 @@ public class locked_container extends script.base_script
                 boolean addable = true;
                 if (guildsOnContainer != null && guildsOnContainer.length > 0)
                 {
-                    for (int i = 0, j = guildsOnContainer.length; i < j; i++)
-                    {
-                        if (guildsOnContainer[i] == guildId)
-                        {
+                    for (int i1 : guildsOnContainer) {
+                        if (i1 == guildId) {
                             addable = false;
                         }
                     }
@@ -344,10 +339,8 @@ public class locked_container extends script.base_script
                 boolean removable = false;
                 if (guildsOnContainer != null && guildsOnContainer.length > 0)
                 {
-                    for (int i = 0, j = guildsOnContainer.length; i < j; i++)
-                    {
-                        if (guildsOnContainer[i] == guildId)
-                        {
+                    for (int i1 : guildsOnContainer) {
+                        if (i1 == guildId) {
                             removable = true;
                         }
                     }

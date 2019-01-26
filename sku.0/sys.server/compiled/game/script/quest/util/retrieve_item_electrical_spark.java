@@ -41,7 +41,7 @@ public class retrieve_item_electrical_spark extends script.base_script
                     }
                     else 
                     {
-                        playClientEffectLoc(player, "clienteffect/quest_item_electrical_spark.cef", getLocation(self), 1f);
+                        playClientEffectLoc(player, "clienteffect/quest_item_electrical_spark.cef", getLocation(self), 1.0f);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class retrieve_item_electrical_spark extends script.base_script
         obj_id player = params.getObjId("player");
         if (isIdValid(player))
         {
-            playClientEffectLoc(player, "clienteffect/quest_item_electrical_spark.cef", getLocation(self), 1f);
+            playClientEffectLoc(player, "clienteffect/quest_item_electrical_spark.cef", getLocation(self), 1.0f);
         }
         setPosture(self, POSTURE_INCAPACITATED);
         return SCRIPT_CONTINUE;

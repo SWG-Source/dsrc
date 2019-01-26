@@ -40,19 +40,15 @@ public class workshop_droid extends script.base_script
         obj_id[] objContents = utils.getContents(player, true);
         if (objContents != null)
         {
-            for (int intI = 0; intI < objContents.length; intI++)
-            {
-                String strItemTemplate = getTemplateName(objContents[intI]);
-                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery.iff"))
-                {
-                    obj_id battery = objContents[intI];
+            for (obj_id objContent : objContents) {
+                String strItemTemplate = getTemplateName(objContent);
+                if (strItemTemplate.equals("object/tangible/dungeon/death_watch_bunker/drill_battery.iff")) {
+                    obj_id battery = objContent;
                     destroyObject(battery);
                     obj_id playerInv = getObjectInSlot(player, "inventory");
-                    if (isIdValid(playerInv))
-                    {
+                    if (isIdValid(playerInv)) {
                         obj_id item = createObject("object/tangible/dungeon/death_watch_bunker/drill_battery_clean.iff", playerInv, "");
-                        if (isIdValid(item))
-                        {
+                        if (isIdValid(item)) {
                             sendSystemMessage(player, BATTERY_CLEANED);
                             return SCRIPT_CONTINUE;
                         }

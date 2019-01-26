@@ -29,97 +29,76 @@ public class base extends script.base_script
         }
         String name = getStringObjVar(self, "skill_buff.name");
         String newName = "";
-        if (name.equals("skill_buff_carbine_accuracy"))
-        {
-            newName = "fs_carbine_acc";
-        }
-        else if (name.equals("skill_buff_carbine_speed"))
-        {
-            newName = "fs_carbine_spd";
-        }
-        else if (name.equals("skill_buff_heavy_weapon_accuracy"))
-        {
-            newName = "fs_heavy_acc";
-        }
-        else if (name.equals("skill_buff_heavy_weapon_speed"))
-        {
-            newName = "fs_heavy_spd";
-        }
-        else if (name.equals("skill_buff_mask_scent"))
-        {
-            newName = "fs_mask_scent";
-        }
-        else if (name.equals("skill_buff_melee_accuracy"))
-        {
-            newName = "fs_melee_acc";
-        }
-        else if (name.equals("skill_buff_melee_defense"))
-        {
-            newName = "fs_melee_def";
-        }
-        else if (name.equals("skill_buff_onehandmelee_accuracy"))
-        {
-            newName = "fs_1h_acc";
-        }
-        else if (name.equals("skill_buff_onehandmelee_speed"))
-        {
-            newName = "fs_1h_spd";
-        }
-        else if (name.equals("skill_buff_pistol_accuracy"))
-        {
-            newName = "fs_pistol_acc";
-        }
-        else if (name.equals("skill_buff_pistol_speed"))
-        {
-            newName = "fs_pistol_spd";
-        }
-        else if (name.equals("skill_buff_polearm_accuracy"))
-        {
-            newName = "fs_polearm_acc";
-        }
-        else if (name.equals("skill_buff_polearm_speed"))
-        {
-            newName = "fs_polearm_spd";
-        }
-        else if (name.equals("skill_buff_ranged_accuracy"))
-        {
-            newName = "fs_ranged_acc";
-        }
-        else if (name.equals("skill_buff_ranged_defense"))
-        {
-            newName = "fs_ranged_def";
-        }
-        else if (name.equals("skill_buff_rifle_accuracy"))
-        {
-            newName = "fs_rifle_acc";
-        }
-        else if (name.equals("skill_buff_rifle_speed"))
-        {
-            newName = "fs_rifle_spd";
-        }
-        else if (name.equals("skill_buff_thrown_accuracy"))
-        {
-            newName = "fs_thrown_acc";
-        }
-        else if (name.equals("skill_buff_thrown_speed"))
-        {
-            newName = "fs_thrown_spd";
-        }
-        else if (name.equals("skill_buff_twohandmelee_accuracy"))
-        {
-            newName = "fs_2h_acc";
-        }
-        else if (name.equals("skill_buff_twohandmelee_speed"))
-        {
-            newName = "fs_2h_spd";
-        }
-        else if (name.equals("skill_buff_unarmed_accuracy"))
-        {
-            newName = "fs_unarmed_acc";
-        }
-        else if (name.equals("skill_buff_unarmed_speed"))
-        {
-            newName = "fs_unarmed_spd";
+        switch (name) {
+            case "skill_buff_carbine_accuracy":
+                newName = "fs_carbine_acc";
+                break;
+            case "skill_buff_carbine_speed":
+                newName = "fs_carbine_spd";
+                break;
+            case "skill_buff_heavy_weapon_accuracy":
+                newName = "fs_heavy_acc";
+                break;
+            case "skill_buff_heavy_weapon_speed":
+                newName = "fs_heavy_spd";
+                break;
+            case "skill_buff_mask_scent":
+                newName = "fs_mask_scent";
+                break;
+            case "skill_buff_melee_accuracy":
+                newName = "fs_melee_acc";
+                break;
+            case "skill_buff_melee_defense":
+                newName = "fs_melee_def";
+                break;
+            case "skill_buff_onehandmelee_accuracy":
+                newName = "fs_1h_acc";
+                break;
+            case "skill_buff_onehandmelee_speed":
+                newName = "fs_1h_spd";
+                break;
+            case "skill_buff_pistol_accuracy":
+                newName = "fs_pistol_acc";
+                break;
+            case "skill_buff_pistol_speed":
+                newName = "fs_pistol_spd";
+                break;
+            case "skill_buff_polearm_accuracy":
+                newName = "fs_polearm_acc";
+                break;
+            case "skill_buff_polearm_speed":
+                newName = "fs_polearm_spd";
+                break;
+            case "skill_buff_ranged_accuracy":
+                newName = "fs_ranged_acc";
+                break;
+            case "skill_buff_ranged_defense":
+                newName = "fs_ranged_def";
+                break;
+            case "skill_buff_rifle_accuracy":
+                newName = "fs_rifle_acc";
+                break;
+            case "skill_buff_rifle_speed":
+                newName = "fs_rifle_spd";
+                break;
+            case "skill_buff_thrown_accuracy":
+                newName = "fs_thrown_acc";
+                break;
+            case "skill_buff_thrown_speed":
+                newName = "fs_thrown_spd";
+                break;
+            case "skill_buff_twohandmelee_accuracy":
+                newName = "fs_2h_acc";
+                break;
+            case "skill_buff_twohandmelee_speed":
+                newName = "fs_2h_spd";
+                break;
+            case "skill_buff_unarmed_accuracy":
+                newName = "fs_unarmed_acc";
+                break;
+            case "skill_buff_unarmed_speed":
+                newName = "fs_unarmed_spd";
+                break;
         }
         if (!newName.equals(""))
         {

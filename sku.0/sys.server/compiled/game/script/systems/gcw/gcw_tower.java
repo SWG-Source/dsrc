@@ -121,7 +121,7 @@ public class gcw_tower extends script.base_script
     {
         playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", getLocation(self), 0);
         setInvulnerable(self, true);
-        messageTo(self, "destroyGCWTower", null, 1f, false);
+        messageTo(self, "destroyGCWTower", null, 1.0f, false);
         gcw.gcwInvasionCreditForDestroy(killer);
         return;
     }
@@ -150,11 +150,8 @@ public class gcw_tower extends script.base_script
         }
         if (objects != null && objects.length > 0)
         {
-            for (int i = 0; i < objects.length; i++)
-            {
-                obj_id object = objects[i];
-                if (isIdValid(object) && isMob(object) && !isPlayer(object) && !isIdValid(getMaster(object)) && factions.isPlayerSameGcwFactionAsSchedulerObject(object, self))
-                {
+            for (obj_id object : objects) {
+                if (isIdValid(object) && isMob(object) && !isPlayer(object) && !isIdValid(getMaster(object)) && factions.isPlayerSameGcwFactionAsSchedulerObject(object, self)) {
                     buff.applyBuff(object, self, "tower_defender");
                 }
             }

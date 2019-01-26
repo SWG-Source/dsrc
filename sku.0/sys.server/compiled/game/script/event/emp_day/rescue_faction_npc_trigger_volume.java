@@ -89,7 +89,7 @@ public class rescue_faction_npc_trigger_volume extends script.base_script
                 }
                 prose_package pp = new prose_package();
                 prose.setStringId(pp, new string_id("event/empire_day", "rescue_onleave_notgood"));
-                commPlayers(whoTriggeredMe, npc, sound, 10f, whoTriggeredMe, pp);
+                commPlayers(whoTriggeredMe, npc, sound, 10.0f, whoTriggeredMe, pp);
                 utils.setScriptVar(whoTriggeredMe, "commPlayerOnLeave", true);
             }
             return SCRIPT_CONTINUE;

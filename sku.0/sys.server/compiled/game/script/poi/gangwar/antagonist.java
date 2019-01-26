@@ -240,9 +240,9 @@ public class antagonist extends script.poi.base.scenario_actor
             {
                 continue;
             }
-            ai_lib.addToMentalStateToward(attacker, enemy, FEAR, 50f);
+            ai_lib.addToMentalStateToward(attacker, enemy, FEAR, 50.0f);
             startCombat(attacker, enemy);
-            ai_lib.addToMentalStateToward(enemy, attacker, FEAR, 50f);
+            ai_lib.addToMentalStateToward(enemy, attacker, FEAR, 50.0f);
             startCombat(enemy, attacker);
         }
         obj_id poiMaster = poi.getBaseObject(self);
@@ -262,18 +262,15 @@ public class antagonist extends script.poi.base.scenario_actor
                     continue;
                 }
                 setObjVar(mediators[i], "attackedByElse", 1);
-                for (int j = 0; j < antagonists.length; j++)
-                {
-                    if (antagonists[j] == null)
-                    {
+                for (obj_id antagonist : antagonists) {
+                    if (antagonist == null) {
                         continue;
                     }
-                    ai_lib.addToMentalStateToward(mediators[i], antagonists[j], FEAR, 50f);
-                    ai_lib.addToMentalStateToward(mediators[i], antagonists[j], ANGER, 100f);
-                    ai_lib.addToMentalStateToward(antagonists[j], mediators[i], FEAR, 50f);
-                    ai_lib.addToMentalStateToward(antagonists[j], mediators[i], ANGER, 100f);
-                    if (k == 0)
-                    {
+                    ai_lib.addToMentalStateToward(mediators[i], antagonist, FEAR, 50.0f);
+                    ai_lib.addToMentalStateToward(mediators[i], antagonist, ANGER, 100.0f);
+                    ai_lib.addToMentalStateToward(antagonist, mediators[i], FEAR, 50.0f);
+                    ai_lib.addToMentalStateToward(antagonist, mediators[i], ANGER, 100.0f);
+                    if (k == 0) {
                         setObjVar(antagonists[i], "attackedByElse", 1);
                     }
                 }
@@ -283,7 +280,7 @@ public class antagonist extends script.poi.base.scenario_actor
         if (bclose)
         {
             poi.quickSay(battacker, "a_whoareyou");
-            ai_lib.addToMentalStateToward(battacker, breacher, FEAR, 50f);
+            ai_lib.addToMentalStateToward(battacker, breacher, FEAR, 50.0f);
             startCombat(battacker, breacher);
         }
         return SCRIPT_CONTINUE;
@@ -294,12 +291,10 @@ public class antagonist extends script.poi.base.scenario_actor
         {
             return SCRIPT_OVERRIDE;
         }
-        obj_id[] players = getPlayerCreaturesInRange(self, 80f);
-        for (int i = 0; i < players.length; i++)
-        {
-            if (isIncapacitated(players[i]) && getPosture(players[i]) != POSTURE_DEAD)
-            {
-                pclib.coupDeGrace(players[i], self);
+        obj_id[] players = getPlayerCreaturesInRange(self, 80.0f);
+        for (obj_id player : players) {
+            if (isIncapacitated(player) && getPosture(player) != POSTURE_DEAD) {
+                pclib.coupDeGrace(player, self);
                 return SCRIPT_OVERRIDE;
             }
         }
@@ -309,13 +304,11 @@ public class antagonist extends script.poi.base.scenario_actor
             return SCRIPT_CONTINUE;
         }
         obj_id[] mediators = scenario.getTeamMembers(poiMaster, "mediator");
-        for (int i = 0; i < mediators.length; i++)
-        {
-            if (isIncapacitated(mediators[i]) || ai_lib.isDead(mediators[i]))
-            {
+        for (obj_id mediator : mediators) {
+            if (isIncapacitated(mediator) || ai_lib.isDead(mediator)) {
                 continue;
             }
-            startCombat(self, mediators[i]);
+            startCombat(self, mediator);
             return SCRIPT_CONTINUE;
         }
         if (getPosture(self) == POSTURE_UPRIGHT)
@@ -347,10 +340,8 @@ public class antagonist extends script.poi.base.scenario_actor
             return SCRIPT_CONTINUE;
         }
         obj_id[] mediators = scenario.getTeamMembers(poiMaster, "mediator");
-        for (int i = 0; i < mediators.length; i++)
-        {
-            if (mediators[i] == attacker)
-            {
+        for (obj_id mediator : mediators) {
+            if (mediator == attacker) {
                 return SCRIPT_CONTINUE;
             }
         }

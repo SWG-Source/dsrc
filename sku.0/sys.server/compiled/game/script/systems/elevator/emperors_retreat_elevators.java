@@ -15,11 +15,11 @@ public class emperors_retreat_elevators extends script.base_script
         if (isIdValid(elevator))
         {
             here.x = 13.01f;
-            here.y = .6f;
+            here.y = 0.6f;
             here.z = -35.918f;
             here.cell = elevator;
             obj_id elevatorTerminalA = createObject("object/tangible/terminal/terminal_elevator_up.iff", here);
-            here.y = 20f;
+            here.y = 20.0f;
             obj_id elevatorTerminalB = createObject("object/tangible/terminal/terminal_elevator_down.iff", here);
             setObjVar(self, "terminal1", elevatorTerminalA);
             setObjVar(self, "terminal2", elevatorTerminalB);
@@ -32,7 +32,7 @@ public class emperors_retreat_elevators extends script.base_script
         if (isIdValid(backelevator))
         {
             here.x = -52.983f;
-            here.y = .2f;
+            here.y = 0.2f;
             here.z = -12.49f;
             here.cell = backelevator;
             obj_id elevatorTerminalC = createObject("object/tangible/terminal/terminal_elevator_down.iff", here);

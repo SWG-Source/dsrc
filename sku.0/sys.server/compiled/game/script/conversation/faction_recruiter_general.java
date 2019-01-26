@@ -123,7 +123,7 @@ public class faction_recruiter_general extends script.base_script
     }
     public float faction_recruiter_general_tokenDF_getRebelScore(obj_id player, obj_id npc) throws InterruptedException
     {
-        return (float)getIntObjVar(npc, "Rebel.controlScore");
+        return getIntObjVar(npc, "Rebel.controlScore");
     }
     public int faction_recruiter_general_handleBranch1(obj_id player, obj_id npc, string_id response) throws InterruptedException
     {

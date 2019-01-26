@@ -38,7 +38,7 @@ public class squad_member extends script.base_script
         intMembers = intMembers - 1;
         if (intMembers > 0)
         {
-            fltRemainingPercentage = (float)intMembers / (float)intStartPopulation;
+            fltRemainingPercentage = (float)intMembers / intStartPopulation;
         }
         float fltThresholdPercentage = utils.getFloatScriptVar(self, "fltDestroyPercentage");
         if (fltRemainingPercentage <= fltThresholdPercentage)

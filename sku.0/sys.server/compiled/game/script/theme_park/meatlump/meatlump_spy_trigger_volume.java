@@ -23,7 +23,7 @@ public class meatlump_spy_trigger_volume extends script.base_script
     public static final String QUEST_STRING = "quest/mtp_find_infiltrator_";
     public static final String QUEST_TASK_NAME = "findInfiltrator";
     public static final String QUEST_SIGNAL = "findTheInfiltrator";
-    public static final float TRIGGER_RADIUS = 2f;
+    public static final float TRIGGER_RADIUS = 2.0f;
     public int OnInitialize(obj_id self) throws InterruptedException
     {
         createTriggerVolume(TRIGGER_NAME_PREFIX + self, TRIGGER_RADIUS, true);

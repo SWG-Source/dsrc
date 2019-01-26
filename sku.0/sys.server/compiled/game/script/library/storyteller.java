@@ -424,8 +424,8 @@ public class storyteller extends script.base_script
         float dx = locPoint.x - locOrigin.x;
         float dz = locPoint.z - locOrigin.z;
         float fltRadians = (float)Math.toRadians(fltAngle);
-        float fltC = (float)Math.cos(fltRadians);
-        float fltS = (float)Math.sin(fltRadians);
+        float fltC = (float) StrictMath.cos(fltRadians);
+        float fltS = (float) StrictMath.sin(fltRadians);
         location locNewOffset = (location)locOrigin.clone();
         locNewOffset.x += (dx * fltC) + (dz * fltS);
         locNewOffset.y = locPoint.y;
@@ -921,8 +921,8 @@ public class storyteller extends script.base_script
         float dx = locPoint.x - locOrigin.x;
         float dz = locPoint.z - locOrigin.z;
         float fltRadians = (float)Math.toRadians(fltAngle);
-        float fltC = (float)Math.cos(fltRadians);
-        float fltS = (float)Math.sin(fltRadians);
+        float fltC = (float) StrictMath.cos(fltRadians);
+        float fltS = (float) StrictMath.sin(fltRadians);
         location locNewOffset = (location)locOrigin.clone();
         locNewOffset.x += -(dx * fltC) + (dz * fltS);
         locNewOffset.y = locPoint.y;

@@ -138,11 +138,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBoots = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_boots.iff", true, false);
         obj_id[] mabariBoots = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_boots.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBoots.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeBoots[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeBoot : compositeBoots) {
+            obj_id crafter = getCrafter(compositeBoot);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -151,11 +149,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneBoots.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneBoots[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneBoot : boneBoots) {
+            obj_id crafter = getCrafter(boneBoot);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -164,11 +160,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < mabariBoots.length; ++i)
-        {
-            obj_id crafter = getCrafter(mabariBoots[i]);
-            if (crafter == player)
-            {
+        for (obj_id mabariBoot : mabariBoots) {
+            obj_id crafter = getCrafter(mabariBoot);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -222,11 +216,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBracers = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_bracer_l.iff", true, false);
         obj_id[] paddedBracers = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/padded/armor_padded_s01_bracer_l.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBracers.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeBracers[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeBracer : compositeBracers) {
+            obj_id crafter = getCrafter(compositeBracer);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -235,11 +227,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneBracers.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneBracers[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneBracer : boneBracers) {
+            obj_id crafter = getCrafter(boneBracer);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -248,11 +238,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < paddedBracers.length; ++i)
-        {
-            obj_id crafter = getCrafter(paddedBracers[i]);
-            if (crafter == player)
-            {
+        for (obj_id paddedBracer : paddedBracers) {
+            obj_id crafter = getCrafter(paddedBracer);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -287,11 +275,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBracers = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_bracer_r.iff", true, false);
         obj_id[] paddedBracers = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/padded/armor_padded_s01_bracer_r.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBracers.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeBracers[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeBracer : compositeBracers) {
+            obj_id crafter = getCrafter(compositeBracer);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -300,11 +286,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneBracers.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneBracers[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneBracer : boneBracers) {
+            obj_id crafter = getCrafter(boneBracer);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -313,11 +297,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < paddedBracers.length; ++i)
-        {
-            obj_id crafter = getCrafter(paddedBracers[i]);
-            if (crafter == player)
-            {
+        for (obj_id paddedBracer : paddedBracers) {
+            obj_id crafter = getCrafter(paddedBracer);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -352,11 +334,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBiceps = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_bicep_r.iff", true, false);
         obj_id[] paddedBiceps = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/padded/armor_padded_s01_bicep_r.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBiceps.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeBiceps[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeBicep : compositeBiceps) {
+            obj_id crafter = getCrafter(compositeBicep);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -365,11 +345,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneBiceps.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneBiceps[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneBicep : boneBiceps) {
+            obj_id crafter = getCrafter(boneBicep);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -378,11 +356,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < paddedBiceps.length; ++i)
-        {
-            obj_id crafter = getCrafter(paddedBiceps[i]);
-            if (crafter == player)
-            {
+        for (obj_id paddedBicep : paddedBiceps) {
+            obj_id crafter = getCrafter(paddedBicep);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -417,11 +393,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBiceps = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_bicep_l.iff", true, false);
         obj_id[] paddedBiceps = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/padded/armor_padded_s01_bicep_l.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBiceps.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeBiceps[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeBicep : compositeBiceps) {
+            obj_id crafter = getCrafter(compositeBicep);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -430,11 +404,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneBiceps.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneBiceps[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneBicep : boneBiceps) {
+            obj_id crafter = getCrafter(boneBicep);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -443,11 +415,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < paddedBiceps.length; ++i)
-        {
-            obj_id crafter = getCrafter(paddedBiceps[i]);
-            if (crafter == player)
-            {
+        for (obj_id paddedBicep : paddedBiceps) {
+            obj_id crafter = getCrafter(paddedBicep);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -482,11 +452,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneGloves = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_gloves.iff", true, false);
         obj_id[] mabariGloves = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_gloves.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeGloves.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeGloves[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeGlove : compositeGloves) {
+            obj_id crafter = getCrafter(compositeGlove);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -495,11 +463,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneGloves.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneGloves[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneGlove : boneGloves) {
+            obj_id crafter = getCrafter(boneGlove);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -508,11 +474,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < mabariGloves.length; ++i)
-        {
-            obj_id crafter = getCrafter(mabariGloves[i]);
-            if (crafter == player)
-            {
+        for (obj_id mabariGlove : mabariGloves) {
+            obj_id crafter = getCrafter(mabariGlove);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -547,11 +511,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneHelmets = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_helmet.iff", true, false);
         obj_id[] mabariHelmets = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_helmet.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeHelmets.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeHelmets[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeHelmet : compositeHelmets) {
+            obj_id crafter = getCrafter(compositeHelmet);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -560,11 +522,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneHelmets.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneHelmets[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneHelmet : boneHelmets) {
+            obj_id crafter = getCrafter(boneHelmet);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -573,11 +533,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < mabariHelmets.length; ++i)
-        {
-            obj_id crafter = getCrafter(mabariHelmets[i]);
-            if (crafter == player)
-            {
+        for (obj_id mabariHelmet : mabariHelmets) {
+            obj_id crafter = getCrafter(mabariHelmet);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -593,11 +551,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneLeggings = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_leggings.iff", true, false);
         obj_id[] mabariLeggings = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_pants.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeLeggings.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeLeggings[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeLegging : compositeLeggings) {
+            obj_id crafter = getCrafter(compositeLegging);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -606,11 +562,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneLeggings.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneLeggings[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneLegging : boneLeggings) {
+            obj_id crafter = getCrafter(boneLegging);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -619,11 +573,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < mabariLeggings.length; ++i)
-        {
-            obj_id crafter = getCrafter(mabariLeggings[i]);
-            if (crafter == player)
-            {
+        for (obj_id mabariLegging : mabariLeggings) {
+            obj_id crafter = getCrafter(mabariLegging);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -677,11 +629,9 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneChests = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_chest_plate.iff", true, false);
         obj_id[] mabariChests = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_chest_plate.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeChests.length; ++i)
-        {
-            obj_id crafter = getCrafter(compositeChests[i]);
-            if (crafter == player)
-            {
+        for (obj_id compositeChest : compositeChests) {
+            obj_id crafter = getCrafter(compositeChest);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -690,11 +640,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < boneChests.length; ++i)
-        {
-            obj_id crafter = getCrafter(boneChests[i]);
-            if (crafter == player)
-            {
+        for (obj_id boneChest : boneChests) {
+            obj_id crafter = getCrafter(boneChest);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -703,11 +651,9 @@ public class mun_quest_marauder extends script.base_script
             return false;
         }
         count = 0;
-        for (int i = 0; i < mabariChests.length; ++i)
-        {
-            obj_id crafter = getCrafter(mabariChests[i]);
-            if (crafter == player)
-            {
+        for (obj_id mabariChest : mabariChests) {
+            obj_id crafter = getCrafter(mabariChest);
+            if (crafter == player) {
                 ++count;
             }
         }
@@ -728,44 +674,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBoots = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_boots.iff", true, false);
         obj_id[] mabariBoots = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_boots.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBoots.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeBoot : compositeBoots) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeBoots[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeBoots[i]);
+            obj_id crafter = getCrafter(compositeBoot);
+            if (crafter == player) {
+                destroyObject(compositeBoot);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneBoots.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneBoot : boneBoots) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneBoots[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneBoots[i]);
+            obj_id crafter = getCrafter(boneBoot);
+            if (crafter == player) {
+                destroyObject(boneBoot);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < mabariBoots.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id mabariBoot : mabariBoots) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(mabariBoots[i]);
-            if (crafter == player)
-            {
-                destroyObject(mabariBoots[i]);
+            obj_id crafter = getCrafter(mabariBoot);
+            if (crafter == player) {
+                destroyObject(mabariBoot);
                 ++count;
             }
         }
@@ -787,44 +724,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBracers = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_bracer_l.iff", true, false);
         obj_id[] paddedBracers = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/padded/armor_padded_s01_bracer_l.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBracers.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeBracer : compositeBracers) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeBracers[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeBracers[i]);
+            obj_id crafter = getCrafter(compositeBracer);
+            if (crafter == player) {
+                destroyObject(compositeBracer);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneBracers.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneBracer : boneBracers) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneBracers[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneBracers[i]);
+            obj_id crafter = getCrafter(boneBracer);
+            if (crafter == player) {
+                destroyObject(boneBracer);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < paddedBracers.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id paddedBracer : paddedBracers) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(paddedBracers[i]);
-            if (crafter == player)
-            {
-                destroyObject(paddedBracers[i]);
+            obj_id crafter = getCrafter(paddedBracer);
+            if (crafter == player) {
+                destroyObject(paddedBracer);
                 ++count;
             }
         }
@@ -836,44 +764,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBracers = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_bracer_r.iff", true, false);
         obj_id[] paddedBracers = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/padded/armor_padded_s01_bracer_r.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBracers.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeBracer : compositeBracers) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeBracers[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeBracers[i]);
+            obj_id crafter = getCrafter(compositeBracer);
+            if (crafter == player) {
+                destroyObject(compositeBracer);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneBracers.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneBracer : boneBracers) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneBracers[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneBracers[i]);
+            obj_id crafter = getCrafter(boneBracer);
+            if (crafter == player) {
+                destroyObject(boneBracer);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < paddedBracers.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id paddedBracer : paddedBracers) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(paddedBracers[i]);
-            if (crafter == player)
-            {
-                destroyObject(paddedBracers[i]);
+            obj_id crafter = getCrafter(paddedBracer);
+            if (crafter == player) {
+                destroyObject(paddedBracer);
                 ++count;
             }
         }
@@ -890,44 +809,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBiceps = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_bicep_r.iff", true, false);
         obj_id[] paddedBiceps = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/padded/armor_padded_s01_bicep_r.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBiceps.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeBicep : compositeBiceps) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeBiceps[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeBiceps[i]);
+            obj_id crafter = getCrafter(compositeBicep);
+            if (crafter == player) {
+                destroyObject(compositeBicep);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneBiceps.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneBicep : boneBiceps) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneBiceps[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneBiceps[i]);
+            obj_id crafter = getCrafter(boneBicep);
+            if (crafter == player) {
+                destroyObject(boneBicep);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < paddedBiceps.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id paddedBicep : paddedBiceps) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(paddedBiceps[i]);
-            if (crafter == player)
-            {
-                destroyObject(paddedBiceps[i]);
+            obj_id crafter = getCrafter(paddedBicep);
+            if (crafter == player) {
+                destroyObject(paddedBicep);
                 ++count;
             }
         }
@@ -944,44 +854,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneBiceps = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_bicep_l.iff", true, false);
         obj_id[] paddedBiceps = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/padded/armor_padded_s01_bicep_l.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeBiceps.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeBicep : compositeBiceps) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeBiceps[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeBiceps[i]);
+            obj_id crafter = getCrafter(compositeBicep);
+            if (crafter == player) {
+                destroyObject(compositeBicep);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneBiceps.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneBicep : boneBiceps) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneBiceps[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneBiceps[i]);
+            obj_id crafter = getCrafter(boneBicep);
+            if (crafter == player) {
+                destroyObject(boneBicep);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < paddedBiceps.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id paddedBicep : paddedBiceps) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(paddedBiceps[i]);
-            if (crafter == player)
-            {
-                destroyObject(paddedBiceps[i]);
+            obj_id crafter = getCrafter(paddedBicep);
+            if (crafter == player) {
+                destroyObject(paddedBicep);
                 ++count;
             }
         }
@@ -998,44 +899,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneGloves = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_gloves.iff", true, false);
         obj_id[] mabariGloves = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_gloves.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeGloves.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeGlove : compositeGloves) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeGloves[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeGloves[i]);
+            obj_id crafter = getCrafter(compositeGlove);
+            if (crafter == player) {
+                destroyObject(compositeGlove);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneGloves.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneGlove : boneGloves) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneGloves[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneGloves[i]);
+            obj_id crafter = getCrafter(boneGlove);
+            if (crafter == player) {
+                destroyObject(boneGlove);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < mabariGloves.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id mabariGlove : mabariGloves) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(mabariGloves[i]);
-            if (crafter == player)
-            {
-                destroyObject(mabariGloves[i]);
+            obj_id crafter = getCrafter(mabariGlove);
+            if (crafter == player) {
+                destroyObject(mabariGlove);
                 ++count;
             }
         }
@@ -1052,44 +944,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneHelmets = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_helmet.iff", true, false);
         obj_id[] mabariHelmets = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_helmet.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeHelmets.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeHelmet : compositeHelmets) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeHelmets[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeHelmets[i]);
+            obj_id crafter = getCrafter(compositeHelmet);
+            if (crafter == player) {
+                destroyObject(compositeHelmet);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneHelmets.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneHelmet : boneHelmets) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneHelmets[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneHelmets[i]);
+            obj_id crafter = getCrafter(boneHelmet);
+            if (crafter == player) {
+                destroyObject(boneHelmet);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < mabariHelmets.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id mabariHelmet : mabariHelmets) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(mabariHelmets[i]);
-            if (crafter == player)
-            {
-                destroyObject(mabariHelmets[i]);
+            obj_id crafter = getCrafter(mabariHelmet);
+            if (crafter == player) {
+                destroyObject(mabariHelmet);
                 ++count;
             }
         }
@@ -1106,44 +989,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneLeggings = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_leggings.iff", true, false);
         obj_id[] mabariLeggings = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_pants.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeLeggings.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeLegging : compositeLeggings) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeLeggings[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeLeggings[i]);
+            obj_id crafter = getCrafter(compositeLegging);
+            if (crafter == player) {
+                destroyObject(compositeLegging);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneLeggings.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneLegging : boneLeggings) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneLeggings[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneLeggings[i]);
+            obj_id crafter = getCrafter(boneLegging);
+            if (crafter == player) {
+                destroyObject(boneLegging);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < mabariLeggings.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id mabariLegging : mabariLeggings) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(mabariLeggings[i]);
-            if (crafter == player)
-            {
-                destroyObject(mabariLeggings[i]);
+            obj_id crafter = getCrafter(mabariLegging);
+            if (crafter == player) {
+                destroyObject(mabariLegging);
                 ++count;
             }
         }
@@ -1160,44 +1034,35 @@ public class mun_quest_marauder extends script.base_script
         obj_id[] boneChests = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/bone/armor_bone_s01_chest_plate.iff", true, false);
         obj_id[] mabariChests = utils.getAllItemsInContainerByTemplate(player, "object/tangible/wearables/armor/zam/armor_zam_wesell_chest_plate.iff", true, false);
         int count = 0;
-        for (int i = 0; i < compositeChests.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id compositeChest : compositeChests) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(compositeChests[i]);
-            if (crafter == player)
-            {
-                destroyObject(compositeChests[i]);
+            obj_id crafter = getCrafter(compositeChest);
+            if (crafter == player) {
+                destroyObject(compositeChest);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < boneChests.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id boneChest : boneChests) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(boneChests[i]);
-            if (crafter == player)
-            {
-                destroyObject(boneChests[i]);
+            obj_id crafter = getCrafter(boneChest);
+            if (crafter == player) {
+                destroyObject(boneChest);
                 ++count;
             }
         }
         count = 0;
-        for (int i = 0; i < mabariChests.length; ++i)
-        {
-            if (count >= 3)
-            {
+        for (obj_id mabariChest : mabariChests) {
+            if (count >= 3) {
                 break;
             }
-            obj_id crafter = getCrafter(mabariChests[i]);
-            if (crafter == player)
-            {
-                destroyObject(mabariChests[i]);
+            obj_id crafter = getCrafter(mabariChest);
+            if (crafter == player) {
+                destroyObject(mabariChest);
                 ++count;
             }
         }

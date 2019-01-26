@@ -969,7 +969,7 @@ public class pet_control_device extends script.base_script
                 if (niche == NICHE_DROID || niche == NICHE_ANDROID)
                 {
                     int powerLevel = getIntObjVar(self, "ai.pet.powerLevel");
-                    float percentRemaining = (((float)pet_lib.OUT_OF_POWER - (float)powerLevel) / (float)pet_lib.OUT_OF_POWER) * 100.0f;
+                    float percentRemaining = (((float)pet_lib.OUT_OF_POWER - powerLevel) / pet_lib.OUT_OF_POWER) * 100.0f;
                     names[idx] = "pet_stats.battery_power";
                     attribs[idx] = " " + (int)percentRemaining + "%";
                     idx++;
@@ -1051,16 +1051,13 @@ public class pet_control_device extends script.base_script
                             {
                                 return SCRIPT_CONTINUE;
                             }
-                            for (int i = 0; i < loadedDroidCommands.length; i++)
-                            {
-                                if (hasObjVar(loadedDroidCommands[i], "strDroidCommand"))
-                                {
-                                    String programName = getStringObjVar(loadedDroidCommands[i], "strDroidCommand");
+                            for (obj_id loadedDroidCommand : loadedDroidCommands) {
+                                if (hasObjVar(loadedDroidCommand, "strDroidCommand")) {
+                                    String programName = getStringObjVar(loadedDroidCommand, "strDroidCommand");
                                     names[idx] = "pet_stats.droid_program";
                                     attribs[idx] = " " + localize(new string_id("space/droid_commands", programName));
                                     idx++;
-                                    if (idx >= names.length)
-                                    {
+                                    if (idx >= names.length) {
                                         return SCRIPT_CONTINUE;
                                     }
                                 }
@@ -1294,13 +1291,11 @@ public class pet_control_device extends script.base_script
                     String[] effects = pet_lib.getLightingEffects(self);
                     if (effects != null)
                     {
-                        for (int i = 0; i < effects.length; i++)
-                        {
-                            names[idx] = "pet_stats." + effects[i];
+                        for (String effect : effects) {
+                            names[idx] = "pet_stats." + effect;
                             attribs[idx] = " installed";
                             idx++;
-                            if (idx >= names.length)
-                            {
+                            if (idx >= names.length) {
                                 return SCRIPT_CONTINUE;
                             }
                         }
@@ -1494,7 +1489,7 @@ public class pet_control_device extends script.base_script
                 }
                 names[idx] = "pet_stats.creature_attack";
                 float attackSpeed = creatureDict.getInt("attackSpeed");
-                attackSpeed = (float)((int)(attackSpeed * 100) / 100f);
+                attackSpeed = (float)((int)(attackSpeed * 100) / 100.0f);
                 attribs[idx] = "" + attackSpeed;
                 idx++;
                 if (idx >= names.length)
@@ -1574,15 +1569,12 @@ public class pet_control_device extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    for (int i = 0; i < abilityList.length; i++)
-                    {
-                        if (abilityList[i] != 0)
-                        {
-                            names[idx] = "pet_ability." + pet_lib.getPetAbilityFromCrc(abilityList[i]);
+                    for (int i1 : abilityList) {
+                        if (i1 != 0) {
+                            names[idx] = "pet_ability." + pet_lib.getPetAbilityFromCrc(i1);
                             attribs[idx] = " ";
                             idx++;
-                            if (idx >= names.length)
-                            {
+                            if (idx >= names.length) {
                                 return SCRIPT_CONTINUE;
                             }
                         }

@@ -214,7 +214,7 @@ public class reecetest extends script.base_script
             for (int i = 0; i < 4; i++)
             {
                 location here = getLocation(self);
-                location spawnLoc = locations.getGoodLocationAroundLocation(here, 1f, 1f, 4f, 4f);
+                location spawnLoc = locations.getGoodLocationAroundLocation(here, 1.0f, 1.0f, 4.0f, 4.0f);
                 if (spawnLoc == null)
                 {
                     sendSystemMessageTestingOnly(self, " spawnLoc was NULL ");
@@ -310,14 +310,13 @@ public class reecetest extends script.base_script
             sendSystemMessageTestingOnly(self, "startcountdown detected! target is: " + target);
             if (target != null)
             {
-                float delay = 300f + 300f * 1;
-                int minutes = Math.round(delay / 60f);
+                float delay = 300.0f + 300.0f * 1;
+                int minutes = Math.round(delay / 60.0f);
                 obj_id[] players = player_structure.getPlayersInBuilding(getTopMostContainer(target));
                 if (players != null && players.length > 0)
                 {
-                    for (int i = 0; i < players.length; i++)
-                    {
-                        sendSystemMessageProse(players[i], prose.getPackage(new string_id("faction/faction_hq/faction_hq_response", "terminal_response40"), minutes));
+                    for (obj_id player : players) {
+                        sendSystemMessageProse(player, prose.getPackage(new string_id("faction/faction_hq/faction_hq_response", "terminal_response40"), minutes));
                     }
                 }
                 int stamp = getGameTime() + Math.round(delay);
@@ -325,7 +324,7 @@ public class reecetest extends script.base_script
                 dictionary d = new dictionary();
                 d.put("player", self);
                 d.put("cnt", minutes);
-                messageTo(target, "handleCountdown", d, 10f, false);
+                messageTo(target, "handleCountdown", d, 10.0f, false);
             }
         }
         if (strText.equals("accountCheck"))
@@ -367,15 +366,11 @@ public class reecetest extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             int[] slots = space_crafting.getShipInstalledSlots(ship);
-            for (int i = 0; i < slots.length; i++)
-            {
-                if (space_crafting.isMissileSlot(ship, slots[i]))
-                {
-                    setShipWeaponAmmoCurrent(ship, slots[i], 1);
-                }
-                else if (space_crafting.isCounterMeasureSlot(ship, slots[i]))
-                {
-                    setShipWeaponAmmoCurrent(ship, slots[i], 1);
+            for (int slot : slots) {
+                if (space_crafting.isMissileSlot(ship, slot)) {
+                    setShipWeaponAmmoCurrent(ship, slot, 1);
+                } else if (space_crafting.isCounterMeasureSlot(ship, slot)) {
+                    setShipWeaponAmmoCurrent(ship, slot, 1);
                 }
             }
             sendSystemMessageTestingOnly(self, "unloaded!");
@@ -575,7 +570,7 @@ public class reecetest extends script.base_script
             {
                 debugServerConsoleMsg(self, "failed to get the obj_id of the creature's current weapon. Uh oh!");
             }
-            float wpnSpeed = (float)creatureDict.getInt("attackSpeed");
+            float wpnSpeed = creatureDict.getInt("attackSpeed");
             float minWpnSpeed = wpnSpeed + (wpnSpeed * bio_engineer.CREATURE_MIN_WEAPON_SPEED_MOD);
             float maxWpnSpeed = wpnSpeed + (wpnSpeed * bio_engineer.CREATURE_MAX_WEAPON_SPEED_MOD);
             setObjVar(object, "creature_attribs.attackSpeed", wpnSpeed);

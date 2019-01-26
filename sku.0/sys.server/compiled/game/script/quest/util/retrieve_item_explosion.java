@@ -25,7 +25,7 @@ public class retrieve_item_explosion extends script.base_script
                     {
                         return SCRIPT_CONTINUE;
                     }
-                    playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", getLocation(self), 1f);
+                    playClientEffectLoc(player, "clienteffect/combat_explosion_lair_large.cef", getLocation(self), 1.0f);
                 }
             }
         }

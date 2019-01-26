@@ -213,18 +213,15 @@ public class interplanetary_survey extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < contents.length; i++)
-        {
-            String template = getTemplateName(contents[i]);
-            if (template.indexOf("survey_tool") > -1)
-            {
-                if (surveyTemplateList.indexOf(template) == -1)
-                {
-                    String resourceClass = getStringObjVar(contents[i], "survey.resource_class");
+        for (obj_id content : contents) {
+            String template = getTemplateName(content);
+            if (template.contains("survey_tool")) {
+                if (surveyTemplateList.indexOf(template) == -1) {
+                    String resourceClass = getStringObjVar(content, "survey.resource_class");
                     surveyToolList.add(utils.packStringId(getNameFromTemplate(template)));
                     surveyTemplateList.add(template);
                     surveyResourceList.add(resourceClass);
-                    surveyToolIdList.add(contents[i]);
+                    surveyToolIdList.add(content);
                     continue;
                 }
             }

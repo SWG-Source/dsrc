@@ -427,11 +427,9 @@ public class base_player extends script.base_script
                 if (isIdValid(datapad))
                 {
                     obj_id[] dpobjs = getContents(datapad);
-                    for (int i = 0; i < dpobjs.length; i++)
-                    {
-                        if (hasObjVar(dpobjs[i], space_quest.QUEST_TYPE))
-                        {
-                            space_quest.setQuestAborted(self, dpobjs[i]);
+                    for (obj_id dpobj : dpobjs) {
+                        if (hasObjVar(dpobj, space_quest.QUEST_TYPE)) {
+                            space_quest.setQuestAborted(self, dpobj);
                         }
                     }
                 }
@@ -648,63 +646,55 @@ public class base_player extends script.base_script
         {
             String[] strReimbursementList = getStringArrayObjVar(self, "item_reimbursement_list");
             removeObjVar(self, "item_reimbursement_list");
-            for (int intI = 0; intI < strReimbursementList.length; intI++)
-            {
-                obj_id objTest = createObjectInInventoryAllowOverload(strReimbursementList[intI], self);
-                if (isIdValid(objTest))
-                {
-                    if (armor.isArmorComponent(objTest))
-                    {
-                        if (!isGameObjectTypeOf(objTest, GOT_armor_foot) && !isGameObjectTypeOf(objTest, GOT_armor_hand))
-                        {
-                            final String[] ARMOR_SET = 
-                            {
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_leggings.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_helmet.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_gloves.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_chest_plate.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_bracer_r.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_bracer_l.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_boots.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_bicep_r.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_bicep_l.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_belt.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_leggings.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_helmet.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_gloves.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_chest_plate.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_bracer_r.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_bracer_l.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_boots.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_bicep_r.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_bicep_l.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_belt.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_leggings.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_helmet.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_gloves.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_chest_plate.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bracer_r.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bracer_l.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_boots.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bicep_r.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bicep_l.iff",
-                                "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_belt.iff"
-                            };
-                            for (int intJ = 0; intJ < ARMOR_SET.length; intJ++)
-                            {
-                                if (strReimbursementList[intI].equals(ARMOR_SET[intJ]))
-                                {
+            for (String s1 : strReimbursementList) {
+                obj_id objTest = createObjectInInventoryAllowOverload(s1, self);
+                if (isIdValid(objTest)) {
+                    if (armor.isArmorComponent(objTest)) {
+                        if (!isGameObjectTypeOf(objTest, GOT_armor_foot) && !isGameObjectTypeOf(objTest, GOT_armor_hand)) {
+                            final String[] ARMOR_SET =
+                                    {
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_leggings.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_helmet.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_gloves.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_chest_plate.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_bracer_r.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_bracer_l.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_boots.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_bicep_r.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_bicep_l.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_imperial_s01_belt.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_leggings.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_helmet.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_gloves.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_chest_plate.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_bracer_r.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_bracer_l.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_boots.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_bicep_r.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_bicep_l.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_rebel_s01_belt.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_leggings.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_helmet.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_gloves.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_chest_plate.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bracer_r.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bracer_l.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_boots.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bicep_r.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_bicep_l.iff",
+                                            "object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_belt.iff"
+                                    };
+                            for (String s : ARMOR_SET) {
+                                if (s1.equals(s)) {
                                     armor.setArmorDataPercent(objTest, 2, 1, 0.94f, 0.95f);
                                     break;
                                 }
                             }
                         }
                     }
-                    CustomerServiceLog("item_reimbursement", "Created item of type " + strReimbursementList[intI] + " and Id of " + objTest + " in the inventory of %TU", self);
-                }
-                else 
-                {
-                    CustomerServiceLog("item_reimbursement", "Failed to reimburse item of type " + strReimbursementList[intI] + " in the inventory of %TU", self);
+                    CustomerServiceLog("item_reimbursement", "Created item of type " + s1 + " and Id of " + objTest + " in the inventory of %TU", self);
+                } else {
+                    CustomerServiceLog("item_reimbursement", "Failed to reimburse item of type " + s1 + " in the inventory of %TU", self);
                 }
             }
         }
@@ -751,9 +741,9 @@ public class base_player extends script.base_script
                 messageTo(objWeapon, "weaponConversion", null, 2, false);
             }
             float fltWeaponSpeed = getWeaponAttackSpeed(objWeapon);
-            if (fltWeaponSpeed != .50f)
+            if (fltWeaponSpeed != 0.50f)
             {
-                setWeaponAttackSpeed(objWeapon, .50f);
+                setWeaponAttackSpeed(objWeapon, 0.50f);
             }
         }
         expertise.cacheExpertiseProcReacList(self);
@@ -1035,7 +1025,7 @@ public class base_player extends script.base_script
             if (exceptionSmuggler == 0)
             {
                 groundquests.sendSignal(self, "smugglerEnemyIncap");
-                messageTo(killer, "smugglerKilled", null, 1f, false);
+                messageTo(killer, "smugglerKilled", null, 1.0f, false);
             }
         }
         if (callable.hasAnyCallable(self))
@@ -1061,7 +1051,7 @@ public class base_player extends script.base_script
             buff.applyBuff(self, "incapWeaken");
         }
         int recapacitateTimer = 10;
-        float recapacitateModified = ((float)getEnhancedSkillStatisticModifierUncapped(self, "resistance_incapacitation"));
+        float recapacitateModified = getEnhancedSkillStatisticModifierUncapped(self, "resistance_incapacitation");
         if (recapacitateModified > 0)
         {
             recapacitateTimer -= recapacitateModified;
@@ -1111,12 +1101,10 @@ public class base_player extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < allEnemies.length; ++i)
-        {
-            if (isIdValid(allEnemies[i]) && allEnemies[i].isLoaded() && (!isPlayer(allEnemies[i])))
-            {
-                pvpRemoveTempEnemyFlags(self, allEnemies[i]);
-                pvpRemoveTempEnemyFlags(allEnemies[i], self);
+        for (obj_id allEnemy : allEnemies) {
+            if (isIdValid(allEnemy) && allEnemy.isLoaded() && (!isPlayer(allEnemy))) {
+                pvpRemoveTempEnemyFlags(self, allEnemy);
+                pvpRemoveTempEnemyFlags(allEnemy, self);
             }
         }
     }
@@ -1549,14 +1537,11 @@ public class base_player extends script.base_script
             obj_id[] objMissions = getMissionObjects(self);
             if (objMissions != null)
             {
-                for (int i = 0; i < objMissions.length; ++i)
-                {
-                    String missionType = getMissionType(objMissions[i]);
-                    if (missionType.equals("bounty"))
-                    {
-                        if (hasObjVar(objMissions[i], "objTarget"))
-                        {
-                            playerBountyMissionTargetId = utils.addElement(playerBountyMissionTargetId, getObjIdObjVar(objMissions[i], "objTarget"));
+                for (obj_id objMission : objMissions) {
+                    String missionType = getMissionType(objMission);
+                    if (missionType.equals("bounty")) {
+                        if (hasObjVar(objMission, "objTarget")) {
+                            playerBountyMissionTargetId = utils.addElement(playerBountyMissionTargetId, getObjIdObjVar(objMission, "objTarget"));
                         }
                     }
                 }
@@ -1567,40 +1552,32 @@ public class base_player extends script.base_script
                 bounties = new obj_id[0];
             }
             boolean foundMatch = false;
-            for (int i = 0; i < playerBountyMissionTargetId.size(); ++i)
-            {
+            for (Object o1 : playerBountyMissionTargetId) {
                 foundMatch = false;
-                for (int j = 0; j < bounties.length; ++j)
-                {
-                    if (((obj_id)playerBountyMissionTargetId.get(i)) == bounties[j])
-                    {
+                for (obj_id bounty : bounties) {
+                    if (((obj_id) o1) == bounty) {
                         foundMatch = true;
                         break;
                     }
                 }
-                if (!foundMatch)
-                {
-                    CustomerServiceLog("bounty_inconsistency", self + " (" + getName(self) + ") has a bounty mission for " + ((obj_id)playerBountyMissionTargetId.get(i)) + " (" + getPlayerName(((obj_id)playerBountyMissionTargetId.get(i))) + ") but doesn't have a corresponding bounty");
+                if (!foundMatch) {
+                    CustomerServiceLog("bounty_inconsistency", self + " (" + getName(self) + ") has a bounty mission for " + ((obj_id) o1) + " (" + getPlayerName(((obj_id) o1)) + ") but doesn't have a corresponding bounty");
                     dictionary d = new dictionary();
-                    d.put("target", ((obj_id)playerBountyMissionTargetId.get(i)));
+                    d.put("target", ((obj_id) o1));
                     messageTo(self, "handleBountyMissionIncomplete", d, 10.0f, false);
                 }
             }
-            for (int k = 0; k < bounties.length; ++k)
-            {
+            for (obj_id bounty : bounties) {
                 foundMatch = false;
-                for (int l = 0; l < playerBountyMissionTargetId.size(); ++l)
-                {
-                    if (((obj_id)playerBountyMissionTargetId.get(l)) == bounties[k])
-                    {
+                for (Object o : playerBountyMissionTargetId) {
+                    if (((obj_id) o) == bounty) {
                         foundMatch = true;
                         break;
                     }
                 }
-                if (!foundMatch)
-                {
-                    CustomerServiceLog("bounty_inconsistency", self + " (" + getName(self) + ") has a bounty for " + bounties[k] + " (" + getPlayerName(bounties[k]) + ") but doesn't have a corresponding bounty misssion");
-                    removeJediBounty(bounties[k], self);
+                if (!foundMatch) {
+                    CustomerServiceLog("bounty_inconsistency", self + " (" + getName(self) + ") has a bounty for " + bounty + " (" + getPlayerName(bounty) + ") but doesn't have a corresponding bounty misssion");
+                    removeJediBounty(bounty, self);
                 }
             }
             utils.setScriptVar(self, "bountyConsistencyCheck", 1);
@@ -1610,11 +1587,9 @@ public class base_player extends script.base_script
             obj_id[] objPcds = space_transition.findShipControlDevicesForPlayer(self);
             if (objPcds != null && objPcds.length > 0)
             {
-                for (int i = 0; i < objPcds.length; ++i)
-                {
-                    obj_id objShip = space_transition.getShipFromShipControlDevice(objPcds[i]);
-                    if (isIdValid(objShip))
-                    {
+                for (obj_id objPcd : objPcds) {
+                    obj_id objShip = space_transition.getShipFromShipControlDevice(objPcd);
+                    if (isIdValid(objShip)) {
                         space_combat.simpleShieldRatioRebalance(objShip);
                     }
                 }
@@ -1645,7 +1620,7 @@ public class base_player extends script.base_script
         }
         else 
         {
-            messageTo(self, "handleCloneRespawn", null, 1f, false);
+            messageTo(self, "handleCloneRespawn", null, 1.0f, false);
         }
         if (groundquests.hasCompletedQuest(self, "ep3_avatar_self_destruct"))
         {
@@ -1847,23 +1822,19 @@ public class base_player extends script.base_script
                         int[] buffList = buff.getOwnedGroupBuffs(self);
                         dictionary dict = new dictionary();
                         dict.put("buffList", buffList);
-                        for (int i = 0; i < groupMembers.length; ++i)
-                        {
-                            location playerLoc = getLocation(groupMembers[i]);
-                            if (playerLoc == null)
-                            {
-                                messageTo(groupMembers[i], "handlerRemoveGroupBuffEffect", dict, 1, false);
+                        for (obj_id groupMember : groupMembers) {
+                            location playerLoc = getLocation(groupMember);
+                            if (playerLoc == null) {
+                                messageTo(groupMember, "handlerRemoveGroupBuffEffect", dict, 1, false);
                                 continue;
                             }
-                            if (!myLoc.area.equals(playerLoc.area))
-                            {
-                                messageTo(groupMembers[i], "handlerRemoveGroupBuffEffect", dict, 1, false);
+                            if (!myLoc.area.equals(playerLoc.area)) {
+                                messageTo(groupMember, "handlerRemoveGroupBuffEffect", dict, 1, false);
                                 continue;
                             }
                             float distance = getDistance(myLoc, playerLoc);
-                            if (distance > 110.0f)
-                            {
-                                messageTo(groupMembers[i], "handlerRemoveGroupBuffEffect", dict, 1, false);
+                            if (distance > 110.0f) {
+                                messageTo(groupMember, "handlerRemoveGroupBuffEffect", dict, 1, false);
                                 continue;
                             }
                         }
@@ -1873,26 +1844,21 @@ public class base_player extends script.base_script
             int[] allBuffs = buff.getAllBuffs(self);
             if (allBuffs != null && allBuffs.length > 0)
             {
-                for (int i = 0; i < allBuffs.length; ++i)
-                {
-                    if (buff.isAuraBuff(allBuffs[i]))
-                    {
-                        obj_id caster = buff.getBuffCaster(self, allBuffs[i]);
-                        if (!isIdValid(caster) || !exists(caster))
-                        {
-                            buff.removeBuff(self, allBuffs[i]);
+                for (int allBuff : allBuffs) {
+                    if (buff.isAuraBuff(allBuff)) {
+                        obj_id caster = buff.getBuffCaster(self, allBuff);
+                        if (!isIdValid(caster) || !exists(caster)) {
+                            buff.removeBuff(self, allBuff);
                             continue;
                         }
                         location casterLoc = getLocation(caster);
-                        if (!myLoc.area.equals(casterLoc.area))
-                        {
-                            buff.removeBuff(self, allBuffs[i]);
+                        if (!myLoc.area.equals(casterLoc.area)) {
+                            buff.removeBuff(self, allBuff);
                             continue;
                         }
                         float distance = getDistance(myLoc, casterLoc);
-                        if (distance > 110.0f)
-                        {
-                            buff.removeBuff(self, allBuffs[i]);
+                        if (distance > 110.0f) {
+                            buff.removeBuff(self, allBuff);
                             continue;
                         }
                     }
@@ -1991,7 +1957,7 @@ public class base_player extends script.base_script
             if (hasObjVar(self, "npe.skippingTutorial"))
             {
                 location origin = getLocation(self);
-                location fighting = new location(3521f, 0.0f, -4821f, origin.area);
+                location fighting = new location(3521.0f, 0.0f, -4821.0f, origin.area);
                 location crafty = new location(3309.0f, 6.0f, -4785.0f, origin.area);
                 String profession = getSkillTemplate(self);
                 obj_id objInv = utils.getInventoryContainer(self);
@@ -2348,7 +2314,7 @@ public class base_player extends script.base_script
     {
         dictionary outparams = new dictionary();
         outparams.put("loc", getLocation(self));
-        messageTo(self, "handleDelayedEjection", outparams, 10.f, false);
+        messageTo(self, "handleDelayedEjection", outparams, 10.0f, false);
         sendSystemMessage(self, SID_SYS_EJECT_REQUEST);
         return SCRIPT_CONTINUE;
     }
@@ -2364,7 +2330,7 @@ public class base_player extends script.base_script
         }
         location loc = params.getLocation("loc");
         location curloc = getLocation(self);
-        if (getDistance(loc, curloc) > 1f)
+        if (getDistance(loc, curloc) > 1.0f)
         {
             sendSystemMessage(self, SID_SYS_EJECT_FAIL_MOVE);
             return SCRIPT_CONTINUE;
@@ -2394,19 +2360,16 @@ public class base_player extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        obj_id[] near = getNonCreaturesInRange(getWorldLocation(self), 128f);
+        obj_id[] near = getNonCreaturesInRange(getWorldLocation(self), 128.0f);
         location here = getWorldLocation(self);
         obj_id closest = null;
-        float maxdist = 9999.f;
-        for (int i = 0; i < near.length; i++)
-        {
-            if (isGameObjectTypeOf(near[i], GOT_building) || isGameObjectTypeOf(near[i], GOT_installation))
-            {
-                float dist = getDistance(here, getWorldLocation(near[i]));
-                if (dist < maxdist)
-                {
+        float maxdist = 9999.0f;
+        for (script.obj_id obj_id : near) {
+            if (isGameObjectTypeOf(obj_id, GOT_building) || isGameObjectTypeOf(obj_id, GOT_installation)) {
+                float dist = getDistance(here, getWorldLocation(obj_id));
+                if (dist < maxdist) {
                     maxdist = dist;
-                    closest = near[i];
+                    closest = obj_id;
                 }
             }
         }
@@ -2420,8 +2383,8 @@ public class base_player extends script.base_script
             {
                 float yaw = getYaw(closest);
                 location there = getWorldLocation(closest);
-                location loc1 = utils.rotatePointXZ(there, 8f, yaw + 90f);
-                location loc2 = utils.rotatePointXZ(there, 8f, yaw - 90f);
+                location loc1 = utils.rotatePointXZ(there, 8.0f, yaw + 90.0f);
+                location loc2 = utils.rotatePointXZ(there, 8.0f, yaw - 90.0f);
                 float d1 = getDistance(here, loc1);
                 float d2 = getDistance(here, loc2);
                 if (d1 < d2)
@@ -2983,45 +2946,35 @@ public class base_player extends script.base_script
                     Vector cloneList = cloninglib.getAvailableCloningFacilities(self);
                     int playerFaction = factions.getFactionFlag(self);
                     obj_id tatooinePlanet = getPlanetByName("tatooine");
-                    for (int i = 0; i < cloneList.size(); i++)
-                    {
-                        dictionary cloneData = (dictionary)(cloneList.get(i));
+                    for (Object o : cloneList) {
+                        dictionary cloneData = (dictionary) o;
                         obj_id facility = cloneData.getObjId("faciltyId");
                         String cloneName = cloneData.getString("cloneName");
                         location cloneLoc = cloneData.getLocation("facilityLoc");
                         location spawnLoc = cloneData.getLocation("spawnLoc");
-                        if (facility == bound && !isBindListed)
-                        {
+                        if (facility == bound && !isBindListed) {
                             cloneName = "@base_player:clone_location_registered_select_begin " + getStringObjVar(self, cloninglib.VAR_BIND_CITY_NAME) + " @base_player:clone_location_registered_select_end";
                             isBindListed = true;
                         }
-                        if (cloneName.equals("@naboo_region_names:theed") && cloneLoc.z > 4100)
-                        {
+                        if (cloneName.equals("@naboo_region_names:theed") && cloneLoc.z > 4100) {
                             cloneName += "_north";
                         }
-                        if (playerFaction == factions.FACTION_FLAG_IMPERIAL || playerFaction == factions.FACTION_FLAG_REBEL)
-                        {
-                            if (cloneName.equals("@tatooine_region_names:bestine") && utils.hasScriptVar(tatooinePlanet, "gcw.invasionRunning.bestine"))
-                            {
+                        if (playerFaction == factions.FACTION_FLAG_IMPERIAL || playerFaction == factions.FACTION_FLAG_REBEL) {
+                            if (cloneName.equals("@tatooine_region_names:bestine") && utils.hasScriptVar(tatooinePlanet, "gcw.invasionRunning.bestine")) {
                                 int factionDefending = utils.getIntScriptVar(tatooinePlanet, "gcw.factionDefending.bestine");
-                                if ((factionDefending == factions.FACTION_FLAG_IMPERIAL || factionDefending == factions.FACTION_FLAG_REBEL) && playerFaction != factionDefending)
-                                {
+                                if ((factionDefending == factions.FACTION_FLAG_IMPERIAL || factionDefending == factions.FACTION_FLAG_REBEL) && playerFaction != factionDefending) {
                                     continue;
                                 }
                             }
-                            if (cloneName.equals("@talus_region_names:dearic") && utils.hasScriptVar(tatooinePlanet, "gcw.invasionRunning.dearic"))
-                            {
+                            if (cloneName.equals("@talus_region_names:dearic") && utils.hasScriptVar(tatooinePlanet, "gcw.invasionRunning.dearic")) {
                                 int factionDefending = utils.getIntScriptVar(tatooinePlanet, "gcw.factionDefending.dearic");
-                                if ((factionDefending == factions.FACTION_FLAG_IMPERIAL || factionDefending == factions.FACTION_FLAG_REBEL) && playerFaction != factionDefending)
-                                {
+                                if ((factionDefending == factions.FACTION_FLAG_IMPERIAL || factionDefending == factions.FACTION_FLAG_REBEL) && playerFaction != factionDefending) {
                                     continue;
                                 }
                             }
-                            if (cloneName.equals("@naboo_region_names:keren") && utils.hasScriptVar(tatooinePlanet, "gcw.invasionRunning.keren"))
-                            {
+                            if (cloneName.equals("@naboo_region_names:keren") && utils.hasScriptVar(tatooinePlanet, "gcw.invasionRunning.keren")) {
                                 int factionDefending = utils.getIntScriptVar(tatooinePlanet, "gcw.factionDefending.keren");
-                                if ((factionDefending == factions.FACTION_FLAG_IMPERIAL || factionDefending == factions.FACTION_FLAG_REBEL) && playerFaction != factionDefending)
-                                {
+                                if ((factionDefending == factions.FACTION_FLAG_IMPERIAL || factionDefending == factions.FACTION_FLAG_REBEL) && playerFaction != factionDefending) {
                                     continue;
                                 }
                             }
@@ -3116,7 +3069,7 @@ public class base_player extends script.base_script
         }
         else 
         {
-            text = "" + (int)(dist / 1000f) + "km";
+            text = "" + (int)(dist / 1000.0f) + "km";
         }
         return text;
     }
@@ -3196,7 +3149,7 @@ public class base_player extends script.base_script
         dictionary d = new dictionary();
         d.put("time", remaining_time);
         d.put("sui", sui_id);
-        messageTo(self, "handleReviveExpirationMessage", d, (float)next_msg_time, false);
+        messageTo(self, "handleReviveExpirationMessage", d, next_msg_time, false);
         return SCRIPT_CONTINUE;
     }
     public int handleInstanceClonePause(obj_id self, dictionary params) throws InterruptedException
@@ -3411,10 +3364,8 @@ public class base_player extends script.base_script
                 int[] enemies_B_to_A = getGuildsAtWarWith(intGuildId);
                 if (enemies_B_to_A != null && enemies_B_to_A.length > 0)
                 {
-                    for (int i = 0; i < enemies_A_to_B.length; ++i)
-                    {
-                        if (guild.findIntTableOffset(enemies_B_to_A, enemies_A_to_B[i]) != -1)
-                        {
+                    for (int i1 : enemies_A_to_B) {
+                        if (guild.findIntTableOffset(enemies_B_to_A, i1) != -1) {
                             pvpSetGuildWarCoolDownPeriodEnemyFlag(self);
                             break;
                         }
@@ -3575,7 +3526,7 @@ public class base_player extends script.base_script
             }
             if (isIdValid(targetShip))
             {
-                space_crafting.repairDamage(targetCreature, targetShip, 1.f, 0.f);
+                space_crafting.repairDamage(targetCreature, targetShip, 1.0f, 0.0f);
                 if (isShipSlotInstalled(targetShip, ship_chassis_slot_type.SCST_shield_0))
                 {
                     setShipShieldHitpointsFrontCurrent(targetShip, getShipShieldHitpointsFrontMaximum(targetShip));
@@ -3633,7 +3584,7 @@ public class base_player extends script.base_script
         }
         dictionary childparams = new dictionary();
         childparams.put("player", self);
-        messageTo(target, "handleUseSkillBuff", childparams, 1f, true);
+        messageTo(target, "handleUseSkillBuff", childparams, 1.0f, true);
         return SCRIPT_CONTINUE;
     }
     public int cmdTip(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -3681,7 +3632,7 @@ public class base_player extends script.base_script
             return SCRIPT_CONTINUE;
         }
         boolean useCash = true;
-        if (params.indexOf("bank") > -1)
+        if (params.contains("bank"))
         {
             params = gm.removeKeyword(params, "bank");
             useCash = false;
@@ -3769,7 +3720,7 @@ public class base_player extends script.base_script
         if (getBankBalance(self) < total)
         {
             CustomerServiceLog("Trade", "  Tip -- Player: " + self + " " + getName(self) + " Target: " + target + " -- Tip aborted: Player couldn't afford the wire fee.");
-            prose_package nsfWire = prose.getPackage(pclib.PROSE_TIP_NSF_WIRE, self, getName(self), null, target, targetName, null, null, null, null, total, 0f);
+            prose_package nsfWire = prose.getPackage(pclib.PROSE_TIP_NSF_WIRE, self, getName(self), null, target, targetName, null, null, null, null, total, 0.0f);
             sendSystemMessageProse(self, nsfWire);
         }
         else 
@@ -3820,7 +3771,7 @@ public class base_player extends script.base_script
         else 
         {
             CustomerServiceLog("Trade", "  Tip -- Player: " + self + " " + getName(self) + " Target: " + target + " " + getName(target) + " -- Bank->Escrow wire transfer complete. Telling target to request escrow funds. Amt: " + amt);
-            messageTo(target, "handleTipEscrowRequest", params, 1f, true);
+            messageTo(target, "handleTipEscrowRequest", params, 1.0f, true);
             prose_package bankToEscrow = prose.getPackage(new string_id("base_player", "bank_to_escrow"), targetName, amt);
             sendSystemMessageProse(self, bankToEscrow);
         }
@@ -3894,7 +3845,7 @@ public class base_player extends script.base_script
         params.put("target", target);
         params.put("targetName", targetName);
         params.put("amt", amt);
-        messageTo(player, "handleTipRefundRequest", params, 1f, true);
+        messageTo(player, "handleTipRefundRequest", params, 1.0f, true);
     }
     public int handleTipRefundRequest(obj_id self, dictionary params) throws InterruptedException
     {
@@ -4282,9 +4233,8 @@ public class base_player extends script.base_script
                     }
                     Vector consentToName = new Vector();
                     consentToName.setSize(0);
-                    for (int i = 0; i < consentTo.length; ++i)
-                    {
-                        consentToName = utils.addElement(consentToName, getPlayerFullName(consentTo[i]));
+                    for (obj_id consentTo1 : consentTo) {
+                        consentToName = utils.addElement(consentToName, getPlayerFullName(consentTo1));
                     }
                     sui.listbox(self, "@" + SID_CONSENT_TO_LISTBOX_PROMPT, "@" + SID_CONSENT_TO_LISTBOX_TITLE, consentToName);
                     return SCRIPT_CONTINUE;
@@ -4349,9 +4299,8 @@ public class base_player extends script.base_script
                     }
                     Vector consentToName = new Vector();
                     consentToName.setSize(0);
-                    for (int i = 0; i < consentTo.length; ++i)
-                    {
-                        consentToName = utils.addElement(consentToName, getPlayerFullName(consentTo[i]));
+                    for (obj_id consentTo1 : consentTo) {
+                        consentToName = utils.addElement(consentToName, getPlayerFullName(consentTo1));
                     }
                     sui.listbox(self, self, "@" + SID_UNCONSENT_LISTBOX_PROMPT, sui.OK_CANCEL, "@" + SID_UNCONSENT_LISTBOX_TITLE, consentToName, HANDLER_UNCONSENT_MENU);
                     return SCRIPT_CONTINUE;
@@ -4415,9 +4364,8 @@ public class base_player extends script.base_script
                     }
                     Vector consentFromName = new Vector();
                     consentFromName.setSize(0);
-                    for (int i = 0; i < consentFrom.length; ++i)
-                    {
-                        consentFromName = utils.addElement(consentFromName, getPlayerFullName(consentFrom[i]));
+                    for (script.obj_id obj_id : consentFrom) {
+                        consentFromName = utils.addElement(consentFromName, getPlayerFullName(obj_id));
                     }
                     sui.listbox(self, "@" + SID_CONSENT_FROM_LISTBOX_PROMPT, "@" + SID_CONSENT_FROM_LISTBOX_TITLE, consentFromName);
                     return SCRIPT_CONTINUE;
@@ -4583,7 +4531,7 @@ public class base_player extends script.base_script
             sendSystemMessage(self, LAIR_NOT_TARGETED);
             return SCRIPT_OVERRIDE;
         }
-        float maxDistance = 10f;
+        float maxDistance = 10.0f;
         float distanceToLair = utils.getDistance2D(self, target);
         if (hasScript(target, "theme_park.dungeon.mustafar_trials.valley_battleground.battlefield_destructable"))
         {
@@ -4724,7 +4672,7 @@ public class base_player extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int highest = -1;
-        float highVal = 0.f;
+        float highVal = 0.0f;
         for (int i = 0; i < efficiencies.length; i++)
         {
             if (efficiencies[i] > highVal)
@@ -4767,16 +4715,13 @@ public class base_player extends script.base_script
         obj_id[] data = getWaypointsInDatapad(self);
         if (data != null)
         {
-            for (int i = 0; i < data.length; i++)
-            {
-                if (!isIdValid(data[i]))
-                {
+            for (obj_id datum : data) {
+                if (!isIdValid(datum)) {
                     continue;
                 }
-                String waypointName = getWaypointName(data[i]);
-                if ((waypointName != null) && waypointName.equals("Resource Survey"))
-                {
-                    return data[i];
+                String waypointName = getWaypointName(datum);
+                if ((waypointName != null) && waypointName.equals("Resource Survey")) {
+                    return datum;
                 }
             }
         }
@@ -4799,7 +4744,7 @@ public class base_player extends script.base_script
             else if (utils.hasScriptVar(self, "trapdrop.settrap"))
             {
                 obj_id trap = utils.getObjIdScriptVar(self, "trapdrop.settrap");
-                messageTo(trap, "stopDeploy", null, 0.f, false);
+                messageTo(trap, "stopDeploy", null, 0.0f, false);
                 sendSystemMessage(self, SID_TRAP_CANCEL);
                 utils.removeScriptVar(self, "trapdrop.settrap");
             }
@@ -4821,7 +4766,7 @@ public class base_player extends script.base_script
         else if (utils.hasScriptVar(self, "trapdrop.settrap"))
         {
             obj_id trap = utils.getObjIdScriptVar(self, "trapdrop.settrap");
-            messageTo(trap, "stopDeploy", null, 0.f, false);
+            messageTo(trap, "stopDeploy", null, 0.0f, false);
             sendSystemMessage(self, SID_TRAP_CANCEL_ATTACK);
             utils.removeScriptVar(self, "trapdrop.settrap");
         }
@@ -4866,7 +4811,7 @@ public class base_player extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", self);
-            messageTo(tool, "continueSampleLoop", outparams, 0.f, false);
+            messageTo(tool, "continueSampleLoop", outparams, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         else if (idx == 2)
@@ -4886,12 +4831,12 @@ public class base_player extends script.base_script
             }
             dictionary outparams = new dictionary();
             outparams.put("player", self);
-            messageTo(tool, "continueSampleLoop", outparams, 0.f, false);
+            messageTo(tool, "continueSampleLoop", outparams, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         dictionary outparams = new dictionary();
         outparams.put("player", self);
-        messageTo(tool, "stopSampleEvent", outparams, 0.f, false);
+        messageTo(tool, "stopSampleEvent", outparams, 0.0f, false);
         location point = locations.getGoodLocationAroundLocation(getLocation(self), 10, 10, 50, 50, true, false);
         if (point == null)
         {
@@ -4942,7 +4887,7 @@ public class base_player extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("player", self);
-            messageTo(tool, "continueSampleLoop", outparams, 0.f, false);
+            messageTo(tool, "continueSampleLoop", outparams, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         int action = getAttrib(player, ACTION);
@@ -4952,7 +4897,7 @@ public class base_player extends script.base_script
             sendSystemMessage(player, SID_GAMBLE_NO_ACTION);
             dictionary outparams = new dictionary();
             outparams.put("player", self);
-            messageTo(tool, "continueSampleLoop", outparams, 0.f, false);
+            messageTo(tool, "continueSampleLoop", outparams, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         if (idx == 2)
@@ -4963,7 +4908,7 @@ public class base_player extends script.base_script
             utils.setScriptVar(player, "survey_event.gamble", 5);
             dictionary outparams = new dictionary();
             outparams.put("player", self);
-            messageTo(tool, "continueSampleLoop", outparams, 0.f, false);
+            messageTo(tool, "continueSampleLoop", outparams, 0.0f, false);
             return SCRIPT_CONTINUE;
         }
         int dieRoll = rand(1, 100);
@@ -4977,7 +4922,7 @@ public class base_player extends script.base_script
         }
         dictionary outparams = new dictionary();
         outparams.put("player", self);
-        messageTo(tool, "continueSampleLoop", outparams, 0.f, false);
+        messageTo(tool, "continueSampleLoop", outparams, 0.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int cmdHarvestDNA(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
@@ -5695,10 +5640,8 @@ public class base_player extends script.base_script
         }
         else 
         {
-            for (int i = 0; i < banCities.length; i++)
-            {
-                if (banCities[i] == city_id)
-                {
+            for (int banCity : banCities) {
+                if (banCity == city_id) {
                     return SCRIPT_CONTINUE;
                 }
             }
@@ -5743,10 +5686,8 @@ public class base_player extends script.base_script
         if (banCities != null)
         {
             int found = 0;
-            for (int i = 0; i < banCities.length; i++)
-            {
-                if (banCities[i] == city_id)
-                {
+            for (int banCity1 : banCities) {
+                if (banCity1 == city_id) {
                     found = 1;
                     break;
                 }
@@ -5763,11 +5704,9 @@ public class base_player extends script.base_script
             {
                 int j = 0;
                 int[] newBanCities = new int[banCities.length - 1];
-                for (int i = 0; i < banCities.length; i++)
-                {
-                    if (banCities[i] != city_id)
-                    {
-                        newBanCities[j] = banCities[i];
+                for (int banCity : banCities) {
+                    if (banCity != city_id) {
+                        newBanCities[j] = banCity;
                         j++;
                     }
                 }
@@ -5941,7 +5880,7 @@ public class base_player extends script.base_script
                 ids.setSize(city_id_array.length);
                 for (int _i = 0; _i < city_id_array.length; ++_i)
                 {
-                    ids.set(_i, new Integer(city_id_array[_i]));
+                    ids.set(_i, city_id_array[_i]);
                 }
             }
             Vector times = new Vector();
@@ -5950,7 +5889,7 @@ public class base_player extends script.base_script
                 times.setSize(zoning_time_array.length);
                 for (int _i = 0; _i < zoning_time_array.length; ++_i)
                 {
-                    times.set(_i, new Integer(zoning_time_array[_i]));
+                    times.set(_i, zoning_time_array[_i]);
                 }
             }
             for (int i = 0; i < city_id_array.length; i++)
@@ -5970,7 +5909,7 @@ public class base_player extends script.base_script
                             stampIdsArray = new int[ids.size()];
                             for (int _i = 0; _i < ids.size(); ++_i)
                             {
-                                stampIdsArray[_i] = ((Integer)ids.get(_i)).intValue();
+                                stampIdsArray[_i] = (Integer) ids.get(_i);
                             }
                         }
                         int[] stampTimesArray = new int[0];
@@ -5979,7 +5918,7 @@ public class base_player extends script.base_script
                             stampTimesArray = new int[times.size()];
                             for (int _i = 0; _i < times.size(); ++_i)
                             {
-                                stampTimesArray[_i] = ((Integer)times.get(_i)).intValue();
+                                stampTimesArray[_i] = (Integer) times.get(_i);
                             }
                         }
                         setObjVar(target, "city.st_zoning_rights", stampIdsArray);
@@ -5996,7 +5935,7 @@ public class base_player extends script.base_script
                             stampIdsArray = new int[ids.size()];
                             for (int _i = 0; _i < ids.size(); ++_i)
                             {
-                                stampIdsArray[_i] = ((Integer)ids.get(_i)).intValue();
+                                stampIdsArray[_i] = (Integer) ids.get(_i);
                             }
                         }
                         int[] stampTimesArray = new int[0];
@@ -6005,7 +5944,7 @@ public class base_player extends script.base_script
                             stampTimesArray = new int[times.size()];
                             for (int _i = 0; _i < times.size(); ++_i)
                             {
-                                stampTimesArray[_i] = ((Integer)times.get(_i)).intValue();
+                                stampTimesArray[_i] = (Integer) times.get(_i);
                             }
                         }
                         setObjVar(target, "city.st_zoning_rights", stampIdsArray);
@@ -6026,7 +5965,7 @@ public class base_player extends script.base_script
                 stampIdsArray = new int[ids.size()];
                 for (int _i = 0; _i < ids.size(); ++_i)
                 {
-                    stampIdsArray[_i] = ((Integer)ids.get(_i)).intValue();
+                    stampIdsArray[_i] = (Integer) ids.get(_i);
                 }
             }
             int[] stampTimesArray = new int[0];
@@ -6035,7 +5974,7 @@ public class base_player extends script.base_script
                 stampTimesArray = new int[times.size()];
                 for (int _i = 0; _i < times.size(); ++_i)
                 {
-                    stampTimesArray[_i] = ((Integer)times.get(_i)).intValue();
+                    stampTimesArray[_i] = (Integer) times.get(_i);
                 }
             }
             setObjVar(target, "city.st_zoning_rights", stampIdsArray);
@@ -6205,10 +6144,10 @@ public class base_player extends script.base_script
             Integer icount = (Integer)counts.get(cityPlanet[i]);
             if (icount != null)
             {
-                count = icount.intValue();
+                count = icount;
             }
             count++;
-            counts.put(cityPlanet[i], new Integer(count));
+            counts.put(cityPlanet[i], count);
         }
         String[] planetList = new String[planets.length];
         for (int i = 0; i < planets.length; i++)
@@ -6402,30 +6341,24 @@ public class base_player extends script.base_script
             Vector vote_counts = new Vector();
             vote_counts.setSize(0);
             obj_id[] citizens = cityGetCitizenIds(city_id);
-            for (int i = 0; i < citizens.length; i++)
-            {
-                if (!isIdValid(citizens[i]))
-                {
+            for (obj_id citizen : citizens) {
+                if (!isIdValid(citizen)) {
                     continue;
                 }
                 boolean found = false;
-                obj_id vote = cityGetCitizenAllegiance(city_id, citizens[i]);
-                if (isIdValid(vote))
-                {
-                    for (int j = 0; (j < vote_ids.size()); j++)
-                    {
-                        if (((obj_id)vote_ids.get(j)) == vote)
-                        {
-                            vote_counts.set(j, new Integer(((Integer)vote_counts.get(j)).intValue() + 1));
+                obj_id vote = cityGetCitizenAllegiance(city_id, citizen);
+                if (isIdValid(vote)) {
+                    for (int j = 0; (j < vote_ids.size()); j++) {
+                        if (((obj_id) vote_ids.get(j)) == vote) {
+                            vote_counts.set(j, (Integer) vote_counts.get(j) + 1);
                             found = true;
                             break;
                         }
                     }
-                    if (!found)
-                    {
+                    if (!found) {
                         utils.addElement(vote_ids, vote);
                         utils.addElement(vote_counts, 1);
-                        utils.addElement(vote_names, cityGetCitizenName(city_id, citizens[i]));
+                        utils.addElement(vote_names, cityGetCitizenName(city_id, citizen));
                     }
                 }
             }
@@ -6436,11 +6369,11 @@ public class base_player extends script.base_script
             {
                 if (((obj_id)vote_ids.get(i)) == mayor)
                 {
-                    voteInfo[i] = "\\#00FF00 " + ((String)vote_names.get(i)) + "\\#AAAAFF Votes: " + ((Integer)vote_counts.get(i)).intValue() + "\\#FFFFFF (" + ((obj_id)vote_ids.get(i)) + ") " + "\\#AAAAAA (Incumbent)";
+                    voteInfo[i] = "\\#00FF00 " + ((String)vote_names.get(i)) + "\\#AAAAFF Votes: " + (Integer) vote_counts.get(i) + "\\#FFFFFF (" + ((obj_id)vote_ids.get(i)) + ") " + "\\#AAAAAA (Incumbent)";
                 }
                 else 
                 {
-                    voteInfo[i] = "\\#00FF00 " + ((String)vote_names.get(i)) + "\\#AAAAFF Votes: " + ((Integer)vote_counts.get(i)).intValue() + "\\#FFFFFF (" + ((obj_id)vote_ids.get(i)) + ")";
+                    voteInfo[i] = "\\#00FF00 " + ((String)vote_names.get(i)) + "\\#AAAAFF Votes: " + (Integer) vote_counts.get(i) + "\\#FFFFFF (" + ((obj_id)vote_ids.get(i)) + ")";
                 }
             }
             sui.listbox(self, self, "@city/city:voteinfo_d", sui.OK_CANCEL, "@city/city:cityinfo_n", voteInfo, "handleSelectRunner", true, false);
@@ -6467,18 +6400,15 @@ public class base_player extends script.base_script
         Vector vote_ids = new Vector();
         vote_ids.setSize(0);
         obj_id[] citizens = cityGetCitizenIds(city_id);
-        for (int i = 0; i < citizens.length; i++)
-        {
-            if (!isIdValid(citizens[i]))
-            {
+        for (obj_id citizen : citizens) {
+            if (!isIdValid(citizen)) {
                 continue;
             }
             boolean found = false;
-            obj_id vote = cityGetCitizenAllegiance(city_id, citizens[i]);
-            if (vote == runner)
-            {
-                utils.addElement(vote_ids, citizens[i]);
-                utils.addElement(vote_names, cityGetCitizenName(city_id, citizens[i]));
+            obj_id vote = cityGetCitizenAllegiance(city_id, citizen);
+            if (vote == runner) {
+                utils.addElement(vote_ids, citizen);
+                utils.addElement(vote_names, cityGetCitizenName(city_id, citizen));
             }
         }
         String[] voteInfo = new String[vote_names.size()];
@@ -6561,7 +6491,7 @@ public class base_player extends script.base_script
     }
     public int OnStartCharacterUpload(obj_id self, byte[] results, modifiable_int resultSize, boolean w, boolean ao) throws InterruptedException
     {
-        Boolean withItems = new Boolean(w);
+        Boolean withItems = w;
         dictionary params = new dictionary();
         params.put("withItems", w);
         params.put("allowOverride", ao);
@@ -6976,19 +6906,15 @@ public class base_player extends script.base_script
                             Set keySet = componentsDictionary.keySet();
                             Integer[] slots = new Integer[keySet.size()];
                             keySet.toArray(slots);
-                            for (int i = 0; i < slots.length; ++i)
-                            {
-                                Integer slot = slots[i];
+                            for (Integer slot : slots) {
                                 dictionary componentDictionary = componentsDictionary.getDictionary(slot);
-                                if (ctsCheckAndLogUniqueStaticItemAlreadyExists(player, componentDictionary))
-                                {
+                                if (ctsCheckAndLogUniqueStaticItemAlreadyExists(player, componentDictionary)) {
                                     continue;
                                 }
                                 componentDictionary.put("bypassVolumeCheck", 1);
                                 obj_id newComponent = unpackItem(player, componentsDictionary.getDictionary(slot));
-                                if (isIdValid(newComponent))
-                                {
-                                    shipInstallComponent(player, newItem, slot.intValue(), newComponent);
+                                if (isIdValid(newComponent)) {
+                                    shipInstallComponent(player, newItem, slot, newComponent);
                                 }
                             }
                         }
@@ -7156,17 +7082,13 @@ public class base_player extends script.base_script
                         if (isIdValid(ingrHopper))
                         {
                             Set keySet = dictIngrHopperContents.keySet();
-                            Iterator contentsIterator = keySet.iterator();
-                            while (contentsIterator.hasNext())
-                            {
-                                obj_id key = (obj_id)contentsIterator.next();
+                            for (Object o : keySet) {
+                                obj_id key = (obj_id) o;
                                 dictionary containedItemDict = dictIngrHopperContents.getDictionary(key);
-                                if (containedItemDict == null)
-                                {
+                                if (containedItemDict == null) {
                                     continue;
                                 }
-                                if (ctsCheckAndLogUniqueStaticItemAlreadyExists(ingrHopper, containedItemDict))
-                                {
+                                if (ctsCheckAndLogUniqueStaticItemAlreadyExists(ingrHopper, containedItemDict)) {
                                     continue;
                                 }
                                 unpackItem(ingrHopper, containedItemDict);
@@ -7183,17 +7105,13 @@ public class base_player extends script.base_script
                         if (isIdValid(outputHopper))
                         {
                             Set keySet = dictOutputHopperContents.keySet();
-                            Iterator contentsIterator = keySet.iterator();
-                            while (contentsIterator.hasNext())
-                            {
-                                obj_id key = (obj_id)contentsIterator.next();
+                            for (Object o : keySet) {
+                                obj_id key = (obj_id) o;
                                 dictionary containedItemDict = dictOutputHopperContents.getDictionary(key);
-                                if (containedItemDict == null)
-                                {
+                                if (containedItemDict == null) {
                                     continue;
                                 }
-                                if (ctsCheckAndLogUniqueStaticItemAlreadyExists(outputHopper, containedItemDict))
-                                {
+                                if (ctsCheckAndLogUniqueStaticItemAlreadyExists(outputHopper, containedItemDict)) {
                                     continue;
                                 }
                                 unpackItem(outputHopper, containedItemDict);
@@ -7213,17 +7131,13 @@ public class base_player extends script.base_script
                         if (isIdValid(inputHopper))
                         {
                             Set keySet = dictInputHopperContents.keySet();
-                            Iterator contentsIterator = keySet.iterator();
-                            while (contentsIterator.hasNext())
-                            {
-                                obj_id key = (obj_id)contentsIterator.next();
+                            for (Object o : keySet) {
+                                obj_id key = (obj_id) o;
                                 dictionary containedItemDict = dictInputHopperContents.getDictionary(key);
-                                if (containedItemDict == null)
-                                {
+                                if (containedItemDict == null) {
                                     continue;
                                 }
-                                if (ctsCheckAndLogUniqueStaticItemAlreadyExists(inputHopper, containedItemDict))
-                                {
+                                if (ctsCheckAndLogUniqueStaticItemAlreadyExists(inputHopper, containedItemDict)) {
                                     continue;
                                 }
                                 unpackItem(inputHopper, containedItemDict);
@@ -7272,39 +7186,31 @@ public class base_player extends script.base_script
                 removeObjVar(newItem, player_structure.VAR_IS_GUILD_HALL);
                 dictionary contentsDict = itemDictionary.getDictionary("house_contents");
                 Set keySet = contentsDict.keySet();
-                Iterator contentsIterator = keySet.iterator();
-                while (contentsIterator.hasNext())
-                {
-                    obj_id key = (obj_id)contentsIterator.next();
-                    if (isIdNull(key))
-                    {
+                for (Object o : keySet) {
+                    obj_id key = (obj_id) o;
+                    if (isIdNull(key)) {
                         CustomerServiceLog("CharacterTransfer", "unpackItem() FAILED: key " + key + " not valid in house contents dictionary: " + contentsDict);
                         return null;
                     }
                     dictionary containedItemDict = contentsDict.getDictionary(key);
-                    if (containedItemDict == null)
-                    {
+                    if (containedItemDict == null) {
                         continue;
                     }
-                    if (ctsCheckAndLogUniqueStaticItemAlreadyExists(utils.getInventoryContainer(self), containedItemDict))
-                    {
+                    if (ctsCheckAndLogUniqueStaticItemAlreadyExists(utils.getInventoryContainer(self), containedItemDict)) {
                         continue;
                     }
                     containedItemDict.put("bypassVolumeCheck", 1);
                     obj_id house_item = unpackItem(utils.getInventoryContainer(self), containedItemDict);
-                    if (isIdValid(house_item))
-                    {
+                    if (isIdValid(house_item)) {
                         location loc = containedItemDict.getLocation("house_cell_loc");
                         String cell_name = containedItemDict.getString("house_cell");
                         obj_id cellid = getCellId(newItem, cell_name);
-                        if (isIdValid(cellid))
-                        {
+                        if (isIdValid(cellid)) {
                             loc.cell = cellid;
                             setLocation(house_item, loc);
                         }
                         float[] quaternion = containedItemDict.getFloatArray("quaternion");
-                        if ((quaternion != null) && (quaternion.length == 4))
-                        {
+                        if ((quaternion != null) && (quaternion.length == 4)) {
                             setQuaternion(house_item, quaternion[0], quaternion[1], quaternion[2], quaternion[3]);
                         }
                         requestSendPositionUpdate(house_item);
@@ -7338,56 +7244,41 @@ public class base_player extends script.base_script
                     }
                     dictionary contentsDict = itemDictionary.getDictionary("contents");
                     Set keySet = contentsDict.keySet();
-                    Iterator contentsIterator = keySet.iterator();
-                    while (contentsIterator.hasNext())
-                    {
-                        obj_id key = (obj_id)contentsIterator.next();
-                        if (isIdNull(key))
-                        {
+                    for (Object o : keySet) {
+                        obj_id key = (obj_id) o;
+                        if (isIdNull(key)) {
                             CustomerServiceLog("CharacterTransfer", "unpackItem() FAILED: key " + key + " not valid in container contents dictionary: " + contentsDict);
                             return null;
                         }
                         dictionary containedItemDict = contentsDict.getDictionary(key);
                         obj_id unpackedItem = null;
                         obj_id saberInv = null;
-                        if (jedi.isLightsaber(newItem))
-                        {
-                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(container, containedItemDict))
-                            {
+                        if (jedi.isLightsaber(newItem)) {
+                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(container, containedItemDict)) {
                                 continue;
                             }
                             saberInv = getObjectInSlot(newItem, "saber_inv");
                             unpackedItem = unpackItem(container, containedItemDict);
-                        }
-                        else 
-                        {
-                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(newItem, containedItemDict))
-                            {
+                        } else {
+                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(newItem, containedItemDict)) {
                                 continue;
                             }
                             unpackedItem = unpackItem(newItem, containedItemDict);
                         }
-                        if (!isIdValid(unpackedItem))
-                        {
-                            if (isIdNull(unpackedItem))
-                            {
+                        if (!isIdValid(unpackedItem)) {
+                            if (isIdNull(unpackedItem)) {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem() : unpackItem() returned NULL id for item: " + containedItemDict);
                                 return null;
-                            }
-                            else 
-                            {
+                            } else {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem() : unpackItem() returned invalid id " + unpackedItem + " for item: " + containedItemDict);
                                 continue;
                             }
                         }
-                        if (isIdValid(saberInv))
-                        {
-                            if (jedi.hasColorCrystal(newItem) && jedi.isColorCrystal(unpackedItem))
-                            {
+                        if (isIdValid(saberInv)) {
+                            if (jedi.hasColorCrystal(newItem) && jedi.isColorCrystal(unpackedItem)) {
                                 removeObjVar(newItem, jedi.VAR_SABER_BASE + "." + jedi.VAR_COLOR);
                             }
-                            if (!putIn(unpackedItem, saberInv))
-                            {
+                            if (!putIn(unpackedItem, saberInv)) {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem()  : FAILED to move lightsaber crystal " + unpackedItem + " into saber " + saberInv);
                             }
                         }
@@ -7413,9 +7304,8 @@ public class base_player extends script.base_script
                     obj_id[] factoryCrateContents = getContents(newItem);
                     if ((factoryCrateContents != null) && (factoryCrateContents.length > 0))
                     {
-                        for (int i = 0; i < factoryCrateContents.length; ++i)
-                        {
-                            setCrafter(factoryCrateContents[i], factoryCrateCreator);
+                        for (obj_id factoryCrateContent : factoryCrateContents) {
+                            setCrafter(factoryCrateContent, factoryCrateCreator);
                         }
                     }
                 }
@@ -7544,9 +7434,8 @@ public class base_player extends script.base_script
         contents = getContents(item);
         if (contents != null)
         {
-            for (int i = 0; i < contents.length; ++i)
-            {
-                doItemPrepack(contents[i]);
+            for (obj_id content : contents) {
+                doItemPrepack(content);
             }
         }
     }
@@ -7928,24 +7817,19 @@ public class base_player extends script.base_script
                 {
                     dictionary shipDict = new dictionary();
                     int[] shipSlots = getShipChassisSlots(item);
-                    for (int i = 0; i < shipSlots.length; ++i)
-                    {
-                        if (isShipSlotInstalled(item, shipSlots[i]))
-                        {
-                            obj_id component = shipUninstallComponentAllowOverload(getOwner(item), item, shipSlots[i], utils.getInventoryContainer(self));
-                            if (isIdValid(component))
-                            {
+                    for (int shipSlot : shipSlots) {
+                        if (isShipSlotInstalled(item, shipSlot)) {
+                            obj_id component = shipUninstallComponentAllowOverload(getOwner(item), item, shipSlot, utils.getInventoryContainer(self));
+                            if (isIdValid(component)) {
                                 int ot = getGameObjectType(component);
-                                if (itemIsAllowedToTransfer(component, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0])))
-                                {
+                                if (itemIsAllowedToTransfer(component, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0]))) {
                                     dictionary component_dict = packItem(component, ot, true, resourceCrateCountLimit, resourceCurrentCrateCount, resourceUnitCountLimit, resourceCurrentUnitCount);
-                                    if (component_dict != null)
-                                    {
-                                        shipDict.put(new Integer(shipSlots[i]), component_dict);
+                                    if (component_dict != null) {
+                                        shipDict.put(shipSlot, component_dict);
                                     }
                                 }
                             }
-                            shipInstallComponent(getOwner(item), item, shipSlots[i], component);
+                            shipInstallComponent(getOwner(item), item, shipSlot, component);
                         }
                     }
                     itemDictionary.put("shipComponents", shipDict);
@@ -7983,19 +7867,14 @@ public class base_player extends script.base_script
                     if (ingrHopperContents != null && ingrHopperContents.length > 0)
                     {
                         dictionary dictIngrHopperContents = new dictionary();
-                        for (int i = 0; i < ingrHopperContents.length; ++i)
-                        {
-                            obj_id ingrHopperContent = ingrHopperContents[i];
-                            if (!isObjectPersisted(ingrHopperContent))
-                            {
+                        for (obj_id ingrHopperContent : ingrHopperContents) {
+                            if (!isObjectPersisted(ingrHopperContent)) {
                                 continue;
                             }
                             int ot = getGameObjectType(ingrHopperContent);
-                            if (itemIsAllowedToTransfer(ingrHopperContent, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0])))
-                            {
+                            if (itemIsAllowedToTransfer(ingrHopperContent, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0]))) {
                                 dictionary dictIngrHopperContent = packItem(ingrHopperContent, ot, true, resourceCrateCountLimit, resourceCurrentCrateCount, resourceUnitCountLimit, resourceCurrentUnitCount);
-                                if (dictIngrHopperContent != null)
-                                {
+                                if (dictIngrHopperContent != null) {
                                     dictIngrHopperContents.put(ingrHopperContent, dictIngrHopperContent);
                                 }
                             }
@@ -8010,19 +7889,14 @@ public class base_player extends script.base_script
                     if (outputHopperContents != null && outputHopperContents.length > 0)
                     {
                         dictionary dictOutputHopperContents = new dictionary();
-                        for (int i = 0; i < outputHopperContents.length; ++i)
-                        {
-                            obj_id outputHopperContent = outputHopperContents[i];
-                            if (!isObjectPersisted(outputHopperContent))
-                            {
+                        for (obj_id outputHopperContent : outputHopperContents) {
+                            if (!isObjectPersisted(outputHopperContent)) {
                                 continue;
                             }
                             int ot = getGameObjectType(outputHopperContent);
-                            if (itemIsAllowedToTransfer(outputHopperContent, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0])))
-                            {
+                            if (itemIsAllowedToTransfer(outputHopperContent, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0]))) {
                                 dictionary dictOutputHopperContent = packItem(outputHopperContent, ot, true, resourceCrateCountLimit, resourceCurrentCrateCount, resourceUnitCountLimit, resourceCurrentUnitCount);
-                                if (dictOutputHopperContent != null)
-                                {
+                                if (dictOutputHopperContent != null) {
                                     dictOutputHopperContents.put(outputHopperContent, dictOutputHopperContent);
                                 }
                             }
@@ -8040,19 +7914,14 @@ public class base_player extends script.base_script
                     if (inputHopperContents != null && inputHopperContents.length > 0)
                     {
                         dictionary dictInputHopperContents = new dictionary();
-                        for (int i = 0; i < inputHopperContents.length; ++i)
-                        {
-                            obj_id inputHopperContent = inputHopperContents[i];
-                            if (!isObjectPersisted(inputHopperContent))
-                            {
+                        for (obj_id inputHopperContent : inputHopperContents) {
+                            if (!isObjectPersisted(inputHopperContent)) {
                                 continue;
                             }
                             int ot = getGameObjectType(inputHopperContent);
-                            if (itemIsAllowedToTransfer(inputHopperContent, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0])))
-                            {
+                            if (itemIsAllowedToTransfer(inputHopperContent, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0]))) {
                                 dictionary dictInputHopperContent = packItem(inputHopperContent, ot, true, resourceCrateCountLimit, resourceCurrentCrateCount, resourceUnitCountLimit, resourceCurrentUnitCount);
-                                if (dictInputHopperContent != null)
-                                {
+                                if (dictInputHopperContent != null) {
                                     dictInputHopperContents.put(inputHopperContent, dictInputHopperContent);
                                 }
                             }
@@ -8077,30 +7946,22 @@ public class base_player extends script.base_script
                     if (cells != null)
                     {
                         dictionary house_contents = new dictionary();
-                        for (int i = 0; i < cells.length; i++)
-                        {
-                            obj_id cellid = getCellId(item, cells[i]);
+                        for (String cell : cells) {
+                            obj_id cellid = getCellId(item, cell);
                             obj_id contents[] = getContents(cellid);
-                            if (contents != null && contents.length > 0)
-                            {
-                                for (int j = 0; j < contents.length; j++)
-                                {
-                                    obj_id house_item = contents[j];
-                                    if (!isObjectPersisted(house_item))
-                                    {
+                            if (contents != null && contents.length > 0) {
+                                for (obj_id house_item : contents) {
+                                    if (!isObjectPersisted(house_item)) {
                                         continue;
                                     }
                                     int ot = getGameObjectType(house_item);
-                                    if (itemIsAllowedToTransfer(house_item, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0])))
-                                    {
+                                    if (itemIsAllowedToTransfer(house_item, self) && (!isGameObjectTypeOf(ot, GOT_resource_container) || !ctsHasExceededResourceTransferLimit(resourceCrateCountLimit, resourceCurrentCrateCount[0], resourceUnitCountLimit, resourceCurrentUnitCount[0]))) {
                                         dictionary house_item_dict = packItem(house_item, ot, true, resourceCrateCountLimit, resourceCurrentCrateCount, resourceUnitCountLimit, resourceCurrentUnitCount);
-                                        if (house_item_dict != null)
-                                        {
-                                            house_item_dict.put("house_cell", cells[i]);
+                                        if (house_item_dict != null) {
+                                            house_item_dict.put("house_cell", cell);
                                             house_item_dict.put("house_cell_loc", getLocation(house_item));
                                             float[] quaternion = getQuaternion(house_item);
-                                            if ((quaternion != null) && (quaternion.length == 4))
-                                            {
+                                            if ((quaternion != null) && (quaternion.length == 4)) {
                                                 house_item_dict.put("quaternion", quaternion);
                                             }
                                             house_contents.put(house_item, house_item_dict);
@@ -8410,19 +8271,14 @@ public class base_player extends script.base_script
             }
             int[] quests = questGetAllActiveQuestIds(self);
             dictionary questWaypoints = new dictionary();
-            for (int i = 0; i < quests.length; ++i)
-            {
-                int questCrc = quests[i];
-                for (int taskId = 0; taskId < 16; ++taskId)
-                {
+            for (int questCrc : quests) {
+                for (int taskId = 0; taskId < 16; ++taskId) {
                     obj_id waypoint = groundquests.getObjIdForWaypoint(questCrc, taskId, self);
                     obj_id entryWaypoint = groundquests.getObjIdForEntranceWaypoint(questCrc, taskId, self);
-                    if (isIdValid(waypoint))
-                    {
+                    if (isIdValid(waypoint)) {
                         questWaypoints.put(waypoint, 1);
                     }
-                    if (isIdValid(entryWaypoint))
-                    {
+                    if (isIdValid(entryWaypoint)) {
                         questWaypoints.put(entryWaypoint, 1);
                     }
                 }
@@ -8431,21 +8287,16 @@ public class base_player extends script.base_script
             String[] questIDs = dataTableGetStringColumnNoDefaults("datatables/npc/static_quest/all_quest_names.iff", "quest_ids");
             if ((questIDs != null) && (questIDs.length > 0))
             {
-                for (int i = 0; i < questIDs.length; ++i)
-                {
-                    if (hasObjVar(self, questIDs[i] + ".waypoint"))
-                    {
-                        obj_id waypoint = getObjIdObjVar(self, questIDs[i] + ".waypoint");
-                        if (isIdValid(waypoint))
-                        {
+                for (String questID : questIDs) {
+                    if (hasObjVar(self, questID + ".waypoint")) {
+                        obj_id waypoint = getObjIdObjVar(self, questID + ".waypoint");
+                        if (isIdValid(waypoint)) {
                             staticQuestWaypoints.put(waypoint, 1);
                         }
                     }
-                    if (hasObjVar(self, questIDs[i] + ".waypointhome"))
-                    {
-                        obj_id waypoint = getObjIdObjVar(self, questIDs[i] + ".waypointhome");
-                        if (isIdValid(waypoint))
-                        {
+                    if (hasObjVar(self, questID + ".waypointhome")) {
+                        obj_id waypoint = getObjIdObjVar(self, questID + ".waypointhome");
+                        if (isIdValid(waypoint)) {
                             staticQuestWaypoints.put(waypoint, 1);
                         }
                     }
@@ -8455,17 +8306,14 @@ public class base_player extends script.base_script
             if (waypoints != null && waypoints.length > 0)
             {
                 dictionary waypointDictionaries = new dictionary();
-                for (int i = 0; i < waypoints.length; ++i)
-                {
-                    if (questWaypoints.containsKey(waypoints[i]))
-                    {
+                for (obj_id waypoint : waypoints) {
+                    if (questWaypoints.containsKey(waypoint)) {
                         continue;
                     }
-                    if (staticQuestWaypoints.containsKey(waypoints[i]))
-                    {
+                    if (staticQuestWaypoints.containsKey(waypoint)) {
                         continue;
                     }
-                    waypointDictionaries.put(waypoints[i], packWaypoint(waypoints[i]));
+                    waypointDictionaries.put(waypoint, packWaypoint(waypoint));
                 }
                 characterData.put("waypoints", waypointDictionaries);
             }
@@ -8945,33 +8793,23 @@ public class base_player extends script.base_script
                 setObjVar(self, "clickRespec.cts", true);
                 setSkillTemplate(self, skillTemplate);
                 String[] skills = characterData.getStringArray("skills");
-                for (int i = 0; i < skills.length; ++i)
-                {
-                    if (!hasSkill(self, skills[i]))
-                    {
-                        if (grantSkill(self, skills[i]))
-                        {
-                            CustomerServiceLog("CharacterTransfer", "grantSkill(" + self + ", " + skills[i] + ")");
-                        }
-                        else 
-                        {
-                            CustomerServiceLog("CharacterTransfer", "grantSkill(" + self + ", " + skills[i] + ") FAILED");
+                for (String skill : skills) {
+                    if (!hasSkill(self, skill)) {
+                        if (grantSkill(self, skill)) {
+                            CustomerServiceLog("CharacterTransfer", "grantSkill(" + self + ", " + skill + ")");
+                        } else {
+                            CustomerServiceLog("CharacterTransfer", "grantSkill(" + self + ", " + skill + ") FAILED");
                             return SCRIPT_OVERRIDE;
                         }
                     }
                 }
                 String[] commands = characterData.getStringArray("commands");
-                for (int i = 0; i < commands.length; ++i)
-                {
-                    if (!hasCommand(self, commands[i]))
-                    {
-                        if (grantCommand(self, commands[i]))
-                        {
-                            CustomerServiceLog("CharacterTransfer", "grantCommand(" + self + ", " + commands[i] + ")");
-                        }
-                        else 
-                        {
-                            CustomerServiceLog("CharacterTransfer", "grantCommand(" + self + ", " + commands[i] + ") FAILED");
+                for (String command : commands) {
+                    if (!hasCommand(self, command)) {
+                        if (grantCommand(self, command)) {
+                            CustomerServiceLog("CharacterTransfer", "grantCommand(" + self + ", " + command + ")");
+                        } else {
+                            CustomerServiceLog("CharacterTransfer", "grantCommand(" + self + ", " + command + ") FAILED");
                             return SCRIPT_OVERRIDE;
                         }
                     }
@@ -8980,23 +8818,16 @@ public class base_player extends script.base_script
                 if (experiencePoints != null)
                 {
                     Set keySet = experiencePoints.keySet();
-                    Iterator expIterator = keySet.iterator();
-                    while (expIterator.hasNext())
-                    {
-                        String expType = (String)expIterator.next();
-                        if (expType != null)
-                        {
+                    for (Object o : keySet) {
+                        String expType = (String) o;
+                        if (expType != null) {
                             int expValue = experiencePoints.getInt(expType);
-                            if (getExperiencePoints(self, expType) != expValue)
-                            {
+                            if (getExperiencePoints(self, expType) != expValue) {
                                 int result = grantExperiencePoints(self, expType, expValue);
-                                if (result == XP_ERROR)
-                                {
+                                if (result == XP_ERROR) {
                                     CustomerServiceLog("CharacterTransfer", "grantExperiencePoints(" + self + ", " + expType + ", " + expValue + ") FAILED");
                                     return SCRIPT_OVERRIDE;
-                                }
-                                else 
-                                {
+                                } else {
                                     CustomerServiceLog("CharacterTransfer", "grantExperiencePoints(" + self + ", " + expType + ", " + expValue + ") (non-roadmap exp)");
                                 }
                             }
@@ -9004,9 +8835,8 @@ public class base_player extends script.base_script
                     }
                 }
                 String[] strObjVars = characterData.getStringArray("strObjVars");
-                for (int intI = 0; intI < strObjVars.length; intI++)
-                {
-                    setPackedObjvars(self, strObjVars[intI]);
+                for (String strObjVar : strObjVars) {
+                    setPackedObjvars(self, strObjVar);
                 }
                 removeObjVar(self, "galactic_reserve_cooldown");
                 if (hasObjVar(self, CTS_LOT_COUNT))
@@ -9041,19 +8871,16 @@ public class base_player extends script.base_script
                 obj_id[] old_waypoints = getWaypointsInDatapad(self);
                 if (old_waypoints != null && old_waypoints.length > 0)
                 {
-                    for (int i = 0; i < old_waypoints.length; ++i)
-                    {
-                        destroyWaypointInDatapad(old_waypoints[i], self);
+                    for (obj_id old_waypoint : old_waypoints) {
+                        destroyWaypointInDatapad(old_waypoint, self);
                     }
                 }
                 dictionary waypoints = characterData.getDictionary("waypoints");
                 if (waypoints != null)
                 {
                     Set keySet = waypoints.keySet();
-                    Iterator waypointIterator = keySet.iterator();
-                    while (waypointIterator.hasNext())
-                    {
-                        obj_id key = (obj_id)waypointIterator.next();
+                    for (Object o : keySet) {
+                        obj_id key = (obj_id) o;
                         dictionary waypointDict = waypoints.getDictionary(key);
                         unpackWaypoint(waypointDict);
                     }
@@ -9182,13 +9009,9 @@ public class base_player extends script.base_script
                         }
                     }
                     int[] quests = questGetAllActiveQuestIds(self);
-                    for (int i = 0; i < quests.length; ++i)
-                    {
-                        int questId = quests[i];
-                        for (int taskId = 0; taskId < 16; ++taskId)
-                        {
-                            if (questIsTaskActive(questId, taskId, self))
-                            {
+                    for (int questId : quests) {
+                        for (int taskId = 0; taskId < 16; ++taskId) {
+                            if (questIsTaskActive(questId, taskId, self)) {
                                 groundquests.refreshQuestWaypoints(questId, taskId, true, self);
                             }
                         }
@@ -9272,30 +9095,22 @@ public class base_player extends script.base_script
                     else 
                     {
                         Set keySet = inventoryDictionary.keySet();
-                        Iterator inventoryIterator = keySet.iterator();
-                        while (inventoryIterator.hasNext())
-                        {
-                            obj_id key = (obj_id)inventoryIterator.next();
-                            if (isIdNull(key))
-                            {
+                        for (Object o : keySet) {
+                            obj_id key = (obj_id) o;
+                            if (isIdNull(key)) {
                                 CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : could not retrieve a key from the inventory dictionary iterator. TRANSFER FAILED");
                                 return SCRIPT_OVERRIDE;
                             }
                             dictionary itemDictionary = inventoryDictionary.getDictionary(key);
-                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerInventory, itemDictionary))
-                            {
+                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerInventory, itemDictionary)) {
                                 continue;
                             }
                             obj_id unpackedItem = unpackItem(playerInventory, itemDictionary);
-                            if (!isIdValid(unpackedItem))
-                            {
-                                if (isIdNull(unpackedItem))
-                                {
+                            if (!isIdValid(unpackedItem)) {
+                                if (isIdNull(unpackedItem)) {
                                     CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : unpackItem() returned NULL id for item: " + itemDictionary);
                                     return SCRIPT_OVERRIDE;
-                                }
-                                else 
-                                {
+                                } else {
                                     CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : unpackItem() returned invalid id " + unpackedItem + " for item: " + itemDictionary);
                                     continue;
                                 }
@@ -9311,49 +9126,37 @@ public class base_player extends script.base_script
                     else 
                     {
                         Set keySet = bankDictionary.keySet();
-                        Iterator bankIterator = keySet.iterator();
-                        while (bankIterator.hasNext())
-                        {
-                            obj_id key = (obj_id)bankIterator.next();
-                            if (isIdNull(key))
-                            {
+                        for (Object o : keySet) {
+                            obj_id key = (obj_id) o;
+                            if (isIdNull(key)) {
                                 CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : could not retrieve a key from the bank dictionary iterator. TRANSFER FAILED");
                                 return SCRIPT_OVERRIDE;
                             }
                             dictionary itemDictionary = bankDictionary.getDictionary(key);
-                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerInventory, itemDictionary))
-                            {
+                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerInventory, itemDictionary)) {
                                 continue;
                             }
                             obj_id unpackedItem = unpackItem(playerInventory, itemDictionary);
-                            if (!isIdValid(unpackedItem))
-                            {
-                                if (isIdNull(unpackedItem))
-                                {
+                            if (!isIdValid(unpackedItem)) {
+                                if (isIdNull(unpackedItem)) {
                                     CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : unpackItem() returned NULL id for item: " + itemDictionary);
                                     return SCRIPT_OVERRIDE;
-                                }
-                                else 
-                                {
+                                } else {
                                     CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : unpackItem() returned invalid id " + unpackedItem + " for item: " + itemDictionary);
                                     continue;
                                 }
                             }
-                            if (putIn(unpackedItem, playerBank))
-                            {
+                            if (putIn(unpackedItem, playerBank)) {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem()  : moved item " + unpackedItem + " into bank " + playerBank);
-                            }
-                            else 
-                            {
+                            } else {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem()  : FAILED to move item " + unpackedItem + " into bank " + playerBank);
                             }
                         }
                     }
                     obj_id playerDatapad = utils.getPlayerDatapad(self);
                     obj_id datapadObjects[] = getContents(playerDatapad);
-                    for (int oldDatapad = 0; oldDatapad < datapadObjects.length; ++oldDatapad)
-                    {
-                        destroyObject(datapadObjects[oldDatapad]);
+                    for (obj_id datapadObject : datapadObjects) {
+                        destroyObject(datapadObject);
                     }
                     CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter : unpacking datapad items");
                     dictionary datapadDictionary = characterData.getDictionary("datapadDictionary");
@@ -9367,47 +9170,35 @@ public class base_player extends script.base_script
                         Vector shipsWithDroidControlDevice = new Vector();
                         shipsWithDroidControlDevice.setSize(0);
                         Set keySet = datapadDictionary.keySet();
-                        Iterator datapadIterator = keySet.iterator();
-                        while (datapadIterator.hasNext())
-                        {
-                            obj_id key = (obj_id)datapadIterator.next();
-                            if (isIdNull(key))
-                            {
+                        for (Object o1 : keySet) {
+                            obj_id key = (obj_id) o1;
+                            if (isIdNull(key)) {
                                 CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : could not retrieve a key from the datapad dictionary iterator. TRANSFER FAILED");
                                 return SCRIPT_OVERRIDE;
                             }
                             dictionary itemDictionary = datapadDictionary.getDictionary(key);
-                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerDatapad, itemDictionary))
-                            {
+                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerDatapad, itemDictionary)) {
                                 continue;
                             }
                             obj_id unpackedItem = unpackItem(playerDatapad, itemDictionary);
-                            if (!isIdValid(unpackedItem))
-                            {
+                            if (!isIdValid(unpackedItem)) {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem()  : FAILED to unpack datapad item (original oid " + key + ") into datapad " + playerDatapad);
-                            }
-                            else 
-                            {
+                            } else {
                                 datapadItemOidTranslation.put(key, unpackedItem);
-                                if (utils.hasScript(unpackedItem, "space.ship_control_device.ship_control_device"))
-                                {
+                                if (utils.hasScript(unpackedItem, "space.ship_control_device.ship_control_device")) {
                                     obj_id ship = space_transition.getShipFromShipControlDevice(unpackedItem);
-                                    if (isIdValid(ship) && utils.hasLocalVar(ship, "droid_control_device"))
-                                    {
+                                    if (isIdValid(ship) && utils.hasLocalVar(ship, "droid_control_device")) {
                                         utils.addElement(shipsWithDroidControlDevice, ship);
                                     }
                                 }
                             }
                         }
-                        for (int i = 0; i < shipsWithDroidControlDevice.size(); ++i)
-                        {
-                            obj_id originalDroidControlDevice = utils.getObjIdLocalVar(((obj_id)shipsWithDroidControlDevice.get(i)), "droid_control_device");
-                            if (isIdValid(originalDroidControlDevice) && datapadItemOidTranslation.containsKey(originalDroidControlDevice))
-                            {
+                        for (Object o : shipsWithDroidControlDevice) {
+                            obj_id originalDroidControlDevice = utils.getObjIdLocalVar(((obj_id) o), "droid_control_device");
+                            if (isIdValid(originalDroidControlDevice) && datapadItemOidTranslation.containsKey(originalDroidControlDevice)) {
                                 obj_id newDroidControlDevice = datapadItemOidTranslation.getObjId(originalDroidControlDevice);
-                                if (isIdValid(newDroidControlDevice))
-                                {
-                                    associateDroidControlDeviceWithShip(((obj_id)shipsWithDroidControlDevice.get(i)), newDroidControlDevice);
+                                if (isIdValid(newDroidControlDevice)) {
+                                    associateDroidControlDeviceWithShip(((obj_id) o), newDroidControlDevice);
                                 }
                             }
                         }
@@ -9419,9 +9210,8 @@ public class base_player extends script.base_script
                         obj_id buyBackObjects[] = getContents(buyBackContainer);
                         if (buyBackObjects != null && buyBackObjects.length > 0)
                         {
-                            for (int oldContainer = 0; oldContainer < buyBackObjects.length; ++oldContainer)
-                            {
-                                destroyObject(buyBackObjects[oldContainer]);
+                            for (obj_id buyBackObject : buyBackObjects) {
+                                destroyObject(buyBackObject);
                             }
                         }
                     }
@@ -9444,19 +9234,15 @@ public class base_player extends script.base_script
                             return SCRIPT_OVERRIDE;
                         }
                         Set keySet = buyBackDictionary.keySet();
-                        Iterator buyBackIterator = keySet.iterator();
-                        while (buyBackIterator.hasNext())
-                        {
-                            obj_id key = (obj_id)buyBackIterator.next();
-                            if (isIdNull(key))
-                            {
+                        for (Object o : keySet) {
+                            obj_id key = (obj_id) o;
+                            if (isIdNull(key)) {
                                 CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : could not retrieve a key from the buy back dictionary iterator. TRANSFER FAILED");
                                 return SCRIPT_OVERRIDE;
                             }
                             dictionary itemDictionary = buyBackDictionary.getDictionary(key);
                             obj_id unpackedItem = unpackItem(buyBackContainer, itemDictionary);
-                            if (!isIdValid(unpackedItem))
-                            {
+                            if (!isIdValid(unpackedItem)) {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem()  : FAILED to unpack buy back item (original oid " + key + ") into buy back container " + buyBackContainer);
                             }
                         }
@@ -9465,9 +9251,8 @@ public class base_player extends script.base_script
                     if (isIdValid(playerHangar))
                     {
                         obj_id hangarObjects[] = getContents(playerHangar);
-                        for (int oldHangar = 0; oldHangar < hangarObjects.length; ++oldHangar)
-                        {
-                            destroyObject(hangarObjects[oldHangar]);
+                        for (obj_id hangarObject : hangarObjects) {
+                            destroyObject(hangarObject);
                         }
                     }
                     CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter : unpacking hangar items");
@@ -9493,56 +9278,43 @@ public class base_player extends script.base_script
                         Vector shipsWithDroidControlDevice = new Vector();
                         shipsWithDroidControlDevice.setSize(0);
                         Set keySet = hangarDictionary.keySet();
-                        Iterator hangarIterator = keySet.iterator();
-                        while (hangarIterator.hasNext())
-                        {
-                            obj_id key = (obj_id)hangarIterator.next();
-                            if (isIdNull(key))
-                            {
+                        for (Object o1 : keySet) {
+                            obj_id key = (obj_id) o1;
+                            if (isIdNull(key)) {
                                 CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : could not retrieve a key from the hangar dictionary iterator. TRANSFER FAILED");
                                 return SCRIPT_OVERRIDE;
                             }
                             dictionary itemDictionary = hangarDictionary.getDictionary(key);
-                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerDatapad, itemDictionary))
-                            {
+                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerDatapad, itemDictionary)) {
                                 continue;
                             }
                             obj_id unpackedItem = unpackItem(playerHangar, itemDictionary);
-                            if (!isIdValid(unpackedItem))
-                            {
+                            if (!isIdValid(unpackedItem)) {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem()  : FAILED to unpack hangar item (original oid " + key + ") into hangar " + playerHangar);
-                            }
-                            else 
-                            {
+                            } else {
                                 hangarItemOidTranslation.put(key, unpackedItem);
-                                if (utils.hasScript(unpackedItem, "space.ship_control_device.ship_control_device"))
-                                {
+                                if (utils.hasScript(unpackedItem, "space.ship_control_device.ship_control_device")) {
                                     obj_id ship = space_transition.getShipFromShipControlDevice(unpackedItem);
-                                    if (isIdValid(ship) && utils.hasLocalVar(ship, "droid_control_device"))
-                                    {
+                                    if (isIdValid(ship) && utils.hasLocalVar(ship, "droid_control_device")) {
                                         utils.addElement(shipsWithDroidControlDevice, ship);
                                     }
                                 }
                             }
                         }
-                        for (int i = 0; i < shipsWithDroidControlDevice.size(); ++i)
-                        {
-                            obj_id originalDroidControlDevice = utils.getObjIdLocalVar(((obj_id)shipsWithDroidControlDevice.get(i)), "droid_control_device");
-                            if (isIdValid(originalDroidControlDevice) && hangarItemOidTranslation.containsKey(originalDroidControlDevice))
-                            {
+                        for (Object o : shipsWithDroidControlDevice) {
+                            obj_id originalDroidControlDevice = utils.getObjIdLocalVar(((obj_id) o), "droid_control_device");
+                            if (isIdValid(originalDroidControlDevice) && hangarItemOidTranslation.containsKey(originalDroidControlDevice)) {
                                 obj_id newDroidControlDevice = hangarItemOidTranslation.getObjId(originalDroidControlDevice);
-                                if (isIdValid(newDroidControlDevice))
-                                {
-                                    associateDroidControlDeviceWithShip(((obj_id)shipsWithDroidControlDevice.get(i)), newDroidControlDevice);
+                                if (isIdValid(newDroidControlDevice)) {
+                                    associateDroidControlDeviceWithShip(((obj_id) o), newDroidControlDevice);
                                 }
                             }
                         }
                     }
                     obj_id playerAppearance = getAppearanceInventory(self);
                     obj_id appearanceObjects[] = getContents(playerAppearance);
-                    for (int oldAppearance = 0; oldAppearance < appearanceObjects.length; ++oldAppearance)
-                    {
-                        destroyObject(appearanceObjects[oldAppearance]);
+                    for (obj_id appearanceObject : appearanceObjects) {
+                        destroyObject(appearanceObject);
                     }
                     CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter : unpacking appearance inventory items");
                     dictionary appearanceDictionary = characterData.getDictionary("appearanceDictionary");
@@ -9553,23 +9325,18 @@ public class base_player extends script.base_script
                     else 
                     {
                         Set keySet = appearanceDictionary.keySet();
-                        Iterator appearanceIterator = keySet.iterator();
-                        while (appearanceIterator.hasNext())
-                        {
-                            obj_id key = (obj_id)appearanceIterator.next();
-                            if (isIdNull(key))
-                            {
+                        for (Object o : keySet) {
+                            obj_id key = (obj_id) o;
+                            if (isIdNull(key)) {
                                 CustomerServiceLog("CharacterTransfer", "OnDownloadCharacter() : could not retrieve a key from the appearance dictionary iterator. TRANSFER FAILED");
                                 return SCRIPT_OVERRIDE;
                             }
                             dictionary itemDictionary = appearanceDictionary.getDictionary(key);
-                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerAppearance, itemDictionary))
-                            {
+                            if (ctsCheckAndLogUniqueStaticItemAlreadyExists(playerAppearance, itemDictionary)) {
                                 continue;
                             }
                             obj_id unpackedItem = unpackItem(playerInventory, itemDictionary);
-                            if (!isIdValid(unpackedItem))
-                            {
+                            if (!isIdValid(unpackedItem)) {
                                 CustomerServiceLog("CharacterTransfer", "unpackItem()  : FAILED to unpack appearance inventory item (original oid " + key + ") into appearance inventory " + playerAppearance);
                             }
                         }
@@ -9674,7 +9441,7 @@ public class base_player extends script.base_script
             buff.removeBuff(self, "spice_downer");
         }
         float duration = buff.getDuration("spice_downer");
-        float downerModified = ((float)getEnhancedSkillStatisticModifierUncapped(self, "resistance_spice_downer"));
+        float downerModified = getEnhancedSkillStatisticModifierUncapped(self, "resistance_spice_downer");
         if (downerModified > 0)
         {
             duration -= downerModified;
@@ -9787,10 +9554,8 @@ public class base_player extends script.base_script
                 if (playerEmotes != null)
                 {
                     int emoteGroup = dataTableGetInt(veteran_deprecated.EMOTES_DATATABLE, i, veteran_deprecated.EMOTES_COLUMN_GROUP);
-                    for (int j = 0; j < playerEmotes.length; ++j)
-                    {
-                        if (emoteGroup == playerEmotes[j])
-                        {
+                    for (int playerEmote : playerEmotes) {
+                        if (emoteGroup == playerEmote) {
                             return SCRIPT_CONTINUE;
                         }
                     }
@@ -9911,11 +9676,9 @@ public class base_player extends script.base_script
             return SCRIPT_CONTINUE;
         }
         rowSelected = 1;
-        for (int i = 0; i < milestones.length; ++i)
-        {
-            if ((rowSelected + 1) == milestones[i])
-            {
-                veteran_deprecated.requestVeteranRewards(self, milestones[i]);
+        for (int milestone : milestones) {
+            if ((rowSelected + 1) == milestone) {
+                veteran_deprecated.requestVeteranRewards(self, milestone);
                 return SCRIPT_CONTINUE;
             }
         }
@@ -10145,10 +9908,8 @@ public class base_player extends script.base_script
                     if (allPlayers != null && allPlayers.length > 0)
                     {
                         boolean found = false;
-                        for (int i = 0; i < allPlayers.length; ++i)
-                        {
-                            if (allPlayers[i] == self)
-                            {
+                        for (obj_id allPlayer : allPlayers) {
+                            if (allPlayer == self) {
                                 utils.setScriptVar(self, "battlefield.active", pvpRegionController);
                                 found = true;
                                 pvp.bfLog(pvpRegionController, "Player " + getName(self) + "(" + self + ") Entered the Battlefield and was missing the 'battlefield.active_players' scriptvar. Player was just found and the scriptvar was added.");
@@ -10501,7 +10262,7 @@ public class base_player extends script.base_script
         Long lngId;
         try
         {
-            lngId = new Long(strCommandTarget);
+            lngId = Long.valueOf(strCommandTarget);
         }
         catch(NumberFormatException err)
         {
@@ -10676,11 +10437,9 @@ public class base_player extends script.base_script
                 {
                     return SCRIPT_CONTINUE;
                 }
-                for (int i = 0; i < slotNames.length; ++i)
-                {
-                    if (!hasCompletedCollectionSlot(self, slotNames[i]))
-                    {
-                        modifyCollectionSlotValue(self, slotNames[i], 1);
+                for (String slotName : slotNames) {
+                    if (!hasCompletedCollectionSlot(self, slotName)) {
+                        modifyCollectionSlotValue(self, slotName, 1);
                     }
                 }
             }
@@ -10783,16 +10542,14 @@ public class base_player extends script.base_script
         obj_id[] removeObjects = params.getObjIdArray("removeObjects");
         if (addObjects != null && addObjects.length > 0)
         {
-            for (int i = 0; i < addObjects.length; ++i)
-            {
-                addMissionCriticalObject(self, addObjects[i]);
+            for (obj_id addObject : addObjects) {
+                addMissionCriticalObject(self, addObject);
             }
         }
         if (removeObjects != null && removeObjects.length > 0)
         {
-            for (int i = 0; i < removeObjects.length; ++i)
-            {
-                removeMissionCriticalObject(self, removeObjects[i]);
+            for (obj_id removeObject : removeObjects) {
+                removeMissionCriticalObject(self, removeObject);
             }
         }
         return SCRIPT_CONTINUE;
@@ -10823,18 +10580,12 @@ public class base_player extends script.base_script
                     {
                         obj_id gid = getGroupObject(self);
                         obj_id[] members = getGroupMemberIds(gid);
-                        for (int i = 0; i < members.length; i++)
-                        {
-                            obj_id member = members[i];
-                            if (isIdValid(member) && member.isLoaded() && isPlayer(member))
-                            {
+                        for (obj_id member : members) {
+                            if (isIdValid(member) && member.isLoaded() && isPlayer(member)) {
                                 obj_id groupMemberCurrentMount = getMountId(member);
-                                if (isIdValid(groupMemberCurrentMount))
-                                {
-                                    if (groupMemberCurrentMount == playerCurrentMount)
-                                    {
-                                        if (factions.isDeclared(member))
-                                        {
+                                if (isIdValid(groupMemberCurrentMount)) {
+                                    if (groupMemberCurrentMount == playerCurrentMount) {
+                                        if (factions.isDeclared(member)) {
                                         }
                                     }
                                 }
@@ -10982,84 +10733,66 @@ public class base_player extends script.base_script
     public int handleClientLogin(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
         int[] quests = questGetAllActiveQuestIds(self);
-        for (int i = 0; i < quests.length; ++i)
-        {
-            int questCrc = quests[i];
+        for (int questCrc : quests) {
             Vector objectsToTellClientAbout = new Vector();
             objectsToTellClientAbout.setSize(0);
             String item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardLootName);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardLootName2);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardLootName3);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName2);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName3);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName4);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName5);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName6);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName7);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName8);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName9);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
             item = groundquests.getQuestStringDataEntry(questCrc, groundquests.dataTableColumnQuestRewardExclusiveLootName10);
-            if (item != null)
-            {
+            if (item != null) {
                 utils.addElement(objectsToTellClientAbout, item);
             }
-            for (int j = 0; j < objectsToTellClientAbout.size(); ++j)
-            {
-                String itemName = ((String)objectsToTellClientAbout.get(j));
-                if (itemName != null && !itemName.equals(""))
-                {
+            for (Object o : objectsToTellClientAbout) {
+                String itemName = ((String) o);
+                if (itemName != null && !itemName.equals("")) {
                     dictionary itemData = static_item.getMergedItemDictionary(itemName);
-                    if (itemData != null)
-                    {
+                    if (itemData != null) {
                         String[] keysStringVector = itemData.keysStringVector();
                         String[] valuesStringVector = itemData.valuesStringVector();
                         sendStaticItemDataToPlayer(self, keysStringVector, valuesStringVector);
@@ -11214,15 +10947,12 @@ public class base_player extends script.base_script
     {
         trial.bumpSession(self, "displayDefensiveMods");
         messageTo(self, "setDisplayOnlyDefensiveMods", trial.getSessionDict(self, "displayDefensiveMods"), 5, false);
-        for (int intI = 0; intI < modNames.length; intI++)
-        {
-            if ((modNames[intI].startsWith("constitution")) || (modNames[intI].startsWith("stamina")))
-            {
+        for (String modName : modNames) {
+            if ((modName.startsWith("constitution")) || (modName.startsWith("stamina"))) {
                 skill.recalcPlayerPools(self, false);
                 return SCRIPT_CONTINUE;
             }
-            if (modNames[intI].startsWith("movement_resist"))
-            {
+            if (modName.startsWith("movement_resist")) {
                 messageTo(self, "check_movement_immunity", null, 0.1f, false);
             }
         }
@@ -11440,17 +11170,14 @@ public class base_player extends script.base_script
         obj_id inv = utils.getInventoryContainer(self);
         Vector objects = new Vector();
         boolean noGift = false;
-        for (int i = 0; i < gifts.size(); i++)
-        {
-            String item = (String)gifts.get(i);
-            if (item.equals("none"))
-            {
+        for (Object gift : gifts) {
+            String item = (String) gift;
+            if (item.equals("none")) {
                 noGift = true;
                 continue;
             }
             obj_id new_gift = static_item.createNewItemFunction(item, inv);
-            if (isIdValid(new_gift))
-            {
+            if (isIdValid(new_gift)) {
                 objects.addElement(new_gift);
                 CustomerServiceLog("grantGift", "%TU has received the gift(s) for Publish " + last_publish + ". Item given was " + item + ". Item OID was " + new_gift, self);
             }
@@ -11487,14 +11214,12 @@ public class base_player extends script.base_script
         }
         int oldSkillCount = 0;
         float oldSkillPct = 0.0f;
-        for (int i = 0; i < oldSkillList.length; i++)
-        {
-            if (hasSkill(self, oldSkillList[i]))
-            {
+        for (String s : oldSkillList) {
+            if (hasSkill(self, s)) {
                 oldSkillCount++;
             }
         }
-        oldSkillPct = (float)oldSkillCount / (float)oldSkillList.length;
+        oldSkillPct = (float)oldSkillCount / oldSkillList.length;
         skill.revokeAllProfessionSkills(self);
         dictionary d = new dictionary();
         d.put("oldSkillPct", oldSkillPct);
@@ -11545,7 +11270,7 @@ public class base_player extends script.base_script
         float oldSkillPct = params.getFloat("oldSkillPct");
         String newSkills = dataTableGetString(skill_template.TEMPLATE_TABLE, "entertainer_1a", "template");
         String[] newSkillList = split(newSkills, ',');
-        int newSkillCount = (int)Math.ceil(oldSkillPct * (float)newSkillList.length);
+        int newSkillCount = (int)Math.ceil(oldSkillPct * newSkillList.length);
         setSkillTemplate(self, "entertainer_1a");
         for (int i = 0; i < newSkillCount; i++)
         {
@@ -11679,11 +11404,10 @@ public class base_player extends script.base_script
             obj_id[] hunters = getJediBounties(self);
             if (hunters != null && hunters.length > 0)
             {
-                for (int i = 0; i < hunters.length; i++)
-                {
+                for (obj_id hunter : hunters) {
                     dictionary d = new dictionary();
                     d.put("target", self);
-                    messageTo(hunters[i], "handleBountyMissionIncomplete", d, 0.0f, true);
+                    messageTo(hunter, "handleBountyMissionIncomplete", d, 0.0f, true);
                 }
             }
             removeAllJediBounties(self);
@@ -11698,15 +11422,13 @@ public class base_player extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < buffs.length; i++)
-        {
-            String type = buff.getEffectParam(buffs[i], 1);
-            if (type.equals("avoid_incap_heal"))
-            {
+        for (int b : buffs) {
+            String type = buff.getEffectParam(b, 1);
+            if (type.equals("avoid_incap_heal")) {
                 String subType = dataTableGetString("datatables/buff/effect_mapping.iff", "avoid_incap_heal", "SUBTYPE");
                 float value = utils.getFloatScriptVar(self, "buff_handler." + subType);
-                healing.healDamage(self, self, HEALTH, (int)value);
-                buff.removeBuff(self, buff.getBuffNameFromCrc(buffs[i]));
+                healing.healDamage(self, self, HEALTH, (int) value);
+                buff.removeBuff(self, buff.getBuffNameFromCrc(b));
                 buff.applyBuff(self, "gcw_base_critical_heal_recourse");
                 string_id SID_INCAP_HEAL = new string_id("cbt_spam", "incap_heal");
                 prose_package pp = new prose_package();
@@ -11731,7 +11453,7 @@ public class base_player extends script.base_script
             {
                 return;
             }
-            messageTo(self, "handleSendSmugglerBootstrapRequest", null, 120f, false);
+            messageTo(self, "handleSendSmugglerBootstrapRequest", null, 120.0f, false);
         }
     }
     public int handleSendSmugglerBootstrapRequest(obj_id self, dictionary params) throws InterruptedException
@@ -11739,7 +11461,7 @@ public class base_player extends script.base_script
         string_id subject = new string_id("smuggler/messages", "bootstrap_subject");
         string_id body = new string_id("smuggler/messages", "bootstrap_body");
         String body_oob = chatMakePersistentMessageOutOfBandBody(null, body);
-        body_oob = chatAppendPersistentMessageWaypointData(body_oob, "tatooine", -1049f, -3538f, new string_id("mob/creature_names", "smuggler_broker_barak"), null);
+        body_oob = chatAppendPersistentMessageWaypointData(body_oob, "tatooine", -1049.0f, -3538.0f, new string_id("mob/creature_names", "smuggler_broker_barak"), null);
         String subject_str = "@" + subject.toString();
         chatSendPersistentMessage("Barak", self, subject_str, null, body_oob);
         setObjVar(self, "smuggler_bootstrap", 1);
@@ -11759,10 +11481,8 @@ public class base_player extends script.base_script
         if (data_name.startsWith("base_cwdata_manager"))
         {
             int myBases = 0;
-            for (int i = 0; i < dungeon_data.length; i++)
-            {
-                if (dungeon_data[i].getObjId("ownerId") == self)
-                {
+            for (dictionary dungeon_datum : dungeon_data) {
+                if (dungeon_datum.getObjId("ownerId") == self) {
                     myBases++;
                 }
             }
@@ -12005,9 +11725,8 @@ public class base_player extends script.base_script
         float blockReduction = combat.getAttackerBlockReduction(self) * 100;
         float hitReduction = combat.getDefenderCriticalChance(self) * 100;
         float hitPvPReduction = (combat.getDefenderCriticalChance(self) + combat.getPvPHitReductionChance(self)) * 100;
-        for (int i = 0; i < variousMods.length; i++)
-        {
-            removeAttribOrSkillModModifier(self, variousMods[i]);
+        for (String variousMod : variousMods) {
+            removeAttribOrSkillModModifier(self, variousMod);
         }
         addSkillModModifier(self, "display_only_glancing_blow", "display_only_glancing_blow", (int)glancingBlowChance, -1, false, false);
         addSkillModModifier(self, "display_only_dodge", "display_only_dodge", (int)dodgeChance, -1, false, false);
@@ -12222,7 +11941,7 @@ public class base_player extends script.base_script
             }
             utils.setScriptVar(self, meditation.VAR_MEDITATION_BASE, value);
         }
-        messageTo(self, meditation.HANDLER_MEDITATION_TICK, trial.getSessionDict(self, meditation.HANDLER_MEDITATION_TICK), 10f, false);
+        messageTo(self, meditation.HANDLER_MEDITATION_TICK, trial.getSessionDict(self, meditation.HANDLER_MEDITATION_TICK), 10.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int msgCoupDeGraceAuthoritativeCheck(obj_id self, dictionary params) throws InterruptedException

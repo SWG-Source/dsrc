@@ -109,7 +109,7 @@ public class master extends script.theme_park.poi.base
             int cnt = rand(3, 7);
             for (int i = 0; i < cnt; i++)
             {
-                location loc = locations.getGoodLocationAroundLocation(myLoc, 2f, 2f, 8f, 8f);
+                location loc = locations.getGoodLocationAroundLocation(myLoc, 2.0f, 2.0f, 8.0f, 8.0f);
                 if (loc == null)
                 {
                     loc = myLoc;

@@ -53,62 +53,60 @@ public class intellect_liar extends script.base_script
     }
     public int OnNpcConversationResponse(obj_id self, String conversation, obj_id speaker, string_id response) throws InterruptedException
     {
-        if ((response.getAsciiId()).equals("response_0"))
-        {
-            int m = rand(0, 11);
-            string_id msg = new string_id(CONVO, "equipment_" + m);
-            npcSpeak(speaker, msg);
-            string_id[] responses = new string_id[2];
-            responses[0] = new string_id(CONVO, "response_1");
-            responses[1] = new string_id(CONVO, "response_2");
-            npcSetConversationResponses(speaker, responses);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((response.getAsciiId()).equals("response_1"))
-        {
-            int m = rand(0, 2);
-            int n = getIntObjVar(self, SPAWNER_NPC);
-            string_id msg = new string_id(CONVO, "others_" + n + "_" + m);
-            prose_package pp = null;
-            switch (n)
-            {
-                case 0:
+        switch ((response.getAsciiId())) {
+            case "response_0": {
+                int m = rand(0, 11);
+                string_id msg = new string_id(CONVO, "equipment_" + m);
                 npcSpeak(speaker, msg);
-                break;
-                case 1:
-                pp = prose.getPackage(msg, getLiarName(self, 5));
-                npcSpeak(speaker, pp);
-                break;
-                case 2:
-                pp = prose.getPackage(msg, getLiarName(self, 1), getLiarName(self, 3));
-                npcSpeak(speaker, pp);
-                break;
-                case 3:
-                pp = prose.getPackage(msg, getLiarName(self, 1), getLiarName(self, 2));
-                npcSpeak(speaker, pp);
-                break;
-                case 4:
-                pp = prose.getPackage(msg, getLiarName(self, 3), getLiarName(self, 1), getLiarName(self, 2));
-                npcSpeak(speaker, pp);
-                break;
-                case 5:
-                pp = prose.getPackage(msg, getLiarName(self, 4));
-                npcSpeak(speaker, pp);
-                break;
+                string_id[] responses = new string_id[2];
+                responses[0] = new string_id(CONVO, "response_1");
+                responses[1] = new string_id(CONVO, "response_2");
+                npcSetConversationResponses(speaker, responses);
+                return SCRIPT_CONTINUE;
             }
-            string_id[] responses = new string_id[2];
-            responses[0] = new string_id(CONVO, "response_0");
-            responses[1] = new string_id(CONVO, "response_2");
-            npcSetConversationResponses(speaker, responses);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((response.getAsciiId()).equals("response_2"))
-        {
-            int m = rand(0, 11);
-            string_id msg = new string_id(CONVO, "bye_" + m);
-            npcSpeak(speaker, msg);
-            npcEndConversation(speaker);
-            return SCRIPT_CONTINUE;
+            case "response_1": {
+                int m = rand(0, 2);
+                int n = getIntObjVar(self, SPAWNER_NPC);
+                string_id msg = new string_id(CONVO, "others_" + n + "_" + m);
+                prose_package pp = null;
+                switch (n) {
+                    case 0:
+                        npcSpeak(speaker, msg);
+                        break;
+                    case 1:
+                        pp = prose.getPackage(msg, getLiarName(self, 5));
+                        npcSpeak(speaker, pp);
+                        break;
+                    case 2:
+                        pp = prose.getPackage(msg, getLiarName(self, 1), getLiarName(self, 3));
+                        npcSpeak(speaker, pp);
+                        break;
+                    case 3:
+                        pp = prose.getPackage(msg, getLiarName(self, 1), getLiarName(self, 2));
+                        npcSpeak(speaker, pp);
+                        break;
+                    case 4:
+                        pp = prose.getPackage(msg, getLiarName(self, 3), getLiarName(self, 1), getLiarName(self, 2));
+                        npcSpeak(speaker, pp);
+                        break;
+                    case 5:
+                        pp = prose.getPackage(msg, getLiarName(self, 4));
+                        npcSpeak(speaker, pp);
+                        break;
+                }
+                string_id[] responses = new string_id[2];
+                responses[0] = new string_id(CONVO, "response_0");
+                responses[1] = new string_id(CONVO, "response_2");
+                npcSetConversationResponses(speaker, responses);
+                return SCRIPT_CONTINUE;
+            }
+            case "response_2": {
+                int m = rand(0, 11);
+                string_id msg = new string_id(CONVO, "bye_" + m);
+                npcSpeak(speaker, msg);
+                npcEndConversation(speaker);
+                return SCRIPT_CONTINUE;
+            }
         }
         return SCRIPT_CONTINUE;
     }

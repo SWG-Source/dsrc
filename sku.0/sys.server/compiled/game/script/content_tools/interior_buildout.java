@@ -90,15 +90,12 @@ public class interior_buildout extends script.base_script
                         if (!strScripts[intI].equals(""))
                         {
                             String[] strScriptArray = split(strScripts[intI], ',');
-                            for (int intJ = 0; intJ < strScriptArray.length; intJ++)
-                            {
-                                String script = strScriptArray[intJ];
-                                if (script.indexOf("script.") > -1)
-                                {
+                            for (String s : strScriptArray) {
+                                String script = s;
+                                if (script.contains("script.")) {
                                     script = script.substring(7);
                                 }
-                                if (!hasScript(objTest, script))
-                                {
+                                if (!hasScript(objTest, script)) {
                                     attachScript(objTest, script);
                                 }
                             }
@@ -116,15 +113,12 @@ public class interior_buildout extends script.base_script
                     if (!strScripts[intI].equals(""))
                     {
                         String[] strScriptArray = split(strScripts[intI], ',');
-                        for (int intJ = 0; intJ < strScriptArray.length; intJ++)
-                        {
-                            String script = strScriptArray[intJ];
-                            if (script.indexOf("script.") > -1)
-                            {
+                        for (String s : strScriptArray) {
+                            String script = s;
+                            if (script.contains("script.")) {
                                 script = script.substring(7);
                             }
-                            if (!hasScript(objTest, script))
-                            {
+                            if (!hasScript(objTest, script)) {
                                 attachScript(objTest, script);
                             }
                         }

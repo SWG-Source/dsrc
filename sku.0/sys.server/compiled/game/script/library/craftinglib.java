@@ -214,11 +214,10 @@ public class craftinglib extends script.base_script
     {
         float total = 0;
         int count = 0;
-        for (int i = 0; i < weights.length; ++i)
-        {
-            debugServerConsoleMsg(null, "@@@@@craftinglib.scriptlib computeWeightedAverage, resource = " + weights[i].resource + ", value = " + resourceValues[weights[i].resource] + ", weight = " + weights[i].weight);
-            total += resourceValues[weights[i].resource] * weights[i].weight;
-            count += weights[i].weight;
+        for (resource_weight.weight weight : weights) {
+            debugServerConsoleMsg(null, "@@@@@craftinglib.scriptlib computeWeightedAverage, resource = " + weight.resource + ", value = " + resourceValues[weight.resource] + ", weight = " + weight.weight);
+            total += resourceValues[weight.resource] * weight.weight;
+            count += weight.weight;
             debugServerConsoleMsg(null, "\t@@@@@craftinglib.scriptlib computeWeightedAverage, total = " + total + ", count = " + count);
         }
         if (count != 0)
@@ -247,7 +246,7 @@ public class craftinglib extends script.base_script
         }
         int successState = STATE_UNSET;
         float dieRoll = rand(1, (int)NUMERIC_RANGE_EXPRESSION);
-        float dieRollMod = 0f;
+        float dieRollMod = 0.0f;
         float itemComplexitySkillMod = calcItemComplexitySkillMod(craftingValuesDictionary);
         float resourceMalleabilitySkillMod = calcResourceMalleabilitySkillMod(craftingValuesDictionary);
         float resourceQualitySkillMod = calcResourceQualitySkillMod(craftingValuesDictionary);
@@ -269,9 +268,8 @@ public class craftinglib extends script.base_script
         if (skills != null)
         {
             int[] mods = getEnhancedSkillStatisticModifiers(player, skills);
-            for (int i = 0; i < mods.length; ++i)
-            {
-                playerSkillMod += mods[i];
+            for (int mod : mods) {
+                playerSkillMod += mod;
             }
         }
         float forceSkillMod = getSkillStatisticModifier(player, "force_assembly");
@@ -298,7 +296,7 @@ public class craftinglib extends script.base_script
                 sendSystemMessageTestingOnly(player, "CRAFTING -- 10% raw random bonus for industry city");
             }
         }
-        dieRollMod += getCraftingInspirationBonus(player, craftingValuesDictionary, dieRoll, 5f);
+        dieRollMod += getCraftingInspirationBonus(player, craftingValuesDictionary, dieRoll, 5.0f);
         if (utils.hasScriptVar(player, "buff.dessert_pyollian_cake.value"))
         {
             int eff = (int)utils.getFloatScriptVar(player, "buff.dessert_pyollian_cake.value");
@@ -663,17 +661,13 @@ public class craftinglib extends script.base_script
                     resource_attribute[] resourceAttribs = getScaledResourceAttributes(ingredient, ingredientSlots[i].ingredientName);
                     if (resourceAttribs != null)
                     {
-                        for (int j = 0; j < resourceAttribs.length; ++j)
-                        {
-                            if (resourceAttribs[j] != null && resourceAttribs[j].getValue() != RESOURCE_NOT_USED)
-                            {
-                                for (int k = 0; k < RESOURCE_OBJVAR_NAMES.length; ++k)
-                                {
-                                    if (RESOURCE_OBJVAR_NAMES[k].equals(resourceAttribs[j].getName()))
-                                    {
-                                        totalResourceSum[k] += resourceAttribs[j].getValue() * ingredientCount;
+                        for (resource_attribute resourceAttrib : resourceAttribs) {
+                            if (resourceAttrib != null && resourceAttrib.getValue() != RESOURCE_NOT_USED) {
+                                for (int k = 0; k < RESOURCE_OBJVAR_NAMES.length; ++k) {
+                                    if (RESOURCE_OBJVAR_NAMES[k].equals(resourceAttrib.getName())) {
+                                        totalResourceSum[k] += resourceAttrib.getValue() * ingredientCount;
                                         resourceUnits[k] += ingredientCount;
-                                        slotResourceAverage[i][k] = resourceAttribs[j].getValue();
+                                        slotResourceAverage[i][k] = resourceAttrib.getValue();
                                         break;
                                     }
                                 }
@@ -707,11 +701,11 @@ public class craftinglib extends script.base_script
     {
         if (!isIdValid(player))
         {
-            return 0f;
+            return 0.0f;
         }
         if (!utils.hasScriptVar(player, "buff.craftBonus.types"))
         {
-            return 0f;
+            return 0.0f;
         }
         int flags = utils.getIntScriptVar(player, "buff.craftBonus.types");
         int type = craftingValuesDictionary.getInt("craftingType");
@@ -721,7 +715,7 @@ public class craftinglib extends script.base_script
             float bonus = currentValue * (multiplier * mod);
             return bonus;
         }
-        return 0f;
+        return 0.0f;
     }
     public static void calcResourceMaxItemAttributes(dictionary craftingValuesDictionary, draft_schematic.attribute[] itemAttributes, resource_weight[] weights) throws InterruptedException
     {
@@ -731,67 +725,52 @@ public class craftinglib extends script.base_script
     {
         float[] averageResourceValues = craftingValuesDictionary.getFloatArray(RESOURCE_AVERAGE_DICTIONARY_NAME);
         float[][] slotResourceValues = (float[][])(craftingValuesDictionary.get(SLOT_RESOURCE_DICTIONARY_NAME));
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null || itemAttributes[i].minValue == itemAttributes[i].maxValue)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null || itemAttribute.minValue == itemAttribute.maxValue) {
                 continue;
             }
-            if ((itemAttributes[i].name).equals("complexity"))
-            {
-                itemAttributes[i].currentValue = craftingValuesDictionary.getFloat("itemCurrentComplexity");
-            }
-            else if (weights != null)
-            {
-                float lowAttributeRangeValue = itemAttributes[i].minValue;
-                float highAttributeRangeValue = itemAttributes[i].maxValue;
+            if ((itemAttribute.name).equals("complexity")) {
+                itemAttribute.currentValue = craftingValuesDictionary.getFloat("itemCurrentComplexity");
+            } else if (weights != null) {
+                float lowAttributeRangeValue = itemAttribute.minValue;
+                float highAttributeRangeValue = itemAttribute.maxValue;
                 float attributeValueRangeSize = highAttributeRangeValue - lowAttributeRangeValue;
                 float onePercentOfAttributeRange = attributeValueRangeSize / 100;
-                for (int j = 0; j < weights.length; ++j)
-                {
-                    if ((itemAttributes[i].name).equals(weights[j].attribName))
-                    {
-                        debugServerConsoleMsg(null, "**** craftinglib.scriptlib attrib " + itemAttributes[i].name);
-                        String onePercentName = (itemAttributes[i].name).getAsciiId() + "OnePercent";
+                for (resource_weight weight : weights) {
+                    if ((itemAttribute.name).equals(weight.attribName)) {
+                        debugServerConsoleMsg(null, "**** craftinglib.scriptlib attrib " + itemAttribute.name);
+                        String onePercentName = (itemAttribute.name).getAsciiId() + "OnePercent";
                         float itemAttributeApplicableResourceValueAverage = 0;
-                        if (weights[j].slot >= 0 && weights[j].slot < slotResourceValues.length)
-                        {
-                            itemAttributeApplicableResourceValueAverage = computeWeightedAverage(slotResourceValues[weights[j].slot], weights[j].weights) / 10.0f;
+                        if (weight.slot >= 0 && weight.slot < slotResourceValues.length) {
+                            itemAttributeApplicableResourceValueAverage = computeWeightedAverage(slotResourceValues[weight.slot], weight.weights) / 10.0f;
+                        } else {
+                            itemAttributeApplicableResourceValueAverage = computeWeightedAverage(averageResourceValues, weight.weights) / 10.0f;
                         }
-                        else 
-                        {
-                            itemAttributeApplicableResourceValueAverage = computeWeightedAverage(averageResourceValues, weights[j].weights) / 10.0f;
-                        }
-                        if (isIdValid(player))
-                        {
-                            itemAttributeApplicableResourceValueAverage += getCraftingInspirationBonus(player, craftingValuesDictionary, itemAttributeApplicableResourceValueAverage, 1f);
-                            itemAttributeApplicableResourceValueAverage += (int)getEnhancedSkillStatisticModifierUncapped(player, "expertise_resource_quality_increase");
-                            if (itemAttributeApplicableResourceValueAverage > 100.0f)
-                            {
+                        if (isIdValid(player)) {
+                            itemAttributeApplicableResourceValueAverage += getCraftingInspirationBonus(player, craftingValuesDictionary, itemAttributeApplicableResourceValueAverage, 1.0f);
+                            itemAttributeApplicableResourceValueAverage += (int) getEnhancedSkillStatisticModifierUncapped(player, "expertise_resource_quality_increase");
+                            if (itemAttributeApplicableResourceValueAverage > 100.0f) {
                                 itemAttributeApplicableResourceValueAverage = 100.0f;
                             }
                         }
-                        if (itemAttributeApplicableResourceValueAverage < 1.0f)
-                        {
+                        if (itemAttributeApplicableResourceValueAverage < 1.0f) {
                             itemAttributeApplicableResourceValueAverage = 1.0f;
                         }
                         float resourceMaxRange = onePercentOfAttributeRange * itemAttributeApplicableResourceValueAverage;
-                        itemAttributes[i].resourceMaxValue = lowAttributeRangeValue + resourceMaxRange;
-                        itemAttributes[i].currentValue = lowAttributeRangeValue;
+                        itemAttribute.resourceMaxValue = lowAttributeRangeValue + resourceMaxRange;
+                        itemAttribute.currentValue = lowAttributeRangeValue;
                         craftingValuesDictionary.put(onePercentName, resourceMaxRange / 100.0f);
-                        debugServerConsoleMsg(null, "**** craftinglib.scriptlib calcResourceMaxItemAttributes 1% = " + onePercentOfAttributeRange + ", average = " + itemAttributeApplicableResourceValueAverage + ", resourceMaxRange = " + resourceMaxRange + ", resourceMaxValue = " + itemAttributes[i].resourceMaxValue);
+                        debugServerConsoleMsg(null, "**** craftinglib.scriptlib calcResourceMaxItemAttributes 1% = " + onePercentOfAttributeRange + ", average = " + itemAttributeApplicableResourceValueAverage + ", resourceMaxRange = " + resourceMaxRange + ", resourceMaxValue = " + itemAttribute.resourceMaxValue);
                         break;
                     }
                 }
-            }
-            else 
-            {
-                itemAttributes[i].resourceMaxValue = itemAttributes[i].maxValue;
-                itemAttributes[i].currentValue = itemAttributes[i].minValue;
-                String onePercentName = (itemAttributes[i].name).getAsciiId() + "OnePercent";
-                float resourceMaxRange = itemAttributes[i].maxValue - itemAttributes[i].minValue;
+            } else {
+                itemAttribute.resourceMaxValue = itemAttribute.maxValue;
+                itemAttribute.currentValue = itemAttribute.minValue;
+                String onePercentName = (itemAttribute.name).getAsciiId() + "OnePercent";
+                float resourceMaxRange = itemAttribute.maxValue - itemAttribute.minValue;
                 craftingValuesDictionary.put(onePercentName, resourceMaxRange / 100.0f);
-                debugServerConsoleMsg(null, "**** craftinglib.scriptlib calcResourceMaxItemAttributes 1% (non-resource item) = " + (resourceMaxRange / 100.0f) + ", resourceMaxRange = " + resourceMaxRange + ", resourceMaxValue = " + itemAttributes[i].resourceMaxValue);
+                debugServerConsoleMsg(null, "**** craftinglib.scriptlib calcResourceMaxItemAttributes 1% (non-resource item) = " + (resourceMaxRange / 100.0f) + ", resourceMaxRange = " + resourceMaxRange + ", resourceMaxValue = " + itemAttribute.resourceMaxValue);
             }
         }
     }
@@ -800,36 +779,27 @@ public class craftinglib extends script.base_script
         float[] averageResourceValues = craftingValuesDictionary.getFloatArray(RESOURCE_AVERAGE_DICTIONARY_NAME);
         float[][] slotResourceValues = (float[][])(craftingValuesDictionary.get(SLOT_RESOURCE_DICTIONARY_NAME));
         debugServerConsoleMsg(null, "Setting attribs for resources:");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null || itemAttributes[i].minValue == itemAttributes[i].maxValue)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null || itemAttribute.minValue == itemAttribute.maxValue) {
                 continue;
             }
-            if (!(itemAttributes[i].name).equals("complexity") && weights != null)
-            {
-                for (int j = 0; j < weights.length; ++j)
-                {
-                    if ((itemAttributes[i].name).equals(weights[j].attribName))
-                    {
-                        float onePercentOfPossibleAttribute = craftingValuesDictionary.getFloat(weights[j].attribName + "OnePercent");
+            if (!(itemAttribute.name).equals("complexity") && weights != null) {
+                for (resource_weight weight : weights) {
+                    if ((itemAttribute.name).equals(weight.attribName)) {
+                        float onePercentOfPossibleAttribute = craftingValuesDictionary.getFloat(weight.attribName + "OnePercent");
                         float averagedAttributeSum = 0;
-                        if (weights[j].slot >= 0 && weights[j].slot < slotResourceValues.length)
-                        {
-                            averagedAttributeSum = computeWeightedAverage(slotResourceValues[weights[j].slot], weights[j].weights);
-                        }
-                        else 
-                        {
-                            averagedAttributeSum = computeWeightedAverage(averageResourceValues, weights[j].weights);
+                        if (weight.slot >= 0 && weight.slot < slotResourceValues.length) {
+                            averagedAttributeSum = computeWeightedAverage(slotResourceValues[weight.slot], weight.weights);
+                        } else {
+                            averagedAttributeSum = computeWeightedAverage(averageResourceValues, weight.weights);
                         }
                         float resourceContribution = averagedAttributeSum * (15.0f / 1000.0f);
-                        if (resourceContribution < 1.0f)
-                        {
+                        if (resourceContribution < 1.0f) {
                             resourceContribution = 1.0f;
                         }
                         float attributeResourceValue = onePercentOfPossibleAttribute * resourceContribution;
-                        itemAttributes[i].currentValue += attributeResourceValue;
-                        debugServerConsoleMsg(null, "\t" + itemAttributes[i].name + " += " + attributeResourceValue);
+                        itemAttribute.currentValue += attributeResourceValue;
+                        debugServerConsoleMsg(null, "\t" + itemAttribute.name + " += " + attributeResourceValue);
                         break;
                     }
                 }
@@ -849,23 +819,18 @@ public class craftinglib extends script.base_script
             return;
         }
         debugServerConsoleMsg(null, "Setting attribs for assembly success:");
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null || itemAttributes[i].minValue == itemAttributes[i].maxValue)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null || itemAttribute.minValue == itemAttribute.maxValue) {
                 continue;
             }
-            if ((itemAttributes[i].name).equals("complexity"))
-            {
-                itemAttributes[i].currentValue = craftingValuesDictionary.getFloat("itemCurrentComplexity");
-                debugServerConsoleMsg(null, "\t" + itemAttributes[i].name + " = " + itemAttributes[i].currentValue);
-            }
-            else if (!(itemAttributes[i].name).equals("armorSpecialType"))
-            {
-                float onePercentOfPossibleAttribute = craftingValuesDictionary.getFloat((itemAttributes[i].name).getAsciiId() + "OnePercent");
+            if ((itemAttribute.name).equals("complexity")) {
+                itemAttribute.currentValue = craftingValuesDictionary.getFloat("itemCurrentComplexity");
+                debugServerConsoleMsg(null, "\t" + itemAttribute.name + " = " + itemAttribute.currentValue);
+            } else if (!(itemAttribute.name).equals("armorSpecialType")) {
+                float onePercentOfPossibleAttribute = craftingValuesDictionary.getFloat((itemAttribute.name).getAsciiId() + "OnePercent");
                 float attributePostSkillAssemblyValue = onePercentOfPossibleAttribute * assemblySuccessStateMultiplier;
-                itemAttributes[i].currentValue += attributePostSkillAssemblyValue;
-                debugServerConsoleMsg(null, "\t" + itemAttributes[i].name + " += " + attributePostSkillAssemblyValue);
+                itemAttribute.currentValue += attributePostSkillAssemblyValue;
+                debugServerConsoleMsg(null, "\t" + itemAttribute.name + " += " + attributePostSkillAssemblyValue);
             }
         }
     }
@@ -883,19 +848,14 @@ public class craftinglib extends script.base_script
         calcPostSkillAssemblyCheckSetAttribValues(craftingValuesDictionary, itemAttributes);
         float complexity = 0;
         draft_schematic.attribute xpAttrib = null;
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if ((itemAttributes[i].name).equals("complexity"))
-            {
-                complexity = itemAttributes[i].currentValue;
-            }
-            else if ((itemAttributes[i].name).equals("xp"))
-            {
-                xpAttrib = itemAttributes[i];
+            if ((itemAttribute.name).equals("complexity")) {
+                complexity = itemAttribute.currentValue;
+            } else if ((itemAttribute.name).equals("xp")) {
+                xpAttrib = itemAttribute;
             }
         }
         if (xpAttrib != null)
@@ -929,41 +889,34 @@ public class craftinglib extends script.base_script
             debugServerConsoleMsg(null, "craftinglib.scriptlib calcExperimentalAttribs error - no attribs");
             return;
         }
-        for (int i = 0; i < experimentalAttribs.length; ++i)
-        {
-            experimentalAttribs[i].minValue = 0;
-            experimentalAttribs[i].maxValue = 1.0f;
-            experimentalAttribs[i].resourceMaxValue = 0;
-            experimentalAttribs[i].currentValue = 0;
-            experimentalAttribs[i].scratch = 0;
+        for (draft_schematic.attribute experimentalAttrib1 : experimentalAttribs) {
+            experimentalAttrib1.minValue = 0;
+            experimentalAttrib1.maxValue = 1.0f;
+            experimentalAttrib1.resourceMaxValue = 0;
+            experimentalAttrib1.currentValue = 0;
+            experimentalAttrib1.scratch = 0;
         }
-        for (int i = 0; i < objectAttribs.length; ++i)
-        {
-            if (objectAttribs[i] == null)
-            {
+        for (draft_schematic.attribute objectAttrib : objectAttribs) {
+            if (objectAttrib == null) {
                 continue;
             }
-            debugServerConsoleMsg(null, "object attrib " + objectAttribs[i].name + ", min = " + objectAttribs[i].minValue + ", resourceMax = " + objectAttribs[i].resourceMaxValue + ", max = " + objectAttribs[i].maxValue + ", current = " + objectAttribs[i].currentValue);
-            draft_schematic.attribute expAttr = schematic.getExperimentalAttrib(objectAttribs[i]);
-            if (expAttr != null)
-            {
+            debugServerConsoleMsg(null, "object attrib " + objectAttrib.name + ", min = " + objectAttrib.minValue + ", resourceMax = " + objectAttrib.resourceMaxValue + ", max = " + objectAttrib.maxValue + ", current = " + objectAttrib.currentValue);
+            draft_schematic.attribute expAttr = schematic.getExperimentalAttrib(objectAttrib);
+            if (expAttr != null) {
                 debugServerConsoleMsg(null, "Got matching experiment attrib " + expAttr.name);
-                float denom = objectAttribs[i].maxValue - objectAttribs[i].minValue;
-                if (denom != 0)
-                {
-                    expAttr.resourceMaxValue += (objectAttribs[i].resourceMaxValue - objectAttribs[i].minValue) / denom;
-                    expAttr.currentValue += (objectAttribs[i].currentValue - objectAttribs[i].minValue) / denom;
+                float denom = objectAttrib.maxValue - objectAttrib.minValue;
+                if (denom != 0) {
+                    expAttr.resourceMaxValue += (objectAttrib.resourceMaxValue - objectAttrib.minValue) / denom;
+                    expAttr.currentValue += (objectAttrib.currentValue - objectAttrib.minValue) / denom;
                 }
                 ++expAttr.scratch;
             }
         }
-        for (int i = 0; i < experimentalAttribs.length; ++i)
-        {
-            if (experimentalAttribs[i].scratch > 0)
-            {
-                experimentalAttribs[i].resourceMaxValue /= experimentalAttribs[i].scratch;
-                experimentalAttribs[i].currentValue /= experimentalAttribs[i].scratch;
-                debugServerConsoleMsg(null, "experiment attrib " + experimentalAttribs[i].name + ", min = " + experimentalAttribs[i].minValue + ", resourceMax = " + experimentalAttribs[i].resourceMaxValue + ", max = " + experimentalAttribs[i].maxValue + ", current = " + experimentalAttribs[i].currentValue);
+        for (draft_schematic.attribute experimentalAttrib : experimentalAttribs) {
+            if (experimentalAttrib.scratch > 0) {
+                experimentalAttrib.resourceMaxValue /= experimentalAttrib.scratch;
+                experimentalAttrib.currentValue /= experimentalAttrib.scratch;
+                debugServerConsoleMsg(null, "experiment attrib " + experimentalAttrib.name + ", min = " + experimentalAttrib.minValue + ", resourceMax = " + experimentalAttrib.resourceMaxValue + ", max = " + experimentalAttrib.maxValue + ", current = " + experimentalAttrib.currentValue);
             }
         }
         debugServerConsoleMsg(null, "craftinglib.scriptlib calcExperimentalAttribs exit");
@@ -983,18 +936,14 @@ public class craftinglib extends script.base_script
             debugServerConsoleMsg(null, "convertExperimentalPointsToObjectPoints NO ATTRIBS");
             return null;
         }
-        for (int i = 0; i < objectAttribs.length; ++i)
-        {
-            if (objectAttribs[i] != null)
-            {
-                debugServerConsoleMsg(null, "object attrib " + objectAttribs[i].name + " = " + objectAttribs[i].currentValue);
+        for (draft_schematic.attribute objectAttrib : objectAttribs) {
+            if (objectAttrib != null) {
+                debugServerConsoleMsg(null, "object attrib " + objectAttrib.name + " = " + objectAttrib.currentValue);
             }
         }
-        for (int i = 0; i < experimentalAttribs.length; ++i)
-        {
-            if (experimentalAttribs[i] != null)
-            {
-                debugServerConsoleMsg(null, "exp attrib " + experimentalAttribs[i].name + " = " + experimentalAttribs[i].currentValue);
+        for (draft_schematic.attribute experimentalAttrib : experimentalAttribs) {
+            if (experimentalAttrib != null) {
+                debugServerConsoleMsg(null, "exp attrib " + experimentalAttrib.name + " = " + experimentalAttrib.currentValue);
             }
         }
         float[] objectPoints = new float[objectAttribs.length];
@@ -1031,25 +980,21 @@ public class craftinglib extends script.base_script
             draft_schematic.attribute[] objExpAttribs = schematic.getObjectAttribs(experimentalAttribs[experimentalAttribIndex]);
             if (objExpAttribs != null)
             {
-                for (int j = 0; j < objExpAttribs.length; ++j)
-                {
-                    if (objExpAttribs[j] == null)
-                    {
+                for (draft_schematic.attribute objExpAttrib : objExpAttribs) {
+                    if (objExpAttrib == null) {
                         continue;
                     }
-                    schematic.setExperimentalAttrib(objExpAttribs[j], experimentalAttribs[experimentalAttribIndex]);
-                    debugServerConsoleMsg(null, "convertExperimentalPointsToObjectPoints attrib " + objectAttribs[objExpAttribs[j].scratch].name);
-                    debugServerConsoleMsg(null, "\texp attrib value = " + experimentalAttribs[experimentalAttribIndex].currentValue + ", real attrib value = " + objExpAttribs[j].currentValue + ", adjusted real value = " + adjustedObjectAttribs[objExpAttribs[j].scratch]);
-                    if (experimentalAttribs[experimentalAttribIndex].currentValue != 0)
-                    {
-                        float numer = experimentalAttribs[experimentalAttribIndex].currentValue - adjustedObjectAttribs[objExpAttribs[j].scratch];
+                    schematic.setExperimentalAttrib(objExpAttrib, experimentalAttribs[experimentalAttribIndex]);
+                    debugServerConsoleMsg(null, "convertExperimentalPointsToObjectPoints attrib " + objectAttribs[objExpAttrib.scratch].name);
+                    debugServerConsoleMsg(null, "\texp attrib value = " + experimentalAttribs[experimentalAttribIndex].currentValue + ", real attrib value = " + objExpAttrib.currentValue + ", adjusted real value = " + adjustedObjectAttribs[objExpAttrib.scratch]);
+                    if (experimentalAttribs[experimentalAttribIndex].currentValue != 0) {
+                        float numer = experimentalAttribs[experimentalAttribIndex].currentValue - adjustedObjectAttribs[objExpAttrib.scratch];
                         float ratio = numer / experimentalAttribs[experimentalAttribIndex].currentValue;
-                        objectPoints[objExpAttribs[j].scratch] = experimentPoints[i] * (1.0f + ratio);
-                        if (objectPoints[objExpAttribs[j].scratch] < 0)
-                        {
-                            objectPoints[objExpAttribs[j].scratch] = 0;
+                        objectPoints[objExpAttrib.scratch] = experimentPoints[i] * (1.0f + ratio);
+                        if (objectPoints[objExpAttrib.scratch] < 0) {
+                            objectPoints[objExpAttrib.scratch] = 0;
                         }
-                        debugServerConsoleMsg(null, "\tnumer = " + numer + ", ratio = " + ratio + ", exp points = " + objectPoints[objExpAttribs[j].scratch]);
+                        debugServerConsoleMsg(null, "\tnumer = " + numer + ", ratio = " + ratio + ", exp points = " + objectPoints[objExpAttrib.scratch]);
                     }
                 }
             }
@@ -1063,9 +1008,8 @@ public class craftinglib extends script.base_script
         int totalMod = 0;
         if (mods != null)
         {
-            for (int i = 0; i < mods.length; ++i)
-            {
-                totalMod += mods[i];
+            for (int mod : mods) {
+                totalMod += mod;
             }
         }
         totalMod /= 10;
@@ -1077,19 +1021,16 @@ public class craftinglib extends script.base_script
     }
     public static void calcExpFullSinglePointValue(dictionary craftingValuesDictionary, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!(itemAttributes[i].name).equals("complexity"))
-            {
-                float onePercent = (itemAttributes[i].maxValue - itemAttributes[i].minValue) / 100.0f;
+            if (!(itemAttribute.name).equals("complexity")) {
+                float onePercent = (itemAttribute.maxValue - itemAttribute.minValue) / 100.0f;
                 float experimentationRange = onePercent * 70.0f;
                 float oneExperimentPoint = experimentationRange * 0.1f;
-                craftingValuesDictionary.put((itemAttributes[i].name).getAsciiId() + "TenPercent", oneExperimentPoint);
-                debugServerConsoleMsg(null, "craftinglib.calcExpFullSinglePointValue: " + (itemAttributes[i].name).getAsciiId() + "TenPercent = " + oneExperimentPoint);
+                craftingValuesDictionary.put((itemAttribute.name).getAsciiId() + "TenPercent", oneExperimentPoint);
+                debugServerConsoleMsg(null, "craftinglib.calcExpFullSinglePointValue: " + (itemAttribute.name).getAsciiId() + "TenPercent = " + oneExperimentPoint);
             }
         }
     }
@@ -1099,15 +1040,12 @@ public class craftinglib extends script.base_script
         float numAttributesExperimentedMod = 0;
         float complexityModifier = 0;
         float skillModifier = 0;
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if ((itemAttributes[i].name).equals("complexity"))
-            {
-                complexityModifier = 5.0f * (itemAttributes[i].currentValue - itemAttributes[i].minValue) / COMPLEXITY_INCREMENT_MOD;
+            if ((itemAttribute.name).equals("complexity")) {
+                complexityModifier = 5.0f * (itemAttribute.currentValue - itemAttribute.minValue) / COMPLEXITY_INCREMENT_MOD;
                 break;
             }
         }
@@ -1136,9 +1074,8 @@ public class craftinglib extends script.base_script
             int[] mods = getEnhancedSkillStatisticModifiers(player, skills);
             if (mods != null)
             {
-                for (int i = 0; i < mods.length; ++i)
-                {
-                    playerSkillMod += mods[i];
+                for (int mod : mods) {
+                    playerSkillMod += mod;
                 }
             }
         }
@@ -1180,8 +1117,8 @@ public class craftinglib extends script.base_script
             sendSystemMessageTestingOnly(player, "EXPERIMENT -- Experimentation Skill Mod = " + playerSkillMod);
             sendSystemMessageTestingOnly(player, "EXPERIMENT -- Resource Malleability Mod = " + malleabilitySkillMod);
             sendSystemMessageTestingOnly(player, "EXPERIMENT -- Crafting Station Mod = " + craftingStationMod);
-            sendSystemMessageTestingOnly(player, "EXPERIMENT -- Item Complexity Mod = " + (-1f * complexityModifier));
-            sendSystemMessageTestingOnly(player, "EXPERIMENT -- Attributes Mod = " + (-1f * numAttributesExperimentedMod));
+            sendSystemMessageTestingOnly(player, "EXPERIMENT -- Item Complexity Mod = " + (-1.0f * complexityModifier));
+            sendSystemMessageTestingOnly(player, "EXPERIMENT -- Attributes Mod = " + (-1.0f * numAttributesExperimentedMod));
             sendSystemMessageTestingOnly(player, "EXPERIMENT -- Sum of Roll Modifiers = " + totalExperimentPointModifier);
             sendSystemMessageTestingOnly(player, "EXPERIMENT --");
             sendSystemMessageTestingOnly(player, "EXPERIMENT -- Modifier Balance Multiplier = " + deltaMod);
@@ -1265,7 +1202,7 @@ public class craftinglib extends script.base_script
             {
                 float baseRoll = rand(1, (int)NUMERIC_RANGE_EXPRESSION);
                 float dieRoll = baseRoll * cityRollAdjust;
-                dieRoll += getCraftingInspirationBonus(player, craftingValuesDictionary, baseRoll, 5f);
+                dieRoll += getCraftingInspirationBonus(player, craftingValuesDictionary, baseRoll, 5.0f);
                 dieRoll += foodRollAdjust;
                 dieRoll += forceRollAdjust;
                 dieRoll += expertiseRollAdjust;
@@ -1431,7 +1368,7 @@ public class craftinglib extends script.base_script
             sendSystemMessageTestingOnly(player, "EXPERIMENT -- Moderate Failure: mod roll above " + big_f);
             sendSystemMessageTestingOnly(player, "EXPERIMENT -- Big Failure: mod roll below " + big_f);
         }
-        averageSuccessState = (int)(((float)averageSuccessState / (float)averageSuccessStateCount) + 0.5f);
+        averageSuccessState = (int)(((float)averageSuccessState / averageSuccessStateCount) + 0.5f);
         if (averageSuccessState >= STATE_CRITICAL_FAILURE)
         {
             if (isPlayerTester)
@@ -1492,16 +1429,15 @@ public class craftinglib extends script.base_script
         if (skills != null)
         {
             int[] mods = getEnhancedSkillStatisticModifiers(player, skills);
-            for (int i = 0; i < mods.length; ++i)
-            {
-                playerCustomizationMod += mods[i];
+            for (int mod : mods) {
+                playerCustomizationMod += mod;
             }
         }
         if (playerCustomizationMod > 255)
         {
             playerCustomizationMod = 255;
         }
-        playerCustModPercentage = playerCustomizationMod / 255f;
+        playerCustModPercentage = playerCustomizationMod / 255.0f;
         int validCustomizations = 0;
         for (int i = 0; i < customizations.length; i++)
         {
@@ -1576,9 +1512,9 @@ public class craftinglib extends script.base_script
                             "weaponsmith",
                             "cybernetic"
                     };
-            for (int i = 0; i < craftingSkills.length; i++) {
+            for (String craftingSkill : craftingSkills) {
                 for (int j = 0; j < skillFragment.length; j++) {
-                    if (craftingSkills[i].startsWith(skillFragment[j])) {
+                    if (craftingSkill.startsWith(skillFragment[j])) {
                         return skillList[j];
                     }
                 }
@@ -1603,14 +1539,11 @@ public class craftinglib extends script.base_script
     {
         Vector schematicGroups = new Vector();
         schematicGroups.setSize(0);
-        for (int i = 0; i < craftingSkills.length; i++)
-        {
-            String[] groups = getDraftSchematicGroupsFromSkill(craftingSkills[i]);
-            if (groups != null && groups.length > 0)
-            {
-                for (int j = 0; j < groups.length; j++)
-                {
-                    schematicGroups.add(groups[j]);
+        for (String craftingSkill : craftingSkills) {
+            String[] groups = getDraftSchematicGroupsFromSkill(craftingSkill);
+            if (groups != null && groups.length > 0) {
+                for (String group : groups) {
+                    schematicGroups.add(group);
                 }
             }
         }
@@ -1651,14 +1584,11 @@ public class craftinglib extends script.base_script
     {
         Vector allSchematics = new Vector();
         allSchematics.setSize(0);
-        for (int i = 0; i < schematicGroups.length; i++)
-        {
-            String[] schematics = getDraftSchematicsFromGroup(schematicGroups[i]);
-            if (schematics != null && schematics.length > 0)
-            {
-                for (int j = 0; j < schematics.length; j++)
-                {
-                    allSchematics.add(schematics[j]);
+        for (String schematicGroup : schematicGroups) {
+            String[] schematics = getDraftSchematicsFromGroup(schematicGroup);
+            if (schematics != null && schematics.length > 0) {
+                for (String schematic : schematics) {
+                    allSchematics.add(schematic);
                 }
             }
         }
@@ -1676,25 +1606,22 @@ public class craftinglib extends script.base_script
         // Cekis: never used - waste of processing.
         // draft_schematic.attribute[] objectAttribs = schematic.getAttribs();
         String category = getProtoTypeCategory(prototype);
-        for (int i = 0; i < slots.length; ++i)
-        {
-            if (!isIdValid(slots[i].ingredients[0].ingredient) || !exists(slots[i].ingredients[0].ingredient))
-            {
+        for (draft_schematic.slot slot : slots) {
+            if (!isIdValid(slot.ingredients[0].ingredient) || !exists(slot.ingredients[0].ingredient)) {
                 continue;
             }
-            if (hasObjVar(slots[i].ingredients[0].ingredient, OBJVAR_RE_STAT_MODIFIED))
-            {
-                LOG("crafting", "storeSecondarySkillBonuses::ingredient " + slots[i].ingredients[0].ingredient + " has the objvar " + OBJVAR_RE_STAT_MODIFIED);
-                String statModified = getStringObjVar(slots[i].ingredients[0].ingredient, OBJVAR_RE_STAT_MODIFIED);
+            if (hasObjVar(slot.ingredients[0].ingredient, OBJVAR_RE_STAT_MODIFIED)) {
+                LOG("crafting", "storeSecondarySkillBonuses::ingredient " + slot.ingredients[0].ingredient + " has the objvar " + OBJVAR_RE_STAT_MODIFIED);
+                String statModified = getStringObjVar(slot.ingredients[0].ingredient, OBJVAR_RE_STAT_MODIFIED);
                 LOG("crafting", "storeSecondarySkillBonuses::statModified " + statModified);
-                float power = getFloatObjVar(slots[i].ingredients[0].ingredient, OBJVAR_RE_VALUE);
+                float power = getFloatObjVar(slot.ingredients[0].ingredient, OBJVAR_RE_VALUE);
                 LOG("crafting", "storeSecondarySkillBonuses::power " + power);
-                int ratio = getIntObjVar(slots[i].ingredients[0].ingredient, OBJVAR_RE_RATIO);
+                int ratio = getIntObjVar(slot.ingredients[0].ingredient, OBJVAR_RE_RATIO);
                 LOG("crafting", "storeSecondarySkillBonuses::ratio " + ratio);
                 power = power / ratio;
                 LOG("crafting", "storeSecondarySkillBonuses::power after ratio divisor " + power);
-                LOG("crafting", "storeSecondarySkillBonuses::power after changed to Int " + (int)power);
-                setCategorizedSkillModBonus(prototype, category, statModified, (int)power);
+                LOG("crafting", "storeSecondarySkillBonuses::power after changed to Int " + (int) power);
+                setCategorizedSkillModBonus(prototype, category, statModified, (int) power);
             }
         }
         return true;
@@ -1803,23 +1730,19 @@ public class craftinglib extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < schemsList.length; ++i)
-        {
-            int row = dataTableSearchColumnForInt(schemsList[i], "crc_schematic_name", weapons.WEAPON_DATA_TABLE);
-            if (row < 0)
-            {
+        for (int i1 : schemsList) {
+            int row = dataTableSearchColumnForInt(i1, "crc_schematic_name", weapons.WEAPON_DATA_TABLE);
+            if (row < 0) {
                 continue;
             }
             String schemToGrant = dataTableGetString(weapons.WEAPON_DATA_TABLE, row, "schematic_conversion");
-            if (schemToGrant != null && !schemToGrant.equals(""))
-            {
-                if (!grantSchematic(player, schemToGrant))
-                {
+            if (schemToGrant != null && !schemToGrant.equals("")) {
+                if (!grantSchematic(player, schemToGrant)) {
                     CustomerServiceLog("new_weapon_conversion", "updatePermanentSchematics::player " + getFirstName(player) + "(" + player + ") was NOT granted schematic " + schemToGrant + ", the grantSchematic call returned a false.");
                     continue;
                 }
                 CustomerServiceLog("new_weapon_conversion", "updatePermanentSchematics::player " + getFirstName(player) + "(" + player + ") was granted schematic " + schemToGrant);
-                revokeSchematic(player, schemsList[i]);
+                revokeSchematic(player, i1);
             }
         }
         setObjVar(player, "schematicsUpdateVersion", OBJVAR_SCHEM_VERSION);
@@ -1893,9 +1816,8 @@ public class craftinglib extends script.base_script
     {
         obj_id[] resources = getResourceTypes(resourceClass);
         String[] resourceChildren = getImmediateResourceChildClasses(resourceClass);
-        for (int i = 0; i < resourceChildren.length; i++)
-        {
-            obj_id[] nextResources = getAllResourceChildren(resourceChildren[i]);
+        for (String resourceChild : resourceChildren) {
+            obj_id[] nextResources = getAllResourceChildren(resourceChild);
             resources = utils.concatArrays(resources, nextResources);
         }
         return resources;
@@ -1908,9 +1830,8 @@ public class craftinglib extends script.base_script
         {
             resource_attribute[] resourceAttribs = getResourceAttributes(resourceTypes[i]);
             int resourceAverage = 0;
-            for (int j = 0; j < resourceAttribs.length; j++)
-            {
-                resourceAverage += resourceAttribs[j].getValue();
+            for (resource_attribute resourceAttrib : resourceAttribs) {
+                resourceAverage += resourceAttrib.getValue();
             }
             resourceAverage = resourceAverage / resourceAttribs.length;
             if (bestAverage < resourceAverage)
@@ -1948,11 +1869,9 @@ public class craftinglib extends script.base_script
         {
             resource_attribute[] resourceAttribs = getResourceAttributes(resourceTypes[i]);
             int resourceValue = 0;
-            for (int j = 0; j < resourceAttribs.length; j++)
-            {
-                if (attributeName.equals(resourceAttribs[j].getName()))
-                {
-                    resourceValue = resourceAttribs[j].getValue();
+            for (resource_attribute resourceAttrib : resourceAttribs) {
+                if (attributeName.equals(resourceAttrib.getName())) {
+                    resourceValue = resourceAttrib.getValue();
                 }
             }
             if (bestValue < resourceValue)
@@ -1981,16 +1900,13 @@ public class craftinglib extends script.base_script
     {
         obj_id[] resources = getResourceTypes(resourceClass);
         String[] resourceChildren = getImmediateResourceChildClasses(resourceClass);
-        for (int i = 0; i < resourceChildren.length; i++)
-        {
-            obj_id[] nextResources = getAllResourceChildren(resourceChildren[i]);
+        for (String resourceChild : resourceChildren) {
+            obj_id[] nextResources = getAllResourceChildren(resourceChild);
             resources = utils.concatArrays(resources, nextResources);
         }
-        for (int i = 0, j = resources.length; i < j; i++)
-        {
-            String[] tempAttribNames = getResourceAttribNames(resources[i]);
-            if (tempAttribNames != null && tempAttribNames.length > 0)
-            {
+        for (obj_id resource : resources) {
+            String[] tempAttribNames = getResourceAttribNames(resource);
+            if (tempAttribNames != null && tempAttribNames.length > 0) {
                 return tempAttribNames;
             }
         }

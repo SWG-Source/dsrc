@@ -75,7 +75,7 @@ public class terminal_city_mission extends script.base_script
         else if (player_structure.isCivic(self))
         {
             location structureLocation = getLocation(self);
-            float cond = ((float)player_structure.getStructureCondition(self)) / ((float)player_structure.getMaxCondition(self));
+            float cond = ((float)player_structure.getStructureCondition(self)) / player_structure.getMaxCondition(self);
             int outcond = (int)(cond * 100);
             String structureName = getEncodedName(self) + " (Condition : " + outcond + "%)";
             dictionary dict = new dictionary();

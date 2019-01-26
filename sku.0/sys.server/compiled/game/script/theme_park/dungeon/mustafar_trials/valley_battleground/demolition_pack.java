@@ -71,13 +71,10 @@ public class demolition_pack extends script.base_script
         obj_id[] objects = getObjectsInRange(loc, blastRadius);
         Vector targetsInRadius = new Vector();
         targetsInRadius.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (isPlayer(objects[i]) || isMob(objects[i]))
-            {
-                if (!isIncapacitated(objects[i]) && !isDead(objects[i]))
-                {
-                    targetsInRadius = utils.addElement(targetsInRadius, objects[i]);
+        for (obj_id object : objects) {
+            if (isPlayer(object) || isMob(object)) {
+                if (!isIncapacitated(object) && !isDead(object)) {
+                    targetsInRadius = utils.addElement(targetsInRadius, object);
                 }
             }
         }
@@ -121,10 +118,9 @@ public class demolition_pack extends script.base_script
             return;
         }
         playClientEffectLoc(detonationCharge, mineDetonationEffect, getLocation(detonationCharge), 0.4f);
-        for (int i = 0; i < targets.length; i++)
-        {
+        for (obj_id target : targets) {
             int damageToApply = rand(minDamage, maxDamage);
-            damage(targets[i], damageType, HIT_LOCATION_BODY, damageToApply);
+            damage(target, damageType, HIT_LOCATION_BODY, damageToApply);
         }
         destroyObject(detonationCharge);
     }

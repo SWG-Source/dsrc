@@ -61,7 +61,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial01(obj_id self) throws InterruptedException
     {
-        location imp01 = new location(3953f, 26f, -1165, "corellia", null);
+        location imp01 = new location(3953.0f, 26.0f, -1165, "corellia", null);
         obj_id stormtrooper01 = create.object("stormtrooper_squad_leader", imp01);
         ai_lib.setDefaultCalmBehavior(stormtrooper01, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper01, "theme_park.corellia.patrol.turret");
@@ -74,7 +74,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial02(obj_id self) throws InterruptedException
     {
-        location imp02 = new location(3956f, 26f, -1165, "corellia", null);
+        location imp02 = new location(3956.0f, 26.0f, -1165, "corellia", null);
         obj_id stormtrooper02 = create.object("stormtrooper", imp02);
         ai_lib.setDefaultCalmBehavior(stormtrooper02, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper02, "theme_park.corellia.patrol.turret");
@@ -87,7 +87,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial03(obj_id self) throws InterruptedException
     {
-        location imp03 = new location(3950f, 26f, -1165, "corellia", null);
+        location imp03 = new location(3950.0f, 26.0f, -1165, "corellia", null);
         obj_id stormtrooper03 = create.object("stormtrooper", imp03);
         ai_lib.setDefaultCalmBehavior(stormtrooper03, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper03, "theme_park.corellia.patrol.turret");
@@ -100,7 +100,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial04(obj_id self) throws InterruptedException
     {
-        location imp04 = new location(3953f, 26f, -1162, "corellia", null);
+        location imp04 = new location(3953.0f, 26.0f, -1162, "corellia", null);
         obj_id stormtrooper04 = create.object("stormtrooper", imp04);
         ai_lib.setDefaultCalmBehavior(stormtrooper04, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper04, "theme_park.corellia.patrol.turret");
@@ -113,7 +113,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial05(obj_id self) throws InterruptedException
     {
-        location imp05 = new location(4100f, 22f, -1440, "corellia", null);
+        location imp05 = new location(4100.0f, 22.0f, -1440, "corellia", null);
         obj_id stormtrooper05 = create.object("stormtrooper_squad_leader", imp05);
         ai_lib.setDefaultCalmBehavior(stormtrooper05, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper05, "theme_park.corellia.patrol.turret");
@@ -126,7 +126,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial06(obj_id self) throws InterruptedException
     {
-        location imp06 = new location(4102f, 22f, -1440, "corellia", null);
+        location imp06 = new location(4102.0f, 22.0f, -1440, "corellia", null);
         obj_id stormtrooper06 = create.object("stormtrooper", imp06);
         ai_lib.setDefaultCalmBehavior(stormtrooper06, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper06, "theme_park.corellia.patrol.turret");
@@ -139,7 +139,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial07(obj_id self) throws InterruptedException
     {
-        location imp07 = new location(4104f, 22f, -1440, "corellia", null);
+        location imp07 = new location(4104.0f, 22.0f, -1440, "corellia", null);
         obj_id stormtrooper07 = create.object("stormtrooper", imp07);
         ai_lib.setDefaultCalmBehavior(stormtrooper07, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper07, "theme_park.corellia.patrol.turret");
@@ -152,7 +152,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial08(obj_id self) throws InterruptedException
     {
-        location imp08 = new location(4106f, 22f, -1440, "corellia", null);
+        location imp08 = new location(4106.0f, 22.0f, -1440, "corellia", null);
         obj_id stormtrooper08 = create.object("stormtrooper", imp08);
         ai_lib.setDefaultCalmBehavior(stormtrooper08, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper08, "theme_park.corellia.patrol.turret");
@@ -165,7 +165,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial09(obj_id self) throws InterruptedException
     {
-        location imp09 = new location(4294f, 26f, -1332, "corellia", null);
+        location imp09 = new location(4294.0f, 26.0f, -1332, "corellia", null);
         obj_id stormtrooper09 = create.object("stormtrooper_squad_leader", imp09);
         ai_lib.setDefaultCalmBehavior(stormtrooper09, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper09, "theme_park.corellia.patrol.turret");
@@ -178,7 +178,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial10(obj_id self) throws InterruptedException
     {
-        location imp10 = new location(4288f, 26f, -1332, "corellia", null);
+        location imp10 = new location(4288.0f, 26.0f, -1332, "corellia", null);
         obj_id stormtrooper10 = create.object("stormtrooper_squad_leader", imp10);
         ai_lib.setDefaultCalmBehavior(stormtrooper10, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper10, "theme_park.corellia.patrol.turret");
@@ -191,7 +191,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial11(obj_id self) throws InterruptedException
     {
-        location imp11 = new location(4291f, 26f, -1332, "corellia", null);
+        location imp11 = new location(4291.0f, 26.0f, -1332, "corellia", null);
         obj_id stormtrooper11 = create.object("stormtrooper", imp11);
         ai_lib.setDefaultCalmBehavior(stormtrooper11, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper11, "theme_park.corellia.patrol.turret");
@@ -204,7 +204,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial12(obj_id self) throws InterruptedException
     {
-        location imp12 = new location(4291f, 26f, -1335, "corellia", null);
+        location imp12 = new location(4291.0f, 26.0f, -1335, "corellia", null);
         obj_id stormtrooper12 = create.object("stormtrooper", imp12);
         ai_lib.setDefaultCalmBehavior(stormtrooper12, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(stormtrooper12, "theme_park.corellia.patrol.turret");
@@ -217,7 +217,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnImperial_atst(obj_id self) throws InterruptedException
     {
-        location imp13 = new location(4103f, 22f, -1450, "corellia", null);
+        location imp13 = new location(4103.0f, 22.0f, -1450, "corellia", null);
         obj_id atst = create.object("at_st", imp13);
         ai_lib.setDefaultCalmBehavior(atst, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(atst, "theme_park.corellia.patrol.turret");
@@ -230,7 +230,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_01(obj_id self) throws InterruptedException
     {
-        location reb_01 = new location(4082f, 26f, -1253, "corellia", null);
+        location reb_01 = new location(4082.0f, 26.0f, -1253, "corellia", null);
         obj_id rebel_01 = create.object("rebel_corporal", reb_01);
         ai_lib.setDefaultCalmBehavior(rebel_01, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_01, "theme_park.corellia.patrol.turret");
@@ -240,7 +240,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_02(obj_id self) throws InterruptedException
     {
-        location reb_02 = new location(4088f, 26f, -1253, "corellia", null);
+        location reb_02 = new location(4088.0f, 26.0f, -1253, "corellia", null);
         obj_id rebel_02 = create.object("rebel_corporal", reb_02);
         ai_lib.setDefaultCalmBehavior(rebel_02, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_02, "theme_park.corellia.patrol.turret");
@@ -250,7 +250,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_03(obj_id self) throws InterruptedException
     {
-        location reb_03 = new location(4085f, 26f, -1250, "corellia", null);
+        location reb_03 = new location(4085.0f, 26.0f, -1250, "corellia", null);
         obj_id rebel_03 = create.object("rebel_trooper", reb_03);
         ai_lib.setDefaultCalmBehavior(rebel_03, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_03, "theme_park.corellia.patrol.turret");
@@ -260,7 +260,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_04(obj_id self) throws InterruptedException
     {
-        location reb_04 = new location(4085f, 26f, -1256, "corellia", null);
+        location reb_04 = new location(4085.0f, 26.0f, -1256, "corellia", null);
         obj_id rebel_04 = create.object("rebel_first_lieutenant", reb_04);
         ai_lib.setDefaultCalmBehavior(rebel_04, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_04, "theme_park.corellia.patrol.turret");
@@ -270,7 +270,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_05(obj_id self) throws InterruptedException
     {
-        location reb_05 = new location(4122f, 26f, -1254, "corellia", null);
+        location reb_05 = new location(4122.0f, 26.0f, -1254, "corellia", null);
         obj_id rebel_05 = create.object("rebel_corporal", reb_05);
         ai_lib.setDefaultCalmBehavior(rebel_05, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_05, "theme_park.corellia.patrol.turret");
@@ -280,7 +280,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_06(obj_id self) throws InterruptedException
     {
-        location reb_06 = new location(4128f, 26f, -1254, "corellia", null);
+        location reb_06 = new location(4128.0f, 26.0f, -1254, "corellia", null);
         obj_id rebel_06 = create.object("rebel_corporal", reb_06);
         ai_lib.setDefaultCalmBehavior(rebel_06, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_06, "theme_park.corellia.patrol.turret");
@@ -290,7 +290,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_07(obj_id self) throws InterruptedException
     {
-        location reb_07 = new location(4125f, 26f, -1251, "corellia", null);
+        location reb_07 = new location(4125.0f, 26.0f, -1251, "corellia", null);
         obj_id rebel_07 = create.object("rebel_trooper", reb_07);
         ai_lib.setDefaultCalmBehavior(rebel_07, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_07, "theme_park.corellia.patrol.turret");
@@ -300,7 +300,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_08(obj_id self) throws InterruptedException
     {
-        location reb_08 = new location(4125f, 26f, -1257, "corellia", null);
+        location reb_08 = new location(4125.0f, 26.0f, -1257, "corellia", null);
         obj_id rebel_08 = create.object("rebel_first_lieutenant", reb_08);
         ai_lib.setDefaultCalmBehavior(rebel_08, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_08, "theme_park.corellia.patrol.turret");
@@ -310,7 +310,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_09(obj_id self) throws InterruptedException
     {
-        location reb_09 = new location(4113f, 26f, -1282, "corellia", null);
+        location reb_09 = new location(4113.0f, 26.0f, -1282, "corellia", null);
         obj_id rebel_09 = create.object("rebel_corporal", reb_09);
         ai_lib.setDefaultCalmBehavior(rebel_09, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_09, "theme_park.corellia.patrol.turret");
@@ -320,7 +320,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_10(obj_id self) throws InterruptedException
     {
-        location reb_10 = new location(4107f, 26f, -1282, "corellia", null);
+        location reb_10 = new location(4107.0f, 26.0f, -1282, "corellia", null);
         obj_id rebel_10 = create.object("rebel_corporal", reb_10);
         ai_lib.setDefaultCalmBehavior(rebel_10, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_10, "theme_park.corellia.patrol.turret");
@@ -330,7 +330,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_11(obj_id self) throws InterruptedException
     {
-        location reb_11 = new location(4110f, 26f, -1279, "corellia", null);
+        location reb_11 = new location(4110.0f, 26.0f, -1279, "corellia", null);
         obj_id rebel_11 = create.object("rebel_trooper", reb_11);
         ai_lib.setDefaultCalmBehavior(rebel_11, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_11, "theme_park.corellia.patrol.turret");
@@ -340,7 +340,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_12(obj_id self) throws InterruptedException
     {
-        location reb_12 = new location(4110f, 26f, -1285, "corellia", null);
+        location reb_12 = new location(4110.0f, 26.0f, -1285, "corellia", null);
         obj_id rebel_12 = create.object("rebel_first_lieutenant", reb_12);
         ai_lib.setDefaultCalmBehavior(rebel_12, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_12, "theme_park.corellia.patrol.turret");
@@ -350,7 +350,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_13(obj_id self) throws InterruptedException
     {
-        location reb_13 = new location(4113f, 26f, -1264, "corellia", null);
+        location reb_13 = new location(4113.0f, 26.0f, -1264, "corellia", null);
         obj_id rebel_13 = create.object("rebel_commando", reb_13);
         ai_lib.setDefaultCalmBehavior(rebel_13, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_13, "theme_park.corellia.patrol.turret");
@@ -360,7 +360,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_14(obj_id self) throws InterruptedException
     {
-        location reb_14 = new location(4117f, 26f, -1264, "corellia", null);
+        location reb_14 = new location(4117.0f, 26.0f, -1264, "corellia", null);
         obj_id rebel_14 = create.object("rebel_commando", reb_14);
         ai_lib.setDefaultCalmBehavior(rebel_14, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_14, "theme_park.corellia.patrol.turret");
@@ -370,7 +370,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_15(obj_id self) throws InterruptedException
     {
-        location reb_15 = new location(4115f, 26f, -1262, "corellia", null);
+        location reb_15 = new location(4115.0f, 26.0f, -1262, "corellia", null);
         obj_id rebel_15 = create.object("rebel_commando", reb_15);
         ai_lib.setDefaultCalmBehavior(rebel_15, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_15, "theme_park.corellia.patrol.turret");
@@ -380,7 +380,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnRebel_16(obj_id self) throws InterruptedException
     {
-        location reb_16 = new location(4115f, 26f, -1266, "corellia", null);
+        location reb_16 = new location(4115.0f, 26.0f, -1266, "corellia", null);
         obj_id rebel_16 = create.object("rebel_commando", reb_16);
         ai_lib.setDefaultCalmBehavior(rebel_16, ai_lib.BEHAVIOR_SENTINEL);
         attachScript(rebel_16, "theme_park.corellia.patrol.turret");
@@ -390,7 +390,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnTurret01(obj_id self) throws InterruptedException
     {
-        location loc = new location(4085f, 26f, -1253, "corellia", null);
+        location loc = new location(4085.0f, 26.0f, -1253, "corellia", null);
         int T_yaw = -36;
         obj_id turret01 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret01, "theme_park.corellia.patrol.turret");
@@ -400,7 +400,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnTurret2(obj_id self) throws InterruptedException
     {
-        location loc = new location(4125f, 24f, -1254f, "corellia", null);
+        location loc = new location(4125.0f, 24.0f, -1254.0f, "corellia", null);
         int T_yaw = 56;
         obj_id turret2 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_TOWER, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret2, "theme_park.corellia.patrol.turret");
@@ -410,7 +410,7 @@ public class corellia_battle_script_1 extends script.base_script
     }
     public void spawnTurret3(obj_id self) throws InterruptedException
     {
-        location loc = new location(4110f, 24f, -1282f, "corellia", null);
+        location loc = new location(4110.0f, 24.0f, -1282.0f, "corellia", null);
         int T_yaw = 164;
         obj_id turret3 = advanced_turret.createTurret(loc, T_yaw, advanced_turret.TYPE_DISH, advanced_turret.SIZE_SMALL, advanced_turret.DAMAGE_ELEMENTAL_HEAT, 1000, 3000, 10000, 30.0f, 2.0f, "Rebel");
         attachScript(turret3, "theme_park.corellia.patrol.turret");

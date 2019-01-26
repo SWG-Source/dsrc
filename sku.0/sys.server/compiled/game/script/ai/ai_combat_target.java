@@ -67,20 +67,16 @@ public class ai_combat_target extends script.base_script
             if (haters.length >= attackers)
             {
                 int npcCount = 0;
-                for (int i = 0, j = haters.length; i < j; i++)
-                {
-                    if (isIdValid(haters[i]) && !isPlayer(haters[i]) && !pet_lib.hasMaster(haters[i]))
-                    {
+                for (obj_id hater : haters) {
+                    if (isIdValid(hater) && !isPlayer(hater) && !pet_lib.hasMaster(hater)) {
                         npcCount++;
                     }
-                    if (npcCount > attackers)
-                    {
+                    if (npcCount > attackers) {
                         stopCombat(self);
                         clearHateList(self);
                         return false;
                     }
-                    if (isIdValid(haters[i]) && haters[i] == self)
-                    {
+                    if (isIdValid(hater) && hater == self) {
                         return true;
                     }
                 }

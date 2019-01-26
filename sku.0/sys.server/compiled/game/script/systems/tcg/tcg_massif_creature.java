@@ -379,15 +379,15 @@ public class tcg_massif_creature extends script.base_script
         faceTo(pet, speaker);
         if (petCommand.startsWith(house_pet.GOOD))
         {
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_NUNA;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_MASSIFF;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_SCURRIER;
             }
@@ -395,15 +395,15 @@ public class tcg_massif_creature extends script.base_script
         }
         else if (petCommand.startsWith(house_pet.BEG))
         {
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_NUNA;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_MASSIFF;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_SCURRIER;
             }
@@ -411,15 +411,15 @@ public class tcg_massif_creature extends script.base_script
         }
         else if (petCommand.startsWith(house_pet.CONFUSED))
         {
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_NUNA;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_MASSIFF;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_SCURRIER;
             }
@@ -427,15 +427,15 @@ public class tcg_massif_creature extends script.base_script
         }
         else if (petCommand.startsWith(house_pet.BAD))
         {
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_NUNA;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_MASSIFF;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_SCURRIER;
             }
@@ -443,30 +443,30 @@ public class tcg_massif_creature extends script.base_script
         }
         else if (petCommand.startsWith(house_pet.SIT))
         {
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petState = POSTURE_LYING_DOWN;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petState = POSTURE_SITTING;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petState = POSTURE_SITTING;
             }
         }
         else if (petCommand.startsWith(house_pet.TRICK))
         {
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_NUNA;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_MASSIFF;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_SCURRIER;
             }
@@ -488,15 +488,15 @@ public class tcg_massif_creature extends script.base_script
         {
             if (getIntObjVar(controller, house_pet.MASSIFF_CURRENT_PHASE) == house_pet.MASSIFF_HUNGRY)
             {
-                if (creatureTemplate.indexOf("nuna") > -1)
+                if (creatureTemplate.contains("nuna"))
                 {
                     petSound = house_pet.SOUND_GROWL_RANDOM_NUNA;
                 }
-                if (creatureTemplate.indexOf("massif") > -1)
+                if (creatureTemplate.contains("massif"))
                 {
                     petSound = house_pet.SOUND_GROWL_RANDOM_MASSIFF;
                 }
-                if (creatureTemplate.indexOf("scurrier") > -1)
+                if (creatureTemplate.contains("scurrier"))
                 {
                     petSound = house_pet.SOUND_GROWL_RANDOM_SCURRIER;
                 }
@@ -504,15 +504,15 @@ public class tcg_massif_creature extends script.base_script
             }
             else 
             {
-                if (creatureTemplate.indexOf("nuna") > -1)
+                if (creatureTemplate.contains("nuna"))
                 {
                     petState = POSTURE_LYING_DOWN;
                 }
-                if (creatureTemplate.indexOf("massif") > -1)
+                if (creatureTemplate.contains("massif"))
                 {
                     petState = POSTURE_SITTING;
                 }
-                if (creatureTemplate.indexOf("scurrier") > -1)
+                if (creatureTemplate.contains("scurrier"))
                 {
                     petState = POSTURE_SITTING;
                 }
@@ -648,15 +648,15 @@ public class tcg_massif_creature extends script.base_script
             case 18:
             petState = POSTURE_UPRIGHT;
             petAnim = house_pet.MASSIF_ANIMATION_VOCALIZE;
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_NUNA;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_MASSIFF;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petSound = house_pet.SOUND_GROWL_RANDOM_SCURRIER;
             }
@@ -668,75 +668,75 @@ public class tcg_massif_creature extends script.base_script
             petState = POSTURE_LYING_DOWN;
             break;
             case 21:
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petState = POSTURE_LYING_DOWN;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petState = POSTURE_SITTING;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petState = POSTURE_SITTING;
             }
             messageTo(self, "layNunaEggs", null, 4, false);
             break;
             case 22:
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petState = POSTURE_LYING_DOWN;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petState = POSTURE_SITTING;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petState = POSTURE_SITTING;
             }
             messageTo(self, "layNunaEggs", null, 4, false);
             break;
             case 23:
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petState = POSTURE_LYING_DOWN;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petState = POSTURE_SITTING;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petState = POSTURE_SITTING;
             }
             messageTo(self, "layNunaEggs", null, 4, false);
             break;
             case 24:
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petState = POSTURE_LYING_DOWN;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petState = POSTURE_SITTING;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petState = POSTURE_SITTING;
             }
             messageTo(self, "layNunaEggs", null, 4, false);
             break;
             case 25:
-            if (creatureTemplate.indexOf("nuna") > -1)
+            if (creatureTemplate.contains("nuna"))
             {
                 petState = POSTURE_LYING_DOWN;
             }
-            if (creatureTemplate.indexOf("massif") > -1)
+            if (creatureTemplate.contains("massif"))
             {
                 petState = POSTURE_SITTING;
             }
-            if (creatureTemplate.indexOf("scurrier") > -1)
+            if (creatureTemplate.contains("scurrier"))
             {
                 petState = POSTURE_SITTING;
             }
@@ -826,7 +826,7 @@ public class tcg_massif_creature extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String petType = getTemplateName(self);
-        if (petType.indexOf("nuna") > -1)
+        if (petType.contains("nuna"))
         {
             int rand = rand(1, 100);
             if (isGod(owner))
@@ -853,7 +853,7 @@ public class tcg_massif_creature extends script.base_script
             {
                 blog("LAYNUNAEGGS - We have enough room for eggs.");
                 location poopLocation = getLocation(self);
-                poopLocation.z += .10f;
+                poopLocation.z += 0.10f;
                 blog("LAYNUNAEGGS - Creating Egg Item");
                 obj_id poodoo = static_item.createNewItemFunction(house_pet.MASSIFF_POO_STATIC_ITEM, getContainedBy(self), poopLocation);
                 if (isValidId(poodoo) && exists(poodoo))
@@ -906,7 +906,7 @@ public class tcg_massif_creature extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String petName = sui.getInputBoxText(params);
-        if (petName == null || petName.length() <= 0 || isNameReserved(petName) || petName.indexOf(" ") > -1)
+        if (petName == null || petName.length() <= 0 || isNameReserved(petName) || petName.contains(" "))
         {
             sendSystemMessage(player, SID_OBSCENE);
             int pid = sui.inputbox(self, player, "@tcg:pet_name_d", sui.OK_CANCEL, "@tcg:pet_name_t", sui.INPUT_NORMAL, null, "handleSetPetName", null);
@@ -1046,15 +1046,15 @@ public class tcg_massif_creature extends script.base_script
         }
         blog("eatTheFood - controller food objid found");
         String creatureTemplate = getTemplateName(self);
-        if (creatureTemplate.indexOf("nuna") > -1)
+        if (creatureTemplate.contains("nuna"))
         {
             playClientEffectObj(self, house_pet.SOUND_GROWL_RANDOM_NUNA, self, "");
         }
-        if (creatureTemplate.indexOf("massif") > -1)
+        if (creatureTemplate.contains("massif"))
         {
             playClientEffectObj(self, house_pet.SOUND_GROWL_RANDOM_MASSIFF, self, "");
         }
-        if (creatureTemplate.indexOf("scurrier") > -1)
+        if (creatureTemplate.contains("scurrier"))
         {
             playClientEffectObj(self, house_pet.SOUND_GROWL_RANDOM_SCURRIER, self, "");
         }
@@ -1126,15 +1126,15 @@ public class tcg_massif_creature extends script.base_script
                 messageTo(pet, "startWhining", null, 3, false);
                 initiateMassiffAction(pet, owner, house_pet.BAD);
                 String petType = getTemplateName(pet);
-                if (petType.indexOf("massif") > -1)
+                if (petType.contains("massif"))
                 {
                     playClientEffectObj(pet, house_pet.MASSIFF_HUNGRY_EMOTE, pet, "");
                 }
-                if (petType.indexOf("nuna") > -1)
+                if (petType.contains("nuna"))
                 {
                     playClientEffectObj(pet, house_pet.NUNA_HUNGRY_EMOTE, pet, "");
                 }
-                if (petType.indexOf("scurrier") > -1)
+                if (petType.contains("scurrier"))
                 {
                     playClientEffectObj(pet, house_pet.SCURRIER_HUNGRY_EMOTE, pet, "");
                 }
@@ -1164,15 +1164,15 @@ public class tcg_massif_creature extends script.base_script
                 messageTo(pet, "startWhining", null, 3, false);
                 initiateMassiffAction(pet, owner, house_pet.BAD);
                 String petType = getTemplateName(pet);
-                if (petType.indexOf("massif") > -1)
+                if (petType.contains("massif"))
                 {
                     playClientEffectObj(pet, house_pet.MASSIFF_HUNGRY_EMOTE, pet, "");
                 }
-                if (petType.indexOf("nuna") > -1)
+                if (petType.contains("nuna"))
                 {
                     playClientEffectObj(pet, house_pet.NUNA_HUNGRY_EMOTE, pet, "");
                 }
-                if (petType.indexOf("scurrier") > -1)
+                if (petType.contains("scurrier"))
                 {
                     playClientEffectObj(pet, house_pet.SCURRIER_HUNGRY_EMOTE, pet, "");
                 }
@@ -1245,15 +1245,15 @@ public class tcg_massif_creature extends script.base_script
         utils.setScriptVar(self, "whining", true);
         initiateMassiffAction(self, owner, house_pet.BAD, false);
         String petType = getTemplateName(self);
-        if (petType.indexOf("massif") > -1)
+        if (petType.contains("massif"))
         {
             playClientEffectObj(self, house_pet.MASSIFF_HUNGRY_EMOTE, self, "");
         }
-        if (petType.indexOf("nuna") > -1)
+        if (petType.contains("nuna"))
         {
             playClientEffectObj(self, house_pet.NUNA_HUNGRY_EMOTE, self, "");
         }
-        if (petType.indexOf("scurrier") > -1)
+        if (petType.contains("scurrier"))
         {
             playClientEffectObj(self, house_pet.SCURRIER_HUNGRY_EMOTE, self, "");
         }
@@ -1271,15 +1271,15 @@ public class tcg_massif_creature extends script.base_script
         }
         blog("makeHappySounds - init");
         String creatureTemplate = getTemplateName(self);
-        if (creatureTemplate.indexOf("nuna") > -1)
+        if (creatureTemplate.contains("nuna"))
         {
             playClientEffectObj(self, house_pet.SOUND_GROWL_RANDOM_NUNA, self, "");
         }
-        if (creatureTemplate.indexOf("massif") > -1)
+        if (creatureTemplate.contains("massif"))
         {
             playClientEffectObj(self, house_pet.SOUND_GROWL_RANDOM_MASSIFF, self, "");
         }
-        if (creatureTemplate.indexOf("scurrier") > -1)
+        if (creatureTemplate.contains("scurrier"))
         {
             playClientEffectObj(self, house_pet.SOUND_GROWL_RANDOM_SCURRIER, self, "");
         }

@@ -51,7 +51,7 @@ public class trap_melee_def_1 extends script.item.trap.trap_base
         dictionary outparams = new dictionary();
         outparams.put("melee_defense", 30);
         outparams.put("prefix", "melee_def_1");
-        messageTo(target, "applyModTrap", outparams, 0.f, false);
+        messageTo(target, "applyModTrap", outparams, 0.0f, false);
         prose_package pp = prose.getPackage(SID_SYS_EFFECT, target);
         sendSystemMessageProse(player, pp);
         if (!hasObjVar(self, "droid_trap"))
@@ -69,7 +69,7 @@ public class trap_melee_def_1 extends script.item.trap.trap_base
             }
         }
         float chance = params.getFloat("chance");
-        grantTrapXP(player, target, 1.f);
+        grantTrapXP(player, target, 1.0f);
         return super.trapHit(self, params);
     }
 }

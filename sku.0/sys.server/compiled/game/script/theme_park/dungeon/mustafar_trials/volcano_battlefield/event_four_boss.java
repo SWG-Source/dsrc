@@ -71,9 +71,8 @@ public class event_four_boss extends script.base_script
             doLogging("clearAllAdds", "There are no objects in range");
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            trial.cleanupNpc(objects[i]);
+        for (obj_id object : objects) {
+            trial.cleanupNpc(object);
         }
     }
     public void resetSelf(obj_id self) throws InterruptedException
@@ -116,11 +115,9 @@ public class event_four_boss extends script.base_script
             doLogging("spawnAdd", "Could not find a valid spawn location");
             return SCRIPT_CONTINUE;
         }
-        for (int k = 0; k < spawnLocs.length; k++)
-        {
-            obj_id beetle = create.object(GUARD, spawnLocs[k]);
-            if (!isIdValid(beetle))
-            {
+        for (location spawnLoc : spawnLocs) {
+            obj_id beetle = create.object(GUARD, spawnLoc);
+            if (!isIdValid(beetle)) {
                 doLogging("spawnAdd", "Attemplted to create beetle but failed");
                 return SCRIPT_CONTINUE;
             }
@@ -131,9 +128,8 @@ public class event_four_boss extends script.base_script
         if (notify)
         {
             prose_package pp = prose.getPackage(trial.VOLCANO_CYM_BEETLE_NOTIFY, self);
-            for (int i = 0; i < players.length; i++)
-            {
-                sendSystemMessageProse(players[i], pp);
+            for (obj_id player : players) {
+                sendSystemMessageProse(player, pp);
             }
         }
         messageTo(self, "spawnAdd", trial.getSessionDict(self), BEETLE_RESPAWN, false);
@@ -149,11 +145,9 @@ public class event_four_boss extends script.base_script
         }
         Vector validLoc = new Vector();
         validLoc.setSize(0);
-        for (int i = 0; i < objects.length; i++)
-        {
-            if (hasObjVar(objects[i], "event_5_spawn_point"))
-            {
-                utils.addElement(validLoc, getLocation(objects[i]));
+        for (obj_id object : objects) {
+            if (hasObjVar(object, "event_5_spawn_point")) {
+                utils.addElement(validLoc, getLocation(object));
             }
         }
         if (validLoc == null || validLoc.size() == 0)
@@ -193,10 +187,9 @@ public class event_four_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectObj(self, trial.PRT_CYM_POISON, self, "");
-        for (int i = 0; i < targets.length; i++)
-        {
-            dot.applyDotEffect(targets[i], self, dot.DOT_POISON, "volcano_boss_poison_cloud", HEALTH, 125, 455, 30, true, null);
-            playClientEffectObj(targets[i], trial.PRT_CYM_POISON, targets[i], "");
+        for (obj_id target : targets) {
+            dot.applyDotEffect(target, self, dot.DOT_POISON, "volcano_boss_poison_cloud", HEALTH, 125, 455, 30, true, null);
+            playClientEffectObj(target, trial.PRT_CYM_POISON, target, "");
         }
         messageTo(self, "doPoisonAE", trial.getSessionDict(self), POISON_RECAST, false);
         return SCRIPT_CONTINUE;
@@ -215,10 +208,9 @@ public class event_four_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectObj(self, trial.PRT_CYM_DISEASE, self, "");
-        for (int i = 0; i < targets.length; i++)
-        {
-            dot.applyDotEffect(targets[i], self, dot.DOT_DISEASE, "volcano_boss_disease_cloud", HEALTH, 125, 600, 54, true, null);
-            playClientEffectObj(targets[i], trial.PRT_CYM_DISEASE, targets[i], "");
+        for (obj_id target : targets) {
+            dot.applyDotEffect(target, self, dot.DOT_DISEASE, "volcano_boss_disease_cloud", HEALTH, 125, 600, 54, true, null);
+            playClientEffectObj(target, trial.PRT_CYM_DISEASE, target, "");
         }
         messageTo(self, "doDiseaseAE", trial.getSessionDict(self), DISEASE_RECAST, false);
         return SCRIPT_CONTINUE;
@@ -236,13 +228,11 @@ public class event_four_boss extends script.base_script
             messageTo(self, "doForceDrainAE", trial.getSessionDict(self), FORCE_DRAIN_RECAST, false);
             return SCRIPT_CONTINUE;
         }
-        for (int i = 0; i < targets.length; i++)
-        {
-            if (true)
-            {
-                drainAttributes(targets[i], 1000, 0);
+        for (obj_id target : targets) {
+            if (true) {
+                drainAttributes(target, 1000, 0);
                 String effect = "clienteffect/pl_force_channel_self.cef";
-                playClientEffectObj(self, effect, targets[i], "");
+                playClientEffectObj(self, effect, target, "");
             }
         }
         messageTo(self, "doForceDrainAE", trial.getSessionDict(self), FORCE_DRAIN_RECAST, false);

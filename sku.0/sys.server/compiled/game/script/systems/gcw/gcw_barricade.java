@@ -181,11 +181,8 @@ public class gcw_barricade extends script.base_script
         }
         if (objects != null && objects.length > 0)
         {
-            for (int i = 0; i < objects.length; i++)
-            {
-                obj_id object = objects[i];
-                if (isIdValid(object) && isMob(object) && factions.isPlayerSameGcwFactionAsSchedulerObject(object, self))
-                {
+            for (obj_id object : objects) {
+                if (isIdValid(object) && isMob(object) && factions.isPlayerSameGcwFactionAsSchedulerObject(object, self)) {
                     buff.applyBuff(object, self, "barricade_defender");
                 }
             }
@@ -237,7 +234,7 @@ public class gcw_barricade extends script.base_script
     {
         playClientEffectLoc(self, "clienteffect/combat_explosion_lair_large.cef", getLocation(self), 0);
         setInvulnerable(self, true);
-        messageTo(self, "destroyGCWBarricade", null, 1f, false);
+        messageTo(self, "destroyGCWBarricade", null, 1.0f, false);
         int faction = utils.getIntScriptVar(self, "faction");
         if (faction < 0)
         {

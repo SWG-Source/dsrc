@@ -30,16 +30,14 @@ public class battlefield_destructable extends script.base_script
         playClientEffectObj(killer, "clienteffect/combat_explosion_lair_large.cef", self, "");
         playClientEffectLoc(killer, "clienteffect/combat_explosion_lair_large.cef", death, 0);
         setInvulnerable(self, true);
-        messageTo(self, "destroyDisabledLair", null, .5f, false);
+        messageTo(self, "destroyDisabledLair", null, 0.5f, false);
         obj_id[] enemies = getWhoIsTargetingMe(self);
         if (enemies != null && enemies.length > 1)
         {
-            for (int i = 0; i < enemies.length; i++)
-            {
-                if (isPlayer(enemies[i]))
-                {
-                    setTarget(enemies[i], null);
-                    setCombatTarget(enemies[i], null);
+            for (obj_id enemy : enemies) {
+                if (isPlayer(enemy)) {
+                    setTarget(enemy, null);
+                    setCombatTarget(enemy, null);
                 }
             }
         }

@@ -255,11 +255,9 @@ public class qascript extends script.base_script
         if (scriptArray.length > -1)
         {
             HashSet theSet = new HashSet();
-            for (int i = 0; i < scriptArray.length; i++)
-            {
-                String script = scriptArray[i];
-                if (script.indexOf("script.") > -1)
-                {
+            for (String s : scriptArray) {
+                String script = s;
+                if (script.contains("script.")) {
                     script = script.substring(7);
                     theSet.add(script);
                 }
@@ -279,19 +277,13 @@ public class qascript extends script.base_script
         {
             if (!scriptArray[0].equals(ERROR_MSG_ARRAY[0]))
             {
-                for (int i = 0; i < scriptArray.length; i++)
-                {
-                    if (scriptArray[i].startsWith("test."))
-                    {
-                        strScripts += scriptArray[i] + "\r\n";
-                    }
-                    else 
-                    {
-                        for (int s = 0; s < COMMON_SCRIPTS.length; s++)
-                        {
-                            if (scriptArray[i].equals(COMMON_SCRIPTS[s]))
-                            {
-                                strScripts += scriptArray[i] + "\r\n";
+                for (String s : scriptArray) {
+                    if (s.startsWith("test.")) {
+                        strScripts += s + "\r\n";
+                    } else {
+                        for (String commonScript : COMMON_SCRIPTS) {
+                            if (s.equals(commonScript)) {
+                                strScripts += s + "\r\n";
                             }
                         }
                     }
@@ -309,19 +301,13 @@ public class qascript extends script.base_script
         {
             if (!scriptArray[0].equals(ERROR_MSG_ARRAY[0]))
             {
-                for (int i = 0; i < scriptArray.length; i++)
-                {
-                    if (scriptArray[i].startsWith("test."))
-                    {
-                        theSet.add(scriptArray[i]);
-                    }
-                    else 
-                    {
-                        for (int s = 0; s < COMMON_SCRIPTS.length; s++)
-                        {
-                            if (scriptArray[i].equals(COMMON_SCRIPTS[s]))
-                            {
-                                theSet.add(scriptArray[i]);
+                for (String s : scriptArray) {
+                    if (s.startsWith("test.")) {
+                        theSet.add(s);
+                    } else {
+                        for (String commonScript : COMMON_SCRIPTS) {
+                            if (s.equals(commonScript)) {
+                                theSet.add(s);
                             }
                         }
                     }
@@ -337,11 +323,9 @@ public class qascript extends script.base_script
     public String[] getAttachableCharacterScripts(obj_id player) throws InterruptedException
     {
         HashSet theSet = new HashSet();
-        for (int i = 0; i < COMMON_SCRIPTS.length; i++)
-        {
-            if (findAttached(player, COMMON_SCRIPTS[i]) == true)
-            {
-                theSet.add(COMMON_SCRIPTS[i]);
+        for (String commonScript : COMMON_SCRIPTS) {
+            if (findAttached(player, commonScript) == true) {
+                theSet.add(commonScript);
             }
         }
         String[] menuArray = new String[theSet.size()];
@@ -354,10 +338,8 @@ public class qascript extends script.base_script
         String[] arrayOfCurrentScripts = getCharacterScripts(player);
         if (arrayOfCurrentScripts.length > -1)
         {
-            for (int x = 0; x < arrayOfCurrentScripts.length; x++)
-            {
-                if (arrayOfCurrentScripts[x].equals(scriptAttached))
-                {
+            for (String arrayOfCurrentScript : arrayOfCurrentScripts) {
+                if (arrayOfCurrentScript.equals(scriptAttached)) {
                     return false;
                 }
             }

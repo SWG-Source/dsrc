@@ -40,19 +40,13 @@ public class find_theater extends script.base_script
             if (parameterString != null && !parameterString.equals(""))
             {
                 String[] params = split(parameterString, ':');
-                for (int i = 0; i < params.length; i++)
-                {
-                    if ("flat" == params[i])
-                    {
+                for (String param : params) {
+                    if ("flat" == param) {
                         theaterLocationType = TLT_flatten;
-                    }
-                    else if ("atloc" == params[i])
-                    {
+                    } else if ("atloc" == param) {
                         theaterLocationType = TLT_none;
-                    }
-                    else if (!Character.isDigit(params[i].charAt(0)))
-                    {
-                        script = params[i];
+                    } else if (!Character.isDigit(param.charAt(0))) {
+                        script = param;
                         LOG("newquests", "FIND THEATER: script parsed: " + script);
                     }
                 }
@@ -83,7 +77,7 @@ public class find_theater extends script.base_script
             }
             if (havePlanet)
             {
-                if (tokens[0].indexOf(".iff") < 0)
+                if (!tokens[0].contains(".iff"))
                 {
                     datatable = tokens[1];
                 }
@@ -193,8 +187,8 @@ public class find_theater extends script.base_script
                 {
                     z_rand *= -1;
                 }
-                loc.x += (float)x_rand;
-                loc.z += (float)z_rand;
+                loc.x += x_rand;
+                loc.z += z_rand;
                 obj_id wp = createWaypointInDatapad(self, loc);
                 String summary = quests.getDataEntry(questName, "JOURNAL_ENTRY_SUMMARY");
                 if (summary != null && summary.length() > 0)

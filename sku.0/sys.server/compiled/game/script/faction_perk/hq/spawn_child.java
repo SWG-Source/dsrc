@@ -20,7 +20,7 @@ public class spawn_child extends script.base_script
             }
             dictionary d = new dictionary();
             d.put("oid", self);
-            messageTo(parent, "handleLeaderIncapacitated", d, 1f, false);
+            messageTo(parent, "handleLeaderIncapacitated", d, 1.0f, false);
         }
         return SCRIPT_CONTINUE;
     }
@@ -33,7 +33,7 @@ public class spawn_child extends script.base_script
         }
         dictionary d = new dictionary();
         d.put("oid", self);
-        messageTo(parent, "handleChildDestroyed", d, 1f, false);
+        messageTo(parent, "handleChildDestroyed", d, 1.0f, false);
         return SCRIPT_CONTINUE;
     }
 }

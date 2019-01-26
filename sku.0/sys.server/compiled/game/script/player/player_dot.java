@@ -17,14 +17,12 @@ public class player_dot extends script.base_script
         String[] dot_ids = dot.getAllDots(self);
         if (dot_ids != null)
         {
-            for (int i = 0; i < dot_ids.length; i++)
-            {
-                String type = dot.getDotType(self, dot_ids[i]);
-                if (!type.equals(dot.DOT_DISEASE))
-                {
-                    int pulse = dot.getDotPulse(self, dot_ids[i]);
+            for (String dot_id : dot_ids) {
+                String type = dot.getDotType(self, dot_id);
+                if (!type.equals(dot.DOT_DISEASE)) {
+                    int pulse = dot.getDotPulse(self, dot_id);
                     dictionary d = new dictionary();
-                    d.put("dot_id", dot_ids[i]);
+                    d.put("dot_id", dot_id);
                     d.put("pulse", pulse);
                     messageTo(self, "OnDotPulse", d, pulse, false);
                 }

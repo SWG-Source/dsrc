@@ -19,32 +19,26 @@ public class crafting_base_detect_item extends script.systems.crafting.crafting_
     public void calcAndSetPrototypeProperties(obj_id prototype, draft_schematic.attribute[] itemAttributes) throws InterruptedException
     {
         float effectiveness = 0;
-        for (int i = 0; i < itemAttributes.length; ++i)
-        {
-            if (itemAttributes[i] == null)
-            {
+        for (draft_schematic.attribute itemAttribute : itemAttributes) {
+            if (itemAttribute == null) {
                 continue;
             }
-            if (!calcAndSetPrototypeProperty(prototype, itemAttributes[i]))
-            {
-                if (((itemAttributes[i].name).getAsciiId()).equals("effectiveness"))
-                {
-                    effectiveness = (int)itemAttributes[i].currentValue;
-                }
-                else 
-                {
-                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttributes[i].name).getAsciiId(), itemAttributes[i].currentValue);
+            if (!calcAndSetPrototypeProperty(prototype, itemAttribute)) {
+                if (((itemAttribute.name).getAsciiId()).equals("effectiveness")) {
+                    effectiveness = (int) itemAttribute.currentValue;
+                } else {
+                    setObjVar(prototype, craftinglib.COMPONENT_ATTRIBUTE_OBJVAR_NAME + "." + (itemAttribute.name).getAsciiId(), itemAttribute.currentValue);
                 }
             }
         }
         if (effectiveness > 0)
         {
             String template = getTemplateName(prototype);
-            if (template.indexOf("biosensorprobe") > -1)
+            if (template.contains("biosensorprobe"))
             {
                 setObjVar(prototype, stealth.BIO_PROBE_STORAGE_TIME, effectiveness / 1000 * stealth.MAX_BIO_PROBE_STORAGE_TIME);
             }
-            else if (template.indexOf("trackingbeacon") > -1 || template.indexOf("motionsensor") > -1)
+            else if (template.contains("trackingbeacon") || template.contains("motionsensor"))
             {
                 setObjVar(prototype, stealth.BEACON_BATTERY, effectiveness);
             }

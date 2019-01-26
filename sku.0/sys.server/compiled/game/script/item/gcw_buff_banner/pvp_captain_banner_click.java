@@ -61,10 +61,10 @@ public class pvp_captain_banner_click extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            sendCooldownGroupTimingOnly(player, (-356536179), 1800f);
+            sendCooldownGroupTimingOnly(player, (-356536179), 1800.0f);
             createBannerItem(player, faction);
             utils.setScriptVar(self, "flagCoolDown", 1);
-            messageTo(self, "handleRemoveTimer", null, 1800f, false);
+            messageTo(self, "handleRemoveTimer", null, 1800.0f, false);
         }
         return SCRIPT_CONTINUE;
     }

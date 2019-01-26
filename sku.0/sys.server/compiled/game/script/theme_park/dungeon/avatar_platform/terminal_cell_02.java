@@ -28,7 +28,7 @@ public class terminal_cell_02 extends script.base_script
             {
                 dictionary who = new dictionary();
                 who.put("player", player);
-                messageTo(target, "handleFreedom", who, 0f, false);
+                messageTo(target, "handleFreedom", who, 0.0f, false);
                 sendSystemMessage(player, CELL_UNLOCKED);
                 obj_id cellDoor = getObjIdObjVar(structure, "avatar_platform.cell_door_02");
                 destroyObject(cellDoor);
@@ -42,7 +42,7 @@ public class terminal_cell_02 extends script.base_script
             {
                 dictionary who = new dictionary();
                 who.put("player", player);
-                messageTo(target, "handleGasDeath", who, 0f, false);
+                messageTo(target, "handleGasDeath", who, 0.0f, false);
                 sendSystemMessage(player, EXECUTE);
             }
         }

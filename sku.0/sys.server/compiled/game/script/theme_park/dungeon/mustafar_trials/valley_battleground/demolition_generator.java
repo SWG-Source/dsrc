@@ -111,10 +111,8 @@ public class demolition_generator extends script.base_script
             "class_commando_phase4_novice",
             "class_commando_phase4_master"
         };
-        for (int i = 0; i < commandoLevel.length; i++)
-        {
-            if (hasSkill(player, commandoLevel[i]))
-            {
+        for (String s : commandoLevel) {
+            if (hasSkill(player, s)) {
                 level += 1;
             }
         }

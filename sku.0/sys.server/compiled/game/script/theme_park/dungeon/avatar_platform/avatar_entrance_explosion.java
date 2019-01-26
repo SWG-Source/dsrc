@@ -37,10 +37,8 @@ public class avatar_entrance_explosion extends script.base_script
         obj_id[] items = getContents(self);
         if (items != null && items.length > 0)
         {
-            for (int i = 0; i < items.length; i++)
-            {
-                if (isPlayer(items[i]))
-                {
+            for (obj_id item : items) {
+                if (isPlayer(item)) {
                     startExplosionSequence(player, self);
                     setObjVar(structure, "avatar_platform.explosion_sequence_hall", 1);
                     return;
@@ -63,7 +61,7 @@ public class avatar_entrance_explosion extends script.base_script
         info.put("player", player);
         location explosionPnt = new location(91.1f, 0.0f, 24.4f, planet, entrance);
         playClientEffectLoc(player, "clienteffect/avatar_hallway_explosion.cef", explosionPnt, 0.0f);
-        messageTo(self, "handleMoreExplosion01", info, 2f, false);
+        messageTo(self, "handleMoreExplosion01", info, 2.0f, false);
         return;
     }
     public int handleMoreExplosion01(obj_id self, dictionary params) throws InterruptedException
@@ -77,7 +75,7 @@ public class avatar_entrance_explosion extends script.base_script
         info.put("player", player);
         location explosionPnt = new location(91.1f, 0.0f, 18.4f, planet, entrance);
         playClientEffectLoc(player, "clienteffect/avatar_hallway_explosion.cef", explosionPnt, 0.0f);
-        messageTo(self, "handleMoreExplosion02", info, 2f, false);
+        messageTo(self, "handleMoreExplosion02", info, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleMoreExplosion02(obj_id self, dictionary params) throws InterruptedException
@@ -91,7 +89,7 @@ public class avatar_entrance_explosion extends script.base_script
         info.put("player", player);
         location explosionPnt = new location(97.2f, 0.0f, 18.4f, planet, entrance);
         playClientEffectLoc(player, "clienteffect/avatar_hallway_explosion.cef", explosionPnt, 0.0f);
-        messageTo(self, "handleMoreExplosion03", info, 2f, false);
+        messageTo(self, "handleMoreExplosion03", info, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleMoreExplosion03(obj_id self, dictionary params) throws InterruptedException
@@ -105,7 +103,7 @@ public class avatar_entrance_explosion extends script.base_script
         info.put("player", player);
         location explosionPnt = new location(97.2f, 0.0f, 24.4f, planet, entrance);
         playClientEffectLoc(player, "clienteffect/avatar_hallway_explosion.cef", explosionPnt, 0.0f);
-        messageTo(self, "handleMoreExplosion04", info, 2f, false);
+        messageTo(self, "handleMoreExplosion04", info, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleMoreExplosion04(obj_id self, dictionary params) throws InterruptedException
@@ -119,7 +117,7 @@ public class avatar_entrance_explosion extends script.base_script
         info.put("player", player);
         location explosionPnt = new location(101.8f, 0.0f, 18.4f, planet, entrance);
         playClientEffectLoc(player, "clienteffect/avatar_hallway_explosion.cef", explosionPnt, 0.0f);
-        messageTo(self, "handleMoreExplosion05", info, 2f, false);
+        messageTo(self, "handleMoreExplosion05", info, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleMoreExplosion05(obj_id self, dictionary params) throws InterruptedException
@@ -133,7 +131,7 @@ public class avatar_entrance_explosion extends script.base_script
         info.put("player", player);
         location explosionPnt = new location(101.8f, 0.0f, 24.4f, planet, entrance);
         playClientEffectLoc(player, "clienteffect/avatar_hallway_explosion.cef", explosionPnt, 0.0f);
-        messageTo(self, "handleMoreExplosion06", info, 2f, false);
+        messageTo(self, "handleMoreExplosion06", info, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleMoreExplosion06(obj_id self, dictionary params) throws InterruptedException
@@ -147,7 +145,7 @@ public class avatar_entrance_explosion extends script.base_script
         info.put("player", player);
         location explosionPnt = new location(108.9f, 0.0f, 18.4f, planet, entrance);
         playClientEffectLoc(player, "clienteffect/avatar_hallway_explosion.cef", explosionPnt, 0.0f);
-        messageTo(self, "handleMoreExplosion07", info, 2f, false);
+        messageTo(self, "handleMoreExplosion07", info, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handleMoreExplosion07(obj_id self, dictionary params) throws InterruptedException
@@ -161,7 +159,7 @@ public class avatar_entrance_explosion extends script.base_script
         info.put("player", player);
         location explosionPnt = new location(108.9f, 0.0f, 24.4f, planet, entrance);
         playClientEffectLoc(player, "clienteffect/avatar_hallway_explosion.cef", explosionPnt, 0.0f);
-        messageTo(self, "handlePlayerCheck", info, 2f, false);
+        messageTo(self, "handlePlayerCheck", info, 2.0f, false);
         return SCRIPT_CONTINUE;
     }
     public int handlePlayerCheck(obj_id self, dictionary params) throws InterruptedException
@@ -170,11 +168,9 @@ public class avatar_entrance_explosion extends script.base_script
         obj_id[] items = getContents(self);
         if (items != null && items.length > 0)
         {
-            for (int i = 0; i < items.length; i++)
-            {
-                if (isPlayer(items[i]))
-                {
-                    startExplosionSequence(items[i], self);
+            for (obj_id item : items) {
+                if (isPlayer(item)) {
+                    startExplosionSequence(item, self);
                     setObjVar(structure, "avatar_platform.explosion_sequence_hall", 1);
                     return SCRIPT_CONTINUE;
                 }

@@ -10,7 +10,7 @@ public class gcw extends script.base_script
     {
     }
     public static final int GCW_UPDATE_PULSE = 300;
-    public static final float DECAY_PER_UPDATE = .02f;
+    public static final float DECAY_PER_UPDATE = 0.02f;
     public static final String SCRIPTVAR_SCAN_INTEREST = "scan.interest";
     public static final String REGION_SPAWN_WEIGHT_PATH = "datatables/spawning/imperial_presence/presence_weight/";
     public static final String TABLE_PLAYER_BASE_CAP = "datatables/faction_perk/hq/hq_planetary_placement_cap.iff";
@@ -122,7 +122,7 @@ public class gcw extends script.base_script
         "trading",
         "entertaining"
     };
-    public static final float COLLECTION_DAMAGE_RATIO_MIN = .41f;
+    public static final float COLLECTION_DAMAGE_RATIO_MIN = 0.41f;
     public static final String PVP_PUSHBACK_REGION = "pvp_pushback";
     public static final String PVP_BATTLEFIELD_REGION = "pvp_battlefield";
     public static final int GCW_ENTERTAINMENT_TIME = 30;
@@ -273,12 +273,10 @@ public class gcw extends script.base_script
             region[] r = getRegionsWithSpawnableAtPoint(here, regions.SPAWN_TRUE);
             if (r != null && r.length > 0)
             {
-                for (int i = 0; i < r.length; i++)
-                {
-                    String rName = r[i].getName();
+                for (script.region region : r) {
+                    String rName = region.getName();
                     int idx = utils.getElementPositionInArray(regionNames, rName);
-                    if (idx > -1)
-                    {
+                    if (idx > -1) {
                         spawnWeight = dataTableGetInt(tbl, idx, "WEIGHT");
                         break;
                     }
@@ -322,12 +320,12 @@ public class gcw extends script.base_script
     {
         if (!isIdValid(scanner) || !isIdValid(target))
         {
-            return -1f;
+            return -1.0f;
         }
         int interests = utils.getIntScriptVar(scanner, SCRIPTVAR_SCAN_INTEREST);
         if (interests == 0)
         {
-            return -1f;
+            return -1.0f;
         }
         return getContrabandRating(target, interests);
     }
@@ -337,13 +335,13 @@ public class gcw extends script.base_script
         {
             return false;
         }
-        return (getContrabandRating(item, INTEREST_CONTRABAND) > 0f);
+        return (getContrabandRating(item, INTEREST_CONTRABAND) > 0.0f);
     }
     public static float getContrabandRating(obj_id target, int interests) throws InterruptedException
     {
         if (!isIdValid(target) || interests == 0)
         {
-            return 0f;
+            return 0.0f;
         }
         int got = getGameObjectType(target);
         if (isGameObjectTypeOf(got, GOT_creature) || isPlayer(target))
@@ -357,9 +355,9 @@ public class gcw extends script.base_script
                 {
                     int min_check = 1;
                     float dist = getDistance(self, target);
-                    if (dist < 64f)
+                    if (dist < 64.0f)
                     {
-                        min_check -= Math.round(dist / 15f);
+                        min_check -= Math.round(dist / 15.0f);
                     }
                     if (min_check < 1)
                     {
@@ -409,28 +407,28 @@ public class gcw extends script.base_script
                 int cnt = getCount(target);
                 if (cnt > 0)
                 {
-                    return (float)cnt;
+                    return cnt;
                 }
-                return 6f;
+                return 6.0f;
             }
             if (isSlicedEquipment(target) && utils.checkBit(interests, INTEREST_SLICED_ITEMS))
             {
                 if (utils.isEquipped(target))
                 {
-                    return 4f;
+                    return 4.0f;
                 }
-                return 2f;
+                return 2.0f;
             }
             if (isNonImperialFactionItem(target) && utils.checkBit(interests, INTEREST_FACTION_ITEMS))
             {
                 if (utils.isEquipped(target))
                 {
-                    return 6f;
+                    return 6.0f;
                 }
-                return 3f;
+                return 3.0f;
             }
         }
-        return 0f;
+        return 0.0f;
     }
     public static float getContrabandRating(obj_id target) throws InterruptedException
     {
@@ -489,11 +487,11 @@ public class gcw extends script.base_script
         {
             dictionary d = new dictionary();
             d.put("harassTarget", target);
-            messageTo(npc, "handleNewHarassTarget", d, 1f, false);
+            messageTo(npc, "handleNewHarassTarget", d, 1.0f, false);
         }
         else 
         {
-            messageTo(npc, "handleCheckpointMode", null, 1f, false);
+            messageTo(npc, "handleCheckpointMode", null, 1.0f, false);
         }
     }
     public static boolean spawnViaLambda(location loc, String tbl, String column, dictionary params) throws InterruptedException
@@ -529,7 +527,7 @@ public class gcw extends script.base_script
         {
             return false;
         }
-        setYaw(lambda, rand(-180f, 180f));
+        setYaw(lambda, rand(-180.0f, 180.0f));
         attachScript(lambda, "systems.spawning.dropship.lambda");
         utils.setScriptVar(lambda, "spawnNames", spawnNames);
         if (params != null && !params.isEmpty())
@@ -563,19 +561,13 @@ public class gcw extends script.base_script
         {
             tbl = "datatables/imperial_presence/geo/general_heavy.iff";
         }
-        for (int i = 0; i < r.length; i++)
-        {
-            int geoType = r[i].getGeographicalType();
-            if (geoType == regions.GEO_DESERT || geoType == regions.GEO_OASIS || geoType == regions.GEO_WASTELAND)
-            {
+        for (script.region region : r) {
+            int geoType = region.getGeographicalType();
+            if (geoType == regions.GEO_DESERT || geoType == regions.GEO_OASIS || geoType == regions.GEO_WASTELAND) {
                 tbl = "datatables/imperial_presence/geo/desert.iff";
-            }
-            else if (geoType == regions.GEO_FOREST || geoType == regions.GEO_JUNGLE || geoType == regions.GEO_WASTELAND)
-            {
+            } else if (geoType == regions.GEO_FOREST || geoType == regions.GEO_JUNGLE || geoType == regions.GEO_WASTELAND) {
                 tbl = "datatables/imperial_presence/geo/forest.iff";
-            }
-            else if (geoType == regions.GEO_SWAMP)
-            {
+            } else if (geoType == regions.GEO_SWAMP) {
                 tbl = "datatables/imperial_presence/geo/swamp.iff";
             }
         }
@@ -607,7 +599,7 @@ public class gcw extends script.base_script
         Long lngId;
         try
         {
-            lngId = new Long(strObjId);
+            lngId = Long.valueOf(strObjId);
         }
         catch(NumberFormatException err)
         {
@@ -718,10 +710,8 @@ public class gcw extends script.base_script
             "endor",
             "mustafar"
         };
-        for (int i = 0; i < restrictedScene.length; i++)
-        {
-            if (restrictedScene[i].equals(scene))
-            {
+        for (String s : restrictedScene) {
+            if (s.equals(scene)) {
                 return true;
             }
         }
@@ -740,30 +730,30 @@ public class gcw extends script.base_script
     }
     public static float getImperialRatio(obj_id objNPC) throws InterruptedException
     {
-        float fltImperialControlScore = (float)getIntObjVar(objNPC, "Imperial.controlScore");
-        float fltRebelControlScore = (float)getIntObjVar(objNPC, "Rebel.controlScore");
+        float fltImperialControlScore = getIntObjVar(objNPC, "Imperial.controlScore");
+        float fltRebelControlScore = getIntObjVar(objNPC, "Rebel.controlScore");
         if ((fltImperialControlScore == 0) && (fltRebelControlScore == 0))
         {
             return 1.0f;
         }
         if (fltImperialControlScore == 0)
         {
-            return .0f;
+            return 0.0f;
         }
         float fltScore = fltImperialControlScore / fltRebelControlScore;
         return fltScore;
     }
     public static float getRebelRatio(obj_id objNPC) throws InterruptedException
     {
-        float fltImperialControlScore = (float)getIntObjVar(objNPC, "Imperial.controlScore");
-        float fltRebelControlScore = (float)getIntObjVar(objNPC, "Rebel.controlScore");
+        float fltImperialControlScore = getIntObjVar(objNPC, "Imperial.controlScore");
+        float fltRebelControlScore = getIntObjVar(objNPC, "Rebel.controlScore");
         if ((fltImperialControlScore == 0) && (fltRebelControlScore == 0))
         {
             return 1.0f;
         }
         if (fltRebelControlScore == 0)
         {
-            return .0f;
+            return 0.0f;
         }
         LOG("gcw", "Rebel score is " + fltRebelControlScore);
         LOG("gcw", "Imperial score is " + fltImperialControlScore);
@@ -1004,12 +994,10 @@ public class gcw extends script.base_script
         {
             return 0;
         }
-        for (int i = 0; i < attackList.size(); i++)
-        {
-            String[] splitEntry = split(((String)attackList.get(i)), '-');
+        for (Object o : attackList) {
+            String[] splitEntry = split(((String) o), '-');
             obj_id idAtPoint = utils.stringToObjId(splitEntry[0]);
-            if (idAtPoint == attacker)
-            {
+            if (idAtPoint == attacker) {
                 return utils.stringToInt(splitEntry[1]);
             }
         }
@@ -1037,17 +1025,14 @@ public class gcw extends script.base_script
         if (gcwEnemiesList != null && gcwEnemiesList.length > 0)
         {
             removeDayOldEntries(player);
-            for (int i = 0; i < gcwEnemiesList.length; i++)
-            {
-                if (!isIdValid(gcwEnemiesList[i]) || !exists(gcwEnemiesList[i]) || !verifyPvpRegionStatus(gcwEnemiesList[i]))
-                {
+            for (script.obj_id obj_id : gcwEnemiesList) {
+                if (!isIdValid(obj_id) || !exists(obj_id) || !verifyPvpRegionStatus(obj_id)) {
                     continue;
                 }
-                if ((float)getLevel(player) / (float)getLevel(gcwEnemiesList[i]) >= MIN_PVP_LEVEL_RATIO_LIMIT && ((isImperialPlayer && factions.isRebel(gcwEnemiesList[i])) || (factions.isImperial(gcwEnemiesList[i]) && isRebelPlayer)))
-                {
-                    int points = distributeIndividualContribution(player, gcwEnemiesList[i], 0, GCW_POINT_TYPE_GROUND_PVP);
-                    pvpModifyCurrentPvpKills(gcwEnemiesList[i], 1);
-                    incrementKillMeter(gcwEnemiesList[i], 1);
+                if ((float) getLevel(player) / getLevel(obj_id) >= MIN_PVP_LEVEL_RATIO_LIMIT && ((isImperialPlayer && factions.isRebel(obj_id)) || (factions.isImperial(obj_id) && isRebelPlayer))) {
+                    int points = distributeIndividualContribution(player, obj_id, 0, GCW_POINT_TYPE_GROUND_PVP);
+                    pvpModifyCurrentPvpKills(obj_id, 1);
+                    incrementKillMeter(obj_id, 1);
                 }
             }
             Vector attackerList = utils.getResizeableStringBatchScriptVar(player, gcw.LIST_CREDIT_FOR_KILLS);
@@ -1055,19 +1040,16 @@ public class gcw extends script.base_script
             {
                 return false;
             }
-            for (int j = 0; j < attackerList.size(); j++)
-            {
-                String[] parseKiller = split(((String)attackerList.get(j)), '-');
+            for (Object o : attackerList) {
+                String[] parseKiller = split(((String) o), '-');
                 obj_id killer = utils.stringToObjId(parseKiller[0]);
-                if (beast_lib.isBeast(killer) || pet_lib.isPet(killer))
-                {
+                if (beast_lib.isBeast(killer) || pet_lib.isPet(killer)) {
                     killer = getMaster(killer);
                 }
-                double vLev = (double)getLevel(player);
-                double kLev = (double)getLevel(killer);
+                double vLev = getLevel(player);
+                double kLev = getLevel(killer);
                 boolean isOfLevel = (vLev / kLev) >= MIN_PVP_LEVEL_RATIO_LIMIT;
-                if (isOfLevel && killer != landedDeathBlow)
-                {
+                if (isOfLevel && killer != landedDeathBlow) {
                     pvp.bfCreditForAssist(killer);
                     gcwInvasionCreditForAssist(killer);
                 }
@@ -1081,24 +1063,20 @@ public class gcw extends script.base_script
             return false;
         }
         int totalDamage = 0;
-        for (int q = 0; q < attackerList.size(); q++)
-        {
-            String[] damageSplit = split(((String)attackerList.get(q)), '-');
+        for (Object o1 : attackerList) {
+            String[] damageSplit = split(((String) o1), '-');
             totalDamage += utils.stringToInt(damageSplit[1]);
         }
         removeDayOldEntries(player);
-        for (int j = 0; j < attackerList.size(); j++)
-        {
-            String[] parseKiller = split(((String)attackerList.get(j)), '-');
+        for (Object o : attackerList) {
+            String[] parseKiller = split(((String) o), '-');
             obj_id killer = utils.stringToObjId(parseKiller[0]);
-            double vLev = (double)getLevel(player);
-            double kLev = (double)getLevel(killer);
+            double vLev = getLevel(player);
+            double kLev = getLevel(killer);
             boolean isOfLevel = (vLev / kLev) >= MIN_PVP_LEVEL_RATIO_LIMIT;
-            if (isOfLevel)
-            {
-                int points = distributeIndividualContribution(player, ((String)attackerList.get(j)), totalDamage, GCW_POINT_TYPE_GROUND_PVP);
-                if (isIdValid(killer) && exists(killer))
-                {
+            if (isOfLevel) {
+                int points = distributeIndividualContribution(player, ((String) o), totalDamage, GCW_POINT_TYPE_GROUND_PVP);
+                if (isIdValid(killer) && exists(killer)) {
                     pvpModifyCurrentPvpKills(killer, 1);
                     incrementKillMeter(killer, 1);
                 }
@@ -1119,10 +1097,8 @@ public class gcw extends script.base_script
     }
     public static boolean isAlreadyInArray(String[] orderedList, String attackerEntry) throws InterruptedException
     {
-        for (int i = 0; i < orderedList.length; i++)
-        {
-            if (orderedList[i].equals(attackerEntry))
-            {
+        for (String s : orderedList) {
+            if (s.equals(attackerEntry)) {
                 return true;
             }
         }
@@ -1208,7 +1184,7 @@ public class gcw extends script.base_script
                 }
                 else 
                 {
-                    gcwPoint = (int)(gcwPoint * (float)((10.0f - ((float)accruedPoints - 1.0f)) / 10.0f));
+                    gcwPoint = (int)(gcwPoint * (float)((10.0f - (accruedPoints - 1.0f)) / 10.0f));
                 }
             }
             String newEntry = packKillerDailyPoints(killer, accruedPoints, timeAtFirstAward);
@@ -1252,12 +1228,10 @@ public class gcw extends script.base_script
         {
             return 0;
         }
-        for (int i = 0; i < attackList.size(); i++)
-        {
-            String[] splitEntry = split(((String)attackList.get(i)), '-');
+        for (Object o : attackList) {
+            String[] splitEntry = split(((String) o), '-');
             obj_id idAtPoint = utils.stringToObjId(splitEntry[0]);
-            if (idAtPoint == attacker)
-            {
+            if (idAtPoint == attacker) {
                 return utils.stringToInt(splitEntry[1]);
             }
         }
@@ -1278,11 +1252,9 @@ public class gcw extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < attackers.length; i++)
-        {
-            if (isIdValid(attackers[i]) && exists(attackers[i]) && getDistance(victim, attackers[i]) < 120.0f)
-            {
-                grantModifiedGcwPoints(victim, attackers[i], pvpKill, point_type, information);
+        for (obj_id attacker : attackers) {
+            if (isIdValid(attacker) && exists(attacker) && getDistance(victim, attacker) < 120.0f) {
+                grantModifiedGcwPoints(victim, attacker, pvpKill, point_type, information);
             }
         }
     }
@@ -1387,16 +1359,12 @@ public class gcw extends script.base_script
         String regionName = "";
         if (regionList != null && regionList.length > 0)
         {
-            for (int i = 0, j = regionList.length; i < j; i++)
-            {
-                region currentRegion = regionList[i];
-                if (currentRegion == null)
-                {
+            for (region currentRegion : regionList) {
+                if (currentRegion == null) {
                     continue;
                 }
                 String currentRegionName = currentRegion.getName();
-                if (currentRegionName != null && currentRegionName.length() > 0 && currentRegionName.startsWith("gcw_region"))
-                {
+                if (currentRegionName != null && currentRegionName.length() > 0 && currentRegionName.startsWith("gcw_region")) {
                     regionName = currentRegionName;
                     break;
                 }
@@ -1506,8 +1474,8 @@ public class gcw extends script.base_script
         {
             return 0;
         }
-        double npcLev = (double)getLevel(npc);
-        double playLev = (double)getLevel(player);
+        double npcLev = getLevel(npc);
+        double playLev = getLevel(player);
         if ((npcLev / playLev) < MIN_NPC_LEVEL_RATIO_LIMIT)
         {
             return 0;
@@ -1542,7 +1510,7 @@ public class gcw extends script.base_script
         }
         if (isSpaceBattlefieldZone())
         {
-            mod += .1f;
+            mod += 0.1f;
         }
         return (int)(mod * passedValue);
     }
@@ -1566,12 +1534,10 @@ public class gcw extends script.base_script
         {
             return null;
         }
-        for (int i = 0; i < regionList.length; i++)
-        {
-            String regionName = regionList[i].getName();
+        for (script.region region : regionList) {
+            String regionName = region.getName();
             String packedRegion = REGION_CONTROLLER + "." + regionName;
-            if (utils.hasScriptVar(planetId, packedRegion))
-            {
+            if (utils.hasScriptVar(planetId, packedRegion)) {
                 regionController = utils.getObjIdScriptVar(planetId, packedRegion);
             }
         }
@@ -1638,27 +1604,18 @@ public class gcw extends script.base_script
     {
         Vector validAttackers = new Vector();
         validAttackers.setSize(0);
-        for (int i = 0; i < attackers.length; i++)
-        {
-            if (factions.isImperial(defender))
-            {
-                if (factions.isRebel(attackers[i]) && validateSpaceTier(defender, attackers[i]))
-                {
-                    utils.addElement(validAttackers, attackers[i]);
-                }
-                else 
-                {
+        for (obj_id attacker : attackers) {
+            if (factions.isImperial(defender)) {
+                if (factions.isRebel(attacker) && validateSpaceTier(defender, attacker)) {
+                    utils.addElement(validAttackers, attacker);
+                } else {
                     LOG("doLogging", "Faction or tier error");
                 }
             }
-            if (factions.isRebel(defender))
-            {
-                if (factions.isImperial(attackers[i]) && validateSpaceTier(defender, attackers[i]))
-                {
-                    utils.addElement(validAttackers, attackers[i]);
-                }
-                else 
-                {
+            if (factions.isRebel(defender)) {
+                if (factions.isImperial(attacker) && validateSpaceTier(defender, attacker)) {
+                    utils.addElement(validAttackers, attacker);
+                } else {
                     LOG("doLogging", "Faction or tier error");
                 }
             }
@@ -1706,11 +1663,11 @@ public class gcw extends script.base_script
         if(targetTier.startsWith("tier")) {
             int target_level = Integer.parseInt(targetTier.replace("tier", ""));
             if (player_level - target_level == 1) {
-                return new Double(SPACE_GCW_VALUE * (player_level / 2)).intValue();
+                return Double.valueOf(SPACE_GCW_VALUE * (player_level / 2.0f)).intValue();
             } else if (player_level == target_level) {
-                return new Double(SPACE_GCW_VALUE * player_level).intValue();
+                return Double.valueOf(SPACE_GCW_VALUE * player_level).intValue();
             } else if (player_level < target_level) {
-                return new Double(SPACE_GCW_VALUE * (player_level + .5)).intValue();
+                return Double.valueOf(SPACE_GCW_VALUE * (player_level + 0.5)).intValue();
             }
         }
         return 0;
@@ -1729,63 +1686,45 @@ public class gcw extends script.base_script
         filteredList.setSize(0);
         if (interiorPlayers != null && interiorPlayers.length > 0)
         {
-            for (int i = 0; i < interiorPlayers.length; i++)
-            {
-                if (isIdValid(interiorPlayers[i]) && exists(interiorPlayers[i]))
-                {
-                    String playerFac = factions.getFaction(interiorPlayers[i]);
-                    if (playerFac == null)
-                    {
+            for (obj_id interiorPlayer : interiorPlayers) {
+                if (isIdValid(interiorPlayer) && exists(interiorPlayer)) {
+                    String playerFac = factions.getFaction(interiorPlayer);
+                    if (playerFac == null) {
                         continue;
                     }
-                    if (baseFac.equals("Rebel") && playerFac.equals("Imperial"))
-                    {
-                        utils.addElement(filteredList, interiorPlayers[i]);
+                    if (baseFac.equals("Rebel") && playerFac.equals("Imperial")) {
+                        utils.addElement(filteredList, interiorPlayer);
                     }
-                    if (baseFac.equals("Imperial") && playerFac.equals("Rebel"))
-                    {
-                        utils.addElement(filteredList, interiorPlayers[i]);
+                    if (baseFac.equals("Imperial") && playerFac.equals("Rebel")) {
+                        utils.addElement(filteredList, interiorPlayer);
                     }
                 }
             }
         }
         if (exteriorPlayers != null && exteriorPlayers.length > 0)
         {
-            for (int k = 0; k < exteriorPlayers.length; k++)
-            {
-                if (isIdValid(exteriorPlayers[k]) && exists(exteriorPlayers[k]))
-                {
-                    String playerFac = factions.getFaction(exteriorPlayers[k]);
-                    if (playerFac == null)
-                    {
+            for (obj_id exteriorPlayer : exteriorPlayers) {
+                if (isIdValid(exteriorPlayer) && exists(exteriorPlayer)) {
+                    String playerFac = factions.getFaction(exteriorPlayer);
+                    if (playerFac == null) {
                         continue;
                     }
-                    if (baseFac.equals("Rebel") && playerFac.equals("Imperial"))
-                    {
-                        if (filteredList.size() > 0)
-                        {
-                            if (utils.getElementPositionInArray(filteredList, exteriorPlayers[k]) == -1)
-                            {
-                                utils.addElement(filteredList, exteriorPlayers[k]);
+                    if (baseFac.equals("Rebel") && playerFac.equals("Imperial")) {
+                        if (filteredList.size() > 0) {
+                            if (utils.getElementPositionInArray(filteredList, exteriorPlayer) == -1) {
+                                utils.addElement(filteredList, exteriorPlayer);
                             }
-                        }
-                        else 
-                        {
-                            utils.addElement(filteredList, exteriorPlayers[k]);
+                        } else {
+                            utils.addElement(filteredList, exteriorPlayer);
                         }
                     }
-                    if (baseFac.equals("Imperial") && playerFac.equals("Rebel"))
-                    {
-                        if (filteredList.size() > 0)
-                        {
-                            if (utils.getElementPositionInArray(filteredList, exteriorPlayers[k]) == -1)
-                            {
-                                utils.addElement(filteredList, exteriorPlayers[k]);
+                    if (baseFac.equals("Imperial") && playerFac.equals("Rebel")) {
+                        if (filteredList.size() > 0) {
+                            if (utils.getElementPositionInArray(filteredList, exteriorPlayer) == -1) {
+                                utils.addElement(filteredList, exteriorPlayer);
                             }
-                        }
-                        else 
-                        {
-                            utils.addElement(filteredList, exteriorPlayers[k]);
+                        } else {
+                            utils.addElement(filteredList, exteriorPlayer);
                         }
                     }
                 }
@@ -1810,9 +1749,8 @@ public class gcw extends script.base_script
             CustomerServiceLog("GCW_points_player_base_busting", "There are no valid players in the filtered list");
             return;
         }
-        for (int j = 0; j < filteredList.size(); j++)
-        {
-            grantModifiedGcwPoints(((obj_id)filteredList.get(j)), value, gcw.GCW_POINT_TYPE_BASE_BUSTING, template);
+        for (Object o : filteredList) {
+            grantModifiedGcwPoints(((obj_id) o), value, gcw.GCW_POINT_TYPE_BASE_BUSTING, template);
         }
     }
     public static int getGcwGroundQuestAward(obj_id player, int quest_tier) throws InterruptedException
@@ -1868,11 +1806,9 @@ public class gcw extends script.base_script
             return null;
         }
         region pvpRegion = null;
-        for (int i = 0; i < regions.length; i++)
-        {
-            if (isNotifyRegion(regions[i]))
-            {
-                pvpRegion = regions[i];
+        for (script.region region : regions) {
+            if (isNotifyRegion(region)) {
+                pvpRegion = region;
             }
         }
         return pvpRegion;
@@ -2042,107 +1978,82 @@ public class gcw extends script.base_script
             timeToRepair = GCW_FATIGUE_TIMER_MAX;
         }
         int pid = -1;
-        if (questName.equals(GCW_SPY_PATROL_DESTROY_QUEST))
-        {
-            timeToRepair = 5;
-            if (isGod(player))
-            {
-                timeToRepair = 3;
-            }
-            LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleOpposingFactionDestroyQuest");
-            utils.setScriptVar(player, "spyPatrolPoint", gcwObject);
-            pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_DESTROY_PP_TIMER, 0, timeToRepair, "handleOpposingFactionDestroyQuest", 0, flags);
-            sui.setPid(player, pid, gcw.SPY_DESTROY_PID);
-        }
-        else if (questName.equals(GCW_SPY_PATROL_SCOUT_QUEST))
-        {
-            timeToRepair = 5;
-            if (isGod(player))
-            {
-                timeToRepair = 3;
-            }
-            LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleOpposingFactionScoutQuest");
-            utils.setScriptVar(player, "spyPatrolPoint", gcwObject);
-            pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_SCOUT_PP_TIMER, 0, timeToRepair, "handleOpposingFactionScoutQuest", 0, flags);
-            sui.setPid(player, pid, gcw.SPY_SCOUT_PID);
-        }
-        else if (questName.equals(GCW_REPAIR_PATROL_QUEST))
-        {
-            if (isGod(player))
-            {
-                timeToRepair = 3;
-            }
-            LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
-            utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_PATROL_QUEST);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_PATROL);
-            pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
-            sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
-        }
-        else if (questName.equals(GCW_REPAIR_TURRET_QUEST))
-        {
-            if (isGod(player))
-            {
-                timeToRepair = 3;
-            }
-            LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
-            utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_TURRET_QUEST);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_TURRET);
-            pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
-            sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
-        }
-        else if (questName.equals(GCW_REPAIR_BARRICADE_QUEST))
-        {
-            if (isGod(player))
-            {
-                timeToRepair = 3;
-            }
-            LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
-            utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_BARRICADE_QUEST);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_BARRICADE);
-            pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
-            sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
-        }
-        else if (questName.equals(GCW_REPAIR_VEHICLE_PATROL_QUEST))
-        {
-            if (isGod(player))
-            {
-                timeToRepair = 3;
-            }
-            LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
-            utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_VEHICLE_PATROL_QUEST);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_VEHICLE);
-            pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
-            sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
-        }
-        else if (questName.equals(GCW_REPAIR_DAMAGED_VEHICLE_QUEST))
-        {
-            if (isGod(player))
-            {
-                timeToRepair = 3;
-            }
-            LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
-            utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_DAMAGED_VEHICLE_QUEST);
-            utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_DAMAGED_VEHICLE);
-            pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
-            sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
-        }
-        else if (questName.equals(GCW_MEDIC_HEAL_QUEST))
-        {
-            if (isGod(player))
-            {
-                timeToRepair = 3;
-            }
-            LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
-            utils.setScriptVar(player, OBJECT_TO_REPAIR, gcwObject);
-            utils.setScriptVar(player, GCW_REPAIR_QUEST, GCW_MEDIC_HEAL_QUEST);
-            utils.setScriptVar(player, GCW_REPAIR_RESOURCE_COUNT, GCW_RESOURCE_COUNT_DAMAGED_VEHICLE);
-            pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_HEAL_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
-            sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
+        switch (questName) {
+            case GCW_SPY_PATROL_DESTROY_QUEST:
+                timeToRepair = 5;
+                if (isGod(player)) {
+                    timeToRepair = 3;
+                }
+                LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleOpposingFactionDestroyQuest");
+                utils.setScriptVar(player, "spyPatrolPoint", gcwObject);
+                pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_DESTROY_PP_TIMER, 0, timeToRepair, "handleOpposingFactionDestroyQuest", 0, flags);
+                sui.setPid(player, pid, gcw.SPY_DESTROY_PID);
+                break;
+            case GCW_SPY_PATROL_SCOUT_QUEST:
+                timeToRepair = 5;
+                if (isGod(player)) {
+                    timeToRepair = 3;
+                }
+                LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleOpposingFactionScoutQuest");
+                utils.setScriptVar(player, "spyPatrolPoint", gcwObject);
+                pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_SCOUT_PP_TIMER, 0, timeToRepair, "handleOpposingFactionScoutQuest", 0, flags);
+                sui.setPid(player, pid, gcw.SPY_SCOUT_PID);
+                break;
+            case GCW_REPAIR_PATROL_QUEST:
+                if (isGod(player)) {
+                    timeToRepair = 3;
+                }
+                LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
+                utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
+                utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_PATROL_QUEST);
+                utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_PATROL);
+                pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
+                sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
+                break;
+            case GCW_REPAIR_TURRET_QUEST:
+                if (isGod(player)) {
+                    timeToRepair = 3;
+                }
+                LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
+                utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
+                utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_TURRET_QUEST);
+                utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_TURRET);
+                pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
+                sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
+                break;
+            case GCW_REPAIR_BARRICADE_QUEST:
+                if (isGod(player)) {
+                    timeToRepair = 3;
+                }
+                LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
+                utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
+                utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_BARRICADE_QUEST);
+                utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_BARRICADE);
+                pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
+                sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
+                break;
+            case GCW_REPAIR_VEHICLE_PATROL_QUEST:
+                if (isGod(player)) {
+                    timeToRepair = 3;
+                }
+                LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
+                utils.setScriptVar(player, gcw.OBJECT_TO_REPAIR, gcwObject);
+                utils.setScriptVar(player, gcw.GCW_REPAIR_QUEST, gcw.GCW_REPAIR_VEHICLE_PATROL_QUEST);
+                utils.setScriptVar(player, gcw.GCW_REPAIR_RESOURCE_COUNT, gcw.GCW_RESOURCE_COUNT_DAMAGED_VEHICLE);
+                pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_REPAIR_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
+                sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
+                break;
+            case GCW_MEDIC_HEAL_QUEST:
+                if (isGod(player)) {
+                    timeToRepair = 3;
+                }
+                LOG("gcw_patrol_point", "useGcwObjectForQuest sending to messageHandler handleTraderRepairQuest");
+                utils.setScriptVar(player, OBJECT_TO_REPAIR, gcwObject);
+                utils.setScriptVar(player, GCW_REPAIR_QUEST, GCW_MEDIC_HEAL_QUEST);
+                utils.setScriptVar(player, GCW_REPAIR_RESOURCE_COUNT, GCW_RESOURCE_COUNT_DAMAGED_VEHICLE);
+                pid = sui.smartCountdownTimerSUI(player, player, "quest_countdown_timer", SID_HEAL_PP_TIMER, 0, timeToRepair, "handleTraderRepairQuest", 0, flags);
+                sui.setPid(player, pid, gcw.TRADER_REPAIR_PID);
+                break;
         }
         if (pid < 0)
         {
@@ -2186,13 +2097,13 @@ public class gcw extends script.base_script
                 sendSystemMessage(player, SID_DOESNT_NEED_REPAIR);
                 return false;
             }
-            double subtract = resourceCount * .2f;
+            double subtract = resourceCount * 0.2f;
             if ((int)subtract <= 0)
             {
                 return false;
             }
             setMaxHitpoints(object, maxHp - (int)subtract);
-            setHitpoints(object, currentHp + (int)(resourceCount * .8f));
+            setHitpoints(object, currentHp + (int)(resourceCount * 0.8f));
         }
         int repairCount = getIntObjVar(object, GCW_OBJECT_REPAIR_COUNT);
         setObjVar(object, GCW_OBJECT_REPAIR_COUNT, repairCount + 1);
@@ -2262,27 +2173,23 @@ public class gcw extends script.base_script
             return false;
         }
         LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList.length: " + attackerList.length);
-        for (int i = 0; i < attackerList.length; ++i)
-        {
-            LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList[i]: " + attackerList[i]);
-            if (!isValidId(attackerList[i]))
-            {
+        for (script.obj_id obj_id : attackerList) {
+            LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList[i]: " + obj_id);
+            if (!isValidId(obj_id)) {
                 continue;
             }
-            trial.addNonInstanceFactionParticipant(attackerList[i], victimObject);
-            LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList[i]: " + attackerList[i] + " is a valid OID");
-            if (!groundquests.isQuestActive(attackerList[i], questName))
-            {
+            trial.addNonInstanceFactionParticipant(obj_id, victimObject);
+            LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList[i]: " + obj_id + " is a valid OID");
+            if (!groundquests.isQuestActive(obj_id, questName)) {
                 continue;
             }
-            LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList[i]: " + attackerList[i] + " has quest active!");
-            if (!groundquests.isTaskActive(attackerList[i], questName, signalHasName))
-            {
+            LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList[i]: " + obj_id + " has quest active!");
+            if (!groundquests.isTaskActive(obj_id, questName, signalHasName)) {
                 continue;
             }
-            LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage signal being sent to: " + attackerList[i]);
-            groundquests.sendSignal(attackerList[i], signalSendName);
-            gcw.gcwInvasionCreditForDestroy(attackerList[i]);
+            LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage signal being sent to: " + obj_id);
+            groundquests.sendSignal(obj_id, signalSendName);
+            gcw.gcwInvasionCreditForDestroy(obj_id);
         }
         return true;
     }
@@ -2497,17 +2404,13 @@ public class gcw extends script.base_script
         {
             return null;
         }
-        if (datatable.equals(DEARIC_CITY_TABLE))
-        {
-            return CITY_DEARIC;
-        }
-        else if (datatable.equals(KEREN_CITY_TABLE))
-        {
-            return CITY_KEREN;
-        }
-        else if (datatable.equals(BESTINE_CITY_TABLE))
-        {
-            return CITY_BESTINE;
+        switch (datatable) {
+            case DEARIC_CITY_TABLE:
+                return CITY_DEARIC;
+            case KEREN_CITY_TABLE:
+                return CITY_KEREN;
+            case BESTINE_CITY_TABLE:
+                return CITY_BESTINE;
         }
         return null;
     }
@@ -2543,36 +2446,30 @@ public class gcw extends script.base_script
         {
             gcwTokenAmt *= multiplier;
         }
-        for (int i = 0; i < participantList.size(); i++)
-        {
-            if (!isValidId(((obj_id)participantList.get(i))) || !exists(((obj_id)participantList.get(i))))
-            {
-                CustomerServiceLog("gcw_city_invasion", "gcw.awardGcwInvasionParticipants: Player: " + ((obj_id)participantList.get(i)) + " is NOT receiving " + gcwTokenAmt + " " + tokenStaticName + " tokens or " + gcwPointAmt + " " + factionFlag + " GCW points (GCW points only awarded to pure faction players, not factionalHelpers) because this player OID is invalid or doesn't exist. Probably due to the player exiting the battle field, traveling or moving to another server process (crossing server boundary).");
+        for (Object o : participantList) {
+            if (!isValidId(((obj_id) o)) || !exists(((obj_id) o))) {
+                CustomerServiceLog("gcw_city_invasion", "gcw.awardGcwInvasionParticipants: Player: " + ((obj_id) o) + " is NOT receiving " + gcwTokenAmt + " " + tokenStaticName + " tokens or " + gcwPointAmt + " " + factionFlag + " GCW points (GCW points only awarded to pure faction players, not factionalHelpers) because this player OID is invalid or doesn't exist. Probably due to the player exiting the battle field, traveling or moving to another server process (crossing server boundary).");
                 continue;
             }
-            if (!isPlayerConnected(((obj_id)participantList.get(i))))
-            {
-                CustomerServiceLog("gcw_city_invasion", "gcw.awardGcwInvasionParticipants: Player: " + ((obj_id)participantList.get(i)) + " is NOT receiving " + gcwTokenAmt + " " + tokenStaticName + " tokens or " + gcwPointAmt + " " + factionFlag + " GCW points (GCW points only awarded to pure faction players, not factionalHelpers) because this player is NOT CURRENTLY CONNECTED.");
+            if (!isPlayerConnected(((obj_id) o))) {
+                CustomerServiceLog("gcw_city_invasion", "gcw.awardGcwInvasionParticipants: Player: " + ((obj_id) o) + " is NOT receiving " + gcwTokenAmt + " " + tokenStaticName + " tokens or " + gcwPointAmt + " " + factionFlag + " GCW points (GCW points only awarded to pure faction players, not factionalHelpers) because this player is NOT CURRENTLY CONNECTED.");
                 continue;
             }
-            grantUnmodifiedGcwPoints(((obj_id)participantList.get(i)), gcwPointAmt);
-            if (tokenStaticName == null || tokenStaticName.length() <= 0)
-            {
-                CustomerServiceLog("gcw_city_invasion", "gcw.awardGcwInvasionParticipants: Player: " + ((obj_id)participantList.get(i)) + " is NOT receiving " + gcwTokenAmt + " " + tokenStaticName + " tokens or " + gcwPointAmt + " " + factionFlag + " GCW points (GCW points only awarded to pure faction players, not factionalHelpers) because the token string name is INVALID. This is probably due to an edge case where the player changed their faction status to be neutral.");
+            grantUnmodifiedGcwPoints(((obj_id) o), gcwPointAmt);
+            if (tokenStaticName == null || tokenStaticName.length() <= 0) {
+                CustomerServiceLog("gcw_city_invasion", "gcw.awardGcwInvasionParticipants: Player: " + ((obj_id) o) + " is NOT receiving " + gcwTokenAmt + " " + tokenStaticName + " tokens or " + gcwPointAmt + " " + factionFlag + " GCW points (GCW points only awarded to pure faction players, not factionalHelpers) because the token string name is INVALID. This is probably due to an edge case where the player changed their faction status to be neutral.");
                 continue;
             }
-            obj_id playerInv = getObjectInSlot(((obj_id)participantList.get(i)), utils.SLOT_INVENTORY);
-            if (isValidId(playerInv))
-            {
+            obj_id playerInv = getObjectInSlot(((obj_id) o), utils.SLOT_INVENTORY);
+            if (isValidId(playerInv)) {
                 obj_id lootCreated = static_item.createNewItemFunction(tokenStaticName, playerInv, gcwTokenAmt);
                 lootList[0] = lootCreated;
-                showLootBox(((obj_id)participantList.get(i)), lootList);
-                groundquests.sendPlacedMoreThanOneInInventorySystemMessage(((obj_id)participantList.get(i)), lootCreated, gcwTokenAmt);
-                if (finalAnnouncementParams != null)
-                {
-                    messageTo(((obj_id)participantList.get(i)), "playIconicGCWWrapUpMessage", finalAnnouncementParams, 13, false);
+                showLootBox(((obj_id) o), lootList);
+                groundquests.sendPlacedMoreThanOneInInventorySystemMessage(((obj_id) o), lootCreated, gcwTokenAmt);
+                if (finalAnnouncementParams != null) {
+                    messageTo(((obj_id) o), "playIconicGCWWrapUpMessage", finalAnnouncementParams, 13, false);
                 }
-                CustomerServiceLog("gcw_city_invasion", "GCW CITY SYSTEM HAS REWARDED PLAYER: " + ((obj_id)participantList.get(i)) + " with " + gcwTokenAmt + " " + tokenStaticName + " static item tokens for PARTICIPATING IN A GCW CITY CONFLICT.");
+                CustomerServiceLog("gcw_city_invasion", "GCW CITY SYSTEM HAS REWARDED PLAYER: " + ((obj_id) o) + " with " + gcwTokenAmt + " " + tokenStaticName + " static item tokens for PARTICIPATING IN A GCW CITY CONFLICT.");
             }
         }
         return true;
@@ -2932,7 +2829,7 @@ public class gcw extends script.base_script
     }
     public static String[] gcwGetActiveCities() throws InterruptedException
     {
-        Vector<String> activeCities = new Vector<String>();
+        Vector<String> activeCities = new Vector<>();
         for (String cityName : INVASION_CITIES){
             String value = getConfigSetting("GameServer", "gcwcity" + cityName);
             if (value != null && (value.equals("1") || value.toLowerCase().equals("true"))) {

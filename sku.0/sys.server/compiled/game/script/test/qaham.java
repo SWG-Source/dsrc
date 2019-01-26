@@ -96,7 +96,7 @@ public class qaham extends script.base_script
         {
             return;
         }
-        setActionRegenRate(player, 0f);
+        setActionRegenRate(player, 0.0f);
     }
     public void setActionRegenRate(obj_id player, float rate) throws InterruptedException
     {

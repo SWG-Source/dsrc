@@ -26,7 +26,7 @@ public class remote_encounter_creature extends script.base_script
             int encounterDuration = groundquests.getTaskIntDataEntry(questCrc, taskId, remote_encounter.dataTableColumnEncounterDuration);
             messageTo(self, remote_encounter.REMOTE_ENCOUNTER_ESCAPE, null, encounterDuration, false);
             log("Chief Rock: Ship's current recharge rate is " + getShipShieldRechargeRate(self) + " Setting it to one hojillion");
-            setShipShieldRechargeRate(self, 1000000000f);
+            setShipShieldRechargeRate(self, 1000000000.0f);
         }
         else 
         {

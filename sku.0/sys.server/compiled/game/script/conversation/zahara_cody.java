@@ -1611,7 +1611,7 @@ public class zahara_cody extends script.base_script
     public int findNpc(obj_id self, dictionary params) throws InterruptedException
     {
         CustomerServiceLog("outbreak_themepark", "outbreak_zahara_cody findNpc(): Initialized");
-        obj_id[] npcList = getAllObjectsWithObjVar(getLocation(self), 3.f, "trig");
+        obj_id[] npcList = getAllObjectsWithObjVar(getLocation(self), 3.0f, "trig");
         if (npcList == null || npcList.length <= 0)
         {
             CustomerServiceLog("outbreak_themepark", "outbreak_zahara_cody findNpc(): Failed to find NPC var on any objects within range.");

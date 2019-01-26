@@ -146,9 +146,8 @@ public class base_station extends script.base_script
             {
                 return SCRIPT_CONTINUE;
             }
-            for (int a = 0; a < buffNames.length; a++)
-            {
-                buff.applyBuff(transferer, self, buffNames[a]);
+            for (String buffName : buffNames) {
+                buff.applyBuff(transferer, self, buffName);
             }
         }
         return SCRIPT_CONTINUE;

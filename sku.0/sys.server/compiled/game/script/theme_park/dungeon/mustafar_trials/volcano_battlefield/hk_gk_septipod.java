@@ -87,11 +87,9 @@ public class hk_gk_septipod extends script.base_script
             }
             Vector nonDebuff = new Vector();
             nonDebuff.setSize(0);
-            for (int i = 0; i < buffs.length; i++)
-            {
-                if (!buff.isDebuff(buffs[i]))
-                {
-                    utils.addElement(nonDebuff, buffs[i]);
+            for (int b : buffs) {
+                if (!buff.isDebuff(b)) {
+                    utils.addElement(nonDebuff, b);
                 }
             }
             if (nonDebuff == null || nonDebuff.size() == 0)
@@ -102,11 +100,11 @@ public class hk_gk_septipod extends script.base_script
             int toRemove = 0;
             if (nonDebuff.size() == 1)
             {
-                toRemove = ((Integer)nonDebuff.get(0)).intValue();
+                toRemove = (Integer) nonDebuff.get(0);
             }
             else 
             {
-                toRemove = ((Integer)nonDebuff.get(rand(0, nonDebuff.size() - 1))).intValue();
+                toRemove = (Integer) nonDebuff.get(rand(0, nonDebuff.size() - 1));
             }
             boolean removed = buff.removeBuff(target, toRemove);
             sendSystemMessage(target, REMOVED_BUFF);

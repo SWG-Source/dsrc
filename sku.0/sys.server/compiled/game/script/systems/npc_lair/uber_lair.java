@@ -56,9 +56,8 @@ public class uber_lair extends script.theme_park.poi.base
             obj_id[] objChildren = getObjIdArrayObjVar(objTheater, "theater.children");
             if (objChildren != null)
             {
-                for (int intI = 0; intI < objChildren.length; intI++)
-                {
-                    factions.setFaction(objChildren[intI], strFaction);
+                for (obj_id objChild : objChildren) {
+                    factions.setFaction(objChild, strFaction);
                 }
             }
         }
@@ -86,7 +85,7 @@ public class uber_lair extends script.theme_park.poi.base
         }
         buildingToSpawn = buildings[rand(0, buildings.length - 1)];
         setObjVar(poiBaseObject, "spawning.buildingType", buildingToSpawn);
-        obj_id mainBuilding = poiCreateObject(buildingToSpawn, 0f, 0f);
+        obj_id mainBuilding = poiCreateObject(buildingToSpawn, 0.0f, 0.0f);
         String[] strOverLoadRegions = dataTableGetStringColumnNoDefaults(lairDatatable, "strOverloadRegions");
         float[] fltOverLoadRegionSizes = dataTableGetFloatColumnNoDefaults(lairDatatable, "fltRegionSizes");
         int[] intMinRegionDifficulties = dataTableGetIntColumnNoDefaults(lairDatatable, "intMinRegionDifficulty");

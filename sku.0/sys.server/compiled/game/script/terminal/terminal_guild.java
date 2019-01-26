@@ -741,36 +741,30 @@ public class terminal_guild extends script.terminal.base.base_terminal
         String input_name = sui.getInputBoxText(params);
         int guildId = getGuildId(player);
         obj_id[] members = guild.getMemberIds(guildId, false, true);
-        for (int i = 0; i < members.length; i++)
-        {
-            String name = guildGetMemberName(guildId, members[i]);
-            if (name.equals(input_name))
-            {
-                if (members[i] == player && !isGod(player))
-                {
+        for (obj_id member : members) {
+            String name = guildGetMemberName(guildId, member);
+            if (name.equals(input_name)) {
+                if (member == player && !isGod(player)) {
                     sendSystemMessage(player, SID_ALREADY_LEADER);
                     return SCRIPT_CONTINUE;
                 }
                 location oldLeader = getLocation(player);
-                location newLeader = getLocation(members[i]);
-                if (!oldLeader.area.equals(newLeader.area))
-                {
+                location newLeader = getLocation(member);
+                if (!oldLeader.area.equals(newLeader.area)) {
                     sendSystemMessage(player, SID_ML_NOT_LOADED);
                     return SCRIPT_CONTINUE;
                 }
-                float dist = getDistance(player, members[i]);
-                if (dist < 0 || dist > 20)
-                {
+                float dist = getDistance(player, member);
+                if (dist < 0 || dist > 20) {
                     sendSystemMessage(player, SID_ML_NOT_LOADED);
                     return SCRIPT_CONTINUE;
                 }
-                if (utils.isFreeTrial(player, members[i]))
-                {
+                if (utils.isFreeTrial(player, member)) {
                     sendSystemMessage(player, SID_ML_TRIAL);
                     return SCRIPT_CONTINUE;
                 }
-                utils.setScriptVar(self, "temp_new_leader", members[i]);
-                int pid = sui.msgbox(self, members[i], "@guild:make_leader_p", sui.YES_NO, "@guild:make_leader_t", sui.MSG_NORMAL, "handleAcceptLeadership");
+                utils.setScriptVar(self, "temp_new_leader", member);
+                int pid = sui.msgbox(self, member, "@guild:make_leader_p", sui.YES_NO, "@guild:make_leader_t", sui.MSG_NORMAL, "handleAcceptLeadership");
                 guild.setWindowPid(self, pid);
                 return SCRIPT_CONTINUE;
             }
@@ -792,10 +786,8 @@ public class terminal_guild extends script.terminal.base.base_terminal
         {
             obj_id[] members = guild.getMemberIds(guildId, false, true);
             boolean done = false;
-            for (int i = 0; i < members.length; i++)
-            {
-                if (members[i] == newLeader)
-                {
+            for (obj_id member : members) {
+                if (member == newLeader) {
                     guild.changeLeader(guildId, newLeader);
                     sendSystemMessage(oldLeader, SID_ML_SUCCESS);
                     sendSystemMessage(newLeader, SID_ML_YOU_ARE_LEADER);
@@ -839,20 +831,15 @@ public class terminal_guild extends script.terminal.base.base_terminal
         obj_id[] members = guild.getMemberIds(guildId, false, true);
         int lastLoginTime = getPlayerLastLoginTime(guildLeader);
         int timeDifference = getCalendarTime() - lastLoginTime;
-        for (int i = 0; i < members.length; i++)
-        {
-            if (isIdValid(members[i]) && members[i] != guildLeader && members[i] != player && timeDifference < LEADER_ABSENT_TIME)
-            {
-                guildSetMemberAllegiance(guildId, members[i], guildLeader);
-            }
-            else 
-            {
-                if (isIdValid(members[i]) && members[i] != guildLeader && members[i] != player)
-                {
-                    guildSetMemberAllegiance(guildId, members[i], null);
+        for (obj_id member : members) {
+            if (isIdValid(member) && member != guildLeader && member != player && timeDifference < LEADER_ABSENT_TIME) {
+                guildSetMemberAllegiance(guildId, member, guildLeader);
+            } else {
+                if (isIdValid(member) && member != guildLeader && member != player) {
+                    guildSetMemberAllegiance(guildId, member, null);
                 }
             }
-            String cname = guildGetMemberName(guildId, members[i]);
+            String cname = guildGetMemberName(guildId, member);
             prose_package bodypp = prose.getPackage(OPEN_ELECTIONS_EMAIL_BODY, cname);
             utils.sendMail(OPEN_ELECTIONS_EMAIL_SUBJECT, bodypp, cname, "Guild Management");
         }
@@ -968,11 +955,9 @@ public class terminal_guild extends script.terminal.base.base_terminal
         }
         Vector validatedIds = new Vector();
         validatedIds.setSize(0);
-        for (int i = 0, j = guildIds.length; i < j; i++)
-        {
-            if (guildGetCountMembersOnly(guildIds[i]) > 4)
-            {
-                utils.addElement(validatedIds, guildIds[i]);
+        for (int guildId : guildIds) {
+            if (guildGetCountMembersOnly(guildId) > 4) {
+                utils.addElement(validatedIds, guildId);
             }
         }
         if (validatedIds == null || validatedIds.size() < 1)
@@ -982,9 +967,9 @@ public class terminal_guild extends script.terminal.base.base_terminal
         String[][] guildsData = new String[validatedIds.size()][3];
         for (int i = 0, j = validatedIds.size(); i < j; i++)
         {
-            guildsData[i][0] = guildGetName(((Integer)validatedIds.get(i)).intValue());
-            guildsData[i][1] = guildGetAbbrev(((Integer)validatedIds.get(i)).intValue());
-            guildsData[i][2] = "" + guildGetCountMembersOnly(((Integer)validatedIds.get(i)).intValue());
+            guildsData[i][0] = guildGetName((Integer) validatedIds.get(i));
+            guildsData[i][1] = guildGetAbbrev((Integer) validatedIds.get(i));
+            guildsData[i][2] = "" + guildGetCountMembersOnly((Integer) validatedIds.get(i));
         }
         int pid = sui.tableRowMajor(self, player, sui.OK_CANCEL, "List of Guilds", "onGuildsListResponse", null, table_titles, table_types, guildsData);
         guild.setWindowPid(self, pid);

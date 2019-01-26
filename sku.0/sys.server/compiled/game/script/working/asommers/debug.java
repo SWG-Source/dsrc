@@ -406,7 +406,7 @@ public class debug extends script.base_script
             debugSpeakMsg(self, "OnPlaceStructure: createObject failed");
             return SCRIPT_OVERRIDE;
         }
-        setYaw(structure, (float)(90 * rotation));
+        setYaw(structure, (90 * rotation));
         return SCRIPT_CONTINUE;
     }
     public int OnPurchaseTicket(obj_id self, obj_id player, String departPlanetName, String departTravelPointName, String arrivePlanetName, String arriveTravelPointName, boolean roundTrip) throws InterruptedException

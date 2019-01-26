@@ -220,7 +220,7 @@ public class respec extends script.base_script
                 }
                 if (hasObjVar(player, "clickRespec.npeRespec"))
                 {
-                    oldPct = ((float)level / 80.0f);
+                    oldPct = (level / 80.0f);
                     if (oldPct < 0.1f)
                     {
                         oldPct = 0.10f;
@@ -241,7 +241,7 @@ public class respec extends script.base_script
                 }
                 if (hasObjVar(player, "clickRespec.npeRespec"))
                 {
-                    float pct = ((float)level / 80.0f);
+                    float pct = (level / 80.0f);
                     if (pct < 0.1f)
                     {
                         pct = 0.1f;
@@ -614,7 +614,7 @@ public class respec extends script.base_script
                 }
                 if (hasObjVar(player, "clickRespec.npeRespec"))
                 {
-                    oldPct = ((float)combatLevel / 80.0f);
+                    oldPct = (combatLevel / 80.0f);
                     if (oldPct < 0.0f)
                     {
                         oldPct = 0.0f;
@@ -635,7 +635,7 @@ public class respec extends script.base_script
                 }
                 if (hasObjVar(player, "clickRespec.npeRespec"))
                 {
-                    float pct = ((float)combatLevel / 80.0f);
+                    float pct = (combatLevel / 80.0f);
                     if (pct < 0.0f)
                     {
                         pct = 0.0f;
@@ -856,11 +856,11 @@ public class respec extends script.base_script
                     oldSkillCount++;
                 }
             }
-            oldSkillPct = (float)oldSkillCount / (float)oldSkillList.length;
+            oldSkillPct = (float)oldSkillCount / oldSkillList.length;
         }
         else 
         {
-            float level = (float)getLevel(self);
+            float level = getLevel(self);
             oldSkillPct = level / 90.0f;
         }
         if (oldSkillPct > 1.0f)
@@ -873,7 +873,7 @@ public class respec extends script.base_script
     {
         String newSkills = dataTableGetString(skill_template.TEMPLATE_TABLE, skillTemplateName, "template");
         String[] newSkillList = split(newSkills, ',');
-        int newSkillCount = (int)Math.floor(pct * (float)newSkillList.length);
+        int newSkillCount = (int)Math.floor(pct * newSkillList.length);
         if (newSkillCount < 1)
         {
             newSkillCount = 1;

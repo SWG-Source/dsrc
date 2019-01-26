@@ -46,7 +46,7 @@ public class battlefield_station extends script.base_script
         int intMaxCredits = 20000;
         setObjVar(self, "loot.intCredits", rand(intMinCredits, intMaxCredits));
         int intRolls = 10;
-        float fltItemChance = .25f;
+        float fltItemChance = 0.25f;
         int intNumItems = rand(1, 5);
         setObjVar(self, "loot.intNumItems", intNumItems);
         setObjVar(self, "loot.strLootTable", "rebel_tier1");

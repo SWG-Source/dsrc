@@ -167,17 +167,14 @@ public class treasure_map extends script.base_script
         obj_id[] data = getWaypointsInDatapad(player);
         if (data != null)
         {
-            for (int i = 0; i < data.length; i++)
-            {
-                if (isIdNull(data[i]))
-                {
+            for (obj_id datum : data) {
+                if (isIdNull(datum)) {
                     continue;
                 }
-                location waypointLoc = getWaypointLocation(data[i]);
-                if ((waypointLoc != null) && (waypointLoc.equals(treasureLoc)))
-                {
+                location waypointLoc = getWaypointLocation(datum);
+                if ((waypointLoc != null) && (waypointLoc.equals(treasureLoc))) {
                     doDebugLogging("treasureMap", "Waypoint found ");
-                    return data[i];
+                    return datum;
                 }
             }
         }
@@ -629,34 +626,27 @@ public class treasure_map extends script.base_script
         {
             obj_id[] groupOids = getGroupMemberIds(groupId);
             int finalCount = 1;
-            for (int i = 0; i < groupOids.length; i++)
-            {
-                if (!isValidId(groupOids[i]) || !exists(groupOids[i]))
-                {
+            for (obj_id groupOid : groupOids) {
+                if (!isValidId(groupOid) || !exists(groupOid)) {
                     continue;
                 }
-                if (groupOids[i] == player)
-                {
+                if (groupOid == player) {
                     continue;
                 }
-                location groupMemberLocation = getLocation(groupOids[i]);
-                if (groupMemberLocation == null)
-                {
+                location groupMemberLocation = getLocation(groupOid);
+                if (groupMemberLocation == null) {
                     continue;
                 }
                 String groupMemberArea = groupMemberLocation.area;
-                if (!ownerArea.equals(groupMemberArea))
-                {
+                if (!ownerArea.equals(groupMemberArea)) {
                     continue;
                 }
                 float dist = utils.getDistance2D(ownerLocation, groupMemberLocation);
-                if (dist > MIN_DISTANCE_TO_MAP_OWNER)
-                {
+                if (dist > MIN_DISTANCE_TO_MAP_OWNER) {
                     continue;
                 }
-                int groupMemberLevel = getLevel(groupOids[i]);
-                if (groupMemberLevel > intPlayerLevel)
-                {
+                int groupMemberLevel = getLevel(groupOid);
+                if (groupMemberLevel > intPlayerLevel) {
                     intPlayerLevel = groupMemberLevel;
                 }
                 finalCount++;
@@ -724,13 +714,13 @@ public class treasure_map extends script.base_script
             if (playerNearLevel > intPlayerLevel)
             {
                 exploiterLevel = playerNearLevel;
-                exploiterGroup = +1;
+                exploiterGroup = 1;
             }
         }
         int groupModifier = getIntObjVar(map, "groupModifier");
         if (groupModifier > 0)
         {
-            exploiterGroup = +groupModifier;
+            exploiterGroup = groupModifier;
         }
         if (exploiterGroup > 8)
         {

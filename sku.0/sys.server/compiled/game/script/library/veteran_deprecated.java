@@ -300,7 +300,7 @@ public class veteran_deprecated extends script.base_script
             int mask = 0x00000001 << (i - index * 32);
             if ((veteranRewards[index] & mask) == 0)
             {
-                milestoneVector.add(new Integer(i + 1));
+                milestoneVector.add(i + 1);
             }
         }
         if (milestoneVector.size() < 1)
@@ -310,7 +310,7 @@ public class veteran_deprecated extends script.base_script
         int[] milestoneArray = new int[milestoneVector.size()];
         for (int i = 0; i < milestoneArray.length; ++i)
         {
-            milestoneArray[i] = (((Integer)(milestoneVector.elementAt(i)))).intValue();
+            milestoneArray[i] = (Integer) (milestoneVector.elementAt(i));
         }
         return milestoneArray;
     }
@@ -469,10 +469,8 @@ public class veteran_deprecated extends script.base_script
             int[] onetimes = getIntArrayObjVar(player, OBJVAR_ONETIME_REWARDS_RECEIVED);
             if (onetimes != null)
             {
-                for (int i = 0; i < onetimes.length; ++i)
-                {
-                    if (onetimes[i] == templateCrc)
-                    {
+                for (int onetime : onetimes) {
+                    if (onetime == templateCrc) {
                         return CAN_GET_REWARD_FAIL_ALREADY_CLAIMED;
                     }
                 }

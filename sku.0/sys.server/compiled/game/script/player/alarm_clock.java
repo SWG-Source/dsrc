@@ -56,8 +56,8 @@ public class alarm_clock extends script.base_script
             Long time;
             try
             {
-                time = new Long(parsedText[0]);
-                alarmDelay = time.longValue();
+                time = Long.valueOf(parsedText[0]);
+                alarmDelay = time;
             }
             catch(NumberFormatException err)
             {
@@ -73,7 +73,7 @@ public class alarm_clock extends script.base_script
             }
             else 
             {
-                StringBuffer sb = new StringBuffer();
+                StringBuilder sb = new StringBuilder();
                 for (int i = 1; i < parsedText.length; i++)
                 {
                     if (parsedText.length - i == 1)

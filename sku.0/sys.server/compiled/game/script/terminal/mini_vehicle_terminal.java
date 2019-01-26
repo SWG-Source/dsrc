@@ -336,10 +336,8 @@ public class mini_vehicle_terminal extends script.base_script
         {
             return false;
         }
-        for (int i = 0; i < patrolLocations.length; ++i)
-        {
-            if (!isValidId(patrolLocations[i].cell))
-            {
+        for (location patrolLocation : patrolLocations) {
+            if (!isValidId(patrolLocation.cell)) {
                 removeObjVar(terminal, OBJVAR_VEHICLE_PATROL_POINTS);
                 return false;
             }

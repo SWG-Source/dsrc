@@ -80,7 +80,7 @@ public class escort extends script.space.quest_logic.escort_duty
         }
         obj_id ship = params.getObjId("ship");
         obj_id player = getObjIdObjVar(self, space_quest.QUEST_OWNER);
-        messageTo(ship, "missionAbort", null, 2.f, false);
+        messageTo(ship, "missionAbort", null, 2.0f, false);
         String questName = getStringObjVar(self, space_quest.QUEST_NAME);
         String questType = getStringObjVar(self, space_quest.QUEST_TYPE);
         int reasons = getIntObjVar(self, "numResponses");
@@ -96,11 +96,9 @@ public class escort extends script.space.quest_logic.escort_duty
         obj_id[] targets = getObjIdArrayObjVar(self, "targets");
         if (targets != null)
         {
-            for (int i = 0; i < targets.length; i++)
-            {
-                if (isIdValid(targets[i]))
-                {
-                    destroyObjectHyperspace(targets[i]);
+            for (obj_id target : targets) {
+                if (isIdValid(target)) {
+                    destroyObjectHyperspace(target);
                 }
             }
             removeObjVar(self, "targets");
@@ -195,7 +193,7 @@ public class escort extends script.space.quest_logic.escort_duty
             string_id abort = new string_id("spacequest/" + questType + "/" + questName, "abort");
             prose_package pp = prose.getPackage(abort, 0);
             space_quest.groupTaunt(ship, player, pp);
-            messageTo(ship, "missionAbort", null, 2.f, false);
+            messageTo(ship, "missionAbort", null, 2.0f, false);
         }
         questAborted(self);
         return SCRIPT_OVERRIDE;

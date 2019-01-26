@@ -196,17 +196,13 @@ public class message_fragment extends script.base_script
             null
         };
         foundparts[partNumber - 1] = self;
-        for (int i = 0; i < contents.length; i++)
-        {
-            if (hasObjVar(contents[i], VAR_INDEX))
-            {
-                int idx = getIntObjVar(contents[i], VAR_INDEX);
-                if (idx == index)
-                {
-                    int partNum = getIntObjVar(contents[i], VAR_PART_NUMBER);
-                    if (foundparts[partNum - 1] == null)
-                    {
-                        foundparts[partNum - 1] = contents[i];
+        for (obj_id content : contents) {
+            if (hasObjVar(content, VAR_INDEX)) {
+                int idx = getIntObjVar(content, VAR_INDEX);
+                if (idx == index) {
+                    int partNum = getIntObjVar(content, VAR_PART_NUMBER);
+                    if (foundparts[partNum - 1] == null) {
+                        foundparts[partNum - 1] = content;
                     }
                 }
             }

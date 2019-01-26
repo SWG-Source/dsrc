@@ -10,7 +10,7 @@ public class obiwan_dynamic_timeout extends script.base_script
     {
     }
     public static final String TRIGGER_VOLUME_OBI = "obiwan_interest_volume";
-    public static final float OBI_INTEREST_RADIUS = 7f;
+    public static final float OBI_INTEREST_RADIUS = 7.0f;
     public static final boolean CONST_FLAG_DO_LOGGING = false;
     public static final int OBIWAN_DESPAWN_DELAY = 150;
     public int OnAttach(obj_id self) throws InterruptedException
@@ -66,15 +66,11 @@ public class obiwan_dynamic_timeout extends script.base_script
         else 
         {
             obj_id[] triggerVolumeDenizens = getTriggerVolumeContents(self, TRIGGER_VOLUME_OBI);
-            for (int i = 0; i < triggerVolumeDenizens.length; i++)
-            {
-                if (isPlayer(triggerVolumeDenizens[i]) && !isIncapacitated(triggerVolumeDenizens[i]))
-                {
-                    if (utils.hasScriptVar(self, "player"))
-                    {
+            for (obj_id triggerVolumeDenizen : triggerVolumeDenizens) {
+                if (isPlayer(triggerVolumeDenizen) && !isIncapacitated(triggerVolumeDenizen)) {
+                    if (utils.hasScriptVar(self, "player")) {
                         obj_id player = utils.getObjIdScriptVar(self, "player");
-                        if (triggerVolumeDenizens[i] == player)
-                        {
+                        if (triggerVolumeDenizen == player) {
                             utils.setScriptVar(self, "approachedByPlayer", 1);
                             messageTo(self, "despawnObiwanDelay", null, 120, false);
                         }

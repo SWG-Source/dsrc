@@ -253,13 +253,9 @@ public class robe_collection_wave_controller extends script.base_script
         {
             return;
         }
-        for (int i = 0; i < objects.length; i++)
-        {
-            obj_id child = objects[i];
-            if (isIdValid(child) && child != self && !isPlayer(child))
-            {
-                if (!hasScript(child, "corpse.ai_corpse"))
-                {
+        for (obj_id child : objects) {
+            if (isIdValid(child) && child != self && !isPlayer(child)) {
+                if (!hasScript(child, "corpse.ai_corpse")) {
                     trial.cleanupObject(child);
                 }
             }

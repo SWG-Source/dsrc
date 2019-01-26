@@ -75,20 +75,14 @@ public class tcg_creature_armor_statue extends script.base_script
         obj_id dataPad = utils.getPlayerDatapad(player);
         Vector data = getResizeableContents(dataPad);
         Vector ownedEligibleMounts = new Vector();
-        for (int i = 0; i < data.size(); i++)
-        {
-            obj_id bcd = ((obj_id)data.get(i));
-            if (hasObjVar(bcd, "pet.creatureName"))
-            {
+        for (Object datum : data) {
+            obj_id bcd = ((obj_id) datum);
+            if (hasObjVar(bcd, "pet.creatureName")) {
                 String cName = getStringObjVar(bcd, "pet.creatureName");
                 String[] eligibleMounts = getEligibleBeastsList(self);
-                if (eligibleMounts != null && eligibleMounts.length > 0)
-                {
-                    for (int j = 0; j < eligibleMounts.length; j++)
-                    {
-                        String mountName = eligibleMounts[j];
-                        if (cName.equals(mountName))
-                        {
+                if (eligibleMounts != null && eligibleMounts.length > 0) {
+                    for (String mountName : eligibleMounts) {
+                        if (cName.equals(mountName)) {
                             ownedEligibleMounts.addElement(bcd);
                         }
                     }

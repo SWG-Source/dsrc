@@ -69,15 +69,13 @@ public class event_four extends script.base_script
             "-1:11",
             "29:-6"
         };
-        for (int i = 0; i < offSet.length; i++)
-        {
-            String[] parse = split(offSet[i], ':');
+        for (String s : offSet) {
+            String[] parse = split(s, ':');
             float locX = here.x + utils.stringToFloat(parse[0]);
             float locZ = here.z + utils.stringToFloat(parse[1]);
             location spawnLoc = new location(locX, here.y, locZ, here.area, here.cell);
             obj_id item = createObject(trial.WP_OBJECT, spawnLoc);
-            if (!isIdValid(item))
-            {
+            if (!isIdValid(item)) {
                 doLogging("spawnActors", "Tried to create invalid item(" + trial.WP_OBJECT + ")");
                 return;
             }
