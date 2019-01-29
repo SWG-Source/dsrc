@@ -59,7 +59,7 @@ object/building/player/player_house_tatooine_large_style_01.iff	object/building/
 object/installation/manufacture/clothing_factory.iff	object/installation/base/construction_installation_base.iff			-1									13	6	1000	2500		50				4							
 object/installation/manufacture/food_factory.iff	object/installation/base/construction_installation_base.iff			-1									13	6	1000	2500		50				4							
 object/installation/manufacture/weapon_factory.iff	object/installation/base/construction_installation_base.iff			-1									13	6	1000	2500		50				4							
-object/installation/manufacture/structure_factory.iff	object/installation/base/construction_installation_base.iff			-1									13	6	1000	2500		50				4							
+object/installation/manufacture/structure_factory.iff	object/installation/base/construction_installation_base.iff			1									13	6	1000	2500		50				4							
 object/installation/generators/power_generator_fusion_style_1.iff	object/installation/base/construction_installation_base.iff			-1									15	6	1000	3000		0				4							
 object/installation/generators/power_generator_photo_bio_style_1.iff	object/installation/base/construction_installation_base.iff			-1									15	6	1000	3000		0				4							
 object/installation/generators/power_generator_solar_style_1.iff	object/installation/base/construction_installation_base.iff			-1									15	6	1000	3000		0				4							
