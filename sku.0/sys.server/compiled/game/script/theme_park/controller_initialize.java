@@ -40,7 +40,8 @@ public class controller_initialize extends script.base_script
     public void createController(obj_id self) throws InterruptedException
     {
         obj_id object = createObject(CONTROLLER, getLocation(self));
-        persistObject(object);
+        // why are we persisting??
+        // persistObject(object);
         String objVarString = null;
         if (hasObjVar(self, "objVarString"))
         {
@@ -77,6 +78,7 @@ public class controller_initialize extends script.base_script
         {
             return;
         }
+        setObjVar(newObject, "spawnedBy", getSelf());
         for (int i = 0; i < parse.length; i++)
         {
             String[] typeDataSplit = split(parse[i], ':');

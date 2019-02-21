@@ -107,7 +107,7 @@ clientfx:pt_restuss_explosion.prt:forced_visability-1000:10	3604		160.1	0	168.5
 clientfx:restuss_event_city_destruction.cef:forced_visability-1000:10	3604		0	0	0				string:kill_effect=restriction_npc-range_300
 clientfx:restuss_event_city_destruction.cef:forced_visability-1000:10	3601		0	0	0				
 clientfx:restuss_event_city_explosion_personnel.cef:player_visability-500	3602		0	0	0				
-clientfx:rebel_transport_touch_and_go.prt:focred_visability-300	45		-429	-3	118	0			
+clientfx:rebel_transport_touch_and_go.prt:forced_visability-300	45		-429	-3	118	0			
 restuss_rebel_mandalorian	55		-417	-3	120	90	patrol_once		int:path=1
 restuss_rebel_commando	55		-420	-3	121	90	patrol_once		int:path=1
 restuss_rebel_commando	55		-423	-3	122	90	patrol_once		int:path=1
@@ -122,7 +122,7 @@ restuss_rebel_commando	55		-426	-3	111	90	patrol_once		int:path=0
 restuss_rebel_commando	55		-429	-3	112	90	patrol_once		int:path=0
 restuss_rebel_commando	55		-432	-3	113	90	patrol_once		int:path=0
 restuss_rebel_commando	55		-435	-3	114	90	patrol_once		int:path=0
-clientfx:rebel_transport_touch_and_go.prt:focred_visability-300	80		-429	-3	198	0			
+clientfx:rebel_transport_touch_and_go.prt:forced_visability-300	80		-429	-3	198	0			
 restuss_rebel_mandalorian	90		-417	-3	200	90	patrol_once		int:path=1
 restuss_rebel_commando	90		-420	-3	201	90	patrol_once		int:path=1
 restuss_rebel_commando	90		-423	-3	202	90	patrol_once		int:path=1
@@ -181,7 +181,7 @@ restuss_stormtrooper	40		571	-0.3	-57.1	-90	patrol_once		int:path=4
 restuss_stormtrooper	40		575	-0.9	-57.1	-90	patrol_once		int:path=4
 restuss_stormtrooper	40		579	-0.3	-57.1	-90	patrol_once		int:path=4
 restuss_stormtrooper	40		583	-0.3	-57.1	-90	patrol_once		int:path=4
-clientfx:rebel_transport_touch_and_go.prt:focred_visability-300		rebel_lander	-429	-3.5	158	0			
+clientfx:rebel_transport_touch_and_go.prt:forced_visability-300		rebel_lander	-429	-3.5	158	0			
 restuss_rebel_mandalorian		rebel_reinforcement	-417	-3.5	160	90	patrol_once		int:path=1
 restuss_rebel_commando		rebel_reinforcement	-420	-3.5	161	90	patrol_once		int:path=1
 restuss_rebel_commando		rebel_reinforcement	-423	-3.5	162	90	patrol_once		int:path=1
@@ -196,7 +196,7 @@ restuss_rebel_commando		rebel_reinforcement	-426	-3.5	151	90	patrol_once		int:pa
 restuss_rebel_commando		rebel_reinforcement	-429	-3.5	152	90	patrol_once		int:path=0
 restuss_rebel_commando		rebel_reinforcement	-432	-3.5	153	90	patrol_once		int:path=0
 restuss_rebel_commando		rebel_reinforcement	-435	-3.5	154	90	patrol_once		int:path=0
-clientfx:rebel_transport_touch_and_go.prt:focred_visability-300		rebel_lander	-429	-3	118	0			
+clientfx:rebel_transport_touch_and_go.prt:forced_visability-300		rebel_lander	-429	-3	118	0			
 restuss_rebel_mandalorian		rebel_reinforcement	-417	-3	120	90	patrol_once		int:path=1
 restuss_rebel_commando		rebel_reinforcement	-420	-3	121	90	patrol_once		int:path=1
 restuss_rebel_commando		rebel_reinforcement	-423	-3	122	90	patrol_once		int:path=1
@@ -211,7 +211,7 @@ restuss_rebel_commando		rebel_reinforcement	-426	-3	111	90	patrol_once		int:path
 restuss_rebel_commando		rebel_reinforcement	-429	-3	112	90	patrol_once		int:path=0
 restuss_rebel_commando		rebel_reinforcement	-432	-3	113	90	patrol_once		int:path=0
 restuss_rebel_commando		rebel_reinforcement	-435	-3	114	90	patrol_once		int:path=0
-clientfx:rebel_transport_touch_and_go.prt:focred_visability-300		rebel_lander	-429	-3	198	0			
+clientfx:rebel_transport_touch_and_go.prt:forced_visability-300		rebel_lander	-429	-3	198	0			
 restuss_rebel_mandalorian		rebel_reinforcement	-417	-3	200	90	patrol_once		int:path=1
 restuss_rebel_commando		rebel_reinforcement	-420	-3	201	90	patrol_once		int:path=1
 restuss_rebel_commando		rebel_reinforcement	-423	-3	202	90	patrol_once		int:path=1

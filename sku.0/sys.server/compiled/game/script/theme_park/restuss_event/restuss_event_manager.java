@@ -6,6 +6,7 @@ import script.obj_id;
 
 public class restuss_event_manager extends script.base_script
 {
+
     public restuss_event_manager()
     {
     }
@@ -45,61 +46,48 @@ public class restuss_event_manager extends script.base_script
             "reb_wall"
         };
         obj_id[] elementList = new obj_id[12];
-        for (int i = 0; i < dungeon_data.length; i++)
-        {
-            String name = getStringObjVar(dungeon_data[i], "element");
-            if (name.indexOf(elementName[IMP_BAR]) > -1)
-            {
-                elementList[IMP_BAR] = dungeon_data[i];
+        for (obj_id dungeon_datum : dungeon_data) {
+            String name = getStringObjVar(dungeon_datum, "element");
+            if (name.contains(elementName[IMP_BAR])) {
+                elementList[IMP_BAR] = dungeon_datum;
             }
-            if (name.indexOf(elementName[IMP_HQ]) > -1)
-            {
-                elementList[IMP_HQ] = dungeon_data[i];
+            if (name.contains(elementName[IMP_HQ])) {
+                elementList[IMP_HQ] = dungeon_datum;
             }
-            if (name.indexOf(elementName[IMP_COMM]) > -1)
-            {
-                elementList[IMP_COMM] = dungeon_data[i];
+            if (name.contains(elementName[IMP_COMM])) {
+                elementList[IMP_COMM] = dungeon_datum;
             }
-            if (name.indexOf(elementName[IMP_LOG]) > -1)
-            {
-                elementList[IMP_LOG] = dungeon_data[i];
+            if (name.contains(elementName[IMP_LOG])) {
+                elementList[IMP_LOG] = dungeon_datum;
             }
-            if (name.indexOf(elementName[IMP_MED]) > -1)
-            {
-                elementList[IMP_MED] = dungeon_data[i];
+            if (name.contains(elementName[IMP_MED])) {
+                elementList[IMP_MED] = dungeon_datum;
             }
-            if (name.indexOf(elementName[IMP_WALL]) > -1)
-            {
-                elementList[IMP_WALL] = dungeon_data[i];
+            if (name.contains(elementName[IMP_WALL])) {
+                elementList[IMP_WALL] = dungeon_datum;
             }
-            if (name.indexOf(elementName[REB_BAR]) > -1)
-            {
-                elementList[REB_BAR] = dungeon_data[i];
+            if (name.contains(elementName[REB_BAR])) {
+                elementList[REB_BAR] = dungeon_datum;
             }
-            if (name.indexOf(elementName[REB_HQ]) > -1)
-            {
-                elementList[REB_HQ] = dungeon_data[i];
+            if (name.contains(elementName[REB_HQ])) {
+                elementList[REB_HQ] = dungeon_datum;
             }
-            if (name.indexOf(elementName[REB_COMM]) > -1)
-            {
-                elementList[REB_COMM] = dungeon_data[i];
+            if (name.contains(elementName[REB_COMM])) {
+                elementList[REB_COMM] = dungeon_datum;
             }
-            if (name.indexOf(elementName[REB_LOG]) > -1)
-            {
-                elementList[REB_LOG] = dungeon_data[i];
+            if (name.contains(elementName[REB_LOG])) {
+                elementList[REB_LOG] = dungeon_datum;
             }
-            if (name.indexOf(elementName[REB_MED]) > -1)
-            {
-                elementList[REB_MED] = dungeon_data[i];
+            if (name.contains(elementName[REB_MED])) {
+                elementList[REB_MED] = dungeon_datum;
             }
-            if (name.indexOf(elementName[REB_WALL]) > -1)
-            {
-                elementList[REB_WALL] = dungeon_data[i];
+            if (name.contains(elementName[REB_WALL])) {
+                elementList[REB_WALL] = dungeon_datum;
             }
         }
         int sum_imp_phase = 0;
         int sum_reb_phase = 0;
-        if ((getStringObjVar(self, "element")).indexOf("imp") > -1)
+        if ((getStringObjVar(self, "element")).contains("imp"))
         {
             int imp_bar_phase = restuss_event.getPhase(elementList[IMP_BAR]);
             int imp_hq_phase = restuss_event.getPhase(elementList[IMP_HQ]);

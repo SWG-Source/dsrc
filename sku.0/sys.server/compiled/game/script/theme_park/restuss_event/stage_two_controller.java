@@ -31,11 +31,47 @@ public class stage_two_controller extends script.base_script
     public static final boolean LOGGING = true;
     public int beginSpawning(obj_id self, dictionary params) throws InterruptedException
     {
-        clearEventArea(self);
-        dictionary dict = trial.getSessionDict(self);
-        
-        dict.put("stage", 1);
-        messageTo(self, "spawnNextStage", dict, 0, false);
+        setObjVar(self, "eventStarted", 1);
+        String restussEvent = getConfigSetting("EventTeam", "restussEvent");
+        if(restussEvent != null && restussEvent.equals("1") || restussEvent.equals("true")){
+            LOG("events", "Restuss Event - Event is on.");
+            String phaseVal = getConfigSetting("EventTeam", "restussPhase");
+            if(phaseVal != null && !phaseVal.equals("")){
+                int phase = Integer.parseInt(phaseVal);
+                if(phase > 2) phase = 2;
+                if(phase < 0) phase = 0;
+                LOG("events", "Restuss Event - Config set to put Restuss into phase " + phaseVal);
+                String progressionOn = getConfigSetting("EventTeam", "restussProgressionOn");
+                if(phase == 1){
+                    // Check if the user wants to progress through stage one or not.  If so, start the cycle.
+                    if(progressionOn != null && !progressionOn.equals("false") || !progressionOn.equals("0")) {
+                        dictionary dict = trial.getSessionDict(self);
+                        dict.put("stage", 3608);
+                        messageTo(self, "spawnNextStage", dict, 0, false);
+                    }
+                }
+            } else {
+                doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:0");
+                doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:10");
+                doMessageTo("messageTo:broadcastMessage:10:makePvPArea:10");
+            }
+        } else {
+            clearEventArea(self);
+            dictionary dict = trial.getSessionDict(self);
+            dict.put("stage", 1);
+            messageTo(self, "spawnNextStage", dict, 0, false);
+        }
+        return SCRIPT_CONTINUE;
+    }
+    public int OnHearSpeech(obj_id self, obj_id speaker, String text) throws InterruptedException {
+        if (!isGod(speaker)) {
+            return SCRIPT_CONTINUE;
+        }
+        if (text.toLowerCase().equals("start restuss event") && getIntObjVar(self, "eventStarted") != 1) {
+            LOG("events", "Restuss Event - Manually starting the Restuss Event.");
+            startRestussBaseSpawners(self);
+            startRestussCitySpawner(self);
+        }
         return SCRIPT_CONTINUE;
     }
     public int cleanupEvent(obj_id self, dictionary params) throws InterruptedException
@@ -67,6 +103,7 @@ public class stage_two_controller extends script.base_script
     public int spawnNextStage(obj_id self, dictionary params) throws InterruptedException
     {
         int stage = params.getInt("stage");
+        LOG("events", "Restuss Event - Spawning for Stage " + stage + ".");
         if (!trial.verifySession(self, params))
         {
             return SCRIPT_CONTINUE;
@@ -81,11 +118,9 @@ public class stage_two_controller extends script.base_script
         boolean moreStages = false;
         int nextStage = (int)Float.POSITIVE_INFINITY;
         float timeToNext = 0;
-        for (int i = 0; i < allStages.length; i++)
-        {
-            if (allStages[i] > stage && allStages[i] < nextStage)
-            {
-                nextStage = allStages[i];
+        for (int eventStage : allStages) {
+            if (eventStage > stage && eventStage < nextStage) {
+                nextStage = eventStage;
                 timeToNext = nextStage - stage;
                 moreStages = true;
             }
@@ -112,7 +147,7 @@ public class stage_two_controller extends script.base_script
         int rows = dataTableGetNumRows(restuss_event.STAGE_TWO_DATA);
         if (rows == 0)
         {
-            doLogging("spawnActors", "Your table has no rows: " + restuss_event.STAGE_TWO_DATA);
+            doLogging("events", "Your table has no rows: " + restuss_event.STAGE_TWO_DATA);
             return;
         }
         if (stage == 2)
@@ -203,7 +238,7 @@ public class stage_two_controller extends script.base_script
                 trial.setInterest(newObject);
                 setSpawnObjVar(newObject, spawnObjVar);
                 attachSpawnScripts(newObject, spawnScript, objType);
-                if (object.indexOf("patrol_waypoint.iff") > -1)
+                if (object.contains("patrol_waypoint.iff"))
                 {
                     addToWaypointData(controller, newObject);
                 }
@@ -368,12 +403,16 @@ public class stage_two_controller extends script.base_script
         if (completeParse[1].startsWith("broadcastMessage"))
         {
             float range = utils.stringToFloat(completeParse[2]);
+            float delay = 0;
+            if(completeParse.length == 5) {
+                delay = utils.stringToFloat(completeParse[4]);
+            }
             obj_id[] objects = getObjectsInRange(getLocation(getSelf()), range);
             if (objects == null || objects.length == 0)
             {
                 return;
             }
-            utils.messageTo(objects, completeParse[3], null, 0, false);
+            utils.messageTo(objects, completeParse[3], null, delay, false);
         }
     }
     public void doPlayMusicInArea(String message) throws InterruptedException
@@ -417,14 +456,40 @@ public class stage_two_controller extends script.base_script
         dungeon_info.put("position_y", loc.y);
         dungeon_info.put("position_z", loc.z);
         replaceClusterWideData(manage_name, name, dungeon_info, true, lock_key);
+
+        String restussEvent = getConfigSetting("EventTeam", "restussEvent");
+
+        if(restussEvent == null || (!restussEvent.equals("1") && !restussEvent.equals("true"))) {
+            LOG("events", "Restuss Event - Event is turned off.");
+        } else {
+            startRestussCitySpawner(self);
+        }
+
         releaseClusterWideDataLock(manage_name, lock_key);
+        return SCRIPT_CONTINUE;
+    }
+    private void startRestussBaseSpawners(obj_id self) {
+        obj_id[] baseControllers = getAllObjectsWithScript(getLocation(self), 1000.0f, "theme_park.restuss_event.restuss_event_watcher");
+        for(obj_id baseController : baseControllers){
+            LOG("events", "Restuss Event - Telling Base Object (" + getName(baseController) + ":" + baseController.toString() + ") to progress through base building phase.");
+            messageTo(baseController, "completeStageOne", null, 0.0f, false);
+        }
+    }
+    private void startRestussCitySpawner(obj_id self) {
+        LOG("events", "Restuss Event - Event is turned on - Starting Stage Two.");
+        messageTo(self, "beginSpawning", null, 1.0f, false);
+    }
+    public int makePvPArea(obj_id self, dictionary params) throws InterruptedException {
+        LOG("events","Restuss Event - Restuss Stage Two kicked off - creating PvP Zone.");
+        attachScript(self, "theme_park.restuss_event.pvp_region");
+        LOG("events", "Restuss Event - Restuss PVP area engaged - Event Progression Complete.");
         return SCRIPT_CONTINUE;
     }
     public void doLogging(String section, String message) throws InterruptedException
     {
         if (LOGGING)
         {
-            LOG("doLogging/stage_two_controller/" + section, message);
+            LOG("events", section + ": " + message);
         }
     }
 }
