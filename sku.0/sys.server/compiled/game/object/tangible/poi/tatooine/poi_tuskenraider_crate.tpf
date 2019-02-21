@@ -14,13 +14,14 @@
 //            Classification:             Null
 //
 @base object/tangible/poi/base/poi_base.iff
-      
+
 @class tangible_object_template 0
 
 
 @class object_template 0
 
 
-	
-	objvars = [ "poi.script" = "theme_park.poi.tatooine.tusken_raider.poi_tuskenraider_crate", "poi.objective" = "tuskens" ]	contents = [  ]
+
+	objvars = [ "poi.script" = "theme_park.poi.tatooine.tusken_raider.poi_tuskenraider_crate", "poi.objective" = "tuskens" ]
+	contents = [  ]
 	xpPoints = [  ]

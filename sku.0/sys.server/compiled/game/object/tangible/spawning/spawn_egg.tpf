@@ -10,7 +10,7 @@
 //            Category:                   UTILITY
 //            Sub-Category:               SPAWNING
 //            Classification:             EGG
-//            
+//
 
 @base object/tangible/base/tangible_base.iff
 
@@ -29,9 +29,7 @@ tintIndex = 0
 invulnerable = true
 
 
-decay = 1
+//decay = 1
 
 
 visibleFlags = [ VF_gm ]
-
-

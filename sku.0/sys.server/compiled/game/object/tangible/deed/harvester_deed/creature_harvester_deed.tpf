@@ -20,7 +20,7 @@
 
 sharedTemplate = "object/tangible/deed/harvester_deed/shared_harvester_creature_deed.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
 objvars = +[
 	"player_structure.deed.template" = "object/installation/mining_organic/mining_organic_creature_farm.iff",
@@ -34,4 +34,3 @@ scripts = +[
 
 //scripts = [
 //	"item.structure_deed.harvester_installation.mining_organic_creature_harvester_deed"]
-

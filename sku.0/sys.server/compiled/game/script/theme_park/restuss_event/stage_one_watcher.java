@@ -6,6 +6,8 @@ import script.obj_id;
 
 public class stage_one_watcher extends script.base_script
 {
+    private boolean evaluating = false;
+
     public stage_one_watcher()
     {
     }

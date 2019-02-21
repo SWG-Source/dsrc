@@ -17,4 +17,5 @@ animationMapFilename = "all_male.map"
 
 objectName = "npc_name" "wire"
 appearanceFilename = "appearance/bth_m.sat"
-clientDataFile = "clientdata/npc/client_shared_dressed_outbreak_survivor_canister_demo.cdf"scale = 1.2..1.2
+clientDataFile = "clientdata/npc/client_shared_dressed_outbreak_survivor_canister_demo.cdf"
+scale = 1.2..1.2

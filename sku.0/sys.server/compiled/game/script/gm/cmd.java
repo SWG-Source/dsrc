@@ -3805,16 +3805,16 @@ public class cmd extends script.base_script
     }
     public int cmdCompleteRestussStageOne(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
     {
-        obj_id[] objects = getAllObjectsWithObjVar(getLocation(self), 200.0f, "element");
-        if (objects == null || objects.length == 0)
+        obj_id[] spawnedItems = getAllObjectsWithObjVar(getLocation(self), 200.0f, "element");
+        if (spawnedItems == null || spawnedItems.length == 0)
         {
             return SCRIPT_CONTINUE;
         }
-        for (obj_id object : objects) {
-            if (!hasObjVar(object, "element")) {
+        for (obj_id spawnedItem : spawnedItems) {
+            if (!hasObjVar(spawnedItem, "element")) {
                 continue;
             }
-            String element = getStringObjVar(object, "element");
+            String element = getStringObjVar(spawnedItem, "element");
             if (!element.startsWith("ph1")) {
                 continue;
             }
@@ -3825,27 +3825,27 @@ public class cmd extends script.base_script
                 continue;
             }
             if (element.contains("baracks")) {
-                messageTo(object, "incrimentPhase", null, 0, false);
-                messageTo(object, "incrimentPhase", null, 20, false);
-                messageTo(object, "incrimentPhase", null, 40, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 0, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 20, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 40, false);
                 continue;
             }
             if (element.contains("headq")) {
-                messageTo(object, "incrimentPhase", null, 5, false);
-                messageTo(object, "incrimentPhase", null, 25, false);
-                messageTo(object, "incrimentPhase", null, 45, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 5, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 25, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 45, false);
                 continue;
             }
             if (element.contains("commu")) {
-                messageTo(object, "incrimentPhase", null, 10, false);
-                messageTo(object, "incrimentPhase", null, 30, false);
-                messageTo(object, "incrimentPhase", null, 50, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 10, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 30, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 50, false);
                 continue;
             }
             if (element.contains("logis")) {
-                messageTo(object, "incrimentPhase", null, 15, false);
-                messageTo(object, "incrimentPhase", null, 35, false);
-                messageTo(object, "incrimentPhase", null, 55, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 15, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 35, false);
+                messageTo(spawnedItem, "incrimentPhase", null, 55, false);
                 continue;
             }
         }

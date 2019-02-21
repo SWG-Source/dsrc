@@ -20,7 +20,7 @@ tintIndex = 0
 
 invulnerable = true
 
-decay = 0
+//decay = 0
 
 scripts = +[ "systems.treasure_map.base.treasure_map" ]
 

@@ -6,4 +6,4 @@
 
 sharedTemplate = "object/tangible/loot/generic_deed/shared_generic_deed.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0

@@ -16,6 +16,6 @@ tintIndex = 0
 
 invulnerable = true
 
-decay = 0
+//decay = 0
 
 scripts = +[ "space.special_loot.encoded_document" ]

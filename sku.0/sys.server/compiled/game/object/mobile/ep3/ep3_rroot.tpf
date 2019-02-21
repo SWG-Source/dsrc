@@ -13,4 +13,5 @@ defaultWeapon = "object/weapon/melee/polearm/lance_staff_janta.iff"
 
 @class object_template 0
 
-sharedTemplate = "object/mobile/ep3/shared_ep3_rroot.iff"scripts = +["conversation.ep3_rroot"]
+sharedTemplate = "object/mobile/ep3/shared_ep3_rroot.iff"
+scripts = +["conversation.ep3_rroot"]

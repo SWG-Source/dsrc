@@ -22,13 +22,12 @@
 
 sharedTemplate = "object/tangible/deed/shared_factory_food_deed.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
-objvars = +[ 
+objvars = +[
 	"player_structure.deed.template" = "object/building/player/player_house_tatooine_small_style_01.iff",
 	"player_structure.deed.buildtime" = 600,
 	"player_structure.deed.scene" = "tatooine"]
 
 scripts = +[
 	"item.structure_deed.player_structure_deed"]
-

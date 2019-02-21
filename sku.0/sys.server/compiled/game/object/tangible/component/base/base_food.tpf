@@ -26,8 +26,8 @@ complexity = 1
 tintIndex = 0
 
 
-maxDecayPoints = 100
-currentDecayPoints = 100
+//maxDecayPoints = 100
+//currentDecayPoints = 100
 
 
 

@@ -22,7 +22,7 @@
 
 sharedTemplate = "object/tangible/deed/factory_deed/shared_factory_item_deed.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
 objvars = +[
 	"player_structure.deed.template" = "object/installation/manufacture/weapon_factory.iff",
@@ -33,4 +33,3 @@ scripts = +[
 
 //scripts = [
 //	"item.structure_deed.factory_installation.item_factory_deed"]
-

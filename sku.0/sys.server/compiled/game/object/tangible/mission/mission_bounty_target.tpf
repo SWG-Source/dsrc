@@ -18,7 +18,4 @@ tintIndex = 0
 invulnerable = true
 
 
-decay = 0
-
-
-
+//decay = 0

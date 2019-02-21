@@ -24,16 +24,16 @@ tintPalette = "0"
 
 arrangementDescriptorFilename = "abstract/slot/arrangement/saber_inv_arrangement.iff"
 
-collisionMaterialFlags = 0
+//collisionMaterialFlags = 0
 
-collisionMaterialPassFlags = 0
+//collisionMaterialPassFlags = 0
 
-collisionMaterialBlockFlags = 0
+//collisionMaterialBlockFlags = 0
 
-collisionActionFlags = 0
+//collisionActionFlags = 0
 
-collisionActionPassFlags = 0
+//collisionActionPassFlags = 0
 
-collisionActionBlockFlags = 0
+//collisionActionBlockFlags = 0
 
 gameObjectType = GOT_misc_container

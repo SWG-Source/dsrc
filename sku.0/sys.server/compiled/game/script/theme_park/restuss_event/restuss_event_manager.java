@@ -6,6 +6,7 @@ import script.obj_id;
 
 public class restuss_event_manager extends script.base_script
 {
+
     public restuss_event_manager()
     {
     }

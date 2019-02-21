@@ -59,17 +59,17 @@ portalLayoutFilename = ""
 // filename
 clientDataFile = ""
 // integer
-collisionMaterialFlags = 0
+//collisionMaterialFlags = 0
 // integer
-collisionMaterialPassFlags = 0
+//collisionMaterialPassFlags = 0
 // integer
-collisionMaterialBlockFlags = 0
+//collisionMaterialBlockFlags = 0
 // integer
-collisionActionFlags = 0
+//collisionActionFlags = 0
 // integer
-collisionActionPassFlags = 0
+//collisionActionPassFlags = 0
 // integer
-collisionActionBlockFlags = 0
+//collisionActionBlockFlags = 0
 // floating point
 scale = 0.0
 gameObjectType = GOT_data

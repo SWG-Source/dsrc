@@ -22,7 +22,7 @@
 
 sharedTemplate = "object/tangible/deed/generator_deed/shared_generator_photo_bio_deed.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
 objvars = +[
 	"player_structure.deed.template" = "object/installation/generators/power_generator_photo_bio_style_1.iff",
@@ -37,4 +37,3 @@ scripts = +[
 
 //scripts = [
 //	"item.structure_deed.generator_installation.power_generator_photo_bio_deed"]
-

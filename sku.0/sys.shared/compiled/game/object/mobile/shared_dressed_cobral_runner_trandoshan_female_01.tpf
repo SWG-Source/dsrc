@@ -16,5 +16,6 @@ objectName = "npc_name" "trandoshan_base_female"
 detailedDescription = "" ""
 lookAtText = "npc_lookat" "trandoshan_base_female"
 appearanceFilename = "appearance/trn_f.sat"
-clientDataFile = "clientdata/npc/client_shared_npc_dressed_cobral_runner_trandoshan_female_01.cdf"scale = 1.12..1.24
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_cobral_runner_trandoshan_female_01.cdf"
+scale = 1.12..1.24
 

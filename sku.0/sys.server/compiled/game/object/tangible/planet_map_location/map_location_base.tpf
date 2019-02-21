@@ -10,7 +10,7 @@
 //            Category:                   UTILITY
 //            Sub-Category:               SPAWNING
 //            Classification:             EGG
-//            
+//
 
 @base object/tangible/base/tangible_base.iff
 
@@ -25,7 +25,7 @@ volume = 1
 complexity = 1
 tintIndex = 0
 invulnerable = true
-decay = 1
+//decay = 1
 visibleFlags = [ VF_gm ]
 
 updateRanges[UR_far] = 16

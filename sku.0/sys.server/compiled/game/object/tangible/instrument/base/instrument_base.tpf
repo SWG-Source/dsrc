@@ -24,8 +24,8 @@ complexity = 100
 tintIndex = 0
 
 
-maxDecayPoints = 10000
-currentDecayPoints = 10000
+//maxDecayPoints = 10000
+//currentDecayPoints = 10000
 
 
 scripts = +[

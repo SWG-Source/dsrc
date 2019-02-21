@@ -10,7 +10,7 @@
 //            Category:                   Creature
 //            Sub-Category:               Player
 //            Classification:             Mon Calamari Female Player
-//            
+//
 
 @base object/creature/player/moncal.iff
 
@@ -21,10 +21,4 @@
 @class object_template 0
 
 sharedTemplate = "object/creature/player/shared_moncal_female.iff"
-scale = 1.00..1.25
-
-
-
-
-
-
+//scale = 1.00..1.25

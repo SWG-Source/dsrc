@@ -25,11 +25,11 @@ tintPalette = "0"
 
 arrangementDescriptorFilename = "abstract/slot/arrangement/inventory_arrangement.iff"
 
-collisionMaterialFlags = 0
-collisionMaterialBlockFlags = 0
-collisionMaterialPassFlags = 0
-collisionActionFlags = 0
-collisionActionBlockFlags = 0
-collisionActionPassFlags = 0
+//collisionMaterialFlags = 0
+//collisionMaterialBlockFlags = 0
+//collisionMaterialPassFlags = 0
+//collisionActionFlags = 0
+//collisionActionBlockFlags = 0
+//collisionActionPassFlags = 0
 
 gameObjectType = GOT_misc_container

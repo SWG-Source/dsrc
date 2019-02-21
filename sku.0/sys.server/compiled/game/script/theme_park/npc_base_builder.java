@@ -142,8 +142,13 @@ public class npc_base_builder extends script.base_script
         for (int i = 0; i < length; i++)
         {
             dictionary data = dataTableGetRow(dataTable, i);
-            String toSpawn = data.getString("object");
             String spawnPhase = data.getString("phase");
+            if (!validatePhase(phase, spawnPhase) && i != lineNumber)
+            {
+                continue;
+            }
+
+            String toSpawn = data.getString("object");
             int locationType = data.getInt("location_type");
             float locX = data.getFloat("x_offset");
             float locY = data.getFloat("y_offset");
@@ -153,10 +158,6 @@ public class npc_base_builder extends script.base_script
             String scriptString = data.getString("script");
             String objvarString = data.getString("objvar");
             String respawn = data.getString("respawn");
-            if (!validatePhase(phase, spawnPhase) && i != lineNumber)
-            {
-                continue;
-            }
             obj_id newObject = null;
             if (!cell.equals("world"))
             {
@@ -336,12 +337,10 @@ public class npc_base_builder extends script.base_script
         {
             setObjVar(self, CURRENT_PHASE, 1);
         }
-        String dataTable = getStringObjVar(self, SPAWN_DATATABLE);
         if (hasObjVar(self, SPAWN_LIST))
         {
             cleanupChildren(self);
         }
-        int spawnPhase = getCurrentPhase(self);
         messageTo(self, "initializePhase", trial.getSessionDict(self), 1.0f, false);
     }
     public boolean canIncrimentPhase(obj_id self) throws InterruptedException
@@ -389,7 +388,15 @@ public class npc_base_builder extends script.base_script
     {
         if (!hasObjVar(self, CURRENT_PHASE))
         {
-            setObjVar(self, CURRENT_PHASE, 0);
+            String restussEvent = getConfigSetting("EventTeam", "restussEvent");
+
+            if(restussEvent == null || (!restussEvent.equals("1") && !restussEvent.equals("true"))) {
+                // event is not on so start at beginning phase
+                setObjVar(self, CURRENT_PHASE, 0);
+            } else {
+                // event is on so move to final phase
+                setObjVar(self, CURRENT_PHASE, 2);
+            }
         }
         return getIntObjVar(self, CURRENT_PHASE);
     }

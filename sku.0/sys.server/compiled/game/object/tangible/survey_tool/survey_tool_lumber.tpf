@@ -21,7 +21,7 @@
 
 sharedTemplate = "object/tangible/survey_tool/shared_survey_tool_lumber.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
 
 objvars = +["survey" = ["resource_class" = "flora_resources"]]

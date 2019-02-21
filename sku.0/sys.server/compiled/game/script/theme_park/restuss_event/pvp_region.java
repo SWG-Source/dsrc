@@ -28,8 +28,24 @@ public class pvp_region extends script.base_script
         {
             removeObjVar(self, trial.PARENT);
         }
-        persistObject(self);
-        createCircleRegion(getLocation(self), 400, restuss_event.PVP_REGION_NAME, regions.PVP_REGION_TYPE_NORMAL, regions.BUILD_FALSE, regions.MUNI_TRUE, regions.GEO_CITY, 0, 0, regions.SPAWN_FALSE, regions.MISSION_NONE, false, true);
+        if(getRegion("rori", restuss_event.PVP_REGION_NAME) == null) {
+            persistObject(self);
+            createCircleRegion(
+                    getLocation(self),
+                    400,
+                    restuss_event.PVP_REGION_NAME,
+                    regions.PVP_REGION_TYPE_NORMAL,
+                    regions.BUILD_FALSE,
+                    regions.MUNI_TRUE,
+                    regions.GEO_CITY,
+                    0,
+                    0,
+                    regions.SPAWN_FALSE,
+                    regions.MISSION_NONE,
+                    false,
+                    true
+            );
+        }
         obj_id[] players = getPlayerCreaturesInRange(getLocation(self), 420.0f);
         if (players == null || players.length == 0)
         {

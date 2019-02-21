@@ -24,12 +24,12 @@ tintIndex = 0
 
 invulnerable = true
 
-maxDecayPoints = 0
+//maxDecayPoints = 0
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
 // list, of type string
-scripts = +[ 
+scripts = +[
 	"structure.temporary_structure" ]
 
 moveFlags = [ MF_gm ]

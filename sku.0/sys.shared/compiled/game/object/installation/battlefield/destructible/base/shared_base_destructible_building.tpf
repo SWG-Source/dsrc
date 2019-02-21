@@ -28,17 +28,17 @@ objectName = "battlefield" "base_destructible"
 appearanceFilename = "appearance/ins_all_factory_organic.apt"
 portalLayoutFilename = ""
 
-collisionMaterialFlags = CMT_Solid
+//collisionMaterialFlags = CMT_Solid
 // integer
-collisionMaterialPassFlags = 0
+//collisionMaterialPassFlags = 0
 // integer
-collisionMaterialBlockFlags = CMT_Solid
+//collisionMaterialBlockFlags = CMT_Solid
 // integer
-collisionActionFlags = CAT_See | CAT_Target | CAT_CombatRanged | CAT_CombatMelee | CAT_Manipulate | CAT_Talk | CAT_RadialDamage | CAT_Camera
+//collisionActionFlags = CAT_See | CAT_Target | CAT_CombatRanged | CAT_CombatMelee | CAT_Manipulate | CAT_Talk | CAT_RadialDamage | CAT_Camera
 // integer
-collisionActionPassFlags = 0
+//collisionActionPassFlags = 0
 // integer
-collisionActionBlockFlags = CAT_See | CAT_Target | CAT_CombatRanged | CAT_CombatMelee | CAT_Manipulate | CAT_Talk | CAT_RadialDamage | CAT_Camera
+//collisionActionBlockFlags = CAT_See | CAT_Target | CAT_CombatRanged | CAT_CombatMelee | CAT_Manipulate | CAT_Talk | CAT_RadialDamage | CAT_Camera
 
 clientDataFile= "clientdata/installation/battlefield/client_shared_base_destructible_building.cdf"
 

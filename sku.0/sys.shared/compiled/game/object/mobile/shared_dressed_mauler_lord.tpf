@@ -16,5 +16,6 @@ objectName = "npc_name" "rodian_base_male"
 detailedDescription = "" ""
 lookAtText = "npc_lookat" "rodian_base_male"
 appearanceFilename = "appearance/rod_m.sat"
-clientDataFile = "clientdata/npc/client_shared_npc_dressed_mauler_lord.cdf"scale = 0.88..1.00
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_mauler_lord.cdf"
+scale = 0.88..1.00
 

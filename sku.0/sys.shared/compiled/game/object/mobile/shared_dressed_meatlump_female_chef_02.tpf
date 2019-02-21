@@ -18,4 +18,5 @@ species = SP_human
 objectName = "npc_name" "human_base_female"
 lookAtText = "npc_lookat" "human_base_female"
 appearanceFilename = "appearance/hum_f.sat"
-clientDataFile = "clientdata/npc/client_shared_npc_dressed_meatlump_female_chef_02.cdf"scale = 0.9..1.1
+clientDataFile = "clientdata/npc/client_shared_npc_dressed_meatlump_female_chef_02.cdf"
+scale = 0.9..1.1

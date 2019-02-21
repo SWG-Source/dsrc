@@ -22,7 +22,7 @@
 
 sharedTemplate = "object/tangible/deed/turret_deed/shared_turret_block_medium_deed.iff"
 
-currentDecayPoints = 0
+//currentDecayPoints = 0
 
 objvars = +[
 	"player_structure.deed.template" = "object/installation/turret/turret_block_med.iff",
@@ -35,4 +35,3 @@ scripts = +[
 
 //scripts = [
 //	"item.structure_deed.harvester_installation.mining_ore_harvester_s1_deed"]
-

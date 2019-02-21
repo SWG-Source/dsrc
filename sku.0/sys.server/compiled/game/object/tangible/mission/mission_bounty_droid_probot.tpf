@@ -18,7 +18,7 @@ tintIndex = 0
 invulnerable = true
 
 
-decay = 0
+//decay = 0
 
 
 scripts = +[ "systems.missions.dynamic.bounty_probe_droid" ]
