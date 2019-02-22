@@ -738,6 +738,16 @@ public class pet extends script.base_script
         {
             detachScript(self, "theme_park.poi.poi_object");
         }
+        
+        // Handle script loading order issue (where one script method trumps another script method due to the order in which it was attached)
+        // with Love Day familiars (matchmaking quest)
+        obj_id petControl = callable.getCallableCD(self);
+        String creatureName = getStringObjVar(petControl, "pet.creatureName");
+        if (creatureName.startsWith("loveday_romance_seeker_familiar"))
+        {
+            attachScript(self, "conversation.loveday_romance_seeker");
+        }
+        
         setOwner(utils.getInventoryContainer(self), master);
         managePowerConsumption(self);
         if (!pet_lib.findMaster(self))
