@@ -145,10 +145,23 @@ public class object_for_sale extends script.base_script
         Map<String, Integer> tokensNeeded = new HashMap<>();
         Map<String, Integer> tokensFound = new HashMap<>();
 
-        for (int i = 0; i < tokenCosts.length; i++) {
-            if(tokenCosts[i] > 0){
-                tokensNeeded.put(trial.HEROIC_TOKENS[i], tokenCosts[i]);
-                tokensFound.put(trial.HEROIC_TOKENS[i], 0);
+        // see if the vendor has a token type assigned to it.  If it does, store that in tokensNeeded.
+        // if it doesn't, then we still need to check for heroic or special coin costs.  We don't yet
+        // have a situation where something costs s special coin AND a heroic coin so ignore that possibility.
+        if(hasObjVar(self, VENDOR_TOKEN_TYPE)){
+            String[] vendorTokenTypes = split(getStringObjVar(self, VENDOR_TOKEN_TYPE), ',');
+            for(int i = 0; i < tokenCosts.length; i++) {
+                if(tokenCosts[i] > 0) {
+                    tokensNeeded.put(vendorTokenTypes[i], tokenCosts[i]);
+                    tokensFound.put(vendorTokenTypes[i], 0);
+                }
+            }
+        } else {
+            for (int i = 0; i < tokenCosts.length; i++) {
+                if (tokenCosts[i] > 0) {
+                    tokensNeeded.put(trial.HEROIC_TOKENS[i], tokenCosts[i]);
+                    tokensFound.put(trial.HEROIC_TOKENS[i], 0);
+                }
             }
         }
 
@@ -184,7 +197,7 @@ public class object_for_sale extends script.base_script
                 }
             }
         }
-
+        
         // now after reviewing all inventory items, let's check how many tokens we have
         for(Map.Entry<String, Integer> token : tokensNeeded.entrySet()){
             // bail if we don't have enough of a token type
