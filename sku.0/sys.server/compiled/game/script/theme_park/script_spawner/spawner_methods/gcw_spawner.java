@@ -18,6 +18,7 @@ public class gcw_spawner extends script.base_script
         {
             attachScript(self, "systems.gcw.gcw_data_updater");
         }
+        requestPreloadCompleteTrigger(self);
         return SCRIPT_CONTINUE;
     }
     public int OnHearSpeech(obj_id self, obj_id speaker, String strText) throws InterruptedException
@@ -31,8 +32,11 @@ public class gcw_spawner extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int OnInitialize(obj_id self) throws InterruptedException
-    {
+    public int OnInitialize(obj_id self) throws InterruptedException {
+        requestPreloadCompleteTrigger(self);
+        return SCRIPT_CONTINUE;
+    }
+    public int OnPreloadComplete(obj_id self) throws InterruptedException {
         location here = getLocation(self);
         String planet = here.area;
         String city = locations.getCityName(here);
