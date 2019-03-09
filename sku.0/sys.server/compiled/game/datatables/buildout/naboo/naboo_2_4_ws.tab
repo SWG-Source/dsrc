@@ -14,16 +14,16 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1689054	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	594.953	-151	1985.52	0.99995	0	0.00999924	0		$|
 1689055	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	576.948	-151	2002.57	0.999987	0	-0.00500056	0		$|
 1689056	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	594.932	-151	2042.34	0.999987	0	0.00499957	0		$|
-1689058	0	object/static/structure/naboo/nboo_imprv_pillar_wall_small_s01.iff	0	587.692	-149.276	2025.24	0.999987	0.00212945	1.97426e-008	0.00452331		$|
+1689058	0	object/static/structure/naboo/nboo_imprv_pillar_wall_small_s01.iff	0	587.692	-149.276	2025.24	0.999987	0.00212945	1.97426E-08	0.00452331		$|
 1689059	0	object/static/structure/naboo/nboo_imprv_pillar_wall_small_s01.iff	0	585.501	-149.248	2023.13	0.707107	0	0.707107	0		$|
 1689060	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s07.iff	0	585.517	-149.248	2025.23	1	0	0	0		$|
 1689061	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s07.iff	0	585.554	-149.215	2002.83	-0.707106	0	0.707107	0		$|
 1689062	0	object/static/structure/naboo/nboo_imprv_pillar_wall_small_s01.iff	0	585.535	-149.18	2005	-0.707098	-0.0047039	0.707097	-0.00169328		$|
 1689063	0	object/static/structure/naboo/nboo_imprv_pillar_wall_small_s01.iff	0	587.652	-149.215	2002.82	1	0	0	0		$|
-1689064	0	object/static/structure/general/bench_generic_style_1.iff	0	589.092	-149.047	2025.1	2.40446e-008	-0.00904761	0.99995	0.00425911		$|
-1689065	0	object/static/structure/general/bench_generic_style_1.iff	0	591.642	-149.052	2025.1	2.40446e-008	-0.00904761	0.99995	0.00425911		$|
-1689066	0	object/static/structure/general/bench_generic_style_1.iff	0	589.042	-149.084	2002.79	0.999987	0.00212966	5.69942e-008	0.00452429		$|
-1689067	0	object/static/structure/general/bench_generic_style_1.iff	0	591.589	-149.052	2002.79	0.999987	0.00212966	5.69942e-008	0.00452429		$|
+1689064	0	object/static/structure/general/bench_generic_style_1.iff	0	589.092	-149.047	2025.1	2.40446E-08	-0.00904761	0.99995	0.00425911		$|
+1689065	0	object/static/structure/general/bench_generic_style_1.iff	0	591.642	-149.052	2025.1	2.40446E-08	-0.00904761	0.99995	0.00425911		$|
+1689066	0	object/static/structure/general/bench_generic_style_1.iff	0	589.042	-149.084	2002.79	0.999987	0.00212966	5.69942E-08	0.00452429		$|
+1689067	0	object/static/structure/general/bench_generic_style_1.iff	0	591.589	-149.052	2002.79	0.999987	0.00212966	5.69942E-08	0.00452429		$|
 1689068	0	object/static/structure/naboo/arbor_short_s01.iff	0	559.349	-150.294	1989.53	-0.707107	0	0.707107	0		$|
 1689070	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	545.484	-164.401	1989.49	1	0	0	0		$|
 1689071	0	object/static/structure/naboo/bridge_stairs_s01.iff	0	553.608	-157.298	1989.47	1	0	0	0		$|
@@ -43,12 +43,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1691851	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	555.188	-150.592	2020.13	0.707111	0	0.707103	0		$|
 1691852	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s03.iff	0	564.188	-150.5	2029.13	0.70711	0	0.707103	0		$|
 1691853	0	object/static/structure/naboo/nboo_imprv_pristine_wall_sml_s03.iff	0	555.188	-150.318	2009.13	0.70711	0	0.707104	0		$|
-1691854	0	object/static/structure/naboo/nboo_imprv_tall_curved_wall_large_s01.iff	0	563.188	-150.318	2029.13	-3.48103e-007	0	1	0		$|
+1691854	0	object/static/structure/naboo/nboo_imprv_tall_curved_wall_large_s01.iff	0	563.188	-150.318	2029.13	-3.48103E-07	0	1	0		$|
 1691855	0	object/static/structure/naboo/nboo_imprv_tall_curved_wall_large_s01.iff	0	555.188	-150.317	2007.13	0.70711	0	0.707103	0		$|
 1692537	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	641.858	-150	2043.32	1	0	0	0		$|
-1692538	0	object/static/structure/naboo/gate_narrow_s01.iff	0	646.675	-150	2011.73	-3.20013e-008	0	1	0		$|
+1692538	0	object/static/structure/naboo/gate_narrow_s01.iff	0	646.675	-150	2011.73	-3.20013E-08	0	1	0		$|
 1692539	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	641.656	-150	2011.71	1	0	0	0		$|
-1692540	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	651.742	-150	2011.78	-3.20013e-008	0	1	0		$|
+1692540	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	651.742	-150	2011.78	-3.20013E-08	0	1	0		$|
 1692548	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s01.iff	0	681.688	-150	2042.94	0.707109	0	0.707104	0		$|
 1692549	0	object/static/structure/naboo/nboo_imprv_pristine_wall_large_s02.iff	0	682.008	-150	2043.07	0.792804	0	0.609476	0		$|
 1714650	0	object/building/naboo/housing_naboo_style_3.iff	0	652.934	-150	1968.38	1	0	0	0		$|
@@ -112,7 +112,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1716967	0	object/static/structure/general/bench_generic_style_1.iff	0	662.996	-150	2047.16	0	0	1	0		$|
 1716994	0	object/static/structure/naboo/nboo_imprv_tall_curved_wall_large_s01.iff	0	585.942	-150.545	1993.5	0.707111	0	0.707103	0		$|
 1716995	0	object/static/structure/naboo/nboo_imprv_tall_curved_wall_large_s01.iff	0	585.9	-150.545	1994.57	0.707112	0	-0.707102	0		$|
-1717002	0	object/static/structure/naboo/nboo_imprv_tall_curved_wall_large_s01.iff	0	593.901	-150.545	2042.37	-3.20013e-008	0	1	0		$|
+1717002	0	object/static/structure/naboo/nboo_imprv_tall_curved_wall_large_s01.iff	0	593.901	-150.545	2042.37	-3.20013E-08	0	1	0		$|
 1717004	0	object/static/structure/naboo/nboo_imprv_tall_curved_wall_large_s01.iff	0	577.908	-150.545	2025.65	1	0	0	0		$|
 1717118	0	object/static/structure/naboo/nboo_imprv_pillar_pillar_s02.iff	0	601.451	-152.044	1948.01	0.617373	0	0.786671	0		$|
 1717119	0	object/static/structure/naboo/planter_naboo_theed_style_1.iff	0	596.294	-150	1950.8	-0.436021	0	0.899936	0		$|
@@ -242,7 +242,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2705727	0	object/static/item/item_jar_empty.iff	0	514.293	-156.248	2045.47	1	0	0	0		$|
 3495352	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	520.377	-164.58	2014.04	1	0	0	0		$|
 3495364	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	532.166	-164.58	2025.4	0.707107	0	0.707106	0		$|
-3495366	0	object/static/structure/general/streetlamp_large_style_02.iff	0	529.466	-157.223	2024.25	-3.48103e-007	0	1	0		$|
+3495366	0	object/static/structure/general/streetlamp_large_style_02.iff	0	529.466	-157.223	2024.25	-3.48103E-07	0	1	0		$|
 3585407	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	558.257	-157.241	2038.22	1	0	0	0		$|
 3585408	0	object/static/structure/naboo/elevated_walkway_cap_s01.iff	0	558.34	-157.292	1989.53	1	0	0	0		$|
 4655384	0	object/static/structure/general/streetlamp_large_style_02.iff	0	577.132	-150	1979	-0.444308	0	0.895874	0		$|
@@ -274,8 +274,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8905458	0	object/static/structure/naboo/nboo_imprv_flagpole_s01.iff	0	592.01	-131.563	1996.49	1	0	0	0		$|
 8905499	0	object/static/structure/naboo/nboo_imprv_pillar_lattice_s01.iff	0	610.515	-153.562	1934.8	0.636844	0	0.770992	0		$|
 8905500	0	object/static/structure/naboo/nboo_imprv_pillar_lattice_s01.iff	0	601.289	-153.662	1936.6	0.636844	0	0.770992	0		$|
-8905501	0	object/static/structure/naboo/nboo_imprv_pillar_lattice_s01.iff	0	601.29	-157.66	1936.6	2.06258e-008	-0.636844	2.55083e-008	0.770992		$|
-9865371	0	object/static/structure/general/bench_generic_style_1.iff	0	631.773	-150	1985.22	-3.1298e-006	0	1	0		$|
+8905501	0	object/static/structure/naboo/nboo_imprv_pillar_lattice_s01.iff	0	601.29	-157.66	1936.6	2.06258E-08	-0.636844	2.55083E-08	0.770992		$|
+9865371	0	object/static/structure/general/bench_generic_style_1.iff	0	631.773	-150	1985.22	-3.1298E-06	0	1	0		$|
 1689100	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	568.792	-150	2045.81	0.655919	0	0.754831	0		$|
 1689101	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	568.268	-150	1981.68	0.68193	0	0.731418	0		$|
 1689102	0	object/building/naboo/filler_building_naboo_theed_style_2.iff	0	578.22	-150	1969.51	0.998988	0	0.0449845	0		$|
@@ -287,3 +287,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 -3	0	object/tangible/npc/naboo_spawn/brass_marshoo.iff	0	515	-156	2045	1	0	0	0		$|
 -4	0	object/tangible/npc/naboo_spawn/rovim_minnoni.iff	0	594	-150	1996	0.923879533	0	0.382683432	0		$|
 -5	0	object/tangible/npc/naboo_spawn/lareen_dantara.iff	0	649	-150	2043	1	0	0	0		$|
+5551221	0	object/tangible/ground_spawning/area_spawner.iff	0	590	-148	1965	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_1|strSpawnerType|4|area|strSpawns|4|vendor_tcg_1|$|
+5551222	0	object/tangible/ground_spawning/area_spawner.iff	0	640	-150	1970	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_2|strSpawnerType|4|area|strSpawns|4|vendor_tcg_2|$|
+5551223	0	object/tangible/ground_spawning/area_spawner.iff	0	720	-124	1990	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_3|strSpawnerType|4|area|strSpawns|4|vendor_tcg_3|$|
+5551224	0	object/tangible/ground_spawning/area_spawner.iff	0	584	-149	2023	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_4|strSpawnerType|4|area|strSpawns|4|vendor_tcg_4|$|
+5551225	0	object/tangible/ground_spawning/area_spawner.iff	0	590	-146	2034	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_5|strSpawnerType|4|area|strSpawns|4|vendor_tcg_5|$|
+5551226	0	object/tangible/ground_spawning/area_spawner.iff	0	539	-164	1988	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_6|strSpawnerType|4|area|strSpawns|4|vendor_tcg_6|$|
+5551227	0	object/tangible/ground_spawning/area_spawner.iff	0	645	-150	2010	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_7|strSpawnerType|4|area|strSpawns|4|vendor_tcg_7|$|
+5551228	0	object/tangible/ground_spawning/area_spawner.iff	0	666	-150	2022	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_8|strSpawnerType|4|area|strSpawns|4|vendor_tcg_8|$|
+5551229	0	object/tangible/ground_spawning/area_spawner.iff	0	528	-158	2026	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_9|strSpawnerType|4|area|strSpawns|4|vendor_tcg_9|$|

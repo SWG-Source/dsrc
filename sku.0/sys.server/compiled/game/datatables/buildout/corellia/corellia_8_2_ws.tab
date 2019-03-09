@@ -62,7 +62,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365905	2365901	object/cell/cell.iff	4	0	0	0	1	0	0	0		$|
 2365906	2365901	object/cell/cell.iff	5	0	0	0	1	0	0	0		$|
 2365907	2365901	object/cell/cell.iff	6	0	0	0	1	0	0	0		$|
-2365910	0	object/building/corellia/filler_historic_32x16_s01.iff	0	638.534	315	451.12	0.000003467	0	1	0		$|
+2365910	0	object/building/corellia/filler_historic_32x16_s01.iff	0	638.534	315	451.12	3.467E-06	0	1	0		$|
 2365915	0	object/building/corellia/filler_block_corellia_64x32_s02.iff	0	640.769	315	310.725	1	0	0	0		$|
 2365921	0	object/building/corellia/association_hall_civilian_corellia.iff	0	563.188	314.724	524.64	1	0	0	0		$|
 2365922	2365921	object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
@@ -232,7 +232,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2395563	0	object/tangible/terminal/terminal_mission.iff	0	553.625	314.977	543.685	1	0	0	0		$|
 2395564	0	object/static/structure/corellia/corl_fountain_statue_contemplate_s01.iff	0	563.087	314.863	568.078	1	0	0	0		$|
 2395578	0	object/tangible/terminal/terminal_mission.iff	0	692.712	315	361.677	1	0	0	0		$|
-2395580	0	object/tangible/terminal/terminal_mission.iff	0	692.663	315	359.07	0.000000032	0	1	0		$|
+2395580	0	object/tangible/terminal/terminal_mission.iff	0	692.663	315	359.07	3.2E-08	0	1	0		$|
 2395581	0	object/static/structure/corellia/corl_fountain_circle_s01.iff	0	747.535	330	580.793	1	0	0	0		$|
 2735353	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	555	327.632	149	-0.382683	0	0.92388	0		$|
 2735361	0	object/static/structure/general/streetlamp_large_style_02.iff	0	543.012	330	233	0.92388	0	0.382683	0		$|
@@ -392,8 +392,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2735560	0	object/static/flora/potted_plant_flowers_purple.iff	0	669.603	315	383.878	0.707107	0	0.707107	0		$|
 2735561	0	object/static/flora/potted_plant_flowers_purple.iff	0	671.625	315	344.447	0.707107	0	0.707107	0		$|
 2735562	0	object/static/flora/potted_plant_flowers_purple.iff	0	671.625	315	352.446	0.707107	0	0.707107	0		$|
-2735581	0	object/static/flora/potted_plant_flowers_purple.iff	0	660.029	315	341.532	-0.000000263	0	1	0		$|
-2735582	0	object/static/flora/potted_plant_flowers_purple.iff	0	668.028	315	341.533	-0.000000263	0	1	0		$|
+2735581	0	object/static/flora/potted_plant_flowers_purple.iff	0	660.029	315	341.532	-2.63E-07	0	1	0		$|
+2735582	0	object/static/flora/potted_plant_flowers_purple.iff	0	668.028	315	341.533	-2.63E-07	0	1	0		$|
 2735584	0	object/static/flora/potted_plant_flowers_purple.iff	0	643.007	315	341.594	0	0	1	0		$|
 2735585	0	object/static/flora/potted_plant_flowers_purple.iff	0	651.006	315	341.595	0	0	1	0		$|
 2735587	0	object/static/flora/potted_plant_flowers_purple.iff	0	617.887	315	324.932	1	0	0	0		$|
@@ -407,8 +407,8 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2735598	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	591.569	328.387	277.891	1	0	0	0		$|
 2735599	0	object/static/structure/general/streetlamp_large_style_02.iff	0	561.404	315	317.258	0.999997	0	-0.00230197	0		$|
 2735600	0	object/static/structure/corellia/corl_imprv_column_s02.iff	0	561.407	312.268	317.257	-0.705479	0	0.708733	0		$|
-2775404	0	object/static/flora/potted_plant_flowers_purple.iff	0	532.398	330	239.79	0.000000032	0	1	0		$|
-2775405	0	object/static/flora/potted_plant_flowers_purple.iff	0	526.484	330	239.877	0.000000032	0	1	0		$|
+2775404	0	object/static/flora/potted_plant_flowers_purple.iff	0	532.398	330	239.79	3.2E-08	0	1	0		$|
+2775405	0	object/static/flora/potted_plant_flowers_purple.iff	0	526.484	330	239.877	3.2E-08	0	1	0		$|
 2775407	0	object/static/flora/potted_plant_flowers_purple.iff	0	490.864	330	197.922	1	0	0	0		$|
 2775408	0	object/static/flora/potted_plant_flowers_purple.iff	0	484.951	330	198.01	1	0	0	0		$|
 2775422	0	object/static/flora/potted_plant_flowers_purple.iff	0	489.746	330	205.716	-0.0299955	0	0.99955	0		$|
@@ -506,7 +506,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 3695501	0	object/tangible/terminal/terminal_bazaar.iff	0	501.188	330	200.926	0.707107	0	-0.707106	0		$|
 3695502	0	object/tangible/terminal/terminal_bazaar.iff	0	504.791	330	200.886	0.707105	0	0.707108	0		$|
 3695503	0	object/static/structure/corellia/corl_imprv_column_s01.iff	0	468.902	327.967	208.186	-0.0349949	0	0.999387	0		$|
-3695545	0	object/tangible/microphone/microphone.iff	0	685.434	330	715.438	0.000000032	0	1	0		$|
+3695545	0	object/tangible/microphone/microphone.iff	0	685.434	330	715.438	3.2E-08	0	1	0		$|
 3695546	0	object/tangible/speaker/speaker.iff	0	681.005	330	716.32	0.0741356	0	0.997248	0		$|
 3695547	0	object/tangible/speaker/speaker.iff	0	689.794	330	712.753	-0.326219	0	0.945294	0		$|
 3695552	0	object/tangible/terminal/terminal_bank.iff	0	782.526	330	589.815	0.994493	0	0.104807	0		$|
@@ -518,7 +518,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 4435411	0	object/tangible/sign/all_sign_city_s03.iff	0	526.492	330	232.083	1	0	0	0		$|
 5406050	0	object/static/structure/general/streetlamp_small_style_01.iff	0	570.139	333.849	277.891	-0.000796397	0	0	1		$|
 5406062	0	object/static/structure/general/streetlamp_medium_blue_style_02.iff	0	573.456	330	224.531	1	0	0	0		$|
-5406122	0	object/static/structure/general/streetlamp_medium_blue_style_02.iff	0	565.087	330	180.541	0.000000032	0	1	0		$|
+5406122	0	object/static/structure/general/streetlamp_medium_blue_style_02.iff	0	565.087	330	180.541	3.2E-08	0	1	0		$|
 5406132	0	object/static/structure/general/streetlamp_large_style_02.iff	0	527.421	330	240.011	1	0	0	0		$|
 5406139	0	object/static/structure/general/streetlamp_large_style_02.iff	0	498.389	329.974	262.912	0.999987	0	0	0.00500013		$|
 5406176	0	object/static/structure/general/streetlamp_large_style_02.iff	0	601.259	315	319.029	1	0	0	0		$|
@@ -580,7 +580,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 8675752	0	object/static/structure/corellia/corl_imprv_flagpole_s01.iff	0	491.9	339.276	237.598	1	0	0	0		$|
 8675753	0	object/static/structure/corellia/corl_imprv_flagpole_s01.iff	0	692.645	315	360.365	1	0	0	0		$|
 8675754	0	object/tangible/terminal/terminal_bank.iff	0	691.279	315	360.361	0.70739	0	-0.706823	0		$|
-9665461	0	object/tangible/furniture/all/frn_bench_generic.iff	0	563.097	315	563.052	-0.000000032	0	1	0		$|
+9665461	0	object/tangible/furniture/all/frn_bench_generic.iff	0	563.097	315	563.052	-3.2E-08	0	1	0		$|
 9665462	0	object/tangible/furniture/all/frn_bench_generic.iff	0	560.065	315	565.999	0.707107	0	-0.707106	0		$|
 9665463	0	object/tangible/furniture/all/frn_bench_generic.iff	0	560.111	315	571.008	0.707107	0	-0.707106	0		$|
 9665464	0	object/tangible/furniture/all/frn_bench_generic.iff	0	563.107	315	573.09	1	0	0	0		$|
@@ -590,11 +590,11 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9665468	0	object/tangible/furniture/all/frn_bench_generic.iff	0	741.546	330	574.44	0.92388	0	0.382683	0		$|
 9665469	0	object/tangible/furniture/all/frn_bench_generic.iff	0	738.744	330	581.259	0.707107	0	0.707107	0		$|
 9665470	0	object/tangible/furniture/all/frn_bench_generic.iff	0	741.648	330	586.769	0.382683	0	0.92388	0		$|
-9665471	0	object/tangible/furniture/all/frn_bench_generic.iff	0	747.379	330	589.269	-0.000000032	0	1	0		$|
+9665471	0	object/tangible/furniture/all/frn_bench_generic.iff	0	747.379	330	589.269	-3.2E-08	0	1	0		$|
 9665472	0	object/tangible/furniture/all/frn_bench_generic.iff	0	752.253	330	587.511	-0.382683	0	0.92388	0		$|
 9665473	0	object/tangible/furniture/all/frn_bench_generic.iff	0	755.928	330	581.166	0.707107	0	-0.707107	0		$|
-9665474	0	object/tangible/furniture/all/frn_bench_generic.iff	0	577.305	315	585.285	-0.000000032	0	1	0		$|
-9665475	0	object/tangible/furniture/all/frn_bench_generic.iff	0	548.55	315	585.405	-0.000000032	0	1	0		$|
+9665474	0	object/tangible/furniture/all/frn_bench_generic.iff	0	577.305	315	585.285	-3.2E-08	0	1	0		$|
+9665475	0	object/tangible/furniture/all/frn_bench_generic.iff	0	548.55	315	585.405	-3.2E-08	0	1	0		$|
 9665476	0	object/tangible/furniture/all/frn_bench_generic.iff	0	544.38	315	569.201	0.707107	0	0.707107	0		$|
 9665477	0	object/tangible/furniture/all/frn_bench_generic.iff	0	558.641	315	546.815	1	0	0	0		$|
 9665478	0	object/tangible/furniture/all/frn_bench_generic.iff	0	567.895	315	546.901	1	0	0	0		$|
@@ -604,17 +604,17 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 9665482	0	object/tangible/furniture/all/frn_bench_generic.iff	0	702.667	315.001	572.338	0.707107	0	-0.707107	0		$|
 9665483	0	object/tangible/furniture/all/frn_bench_generic.iff	0	702.667	315	580.23	0.707107	0	-0.707107	0		$|
 9665484	0	object/tangible/furniture/all/frn_bench_generic.iff	0	702.681	315	588.249	0.707107	0	-0.707107	0		$|
-9665485	0	object/tangible/furniture/all/frn_bench_generic.iff	0	695.968	315	594.272	-0.000000032	0	1	0		$|
+9665485	0	object/tangible/furniture/all/frn_bench_generic.iff	0	695.968	315	594.272	-3.2E-08	0	1	0		$|
 9665486	0	object/tangible/furniture/all/frn_bench_generic.iff	0	669.53	315	379.838	0.707107	0	0.707107	0		$|
 9665487	0	object/tangible/furniture/all/frn_bench_generic.iff	0	669.653	315	387.786	0.707107	0	0.707106	0		$|
 9665488	0	object/tangible/furniture/all/frn_bench_generic.iff	0	669.674	315	395.833	0.707107	0	0.707107	0		$|
-9665489	0	object/tangible/furniture/all/frn_bench_generic.iff	0	647.065	315	341.651	-0.000000032	0	1	0		$|
-9665490	0	object/tangible/furniture/all/frn_bench_generic.iff	0	664.049	315	341.565	-0.000000032	0	1	0		$|
+9665489	0	object/tangible/furniture/all/frn_bench_generic.iff	0	647.065	315	341.651	-3.2E-08	0	1	0		$|
+9665490	0	object/tangible/furniture/all/frn_bench_generic.iff	0	664.049	315	341.565	-3.2E-08	0	1	0		$|
 9665491	0	object/tangible/furniture/all/frn_bench_generic.iff	0	498.363	330	261.011	0.707107	0	0.707107	0		$|
 9665492	0	object/tangible/furniture/all/frn_bench_generic.iff	0	565.899	315	570.668	0.707107	0	0.707106	0		$|
 9665493	0	object/tangible/furniture/all/frn_bench_generic.iff	0	486.719	330	206.019	-0.0341969	0	0.999415	0		$|
 9665494	0	object/tangible/furniture/all/frn_bench_generic.iff	0	481.383	330	206.362	-0.034197	0	0.999415	0		$|
-9665495	0	object/tangible/furniture/all/frn_bench_generic.iff	0	529.547	330	239.711	-0.000000032	0	1	0		$|
+9665495	0	object/tangible/furniture/all/frn_bench_generic.iff	0	529.547	330	239.711	-3.2E-08	0	1	0		$|
 9665496	0	object/tangible/furniture/all/frn_bench_generic.iff	0	614.97	315	324.936	1	0	0	0		$|
 9665497	0	object/tangible/furniture/all/frn_bench_generic.iff	0	671.624	315	348.402	0.707107	0	0.707107	0		$|
 9665498	0	object/tangible/furniture/all/frn_bench_generic.iff	0	487.996	330	197.85	1	0	0	0		$|
@@ -629,7 +629,7 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 2365821	0	object/building/corellia/filler_slum_24x16_s02.iff	0	709.314	314.378	519.553	0.939373	0	0.342898	0		$|
 2365839	0	object/building/corellia/filler_slum_24x16_s02.iff	0	556.591	330	165.511	0.696706	0	0.717357	0		$|
 2365908	0	object/building/corellia/filler_slum_24x16_s01.iff	0	661.345	315	458.669	0.707107	0	-0.707106	0		$|
-2365949	0	object/building/corellia/filler_slum_24x16_s01.iff	0	586.63	314.807	519.985	-0.000000032	0	1	0		$|
+2365949	0	object/building/corellia/filler_slum_24x16_s01.iff	0	586.63	314.807	519.985	-3.2E-08	0	1	0		$|
 2365951	0	object/building/corellia/filler_slum_24x16_s02.iff	0	586.462	314.919	496.907	-0.00730027	0	0.999973	0		$|
 2365954	0	object/building/corellia/filler_slum_24x16_s02.iff	0	538.694	315	569.485	-0.00730028	0	0.999973	0		$|
 2395555	0	object/static/corellia/rock_bowl_agrilat_single.iff	0	643.971	313.067	575.412	1	0	0	0		$|
@@ -640,3 +640,12 @@ i	i	h	i	f	f	f	f	f	f	f	s	p
 1284176	0	object/tangible/ground_spawning/mob_spawner.iff	0	691	315	359	1	0	0	0		$|
 1284177	0	object/tangible/ground_spawning/mob_spawner.iff	0	562	315	586	1	0	0	0		$|
 -53	0	object/tangible/npc/corellia_spawn/grondorn_muse.iff	0	693	315	375	0.707106781	0	0.707106781	0		$|
+5551231	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	384	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_1|strSpawnerType|4|area|strSpawns|4|vendor_tcg_1|$|
+5551232	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	388	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_2|strSpawnerType|4|area|strSpawns|4|vendor_tcg_2|$|
+5551233	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	392	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_3|strSpawnerType|4|area|strSpawns|4|vendor_tcg_3|$|
+5551234	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	396	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_4|strSpawnerType|4|area|strSpawns|4|vendor_tcg_4|$|
+5551235	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	400	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_5|strSpawnerType|4|area|strSpawns|4|vendor_tcg_5|$|
+5551236	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	404	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_6|strSpawnerType|4|area|strSpawns|4|vendor_tcg_6|$|
+5551237	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	408	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_7|strSpawnerType|4|area|strSpawns|4|vendor_tcg_7|$|
+5551238	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	412	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_8|strSpawnerType|4|area|strSpawns|4|vendor_tcg_8|$|
+5551239	0	object/tangible/ground_spawning/area_spawner.iff	0	690	315	416	1	0	0	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|0.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|0.000000|intDefaultBehavior|0|1|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|vendor_tcg_9|strSpawnerType|4|area|strSpawns|4|vendor_tcg_9|$|
