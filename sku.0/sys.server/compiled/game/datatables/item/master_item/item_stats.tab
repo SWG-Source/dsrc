@@ -3782,7 +3782,7 @@ item_tcg_loot_reward_series2_vendor_meatlump	special_vendor_tcg_series2_meatlump
 item_tcg_loot_reward_series2_vendor_bomarr_monk	special_vendor_tcg_series2_bomarr_monk=1		string:nonvendor.give_nontrader=nonvendor_bomarr_monk								
 item_tcg_loot_reward_series9_vendor_serving_droid	special_vendor_tcg_series9_serving_droid=1		string:nonvendor.give_nontrader=nonvendor_serving_droid								
 item_tcg_loot_reward_series1_target_creature			string:targetDummyCreatureName=tcg_target_creature_acklay								
-item_tcg_loot_reward_series1_video_game_table											
+item_tcg_loot_reward_series2_video_game_table											
 item_tcg_loot_reward_series2_v_wing			boolean:ship_chassis.tcg_ship=true,boolean:ship_chassis.multifactional=true,string:ship_chassis.type=vwing,float:ship_chassis.hp=1850.0,float:ship_chassis.mass=66625.0								
 item_tcg_loot_reward_series2_podracer_mawhonic			string:vehicle_attribs.object_ref=pod_racer_two,float:hit_points=15000								
 item_tcg_loot_reward_series1_podracer_gasgano			string:vehicle_attribs.object_ref=pod_racer_one,float:hit_points=15000								
@@ -4777,5 +4777,5 @@ item_ugnaught_costume					costume_ugnaught
 item_wampa_costume					costume_wampa						
 item_zozpheratu_costume					costume_zozpheratu						
 item_ponda_halloween_hand					scary_halloween_hand	itemBuffClick	39600				
-item_deed_atst_walker			"string:vehicle_attribs.object_ref=atst_walker,float:hit_points=15000"
-item_deed_atxt_walker			"string:vehicle_attribs.object_ref=atxt_walker,float:hit_points=15000"
+item_deed_atst_walker			string:vehicle_attribs.object_ref=atst_walker,float:hit_points=15000								
+item_deed_atxt_walker			string:vehicle_attribs.object_ref=atxt_walker,float:hit_points=15000								
