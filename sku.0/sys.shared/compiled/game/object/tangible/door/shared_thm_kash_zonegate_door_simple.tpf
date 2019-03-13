@@ -6,11 +6,10 @@
 
 @class object_template 5
 
-
 objectName = "item_n"  "gate_door"
 
 detailedDescription = "item_n"  "gate_door"
 
-appearanceFilename = ""
+appearanceFilename = "appearance/thm_kash_zonegate_door_simple.apt"
 
 gameObjectType = GOT_terminal_misc
