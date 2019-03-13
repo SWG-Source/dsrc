@@ -10,9 +10,7 @@ objectName = "frn_n"  "frn_payroll_terminal"
 
 detailedDescription = "frn_d"  "frn_payroll_terminal"
 
-//appearanceFilename = "appearance/frn_all_data_terminal_wall_s1.apt"
-
-appearanceFilename = ""
+appearanceFilename = "appearance/frn_all_data_terminal_wall_s1.apt"
 
 portalLayoutFilename = ""
 

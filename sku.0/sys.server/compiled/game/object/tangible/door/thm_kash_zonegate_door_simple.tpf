@@ -9,3 +9,5 @@
 sharedTemplate = "object/tangible/door/shared_thm_kash_zonegate_door_simple.iff"
 
 visibleFlags = [ VF_player, VF_gm ]
+
+objvars =+ [ "skipLosCheck" = 1 ]

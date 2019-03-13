@@ -9,3 +9,5 @@
 sharedTemplate = "object/tangible/quest/shared_frn_all_security_terminal_wall_01.iff"
 
 scripts =+ [ "conversation.eisley_thranta_payroll_terminal" ]
+
+objvars =+ [ "skipLosCheck" = 1 ]
