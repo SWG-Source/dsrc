@@ -7,3 +7,5 @@
 sharedTemplate = "object/tangible/quest/shared_cb_1_deflarian_communication_terminal.iff"
 
 scripts =+ [ "quest.task.ground.retrieve_item_on_item" ]
+
+objvars =+ [ "skipLosCheck" = 1 ]

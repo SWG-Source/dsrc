@@ -13,4 +13,4 @@ objectName = "item_n"  "cb_1_communication_terminal"
 
 detailedDescription = "item_d"  "cb_1_communication_terminal"
 
-appearanceFilename = ""
+appearanceFilename = "appearance/frn_all_data_terminal_free_s3.apt"
