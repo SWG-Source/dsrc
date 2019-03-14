@@ -12,6 +12,8 @@ detailedDescription = "npe_hangar_1"  "door_terminal"
 
 containerType = CT_none
 
+appearanceFilename = "appearance/frn_all_data_terminal_wall_s3.apt"
+
 portalLayoutFilename = ""
 
 gameObjectType = GOT_lair
