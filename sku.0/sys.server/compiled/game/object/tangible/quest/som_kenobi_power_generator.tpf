@@ -8,3 +8,4 @@ sharedTemplate = "object/tangible/quest/shared_som_kenobi_power_generator.iff"
 
 scripts =+ [ "quest.task.ground.retrieve_item_on_item" ]
 
+objvars =+ [ "skipLosCheck" = 1 ]

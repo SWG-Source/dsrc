@@ -13,4 +13,4 @@ objectName = "item_n" "som_kenobi_power_generator_n"
 
 detailedDescription = "item_n" "som_kenobi_power_generator_d"
 
-appearanceFilename = ""
+appearanceFilename = "appearance/poi_all_force_bandit_generator.apt"
