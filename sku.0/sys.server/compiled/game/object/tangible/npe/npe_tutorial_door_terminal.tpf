@@ -18,7 +18,7 @@ complexity = 100
 
 sharedTemplate = "object/tangible/npe/shared_npe_tutorial_door_terminal.iff"
 
-objvars = +["pvpCanAttack" = 1]
+objvars = +["pvpCanAttack" = 1, "skipLosCheck" = 1]
 scripts = +["systems.npc_lair.lair_destruct", "npe.npe_tutorial_door_terminal"]
 
 persistByDefault = false
