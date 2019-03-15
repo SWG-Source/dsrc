@@ -9,43 +9,7 @@ import java.util.Vector;
 import java.lang.String;
 import script.base_script;
 
-import script.library.ai_lib;
-import script.library.armor;
-import script.library.beast_lib;
-import script.library.buff;
-import script.library.callable;
-import script.library.chat;
-import script.library.consumable;
-import script.library.craftinglib;
-import script.library.create;
-import script.library.expertise;
-import script.library.factions;
-import script.library.gm;
-import script.library.groundquests;
-import script.library.healing;
-import script.library.incubator;
-import script.library.instance;
-import script.library.jedi;
-import script.library.loot;
-import script.library.money;
-import script.library.pet_lib;
-import script.library.player_stomach;
-import script.library.prose;
-import script.library.resource;
-import script.library.respec;
-import script.library.skill;
-import script.library.skill_template;
-import script.library.space_crafting;
-import script.library.space_flags;
-import script.library.space_skill;
-import script.library.space_transition;
-import script.library.space_utils;
-import script.library.static_item;
-import script.library.stealth;
-import script.library.sui;
-import script.library.utils;
-import script.library.weapons;
-import script.library.performance;
+import script.library.*;
 
 public class terminal_character_builder extends script.base_script
 {
@@ -9886,8 +9850,8 @@ public class terminal_character_builder extends script.base_script
             }
             else 
             {
-                factions.setRank(player, current_rank + 1);
-				sendSystemMessageTestingOnly(player, "Rank increased to: " + current_rank);
+                gcw.increaseGcwRatingToNextRank(player);
+                sendSystemMessageTestingOnly(player, "GCW rating increased");
             }
             break;
             case 4:
@@ -9898,8 +9862,8 @@ public class terminal_character_builder extends script.base_script
             }
             else 
             {
-                factions.setRank(player, current_rank - 1);
-                sendSystemMessageTestingOnly(player, "Rank Decreased to: " + current_rank);
+                gcw.decreaseGcwRatingToPreviousRank(player);
+                sendSystemMessageTestingOnly(player, "GCW rating decreased");
             }
             break;
             case 5:

@@ -1831,6 +1831,20 @@ public class gcw extends script.base_script
         groundQuestGcwValue *= capDeltaBonus;
         return (int)groundQuestGcwValue;
     }
+    public static void increaseGcwRatingToNextRank(obj_id player)
+    {
+        int rank = Math.min(pvpGetCurrentGcwRank(player), 11);
+        String gcwRankTable = "datatables/gcw/gcw_rank.iff";
+        int maxRating = dataTableGetInt(gcwRankTable, rank - 1, "MaxRating");
+        ctsUseOnlySetGcwInfo(player, pvpGetCurrentGcwPoints(player), maxRating + 1, pvpGetCurrentPvpKills(player), pvpGetLifetimeGcwPoints(player), pvpGetMaxGcwImperialRating(player), pvpGetMaxGcwRebelRating(player), pvpGetLifetimePvpKills(player), pvpGetNextGcwRatingCalcTime(player));
+    }
+    public static void decreaseGcwRatingToPreviousRank(obj_id player)
+    {
+        int rank = Math.max(pvpGetCurrentGcwRank(player) - 1, 0);
+        String gcwRankTable = "datatables/gcw/gcw_rank.iff";
+        int minRating = dataTableGetInt(gcwRankTable, rank, "MinRating");
+        ctsUseOnlySetGcwInfo(player, pvpGetCurrentGcwPoints(player), minRating - 1, pvpGetCurrentPvpKills(player), pvpGetLifetimeGcwPoints(player), pvpGetMaxGcwImperialRating(player), pvpGetMaxGcwRebelRating(player), pvpGetLifetimePvpKills(player), pvpGetNextGcwRatingCalcTime(player));
+    }
     public static float getGroundQuestTierBonus(int quest_tier) throws InterruptedException
     {
         float tierValue = 0.0f;
