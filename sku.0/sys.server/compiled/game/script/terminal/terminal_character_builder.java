@@ -6,6 +6,7 @@ import script.library.*;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Vector;
+import java.lang.String;
 
 public class terminal_character_builder extends script.base_script
 {
@@ -9764,8 +9765,8 @@ public class terminal_character_builder extends script.base_script
             }
             else 
             {
-                factions.setRank(player, current_rank + 1);
-				sendSystemMessageTestingOnly(player, "Rank increased to: " + current_rank);
+                gcw.increaseGcwRatingToNextRank(player);
+                sendSystemMessageTestingOnly(player, "GCW rating increased");
             }
             break;
             case 4:
@@ -9776,8 +9777,8 @@ public class terminal_character_builder extends script.base_script
             }
             else 
             {
-                factions.setRank(player, current_rank - 1);
-                sendSystemMessageTestingOnly(player, "Rank Decreased to: " + current_rank);
+                gcw.decreaseGcwRatingToPreviousRank(player);
+                sendSystemMessageTestingOnly(player, "GCW rating decreased");
             }
             break;
             case 5:
