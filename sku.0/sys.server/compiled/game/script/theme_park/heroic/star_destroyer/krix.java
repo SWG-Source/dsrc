@@ -76,7 +76,7 @@ public class krix extends script.base_script
         }
         Vector guards = new Vector();
         guards.setSize(0);
-        for (script.obj_id obj_id : allSpawn) {
+        for (obj_id obj_id : allSpawn) {
             if ((getStringObjVar(obj_id, "spawn_id")).equals("sd_gren")) {
                 if (!isDead(obj_id)) {
                     guards.add(obj_id);
@@ -187,7 +187,7 @@ public class krix extends script.base_script
         obj_id[] hateList = getHateList(self);
         Vector validTargets = new Vector();
         validTargets.setSize(0);
-        for (script.obj_id obj_id : hateList) {
+        for (obj_id obj_id : hateList) {
             if (!isIdValid(obj_id) || !exists(obj_id) || isDead(obj_id) || !canSee(self, obj_id)) {
                 continue;
             }

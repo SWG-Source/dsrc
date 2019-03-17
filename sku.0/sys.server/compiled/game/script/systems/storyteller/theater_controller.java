@@ -66,7 +66,7 @@ public class theater_controller extends script.base_script
         obj_id[] objectsInRange = getObjectsInRange(getLocation(theater), range);
         if (objectsInRange != null && objectsInRange.length > 0)
         {
-            for (script.obj_id obj_id : objectsInRange) {
+            for (obj_id obj_id : objectsInRange) {
                 utils.addElement(allObjects, obj_id);
             }
         }

@@ -246,7 +246,7 @@ public class event_two_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         playClientEffectObj(self, trial.PRT_VOLCANO_CONE_EXE, self, "muzzle");
-        for (script.obj_id obj_id : targetsInCone) {
+        for (obj_id obj_id : targetsInCone) {
             if (obj_id == target) {
                 prose_package pp = new prose_package();
                 pp.stringId = new string_id("cbt_spam", "blast_cone_hit");

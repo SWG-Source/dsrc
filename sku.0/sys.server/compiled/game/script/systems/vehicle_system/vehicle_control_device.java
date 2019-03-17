@@ -741,7 +741,7 @@ public class vehicle_control_device extends script.base_script
         {
             return;
         }
-        for (script.ranged_int_custom_var ranged_int_custom_var : ricv) {
+        for (ranged_int_custom_var ranged_int_custom_var : ricv) {
             if (ranged_int_custom_var.isPalColor()) {
                 pcv = utils.addElement(pcv, (palcolor_custom_var) ranged_int_custom_var);
             }

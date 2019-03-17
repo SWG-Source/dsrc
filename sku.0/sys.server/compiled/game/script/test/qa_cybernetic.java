@@ -272,7 +272,7 @@ public class qa_cybernetic extends script.base_script
         obj_id[] installed = cybernetic.getInstalledCybernetics(player);
         if (installed != null)
         {
-            for (script.obj_id obj_id : installed) {
+            for (obj_id obj_id : installed) {
                 String itemName = getTemplateName(obj_id);
                 installList.add(itemName);
             }

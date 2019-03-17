@@ -99,7 +99,7 @@ public class suin_chalo extends script.base_script
         utils.setScriptVar(creature, "aspect", aspects[idx]);
         trial.setParent(trial.getTop(self), creature, false);
         obj_id[] hateList = getHateList(self);
-        for (script.obj_id obj_id : hateList) {
+        for (obj_id obj_id : hateList) {
             setHate(creature, obj_id, 1.0f);
         }
     }

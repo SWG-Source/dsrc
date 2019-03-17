@@ -1945,7 +1945,7 @@ public class combat_ship_player extends script.base_script
                 int escortSquadId = utils.getIntLocalVar(obj_id1, "escortSquadId");
                 currentTotalEscortFighters += ship_ai.squadGetSize(escortSquadId);
                 obj_id[] escortSquaddyList = ship_ai.squadGetUnitList(escortSquadId);
-                for (script.obj_id obj_id : escortSquaddyList) {
+                for (obj_id obj_id : escortSquaddyList) {
                     if (obj_id == deadFighterId) {
                         int oldEscortUnitCount = utils.getIntLocalVar(obj_id1, "crrntEscrtSqdSz");
                         utils.setLocalVar(obj_id1, "crrntEscrtSqdSz", --oldEscortUnitCount);

@@ -942,7 +942,7 @@ public class player_utility extends script.base_script
                         {
                             boolean areInSameCity = false;
                             for (region region1 : hereCity) {
-                                for (script.region region : thereCity) {
+                                for (region region : thereCity) {
                                     if (((region1.getName())).equals(region.getName())) {
                                         areInSameCity = true;
                                         break;

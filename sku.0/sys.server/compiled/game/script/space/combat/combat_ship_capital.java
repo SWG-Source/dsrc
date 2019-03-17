@@ -266,7 +266,7 @@ public class combat_ship_capital extends script.space.combat.combat_space_base
         {
             dictionary outparams = new dictionary();
             outparams.put("object", self);
-            for (script.obj_id obj_id : notifylist) {
+            for (obj_id obj_id : notifylist) {
                 space_utils.notifyObject(obj_id, "shipDestroyed", outparams);
             }
         }

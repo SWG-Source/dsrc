@@ -444,7 +444,7 @@ public class bounty_hunter extends script.base_script
             obj_id[] missionList = getMissionObjects(player);
             if (missionList != null)
             {
-                for (script.obj_id obj_id : missionList) {
+                for (obj_id obj_id : missionList) {
                     String type = getMissionType(obj_id);
                     if (type.equals("bounty")) {
                         if (isIdValid(target)) {

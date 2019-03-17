@@ -1710,7 +1710,7 @@ public class jhaskell_test extends script.base_script
                     }
                     else
                     {
-                        for (script.obj_id obj_id : myList) {
+                        for (obj_id obj_id : myList) {
                             sendSystemMessageTestingOnly(self, "found: " + obj_id);
                         }
                         sendSystemMessageTestingOnly(self, "done");

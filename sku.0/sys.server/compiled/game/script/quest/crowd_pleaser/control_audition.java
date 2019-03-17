@@ -417,7 +417,7 @@ public class control_audition extends script.base_script
         judges[0] = create.staticObject("quest_crowd_pleaser_judge", judge1_loc);
         judges[1] = create.staticObject("quest_crowd_pleaser_judge", judge2_loc);
         judges[2] = create.staticObject("quest_crowd_pleaser_judge", judge3_loc);
-        for (script.obj_id obj_id : furniture) {
+        for (obj_id obj_id : furniture) {
             if (isIdValid(obj_id)) {
                 setYaw(obj_id, 0);
             }
@@ -447,7 +447,7 @@ public class control_audition extends script.base_script
         }
         if (furniture != null && furniture.length > 0)
         {
-            for (script.obj_id obj_id : furniture) {
+            for (obj_id obj_id : furniture) {
                 if (isIdValid(obj_id) && exists(obj_id)) {
                     destroyObject(obj_id);
                 }

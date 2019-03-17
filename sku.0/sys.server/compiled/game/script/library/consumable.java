@@ -428,7 +428,7 @@ public class consumable extends script.base_script
                     if (am != null)
                     {
                         boolean isBuff = false;
-                        for (script.attrib_mod attrib_mod : am) {
+                        for (attrib_mod attrib_mod : am) {
                             debugServerConsoleMsg(target, ">>>>>>>>>>>> PREPARING TO APPLY MOD TO ATTRIBUTE: " + attrib_mod.getAttribute());
                             if (attrib_mod.getAttribute() == HEALTH) {
                                 debugServerConsoleMsg(target, ">>>>>>>>>>>> ATTEMPTING TO APPLY MOD -- " + attrib_mod.getAttribute() + " LOOKS LIKE HEALTH TO ME!");
@@ -645,7 +645,7 @@ public class consumable extends script.base_script
         {
             return false;
         }
-        for (script.obj_id obj_id : device) {
+        for (obj_id obj_id : device) {
             if ((getTemplateName(obj_id)).equals(template) && hasObjVar(obj_id, objvar)) {
                 decrementCount(obj_id);
                 return true;
@@ -677,7 +677,7 @@ public class consumable extends script.base_script
         {
             return false;
         }
-        for (script.obj_id obj_id : device) {
+        for (obj_id obj_id : device) {
             if ((getTemplateName(obj_id)).equals(template)) {
                 decrementCount(obj_id);
                 return true;

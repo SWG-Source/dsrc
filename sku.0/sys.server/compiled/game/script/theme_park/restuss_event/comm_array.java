@@ -292,7 +292,7 @@ public class comm_array extends script.base_script
             utils.removeScriptVar(self, "beingHacked");
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : hackerInRange) {
+        for (obj_id obj_id : hackerInRange) {
             if (obj_id == utils.getObjIdScriptVar(self, "beingHacked")) {
                 if (isIncapacitated(obj_id)) {
                     sendSystemMessage(obj_id, SID_HACK_INTERRUPTED);

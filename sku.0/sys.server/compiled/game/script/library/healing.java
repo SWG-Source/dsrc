@@ -744,7 +744,7 @@ public class healing extends script.base_script
         }
         float hateValue = hate;
         hateValue *= hateMod;
-        for (script.obj_id obj_id : hateList) {
+        for (obj_id obj_id : hateList) {
             if (!isIdValid(obj_id) || !isTangible(obj_id)) {
                 continue;
             }
@@ -2061,7 +2061,7 @@ public class healing extends script.base_script
         {
             return false;
         }
-        for (script.obj_id obj_id : hateList) {
+        for (obj_id obj_id : hateList) {
             xp.updateCombatXpList(obj_id, player, xp_type, amount);
         }
         return true;
@@ -2535,7 +2535,7 @@ public class healing extends script.base_script
         {
             applyHealingCost(medic, HEAL_TYPE_MEDICAL_REVIVE, 1.0f);
             int[] att = new int[WILLPOWER + 1];
-            for (script.attrib_mod attrib_mod : am) {
+            for (attrib_mod attrib_mod : am) {
                 int attrib = attrib_mod.getAttribute();
                 float attack = attrib_mod.getAttack();
                 float decay = attrib_mod.getDecay();
@@ -2877,7 +2877,7 @@ public class healing extends script.base_script
                 if (hasObjVar(inv_content, consumable.VAR_CONSUMABLE_DROID_MED)) {
                     attrib_mod[] mod_array = getAttribModArrayObjVar(inv_content, consumable.VAR_CONSUMABLE_MODS);
                     if (mod_array != null) {
-                        for (script.attrib_mod attrib_mod : mod_array) {
+                        for (attrib_mod attrib_mod : mod_array) {
                             float attack = attrib_mod.getAttack();
                             if (attack == AM_HEAL_WOUND) {
                                 return inv_content;
@@ -3137,7 +3137,7 @@ public class healing extends script.base_script
         {
             return false;
         }
-        for (script.attrib_mod attrib_mod : mod_array) {
+        for (attrib_mod attrib_mod : mod_array) {
             int attribute = attrib_mod.getAttribute();
             float decay = attrib_mod.getDecay();
             if ((attribute != HEALTH) && (attribute != ACTION) && (attribute != MIND)) {
@@ -3186,7 +3186,7 @@ public class healing extends script.base_script
         {
             return false;
         }
-        for (script.attrib_mod attrib_mod : mod_array) {
+        for (attrib_mod attrib_mod : mod_array) {
             float duration = attrib_mod.getDuration();
             if (duration < 1.0f) {
                 return false;
@@ -3623,7 +3623,7 @@ public class healing extends script.base_script
         attrib_mod[] all_am = getAttribModifiers(player, attribute);
         if (all_am != null && all_am.length > 0)
         {
-            for (script.attrib_mod attrib_mod : all_am) {
+            for (attrib_mod attrib_mod : all_am) {
                 if ((attrib_mod.getName()).equals(buff_name)) {
                     return attrib_mod.getValue();
                 }
@@ -3665,7 +3665,7 @@ public class healing extends script.base_script
     {
         Vector am_new = new Vector();
         am_new.setSize(0);
-        for (script.attrib_mod attrib_mod : am) {
+        for (attrib_mod attrib_mod : am) {
             attrib_mod tmp;
             int mod_value;
             if (attrib_mod.getAttack() == AM_HEAL_WOUND) {
@@ -4093,7 +4093,7 @@ public class healing extends script.base_script
                             attrib_mod[] mod_array = getAttribModArrayObjVar(inv_contents[i], prefix + consumable.VAR_CONSUMABLE_MODS);
                             if (mod_array != null)
                             {
-                                for (script.attrib_mod attrib_mod : mod_array) {
+                                for (attrib_mod attrib_mod : mod_array) {
                                     int attribute = attrib_mod.getAttribute();
                                     float attack = attrib_mod.getAttack();
                                     if ((attribute == wound_type) && (attack == AM_HEAL_WOUND)) {
@@ -4225,7 +4225,7 @@ public class healing extends script.base_script
                         attrib_mod[] mod_array = getAttribModArrayObjVar(inv_contents[i], prefix + consumable.VAR_CONSUMABLE_MODS);
                         if (mod_array != null)
                         {
-                            for (script.attrib_mod attrib_mod : mod_array) {
+                            for (attrib_mod attrib_mod : mod_array) {
                                 int attribute = attrib_mod.getAttribute();
                                 if (attribute == buff_type) {
                                     med_obj = inv_contents[i];

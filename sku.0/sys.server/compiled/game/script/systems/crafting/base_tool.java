@@ -298,7 +298,7 @@ public class base_tool extends script.base_script
         {
             ++resourcesPer;
         }
-        for (script.modifiable_int modifiable_int : resourceAmount) {
+        for (modifiable_int modifiable_int : resourceAmount) {
             modifiable_int.set(resourcesPer);
         }
         return SCRIPT_CONTINUE;

@@ -135,7 +135,7 @@ public class grievous_encounter_manager extends script.base_script
         }
         location selfLocation = getLocation(self);
         obj_id[] objectsInRange = getObjectsInRange(selfLocation, 150.0f);
-        for (script.obj_id obj_id : objectsInRange) {
+        for (obj_id obj_id : objectsInRange) {
             if (isIdValid(obj_id) && hasObjVar(obj_id, "grievous_encounter.isPowerCell")) {
                 obj_id powerCell = obj_id;
                 destroyObject(powerCell);

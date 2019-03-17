@@ -46,7 +46,7 @@ public class space_mining_test extends script.base_script
             entries.setSize(0);
             Vector locations = new Vector();
             locations.setSize(0);
-            for (script.obj_id obj_id : objectsInRange) {
+            for (obj_id obj_id : objectsInRange) {
                 if (hasObjVar(obj_id, "mining_asteroid.numShipsSpawned")) {
                     sendSystemMessageTestingOnly(self, "Found asteroid within 10000 meters!");
                     String strAsteroidType = getStringObjVar(obj_id, "strAsteroidType");
@@ -136,7 +136,7 @@ public class space_mining_test extends script.base_script
     }
     public boolean groupMemberApproved(obj_id[] membersApprovedByShipOwner, obj_id memberToTest) throws InterruptedException
     {
-        for (script.obj_id obj_id : membersApprovedByShipOwner) {
+        for (obj_id obj_id : membersApprovedByShipOwner) {
             if (obj_id == memberToTest) {
                 return true;
             }

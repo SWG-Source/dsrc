@@ -801,7 +801,7 @@ public class cybernetic extends script.base_script
         {
             return null;
         }
-        for (script.obj_id obj_id : installed) {
+        for (obj_id obj_id : installed) {
             if (itemName.equals(getTemplateName(obj_id))) {
                 return obj_id;
             }

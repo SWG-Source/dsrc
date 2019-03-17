@@ -38,7 +38,7 @@ public class foraged extends script.item.comestible.comestible
             {
                 return SCRIPT_CONTINUE;
             }
-            for (script.attrib_mod attrib_mod : am) {
+            for (attrib_mod attrib_mod : am) {
                 int attrib = attrib_mod.getAttribute();
                 int val = attrib_mod.getValue();
                 int newVal = Integer.MIN_VALUE;

@@ -77,7 +77,7 @@ public class npe_commando extends script.base_script
         }
         boolean hasItem = false;
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (script.obj_id obj_id : playerStuff) {
+        for (obj_id obj_id : playerStuff) {
             String templateName = static_item.getStaticItemName(obj_id);
             if (templateName != null) {
                 if (templateName.equals("weapon_grenade_fragmentation_01_01")) {

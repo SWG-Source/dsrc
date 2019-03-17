@@ -25,7 +25,7 @@ public class kav_golder extends script.base_script
         obj_id[] allObj = getObjectsInRange(getLocation(self), 30.0f);
         Vector allies = new Vector();
         allies.setSize(0);
-        for (script.obj_id obj_id : allObj) {
+        for (obj_id obj_id : allObj) {
             if (hasObjVar(obj_id, "faction")) {
 
             }

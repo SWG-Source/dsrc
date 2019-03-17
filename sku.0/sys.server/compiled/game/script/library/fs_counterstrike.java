@@ -773,7 +773,7 @@ public class fs_counterstrike extends script.base_script
             return false;
         }
         obj_id[] stuff = getNonCreaturesInRange(getLocation(player), SHIELD_REMOTE_RANGE);
-        for (script.obj_id obj_id : stuff) {
+        for (obj_id obj_id : stuff) {
             if (hasObjVar(obj_id, OBJVAR_IS_REMOTE_RECEIVER)) {
                 obj_id campMaster = getMyOutpostId(obj_id);
                 if (campMaster == null) {

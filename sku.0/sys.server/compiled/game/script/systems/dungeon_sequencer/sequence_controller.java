@@ -276,7 +276,7 @@ public class sequence_controller extends script.base_script
         obj_id[] selfCellList = getCellIds(self);
         if (selfCellList != null && selfCellList.length > 0)
         {
-            for (script.obj_id obj_id : selfCellList) {
+            for (obj_id obj_id : selfCellList) {
                 permissionsMakePublic(obj_id);
             }
         }
@@ -877,7 +877,7 @@ public class sequence_controller extends script.base_script
             doLogging("doMessageTo", "No spawn_id could be found");
             return;
         }
-        for (script.obj_id obj_id : spawn_id) {
+        for (obj_id obj_id : spawn_id) {
             String checkSpawn = getStringObjVar(obj_id, "spawn_id");
             if (checkSpawn.equals(completeParse[SPAWN_ID])) {
                 _doMessageTo(obj_id, completeParse);
@@ -1202,7 +1202,7 @@ public class sequence_controller extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : spawn_id) {
+        for (obj_id obj_id : spawn_id) {
             String checkSpawn = getStringObjVar(obj_id, "spawn_id");
             if (checkSpawn.equals(spawnId)) {
                 if (!effect.equals("none")) {
@@ -1432,7 +1432,7 @@ public class sequence_controller extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : pp) {
+        for (obj_id obj_id : pp) {
             if (!isIdValid(obj_id) || !exists(obj_id)) {
                 continue;
             }
@@ -1443,7 +1443,7 @@ public class sequence_controller extends script.base_script
     {
         Vector ppData = new Vector();
         ppData.setSize(0);
-        for (script.obj_id obj_id : ppl) {
+        for (obj_id obj_id : ppl) {
             if (!isIdValid(obj_id) || !exists(obj_id)) {
                 continue;
             }

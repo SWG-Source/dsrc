@@ -47,7 +47,7 @@ public class event_perk_chest extends script.base_script
         }
         if (transferer != owner)
         {
-            for (script.obj_id obj_id : rewarded) {
+            for (obj_id obj_id : rewarded) {
                 if (obj_id == transferer) {
                     sendSystemMessage(transferer, new string_id(STF_FILE, "chest_only_one_item"));
                     return SCRIPT_OVERRIDE;

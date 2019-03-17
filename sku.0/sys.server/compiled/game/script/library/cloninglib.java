@@ -638,7 +638,7 @@ public class cloninglib extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : eq) {
+        for (obj_id obj_id : eq) {
             if (isIdValid(obj_id) && !isAutoInsured(obj_id) && isDamagedOnCloneGOT(getGameObjectType(obj_id))) {
                 pclib.damageAndDecayItem(obj_id, percent);
             }
@@ -653,7 +653,7 @@ public class cloninglib extends script.base_script
         {
             return null;
         }
-        for (script.obj_id obj_id : eq) {
+        for (obj_id obj_id : eq) {
             int damage = getItemDamageAmount(obj_id);
             if (damage > 0) {
                 repairList = utils.addElement(repairList, obj_id);
@@ -690,7 +690,7 @@ public class cloninglib extends script.base_script
             return 0;
         }
         int totalCost = 0;
-        for (script.obj_id obj_id : repairList) {
+        for (obj_id obj_id : repairList) {
             int cost = getItemRepairCost(obj_id);
             if (cost > 0) {
                 totalCost += cost;
@@ -776,7 +776,7 @@ public class cloninglib extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : repairList) {
+        for (obj_id obj_id : repairList) {
             int maxHp = getMaxHitpoints(obj_id);
             setInvulnerableHitpoints(obj_id, maxHp);
         }

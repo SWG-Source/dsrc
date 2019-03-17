@@ -375,7 +375,7 @@ public class fs_kickoff extends script.base_script
                     }
                     if (permitted != null)
                     {
-                        for (script.obj_id obj_id : permitted) {
+                        for (obj_id obj_id : permitted) {
                             if (obj_id == self) {
                                 obj_id inv = utils.getInventoryContainer(corpse);
                                 if (isIdValid(inv)) {

@@ -1927,7 +1927,7 @@ public class dantest extends script.base_script
             obj_id[] objFoo = getAllObjectsWithTemplate(getLocation(self), 10, "object/tangible/creature_spawner/tatooine_spawner_hard.iff");
             if (objFoo != null)
             {
-                for (script.obj_id obj_id : objFoo) {
+                for (obj_id obj_id : objFoo) {
                     deltadictionary dctScriptVars = obj_id.getScriptVars();
                     sendSystemMessageTestingOnly(self, "scriptvars for " + obj_id + " are " + dctScriptVars.toString());
                 }
@@ -1991,7 +1991,7 @@ public class dantest extends script.base_script
                 objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
                 obj_id[] objFoo = getObjectsInRange(locTest, 10);
                 sendSystemMessageTestingOnly(self, "objFoo length is " + objFoo.length);
-                for (script.obj_id obj_id : objFoo) {
+                for (obj_id obj_id : objFoo) {
                     destroyObject(obj_id);
                 }
                 break;
@@ -2006,7 +2006,7 @@ public class dantest extends script.base_script
                 objTest = createObject("object/weapon/ranged/pistol/pistol_dl44.iff", locTest);
                 obj_id[] objFoo = getAllObjectsWithTemplate(locTest, 10, "object/weapon/ranged/pistol/pistol_dl44.iff");
                 sendSystemMessageTestingOnly(self, "objFoo length is " + objFoo.length);
-                for (script.obj_id obj_id : objFoo) {
+                for (obj_id obj_id : objFoo) {
                     destroyObject(obj_id);
                 }
                 break;
@@ -2174,7 +2174,7 @@ public class dantest extends script.base_script
         {
             obj_id[] objStuff = getObjectsInRange(getLocation(self), 40);
             sendSystemMessageTestingOnly(self, "length is " + objStuff.length);
-            for (script.obj_id obj_id : objStuff) {
+            for (obj_id obj_id : objStuff) {
                 sendSystemMessageTestingOnly(self, "NPC is: " + obj_id);
                 sendSystemMessageTestingOnly(self, "InvulnerableFlag is: " + isInvulnerable(obj_id));
                 sendSystemMessageTestingOnly(self, "pvpCanAttack is: " + pvpCanAttack(self, obj_id));

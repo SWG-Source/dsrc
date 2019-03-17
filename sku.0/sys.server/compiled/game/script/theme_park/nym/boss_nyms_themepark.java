@@ -62,7 +62,7 @@ public class boss_nyms_themepark extends script.base_script
         if (attackerList != null && attackerList.length > 0)
         {
             CustomerServiceLog("nyms_themepark", "boss_nyms_themepark.OnAboutToBeIncapacitated() Boss Mob attackerList = " + attackerList.length);
-            for (script.obj_id obj_id : attackerList) {
+            for (obj_id obj_id : attackerList) {
                 if (!isIdValid(obj_id)) {
                     continue;
                 }

@@ -129,7 +129,7 @@ public class bunker_controller extends script.base_script
             obj_id[] terminalList = getObjIdArrayObjVar(bunker, "terminalObjIdList");
             if (terminalList.length > 0)
             {
-                for (script.obj_id obj_id : terminalList) {
+                for (obj_id obj_id : terminalList) {
                     destroyObject(obj_id);
                 }
             }

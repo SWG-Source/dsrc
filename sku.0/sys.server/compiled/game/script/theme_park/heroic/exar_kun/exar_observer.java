@@ -55,7 +55,7 @@ public class exar_observer extends script.base_script
         obj_id[] allobj = trial.getObjectsInCellWithObjVar(trial.getTop(self), "r7", "spawn_id");
         Vector the_team = new Vector();
         the_team.setSize(0);
-        for (script.obj_id obj_id : allobj) {
+        for (obj_id obj_id : allobj) {
             String spawn_id = getStringObjVar(obj_id, "spawn_id");
             if (spawn_id.equals("harmony") || spawn_id.equals("chaos") || spawn_id.equals("veng") || spawn_id.equals("wrath")) {
                 the_team.add(obj_id);

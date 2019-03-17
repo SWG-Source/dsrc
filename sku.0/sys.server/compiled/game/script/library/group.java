@@ -322,7 +322,7 @@ public class group extends script.base_script
         }
         prose_package ppSingleLoot = prose.getPackage(PROSE_NOTIFY_SINGLE_LOOT, actor, getName(actor), null, target, getAssignedName(target), getNameStringId(target), item, getAssignedName(item), getNameStringId(item), 0, 0.0f);
         obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(gid);
-        for (script.obj_id obj_id : objMembersWhoExist) {
+        for (obj_id obj_id : objMembersWhoExist) {
             sendSystemMessageProse(obj_id, ppSingleLoot);
         }
     }
@@ -451,7 +451,7 @@ public class group extends script.base_script
                 obj_id[] lowMoney = getUnsafeMoney(targets, dividend);
                 if (lowMoney.length > 0 && lowMoney != null)
                 {
-                    for (script.obj_id obj_id : lowMoney) {
+                    for (obj_id obj_id : lowMoney) {
                         toPay = getSafeDifference(obj_id, dividend);
                         if (obj_id != actor) {
                             params.put("amt", toPay);
@@ -473,7 +473,7 @@ public class group extends script.base_script
                 params.put("amt", remainder);
                 if (safeMoney.length > 0 && safeMoney != null)
                 {
-                    for (script.obj_id obj_id : safeMoney) {
+                    for (obj_id obj_id : safeMoney) {
                         if (obj_id != actor) {
                             messageTo(obj_id, "handleRequestSplitShares", params, 0, false);
                             totalDividends += remainder;
@@ -556,7 +556,7 @@ public class group extends script.base_script
                 messageTo(actor, HANDLER_SPLIT_SUCCESS, params, 0, false);
                 if (safeMoney != null && safeMoney.length > 0)
                 {
-                    for (script.obj_id obj_id : safeMoney) {
+                    for (obj_id obj_id : safeMoney) {
                         if (obj_id != actor) {
                             messageTo(obj_id, "handleRequestPayoutShare", params, 0, false);
                         }

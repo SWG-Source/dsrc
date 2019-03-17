@@ -288,7 +288,7 @@ public class piracy extends script.base_script
         obj_id[] escortIdArray = utils.getObjIdArrayObjVar(self, "escortIdArray");
         if (escortIdArray != null)
         {
-            for (script.obj_id obj_id : escortIdArray) {
+            for (obj_id obj_id : escortIdArray) {
                 if (isIdValid(obj_id) && exists(obj_id)) {
                     messageTo(obj_id, "hyperLeave", null, 0.0f, false);
                 }

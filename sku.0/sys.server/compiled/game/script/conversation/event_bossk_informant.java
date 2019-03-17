@@ -47,7 +47,7 @@ public class event_bossk_informant extends script.base_script
     public boolean event_bossk_informant_condition_hasBrokenGloves(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id inv[] = utils.getAllItemsInBankAndInventory(player);
-        for (script.obj_id obj_id : inv) {
+        for (obj_id obj_id : inv) {
             String thisItem = getTemplateName(obj_id);
             if (thisItem.equals("object/tangible/wearables/gloves/gloves_bossk_reward.iff")) {
                 if (hasObjVar(obj_id, "skillmod.bonus.ranged_accuracy")) {
@@ -83,7 +83,7 @@ public class event_bossk_informant extends script.base_script
     public void event_bossk_informant_action_fixGloves(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id inv[] = utils.getAllItemsInBankAndInventory(player);
-        for (script.obj_id obj_id : inv) {
+        for (obj_id obj_id : inv) {
             String thisItem = getTemplateName(obj_id);
             if (thisItem.equals("object/tangible/wearables/gloves/gloves_bossk_reward.iff")) {
                 if (hasObjVar(obj_id, "skillmod.bonus.ranged_accuracy")) {

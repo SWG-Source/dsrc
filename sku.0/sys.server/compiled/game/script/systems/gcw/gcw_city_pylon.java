@@ -364,7 +364,7 @@ public class gcw_city_pylon extends script.base_script
         int bestToolValue = 0;
         int toolValue = 0;
         obj_id bestTool = null;
-        for (script.obj_id obj_id : toolList) {
+        for (obj_id obj_id : toolList) {
             toolValue = 0;
             String itemTemplate = getTemplateName(obj_id);
             if (itemTemplate != null && itemTemplate.equals(desiredTemplate)) {

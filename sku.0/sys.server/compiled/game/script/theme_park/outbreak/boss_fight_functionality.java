@@ -52,7 +52,7 @@ public class boss_fight_functionality extends script.base_script
             CustomerServiceLog("outbreak_themepark", "rancor_boss_fight_controller.OnIncapacitated() groupMembersInRange was NULL. for player: " + playerEnemy);
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : groupMembersInRange) {
+        for (obj_id obj_id : groupMembersInRange) {
             CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.OnIncapacitated() A player, " + obj_id + ", was found in player group of playerEnemy: " + playerEnemy);
             if (!isIdValid(obj_id) && !exists(obj_id) || isIncapacitated(obj_id) || !isDead(obj_id)) {
                 CustomerServiceLog("outbreak_themepark", "boss_fight_functionality.OnIncapacitated() A player, " + obj_id + ", in the group of " + playerEnemy + " was dead, incapacitated or in some way not found.");
@@ -272,7 +272,7 @@ public class boss_fight_functionality extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(groupId);
-            for (script.obj_id obj_id : objMembersWhoExist) {
+            for (obj_id obj_id : objMembersWhoExist) {
                 sendSystemMessage(obj_id, BOSS_BEGIN);
             }
         }
@@ -303,7 +303,7 @@ public class boss_fight_functionality extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             obj_id[] objMembersWhoExist = utils.getLocalGroupMemberIds(groupId);
-            for (script.obj_id obj_id : objMembersWhoExist) {
+            for (obj_id obj_id : objMembersWhoExist) {
                 sendSystemMessage(obj_id, BOSS_LEAVING);
             }
         }

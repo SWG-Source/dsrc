@@ -29,7 +29,7 @@ public class medic extends script.base_script
         allies.setSize(0);
         Vector gods = new Vector();
         gods.setSize(0);
-        for (script.obj_id obj_id : allObj) {
+        for (obj_id obj_id : allObj) {
             if (!isValidTarget(self, obj_id)) {
                 continue;
             }

@@ -879,7 +879,7 @@ public class holiday extends script.base_script
         {
             return false;
         }
-        for (script.obj_id obj_id : allMobsCombat) {
+        for (obj_id obj_id : allMobsCombat) {
             if (obj_id == player) {
                 continue;
             }

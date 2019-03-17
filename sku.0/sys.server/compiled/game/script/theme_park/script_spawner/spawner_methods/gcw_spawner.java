@@ -336,7 +336,7 @@ public class gcw_spawner extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : spawned) {
+        for (obj_id obj_id : spawned) {
             if (isIdValid(obj_id) && exists(obj_id)) {
                 destroyObject(obj_id);
             }

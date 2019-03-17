@@ -18,7 +18,7 @@ public class npe_medic2 extends script.base_script
         boolean needsItem = false;
         boolean hasItem = false;
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (script.obj_id obj_id : playerStuff) {
+        for (obj_id obj_id : playerStuff) {
             String templateName = static_item.getStaticItemName(obj_id);
             if (templateName != null) {
                 if (templateName.equals("item_bactapack_01_01")) {
@@ -47,7 +47,7 @@ public class npe_medic2 extends script.base_script
     public boolean npe_medic2_condition_hasPack(obj_id player, obj_id npc) throws InterruptedException
     {
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (script.obj_id obj_id : playerStuff) {
+        for (obj_id obj_id : playerStuff) {
             String templateName = static_item.getStaticItemName(obj_id);
             if (templateName != null) {
                 if (templateName.equals("item_bactapack_01_01")) {

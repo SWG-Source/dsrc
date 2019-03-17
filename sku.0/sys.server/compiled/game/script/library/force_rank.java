@@ -3365,7 +3365,7 @@ public class force_rank extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : enemyGroup) {
+        for (obj_id obj_id : enemyGroup) {
             if (player != obj_id) {
                 makePlayersPermaEnemies(player, obj_id);
             }
@@ -3378,7 +3378,7 @@ public class force_rank extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : friendGroup) {
+        for (obj_id obj_id : friendGroup) {
             if (player != obj_id) {
                 makePlayersPermaFriends(player, obj_id);
             }
@@ -3391,7 +3391,7 @@ public class force_rank extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : group1) {
+        for (obj_id obj_id : group1) {
             makePlayerEnemyOfGroup(obj_id, group2);
         }
         return;

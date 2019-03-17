@@ -265,7 +265,7 @@ public class camp_defense_spawner extends script.base_script
         CustomerServiceLog("outbreak_themepark", "camp_defense_spawner.findPathNodes() pathNodeList.length: " + pathNodeList.length);
         Vector nodePtLocs = new Vector();
         nodePtLocs.setSize(0);
-        for (script.obj_id obj_id : pathNodeList) {
+        for (obj_id obj_id : pathNodeList) {
             if (!(getStringObjVar(obj_id, PATHNODE_OBJVAR)).equals(questName)) {
                 continue;
             }

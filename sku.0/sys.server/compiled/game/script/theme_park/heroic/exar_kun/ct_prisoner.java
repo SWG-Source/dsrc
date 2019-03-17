@@ -32,7 +32,7 @@ public class ct_prisoner extends script.base_script
         obj_id guard2 = null;
         obj_id guard3 = null;
         obj_id guard4 = null;
-        for (script.obj_id obj_id : allNpc) {
+        for (obj_id obj_id : allNpc) {
             if ((getStringObjVar(obj_id, "spawn_id")).equals("ct_guard_1")) {
                 guard1 = obj_id;
             }

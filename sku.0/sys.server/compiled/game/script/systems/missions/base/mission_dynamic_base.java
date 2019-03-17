@@ -3676,7 +3676,7 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             obj_id[] objMissionArray = getMissionObjects(objPlayer);
             if (objMissionArray != null)
             {
-                for (script.obj_id obj_id : objMissionArray) {
+                for (obj_id obj_id : objMissionArray) {
                     String strType = getMissionType(obj_id);
                     if (strType.equals("bounty")) {
                         return obj_id;
@@ -3871,7 +3871,7 @@ public class mission_dynamic_base extends script.systems.missions.base.mission_b
             obj_id[] objMissionArray = getMissionObjects(objPlayer);
             if (objMissionArray != null)
             {
-                for (script.obj_id obj_id : objMissionArray) {
+                for (obj_id obj_id : objMissionArray) {
                     String strType = getMissionType(obj_id);
                     if (strType.equals("assassin")) {
                         return obj_id;

@@ -155,7 +155,7 @@ public class beast_pathing extends script.base_script
         obj_id[] enemyArray = utils.getObjIdArrayScriptVar(self, ENEMY_LIST);
         if (enemyArray != null && enemyArray.length > 0)
         {
-            for (script.obj_id obj_id : enemyArray) {
+            for (obj_id obj_id : enemyArray) {
                 messageTo(obj_id, "destroySelf", null, 1, false);
             }
         }
@@ -220,7 +220,7 @@ public class beast_pathing extends script.base_script
                     float smallestDist = 300;
                     location closestLoc = null;
                     boolean modified = false;
-                    for (script.location location : waypointLocList) {
+                    for (location location : waypointLocList) {
                         float npcAndWaypointDist = getDistance(getLocation(self), location);
                         if (npcAndWaypointDist > smallestDist) {
                             continue;

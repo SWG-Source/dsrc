@@ -495,7 +495,7 @@ public class create extends script.base_script
             ranged_int_custom_var[] c = hue.getPalcolorVars(creature);
             if (c != null)
             {
-                for (script.ranged_int_custom_var ranged_int_custom_var : c) {
+                for (ranged_int_custom_var ranged_int_custom_var : c) {
                     ranged_int_custom_var.setValue(huevar);
                 }
             }

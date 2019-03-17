@@ -75,7 +75,7 @@ public class open_hand extends script.base_script
             return null;
         }
         String cultist = getCultistString(getSelf());
-        for (script.obj_id obj_id : allSpawn) {
+        for (obj_id obj_id : allSpawn) {
             if ((getStringObjVar(obj_id, "spawn_id")).equals(cultist)) {
                 return obj_id;
             }

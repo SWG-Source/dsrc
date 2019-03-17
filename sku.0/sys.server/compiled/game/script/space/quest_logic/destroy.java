@@ -201,7 +201,7 @@ public class destroy extends script.base_script
                 if (hasObjVar(self, "killTrack")) {
                     obj_id[] track = getObjIdArrayObjVar(self, "killTrack");
                     if (track != null) {
-                        for (script.obj_id obj_id : track) {
+                        for (obj_id obj_id : track) {
                             if (obj_id == destroyed) {
                                 return SCRIPT_CONTINUE;
                             }

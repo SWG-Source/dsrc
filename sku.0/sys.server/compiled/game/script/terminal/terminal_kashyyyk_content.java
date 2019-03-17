@@ -2296,7 +2296,7 @@ public class terminal_kashyyyk_content extends script.base_script
     }
     public boolean groupMemberApproved(obj_id[] membersApprovedByShipOwner, obj_id memberToTest) throws InterruptedException
     {
-        for (script.obj_id obj_id : membersApprovedByShipOwner) {
+        for (obj_id obj_id : membersApprovedByShipOwner) {
             if (obj_id == memberToTest) {
                 return true;
             }

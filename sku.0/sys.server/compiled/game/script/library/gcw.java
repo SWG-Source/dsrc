@@ -273,7 +273,7 @@ public class gcw extends script.base_script
             region[] r = getRegionsWithSpawnableAtPoint(here, regions.SPAWN_TRUE);
             if (r != null && r.length > 0)
             {
-                for (script.region region : r) {
+                for (region region : r) {
                     String rName = region.getName();
                     int idx = utils.getElementPositionInArray(regionNames, rName);
                     if (idx > -1) {
@@ -561,7 +561,7 @@ public class gcw extends script.base_script
         {
             tbl = "datatables/imperial_presence/geo/general_heavy.iff";
         }
-        for (script.region region : r) {
+        for (region region : r) {
             int geoType = region.getGeographicalType();
             if (geoType == regions.GEO_DESERT || geoType == regions.GEO_OASIS || geoType == regions.GEO_WASTELAND) {
                 tbl = "datatables/imperial_presence/geo/desert.iff";
@@ -1025,7 +1025,7 @@ public class gcw extends script.base_script
         if (gcwEnemiesList != null && gcwEnemiesList.length > 0)
         {
             removeDayOldEntries(player);
-            for (script.obj_id obj_id : gcwEnemiesList) {
+            for (obj_id obj_id : gcwEnemiesList) {
                 if (!isIdValid(obj_id) || !exists(obj_id) || !verifyPvpRegionStatus(obj_id)) {
                     continue;
                 }
@@ -1534,7 +1534,7 @@ public class gcw extends script.base_script
         {
             return null;
         }
-        for (script.region region : regionList) {
+        for (region region : regionList) {
             String regionName = region.getName();
             String packedRegion = REGION_CONTROLLER + "." + regionName;
             if (utils.hasScriptVar(planetId, packedRegion)) {
@@ -1820,7 +1820,7 @@ public class gcw extends script.base_script
             return null;
         }
         region pvpRegion = null;
-        for (script.region region : regions) {
+        for (region region : regions) {
             if (isNotifyRegion(region)) {
                 pvpRegion = region;
             }
@@ -2187,7 +2187,7 @@ public class gcw extends script.base_script
             return false;
         }
         LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList.length: " + attackerList.length);
-        for (script.obj_id obj_id : attackerList) {
+        for (obj_id obj_id : attackerList) {
             LOG("signalAllParticipantsForDamage", "signalAllParticipantsForDamage attackerList[i]: " + obj_id);
             if (!isValidId(obj_id)) {
                 continue;

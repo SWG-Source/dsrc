@@ -199,7 +199,7 @@ public class echo_player extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : allObj) {
+        for (obj_id obj_id : allObj) {
             if (hasScript(obj_id, "theme_park.heroic.echo_base.echo_quest_tracker")) {
                 quest_manager = obj_id;
                 break;

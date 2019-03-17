@@ -283,7 +283,7 @@ public class mediator extends script.poi.base.scenario_actor
         {
             return;
         }
-        for (script.obj_id obj_id : team) {
+        for (obj_id obj_id : team) {
             messageTo(obj_id, "celebrateFreedom", null, 0, false);
         }
         messageTo(self, "runForFreedom", null, 10, false);
@@ -304,7 +304,7 @@ public class mediator extends script.poi.base.scenario_actor
         {
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : team) {
+        for (obj_id obj_id : team) {
             if (obj_id == self) {
                 continue;
             }

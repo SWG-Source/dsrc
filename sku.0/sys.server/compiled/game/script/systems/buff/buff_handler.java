@@ -868,7 +868,7 @@ public class buff_handler extends script.base_script
         String randomDance = danceList[rand(0, danceList.length - 1)];
         performance.effect(self, performance.PERFORMANCE_EFFECT_DANCE_FLOOR, 1);
         obj_id[] everyone = getPlayerCreaturesInRange(getLocation(self), 20.0f);
-        for (script.obj_id obj_id : everyone) {
+        for (obj_id obj_id : everyone) {
             if (!combat.isInCombat(obj_id)) {
                 utils.setScriptVar(obj_id, "event.dance_party", 1);
                 performance.startDance(obj_id, randomDance);
@@ -2647,7 +2647,7 @@ public class buff_handler extends script.base_script
             obj_id[] buffAi = getCreaturesInRange(getLocation(self), 45.0f);
             if (buffAi != null && buffAi.length > 0)
             {
-                for (script.obj_id obj_id : buffAi) {
+                for (obj_id obj_id : buffAi) {
                     if (!isMob(obj_id) && !isPlayer(obj_id) || isDead(obj_id)) {
                         continue;
                     }

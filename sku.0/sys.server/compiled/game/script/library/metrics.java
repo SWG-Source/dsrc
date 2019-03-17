@@ -161,7 +161,7 @@ public class metrics extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : inv) {
+        for (obj_id obj_id : inv) {
             int got = getGameObjectType(obj_id);
             if (isGameObjectTypeOf(got, GOT_armor)) {
                 int oldHp = utils.getIntScriptVar(obj_id, "metrics.armorHp");

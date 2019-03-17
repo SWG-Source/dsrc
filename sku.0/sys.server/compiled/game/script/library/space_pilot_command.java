@@ -38,7 +38,7 @@ public class space_pilot_command extends script.base_script
         int targetSquadId = ship_ai.unitGetSquadId(target);
         obj_id[] targetSquaddyList = ship_ai.squadGetUnitList(targetSquadId);
         int highestTierValue = 1;
-        for (script.obj_id obj_id : targetSquaddyList) {
+        for (obj_id obj_id : targetSquaddyList) {
             int targetTier = 0;
             String targetName = utils.getTemplateFilenameNoPath(obj_id);
             String[] targetNameDecode = split(targetName, '_');

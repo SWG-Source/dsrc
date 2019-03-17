@@ -98,7 +98,7 @@ public class spawn_generation_tool extends script.base_script
                 {
                     attachScript(masterObject, MASTER_SPAWN_SCRIPT);
                     setObjVar(player, MASTER_SPAWN_OBJECT, masterObject);
-                    for (script.obj_id obj_id : objectList) {
+                    for (obj_id obj_id : objectList) {
                         if (obj_id != objectList[idx]) {
                             trial.cleanupNpc(obj_id);
                         }

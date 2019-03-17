@@ -3703,7 +3703,7 @@ public class combat extends script.base_script
             return false;
         }
         boolean hasLos = true;
-        for (script.obj_id obj_id : hateList) {
+        for (obj_id obj_id : hateList) {
             hasLos |= canSee(self, obj_id);
         }
         if (!hasLos)

@@ -39,7 +39,7 @@ public class wwallace_test extends script.base_script
         {
             sendSystemMessageTestingOnly(self, "Cleaning up encounters....");
             obj_id[] objectsInRange = getObjectsInRange(getLocation(self), 200.0f);
-            for (script.obj_id obj_id : objectsInRange) {
+            for (obj_id obj_id : objectsInRange) {
                 if (hasObjVar(obj_id, "grievous_encounter.active")) {
                     obj_id powerCell = obj_id;
                     destroyObject(powerCell);

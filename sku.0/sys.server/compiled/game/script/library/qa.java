@@ -1015,7 +1015,7 @@ public class qa extends script.base_script
             {
                 putInOverloaded(firstBag, testerInventoryId);
             }
-            for (script.obj_id obj_id : invAndEquip) {
+            for (obj_id obj_id : invAndEquip) {
                 String templateName = getTemplateName(obj_id);
                 if (templateName.equals("object/tangible/test/qabag.iff")) {
                     hasBag = true;

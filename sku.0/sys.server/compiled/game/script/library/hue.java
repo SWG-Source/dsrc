@@ -200,7 +200,7 @@ public class hue extends script.base_script
         ranged_int_custom_var[] c = getPalcolorVars(target);
         if (c != null)
         {
-            for (script.ranged_int_custom_var ranged_int_custom_var : c) {
+            for (ranged_int_custom_var ranged_int_custom_var : c) {
                 int min = ranged_int_custom_var.getMinRangeInclusive();
                 int max = ranged_int_custom_var.getMaxRangeInclusive();
                 int randVal = rand(min, max);
@@ -215,7 +215,7 @@ public class hue extends script.base_script
         ranged_int_custom_var[] c = getPalcolorVars(target);
         if (c != null)
         {
-            for (script.ranged_int_custom_var ranged_int_custom_var : c) {
+            for (ranged_int_custom_var ranged_int_custom_var : c) {
                 ranged_int_custom_var.setValue(color);
             }
         }
@@ -275,7 +275,7 @@ public class hue extends script.base_script
         ranged_int_custom_var[] c = getRangedIntVars(target);
         if (c != null)
         {
-            for (script.ranged_int_custom_var ranged_int_custom_var : c) {
+            for (ranged_int_custom_var ranged_int_custom_var : c) {
                 PROFILER_START("hue.reshapeObject.innerLoop");
                 int min = ranged_int_custom_var.getMinRangeInclusive();
                 int max = ranged_int_custom_var.getMaxRangeInclusive();

@@ -75,7 +75,7 @@ public class grenadier extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id focus = hateList[rand(0, hateList.length - 1)];
-        for (script.obj_id obj_id : hateList) {
+        for (obj_id obj_id : hateList) {
             if (obj_id == focus) {
                 setHate(self, focus, 10000.0f);
             } else {

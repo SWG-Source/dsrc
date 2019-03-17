@@ -61,7 +61,7 @@ public class retrieve_item extends script.quest.task.ground.base_task
                         String objvarRetrievedFull = baseObjVar + dot + objvarRetrieved;
                         if (hasObjVar(self, objvarRetrievedFull)) {
                             obj_id[] itemsAlreadyRetrieved = getObjIdArrayObjVar(self, objvarRetrievedFull);
-                            for (script.obj_id obj_id : itemsAlreadyRetrieved) {
+                            for (obj_id obj_id : itemsAlreadyRetrieved) {
                                 utils.addElement(retrievedItemsResizable, obj_id);
                             }
                         }

@@ -151,7 +151,7 @@ public class rescue_trigger_volume extends script.base_script
             return SCRIPT_CONTINUE;
         }
         location[] wayPtLocs = new location[wayPointList.length];
-        for (script.obj_id obj_id : wayPointList) {
+        for (obj_id obj_id : wayPointList) {
             int orderNumber = getIntObjVar(obj_id, creatureType) - 1;
             if (orderNumber < 0) {
                 continue;

@@ -1959,7 +1959,7 @@ public class guild extends script.base_script
         obj_id self = getTopMostContainer(getSelf());
         for (int i = 0, j = candidates.length; i < j; i++)
         {
-            for (script.obj_id obj_id : voteList) {
+            for (obj_id obj_id : voteList) {
                 if (candidates[i] == obj_id) {
                     voteTotals[i]++;
                 }

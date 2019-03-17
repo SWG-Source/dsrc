@@ -2497,7 +2497,7 @@ public class terminal_character_builder extends script.base_script
             inventoryArray = new obj_id[0];
         }
         java.util.HashSet inventoryLookup = new java.util.HashSet(inventoryArray.length > 8 ? inventoryArray.length * 2 : 16);
-        for (script.obj_id obj_id : inventoryArray) {
+        for (obj_id obj_id : inventoryArray) {
             String itemTemplate = getTemplateName(obj_id);
             if (itemTemplate != null) {
                 inventoryLookup.add(itemTemplate);
@@ -10721,7 +10721,7 @@ public class terminal_character_builder extends script.base_script
     }
     public boolean groupMemberApproved(obj_id[] membersApprovedByShipOwner, obj_id memberToTest) throws InterruptedException
     {
-        for (script.obj_id obj_id : membersApprovedByShipOwner) {
+        for (obj_id obj_id : membersApprovedByShipOwner) {
             if (obj_id == memberToTest) {
                 return true;
             }

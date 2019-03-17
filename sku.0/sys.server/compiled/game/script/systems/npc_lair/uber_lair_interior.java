@@ -91,7 +91,7 @@ public class uber_lair_interior extends script.base_script
     {
         boolean boolDestroy = true;
         obj_id[] objStuff = player_structure.getObjectsInBuilding(self);
-        for (script.obj_id obj_id : objStuff) {
+        for (obj_id obj_id : objStuff) {
             if (isPlayer(obj_id)) {
                 boolDestroy = false;
                 expelFromBuilding(obj_id);

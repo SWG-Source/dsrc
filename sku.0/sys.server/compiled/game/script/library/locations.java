@@ -711,7 +711,7 @@ public class locations extends script.base_script
             }
         }
         int minDifficulty = 90;
-        for (script.region region : rgnRegionsAtPoint) {
+        for (region region : rgnRegionsAtPoint) {
             int regionMinDifficulty = region.getMinDifficultyType();
             if (minDifficulty > regionMinDifficulty) {
                 minDifficulty = regionMinDifficulty;
@@ -771,7 +771,7 @@ public class locations extends script.base_script
             return 0;
         }
         int minDifficulty = Integer.MAX_VALUE;
-        for (script.region region : rgnRegionList) {
+        for (region region : rgnRegionList) {
             int regionMinDifficulty = region.getMinDifficultyType();
             if (minDifficulty > regionMinDifficulty) {
                 minDifficulty = regionMinDifficulty;
@@ -787,7 +787,7 @@ public class locations extends script.base_script
             return Integer.MAX_VALUE;
         }
         int maxDifficulty = Integer.MIN_VALUE;
-        for (script.region region : rgnRegionList) {
+        for (region region : rgnRegionList) {
             int regionMaxDifficulty = region.getMaxDifficultyType();
             if (maxDifficulty < regionMaxDifficulty) {
                 maxDifficulty = regionMaxDifficulty;
@@ -906,7 +906,7 @@ public class locations extends script.base_script
         {
             return false;
         }
-        for (script.region region : regionList) {
+        for (region region : regionList) {
             if (region == null || (region.getName()).length() <= 0) {
                 continue;
             }

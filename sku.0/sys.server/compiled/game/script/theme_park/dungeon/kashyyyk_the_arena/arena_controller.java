@@ -42,7 +42,7 @@ public class arena_controller extends script.base_script
         obj_id[] creatureList = getObjectsInRange(self, 150);
         if (creatureList != null && creatureList.length > 0)
         {
-            for (script.obj_id obj_id : creatureList) {
+            for (obj_id obj_id : creatureList) {
                 if (isMob(obj_id) && !hasScript(obj_id, "conversation.ep3_forest_arena_guard_interior") && !hasScript(obj_id, "conversation.ep3_forest_wirartu_arena")) {
                     trial.cleanupNpc(obj_id);
                 } else if (isPlayer(obj_id)) {

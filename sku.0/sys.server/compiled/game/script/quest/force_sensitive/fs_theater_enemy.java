@@ -44,7 +44,7 @@ public class fs_theater_enemy extends script.base_script
                     }
                     if (permitted != null)
                     {
-                        for (script.obj_id obj_id : permitted) {
+                        for (obj_id obj_id : permitted) {
                             if (obj_id == player) {
                                 obj_id inv = utils.getInventoryContainer(self);
                                 if (isIdValid(inv)) {

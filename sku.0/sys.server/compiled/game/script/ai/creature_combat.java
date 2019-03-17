@@ -458,7 +458,7 @@ public class creature_combat extends script.systems.combat.combat_base
         }
         float topHate = 0.0f;
         primaryTarget = null;
-        for (script.obj_id obj_id : hateList) {
+        for (obj_id obj_id : hateList) {
             if (!isIdValid(obj_id) || !exists(primaryTarget)) {
                 continue;
             }
@@ -1148,7 +1148,7 @@ public class creature_combat extends script.systems.combat.combat_base
         {
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : myHateList) {
+        for (obj_id obj_id : myHateList) {
             removeHateTarget(self, obj_id);
             removeHateTarget(obj_id, self);
         }

@@ -2364,7 +2364,7 @@ public class base_player extends script.base_script
         location here = getWorldLocation(self);
         obj_id closest = null;
         float maxdist = 9999.0f;
-        for (script.obj_id obj_id : near) {
+        for (obj_id obj_id : near) {
             if (isGameObjectTypeOf(obj_id, GOT_building) || isGameObjectTypeOf(obj_id, GOT_installation)) {
                 float dist = getDistance(here, getWorldLocation(obj_id));
                 if (dist < maxdist) {
@@ -4364,7 +4364,7 @@ public class base_player extends script.base_script
                     }
                     Vector consentFromName = new Vector();
                     consentFromName.setSize(0);
-                    for (script.obj_id obj_id : consentFrom) {
+                    for (obj_id obj_id : consentFrom) {
                         consentFromName = utils.addElement(consentFromName, getPlayerFullName(obj_id));
                     }
                     sui.listbox(self, "@" + SID_CONSENT_FROM_LISTBOX_PROMPT, "@" + SID_CONSENT_FROM_LISTBOX_TITLE, consentFromName);

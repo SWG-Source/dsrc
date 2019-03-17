@@ -76,7 +76,7 @@ public class crafted extends script.item.comestible.comestible
                 {
                     return SCRIPT_CONTINUE;
                 }
-                for (script.attrib_mod attrib_mod : am) {
+                for (attrib_mod attrib_mod : am) {
                     int attrib = attrib_mod.getAttribute();
                     int val = Integer.MIN_VALUE;
                     int duration = (int) (attrib_mod.getDuration());

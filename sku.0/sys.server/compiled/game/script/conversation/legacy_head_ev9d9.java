@@ -88,7 +88,7 @@ public class legacy_head_ev9d9 extends script.base_script
     {
         boolean legacy_head_ev9d9_condition_hasHead = false;
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (script.obj_id obj_id : playerStuff) {
+        for (obj_id obj_id : playerStuff) {
             String templateName = getTemplateName(obj_id);
             if (templateName != null) {
                 if (templateName.equals("object/tangible/loot/simple_kit/legacy_droid_head.iff")) {
@@ -245,7 +245,7 @@ public class legacy_head_ev9d9 extends script.base_script
         Vector boltsResizable = new Vector();
         boltsResizable.setSize(0);
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (script.obj_id obj_id : playerStuff) {
+        for (obj_id obj_id : playerStuff) {
             String templateName = getTemplateName(obj_id);
             if (templateName != null) {
                 if (templateName.equals("object/tangible/quest/legacy_head_pain1.iff")) {

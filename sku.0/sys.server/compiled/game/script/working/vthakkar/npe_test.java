@@ -119,7 +119,7 @@ public class npe_test extends script.base_script
             obj_id[] tempArray;
             int counter = 0;
             tempArray = getObjectsInRange(self, 20000);
-            for (script.obj_id obj_id : tempArray) {
+            for (obj_id obj_id : tempArray) {
                 if (type.equals(getTemplateName(obj_id))) {
                     ++counter;
                     sendSystemMessageTestingOnly(self, "" + counter + ": " + obj_id);
@@ -132,7 +132,7 @@ public class npe_test extends script.base_script
             obj_id[] tempArray;
             int counter = 0;
             tempArray = getObjectsInRange(self, 20000);
-            for (script.obj_id obj_id : tempArray) {
+            for (obj_id obj_id : tempArray) {
                 String template = getTemplateName(obj_id);
                 location loc = getLocation(obj_id);
                 if (loc.cell == null || loc.cell == obj_id.NULL_ID) {
@@ -247,7 +247,7 @@ public class npe_test extends script.base_script
             int range = utils.stringToInt(st.nextToken());
             location loc = new location(x, y, z, scene);
             obj_id[] players_range = getPlayerCreaturesInRange(loc, range);
-            for (script.obj_id obj_id : players_range) {
+            for (obj_id obj_id : players_range) {
                 if (isIdValid(obj_id)) {
                     sendSystemMessageTestingOnly(self, "Got player " + obj_id + " " + getPlayerFullName(obj_id));
                 }

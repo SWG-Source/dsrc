@@ -668,7 +668,7 @@ public class ai_controller extends script.base_script
     }
     public obj_id getSpawnIdFromList(obj_id[] list, String spawn) throws InterruptedException
     {
-        for (script.obj_id obj_id : list) {
+        for (obj_id obj_id : list) {
             if ((getStringObjVar(obj_id, "spawn_id")).equals(spawn)) {
                 return obj_id;
             }

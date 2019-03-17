@@ -2733,7 +2733,7 @@ public class cwdm_test extends script.base_script
                 if ((regions != null) && (regions.length > 0))
                 {
                     String strOutput = "";
-                    for (script.region region : regions) {
+                    for (region region : regions) {
                         strOutput += "region (";
                         strOutput += region;
                         strOutput += ",";

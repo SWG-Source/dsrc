@@ -356,7 +356,7 @@ public class demoer extends script.base_script
             ai_lib.setDefaultCalmBehavior(bomarr2, ai_lib.BEHAVIOR_SENTINEL);
             setYaw(bomarr2, -14);
             decor[11] = bomarr2;
-            for (script.obj_id obj_id : decor) {
+            for (obj_id obj_id : decor) {
                 setObjVar(obj_id, "intGroundDemo1", 1);
             }
             setObjVar(self, "decor", decor);
@@ -432,7 +432,7 @@ public class demoer extends script.base_script
             ai_lib.setDefaultCalmBehavior(bomarr2, ai_lib.BEHAVIOR_SENTINEL);
             setYaw(bomarr2, -14);
             decor[11] = bomarr2;
-            for (script.obj_id obj_id : decor) {
+            for (obj_id obj_id : decor) {
                 setObjVar(obj_id, "intGroundDemo2", 1);
             }
             setObjVar(self, "decor", decor);
@@ -496,7 +496,7 @@ public class demoer extends script.base_script
             obj_id palace1 = getObjIdObjVar(self, "palace1");
             destroyObject(palace1);
             obj_id[] decor = getObjIdArrayObjVar(self, "decor");
-            for (script.obj_id obj_id : decor) {
+            for (obj_id obj_id : decor) {
                 if (isIdValid(obj_id)) {
                     destroyObject(obj_id);
                 }
@@ -507,7 +507,7 @@ public class demoer extends script.base_script
             obj_id palace2 = getObjIdObjVar(self, "palace2");
             destroyObject(palace2);
             obj_id[] decor = getObjIdArrayObjVar(self, "decor");
-            for (script.obj_id obj_id : decor) {
+            for (obj_id obj_id : decor) {
                 if (isIdValid(obj_id)) {
                     destroyObject(obj_id);
                 }

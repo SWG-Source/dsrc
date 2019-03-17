@@ -189,7 +189,7 @@ public class player_battlefield extends script.base_script
                         obj_id[] waypoint_list = getObjIdArrayObjVar(self, battlefield.VAR_WAYPOINTS);
                         if (waypoint_list != null)
                         {
-                            for (script.obj_id obj_id : waypoint_list) {
+                            for (obj_id obj_id : waypoint_list) {
                                 LOG("LOG_CHANNEL", "player_battlefield::msgEndBattlefieldGame -- waypoint " + obj_id + "removed.");
                                 if (isIdValid(obj_id)) {
                                     destroyWaypointInDatapad(obj_id, self);

@@ -78,7 +78,7 @@ public class at_at extends script.base_script
             messageTo(self, "findTarget", null, rand(2.0f, 4.0f), false);
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : allTar) {
+        for (obj_id obj_id : allTar) {
             if (obj_id == self) {
                 continue;
             }
@@ -171,7 +171,7 @@ public class at_at extends script.base_script
             messageTo(self, "findVehicleTarget", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : allTar) {
+        for (obj_id obj_id : allTar) {
             if (isPlayer(obj_id) && pvpCanAttack(self, obj_id) && getState(obj_id, STATE_RIDING_MOUNT) == 1) {
                 LOG("maggie", "Player Found - Added and Exited");
                 validTargets.add(obj_id);

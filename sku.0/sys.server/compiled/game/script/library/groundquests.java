@@ -452,7 +452,7 @@ public class groundquests extends script.base_script
         region[] regions = getRegionsAtPoint(here);
         if (regions != null)
         {
-            for (script.region region : regions) {
+            for (region region : regions) {
                 String regionWeAreIn = region.getName();
                 if (regionWeAreIn.equals(requiredRegion)) {
                     return true;

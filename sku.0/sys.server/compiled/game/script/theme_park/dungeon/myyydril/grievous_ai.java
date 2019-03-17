@@ -42,7 +42,7 @@ public class grievous_ai extends script.base_script
     {
         location selfLocation = getLocation(self);
         obj_id[] objectsInRange = getObjectsInRange(selfLocation, 200.0f);
-        for (script.obj_id obj_id : objectsInRange) {
+        for (obj_id obj_id : objectsInRange) {
             if (hasObjVar(obj_id, "grievous_encounter.isPowerCell")) {
                 obj_id powerCell = obj_id;
                 ai_lib.aiFollow(self, powerCell);

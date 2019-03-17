@@ -2040,7 +2040,7 @@ public class ai extends script.base_script
                 CustomerServiceLog("milking_and_lair_search", "handleMilking: Player: " + getName(player) + " OID: " + player + " attempted to milk but could not retrieve location data while milking " + self + " " + getName(self));
                 return SCRIPT_CONTINUE;
             }
-            for (script.obj_id obj_id : resourceList) {
+            for (obj_id obj_id : resourceList) {
                 blog("" + obj_id);
                 setLocation(obj_id, curloc);
                 putIn(obj_id, pInv, player);

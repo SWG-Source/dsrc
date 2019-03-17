@@ -216,7 +216,7 @@ public class combat_ship_boss extends script.base_script
             {
                 return;
             }
-            for (script.obj_id obj_id : hateList) {
+            for (obj_id obj_id : hateList) {
                 if (!isIdValid(obj_id) || !exists(obj_id) || !space_utils.isShip(obj_id)) {
                     return;
                 }
@@ -251,7 +251,7 @@ public class combat_ship_boss extends script.base_script
         prose_package pp = new prose_package();
         string_id strSpam = new string_id("space/space_interaction", "boss_cleared_droid_commands");
         pp.stringId = strSpam;
-        for (script.obj_id obj_id : targetList) {
+        for (obj_id obj_id : targetList) {
             space_combat.normalizeAllComponents(obj_id);
             space_combat.flightDroidVocalize(obj_id, 1, pp);
             sendSystemMessage(self, "All droid commands have been reset.", null);
@@ -269,7 +269,7 @@ public class combat_ship_boss extends script.base_script
         string_id strSpam = new string_id("space/space_interaction", "boss_stunned_engines");
         pp.stringId = strSpam;
         int duration = params.getInt("duration");
-        for (script.obj_id obj_id : targetList) {
+        for (obj_id obj_id : targetList) {
             space_pilot_command.doSubSystemStun(obj_id, ship_chassis_slot_type.SCST_engine, duration);
             sendSystemMessage(obj_id, "Your engine has been disabled for a short period..", null);
             space_combat.flightDroidVocalize(obj_id, 1, pp);
@@ -291,7 +291,7 @@ public class combat_ship_boss extends script.base_script
         string_id strSpam = new string_id("space/space_interaction", "boss_stunned_weapons");
         pp.stringId = strSpam;
         int duration = params.getInt("duration");
-        for (script.obj_id obj_id : targetList) {
+        for (obj_id obj_id : targetList) {
             for (int j = ship_chassis_slot_type.SCST_weapon_first; j < ship_chassis_slot_type.SCST_weapon_last; j++) {
                 if (isShipSlotInstalled(obj_id, j)) {
                     space_pilot_command.doSubSystemStun(obj_id, j, duration);
@@ -326,7 +326,7 @@ public class combat_ship_boss extends script.base_script
         prose_package pp = new prose_package();
         string_id strSpam = new string_id("space/space_interaction", "boss_leached_shield");
         pp.stringId = strSpam;
-        for (script.obj_id obj_id : targetList) {
+        for (obj_id obj_id : targetList) {
             float preFrontEnergy = space_combat.getShipShieldHitpointsFrontCurrent(obj_id);
             float preBackEnergy = space_combat.getShipShieldHitpointsBackCurrent(obj_id);
             space_combat.drainEnergyFromShield(obj_id, 0, effect, false);
@@ -362,7 +362,7 @@ public class combat_ship_boss extends script.base_script
         prose_package pp = new prose_package();
         string_id strSpam = new string_id("space/space_interaction", "boss_drained_shields");
         pp.stringId = strSpam;
-        for (script.obj_id obj_id : targetList) {
+        for (obj_id obj_id : targetList) {
             space_combat.drainEnergyFromShield(obj_id, 0, effect, false);
             space_combat.drainEnergyFromShield(obj_id, 1, effect, false);
             sendSystemMessage(obj_id, "Energy has been drained from your shield.", null);
@@ -392,7 +392,7 @@ public class combat_ship_boss extends script.base_script
         prose_package pp = new prose_package();
         string_id strSpam = new string_id("space/space_interaction", "boss_restore_shield");
         pp.stringId = strSpam;
-        for (script.obj_id obj_id : targetList) {
+        for (obj_id obj_id : targetList) {
             space_combat.addEnergyToShield(obj_id, 0, effect, false);
             space_combat.addEnergyToShield(obj_id, 1, effect, false);
             obj_id[] attackers = ship_ai.unitGetWhoIsTargetingMe(obj_id);
@@ -427,7 +427,7 @@ public class combat_ship_boss extends script.base_script
         prose_package pp = new prose_package();
         string_id strSpam = new string_id("space/space_interaction", "boss_drained_capacitor");
         pp.stringId = strSpam;
-        for (script.obj_id obj_id : targetList) {
+        for (obj_id obj_id : targetList) {
             float fltCurrentEnergy = space_combat.getShipCapacitorEnergyCurrent(obj_id);
             if (effect > fltCurrentEnergy) {
                 effect = fltCurrentEnergy;
@@ -491,7 +491,7 @@ public class combat_ship_boss extends script.base_script
         {
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : targetList) {
+        for (obj_id obj_id : targetList) {
             int intSide = 0;
             playClientEffectLoc(self, "appearance/pt_ig88_droid_bomb.prt", getLocation(obj_id), 0.0f);
             obj_id[] shipObjects = getAllObjectsWithScript(getLocation(obj_id), range, "space.combat.combat_ship");
@@ -564,7 +564,7 @@ public class combat_ship_boss extends script.base_script
         float effect = params.getInt("effect");
         obj_id bossId = params.getObjId("bossId");
         float range = 100.0f;
-        for (script.obj_id obj_id : mineArray) {
+        for (obj_id obj_id : mineArray) {
             obj_id[] shipObjects = getAllObjectsWithScript(getLocation(obj_id), range, "space.combat.combat_ship");
             playClientEffectLoc(self, "appearance/pt_ig88_droid_bomb.prt", getLocation(obj_id), 0.0f);
             for (obj_id shipObject : shipObjects) {

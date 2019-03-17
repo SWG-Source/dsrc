@@ -391,7 +391,7 @@ public class collection extends script.base_script
             return false;
         }
         blog("collection", "length of mobs: " + allMobsCombat.length);
-        for (script.obj_id obj_id : allMobsCombat) {
+        for (obj_id obj_id : allMobsCombat) {
             if (obj_id == player) {
                 continue;
             }

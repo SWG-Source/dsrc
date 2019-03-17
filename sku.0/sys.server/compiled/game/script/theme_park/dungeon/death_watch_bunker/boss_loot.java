@@ -45,7 +45,7 @@ public class boss_loot extends script.base_script
             else 
             {
                 obj_id looter = null;
-                for (script.obj_id obj_id : permitted) {
+                for (obj_id obj_id : permitted) {
                     looter = obj_id;
                     if (looter != null) {
                         if (hasObjVar(looter, "death_watch_herald.imperialquest")) {

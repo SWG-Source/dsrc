@@ -1634,7 +1634,7 @@ public class city extends script.base_script
             obj_id[] cellList = getContents(building);
             if (cellList != null && cellList.length > 0)
             {
-                for (script.obj_id obj_id : cellList) {
+                for (obj_id obj_id : cellList) {
                     if ((getTemplateName(obj_id)).equals(structure.TEMPLATE_CELL)) {
                         checkItemsForNoTradeTransfer(obj_id, buildingOwner, city_id);
                     }

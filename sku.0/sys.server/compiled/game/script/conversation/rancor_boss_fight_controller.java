@@ -294,7 +294,7 @@ public class rancor_boss_fight_controller extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : groupMembersInRange) {
+        for (obj_id obj_id : groupMembersInRange) {
             if (!hasCompletedCollectionSlot(obj_id, "undead_rancor_killed")) {
                 modifyCollectionSlotValue(obj_id, "undead_rancor_killed", 1);
             }

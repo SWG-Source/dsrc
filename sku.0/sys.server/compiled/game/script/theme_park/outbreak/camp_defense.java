@@ -356,7 +356,7 @@ public class camp_defense extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id ourSpawner = obj_id.NULL_ID;
-        for (script.obj_id obj_id : spawnerList) {
+        for (obj_id obj_id : spawnerList) {
             String spawnerQuestNameMatch = getStringObjVar(obj_id, SPAWNER_OBJVAR);
             if (spawnerQuestNameMatch == null || spawnerQuestNameMatch.length() <= 0) {
                 CustomerServiceLog("outbreak_themepark", "camp_defense.findPathNodes() the controller, " + self + " found a spawner object that did not have a quest string. Spawner: " + obj_id);

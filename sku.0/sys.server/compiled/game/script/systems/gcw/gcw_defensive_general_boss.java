@@ -60,7 +60,7 @@ public class gcw_defensive_general_boss extends script.base_script
         }
         if (attackerList != null && attackerList.length > 0)
         {
-            for (script.obj_id obj_id : attackerList) {
+            for (obj_id obj_id : attackerList) {
                 if (!isIdValid(obj_id)) {
                     continue;
                 }
@@ -112,7 +112,7 @@ public class gcw_defensive_general_boss extends script.base_script
             return SCRIPT_CONTINUE;
         }
         String information = getName(self);
-        for (script.obj_id obj_id : participantList) {
+        for (obj_id obj_id : participantList) {
             if (!isIdValid(obj_id) || !exists(obj_id) || !isPlayer(obj_id)) {
                 continue;
             }

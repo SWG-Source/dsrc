@@ -68,7 +68,7 @@ public class reset extends script.base_script
     }
     public boolean checkItems(obj_id[] itemList, String template) throws InterruptedException
     {
-        for (script.obj_id obj_id : itemList) {
+        for (obj_id obj_id : itemList) {
             String itemTemplate = getTemplateName(obj_id);
             if (itemTemplate.equals(template)) {
                 return true;

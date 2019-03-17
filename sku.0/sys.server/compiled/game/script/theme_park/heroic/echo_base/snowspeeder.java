@@ -67,7 +67,7 @@ public class snowspeeder extends script.base_script
             messageTo(self, "findTarget", null, 1.0f, false);
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : allTar) {
+        for (obj_id obj_id : allTar) {
             if (obj_id == self) {
                 continue;
             }

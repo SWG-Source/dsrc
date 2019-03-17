@@ -177,7 +177,7 @@ public class altruism_control extends script.base_script
         obj_id[] players_dmg = getPlayerCreaturesInRange(little_rock, 4.0f);
         if (players_dmg != null && players_dmg.length > 0)
         {
-            for (script.obj_id obj_id : players_dmg) {
+            for (obj_id obj_id : players_dmg) {
                 attribute[] attrib = getAttribs(obj_id);
                 int dmg = 200;
                 for (int j = 0; j < attrib.length; j += NUM_ATTRIBUTES_PER_GROUP) {

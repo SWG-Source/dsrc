@@ -513,7 +513,7 @@ public class battlefield extends script.base_script
         obj_id[] faction_team = getFactionTeam(master_object, faction);
         if (faction_team != null)
         {
-            for (script.obj_id obj_id : faction_team) {
+            for (obj_id obj_id : faction_team) {
                 if (player == obj_id) {
                     return true;
                 }
@@ -2676,7 +2676,7 @@ public class battlefield extends script.base_script
             obj_id[] faction_team = getFactionTeam(master_object, faction);
             if (faction_team != null)
             {
-                for (script.obj_id obj_id : faction_team) {
+                for (obj_id obj_id : faction_team) {
                     expelPlayerFromBattlefield(obj_id, master_object);
                 }
             }

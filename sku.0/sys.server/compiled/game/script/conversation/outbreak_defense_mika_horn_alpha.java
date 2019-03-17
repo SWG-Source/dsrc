@@ -59,7 +59,7 @@ public class outbreak_defense_mika_horn_alpha extends script.base_script
             CustomerServiceLog("outbreak_themepark", "camp_defense.hasAvailableGuardPosts() the npc, " + npc + " has an invalid guardPostList script var.");
             return false;
         }
-        for (script.obj_id obj_id : guardPostList) {
+        for (obj_id obj_id : guardPostList) {
             if (!isValidId(obj_id) || !exists(obj_id)) {
                 continue;
             }
@@ -100,7 +100,7 @@ public class outbreak_defense_mika_horn_alpha extends script.base_script
             }
             else 
             {
-                for (script.obj_id obj_id : guardPostList) {
+                for (obj_id obj_id : guardPostList) {
                     if (!isValidId(obj_id) || !exists(obj_id)) {
                         continue;
                     }
@@ -365,7 +365,7 @@ public class outbreak_defense_mika_horn_alpha extends script.base_script
             return SCRIPT_CONTINUE;
         }
         Vector guardPostsFound = null;
-        for (script.obj_id obj_id : guardPostList) {
+        for (obj_id obj_id : guardPostList) {
             String spawnerQuestNameMatch = getStringObjVar(obj_id, "questObject");
             if (spawnerQuestNameMatch == null || spawnerQuestNameMatch.length() <= 0) {
                 CustomerServiceLog("outbreak_themepark", "camp_defense.findGuardPosts() the npc, " + self + " found a guard post object that did not have a quest string. Guard Post: " + obj_id);

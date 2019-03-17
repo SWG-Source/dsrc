@@ -349,7 +349,7 @@ public class master extends script.theme_park.poi.base
         }
         setObjVar(self, "wallHasBeenDestroyed", true);
         obj_id[] team = scenario.getTeamMembers(self, "mediator");
-        for (script.obj_id obj_id : team) {
+        for (obj_id obj_id : team) {
             factions.setFaction(obj_id, getStringObjVar(obj_id, "oldFaction"));
             ai_lib.setIgnoreCombat(obj_id, false);
         }

@@ -58,7 +58,7 @@ public class monster_manager extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : wp) {
+        for (obj_id obj_id : wp) {
             if ((getStringObjVar(obj_id, trial.MONSTER_WP)).equals("sher_kar")) {
                 obj_id sherKar = create.object("som_sherkar", getLocation(obj_id));
                 setYaw(sherKar, -10);
@@ -75,7 +75,7 @@ public class monster_manager extends script.base_script
         }
         int type = 0;
         obj_id[] guards = new obj_id[4];
-        for (script.obj_id obj_id : wp) {
+        for (obj_id obj_id : wp) {
             if ((getStringObjVar(obj_id, trial.MONSTER_WP)).startsWith("guard")) {
                 if (type == 0 || type == 1) {
                     guards[type] = create.object("som_sherkar_praetorian", getLocation(obj_id));

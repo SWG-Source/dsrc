@@ -282,7 +282,7 @@ public class master extends script.theme_park.poi.base
     public void celebrateVictory(obj_id[] team, String comment) throws InterruptedException
     {
         int j = 0;
-        for (script.obj_id obj_id : team) {
+        for (obj_id obj_id : team) {
             if (isIncapacitated(obj_id) || isDead(obj_id)) {
                 continue;
             }

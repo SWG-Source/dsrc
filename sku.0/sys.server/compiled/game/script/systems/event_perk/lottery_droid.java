@@ -269,7 +269,7 @@ public class lottery_droid extends script.base_script
         int totalMoney = getTotalMoney(player);
         int ticketCost = getIntObjVar(self, "event_perk.lottery.ticket_price");
         obj_id[] playerOIDList = getObjIdArrayObjVar(self, "event_perk.lottery.player_OID_list");
-        for (script.obj_id obj_id : playerOIDList) {
+        for (obj_id obj_id : playerOIDList) {
             if (obj_id == player) {
                 sendSystemMessage(player, new string_id("event_perk", "lottery_reg_purchase_already"));
                 return SCRIPT_CONTINUE;
@@ -569,7 +569,7 @@ public class lottery_droid extends script.base_script
         int ticketPrice = getIntObjVar(self, "event_perk.lottery.ticket_price");
         int totalMoney = getTotalMoney(player);
         obj_id[] playerOIDList = getObjIdArrayObjVar(self, "event_perk.lottery.player_OID_list");
-        for (script.obj_id obj_id : playerOIDList) {
+        for (obj_id obj_id : playerOIDList) {
             if (obj_id == player) {
                 sendSystemMessage(player, new string_id("event_perk", "lottery_reg_purchase_already"));
                 return SCRIPT_CONTINUE;

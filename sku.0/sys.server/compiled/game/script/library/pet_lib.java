@@ -4046,7 +4046,7 @@ public class pet_lib extends script.base_script
             if (ri != null && ri.length > 0)
             {
                 boolean wasUpdated = false;
-                for (script.ranged_int_custom_var ranged_int_custom_var : ri) {
+                for (ranged_int_custom_var ranged_int_custom_var : ri) {
                     int val = ranged_int_custom_var.getValue();
                     if (val > -1) {
                         String varpath = VAR_PALVAR_VARS + "." + ranged_int_custom_var.getVarName();
@@ -5115,7 +5115,7 @@ public class pet_lib extends script.base_script
         {
             return;
         }
-        for (script.ranged_int_custom_var ranged_int_custom_var : ricv) {
+        for (ranged_int_custom_var ranged_int_custom_var : ricv) {
             if (ranged_int_custom_var.isPalColor()) {
                 pcv = utils.addElement(pcv, (palcolor_custom_var) ranged_int_custom_var);
             }

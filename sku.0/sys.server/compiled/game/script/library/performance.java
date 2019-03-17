@@ -1521,7 +1521,7 @@ public class performance extends script.base_script
     public static void makeOthersStopWatching(obj_id actor) throws InterruptedException
     {
         obj_id[] watcherToStop = getPerformanceWatchersInRange(actor, PERFORMANCE_HEAL_RANGE);
-        for (script.obj_id obj_id : watcherToStop) {
+        for (obj_id obj_id : watcherToStop) {
             if (obj_id != actor) {
                 queueCommand(obj_id, (1716628890), null, "", COMMAND_PRIORITY_DEFAULT);
             }
@@ -1530,7 +1530,7 @@ public class performance extends script.base_script
     public static void makeOthersStopListening(obj_id actor) throws InterruptedException
     {
         obj_id[] watcherToStop = getPerformanceListenersInRange(actor, PERFORMANCE_HEAL_RANGE);
-        for (script.obj_id obj_id : watcherToStop) {
+        for (obj_id obj_id : watcherToStop) {
             if (obj_id != actor) {
                 queueCommand(obj_id, (-1025190704), null, "", COMMAND_PRIORITY_DEFAULT);
             }
@@ -2223,7 +2223,7 @@ public class performance extends script.base_script
         }
         int experience = (CURE_CLONING_SICKNESS_XP * audienceMod);
         obj_id[] band = getBandMembers(actor);
-        for (script.obj_id obj_id : band) {
+        for (obj_id obj_id : band) {
             xp.grantSocialStyleXp(obj_id, xp.ENTERTAINER, experience);
         }
         return true;
@@ -2338,7 +2338,7 @@ public class performance extends script.base_script
         }
         int experience = (PERFORM_XP_INSPIRATION * audienceMod);
         obj_id[] band = getBandMembers(actor);
-        for (script.obj_id obj_id : band) {
+        for (obj_id obj_id : band) {
             xp.grantSocialStyleXp(obj_id, xp.ENTERTAINER, experience);
         }
         return true;
@@ -2733,7 +2733,7 @@ public class performance extends script.base_script
                 }
                 if (member_audience != null && member_audience.length > 0)
                 {
-                    for (script.obj_id obj_id : member_audience) {
+                    for (obj_id obj_id : member_audience) {
                         if (!utils.isElementInArray(audience, obj_id)) {
                             if (isIdValid(obj_id)) {
                                 if (!checkDenyService(band_members[i], obj_id)) {
@@ -3438,7 +3438,7 @@ public class performance extends script.base_script
             custom_var[] var_list = getAllCustomVars(actor);
             if (var_list != null && var_list.length > 0)
             {
-                for (script.custom_var custom_var : var_list) {
+                for (custom_var custom_var : var_list) {
                     ranged_int_custom_var ricv = (ranged_int_custom_var) custom_var;
                     String var = ricv.getVarName();
                     int value = ricv.getValue();

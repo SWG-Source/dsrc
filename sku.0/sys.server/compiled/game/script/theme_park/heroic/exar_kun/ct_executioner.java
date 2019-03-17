@@ -30,7 +30,7 @@ public class ct_executioner extends script.base_script
     public int handleDelayedExecute(obj_id self, dictionary params) throws InterruptedException
     {
         obj_id[] prisoner = trial.getObjectsInDungeonWithScript(trial.getTop(self), "theme_park.heroic.exar_kun.ct_prisoner");
-        for (script.obj_id obj_id : prisoner) {
+        for (obj_id obj_id : prisoner) {
             kill(obj_id);
         }
         messageTo(self, "cleanup", null, 5.0f, false);

@@ -135,7 +135,7 @@ public class corpse extends script.base_script
                 obj_id[] consented = getObjIdArrayObjVar(player, pclib.VAR_CONSENT_TO_ID);
                 if ((consented != null) && (consented.length > 0))
                 {
-                    for (script.obj_id obj_id : consented) {
+                    for (obj_id obj_id : consented) {
                         if (!grantCorpseConsent(corpse, obj_id)) {
                         }
                     }
@@ -216,7 +216,7 @@ public class corpse extends script.base_script
         }
         boolean litmus = true;
         for (obj_id corps : corpses) {
-            for (script.obj_id obj_id : consented) {
+            for (obj_id obj_id : consented) {
                 litmus &= revokeCorpseConsent(corps, obj_id);
             }
         }
@@ -258,7 +258,7 @@ public class corpse extends script.base_script
         {
             location playerLoc = getLocation(player);
             obj_id[] stuff = getObjectsInRange(playerLoc, 20.0f);
-            for (script.obj_id obj_id : stuff) {
+            for (obj_id obj_id : stuff) {
                 if (isPlayer(obj_id)) {
                     playClientEffectLoc(obj_id, "clienteffect/medic_drag.cef", getLocation(corpse), 0.0f);
                 }
@@ -311,7 +311,7 @@ public class corpse extends script.base_script
         Vector corpses = new Vector();
         corpses.setSize(0);
         obj_id[] stuff = getObjectsInRange(player, 100.0f);
-        for (script.obj_id obj_id : stuff) {
+        for (obj_id obj_id : stuff) {
             if (isPlayerCorpse(obj_id)) {
                 if (canDragPlayerCorpse(player, obj_id, true)) {
                     corpses = utils.addElement(corpses, obj_id);

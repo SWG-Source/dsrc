@@ -222,7 +222,7 @@ public class tcg_combine_tcg_items extends script.base_script
             return false;
         }
         CustomerServiceLog("tcg", "Jet Pack Combination Success - Jet Pack Deed creation success. Deed Object: (" + deed + ") in player inventory: " + playerInv + " for Player: " + owner + " " + getPlayerName(owner) + ".");
-        for (script.obj_id obj_id : combinableList) {
+        for (obj_id obj_id : combinableList) {
             if (!isValidId(obj_id) || !exists(obj_id)) {
                 CustomerServiceLog("tcg", "Jet Pack Combination ERROR - Combine object: " + obj_id + " could not be found for update. This object was last owned by Player: " + owner + " " + getPlayerName(owner) + " and needed to be updated to avoid reuse in the combination process.");
                 continue;

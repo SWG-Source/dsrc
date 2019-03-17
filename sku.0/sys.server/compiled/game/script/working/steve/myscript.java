@@ -1610,7 +1610,7 @@ public class myscript extends script.base_script
             obj_id[] hatelist = getHateList(target);
             if (hatelist != null && hatelist.length > 0)
             {
-                for (script.obj_id obj_id : hatelist) {
+                for (obj_id obj_id : hatelist) {
                     debugSpeakMsg(self, "hate " + obj_id);
                 }
             }

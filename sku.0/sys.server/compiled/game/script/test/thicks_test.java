@@ -1655,7 +1655,7 @@ public class thicks_test extends script.base_script
             if (hateList == null || hateList.length == 0) {
                 continue;
             }
-            for (script.obj_id obj_id : hateList) {
+            for (obj_id obj_id : hateList) {
                 if (obj_id == self) {
                     setHate(hater, decoy, getHate(hater, self) * 2);
                 }

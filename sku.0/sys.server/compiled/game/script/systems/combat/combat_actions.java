@@ -7657,7 +7657,7 @@ public class combat_actions extends script.systems.combat.combat_base
             if (hateList == null || hateList.length == 0) {
                 continue;
             }
-            for (script.obj_id obj_id : hateList) {
+            for (obj_id obj_id : hateList) {
                 if (!isIdValid(obj_id) || !exists(obj_id)) {
                     continue;
                 }
@@ -12024,7 +12024,7 @@ public class combat_actions extends script.systems.combat.combat_base
             return SCRIPT_CONTINUE;
         }
         obj_id gorvo = null;
-        for (script.obj_id obj_id : spawn_id) {
+        for (obj_id obj_id : spawn_id) {
             if ((getStringObjVar(obj_id, "spawn_id")).equals("gorvo")) {
                 gorvo = obj_id;
             }
@@ -12481,7 +12481,7 @@ public class combat_actions extends script.systems.combat.combat_base
         {
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : hateList) {
+        for (obj_id obj_id : hateList) {
             if (obj_id != topHate && !buff.hasBuff(obj_id, "axkva_crystalize")) {
                 targets.add(obj_id);
             }
@@ -13436,7 +13436,7 @@ public class combat_actions extends script.systems.combat.combat_base
             play2dNonLoopingSound(self, "sound/hoth_snowspeeder_blaster_fire_01.snd");
             return SCRIPT_CONTINUE;
         }
-        for (script.obj_id obj_id : allTar) {
+        for (obj_id obj_id : allTar) {
             if (obj_id == self || obj_id == speeder) {
                 continue;
             }

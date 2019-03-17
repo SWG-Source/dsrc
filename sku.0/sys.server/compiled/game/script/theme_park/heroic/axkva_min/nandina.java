@@ -25,7 +25,7 @@ public class nandina extends script.base_script
             return SCRIPT_CONTINUE;
         }
         obj_id gorvo = null;
-        for (script.obj_id obj_id : spawn_id) {
+        for (obj_id obj_id : spawn_id) {
             if ((getStringObjVar(obj_id, "spawn_id")).equals("gorvo")) {
                 gorvo = obj_id;
             }

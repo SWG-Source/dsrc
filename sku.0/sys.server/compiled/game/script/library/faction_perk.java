@@ -234,7 +234,7 @@ public class faction_perk extends script.base_script
                     {
                         dictionary d = new dictionary();
                         d.put("target", player);
-                        for (script.obj_id obj_id : inRange) {
+                        for (obj_id obj_id : inRange) {
                             if (getGameObjectType(obj_id) == GOT_installation_turret) {
                                 messageTo(obj_id, "enemyDecloaked", d, 3, false);
                             }

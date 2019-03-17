@@ -294,7 +294,7 @@ public class junk_compactor extends script.base_script
         {
             prose_package ppNoSale = prose.getPackage(PROSE_NO_ALL_SALE, self);
             sendSystemMessageProse(player, ppNoSale);
-            for (script.obj_id obj_id : junk) {
+            for (obj_id obj_id : junk) {
                 utils.removeScriptVar(obj_id, SCRIPTVAR_SOLD);
             }
             return SCRIPT_CONTINUE;

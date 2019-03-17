@@ -1134,7 +1134,7 @@ public class combat_base extends script.base_script
             obj_id[] targetsInArea = pvpGetTargetsInRange(self, fromTrap ? weaponData.id : target, area);
             defenders = new obj_id[2];
             defenders[0] = target;
-            for (script.obj_id obj_id : targetsInArea) {
+            for (obj_id obj_id : targetsInArea) {
                 if (obj_id != target) {
                     defenders[1] = obj_id;
                     break;
@@ -1146,7 +1146,7 @@ public class combat_base extends script.base_script
             obj_id[] hateList = getHateList(self);
             obj_id farthest = getHateTarget(self);
             float farDist = 0.0f;
-            for (script.obj_id obj_id : hateList) {
+            for (obj_id obj_id : hateList) {
                 if (getDistance(self, obj_id) >= farDist) {
                     farthest = obj_id;
                     farDist = getDistance(self, obj_id);
@@ -3716,7 +3716,7 @@ public class combat_base extends script.base_script
         String evasionScriptVarName = "me_evasion." + medic;
         if (thoseWhoHateMe.length != 0 && thoseWhoHateMe != null)
         {
-            for (script.obj_id obj_id : thoseWhoHateMe) {
+            for (obj_id obj_id : thoseWhoHateMe) {
                 int haterLevel = getLevel(obj_id);
                 int levelSpread = medicLevel - haterLevel;
                 int baseChance = 93;

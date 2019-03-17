@@ -353,7 +353,7 @@ public class combat_ship extends script.base_script
         {
             dictionary outparams = new dictionary();
             outparams.put("object", self);
-            for (script.obj_id obj_id : notifylist) {
+            for (obj_id obj_id : notifylist) {
                 if (exists(obj_id) && (obj_id.isLoaded())) {
                     space_utils.notifyObject(obj_id, "shipDestroyed", outparams);
                 }

@@ -186,7 +186,7 @@ public class balancetest extends script.base_script
                 if (utils.hasScriptVar(self, "spawnedCreatures")) {
                     obj_id[] mobsToRelevel = utils.getObjIdArrayScriptVar(self, "spawnedCreatures");
                     int reLeveledMobCounter = 0;
-                    for (script.obj_id obj_id : mobsToRelevel) {
+                    for (obj_id obj_id : mobsToRelevel) {
                         if (isIdValid(obj_id) && !ai_lib.aiIsDead(obj_id)) {
                             reLevelMob(obj_id, newLevel);
                             reLeveledMobCounter++;
@@ -203,7 +203,7 @@ public class balancetest extends script.base_script
                     sendSystemMessageTestingOnly(self, "No apparent creature to destroy. Couldn't find obj_id scripvar. OH NO!");
                 } else {
                     obj_id[] mobsToDestroy = utils.getObjIdArrayScriptVar(self, "spawnedCreatures");
-                    for (script.obj_id obj_id : mobsToDestroy) {
+                    for (obj_id obj_id : mobsToDestroy) {
                         if (isIdValid(obj_id)) {
                             destroyObject(obj_id);
                         }

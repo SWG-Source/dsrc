@@ -28,7 +28,7 @@ public class tusken_king extends script.base_script
         obj_id[] allObj = getNPCsInRange(getLocation(self), 150.0f);
         Vector allies = new Vector();
         allies.setSize(0);
-        for (script.obj_id obj_id : allObj) {
+        for (obj_id obj_id : allObj) {
             if (isDead(obj_id)) {
                 continue;
             }

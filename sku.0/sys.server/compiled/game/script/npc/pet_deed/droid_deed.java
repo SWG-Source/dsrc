@@ -840,7 +840,7 @@ public class droid_deed extends script.base_script
             ranged_int_custom_var[] ri = hue.getPalcolorVars(deed);
             if (ri != null && ri.length > 0)
             {
-                for (script.ranged_int_custom_var ranged_int_custom_var : ri) {
+                for (ranged_int_custom_var ranged_int_custom_var : ri) {
                     int val = ranged_int_custom_var.getValue();
                     if (val > -1) {
                         String varpath = pet_lib.VAR_PALVAR_VARS + "." + ranged_int_custom_var.getVarName();

@@ -179,7 +179,7 @@ public class terminal_space extends script.terminal.base.base_terminal
                         }
                         if (membersApprovedByShipOwner != null && membersApprovedByShipOwner.length > 0)
                         {
-                            for (script.obj_id obj_id : membersApprovedByShipOwner) {
+                            for (obj_id obj_id : membersApprovedByShipOwner) {
                                 if (hasScript(obj_id, performance.DANCE_HEARTBEAT_SCRIPT)) {
                                     performance.stopDance(obj_id);
                                 }
@@ -240,7 +240,7 @@ public class terminal_space extends script.terminal.base.base_terminal
             location playerLoc = getLocation(player);
             if (isIdValid(playerLoc.cell))
             {
-                for (script.obj_id obj_id : membersApprovedByShipOwner) {
+                for (obj_id obj_id : membersApprovedByShipOwner) {
                     if (obj_id != player && exists(obj_id) && getLocation(obj_id).cell == playerLoc.cell) {
                         startIndex = space_transition.getNextStartIndex(shipStartLocations, startIndex);
                         if (startIndex <= shipStartLocations.size()) {
@@ -283,7 +283,7 @@ public class terminal_space extends script.terminal.base.base_terminal
             location playerLoc = getLocation(player);
             if (isIdValid(playerLoc.cell))
             {
-                for (script.obj_id obj_id : membersApprovedByShipOwner) {
+                for (obj_id obj_id : membersApprovedByShipOwner) {
                     if (obj_id != player && exists(obj_id) && getLocation(obj_id).cell == playerLoc.cell) {
                         if (features.isSpaceEdition(obj_id)) {
                             startIndex = space_transition.getNextStartIndex(shipStartLocations, startIndex);
@@ -426,7 +426,7 @@ public class terminal_space extends script.terminal.base.base_terminal
     }
     public location checkZonePopulation(location[] locTest) throws InterruptedException
     {
-        for (script.location location : locTest) {
+        for (location location : locTest) {
             if (!isAreaTooFullForTravel(location.area, 0, 0)) {
                 return location;
             }

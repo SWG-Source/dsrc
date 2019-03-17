@@ -82,7 +82,7 @@ public class pet_med extends script.base_script
         }
         else 
         {
-            for (script.attrib_mod attrib_mod : am) {
+            for (attrib_mod attrib_mod : am) {
                 int attrib = attrib_mod.getAttribute();
                 int val = attrib_mod.getValue();
                 float atk = attrib_mod.getAttack();

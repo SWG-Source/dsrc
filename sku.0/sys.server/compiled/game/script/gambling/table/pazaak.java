@@ -650,7 +650,7 @@ public class pazaak extends script.gambling.base.table
                     rake = getIntObjVar(table, VAR_HOUSE_RAKE);
                 }
                 int pay_out = (int)(table_balance * (100 - rake) / 100) / winners_array.length;
-                for (script.obj_id obj_id : winners_array) {
+                for (obj_id obj_id : winners_array) {
                     prose_package pp = prose.getPackage(SID_PLAYER_WIN_SELF, pay_out);
                     sendSystemMessageProse(obj_id, pp);
                     pp = prose.getPackage(SID_PLAYER_WIN_OTHER, obj_id, obj_id, pay_out);

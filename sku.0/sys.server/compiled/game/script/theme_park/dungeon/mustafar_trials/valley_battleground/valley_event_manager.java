@@ -289,7 +289,7 @@ public class valley_event_manager extends script.base_script
         {
             return;
         }
-        for (script.obj_id obj_id : army) {
+        for (obj_id obj_id : army) {
             stop(obj_id);
             location[] newPath = new location[3];
             newPath[0] = getLocation(obj_id);
@@ -346,7 +346,7 @@ public class valley_event_manager extends script.base_script
                 return SCRIPT_CONTINUE;
             }
             int test = 0;
-            for (script.obj_id obj_id : army) {
+            for (obj_id obj_id : army) {
                 if (!isDead(obj_id)) {
                     test += 1;
                     livingDroid = true;

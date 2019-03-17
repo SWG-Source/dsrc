@@ -251,7 +251,7 @@ public class restuss_event extends script.base_script
         {
             return false;
         }
-        for (script.obj_id obj_id : controller_id) {
+        for (obj_id obj_id : controller_id) {
             if ((getStringObjVar(obj_id, "element")).equals("ph1_restuss_master")) {
                 restuss_controller = obj_id;
                 break;
@@ -279,7 +279,7 @@ public class restuss_event extends script.base_script
         {
             return -1;
         }
-        for (script.obj_id obj_id : controller_id) {
+        for (obj_id obj_id : controller_id) {
             if ((getStringObjVar(obj_id, "element")).equals("ph1_restuss_master")) {
                 restuss_controller = obj_id;
                 break;

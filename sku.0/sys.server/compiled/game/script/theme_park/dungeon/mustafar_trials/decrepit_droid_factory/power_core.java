@@ -64,7 +64,7 @@ public class power_core extends script.base_script
             return;
         }
         location spawnLoc = getLocation(getSelf());
-        for (script.obj_id obj_id : spawnPoint) {
+        for (obj_id obj_id : spawnPoint) {
             String wp = getStringObjVar(obj_id, "patrol_wp");
             if (wp.equals("controlFour")) {
                 spawnLoc = getLocation(obj_id);

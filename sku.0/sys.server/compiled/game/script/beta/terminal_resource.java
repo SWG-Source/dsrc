@@ -50,7 +50,7 @@ public class terminal_resource extends script.terminal.base.terminal_add_use
         }
         int use = -1;
         menu_info_data[] root = mi.getRootMenuItems();
-        for (script.menu_info_data menu_info_data : root) {
+        for (menu_info_data menu_info_data : root) {
             if (menu_info_data.getType() == menu_info_types.ITEM_USE) {
                 use = menu_info_data.getId();
             }

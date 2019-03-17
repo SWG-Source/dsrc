@@ -228,7 +228,7 @@ public class survivor_pathing extends script.base_script
                     float smallestDist = 300;
                     obj_id closestObj = obj_id.NULL_ID;
                     boolean modified = false;
-                    for (script.obj_id obj_id : waypointList) {
+                    for (obj_id obj_id : waypointList) {
                         if (!isValidId(obj_id) || !exists(obj_id)) {
                             continue;
                         }

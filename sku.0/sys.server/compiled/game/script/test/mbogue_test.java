@@ -367,7 +367,7 @@ public class mbogue_test extends script.base_script
                 {
                     obj_id objectList[] = getObjectsInRange(self, 16000.0f);
                     int count = 0;
-                    for (script.obj_id obj_id : objectList) {
+                    for (obj_id obj_id : objectList) {
                         if (isGameObjectTypeOf(obj_id, GOT_ship) && !isGameObjectTypeOf(obj_id, GOT_ship_station) && !(getTemplateName(obj_id)).startsWith("object/ship/player")) {
                             Random random = new Random();
                             if ((Math.abs(random.nextInt()) % 2) == 0) {
@@ -382,7 +382,7 @@ public class mbogue_test extends script.base_script
                 {
                     obj_id objectList[] = getObjectsInRange(self, 16000.0f);
                     int count = 0;
-                    for (script.obj_id obj_id : objectList) {
+                    for (obj_id obj_id : objectList) {
                         if (isGameObjectTypeOf(obj_id, GOT_ship) && !isGameObjectTypeOf(obj_id, GOT_ship_station) && !(getTemplateName(obj_id)).startsWith("object/ship/player")) {
                             debugDestroyObject(self, obj_id);
                             ++count;

@@ -1506,7 +1506,7 @@ public class qatool extends script.base_script
             obj_id inventory = utils.getInventoryContainer(self);
             obj_id[] invAndEquip = getInventoryAndEquipment(self);
             boolean hasBag = false;
-            for (script.obj_id obj_id : invAndEquip) {
+            for (obj_id obj_id : invAndEquip) {
                 String templateName = getTemplateName(obj_id);
                 if (templateName.equals("object/tangible/test/qabag.iff")) {
                     hasBag = true;
@@ -2737,13 +2737,13 @@ public class qatool extends script.base_script
         }
         if (allMobsAi.length > -1)
         {
-            for (script.obj_id obj_id : allMobsAi) {
+            for (obj_id obj_id : allMobsAi) {
                 combinedMobArrays.add("" + obj_id);
             }
         }
         if (allMobsCombat.length > -1)
         {
-            for (script.obj_id obj_id : allMobsCombat) {
+            for (obj_id obj_id : allMobsCombat) {
                 combinedMobArrays.add("" + obj_id);
             }
         }

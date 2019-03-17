@@ -107,7 +107,7 @@ public class encounter extends script.quest.task.ground.base_task
                         } else {
                             Vector newSpawnListResizable = new Vector();
                             newSpawnListResizable.setSize(0);
-                            for (script.obj_id obj_id : spawnList) {
+                            for (obj_id obj_id : spawnList) {
                                 if (obj_id != spawn) {
                                     utils.addElement(newSpawnListResizable, obj_id);
                                 }

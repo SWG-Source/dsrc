@@ -332,7 +332,7 @@ public class reverse_engineering_tool extends script.base_script
                 power = power / ratio;
                 setObjVar(finalAttachment, "skillmod.bonus." + mod, power);
                 setObjVar(finalAttachment, "reverse_engineering.attachment_level", 2);
-                for (script.obj_id obj_id : stuff) {
+                for (obj_id obj_id : stuff) {
                     if (getCount(obj_id) > 1) {
                         int count = getCount(obj_id);
                         setCount(obj_id, count - 1);
@@ -481,7 +481,7 @@ public class reverse_engineering_tool extends script.base_script
                 skillMod += toolMod;
                 float numPupCharges = ((skillMod / 11.5f) * ((skillMod * rand(0.85f, 1.25f)) / 11.5f)) + 20;
                 setCount(powerup, (int)numPupCharges);
-                for (script.obj_id obj_id : stuff) {
+                for (obj_id obj_id : stuff) {
                     if (getCount(obj_id) > 1) {
                         int count = getCount(obj_id);
                         setCount(obj_id, count - 1);
@@ -590,7 +590,7 @@ public class reverse_engineering_tool extends script.base_script
         {
             setObjVar(powerBit, "reverse_engineering.reverse_engineering_power", finalPower);
             attachScript(powerBit, "item.component.reverse_engineer_component");
-            for (script.obj_id obj_id : stuff) {
+            for (obj_id obj_id : stuff) {
                 if (getCount(obj_id) > 1) {
                     int count = getCount(obj_id);
                     setCount(obj_id, count - 1);
@@ -656,7 +656,7 @@ public class reverse_engineering_tool extends script.base_script
             setObjVar(powerBit, "reverse_engineering.reverse_engineering_modifier", modName);
             setObjVar(powerBit, "reverse_engineering.reverse_engineering_ratio", ratio);
             attachScript(powerBit, "item.component.reverse_engineer_component");
-            for (script.obj_id obj_id : stuff) {
+            for (obj_id obj_id : stuff) {
                 if (getCount(obj_id) > 1) {
                     int count = getCount(obj_id);
                     setCount(obj_id, count - 1);

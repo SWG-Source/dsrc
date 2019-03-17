@@ -82,7 +82,7 @@ public class working_controller extends script.base_script
         }
         location loc1 = null;
         location loc2 = null;
-        for (script.obj_id obj_id : bossWp) {
+        for (obj_id obj_id : bossWp) {
             if ((getStringObjVar(obj_id, "boss_wp")).equals("aurek")) {
                 loc1 = getLocation(obj_id);
             }
@@ -117,7 +117,7 @@ public class working_controller extends script.base_script
         location devistatorLoc = null;
         location reactiveRepairLoc = null;
         location inhibitorSupplyLoc = null;
-        for (script.obj_id obj_id : bossWp) {
+        for (obj_id obj_id : bossWp) {
             if ((getStringObjVar(obj_id, "boss_wp")).equals("devistator")) {
                 devistatorLoc = getLocation(obj_id);
             }
@@ -159,7 +159,7 @@ public class working_controller extends script.base_script
         location clonerTwoLoc = null;
         location clonerOneExit = null;
         location clonerTwoExit = null;
-        for (script.obj_id obj_id : bossWp) {
+        for (obj_id obj_id : bossWp) {
             if ((getStringObjVar(obj_id, "boss_wp")).equals("droid_engineer")) {
                 mdeLoc = getLocation(obj_id);
             }
@@ -204,7 +204,7 @@ public class working_controller extends script.base_script
         }
         location doomBringerLoc = null;
         location destructionPileLoc = null;
-        for (script.obj_id obj_id : bossWp) {
+        for (obj_id obj_id : bossWp) {
             if ((getStringObjVar(obj_id, "boss_wp")).equals("doom_bringer")) {
                 doomBringerLoc = getLocation(obj_id);
             }
@@ -233,7 +233,7 @@ public class working_controller extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int k = 0;
-        for (script.obj_id obj_id : bossWp) {
+        for (obj_id obj_id : bossWp) {
             if ((getStringObjVar(obj_id, "boss_wp")).equals("watcher" + k)) {
                 obj_id watcher = create.object("som_working_hand_of_doom", getLocation(obj_id));
                 attachScript(watcher, "theme_park.dungeon.mustafar_trials.working_droid_factory.doom_hand");
@@ -334,7 +334,7 @@ public class working_controller extends script.base_script
             return;
         }
         location loc1 = null;
-        for (script.obj_id obj_id : bossWp) {
+        for (obj_id obj_id : bossWp) {
             if ((getStringObjVar(obj_id, "boss_wp")).equals("aurek")) {
                 loc1 = getLocation(obj_id);
             }
@@ -360,7 +360,7 @@ public class working_controller extends script.base_script
             return;
         }
         location loc1 = null;
-        for (script.obj_id obj_id : bossWp) {
+        for (obj_id obj_id : bossWp) {
             if ((getStringObjVar(obj_id, "boss_wp")).equals("besh")) {
                 loc1 = getLocation(obj_id);
             }
@@ -473,7 +473,7 @@ public class working_controller extends script.base_script
         }
         location startLoc = null;
         location endLoc = null;
-        for (script.obj_id obj_id : wp) {
+        for (obj_id obj_id : wp) {
             if ((getStringObjVar(obj_id, "hk_sequence")).equals("hk_spawn")) {
                 startLoc = getLocation(obj_id);
             }
@@ -545,7 +545,7 @@ public class working_controller extends script.base_script
         playClientEffectLoc(players[0], trial.PRT_WORKING_HK_BOOM_1, fireLoc[1], 1.0f);
         if (playersInBlast != null && playersInBlast.length > 0)
         {
-            for (script.obj_id obj_id : playersInBlast) {
+            for (obj_id obj_id : playersInBlast) {
                 buff.applyBuff(obj_id, "stop", 5);
                 warpPlayer(obj_id, blastLoc.area, 48, -24, -1, trial.getTop(self), trial.WORKING_MAIN_HALL, 48, -24, -1, "nullCallBack", false);
             }

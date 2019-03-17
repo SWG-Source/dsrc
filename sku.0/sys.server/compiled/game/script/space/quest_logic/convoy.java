@@ -244,7 +244,7 @@ public class convoy extends script.space.quest_logic.escort
         int squad = ship_ai.squadCreateSquadId();
         transform[] translist = getEscortTransforms(self);
         obj_id[] convoy = getObjIdArrayObjVar(self, "convoy");
-        for (script.obj_id obj_id : convoy) {
+        for (obj_id obj_id : convoy) {
             if (!isIdValid(obj_id) || !exists(obj_id)) {
                 continue;
             }
@@ -275,7 +275,7 @@ public class convoy extends script.space.quest_logic.escort
         obj_id[] convoy = getObjIdArrayObjVar(self, "convoy");
         if (convoy != null)
         {
-            for (script.obj_id obj_id : convoy) {
+            for (obj_id obj_id : convoy) {
                 if (isIdValid(obj_id) && exists(obj_id)) {
                     destroyObjectHyperspace(obj_id);
                 }
@@ -370,7 +370,7 @@ public class convoy extends script.space.quest_logic.escort
         }
         obj_id[] newConvoy = new obj_id[convoy.length - 1];
         int j = 0;
-        for (script.obj_id obj_id : convoy) {
+        for (obj_id obj_id : convoy) {
             if (obj_id != ship) {
                 newConvoy[j] = obj_id;
                 j++;
@@ -495,7 +495,7 @@ public class convoy extends script.space.quest_logic.escort
             attachScript(newship, "space.quest_logic.dynamic_ship");
             attachScript(newship, "space.quest_logic.destroyduty_ship");
             targets[i] = newship;
-            for (script.obj_id obj_id : convoy) {
+            for (obj_id obj_id : convoy) {
                 if (!isIdValid(obj_id) || !exists(obj_id)) {
                     continue;
                 }

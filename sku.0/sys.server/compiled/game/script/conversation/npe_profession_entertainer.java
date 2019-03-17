@@ -66,7 +66,7 @@ public class npe_profession_entertainer extends script.base_script
         boolean needsItem = false;
         boolean hasItem = false;
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (script.obj_id obj_id : playerStuff) {
+        for (obj_id obj_id : playerStuff) {
             String templateName = static_item.getStaticItemName(obj_id);
             if (templateName != null) {
                 if (templateName.equals("item_npe_smooth_slitherhorn_01_01")) {

@@ -58,7 +58,7 @@ public class battlefield_spawner extends script.base_script
         if ((trPath == null) || (trPath.length == 0))
         {
         }
-        for (script.transform transform : trPath) {
+        for (transform transform : trPath) {
             location locFoo = space_utils.getLocationFromTransform(transform);
         }
         transform trTest = trPath[trPath.length - 1];

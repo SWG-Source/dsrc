@@ -176,7 +176,7 @@ public class master_droid_engineer extends script.base_script
             {
                 return;
             }
-            for (script.obj_id obj_id : rau) {
+            for (obj_id obj_id : rau) {
                 utils.setScriptVar(obj_id, trial.WORKING_ASSEMBLY_STAGE, value);
                 messageTo(obj_id, "triggerEvent", trial.getSessionDict(trial.getTop(self), "mde_control"), 0, false);
             }

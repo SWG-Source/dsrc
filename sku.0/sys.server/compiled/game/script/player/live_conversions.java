@@ -281,7 +281,7 @@ public class live_conversions extends script.base_script
             {
                 Vector newConsentFrom = new Vector();
                 newConsentFrom.setSize(0);
-                for (script.obj_id obj_id : consentFrom) {
+                for (obj_id obj_id : consentFrom) {
                     if (isPlayer(obj_id)) {
                         newConsentFrom = utils.addElement(newConsentFrom, obj_id);
                     }

@@ -256,7 +256,7 @@ public class tatooine_espa_watto extends script.base_script
     {
         groundquests.sendSignal(player, "legacy_together_launch_e2");
         obj_id[] playerStuff = getInventoryAndEquipment(player);
-        for (script.obj_id obj_id : playerStuff) {
+        for (obj_id obj_id : playerStuff) {
             String templateName = getTemplateName(obj_id);
             if (templateName != null) {
                 if (templateName.equals("object/tangible/loot/simple_kit/legacy_droid_head.iff")) {

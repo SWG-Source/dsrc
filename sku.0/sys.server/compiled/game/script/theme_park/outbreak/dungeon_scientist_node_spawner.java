@@ -69,7 +69,7 @@ public class dungeon_scientist_node_spawner extends script.base_script
         }
         CustomerServiceLog("outbreak_themepark", "survivor_pathing.startSurvivorPathing() wayPointList received");
         location[] wayPtLocs = new location[wayPointList.length];
-        for (script.obj_id obj_id : wayPointList) {
+        for (obj_id obj_id : wayPointList) {
             int orderNumber = getIntObjVar(obj_id, objVarSearch) - 1;
             if (orderNumber < 0) {
                 CustomerServiceLog("outbreak_themepark", "dungeon_scientist_node_spawners.spawnRescuedActor() the NPC waypoint location was invalid for waypoint: " + obj_id);

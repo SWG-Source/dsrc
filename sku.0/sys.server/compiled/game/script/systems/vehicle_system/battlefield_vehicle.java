@@ -329,7 +329,7 @@ public class battlefield_vehicle extends script.base_script
         obj_id[] stuff = getContents(self);
         if (stuff != null && stuff.length > 0)
         {
-            for (script.obj_id obj_id : stuff) {
+            for (obj_id obj_id : stuff) {
                 if (isPlayer(obj_id)) {
                     ++numPlayers;
                 }

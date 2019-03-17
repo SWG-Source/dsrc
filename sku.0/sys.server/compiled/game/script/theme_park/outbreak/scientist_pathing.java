@@ -145,7 +145,7 @@ public class scientist_pathing extends script.base_script
             return SCRIPT_CONTINUE;
         }
         location[] wayPtLocs = new location[wayPointList.length];
-        for (script.obj_id obj_id : wayPointList) {
+        for (obj_id obj_id : wayPointList) {
             int orderNumber = getIntObjVar(obj_id, STORMTROOPER_RETREAT) - 1;
             if (orderNumber < 0) {
                 continue;
