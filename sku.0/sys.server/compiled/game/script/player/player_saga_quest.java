@@ -510,7 +510,14 @@ public class player_saga_quest extends script.base_script
                                 {
                                     name = new string_id("saga_system", "holocron_reward_unknown");
                                 }
-                                if (utils.isNestedWithin(rewardItem, self))
+                                final obj_id itemContainer = getContainedBy(rewardItem);
+                                if (!isValidId(itemContainer) || !isValidId(playerInventory))
+                                {
+                                    pp = prose.getPackage(new string_id("saga_system", "holocron_reward_not_in_inventory"), name);
+                                    sendSystemMessageProse(self, pp);
+                                    pgc_quests.logReward(self, questHolocron, "Player attempted to donate a reward item but it was not in their inventory: " + name + "(" + rewardItem + ")");
+                                }
+                                else if (itemContainer == playerInventory)
                                 {
                                     if (pgc_quests.isEligiblePgcReward(rewardItem))
                                     {
