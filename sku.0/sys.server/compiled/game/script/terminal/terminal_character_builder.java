@@ -77,6 +77,27 @@ public class terminal_character_builder extends script.base_script
     public static final String[] BUFF_OPTIONS = {
         "Apply GOD Buffs"
     };
+    public static final String[] CHRONICLER_SKILLS = {
+        "class_chronicles",
+        "class_chronicles_novice",
+	"class_chronicles_1",
+	"class_chronicles_2",
+	"class_chronicles_3",
+        "class_chronicles_4",
+	"class_chronicles_5",
+	"class_chronicles_6",
+	"class_chronicles_7",
+	"class_chronicles_8",
+	"class_chronicles_9",
+        "class_chronicles_10",
+	"class_chronicles_11",
+	"class_chronicles_12",
+	"class_chronicles_13",
+	"class_chronicles_14",
+	"class_chronicles_15",
+        "class_chronicles_16",
+	"class_chronicles_master"
+    };
     public static final String[] DEV_TESTING_OPTIONS = {
         "Halloween tokens",
         "Lifeday rebel tokens",
@@ -1363,7 +1384,8 @@ public class terminal_character_builder extends script.base_script
         "Select Roadmap",
         "Earn Current Skill",
         "Set Level",
-        "Reset Respec"
+        "Reset Respec",
+	"Master Chronicles"
     };
     public static final String[] JEDI_OPTIONS = 
     {
@@ -9971,6 +9993,10 @@ public class terminal_character_builder extends script.base_script
             sendSystemMessageTestingOnly(player, "Respecced to level 90 and respecs cleared.");
             cleanScriptVars(player);
             break;
+	    case 4:
+	    grantChronicleSkills(player, CHRONICLER_SKILLS);
+            sendSystemMessageTestingOnly(player, "Skills granted");
+	    break;
             default:
             cleanScriptVars(player);
             return SCRIPT_CONTINUE;
@@ -11454,6 +11480,13 @@ public class terminal_character_builder extends script.base_script
         {
             setSocketsUp(weaponObject);
             sendSystemMessageTestingOnly(player, "Weapon Issued!");
+        }
+    }
+    public void grantChronicleSkills(obj_id objPlayer, String[] strSkillList) throws InterruptedException
+    {
+        for (int intI = 0; intI < strSkillList.length; intI++)
+        {
+            grantSkill(objPlayer, strSkillList[intI]);
         }
     }
 }
