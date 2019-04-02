@@ -11,9 +11,6 @@ import java.util.Vector;
 
 public class qatool extends script.base_script
 {
-    public qatool()
-    {
-    }
     public static final String CREATURE_TABLE = "datatables/mob/creatures.iff";
     public static final String SPACE_MOBILE_TABLE = "datatables/space_mobile/space_mobile.iff";
     public static final String MASTER_ITEM_TABLE = "datatables/item/master_item/master_item.iff";
@@ -24,30 +21,30 @@ public class qatool extends script.base_script
     public static final String VET_REWARDS_TABLE = "datatables/veteran_rewards/items.iff";
     public static final String DWB_SPAWN_TABLE = "datatables/spawning/dungeon/death_watch_bunker.iff";
     public static final String CUBE_DATATABLE_1 = "datatables/item/loot_cube/republic_assembly_tool.iff";
-    public static final int BADGETOOL_MENUOPTION = 0;
-    public static final int BUFFTOOL_MENUOPTION = 1;
-    public static final int QACUBE_MENUOPTION = 2;
-    public static final int CYBERNETIC_MENUOPTION = 3;
-    public static final int DMGTOOL_MENUOPTION = 4;
-    public static final int DATAPADTOOL_MENUOPTION = 5;
-    public static final int DYNAMIC_LOOTOPTION = 6;
-    public static final int XPTOOL_MENUOPTION = 7;
-    public static final int FACTIONTOOL_MENUOPTION = 8;
-    public static final int INVTOOL_MENUOPTION = 9;
-    public static final int MSTRITEMTOOL_MENUOPTION = 10;
-    public static final int NGETOOL_MENUOPTION = 11;
-    public static final int NPCFINDERTOOL_MENUOPTION = 12;
-    public static final int PET_OPTION = 13;
-    public static final int PROFESSIONTOOL_MENUOPTION = 14;
-    public static final int QUESTTOOL_MENUOPTION = 15;
-    public static final int RESOURCETOOL_MENUOPTION = 16;
-    public static final int RESOURCE_REWARD_TOOL_MENUOPTION = 17;
-    public static final int SCRIPTTOOL_MENUOPTION = 18;
-    public static final int SPACETOOL_MENUOPTION = 19;
-    public static final int FROGTOOL_MENUOPTION = 20;
-    public static final int VETERANREWARD_MENUOPTION = 21;
-    public static final int WEAPONS_MENUOPTION = 22;
-    public static final int WEARABLESTOOL_MENUOPTION = 23;
+    public static final byte BADGETOOL_MENUOPTION = 0;
+    public static final byte BUFFTOOL_MENUOPTION = 1;
+    public static final byte QACUBE_MENUOPTION = 2;
+    public static final byte CYBERNETIC_MENUOPTION = 3;
+    public static final byte DMGTOOL_MENUOPTION = 4;
+    public static final byte DATAPADTOOL_MENUOPTION = 5;
+    public static final byte DYNAMIC_LOOTOPTION = 6;
+    public static final byte XPTOOL_MENUOPTION = 7;
+    public static final byte FACTIONTOOL_MENUOPTION = 8;
+    public static final byte INVTOOL_MENUOPTION = 9;
+    public static final byte MSTRITEMTOOL_MENUOPTION = 10;
+    public static final byte NGETOOL_MENUOPTION = 11;
+    public static final byte NPCFINDERTOOL_MENUOPTION = 12;
+    public static final byte PET_OPTION = 13;
+    public static final byte PROFESSIONTOOL_MENUOPTION = 14;
+    public static final byte QUESTTOOL_MENUOPTION = 15;
+    public static final byte RESOURCETOOL_MENUOPTION = 16;
+    public static final byte RESOURCE_REWARD_TOOL_MENUOPTION = 17;
+    public static final byte SCRIPTTOOL_MENUOPTION = 18;
+    public static final byte SPACETOOL_MENUOPTION = 19;
+    public static final byte FROGTOOL_MENUOPTION = 20;
+    public static final byte VETERANREWARD_MENUOPTION = 21;
+    public static final byte WEAPONS_MENUOPTION = 22;
+    public static final byte WEARABLESTOOL_MENUOPTION = 23;
     public static final String QATOOL_TITLE = "/QATOOL USAGE";
     public static final String SCRIPT_VAR = "qatool";
     public static final String TITLE = "QA Tools";
@@ -94,8 +91,7 @@ public class qatool extends script.base_script
     public static final float MINIMUM_FINDER_RADIUS_FLOAT = 10000000f;
     public static final string_id NEW_CITY_STRUCTURE_SUBJECT = new string_id("city/city", "new_city_structure_subject");
     public static final string_id NEW_CITY_STRUCTURE_BODY = new string_id("city/city", "new_city_structure_body");
-    public static final String[] QATOOLPROMPT = 
-    {
+    public static final String[] QATOOLPROMPT = {
         " Format: /qatool <command>",
         " qabadge -- Assigns and revokes badges",
         " qawearables -- spawns clothing into your inventory",
@@ -129,7 +125,7 @@ public class qatool extends script.base_script
         "* (command driven tool) aifreeze <mobTarget> - Allows the tester to stop a mobile so it doesn't move even if damaged by combat.  The mobile will not attempt to fight back.",
         " npcFinder (or findNPC) - Allows the tester to look for specific mobs within the server boundaries of their current position.",
         "* (command driven tool) string [code/identifying_the_string]:string_id - Example: /qaTool string [conversation/tatooine_espa_watto]:s_106",
-        "* (command driven tool) targetData - Gives tester a popup window with a target's data to include scripts, stats, scriptvars, etc. The popup itself can be edited meaning you can copy or cut from the popup to the chat UI or other applications.",
+        "* (command driven tool) targetData - Gives tester a pop-up window with a target's data to include scripts, stats, scriptvars, etc. The pop-up itself can be edited meaning you can copy or cut from the popup to the chat UI or other applications.",
         "* (command driven tool) helper <creatureName> - Gives tester a creature with additional functionality.  Tester can instruct the test creature to carry out specific instructions in order to assist the tester in attaining a structured combat test case.",
         "* (command driven tool) objFinder <script.string.argument | template/name.iff> - Lists all objects, that have the specified template or script attached, within the server boundary in which the tester currently resides.",
         "* (command driven tool) revokepilot - Removes the test character's Pilot profession completely.",
@@ -161,8 +157,7 @@ public class qatool extends script.base_script
         " qatcg or tcg - Brings up a menu of options for the SWG Trading Card Game"
     };
     public static final String[] QATOOL_MAIN_MENU = dataTableGetStringColumn("datatables/test/qa_tool_menu.iff", "main_tool");
-    public static final String[] FACTION_TOOL_MENU = 
-    {
+    public static final String[] FACTION_TOOL_MENU = {
         "Join a faction",
         "Go Covert (Combatant)",
         "Go Overt (Special Forces)",
@@ -172,27 +167,23 @@ public class qatool extends script.base_script
         "Manipulate NPC Factions",
         "Get Factional HQ's and Supplies"
     };
-    public static final String[] FS_TOOL_MENU = 
-    {
+    public static final String[] FS_TOOL_MENU = {
         "FS Village Intro Quests",
         "FS Village Quests",
         "FS Village Exit Quests"
     };
-    public static final String[] INVENTORY_TOOL_MENU = 
-    {
+    public static final String[] INVENTORY_TOOL_MENU = {
         "Delete all in inventory",
         "Fill inventory with Junk"
     };
-    public static final String[] QUEST_TOOL_MENU = 
-    {
+    public static final String[] QUEST_TOOL_MENU = {
         "Add a ground quest manually",
         "Add a space quest manually",
         "Attain test quests",
         "Bulk Grant/Complete Tool",
         "Bulk Grant Tool"
     };
-    public static final String[] JTL_TOOL_MENU = 
-    {
+    public static final String[] JTL_TOOL_MENU = {
         "Ship Loot Components",
         "Mining Components",
         "God Ships",
@@ -205,14 +196,12 @@ public class qatool extends script.base_script
         "Pilot Quest Tools",
         "Revoke pilot skills"
     };
-    public static final String[] ENHANCEMENT_TOOL_MENU = 
-    {
+    public static final String[] ENHANCEMENT_TOOL_MENU = {
         "Armor Enhancement",
         "Clothing Enhancement",
         "Random Enhancement"
     };
-    public static final String[] XP_TOOL_MENU = 
-    {
+    public static final String[] XP_TOOL_MENU = {
         "Revoke non-pilot experience",
         "combat_general",
         "quest_combat",
@@ -223,36 +212,30 @@ public class qatool extends script.base_script
         "prestige_rebel",
         "prestige_pilot"
     };
-    public static final String[] RESOURCE_TOOL_MENU = 
-    {
+    public static final String[] RESOURCE_TOOL_MENU = {
         "Recycled Resources",
         "Space Resources",
         "Common Resources"
     };
-    public static final String[] REWARD_RESOURCE_MENU = 
-    {
+    public static final String[] REWARD_RESOURCE_MENU = {
         "Enter Resource Menu"
     };
-    public static final String[] ITEM_TOOL_MENU = 
-    {
+    public static final String[] ITEM_TOOL_MENU = {
         "Armor",
         "Best Weapons",
         "Get all Certified Weapons",
         "Get Roadmap Items",
         "List Every Item by Category"
     };
-    public static final String[] SCRIPT_TOOL_MENU = 
-    {
+    public static final String[] SCRIPT_TOOL_MENU = {
         "Attach Script",
         "Detach Script"
     };
-    public static final String[] NGE_TOOL_MENU = 
-    {
+    public static final String[] NGE_TOOL_MENU = {
         "Make CU Profession",
         "Get Respec Token"
     };
-    public static final String[] SCRIPT_TOOL_COMMON_SCRIPTS = 
-    {
+    public static final String[] SCRIPT_TOOL_COMMON_SCRIPTS = {
         "csr.get_resource_crate",
         "working.dantest",
         "player.player_gm",
@@ -286,19 +269,16 @@ public class qatool extends script.base_script
         "test.qa_resource_reward",
         "test.qadna"
     };
-    public static final String[] DATAPAD_TOOL_MENU = 
-    {
+    public static final String[] DATAPAD_TOOL_MENU = {
         "Warp to Waypoints",
         "Export Waypoints"
     };
-    public static final String[] PROFESSION_TOOL_MENU = 
-    {
+    public static final String[] PROFESSION_TOOL_MENU = {
         "Abilities Alphabetically",
         "Profession Details",
         "Export Profession Details"
     };
-    public static final String[] MOB_STRING_FILE_POSSIBILITIES = 
-    {
+    public static final String[] MOB_STRING_FILE_POSSIBILITIES = {
         "mob/creature_names",
         "npc_name",
         "droid_name",
@@ -307,12 +287,10 @@ public class qatool extends script.base_script
         "theme_park_name",
         "ep3/npc_names"
     };
-    public static final String[] NPCFINDER_ERR_ARRAY = 
-    {
+    public static final String[] NPCFINDER_ERR_ARRAY = {
         "No Mob/NPC Found"
     };
-    public static final String[] MITIGATION_HIT_LOCATIONS = 
-    {
+    public static final String[] MITIGATION_HIT_LOCATIONS = {
         "Body",
         "Head",
         "Right Arm",
@@ -320,8 +298,7 @@ public class qatool extends script.base_script
         "Right Leg",
         "Left Leg"
     };
-    public static final String[] WEAPON_DAMAGE_TYPE = 
-    {
+    public static final String[] WEAPON_DAMAGE_TYPE = {
         "DAMAGE_NONE",
         "DAMAGE_KINETIC",
         "DAMAGE_ENERGY",
@@ -337,8 +314,7 @@ public class qatool extends script.base_script
         "DAMAGE_ENVIRONMENTAL_ACID",
         "DAMAGE_ENVIRONMENTAL_ELECTRICAL"
     };
-    public static final String[] PROFESSION_SKILL_NAMES = 
-    {
+    public static final String[] PROFESSION_SKILL_NAMES = {
         "_phase1_novice",
         "_phase1_02",
         "_phase1_03",
@@ -364,8 +340,7 @@ public class qatool extends script.base_script
         "_phase4_05",
         "_phase4_master"
     };
-    public static final String[] PROFESSION_PREFIX = 
-    {
+    public static final String[] PROFESSION_PREFIX = {
         "class_smuggler",
         "class_bountyhunter",
         "class_officer",
@@ -374,13 +349,11 @@ public class qatool extends script.base_script
         "class_medic",
         "class_spy"
     };
-    public static final String[] PET_OPTION_MENU = 
-    {
+    public static final String[] PET_OPTION_MENU = {
         "Access DNA Samples",
         "Future Pet Options"
     };
-    public static final String[][] MISC_SEARCH_MULTIARRAY = 
-    {
+    public static final String[][] MISC_SEARCH_MULTIARRAY = {
         
         {
             "robe"
@@ -390,9 +363,7 @@ public class qatool extends script.base_script
             "item_jedi_robe_"
         }
     };
-    public static final String[][] WEAPON_SEARCH_MULTIARRAY = 
-    {
-        
+    public static final String[][] WEAPON_SEARCH_MULTIARRAY = {
         {
             "pis",
             "rif",
@@ -402,7 +373,6 @@ public class qatool extends script.base_script
             "two",
             "pol"
         },
-        
         {
             "weapon_pistol_",
             "weapon_rifle_",
@@ -413,9 +383,7 @@ public class qatool extends script.base_script
             "weapon_polearm_"
         }
     };
-    public static final String[][] ARMOR_SEARCH_MULTIARRAY = 
-    {
-        
+    public static final String[][] ARMOR_SEARCH_MULTIARRAY = {
         {
             "bone",
             "smuggler",
@@ -451,7 +419,6 @@ public class qatool extends script.base_script
             "mandalorian_imperial_green",
             "mandalorian_rebel_green"
         },
-        
         {
             "armor_bone_",
             "armor_smuggler_roadmap_",
@@ -488,8 +455,7 @@ public class qatool extends script.base_script
             "armor_mandalorian_rebel_green_"
         }
     };
-    public static final String[] ENTERTAINER_ITEMS = 
-    {
+    public static final String[] ENTERTAINER_ITEMS = {
         "object/tangible/component/instrument/dual_wave_synthesizer.iff",
         "object/tangible/instrument/bandfill.iff",
         "object/tangible/instrument/fanfar.iff",
@@ -533,33 +499,28 @@ public class qatool extends script.base_script
         "object/tangible/dance_prop/prop_torch_l.iff",
         "object/tangible/dance_prop/prop_torch_r.iff"
     };
-    public static final String[] TERMINAL_LIST = 
-    {
+    public static final String[] TERMINAL_LIST = {
         "object/tangible/terminal/terminal_mission_artisan.iff",
         "object/tangible/terminal/terminal_mission_entertainer.iff",
         "object/tangible/terminal/terminal_mission_bounty.iff",
         "object/tangible/terminal/terminal_mission.iff",
         "object/tangible/terminal/terminal_mission_scout.iff"
     };
-    public static final String[] DATA_SOURCE_MENU_LIST = 
-    {
+    public static final String[] DATA_SOURCE_MENU_LIST = {
         "spawn dynamic armor",
         "spawn dynamic clothing",
         "spawn dynamic weapons"
     };
-    public static final String[] ADD_ON_DATAPAD_MENU = 
-    {
+    public static final String[] ADD_ON_DATAPAD_MENU = {
         "FILL WAYPOINTS",
         "CLEAR ALL WAYPOINTS"
     };
-    public static final String[] CYBER_MENU_LIST = 
-    {
+    public static final String[] CYBER_MENU_LIST = {
         "Install",
         "Uninstall",
         "Repair"
     };
-    public static final String[] WEAPON_TYPE = 
-    {
+    public static final String[] WEAPON_TYPE = {
         "Pistol",
         "Carbine",
         "Rifle",
@@ -570,15 +531,13 @@ public class qatool extends script.base_script
         "Heavy Weapon",
         "Flame Thrower"
     };
-    public static final String[] WEATHER_TYPES = 
-    {
+    public static final String[] WEATHER_TYPES = {
         "Clear",
         "Mild",
         "Heavy",
         "Severe"
     };
-    public static final String[] CONTRABAND_STRINGS = 
-    {
+    public static final String[] CONTRABAND_STRINGS = {
         "item_smuggler_contraband_01_01",
         "item_smuggler_contraband_01_02",
         "item_smuggler_contraband_01_03",
@@ -605,8 +564,7 @@ public class qatool extends script.base_script
         "item_smuggler_contraband_05_04",
         "item_smuggler_contraband_05_05"
     };
-    public static final String[] OLD_ITEM_MENU = 
-    {
+    public static final String[] OLD_ITEM_MENU = {
         "Old FS Village Rewards",
         "Hero of Tatooine",
         "Death Watch Bunker Loot",
@@ -615,8 +573,7 @@ public class qatool extends script.base_script
         "Varactyl Egg and Treasure Map",
         "Loot Schematics"
     };
-    public static final String[] OLD_FS_VILLAGE_ITEMS = 
-    {
+    public static final String[] OLD_FS_VILLAGE_ITEMS = {
         "object/tangible/item/quest/force_sensitive/bacta_tank.iff",
         "object/tangible/wearables/necklace/necklace_ice_pendant.iff",
         "object/tangible/item/quest/force_sensitive/fs_village_bannerpole_s01.iff",
@@ -629,8 +586,7 @@ public class qatool extends script.base_script
         "object/tangible/loot/plant_grow/plant_stage_dead.iff",
         "object/tangible/item/plant/force_melon.iff"
     };
-    public static final String[] HERO_OF_TATOOINE_ITEMS = 
-    {
+    public static final String[] HERO_OF_TATOOINE_ITEMS = {
         "object/tangible/loot/quest/hero_of_tatooine/squill_skull.iff",
         "object/tangible/loot/quest/hero_of_tatooine/mark_altruism.iff",
         "object/tangible/loot/quest/hero_of_tatooine/squill_skull_pile.iff",
@@ -639,8 +595,7 @@ public class qatool extends script.base_script
         "object/tangible/loot/quest/hero_of_tatooine/mark_honor.iff",
         "object/tangible/loot/quest/hero_of_tatooine/mark_courage.iff"
     };
-    public static final String[] DEATH_WATCH_BUNKER_ITEMS = 
-    {
+    public static final String[] DEATH_WATCH_BUNKER_ITEMS = {
         "object/tangible/loot/dungeon/death_watch_bunker/pistol_de10_barrel.iff",
         "object/tangible/loot/dungeon/death_watch_bunker/mining_drill_reward.iff",
         "object/tangible/loot/dungeon/death_watch_bunker/binary_liquid.iff",
@@ -656,8 +611,7 @@ public class qatool extends script.base_script
         "object/tangible/loot/dungeon/death_watch_bunker/viewscreen_s1.iff",
         "object/tangible/loot/dungeon/death_watch_bunker/viewscreen_s2.iff"
     };
-    public static final String[] OLD_SKILL_BUFF_ITEMS = 
-    {
+    public static final String[] OLD_SKILL_BUFF_ITEMS = {
         "object/tangible/skill_buff/skill_buff_carbine_accuracy.iff",
         "object/tangible/skill_buff/skill_buff_carbine_speed.iff",
         "object/tangible/skill_buff/skill_buff_heavy_weapon_accuracy.iff",
@@ -682,8 +636,7 @@ public class qatool extends script.base_script
         "object/tangible/skill_buff/skill_buff_unarmed_accuracy.iff",
         "object/tangible/skill_buff/skill_buff_unarmed_speed.iff"
     };
-    public static final String[] CRAFTING_COMPONENTS = 
-    {
+    public static final String[] CRAFTING_COMPONENTS = {
         "object/tangible/component/armor/armor_core_assault_advanced.iff",
         "object/tangible/component/armor/armor_core_assault_basic.iff",
         "object/tangible/component/armor/armor_core_battle_advanced.iff",
@@ -726,13 +679,11 @@ public class qatool extends script.base_script
         "object/tangible/treasure_map/treasure_map_base.iff",
         "object/tangible/component/weapon/vibro_unit_nightsister.iff"
     };
-    public static final String[] VARACTYL_TREASURE_ITEMS = 
-    {
+    public static final String[] VARACTYL_TREASURE_ITEMS = {
         "object/tangible/loot/quest/ep3/varactyl_egg.iff",
         "object/tangible/treasure_map/treasure_map_base.iff"
     };
-    public static final String[] LOOT_SCHEMATICS = 
-    {
+    public static final String[] LOOT_SCHEMATICS = {
         "object/tangible/loot/quest/schematic_republic_blaster_quest.iff",
         "object/tangible/loot/quest/2h_sword_scythe_schematic.iff",
         "object/tangible/loot/loot_schematic/agitator_motor_schematic.iff",
@@ -825,8 +776,7 @@ public class qatool extends script.base_script
         "object/tangible/loot/loot_schematic/tumble_blender_schematic.iff",
         "object/tangible/loot/loot_schematic/utensils_schematic.iff"
     };
-    public static final String[] TCG_MENU = 
-    {
+    public static final String[] TCG_MENU = {
         "Generate Drop",
         "TCG Info Flag",
         "TCG Always Drop",
@@ -834,51 +784,45 @@ public class qatool extends script.base_script
         "Promotional Items Cluster Info",
         "Reinitialize TCG Information (warning! this resets everything!)"
     };
-    public int OnAttach(obj_id self) throws InterruptedException
-    {
-        if (isGod(self))
-        {
-            if (getGodLevel(self) < 50)
-            {
-                detachScript(self, "test.qatool");
-                sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
-            }
-            else 
-            {
-                attachScript(self, "test.qabuff");
-                attachScript(self, "test.qawearables");
-                attachScript(self, "test.qa_quest_skipper");
-                attachScript(self, "test.qabadge");
-                attachScript(self, "test.qainventory");
-                attachScript(self, "test.qafaction");
-                attachScript(self, "test.qaxp");
-                attachScript(self, "test.qa_jtl_tools");
-                attachScript(self, "test.qa_resources");
-                attachScript(self, "test.qascript");
-                attachScript(self, "test.qadatapad");
-                attachScript(self, "test.qaitem");
-                attachScript(self, "test.qange");
-                attachScript(self, "test.qaprofession");
-                attachScript(self, "test.qa_damage");
-                attachScript(self, "test.qa_helper");
-                attachScript(self, "test.qa_dynamic");
-                attachScript(self, "test.qa_cybernetic");
-                attachScript(self, "test.qaweapon");
-                attachScript(self, "test.qa_cube");
-                attachScript(self, "test.qa_resource_reward");
-                attachScript(self, "test.qadna");
-                grantSkill(self, "swg_dev");
-                sendSystemMessageTestingOnly(self, "You can access the \"SWG Developer\" title by opening your Community options.");
-            }
-        }
-        else 
-        {
+    public int OnAttach(obj_id self) throws InterruptedException {
+        int godLevel = getGodLevel(self);
+
+        if (!isGod(self) || godLevel < 10) {
             detachScript(self, "test.qatool");
+            sendSystemMessage(self, "You do not have the appropriate access level to use this script.", null);
+        } else {
+            attachScript(self, "test.qabuff");
+            attachScript(self, "test.qawearables");
+            attachScript(self, "test.qa_quest_skipper");
+            attachScript(self, "test.qabadge");
+            attachScript(self, "test.qainventory");
+            attachScript(self, "test.qafaction");
+            attachScript(self, "test.qaxp");
+            attachScript(self, "test.qa_jtl_tools");
+            attachScript(self, "test.qa_resources");
+            attachScript(self, "test.qascript");
+            attachScript(self, "test.qadatapad");
+            attachScript(self, "test.qaitem");
+            attachScript(self, "test.qange");
+            attachScript(self, "test.qaprofession");
+            attachScript(self, "test.qa_damage");
+            attachScript(self, "test.qa_helper");
+            attachScript(self, "test.qa_dynamic");
+            attachScript(self, "test.qa_cybernetic");
+            attachScript(self, "test.qa_cube");
+            attachScript(self, "test.qa_resource_reward");
+            attachScript(self, "test.qadna");
+            grantSkill(self, "swg_csr");
+            grantSkill(self, "swg_dev");
+            System.out.print("QATOOL Attached to  " + getName(self) + "");
+
+            if (godLevel >= 15) {
+                attachScript(self, "test.qaweapon");
+            }
         }
         return SCRIPT_CONTINUE;
     }
-    public int OnDetach(obj_id self) throws InterruptedException
-    {
+    public int OnDetach(obj_id self) throws InterruptedException {
         detachScript(self, "test.qabuff");
         detachScript(self, "test.qafstool");
         detachScript(self, "test.qawearables");
@@ -905,28 +849,20 @@ public class qatool extends script.base_script
         detachScript(self, "test.qa_cube");
         detachScript(self, "test.qa_resource_reward");
         detachScript(self, "test.qadna");
+        revokeSkillSilent(self, "swg_csr");
         revokeSkillSilent(self, "swg_dev");
+        CustomerServiceLog("QATOOL", "Notice: " + getName(self) + " detached the QATOOL from themselves.");
         return SCRIPT_CONTINUE;
     }
-    public int vetRewardOptionHandler(obj_id self, dictionary params) throws InterruptedException
-    {
-        if (!isGod(self) || getGodLevel(self) < 10){
-            detachScript(self, "test.qatool");
-            return SCRIPT_CONTINUE;
-        }
-        if (utils.hasScriptVar(self, "vetreward.pid"))
-        {
+    public int vetRewardOptionHandler(obj_id self, dictionary params) throws InterruptedException {
+        if (isGod(self) && utils.hasScriptVar(self, "vetreward.pid")) {
             qa.checkParams(params, "vetreward");
             int idx = sui.getListboxSelectedRow(params);
             int btn = sui.getIntButtonPressed(params);
             String previousMainMenuArray[] = utils.getStringArrayScriptVar(self, "vetreward.allTemplates");
-            if (btn == sui.BP_CANCEL)
-            {
+            if (btn == sui.BP_CANCEL) {
                 cleanAllScriptVars(self);
-                return SCRIPT_CONTINUE;
-            }
-            else
-            {
+            } else {
                 String previousSelection = previousMainMenuArray[idx];
                 qa.templateObjectSpawner(self, previousSelection);
                 String[] allRewardTemplates = dataTableGetStringColumn(VET_REWARDS_TABLE, "Object Template");
@@ -936,1024 +872,1153 @@ public class qatool extends script.base_script
         }
         return SCRIPT_CONTINUE;
     }
-    public int cmdQaTool(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException
-    {
-        if (!isGod(self) || getGodLevel(self) < 10){
-            detachScript(self, "test.qatool");
-            return SCRIPT_CONTINUE;
-        }
-        StringTokenizer st = new java.util.StringTokenizer(params);
-        int tokens = st.countTokens();
-        String command = "";
-        if (st.hasMoreTokens())
-        {
-            command = st.nextToken();
-        }
-        utils.setScriptVar(self, SCRIPT_VAR + ".toolMainMenu", QATOOL_MAIN_MENU);
-        utils.setScriptVar(self, SCRIPT_VAR + ".title", TITLE);
-        utils.setScriptVar(self, SCRIPT_VAR + ".prompt", PROMPT);
-        if (command.equals(""))
-        {
-            qa.refreshMenu(self, PROMPT, TITLE, QATOOL_MAIN_MENU, "toolMainMenu", true, SCRIPT_VAR + ".pid");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("setscriptvar"))
-        {
-            qaSetScriptVar(self, st);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("setcount"))
-        {
-            if (st.hasMoreTokens())
-            {
-                obj_id oid = getIntendedTarget(self);
-                int count = utils.stringToInt(st.nextToken());
-                setCount(oid, count);
-                sendSystemMessageTestingOnly(self, "Object: " + target + " has added " + count + " to it's item count.");
+    public int cmdQaTool(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException {
+        if (isGod(self)) {
+            StringTokenizer st = new java.util.StringTokenizer(params);
+            int tokens = st.countTokens();
+            String command = "";
+            if (st.hasMoreTokens()) {
+                command = st.nextToken();
+            }
+            utils.setScriptVar(self, SCRIPT_VAR + ".toolMainMenu", QATOOL_MAIN_MENU);
+            utils.setScriptVar(self, SCRIPT_VAR + ".title", TITLE);
+            utils.setScriptVar(self, SCRIPT_VAR + ".prompt", PROMPT);
+            if (command.isEmpty()) {
+                qa.refreshMenu(self, PROMPT, TITLE, QATOOL_MAIN_MENU, "toolMainMenu", true, SCRIPT_VAR + ".pid");
                 return SCRIPT_CONTINUE;
-            }
-        }
-        else if ((toLower(command)).equals("collectionclickbypass"))
-        {
-            cleanAllScriptVars(self);
-            qaEnableCollectionClickBypass(self, st, "none");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("fish") || (toLower(command)).equals("fishing") || (toLower(command)).equals("qafish"))
-        {
-            cleanAllScriptVars(self);
-            qaFishing(self, st, "none");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("testtreasure") || (toLower(command)).equals("treasuretest"))
-        {
-            if (!st.hasMoreTokens())
-            {
-                sendSystemMessageTestingOnly(self, "Usage: /qatool testtreasure treasure/treasure_1_10 or /qatool testtreasure treasure/treasure_11_20, etc.");
+            } else if ((toLower(command)).equals("openlink")) {
+                if (st.hasMoreTokens())
+                {
+                    String string = st.nextToken();
+                    launchClientWebBrowser(target, string);
+                    CustomerServiceLog("QATOOL", "Notice: " + getName(self) + " opened [" + string + "] for " + target + "!");
+                }
                 return SCRIPT_CONTINUE;
-            }
-            else
-            {
-                String lootTable = st.nextToken();
-                if (lootTable == null || lootTable.equals(""))
+            } else if (command.equals("setCheater")) {
+                setObjVar(target, "csr.cheater", 1);
+                sendSystemMessageTestingOnly(self, "Target added to cheater list. Use getCheaters to generate list.");
+                return SCRIPT_CONTINUE;
+            } else if (command.equals("getCheaters")) {
+                if (st.hasMoreTokens())
                 {
-                    sendSystemMessageTestingOnly(self, "Usage: /qatool testtreasure treasure/treasure_1_10 or /qatool testtreasure treasure/treasure_11_20, etc.");
-                    return SCRIPT_CONTINUE;
-                }
-                int tableMaxLevel = lootTable.lastIndexOf("_") + 1;
-                if (tableMaxLevel < 0)
-                {
-                    sendSystemMessageTestingOnly(self, "Usage: /qatool testtreasure treasure/treasure_1_10 or /qatool testtreasure treasure/treasure_11_20, etc.");
-                    return SCRIPT_CONTINUE;
-                }
-                String treasureLevel = lootTable.substring(tableMaxLevel);
-                int intTreasureLevel = utils.stringToInt(treasureLevel);
-                if (intTreasureLevel < 10 || intTreasureLevel > 90)
-                {
-                    sendSystemMessageTestingOnly(self, "Usage: /qatool testtreasure treasure/treasure_1_10 or /qatool testtreasure treasure/treasure_11_20, etc.");
-                    return SCRIPT_CONTINUE;
-                }
-                location treasureLoc = getLocation(self);
-                if (treasureLoc == null)
-                {
-                    return SCRIPT_CONTINUE;
-                }
-                obj_id treasureChest = createObject("object/tangible/container/drum/treasure_drum.iff", treasureLoc);
-                if (!isValidId(treasureChest) && !exists(treasureChest))
-                {
-                    return SCRIPT_CONTINUE;
-                }
-                boolean success = loot.makeLootInContainer(treasureChest, lootTable, 6, intTreasureLevel);
-                if (!success)
-                {
-                    sendSystemMessageTestingOnly(self, "Text export failed.");
-                    return SCRIPT_CONTINUE;
-                }
-                obj_id contents[] = getContents(treasureChest);
-                String listcontents = "";
-                if (contents.length > 0)
-                {
-                    for (int i = 0; i < contents.length; i++)
+                    String range = st.nextToken();
+                    String cheaterObjVar = "csr.cheater";
+                    int range1 = utils.stringToInt(range);
+                    obj_id[] objObjects = getPlayerCreaturesInRange(self, range1);
+                    for (int i = 0; i < objObjects.length; i++)
                     {
-                        listcontents += "(" + contents[i] + ")" + getTemplateName(contents[i]) + "\r";
-                    }
-                }
-                if (!listcontents.equals(""))
-                {
-                    saveTextOnClient(self, "treasure" + treasureChest + ".txt", listcontents);
-                }
-                dictionary treasureDictionary = new dictionary();
-                treasureDictionary.put("object", treasureChest);
-                messageTo(self, "qaDestroyObject", treasureDictionary, 600, false);
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("olditems") || (toLower(command)).equals("olditem"))
-        {
-            if (OLD_ITEM_MENU.length > 0)
-            {
-                qa.refreshMenu(self, "Select a old item category.", "Old Item Spawner. DO NOT BUG ITEMS SPAWNED WITH THIS TOOL!!! DO NOT BUG ITEMS SPAWNED WITH THIS TOOL!!! DO NOT BUG ITEMS SPAWNED WITH THIS TOOL!!! ", OLD_ITEM_MENU, "oldItemMenuHandler", true, "oldItem.pid", "oldItem.menu");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("glow"))
-        {
-            grantCommand(self, "blueGlowie");
-            return SCRIPT_OVERRIDE;
-        }
-        else if ((toLower(command)).equals("emailspam") || (toLower(command)).equals("spamemail") || (toLower(command)).equals("spam"))
-        {
-            emailSpamFunction(self, st);
-            return SCRIPT_OVERRIDE;
-        }
-        else if ((toLower(command)).equals("terminal"))
-        {
-            for (int i = 0; i < TERMINAL_LIST.length; i++)
-            {
-                obj_id terminalId = qa.templateObjectSpawner(self, TERMINAL_LIST[i], true);
-            }
-            sendSystemMessageTestingOnly(self, "Terminals Spawned.");
-            return SCRIPT_OVERRIDE;
-        }
-        else if ((toLower(command)).equals("eggspawn") || (toLower(command)).equals("eggspawner") || (toLower(command)).equals("spawnegg") || (toLower(command)).equals("spawn"))
-        {
-            qa.forceEggSpawn(self);
-            return SCRIPT_OVERRIDE;
-        }
-        else if ((toLower(command)).equals("weather"))
-        {
-            qa.refreshMenu(self, "Select weather type.", "Weather Tool", WEATHER_TYPES, "msgHandleWeatherSelection", true, "weather.pid", "weather.list");
-            return SCRIPT_OVERRIDE;
-        }
-        else if ((toLower(command)).equals("qaquestdump") || (toLower(command)).equals("questdump"))
-        {
-            saveAllCurrentQuestData(self);
-            return SCRIPT_OVERRIDE;
-        }
-        else if ((toLower(command)).equals("vetrewards") || (toLower(command)).equals("vetreward"))
-        {
-            String[] allRewardTemplates = dataTableGetStringColumn(VET_REWARDS_TABLE, "Object Template");
-            Arrays.sort(allRewardTemplates);
-            if (allRewardTemplates.length > 0)
-            {
-                qa.refreshMenu(self, "The list below shows veteran rewards available", "Vet Reward Tool", allRewardTemplates, "vetRewardOptionHandler", true, "vetreward.pid", "vetreward.allTemplates");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("serialize"))
-        {
-            try
-            {
-                String serialCommand = st.nextToken();
-                if (!serialCommand.equals("") || serialCommand != null)
-                {
-                    obj_id item = utils.stringToObjId(serialCommand);
-                    if (!isIdValid(item))
-                    {
-                        sendSystemMessageTestingOnly(self, "To serialize an item you need to specify a valid OID.");
-                        return SCRIPT_CONTINUE;
-                    }
-                    else
-                    {
-                        setCraftedId(item, utils.getInventoryContainer(self));
-                        setCrafter(item, self);
-                        sendSystemMessageTestingOnly(self, "Item " + item + " has been serialized.");
-                    }
-                }
-            }
-            catch(Exception e)
-            {
-                sendSystemMessageTestingOnly(self, "You need to specify the object Id of the object you want to be serialized.");
-                sendSystemMessageTestingOnly(self, "/qatool serialize <OID>");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("entertaineritems"))
-        {
-            for (int i = 0; i < ENTERTAINER_ITEMS.length; i++)
-            {
-                qa.templateObjectSpawner(self, ENTERTAINER_ITEMS[i]);
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("skills") || (toLower(command)).equals("skillmods") || (toLower(command)).equals("allskillmods"))
-        {
-            getAllSkillMods(self);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("resetexpertise") || (toLower(command)).equals("resetexpertises"))
-        {
-            utils.fullExpertiseReset(self, true);
-            grantSkill(self, "expertise");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("buff") || (toLower(command)).equals("qabuff"))
-        {
-            int stringCount = st.countTokens();
-            String[] allBuffs = dataTableGetStringColumn(BUFF_TABLE, "NAME");
-            Arrays.sort(allBuffs);
-            if (stringCount == 1)
-            {
-                String buffArg = st.nextToken();
-                if (buffArg.equals("remove") || buffArg.equals("removebuff") || buffArg.equals("clear"))
-                {
-                    buff.removeAllBuffs(self);
-                    sendSystemMessageTestingOnly(self, "Buffs cleared.");
-                }
-                else
-                {
-                    boolean foundBuff = false;
-                    for (int i = 0; i < allBuffs.length; i++)
-                    {
-                        if (allBuffs[i].equals(buffArg))
+                        if (isIdValid(objObjects[i]) && isPlayer(objObjects[i]) && hasObjVar(objObjects[i], cheaterObjVar))
                         {
-                            String buffName = qa.getClientBuffName(self, buffArg);
-                            if (!buffName.equals("null"))
-                            {
-                                qa.applyBuffOption(self, buffArg, buffName);
-                                foundBuff = true;
-                            }
-                            break;
+                            
+                            String cheaters = "";
+                            String cheaterlist = cheaters + objObjects[i];
+                            int time = getGameTime();
+                            saveTextOnClient(self, "cheaters_within_" + range1 + "m-" + time + ".txt", cheaterlist);
+                            
+                            sendSystemMessageTestingOnly(self, "Found cheaters and printed to text file.");
                         }
                     }
-                    if (!foundBuff)
-                    {
-                        sendSystemMessageTestingOnly(self, "Either the Buff or the Buff name was not found.");
-                    }
                 }
-            }
-            else
-            {
-                utils.setScriptVar(self, "qabuff.buffMenu", allBuffs);
-                qa.refreshMenu(self, BUFF_TOOL_PROMPT, BUFF_TOOL_TITLE, allBuffs, "buffOptionHandler", "qabuff.pid", sui.OK_CANCEL_REFRESH);
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qaquest"))
-        {
-            try
-            {
-                String[] allQuests = qa.getAllQuests(self);
-                String[] combinedMenu = new String[allQuests.length + QUEST_TOOL_MENU.length];
-                System.arraycopy(allQuests, 0, combinedMenu, 0, allQuests.length);
-                System.arraycopy(QUEST_TOOL_MENU, 0, combinedMenu, allQuests.length, QUEST_TOOL_MENU.length);
-                qa.refreshMenu(self, QUEST_TOOL_PROMPT, QUEST_TOOL_TITLE, combinedMenu, "handleMainMenuOptions", true, "qaquest.pid", "qaquest.qaquestMenu");
-            }
-            catch(Exception e)
-            {
-                qa.refreshMenu(self, QUEST_TOOL_PROMPT + "\n\nNo quests found on character", QUEST_TOOL_TITLE, QUEST_TOOL_MENU, "handleMainMenuOptions", true, "qaquest.pid", "qaquest.qaquestMenu");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("smugglingquest"))
-        {
-            String questLevel = "1";
-            int stringCount = st.countTokens();
-            if (stringCount == 1)
-            {
-                questLevel = st.nextToken();
-                int num = utils.stringToInt(questLevel);
-                if (num < 1 || num > 5)
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("createlootchest")) {
+                if (st.hasMoreTokens())
                 {
+                    String lootTable = st.nextToken();
+                    String lootNumber = st.nextToken();
+                    int lootCount = utils.stringToInt(lootNumber);
+                    location treasureLoc = getLocation(self);
+                    obj_id treasureChest = createObject("object/tangible/container/drum/treasure_drum.iff", treasureLoc);
+                    loot.makeLootInContainer(treasureChest, lootTable, lootCount, 0);
+                    sendSystemMessageTestingOnly(self, "A loot chest was made with" + lootCount + " items from the loot table: " + lootTable);
                     return SCRIPT_CONTINUE;
                 }
-            }
-            groundquests.requestGrantQuest(self, "quest/smuggle_illicit_" + questLevel, true);
-            int questCrc = groundquests.getQuestIdFromString("quest/smuggle_illicit_" + questLevel);
-            int taskId = 10;
-            dictionary qparams = new dictionary();
-            qparams.put("questCrc", questCrc);
-            qparams.put("taskId", taskId);
-            String baseObjVar = groundquests.setBaseObjVar(self, "spawn", questGetQuestName(questCrc), taskId);
-            setObjVar(self, baseObjVar + "." + "playedTimeEnd", 0);
-            messageTo(self, "messageStartQuestSpawn", qparams, 3, true);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("smugglermodule"))
-        {
-            obj_id module = utils.getStaticItemInInventory(self, "item_reward_modify_pistol_01_01");
-            if (isIdValid(module))
-            {
-                incrementCount(module, 100);
-            }
-            else
-            {
-                static_item.createNewItemFunction("item_reward_modify_pistol_01_01", self);
-                module = utils.getStaticItemInInventory(self, "item_reward_modify_pistol_01_01");
-                incrementCount(module, 99);
-            }
-        }
-        else if ((toLower(command)).equals("contraband") || (toLower(command)).equals("contrabandspawner"))
-        {
-            int stringCount = st.countTokens();
-            if (stringCount == 1)
-            {
-                String stringNumber = st.nextToken();
-                int intNumber = utils.stringToInt(stringNumber);
-                if (intNumber > 0 && intNumber < 11)
+            } else if ((toLower(command)).equals("setcount")) {
+                if (st.hasMoreTokens())
                 {
-                    for (int i = 0; i < CONTRABAND_STRINGS.length; i++)
+                    obj_id oid = getIntendedTarget(self);
+                    int count = utils.stringToInt(st.nextToken());
+                    setCount(oid, count);
+                    sendSystemMessageTestingOnly(self, "Object: " + target + " has added " + count + " to it's item count.");
+                    return SCRIPT_CONTINUE;
+                }
+            } else if ((toLower(command)).equals("setcrafter")) {
+                obj_id crafter = self;
+                setCrafter(target, crafter);
+                sendSystemMessageTestingOnly(self, "Object: " + target + " is now shown that " + crafter + " is now the object maker.");
+                return SCRIPT_CONTINUE;
+            } else if ((command.equals("helpFlag"))) {
+                if (st.hasMoreTokens())
+                {
+                    String toggle = st.nextToken();
+                    if (toggle.equals("on"))
                     {
-                        mulipleStaticSpawn(self, CONTRABAND_STRINGS[i], stringNumber, true);
+                        setCondition(self, CONDITION_INTERESTING);
+                        sendSystemMessageTestingOnly(self, "Flag visible.");
+                    }
+                    else if (toggle.equals("off"))
+                    {
+                        clearCondition(self, CONDITION_INTERESTING);
+                        sendSystemMessageTestingOnly(self, "Flag invisible.");
+                    }
+                    return SCRIPT_CONTINUE;
+                }
+            } else if ((toLower(command)).equals("sws")) {
+                if (st.hasMoreTokens())
+                {
+                    String objectName1 = st.nextToken();
+                    String scriptname = st.nextToken();
+                    location spawnLocation1 = getLocation(self);
+                    obj_id baseObj = create.object(objectName1, spawnLocation1, -1);
+                    attachScript(baseObj, scriptname);
+                    setYaw(baseObj, getYaw(self));
+                    sendSystemMessageTestingOnly(self, "Spawned object and attached the script.");
+                    return SCRIPT_CONTINUE;
+                }
+            } else if ((toLower(command)).equals("setlevel")) {
+                if (st.hasMoreTokens())
+                {
+                    String level = st.nextToken();
+                    obj_id creature = getIntendedTarget(self);
+                    int creatureLevel = utils.stringToInt(level);
+                    if (!isPlayer(creature)) {
+                        setLevel(target, creatureLevel);
+                        sendSystemMessageTestingOnly(self, creature + " level set to: " + level);
+                    }
+                    else {
+                        sendSystemMessageTestingOnly(self, "This tool may not be used on players!");
+                    }
+                    return SCRIPT_CONTINUE;
+                }
+            } else if ((toLower(command)).equals("mobspawn")) {
+                if (st.hasMoreTokens())
+                {
+                    location where = getLocation(self);
+                    String c_mob = st.nextToken();
+                    String c_level = st.nextToken();
+                    String c_health = st.nextToken();
+                    obj_id s_mob = getIntendedTarget(self);
+                    int s_level = utils.stringToInt(c_level);
+                    int s_health = utils.stringToInt(c_health);
+                    create.object(c_mob, where);
+                    setHealth(s_mob, s_health);
+                    setLevel(s_mob, s_level);
+                    sendSystemMessageTestingOnly(self, "Spawned: " + s_mob + " with " + c_health + " health and a level of " + c_level);
+                    return SCRIPT_CONTINUE;
+                }
+            } else if (command.equals("namecheck")) {
+                if (st.hasMoreTokens())
+                {
+                    String name = st.nextToken();
+                    if (utils.isAppropriateName(name) == true) {
+                        sendSystemMessageTestingOnly(self, "name is appropriate");
+                    }
+                    if (utils.isAppropriateName(name) == false) {
+                        sendSystemMessageTestingOnly(self, "name is inappropriate");
+                    }
+                    return SCRIPT_CONTINUE;
+                }
+            } else if (command.equals("sethealth")) {
+                if (st.hasMoreTokens())
+                {
+                    obj_id mobToEdit = utils.getIntendedTarget(self);
+                    String health = st.nextToken();
+                    int converted_health = utils.stringToInt(health);
+                    if (!isPlayer(mobToEdit)) {
+                        setHealth(target, converted_health);
+                        sendSystemMessageTestingOnly(self, "Health set to : " + health);
+                    } else {
+                        sendSystemMessageTestingOnly(self, "This command cannot be used on players!");
+                    }
+                    return SCRIPT_CONTINUE;
+                }
+            } else if (command.equals("soa")) {
+                if (st.hasMoreTokens())
+                {
+                    String shared_temp = st.nextToken();
+                    setObjectAppearance(target, shared_temp);
+                    return SCRIPT_CONTINUE;
+                }
+            } else if (command.equals("roa")) {
+                if (st.hasMoreTokens())
+                {
+                    String shared_temp = st.nextToken();
+                    revertObjectAppearance(target);
+                    return SCRIPT_CONTINUE;
+                }
+            } else if (command.equals("cloneObject")) {
+                    obj_id template = getIntendedTarget(self);
+                    obj_id selfInv = utils.getInventoryContainer(self);
+                    obj_id clone = createObject(getTemplateName(template), selfInv, "");
+                    if (!isIdValid(clone)) {
+                        return SCRIPT_CONTINUE;
+                    }
+                    utils.copyObjectData(template, clone);
+                    return SCRIPT_CONTINUE;
+            } else if (command.equals("bestresources")) {
+                    craftinglib.makeBestResource(self, "steel", 1000000);
+                    craftinglib.makeBestResource(self, "iron", 1000000);
+                    craftinglib.makeBestResource(self, "copper", 1000000);
+                    craftinglib.makeBestResource(self, "fuel_petrochem_solid", 1000000);
+                    craftinglib.makeBestResource(self, "radioactive", 1000000);
+                    craftinglib.makeBestResource(self, "aluminum", 1000000);
+                    craftinglib.makeBestResource(self, "ore_extrusive", 1000000);
+                    craftinglib.makeBestResource(self, "petrochem_inert", 1000000);
+                    craftinglib.makeBestResource(self, "fiberplast", 1000000);
+                    craftinglib.makeBestResource(self, "gas_inert", 1000000);
+                    craftinglib.makeBestResource(self, "gas_reactive", 1000000);
+                    craftinglib.makeBestResource(self, "gemstone", 100000);
+                    craftinglib.makeBestResource(self, "water", 100000);
+                    craftinglib.makeBestResource(self, "hide", 100000);
+                    craftinglib.makeBestResource(self, "bone", 100000);
+                    craftinglib.makeBestResource(self, "meat", 100000);
+                    craftinglib.makeBestResource(self, "milk", 100000);
+                    craftinglib.makeBestResource(self, "cereal", 100000);
+                    craftinglib.makeBestResource(self, "ore", 100000);
+                    sendSystemMessageTestingOnly(self, "Completed.");
+                    return SCRIPT_CONTINUE;
+            } else if (command.equals("editlootnumber")) {
+                if (st.hasMoreTokens())
+                {
+                    String number = st.nextToken();
+                    setObjVar(target, "loot.numItems", number);
+                    sendSystemMessageTestingOnly(self, "Number of loot items on creature object set to: " + number);
+                }    
+            } else if ((toLower(command)).equals("jail")) {
+                if (st.hasMoreTokens())
+                {
+                    String jailloc = st.nextToken();
+                    if (jailloc.equals("geo1"))
+                    {
+                        sendSystemMessageTestingOnly(self, "Teleporting " + target + " to the jail (1) in the Geonosian Caves!" );
+                        //warpPlayer(target, "yavin4", 149.5f, -34.7f, -328.2f, null, 1627817, 0f, 0f, 0f, null, false);
+                        sendSystemMessageTestingOnly(target, "You have been jailed. Contact a CSR for further instructions.");
+                    }
+                    else if (jailloc.equals("geo2"))
+                    {
+                        sendSystemMessageTestingOnly(self, "Teleporting " + target + " to the jail (2) in the Geonosian Caves!" );
+                        //warpPlayer(target, "yavin4", -119.8f, -35.2f, -328.9f, null, 1627817, 0f, 0f, 0f, null, false);
+                        sendSystemMessageTestingOnly(target, "You have been jailed. Contact a CSR for further instructions.");
+                    }
+                    else if (jailloc.equals("mustafar"))
+                    {
+                        sendSystemMessageTestingOnly(self, "Teleporting " + target + " to the jails on mustafar!" );
+                        warpPlayer(target, "mustafar", -7800f, 0f, -7800f, null, 0.0f, 0.0f, 0.0f);
+                        sendSystemMessageTestingOnly(target, "You have been jailed. Contact a CSR for further instructions.");
                     }
                 }
-                else
+                    return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("playcef")) {
+                if (st.hasMoreTokens())
                 {
+                    String cef = st.nextToken();
+                    playClientEffectObj(self, "clienteffect/" + cef + ".cef", self, "root");
+                    sendSystemMessageTestingOnly(self, "Client Effect:" + cef + " played.");
+                    return SCRIPT_CONTINUE;
+                }
+            } else if ((toLower(command)).equals("playsound")) {
+                if (st.hasMoreTokens())
+                {
+                    String sound = st.nextToken();
+                    play2dNonLoopingSound(self, "sound/" + sound + ".snd");
+                    sendSystemMessageTestingOnly(self, "Sound: " + sound + " is now playing.");
+                    return SCRIPT_CONTINUE;
+                }
+            } else if ((toLower(command)).equals("bug")) {
+                String bugs = "https://swghope.com/bugs/login_page.php";
+                sendSystemMessageTestingOnly(self, "Opening bug website.");
+                launchClientWebBrowser(target, bugs);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("setscriptvar")) {
+                qaSetScriptVar(self, st);
+                return SCRIPT_CONTINUE;
+            } else if (command.equals("battlefield")) {
+                if (st.hasMoreTokens())
+                {
+                    String range = st.nextToken();//[128 | 192 | 256]
+                    location battlefieldOrigin = getLocation(self);
+                    obj_id battlefieldArea = createObject("object/battlefield_marker/battlefield_marker_" + range + "m.iff", battlefieldOrigin);
+                    obj_id battlefieldTerminal = createObject("object/tangible/terminal/terminal_command_console.iff", battlefieldOrigin);
+                    attachScript(battlefieldTerminal, "event.battlefield");
+                    setObjVar(battlefieldTerminal, "battlefield.creator", getName(self));
+                    setObjVar(battlefieldTerminal, "battlefield.radius", range);
+                    CustomerServiceLog("Event", "Battlefield spawned by " + getName(self));
+                    sendSystemMessageTestingOnly(self, "Battlefield spawned. See the google document to better understand how this event works.");
+                    return SCRIPT_CONTINUE;
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((command.equals("warpArea"))) {
+                if (st.hasMoreTokens())
+                {
+                    String area = st.nextToken();
+                    String x = st.nextToken();
+                    String y = st.nextToken();
+                    String z = st.nextToken();
+                    String range = st.nextToken();
+                    float x1 = utils.stringToFloat(x);
+                    float y1 = utils.stringToFloat(y);
+                    float z1 = utils.stringToFloat(z);
+                    int range1 = utils.stringToInt(range);
+                    obj_id[] objObjects = getPlayerCreaturesInRange(self, range1);
+                    sendSystemMessageTestingOnly(self, "Selected Players");
+                    for (int intI = 0; intI < objObjects.length; intI++)
+                    {
+                        if (isIdValid(objObjects[intI]) && isPlayer(objObjects[intI]))
+                        {
+                            warpPlayer(objObjects[intI], area, x1, y1, z1, null, 0.0f, 0.0f, 0.0f);
+                            sendSystemMessageTestingOnly(self, "Warped players to: " + x +", "+ y + ", " + z + ", " + area + ".");
+                            sendSystemMessageTestingOnly(objObjects[intI], "You have been teleported to " + x +", "+ y + ", " + z + ", " + area + ".");
+                        }
+                        else
+                        {
+                            sendSystemMessageTestingOnly(self, "No players found. Aborting");
+                            return SCRIPT_CONTINUE;
+                        }
+                    }
+                }
+            } else if ((toLower(command)).equals("generatelootfromtable")) {
+                if (st.hasMoreTokens())
+                {
+                    String lootTable = st.nextToken();
+                    obj_id inventoryContainer = getObjectInSlot(self, "inventory");
+                    loot.makeLootInContainer(inventoryContainer, lootTable, 1, 0);
+                    sendSystemMessageTestingOnly(self, "A loot item was generated into your inventory from the table: " + lootTable);
+                    return SCRIPT_CONTINUE;
+                }
+            } else if ((toLower(command)).equals("collectionclickbypass")) {
+                cleanAllScriptVars(self);
+                qaEnableCollectionClickBypass(self, st, "none");
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("fish") || (toLower(command)).equals("fishing") || (toLower(command)).equals("qafish")) {
+                cleanAllScriptVars(self);
+                qaFishing(self, st, "none");
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("testtreasure") || (toLower(command)).equals("treasuretest")) {
+                if (!st.hasMoreTokens()) {
+                    sendSystemMessageTestingOnly(self, "Usage: /qatool testtreasure treasure/treasure_1_10 or /qatool testtreasure treasure/treasure_11_20, etc.");
+                    return SCRIPT_CONTINUE;
+                } else {
+                    String lootTable = st.nextToken();
+                    if (lootTable == null || lootTable.equals("")) {
+                        sendSystemMessageTestingOnly(self, "Usage: /qatool testtreasure treasure/treasure_1_10 or /qatool testtreasure treasure/treasure_11_20, etc.");
+                        return SCRIPT_CONTINUE;
+                    }
+                    int tableMaxLevel = lootTable.lastIndexOf("_") + 1;
+                    if (tableMaxLevel < 0) {
+                        sendSystemMessageTestingOnly(self, "Usage: /qatool testtreasure treasure/treasure_1_10 or /qatool testtreasure treasure/treasure_11_20, etc.");
+                        return SCRIPT_CONTINUE;
+                    }
+                    String treasureLevel = lootTable.substring(tableMaxLevel);
+                    int intTreasureLevel = utils.stringToInt(treasureLevel);
+                    if (intTreasureLevel < 10 || intTreasureLevel > 90) {
+                        sendSystemMessageTestingOnly(self, "Usage: /qatool testtreasure treasure/treasure_1_10 or /qatool testtreasure treasure/treasure_11_20, etc.");
+                        return SCRIPT_CONTINUE;
+                    }
+                    location treasureLoc = getLocation(self);
+                    if (treasureLoc == null) {
+                        return SCRIPT_CONTINUE;
+                    }
+                    obj_id treasureChest = createObject("object/tangible/container/drum/treasure_drum.iff", treasureLoc);
+                    if (!isValidId(treasureChest) && !exists(treasureChest)) {
+                        return SCRIPT_CONTINUE;
+                    }
+                    boolean success = loot.makeLootInContainer(treasureChest, lootTable, 6, intTreasureLevel);
+                    if (!success) {
+                        sendSystemMessageTestingOnly(self, "Text export failed.");
+                        return SCRIPT_CONTINUE;
+                    }
+                    obj_id contents[] = getContents(treasureChest);
+                    String listcontents = "";
+                    if (contents.length > 0) {
+                        for (int i = 0; i < contents.length; i++) {
+                            listcontents += "(" + contents[i] + ")" + getTemplateName(contents[i]) + "\r";
+                        }
+                    }
+                    if (!listcontents.equals("")) {
+                        saveTextOnClient(self, "treasure" + treasureChest + ".txt", listcontents);
+                    }
+                    dictionary treasureDictionary = new dictionary();
+                    treasureDictionary.put("object", treasureChest);
+                    messageTo(self, "qaDestroyObject", treasureDictionary, 600, false);
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("olditems") || (toLower(command)).equals("olditem")) {
+                if (OLD_ITEM_MENU.length > 0) {
+                    qa.refreshMenu(self, "Select a old item category.", "Old Item Spawner. DO NOT BUG ITEMS SPAWNED WITH THIS TOOL!!! DO NOT BUG ITEMS SPAWNED WITH THIS TOOL!!! DO NOT BUG ITEMS SPAWNED WITH THIS TOOL!!! ", OLD_ITEM_MENU, "oldItemMenuHandler", true, "oldItem.pid", "oldItem.menu");
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("glow")) {
+                grantCommand(self, "blueGlowie");
+                return SCRIPT_OVERRIDE;
+            } else if ((toLower(command)).equals("emailspam") || (toLower(command)).equals("spamemail") || (toLower(command)).equals("spam")) {
+                emailSpamFunction(self, st);
+                return SCRIPT_OVERRIDE;
+            } else if ((toLower(command)).equals("terminal")) {
+                for (int i = 0; i < TERMINAL_LIST.length; i++) {
+                    obj_id terminalId = qa.templateObjectSpawner(self, TERMINAL_LIST[i], true);
+                }
+                sendSystemMessageTestingOnly(self, "Terminals Spawned.");
+                return SCRIPT_OVERRIDE;
+            } else if ((toLower(command)).equals("eggspawn") || (toLower(command)).equals("eggspawner") || (toLower(command)).equals("spawnegg") || (toLower(command)).equals("spawn")) {
+                qa.forceEggSpawn(self);
+                return SCRIPT_OVERRIDE;
+            } else if ((toLower(command)).equals("weather")) {
+                qa.refreshMenu(self, "Select weather type.", "Weather Tool", WEATHER_TYPES, "msgHandleWeatherSelection", true, "weather.pid", "weather.list");
+                return SCRIPT_OVERRIDE;
+            } else if ((toLower(command)).equals("qaquestdump") || (toLower(command)).equals("questdump")) {
+                saveAllCurrentQuestData(self);
+                return SCRIPT_OVERRIDE;
+            } else if ((toLower(command)).equals("vetrewards") || (toLower(command)).equals("vetreward")) {
+                String[] allRewardTemplates = dataTableGetStringColumn(VET_REWARDS_TABLE, "Object Template");
+                Arrays.sort(allRewardTemplates);
+                if (allRewardTemplates.length > 0)
+                {
+                    qa.refreshMenu(self, "The list below shows veteran rewards available", "Vet Reward Tool", allRewardTemplates, "vetRewardOptionHandler", true, "vetreward.pid", "vetreward.allTemplates");
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("serialize")) {
+                try {
+                    String serialCommand = st.nextToken();
+                    if (!serialCommand.isEmpty() || serialCommand != null)
+                    {
+                        obj_id item = utils.stringToObjId(serialCommand);
+                        if (!isIdValid(item))
+                        {
+                            sendSystemMessageTestingOnly(self, "To serialize an item you need to specify a valid OID.");
+                            return SCRIPT_CONTINUE;
+                        }
+                        else 
+                        {
+                            setCraftedId(item, utils.getInventoryContainer(self));
+                            setCrafter(item, self);
+                            sendSystemMessageTestingOnly(self, "Item " + item + " has been serialized.");
+                        }
+                    }
+                } catch(Exception e) {
+                    sendSystemMessageTestingOnly(self, "You need to specify the object Id of the object you want to be serialized.");
+                    sendSystemMessageTestingOnly(self, "/qatool serialize <OID>");
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("entertaineritems")) {
+                for (int i = 0; i < ENTERTAINER_ITEMS.length; i++) {
+                    qa.templateObjectSpawner(self, ENTERTAINER_ITEMS[i]);
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("skills") || (toLower(command)).equals("skillmods") || (toLower(command)).equals("allskillmods")) {
+                getAllSkillMods(self);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("resetexpertise") || (toLower(command)).equals("resetexpertises")) {
+                utils.fullExpertiseReset(self, true);
+                grantSkill(self, "expertise");
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("buff") || (toLower(command)).equals("qabuff")) {
+                int stringCount = st.countTokens();
+                String[] allBuffs = dataTableGetStringColumn(BUFF_TABLE, "NAME");
+                Arrays.sort(allBuffs);
+                if (stringCount == 1) {
+                    String buffArg = st.nextToken();
+                    if (buffArg.equals("remove") || buffArg.equals("removebuff") || buffArg.equals("clear")) {
+                        buff.removeAllBuffs(self);
+                        sendSystemMessageTestingOnly(self, "Buffs cleared.");
+                    } else {
+                        boolean foundBuff = false;
+                        for (int i = 0; i < allBuffs.length; i++) {
+                            if (allBuffs[i].equals(buffArg)) {
+                                String buffName = qa.getClientBuffName(self, buffArg);
+                                if (!buffName.equals("null")) {
+                                    qa.applyBuffOption(self, buffArg, buffName);
+                                    foundBuff = true;
+                                }
+                                break;
+                            }
+                        }
+                        if (!foundBuff) {
+                            sendSystemMessageTestingOnly(self, "Either the Buff or the Buff name was not found.");
+                        }
+                    }
+                } else {
+                    utils.setScriptVar(self, "qabuff.buffMenu", allBuffs);
+                    qa.refreshMenu(self, BUFF_TOOL_PROMPT, BUFF_TOOL_TITLE, allBuffs, "buffOptionHandler", "qabuff.pid", sui.OK_CANCEL_REFRESH);
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qaquest")) {
+                try {
+                    String[] allQuests = qa.getAllQuests(self);
+                    String[] combinedMenu = new String[allQuests.length + QUEST_TOOL_MENU.length];
+                    System.arraycopy(allQuests, 0, combinedMenu, 0, allQuests.length);
+                    System.arraycopy(QUEST_TOOL_MENU, 0, combinedMenu, allQuests.length, QUEST_TOOL_MENU.length);
+                    qa.refreshMenu(self, QUEST_TOOL_PROMPT, QUEST_TOOL_TITLE, combinedMenu, "handleMainMenuOptions", true, "qaquest.pid", "qaquest.qaquestMenu");
+                } catch(Exception e) {
+                    qa.refreshMenu(self, QUEST_TOOL_PROMPT + "\n\nNo quests found on character", QUEST_TOOL_TITLE, QUEST_TOOL_MENU, "handleMainMenuOptions", true, "qaquest.pid", "qaquest.qaquestMenu");
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("smugglingquest")) {
+                String questLevel = "1";
+                int stringCount = st.countTokens();
+                if (stringCount == 1) {
+                    questLevel = st.nextToken();
+                    int num = utils.stringToInt(questLevel);
+                    if (num < 1 || num > 5) {
+                        return SCRIPT_CONTINUE;
+                    }
+                }
+                groundquests.requestGrantQuest(self, "quest/smuggle_illicit_" + questLevel, true);
+                int questCrc = groundquests.getQuestIdFromString("quest/smuggle_illicit_" + questLevel);
+                int taskId = 10;
+                dictionary qparams = new dictionary();
+                qparams.put("questCrc", questCrc);
+                qparams.put("taskId", taskId);
+                String baseObjVar = groundquests.setBaseObjVar(self, "spawn", questGetQuestName(questCrc), taskId);
+                setObjVar(self, baseObjVar + "." + "playedTimeEnd", 0);
+                messageTo(self, "messageStartQuestSpawn", qparams, 3, true);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("smugglermodule")) {
+                obj_id module = utils.getStaticItemInInventory(self, "item_reward_modify_pistol_01_01");
+                if (isIdValid(module)) {
+                    incrementCount(module, 100);
+                } else {
+                    static_item.createNewItemFunction("item_reward_modify_pistol_01_01", self);
+                    module = utils.getStaticItemInInventory(self, "item_reward_modify_pistol_01_01");
+                    incrementCount(module, 99);
+                }
+            } else if ((toLower(command)).equals("contraband") || (toLower(command)).equals("contrabandspawner")) {
+                int stringCount = st.countTokens();
+                if (stringCount == 1) {
+                    String stringNumber = st.nextToken();
+                    int intNumber = utils.stringToInt(stringNumber);
+                    if (intNumber > 0 && intNumber < 11) {
+                        for (int i = 0; i < CONTRABAND_STRINGS.length; i++) {
+                            mulipleStaticSpawn(self, CONTRABAND_STRINGS[i], stringNumber, true);
+                        }
+                    } else {
+                        sendSystemMessageTestingOnly(self, "The tool requires the following usage to function: /qatool contraband <integer between 1 - 10> ");
+                    }
+                } else {
                     sendSystemMessageTestingOnly(self, "The tool requires the following usage to function: /qatool contraband <integer between 1 - 10> ");
                 }
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "The tool requires the following usage to function: /qatool contraband <integer between 1 - 10> ");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("multi") || (toLower(command)).equals("multispawn") || (toLower(command)).equals("repeat") || (toLower(command)).equals("repeatspawn"))
-        {
-            int stringCount = st.countTokens();
-            if (stringCount == 2)
-            {
-                String spawnString = st.nextToken();
-                String intNumber = st.nextToken();
-                boolean spawningComplete = mulipleStaticSpawn(self, spawnString, intNumber, true);
-                if (!spawningComplete)
-                {
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("multi") || (toLower(command)).equals("multispawn") || (toLower(command)).equals("repeat") || (toLower(command)).equals("repeatspawn")) {
+                int stringCount = st.countTokens();
+                if (stringCount == 2) {
+                    String spawnString = st.nextToken();
+                    String intNumber = st.nextToken();
+                    boolean spawningComplete = mulipleStaticSpawn(self, spawnString, intNumber, true);
+                    if (!spawningComplete) {
+                        sendSystemMessageTestingOnly(self, "The tool requires the following usage to function: /qatool mutli <static_item_spawn_string> <integer> ");
+                    }
+                } else {
                     sendSystemMessageTestingOnly(self, "The tool requires the following usage to function: /qatool mutli <static_item_spawn_string> <integer> ");
                 }
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "The tool requires the following usage to function: /qatool mutli <static_item_spawn_string> <integer> ");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("spec") || (toLower(command)).equals("specme"))
-        {
-            boolean successMsg = specTester(self, st);
-            if (!successMsg)
-            {
-                sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
                 return SCRIPT_CONTINUE;
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("enzyme") || (toLower(command)).equals("qaenzyme"))
-        {
-            boolean successMsg = createEnzyme(self, st);
-            if (!successMsg)
-            {
-                sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
-                return SCRIPT_CONTINUE;
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("lyase") || (toLower(command)).equals("qalyase"))
-        {
-            boolean successMsg = createLyase(self);
-            if (!successMsg)
-            {
-                sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
-                return SCRIPT_CONTINUE;
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("clearheroictimer"))
-        {
-            boolean successMsg = clearHeroicTimer(self);
-            if (!successMsg)
-            {
-                return SCRIPT_CONTINUE;
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("iso") || (toLower(command)).equals("qaiso"))
-        {
-            boolean successMsg = createIsomerase(self);
-            if (!successMsg)
-            {
-                sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
-                return SCRIPT_CONTINUE;
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("revokepilot") || (toLower(command)).equals("pilotrevoke"))
-        {
-            qa.revokePilotingSkills(self);
-            sendSystemMessageTestingOnly(self, "Pilot Skills revoked");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qange"))
-        {
-            qa.createInputBox(self, NGE_TOOL_PROMPT, NGE_TOOL_TITLE, "handleGiveRespecItem", "qange.pid");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qa_cube") || (toLower(command)).equals("qacube"))
-        {
-            qaCubeMenu(self);
-        }
-        else if ((toLower(command)).equals("objfinder") || (toLower(command)).equals("findobj") || (toLower(command)).equals("objectfinder") || (toLower(command)).equals("findobject"))
-        {
-            objectFinderFunction(self, st);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("gmr") || (toLower(command)).equals("gmrevive"))
-        {
-            healShockWound(self, getShockWound(self));
-            setAttrib(self, HEALTH, getMaxAttrib(self, HEALTH));
-            sendSystemMessageTestingOnly(self, "gmr used on self");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("helper") || (toLower(command)).equals("qahelper") || (toLower(command)).equals("aihelper"))
-        {
-            if (getGodLevel(self) >= 10)
-            {
-                makeHelper(self, st);
-                CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has spawned " + st + " as a Helper Mobile.  This creature can be given specific commands like a pet and is used for combat testing.  The creature is spawned using the QA Helper Tool.");
-            }
-            else
-            {
-                sendSystemMessage(self, "You do not have the appropriate access level to use this tool.", null);
-            }
-        }
-        else if ((toLower(command)).equals("qalootloggerdwb") || (toLower(command)).equals("dwblootlogger") || (toLower(command)).equals("lootloggerdwb"))
-        {
-            cleanAllScriptVars(self);
-            lootLoggerTool(self, st, "theme_park.dungeon.death_watch_bunker.death_watch_death");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("logger") || (toLower(command)).equals("lootlogger") || (toLower(command)).equals("qalootlogger"))
-        {
-            cleanAllScriptVars(self);
-            lootLoggerTool(self, st, "none");
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("targetdata") || (toLower(command)).equals("target") || (toLower(command)).equals("dumptarget") || (toLower(command)).equals("dump"))
-        {
-            targetDataToolFunction(self, st);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("damagemob") || (toLower(command)).equals("damage") || (toLower(command)).equals("damageplayer") || (toLower(command)).equals("damageself"))
-        {
-            qa.damageMobTool(self);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("healmob") || (toLower(command)).equals("heal") || (toLower(command)).equals("healplayer"))
-        {
-            qa.healMobTool(self);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("npcname") || (toLower(command)).equals("mobfinder") || (toLower(command)).equals("npcfinder") || (toLower(command)).equals("findnpc"))
-        {
-            sendSystemMessageTestingOnly(self, "Collecting list of Mobs and NPCs. Please wait.");
-            npcFinderFunction(self, st);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("string") || (toLower(command)).equals("verifystring") || (toLower(command)).equals("stringcode") || (toLower(command)).equals("validatestring"))
-        {
-            String argString = "";
-            if (st.hasMoreTokens())
-            {
-                int stringCount = st.countTokens();
-                argString = st.nextToken();
-                if (stringCount == 1)
-                {
-                    String retrievedString = parseArgumentRetrieveString(self, argString);
-                    sui.msgbox(self, self, retrievedString, sui.OK_ONLY, QATOOL_TITLE, "noHandler");
-                }
-                else if (stringCount > 1)
-                {
-                    sendSystemMessageTestingOnly(self, "The String ID must not contain any spaces.");
-                    sendSystemMessageTestingOnly(self, "Example: /qaTool string [conversation/tatooine_espa_watto]:s_106");
+            } else if ((toLower(command)).equals("spec") || (toLower(command)).equals("specme")) {
+                boolean successMsg = specTester(self, st);
+                if (!successMsg) {
+                    sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
                     return SCRIPT_CONTINUE;
                 }
-                else
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("enzyme") || (toLower(command)).equals("qaenzyme")) {
+                boolean successMsg = createEnzyme(self, st);
+                if (!successMsg) {
+                    sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
+                    return SCRIPT_CONTINUE;
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("lyase") || (toLower(command)).equals("qalyase")) {
+                boolean successMsg = createLyase(self);
+                if (!successMsg)
                 {
+                    sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
+                    return SCRIPT_CONTINUE;
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("clearheroictimer")) {
+                boolean successMsg = clearHeroicTimer(self);
+                if (!successMsg)
+                {
+                    return SCRIPT_CONTINUE;
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("iso") || (toLower(command)).equals("qaiso")) {
+                boolean successMsg = createIsomerase(self);
+                if (!successMsg)
+                {
+                    sendSystemMessageTestingOnly(self, "***The tool failed in part or in full.  Make sure your arguments are spelled correctly and try again.***");
+                    return SCRIPT_CONTINUE;
+                }
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("revokepilot") || (toLower(command)).equals("pilotrevoke")) {
+                qa.revokePilotingSkills(self);
+                sendSystemMessageTestingOnly(self, "Pilot Skills revoked");
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qange")) {
+                qa.createInputBox(self, NGE_TOOL_PROMPT, NGE_TOOL_TITLE, "handleGiveRespecItem", "qange.pid");
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qa_cube") || (toLower(command)).equals("qacube")) {
+                qaCubeMenu(self);
+            }
+            else if ((toLower(command)).equals("objfinder") || (toLower(command)).equals("findobj") || (toLower(command)).equals("objectfinder") || (toLower(command)).equals("findobject")) {
+                objectFinderFunction(self, st);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("gmr") || (toLower(command)).equals("gmrevive")) {
+                healShockWound(self, getShockWound(self));
+                setAttrib(self, HEALTH, getMaxAttrib(self, HEALTH));
+                sendSystemMessageTestingOnly(self, "gmr used on self");
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("helper") || (toLower(command)).equals("qahelper") || (toLower(command)).equals("aihelper")) {
+                if (getGodLevel(self) >= 10) {
+                    makeHelper(self, st);
+                    CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has spawned " + st + " as a Helper Mobile.  This creature can be given specific commands like a pet and is used for combat testing.  The creature is spawned using the QA Helper Tool.");
+                } else {
+                    sendSystemMessage(self, "You do not have the appropriate access level to use this tool.", null);
+                }
+            } else if ((toLower(command)).equals("qalootloggerdwb") || (toLower(command)).equals("dwblootlogger") || (toLower(command)).equals("lootloggerdwb")) {
+                cleanAllScriptVars(self);
+                lootLoggerTool(self, st, "theme_park.dungeon.death_watch_bunker.death_watch_death");
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("logger") || (toLower(command)).equals("lootlogger") || (toLower(command)).equals("qalootlogger")) {
+                cleanAllScriptVars(self);
+                lootLoggerTool(self, st, "none");
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("targetdata") || (toLower(command)).equals("target") || (toLower(command)).equals("dumptarget") || (toLower(command)).equals("dump")) {
+                targetDataToolFunction(self, st);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("damagemob") || (toLower(command)).equals("damage") || (toLower(command)).equals("damageplayer") || (toLower(command)).equals("damageself")) {
+                qa.damageMobTool(self);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("healmob") || (toLower(command)).equals("heal") || (toLower(command)).equals("healplayer")) {
+                qa.healMobTool(self);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("npcname") || (toLower(command)).equals("mobfinder") || (toLower(command)).equals("npcfinder") || (toLower(command)).equals("findnpc")) {
+                sendSystemMessageTestingOnly(self, "Collecting list of Mobs and NPCs. Please wait.");
+                npcFinderFunction(self, st);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("string") || (toLower(command)).equals("verifystring") || (toLower(command)).equals("stringcode") || (toLower(command)).equals("validatestring")) {
+                String argString = "";
+                if (st.hasMoreTokens()) {
+                    int stringCount = st.countTokens();
+                    argString = st.nextToken();
+                    if (stringCount == 1) {
+                        String retrievedString = parseArgumentRetrieveString(self, argString);
+                        sui.msgbox(self, self, retrievedString, sui.OK_ONLY, QATOOL_TITLE, "noHandler");
+                    } else if (stringCount > 1) {
+                        sendSystemMessageTestingOnly(self, "The String ID must not contain any spaces.");
+                        sendSystemMessageTestingOnly(self, "Example: /qaTool string [conversation/tatooine_espa_watto]:s_106");
+                        return SCRIPT_CONTINUE;
+                    } else {
+                        sendSystemMessageTestingOnly(self, "The proper format for this command is: /qaTool string [code/identifying_the_string]:string_id ");
+                        sendSystemMessageTestingOnly(self, "Example: /qaTool string [conversation/tatooine_espa_watto]:s_106 ");
+                        return SCRIPT_CONTINUE;
+                    }
+                } else {
                     sendSystemMessageTestingOnly(self, "The proper format for this command is: /qaTool string [code/identifying_the_string]:string_id ");
                     sendSystemMessageTestingOnly(self, "Example: /qaTool string [conversation/tatooine_espa_watto]:s_106 ");
                     return SCRIPT_CONTINUE;
                 }
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "The proper format for this command is: /qaTool string [code/identifying_the_string]:string_id ");
-                sendSystemMessageTestingOnly(self, "Example: /qaTool string [conversation/tatooine_espa_watto]:s_106 ");
+            } else if ((toLower(command)).equals("qaprofession")) {
+                utils.setScriptVar(self, "qaprofession.mainMenu", PROFESSION_TOOL_MENU);
+                qa.refreshMenu(self, PROFESSION_TOOL_PROMPT, PROFESSION_TOOL_TITLE, PROFESSION_TOOL_MENU, "handleMainMenuOptions", "qaprofession.pid", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qaweapon")) {
+                qa.refreshMenu(self, "-Weapon Type Select Menu-\nChoose the type of weapon you wish to use for testing.", "QA Test Weapon Tool", WEAPON_TYPE, "handleWeaponTypeOptions", "qaweapon.pid", "qaweapon.weaponTypeMenu", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qaitem")) {
+                utils.setScriptVar(self, "qaitem.mainMenu", ITEM_TOOL_MENU);
+                qa.refreshMenu(self, ITEM_TOOL_PROMPT, ITEM_TOOL_TITLE, ITEM_TOOL_MENU, "handleMainMenuOptions", "qaitem.pid", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qadatapad")) {
+                toolWarpMenu(self);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qascript")) {
+                utils.setScriptVar(self, "qascript.mainMenu", SCRIPT_TOOL_MENU);
+                String toolPrompt = scriptToolPromptMaker(self);
+                qa.refreshMenu(self, toolPrompt, SCRIPT_TOOL_TITLE, SCRIPT_TOOL_MENU, "handleMainMenuOptions", "qascript.pid", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qabadge")) {
+                Vector vectorMenuArray = new Vector();
+                vectorMenuArray.addElement("*Add All Badges*");
+                vectorMenuArray.addElement("*Remove All Badges*");
+                String[] badgePages = getAllCollectionPagesInBook("badge_book");
+                if (badgePages != null && badgePages.length > 0)
+                {
+                    for (int i = 0; i < badgePages.length; ++i)
+                    {
+                        if (!badgePages[i].equals("bdg_accumulation"))
+                        {
+                            vectorMenuArray.addElement(badgePages[i]);
+                        }
+                    }
+                }
+                String[] badgeMenuArray = new String[vectorMenuArray.size()];
+                vectorMenuArray.toArray(badgeMenuArray);
+                utils.setScriptVar(self, "qabadge.mainMenu", badgeMenuArray);
+                if (badgeMenuArray.length < 1)
+                {
+                    sendSystemMessageTestingOnly(self, "Badge UI creation failed.");
+                }
+                utils.setScriptVar(self, "qabadge.mainMenu", badgeMenuArray);
+                qa.refreshMenu(self, "Choose the Badge", "Badge Granter", badgeMenuArray, "mainMenuOptions", "qabadge.pid", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            } else if ((toLower(command)).equals("qawearables")) {
+                String[] wearableMenuArray = qa.populateArray(self, "wearable_specie", "datatables/test/qa_wearables.iff");
+                utils.setScriptVar(self, "qawearable.mainMenu", wearableMenuArray);
+                qa.refreshMenu(self, "Choose the species", "Wearables Spawner", wearableMenuArray, "wearableTypeOptionSelect", "qawearable.pid", sui.OK_CANCEL_REFRESH);
                 return SCRIPT_CONTINUE;
             }
-        }
-        else if ((toLower(command)).equals("qaprofession"))
-        {
-            utils.setScriptVar(self, "qaprofession.mainMenu", PROFESSION_TOOL_MENU);
-            qa.refreshMenu(self, PROFESSION_TOOL_PROMPT, PROFESSION_TOOL_TITLE, PROFESSION_TOOL_MENU, "handleMainMenuOptions", "qaprofession.pid", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qaweapon"))
-        {
-            qa.refreshMenu(self, "-Weapon Type Select Menu-\nChoose the type of weapon you wish to use for testing.", "QA Test Weapon Tool", WEAPON_TYPE, "handleWeaponTypeOptions", "qaweapon.pid", "qaweapon.weaponTypeMenu", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qaitem"))
-        {
-            utils.setScriptVar(self, "qaitem.mainMenu", ITEM_TOOL_MENU);
-            qa.refreshMenu(self, ITEM_TOOL_PROMPT, ITEM_TOOL_TITLE, ITEM_TOOL_MENU, "handleMainMenuOptions", "qaitem.pid", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qadatapad"))
-        {
-            toolWarpMenu(self);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qascript"))
-        {
-            utils.setScriptVar(self, "qascript.mainMenu", SCRIPT_TOOL_MENU);
-            String toolPrompt = scriptToolPromptMaker(self);
-            qa.refreshMenu(self, toolPrompt, SCRIPT_TOOL_TITLE, SCRIPT_TOOL_MENU, "handleMainMenuOptions", "qascript.pid", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qabadge"))
-        {
-            Vector vectorMenuArray = new Vector();
-            vectorMenuArray.addElement("*Add All Badges*");
-            vectorMenuArray.addElement("*Remove All Badges*");
-            String[] badgePages = getAllCollectionPagesInBook("badge_book");
-            if ((badgePages != null) && (badgePages.length > 0))
+            else if ((toLower(command)).equals("qainv") || (toLower(command)).equals("inventory") || (toLower(command)).equals("qainventory"))
             {
-                for (int i = 0; i < badgePages.length; ++i)
+                qa.refreshMenu(self, PROMPT, TITLE, INVENTORY_TOOL_MENU, "mainMenuOptions", "qainv.pid", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("qafaction"))
+            {
+                qa.refreshMenu(self, PROMPT, TITLE, FACTION_TOOL_MENU, "mainMenuOptions", "qafac.pid", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("qabag"))
+            {
+                obj_id inventory = utils.getInventoryContainer(self);
+                obj_id[] invAndEquip = getInventoryAndEquipment(self);
+                boolean hasBag = false;
+                for (int i = 0; i < invAndEquip.length; i++)
                 {
-                    if (!badgePages[i].equals("bdg_accumulation"))
+                    String templateName = getTemplateName(invAndEquip[i]);
+                    if (templateName.equals("object/tangible/test/qabag.iff"))
                     {
-                        vectorMenuArray.addElement(badgePages[i]);
+                        hasBag = true;
+                    }
+                }
+                if (hasBag == false)
+                {
+                    createObjectInInventoryAllowOverload("object/tangible/test/qabag.iff", self);
+                    sendSystemMessageTestingOnly(self, "QA Bag Granted");
+                    return SCRIPT_CONTINUE;
+                }
+                else 
+                {
+                    sendSystemMessageTestingOnly(self, "You already have the QA bag");
+                    return SCRIPT_CONTINUE;
+                }
+            }
+            else if ((toLower(command)).equals("qaxp"))
+            {
+                qa.refreshMenu(self, "Select the xp type...", "Beta XP Dispenser", XP_TOOL_MENU, "handleXpOptions", "qaxp.pid", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("qadynamic"))
+            {
+                qa.refreshMenu(self, DYNAMIC_DESCRIPTION, "Dynamic Loot Spawner", DATA_SOURCE_MENU_LIST, "handleMainOptions", "qadynamic.pid", "qadynamic.dynamicMainMenu", sui.OK_CANCEL_REFRESH);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("qajtl") || (toLower(command)).equals("spacetool"))
+            {
+                utils.setScriptVar(self, "qajtl.mainMenu", JTL_TOOL_MENU);
+                qa.refreshMenu(self, "Tool for JTL specific testing needs.", "QA JTL TOOL", JTL_TOOL_MENU, "mainMenuOptions", false, "qajtl.pid", "qajtl.mainMenu");
+            }
+            else if ((toLower(command)).equals("qaresource") || (toLower(command)).equals("qaresources"))
+            {
+                utils.setScriptVar(self, "resource.mainMenu", RESOURCE_TOOL_MENU);
+                qa.refreshMenu(self, RESOURCE_TOOL_PROMPT, RESOURCE_TOOL_TITLE, RESOURCE_TOOL_MENU, "startingMenuOptions", "resource.pid", sui.OK_CANCEL_REFRESH);
+            }
+            else if ((toLower(command)).equals("qarewardresource") || (toLower(command)).equals("qarewardresources"))
+            {
+                qa.refreshMenu(self, RESOURCE_REWARD_TOOL_PROMPT, RESOURCE_REWARD_TOOL_TITLE, REWARD_RESOURCE_MENU, "handleQATool", "qarewardresource.pid", "qarewardresource.mainMenu", sui.OK_CANCEL);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("groundmoblevel") || (toLower(command)).equals("groundlevelmob"))
+            {
+                if (isSpaceScene())
+                {
+                    sendSystemMessageTestingOnly(self, "You have to be on the ground to use this tool.");
+                }
+                else 
+                {
+                    String argumentString = null;
+                    if (st.hasMoreTokens())
+                    {
+                        argumentString = st.nextToken();
+                        HashSet foundCreatures = new HashSet();
+                        int mobLevel = utils.stringToInt(argumentString);
+                        int[] arrayOfAllCreatures = dataTableGetIntColumn(CREATURE_TABLE, "BaseLevel");
+                        int creatureArraySize = arrayOfAllCreatures.length;
+                        for (int i = 0; i < creatureArraySize; i++)
+                        {
+                            if (arrayOfAllCreatures[i] == mobLevel)
+                            {
+                                foundCreatures.add(dataTableGetString(CREATURE_TABLE, i, "creatureName"));
+                            }
+                        }
+                        if (foundCreatures.size() > 0)
+                        {
+                            String[] ArrayOfFoundCreatures = new String[foundCreatures.size()];
+                            foundCreatures.toArray(ArrayOfFoundCreatures);
+                            Arrays.sort(ArrayOfFoundCreatures);
+                            qa.refreshMenu(self, "List of creatures that are level " + mobLevel + ".", "QA GROUND MOB SEARCH TOOL", ArrayOfFoundCreatures, "groundMobSearchOptions", true, "groundMobSearch.pid", "groundMobSearch.creaturesFound");
+                        }
+                        else 
+                        {
+                            sendSystemMessageTestingOnly(self, "The Search String you entered was not found");
+                            cleanAllScriptVars(self);
+                            return SCRIPT_CONTINUE;
+                        }
+                    }
+                    else 
+                    {
+                        sendSystemMessageTestingOnly(self, "A level number is needed for this tool to work.  Example '/qatool groundmoblevel 2'");
+                        cleanAllScriptVars(self);
+                        return SCRIPT_CONTINUE;
                     }
                 }
             }
-            String[] badgeMenuArray = new String[vectorMenuArray.size()];
-            vectorMenuArray.toArray(badgeMenuArray);
-            utils.setScriptVar(self, "qabadge.mainMenu", badgeMenuArray);
-            if (badgeMenuArray.length < 1)
+            else if ((toLower(command)).equals("groundmobplanet") || (toLower(command)).equals("groundplanetmob"))
             {
-                sendSystemMessageTestingOnly(self, "Badge UI creation failed.");
-            }
-            utils.setScriptVar(self, "qabadge.mainMenu", badgeMenuArray);
-            qa.refreshMenu(self, "Choose the Badge", "Badge Granter", badgeMenuArray, "mainMenuOptions", "qabadge.pid", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qawearables"))
-        {
-            String[] wearableMenuArray = qa.populateArray(self, "wearable_specie", "datatables/test/qa_wearables.iff");
-            utils.setScriptVar(self, "qawearable.mainMenu", wearableMenuArray);
-            qa.refreshMenu(self, "Choose the species", "Wearables Spawner", wearableMenuArray, "wearableTypeOptionSelect", "qawearable.pid", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qainv") || (toLower(command)).equals("inventory") || (toLower(command)).equals("qainventory"))
-        {
-            qa.refreshMenu(self, PROMPT, TITLE, INVENTORY_TOOL_MENU, "mainMenuOptions", "qainv.pid", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qafaction"))
-        {
-            qa.refreshMenu(self, PROMPT, TITLE, FACTION_TOOL_MENU, "mainMenuOptions", "qafac.pid", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qabag"))
-        {
-            obj_id inventory = utils.getInventoryContainer(self);
-            obj_id[] invAndEquip = getInventoryAndEquipment(self);
-            boolean hasBag = false;
-            for (int i = 0; i < invAndEquip.length; i++)
-            {
-                String templateName = getTemplateName(invAndEquip[i]);
-                if (templateName.equals("object/tangible/test/qabag.iff"))
+                if (isSpaceScene())
                 {
-                    hasBag = true;
+                    sendSystemMessageTestingOnly(self, "You have to be on the ground to use this tool.");
                 }
-            }
-            if (hasBag == false)
-            {
-                createObjectInInventoryAllowOverload("object/tangible/test/qabag.iff", self);
-                sendSystemMessageTestingOnly(self, "QA Bag Granted");
+                else 
+                {
+                    String argumentString = null;
+                    HashSet planetHash = new HashSet();
+                    String[] arrayOfLocations = dataTableGetStringColumn(CREATURE_TABLE, "where");
+                    if (st.hasMoreTokens())
+                    {
+                        argumentString = toLower(st.nextToken());
+                        String[] arrayOfAllCreatures = dataTableGetStringColumn(CREATURE_TABLE, "creatureName");
+                        int arrayOfLocationsSize = arrayOfLocations.length;
+                        for (int x = 0; x < arrayOfLocationsSize; x++)
+                        {
+                            if (arrayOfLocations[x].equals(argumentString))
+                            {
+                                planetHash.add(arrayOfAllCreatures[x]);
+                            }
+                        }
+                        if (planetHash.size() > 0)
+                        {
+                            String[] ArrayOfFoundCreatures = new String[planetHash.size()];
+                            planetHash.toArray(ArrayOfFoundCreatures);
+                            Arrays.sort(ArrayOfFoundCreatures);
+                            qa.refreshMenu(self, "List of found creatures.", "QA GROUND MOB SEARCH TOOL", ArrayOfFoundCreatures, "groundMobSearchOptions", true, "groundMobSearch.pid", "groundMobSearch.creaturesFound");
+                        }
+                        else 
+                        {
+                            sendSystemMessageTestingOnly(self, "The planet string you entered was not found");
+                            cleanAllScriptVars(self);
+                            return SCRIPT_CONTINUE;
+                        }
+                    }
+                    else 
+                    {
+                        int arrayOfLocationsSize = arrayOfLocations.length;
+                        for (int i = 0; i < arrayOfLocationsSize; i++)
+                        {
+                            if (arrayOfLocations[i].equals(""))
+                            {
+                                planetHash.add("no_location_listed");
+                            }
+                            else 
+                            {
+                                planetHash.add(toLower(arrayOfLocations[i]));
+                            }
+                        }
+                    }
+                }
                 return SCRIPT_CONTINUE;
             }
-            else
+            else if ((toLower(command)).equals("groundmobsearch") || (toLower(command)).equals("groundsearchmob"))
             {
-                sendSystemMessageTestingOnly(self, "You already have the QA bag");
+                if (isSpaceScene())
+                {
+                    sendSystemMessageTestingOnly(self, "You have to be on the ground to use this tool.");
+                }
+                else 
+                {
+                    String argumentString = null;
+                    if (st.hasMoreTokens())
+                    {
+                        argumentString = st.nextToken();
+                        HashSet foundCreatures = new HashSet();
+                        String[] arrayOfAllCreatures = dataTableGetStringColumn(CREATURE_TABLE, "creatureName");
+                        int creatureArraySize = arrayOfAllCreatures.length;
+                        for (int i = 0; i < creatureArraySize; i++)
+                        {
+                            if (arrayOfAllCreatures[i].indexOf(argumentString) > -1)
+                            {
+                                foundCreatures.add(arrayOfAllCreatures[i]);
+                            }
+                        }
+                        if (foundCreatures.size() > 0)
+                        {
+                            String[] ArrayOfFoundCreatures = new String[foundCreatures.size()];
+                            foundCreatures.toArray(ArrayOfFoundCreatures);
+                            Arrays.sort(ArrayOfFoundCreatures);
+                            qa.refreshMenu(self, "List of found creatures.", "QA GROUND MOB SEARCH TOOL", ArrayOfFoundCreatures, "groundMobSearchOptions", true, "groundMobSearch.pid", "groundMobSearch.creaturesFound");
+                        }
+                        else 
+                        {
+                            sendSystemMessageTestingOnly(self, "The Search String you entered was not found");
+                            cleanAllScriptVars(self);
+                            return SCRIPT_CONTINUE;
+                        }
+                    }
+                    else 
+                    {
+                        sendSystemMessageTestingOnly(self, "Format: /qatool groundmobsearch <creature name or partial name> ");
+                        cleanAllScriptVars(self);
+                        return SCRIPT_CONTINUE;
+                    }
+                }
                 return SCRIPT_CONTINUE;
             }
-        }
-        else if ((toLower(command)).equals("qaxp"))
-        {
-            qa.refreshMenu(self, "Select the xp type...", "Beta XP Dispenser", XP_TOOL_MENU, "handleXpOptions", "qaxp.pid", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qadynamic"))
-        {
-            qa.refreshMenu(self, DYNAMIC_DESCRIPTION, "Dynamic Loot Spawner", DATA_SOURCE_MENU_LIST, "handleMainOptions", "qadynamic.pid", "qadynamic.dynamicMainMenu", sui.OK_CANCEL_REFRESH);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qajtl") || (toLower(command)).equals("spacetool"))
-        {
-            utils.setScriptVar(self, "qajtl.mainMenu", JTL_TOOL_MENU);
-            qa.refreshMenu(self, "Tool for JTL specific testing needs.", "QA JTL TOOL", JTL_TOOL_MENU, "mainMenuOptions", false, "qajtl.pid", "qajtl.mainMenu");
-        }
-        else if ((toLower(command)).equals("qaresource") || (toLower(command)).equals("qaresources"))
-        {
-            utils.setScriptVar(self, "resource.mainMenu", RESOURCE_TOOL_MENU);
-            qa.refreshMenu(self, RESOURCE_TOOL_PROMPT, RESOURCE_TOOL_TITLE, RESOURCE_TOOL_MENU, "startingMenuOptions", "resource.pid", sui.OK_CANCEL_REFRESH);
-        }
-        else if ((toLower(command)).equals("qarewardresource") || (toLower(command)).equals("qarewardresources"))
-        {
-            qa.refreshMenu(self, RESOURCE_REWARD_TOOL_PROMPT, RESOURCE_REWARD_TOOL_TITLE, REWARD_RESOURCE_MENU, "handleQATool", "qarewardresource.pid", "qarewardresource.mainMenu", sui.OK_CANCEL);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("groundmoblevel") || (toLower(command)).equals("groundlevelmob"))
-        {
-            if (isSpaceScene())
+            else if ((toLower(command)).equals("spacemobsearch"))
             {
-                sendSystemMessageTestingOnly(self, "You have to be on the ground to use this tool.");
+                if (isSpaceScene())
+                {
+                    String argumentString = null;
+                    if (st.hasMoreTokens())
+                    {
+                        argumentString = st.nextToken();
+                        HashSet foundCreatures = new HashSet();
+                        String[] arrayOfAllCreatures = dataTableGetStringColumn(SPACE_MOBILE_TABLE, "strIndex");
+                        int creatureArraySize = arrayOfAllCreatures.length;
+                        for (int i = 0; i < creatureArraySize; i++)
+                        {
+                            if (arrayOfAllCreatures[i].indexOf(argumentString) > -1)
+                            {
+                                foundCreatures.add(arrayOfAllCreatures[i]);
+                            }
+                        }
+                        if (foundCreatures.size() > 0)
+                        {
+                            String[] ArrayOfFoundCreatures = new String[foundCreatures.size()];
+                            foundCreatures.toArray(ArrayOfFoundCreatures);
+                            Arrays.sort(ArrayOfFoundCreatures);
+                            qa.refreshMenu(self, "List of space mobiles found.", "QA SPACE MOB SEARCH TOOL", ArrayOfFoundCreatures, "spaceMobSearchOptions", true, "spaceMobSearch.pid", "spaceMobSearch.mobsFound");
+                        }
+                        else 
+                        {
+                            sendSystemMessageTestingOnly(self, "The Search String you entered was not found");
+                            cleanAllScriptVars(self);
+                            return SCRIPT_CONTINUE;
+                        }
+                    }
+                    else 
+                    {
+                        sendSystemMessageTestingOnly(self, "Format: /qatool spacemobsearch <possible enemy ship name>");
+                        cleanAllScriptVars(self);
+                        return SCRIPT_CONTINUE;
+                    }
+                }
+                else 
+                {
+                    sendSystemMessageTestingOnly(self, "You need to be in space to use this tool.");
+                }
+                return SCRIPT_CONTINUE;
             }
-            else
+            else if ((toLower(command)).equals("qafrog") || (toLower(command)).equals("frog"))
+            {
+                giveTesterAFrog(self);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("lootsearch") || (toLower(command)).equals("lootnamesearch"))
             {
                 String argumentString = null;
                 if (st.hasMoreTokens())
                 {
                     argumentString = st.nextToken();
-                    HashSet foundCreatures = new HashSet();
-                    int mobLevel = utils.stringToInt(argumentString);
-                    int[] arrayOfAllCreatures = dataTableGetIntColumn(CREATURE_TABLE, "BaseLevel");
-                    int creatureArraySize = arrayOfAllCreatures.length;
-                    for (int i = 0; i < creatureArraySize; i++)
-                    {
-                        if (arrayOfAllCreatures[i] == mobLevel)
-                        {
-                            foundCreatures.add(dataTableGetString(CREATURE_TABLE, i, "creatureName"));
-                        }
-                    }
-                    if (foundCreatures.size() > 0)
-                    {
-                        String[] ArrayOfFoundCreatures = new String[foundCreatures.size()];
-                        foundCreatures.toArray(ArrayOfFoundCreatures);
-                        Arrays.sort(ArrayOfFoundCreatures);
-                        qa.refreshMenu(self, "List of creatures that are level " + mobLevel + ".", "QA GROUND MOB SEARCH TOOL", ArrayOfFoundCreatures, "groundMobSearchOptions", true, "groundMobSearch.pid", "groundMobSearch.creaturesFound");
-                    }
-                    else
-                    {
-                        sendSystemMessageTestingOnly(self, "The Search String you entered was not found");
-                        cleanAllScriptVars(self);
-                        return SCRIPT_CONTINUE;
-                    }
+                    searchStaticLoot(self, argumentString, "string");
                 }
-                else
+                else 
                 {
-                    sendSystemMessageTestingOnly(self, "A level number is needed for this tool to work.  Example '/qatool groundmoblevel 2'");
-                    cleanAllScriptVars(self);
-                    return SCRIPT_CONTINUE;
+                    sendSystemMessageTestingOnly(self, "You need to type a search string. \nExample: /qaTool lootnamesearch pistol");
                 }
+                return SCRIPT_CONTINUE;
             }
-        }
-        else if ((toLower(command)).equals("groundmobplanet") || (toLower(command)).equals("groundplanetmob"))
-        {
-            if (isSpaceScene())
-            {
-                sendSystemMessageTestingOnly(self, "You have to be on the ground to use this tool.");
-            }
-            else
-            {
-                String argumentString = null;
-                HashSet planetHash = new HashSet();
-                String[] arrayOfLocations = dataTableGetStringColumn(CREATURE_TABLE, "where");
-                if (st.hasMoreTokens())
-                {
-                    argumentString = toLower(st.nextToken());
-                    String[] arrayOfAllCreatures = dataTableGetStringColumn(CREATURE_TABLE, "creatureName");
-                    int arrayOfLocationsSize = arrayOfLocations.length;
-                    for (int x = 0; x < arrayOfLocationsSize; x++)
-                    {
-                        if (arrayOfLocations[x].equals(argumentString))
-                        {
-                            planetHash.add(arrayOfAllCreatures[x]);
-                        }
-                    }
-                    if (planetHash.size() > 0)
-                    {
-                        String[] ArrayOfFoundCreatures = new String[planetHash.size()];
-                        planetHash.toArray(ArrayOfFoundCreatures);
-                        Arrays.sort(ArrayOfFoundCreatures);
-                        qa.refreshMenu(self, "List of found creatures.", "QA GROUND MOB SEARCH TOOL", ArrayOfFoundCreatures, "groundMobSearchOptions", true, "groundMobSearch.pid", "groundMobSearch.creaturesFound");
-                    }
-                    else
-                    {
-                        sendSystemMessageTestingOnly(self, "The planet string you entered was not found");
-                        cleanAllScriptVars(self);
-                        return SCRIPT_CONTINUE;
-                    }
-                }
-                else
-                {
-                    int arrayOfLocationsSize = arrayOfLocations.length;
-                    for (int i = 0; i < arrayOfLocationsSize; i++)
-                    {
-                        if (arrayOfLocations[i].equals(""))
-                        {
-                            planetHash.add("no_location_listed");
-                        }
-                        else
-                        {
-                            planetHash.add(toLower(arrayOfLocations[i]));
-                        }
-                    }
-                }
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("groundmobsearch") || (toLower(command)).equals("groundsearchmob"))
-        {
-            if (isSpaceScene())
-            {
-                sendSystemMessageTestingOnly(self, "You have to be on the ground to use this tool.");
-            }
-            else
+            else if ((toLower(command)).equals("lootstringsearch") || (toLower(command)).equals("lootcodesearch"))
             {
                 String argumentString = null;
                 if (st.hasMoreTokens())
                 {
                     argumentString = st.nextToken();
-                    HashSet foundCreatures = new HashSet();
-                    String[] arrayOfAllCreatures = dataTableGetStringColumn(CREATURE_TABLE, "creatureName");
-                    int creatureArraySize = arrayOfAllCreatures.length;
-                    for (int i = 0; i < creatureArraySize; i++)
-                    {
-                        if (arrayOfAllCreatures[i].indexOf(argumentString) > -1)
-                        {
-                            foundCreatures.add(arrayOfAllCreatures[i]);
-                        }
-                    }
-                    if (foundCreatures.size() > 0)
-                    {
-                        String[] ArrayOfFoundCreatures = new String[foundCreatures.size()];
-                        foundCreatures.toArray(ArrayOfFoundCreatures);
-                        Arrays.sort(ArrayOfFoundCreatures);
-                        qa.refreshMenu(self, "List of found creatures.", "QA GROUND MOB SEARCH TOOL", ArrayOfFoundCreatures, "groundMobSearchOptions", true, "groundMobSearch.pid", "groundMobSearch.creaturesFound");
-                    }
-                    else
-                    {
-                        sendSystemMessageTestingOnly(self, "The Search String you entered was not found");
-                        cleanAllScriptVars(self);
-                        return SCRIPT_CONTINUE;
-                    }
+                    searchStaticLoot(self, argumentString, "codestring");
                 }
-                else
+                else 
                 {
-                    sendSystemMessageTestingOnly(self, "Format: /qatool groundmobsearch <creature name or partial name> ");
-                    cleanAllScriptVars(self);
-                    return SCRIPT_CONTINUE;
+                    sendSystemMessageTestingOnly(self, "You need to type a search string. \nExample: /qaTool lootcodesearch weapon_pistol");
                 }
+                return SCRIPT_CONTINUE;
             }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("spacemobsearch"))
-        {
-            if (isSpaceScene())
+            else if ((toLower(command)).equals("spawnitem"))
             {
                 String argumentString = null;
                 if (st.hasMoreTokens())
                 {
                     argumentString = st.nextToken();
-                    HashSet foundCreatures = new HashSet();
-                    String[] arrayOfAllCreatures = dataTableGetStringColumn(SPACE_MOBILE_TABLE, "strIndex");
-                    int creatureArraySize = arrayOfAllCreatures.length;
-                    for (int i = 0; i < creatureArraySize; i++)
-                    {
-                        if (arrayOfAllCreatures[i].indexOf(argumentString) > -1)
-                        {
-                            foundCreatures.add(arrayOfAllCreatures[i]);
-                        }
-                    }
-                    if (foundCreatures.size() > 0)
-                    {
-                        String[] ArrayOfFoundCreatures = new String[foundCreatures.size()];
-                        foundCreatures.toArray(ArrayOfFoundCreatures);
-                        Arrays.sort(ArrayOfFoundCreatures);
-                        qa.refreshMenu(self, "List of space mobiles found.", "QA SPACE MOB SEARCH TOOL", ArrayOfFoundCreatures, "spaceMobSearchOptions", true, "spaceMobSearch.pid", "spaceMobSearch.mobsFound");
-                    }
-                    else
-                    {
-                        sendSystemMessageTestingOnly(self, "The Search String you entered was not found");
-                        cleanAllScriptVars(self);
-                        return SCRIPT_CONTINUE;
-                    }
+                    qa.spawnStaticItemInInventory(self, argumentString, "none");
                 }
-                else
+                else 
                 {
-                    sendSystemMessageTestingOnly(self, "Format: /qatool spacemobsearch <possible enemy ship name>");
-                    cleanAllScriptVars(self);
-                    return SCRIPT_CONTINUE;
+                    sendSystemMessageTestingOnly(self, "You need to type a code string. \nExample: /qaTool item weapon_pistol_02_02.\n\n  If you don't know the code string to spawn something use one of the following tools: /qatool lootnamesearch <searchString> or /qatool lootcodesearch <searchString>");
                 }
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "You need to be in space to use this tool.");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qafrog") || (toLower(command)).equals("frog"))
-        {
-            giveTesterAFrog(self);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("lootsearch") || (toLower(command)).equals("lootnamesearch"))
-        {
-            String argumentString = null;
-            if (st.hasMoreTokens())
-            {
-                argumentString = st.nextToken();
-                searchStaticLoot(self, argumentString, "string");
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "You need to type a search string. \nExample: /qaTool lootnamesearch pistol");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("lootstringsearch") || (toLower(command)).equals("lootcodesearch"))
-        {
-            String argumentString = null;
-            if (st.hasMoreTokens())
-            {
-                argumentString = st.nextToken();
-                searchStaticLoot(self, argumentString, "codestring");
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "You need to type a search string. \nExample: /qaTool lootcodesearch weapon_pistol");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("spawnitem"))
-        {
-            String argumentString = null;
-            if (st.hasMoreTokens())
-            {
-                argumentString = st.nextToken();
-                qa.spawnStaticItemInInventory(self, argumentString, "none");
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "You need to type a code string. \nExample: /qaTool item weapon_pistol_02_02.\n\n  If you don't know the code string to spawn something use one of the following tools: /qatool lootnamesearch <searchString> or /qatool lootcodesearch <searchString>");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("kill") || (toLower(command)).equals("killplayer"))
-        {
-            String override = null;
-            if (st.hasMoreTokens())
-            {
-                override = st.nextToken();
-            }
-            obj_id objKillTarget = qaGetTarget(self, override);
-            int commandKillResult = commandKill(self, objKillTarget);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("suicide"))
-        {
-            if (!isDead(self))
-            {
-                sendSystemMessageTestingOnly(self, "Killing self.");
-                setPosture(self, POSTURE_INCAPACITATED);
-                pclib.coupDeGrace(self, self, true, true);
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "You're already dead.");
-            }
-        }
-        else if ((toLower(command)).equals("aistop"))
-        {
-            obj_id stopTarget = qa.findTarget(self);
-            if (isValidId(stopTarget) && isMob(stopTarget))
-            {
-                ai_lib.setDefaultCalmBehavior(stopTarget, ai_lib.BEHAVIOR_SENTINEL);
-                sendSystemMessageTestingOnly(self, "target(" + stopTarget + ") STOPPED at location.  The target WILL defend itself.");
-                CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has stopped (" + stopTarget + ") " + utils.getStringName(stopTarget) + " using the aiStop command.");
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "target empty or invalid");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("aifreeze"))
-        {
-            obj_id stopTarget = qa.findTarget(self);
-            if (isValidId(stopTarget) && isMob(stopTarget))
-            {
-                ai_lib.setDefaultCalmBehavior(stopTarget, ai_lib.BEHAVIOR_SENTINEL);
-                detachScript(stopTarget, "ai.creature_combat");
-                sendSystemMessageTestingOnly(self, "target(" + stopTarget + ") STOPPED at location.  The target will NOT defend itself.");
-                CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has frozen (" + stopTarget + ") " + utils.getStringName(stopTarget) + " using the aiFreeze command.");
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "target empty or invalid");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qadna"))
-        {
-            qa.refreshMenu(self, DNA_PROMPT, DNA_TITLE, PET_OPTION_MENU, "handlePetOptionsTool", "qadna.pid", sui.OK_CANCEL_REFRESH);
-        }
-        else if ((toLower(command)).equals("breakcloning"))
-        {
-            location playerLoc = getLocation(self);
-            String planetName = playerLoc.area;
-            if (planetName == null)
-            {
                 return SCRIPT_CONTINUE;
             }
-            obj_id planet = getPlanetByName(planetName);
-            if (!isIdValid(planet))
+            else if ((toLower(command)).equals("kill") || (toLower(command)).equals("killplayer"))
             {
-                return SCRIPT_CONTINUE;
-            }
-            float x = playerLoc.x;
-            float z = playerLoc.z;
-            obj_id container = getTopMostContainer(self);
-            location worldLoc = getWorldLocation(container);
-            String area = getBuildoutAreaName(worldLoc.x, worldLoc.z);
-            if (area == null)
-            {
-                area = "";
-            }
-            Vector idList = utils.getResizeableObjIdArrayScriptVar(planet, cloninglib.VAR_PLANET_CLONE_ID);
-            Vector nameList = utils.getResizeableStringArrayScriptVar(planet, cloninglib.VAR_PLANET_CLONE_NAME);
-            if (idList.size() == nameList.size())
-            {
-                idList.add(self);
-                utils.setScriptVar(planet, cloninglib.VAR_PLANET_CLONE_ID, idList);
-                sendSystemMessageTestingOnly(self, "Cloning planet lists broken for " + planetName);
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(self, "Cloning planet lists are already invalid.");
-            }
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qaexportbackpack"))
-        {
-            cleanAllScriptVars(self);
-            qaExportBackpackContents(self);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("qatcg") || (toLower(command)).equals("tcg"))
-        {
-            qaTCGMenu(self);
-            return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("spawnship") || (toLower(command)).equals("qaspawnship"))
-        {
-            if (!isSpaceScene())
-            {
-                sendSystemMessage(self, "You must be in space to use this tool", null);
-                return SCRIPT_CONTINUE;
-            }
-            transform gloc = getTransform_o2w(space_transition.getContainingShip(self));
-            float dist = 200.f;
-            vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
-            gloc = gloc.move_p(n);
-            String targetShipType = "blacksun_bomber_s03_tier5";
-            int numShips = 1;
-            if (st.hasMoreTokens())
-            {
-                targetShipType = st.nextToken();
+                String override = null;
                 if (st.hasMoreTokens())
                 {
-                    String nextToken = st.nextToken();
-                    int ns = Integer.parseInt(nextToken);
-                    if (ns > 1)
-                    {
-                        numShips = ns;
-                    }
+                    override = st.nextToken();
+                }
+                obj_id objKillTarget = qaGetTarget(self, override);
+                int commandKillResult = commandKill(self, objKillTarget);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("suicide"))
+            {
+                if (!isDead(self))
+                {
+                    sendSystemMessageTestingOnly(self, "Killing self.");
+                    setPosture(self, POSTURE_INCAPACITATED);
+                    pclib.coupDeGrace(self, self, true, true);
+                }
+                else 
+                {
+                    sendSystemMessageTestingOnly(self, "You're already dead.");
                 }
             }
-            for (int i = 0; i < numShips; i++)
+            else if ((toLower(command)).equals("aistop"))
             {
-                obj_id targetShip = space_create.createShipHyperspace(targetShipType, gloc);
-                sendSystemMessage(self, "Spawned ship - OID: " + targetShip, null);
+                obj_id stopTarget = qa.findTarget(self);
+                if (isValidId(stopTarget) && isMob(stopTarget))
+                {
+                    ai_lib.setDefaultCalmBehavior(stopTarget, ai_lib.BEHAVIOR_SENTINEL);
+                    sendSystemMessageTestingOnly(self, "target(" + stopTarget + ") STOPPED at location.  The target WILL defend itself.");
+                    CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has stopped (" + stopTarget + ") " + utils.getStringName(stopTarget) + " using the aiStop command.");
+                }
+                else 
+                {
+                    sendSystemMessageTestingOnly(self, "target empty or invalid");
+                }
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("aifreeze"))
+            {
+                obj_id stopTarget = qa.findTarget(self);
+                if (isValidId(stopTarget) && isMob(stopTarget))
+                {
+                    ai_lib.setDefaultCalmBehavior(stopTarget, ai_lib.BEHAVIOR_SENTINEL);
+                    detachScript(stopTarget, "ai.creature_combat");
+                    sendSystemMessageTestingOnly(self, "target(" + stopTarget + ") STOPPED at location.  The target will NOT defend itself.");
+                    CustomerServiceLog("qaTool", "User: (" + self + ") " + getName(self) + " has frozen (" + stopTarget + ") " + utils.getStringName(stopTarget) + " using the aiFreeze command.");
+                }
+                else 
+                {
+                    sendSystemMessageTestingOnly(self, "target empty or invalid");
+                }
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("qadna"))
+            {
+                qa.refreshMenu(self, DNA_PROMPT, DNA_TITLE, PET_OPTION_MENU, "handlePetOptionsTool", "qadna.pid", sui.OK_CANCEL_REFRESH);
+            }
+            else if ((toLower(command)).equals("breakcloning"))
+            {
+                location playerLoc = getLocation(self);
+                String planetName = playerLoc.area;
+                if (planetName == null)
+                {
+                    return SCRIPT_CONTINUE;
+                }
+                obj_id planet = getPlanetByName(planetName);
+                if (!isIdValid(planet))
+                {
+                    return SCRIPT_CONTINUE;
+                }
+                float x = playerLoc.x;
+                float z = playerLoc.z;
+                obj_id container = getTopMostContainer(self);
+                location worldLoc = getWorldLocation(container);
+                String area = getBuildoutAreaName(worldLoc.x, worldLoc.z);
+                if (area == null)
+                {
+                    area = "";
+                }
+                Vector idList = utils.getResizeableObjIdArrayScriptVar(planet, cloninglib.VAR_PLANET_CLONE_ID);
+                Vector nameList = utils.getResizeableStringArrayScriptVar(planet, cloninglib.VAR_PLANET_CLONE_NAME);
+                if (idList.size() == nameList.size())
+                {
+                    idList.add(self);
+                    utils.setScriptVar(planet, cloninglib.VAR_PLANET_CLONE_ID, idList);
+                    sendSystemMessageTestingOnly(self, "Cloning planet lists broken for " + planetName);
+                }
+                else 
+                {
+                    sendSystemMessageTestingOnly(self, "Cloning planet lists are already invalid.");
+                }
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("qaexportbackpack"))
+            {
+                cleanAllScriptVars(self);
+                qaExportBackpackContents(self);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("qatcg") || (toLower(command)).equals("tcg"))
+            {
+                qaTCGMenu(self);
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("spawnship") || (toLower(command)).equals("qaspawnship"))
+            {
+                if (!isSpaceScene())
+                {
+                    sendSystemMessage(self, "You must be in space to use this tool", null);
+                    return SCRIPT_CONTINUE;
+                }
+                transform gloc = getTransform_o2w(space_transition.getContainingShip(self));
+                float dist = 200.f;
+                vector n = ((gloc.getLocalFrameK_p()).normalize()).multiply(dist);
+                gloc = gloc.move_p(n);
+                String targetShipType = "blacksun_bomber_s03_tier5";
+                int numShips = 1;
+                if (st.hasMoreTokens())
+                {
+                    targetShipType = st.nextToken();
+                    if (st.hasMoreTokens())
+                    {
+                        String nextToken = st.nextToken();
+                        int ns = Integer.parseInt(nextToken);
+                        if (ns > 1)
+                        {
+                            numShips = ns;
+                        }
+                    }
+                }
+                for (int i = 0; i < numShips; i++)
+                {
+                    obj_id targetShip = space_create.createShipHyperspace(targetShipType, gloc);
+                    sendSystemMessage(self, "Spawned ship - OID: " + targetShip, null);
+                }
+                return SCRIPT_CONTINUE;
+            }
+            else if ((toLower(command)).equals("?"))
+            {
+                String allHelpData = "";
+                Arrays.sort(QATOOLPROMPT);
+                for (int i = 0; i < QATOOLPROMPT.length; i++)
+                {
+                    allHelpData = allHelpData + QATOOLPROMPT[i] + "\r\n\t";
+                }
+                saveTextOnClient(self, "commandUsage.txt", allHelpData);
+                sui.msgbox(self, self, allHelpData, sui.OK_ONLY, QATOOL_TITLE, "noHandler");
+                return SCRIPT_CONTINUE;
+            }
+            else 
+            {
+                sendSystemMessageTestingOnly(self, "No such QA Tool Command.  Please check your spelling");
             }
             return SCRIPT_CONTINUE;
-        }
-        else if ((toLower(command)).equals("?"))
-        {
-            String allHelpData = "";
-            Arrays.sort(QATOOLPROMPT);
-            for (int i = 0; i < QATOOLPROMPT.length; i++)
-            {
-                allHelpData = allHelpData + QATOOLPROMPT[i] + "\r\n\t";
-            }
-            saveTextOnClient(self, "commandUsage.txt", allHelpData);
-            sui.msgbox(self, self, allHelpData, sui.OK_ONLY, QATOOL_TITLE, "noHandler");
-            return SCRIPT_CONTINUE;
-        }
-        else
-        {
-            sendSystemMessageTestingOnly(self, "No such QA Tool Command.  Please check your spelling");
         }
         return SCRIPT_CONTINUE;
     }
@@ -2338,7 +2403,7 @@ public class qatool extends script.base_script
                     vectorMenuArray.addElement("*Add All Badges*");
                     vectorMenuArray.addElement("*Remove All Badges*");
                     String[] badgePages = getAllCollectionPagesInBook("badge_book");
-                    if ((badgePages != null) && (badgePages.length > 0))
+                    if (badgePages != null && badgePages.length > 0)
                     {
                         for (int i = 0; i < badgePages.length; ++i)
                         {
@@ -2520,7 +2585,7 @@ public class qatool extends script.base_script
         int successInt = lootLoggerMain(self, iterationInt, creatureName, scriptString);
         return SCRIPT_CONTINUE;
     }
-	
+
     public void cleanAllScriptVars(obj_id player) throws InterruptedException
     {
         utils.removeScriptVarTree(player, "qascript");
@@ -2721,7 +2786,7 @@ public class qatool extends script.base_script
                 {
                     dictionary troubleRow = dataTableGetRow(MASTER_ITEM_TABLE, i);
                     sendSystemMessageTestingOnly(self, "Code String Found: " + troubleRow.getString("name"));
-                    sendSystemMessageTestingOnly(self, "This tool cannot be used until this code string is fixed");
+                    sendSystemMessageTestingOnly(self, "Please fix this code string as soon as possible to avoid issues.!");
                 }
             }
             else 
@@ -2892,9 +2957,7 @@ public class qatool extends script.base_script
             return "The string ID must contain braces. Example: [conversation/tatooine_espa_watto]:s_106 ";
         }
     }
-	
 
-	
     public void mitigationToolFunction(obj_id self, obj_id lookAtTarget) throws InterruptedException
     {
         if (isIdValid(lookAtTarget))

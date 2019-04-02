@@ -1,7 +1,7 @@
 AdminAccounts	AdminLevel	AdminSkill	AdminComment	AdminComment2	AdminIpBlocks	AdminIpComment	AdminSuid	OldAdminSuid
 s	i{0}	s	c	c	s	c	i{0}	i{0}
 swg	50	admin		all account names must be lower case		main admin account	1	
-swg2	50	admin				main admin account	2	
-swg3	50	admin				main admin account	3	
-swg4	50	admin				main admin account	4	
-swg5	50	admin				main admin account	5	
+tyrone	50	admin				main admin account	2	
+swg2	50	admin				main admin account	3	
+swg3	50	admin				main admin account	4	
+swg4	50	admin				main admin account	5	
