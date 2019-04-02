@@ -9994,7 +9994,7 @@ public class terminal_character_builder extends script.base_script
             cleanScriptVars(player);
             break;
 	    case 4:
-	    grantChronicleSkills(player, CHRONICLER_SKILLS);
+	    load_test.grantSkills(player, CHRONICLER_SKILLS);
             sendSystemMessageTestingOnly(player, "Skills granted");
 	    break;
             default:
@@ -11480,13 +11480,6 @@ public class terminal_character_builder extends script.base_script
         {
             setSocketsUp(weaponObject);
             sendSystemMessageTestingOnly(player, "Weapon Issued!");
-        }
-    }
-    public void grantChronicleSkills(obj_id objPlayer, String[] strSkillList) throws InterruptedException
-    {
-        for (int intI = 0; intI < strSkillList.length; intI++)
-        {
-            grantSkill(objPlayer, strSkillList[intI]);
         }
     }
 }
