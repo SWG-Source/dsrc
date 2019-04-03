@@ -705,6 +705,15 @@ public class player_instance extends script.base_script
     }
     public int handleAwardtoken(obj_id self, dictionary params) throws InterruptedException
     {
+		obj_id instanceController = instance.getAreaInstanceController(self);
+		if (!isIdValid(instanceController))
+		{
+			return SCRIPT_CONTINUE;
+		}
+		if (!instance.isPlayerInPlayerList(self, instance.getPlayerList(instanceController)))
+		{
+			return SCRIPT_CONTINUE;
+		}
         int tokenIndex = params.getInt("tokenIndex");
         int count = 1;
         if (params.containsKey("tokenCount"))
