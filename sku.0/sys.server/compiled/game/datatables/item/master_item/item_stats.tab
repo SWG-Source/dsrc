@@ -4779,3 +4779,13 @@ item_zozpheratu_costume					costume_zozpheratu
 item_ponda_halloween_hand					scary_halloween_hand	itemBuffClick	39600				
 item_deed_atst_walker			string:vehicle_attribs.object_ref=atst_walker,float:hit_points=15000								
 item_deed_atxt_walker			string:vehicle_attribs.object_ref=atxt_walker,float:hit_points=15000								
+item_bracelet_l_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
+item_bracelet_l_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
+item_bracelet_r_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
+item_bracelet_r_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
+item_necklace_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
+item_necklace_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
+item_band_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
+item_band_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
+item_ring_set_ent_01_01	"strength_modified=30,agility_modified=30"		int:item.set.set_id=130001								
+item_ring_set_trader_01_01	"luck_modified=30,precision_modified=30,strength_modified=30"		int:item.set.set_id=140001								
