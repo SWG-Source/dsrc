@@ -473,6 +473,8 @@ public class reverse_engineering_tool extends script.base_script
             obj_id powerup = static_item.createNewItemFunction(getGemTemplateByClass(player, ratio, 1), inventory);
             if (isIdValid(powerup))
             {
+				if(power > 117)
+					power = 117;
                 setObjVar(powerup, "reverse_engineering.reverse_engineering_power", power);
                 setObjVar(powerup, "reverse_engineering.reverse_engineering_modifier", mod);
                 setObjVar(powerup, "reverse_engineering.reverse_engineering_ratio", ratio);

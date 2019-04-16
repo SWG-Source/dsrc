@@ -1,0 +1,9 @@
+@base object/tangible/wearables/base/shared_base_robe_longsleeve.iff
+@class tangible_object_template 3
+@class object_template 3
+
+objectName = "wearables_name" "imp_uniform_grand_admiral"
+detailedDescription = "wearables_detail" "imp_uniform_grand_admiral"
+lookAtText = "wearables_lookat" "imp_uniform_grand_admiral"
+
+appearanceFilename = "appearance/imp_grand_admiral.sat"

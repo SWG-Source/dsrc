@@ -23,6 +23,14 @@ public class prop_controller extends script.base_script
         messageTo(self, "handleStorytellerPropInitialize", null, 5, false);
         return SCRIPT_CONTINUE;
     }
+    public int OnAboutToBeTransferred(obj_id self, obj_id destContainer, obj_id transferer) throws InterruptedException
+    {
+        if (isPlayer(getContainedBy(destContainer)))
+        {
+            return SCRIPT_OVERRIDE;
+        }
+        return SCRIPT_CONTINUE;
+    }
     public int handleStorytellerPropInitialize(obj_id self, dictionary params) throws InterruptedException
     {
         if (!hasObjVar(self, "eventTeamCleaupOverride") && !utils.hasScriptVar(self, "storytellerOnAttachFired"))

@@ -68,7 +68,7 @@ public class gcw extends script.base_script
     public static final int GCW_POINT_TYPE_TRADING = 7;
     public static final int GCW_POINT_TYPE_ENTERTAINING = 8;
     public static final int GCW_POINT_TYPE_MAX = 9;
-    public static final String validScenes[] = 
+    public static final String validScenes[] =
     {
         "tatooine",
         "corellia",
@@ -89,7 +89,7 @@ public class gcw extends script.base_script
         "space_naboo",
         "space_yavin4"
     };
-    public static final String defaultRegions[] = 
+    public static final String defaultRegions[] =
     {
         "gcw_region_tatooine_13",
         "gcw_region_corellia_13",
@@ -110,7 +110,7 @@ public class gcw extends script.base_script
         "gcw_region_naboo_14",
         "gcw_region_yavin4_18"
     };
-    public static final String pointTypes[] = 
+    public static final String pointTypes[] =
     {
         "pve",
         "pvp",
@@ -295,7 +295,7 @@ public class gcw extends script.base_script
         {
             interests |= INTEREST_CONTRABAND;
         }
-        else 
+        else
         {
             if (rand(0, 10) <= rand(1, 10) + spawnWeight)
             {
@@ -380,7 +380,7 @@ public class gcw extends script.base_script
                         total = 0;
                     }
                 }
-                else 
+                else
                 {
                     if (utils.checkBit(interests, INTEREST_FACTION))
                     {
@@ -390,7 +390,7 @@ public class gcw extends script.base_script
                             {
                                 total += pvpGetCurrentGcwRank(target);
                             }
-                            else 
+                            else
                             {
                                 total += 5;
                             }
@@ -400,7 +400,7 @@ public class gcw extends script.base_script
                 return total;
             }
         }
-        else 
+        else
         {
             if (isSpice(target) && utils.checkBit(interests, INTEREST_SPICE))
             {
@@ -489,7 +489,7 @@ public class gcw extends script.base_script
             d.put("harassTarget", target);
             messageTo(npc, "handleNewHarassTarget", d, 1.0f, false);
         }
-        else 
+        else
         {
             messageTo(npc, "handleCheckpointMode", null, 1.0f, false);
         }
@@ -695,7 +695,7 @@ public class gcw extends script.base_script
     }
     public static boolean isGcwRestrictedSceneName(String scene) throws InterruptedException
     {
-        String[] restrictedScene = 
+        String[] restrictedScene =
         {
             "kashyyyk_main",
             "kashyyyk_north_dungeons",
@@ -818,7 +818,7 @@ public class gcw extends script.base_script
                 play2dNonLoopingSound(self, "sound/music_themequest_victory_rebel.snd");
                 strFaction = "Rebel";
             }
-            else 
+            else
             {
                 playClientEffectObj(self, "clienteffect/holoemote_imperial.cef", self, "head");
                 play2dNonLoopingSound(self, "sound/music_themequest_victory_imperial.snd");
@@ -844,7 +844,7 @@ public class gcw extends script.base_script
         {
             return -1;
         }
-        else 
+        else
         {
             return getIntObjVar(controller, "gcw.static_base.last_capture");
         }
@@ -1020,7 +1020,7 @@ public class gcw extends script.base_script
         if (beast_lib.isBeast(landedDeathBlow) || pet_lib.isPet(landedDeathBlow))
         {
             landedDeathBlow = getMaster(landedDeathBlow);
-            
+
         }
         if (gcwEnemiesList != null && gcwEnemiesList.length > 0)
         {
@@ -1165,7 +1165,7 @@ public class gcw extends script.base_script
             String newEntry = packKillerDailyPoints(killer, 1, getGameTime());
             utils.addElement(dailyKills, newEntry);
         }
-        else 
+        else
         {
             int accruedPoints = getAccruedPoints(((String)dailyKills.get(positionInArray)));
             int timeAtFirstAward = getTimeOfFirstAward(((String)dailyKills.get(positionInArray)));
@@ -1175,14 +1175,14 @@ public class gcw extends script.base_script
                 timeAtFirstAward = getGameTime();
                 accruedPoints = 1;
             }
-            else 
+            else
             {
                 accruedPoints++;
                 if (accruedPoints > 4)
                 {
                     gcwPoint = (int)(gcwPoint * 0.5f);
                 }
-                else 
+                else
                 {
                     gcwPoint = (int)(gcwPoint * (float)((10.0f - (accruedPoints - 1.0f)) / 10.0f));
                 }
@@ -1297,7 +1297,7 @@ public class gcw extends script.base_script
             pp.stringId = SID_PVP_KILL_POINT_GRANT;
             sendSystemMessageProse(attacker, pp);
         }
-        else 
+        else
         {
             pp.stringId = SID_GENERIC_POINT_GRANT;
             sendSystemMessageProse(attacker, pp);
@@ -1769,19 +1769,35 @@ public class gcw extends script.base_script
         groundQuestGcwValue *= capDeltaBonus;
         return (int)groundQuestGcwValue;
     }
+    private static void triggerOnPvpRankingChanged(obj_id player, int oldRank, int newRank)
+    {
+        Object [] params = new Object[] {
+                player,
+                oldRank,
+                newRank
+        };
+        script_entry.runScripts("OnPvpRankingChanged", params);
+    }
     public static void increaseGcwRatingToNextRank(obj_id player)
     {
-        int rank = Math.min(pvpGetCurrentGcwRank(player), 11);
-        String gcwRankTable = "datatables/gcw/gcw_rank.iff";
-        int maxRating = dataTableGetInt(gcwRankTable, rank - 1, "MaxRating");
-        ctsUseOnlySetGcwInfo(player, pvpGetCurrentGcwPoints(player), maxRating + 1, pvpGetCurrentPvpKills(player), pvpGetLifetimeGcwPoints(player), pvpGetMaxGcwImperialRating(player), pvpGetMaxGcwRebelRating(player), pvpGetLifetimePvpKills(player), pvpGetNextGcwRatingCalcTime(player));
+        int MAX_GCW_RANK = 12;
+        int rank = Math.min(pvpGetCurrentGcwRank(player), MAX_GCW_RANK);
+        if(rank < MAX_GCW_RANK) {
+            String gcwRankTable = "datatables/gcw/gcw_rank.iff";
+            int maxRating = dataTableGetInt(gcwRankTable, rank - 1, "MaxRating");
+            ctsUseOnlySetGcwInfo(player, pvpGetCurrentGcwPoints(player), maxRating + 1, pvpGetCurrentPvpKills(player), pvpGetLifetimeGcwPoints(player), pvpGetMaxGcwImperialRating(player), pvpGetMaxGcwRebelRating(player), pvpGetLifetimePvpKills(player), pvpGetNextGcwRatingCalcTime(player));
+            triggerOnPvpRankingChanged(player, rank, rank + 1);
+        }
     }
     public static void decreaseGcwRatingToPreviousRank(obj_id player)
     {
-        int rank = Math.max(pvpGetCurrentGcwRank(player) - 1, 0);
-        String gcwRankTable = "datatables/gcw/gcw_rank.iff";
-        int minRating = dataTableGetInt(gcwRankTable, rank, "MinRating");
-        ctsUseOnlySetGcwInfo(player, pvpGetCurrentGcwPoints(player), minRating - 1, pvpGetCurrentPvpKills(player), pvpGetLifetimeGcwPoints(player), pvpGetMaxGcwImperialRating(player), pvpGetMaxGcwRebelRating(player), pvpGetLifetimePvpKills(player), pvpGetNextGcwRatingCalcTime(player));
+        int rank = Math.max(pvpGetCurrentGcwRank(player), 0);
+        if(rank > 0) {
+            String gcwRankTable = "datatables/gcw/gcw_rank.iff";
+            int minRating = dataTableGetInt(gcwRankTable, rank - 1, "MinRating");
+            ctsUseOnlySetGcwInfo(player, pvpGetCurrentGcwPoints(player), minRating - 1, pvpGetCurrentPvpKills(player), pvpGetLifetimeGcwPoints(player), pvpGetMaxGcwImperialRating(player), pvpGetMaxGcwRebelRating(player), pvpGetLifetimePvpKills(player), pvpGetNextGcwRatingCalcTime(player));
+            triggerOnPvpRankingChanged(player, rank, rank - 1);
+        }
     }
     public static float getGroundQuestTierBonus(int quest_tier) throws InterruptedException
     {
@@ -2151,7 +2167,7 @@ public class gcw extends script.base_script
             {
                 playClientEffectLoc(self, "appearance/" + particleName, loc, offset);
             }
-            else 
+            else
             {
                 playClientEffectLoc(self, "appearance/pt_icon_quest_red.prt", loc, offset);
             }
@@ -2286,7 +2302,7 @@ public class gcw extends script.base_script
                 desiredTemplate = getStringObjVar(object, GCW_OFF_TOOL_TEMPLATE_OBJVAR);
             }
         }
-        else 
+        else
         {
             if (!hasObjVar(object, GCW_TOOL_TEMPLATE_OBJVAR))
             {
@@ -2349,7 +2365,7 @@ public class gcw extends script.base_script
                 toolTemplate = getStringObjVar(object, gcw.GCW_OFF_TOOL_TEMPLATE_OBJVAR);
             }
         }
-        else 
+        else
         {
             toolTemplate = getStringObjVar(object, gcw.GCW_TOOL_TEMPLATE_OBJVAR);
         }
@@ -2368,7 +2384,7 @@ public class gcw extends script.base_script
         {
             msg = SID_RESOURCES_NEEDED;
         }
-        else 
+        else
         {
             msg = SID_YOU_NEED_TOOL_REPAIR;
         }
@@ -2536,7 +2552,7 @@ public class gcw extends script.base_script
                 factionColor = COLOR_IMPERIALS;
                 playerFaction = "Imperial Helper";
             }
-            else 
+            else
             {
                 return;
             }
