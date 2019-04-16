@@ -33,7 +33,7 @@ public class stage_two_controller extends script.base_script
     {
         setObjVar(self, "eventStarted", 1);
         String restussEvent = getConfigSetting("EventTeam", "restussEvent");
-        if(restussEvent != null && restussEvent.equals("1") || restussEvent.equals("true")){
+        if(restussEvent != null && (restussEvent.equals("1") || restussEvent.equals("true"))){
             LOG("events", "Restuss Event - Event is on.");
             String phaseVal = getConfigSetting("EventTeam", "restussPhase");
             if(phaseVal != null && !phaseVal.equals("")){
@@ -42,18 +42,28 @@ public class stage_two_controller extends script.base_script
                 if(phase < 0) phase = 0;
                 LOG("events", "Restuss Event - Config set to put Restuss into phase " + phaseVal);
                 String progressionOn = getConfigSetting("EventTeam", "restussProgressionOn");
-                if(phase == 1){
-                    // Check if the user wants to progress through stage one or not.  If so, start the cycle.
-                    if(progressionOn != null && !progressionOn.equals("false") || !progressionOn.equals("0")) {
-                        dictionary dict = trial.getSessionDict(self);
-                        dict.put("stage", 3608);
-                        messageTo(self, "spawnNextStage", dict, 0, false);
+                // Check if the user wants to progress through stage one or not.  If so, start the cycle.
+                if(progressionOn != null && !progressionOn.equals("false") || !progressionOn.equals("0")) {
+                    dictionary dict = trial.getSessionDict(self);
+                    switch(phase){
+                        case 0:
+                            dict.put("stage", 1);
+                            break;
+                        case 1:
+                            dict.put("stage", 3608);
+                            break;
+                        case 2:
+                            doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:0");
+                            doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:10");
+                            doMessageTo("messageTo:broadcastMessage:10:makePvPArea:15");
+                            break;
                     }
+                    messageTo(self, "spawnNextStage", dict, 0, false);
                 }
             } else {
                 doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:0");
                 doMessageTo("messageTo:broadcastMessage:10:incrimentPhase:10");
-                doMessageTo("messageTo:broadcastMessage:10:makePvPArea:10");
+                doMessageTo("messageTo:broadcastMessage:10:makePvPArea:15");
             }
         } else {
             clearEventArea(self);
