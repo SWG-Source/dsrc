@@ -73,7 +73,7 @@ public class restuss_event extends script.base_script
             return getIntObjVar(object, "base_builder.current_phase");
         }
         obj_id parent = trial.getParent(object);
-        if (!isIdValid(parent))
+        if (!isIdValid(parent) || parent == object)
         {
             return -1;
         }

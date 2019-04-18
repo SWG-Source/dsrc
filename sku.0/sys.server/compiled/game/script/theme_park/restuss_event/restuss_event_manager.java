@@ -51,43 +51,43 @@ public class restuss_event_manager extends script.base_script
             if (name.contains(elementName[IMP_BAR])) {
                 elementList[IMP_BAR] = dungeon_datum;
             }
-            if (name.contains(elementName[IMP_HQ])) {
+            else if (name.contains(elementName[IMP_HQ])) {
                 elementList[IMP_HQ] = dungeon_datum;
             }
-            if (name.contains(elementName[IMP_COMM])) {
+            else if (name.contains(elementName[IMP_COMM])) {
                 elementList[IMP_COMM] = dungeon_datum;
             }
-            if (name.contains(elementName[IMP_LOG])) {
+            else if (name.contains(elementName[IMP_LOG])) {
                 elementList[IMP_LOG] = dungeon_datum;
             }
-            if (name.contains(elementName[IMP_MED])) {
+            else if (name.contains(elementName[IMP_MED])) {
                 elementList[IMP_MED] = dungeon_datum;
             }
-            if (name.contains(elementName[IMP_WALL])) {
+            else if (name.contains(elementName[IMP_WALL])) {
                 elementList[IMP_WALL] = dungeon_datum;
             }
-            if (name.contains(elementName[REB_BAR])) {
+            else if (name.contains(elementName[REB_BAR])) {
                 elementList[REB_BAR] = dungeon_datum;
             }
-            if (name.contains(elementName[REB_HQ])) {
+            else if (name.contains(elementName[REB_HQ])) {
                 elementList[REB_HQ] = dungeon_datum;
             }
-            if (name.contains(elementName[REB_COMM])) {
+            else if (name.contains(elementName[REB_COMM])) {
                 elementList[REB_COMM] = dungeon_datum;
             }
-            if (name.contains(elementName[REB_LOG])) {
+            else if (name.contains(elementName[REB_LOG])) {
                 elementList[REB_LOG] = dungeon_datum;
             }
-            if (name.contains(elementName[REB_MED])) {
+            else if (name.contains(elementName[REB_MED])) {
                 elementList[REB_MED] = dungeon_datum;
             }
-            if (name.contains(elementName[REB_WALL])) {
+            else if (name.contains(elementName[REB_WALL])) {
                 elementList[REB_WALL] = dungeon_datum;
             }
         }
         int sum_imp_phase = 0;
         int sum_reb_phase = 0;
-        if ((getStringObjVar(self, "element")).contains("imp"))
+        if ((getStringObjVar(self, "element")).contains("_imp_"))
         {
             int imp_bar_phase = restuss_event.getPhase(elementList[IMP_BAR]);
             int imp_hq_phase = restuss_event.getPhase(elementList[IMP_HQ]);
@@ -137,7 +137,7 @@ public class restuss_event_manager extends script.base_script
                 break;
             }
         }
-        else 
+        else if ((getStringObjVar(self, "element")).contains("_reb_"))
         {
             int reb_bar_phase = restuss_event.getPhase(elementList[REB_BAR]);
             int reb_hq_phase = restuss_event.getPhase(elementList[REB_HQ]);

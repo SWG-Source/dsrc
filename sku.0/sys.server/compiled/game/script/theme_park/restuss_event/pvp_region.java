@@ -29,7 +29,6 @@ public class pvp_region extends script.base_script
             removeObjVar(self, trial.PARENT);
         }
         if(getRegion("rori", restuss_event.PVP_REGION_NAME) == null) {
-            persistObject(self);
             createCircleRegion(
                     getLocation(self),
                     400,
