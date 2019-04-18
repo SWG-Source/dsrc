@@ -43,7 +43,7 @@ public class stage_two_controller extends script.base_script
                 LOG("events", "Restuss Event - Config set to put Restuss into phase " + phaseVal);
                 String progressionOn = getConfigSetting("EventTeam", "restussProgressionOn");
                 // Check if the user wants to progress through stage one or not.  If so, start the cycle.
-                if(progressionOn != null && !progressionOn.equals("false") || !progressionOn.equals("0")) {
+                if(progressionOn != null && (!progressionOn.equals("false") || !progressionOn.equals("0"))) {
                     dictionary dict = trial.getSessionDict(self);
                     switch(phase){
                         case 0:
